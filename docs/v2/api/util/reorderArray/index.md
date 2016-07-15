@@ -31,7 +31,7 @@ reorderArray
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/util.ts#L180">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/util.ts#L182">
 Improve this doc
 </a>
 

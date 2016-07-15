@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L8">
 Improve this doc
 </a>
 
@@ -409,6 +409,29 @@ Observable to be subscribed to when a component has fully been unloaded and dest
 
 
 </div>
+
+
+
+
+<div id="parent"></div>
+
+<h3>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
+  
+
+</h3>
+
+The parent navigation instance. If this is the root nav, then
+it'll be `null`. A `Tab` instance's parent is `Tabs`, otherwise
+the parent would be another nav, if it's not already the root nav.
+
+
+
+
+
+
+
 
 
 
@@ -796,7 +819,8 @@ you need to add a component at any point in your navigation stack.
 </h3>
 
 Inserts an array of components into the nav stack at the specified index.
-The last component in the array will animate in and become the active component
+The last component in the array will become instantiated as a view,
+and animate in to become the active view.
 
 
 
@@ -1163,88 +1187,6 @@ Removes a page from the nav stack at the specified index.
 
 
 
-<div id="canSwipeBack"></div>
-
-<h3>
-<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
-<code>canSwipeBack()</code>
-  
-
-</h3>
-
-If it's possible to use swipe back or not. If it's not possible
-to go back, or swipe back is not enabled, then this will return `false`.
-If it is possible to go back, and swipe back is enabled, then this
-will return `true`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="canGoBack"></div>
-
-<h3>
-<a class="anchor" name="canGoBack" href="#canGoBack"></a>
-<code>canGoBack()</code>
-  
-
-</h3>
-
-Returns `true` if there's a valid previous page that we can pop
-back to. Otherwise returns `false`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="isTransitioning"></div>
-
-<h3>
-<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
-<code>isTransitioning()</code>
-  
-
-</h3>
-
-Returns if the nav controller is actively transitioning or not.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
 <div id="getByIndex"></div>
 
 <h3>
@@ -1338,7 +1280,7 @@ Returns if the nav controller is actively transitioning or not.
 
 </h3>
 
-
+Returns if the given view is the active view or not.
 
 
 <table class="table param-table" style="margin:0;">
@@ -1573,16 +1515,37 @@ Returns the number of views in this nav controller.
 
 
 
-<div id="rootNav"></div>
+<div id="getActiveChildNav"></div>
 
 <h3>
-<a class="anchor" name="rootNav" href="#rootNav"></a>
-<code>rootNav</code>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<code>getActiveChildNav()</code>
   
 
 </h3>
 
-Returns the root `NavController`.
+Returns the active child navigation.
+
+
+
+
+
+
+
+
+
+
+
+<div id="isTransitioning"></div>
+
+<h3>
+<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
+<code>isTransitioning()</code>
+  
+
+</h3>
+
+Returns if the nav controller is actively transitioning or not.
 
 
 
@@ -1592,7 +1555,63 @@ Returns the root `NavController`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="canSwipeBack"></div>
+
+<h3>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
+<code>canSwipeBack()</code>
+  
+
+</h3>
+
+If it's possible to use swipe back or not. If it's not possible
+to go back, or swipe back is not enabled, then this will return `false`.
+If it is possible to go back, and swipe back is enabled, then this
+will return `true`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="canGoBack"></div>
+
+<h3>
+<a class="anchor" name="canGoBack" href="#canGoBack"></a>
+<code>canGoBack()</code>
+  
+
+</h3>
+
+Returns `true` if there's a valid previous page that we can pop
+back to. Otherwise returns `false`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
 
 </div>
 

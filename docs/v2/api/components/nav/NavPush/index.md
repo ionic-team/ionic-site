@@ -35,7 +35,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-push.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-push.ts#L3">
 Improve this doc
 </a>
 
@@ -44,8 +44,8 @@ Improve this doc
 
 
 
-<p>Directive for declaratively linking to a new page instead of using
-<a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
+<p>Directive to declaratively push a new page to the current nav
+stack.</p>
 
 
 
@@ -57,14 +57,17 @@ Improve this doc
 
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
-<p>To specify parameters you can use array syntax or the <code>nav-params</code> property:</p>
-<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;&lt;/button&gt;
+<p>To specify parameters you can use array syntax or the <code>navParams</code>
+property:</p>
+<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;
 </code></pre>
-<p>Where <code>pushPage</code> and <code>params</code> are specified in your component, and <code>pushPage</code>
-contains a reference to a <a href="../../../config/Page/">@Page component</a>:</p>
-<pre><code class="lang-ts">import {LoginPage} from &#39;login&#39;;
+<p>Where <code>pushPage</code> and <code>params</code> are specified in your component,
+and <code>pushPage</code> contains a reference to a
+<a href="../../../config/Page/">@Page component</a>:</p>
+<pre><code class="lang-ts">import { LoginPage } from &#39;./login&#39;;
+
 @Component({
-  template: `&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;&lt;/button&gt;`
+  template: `&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
   constructor(){
@@ -72,11 +75,6 @@ class MyPage {
     this.params = { id: 42 };
   }
 }
-</code></pre>
-<h3 id="alternate-syntax">Alternate syntax</h3>
-<p>You can also use syntax similar to Angular2&#39;s router, passing an array to
-NavPush:</p>
-<pre><code class="lang-html">&lt;button [navPush]=&quot;[pushPage, params]&quot;&gt;&lt;/button&gt;
 </code></pre>
 
 
@@ -87,6 +85,28 @@ NavPush:</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="onClick"></div>
+
+<h3>
+<a class="anchor" name="onClick" href="#onClick"></a>
+<code>onClick()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -102,14 +122,14 @@ NavPush:</p>
     <tr>
       <td>navPush</td>
       <td><code>Page</code></td>
-      <td><p> the page you want to push</p>
+      <td><p> The Page to push onto the Nav.</p>
 </td>
     </tr>
     
     <tr>
       <td>navParams</td>
       <td><code>any</code></td>
-      <td><p> Any parameters you want to pass along</p>
+      <td><p> Parameters to pass to the page.</p>
 </td>
     </tr>
     

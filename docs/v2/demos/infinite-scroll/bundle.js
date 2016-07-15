@@ -18408,37 +18408,37 @@
 	exports.ionicPostBootstrap = bootstrap_1.ionicPostBootstrap;
 	var config_1 = __webpack_require__(338);
 	exports.Config = config_1.Config;
-	var directives_1 = __webpack_require__(427);
+	var directives_1 = __webpack_require__(429);
 	exports.IONIC_DIRECTIVES = directives_1.IONIC_DIRECTIVES;
-	var providers_1 = __webpack_require__(360);
+	var providers_1 = __webpack_require__(362);
 	exports.ionicProviders = providers_1.ionicProviders;
-	__export(__webpack_require__(500));
-	__export(__webpack_require__(501));
-	__export(__webpack_require__(352));
-	__export(__webpack_require__(451));
+	__export(__webpack_require__(502));
+	__export(__webpack_require__(503));
 	__export(__webpack_require__(350));
-	__export(__webpack_require__(351));
-	__export(__webpack_require__(342));
+	__export(__webpack_require__(453));
+	__export(__webpack_require__(348));
+	__export(__webpack_require__(349));
+	__export(__webpack_require__(347));
 	__export(__webpack_require__(339));
-	__export(__webpack_require__(510));
+	__export(__webpack_require__(511));
 	__export(__webpack_require__(336));
-	__export(__webpack_require__(425));
-	__export(__webpack_require__(343));
-	__export(__webpack_require__(344));
+	__export(__webpack_require__(427));
+	__export(__webpack_require__(359));
+	__export(__webpack_require__(360));
 	var util_1 = __webpack_require__(340);
 	exports.reorderArray = util_1.reorderArray;
-	__export(__webpack_require__(358));
-	__export(__webpack_require__(491));
-	__export(__webpack_require__(357));
-	__export(__webpack_require__(499));
-	__export(__webpack_require__(514));
+	__export(__webpack_require__(356));
+	__export(__webpack_require__(493));
+	__export(__webpack_require__(355));
+	__export(__webpack_require__(501));
+	__export(__webpack_require__(515));
 	// these modules don't export anything
-	__webpack_require__(515);
 	__webpack_require__(516);
 	__webpack_require__(517);
 	__webpack_require__(518);
 	__webpack_require__(519);
 	__webpack_require__(520);
+	__webpack_require__(521);
 
 /***/ },
 /* 117 */
@@ -18449,9 +18449,9 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var dom_1 = __webpack_require__(337);
-	var providers_1 = __webpack_require__(360);
+	var providers_1 = __webpack_require__(362);
 	var platform_1 = __webpack_require__(339);
-	var tap_click_1 = __webpack_require__(494);
+	var tap_click_1 = __webpack_require__(496);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -51893,7 +51893,8 @@
 	var platform_browser_1 = __webpack_require__(266);
 	var click_block_1 = __webpack_require__(336);
 	var config_1 = __webpack_require__(338);
-	var nav_portal_1 = __webpack_require__(341);
+	var nav_controller_base_1 = __webpack_require__(341);
+	var nav_portal_1 = __webpack_require__(358);
 	var platform_1 = __webpack_require__(339);
 	/**
 	 * @private
@@ -52053,13 +52054,7 @@
 	        // function used to climb up all parent nav controllers
 	        function navPop(nav) {
 	            if (nav) {
-	                if (nav.length && nav.length() > 1) {
-	                    // this nav controller has more than one view
-	                    // pop the current view on this nav and we're done here
-	                    console.debug('app, goBack pop nav');
-	                    return nav.pop();
-	                }
-	                else if (nav.previousTab) {
+	                if (nav_controller_base_1.isTabs(nav)) {
 	                    // FYI, using "nav instanceof Tabs" throws a Promise runtime error for whatever reason, idk
 	                    // this is a Tabs container
 	                    // see if there is a valid previous tab to go to
@@ -52069,6 +52064,12 @@
 	                        nav.select(prevTab);
 	                        return Promise.resolve();
 	                    }
+	                }
+	                else if (nav_controller_base_1.isNav(nav) && nav.length() > 1) {
+	                    // this nav controller has more than one view
+	                    // pop the current view on this nav and we're done here
+	                    console.debug('app, goBack pop nav');
+	                    return nav.pop();
 	                }
 	                // try again using the parent nav (if there is one)
 	                return navPop(nav.parent);
@@ -52098,9 +52099,7 @@
 	                    this._platform.exitApp();
 	                }
 	            }
-	            else {
-	                return navPromise;
-	            }
+	            return navPromise;
 	        }
 	        return Promise.resolve();
 	    };
@@ -53561,6 +53560,8 @@
 /***/ function(module, exports) {
 
 	"use strict";
+	function noop() { }
+	exports.noop = noop;
 	/**
 	 * Given a min and max, restrict the given number
 	 * to the range.
@@ -53773,52 +53774,1418 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
 	var core_1 = __webpack_require__(6);
-	var app_1 = __webpack_require__(335);
-	var config_1 = __webpack_require__(338);
-	var gesture_controller_1 = __webpack_require__(342);
-	var keyboard_1 = __webpack_require__(343);
-	var nav_controller_1 = __webpack_require__(346);
+	var bootstrap_1 = __webpack_require__(117);
+	var ion_1 = __webpack_require__(342);
+	var util_1 = __webpack_require__(340);
+	var nav_controller_1 = __webpack_require__(343);
+	var nav_interfaces_1 = __webpack_require__(344);
+	var nav_params_1 = __webpack_require__(345);
+	var swipe_back_1 = __webpack_require__(346);
+	var transition_1 = __webpack_require__(355);
+	var view_controller_1 = __webpack_require__(357);
 	/**
-	 * @private
+	 * This class is for internal use only. It is not exported publicly.
 	 */
-	var NavPortal = (function (_super) {
-	    __extends(NavPortal, _super);
-	    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl, viewPort) {
-	        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
-	        this.isPortal = true;
-	        this.setViewport(viewPort);
-	        app.setPortal(this);
-	        // on every page change make sure the portal has
-	        // dismissed any views that should be auto dismissed on page change
-	        app.viewDidLeave.subscribe(this.dismissPageChangeViews.bind(this));
+	var NavControllerBase = (function (_super) {
+	    __extends(NavControllerBase, _super);
+	    function NavControllerBase(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler, _gestureCtrl) {
+	        _super.call(this, elementRef);
+	        this._app = _app;
+	        this._keyboard = _keyboard;
+	        this._zone = _zone;
+	        this._renderer = _renderer;
+	        this._compiler = _compiler;
+	        this._gestureCtrl = _gestureCtrl;
+	        this._transIds = 0;
+	        this._init = false;
+	        this._children = [];
+	        this._ids = -1;
+	        this._views = [];
+	        this.trnsTime = 0;
+	        this.parent = parent;
+	        this.config = config;
+	        this._trnsDelay = config.get('pageTransitionDelay');
+	        this._sbEnabled = config.getBoolean('swipeBackEnabled');
+	        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
+	        this.id = 'n' + (++ctrlIds);
+	        this.viewDidLoad = new core_1.EventEmitter();
+	        this.viewWillEnter = new core_1.EventEmitter();
+	        this.viewDidEnter = new core_1.EventEmitter();
+	        this.viewWillLeave = new core_1.EventEmitter();
+	        this.viewDidLeave = new core_1.EventEmitter();
+	        this.viewWillUnload = new core_1.EventEmitter();
+	        this.viewDidUnload = new core_1.EventEmitter();
 	    }
-	    NavPortal = __decorate([
-	        core_1.Directive({
-	            selector: '[nav-portal]'
-	        }),
-	        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _g) || Object, (typeof (_h = typeof gesture_controller_1.GestureController !== 'undefined' && gesture_controller_1.GestureController) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _j) || Object])
-	    ], NavPortal);
-	    return NavPortal;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	}(nav_controller_1.NavController));
-	exports.NavPortal = NavPortal;
+	    NavControllerBase.prototype.setViewport = function (val) {
+	        this._viewport = val;
+	    };
+	    NavControllerBase.prototype.setRoot = function (page, params, opts) {
+	        return this.setPages([{ page: page, params: params }], opts);
+	    };
+	    NavControllerBase.prototype.setPages = function (pages, opts) {
+	        if (!pages || !pages.length) {
+	            return Promise.resolve(false);
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
+	        // remove existing views
+	        var leavingView = this._remove(0, this._views.length);
+	        // create view controllers out of the pages and insert the new views
+	        var views = pages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
+	        var enteringView = this._insert(0, views);
+	        // if animation wasn't set to true then default it to NOT animate
+	        if (opts.animate !== true) {
+	            opts.animate = false;
+	        }
+	        // set the nav direction to "back" if it wasn't set
+	        opts.direction = opts.direction || nav_interfaces_1.DIRECTION_BACK;
+	        var resolve;
+	        var promise = new Promise(function (res) { resolve = res; });
+	        // start the transition, fire resolve when done...
+	        this._transition(enteringView, leavingView, opts, function (hasCompleted) {
+	            // transition has completed!!
+	            resolve(hasCompleted);
+	        });
+	        return promise;
+	    };
+	    NavControllerBase.prototype.push = function (page, params, opts, done) {
+	        return this.insertPages(-1, [{ page: page, params: params }], opts, done);
+	    };
+	    /**
+	     * DEPRECATED: Please use inject the overlays controller and use the present method on the instance instead.
+	     */
+	    NavControllerBase.prototype.present = function (enteringView, opts) {
+	        // deprecated warning: added beta.11 2016-06-27
+	        console.warn('nav.present() has been deprecated.\n' +
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
+	        return Promise.resolve();
+	    };
+	    NavControllerBase.prototype.insert = function (insertIndex, page, params, opts, done) {
+	        return this.insertPages(insertIndex, [{ page: page, params: params }], opts, done);
+	    };
+	    NavControllerBase.prototype.insertPages = function (insertIndex, insertPages, opts, done) {
+	        var views = insertPages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
+	        return this.insertViews(insertIndex, views, opts, done);
+	    };
+	    NavControllerBase.prototype.insertViews = function (insertIndex, insertViews, opts, done) {
+	        if (opts === void 0) { opts = {}; }
+	        var promise;
+	        if (!done) {
+	            // only create a promise if a done callback wasn't provided
+	            promise = new Promise(function (res) { done = res; });
+	        }
+	        if (!insertViews || !insertViews.length) {
+	            done(false);
+	            return promise;
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
+	        // insert the new page into the stack
+	        // returns the newly created entering view
+	        var enteringView = this._insert(insertIndex, insertViews);
+	        // manually set the new view's id if an id was passed in the options
+	        if (util_1.isPresent(opts.id)) {
+	            enteringView.id = opts.id;
+	        }
+	        // set the nav direction to "forward" if it wasn't set
+	        opts.direction = opts.direction || 'forward';
+	        // set which animation it should use if it wasn't set yet
+	        if (!opts.animation) {
+	            opts.animation = enteringView.getTransitionName(opts.direction);
+	        }
+	        // it's possible that the newly added view doesn't need to
+	        // transition in, but was simply inserted somewhere in the stack
+	        // go backwards through the stack and find the first active view
+	        // which could be active or one ready to enter
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            if (this._views[i].state === exports.STATE_ACTIVE || this._views[i].state === exports.STATE_INIT_ENTER) {
+	                // found the view at the end of the stack that's either
+	                // already active or it is about to enter
+	                if (this._views[i] === enteringView) {
+	                    // cool, so the last valid view is also our entering view!!
+	                    // this means we should animate that bad boy in so it's the active view
+	                    // return a promise and resolve when the transition has completed
+	                    // get the leaving view which the _insert() already set
+	                    var leavingView = this.getByState(exports.STATE_INIT_LEAVE);
+	                    // start the transition, fire resolve when done...
+	                    this._transition(enteringView, leavingView, opts, done);
+	                    return promise;
+	                }
+	                break;
+	            }
+	        }
+	        // the page was not pushed onto the end of the stack
+	        // but rather inserted somewhere in the middle or beginning
+	        // Since there are views after this new one, don't transition in
+	        // auto resolve cuz there was is no need for an animation
+	        done(enteringView);
+	        return promise;
+	    };
+	    NavControllerBase.prototype._insert = function (insertIndex, insertViews) {
+	        // when this is done, there should only be at most
+	        // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
+	        // there should not be any that are STATE_ACTIVE after this is done
+	        var _this = this;
+	        // allow -1 to be passed in to auto push it on the end
+	        // and clean up the index if it's larger then the size of the stack
+	        if (insertIndex < 0 || insertIndex > this._views.length) {
+	            insertIndex = this._views.length;
+	        }
+	        // first see if there's an active view
+	        var view = this.getActive();
+	        if (view) {
+	            // there's an active view, set that it's initialized to leave
+	            view.state = exports.STATE_INIT_LEAVE;
+	        }
+	        else if (view = this.getByState(exports.STATE_INIT_ENTER)) {
+	            // oh no, there's already a transition initalized ready to enter!
+	            // but it actually hasn't entered yet at all so lets
+	            // just keep it in the array, but not render or animate it in
+	            view.state = exports.STATE_INACTIVE;
+	        }
+	        // insert each of the views in the pages array
+	        var insertView = null;
+	        insertViews.forEach(function (view, i) {
+	            insertView = view;
+	            // create the new entering view
+	            view.setNav(_this);
+	            view.state = exports.STATE_INACTIVE;
+	            // give this inserted view an ID
+	            view.id = _this.id + '-' + (++_this._ids);
+	            // insert the entering view into the correct index in the stack
+	            _this._views.splice(insertIndex + i, 0, view);
+	        });
+	        if (insertView) {
+	            insertView.state = exports.STATE_INIT_ENTER;
+	        }
+	        return insertView;
+	    };
+	    NavControllerBase.prototype.pop = function (opts, done) {
+	        // get the index of the active view
+	        // which will become the view to be leaving
+	        var activeView = this.getByState(exports.STATE_TRANS_ENTER) ||
+	            this.getByState(exports.STATE_INIT_ENTER) ||
+	            this.getActive();
+	        return this.remove(this.indexOf(activeView), 1, opts, done);
+	    };
+	    NavControllerBase.prototype.popToRoot = function (opts, done) {
+	        return this.popTo(this.first(), opts, done);
+	    };
+	    NavControllerBase.prototype.popTo = function (view, opts, done) {
+	        var startIndex = this.indexOf(view);
+	        if (startIndex < 0) {
+	            return Promise.reject('View not found to pop to');
+	        }
+	        var activeView = this.getByState(exports.STATE_TRANS_ENTER) ||
+	            this.getByState(exports.STATE_INIT_ENTER) ||
+	            this.getActive();
+	        var removeCount = this.indexOf(activeView) - startIndex;
+	        return this.remove(startIndex + 1, removeCount, opts, done);
+	    };
+	    NavControllerBase.prototype.remove = function (startIndex, removeCount, opts, done) {
+	        var _this = this;
+	        if (startIndex === void 0) { startIndex = -1; }
+	        if (removeCount === void 0) { removeCount = 1; }
+	        var promise;
+	        if (!done) {
+	            promise = new Promise(function (resolve) { done = resolve; });
+	        }
+	        if (startIndex === -1) {
+	            startIndex = (this._views.length - 1);
+	        }
+	        else if (startIndex < 0 || startIndex >= this._views.length) {
+	            console.error('index out of range removing view from nav');
+	            done(false);
+	            return promise;
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
+	        // if not set, by default climb up the nav controllers if
+	        // there isn't a previous view in this nav controller
+	        if (util_1.isBlank(opts.climbNav)) {
+	            opts.climbNav = true;
+	        }
+	        // default the direction to "back"
+	        opts.direction = opts.direction || nav_interfaces_1.DIRECTION_BACK;
+	        // figure out the states of each view in the stack
+	        var leavingView = this._remove(startIndex, removeCount);
+	        if (!leavingView) {
+	            var forcedActive = this.getByState(exports.STATE_FORCE_ACTIVE);
+	            if (forcedActive) {
+	                // this scenario happens when a remove is going on
+	                // during a transition
+	                if (this._trans) {
+	                    this._trans.stop();
+	                    this._trans.destroy();
+	                    this._trans = null;
+	                    this._cleanup();
+	                }
+	                done(false);
+	                return promise;
+	            }
+	        }
+	        if (leavingView) {
+	            // there is a view ready to leave, meaning that a transition needs
+	            // to happen and the previously active view is going to animate out
+	            // get the view thats ready to enter
+	            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
+	            if (!enteringView && !this._isPortal) {
+	                // oh nos! no entering view to go to!
+	                // if there is no previous view that would enter in this nav stack
+	                // and the option is set to climb up the nav parent looking
+	                // for the next nav we could transition to instead
+	                if (opts.climbNav) {
+	                    var parentNav = this.parent;
+	                    while (parentNav) {
+	                        if (!exports.isTabs(parentNav)) {
+	                            // Tabs can be a parent, but it is not a collection of views
+	                            // only we're looking for an actual NavController w/ stack of views
+	                            leavingView.fireWillLeave();
+	                            this.viewWillLeave.emit(leavingView);
+	                            this._app.viewWillLeave.emit(leavingView);
+	                            return parentNav.pop(opts).then(function (rtnVal) {
+	                                leavingView.fireDidLeave();
+	                                _this.viewDidLeave.emit(leavingView);
+	                                _this._app.viewDidLeave.emit(leavingView);
+	                                return rtnVal;
+	                            });
+	                        }
+	                        parentNav = parentNav.parent;
+	                    }
+	                }
+	                // there's no previous view and there's no valid parent nav
+	                // to climb to so this shouldn't actually remove the leaving
+	                // view because there's nothing that would enter, eww
+	                leavingView.state = exports.STATE_ACTIVE;
+	                done(false);
+	                return promise;
+	            }
+	            if (!opts.animation) {
+	                opts.animation = leavingView.getTransitionName(opts.direction);
+	            }
+	            // start the transition, fire resolve when done...
+	            this._transition(enteringView, leavingView, opts, done);
+	            return promise;
+	        }
+	        // no need to transition when the active view isn't being removed
+	        // there's still an active view after _remove() figured out states
+	        // so this means views that were only removed before the active
+	        // view, so auto-resolve since no transition needs to happen
+	        done(false);
+	        return promise;
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._remove = function (startIndex, removeCount) {
+	        var _this = this;
+	        // when this is done, there should only be at most
+	        // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
+	        // there should not be any that are STATE_ACTIVE after this is done
+	        var view = null;
+	        // loop through each view that is set to be removed
+	        for (var i = startIndex, ii = removeCount + startIndex; i < ii; i++) {
+	            view = this.getByIndex(i);
+	            if (!view)
+	                break;
+	            if (view.state === exports.STATE_TRANS_ENTER || view.state === exports.STATE_TRANS_LEAVE) {
+	                // oh no!!! this view should be removed, but it's
+	                // actively transitioning in at the moment!!
+	                // since it's viewable right now, let's just set that
+	                // it should be removed after the transition
+	                view.state = exports.STATE_REMOVE_AFTER_TRANS;
+	            }
+	            else if (view.state === exports.STATE_INIT_ENTER) {
+	                // asked to be removed before it even entered!
+	                view.state = exports.STATE_CANCEL_ENTER;
+	            }
+	            else {
+	                // if this view is already leaving then no need to immediately
+	                // remove it, otherwise set the remove state
+	                // this is useful if the view being removed isn't going to
+	                // animate out, but just removed from the stack, no transition
+	                view.state = exports.STATE_REMOVE;
+	            }
+	        }
+	        if (view = this.getByState(exports.STATE_INIT_LEAVE)) {
+	            // looks like there's already an active leaving view
+	            // reassign previous entering view to just be inactive
+	            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
+	            if (enteringView) {
+	                enteringView.state = exports.STATE_INACTIVE;
+	            }
+	            // from the index of the leaving view, go backwards and
+	            // find the first view that is inactive
+	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
+	                if (this._views[i].state === exports.STATE_INACTIVE) {
+	                    this._views[i].state = exports.STATE_INIT_ENTER;
+	                    break;
+	                }
+	            }
+	        }
+	        else if (view = this.getByState(exports.STATE_TRANS_LEAVE)) {
+	            // an active transition is happening, but a new transition
+	            // still needs to happen force this view to be the active one
+	            view.state = exports.STATE_FORCE_ACTIVE;
+	        }
+	        else if (view = this.getByState(exports.STATE_REMOVE)) {
+	            // there is no active transition about to happen
+	            // find the first view that is supposed to be removed and
+	            // set that it is the init leaving view
+	            // the first view to be removed, it should init leave
+	            view.state = exports.STATE_INIT_LEAVE;
+	            view.fireWillUnload();
+	            this.viewWillUnload.emit(view);
+	            this._app.viewWillUnload.emit(view);
+	            // from the index of the leaving view, go backwards and
+	            // find the first view that is inactive so it can be the entering
+	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
+	                if (this._views[i].state === exports.STATE_INACTIVE) {
+	                    this._views[i].state = exports.STATE_INIT_ENTER;
+	                    break;
+	                }
+	            }
+	        }
+	        // if there is still an active view, then it wasn't one that was
+	        // set to be removed, so there actually won't be a transition at all
+	        view = this.getActive();
+	        if (view) {
+	            // the active view remains untouched, so all the removes
+	            // must have happened before it, so really no need for transition
+	            view = this.getByState(exports.STATE_INIT_ENTER);
+	            if (view) {
+	                // if it was going to enter, then just make inactive
+	                view.state = exports.STATE_INACTIVE;
+	            }
+	            view = this.getByState(exports.STATE_INIT_LEAVE);
+	            if (view) {
+	                // this was going to leave, so just remove it completely
+	                view.state = exports.STATE_REMOVE;
+	            }
+	        }
+	        // remove views that have been set to be removed, but not
+	        // apart of any transitions that will eventually happen
+	        this._views.filter(function (v) { return v.state === exports.STATE_REMOVE; }).forEach(function (view) {
+	            view.fireWillLeave();
+	            view.fireDidLeave();
+	            _this._views.splice(_this.indexOf(view), 1);
+	            view.destroy();
+	        });
+	        return this.getByState(exports.STATE_INIT_LEAVE);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, done) {
+	        var _this = this;
+	        var transId = ++this._transIds;
+	        if (enteringView === leavingView) {
+	            // if the entering view and leaving view are the same thing don't continue
+	            this._transFinish(transId, enteringView, leavingView, null, false, false);
+	            done(false);
+	            return;
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
+	        this._setAnimate(opts);
+	        if (!leavingView) {
+	            // if no leaving view then create a bogus one
+	            leavingView = new view_controller_1.ViewController();
+	        }
+	        if (!enteringView) {
+	            // if no entering view then create a bogus one
+	            enteringView = new view_controller_1.ViewController();
+	            enteringView.fireLoaded();
+	        }
+	        /* Async steps to complete a transition
+	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
+	          2. _postRender: Run willEnter/willLeave, then wait a frame (change detection happens), then call beginTransition
+	          3. _beforeTrans: Create the transition's animation, play the animation, wait for it to end
+	          4. _afterTrans: Run didEnter/didLeave, call _transComplete()
+	          5. _transComplete: Cleanup, remove cache views, then call the final callback
+	        */
+	        // begin the multiple async process of transitioning to the entering view
+	        this._render(transId, enteringView, leavingView, opts, function (hasCompleted) {
+	            _this._transFinish(transId, enteringView, leavingView, opts.direction, false, hasCompleted);
+	            done(hasCompleted);
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._setAnimate = function (opts) {
+	        if ((this._views.length === 1 && !this._init && !this._isPortal) || this.config.get('animate') === false) {
+	            opts.animate = false;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._render = function (transId, enteringView, leavingView, opts, done) {
+	        // compile/load the view into the DOM
+	        var _this = this;
+	        if (enteringView.state === exports.STATE_INACTIVE) {
+	            // this entering view is already set to inactive, so this
+	            // transition must be canceled, so don't continue
+	            return done();
+	        }
+	        enteringView.state = exports.STATE_INIT_ENTER;
+	        leavingView.state = exports.STATE_INIT_LEAVE;
+	        // remember if this nav is already transitioning or not
+	        var isAlreadyTransitioning = this.isTransitioning();
+	        if (enteringView.isLoaded()) {
+	            // already compiled this view, do not load again and continue
+	            this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
+	        }
+	        else {
+	            // view has not been compiled/loaded yet
+	            // continue once the view has finished compiling
+	            // DOM WRITE
+	            this.setTransitioning(true, 500);
+	            this.loadPage(enteringView, this._viewport, opts, function () {
+	                enteringView.fireLoaded();
+	                _this.viewDidLoad.emit(enteringView);
+	                _this._app.viewDidLoad.emit(enteringView);
+	                _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._postRender = function (transId, enteringView, leavingView, isAlreadyTransitioning, opts, done) {
+	        // called after _render has completed and the view is compiled/loaded
+	        var _this = this;
+	        if (enteringView.state === exports.STATE_INACTIVE) {
+	            // this entering view is already set to inactive, so this
+	            // transition must be canceled, so don't continue
+	            return done();
+	        }
+	        if (!opts.preload) {
+	            // the enteringView will become the active view, and is not being preloaded
+	            // set the correct zIndex for the entering and leaving views
+	            // if there's already another trans_enter happening then
+	            // the zIndex for the entering view should go off of that one
+	            // DOM WRITE
+	            var lastestLeavingView = this.getByState(exports.STATE_TRANS_ENTER) || leavingView;
+	            this._setZIndex(enteringView, lastestLeavingView, opts.direction);
+	            // make sure the entering and leaving views are showing
+	            // DOM WRITE
+	            if (isAlreadyTransitioning) {
+	                // the previous transition was still going when this one started
+	                // so to be safe, only update showing the entering/leaving
+	                // don't hide the others when they could still be transitioning
+	                enteringView.domShow(true, this._renderer);
+	                leavingView.domShow(true, this._renderer);
+	            }
+	            else {
+	                // there are no other transitions happening but this one
+	                // only entering/leaving should show, all others hidden
+	                // also if a view is an overlay or the previous view is an
+	                // overlay then always show the overlay and the view before it
+	                this._views.forEach(function (view) {
+	                    view.domShow(_this._isPortal || (view === enteringView) || (view === leavingView), _this._renderer);
+	                });
+	            }
+	            // call each view's lifecycle events
+	            if (leavingView.fireOtherLifecycles) {
+	                // only fire entering lifecycle if the leaving
+	                // view hasn't explicitly set not to
+	                enteringView.fireWillEnter();
+	                this.viewWillEnter.emit(enteringView);
+	                this._app.viewWillEnter.emit(enteringView);
+	            }
+	            if (enteringView.fireOtherLifecycles) {
+	                // only fire leaving lifecycle if the entering
+	                // view hasn't explicitly set not to
+	                leavingView.fireWillLeave();
+	                this.viewWillLeave.emit(leavingView);
+	                this._app.viewWillLeave.emit(leavingView);
+	            }
+	        }
+	        else {
+	            // this view is being preloaded, don't call lifecycle events
+	            // transition does not need to animate
+	            opts.animate = false;
+	        }
+	        this._beforeTrans(enteringView, leavingView, opts, done);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
+	        // called after one raf from postRender()
+	        // create the transitions animation, play the animation
+	        // when the transition ends call wait for it to end
+	        var _this = this;
+	        if (enteringView.state === exports.STATE_INACTIVE || enteringView.state === exports.STATE_CANCEL_ENTER) {
+	            // this entering view is already set to inactive or has been canceled
+	            // so this transition must not begin, so don't continue
+	            return done();
+	        }
+	        enteringView.state = exports.STATE_TRANS_ENTER;
+	        leavingView.state = exports.STATE_TRANS_LEAVE;
+	        // everything during the transition should runOutsideAngular
+	        this._zone.runOutsideAngular(function () {
+	            // init the transition animation
+	            var transitionOpts = {
+	                animation: opts.animation,
+	                direction: opts.direction,
+	                duration: opts.duration,
+	                easing: opts.easing,
+	                renderDelay: opts.transitionDelay || _this._trnsDelay,
+	                isRTL: _this.config.platform.isRTL(),
+	                ev: opts.ev,
+	            };
+	            var transAnimation = _this._createTrans(enteringView, leavingView, transitionOpts);
+	            _this._trans && _this._trans.destroy();
+	            _this._trans = transAnimation;
+	            if (opts.animate === false) {
+	                // force it to not animate the elements, just apply the "to" styles
+	                transAnimation.duration(0);
+	            }
+	            // check if a parent is transitioning and get the time that it ends
+	            var parentTransitionEndTime = _this.getLongestTrans(Date.now());
+	            if (parentTransitionEndTime > 0) {
+	                // the parent is already transitioning and has disabled the app
+	                // so just update the local transitioning information
+	                var duration = parentTransitionEndTime - Date.now();
+	                _this.setTransitioning(true, duration);
+	            }
+	            else {
+	                // this is the only active transition (for now), so disable the app
+	                var keyboardDurationPadding = 0;
+	                if (_this._keyboard.isOpen()) {
+	                    // add XXms to the duration the app is disabled when the keyboard is open
+	                    keyboardDurationPadding = 600;
+	                }
+	                var duration = transAnimation.getDuration() + keyboardDurationPadding;
+	                var enableApp = (duration < 64);
+	                _this._app.setEnabled(enableApp, duration);
+	                _this.setTransitioning(!enableApp, duration);
+	            }
+	            // create a callback for when the animation is done
+	            transAnimation.onFinish(function (trans) {
+	                // transition animation has ended
+	                // destroy the animation and it's element references
+	                trans.destroy();
+	                _this._afterTrans(enteringView, leavingView, opts, trans.hasCompleted, done);
+	            });
+	            // cool, let's do this, start the transition
+	            if (opts.progressAnimation) {
+	                // this is a swipe to go back, just get the transition progress ready
+	                // kick off the swipe animation start
+	                transAnimation.progressStart();
+	            }
+	            else {
+	                // this is a normal animation
+	                // kick it off and let it play through
+	                transAnimation.play();
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._afterTrans = function (enteringView, leavingView, opts, hasCompleted, done) {
+	        // transition has completed, update each view's state
+	        // place back into the zone, run didEnter/didLeave
+	        // call the final callback when done
+	        var _this = this;
+	        // run inside of the zone again
+	        this._zone.run(function () {
+	            if (!opts.preload && hasCompleted) {
+	                if (leavingView.fireOtherLifecycles) {
+	                    // only fire entering lifecycle if the leaving
+	                    // view hasn't explicitly set not to
+	                    enteringView.fireDidEnter();
+	                    _this.viewDidEnter.emit(enteringView);
+	                    _this._app.viewDidEnter.emit(enteringView);
+	                }
+	                if (enteringView.fireOtherLifecycles && _this._init) {
+	                    // only fire leaving lifecycle if the entering
+	                    // view hasn't explicitly set not to
+	                    // and after the nav has initialized
+	                    leavingView.fireDidLeave();
+	                    _this.viewDidLeave.emit(leavingView);
+	                    _this._app.viewDidLeave.emit(leavingView);
+	                }
+	            }
+	            if (enteringView.state === exports.STATE_INACTIVE) {
+	                // this entering view is already set to inactive, so this
+	                // transition must be canceled, so don't continue
+	                return done(hasCompleted);
+	            }
+	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
+	                // the keyboard is still open!
+	                // no problem, let's just close for them
+	                _this._keyboard.close();
+	                _this._keyboard.onClose(function () {
+	                    // keyboard has finished closing, transition complete
+	                    done(hasCompleted);
+	                }, 32);
+	            }
+	            else {
+	                // all good, transition complete
+	                done(hasCompleted);
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._transFinish = function (transId, enteringView, leavingView, direction, updateUrl, hasCompleted) {
+	        // a transition has completed, but not sure if it's the last one or not
+	        // check if this transition is the most recent one or not
+	        var _this = this;
+	        if (enteringView.state === exports.STATE_CANCEL_ENTER) {
+	            // this view was told to leave before it finished entering
+	            this.remove(enteringView.index, 1);
+	        }
+	        if (transId === this._transIds) {
+	            // ok, good news, there were no other transitions that kicked
+	            // off during the time this transition started and ended
+	            if (hasCompleted) {
+	                // this transition has completed as normal
+	                // so the entering one is now the active view
+	                // and the leaving view is now just inactive
+	                if (enteringView.state !== exports.STATE_REMOVE_AFTER_TRANS) {
+	                    enteringView.state = exports.STATE_ACTIVE;
+	                }
+	                if (leavingView.state !== exports.STATE_REMOVE_AFTER_TRANS) {
+	                    leavingView.state = exports.STATE_INACTIVE;
+	                }
+	                // only need to do all this clean up if the transition
+	                // completed, otherwise nothing actually changed
+	                // destroy all of the views that come after the active view
+	                this._cleanup();
+	                // make sure only this entering view and PREVIOUS view are the
+	                // only two views that are not display:none
+	                // do not make any changes to the stack's current visibility
+	                // if there is an overlay somewhere in the stack
+	                leavingView = this.getPrevious(enteringView);
+	                if (this._isPortal) {
+	                    // ensure the entering view is showing
+	                    enteringView.domShow(true, this._renderer);
+	                }
+	                else {
+	                    // only possibly hide a view if there are no overlays in the stack
+	                    this._views.forEach(function (view) {
+	                        view.domShow((view === enteringView) || (view === leavingView), _this._renderer);
+	                    });
+	                }
+	                // this check only needs to happen once, which will add the css
+	                // class to the nav when it's finished its first transition
+	                this._init = true;
+	            }
+	            else {
+	                // this transition has not completed, meaning the
+	                // entering view did not end up as the active view
+	                // this would happen when swipe to go back started
+	                // but the user did not complete the swipe and the
+	                // what was the active view stayed as the active view
+	                leavingView.state = exports.STATE_ACTIVE;
+	                enteringView.state = exports.STATE_INACTIVE;
+	            }
+	            // check if there is a parent actively transitioning
+	            var transitionEndTime = this.getLongestTrans(Date.now());
+	            // if transitionEndTime is greater than 0, there is a parent transition occurring
+	            // so delegate enabling the app to the parent.  If it <= 0, go ahead and enable the app
+	            if (transitionEndTime <= 0) {
+	                this._app && this._app.setEnabled(true);
+	            }
+	            // update that this nav is not longer actively transitioning
+	            this.setTransitioning(false);
+	            // see if we should add the swipe back gesture listeners or not
+	            this._sbCheck();
+	        }
+	        else {
+	            // darn, so this wasn't the most recent transition
+	            // so while this one did end, there's another more recent one
+	            // still going on. Because a new transition is happening,
+	            // then this entering view isn't actually going to be the active
+	            // one, so only update the state to active/inactive if the state
+	            // wasn't already updated somewhere else during its transition
+	            if (enteringView.state === exports.STATE_TRANS_ENTER) {
+	                enteringView.state = exports.STATE_INACTIVE;
+	            }
+	            if (leavingView.state === exports.STATE_TRANS_LEAVE) {
+	                leavingView.state = exports.STATE_INACTIVE;
+	            }
+	        }
+	    };
+	    /**
+	     *@private
+	     * This method is just a wrapper to the Transition function of same name
+	     * to make it easy/possible to mock the method call by overriding the function.
+	     * In testing we don't want to actually do the animation, we want to return a stub instead
+	     */
+	    NavControllerBase.prototype._createTrans = function (enteringView, leavingView, transitionOpts) {
+	        return transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
+	    };
+	    NavControllerBase.prototype._cleanup = function () {
+	        var _this = this;
+	        // ok, cleanup time!! Destroy all of the views that are
+	        // INACTIVE and come after the active view
+	        var activeViewIndex = this.indexOf(this.getActive());
+	        var destroys = this._views.filter(function (v) { return v.state === exports.STATE_REMOVE_AFTER_TRANS; });
+	        for (var i = activeViewIndex + 1; i < this._views.length; i++) {
+	            if (this._views[i].state === exports.STATE_INACTIVE) {
+	                destroys.push(this._views[i]);
+	            }
+	        }
+	        // all pages being destroyed should be removed from the list of
+	        // pages and completely removed from the dom
+	        destroys.forEach(function (view) {
+	            _this._views.splice(_this.indexOf(view), 1);
+	            view.destroy();
+	            _this.viewDidUnload.emit(view);
+	            _this._app.viewDidUnload.emit(view);
+	        });
+	        // if any z-index goes under 0, then reset them all
+	        var shouldResetZIndex = this._views.some(function (v) { return v.zIndex < 0; });
+	        if (shouldResetZIndex) {
+	            this._views.forEach(function (view) {
+	                view.setZIndex(view.zIndex + INIT_ZINDEX + 1, _this._renderer);
+	            });
+	        }
+	    };
+	    NavControllerBase.prototype.getActiveChildNav = function () {
+	        return this._children[this._children.length - 1];
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.registerChildNav = function (nav) {
+	        this._children.push(nav);
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.unregisterChildNav = function (nav) {
+	        var index = this._children.indexOf(nav);
+	        if (index > -1) {
+	            this._children.splice(index, 1);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.ngOnDestroy = function () {
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            this._views[i].destroy();
+	        }
+	        this._views.length = 0;
+	        if (this.parent && this.parent.unregisterChildNav) {
+	            this.parent.unregisterChildNav(this);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.loadPage = function (view, viewport, opts, done) {
+	        var _this = this;
+	        if (!viewport || !view.componentType) {
+	            return;
+	        }
+	        // TEMPORARY: automatically set selector w/ dah reflector
+	        // TODO: use componentFactory.create once fixed
+	        bootstrap_1.addSelector(view.componentType, 'ion-page');
+	        this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
+	            if (view.state === exports.STATE_CANCEL_ENTER) {
+	                // view may have already been removed from the stack
+	                // if so, don't even bother adding it
+	                view.destroy();
+	                _this._views.splice(view.index, 1);
+	                return;
+	            }
+	            // add more providers to just this page
+	            var componentProviders = core_1.ReflectiveInjector.resolve([
+	                core_1.provide(nav_controller_1.NavController, { useValue: _this }),
+	                core_1.provide(view_controller_1.ViewController, { useValue: view }),
+	                core_1.provide(nav_params_1.NavParams, { useValue: view.getNavParams() })
+	            ]);
+	            var childInjector = core_1.ReflectiveInjector.fromResolvedProviders(componentProviders, _this._viewport.parentInjector);
+	            var componentRef = componentFactory.create(childInjector, null, null);
+	            viewport.insert(componentRef.hostView, viewport.length);
+	            // a new ComponentRef has been created
+	            // set the ComponentRef's instance to its ViewController
+	            view.setInstance(componentRef.instance);
+	            // the component has been loaded, so call the view controller's loaded method to load any dependencies into the dom
+	            view.loaded(function () {
+	                // the ElementRef of the actual ion-page created
+	                var pageElementRef = componentRef.location;
+	                // remember the ChangeDetectorRef for this ViewController
+	                view.setChangeDetector(componentRef.changeDetectorRef);
+	                // remember the ElementRef to the ion-page elementRef that was just created
+	                view.setPageRef(pageElementRef);
+	                // auto-add page css className created from component JS class name
+	                var cssClassName = util_1.pascalCaseToDashCase(view.componentType.name);
+	                _this._renderer.setElementClass(pageElementRef.nativeElement, cssClassName, true);
+	                view.onDestroy(function () {
+	                    // ensure the element is cleaned up for when the view pool reuses this element
+	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'class', null);
+	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
+	                    componentRef.destroy();
+	                });
+	                // our job is done here
+	                done(view);
+	            });
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.swipeBackStart = function () {
+	        // default the direction to "back"
+	        var opts = {
+	            direction: nav_interfaces_1.DIRECTION_BACK,
+	            progressAnimation: true
+	        };
+	        // figure out the states of each view in the stack
+	        var leavingView = this._remove(this._views.length - 1, 1);
+	        if (leavingView) {
+	            opts.animation = leavingView.getTransitionName(opts.direction);
+	            // get the view thats ready to enter
+	            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
+	            // start the transition, fire callback when done...
+	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
+	                // swipe back has finished!!
+	                console.debug('swipeBack, hasCompleted', hasCompleted);
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.swipeBackProgress = function (stepValue) {
+	        if (this._trans && this._sbGesture) {
+	            // continue to disable the app while actively dragging
+	            this._app.setEnabled(false, 4000);
+	            this.setTransitioning(true, 4000);
+	            // set the transition animation's progress
+	            this._trans.progressStep(stepValue);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
+	        if (this._trans && this._sbGesture) {
+	            // the swipe back gesture has ended
+	            this._trans.progressEnd(shouldComplete, currentStepValue);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._sbCheck = function () {
+	        var _this = this;
+	        if (this._sbEnabled) {
+	            // this nav controller can have swipe to go back
+	            if (!this._sbGesture) {
+	                // create the swipe back gesture if we haven't already
+	                var opts = {
+	                    edge: 'left',
+	                    threshold: this._sbThreshold
+	                };
+	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, this._gestureCtrl);
+	            }
+	            if (this.canSwipeBack()) {
+	                // it is be possible to swipe back
+	                if (!this._sbGesture.isListening) {
+	                    this._zone.runOutsideAngular(function () {
+	                        // start listening if it's not already
+	                        console.debug('swipeBack gesture, listen');
+	                        _this._sbGesture.listen();
+	                    });
+	                }
+	            }
+	            else if (this._sbGesture.isListening) {
+	                // it should not be possible to swipe back
+	                // but the gesture is still listening
+	                console.debug('swipeBack gesture, unlisten');
+	                this._sbGesture.unlisten();
+	            }
+	        }
+	    };
+	    NavControllerBase.prototype.canSwipeBack = function () {
+	        return (this._sbEnabled && !this.isTransitioning() && this._app.isEnabled() && this.canGoBack());
+	    };
+	    NavControllerBase.prototype.canGoBack = function () {
+	        var activeView = this.getActive();
+	        if (activeView) {
+	            return activeView.enableBack();
+	        }
+	        return false;
+	    };
+	    NavControllerBase.prototype.isTransitioning = function (includeAncestors) {
+	        var now = Date.now();
+	        if (includeAncestors && this.getLongestTrans(now) > 0) {
+	            return true;
+	        }
+	        return (this.trnsTime > now);
+	    };
+	    NavControllerBase.prototype.setTransitioning = function (isTransitioning, fallback) {
+	        if (fallback === void 0) { fallback = 700; }
+	        this.trnsTime = (isTransitioning ? Date.now() + fallback : 0);
+	    };
+	    NavControllerBase.prototype.getLongestTrans = function (now) {
+	        // traverses parents upwards and looks at the time the
+	        // transition ends (if it's transitioning) and returns the
+	        // value that is the furthest into the future thus giving us
+	        // the longest transition duration
+	        var parentNav = this.parent;
+	        var transitionEndTime = -1;
+	        while (parentNav) {
+	            if (parentNav.trnsTime > transitionEndTime) {
+	                transitionEndTime = parentNav.trnsTime;
+	            }
+	            parentNav = parentNav.parent;
+	        }
+	        // only check if the transitionTime is greater than the current time once
+	        return transitionEndTime > 0 && transitionEndTime > now ? transitionEndTime : 0;
+	    };
+	    NavControllerBase.prototype.getByState = function (state) {
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            if (this._views[i].state === state) {
+	                return this._views[i];
+	            }
+	        }
+	        return null;
+	    };
+	    NavControllerBase.prototype.getByIndex = function (index) {
+	        return (index < this._views.length && index > -1 ? this._views[index] : null);
+	    };
+	    NavControllerBase.prototype.getActive = function () {
+	        return this.getByState(exports.STATE_ACTIVE);
+	    };
+	    NavControllerBase.prototype.isActive = function (view) {
+	        // returns if the given view is the active view or not
+	        return !!(view && view.state === exports.STATE_ACTIVE);
+	    };
+	    NavControllerBase.prototype.getPrevious = function (view) {
+	        // returns the view controller which is before the given view controller.
+	        return this.getByIndex(this.indexOf(view) - 1);
+	    };
+	    NavControllerBase.prototype.first = function () {
+	        // returns the first view controller in this nav controller's stack.
+	        return (this._views.length ? this._views[0] : null);
+	    };
+	    NavControllerBase.prototype.last = function () {
+	        // returns the last page in this nav controller's stack.
+	        return (this._views.length ? this._views[this._views.length - 1] : null);
+	    };
+	    NavControllerBase.prototype.indexOf = function (view) {
+	        // returns the index number of the given view controller.
+	        return this._views.indexOf(view);
+	    };
+	    NavControllerBase.prototype.length = function () {
+	        return this._views.length;
+	    };
+	    NavControllerBase.prototype.isSwipeBackEnabled = function () {
+	        return this._sbEnabled;
+	    };
+	    Object.defineProperty(NavControllerBase.prototype, "rootNav", {
+	        /**
+	         * DEPRECATED: Please use app.getRootNav() instead
+	         */
+	        get: function () {
+	            // deprecated 07-14-2016 beta.11
+	            console.warn('nav.rootNav() has been deprecated, please use app.getRootNav() instead');
+	            return this._app.getRootNav();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     * Dismiss all pages which have set the `dismissOnPageChange` property.
+	     */
+	    NavControllerBase.prototype.dismissPageChangeViews = function () {
+	        this._views.forEach(function (view) {
+	            if (view.data && view.data.dismissOnPageChange) {
+	                view.dismiss();
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    NavControllerBase.prototype._setZIndex = function (enteringView, leavingView, direction) {
+	        if (enteringView) {
+	            // get the leaving view, which could be in various states
+	            if (!leavingView || !leavingView.isLoaded()) {
+	                // the leavingView is a mocked view, either we're
+	                // actively transitioning or it's the initial load
+	                var previousView = this.getPrevious(enteringView);
+	                if (previousView && previousView.isLoaded()) {
+	                    // we found a better previous view to reference
+	                    // use this one instead
+	                    enteringView.setZIndex(previousView.zIndex + 1, this._renderer);
+	                }
+	                else {
+	                    // this is the initial view
+	                    enteringView.setZIndex(this._isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
+	                }
+	            }
+	            else if (direction === nav_interfaces_1.DIRECTION_BACK) {
+	                // moving back
+	                enteringView.setZIndex(leavingView.zIndex - 1, this._renderer);
+	            }
+	            else {
+	                // moving forward
+	                enteringView.setZIndex(leavingView.zIndex + 1, this._renderer);
+	            }
+	        }
+	    };
+	    return NavControllerBase;
+	}(ion_1.Ion));
+	exports.NavControllerBase = NavControllerBase;
+	exports.isTabs = function (nav) {
+	    // Tabs (ion-tabs)
+	    return !!nav.getSelected;
+	};
+	exports.isTab = function (nav) {
+	    // Tab (ion-tab)
+	    return util_1.isPresent(nav._tabId);
+	};
+	exports.isNav = function (nav) {
+	    // Nav (ion-nav), Tab (ion-tab), Portal (ion-portal)
+	    return util_1.isPresent(nav.push);
+	};
+	exports.STATE_ACTIVE = 1;
+	exports.STATE_INACTIVE = 2;
+	exports.STATE_INIT_ENTER = 3;
+	exports.STATE_INIT_LEAVE = 4;
+	exports.STATE_TRANS_ENTER = 5;
+	exports.STATE_TRANS_LEAVE = 6;
+	exports.STATE_REMOVE = 7;
+	exports.STATE_REMOVE_AFTER_TRANS = 8;
+	exports.STATE_CANCEL_ENTER = 9;
+	exports.STATE_FORCE_ACTIVE = 10;
+	var INIT_ZINDEX = 100;
+	var PORTAL_ZINDEX = 9999;
+	var ctrlIds = -1;
 
 /***/ },
 /* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var dom_1 = __webpack_require__(337);
+	var ids = 0;
+	/**
+	 * Base class for all Ionic components. Exposes some common functionality
+	 * that all Ionic components need, such as accessing underlying native elements and
+	 * sending/receiving app-level events.
+	 */
+	var Ion = (function () {
+	    function Ion(elementRef) {
+	        this.elementRef = elementRef;
+	        this._id = 'i' + ids++;
+	    }
+	    Ion.prototype.getElementRef = function () {
+	        return this.elementRef;
+	    };
+	    Ion.prototype.getNativeElement = function () {
+	        return this.elementRef.nativeElement;
+	    };
+	    Ion.prototype.getDimensions = function () {
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id);
+	    };
+	    Ion.prototype.width = function () {
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).width;
+	    };
+	    Ion.prototype.height = function () {
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).height;
+	    };
+	    Ion.prototype.ngOnDestroy = function () {
+	        dom_1.clearDimensions(this._id);
+	    };
+	    return Ion;
+	}());
+	exports.Ion = Ion;
+
+/***/ },
+/* 343 */
+/***/ function(module, exports) {
+
+	"use strict";
+	/**
+	 * @name NavController
+	 * @description
+	 * _For examples on the basic usage of NavController, check out the
+	 * [Navigation section](../../../../components/#navigation) of the Component
+	 * docs._
+	 *
+	 * NavController is the base class for navigation controller components like
+	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
+	 * to navigate to [pages](#creating_pages) in your app. At a basic level, a
+	 * navigation controller is an array of pages representing a particular history
+	 * (of a Tab for example). This array can be manipulated to navigate throughout
+	 * an app by pushing and popping pages or inserting and removing them at
+	 * arbitrary locations in history.
+	 *
+	 * The current page is the last one in the array, or the top of the stack if we
+	 * think of it that way.  [Pushing](#push) a new page onto the top of the
+	 * navigation stack causes the new page to be animated in, while [popping](#pop)
+	 * the current page will navigate to the previous page in the stack.
+	 *
+	 * Unless you are using a directive like [NavPush](../NavPush/), or need a
+	 * specific NavController, most times you will inject and use a reference to the
+	 * nearest NavController to manipulate the navigation stack.
+	 *
+	 * ### Injecting NavController
+	 * Injecting NavController will always get you an instance of the nearest
+	 * NavController, regardless of whether it is a Tab or a Nav.
+	 *
+	 * Behind the scenes, when Ionic instantiates a new NavController, it creates an
+	 * injector with NavController bound to that instance (usually either a Nav or
+	 * Tab) and adds the injector to its own providers.  For more information on
+	 * providers and dependency injection, see [Providers and DI]().
+	 *
+	 * Instead, you can inject NavController and know that it is the correct
+	 * navigation controller for most situations (for more advanced situations, see
+	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
+	 *
+	 * ```ts
+	 *  class MyComponent {
+	 *    constructor(private nav: NavController) {
+	 *
+	 *    }
+	 *  }
+	 * ```
+	 *
+	 *
+	 * ## Page creation
+	 * Pages are created when they are added to the navigation stack.  For methods
+	 * like [push()](#push), the NavController takes any component class that is
+	 * decorated with `@Component` as its first argument.  The NavController then
+	 * compiles that component, adds it to the app and animates it into view.
+	 *
+	 * By default, pages are cached and left in the DOM if they are navigated away
+	 * from but still in the navigation stack (the exiting page on a `push()` for
+	 * example).  They are destroyed when removed from the navigation stack (on
+	 * [pop()](#pop) or [setRoot()](#setRoot)).
+	 *
+	 *
+	 * ## Lifecycle events
+	 * Lifecycle events are fired during various stages of navigation.  They can be
+	 * defined in any component type which is pushed/popped from a `NavController`.
+	 *
+	 * ```ts
+	 * import {Component } from '@angular/core';
+	 *
+	 * @Component({
+	 *   template: 'Hello World'
+	 * })
+	 * class HelloWorld {
+	 *   ionViewLoaded() {
+	 *     console.log("I'm alive!");
+	 *   }
+	 *   ionViewWillLeave() {
+	 *     console.log("Looks like I'm about to leave :(");
+	 *   }
+	 * }
+	 * ```
+	 *
+	 *  | Page Event          | Description                                                                                                                                                                                                                                                                        |
+	 *  |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+	 *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
+	 *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                   |
+	 *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                             |
+	 *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                             |
+	 *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                          |
+	 *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                         |
+	 *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
+	 *
+	 *
+	 * ## Nav Transition Promises
+	 *
+	 * Navigation transitions are asynchronous, meaning they take a few moments to finish, and
+	 * the duration of a transition could be any number. In most cases the async nature of a
+	 * transition doesn't cause any problems and the nav controller is pretty good about handling
+	 * which transition was the most recent when multiple transitions have been kicked off.
+	 * However, when an app begins firing off many transitions, on the same stack at
+	 * *roughly* the same time, the nav controller can start to get lost as to which transition
+	 * should be finishing, and which transitions should not be animated.
+	 *
+	 * In cases where an app's navigation can be altered by other async tasks, which may or
+	 * may not take a long time, it's best to rely on each nav transition's returned
+	 * promise. So instead of firing and forgetting multiple `push` or `pop` nav transitions,
+	 * it's better to fire the next nav transition when the previous one has finished.
+	 *
+	 * In the example below, after the async operation has completed, we then want to transition
+	 * to another page. Where the potential problem comes in, is that if the async operation
+	 * completed 100ms after the first transition started, then kicking off another transition
+	 * halfway through the first transition ends up with a janky animation. Instead, it's best
+	 * to always ensure the first transition has already finished before starting the next.
+	 *
+	 * ```ts
+	 * // begin the first transition
+	 * let navTransition = this.nav.push(SomePage);
+	 *
+	 * // start an async call, we're not sure how long it'll take
+	 * someAsyncOperation().then(() => {
+	 *   // incase the async operation completed faster than the time
+	 *   // it took to finish the first transition, this logic should
+	 *   // always ensure that the previous transition has resolved
+	 *   // first before kicking off the next transition
+	 *   navTransition.then(() => {
+	 *     this.nav.push(AnotherPage);
+	 *   });
+	 * });
+	 * ```
+	 *
+	 * ## NavOptions
+	 *
+	 * Some methods on `NavController` allow for customizing the current transition.
+	 * To do this, we can pass an object with the modified properites.
+	 *
+	 * | Property  | Value     | Description                                                                                                |
+	 * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
+	 * | animate   | `boolean` | Whether or not the transition should animate.                                                              |
+	 * | animation | `string`  | What kind of animation should be used.                                                                     |
+	 * | direction | `string`  | The conceptual direction the user is navigating. For example, is the user navigating `forward`, or `back`? |
+	 * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
+	 * | easing    | `string`  | The easing for the animation.                                                                              |
+	 *
+	 * The property 'animation' understands the following values: `md-transition`, `ios-transition` and `wp-transition`.
+	 *
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 */
+	var NavController = (function () {
+	    function NavController() {
+	    }
+	    return NavController;
+	}());
+	exports.NavController = NavController;
+
+/***/ },
+/* 344 */
+/***/ function(module, exports) {
+
+	"use strict";
+	exports.DIRECTION_BACK = 'back';
+	exports.DIRECTION_FORWARD = 'forward';
+
+/***/ },
+/* 345 */
+/***/ function(module, exports) {
+
+	"use strict";
+	/**
+	 * @name NavParams
+	 * @description
+	 * NavParams are an object that exists on a page and can contain data for that particular view.
+	 * Similar to how data was pass to a view in V1 with `$stateParams`, NavParams offer a much more flexible
+	 * option with a simple `get` method.
+	 *
+	 * @usage
+	 * ```ts
+	 * export class MyClass{
+	 *  constructor(private params: NavParams){
+	 *    // userParams is an object we have in our nav-parameters
+	 *    this.params.get('userParams');
+	 *  }
+	 * }
+	 * ```
+	 * @demo /docs/v2/demos/nav-params/
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../NavController/ NavController API Docs}
+	 * @see {@link ../Nav/ Nav API Docs}
+	 * @see {@link ../NavPush/ NavPush API Docs}
+	 */
+	var NavParams = (function () {
+	    /**
+	     * @private
+	     * @param {TODO} data  TODO
+	     */
+	    function NavParams(data) {
+	        if (data === void 0) { data = {}; }
+	        this.data = data;
+	    }
+	    /**
+	     * Get the value of a nav-parameter for the current view
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(private params: NavParams){
+	     *    // userParams is an object we have in our nav-parameters
+	     *    this.params.get('userParams');
+	     *  }
+	     * }
+	     * ```
+	     *
+	     *
+	     * @param {string} parameter Which param you want to look up
+	     */
+	    NavParams.prototype.get = function (param) {
+	        return this.data[param];
+	    };
+	    return NavParams;
+	}());
+	exports.NavParams = NavParams;
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var util_1 = __webpack_require__(340);
+	var gesture_controller_1 = __webpack_require__(347);
+	var slide_edge_gesture_1 = __webpack_require__(348);
+	var SwipeBackGesture = (function (_super) {
+	    __extends(SwipeBackGesture, _super);
+	    function SwipeBackGesture(element, options, _nav, gestureCtlr) {
+	        _super.call(this, element, util_1.assign({
+	            direction: 'x',
+	            maxEdgeStart: 75,
+	            gesture: gestureCtlr.create('goback-swipe', {
+	                priority: gesture_controller_1.GesturePriority.GoBackSwipe,
+	            })
+	        }, options));
+	        this._nav = _nav;
+	    }
+	    SwipeBackGesture.prototype.canStart = function (ev) {
+	        // the gesture swipe angle must be mainly horizontal and the
+	        // gesture distance would be relatively short for a swipe back
+	        // and swipe back must be possible on this nav controller
+	        return (this._nav.canSwipeBack() &&
+	            _super.prototype.canStart.call(this, ev));
+	    };
+	    SwipeBackGesture.prototype.onSlideBeforeStart = function (slideData, ev) {
+	        console.debug('swipeBack, onSlideBeforeStart', ev.type);
+	        this._nav.swipeBackStart();
+	    };
+	    SwipeBackGesture.prototype.onSlide = function (slide) {
+	        var stepValue = (slide.distance / slide.max);
+	        console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
+	        this._nav.swipeBackProgress(stepValue);
+	    };
+	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
+	        var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
+	        var currentStepValue = (slide.distance / slide.max);
+	        console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+	        this._nav.swipeBackEnd(shouldComplete, currentStepValue);
+	    };
+	    return SwipeBackGesture;
+	}(slide_edge_gesture_1.SlideEdgeGesture));
+	exports.SwipeBackGesture = SwipeBackGesture;
+
+/***/ },
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54036,1780 +55403,7 @@
 	exports.GestureDelegate = GestureDelegate;
 
 /***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	var config_1 = __webpack_require__(338);
-	var form_1 = __webpack_require__(344);
-	var dom_1 = __webpack_require__(337);
-	var key_1 = __webpack_require__(345);
-	/**
-	 * @name Keyboard
-	 * @description
-	 * The `Keyboard` class allows you to work with the keyboard events provided by the Ionic keyboard plugin.
-	 *
-	 * @usage
-	 * ```ts
-	 * export class MyClass{
-	 *  constructor(keyboard: Keyboard){
-	 *    this.keyboard = keyboard;
-	 *  }
-	 * }
-	 *
-	 * ```
-	 */
-	var Keyboard = (function () {
-	    function Keyboard(config, _form, _zone) {
-	        var _this = this;
-	        this._form = _form;
-	        this._zone = _zone;
-	        _zone.runOutsideAngular(function () {
-	            _this.focusOutline(config.get('focusOutline'), document);
-	        });
-	    }
-	    /**
-	     * Check to see if the keyboard is open or not.
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(keyboard: Keyboard){
-	     *    this.keyboard = keyboard;
-	     *  }
-	     *  keyboardCheck(){
-	     *    setTimeout(()  => console.log('is the keyboard open ', this.keyboard.isOpen()));
-	     *  }
-	     * }
-	     *
-	     * ```
-	     *
-	     * @return {boolean} returns a true or flase value if the keyboard is open or not
-	     */
-	    Keyboard.prototype.isOpen = function () {
-	        return dom_1.hasFocusedTextInput();
-	    };
-	    /**
-	     * When the keyboard is closed, call any methods you want
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(keyboard: Keyboard){
-	     *    this.keyboard = keyboard;
-	     *    this.keyboard.onClose(this.closeCallback);
-	     *  }
-	     *  closeCallback(){
-	     *     // call what ever functionality you want on keyboard close
-	     *     console.log('Closing time');
-	     *  }
-	     * }
-	     *
-	     * ```
-	     * @param {function} callback method you want to call when the keyboard has been closed
-	     * @return {function} returns a callback that gets fired when the keyboard is closed
-	     */
-	    Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
-	        if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
-	        if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
-	        console.debug('keyboard onClose');
-	        var self = this;
-	        var checks = 0;
-	        var promise = null;
-	        if (!callback) {
-	            // a callback wasn't provided, so let's return a promise instead
-	            promise = new Promise(function (resolve) { callback = resolve; });
-	        }
-	        function checkKeyboard() {
-	            console.debug('keyboard isOpen', self.isOpen());
-	            if (!self.isOpen() || checks > pollingChecksMax) {
-	                dom_1.rafFrames(30, function () {
-	                    self._zone.run(function () {
-	                        console.debug('keyboard closed');
-	                        callback();
-	                    });
-	                });
-	            }
-	            else {
-	                dom_1.nativeTimeout(checkKeyboard, pollingInternval);
-	            }
-	            checks++;
-	        }
-	        dom_1.nativeTimeout(checkKeyboard, pollingInternval);
-	        return promise;
-	    };
-	    /**
-	     * Programmatically close the keyboard
-	     *
-	     */
-	    Keyboard.prototype.close = function () {
-	        var _this = this;
-	        console.debug('keyboard close()');
-	        dom_1.nativeRaf(function () {
-	            if (dom_1.hasFocusedTextInput()) {
-	                // only focus out when a text input has focus
-	                _this._form.focusOut();
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Keyboard.prototype.focusOutline = function (setting, document) {
-	        /* Focus Outline
-	         * --------------------------------------------------
-	         * By default, when a keydown event happens from a tab key, then
-	         * the 'focus-outline' css class is added to the body element
-	         * so focusable elements have an outline. On a mousedown or
-	         * touchstart event, then the 'focus-outline' css class is removed.
-	         *
-	         * Config default overrides:
-	         * focusOutline: true     - Always add the focus-outline
-	         * focusOutline: false    - Do not add the focus-outline
-	         */
-	        var self = this;
-	        var isKeyInputEnabled = false;
-	        function cssClass() {
-	            dom_1.nativeRaf(function () {
-	                document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('focus-outline');
-	            });
-	        }
-	        if (setting === true) {
-	            isKeyInputEnabled = true;
-	            return cssClass();
-	        }
-	        else if (setting === false) {
-	            return;
-	        }
-	        // default is to add the focus-outline when the tab key is used
-	        function keyDown(ev) {
-	            if (!isKeyInputEnabled && ev.keyCode === key_1.Key.TAB) {
-	                isKeyInputEnabled = true;
-	                enableKeyInput();
-	            }
-	        }
-	        function pointerDown() {
-	            isKeyInputEnabled = false;
-	            enableKeyInput();
-	        }
-	        function enableKeyInput() {
-	            cssClass();
-	            self._zone.runOutsideAngular(function () {
-	                document.removeEventListener('mousedown', pointerDown);
-	                document.removeEventListener('touchstart', pointerDown);
-	                if (isKeyInputEnabled) {
-	                    document.addEventListener('mousedown', pointerDown);
-	                    document.addEventListener('touchstart', pointerDown);
-	                }
-	            });
-	        }
-	        document.addEventListener('keydown', keyDown);
-	    };
-	    Keyboard = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
-	    ], Keyboard);
-	    return Keyboard;
-	    var _a, _b, _c;
-	}());
-	exports.Keyboard = Keyboard;
-	var KEYBOARD_CLOSE_POLLING = 150;
-	var KEYBOARD_POLLING_CHECKS_MAX = 100;
-
-/***/ },
-/* 344 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	/**
-	 * @private
-	 */
-	var Form = (function () {
-	    function Form() {
-	        this._focused = null;
-	        this._ids = -1;
-	        this._inputs = [];
-	    }
-	    Form.prototype.register = function (input) {
-	        this._inputs.push(input);
-	    };
-	    Form.prototype.deregister = function (input) {
-	        var index = this._inputs.indexOf(input);
-	        if (index > -1) {
-	            this._inputs.splice(index, 1);
-	        }
-	        if (input === this._focused) {
-	            this._focused = null;
-	        }
-	    };
-	    Form.prototype.focusOut = function () {
-	        var activeElement = document.activeElement;
-	        activeElement && activeElement.blur && activeElement.blur();
-	    };
-	    Form.prototype.setAsFocused = function (input) {
-	        this._focused = input;
-	    };
-	    /**
-	     * Focuses the next input element, if it exists.
-	     */
-	    Form.prototype.tabFocus = function (currentInput) {
-	        var index = this._inputs.indexOf(currentInput);
-	        if (index > -1 && (index + 1) < this._inputs.length) {
-	            var nextInput = this._inputs[index + 1];
-	            if (nextInput !== this._focused) {
-	                console.debug('tabFocus, next');
-	                return nextInput.initFocus();
-	            }
-	        }
-	        index = this._inputs.indexOf(this._focused);
-	        if (index > 0) {
-	            var previousInput = this._inputs[index - 1];
-	            if (previousInput) {
-	                console.debug('tabFocus, previous');
-	                previousInput.initFocus();
-	            }
-	        }
-	    };
-	    Form.prototype.nextId = function () {
-	        return ++this._ids;
-	    };
-	    Form = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Form);
-	    return Form;
-	}());
-	exports.Form = Form;
-
-/***/ },
-/* 345 */
-/***/ function(module, exports) {
-
-	"use strict";
-	(function (Key) {
-	    Key[Key["ENTER"] = 13] = "ENTER";
-	    Key[Key["ESCAPE"] = 27] = "ESCAPE";
-	    Key[Key["TAB"] = 9] = "TAB";
-	})(exports.Key || (exports.Key = {}));
-	var Key = exports.Key;
-	;
-
-/***/ },
-/* 346 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var core_1 = __webpack_require__(6);
-	var bootstrap_1 = __webpack_require__(117);
-	var ion_1 = __webpack_require__(347);
-	var util_1 = __webpack_require__(340);
-	var nav_params_1 = __webpack_require__(348);
-	var swipe_back_1 = __webpack_require__(349);
-	var transition_1 = __webpack_require__(357);
-	var view_controller_1 = __webpack_require__(359);
-	/**
-	 * @name NavController
-	 * @description
-	 * _For examples on the basic usage of NavController, check out the
-	 * [Navigation section](../../../../components/#navigation) of the Component
-	 * docs._
-	 *
-	 * NavController is the base class for navigation controller components like
-	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
-	 * to navigate to [pages](#creating_pages) in your app. At a basic level, a
-	 * navigation controller is an array of pages representing a particular history
-	 * (of a Tab for example). This array can be manipulated to navigate throughout
-	 * an app by pushing and popping pages or inserting and removing them at
-	 * arbitrary locations in history.
-	 *
-	 * The current page is the last one in the array, or the top of the stack if we
-	 * think of it that way.  [Pushing](#push) a new page onto the top of the
-	 * navigation stack causes the new page to be animated in, while [popping](#pop)
-	 * the current page will navigate to the previous page in the stack.
-	 *
-	 * Unless you are using a directive like [NavPush](../NavPush/), or need a
-	 * specific NavController, most times you will inject and use a reference to the
-	 * nearest NavController to manipulate the navigation stack.
-	 *
-	 * ### Injecting NavController
-	 * Injecting NavController will always get you an instance of the nearest
-	 * NavController, regardless of whether it is a Tab or a Nav.
-	 *
-	 * Behind the scenes, when Ionic instantiates a new NavController, it creates an
-	 * injector with NavController bound to that instance (usually either a Nav or
-	 * Tab) and adds the injector to its own providers.  For more information on
-	 * providers and dependency injection, see [Providers and DI]().
-	 *
-	 * Instead, you can inject NavController and know that it is the correct
-	 * navigation controller for most situations (for more advanced situations, see
-	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
-	 *
-	 * ```ts
-	 *  class MyComponent {
-	 *    constructor(private nav: NavController) {
-	 *
-	 *    }
-	 *  }
-	 * ```
-	 *
-	 *
-	 * ## Page creation
-	 * Pages are created when they are added to the navigation stack.  For methods
-	 * like [push()](#push), the NavController takes any component class that is
-	 * decorated with `@Component` as its first argument.  The NavController then
-	 * compiles that component, adds it to the app and animates it into view.
-	 *
-	 * By default, pages are cached and left in the DOM if they are navigated away
-	 * from but still in the navigation stack (the exiting page on a `push()` for
-	 * example).  They are destroyed when removed from the navigation stack (on
-	 * [pop()](#pop) or [setRoot()](#setRoot)).
-	 *
-	 *
-	 * ## Lifecycle events
-	 * Lifecycle events are fired during various stages of navigation.  They can be
-	 * defined in any component type which is pushed/popped from a `NavController`.
-	 *
-	 * ```ts
-	 * import {Component } from '@angular/core';
-	 *
-	 * @Component({
-	 *   template: 'Hello World'
-	 * })
-	 * class HelloWorld {
-	 *   ionViewLoaded() {
-	 *     console.log("I'm alive!");
-	 *   }
-	 *   ionViewWillLeave() {
-	 *     console.log("Looks like I'm about to leave :(");
-	 *   }
-	 * }
-	 * ```
-	 *
-	 *  | Page Event          | Description                                                                                                                                                                                                                                                                        |
-	 *  |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	 *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
-	 *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                   |
-	 *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                             |
-	 *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                             |
-	 *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                          |
-	 *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                         |
-	 *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
-	 *
-	 *
-	 * ## Nav Transition Promises
-	 *
-	 * Navigation transitions are asynchronous, meaning they take a few moments to finish, and
-	 * the duration of a transition could be any number. In most cases the async nature of a
-	 * transition doesn't cause any problems and the nav controller is pretty good about handling
-	 * which transition was the most recent when multiple transitions have been kicked off.
-	 * However, when an app begins firing off many transitions, on the same stack at
-	 * *roughly* the same time, the nav controller can start to get lost as to which transition
-	 * should be finishing, and which transitions should not be animated.
-	 *
-	 * In cases where an app's navigation can be altered by other async tasks, which may or
-	 * may not take a long time, it's best to rely on each nav transition's returned
-	 * promise. So instead of firing and forgetting multiple `push` or `pop` nav transitions,
-	 * it's better to fire the next nav transition when the previous one has finished.
-	 *
-	 * In the example below, after the async operation has completed, we then want to transition
-	 * to another page. Where the potential problem comes in, is that if the async operation
-	 * completed 100ms after the first transition started, then kicking off another transition
-	 * halfway through the first transition ends up with a janky animation. Instead, it's best
-	 * to always ensure the first transition has already finished before starting the next.
-	 *
-	 * ```ts
-	 * // begin the first transition
-	 * let navTransition = this.nav.push(SomePage);
-	 *
-	 * // start an async call, we're not sure how long it'll take
-	 * someAsyncOperation().then(() => {
-	 *   // incase the async operation completed faster than the time
-	 *   // it took to finish the first transition, this logic should
-	 *   // always ensure that the previous transition has resolved
-	 *   // first before kicking off the next transition
-	 *   navTransition.then(() => {
-	 *     this.nav.push(AnotherPage);
-	 *   });
-	 * });
-	 * ```
-	 *
-	 * ## NavOptions
-	 *
-	 * Some methods on `NavController` allow for customizing the current transition.
-	 * To do this, we can pass an object with the modified properites.
-	 *
-	 * | Property  | Value     | Description                                                                                                |
-	 * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
-	 * | animate   | `boolean` | Whether or not the transition should animate.                                                              |
-	 * | animation | `string`  | What kind of animation should be used.                                                                     |
-	 * | direction | `string`  | The conceptual direction the user is navigating. For example, is the user navigating `forward`, or `back`? |
-	 * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
-	 * | easing    | `string`  | The easing for the animation.                                                                              |
-	 *
-	 * The property 'animation' understands the following values: `md-transition`, `ios-transition` and `wp-transition`.
-	 *
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 */
-	var NavController = (function (_super) {
-	    __extends(NavController, _super);
-	    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler, _gestureCtrl) {
-	        _super.call(this, elementRef);
-	        this._app = _app;
-	        this._keyboard = _keyboard;
-	        this._zone = _zone;
-	        this._renderer = _renderer;
-	        this._compiler = _compiler;
-	        this._gestureCtrl = _gestureCtrl;
-	        this._transIds = 0;
-	        this._init = false;
-	        this._children = [];
-	        this._ids = -1;
-	        this._views = [];
-	        /**
-	         * @private
-	         */
-	        this.isPortal = false;
-	        /**
-	         * @private
-	         */
-	        this.trnsTime = 0;
-	        this.parent = parent;
-	        this.config = config;
-	        this._trnsDelay = config.get('pageTransitionDelay');
-	        this._sbEnabled = config.getBoolean('swipeBackEnabled');
-	        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
-	        this.id = (++ctrlIds).toString();
-	        this.viewDidLoad = new core_1.EventEmitter();
-	        this.viewWillEnter = new core_1.EventEmitter();
-	        this.viewDidEnter = new core_1.EventEmitter();
-	        this.viewWillLeave = new core_1.EventEmitter();
-	        this.viewDidLeave = new core_1.EventEmitter();
-	        this.viewWillUnload = new core_1.EventEmitter();
-	        this.viewDidUnload = new core_1.EventEmitter();
-	    }
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.setViewport = function (val) {
-	        this._viewport = val;
-	    };
-	    /**
-	     * Set the root for the current navigation stack.
-	     * @param {Page} page  The name of the component you want to push on the navigation stack.
-	     * @param {object} [params={}] Any nav-params you want to pass along to the next view.
-	     * @param {object} [opts={}] Any options you want to use pass to transtion.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.setRoot = function (page, params, opts) {
-	        return this.setPages([{ page: page, params: params }], opts);
-	    };
-	    /**
-	     * Set the views of the current navigation stack and navigate to the
-	     * last view. By default animations are disabled, but they can be enabled
-	     * by passing options to the navigation controller.You can also pass any
-	     * navigation params to the individual pages in the array.
-	     *
-	     * @param {array<Page>} pages  An arry of page components and their params to load in the stack.
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.setPages = function (pages, opts) {
-	        if (!pages || !pages.length) {
-	            return Promise.resolve(false);
-	        }
-	        if (util_1.isBlank(opts)) {
-	            opts = {};
-	        }
-	        // remove existing views
-	        var leavingView = this._remove(0, this._views.length);
-	        // create view controllers out of the pages and insert the new views
-	        var views = pages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
-	        var enteringView = this._insert(0, views);
-	        // if animation wasn't set to true then default it to NOT animate
-	        if (opts.animate !== true) {
-	            opts.animate = false;
-	        }
-	        // set the nav direction to "back" if it wasn't set
-	        opts.direction = opts.direction || exports.DIRECTION_BACK;
-	        var resolve;
-	        var promise = new Promise(function (res) { resolve = res; });
-	        // start the transition, fire resolve when done...
-	        this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-	            // transition has completed!!
-	            resolve(hasCompleted);
-	        });
-	        return promise;
-	    };
-	    /**
-	     * Push a new component onto the current navication stack. Pass any aditional information
-	     * along as an object. This additional information is acessible through NavParams
-	     *
-	     * @param {Page} page  The page component class you want to push on to the navigation stack
-	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.push = function (page, params, opts) {
-	        return this.insertPages(-1, [{ page: page, params: params }], opts);
-	    };
-	    /**
-	     * @private
-	     * DEPRECATED: Please use inject the overlays controller and use the present method on the instance instead.
-	     */
-	    NavController.prototype.present = function (enteringView, opts) {
-	        // deprecated warning: added beta.11 2016-06-27
-	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
-	        return Promise.resolve();
-	    };
-	    /**
-	     * Inserts a component into the nav stack at the specified index. This is useful if
-	     * you need to add a component at any point in your navigation stack.
-	     *
-	     *
-	     * @param {number} insertIndex  The index where to insert the page.
-	     * @param {Page} page  The component you want to insert into the nav stack.
-	     * @param {object} [params={}] Any nav-params you want to pass along to the next page.
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.insert = function (insertIndex, page, params, opts) {
-	        return this.insertPages(insertIndex, [{ page: page, params: params }], opts);
-	    };
-	    /**
-	     * Inserts an array of components into the nav stack at the specified index.
-	     * The last component in the array will animate in and become the active component
-	     *
-	     * @param {number} insertIndex  The index where you want to insert the page.
-	     * @param {array<{page: Page, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
-	        var views = insertPages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
-	        return this.insertViews(insertIndex, views, opts);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.insertViews = function (insertIndex, insertViews, opts) {
-	        if (!insertViews || !insertViews.length) {
-	            return Promise.reject('invalid pages');
-	        }
-	        if (util_1.isBlank(opts)) {
-	            opts = {};
-	        }
-	        // insert the new page into the stack
-	        // returns the newly created entering view
-	        var enteringView = this._insert(insertIndex, insertViews);
-	        // set the nav direction to "forward" if it wasn't set
-	        opts.direction = opts.direction || 'forward';
-	        // set which animation it should use if it wasn't set yet
-	        if (!opts.animation) {
-	            opts.animation = enteringView.getTransitionName(opts.direction);
-	        }
-	        var resolve;
-	        var promise = new Promise(function (res) { resolve = res; });
-	        // it's possible that the newly added view doesn't need to
-	        // transition in, but was simply inserted somewhere in the stack
-	        // go backwards through the stack and find the first active view
-	        // which could be active or one ready to enter
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            if (this._views[i].state === STATE_ACTIVE || this._views[i].state === STATE_INIT_ENTER) {
-	                // found the view at the end of the stack that's either
-	                // already active or it is about to enter
-	                if (this._views[i] === enteringView) {
-	                    // cool, so the last valid view is also our entering view!!
-	                    // this means we should animate that bad boy in so it's the active view
-	                    // return a promise and resolve when the transition has completed
-	                    // get the leaving view which the _insert() already set
-	                    var leavingView = this.getByState(STATE_INIT_LEAVE);
-	                    // start the transition, fire resolve when done...
-	                    this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-	                        // transition has completed!!
-	                        resolve(hasCompleted);
-	                    });
-	                    return promise;
-	                }
-	                break;
-	            }
-	        }
-	        // the page was not pushed onto the end of the stack
-	        // but rather inserted somewhere in the middle or beginning
-	        // Since there are views after this new one, don't transition in
-	        // auto resolve cuz there was is no need for an animation
-	        return Promise.resolve(enteringView);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._insert = function (insertIndex, insertViews) {
-	        // when this is done, there should only be at most
-	        // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
-	        // there should not be any that are STATE_ACTIVE after this is done
-	        var _this = this;
-	        // allow -1 to be passed in to auto push it on the end
-	        // and clean up the index if it's larger then the size of the stack
-	        if (insertIndex < 0 || insertIndex > this._views.length) {
-	            insertIndex = this._views.length;
-	        }
-	        // first see if there's an active view
-	        var view = this.getActive();
-	        if (view) {
-	            // there's an active view, set that it's initialized to leave
-	            view.state = STATE_INIT_LEAVE;
-	        }
-	        else if (view = this.getByState(STATE_INIT_ENTER)) {
-	            // oh no, there's already a transition initalized ready to enter!
-	            // but it actually hasn't entered yet at all so lets
-	            // just keep it in the array, but not render or animate it in
-	            view.state = STATE_INACTIVE;
-	        }
-	        // insert each of the views in the pages array
-	        var insertView = null;
-	        insertViews.forEach(function (view, i) {
-	            insertView = view;
-	            // create the new entering view
-	            view.setNav(_this);
-	            view.state = STATE_INACTIVE;
-	            // give this inserted view an ID
-	            view.id = _this.id + '-' + (++_this._ids);
-	            // insert the entering view into the correct index in the stack
-	            _this._views.splice(insertIndex + i, 0, view);
-	        });
-	        if (insertView) {
-	            insertView.state = STATE_INIT_ENTER;
-	        }
-	        return insertView;
-	    };
-	    /**
-	     * Call to navigate back from a current component. Similar to `push()`, you
-	     * can also pass navigation options.
-	     *
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.pop = function (opts) {
-	        // get the index of the active view
-	        // which will become the view to be leaving
-	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
-	            this.getByState(STATE_INIT_ENTER) ||
-	            this.getActive();
-	        if (util_1.isBlank(opts)) {
-	            opts = {};
-	        }
-	        // if not set, by default climb up the nav controllers if
-	        // there isn't a previous view in this nav controller
-	        if (util_1.isBlank(opts.climbNav)) {
-	            opts.climbNav = true;
-	        }
-	        return this.remove(this.indexOf(activeView), 1, opts);
-	    };
-	    /**
-	     * Navigate back to the root of the stack, no matter how far back that is.
-	     *
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.popToRoot = function (opts) {
-	        return this.popTo(this.first(), opts);
-	    };
-	    /**
-	     * Pop to a specific view in the history stack.
-	     *
-	     * @param {ViewController} view  to pop to
-	     * @param {object} [opts={}] Nav options to go with this transition.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.popTo = function (view, opts) {
-	        var startIndex = this.indexOf(view);
-	        if (startIndex < 0) {
-	            return Promise.reject('View not found to pop to');
-	        }
-	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
-	            this.getByState(STATE_INIT_ENTER) ||
-	            this.getActive();
-	        var removeCount = this.indexOf(activeView) - startIndex;
-	        return this.remove(startIndex + 1, removeCount, opts);
-	    };
-	    /**
-	     * Removes a page from the nav stack at the specified index.
-	     *
-	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
-	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
-	     * @param {object} [opts={}] Any options you want to use pass to transtion.
-	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-	     */
-	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
-	        var _this = this;
-	        if (startIndex === void 0) { startIndex = -1; }
-	        if (removeCount === void 0) { removeCount = 1; }
-	        if (startIndex === -1) {
-	            startIndex = this._views.length - 1;
-	        }
-	        else if (startIndex < 0 || startIndex >= this._views.length) {
-	            return Promise.reject('remove index out of range');
-	        }
-	        if (util_1.isBlank(opts)) {
-	            opts = {};
-	        }
-	        // default the direction to "back"
-	        opts.direction = opts.direction || exports.DIRECTION_BACK;
-	        // figure out the states of each view in the stack
-	        var leavingView = this._remove(startIndex, removeCount);
-	        if (!leavingView) {
-	            var forcedActive = this.getByState(STATE_FORCE_ACTIVE);
-	            if (forcedActive) {
-	                // this scenario happens when a remove is going on
-	                // during a transition
-	                if (this._trans) {
-	                    this._trans.stop();
-	                    this._trans.destroy();
-	                    this._trans = null;
-	                    this._cleanup();
-	                }
-	                return Promise.resolve(false);
-	            }
-	        }
-	        if (leavingView) {
-	            // there is a view ready to leave, meaning that a transition needs
-	            // to happen and the previously active view is going to animate out
-	            // get the view thats ready to enter
-	            var enteringView = this.getByState(STATE_INIT_ENTER);
-	            if (!enteringView && !this.isPortal) {
-	                // oh nos! no entering view to go to!
-	                // if there is no previous view that would enter in this nav stack
-	                // and the option is set to climb up the nav parent looking
-	                // for the next nav we could transition to instead
-	                if (opts.climbNav) {
-	                    var parentNav = this.parent;
-	                    while (parentNav) {
-	                        if (!parentNav['_tabs']) {
-	                            // Tabs can be a parent, but it is not a collection of views
-	                            // only we're looking for an actual NavController w/ stack of views
-	                            leavingView.fireWillLeave();
-	                            this.viewWillLeave.emit(leavingView);
-	                            this._app.viewWillLeave.emit(leavingView);
-	                            return parentNav.pop(opts).then(function (rtnVal) {
-	                                leavingView.fireDidLeave();
-	                                _this.viewDidLeave.emit(leavingView);
-	                                _this._app.viewDidLeave.emit(leavingView);
-	                                return rtnVal;
-	                            });
-	                        }
-	                        parentNav = parentNav.parent;
-	                    }
-	                }
-	                // there's no previous view and there's no valid parent nav
-	                // to climb to so this shouldn't actually remove the leaving
-	                // view because there's nothing that would enter, eww
-	                leavingView.state = STATE_ACTIVE;
-	                return Promise.resolve(false);
-	            }
-	            var resolve_1;
-	            var promise = new Promise(function (res) { resolve_1 = res; });
-	            if (!opts.animation) {
-	                opts.animation = leavingView.getTransitionName(opts.direction);
-	            }
-	            // start the transition, fire resolve when done...
-	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-	                // transition has completed!!
-	                resolve_1(hasCompleted);
-	            });
-	            return promise;
-	        }
-	        // no need to transition when the active view isn't being removed
-	        // there's still an active view after _remove() figured out states
-	        // so this means views that were only removed before the active
-	        // view, so auto-resolve since no transition needs to happen
-	        return Promise.resolve(false);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._remove = function (startIndex, removeCount) {
-	        var _this = this;
-	        // when this is done, there should only be at most
-	        // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
-	        // there should not be any that are STATE_ACTIVE after this is done
-	        var view = null;
-	        // loop through each view that is set to be removed
-	        for (var i = startIndex, ii = removeCount + startIndex; i < ii; i++) {
-	            view = this.getByIndex(i);
-	            if (!view)
-	                break;
-	            if (view.state === STATE_TRANS_ENTER || view.state === STATE_TRANS_LEAVE) {
-	                // oh no!!! this view should be removed, but it's
-	                // actively transitioning in at the moment!!
-	                // since it's viewable right now, let's just set that
-	                // it should be removed after the transition
-	                view.state = STATE_REMOVE_AFTER_TRANS;
-	            }
-	            else if (view.state === STATE_INIT_ENTER) {
-	                // asked to be removed before it even entered!
-	                view.state = STATE_CANCEL_ENTER;
-	            }
-	            else {
-	                // if this view is already leaving then no need to immediately
-	                // remove it, otherwise set the remove state
-	                // this is useful if the view being removed isn't going to
-	                // animate out, but just removed from the stack, no transition
-	                view.state = STATE_REMOVE;
-	            }
-	        }
-	        if (view = this.getByState(STATE_INIT_LEAVE)) {
-	            // looks like there's already an active leaving view
-	            // reassign previous entering view to just be inactive
-	            var enteringView = this.getByState(STATE_INIT_ENTER);
-	            if (enteringView) {
-	                enteringView.state = STATE_INACTIVE;
-	            }
-	            // from the index of the leaving view, go backwards and
-	            // find the first view that is inactive
-	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
-	                if (this._views[i].state === STATE_INACTIVE) {
-	                    this._views[i].state = STATE_INIT_ENTER;
-	                    break;
-	                }
-	            }
-	        }
-	        else if (view = this.getByState(STATE_TRANS_LEAVE)) {
-	            // an active transition is happening, but a new transition
-	            // still needs to happen force this view to be the active one
-	            view.state = STATE_FORCE_ACTIVE;
-	        }
-	        else if (view = this.getByState(STATE_REMOVE)) {
-	            // there is no active transition about to happen
-	            // find the first view that is supposed to be removed and
-	            // set that it is the init leaving view
-	            // the first view to be removed, it should init leave
-	            view.state = STATE_INIT_LEAVE;
-	            view.fireWillUnload();
-	            this.viewWillUnload.emit(view);
-	            this._app.viewWillUnload.emit(view);
-	            // from the index of the leaving view, go backwards and
-	            // find the first view that is inactive so it can be the entering
-	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
-	                if (this._views[i].state === STATE_INACTIVE) {
-	                    this._views[i].state = STATE_INIT_ENTER;
-	                    break;
-	                }
-	            }
-	        }
-	        // if there is still an active view, then it wasn't one that was
-	        // set to be removed, so there actually won't be a transition at all
-	        view = this.getActive();
-	        if (view) {
-	            // the active view remains untouched, so all the removes
-	            // must have happened before it, so really no need for transition
-	            view = this.getByState(STATE_INIT_ENTER);
-	            if (view) {
-	                // if it was going to enter, then just make inactive
-	                view.state = STATE_INACTIVE;
-	            }
-	            view = this.getByState(STATE_INIT_LEAVE);
-	            if (view) {
-	                // this was going to leave, so just remove it completely
-	                view.state = STATE_REMOVE;
-	            }
-	        }
-	        // remove views that have been set to be removed, but not
-	        // apart of any transitions that will eventually happen
-	        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
-	            view.fireWillLeave();
-	            view.fireDidLeave();
-	            _this._views.splice(_this.indexOf(view), 1);
-	            view.destroy();
-	        });
-	        return this.getByState(STATE_INIT_LEAVE);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._transition = function (enteringView, leavingView, opts, done) {
-	        var _this = this;
-	        var transId = ++this._transIds;
-	        if (enteringView === leavingView) {
-	            // if the entering view and leaving view are the same thing don't continue
-	            this._transFinish(transId, enteringView, leavingView, null, false);
-	            return done(false);
-	        }
-	        if (util_1.isBlank(opts)) {
-	            opts = {};
-	        }
-	        this._setAnimate(opts);
-	        if (!leavingView) {
-	            // if no leaving view then create a bogus one
-	            leavingView = new view_controller_1.ViewController();
-	        }
-	        if (!enteringView) {
-	            // if no entering view then create a bogus one
-	            enteringView = new view_controller_1.ViewController();
-	            enteringView.fireLoaded();
-	        }
-	        /* Async steps to complete a transition
-	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
-	          2. _postRender: Run willEnter/willLeave, then wait a frame (change detection happens), then call beginTransition
-	          3. _beforeTrans: Create the transition's animation, play the animation, wait for it to end
-	          4. _afterTrans: Run didEnter/didLeave, call _transComplete()
-	          5. _transComplete: Cleanup, remove cache views, then call the final callback
-	        */
-	        // begin the multiple async process of transitioning to the entering view
-	        this._render(transId, enteringView, leavingView, opts, function (hasCompleted) {
-	            _this._transFinish(transId, enteringView, leavingView, opts.direction, hasCompleted);
-	            done(hasCompleted);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._setAnimate = function (opts) {
-	        if ((this._views.length === 1 && !this._init && !this.isPortal) || this.config.get('animate') === false) {
-	            opts.animate = false;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._render = function (transId, enteringView, leavingView, opts, done) {
-	        // compile/load the view into the DOM
-	        var _this = this;
-	        if (enteringView.state === STATE_INACTIVE) {
-	            // this entering view is already set to inactive, so this
-	            // transition must be canceled, so don't continue
-	            return done();
-	        }
-	        enteringView.state = STATE_INIT_ENTER;
-	        leavingView.state = STATE_INIT_LEAVE;
-	        // remember if this nav is already transitioning or not
-	        var isAlreadyTransitioning = this.isTransitioning();
-	        if (enteringView.isLoaded()) {
-	            // already compiled this view, do not load again and continue
-	            this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
-	        }
-	        else {
-	            // view has not been compiled/loaded yet
-	            // continue once the view has finished compiling
-	            // DOM WRITE
-	            this.setTransitioning(true, 500);
-	            this.loadPage(enteringView, this._viewport, opts, function () {
-	                enteringView.fireLoaded();
-	                _this.viewDidLoad.emit(enteringView);
-	                _this._app.viewDidLoad.emit(enteringView);
-	                _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._postRender = function (transId, enteringView, leavingView, isAlreadyTransitioning, opts, done) {
-	        // called after _render has completed and the view is compiled/loaded
-	        if (enteringView.state === STATE_INACTIVE) {
-	            // this entering view is already set to inactive, so this
-	            // transition must be canceled, so don't continue
-	            return done();
-	        }
-	        if (!opts.preload) {
-	            // the enteringView will become the active view, and is not being preloaded
-	            // set the correct zIndex for the entering and leaving views
-	            // if there's already another trans_enter happening then
-	            // the zIndex for the entering view should go off of that one
-	            // DOM WRITE
-	            var lastestLeavingView = this.getByState(STATE_TRANS_ENTER) || leavingView;
-	            this._setZIndex(enteringView, lastestLeavingView, opts.direction);
-	            // make sure the entering and leaving views are showing
-	            // DOM WRITE
-	            if (isAlreadyTransitioning) {
-	                // the previous transition was still going when this one started
-	                // so to be safe, only update showing the entering/leaving
-	                // don't hide the others when they could still be transitioning
-	                enteringView.domShow(true, this._renderer);
-	                leavingView.domShow(true, this._renderer);
-	            }
-	            else {
-	                // there are no other transitions happening but this one
-	                // only entering/leaving should show, all others hidden
-	                // also if a view is an overlay or the previous view is an
-	                // overlay then always show the overlay and the view before it
-	                var view;
-	                var shouldShow;
-	                for (var i = 0, ii = this._views.length; i < ii; i++) {
-	                    view = this._views[i];
-	                    shouldShow = (view === enteringView) ||
-	                        (view === leavingView) ||
-	                        view.isOverlay ||
-	                        (i < ii - 1 ? this._views[i + 1].isOverlay : false);
-	                    view.domShow(shouldShow, this._renderer);
-	                }
-	            }
-	            // call each view's lifecycle events
-	            if (leavingView.fireOtherLifecycles) {
-	                // only fire entering lifecycle if the leaving
-	                // view hasn't explicitly set not to
-	                enteringView.fireWillEnter();
-	                this.viewWillEnter.emit(enteringView);
-	                this._app.viewWillEnter.emit(enteringView);
-	            }
-	            if (enteringView.fireOtherLifecycles) {
-	                // only fire leaving lifecycle if the entering
-	                // view hasn't explicitly set not to
-	                leavingView.fireWillLeave();
-	                this.viewWillLeave.emit(leavingView);
-	                this._app.viewWillLeave.emit(leavingView);
-	            }
-	        }
-	        else {
-	            // this view is being preloaded, don't call lifecycle events
-	            // transition does not need to animate
-	            opts.animate = false;
-	        }
-	        this._beforeTrans(enteringView, leavingView, opts, done);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
-	        // called after one raf from postRender()
-	        // create the transitions animation, play the animation
-	        // when the transition ends call wait for it to end
-	        var _this = this;
-	        if (enteringView.state === STATE_INACTIVE || enteringView.state === STATE_CANCEL_ENTER) {
-	            // this entering view is already set to inactive or has been canceled
-	            // so this transition must not begin, so don't continue
-	            return done();
-	        }
-	        enteringView.state = STATE_TRANS_ENTER;
-	        leavingView.state = STATE_TRANS_LEAVE;
-	        // everything during the transition should runOutsideAngular
-	        this._zone.runOutsideAngular(function () {
-	            // init the transition animation
-	            var transitionOpts = {
-	                animation: opts.animation,
-	                direction: opts.direction,
-	                duration: opts.duration,
-	                easing: opts.easing,
-	                renderDelay: opts.transitionDelay || _this._trnsDelay,
-	                isRTL: _this.config.platform.isRTL(),
-	                ev: opts.ev,
-	            };
-	            var transAnimation = _this._createTrans(enteringView, leavingView, transitionOpts);
-	            _this._trans && _this._trans.destroy();
-	            _this._trans = transAnimation;
-	            if (opts.animate === false) {
-	                // force it to not animate the elements, just apply the "to" styles
-	                transAnimation.duration(0);
-	            }
-	            // check if a parent is transitioning and get the time that it ends
-	            var parentTransitionEndTime = _this._getLongestTrans(Date.now());
-	            if (parentTransitionEndTime > 0) {
-	                // the parent is already transitioning and has disabled the app
-	                // so just update the local transitioning information
-	                var duration = parentTransitionEndTime - Date.now();
-	                _this.setTransitioning(true, duration);
-	            }
-	            else {
-	                // this is the only active transition (for now), so disable the app
-	                var keyboardDurationPadding = 0;
-	                if (_this._keyboard.isOpen()) {
-	                    // add XXms to the duration the app is disabled when the keyboard is open
-	                    keyboardDurationPadding = 600;
-	                }
-	                var duration = transAnimation.getDuration() + keyboardDurationPadding;
-	                var enableApp = (duration < 64);
-	                _this._app.setEnabled(enableApp, duration);
-	                _this.setTransitioning(!enableApp, duration);
-	            }
-	            // create a callback for when the animation is done
-	            transAnimation.onFinish(function (trans) {
-	                // transition animation has ended
-	                // destroy the animation and it's element references
-	                trans.destroy();
-	                _this._afterTrans(enteringView, leavingView, opts, trans.hasCompleted, done);
-	            });
-	            // cool, let's do this, start the transition
-	            if (opts.progressAnimation) {
-	                // this is a swipe to go back, just get the transition progress ready
-	                // kick off the swipe animation start
-	                transAnimation.progressStart();
-	            }
-	            else {
-	                // this is a normal animation
-	                // kick it off and let it play through
-	                transAnimation.play();
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, hasCompleted, done) {
-	        // transition has completed, update each view's state
-	        // place back into the zone, run didEnter/didLeave
-	        // call the final callback when done
-	        var _this = this;
-	        // run inside of the zone again
-	        this._zone.run(function () {
-	            if (!opts.preload && hasCompleted) {
-	                if (leavingView.fireOtherLifecycles) {
-	                    // only fire entering lifecycle if the leaving
-	                    // view hasn't explicitly set not to
-	                    enteringView.fireDidEnter();
-	                    _this.viewDidEnter.emit(enteringView);
-	                    _this._app.viewDidEnter.emit(enteringView);
-	                }
-	                if (enteringView.fireOtherLifecycles && _this._init) {
-	                    // only fire leaving lifecycle if the entering
-	                    // view hasn't explicitly set not to
-	                    // and after the nav has initialized
-	                    leavingView.fireDidLeave();
-	                    _this.viewDidLeave.emit(leavingView);
-	                    _this._app.viewDidLeave.emit(leavingView);
-	                }
-	            }
-	            if (enteringView.state === STATE_INACTIVE) {
-	                // this entering view is already set to inactive, so this
-	                // transition must be canceled, so don't continue
-	                return done(hasCompleted);
-	            }
-	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
-	                // the keyboard is still open!
-	                // no problem, let's just close for them
-	                _this._keyboard.close();
-	                _this._keyboard.onClose(function () {
-	                    // keyboard has finished closing, transition complete
-	                    done(hasCompleted);
-	                }, 32);
-	            }
-	            else {
-	                // all good, transition complete
-	                done(hasCompleted);
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._transFinish = function (transId, enteringView, leavingView, direction, hasCompleted) {
-	        // a transition has completed, but not sure if it's the last one or not
-	        // check if this transition is the most recent one or not
-	        var _this = this;
-	        if (enteringView.state === STATE_CANCEL_ENTER) {
-	            // this view was told to leave before it finished entering
-	            this.remove(enteringView.index, 1);
-	        }
-	        if (transId === this._transIds) {
-	            // ok, good news, there were no other transitions that kicked
-	            // off during the time this transition started and ended
-	            if (hasCompleted) {
-	                // this transition has completed as normal
-	                // so the entering one is now the active view
-	                // and the leaving view is now just inactive
-	                if (enteringView.state !== STATE_REMOVE_AFTER_TRANS) {
-	                    enteringView.state = STATE_ACTIVE;
-	                }
-	                if (leavingView.state !== STATE_REMOVE_AFTER_TRANS) {
-	                    leavingView.state = STATE_INACTIVE;
-	                }
-	                // only need to do all this clean up if the transition
-	                // completed, otherwise nothing actually changed
-	                // destroy all of the views that come after the active view
-	                this._cleanup();
-	                // make sure only this entering view and PREVIOUS view are the
-	                // only two views that are not display:none
-	                // do not make any changes to the stack's current visibility
-	                // if there is an overlay somewhere in the stack
-	                leavingView = this.getPrevious(enteringView);
-	                if (this.hasOverlay()) {
-	                    // ensure the entering view is showing
-	                    enteringView.domShow(true, this._renderer);
-	                }
-	                else {
-	                    // only possibly hide a view if there are no overlays in the stack
-	                    this._views.forEach(function (view) {
-	                        var shouldShow = (view === enteringView) || (view === leavingView);
-	                        view.domShow(shouldShow, _this._renderer);
-	                    });
-	                }
-	                // this check only needs to happen once, which will add the css
-	                // class to the nav when it's finished its first transition
-	                this._init = true;
-	            }
-	            else {
-	                // this transition has not completed, meaning the
-	                // entering view did not end up as the active view
-	                // this would happen when swipe to go back started
-	                // but the user did not complete the swipe and the
-	                // what was the active view stayed as the active view
-	                leavingView.state = STATE_ACTIVE;
-	                enteringView.state = STATE_INACTIVE;
-	            }
-	            // check if there is a parent actively transitioning
-	            var transitionEndTime = this._getLongestTrans(Date.now());
-	            // if transitionEndTime is greater than 0, there is a parent transition occurring
-	            // so delegate enabling the app to the parent.  If it <= 0, go ahead and enable the app
-	            if (transitionEndTime <= 0) {
-	                this._app && this._app.setEnabled(true);
-	            }
-	            // update that this nav is not longer actively transitioning
-	            this.setTransitioning(false);
-	            // see if we should add the swipe back gesture listeners or not
-	            this._sbCheck();
-	        }
-	        else {
-	            // darn, so this wasn't the most recent transition
-	            // so while this one did end, there's another more recent one
-	            // still going on. Because a new transition is happening,
-	            // then this entering view isn't actually going to be the active
-	            // one, so only update the state to active/inactive if the state
-	            // wasn't already updated somewhere else during its transition
-	            if (enteringView.state === STATE_TRANS_ENTER) {
-	                enteringView.state = STATE_INACTIVE;
-	            }
-	            if (leavingView.state === STATE_TRANS_LEAVE) {
-	                leavingView.state = STATE_INACTIVE;
-	            }
-	        }
-	    };
-	    /**
-	     *@private
-	     * This method is just a wrapper to the Transition function of same name
-	     * to make it easy/possible to mock the method call by overriding the function.
-	     * In testing we don't want to actually do the animation, we want to return a stub instead
-	     */
-	    NavController.prototype._createTrans = function (enteringView, leavingView, transitionOpts) {
-	        return transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
-	    };
-	    NavController.prototype._cleanup = function () {
-	        var _this = this;
-	        // ok, cleanup time!! Destroy all of the views that are
-	        // INACTIVE and come after the active view
-	        var activeViewIndex = this.indexOf(this.getActive());
-	        var destroys = this._views.filter(function (v) { return v.state === STATE_REMOVE_AFTER_TRANS; });
-	        for (var i = activeViewIndex + 1; i < this._views.length; i++) {
-	            if (this._views[i].state === STATE_INACTIVE) {
-	                destroys.push(this._views[i]);
-	            }
-	        }
-	        // all pages being destroyed should be removed from the list of
-	        // pages and completely removed from the dom
-	        destroys.forEach(function (view) {
-	            _this._views.splice(_this.indexOf(view), 1);
-	            view.destroy();
-	            _this.viewDidUnload.emit(view);
-	            _this._app.viewDidUnload.emit(view);
-	        });
-	        // if any z-index goes under 0, then reset them all
-	        var shouldResetZIndex = this._views.some(function (v) { return v.zIndex < 0; });
-	        if (shouldResetZIndex) {
-	            this._views.forEach(function (view) {
-	                view.setZIndex(view.zIndex + INIT_ZINDEX + 1, _this._renderer);
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.getActiveChildNav = function () {
-	        return this._children[this._children.length - 1];
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.registerChildNav = function (nav) {
-	        this._children.push(nav);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.unregisterChildNav = function (nav) {
-	        var index = this._children.indexOf(nav);
-	        if (index > -1) {
-	            this._children.splice(index, 1);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.ngOnDestroy = function () {
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            this._views[i].destroy();
-	        }
-	        this._views.length = 0;
-	        if (this.parent && this.parent.unregisterChildNav) {
-	            this.parent.unregisterChildNav(this);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.loadPage = function (view, viewport, opts, done) {
-	        var _this = this;
-	        if (!viewport || !view.componentType) {
-	            return;
-	        }
-	        // TEMPORARY: automatically set selector w/ dah reflector
-	        // TODO: use componentFactory.create once fixed
-	        bootstrap_1.addSelector(view.componentType, 'ion-page');
-	        this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
-	            if (view.state === STATE_CANCEL_ENTER) {
-	                // view may have already been removed from the stack
-	                // if so, don't even bother adding it
-	                view.destroy();
-	                _this._views.splice(view.index, 1);
-	                return;
-	            }
-	            // add more providers to just this page
-	            var componentProviders = core_1.ReflectiveInjector.resolve([
-	                core_1.provide(NavController, { useValue: _this }),
-	                core_1.provide(view_controller_1.ViewController, { useValue: view }),
-	                core_1.provide(nav_params_1.NavParams, { useValue: view.getNavParams() })
-	            ]);
-	            var childInjector = core_1.ReflectiveInjector.fromResolvedProviders(componentProviders, _this._viewport.parentInjector);
-	            var componentRef = componentFactory.create(childInjector, null, null);
-	            viewport.insert(componentRef.hostView, viewport.length);
-	            // a new ComponentRef has been created
-	            // set the ComponentRef's instance to its ViewController
-	            view.setInstance(componentRef.instance);
-	            // the component has been loaded, so call the view controller's loaded method to load any dependencies into the dom
-	            view.loaded(function () {
-	                // the ElementRef of the actual ion-page created
-	                var pageElementRef = componentRef.location;
-	                // remember the ChangeDetectorRef for this ViewController
-	                view.setChangeDetector(componentRef.changeDetectorRef);
-	                // remember the ElementRef to the ion-page elementRef that was just created
-	                view.setPageRef(pageElementRef);
-	                // auto-add page css className created from component JS class name
-	                var cssClassName = util_1.pascalCaseToDashCase(view.componentType.name);
-	                _this._renderer.setElementClass(pageElementRef.nativeElement, cssClassName, true);
-	                view.onDestroy(function () {
-	                    // ensure the element is cleaned up for when the view pool reuses this element
-	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'class', null);
-	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
-	                    componentRef.destroy();
-	                });
-	                // our job is done here
-	                done(view);
-	            });
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.swipeBackStart = function () {
-	        // default the direction to "back"
-	        var opts = {
-	            direction: exports.DIRECTION_BACK,
-	            progressAnimation: true
-	        };
-	        // figure out the states of each view in the stack
-	        var leavingView = this._remove(this._views.length - 1, 1);
-	        if (leavingView) {
-	            opts.animation = leavingView.getTransitionName(opts.direction);
-	            // get the view thats ready to enter
-	            var enteringView = this.getByState(STATE_INIT_ENTER);
-	            // start the transition, fire callback when done...
-	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-	                // swipe back has finished!!
-	                console.debug('swipeBack, hasCompleted', hasCompleted);
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.swipeBackProgress = function (stepValue) {
-	        if (this._trans && this._sbGesture) {
-	            // continue to disable the app while actively dragging
-	            this._app.setEnabled(false, 4000);
-	            this.setTransitioning(true, 4000);
-	            // set the transition animation's progress
-	            this._trans.progressStep(stepValue);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
-	        if (this._trans && this._sbGesture) {
-	            // the swipe back gesture has ended
-	            this._trans.progressEnd(shouldComplete, currentStepValue);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._sbCheck = function () {
-	        var _this = this;
-	        if (this._sbEnabled) {
-	            // this nav controller can have swipe to go back
-	            if (!this._sbGesture) {
-	                // create the swipe back gesture if we haven't already
-	                var opts = {
-	                    edge: 'left',
-	                    threshold: this._sbThreshold
-	                };
-	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, this._gestureCtrl);
-	            }
-	            if (this.canSwipeBack()) {
-	                // it is be possible to swipe back
-	                if (!this._sbGesture.isListening) {
-	                    this._zone.runOutsideAngular(function () {
-	                        // start listening if it's not already
-	                        console.debug('swipeBack gesture, listen');
-	                        _this._sbGesture.listen();
-	                    });
-	                }
-	            }
-	            else if (this._sbGesture.isListening) {
-	                // it should not be possible to swipe back
-	                // but the gesture is still listening
-	                console.debug('swipeBack gesture, unlisten');
-	                this._sbGesture.unlisten();
-	            }
-	        }
-	    };
-	    /**
-	     * If it's possible to use swipe back or not. If it's not possible
-	     * to go back, or swipe back is not enabled, then this will return `false`.
-	     * If it is possible to go back, and swipe back is enabled, then this
-	     * will return `true`.
-	     * @returns {boolean}
-	     */
-	    NavController.prototype.canSwipeBack = function () {
-	        return (this._sbEnabled && !this.isTransitioning() && this._app.isEnabled() && this.canGoBack());
-	    };
-	    /**
-	     * Returns `true` if there's a valid previous page that we can pop
-	     * back to. Otherwise returns `false`.
-	     * @returns {boolean}
-	     */
-	    NavController.prototype.canGoBack = function () {
-	        var activeView = this.getActive();
-	        if (activeView) {
-	            return activeView.enableBack();
-	        }
-	        return false;
-	    };
-	    /**
-	     * Returns if the nav controller is actively transitioning or not.
-	     * @return {boolean}
-	     */
-	    NavController.prototype.isTransitioning = function (includeAncestors) {
-	        var now = Date.now();
-	        if (includeAncestors && this._getLongestTrans(now) > 0) {
-	            return true;
-	        }
-	        return (this.trnsTime > now);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
-	        if (fallback === void 0) { fallback = 700; }
-	        this.trnsTime = (isTransitioning ? Date.now() + fallback : 0);
-	    };
-	    /**
-	     * @private
-	     * This method traverses the tree of parents upwards
-	     * and looks at the time the transition ends (if it's transitioning)
-	     * and returns the value that is the furthest into the future
-	     * thus giving us the longest transition duration
-	     */
-	    NavController.prototype._getLongestTrans = function (now) {
-	        var parentNav = this.parent;
-	        var transitionEndTime = -1;
-	        while (parentNav) {
-	            if (parentNav.trnsTime > transitionEndTime) {
-	                transitionEndTime = parentNav.trnsTime;
-	            }
-	            parentNav = parentNav.parent;
-	        }
-	        // only check if the transitionTime is greater than the current time once
-	        return transitionEndTime > 0 && transitionEndTime > now ? transitionEndTime : 0;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.hasOverlay = function () {
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            if (this._views[i].isOverlay) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.getByState = function (state) {
-	        for (var i = this._views.length - 1; i >= 0; i--) {
-	            if (this._views[i].state === state) {
-	                return this._views[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @param {number} index  The index of the page to get.
-	     * @returns {ViewController} Returns the view controller that matches the given index.
-	     */
-	    NavController.prototype.getByIndex = function (index) {
-	        return (index < this._views.length && index > -1 ? this._views[index] : null);
-	    };
-	    /**
-	     * @returns {ViewController} Returns the active page's view controller.
-	     */
-	    NavController.prototype.getActive = function () {
-	        return this.getByState(STATE_ACTIVE);
-	    };
-	    /**
-	     * @param {ViewController} view
-	     * @returns {boolean}
-	     */
-	    NavController.prototype.isActive = function (view) {
-	        return !!(view && view.state === STATE_ACTIVE);
-	    };
-	    /**
-	     * Returns the view controller which is before the given view controller.
-	     * @param {ViewController} view
-	     * @returns {viewController}
-	     */
-	    NavController.prototype.getPrevious = function (view) {
-	        return this.getByIndex(this.indexOf(view) - 1);
-	    };
-	    /**
-	     * Returns the first view controller in this nav controller's stack.
-	     * @returns {ViewController}
-	     */
-	    NavController.prototype.first = function () {
-	        return (this._views.length ? this._views[0] : null);
-	    };
-	    /**
-	     * Returns the last page in this nav controller's stack.
-	     * @returns {ViewController}
-	     */
-	    NavController.prototype.last = function () {
-	        return (this._views.length ? this._views[this._views.length - 1] : null);
-	    };
-	    /**
-	     * Returns the index number of the given view controller.
-	     * @param {ViewController} view
-	     * @returns {number}
-	     */
-	    NavController.prototype.indexOf = function (view) {
-	        return this._views.indexOf(view);
-	    };
-	    /**
-	     * Returns the number of views in this nav controller.
-	     * @returns {number} The number of views in this stack, including the current view.
-	     */
-	    NavController.prototype.length = function () {
-	        return this._views.length;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.isSwipeBackEnabled = function () {
-	        return this._sbEnabled;
-	    };
-	    Object.defineProperty(NavController.prototype, "rootNav", {
-	        /**
-	         * Returns the root `NavController`.
-	         * @returns {NavController}
-	         */
-	        get: function () {
-	            var nav = this;
-	            while (nav.parent) {
-	                nav = nav.parent;
-	            }
-	            return nav;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     * Dismiss all pages which have set the `dismissOnPageChange` property.
-	     */
-	    NavController.prototype.dismissPageChangeViews = function () {
-	        this._views.forEach(function (view) {
-	            if (view.data && view.data.dismissOnPageChange) {
-	                view.dismiss();
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._setZIndex = function (enteringView, leavingView, direction) {
-	        if (enteringView) {
-	            // get the leaving view, which could be in various states
-	            if (!leavingView || !leavingView.isLoaded()) {
-	                // the leavingView is a mocked view, either we're
-	                // actively transitioning or it's the initial load
-	                var previousView = this.getPrevious(enteringView);
-	                if (previousView && previousView.isLoaded()) {
-	                    // we found a better previous view to reference
-	                    // use this one instead
-	                    enteringView.setZIndex(previousView.zIndex + 1, this._renderer);
-	                }
-	                else {
-	                    // this is the initial view
-	                    enteringView.setZIndex(this.isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
-	                }
-	            }
-	            else if (direction === exports.DIRECTION_BACK) {
-	                // moving back
-	                enteringView.setZIndex(leavingView.zIndex - 1, this._renderer);
-	            }
-	            else {
-	                // moving forward
-	                enteringView.setZIndex(leavingView.zIndex + 1, this._renderer);
-	            }
-	        }
-	    };
-	    return NavController;
-	}(ion_1.Ion));
-	exports.NavController = NavController;
-	var STATE_ACTIVE = 1;
-	var STATE_INACTIVE = 2;
-	var STATE_INIT_ENTER = 3;
-	var STATE_INIT_LEAVE = 4;
-	var STATE_TRANS_ENTER = 5;
-	var STATE_TRANS_LEAVE = 6;
-	var STATE_REMOVE = 7;
-	var STATE_REMOVE_AFTER_TRANS = 8;
-	var STATE_CANCEL_ENTER = 9;
-	var STATE_FORCE_ACTIVE = 10;
-	exports.DIRECTION_BACK = 'back';
-	exports.DIRECTION_FORWARD = 'forward';
-	var INIT_ZINDEX = 100;
-	var PORTAL_ZINDEX = 9999;
-	var ctrlIds = -1;
-
-/***/ },
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var dom_1 = __webpack_require__(337);
-	var ids = 0;
-	/**
-	 * Base class for all Ionic components. Exposes some common functionality
-	 * that all Ionic components need, such as accessing underlying native elements and
-	 * sending/receiving app-level events.
-	 */
-	var Ion = (function () {
-	    function Ion(elementRef) {
-	        this.elementRef = elementRef;
-	        this._id = 'i' + ids++;
-	    }
-	    Ion.prototype.getElementRef = function () {
-	        return this.elementRef;
-	    };
-	    Ion.prototype.getNativeElement = function () {
-	        return this.elementRef.nativeElement;
-	    };
-	    Ion.prototype.getDimensions = function () {
-	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id);
-	    };
-	    Ion.prototype.width = function () {
-	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).width;
-	    };
-	    Ion.prototype.height = function () {
-	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).height;
-	    };
-	    Ion.prototype.ngOnDestroy = function () {
-	        dom_1.clearDimensions(this._id);
-	    };
-	    return Ion;
-	}());
-	exports.Ion = Ion;
-
-/***/ },
 /* 348 */
-/***/ function(module, exports) {
-
-	"use strict";
-	/**
-	 * @name NavParams
-	 * @description
-	 * NavParams are an object that exists on a page and can contain data for that particular view.
-	 * Similar to how data was pass to a view in V1 with `$stateParams`, NavParams offer a much more flexible
-	 * option with a simple `get` method.
-	 *
-	 * @usage
-	 * ```ts
-	 * export class MyClass{
-	 *  constructor(private params: NavParams){
-	 *    // userParams is an object we have in our nav-parameters
-	 *    this.params.get('userParams');
-	 *  }
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/nav-params/
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../NavController/ NavController API Docs}
-	 * @see {@link ../Nav/ Nav API Docs}
-	 * @see {@link ../NavPush/ NavPush API Docs}
-	 */
-	var NavParams = (function () {
-	    /**
-	     * @private
-	     * @param {TODO} data  TODO
-	     */
-	    function NavParams(data) {
-	        if (data === void 0) { data = {}; }
-	        this.data = data;
-	    }
-	    /**
-	     * Get the value of a nav-parameter for the current view
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(private params: NavParams){
-	     *    // userParams is an object we have in our nav-parameters
-	     *    this.params.get('userParams');
-	     *  }
-	     * }
-	     * ```
-	     *
-	     *
-	     * @param {string} parameter Which param you want to look up
-	     */
-	    NavParams.prototype.get = function (param) {
-	        return this.data[param];
-	    };
-	    return NavParams;
-	}());
-	exports.NavParams = NavParams;
-
-/***/ },
-/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55818,58 +55412,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var util_1 = __webpack_require__(340);
-	var gesture_controller_1 = __webpack_require__(342);
-	var slide_edge_gesture_1 = __webpack_require__(350);
-	var SwipeBackGesture = (function (_super) {
-	    __extends(SwipeBackGesture, _super);
-	    function SwipeBackGesture(element, options, _nav, gestureCtlr) {
-	        _super.call(this, element, util_1.assign({
-	            direction: 'x',
-	            maxEdgeStart: 75,
-	            gesture: gestureCtlr.create('goback-swipe', {
-	                priority: gesture_controller_1.GesturePriority.GoBackSwipe,
-	            })
-	        }, options));
-	        this._nav = _nav;
-	    }
-	    SwipeBackGesture.prototype.canStart = function (ev) {
-	        // the gesture swipe angle must be mainly horizontal and the
-	        // gesture distance would be relatively short for a swipe back
-	        // and swipe back must be possible on this nav controller
-	        return (this._nav.canSwipeBack() &&
-	            _super.prototype.canStart.call(this, ev));
-	    };
-	    SwipeBackGesture.prototype.onSlideBeforeStart = function (slideData, ev) {
-	        console.debug('swipeBack, onSlideBeforeStart', ev.type);
-	        this._nav.swipeBackStart();
-	    };
-	    SwipeBackGesture.prototype.onSlide = function (slide) {
-	        var stepValue = (slide.distance / slide.max);
-	        console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
-	        this._nav.swipeBackProgress(stepValue);
-	    };
-	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
-	        var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        var currentStepValue = (slide.distance / slide.max);
-	        console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
-	        this._nav.swipeBackEnd(shouldComplete, currentStepValue);
-	    };
-	    return SwipeBackGesture;
-	}(slide_edge_gesture_1.SlideEdgeGesture));
-	exports.SwipeBackGesture = SwipeBackGesture;
-
-/***/ },
-/* 350 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var slide_gesture_1 = __webpack_require__(351);
+	var slide_gesture_1 = __webpack_require__(349);
 	var util_1 = __webpack_require__(340);
 	var dom_1 = __webpack_require__(337);
 	/**
@@ -55915,7 +55458,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 351 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55924,8 +55467,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var drag_gesture_1 = __webpack_require__(352);
-	var util_1 = __webpack_require__(353);
+	var drag_gesture_1 = __webpack_require__(350);
+	var util_1 = __webpack_require__(351);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -55995,13 +55538,13 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 352 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var util_1 = __webpack_require__(353);
-	var ui_event_manager_1 = __webpack_require__(355);
-	var recognizers_1 = __webpack_require__(356);
+	var util_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(353);
+	var recognizers_1 = __webpack_require__(354);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -56117,7 +55660,7 @@
 	exports.PanGesture = PanGesture;
 
 /***/ },
-/* 353 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56127,10 +55670,10 @@
 	var domUtil = __webpack_require__(337);
 	exports.dom = domUtil;
 	__export(__webpack_require__(340));
-	__export(__webpack_require__(354));
+	__export(__webpack_require__(352));
 
 /***/ },
-/* 354 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56569,7 +56112,7 @@
 	];
 
 /***/ },
-/* 355 */
+/* 353 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56728,7 +56271,7 @@
 	}
 
 /***/ },
-/* 356 */
+/* 354 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56786,7 +56329,7 @@
 	exports.PanRecognizer = PanRecognizer;
 
 /***/ },
-/* 357 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56795,7 +56338,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
+	var animation_1 = __webpack_require__(356);
 	/**
 	 * @private
 	 *
@@ -56836,7 +56379,7 @@
 	var TransitionRegistry = {};
 
 /***/ },
-/* 358 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57722,7 +57265,7 @@
 	var AnimationRegistry = {};
 
 /***/ },
-/* 359 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57737,7 +57280,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(340);
-	var nav_params_1 = __webpack_require__(348);
+	var nav_params_1 = __webpack_require__(345);
 	/**
 	 * @name ViewController
 	 * @description
@@ -58246,35 +57789,366 @@
 	}
 
 /***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var app_1 = __webpack_require__(335);
+	var config_1 = __webpack_require__(338);
+	var gesture_controller_1 = __webpack_require__(347);
+	var keyboard_1 = __webpack_require__(359);
+	var nav_controller_base_1 = __webpack_require__(341);
+	/**
+	 * @private
+	 */
+	var NavPortal = (function (_super) {
+	    __extends(NavPortal, _super);
+	    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl, viewPort) {
+	        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
+	        this._isPortal = true;
+	        this.setViewport(viewPort);
+	        app.setPortal(this);
+	        // on every page change make sure the portal has
+	        // dismissed any views that should be auto dismissed on page change
+	        app.viewDidLeave.subscribe(this.dismissPageChangeViews.bind(this));
+	    }
+	    NavPortal = __decorate([
+	        core_1.Directive({
+	            selector: '[nav-portal]'
+	        }),
+	        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _g) || Object, (typeof (_h = typeof gesture_controller_1.GestureController !== 'undefined' && gesture_controller_1.GestureController) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _j) || Object])
+	    ], NavPortal);
+	    return NavPortal;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	}(nav_controller_base_1.NavControllerBase));
+	exports.NavPortal = NavPortal;
+
+/***/ },
+/* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(6);
+	var config_1 = __webpack_require__(338);
+	var form_1 = __webpack_require__(360);
+	var dom_1 = __webpack_require__(337);
+	var key_1 = __webpack_require__(361);
+	/**
+	 * @name Keyboard
+	 * @description
+	 * The `Keyboard` class allows you to work with the keyboard events provided by the Ionic keyboard plugin.
+	 *
+	 * @usage
+	 * ```ts
+	 * export class MyClass{
+	 *  constructor(keyboard: Keyboard){
+	 *    this.keyboard = keyboard;
+	 *  }
+	 * }
+	 *
+	 * ```
+	 */
+	var Keyboard = (function () {
+	    function Keyboard(config, _form, _zone) {
+	        var _this = this;
+	        this._form = _form;
+	        this._zone = _zone;
+	        _zone.runOutsideAngular(function () {
+	            _this.focusOutline(config.get('focusOutline'), document);
+	        });
+	    }
+	    /**
+	     * Check to see if the keyboard is open or not.
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(keyboard: Keyboard){
+	     *    this.keyboard = keyboard;
+	     *  }
+	     *  keyboardCheck(){
+	     *    setTimeout(()  => console.log('is the keyboard open ', this.keyboard.isOpen()));
+	     *  }
+	     * }
+	     *
+	     * ```
+	     *
+	     * @return {boolean} returns a true or flase value if the keyboard is open or not
+	     */
+	    Keyboard.prototype.isOpen = function () {
+	        return dom_1.hasFocusedTextInput();
+	    };
+	    /**
+	     * When the keyboard is closed, call any methods you want
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(keyboard: Keyboard){
+	     *    this.keyboard = keyboard;
+	     *    this.keyboard.onClose(this.closeCallback);
+	     *  }
+	     *  closeCallback(){
+	     *     // call what ever functionality you want on keyboard close
+	     *     console.log('Closing time');
+	     *  }
+	     * }
+	     *
+	     * ```
+	     * @param {function} callback method you want to call when the keyboard has been closed
+	     * @return {function} returns a callback that gets fired when the keyboard is closed
+	     */
+	    Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
+	        if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
+	        if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
+	        console.debug('keyboard onClose');
+	        var self = this;
+	        var checks = 0;
+	        var promise = null;
+	        if (!callback) {
+	            // a callback wasn't provided, so let's return a promise instead
+	            promise = new Promise(function (resolve) { callback = resolve; });
+	        }
+	        function checkKeyboard() {
+	            console.debug('keyboard isOpen', self.isOpen());
+	            if (!self.isOpen() || checks > pollingChecksMax) {
+	                dom_1.rafFrames(30, function () {
+	                    self._zone.run(function () {
+	                        console.debug('keyboard closed');
+	                        callback();
+	                    });
+	                });
+	            }
+	            else {
+	                dom_1.nativeTimeout(checkKeyboard, pollingInternval);
+	            }
+	            checks++;
+	        }
+	        dom_1.nativeTimeout(checkKeyboard, pollingInternval);
+	        return promise;
+	    };
+	    /**
+	     * Programmatically close the keyboard
+	     *
+	     */
+	    Keyboard.prototype.close = function () {
+	        var _this = this;
+	        console.debug('keyboard close()');
+	        dom_1.nativeRaf(function () {
+	            if (dom_1.hasFocusedTextInput()) {
+	                // only focus out when a text input has focus
+	                _this._form.focusOut();
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    Keyboard.prototype.focusOutline = function (setting, document) {
+	        /* Focus Outline
+	         * --------------------------------------------------
+	         * By default, when a keydown event happens from a tab key, then
+	         * the 'focus-outline' css class is added to the body element
+	         * so focusable elements have an outline. On a mousedown or
+	         * touchstart event, then the 'focus-outline' css class is removed.
+	         *
+	         * Config default overrides:
+	         * focusOutline: true     - Always add the focus-outline
+	         * focusOutline: false    - Do not add the focus-outline
+	         */
+	        var self = this;
+	        var isKeyInputEnabled = false;
+	        function cssClass() {
+	            dom_1.nativeRaf(function () {
+	                document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('focus-outline');
+	            });
+	        }
+	        if (setting === true) {
+	            isKeyInputEnabled = true;
+	            return cssClass();
+	        }
+	        else if (setting === false) {
+	            return;
+	        }
+	        // default is to add the focus-outline when the tab key is used
+	        function keyDown(ev) {
+	            if (!isKeyInputEnabled && ev.keyCode === key_1.Key.TAB) {
+	                isKeyInputEnabled = true;
+	                enableKeyInput();
+	            }
+	        }
+	        function pointerDown() {
+	            isKeyInputEnabled = false;
+	            enableKeyInput();
+	        }
+	        function enableKeyInput() {
+	            cssClass();
+	            self._zone.runOutsideAngular(function () {
+	                document.removeEventListener('mousedown', pointerDown);
+	                document.removeEventListener('touchstart', pointerDown);
+	                if (isKeyInputEnabled) {
+	                    document.addEventListener('mousedown', pointerDown);
+	                    document.addEventListener('touchstart', pointerDown);
+	                }
+	            });
+	        }
+	        document.addEventListener('keydown', keyDown);
+	    };
+	    Keyboard = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	    ], Keyboard);
+	    return Keyboard;
+	    var _a, _b, _c;
+	}());
+	exports.Keyboard = Keyboard;
+	var KEYBOARD_CLOSE_POLLING = 150;
+	var KEYBOARD_POLLING_CHECKS_MAX = 100;
+
+/***/ },
 /* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
-	var http_1 = __webpack_require__(398);
-	var action_sheet_1 = __webpack_require__(419);
-	var alert_1 = __webpack_require__(423);
+	/**
+	 * @private
+	 */
+	var Form = (function () {
+	    function Form() {
+	        this._focused = null;
+	        this._ids = -1;
+	        this._inputs = [];
+	    }
+	    Form.prototype.register = function (input) {
+	        this._inputs.push(input);
+	    };
+	    Form.prototype.deregister = function (input) {
+	        var index = this._inputs.indexOf(input);
+	        if (index > -1) {
+	            this._inputs.splice(index, 1);
+	        }
+	        if (input === this._focused) {
+	            this._focused = null;
+	        }
+	    };
+	    Form.prototype.focusOut = function () {
+	        var activeElement = document.activeElement;
+	        activeElement && activeElement.blur && activeElement.blur();
+	    };
+	    Form.prototype.setAsFocused = function (input) {
+	        this._focused = input;
+	    };
+	    /**
+	     * Focuses the next input element, if it exists.
+	     */
+	    Form.prototype.tabFocus = function (currentInput) {
+	        var index = this._inputs.indexOf(currentInput);
+	        if (index > -1 && (index + 1) < this._inputs.length) {
+	            var nextInput = this._inputs[index + 1];
+	            if (nextInput !== this._focused) {
+	                console.debug('tabFocus, next');
+	                return nextInput.initFocus();
+	            }
+	        }
+	        index = this._inputs.indexOf(this._focused);
+	        if (index > 0) {
+	            var previousInput = this._inputs[index - 1];
+	            if (previousInput) {
+	                console.debug('tabFocus, previous');
+	                previousInput.initFocus();
+	            }
+	        }
+	    };
+	    Form.prototype.nextId = function () {
+	        return ++this._ids;
+	    };
+	    Form = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Form);
+	    return Form;
+	}());
+	exports.Form = Form;
+
+/***/ },
+/* 361 */
+/***/ function(module, exports) {
+
+	"use strict";
+	(function (Key) {
+	    Key[Key["ENTER"] = 13] = "ENTER";
+	    Key[Key["ESCAPE"] = 27] = "ESCAPE";
+	    Key[Key["TAB"] = 9] = "TAB";
+	})(exports.Key || (exports.Key = {}));
+	var Key = exports.Key;
+	;
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var core_1 = __webpack_require__(6);
+	var forms_1 = __webpack_require__(363);
+	var http_1 = __webpack_require__(400);
+	var action_sheet_1 = __webpack_require__(421);
+	var alert_1 = __webpack_require__(425);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
-	var events_1 = __webpack_require__(425);
-	var feature_detect_1 = __webpack_require__(426);
-	var form_1 = __webpack_require__(344);
-	var gesture_controller_1 = __webpack_require__(342);
-	var directives_1 = __webpack_require__(427);
+	var events_1 = __webpack_require__(427);
+	var feature_detect_1 = __webpack_require__(428);
+	var form_1 = __webpack_require__(360);
+	var gesture_controller_1 = __webpack_require__(347);
+	var directives_1 = __webpack_require__(429);
 	var util_1 = __webpack_require__(340);
-	var keyboard_1 = __webpack_require__(343);
-	var loading_1 = __webpack_require__(487);
-	var menu_controller_1 = __webpack_require__(430);
-	var modal_1 = __webpack_require__(489);
-	var picker_1 = __webpack_require__(470);
+	var keyboard_1 = __webpack_require__(359);
+	var loading_1 = __webpack_require__(489);
+	var menu_controller_1 = __webpack_require__(432);
+	var modal_1 = __webpack_require__(491);
+	var picker_1 = __webpack_require__(472);
 	var platform_1 = __webpack_require__(339);
-	var popover_1 = __webpack_require__(492);
-	var scroll_view_1 = __webpack_require__(438);
-	var tap_click_1 = __webpack_require__(494);
-	var toast_1 = __webpack_require__(497);
-	var translate_1 = __webpack_require__(499);
+	var popover_1 = __webpack_require__(494);
+	var scroll_view_1 = __webpack_require__(440);
+	var tap_click_1 = __webpack_require__(496);
+	var toast_1 = __webpack_require__(499);
+	var translate_1 = __webpack_require__(501);
 	/**
 	 * @private
 	 */
@@ -58403,7 +58277,7 @@
 	}
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58417,11 +58291,11 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(362));
+	__export(__webpack_require__(364));
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58448,63 +58322,63 @@
 	 * Forms providers are not included in default providers; you must import these providers
 	 * explicitly.
 	 */
-	var directives_1 = __webpack_require__(363);
+	var directives_1 = __webpack_require__(365);
 	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
 	exports.REACTIVE_FORM_DIRECTIVES = directives_1.REACTIVE_FORM_DIRECTIVES;
-	var abstract_control_directive_1 = __webpack_require__(374);
+	var abstract_control_directive_1 = __webpack_require__(376);
 	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-	var checkbox_value_accessor_1 = __webpack_require__(364);
+	var checkbox_value_accessor_1 = __webpack_require__(366);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-	var control_container_1 = __webpack_require__(386);
+	var control_container_1 = __webpack_require__(388);
 	exports.ControlContainer = control_container_1.ControlContainer;
-	var control_value_accessor_1 = __webpack_require__(365);
+	var control_value_accessor_1 = __webpack_require__(367);
 	exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
-	var default_value_accessor_1 = __webpack_require__(366);
+	var default_value_accessor_1 = __webpack_require__(368);
 	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-	var ng_control_1 = __webpack_require__(369);
+	var ng_control_1 = __webpack_require__(371);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_status_1 = __webpack_require__(368);
+	var ng_control_status_1 = __webpack_require__(370);
 	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-	var ng_form_1 = __webpack_require__(375);
+	var ng_form_1 = __webpack_require__(377);
 	exports.NgForm = ng_form_1.NgForm;
-	var ng_model_1 = __webpack_require__(387);
+	var ng_model_1 = __webpack_require__(389);
 	exports.NgModel = ng_model_1.NgModel;
-	var ng_model_group_1 = __webpack_require__(388);
+	var ng_model_group_1 = __webpack_require__(390);
 	exports.NgModelGroup = ng_model_group_1.NgModelGroup;
-	var form_array_name_1 = __webpack_require__(390);
+	var form_array_name_1 = __webpack_require__(392);
 	exports.FormArrayName = form_array_name_1.FormArrayName;
-	var form_control_directive_1 = __webpack_require__(391);
+	var form_control_directive_1 = __webpack_require__(393);
 	exports.FormControlDirective = form_control_directive_1.FormControlDirective;
-	var form_control_name_1 = __webpack_require__(392);
+	var form_control_name_1 = __webpack_require__(394);
 	exports.FormControlName = form_control_name_1.FormControlName;
-	var form_group_directive_1 = __webpack_require__(393);
+	var form_group_directive_1 = __webpack_require__(395);
 	exports.FormGroupDirective = form_group_directive_1.FormGroupDirective;
-	var form_group_name_1 = __webpack_require__(394);
+	var form_group_name_1 = __webpack_require__(396);
 	exports.FormGroupName = form_group_name_1.FormGroupName;
-	var select_control_value_accessor_1 = __webpack_require__(384);
+	var select_control_value_accessor_1 = __webpack_require__(386);
 	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
 	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-	var validators_1 = __webpack_require__(395);
+	var validators_1 = __webpack_require__(397);
 	exports.MaxLengthValidator = validators_1.MaxLengthValidator;
 	exports.MinLengthValidator = validators_1.MinLengthValidator;
 	exports.PatternValidator = validators_1.PatternValidator;
 	exports.RequiredValidator = validators_1.RequiredValidator;
-	var form_builder_1 = __webpack_require__(396);
+	var form_builder_1 = __webpack_require__(398);
 	exports.FormBuilder = form_builder_1.FormBuilder;
-	var model_1 = __webpack_require__(378);
+	var model_1 = __webpack_require__(380);
 	exports.AbstractControl = model_1.AbstractControl;
 	exports.FormArray = model_1.FormArray;
 	exports.FormControl = model_1.FormControl;
 	exports.FormGroup = model_1.FormGroup;
-	var validators_2 = __webpack_require__(380);
+	var validators_2 = __webpack_require__(382);
 	exports.NG_ASYNC_VALIDATORS = validators_2.NG_ASYNC_VALIDATORS;
 	exports.NG_VALIDATORS = validators_2.NG_VALIDATORS;
 	exports.Validators = validators_2.Validators;
-	__export(__webpack_require__(397));
+	__export(__webpack_require__(399));
 	//# sourceMappingURL=forms.js.map
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58515,57 +58389,57 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var checkbox_value_accessor_1 = __webpack_require__(364);
-	var default_value_accessor_1 = __webpack_require__(366);
-	var ng_control_status_1 = __webpack_require__(368);
-	var ng_form_1 = __webpack_require__(375);
-	var ng_model_1 = __webpack_require__(387);
-	var ng_model_group_1 = __webpack_require__(388);
-	var number_value_accessor_1 = __webpack_require__(382);
-	var radio_control_value_accessor_1 = __webpack_require__(383);
-	var form_array_name_1 = __webpack_require__(390);
-	var form_control_directive_1 = __webpack_require__(391);
-	var form_control_name_1 = __webpack_require__(392);
-	var form_group_directive_1 = __webpack_require__(393);
-	var form_group_name_1 = __webpack_require__(394);
-	var select_control_value_accessor_1 = __webpack_require__(384);
-	var select_multiple_control_value_accessor_1 = __webpack_require__(385);
-	var validators_1 = __webpack_require__(395);
-	var checkbox_value_accessor_2 = __webpack_require__(364);
+	var checkbox_value_accessor_1 = __webpack_require__(366);
+	var default_value_accessor_1 = __webpack_require__(368);
+	var ng_control_status_1 = __webpack_require__(370);
+	var ng_form_1 = __webpack_require__(377);
+	var ng_model_1 = __webpack_require__(389);
+	var ng_model_group_1 = __webpack_require__(390);
+	var number_value_accessor_1 = __webpack_require__(384);
+	var radio_control_value_accessor_1 = __webpack_require__(385);
+	var form_array_name_1 = __webpack_require__(392);
+	var form_control_directive_1 = __webpack_require__(393);
+	var form_control_name_1 = __webpack_require__(394);
+	var form_group_directive_1 = __webpack_require__(395);
+	var form_group_name_1 = __webpack_require__(396);
+	var select_control_value_accessor_1 = __webpack_require__(386);
+	var select_multiple_control_value_accessor_1 = __webpack_require__(387);
+	var validators_1 = __webpack_require__(397);
+	var checkbox_value_accessor_2 = __webpack_require__(366);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-	var default_value_accessor_2 = __webpack_require__(366);
+	var default_value_accessor_2 = __webpack_require__(368);
 	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-	var ng_control_1 = __webpack_require__(369);
+	var ng_control_1 = __webpack_require__(371);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_status_2 = __webpack_require__(368);
+	var ng_control_status_2 = __webpack_require__(370);
 	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
-	var ng_form_2 = __webpack_require__(375);
+	var ng_form_2 = __webpack_require__(377);
 	exports.NgForm = ng_form_2.NgForm;
-	var ng_model_2 = __webpack_require__(387);
+	var ng_model_2 = __webpack_require__(389);
 	exports.NgModel = ng_model_2.NgModel;
-	var ng_model_group_2 = __webpack_require__(388);
+	var ng_model_group_2 = __webpack_require__(390);
 	exports.NgModelGroup = ng_model_group_2.NgModelGroup;
-	var number_value_accessor_2 = __webpack_require__(382);
+	var number_value_accessor_2 = __webpack_require__(384);
 	exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
-	var radio_control_value_accessor_2 = __webpack_require__(383);
+	var radio_control_value_accessor_2 = __webpack_require__(385);
 	exports.RadioControlValueAccessor = radio_control_value_accessor_2.RadioControlValueAccessor;
-	var form_array_name_2 = __webpack_require__(390);
+	var form_array_name_2 = __webpack_require__(392);
 	exports.FormArrayName = form_array_name_2.FormArrayName;
-	var form_control_directive_2 = __webpack_require__(391);
+	var form_control_directive_2 = __webpack_require__(393);
 	exports.FormControlDirective = form_control_directive_2.FormControlDirective;
-	var form_control_name_2 = __webpack_require__(392);
+	var form_control_name_2 = __webpack_require__(394);
 	exports.FormControlName = form_control_name_2.FormControlName;
-	var form_group_directive_2 = __webpack_require__(393);
+	var form_group_directive_2 = __webpack_require__(395);
 	exports.FormGroupDirective = form_group_directive_2.FormGroupDirective;
-	var form_group_name_2 = __webpack_require__(394);
+	var form_group_name_2 = __webpack_require__(396);
 	exports.FormGroupName = form_group_name_2.FormGroupName;
-	var select_control_value_accessor_2 = __webpack_require__(384);
+	var select_control_value_accessor_2 = __webpack_require__(386);
 	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
 	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
-	var select_multiple_control_value_accessor_2 = __webpack_require__(385);
+	var select_multiple_control_value_accessor_2 = __webpack_require__(387);
 	exports.NgSelectMultipleOption = select_multiple_control_value_accessor_2.NgSelectMultipleOption;
 	exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_2.SelectMultipleControlValueAccessor;
-	var validators_2 = __webpack_require__(395);
+	var validators_2 = __webpack_require__(397);
 	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
 	exports.MinLengthValidator = validators_2.MinLengthValidator;
 	exports.PatternValidator = validators_2.PatternValidator;
@@ -58604,7 +58478,7 @@
 	//# sourceMappingURL=directives.js.map
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58616,7 +58490,7 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var control_value_accessor_1 = __webpack_require__(365);
+	var control_value_accessor_1 = __webpack_require__(367);
 	exports.CHECKBOX_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }),
@@ -58653,7 +58527,7 @@
 	//# sourceMappingURL=checkbox_value_accessor.js.map
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58676,7 +58550,7 @@
 	//# sourceMappingURL=control_value_accessor.js.map
 
 /***/ },
-/* 366 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58688,8 +58562,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(367);
-	var control_value_accessor_1 = __webpack_require__(365);
+	var lang_1 = __webpack_require__(369);
+	var control_value_accessor_1 = __webpack_require__(367);
 	exports.DEFAULT_VALUE_ACCESSOR = 
 	/* @ts2dart_Provider */ {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
@@ -58731,7 +58605,7 @@
 	//# sourceMappingURL=default_value_accessor.js.map
 
 /***/ },
-/* 367 */
+/* 369 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -59202,7 +59076,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 368 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59214,8 +59088,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(367);
-	var ng_control_1 = __webpack_require__(369);
+	var lang_1 = __webpack_require__(369);
+	var ng_control_1 = __webpack_require__(371);
 	var NgControlStatus = (function () {
 	    function NgControlStatus(cd) {
 	        this._cd = cd;
@@ -59286,7 +59160,7 @@
 	//# sourceMappingURL=ng_control_status.js.map
 
 /***/ },
-/* 369 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59302,8 +59176,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var exceptions_1 = __webpack_require__(370);
-	var abstract_control_directive_1 = __webpack_require__(374);
+	var exceptions_1 = __webpack_require__(372);
+	var abstract_control_directive_1 = __webpack_require__(376);
 	/**
 	 * A base class that all control directive extend.
 	 * It binds a {@link Control} object to a DOM element.
@@ -59335,7 +59209,7 @@
 	//# sourceMappingURL=ng_control.js.map
 
 /***/ },
-/* 370 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59351,9 +59225,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var base_wrapped_exception_1 = __webpack_require__(371);
-	var exception_handler_1 = __webpack_require__(372);
-	var exception_handler_2 = __webpack_require__(372);
+	var base_wrapped_exception_1 = __webpack_require__(373);
+	var exception_handler_1 = __webpack_require__(374);
+	var exception_handler_2 = __webpack_require__(374);
 	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
 	/**
 	 * @stable
@@ -59429,7 +59303,7 @@
 	//# sourceMappingURL=exceptions.js.map
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports) {
 
 	/**
@@ -59491,7 +59365,7 @@
 	//# sourceMappingURL=base_wrapped_exception.js.map
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59502,9 +59376,9 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var base_wrapped_exception_1 = __webpack_require__(371);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
+	var base_wrapped_exception_1 = __webpack_require__(373);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
 	var _ArrayLogger = (function () {
 	    function _ArrayLogger() {
 	        this.res = [];
@@ -59636,7 +59510,7 @@
 	//# sourceMappingURL=exception_handler.js.map
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -59647,7 +59521,7 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var lang_1 = __webpack_require__(367);
+	var lang_1 = __webpack_require__(369);
 	exports.Map = lang_1.global.Map;
 	exports.Set = lang_1.global.Set;
 	// Safari and Internet Explorer do not support the iterable parameter to the
@@ -60016,7 +59890,7 @@
 	//# sourceMappingURL=collection.js.map
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60027,8 +59901,8 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(370);
-	var lang_1 = __webpack_require__(367);
+	var exceptions_1 = __webpack_require__(372);
+	var lang_1 = __webpack_require__(369);
 	/**
 	 * Base class for control directives.
 	 *
@@ -60106,7 +59980,7 @@
 	//# sourceMappingURL=abstract_control_directive.js.map
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60123,13 +59997,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
-	var model_1 = __webpack_require__(378);
-	var validators_1 = __webpack_require__(380);
-	var control_container_1 = __webpack_require__(386);
-	var shared_1 = __webpack_require__(379);
+	var async_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
+	var model_1 = __webpack_require__(380);
+	var validators_1 = __webpack_require__(382);
+	var control_container_1 = __webpack_require__(388);
+	var shared_1 = __webpack_require__(381);
 	exports.formDirectiveProvider = 
 	/*@ts2dart_const*/ { provide: control_container_1.ControlContainer, useExisting: core_1.forwardRef(function () { return NgForm; }) };
 	var NgForm = (function (_super) {
@@ -60244,7 +60118,7 @@
 	//# sourceMappingURL=ng_form.js.map
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60263,12 +60137,12 @@
 	var Subject_1 = __webpack_require__(38);
 	var PromiseObservable_1 = __webpack_require__(57);
 	var toPromise_1 = __webpack_require__(58);
-	var lang_1 = __webpack_require__(367);
+	var lang_1 = __webpack_require__(369);
 	var Observable_1 = __webpack_require__(39);
 	exports.Observable = Observable_1.Observable;
 	var Subject_2 = __webpack_require__(38);
 	exports.Subject = Subject_2.Subject;
-	var promise_1 = __webpack_require__(377);
+	var promise_1 = __webpack_require__(379);
 	exports.PromiseCompleter = promise_1.PromiseCompleter;
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	var TimerWrapper = (function () {
@@ -60416,7 +60290,7 @@
 	//# sourceMappingURL=async.js.map
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports) {
 
 	/**
@@ -60476,7 +60350,7 @@
 	//# sourceMappingURL=promise.js.map
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -60492,10 +60366,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var shared_1 = __webpack_require__(379);
-	var async_1 = __webpack_require__(376);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
+	var shared_1 = __webpack_require__(381);
+	var async_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
 	/**
 	 * Indicates that a FormControl is valid, i.e. that no errors exist in the input value.
 	 */
@@ -61025,7 +60899,7 @@
 	//# sourceMappingURL=model.js.map
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61036,17 +60910,17 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var collection_1 = __webpack_require__(373);
-	var exceptions_1 = __webpack_require__(370);
-	var lang_1 = __webpack_require__(367);
-	var validators_1 = __webpack_require__(380);
-	var checkbox_value_accessor_1 = __webpack_require__(364);
-	var default_value_accessor_1 = __webpack_require__(366);
-	var normalize_validator_1 = __webpack_require__(381);
-	var number_value_accessor_1 = __webpack_require__(382);
-	var radio_control_value_accessor_1 = __webpack_require__(383);
-	var select_control_value_accessor_1 = __webpack_require__(384);
-	var select_multiple_control_value_accessor_1 = __webpack_require__(385);
+	var collection_1 = __webpack_require__(375);
+	var exceptions_1 = __webpack_require__(372);
+	var lang_1 = __webpack_require__(369);
+	var validators_1 = __webpack_require__(382);
+	var checkbox_value_accessor_1 = __webpack_require__(366);
+	var default_value_accessor_1 = __webpack_require__(368);
+	var normalize_validator_1 = __webpack_require__(383);
+	var number_value_accessor_1 = __webpack_require__(384);
+	var radio_control_value_accessor_1 = __webpack_require__(385);
+	var select_control_value_accessor_1 = __webpack_require__(386);
+	var select_multiple_control_value_accessor_1 = __webpack_require__(387);
 	function controlPath(name, parent) {
 	    var p = collection_1.ListWrapper.clone(parent.path);
 	    p.push(name);
@@ -61140,7 +61014,7 @@
 	//# sourceMappingURL=shared.js.map
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61152,10 +61026,10 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
-	var promise_1 = __webpack_require__(377);
+	var async_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
+	var promise_1 = __webpack_require__(379);
 	/**
 	 * Providers for validators to be used for {@link FormControl}s in a form.
 	 *
@@ -61293,7 +61167,7 @@
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports) {
 
 	/**
@@ -61325,7 +61199,7 @@
 	//# sourceMappingURL=normalize_validator.js.map
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61337,8 +61211,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(367);
-	var control_value_accessor_1 = __webpack_require__(365);
+	var lang_1 = __webpack_require__(369);
+	var control_value_accessor_1 = __webpack_require__(367);
 	exports.NUMBER_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return NumberValueAccessor; }),
@@ -61381,7 +61255,7 @@
 	//# sourceMappingURL=number_value_accessor.js.map
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61393,11 +61267,11 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var collection_1 = __webpack_require__(373);
-	var exceptions_1 = __webpack_require__(370);
-	var lang_1 = __webpack_require__(367);
-	var control_value_accessor_1 = __webpack_require__(365);
-	var ng_control_1 = __webpack_require__(369);
+	var collection_1 = __webpack_require__(375);
+	var exceptions_1 = __webpack_require__(372);
+	var lang_1 = __webpack_require__(369);
+	var control_value_accessor_1 = __webpack_require__(367);
+	var ng_control_1 = __webpack_require__(371);
 	exports.RADIO_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return RadioControlValueAccessor; }),
@@ -61508,7 +61382,7 @@
 	//# sourceMappingURL=radio_control_value_accessor.js.map
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61520,9 +61394,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
-	var control_value_accessor_1 = __webpack_require__(365);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
+	var control_value_accessor_1 = __webpack_require__(367);
 	exports.SELECT_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }),
@@ -61653,7 +61527,7 @@
 	//# sourceMappingURL=select_control_value_accessor.js.map
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61665,9 +61539,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
-	var control_value_accessor_1 = __webpack_require__(365);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
+	var control_value_accessor_1 = __webpack_require__(367);
 	var SELECT_MULTIPLE_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
 	    useExisting: core_1.forwardRef(function () { return SelectMultipleControlValueAccessor; }),
@@ -61839,7 +61713,7 @@
 	//# sourceMappingURL=select_multiple_control_value_accessor.js.map
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61855,7 +61729,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(374);
+	var abstract_control_directive_1 = __webpack_require__(376);
 	/**
 	 * A directive that contains multiple {@link NgControl}s.
 	 *
@@ -61890,7 +61764,7 @@
 	//# sourceMappingURL=control_container.js.map
 
 /***/ },
-/* 387 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -61907,14 +61781,14 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var exceptions_1 = __webpack_require__(370);
-	var model_1 = __webpack_require__(378);
-	var validators_1 = __webpack_require__(380);
-	var control_container_1 = __webpack_require__(386);
-	var control_value_accessor_1 = __webpack_require__(365);
-	var ng_control_1 = __webpack_require__(369);
-	var shared_1 = __webpack_require__(379);
+	var async_1 = __webpack_require__(378);
+	var exceptions_1 = __webpack_require__(372);
+	var model_1 = __webpack_require__(380);
+	var validators_1 = __webpack_require__(382);
+	var control_container_1 = __webpack_require__(388);
+	var control_value_accessor_1 = __webpack_require__(367);
+	var ng_control_1 = __webpack_require__(371);
+	var shared_1 = __webpack_require__(381);
 	exports.formControlBinding = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: ng_control_1.NgControl,
@@ -62028,7 +61902,7 @@
 	//# sourceMappingURL=ng_model.js.map
 
 /***/ },
-/* 388 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62045,9 +61919,9 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var validators_1 = __webpack_require__(380);
-	var abstract_form_group_directive_1 = __webpack_require__(389);
-	var control_container_1 = __webpack_require__(386);
+	var validators_1 = __webpack_require__(382);
+	var abstract_form_group_directive_1 = __webpack_require__(391);
+	var control_container_1 = __webpack_require__(388);
 	exports.modelGroupProvider = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: control_container_1.ControlContainer,
@@ -62081,7 +61955,7 @@
 	//# sourceMappingURL=ng_model_group.js.map
 
 /***/ },
-/* 389 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62097,8 +61971,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var control_container_1 = __webpack_require__(386);
-	var shared_1 = __webpack_require__(379);
+	var control_container_1 = __webpack_require__(388);
+	var shared_1 = __webpack_require__(381);
 	/**
 	  This is a base class for code shared between {@link NgModelGroup} and {@link FormGroupName}.
 	 */
@@ -62149,7 +62023,7 @@
 	//# sourceMappingURL=abstract_form_group_directive.js.map
 
 /***/ },
-/* 390 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62166,9 +62040,9 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var validators_1 = __webpack_require__(380);
-	var control_container_1 = __webpack_require__(386);
-	var shared_1 = __webpack_require__(379);
+	var validators_1 = __webpack_require__(382);
+	var control_container_1 = __webpack_require__(388);
+	var shared_1 = __webpack_require__(381);
 	exports.formArrayNameProvider = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: control_container_1.ControlContainer,
@@ -62229,7 +62103,7 @@
 	//# sourceMappingURL=form_array_name.js.map
 
 /***/ },
-/* 391 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62246,12 +62120,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var collection_1 = __webpack_require__(373);
-	var validators_1 = __webpack_require__(380);
-	var control_value_accessor_1 = __webpack_require__(365);
-	var ng_control_1 = __webpack_require__(369);
-	var shared_1 = __webpack_require__(379);
+	var async_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var validators_1 = __webpack_require__(382);
+	var control_value_accessor_1 = __webpack_require__(367);
+	var ng_control_1 = __webpack_require__(371);
+	var shared_1 = __webpack_require__(381);
 	exports.formControlBinding = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: ng_control_1.NgControl,
@@ -62327,7 +62201,7 @@
 	//# sourceMappingURL=form_control_directive.js.map
 
 /***/ },
-/* 392 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62344,12 +62218,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var validators_1 = __webpack_require__(380);
-	var control_container_1 = __webpack_require__(386);
-	var control_value_accessor_1 = __webpack_require__(365);
-	var ng_control_1 = __webpack_require__(369);
-	var shared_1 = __webpack_require__(379);
+	var async_1 = __webpack_require__(378);
+	var validators_1 = __webpack_require__(382);
+	var control_container_1 = __webpack_require__(388);
+	var control_value_accessor_1 = __webpack_require__(367);
+	var ng_control_1 = __webpack_require__(371);
+	var shared_1 = __webpack_require__(381);
 	exports.controlNameBinding = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: ng_control_1.NgControl,
@@ -62431,7 +62305,7 @@
 	//# sourceMappingURL=form_control_name.js.map
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62448,13 +62322,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var async_1 = __webpack_require__(376);
-	var collection_1 = __webpack_require__(373);
-	var exceptions_1 = __webpack_require__(370);
-	var lang_1 = __webpack_require__(367);
-	var validators_1 = __webpack_require__(380);
-	var control_container_1 = __webpack_require__(386);
-	var shared_1 = __webpack_require__(379);
+	var async_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var exceptions_1 = __webpack_require__(372);
+	var lang_1 = __webpack_require__(369);
+	var validators_1 = __webpack_require__(382);
+	var control_container_1 = __webpack_require__(388);
+	var shared_1 = __webpack_require__(381);
 	exports.formDirectiveProvider = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: control_container_1.ControlContainer,
@@ -62571,7 +62445,7 @@
 	//# sourceMappingURL=form_group_directive.js.map
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62588,9 +62462,9 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var validators_1 = __webpack_require__(380);
-	var abstract_form_group_directive_1 = __webpack_require__(389);
-	var control_container_1 = __webpack_require__(386);
+	var validators_1 = __webpack_require__(382);
+	var abstract_form_group_directive_1 = __webpack_require__(391);
+	var control_container_1 = __webpack_require__(388);
 	exports.formGroupNameProvider = 
 	/*@ts2dart_const*/ /* @ts2dart_Provider */ {
 	    provide: control_container_1.ControlContainer,
@@ -62624,7 +62498,7 @@
 	//# sourceMappingURL=form_group_name.js.map
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62636,8 +62510,8 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(367);
-	var validators_1 = __webpack_require__(380);
+	var lang_1 = __webpack_require__(369);
+	var validators_1 = __webpack_require__(382);
 	var REQUIRED = validators_1.Validators.required;
 	exports.REQUIRED_VALIDATOR = {
 	    provide: validators_1.NG_VALIDATORS,
@@ -62746,7 +62620,7 @@
 	//# sourceMappingURL=validators.js.map
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62758,9 +62632,9 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var collection_1 = __webpack_require__(373);
-	var lang_1 = __webpack_require__(367);
-	var model_1 = __webpack_require__(378);
+	var collection_1 = __webpack_require__(375);
+	var lang_1 = __webpack_require__(369);
+	var model_1 = __webpack_require__(380);
 	var FormBuilder = (function () {
 	    function FormBuilder() {
 	    }
@@ -62832,7 +62706,7 @@
 	//# sourceMappingURL=form_builder.js.map
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62846,10 +62720,10 @@
 	var common_1 = __webpack_require__(119);
 	var compiler_1 = __webpack_require__(183);
 	var core_1 = __webpack_require__(6);
-	var directives_1 = __webpack_require__(363);
-	var radio_control_value_accessor_1 = __webpack_require__(383);
-	var collection_1 = __webpack_require__(373);
-	var form_builder_1 = __webpack_require__(396);
+	var directives_1 = __webpack_require__(365);
+	var radio_control_value_accessor_1 = __webpack_require__(385);
+	var collection_1 = __webpack_require__(375);
+	var form_builder_1 = __webpack_require__(398);
 	/**
 	 * Shorthand set of providers used for building Angular forms.
 	 *
@@ -62901,7 +62775,7 @@
 	//# sourceMappingURL=form_providers.js.map
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62915,11 +62789,11 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(399));
+	__export(__webpack_require__(401));
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -62930,47 +62804,47 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var browser_jsonp_1 = __webpack_require__(400);
-	var browser_xhr_1 = __webpack_require__(402);
-	var jsonp_backend_1 = __webpack_require__(403);
-	var xhr_backend_1 = __webpack_require__(414);
-	var base_request_options_1 = __webpack_require__(415);
-	var base_response_options_1 = __webpack_require__(404);
-	var http_1 = __webpack_require__(417);
-	var interfaces_1 = __webpack_require__(411);
-	var browser_xhr_2 = __webpack_require__(402);
+	var browser_jsonp_1 = __webpack_require__(402);
+	var browser_xhr_1 = __webpack_require__(404);
+	var jsonp_backend_1 = __webpack_require__(405);
+	var xhr_backend_1 = __webpack_require__(416);
+	var base_request_options_1 = __webpack_require__(417);
+	var base_response_options_1 = __webpack_require__(406);
+	var http_1 = __webpack_require__(419);
+	var interfaces_1 = __webpack_require__(413);
+	var browser_xhr_2 = __webpack_require__(404);
 	exports.BrowserXhr = browser_xhr_2.BrowserXhr;
-	var jsonp_backend_2 = __webpack_require__(403);
+	var jsonp_backend_2 = __webpack_require__(405);
 	exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
 	exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
-	var xhr_backend_2 = __webpack_require__(414);
+	var xhr_backend_2 = __webpack_require__(416);
 	exports.CookieXSRFStrategy = xhr_backend_2.CookieXSRFStrategy;
 	exports.XHRBackend = xhr_backend_2.XHRBackend;
 	exports.XHRConnection = xhr_backend_2.XHRConnection;
-	var base_request_options_2 = __webpack_require__(415);
+	var base_request_options_2 = __webpack_require__(417);
 	exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
 	exports.RequestOptions = base_request_options_2.RequestOptions;
-	var base_response_options_2 = __webpack_require__(404);
+	var base_response_options_2 = __webpack_require__(406);
 	exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
 	exports.ResponseOptions = base_response_options_2.ResponseOptions;
-	var enums_1 = __webpack_require__(405);
+	var enums_1 = __webpack_require__(407);
 	exports.ReadyState = enums_1.ReadyState;
 	exports.RequestMethod = enums_1.RequestMethod;
 	exports.ResponseType = enums_1.ResponseType;
-	var headers_1 = __webpack_require__(406);
+	var headers_1 = __webpack_require__(408);
 	exports.Headers = headers_1.Headers;
-	var http_2 = __webpack_require__(417);
+	var http_2 = __webpack_require__(419);
 	exports.Http = http_2.Http;
 	exports.Jsonp = http_2.Jsonp;
-	var interfaces_2 = __webpack_require__(411);
+	var interfaces_2 = __webpack_require__(413);
 	exports.Connection = interfaces_2.Connection;
 	exports.ConnectionBackend = interfaces_2.ConnectionBackend;
 	exports.XSRFStrategy = interfaces_2.XSRFStrategy;
-	var static_request_1 = __webpack_require__(418);
+	var static_request_1 = __webpack_require__(420);
 	exports.Request = static_request_1.Request;
-	var static_response_1 = __webpack_require__(412);
+	var static_response_1 = __webpack_require__(414);
 	exports.Response = static_response_1.Response;
-	var url_search_params_1 = __webpack_require__(416);
+	var url_search_params_1 = __webpack_require__(418);
 	exports.QueryEncoder = url_search_params_1.QueryEncoder;
 	exports.URLSearchParams = url_search_params_1.URLSearchParams;
 	/**
@@ -63271,7 +63145,7 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -63283,7 +63157,7 @@
 	 */
 	"use strict";
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(401);
+	var lang_1 = __webpack_require__(403);
 	var _nextRequestId = 0;
 	exports.JSONP_HOME = '__ng_jsonp__';
 	var _jsonpConnections = null;
@@ -63330,7 +63204,7 @@
 	//# sourceMappingURL=browser_jsonp.js.map
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -63801,7 +63675,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -63829,7 +63703,7 @@
 	//# sourceMappingURL=browser_xhr.js.map
 
 /***/ },
-/* 403 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -63847,13 +63721,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var Observable_1 = __webpack_require__(39);
-	var base_response_options_1 = __webpack_require__(404);
-	var enums_1 = __webpack_require__(405);
-	var exceptions_1 = __webpack_require__(407);
-	var lang_1 = __webpack_require__(401);
-	var interfaces_1 = __webpack_require__(411);
-	var static_response_1 = __webpack_require__(412);
-	var browser_jsonp_1 = __webpack_require__(400);
+	var base_response_options_1 = __webpack_require__(406);
+	var enums_1 = __webpack_require__(407);
+	var exceptions_1 = __webpack_require__(409);
+	var lang_1 = __webpack_require__(403);
+	var interfaces_1 = __webpack_require__(413);
+	var static_response_1 = __webpack_require__(414);
+	var browser_jsonp_1 = __webpack_require__(402);
 	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
 	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
 	/**
@@ -63987,7 +63861,7 @@
 	//# sourceMappingURL=jsonp_backend.js.map
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64004,9 +63878,9 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(401);
-	var enums_1 = __webpack_require__(405);
-	var headers_1 = __webpack_require__(406);
+	var lang_1 = __webpack_require__(403);
+	var enums_1 = __webpack_require__(407);
+	var headers_1 = __webpack_require__(408);
 	/**
 	 * Creates a response options object to be optionally provided when instantiating a
 	 * {@link Response}.
@@ -64101,7 +63975,7 @@
 	//# sourceMappingURL=base_response_options.js.map
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports) {
 
 	/**
@@ -64171,7 +64045,7 @@
 	//# sourceMappingURL=enums.js.map
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64182,9 +64056,9 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(407);
-	var lang_1 = __webpack_require__(401);
-	var collection_1 = __webpack_require__(410);
+	var exceptions_1 = __webpack_require__(409);
+	var lang_1 = __webpack_require__(403);
+	var collection_1 = __webpack_require__(412);
 	/**
 	 * Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
 	 * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class).
@@ -64320,7 +64194,7 @@
 	//# sourceMappingURL=headers.js.map
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64336,9 +64210,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var base_wrapped_exception_1 = __webpack_require__(408);
-	var exception_handler_1 = __webpack_require__(409);
-	var exception_handler_2 = __webpack_require__(409);
+	var base_wrapped_exception_1 = __webpack_require__(410);
+	var exception_handler_1 = __webpack_require__(411);
+	var exception_handler_2 = __webpack_require__(411);
 	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
 	/**
 	 * @stable
@@ -64414,7 +64288,7 @@
 	//# sourceMappingURL=exceptions.js.map
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports) {
 
 	/**
@@ -64476,7 +64350,7 @@
 	//# sourceMappingURL=base_wrapped_exception.js.map
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64487,9 +64361,9 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var base_wrapped_exception_1 = __webpack_require__(408);
-	var collection_1 = __webpack_require__(410);
-	var lang_1 = __webpack_require__(401);
+	var base_wrapped_exception_1 = __webpack_require__(410);
+	var collection_1 = __webpack_require__(412);
+	var lang_1 = __webpack_require__(403);
 	var _ArrayLogger = (function () {
 	    function _ArrayLogger() {
 	        this.res = [];
@@ -64621,7 +64495,7 @@
 	//# sourceMappingURL=exception_handler.js.map
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64632,7 +64506,7 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var lang_1 = __webpack_require__(401);
+	var lang_1 = __webpack_require__(403);
 	exports.Map = lang_1.global.Map;
 	exports.Set = lang_1.global.Set;
 	// Safari and Internet Explorer do not support the iterable parameter to the
@@ -65001,7 +64875,7 @@
 	//# sourceMappingURL=collection.js.map
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports) {
 
 	/**
@@ -65051,7 +64925,7 @@
 	//# sourceMappingURL=interfaces.js.map
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65062,9 +64936,9 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(407);
-	var lang_1 = __webpack_require__(401);
-	var http_utils_1 = __webpack_require__(413);
+	var exceptions_1 = __webpack_require__(409);
+	var lang_1 = __webpack_require__(403);
+	var http_utils_1 = __webpack_require__(415);
 	/**
 	 * Creates `Response` instances from provided values.
 	 *
@@ -65133,7 +65007,7 @@
 	//# sourceMappingURL=static_response.js.map
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65144,9 +65018,9 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var exceptions_1 = __webpack_require__(407);
-	var lang_1 = __webpack_require__(401);
-	var enums_1 = __webpack_require__(405);
+	var exceptions_1 = __webpack_require__(409);
+	var lang_1 = __webpack_require__(403);
+	var enums_1 = __webpack_require__(407);
 	function normalizeMethodName(method) {
 	    if (lang_1.isString(method)) {
 	        var originalMethod = method;
@@ -65170,12 +65044,12 @@
 	    return;
 	}
 	exports.getResponseURL = getResponseURL;
-	var lang_2 = __webpack_require__(401);
+	var lang_2 = __webpack_require__(403);
 	exports.isJsObject = lang_2.isJsObject;
 	//# sourceMappingURL=http_utils.js.map
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65189,14 +65063,14 @@
 	var core_1 = __webpack_require__(6);
 	var platform_browser_1 = __webpack_require__(266);
 	var Observable_1 = __webpack_require__(39);
-	var base_response_options_1 = __webpack_require__(404);
-	var enums_1 = __webpack_require__(405);
-	var lang_1 = __webpack_require__(401);
-	var headers_1 = __webpack_require__(406);
-	var http_utils_1 = __webpack_require__(413);
-	var interfaces_1 = __webpack_require__(411);
-	var static_response_1 = __webpack_require__(412);
-	var browser_xhr_1 = __webpack_require__(402);
+	var base_response_options_1 = __webpack_require__(406);
+	var enums_1 = __webpack_require__(407);
+	var lang_1 = __webpack_require__(403);
+	var headers_1 = __webpack_require__(408);
+	var http_utils_1 = __webpack_require__(415);
+	var interfaces_1 = __webpack_require__(413);
+	var static_response_1 = __webpack_require__(414);
+	var browser_xhr_1 = __webpack_require__(404);
 	var XSSI_PREFIX = /^\)\]\}',?\n/;
 	/**
 	 * Creates connections using `XMLHttpRequest`. Given a fully-qualified
@@ -65361,7 +65235,7 @@
 	//# sourceMappingURL=xhr_backend.js.map
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65378,11 +65252,11 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var lang_1 = __webpack_require__(401);
-	var enums_1 = __webpack_require__(405);
-	var headers_1 = __webpack_require__(406);
-	var http_utils_1 = __webpack_require__(413);
-	var url_search_params_1 = __webpack_require__(416);
+	var lang_1 = __webpack_require__(403);
+	var enums_1 = __webpack_require__(407);
+	var headers_1 = __webpack_require__(408);
+	var http_utils_1 = __webpack_require__(415);
+	var url_search_params_1 = __webpack_require__(418);
 	/**
 	 * Creates a request options object to be optionally provided when instantiating a
 	 * {@link Request}.
@@ -65481,7 +65355,7 @@
 	//# sourceMappingURL=base_request_options.js.map
 
 /***/ },
-/* 416 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65492,8 +65366,8 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var collection_1 = __webpack_require__(410);
-	var lang_1 = __webpack_require__(401);
+	var collection_1 = __webpack_require__(412);
+	var lang_1 = __webpack_require__(403);
 	function paramParser(rawParams) {
 	    if (rawParams === void 0) { rawParams = ''; }
 	    var map = new collection_1.Map();
@@ -65676,7 +65550,7 @@
 	//# sourceMappingURL=url_search_params.js.map
 
 /***/ },
-/* 417 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65693,12 +65567,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(6);
-	var exceptions_1 = __webpack_require__(407);
-	var lang_1 = __webpack_require__(401);
-	var base_request_options_1 = __webpack_require__(415);
-	var enums_1 = __webpack_require__(405);
-	var interfaces_1 = __webpack_require__(411);
-	var static_request_1 = __webpack_require__(418);
+	var exceptions_1 = __webpack_require__(409);
+	var lang_1 = __webpack_require__(403);
+	var base_request_options_1 = __webpack_require__(417);
+	var enums_1 = __webpack_require__(407);
+	var interfaces_1 = __webpack_require__(413);
+	var static_request_1 = __webpack_require__(420);
 	function httpRequest(backend, request) {
 	    return backend.createConnection(request).response;
 	}
@@ -65845,7 +65719,7 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 418 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65856,11 +65730,11 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	"use strict";
-	var lang_1 = __webpack_require__(401);
-	var enums_1 = __webpack_require__(405);
-	var headers_1 = __webpack_require__(406);
-	var http_utils_1 = __webpack_require__(413);
-	var url_search_params_1 = __webpack_require__(416);
+	var lang_1 = __webpack_require__(403);
+	var enums_1 = __webpack_require__(407);
+	var headers_1 = __webpack_require__(408);
+	var http_utils_1 = __webpack_require__(415);
+	var url_search_params_1 = __webpack_require__(418);
 	// TODO(jeffbcross): properly implement body accessors
 	/**
 	 * Creates `Request` instances from provided values.
@@ -66019,7 +65893,7 @@
 	//# sourceMappingURL=static_request.js.map
 
 /***/ },
-/* 419 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66038,10 +65912,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var action_sheet_component_1 = __webpack_require__(420);
+	var action_sheet_component_1 = __webpack_require__(422);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var view_controller_1 = __webpack_require__(359);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -66276,7 +66150,7 @@
 	exports.ActionSheetController = ActionSheetController;
 
 /***/ },
-/* 420 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66296,15 +66170,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
-	var form_1 = __webpack_require__(344);
-	var icon_1 = __webpack_require__(422);
-	var key_1 = __webpack_require__(345);
-	var nav_params_1 = __webpack_require__(348);
-	var transition_1 = __webpack_require__(357);
-	var view_controller_1 = __webpack_require__(359);
+	var form_1 = __webpack_require__(360);
+	var icon_1 = __webpack_require__(424);
+	var key_1 = __webpack_require__(361);
+	var nav_params_1 = __webpack_require__(345);
+	var transition_1 = __webpack_require__(355);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -66511,7 +66385,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 421 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66525,7 +66399,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var gesture_controller_1 = __webpack_require__(342);
+	var gesture_controller_1 = __webpack_require__(347);
 	var util_1 = __webpack_require__(340);
 	/**
 	 * @private
@@ -66572,7 +66446,7 @@
 	exports.Backdrop = Backdrop;
 
 /***/ },
-/* 422 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66761,7 +66635,7 @@
 	exports.Icon = Icon;
 
 /***/ },
-/* 423 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66781,9 +66655,9 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
-	var alert_component_1 = __webpack_require__(424);
+	var alert_component_1 = __webpack_require__(426);
 	var util_1 = __webpack_require__(340);
-	var view_controller_1 = __webpack_require__(359);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -67107,7 +66981,7 @@
 	exports.AlertController = AlertController;
 
 /***/ },
-/* 424 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67127,15 +67001,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var forms_1 = __webpack_require__(361);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
+	var forms_1 = __webpack_require__(363);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(340);
-	var key_1 = __webpack_require__(345);
-	var nav_params_1 = __webpack_require__(348);
-	var transition_1 = __webpack_require__(357);
-	var view_controller_1 = __webpack_require__(359);
+	var key_1 = __webpack_require__(361);
+	var nav_params_1 = __webpack_require__(345);
+	var transition_1 = __webpack_require__(355);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -67445,7 +67319,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 425 */
+/* 427 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67557,7 +67431,7 @@
 	exports.Events = Events;
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67614,56 +67488,56 @@
 	});
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var common_1 = __webpack_require__(119);
-	var forms_1 = __webpack_require__(361);
-	var menu_1 = __webpack_require__(428);
-	var menu_toggle_1 = __webpack_require__(431);
-	var menu_close_1 = __webpack_require__(434);
-	var backdrop_1 = __webpack_require__(421);
-	var badge_1 = __webpack_require__(435);
-	var button_1 = __webpack_require__(436);
-	var content_1 = __webpack_require__(437);
-	var img_1 = __webpack_require__(443);
-	var scroll_1 = __webpack_require__(444);
-	var infinite_scroll_1 = __webpack_require__(445);
-	var infinite_scroll_content_1 = __webpack_require__(446);
-	var refresher_1 = __webpack_require__(448);
-	var refresher_content_1 = __webpack_require__(449);
-	var slides_1 = __webpack_require__(450);
-	var tabs_1 = __webpack_require__(439);
-	var tab_1 = __webpack_require__(441);
-	var list_1 = __webpack_require__(454);
-	var item_1 = __webpack_require__(456);
-	var item_reorder_1 = __webpack_require__(457);
-	var item_sliding_1 = __webpack_require__(460);
-	var virtual_scroll_1 = __webpack_require__(461);
-	var virtual_item_1 = __webpack_require__(463);
-	var toolbar_1 = __webpack_require__(433);
-	var toolbar_item_1 = __webpack_require__(464);
-	var toolbar_title_1 = __webpack_require__(465);
-	var icon_1 = __webpack_require__(422);
-	var spinner_1 = __webpack_require__(447);
-	var checkbox_1 = __webpack_require__(466);
-	var select_1 = __webpack_require__(467);
-	var option_1 = __webpack_require__(468);
-	var datetime_1 = __webpack_require__(469);
-	var toggle_1 = __webpack_require__(473);
-	var input_1 = __webpack_require__(474);
-	var label_1 = __webpack_require__(459);
-	var segment_1 = __webpack_require__(477);
-	var radio_button_1 = __webpack_require__(478);
-	var radio_group_1 = __webpack_require__(479);
-	var range_1 = __webpack_require__(480);
-	var searchbar_1 = __webpack_require__(482);
-	var nav_1 = __webpack_require__(483);
-	var nav_pop_1 = __webpack_require__(484);
-	var nav_push_1 = __webpack_require__(485);
-	var navbar_1 = __webpack_require__(432);
-	var show_hide_when_1 = __webpack_require__(486);
+	var forms_1 = __webpack_require__(363);
+	var menu_1 = __webpack_require__(430);
+	var menu_toggle_1 = __webpack_require__(433);
+	var menu_close_1 = __webpack_require__(436);
+	var backdrop_1 = __webpack_require__(423);
+	var badge_1 = __webpack_require__(437);
+	var button_1 = __webpack_require__(438);
+	var content_1 = __webpack_require__(439);
+	var img_1 = __webpack_require__(445);
+	var scroll_1 = __webpack_require__(446);
+	var infinite_scroll_1 = __webpack_require__(447);
+	var infinite_scroll_content_1 = __webpack_require__(448);
+	var refresher_1 = __webpack_require__(450);
+	var refresher_content_1 = __webpack_require__(451);
+	var slides_1 = __webpack_require__(452);
+	var tabs_1 = __webpack_require__(441);
+	var tab_1 = __webpack_require__(443);
+	var list_1 = __webpack_require__(456);
+	var item_1 = __webpack_require__(458);
+	var item_reorder_1 = __webpack_require__(459);
+	var item_sliding_1 = __webpack_require__(462);
+	var virtual_scroll_1 = __webpack_require__(463);
+	var virtual_item_1 = __webpack_require__(465);
+	var toolbar_1 = __webpack_require__(435);
+	var toolbar_item_1 = __webpack_require__(466);
+	var toolbar_title_1 = __webpack_require__(467);
+	var icon_1 = __webpack_require__(424);
+	var spinner_1 = __webpack_require__(449);
+	var checkbox_1 = __webpack_require__(468);
+	var select_1 = __webpack_require__(469);
+	var option_1 = __webpack_require__(470);
+	var datetime_1 = __webpack_require__(471);
+	var toggle_1 = __webpack_require__(475);
+	var input_1 = __webpack_require__(476);
+	var label_1 = __webpack_require__(461);
+	var segment_1 = __webpack_require__(479);
+	var radio_button_1 = __webpack_require__(480);
+	var radio_group_1 = __webpack_require__(481);
+	var range_1 = __webpack_require__(482);
+	var searchbar_1 = __webpack_require__(484);
+	var nav_1 = __webpack_require__(485);
+	var nav_pop_1 = __webpack_require__(486);
+	var nav_push_1 = __webpack_require__(487);
+	var navbar_1 = __webpack_require__(434);
+	var show_hide_when_1 = __webpack_require__(488);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -67806,7 +67680,7 @@
 	];
 
 /***/ },
-/* 428 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67825,15 +67699,15 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var backdrop_1 = __webpack_require__(421);
+	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
-	var ion_1 = __webpack_require__(347);
+	var ion_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
-	var keyboard_1 = __webpack_require__(343);
-	var menu_gestures_1 = __webpack_require__(429);
-	var menu_controller_1 = __webpack_require__(430);
+	var keyboard_1 = __webpack_require__(359);
+	var menu_gestures_1 = __webpack_require__(431);
+	var menu_controller_1 = __webpack_require__(432);
 	var platform_1 = __webpack_require__(339);
-	var gesture_controller_1 = __webpack_require__(342);
+	var gesture_controller_1 = __webpack_require__(347);
 	/**
 	 * @name Menu
 	 * @description
@@ -68414,7 +68288,7 @@
 	exports.Menu = Menu;
 
 /***/ },
-/* 429 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68423,9 +68297,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_edge_gesture_1 = __webpack_require__(350);
+	var slide_edge_gesture_1 = __webpack_require__(348);
 	var util_1 = __webpack_require__(340);
-	var gesture_controller_1 = __webpack_require__(342);
+	var gesture_controller_1 = __webpack_require__(347);
 	/**
 	 * Gesture attached to the content which the menu is assigned to
 	 */
@@ -68502,7 +68376,7 @@
 	exports.MenuContentGesture = MenuContentGesture;
 
 /***/ },
-/* 430 */
+/* 432 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68786,7 +68660,7 @@
 	var menuTypes = {};
 
 /***/ },
-/* 431 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68803,9 +68677,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var menu_controller_1 = __webpack_require__(430);
-	var navbar_1 = __webpack_require__(432);
-	var view_controller_1 = __webpack_require__(359);
+	var menu_controller_1 = __webpack_require__(432);
+	var navbar_1 = __webpack_require__(434);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @name MenuToggle
 	 * @description
@@ -68949,7 +68823,7 @@
 	exports.MenuToggle = MenuToggle;
 
 /***/ },
-/* 432 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68973,12 +68847,12 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
-	var icon_1 = __webpack_require__(422);
-	var ion_1 = __webpack_require__(347);
+	var icon_1 = __webpack_require__(424);
+	var ion_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
-	var nav_controller_1 = __webpack_require__(346);
-	var toolbar_1 = __webpack_require__(433);
-	var view_controller_1 = __webpack_require__(359);
+	var nav_controller_1 = __webpack_require__(343);
+	var toolbar_1 = __webpack_require__(435);
+	var view_controller_1 = __webpack_require__(357);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(_nav, elementRef, navbar) {
@@ -69199,7 +69073,7 @@
 	exports.NavbarTemplate = NavbarTemplate;
 
 /***/ },
-/* 433 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69222,8 +69096,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(338);
-	var ion_1 = __webpack_require__(347);
-	var view_controller_1 = __webpack_require__(359);
+	var ion_1 = __webpack_require__(342);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -69474,7 +69348,7 @@
 	exports.Toolbar = Toolbar;
 
 /***/ },
-/* 434 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69488,7 +69362,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var menu_controller_1 = __webpack_require__(430);
+	var menu_controller_1 = __webpack_require__(432);
 	/**
 	 * @name MenuClose
 	 * @description
@@ -69546,7 +69420,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 435 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69610,7 +69484,7 @@
 	exports.Badge = Badge;
 
 /***/ },
-/* 436 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70032,7 +69906,7 @@
 	var ICON = 2;
 
 /***/ },
-/* 437 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70055,13 +69929,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
-	var ion_1 = __webpack_require__(347);
+	var ion_1 = __webpack_require__(342);
 	var config_1 = __webpack_require__(338);
-	var keyboard_1 = __webpack_require__(343);
+	var keyboard_1 = __webpack_require__(359);
 	var dom_1 = __webpack_require__(337);
-	var scroll_view_1 = __webpack_require__(438);
-	var tabs_1 = __webpack_require__(439);
-	var view_controller_1 = __webpack_require__(359);
+	var scroll_view_1 = __webpack_require__(440);
+	var tabs_1 = __webpack_require__(441);
+	var view_controller_1 = __webpack_require__(357);
 	var util_1 = __webpack_require__(340);
 	/**
 	 * @name Content
@@ -70605,7 +70479,7 @@
 	}
 
 /***/ },
-/* 438 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70835,7 +70709,7 @@
 	var FRAME_MS = (1000 / 60);
 
 /***/ },
-/* 439 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70859,18 +70733,18 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
 	var app_1 = __webpack_require__(335);
-	var badge_1 = __webpack_require__(435);
+	var badge_1 = __webpack_require__(437);
 	var config_1 = __webpack_require__(338);
-	var content_1 = __webpack_require__(437);
-	var icon_1 = __webpack_require__(422);
-	var ion_1 = __webpack_require__(347);
+	var content_1 = __webpack_require__(439);
+	var icon_1 = __webpack_require__(424);
+	var ion_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
 	var dom_1 = __webpack_require__(337);
-	var nav_controller_1 = __webpack_require__(346);
+	var nav_controller_1 = __webpack_require__(343);
 	var platform_1 = __webpack_require__(339);
-	var tab_button_1 = __webpack_require__(440);
-	var tab_highlight_1 = __webpack_require__(442);
-	var view_controller_1 = __webpack_require__(359);
+	var tab_button_1 = __webpack_require__(442);
+	var tab_highlight_1 = __webpack_require__(444);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @name Tabs
 	 * @description
@@ -71012,7 +70886,7 @@
 	         */
 	        this.ionChange = new core_1.EventEmitter();
 	        this.parent = parent;
-	        this.id = ++tabIds;
+	        this.id = 't' + (++tabIds);
 	        this._sbPadding = _config.getBoolean('statusbarPadding');
 	        this._useHighlight = _config.getBoolean('tabsHighlight');
 	        // TODO deprecated 07-07-2016 beta.11
@@ -71024,9 +70898,9 @@
 	            console.warn('Config option "tabbarHighlight" has been deprecated. Please use "tabsHighlight" instead.');
 	            this._useHighlight = _config.getBoolean('tabbarHighlight');
 	        }
-	        if (parent) {
+	        if (this.parent) {
 	            // this Tabs has a parent Nav
-	            parent.registerChildNav(this);
+	            this.parent.registerChildNav(this);
 	        }
 	        else if (this._app) {
 	            // this is the root navcontroller for the entire app
@@ -71087,36 +70961,29 @@
 	     */
 	    Tabs.prototype.initTabs = function () {
 	        var _this = this;
-	        // first check if preloadTab is set as an input @Input, then check the config
-	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
-	        // get the selected index
-	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
-	        // ensure the selectedIndex isn't a hidden or disabled tab
-	        // also find the first available index incase we need it later
-	        var availableIndex = -1;
-	        this._tabs.forEach(function (tab, index) {
-	            if (tab.enabled && tab.show && availableIndex < 0) {
-	                // we know this tab index is safe to show
-	                availableIndex = index;
-	            }
-	            if (index === selectedIndex && (!tab.enabled || !tab.show)) {
-	                // the selectedIndex is not safe to show
-	                selectedIndex = -1;
-	            }
-	        });
-	        if (selectedIndex < 0) {
-	            // the selected index wasn't safe to show
-	            // instead use an available index found to be safe to show
-	            selectedIndex = availableIndex;
+	        // get the selected index from the input
+	        // otherwise default it to use the first index
+	        var selectedIndex = (util_1.isBlank(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
+	        // get the selectedIndex and ensure it isn't hidden or disabled
+	        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
+	        if (!selectedTab) {
+	            // wasn't able to select the tab they wanted
+	            // try to find the first tab that's available
+	            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
 	        }
-	        this._tabs.forEach(function (tab, index) {
-	            if (index === selectedIndex) {
-	                _this.select(tab);
-	            }
-	            else if (preloadTabs) {
-	                tab.preload(1000 * index);
-	            }
-	        });
+	        if (selectedTab) {
+	            // we found a tab to select
+	            this.select(selectedTab);
+	        }
+	        // check if preloadTab is set as an input @Input
+	        // otherwise check the preloadTabs config
+	        var shouldPreloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
+	        if (shouldPreloadTabs) {
+	            // preload all the tabs which isn't the selected tab
+	            this._tabs.filter(function (t) { return t !== selectedTab; }).forEach(function (tab, index) {
+	                tab.preload(_this._config.getNumber('tabsPreloadDelay', 1000) * index);
+	            });
+	        }
 	    };
 	    /**
 	     * @private
@@ -71138,26 +71005,30 @@
 	    /**
 	     * @param {number|Tab} tabOrIndex Index, or the Tab instance, of the tab to select.
 	     */
-	    Tabs.prototype.select = function (tabOrIndex) {
+	    Tabs.prototype.select = function (tabOrIndex, opts, done) {
 	        var _this = this;
+	        if (opts === void 0) { opts = {}; }
+	        var promise;
+	        if (!done) {
+	            promise = new Promise(function (res) { done = res; });
+	        }
 	        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
 	        if (util_1.isBlank(selectedTab)) {
-	            return;
+	            return Promise.resolve();
 	        }
 	        var deselectedTab = this.getSelected();
 	        if (selectedTab === deselectedTab) {
 	            // no change
-	            return this._touchActive(selectedTab);
+	            this._touchActive(selectedTab);
+	            return Promise.resolve();
 	        }
 	        console.debug("Tabs, select: " + selectedTab.id);
-	        var opts = {
-	            animate: false
-	        };
 	        var deselectedPage;
 	        if (deselectedTab) {
 	            deselectedPage = deselectedTab.getActive();
 	            deselectedPage && deselectedPage.fireWillLeave();
 	        }
+	        opts.animate = false;
 	        var selectedPage = selectedTab.getActive();
 	        selectedPage && selectedPage.fireWillEnter();
 	        selectedTab.load(opts, function (initialLoad) {
@@ -71198,7 +71069,9 @@
 	                    });
 	                }
 	            }
+	            done();
 	        });
+	        return promise;
 	    };
 	    /**
 	     * Get the previously selected Tab which is currently not disabled or hidden.
@@ -71257,6 +71130,12 @@
 	    };
 	    /**
 	     * @private
+	     */
+	    Tabs.prototype.length = function () {
+	        return this._tabs.length;
+	    };
+	    /**
+	     * @private
 	     * "Touch" the active tab, going back to the root view of the tab
 	     * or optionally letting the tab handle the event
 	     */
@@ -71283,23 +71162,6 @@
 	        // And failing all of that, we do something safe and secure
 	        return Promise.resolve();
 	    };
-	    Object.defineProperty(Tabs.prototype, "rootNav", {
-	        /**
-	         * @private
-	         * Returns the root NavController. Returns `null` if Tabs is not
-	         * within a NavController.
-	         * @returns {NavController}
-	         */
-	        get: function () {
-	            var nav = this.parent;
-	            while (nav && nav.parent) {
-	                nav = nav.parent;
-	            }
-	            return nav;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    /**
 	     * @private
 	     * DOM WRITE
@@ -71368,7 +71230,7 @@
 	var tabIds = -1;
 
 /***/ },
-/* 440 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71388,8 +71250,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(338);
-	var ion_1 = __webpack_require__(347);
-	var tab_1 = __webpack_require__(441);
+	var ion_1 = __webpack_require__(342);
+	var tab_1 = __webpack_require__(443);
 	/**
 	 * @private
 	 */
@@ -71455,7 +71317,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 441 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71479,11 +71341,11 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
-	var gesture_controller_1 = __webpack_require__(342);
+	var gesture_controller_1 = __webpack_require__(347);
 	var util_1 = __webpack_require__(340);
-	var keyboard_1 = __webpack_require__(343);
-	var nav_controller_1 = __webpack_require__(346);
-	var tabs_1 = __webpack_require__(439);
+	var keyboard_1 = __webpack_require__(359);
+	var nav_controller_base_1 = __webpack_require__(341);
+	var tabs_1 = __webpack_require__(441);
 	/**
 	 * @name Tab
 	 * @description
@@ -71603,9 +71465,6 @@
 	         */
 	        this.ionSelect = new core_1.EventEmitter();
 	        parent.add(this);
-	        if (parent.rootNav) {
-	            this._sbEnabled = parent.rootNav.isSwipeBackEnabled();
-	        }
 	        this._tabId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
 	    }
@@ -71673,7 +71532,7 @@
 	     */
 	    Tab.prototype.load = function (opts, done) {
 	        if (!this._loaded && this.root) {
-	            this.push(this.root, this.rootParams, opts).then(function () {
+	            this.push(this.root, this.rootParams, opts, function () {
 	                done(true);
 	            });
 	            this._loaded = true;
@@ -71798,11 +71657,11 @@
 	    ], Tab);
 	    return Tab;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-	}(nav_controller_1.NavController));
+	}(nav_controller_base_1.NavControllerBase));
 	exports.Tab = Tab;
 
 /***/ },
-/* 442 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71850,7 +71709,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 443 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72042,7 +71901,7 @@
 	}
 
 /***/ },
-/* 444 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72061,7 +71920,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(347);
+	var ion_1 = __webpack_require__(342);
 	/**
 	 * @name Scroll
 	 * @description
@@ -72145,7 +72004,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 445 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72162,7 +72021,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var content_1 = __webpack_require__(437);
+	var content_1 = __webpack_require__(439);
 	/**
 	 * @name InfiniteScroll
 	 * @description
@@ -72415,7 +72274,7 @@
 	var STATE_LOADING = 'loading';
 
 /***/ },
-/* 446 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72431,8 +72290,8 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
 	var config_1 = __webpack_require__(338);
-	var infinite_scroll_1 = __webpack_require__(445);
-	var spinner_1 = __webpack_require__(447);
+	var infinite_scroll_1 = __webpack_require__(447);
+	var spinner_1 = __webpack_require__(449);
 	/**
 	 * @private
 	 */
@@ -72480,7 +72339,7 @@
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
-/* 447 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72776,7 +72635,7 @@
 	};
 
 /***/ },
-/* 448 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72793,11 +72652,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var content_1 = __webpack_require__(437);
+	var content_1 = __webpack_require__(439);
 	var dom_1 = __webpack_require__(337);
-	var gesture_controller_1 = __webpack_require__(342);
+	var gesture_controller_1 = __webpack_require__(347);
 	var util_1 = __webpack_require__(340);
-	var ui_event_manager_1 = __webpack_require__(355);
+	var ui_event_manager_1 = __webpack_require__(353);
 	/**
 	 * @name Refresher
 	 * @description
@@ -73273,7 +73132,7 @@
 	var STATE_COMPLETING = 'completing';
 
 /***/ },
-/* 449 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73289,9 +73148,9 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
 	var config_1 = __webpack_require__(338);
-	var icon_1 = __webpack_require__(422);
-	var refresher_1 = __webpack_require__(448);
-	var spinner_1 = __webpack_require__(447);
+	var icon_1 = __webpack_require__(424);
+	var refresher_1 = __webpack_require__(450);
+	var spinner_1 = __webpack_require__(449);
 	/**
 	 * @private
 	 */
@@ -73345,7 +73204,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 450 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73367,13 +73226,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var animation_1 = __webpack_require__(358);
-	var gesture_1 = __webpack_require__(451);
+	var animation_1 = __webpack_require__(356);
+	var gesture_1 = __webpack_require__(453);
 	var dom_1 = __webpack_require__(337);
 	var util_1 = __webpack_require__(340);
-	var util_2 = __webpack_require__(353);
-	var ion_1 = __webpack_require__(347);
-	var swiper_widget_1 = __webpack_require__(453);
+	var util_2 = __webpack_require__(351);
+	var ion_1 = __webpack_require__(342);
+	var swiper_widget_1 = __webpack_require__(455);
 	/**
 	 * @name Slides
 	 * @description
@@ -74101,12 +73960,12 @@
 	var slidesId = -1;
 
 /***/ },
-/* 451 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var util_1 = __webpack_require__(353);
-	var hammer_1 = __webpack_require__(452);
+	var util_1 = __webpack_require__(351);
+	var hammer_1 = __webpack_require__(454);
 	/**
 	 * @private
 	 * A gesture recognizer class.
@@ -74172,7 +74031,7 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 452 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76329,7 +76188,7 @@
 	win.Hammer = Hammer;
 
 /***/ },
-/* 453 */
+/* 455 */
 /***/ function(module, exports) {
 
 	/**
@@ -80289,7 +80148,7 @@
 
 
 /***/ },
-/* 454 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80311,10 +80170,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(347);
+	var ion_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
-	var item_sliding_gesture_1 = __webpack_require__(455);
-	var gesture_controller_1 = __webpack_require__(342);
+	var item_sliding_gesture_1 = __webpack_require__(457);
+	var gesture_controller_1 = __webpack_require__(347);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -80465,7 +80324,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 455 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80475,8 +80334,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var dom_1 = __webpack_require__(337);
-	var gesture_controller_1 = __webpack_require__(342);
-	var drag_gesture_1 = __webpack_require__(352);
+	var gesture_controller_1 = __webpack_require__(347);
+	var drag_gesture_1 = __webpack_require__(350);
 	var DRAG_THRESHOLD = 10;
 	var MAX_ATTACK_ANGLE = 20;
 	var ItemSlidingGesture = (function (_super) {
@@ -80566,7 +80425,7 @@
 	}
 
 /***/ },
-/* 456 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80581,11 +80440,11 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var button_1 = __webpack_require__(436);
-	var form_1 = __webpack_require__(344);
-	var icon_1 = __webpack_require__(422);
-	var item_reorder_1 = __webpack_require__(457);
-	var label_1 = __webpack_require__(459);
+	var button_1 = __webpack_require__(438);
+	var form_1 = __webpack_require__(360);
+	var icon_1 = __webpack_require__(424);
+	var item_reorder_1 = __webpack_require__(459);
+	var label_1 = __webpack_require__(461);
 	/**
 	 * @name Item
 	 * @description
@@ -81015,7 +80874,7 @@
 	exports.ItemContent = ItemContent;
 
 /***/ },
-/* 457 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81032,10 +80891,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var content_1 = __webpack_require__(437);
+	var content_1 = __webpack_require__(439);
 	var dom_1 = __webpack_require__(337);
-	var item_1 = __webpack_require__(456);
-	var item_reorder_gesture_1 = __webpack_require__(458);
+	var item_1 = __webpack_require__(458);
+	var item_reorder_gesture_1 = __webpack_require__(460);
 	var util_1 = __webpack_require__(340);
 	/**
 	 * @name ItemReorder
@@ -81360,12 +81219,12 @@
 	exports.indexForItem = indexForItem;
 
 /***/ },
-/* 458 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var item_reorder_1 = __webpack_require__(457);
-	var ui_event_manager_1 = __webpack_require__(355);
+	var item_reorder_1 = __webpack_require__(459);
+	var ui_event_manager_1 = __webpack_require__(353);
 	var dom_1 = __webpack_require__(337);
 	var AUTO_SCROLL_MARGIN = 60;
 	var SCROLL_JUMP = 10;
@@ -81504,7 +81363,7 @@
 	}
 
 /***/ },
-/* 459 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81629,7 +81488,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 460 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -81647,9 +81506,9 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var dom_1 = __webpack_require__(337);
-	var item_1 = __webpack_require__(456);
+	var item_1 = __webpack_require__(458);
 	var util_1 = __webpack_require__(340);
-	var list_1 = __webpack_require__(454);
+	var list_1 = __webpack_require__(456);
 	var SWIPE_MARGIN = 30;
 	var ELASTIC_FACTOR = 0.55;
 	(function (ItemSideFlags) {
@@ -82138,7 +81997,7 @@
 	}
 
 /***/ },
-/* 461 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82155,15 +82014,15 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var virtual_util_1 = __webpack_require__(462);
+	var virtual_util_1 = __webpack_require__(464);
 	var dom_1 = __webpack_require__(337);
 	var config_1 = __webpack_require__(338);
-	var content_1 = __webpack_require__(437);
-	var img_1 = __webpack_require__(443);
+	var content_1 = __webpack_require__(439);
+	var img_1 = __webpack_require__(445);
 	var util_1 = __webpack_require__(340);
 	var platform_1 = __webpack_require__(339);
-	var view_controller_1 = __webpack_require__(359);
-	var virtual_item_1 = __webpack_require__(463);
+	var view_controller_1 = __webpack_require__(357);
+	var virtual_item_1 = __webpack_require__(465);
 	/**
 	 * @name VirtualScroll
 	 * @description
@@ -82747,7 +82606,7 @@
 	var QUEUE_CHANGE_DETECTION = 0;
 
 /***/ },
-/* 462 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83283,7 +83142,7 @@
 	var REQUIRED_DOM_READS = 2;
 
 /***/ },
-/* 463 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83345,7 +83204,7 @@
 	exports.VirtualItem = VirtualItem;
 
 /***/ },
-/* 464 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83362,9 +83221,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var button_1 = __webpack_require__(436);
-	var navbar_1 = __webpack_require__(432);
-	var toolbar_1 = __webpack_require__(433);
+	var button_1 = __webpack_require__(438);
+	var navbar_1 = __webpack_require__(434);
+	var toolbar_1 = __webpack_require__(435);
 	/**
 	 * @private
 	 */
@@ -83405,7 +83264,7 @@
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
-/* 465 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83427,9 +83286,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(347);
-	var navbar_1 = __webpack_require__(432);
-	var toolbar_1 = __webpack_require__(433);
+	var ion_1 = __webpack_require__(342);
+	var navbar_1 = __webpack_require__(434);
+	var toolbar_1 = __webpack_require__(435);
 	/**
 	 * @name Title
 	 * @description
@@ -83499,7 +83358,7 @@
 	exports.ToolbarTitle = ToolbarTitle;
 
 /***/ },
-/* 466 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83516,9 +83375,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
-	var form_1 = __webpack_require__(344);
-	var item_1 = __webpack_require__(456);
+	var forms_1 = __webpack_require__(363);
+	var form_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(458);
 	var util_1 = __webpack_require__(340);
 	exports.CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -83710,7 +83569,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 467 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83728,15 +83587,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var forms_1 = __webpack_require__(361);
-	var action_sheet_1 = __webpack_require__(419);
-	var alert_1 = __webpack_require__(423);
+	var forms_1 = __webpack_require__(363);
+	var action_sheet_1 = __webpack_require__(421);
+	var alert_1 = __webpack_require__(425);
 	var app_1 = __webpack_require__(335);
-	var form_1 = __webpack_require__(344);
+	var form_1 = __webpack_require__(360);
 	var util_1 = __webpack_require__(340);
-	var item_1 = __webpack_require__(456);
-	var nav_controller_1 = __webpack_require__(346);
-	var option_1 = __webpack_require__(468);
+	var item_1 = __webpack_require__(458);
+	var nav_controller_1 = __webpack_require__(343);
+	var option_1 = __webpack_require__(470);
 	exports.SELECT_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -84194,7 +84053,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 468 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84306,7 +84165,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 469 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -84323,13 +84182,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var config_1 = __webpack_require__(338);
-	var picker_1 = __webpack_require__(470);
-	var form_1 = __webpack_require__(344);
-	var item_1 = __webpack_require__(456);
+	var picker_1 = __webpack_require__(472);
+	var form_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(458);
 	var util_1 = __webpack_require__(340);
-	var datetime_util_1 = __webpack_require__(354);
+	var datetime_util_1 = __webpack_require__(352);
 	exports.DATETIME_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DateTime; }), multi: true });
 	/**
 	 * @name DateTime
@@ -85125,7 +84984,7 @@
 	}
 
 /***/ },
-/* 470 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85146,8 +85005,8 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var picker_component_1 = __webpack_require__(471);
-	var view_controller_1 = __webpack_require__(359);
+	var picker_component_1 = __webpack_require__(473);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -85251,7 +85110,7 @@
 	exports.PickerController = PickerController;
 
 /***/ },
-/* 471 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85272,17 +85131,17 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
 	var platform_browser_1 = __webpack_require__(266);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
 	var dom_1 = __webpack_require__(337);
 	var util_1 = __webpack_require__(340);
 	var config_1 = __webpack_require__(338);
-	var key_1 = __webpack_require__(345);
-	var nav_params_1 = __webpack_require__(348);
-	var picker_options_1 = __webpack_require__(472);
-	var transition_1 = __webpack_require__(357);
-	var ui_event_manager_1 = __webpack_require__(355);
-	var view_controller_1 = __webpack_require__(359);
+	var key_1 = __webpack_require__(361);
+	var nav_params_1 = __webpack_require__(345);
+	var picker_options_1 = __webpack_require__(474);
+	var transition_1 = __webpack_require__(355);
+	var ui_event_manager_1 = __webpack_require__(353);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -85750,13 +85609,13 @@
 	var FRAME_MS = (1000 / 60);
 
 /***/ },
-/* 472 */
+/* 474 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 473 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -85773,12 +85632,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
-	var form_1 = __webpack_require__(344);
+	var forms_1 = __webpack_require__(363);
+	var form_1 = __webpack_require__(360);
 	var util_1 = __webpack_require__(340);
-	var item_1 = __webpack_require__(456);
+	var item_1 = __webpack_require__(458);
 	var dom_1 = __webpack_require__(337);
-	var ui_event_manager_1 = __webpack_require__(355);
+	var ui_event_manager_1 = __webpack_require__(353);
 	exports.TOGGLE_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
 	 * @name Toggle
@@ -86009,7 +85868,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 474 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86032,15 +85891,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
-	var content_1 = __webpack_require__(437);
-	var form_1 = __webpack_require__(344);
-	var input_base_1 = __webpack_require__(475);
-	var item_1 = __webpack_require__(456);
-	var native_input_1 = __webpack_require__(476);
-	var nav_controller_1 = __webpack_require__(346);
+	var content_1 = __webpack_require__(439);
+	var form_1 = __webpack_require__(360);
+	var input_base_1 = __webpack_require__(477);
+	var item_1 = __webpack_require__(458);
+	var native_input_1 = __webpack_require__(478);
+	var nav_controller_1 = __webpack_require__(343);
 	var platform_1 = __webpack_require__(339);
 	/**
 	 * @name Input
@@ -86228,7 +86087,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 475 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86244,22 +86103,22 @@
 	var core_1 = __webpack_require__(6);
 	var dom_1 = __webpack_require__(337);
 	var util_1 = __webpack_require__(340);
-	var native_input_1 = __webpack_require__(476);
+	var native_input_1 = __webpack_require__(478);
 	var InputBase = (function () {
-	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
+	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, nav, ngControl) {
 	        this._form = _form;
 	        this._item = _item;
 	        this._app = _app;
 	        this._platform = _platform;
 	        this._elementRef = _elementRef;
 	        this._scrollView = _scrollView;
-	        this._nav = _nav;
 	        this._disabled = false;
 	        this._type = 'text';
 	        this._value = '';
 	        this.placeholder = '';
 	        this.blur = new core_1.EventEmitter();
 	        this.focus = new core_1.EventEmitter();
+	        this._nav = nav;
 	        this._useAssist = config.getBoolean('scrollAssist', false);
 	        this._usePadding = config.getBoolean('scrollPadding', this._useAssist);
 	        this._keyboardHeight = config.getNumber('keyboardHeight');
@@ -86781,7 +86640,7 @@
 	}
 
 /***/ },
-/* 476 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -86795,7 +86654,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
 	/**
@@ -87015,7 +86874,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 477 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87032,7 +86891,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var util_1 = __webpack_require__(340);
 	/**
 	 * @name SegmentButton
@@ -87327,7 +87186,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 478 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87344,10 +87203,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var form_1 = __webpack_require__(344);
+	var form_1 = __webpack_require__(360);
 	var util_1 = __webpack_require__(340);
-	var item_1 = __webpack_require__(456);
-	var radio_group_1 = __webpack_require__(479);
+	var item_1 = __webpack_require__(458);
+	var radio_group_1 = __webpack_require__(481);
 	/**
 	 * @description
 	 * A radio button is a button that can be either checked or unchecked. A user can tap
@@ -87518,7 +87377,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 479 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87532,8 +87391,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
-	var list_1 = __webpack_require__(454);
+	var forms_1 = __webpack_require__(363);
+	var list_1 = __webpack_require__(456);
 	var util_1 = __webpack_require__(340);
 	exports.RADIO_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
@@ -87746,7 +87605,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 480 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -87764,13 +87623,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var util_1 = __webpack_require__(340);
 	var dom_1 = __webpack_require__(337);
-	var debouncer_1 = __webpack_require__(481);
-	var form_1 = __webpack_require__(344);
-	var item_1 = __webpack_require__(456);
-	var ui_event_manager_1 = __webpack_require__(355);
+	var debouncer_1 = __webpack_require__(483);
+	var form_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(458);
+	var ui_event_manager_1 = __webpack_require__(353);
 	exports.RANGE_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 	/**
 	 * @private
@@ -88436,7 +88295,7 @@
 	exports.Range = Range;
 
 /***/ },
-/* 481 */
+/* 483 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -88466,7 +88325,7 @@
 	exports.Debouncer = Debouncer;
 
 /***/ },
-/* 482 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88483,11 +88342,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var forms_1 = __webpack_require__(361);
+	var forms_1 = __webpack_require__(363);
 	var config_1 = __webpack_require__(338);
-	var icon_1 = __webpack_require__(422);
+	var icon_1 = __webpack_require__(424);
 	var util_1 = __webpack_require__(340);
-	var debouncer_1 = __webpack_require__(481);
+	var debouncer_1 = __webpack_require__(483);
 	/**
 	 * @name Searchbar
 	 * @module ionic
@@ -88883,7 +88742,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 483 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -88907,11 +88766,11 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
-	var keyboard_1 = __webpack_require__(343);
-	var gesture_controller_1 = __webpack_require__(342);
+	var keyboard_1 = __webpack_require__(359);
+	var gesture_controller_1 = __webpack_require__(347);
 	var util_1 = __webpack_require__(340);
-	var nav_controller_1 = __webpack_require__(346);
-	var view_controller_1 = __webpack_require__(359);
+	var nav_controller_base_1 = __webpack_require__(341);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @name Nav
 	 * @description
@@ -89046,9 +88905,6 @@
 	    Nav.prototype.ngAfterViewInit = function () {
 	        this._hasInit = true;
 	        if (this._root) {
-	            if (typeof this._root !== 'function') {
-	                throw 'The [root] property in <ion-nav> must be given a reference to a component class from within the constructor.';
-	            }
 	            this.push(this._root);
 	        }
 	    };
@@ -89102,15 +88958,15 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object, (typeof (_m = typeof gesture_controller_1.GestureController !== 'undefined' && gesture_controller_1.GestureController) === 'function' && _m) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_base_1.NavControllerBase !== 'undefined' && nav_controller_base_1.NavControllerBase) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object, (typeof (_m = typeof gesture_controller_1.GestureController !== 'undefined' && gesture_controller_1.GestureController) === 'function' && _m) || Object])
 	    ], Nav);
 	    return Nav;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-	}(nav_controller_1.NavController));
+	}(nav_controller_base_1.NavControllerBase));
 	exports.Nav = Nav;
 
 /***/ },
-/* 484 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89127,11 +88983,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_controller_1 = __webpack_require__(346);
+	var nav_controller_1 = __webpack_require__(343);
+	var util_1 = __webpack_require__(340);
 	/**
 	 * @name NavPop
 	 * @description
-	 * Directive for declaratively pop the current page off from the navigation stack.
+	 * Directive to declaratively pop the current page off from the
+	 * navigation stack.
 	 *
 	 * @usage
 	 * ```html
@@ -89154,19 +89012,23 @@
 	            console.error('nav-pop must be within a NavController');
 	        }
 	    }
-	    /**
-	     * @private
-	     */
 	    NavPop.prototype.onClick = function () {
-	        this._nav && this._nav.pop();
+	        // If no target, or if target is _self, prevent default browser behavior
+	        if (this._nav) {
+	            this._nav.pop(null, util_1.noop);
+	            return false;
+	        }
+	        return true;
 	    };
+	    __decorate([
+	        core_1.HostListener('click'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', Boolean)
+	    ], NavPop.prototype, "onClick", null);
 	    NavPop = __decorate([
 	        core_1.Directive({
-	            selector: '[nav-pop]',
-	            host: {
-	                '(click)': 'onClick()',
-	                'role': 'link'
-	            }
+	            selector: '[navPop]'
 	        }),
 	        __param(0, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object])
@@ -89177,7 +89039,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 485 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89194,28 +89056,35 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_controller_1 = __webpack_require__(346);
+	var nav_controller_1 = __webpack_require__(343);
+	var util_1 = __webpack_require__(340);
 	/**
 	 * @name NavPush
 	 * @description
-	 * Directive for declaratively linking to a new page instead of using
-	 * {@link ../NavController/#push NavController.push}. Similar to ui-router's `ui-sref`.
+	 * Directive to declaratively push a new page to the current nav
+	 * stack.
 	 *
 	 * @usage
 	 * ```html
 	 * <button [navPush]="pushPage"></button>
 	 * ```
-	 * To specify parameters you can use array syntax or the `nav-params` property:
+	 *
+	 * To specify parameters you can use array syntax or the `navParams`
+	 * property:
+	 *
 	 * ```html
-	 * <button [navPush]="pushPage" [navParams]="params"></button>
+	 * <button [navPush]="pushPage" [navParams]="params">Go</button>
 	 * ```
-	 * Where `pushPage` and `params` are specified in your component, and `pushPage`
-	 * contains a reference to a [@Page component](../../../config/Page/):
+	 *
+	 * Where `pushPage` and `params` are specified in your component,
+	 * and `pushPage` contains a reference to a
+	 * [@Page component](../../../config/Page/):
 	 *
 	 * ```ts
-	 * import {LoginPage} from 'login';
+	 * import { LoginPage } from './login';
+	 *
 	 * @Component({
-	 *   template: `<button [navPush]="pushPage" [navParams]="params"></button>`
+	 *   template: `<button [navPush]="pushPage" [navParams]="params">Go</button>`
 	 * })
 	 * class MyPage {
 	 *   constructor(){
@@ -89225,40 +89094,25 @@
 	 * }
 	 * ```
 	 *
-	 * ### Alternate syntax
-	 * You can also use syntax similar to Angular2's router, passing an array to
-	 * NavPush:
-	 * ```html
-	 * <button [navPush]="[pushPage, params]"></button>
-	 * ```
 	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPop NavPop API Docs}
+	 *
 	 */
 	var NavPush = (function () {
 	    function NavPush(_nav) {
 	        this._nav = _nav;
 	        if (!_nav) {
-	            console.error('nav-push must be within a NavController');
+	            console.error('navPush must be within a NavController');
 	        }
 	    }
-	    /**
-	     * @private
-	     */
 	    NavPush.prototype.onClick = function () {
-	        var destination, params;
-	        if (this.navPush instanceof Array) {
-	            if (this.navPush.length > 2) {
-	                throw 'Too many [navPush] arguments, expects [View, { params }]';
-	            }
-	            destination = this.navPush[0];
-	            params = this.navPush[1] || this.navParams;
+	        // If no target, or if target is _self, prevent default browser behavior
+	        if (this._nav) {
+	            this._nav.push(this.navPush, this.navParams, util_1.noop);
+	            return false;
 	        }
-	        else {
-	            destination = this.navPush;
-	            params = this.navParams;
-	        }
-	        this._nav && this._nav.push(destination, params);
+	        return true;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -89268,13 +89122,15 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], NavPush.prototype, "navParams", void 0);
+	    __decorate([
+	        core_1.HostListener('click'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', Boolean)
+	    ], NavPush.prototype, "onClick", null);
 	    NavPush = __decorate([
 	        core_1.Directive({
-	            selector: '[navPush]',
-	            host: {
-	                '(click)': 'onClick()',
-	                'role': 'link'
-	            }
+	            selector: '[navPush]'
 	        }),
 	        __param(0, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object])
@@ -89285,7 +89141,7 @@
 	exports.NavPush = NavPush;
 
 /***/ },
-/* 486 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89474,7 +89330,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 487 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89495,8 +89351,8 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var loading_component_1 = __webpack_require__(488);
-	var view_controller_1 = __webpack_require__(359);
+	var loading_component_1 = __webpack_require__(490);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -89672,7 +89528,7 @@
 	exports.LoadingController = LoadingController;
 
 /***/ },
-/* 488 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89692,14 +89548,14 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(340);
-	var nav_params_1 = __webpack_require__(348);
-	var spinner_1 = __webpack_require__(447);
-	var transition_1 = __webpack_require__(357);
-	var view_controller_1 = __webpack_require__(359);
+	var nav_params_1 = __webpack_require__(345);
+	var spinner_1 = __webpack_require__(449);
+	var transition_1 = __webpack_require__(355);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	* @private
 	*/
@@ -89868,7 +89724,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 489 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89889,8 +89745,8 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var modal_component_1 = __webpack_require__(490);
-	var view_controller_1 = __webpack_require__(359);
+	var modal_component_1 = __webpack_require__(492);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -90083,7 +89939,7 @@
 	exports.ModalController = ModalController;
 
 /***/ },
-/* 490 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90103,13 +89959,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(117);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
-	var key_1 = __webpack_require__(345);
-	var nav_params_1 = __webpack_require__(348);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
+	var key_1 = __webpack_require__(361);
+	var nav_params_1 = __webpack_require__(345);
 	var util_1 = __webpack_require__(340);
-	var page_transition_1 = __webpack_require__(491);
-	var view_controller_1 = __webpack_require__(359);
+	var page_transition_1 = __webpack_require__(493);
+	var view_controller_1 = __webpack_require__(357);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -90275,7 +90131,7 @@
 	page_transition_1.PageTransition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 491 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90284,9 +90140,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
-	var content_1 = __webpack_require__(437);
-	var transition_1 = __webpack_require__(357);
+	var animation_1 = __webpack_require__(356);
+	var content_1 = __webpack_require__(439);
+	var transition_1 = __webpack_require__(355);
 	/**
 	 * @private
 	 */
@@ -90330,7 +90186,7 @@
 	}
 
 /***/ },
-/* 492 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90351,8 +90207,8 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var popover_component_1 = __webpack_require__(493);
-	var view_controller_1 = __webpack_require__(359);
+	var popover_component_1 = __webpack_require__(495);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -90527,7 +90383,7 @@
 	exports.PopoverController = PopoverController;
 
 /***/ },
-/* 493 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90547,14 +90403,14 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(117);
-	var animation_1 = __webpack_require__(358);
-	var backdrop_1 = __webpack_require__(421);
+	var animation_1 = __webpack_require__(356);
+	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
-	var key_1 = __webpack_require__(345);
-	var nav_params_1 = __webpack_require__(348);
-	var page_transition_1 = __webpack_require__(491);
-	var view_controller_1 = __webpack_require__(359);
+	var key_1 = __webpack_require__(361);
+	var nav_params_1 = __webpack_require__(345);
+	var page_transition_1 = __webpack_require__(493);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -90845,7 +90701,7 @@
 	var POPOVER_MD_BODY_PADDING = 12;
 
 /***/ },
-/* 494 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90859,11 +90715,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var activator_1 = __webpack_require__(495);
+	var activator_1 = __webpack_require__(497);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
-	var ripple_1 = __webpack_require__(496);
+	var ripple_1 = __webpack_require__(498);
 	/**
 	 * @private
 	 */
@@ -91045,7 +90901,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 495 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91130,7 +90986,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 496 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91139,7 +90995,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(495);
+	var activator_1 = __webpack_require__(497);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -91240,7 +91096,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 497 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91261,8 +91117,8 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var toast_component_1 = __webpack_require__(498);
-	var view_controller_1 = __webpack_require__(359);
+	var toast_component_1 = __webpack_require__(500);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -91411,7 +91267,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 498 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91431,12 +91287,12 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(119);
-	var animation_1 = __webpack_require__(358);
+	var animation_1 = __webpack_require__(356);
 	var config_1 = __webpack_require__(338);
-	var nav_controller_1 = __webpack_require__(346);
-	var nav_params_1 = __webpack_require__(348);
-	var transition_1 = __webpack_require__(357);
-	var view_controller_1 = __webpack_require__(359);
+	var nav_controller_1 = __webpack_require__(343);
+	var nav_params_1 = __webpack_require__(345);
+	var transition_1 = __webpack_require__(355);
+	var view_controller_1 = __webpack_require__(357);
 	/**
 	* @private
 	*/
@@ -91695,7 +91551,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 499 */
+/* 501 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -91763,7 +91619,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 500 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91788,172 +91644,160 @@
 	exports.Page = Page;
 
 /***/ },
-/* 501 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var action_sheet_1 = __webpack_require__(419);
+	var action_sheet_1 = __webpack_require__(421);
 	exports.ActionSheet = action_sheet_1.ActionSheet;
 	exports.ActionSheetController = action_sheet_1.ActionSheetController;
-	var action_sheet_options_1 = __webpack_require__(502);
+	var action_sheet_options_1 = __webpack_require__(504);
 	exports.ActionSheetOptions = action_sheet_options_1.ActionSheetOptions;
-	var alert_1 = __webpack_require__(423);
+	var alert_1 = __webpack_require__(425);
 	exports.Alert = alert_1.Alert;
 	exports.AlertController = alert_1.AlertController;
-	var alert_options_1 = __webpack_require__(503);
+	var alert_options_1 = __webpack_require__(505);
 	exports.AlertOptions = alert_options_1.AlertOptions;
 	exports.AlertInputOptions = alert_options_1.AlertInputOptions;
 	var app_1 = __webpack_require__(335);
 	exports.App = app_1.App;
-	var backdrop_1 = __webpack_require__(421);
+	var backdrop_1 = __webpack_require__(423);
 	exports.Backdrop = backdrop_1.Backdrop;
-	var badge_1 = __webpack_require__(435);
+	var badge_1 = __webpack_require__(437);
 	exports.Badge = badge_1.Badge;
-	var button_1 = __webpack_require__(436);
+	var button_1 = __webpack_require__(438);
 	exports.Button = button_1.Button;
-	var checkbox_1 = __webpack_require__(466);
+	var checkbox_1 = __webpack_require__(468);
 	exports.Checkbox = checkbox_1.Checkbox;
-	var content_1 = __webpack_require__(437);
+	var content_1 = __webpack_require__(439);
 	exports.Content = content_1.Content;
-	var datetime_1 = __webpack_require__(469);
+	var datetime_1 = __webpack_require__(471);
 	exports.DateTime = datetime_1.DateTime;
-	var icon_1 = __webpack_require__(422);
+	var icon_1 = __webpack_require__(424);
 	exports.Icon = icon_1.Icon;
-	var img_1 = __webpack_require__(443);
+	var img_1 = __webpack_require__(445);
 	exports.Img = img_1.Img;
-	var infinite_scroll_1 = __webpack_require__(445);
+	var infinite_scroll_1 = __webpack_require__(447);
 	exports.InfiniteScroll = infinite_scroll_1.InfiniteScroll;
-	var infinite_scroll_content_1 = __webpack_require__(446);
+	var infinite_scroll_content_1 = __webpack_require__(448);
 	exports.InfiniteScrollContent = infinite_scroll_content_1.InfiniteScrollContent;
-	var input_1 = __webpack_require__(474);
+	var input_1 = __webpack_require__(476);
 	exports.TextArea = input_1.TextArea;
 	exports.TextInput = input_1.TextInput;
-	var item_1 = __webpack_require__(456);
+	var item_1 = __webpack_require__(458);
 	exports.Item = item_1.Item;
-	var item_reorder_1 = __webpack_require__(457);
+	var item_reorder_1 = __webpack_require__(459);
 	exports.ItemReorder = item_reorder_1.ItemReorder;
-	var item_sliding_1 = __webpack_require__(460);
+	var item_sliding_1 = __webpack_require__(462);
 	exports.ItemSliding = item_sliding_1.ItemSliding;
 	exports.ItemOptions = item_sliding_1.ItemOptions;
 	exports.ItemSideFlags = item_sliding_1.ItemSideFlags;
-	var label_1 = __webpack_require__(459);
+	var label_1 = __webpack_require__(461);
 	exports.Label = label_1.Label;
-	var list_1 = __webpack_require__(454);
+	var list_1 = __webpack_require__(456);
 	exports.List = list_1.List;
 	exports.ListHeader = list_1.ListHeader;
-	var loading_1 = __webpack_require__(487);
+	var loading_1 = __webpack_require__(489);
 	exports.Loading = loading_1.Loading;
 	exports.LoadingController = loading_1.LoadingController;
-	var loading_options_1 = __webpack_require__(504);
+	var loading_options_1 = __webpack_require__(506);
 	exports.LoadingOptions = loading_options_1.LoadingOptions;
-	var menu_1 = __webpack_require__(428);
+	var menu_1 = __webpack_require__(430);
 	exports.Menu = menu_1.Menu;
-	var menu_close_1 = __webpack_require__(434);
+	var menu_close_1 = __webpack_require__(436);
 	exports.MenuClose = menu_close_1.MenuClose;
-	var menu_controller_1 = __webpack_require__(430);
+	var menu_controller_1 = __webpack_require__(432);
 	exports.MenuController = menu_controller_1.MenuController;
-	var menu_toggle_1 = __webpack_require__(431);
+	var menu_toggle_1 = __webpack_require__(433);
 	exports.MenuToggle = menu_toggle_1.MenuToggle;
-	var menu_types_1 = __webpack_require__(505);
+	var menu_types_1 = __webpack_require__(507);
 	exports.MenuType = menu_types_1.MenuType;
-	var modal_1 = __webpack_require__(489);
+	var modal_1 = __webpack_require__(491);
 	exports.Modal = modal_1.Modal;
 	exports.ModalController = modal_1.ModalController;
-	var modal_options_1 = __webpack_require__(506);
+	var modal_options_1 = __webpack_require__(508);
 	exports.ModalOptions = modal_options_1.ModalOptions;
-	var nav_1 = __webpack_require__(483);
+	var nav_1 = __webpack_require__(485);
 	exports.Nav = nav_1.Nav;
-	var nav_controller_1 = __webpack_require__(346);
+	var nav_controller_1 = __webpack_require__(343);
 	exports.NavController = nav_controller_1.NavController;
-	var nav_interfaces_1 = __webpack_require__(507);
+	var nav_interfaces_1 = __webpack_require__(344);
 	exports.NavOptions = nav_interfaces_1.NavOptions;
-	var nav_params_1 = __webpack_require__(348);
+	var nav_params_1 = __webpack_require__(345);
 	exports.NavParams = nav_params_1.NavParams;
-	var nav_pop_1 = __webpack_require__(484);
+	var nav_pop_1 = __webpack_require__(486);
 	exports.NavPop = nav_pop_1.NavPop;
-	var nav_push_1 = __webpack_require__(485);
+	var nav_push_1 = __webpack_require__(487);
 	exports.NavPush = nav_push_1.NavPush;
-	var view_controller_1 = __webpack_require__(359);
+	var view_controller_1 = __webpack_require__(357);
 	exports.ViewController = view_controller_1.ViewController;
-	var navbar_1 = __webpack_require__(432);
+	var navbar_1 = __webpack_require__(434);
 	exports.Navbar = navbar_1.Navbar;
 	exports.NavbarTemplate = navbar_1.NavbarTemplate;
-	var option_1 = __webpack_require__(468);
+	var option_1 = __webpack_require__(470);
 	exports.Option = option_1.Option;
-	var picker_1 = __webpack_require__(470);
+	var picker_1 = __webpack_require__(472);
 	exports.Picker = picker_1.Picker;
 	exports.PickerController = picker_1.PickerController;
-	var picker_options_1 = __webpack_require__(472);
+	var picker_options_1 = __webpack_require__(474);
 	exports.PickerOptions = picker_options_1.PickerOptions;
-	var popover_1 = __webpack_require__(492);
+	var popover_1 = __webpack_require__(494);
 	exports.Popover = popover_1.Popover;
 	exports.PopoverController = popover_1.PopoverController;
-	var popover_options_1 = __webpack_require__(508);
+	var popover_options_1 = __webpack_require__(509);
 	exports.PopoverOptions = popover_options_1.PopoverOptions;
-	var radio_button_1 = __webpack_require__(478);
+	var radio_button_1 = __webpack_require__(480);
 	exports.RadioButton = radio_button_1.RadioButton;
-	var radio_group_1 = __webpack_require__(479);
+	var radio_group_1 = __webpack_require__(481);
 	exports.RadioGroup = radio_group_1.RadioGroup;
-	var range_1 = __webpack_require__(480);
+	var range_1 = __webpack_require__(482);
 	exports.Range = range_1.Range;
 	exports.RangeKnob = range_1.RangeKnob;
 	exports.ClientRect = range_1.ClientRect;
-	var refresher_1 = __webpack_require__(448);
+	var refresher_1 = __webpack_require__(450);
 	exports.Refresher = refresher_1.Refresher;
-	var refresher_content_1 = __webpack_require__(449);
+	var refresher_content_1 = __webpack_require__(451);
 	exports.RefresherContent = refresher_content_1.RefresherContent;
-	var scroll_1 = __webpack_require__(444);
+	var scroll_1 = __webpack_require__(446);
 	exports.Scroll = scroll_1.Scroll;
-	var searchbar_1 = __webpack_require__(482);
+	var searchbar_1 = __webpack_require__(484);
 	exports.Searchbar = searchbar_1.Searchbar;
-	var segment_1 = __webpack_require__(477);
+	var segment_1 = __webpack_require__(479);
 	exports.Segment = segment_1.Segment;
 	exports.SegmentButton = segment_1.SegmentButton;
-	var select_1 = __webpack_require__(467);
+	var select_1 = __webpack_require__(469);
 	exports.Select = select_1.Select;
-	var show_hide_when_1 = __webpack_require__(486);
+	var show_hide_when_1 = __webpack_require__(488);
 	exports.ShowWhen = show_hide_when_1.ShowWhen;
 	exports.HideWhen = show_hide_when_1.HideWhen;
 	exports.DisplayWhen = show_hide_when_1.DisplayWhen;
-	var slides_1 = __webpack_require__(450);
+	var slides_1 = __webpack_require__(452);
 	exports.Slides = slides_1.Slides;
 	exports.Slide = slides_1.Slide;
 	exports.SlideLazy = slides_1.SlideLazy;
-	var spinner_1 = __webpack_require__(447);
+	var spinner_1 = __webpack_require__(449);
 	exports.Spinner = spinner_1.Spinner;
-	var tab_1 = __webpack_require__(441);
+	var tab_1 = __webpack_require__(443);
 	exports.Tab = tab_1.Tab;
-	var tabs_1 = __webpack_require__(439);
+	var tabs_1 = __webpack_require__(441);
 	exports.Tabs = tabs_1.Tabs;
-	var tap_click_1 = __webpack_require__(494);
+	var tap_click_1 = __webpack_require__(496);
 	exports.TapClick = tap_click_1.TapClick;
 	exports.isActivatable = tap_click_1.isActivatable;
-	var toast_1 = __webpack_require__(497);
+	var toast_1 = __webpack_require__(499);
 	exports.Toast = toast_1.Toast;
 	exports.ToastController = toast_1.ToastController;
-	var toast_options_1 = __webpack_require__(509);
+	var toast_options_1 = __webpack_require__(510);
 	exports.ToastOptions = toast_options_1.ToastOptions;
-	var toggle_1 = __webpack_require__(473);
+	var toggle_1 = __webpack_require__(475);
 	exports.Toggle = toggle_1.Toggle;
-	var toolbar_1 = __webpack_require__(433);
+	var toolbar_1 = __webpack_require__(435);
 	exports.Toolbar = toolbar_1.Toolbar;
 	exports.ToolbarBase = toolbar_1.ToolbarBase;
 	exports.Header = toolbar_1.Header;
 	exports.Footer = toolbar_1.Footer;
-	var virtual_scroll_1 = __webpack_require__(461);
+	var virtual_scroll_1 = __webpack_require__(463);
 	exports.VirtualScroll = virtual_scroll_1.VirtualScroll;
-
-/***/ },
-/* 502 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 503 */
-/***/ function(module, exports) {
-
-	"use strict";
 
 /***/ },
 /* 504 */
@@ -91963,6 +91807,18 @@
 
 /***/ },
 /* 505 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 506 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91971,8 +91827,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
-	var menu_controller_1 = __webpack_require__(430);
+	var animation_1 = __webpack_require__(356);
+	var menu_controller_1 = __webpack_require__(432);
 	/**
 	 * @private
 	 * Menu Type
@@ -92111,18 +91967,6 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 506 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 507 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
 /* 508 */
 /***/ function(module, exports) {
 
@@ -92136,18 +91980,24 @@
 
 /***/ },
 /* 510 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(511));
 	__export(__webpack_require__(512));
 	__export(__webpack_require__(513));
+	__export(__webpack_require__(514));
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -92231,7 +92081,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92240,7 +92090,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(511);
+	var storage_1 = __webpack_require__(512);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -92345,7 +92195,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92354,7 +92204,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(511);
+	var storage_1 = __webpack_require__(512);
 	var util_1 = __webpack_require__(340);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -92497,7 +92347,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92511,7 +92361,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(499);
+	var translate_1 = __webpack_require__(501);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -92547,7 +92397,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92638,7 +92488,7 @@
 	});
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92830,7 +92680,7 @@
 	}
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92839,7 +92689,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
+	var animation_1 = __webpack_require__(356);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -92890,7 +92740,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92899,8 +92749,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(491);
+	var animation_1 = __webpack_require__(356);
+	var page_transition_1 = __webpack_require__(493);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -93063,7 +92913,7 @@
 	page_transition_1.PageTransition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93072,8 +92922,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(491);
+	var animation_1 = __webpack_require__(356);
+	var page_transition_1 = __webpack_require__(493);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -93123,7 +92973,7 @@
 	page_transition_1.PageTransition.register('md-transition', MDTransition);
 
 /***/ },
-/* 520 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93132,8 +92982,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(491);
+	var animation_1 = __webpack_require__(356);
+	var page_transition_1 = __webpack_require__(493);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {

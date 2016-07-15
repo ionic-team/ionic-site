@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="nav-pop" href="#nav-pop"></a>
 
 NavPop
-<h3><code>[nav-pop]</code></h3>
+<h3><code>[navPop]</code></h3>
 
 
 
@@ -35,7 +35,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L2">
 Improve this doc
 </a>
 
@@ -44,7 +44,8 @@ Improve this doc
 
 
 
-<p>Directive for declaratively pop the current page off from the navigation stack.</p>
+<p>Directive to declaratively pop the current page off from the
+navigation stack.</p>
 
 
 
@@ -70,6 +71,28 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="onClick"></div>
+
+<h3>
+<a class="anchor" name="onClick" href="#onClick"></a>
+<code>onClick()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- related link -->

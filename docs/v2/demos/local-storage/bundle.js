@@ -91285,7 +91285,6 @@
 	var common_1 = __webpack_require__(119);
 	var animation_1 = __webpack_require__(356);
 	var config_1 = __webpack_require__(338);
-	var nav_controller_1 = __webpack_require__(343);
 	var nav_params_1 = __webpack_require__(345);
 	var transition_1 = __webpack_require__(355);
 	var view_controller_1 = __webpack_require__(357);
@@ -91293,8 +91292,7 @@
 	* @private
 	*/
 	var ToastCmp = (function () {
-	    function ToastCmp(_nav, _viewCtrl, _config, _elementRef, params, renderer) {
-	        this._nav = _nav;
+	    function ToastCmp(_viewCtrl, _config, _elementRef, params, renderer) {
 	        this._viewCtrl = _viewCtrl;
 	        this._config = _config;
 	        this._elementRef = _elementRef;
@@ -91350,10 +91348,10 @@
 	                '[attr.aria-describedby]': 'descId',
 	            },
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], ToastCmp);
 	    return ToastCmp;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e;
 	}());
 	exports.ToastCmp = ToastCmp;
 	var ToastSlideIn = (function (_super) {

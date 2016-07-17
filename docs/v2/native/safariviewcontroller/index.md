@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.4"
+version: "1.3.5"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -57,6 +57,8 @@ docType: "class"
 
 <ul>
   <li>iOS</li>
+  
+  <li>Android</li>
   </ul>
 
 <!-- @platforms tag end -->
@@ -125,8 +127,6 @@ Checks if SafariViewController is available
   
 </h3>
 
-
-
 Shows Safari View Controller
 
 
@@ -169,8 +169,6 @@ Shows Safari View Controller
 <h3><code>hide()</code>
   
 </h3>
-
-
 
 Hides Safari View Controller
 

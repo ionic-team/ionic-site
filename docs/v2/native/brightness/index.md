@@ -148,7 +148,7 @@ Reads the current brightness of the device display.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the 
+<code>Promise</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
 </div>
 

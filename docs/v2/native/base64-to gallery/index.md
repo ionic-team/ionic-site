@@ -128,7 +128,7 @@ Converts a base64 string to an image file in the device gallery
     </td>
     <td>
       
-<code>sstring</code>
+<code>string</code>
     </td>
     <td>
       <p>Prefix the file with a string. Default is &#39;img_&#39;. Optional.</p>

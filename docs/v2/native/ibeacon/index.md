@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L217">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L222">
   Improve this doc
 </a>
 
@@ -175,7 +175,7 @@ the code that consumes the messages generated on in the native layer.
 <code>String</code>
     </td>
     <td>
-      <p>The proximity ID of the beacon being targeted. 
+      <p>The proximity ID of the beacon being targeted.
 This value must not be blank nor invalid as a UUID.</p>
 
       
@@ -447,9 +447,9 @@ could be enabled. If not, the promise will be rejected with an error.
 
 Start monitoring the specified region.
 
-If a region of the same type with the same identifier is already being 
+If a region of the same type with the same identifier is already being
 monitored for this application,
-it will be removed from monitoring. For circular regions, the region 
+it will be removed from monitoring. For circular regions, the region
 monitoring service will prioritize
 regions by their size, favoring smaller regions over larger regions.
 
@@ -510,9 +510,9 @@ native layer acknowledged the dispatch of the monitoring request.
 
 
 
-Stop monitoring the specified region.  It is valid to call 
-stopMonitoringForRegion: for a region that was registered for monitoring 
-with a different location manager object, during this or previous 
+Stop monitoring the specified region.  It is valid to call
+stopMonitoringForRegion: for a region that was registered for monitoring
+with a different location manager object, during this or previous
 launches of your application.
 
 This is done asynchronously and may not be immediately reflected in monitoredRegions.
@@ -573,8 +573,8 @@ native layer acknowledged the dispatch of the request to stop monitoring.
 
 
 Request state the for specified region. When result is ready
-didDetermineStateForRegion is triggered. This can be any region, 
-also those which is not currently monitored. 
+didDetermineStateForRegion is triggered. This can be any region,
+also those which is not currently monitored.
 
 This is done asynchronously and may not be immediately reflected in monitoredRegions.
 
@@ -768,7 +768,7 @@ Queries the native layer to determine the current authorization in effect.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a promise which is resolved with the 
+ Returns a promise which is resolved with the
 requested authorization status.
 
 

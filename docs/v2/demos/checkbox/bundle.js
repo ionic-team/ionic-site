@@ -81314,12 +81314,6 @@
 	exports.ItemReorderGesture = ItemReorderGesture;
 	function itemForPosition(x, y) {
 	    var element = document.elementFromPoint(x, y);
-	    if (!element) {
-	        return null;
-	    }
-	    if (element.nodeName !== 'ION-ITEM' && !element.hasAttribute('ion-item')) {
-	        return null;
-	    }
 	    return item_reorder_1.findReorderItem(element);
 	}
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ SlideGesture
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/slide-gesture.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/slide-gesture.ts#L1">
 Improve this doc
 </a>
 
@@ -116,6 +116,26 @@ Improve this doc
 
 
 
+<div id="canStart"></div>
+
+<h3>
+<a class="anchor" name="canStart" href="#canStart"></a>
+<code>canStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="onDragStart"></div>
 
 <h3>
@@ -136,11 +156,11 @@ Improve this doc
 
 
 
-<div id="onDragMove"></div>
+<div id="onDrag"></div>
 
 <h3>
-<a class="anchor" name="onDragMove" href="#onDragMove"></a>
-<code>onDragMove()</code>
+<a class="anchor" name="onDrag" href="#onDrag"></a>
+<code>onDrag()</code>
   
 
 </h3>

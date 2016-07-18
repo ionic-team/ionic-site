@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -81,6 +81,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="deregister" href="#deregister"></a>
 <code>deregister()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="focusCtrl"></div>
+
+<h3>
+<a class="anchor" name="focusCtrl" href="#focusCtrl"></a>
+<code>focusCtrl()</code>
   
 
 </h3>

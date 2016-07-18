@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L119">
 Improve this doc
 </a>
 
@@ -47,53 +47,41 @@ Improve this doc
 <p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.
 Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.
 You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
-<pre><code class="lang-html">&lt;!-- Segment in a header --&gt;
-&lt;ion-header&gt;
-  &lt;ion-toolbar&gt;
-    &lt;ion-segment [(ngModel)]=&quot;icons&quot; secondary&gt;
-      &lt;ion-segment-button value=&quot;camera&quot;&gt;
-        &lt;ion-icon name=&quot;camera&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/ion-segment-button&gt;
-      &lt;ion-segment-button value=&quot;bookmark&quot;&gt;
-        &lt;ion-icon name=&quot;bookmark&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/ion-segment-button&gt;
-    &lt;/ion-segment&gt;
-  &lt;/ion-toolbar&gt;
-&lt;/ion-header&gt;
-
-&lt;ion-content&gt;
-  &lt;!-- Segment in content --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
-    &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
-      Friends
-    &lt;/ion-segment-button&gt;
-    &lt;ion-segment-button value=&quot;enemies&quot; (ionSelect)=&quot;selectedEnemies()&quot;&gt;
-      Enemies
-    &lt;/ion-segment-button&gt;
-  &lt;/ion-segment&gt;
-
-  &lt;!-- Segment in a form --&gt;
-  &lt;form [formGroup]=&quot;myForm&quot;&gt;
-    &lt;ion-segment formControlName=&quot;mapStyle&quot; danger&gt;
-      &lt;ion-segment-button value=&quot;standard&quot;&gt;
-        Standard
-      &lt;/ion-segment-button&gt;
-      &lt;ion-segment-button value=&quot;hybrid&quot;&gt;
-        Hybrid
-      &lt;/ion-segment-button&gt;
-      &lt;ion-segment-button value=&quot;sat&quot;&gt;
-        Satellite
-      &lt;/ion-segment-button&gt;
-    &lt;/ion-segment&gt;
-  &lt;/form&gt;
-&lt;/ion-content&gt;
-</code></pre>
 
 
 
 
 
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (ionChange)=&quot;onSegmentChanged($event)&quot; danger&gt;
+  &lt;ion-segment-button value=&quot;friends&quot;&gt;
+    Friends
+  &lt;/ion-segment-button&gt;
+  &lt;ion-segment-button value=&quot;enemies&quot;&gt;
+    Enemies
+  &lt;/ion-segment-button&gt;
+&lt;/ion-segment&gt;
+</code></pre>
+<p>Or with <code>FormBuilder</code></p>
+<pre><code class="lang-html">&lt;form [ngFormModel]=&quot;myForm&quot;&gt;
+  &lt;ion-segment ngControl=&quot;mapStyle&quot; danger&gt;
+    &lt;ion-segment-button value=&quot;standard&quot;&gt;
+      Standard
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button value=&quot;hybrid&quot;&gt;
+      Hybrid
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button value=&quot;sat&quot;&gt;
+      Satellite
+    &lt;/ion-segment-button&gt;
+  &lt;/ion-segment&gt;
+&lt;/form&gt;
+</code></pre>
+
+
 
 
 <!-- @property tags -->

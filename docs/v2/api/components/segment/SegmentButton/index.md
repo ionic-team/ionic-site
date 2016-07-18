@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -54,27 +54,29 @@ Improve this doc
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-content&gt;
-  &lt;!-- Segment buttons with icons --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;icons&quot; secondary&gt;
-    &lt;ion-segment-button value=&quot;camera&quot;&gt;
-      &lt;ion-icon name=&quot;camera&quot;&gt;&lt;/ion-icon&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
+  &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
+    Friends
+  &lt;/ion-segment-button&gt;
+  &lt;ion-segment-button value=&quot;enemies&quot; (ionSelect)=&quot;selectedEnemies()&quot;&gt;
+    Enemies
+  &lt;/ion-segment-button&gt;
+&lt;/ion-segment&gt;
+</code></pre>
+<p>Or with <code>FormBuilder</code></p>
+<pre><code class="lang-html">&lt;form [ngFormModel]=&quot;myForm&quot;&gt;
+  &lt;ion-segment ngControl=&quot;mapStyle&quot; danger&gt;
+    &lt;ion-segment-button value=&quot;standard&quot;&gt;
+      Standard
     &lt;/ion-segment-button&gt;
-    &lt;ion-segment-button value=&quot;bookmark&quot;&gt;
-      &lt;ion-icon name=&quot;bookmark&quot;&gt;&lt;/ion-icon&gt;
+    &lt;ion-segment-button value=&quot;hybrid&quot;&gt;
+      Hybrid
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button value=&quot;sat&quot;&gt;
+      Satellite
     &lt;/ion-segment-button&gt;
   &lt;/ion-segment&gt;
-
-  &lt;!-- Segment buttons with text --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
-    &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
-      Friends
-    &lt;/ion-segment-button&gt;
-    &lt;ion-segment-button value=&quot;enemies&quot; (ionSelect)=&quot;selectedEnemies()&quot;&gt;
-      Enemies
-    &lt;/ion-segment-button&gt;
-  &lt;/ion-segment&gt;
-&lt;/ion-content&gt;
+&lt;/form&gt;
 </code></pre>
 
 

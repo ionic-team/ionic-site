@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/view-controller.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/view-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -81,20 +81,13 @@ export class MyPage{
 
 </h3>
 
-Observable to be subscribed to when the current component will become active
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -108,20 +101,13 @@ Observable to be subscribed to when the current component will become active
 
 </h3>
 
-Observable to be subscribed to when the current component has become active
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -135,20 +121,13 @@ Observable to be subscribed to when the current component has become active
 
 </h3>
 
-Observable to be subscribed to when the current component will no longer be active
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -162,20 +141,13 @@ Observable to be subscribed to when the current component will no longer be acti
 
 </h3>
 
-Observable to be subscribed to when the current component is no long active
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -189,20 +161,13 @@ Observable to be subscribed to when the current component is no long active
 
 </h3>
 
-Observable to be subscribed to when the current component will be destroyed
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -216,20 +181,13 @@ Observable to be subscribed to when the current component will be destroyed
 
 </h3>
 
-Observable to be subscribed to when the current component has been destroyed
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -320,7 +278,17 @@ Check to see if you can go back in the navigation stack.
 
 </h3>
 
-Get the index of the current component in the current navigation stack.
+You can find out the index of the current view is in the current navigation stack.
+
+```ts
+ export class Page1 {
+   constructor(private view: ViewController){
+     // Just log out the index
+     console.log(this.view.index);
+   }
+ }
+```
+
 
 
 
@@ -401,9 +369,20 @@ Get the index of the current component in the current navigation stack.
 
 </h3>
 
-Find out if the current component has a NavBar or not. Be sure
+You can find out of the current view has a Navbar or not. Be sure
 to wrap this in an `ionViewWillEnter` method in order to make sure
 the view has rendered fully.
+
+```ts
+export class Page1 {
+ constructor(private viewCtrl: ViewController) {}
+
+ ionViewWillEnter(){
+   console.log('Do we have a Navbar?', this.viewCtrl.hasNavbar());
+ }
+}
+```
+
 
 
 
@@ -430,8 +409,19 @@ the view has rendered fully.
 
 </h3>
 
-Change the title of the back-button. Be sure to call this
-after `ionViewWillEnter` to make sure the  DOM has been rendered.
+You can change the text of the back button on a view-by-view basis.
+
+```ts
+export class MyClass{
+ constructor(private viewCtrl: ViewController) {}
+
+ ionViewWillEnter() {
+   this.viewCtrl.setBackButtonText('Previous');
+ }
+}
+```
+Make sure you use the view events when calling this method, otherwise the back-button will not have been created
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -480,8 +470,7 @@ after `ionViewWillEnter` to make sure the  DOM has been rendered.
 
 </h3>
 
-Set if the back button for the current view is visible or not. Be sure to call this
-after `ionViewWillEnter` to make sure the  DOM has been rendered.
+Set if the back button for the current view is visible or not. Be sure to wrap this in `ionViewWillEnter` to make sure the has been compleltly rendered.
 
 
 <table class="table param-table" style="margin:0;">

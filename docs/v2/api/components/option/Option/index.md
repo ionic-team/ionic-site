@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -81,13 +81,6 @@ Improve this doc
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the option</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the option is disabled</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L12">
 Improve this doc
 </a>
 
@@ -129,29 +129,6 @@ for more properties.</p>
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="open"></div>
-
-<h3>
-<a class="anchor" name="open" href="#open"></a>
-<code>open()</code>
-  
-
-</h3>
-
-Open the select interface.
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

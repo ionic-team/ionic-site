@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L13">
 Improve this doc
 </a>
 
@@ -68,8 +68,8 @@ providers and dependency injection, see <a href="">Providers and DI</a>.</p>
 navigation controller for most situations (for more advanced situations, see
 <a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
 <pre><code class="lang-ts">class MyComponent {
-  constructor(private nav: NavController) {
-
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
 }
 </code></pre>
@@ -233,20 +233,13 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
-Observable to be subscribed to when a component is loaded.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -260,20 +253,13 @@ Observable to be subscribed to when a component is loaded.
 
 </h3>
 
-Observable to be subscribed to when a component is about to be loaded.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -287,20 +273,13 @@ Observable to be subscribed to when a component is about to be loaded.
 
 </h3>
 
-Observable to be subscribed to when a component has fully become the active component.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -314,20 +293,13 @@ Observable to be subscribed to when a component has fully become the active comp
 
 </h3>
 
-Observable to be subscribed to when a component is about to leave, and no longer active.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -341,20 +313,13 @@ Observable to be subscribed to when a component is about to leave, and no longer
 
 </h3>
 
-Observable to be subscribed to when a component has fully left and is no longer active.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -368,20 +333,13 @@ Observable to be subscribed to when a component has fully left and is no longer 
 
 </h3>
 
-Observable to be subscribed to when a component is about to be unloaded and destroyed.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
 
-
-</div>
 
 
 
@@ -395,36 +353,6 @@ Observable to be subscribed to when a component is about to be unloaded and dest
 
 </h3>
 
-Observable to be subscribed to when a component has fully been unloaded and destroyed.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
-
-</div>
-
-
-
-
-<div id="parent"></div>
-
-<h3>
-<a class="anchor" name="parent" href="#parent"></a>
-<code>parent</code>
-  
-
-</h3>
-
-The parent navigation instance. If this is the root nav, then
-it'll be `null`. A `Tab` instance's parent is `Tabs`, otherwise
-the parent would be another nav, if it's not already the root nav.
 
 
 
@@ -536,10 +464,77 @@ Set the root for the current navigation stack.
 
 </h3>
 
-Set the views of the current navigation stack and navigate to the
-last view. By default animations are disabled, but they can be enabled
-by passing options to the navigation controller.You can also pass any
-navigation params to the individual pages in the array.
+You can set the views of the current navigation stack and navigate to the
+last view.
+
+
+```ts
+import {NavController } from 'ionic-angular'
+import {Detail } from '../detail/detail'
+import {Info } from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
+   }
+ }
+```
+
+
+In this example, we're giving the current nav stack an array of pages.
+Then the navigation stack will navigate to the last page in the array
+and remove the previously active page.
+
+By default animations are disabled, but they can be enabled by passing
+options to the navigation controller.
+
+
+```ts
+import {NavController } from 'ionic-angular'
+import {Detail } from '../detail/detail'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([ {page: List}, {page: Detail} ], {
+       animate: true
+     });
+   }
+ }
+```
+
+You can also pass any navigation params to the individual pages in
+the array.
+
+
+```ts
+import {NavController } from 'ionic-angular';
+import {Info } from '../info/info';
+import {List } from '../list/list';
+import {Detail } from '../detail/detail';
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([{
+       page: Info
+     }, {
+       page: List,
+       params: {tags: 'css'}
+     }, {
+       page: Detail,
+       params: {id: 325}
+     }]);
+   }
+ }
+```
 
 
 
@@ -614,9 +609,66 @@ navigation params to the individual pages in the array.
 
 </h3>
 
-Push a new component onto the current navication stack. Pass any aditional information
-along as an object. This additional information is acessible through NavParams
+Push is how we can pass components and navigate to them. We push the component
+we want to navigate to on to the navigation stack.
 
+```ts
+class MyClass{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   pushPage(){
+     this.nav.push(SecondView);
+   }
+}
+```
+
+We can also pass along parameters to the next view, such as data that we have
+on the current view. This is a similar concept to to V1 apps with `$stateParams`.
+
+```ts
+class MyClass{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+
+   pushPage(user){
+      // user is an object we have in our view
+      // typically this comes from an ngFor or some array
+      // here we can create an object with a property of
+      // paramUser, and set its value to the user object we passed in
+     this.nav.push(SecondView, { paramUser: user });
+   }
+}
+```
+
+We'll look at how we can access that data in the `SecondView` in the
+navParam docs.
+
+We can also pass any options to the transtion from that same method.
+
+```ts
+class MyClass{
+   constructor(nav: NavController){
+     this.nav = nav;
+   }
+
+   pushPage(user){
+     this.nav.push(SecondView,{
+      // user is an object we have in our view
+      // typically this comes from an ngFor or some array
+      // here we can create an object with a property of
+      // paramUser, and set it's value to the user object we passed in
+      paramUser: user
+     },{
+      // here we can configure things like the animations direction or
+      // or if the view should animate at all.
+      direction: 'back'
+     });
+   }
+}
+```
 
 
 <table class="table param-table" style="margin:0;">
@@ -698,6 +750,100 @@ along as an object. This additional information is acessible through NavParams
 
 
 
+<div id="present"></div>
+
+<h3>
+<a class="anchor" name="present" href="#present"></a>
+<code>present(enteringView,&nbsp;opts)</code>
+  
+
+</h3>
+
+Present is how an app display overlays on top of the content, from within the
+root level `NavController`. The `present` method is used by overlays, such
+as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
+and `present` is that `present` takes a `ViewController` instance, whereas
+`push` takes a component class which hasn't been instantiated yet.
+Additionally, `present` will place the overlay in the root NavController's
+stack.
+
+```ts
+class MyClass{
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+
+   presentModal() {
+     let modal = Modal.create(ProfilePage);
+     this.nav.present(modal);
+   }
+}
+```
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        enteringView
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The component you want to push on the navigation stack.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Nav options to go with this transition.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
 <div id="insert"></div>
 
 <h3>
@@ -707,9 +853,21 @@ along as an object. This additional information is acessible through NavParams
 
 </h3>
 
-Inserts a component into the nav stack at the specified index. This is useful if
-you need to add a component at any point in your navigation stack.
+Inserts a view into the nav stack at the specified index. This is useful if
+you need to add a view at any point in your navigation stack.
 
+```ts
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   insertPage(){
+     this.nav.insert(1, Info);
+   }
+ }
+```
+
+This will insert the `Info` page into the second slot of our navigation stack.
 
 
 
@@ -818,9 +976,27 @@ you need to add a component at any point in your navigation stack.
 
 </h3>
 
-Inserts an array of components into the nav stack at the specified index.
-The last component in the array will become instantiated as a view,
-and animate in to become the active view.
+Inserts multiple pages into the nav stack at the specified index.
+
+```ts
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   insertPages(){
+     let pages = [
+       { page: Info },
+       { page: ProfileList },
+       { page: ProfileDetail, params: {userId:5} }
+     ];
+     this.nav.insertPages(2, pages);
+   }
+ }
+```
+
+This will insert each of the pages in the array, starting at the third slot
+(second index) of the nav stack. The last page in the array will animate
+in and become the active page.
 
 
 
@@ -912,8 +1088,20 @@ and animate in to become the active view.
 
 </h3>
 
-Call to navigate back from a current component. Similar to `push()`, you
+If you wanted to navigate back from a current view, you can use the
+back-button or programatically call `pop()`. Similar to `push()`, you
 can also pass navigation options.
+
+```ts
+class SecondView{
+   constructor(nav:NavController){
+     this.nav = nav;
+   }
+   goBack(){
+     this.nav.pop();
+   }
+}
+```
 
 
 
@@ -971,8 +1159,8 @@ can also pass navigation options.
 
 </h3>
 
-Navigate back to the root of the stack, no matter how far back that is.
-
+Similar to `pop()`, this method let's you navigate back to the root of
+the stack, no matter how many pages back that is.
 
 
 <table class="table param-table" style="margin:0;">
@@ -1030,7 +1218,6 @@ Navigate back to the root of the stack, no matter how far back that is.
 </h3>
 
 Pop to a specific view in the history stack.
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -1105,6 +1292,17 @@ Pop to a specific view in the history stack.
 </h3>
 
 Removes a page from the nav stack at the specified index.
+
+```ts
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   removePage(){
+     this.nav.remove(1);
+   }
+ }
+```
 
 
 
@@ -1181,6 +1379,88 @@ Removes a page from the nav stack at the specified index.
 <b>Returns:</b> 
   <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
 
+
+</div>
+
+
+
+
+<div id="canSwipeBack"></div>
+
+<h3>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
+<code>canSwipeBack()</code>
+  
+
+</h3>
+
+If it's possible to use swipe back or not. If it's not possible
+to go back, or swipe back is not enabled, then this will return `false`.
+If it is possible to go back, and swipe back is enabled, then this
+will return `true`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="canGoBack"></div>
+
+<h3>
+<a class="anchor" name="canGoBack" href="#canGoBack"></a>
+<code>canGoBack()</code>
+  
+
+</h3>
+
+Returns `true` if there's a valid previous page that we can pop
+back to. Otherwise returns `false`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="isTransitioning"></div>
+
+<h3>
+<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
+<code>isTransitioning()</code>
+  
+
+</h3>
+
+Returns if the nav controller is actively transitioning or not.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
 
 </div>
 
@@ -1280,7 +1560,7 @@ Removes a page from the nav stack at the specified index.
 
 </h3>
 
-Returns if the given view is the active view or not.
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -1515,37 +1795,16 @@ Returns the number of views in this nav controller.
 
 
 
-<div id="getActiveChildNav"></div>
+<div id="rootNav"></div>
 
 <h3>
-<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
-<code>getActiveChildNav()</code>
+<a class="anchor" name="rootNav" href="#rootNav"></a>
+<code>rootNav</code>
   
 
 </h3>
 
-Returns the active child navigation.
-
-
-
-
-
-
-
-
-
-
-
-<div id="isTransitioning"></div>
-
-<h3>
-<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
-<code>isTransitioning()</code>
-  
-
-</h3>
-
-Returns if the nav controller is actively transitioning or not.
+Returns the root `NavController`.
 
 
 
@@ -1555,63 +1814,7 @@ Returns if the nav controller is actively transitioning or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="canSwipeBack"></div>
-
-<h3>
-<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
-<code>canSwipeBack()</code>
-  
-
-</h3>
-
-If it's possible to use swipe back or not. If it's not possible
-to go back, or swipe back is not enabled, then this will return `false`.
-If it is possible to go back, and swipe back is enabled, then this
-will return `true`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="canGoBack"></div>
-
-<h3>
-<a class="anchor" name="canGoBack" href="#canGoBack"></a>
-<code>canGoBack()</code>
-  
-
-</h3>
-
-Returns `true` if there's a valid previous page that we can pop
-back to. Otherwise returns `false`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
+  <code>NavController</code> 
 
 </div>
 

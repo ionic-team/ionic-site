@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L13">
 Improve this doc
 </a>
 
@@ -51,19 +51,19 @@ a container of individual <a href="../Tab/">Tab</a> components.</p>
 <p>The position of the tabs relative to the content varies based on
 the mode. By default, the tabs are placed at the bottom of the screen
 for <code>ios</code> mode, and at the top for the <code>md</code> and <code>wp</code> modes. You can
-configure the position using the <code>tabsPlacement</code> property on the
+configure the position using the <code>tabbarPlacement</code> property on the
 <code>&lt;ion-tabs&gt;</code> element, or in your app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
-values of <code>tabsPlacement</code>.</p>
+values of <code>tabbarPlacement</code>.</p>
 <h3 id="layout">Layout</h3>
-<p>The layout for all of the tabs can be defined using the <code>tabsLayout</code>
+<p>The layout for all of the tabs can be defined using the <code>tabbarLayout</code>
 property. If the individual tab has a title and icon, the icons will
 show on top of the title by default. All tabs can be changed by setting
-the value of <code>tabsLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
+the value of <code>tabbarLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
 app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful if
 you want to show tabs with a title only on Android, but show icons
 and a title for iOS. See the <a href="#input-properties">Input Properties</a>
-below for the available values of <code>tabsLayout</code>.</p>
+below for the available values of <code>tabbarLayout</code>.</p>
 <h3 id="selecting-a-tab">Selecting a Tab</h3>
 <p>There are different ways you can select a specific tab from the tabs
 component. You can use the <code>selectedIndex</code> property to set the index
@@ -147,26 +147,6 @@ ionViewDidEnter() {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="viewCtrl"></div>
-
-<h3>
-<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
-<code>viewCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="select"></div>
 
@@ -383,14 +363,14 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
     
     <tr>
-      <td>tabsLayout</td>
+      <td>tabbarLayout</td>
       <td><code>string</code></td>
       <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>tabsPlacement</td>
+      <td>tabbarPlacement</td>
       <td><code>string</code></td>
       <td><p> Set position of the tabbar: <code>top</code>, <code>bottom</code>.</p>
 </td>

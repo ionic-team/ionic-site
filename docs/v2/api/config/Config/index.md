@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -51,7 +51,7 @@ ionicBootstrap(AppRoot, customProviders, {
   iconMode: &#39;ios&#39;,
   modalEnter: &#39;modal-slide-in&#39;,
   modalLeave: &#39;modal-slide-out&#39;,
-  tabsPlacement: &#39;bottom&#39;,
+  tabbarPlacement: &#39;bottom&#39;,
   pageTransition: &#39;ios&#39;,
 });
 </code></pre>
@@ -60,22 +60,22 @@ Below is an example where an app can override any setting we want based on a pla
 <pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
 
 ionicBootstrap(AppRoot, customProviders, {
-  tabsPlacement: &#39;bottom&#39;,
+  tabbarPlacement: &#39;bottom&#39;,
   platforms: {
   ios: {
-    tabsPlacement: &#39;top&#39;,
+    tabbarPlacement: &#39;top&#39;,
   }
 });
 </code></pre>
-<p>We could also configure these values at a component level. Take <code>tabsPlacement</code>,
+<p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>,
 we can configure this as a property on our <code>ion-tabs</code>.</p>
-<pre><code class="lang-html">&lt;ion-tabs tabsPlacement=&quot;top&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs tabbarPlacement=&quot;top&quot;&gt;
   &lt;ion-tab tabTitle=&quot;Dash&quot; tabIcon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>The last way we could configure is through URL query strings. This is useful for testing
 while in the browser. Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
-<pre><code class="lang-bash">http://localhost:8100/?ionicTabsPlacement=bottom
+<pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
 <p>Any value can be added to config, and looked up at a later in any component.</p>
 <pre><code class="lang-js">config.set(&#39;ios&#39;, &#39;favoriteColor&#39;, &#39;green&#39;);
@@ -202,19 +202,24 @@ chart displays each property with a description of what it controls.</p>
 <td>The default spinner to use when a name is not defined.</td>
 </tr>
 <tr>
-<td><code>tabsHighlight</code></td>
+<td><code>tabbarHighlight</code></td>
 <td><code>boolean</code></td>
 <td>Whether to show a highlight line under the tab when it is selected.</td>
 </tr>
 <tr>
-<td><code>tabsLayout</code></td>
+<td><code>tabbarLayout</code></td>
 <td><code>string</code></td>
 <td>The layout to use for all tabs. Available options: <code>&quot;icon-top&quot;</code>, <code>&quot;icon-left&quot;</code>, <code>&quot;icon-right&quot;</code>, <code>&quot;icon-bottom&quot;</code>, <code>&quot;icon-hide&quot;</code>, <code>&quot;title-hide&quot;</code>.</td>
 </tr>
 <tr>
-<td><code>tabsPlacement</code></td>
+<td><code>tabbarPlacement</code></td>
 <td><code>string</code></td>
-<td>The position of the tabs relative to the content. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
+<td>The position of the tabs. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
+</tr>
+<tr>
+<td><code>tabSubPages</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</td>
 </tr>
 <tr>
 <td><code>toastEnter</code></td>

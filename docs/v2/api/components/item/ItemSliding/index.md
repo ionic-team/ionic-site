@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -125,6 +125,66 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="item"></div>
+
+<h3>
+<a class="anchor" name="item" href="#item"></a>
+<code>item</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="fireSwipeEvent"></div>
+
+<h3>
+<a class="anchor" name="fireSwipeEvent" href="#fireSwipeEvent"></a>
+<code>fireSwipeEvent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="calculateOptsWidth"></div>
+
+<h3>
+<a class="anchor" name="calculateOptsWidth" href="#calculateOptsWidth"></a>
+<code>calculateOptsWidth()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="close"></div>
 

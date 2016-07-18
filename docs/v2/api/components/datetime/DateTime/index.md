@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -316,7 +316,7 @@ if the app needs to use names other than the default English version of month an
 names. The month names and day names can be either configured at the app level, or
 individual <code>ion-datetime</code> level.</p>
 <h3 id="app-config-level">App Config Level</h3>
-<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
 
 ionicBootstrap(MyApp, customProviders, {
   monthNames: [&#39;janeiro&#39;, &#39;fevereiro&#39;, &#39;mar\u00e7o&#39;, ... ],

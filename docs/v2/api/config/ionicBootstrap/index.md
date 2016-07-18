@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ ionicBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L19">
 Improve this doc
 </a>
 
@@ -60,7 +60,7 @@ import { Component } from &#39;@angular/core&#39;;
 })
 export class MyClass{}
 
-ionicBootstrap(MyClass, null, {tabsPlacement: &#39;bottom&#39;})
+ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})
 </code></pre>
 
 

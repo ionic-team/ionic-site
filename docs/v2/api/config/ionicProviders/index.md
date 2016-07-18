@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ ionicProviders
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/providers.ts#L25">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L91">
 Improve this doc
 </a>
 

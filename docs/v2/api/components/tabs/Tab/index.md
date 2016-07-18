@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L9">
 Improve this doc
 </a>
 
@@ -114,13 +114,13 @@ the tabs.</p>
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
-  constructor(private modalCtrl: ModalController) {
-
+  constructor(nav: NavController) {
+    this.nav = nav;
   }
 
   chat() {
-    let modal = this.modalCtrl.create(ChatPage);
-    modal.present();
+    let modal = Modal.create(ChatPage);
+    this.nav.present(modal);
   }
 }
 </code></pre>

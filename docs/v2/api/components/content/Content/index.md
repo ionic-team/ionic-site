@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
+version: "2.0.0-beta.10"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -84,50 +84,6 @@ export class MyPage{
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="contentTop"></div>
-
-<h3>
-<a class="anchor" name="contentTop" href="#contentTop"></a>
-<code>contentTop</code>
-  
-
-</h3>
-
-A number representing how many pixels the top of the content has been
-adjusted, which could be by either padding or margin.
-
-
-
-
-
-
-
-
-
-
-
-<div id="contentBottom"></div>
-
-<h3>
-<a class="anchor" name="contentBottom" href="#contentBottom"></a>
-<code>contentBottom</code>
-  
-
-</h3>
-
-A number representing how many pixels the bottom of the content has been
-adjusted, which could be by either padding or margin.
-
-
-
-
-
-
-
-
-
-
 
 <div id="scrollTo"></div>
 
@@ -638,55 +594,6 @@ Returns the content and scroll elements' dimensions.
     </table>
 
 </div>
-
-
-
-
-<div id="resize"></div>
-
-<h3>
-<a class="anchor" name="resize" href="#resize"></a>
-<code>resize()</code>
-  
-
-</h3>
-
-Tell the content to recalculate its dimensions. This should be called
-after dynamically adding headers, footers, or tabs.
-
-```ts
-@Component({
-  template: `
-    <ion-header>
-      <ion-navbar>
-        <ion-title>Main Navbar</ion-title>
-      </ion-navbar>
-      <ion-toolbar *ngIf="showToolbar">
-        <ion-title>Dynamic Toolbar</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <button (click)="toggleToolbar()">Toggle Toolbar</button>
-    </ion-content>
-`})
-
-class E2EPage {
-  @ViewChild(Content) content: Content;
-  showToolbar: boolean = false;
-
-  toggleToolbar() {
-    this.showToolbar = !this.showToolbar;
-    this.content.resize();
-  }
-}
-```
-
-
-
-
-
-
-
 
 
 

@@ -56617,10 +56617,11 @@
 	        if (opts === void 0) { opts = {}; }
 	        var self = this;
 	        var i;
+	        var dur = this._dur;
 	        if (util_1.isDefined(opts.duration)) {
-	            self._dur = opts.duration;
+	            dur = opts.duration;
 	        }
-	        console.debug('Animation, play, duration', self._dur, 'easing', self._easing);
+	        console.debug('Animation, play, duration', dur, 'easing', this._easing);
 	        // always default that an animation does not tween
 	        // a tween requires that an Animation class has an element
 	        // and that it has at least one FROM/TO effect
@@ -56636,7 +56637,7 @@
 	        // kick off the animation by setting the TO property for each animation
 	        // ensure all past transition end events have been cleared
 	        self._clearAsync();
-	        if (self._dur > 30) {
+	        if (dur > 30) {
 	            // this animation has a duration, so it should animate
 	            // place all the elements with their FROM properties
 	            // set the FROM properties
@@ -56648,7 +56649,7 @@
 	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
 	            // ******** DOM WRITE ****************
-	            self._asyncEnd(self._dur, true);
+	            self._asyncEnd(dur, true);
 	            // begin each animation when everything is rendered in their place
 	            // and the transition duration/easing is ready to go
 	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
@@ -68005,8 +68006,9 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setOpen = function (shouldOpen) {
+	    Menu.prototype.setOpen = function (shouldOpen, animated) {
 	        var _this = this;
+	        if (animated === void 0) { animated = true; }
 	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the MenuToggle button
 	        if ((shouldOpen && this.isOpen) || this._isPrevented()) {
@@ -68014,7 +68016,7 @@
 	        }
 	        this._before();
 	        return new Promise(function (resolve) {
-	            _this._getType().setOpen(shouldOpen, function () {
+	            _this._getType().setOpen(shouldOpen, animated, function () {
 	                _this._after(shouldOpen);
 	                resolve(_this.isOpen);
 	            });
@@ -68094,20 +68096,6 @@
 	            }
 	        }
 	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype.tempDisable = function (temporarilyDisable) {
-	        if (temporarilyDisable) {
-	            this._prevEnabled = this._isEnabled;
-	            this._getType().setProgessStep(0);
-	            this.enable(false);
-	        }
-	        else {
-	            this.enable(this._prevEnabled);
-	            this._after(false);
-	        }
-	    };
 	    Menu.prototype._prevent = function () {
 	        // used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the MenuToggle
@@ -68179,6 +68167,12 @@
 	     */
 	    Menu.prototype.getBackdropElement = function () {
 	        return this.backdrop.getNativeElement();
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype.getMenuController = function () {
+	        return this._menuCtrl;
 	    };
 	    /**
 	     * @private
@@ -68290,9 +68284,16 @@
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
 	        var menu = this.menu;
-	        return (menu.enabled &&
-	            menu.swipeEnabled &&
-	            (menu.isOpen || _super.prototype.canStart.call(this, ev)));
+	        if (!menu.enabled || !menu.swipeEnabled) {
+	            return false;
+	        }
+	        if (menu.isOpen) {
+	            return true;
+	        }
+	        else if (menu.getMenuController().getOpen()) {
+	            return false;
+	        }
+	        return _super.prototype.canStart.call(this, ev);
 	    };
 	    // Set CSS, then wait one frame for it to apply before sliding starts
 	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
@@ -68472,6 +68473,10 @@
 	    MenuController.prototype.open = function (menuId) {
 	        var menu = this.get(menuId);
 	        if (menu) {
+	            var openedMenu = this.getOpen();
+	            if (openedMenu && menu !== openedMenu) {
+	                openedMenu.setOpen(false, false);
+	            }
 	            return menu.open();
 	        }
 	        return Promise.resolve(false);
@@ -68491,18 +68496,13 @@
 	        }
 	        else {
 	            // find the menu that is open
-	            menu = this._menus.find(function (m) { return m.isOpen; });
+	            menu = this.getOpen();
 	        }
 	        if (menu) {
 	            // close the menu
 	            return menu.close();
 	        }
 	        return Promise.resolve(false);
-	    };
-	    MenuController.prototype.tempDisable = function (temporarilyDisable) {
-	        this._menus.forEach(function (menu) {
-	            menu.tempDisable(temporarilyDisable);
-	        });
 	    };
 	    /**
 	     * Toggle the menu. If it's closed, it will open, and if opened, it
@@ -68513,6 +68513,10 @@
 	    MenuController.prototype.toggle = function (menuId) {
 	        var menu = this.get(menuId);
 	        if (menu) {
+	            var openedMenu = this.getOpen();
+	            if (openedMenu && menu !== openedMenu) {
+	                openedMenu.setOpen(false, false);
+	            }
 	            return menu.toggle();
 	        }
 	        return Promise.resolve(false);
@@ -68564,7 +68568,7 @@
 	     * provided, then it'll try to find the menu using the menu's `id`
 	     * property. If a menu is not found then it'll return `null`.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+	     * @return {Menu} Returns the instance of the menu if found, otherwise `null`.
 	     */
 	    MenuController.prototype.get = function (menuId) {
 	        var menu;
@@ -68585,10 +68589,17 @@
 	        }
 	        // return the first enabled menu
 	        menu = this._menus.find(function (m) { return m.enabled; });
-	        if (menu)
+	        if (menu) {
 	            return menu;
+	        }
 	        // get the first menu in the array, if one exists
 	        return (this._menus.length ? this._menus[0] : null);
+	    };
+	    /**
+	     * @return {Menu} Returns the instance of the menu already opened, otherwise `null`.
+	     */
+	    MenuController.prototype.getOpen = function () {
+	        return this._menus.find(function (m) { return m.isOpen; });
 	    };
 	    /**
 	     * @return {Array<Menu>}  Returns an array of all menu instances.
@@ -91807,11 +91818,16 @@
 	    function MenuType() {
 	        this.ani = new animation_1.Animation();
 	    }
-	    MenuType.prototype.setOpen = function (shouldOpen, done) {
-	        this.ani
+	    MenuType.prototype.setOpen = function (shouldOpen, animated, done) {
+	        var ani = this.ani
 	            .onFinish(done, true)
-	            .reverse(!shouldOpen)
-	            .play();
+	            .reverse(!shouldOpen);
+	        if (animated) {
+	            ani.play();
+	        }
+	        else {
+	            ani.play({ duration: 0 });
+	        }
 	    };
 	    MenuType.prototype.setProgressStart = function (isOpen) {
 	        this.isOpening = !isOpen;

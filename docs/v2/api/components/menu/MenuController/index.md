@@ -225,26 +225,6 @@ is given then it'll close that exact menu.
 
 
 
-<div id="tempDisable"></div>
-
-<h3>
-<a class="anchor" name="tempDisable" href="#tempDisable"></a>
-<code>tempDisable()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="toggle"></div>
 
 <h3>
@@ -545,6 +525,33 @@ property. If a menu is not found then it'll return `null`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
+
+
+</div>
+
+
+
+
+<div id="getOpen"></div>
+
+<h3>
+<a class="anchor" name="getOpen" href="#getOpen"></a>
+<code>getOpen()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
 
 
 </div>

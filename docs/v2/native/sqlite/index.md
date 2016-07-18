@@ -319,10 +319,10 @@ ensure it resolved and successfully opened the database.
 
 
 
-<div id="addSatement"></div>
+<div id="addStatement"></div>
 
 <h3>
-  <code>addSatement()</code>
+  <code>addStatement()</code>
   
 
 </h3>

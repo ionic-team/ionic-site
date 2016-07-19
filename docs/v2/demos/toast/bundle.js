@@ -51943,12 +51943,16 @@
 	    /**
 	     * @private
 	     */
-	    App.prototype.setScrollDisabled = function (disabled) {
+	    App.prototype.setScrollDisabled = function (disableScroll) {
+	        var enabled = this._config.get('canDisableScroll', true);
+	        if (!enabled) {
+	            return;
+	        }
 	        if (!this.appRoot) {
 	            console.error('appRoot is missing, scrolling can not be enabled/disabled');
 	            return;
 	        }
-	        this.appRoot.disableScroll = disabled;
+	        this.appRoot.disableScroll = disableScroll;
 	    };
 	    /**
 	     * @private
@@ -92567,7 +92571,8 @@
 	        swipeBackEnabled: isIOSDevice,
 	        swipeBackThreshold: 40,
 	        tapPolyfill: isIOSDevice,
-	        virtualScrollEventAssist: !(win.indexedDB)
+	        virtualScrollEventAssist: !(win.indexedDB),
+	        canDisableScroll: !!(win.indexedDB),
 	    },
 	    isMatch: function (p) {
 	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);

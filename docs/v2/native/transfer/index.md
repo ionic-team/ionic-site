@@ -50,81 +50,42 @@ docType: "class"
 
 <!-- description -->
 
-<p>This plugin allows you to upload and download files.
-Example:
-Create instance:
-const fileTransfer = new Transfer();</p>
-<p>Upload a file:
-fileTransfer.upload(..).then(..).catch(..);</p>
-<p>Download a file:
-fileTransfer.download(..).then(..).catch(..);</p>
-<p>Abort active transfer:
-fileTransfer.abort();</p>
+<p>This plugin allows you to upload and download files.</p>
 
 
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<p>Create instance:</p>
+<pre><code class="lang-ts">const fileTransfer = new Transfer();
+</code></pre>
+<p>Upload a file:</p>
+<pre><code class="lang-ts">fileTransfer.upload(..).then(..).catch(..);
+</code></pre>
+<p>Download a file:</p>
+<pre><code class="lang-ts">fileTransfer.download(..).then(..).catch(..);
+</code></pre>
+<p>Abort active transfer:</p>
+<pre><code class="lang-ts">fileTransfer.abort();
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="FILE_NOT_FOUND_ERR"></div>
-<h3><code>FILE_NOT_FOUND_ERR()</code>
+<div id="FileTransferErrorCode"></div>
+<h3><code>FileTransferErrorCode()</code>
   
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="INVALID_URL_ERR"></div>
-<h3><code>INVALID_URL_ERR()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="CONNECTION_ERR"></div>
-<h3><code>CONNECTION_ERR()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="ABORT_ERR"></div>
-<h3><code>ABORT_ERR()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="NOT_MODIFIED_ERR"></div>
-<h3><code>NOT_MODIFIED_ERR()</code>
-  
-</h3>
-
+</h3>Error code rejected from upload with FileTransferError
+Defined in FileTransferError.
+     FILE_NOT_FOUND_ERR: 1   Return when file was not found
+     INVALID_URL_ERR: 2,     Return when url was invalid
+     CONNECTION_ERR: 3,      Return on connection error
+     ABORT_ERR: 4,           Return on aborting
+     NOT_MODIFIED_ERR: 5     Return on "304 Not Modified" HTTP response
 
 
 
@@ -141,7 +102,7 @@ fileTransfer.abort();</p>
 <div id="upload"></div>
 
 <h3>
-  <code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts:)</code>
+  <code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code>
   
 
 </h3>
@@ -213,7 +174,7 @@ Sends a file to a server.
   
   <tr>
     <td>
-      trustAllHosts:
+      trustAllHosts
       
       
     </td>

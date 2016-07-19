@@ -57,8 +57,8 @@ by the operating system (iOS).</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {Storage, LocalStorage} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { Storage, LocalStorage } from &#39;ionic-angular&#39;;
 @Component({
   template: `&lt;ion-content&gt;&lt;/ion-content&gt;`
 });

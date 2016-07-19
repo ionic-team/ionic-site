@@ -70,8 +70,8 @@ for more information on adding menu components.</p>
 <p>To call the controller methods, inject the <code>MenuController</code> provider
 into the page. Then, create some methods for opening, closing, and
 toggling the menu.</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {MenuController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { MenuController } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage {

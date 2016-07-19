@@ -44,7 +44,7 @@ Improve this doc
 
 <p>The Config lets you configure your entire app or specific platforms.
 You can set the tab placement, icon mode, animations, and more here.</p>
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
 
 ionicBootstrap(AppRoot, customProviders, {
   backButtonText: &#39;Go Back&#39;,
@@ -57,7 +57,7 @@ ionicBootstrap(AppRoot, customProviders, {
 </code></pre>
 <p>Config can be overwritten at multiple levels allowing for more granular configuration.
 Below is an example where an app can override any setting we want based on a platform.</p>
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
 
 ionicBootstrap(AppRoot, customProviders, {
   tabsPlacement: &#39;bottom&#39;,

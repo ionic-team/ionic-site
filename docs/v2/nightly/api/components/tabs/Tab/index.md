@@ -66,7 +66,7 @@ display on the tab, and <code>tabIcon</code> is the optional <a href="../../icon
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>Then, in your class you can set <code>chatRoot</code> to an imported class:</p>
-<pre><code class="lang-ts">import {ChatPage} from &#39;../chat/chat&#39;;
+<pre><code class="lang-ts">import { ChatPage } from &#39;../chat/chat&#39;;
 
 export class Tabs {
   // here we&#39;ll set the property of chatRoot to

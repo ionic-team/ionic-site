@@ -155,8 +155,8 @@ and passed to the `share` method.
 ```
 
 ```ts
-import {Component} from '@angular/core';
-import {ItemSliding} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { ItemSliding } from 'ionic-angular';
 
 @Component({...})
 export class MyClass {

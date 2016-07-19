@@ -100,8 +100,8 @@ removing items.</p>
 Close the open sliding item.
 
 ```ts
-import {Component, ViewChild} from '@angular/core';
-import {List} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { List } from 'ionic-angular';
 
 @Component({...})
 export class MyClass {
@@ -138,9 +138,9 @@ export class MyClass {
     
     <tr>
       <td>sliding</td>
-      <td><code>Component, ViewChild</code></td>
+      <td><code> Component, ViewChild </code></td>
       <td><p> from &#39;@angular/core&#39;;
-import {List} from &#39;ionic-angular&#39;;</p>
+import { List } from &#39;ionic-angular&#39;;</p>
 <p>@Component({...})
 export class MyClass {
   @ViewChild(List) list: List;</p>

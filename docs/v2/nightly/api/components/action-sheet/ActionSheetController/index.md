@@ -72,7 +72,7 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {ActionSheetController} from &#39;ionic-angular&#39;
+<pre><code class="lang-ts">import { ActionSheetController } from &#39;ionic-angular&#39;
 
 export class MyClass{
 

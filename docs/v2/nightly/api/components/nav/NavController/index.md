@@ -85,7 +85,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <h2 id="lifecycle-events">Lifecycle events</h2>
 <p>Lifecycle events are fired during various stages of navigation.  They can be
 defined in any component type which is pushed/popped from a <code>NavController</code>.</p>
-<pre><code class="lang-ts">import {Component } from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
 
 @Component({
   template: &#39;Hello World&#39;

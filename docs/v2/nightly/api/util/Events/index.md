@@ -53,7 +53,7 @@ events across your app.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Events} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Events } from &#39;ionic-angular&#39;;
 
 constructor(public events: Events) {}
 

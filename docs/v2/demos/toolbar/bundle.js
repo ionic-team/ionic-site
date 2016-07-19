@@ -55957,13 +55957,13 @@
 	}
 	exports.convertDataToISO = convertDataToISO;
 	function twoDigit(val) {
-	    return ('0' + (util_1.isPresent(val) ? val : '0')).slice(-2);
+	    return ('0' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-2);
 	}
 	function threeDigit(val) {
-	    return ('00' + (util_1.isPresent(val) ? val : '0')).slice(-3);
+	    return ('00' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-3);
 	}
 	function fourDigit(val) {
-	    return ('000' + (util_1.isPresent(val) ? val : '0')).slice(-4);
+	    return ('000' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-4);
 	}
 	var FORMAT_YYYY = 'YYYY';
 	var FORMAT_YY = 'YY';

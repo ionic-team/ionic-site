@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "HideWhen"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/hide-when/"
+preview_device_url: "/docs/v2/demos/hide-when/"
 angular_controller: APIDemoCtrl 
 ---
 

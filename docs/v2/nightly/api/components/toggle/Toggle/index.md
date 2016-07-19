@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Toggle"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/toggle/"
+preview_device_url: "/docs/v2/demos/toggle/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -140,7 +140,7 @@ for more info on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#toggle'>Toggle Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#toggle'>Toggle Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

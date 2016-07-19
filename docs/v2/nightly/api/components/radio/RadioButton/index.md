@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "RadioButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/radio/"
+preview_device_url: "/docs/v2/demos/radio/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -146,7 +146,7 @@ more information on forms and input.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#radio'>Radio Component Docs</a>,
+<a href='/docs/v2/components#radio'>Radio Component Docs</a>,
 <a href='../RadioGroup'>RadioGroup API Docs</a><!-- end content block -->
 
 

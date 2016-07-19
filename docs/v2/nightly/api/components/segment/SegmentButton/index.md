@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/segment/"
+preview_device_url: "/docs/v2/demos/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -131,8 +131,8 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#segment'>Segment Component Docs</a>,
-<a href='/docs/v2/nightly/api/components/segment/Segment/'>Segment API Docs</a><!-- end content block -->
+<a href='/docs/v2/components#segment'>Segment Component Docs</a>,
+<a href='/docs/v2/api/components/segment/Segment/'>Segment API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

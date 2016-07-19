@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "LocalStorage"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/local-storage/"
+preview_device_url: "/docs/v2/demos/local-storage/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -301,7 +301,7 @@ Clear data stored in LocalStorage
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
+<a href='/docs/v2/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

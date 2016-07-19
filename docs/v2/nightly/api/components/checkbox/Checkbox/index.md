@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/checkbox/"
+preview_device_url: "/docs/v2/demos/checkbox/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -138,7 +138,7 @@ for more info on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

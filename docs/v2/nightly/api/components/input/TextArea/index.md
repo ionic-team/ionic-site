@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "TextArea"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/textarea/"
+preview_device_url: "/docs/v2/demos/textarea/"
 angular_controller: APIDemoCtrl 
 ---
 

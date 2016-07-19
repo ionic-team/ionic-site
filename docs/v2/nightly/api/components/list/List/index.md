@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "List"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/list/"
+preview_device_url: "/docs/v2/demos/list/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -162,7 +162,7 @@ export class MyClass {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#lists'>List Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

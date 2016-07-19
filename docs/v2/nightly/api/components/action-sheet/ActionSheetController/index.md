@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ActionSheetController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/action-sheet/"
+preview_device_url: "/docs/v2/demos/action-sheet/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -298,7 +298,7 @@ out before starting a new transition.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -1623,7 +1623,7 @@ back to. Otherwise returns `false`.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

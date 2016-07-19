@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Searchbar"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/searchbar/"
+preview_device_url: "/docs/v2/demos/searchbar/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -196,7 +196,7 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

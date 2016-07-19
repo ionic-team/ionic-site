@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/menu/"
+preview_device_url: "/docs/v2/demos/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -591,7 +591,7 @@ property. If a menu is not found then it'll return `null`.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#menus'>Menu Component Docs</a>,
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
 <a href='../Menu'>Menu API Docs</a><!-- end content block -->
 
 

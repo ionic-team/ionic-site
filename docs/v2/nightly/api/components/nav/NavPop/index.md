@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "NavPop"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/navigation/"
+preview_device_url: "/docs/v2/demos/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -61,7 +61,7 @@ navigation stack.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<p>Similar to <a href='/docs/v2/nightly/api/components/nav/NavPush/'><code>NavPush</code></a></p>
+<p>Similar to <a href='/docs/v2/api/components/nav/NavPush/'><code>NavPush</code></a></p>
 
 
 
@@ -99,7 +99,7 @@ navigation stack.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#navigation'>Navigation Component Docs</a>,
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
 <a href='../NavPush'>NavPush API Docs</a><!-- end content block -->
 
 

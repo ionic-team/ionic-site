@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Icon"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/icon/"
+preview_device_url: "/docs/v2/demos/icon/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -129,7 +129,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#icons'>Icon Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

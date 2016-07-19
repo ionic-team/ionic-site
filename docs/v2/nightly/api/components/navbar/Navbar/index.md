@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Navbar"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/navbar/"
+preview_device_url: "/docs/v2/demos/navbar/"
 angular_controller: APIDemoCtrl 
 ---
 

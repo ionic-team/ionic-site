@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "AlertController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/alert/"
+preview_device_url: "/docs/v2/demos/alert/"
 angular_controller: APIDemoCtrl 
 ---
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "PopoverController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/popover/"
+preview_device_url: "/docs/v2/demos/popover/"
 angular_controller: APIDemoCtrl 
 ---
 

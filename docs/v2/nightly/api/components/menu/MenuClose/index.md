@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuClose"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/menu/"
+preview_device_url: "/docs/v2/demos/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -76,7 +76,7 @@ directive a value.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#menus'>Menu Component Docs</a>,
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 

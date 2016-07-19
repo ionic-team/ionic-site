@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Range"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/range/"
+preview_device_url: "/docs/v2/demos/range/"
 angular_controller: APIDemoCtrl 
 ---
 

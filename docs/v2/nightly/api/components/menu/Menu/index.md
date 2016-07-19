@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Menu"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/nightly/demos/menu/"
+preview_device_url: "/docs/v2/demos/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -293,7 +293,7 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components#menus'>Menu Component Docs</a>,
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
 <a href='../MenuController'>MenuController API Docs</a>,
 <a href='../../nav/Nav'>Nav API Docs</a>,
 <a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->

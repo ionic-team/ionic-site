@@ -62,7 +62,7 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/nightly/components/#badges'>Badges Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components/#badges'>Badges Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

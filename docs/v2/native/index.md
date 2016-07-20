@@ -54,7 +54,7 @@ It is recommended to follow the installation instruction on each plugin's docume
 
 <h4 id="Using_Ionic_Native_Wrappers">Examples</h4>
 
-Ionic Native works with any app as long as you have Promise support. Ionic Native be used with ES5, ES6, or TypeScript. The library also generates Angular 1 services automatically if you are using it with Angular 1 / Ionic 1. Below are examples demonstrating different implementations.
+Ionic Native will work with any Cordova app as long as you have Promise support. It can be used with ES5, ES6, or TypeScript. The library also generates Angular 1 services automatically if you are using it with Angular 1 / Ionic 1. Below are examples demonstrating different implementations.
 
 ```js
 // ES5 JavaScript

@@ -71,10 +71,21 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {SocialSharing} from &#39;ionic-native&#39;;
+<pre><code class="lang-ts">import {SocialSharing} from &#39;ionic-native&#39;;
 
-...
-// TODO add usage info
+// Check if sharing via email is supported
+SocialSharing.canShareViaEmail().then(() =&gt; {
+  // Sharing via email is possible
+}).catch(() =&gt; {
+  // Sharing via email is not possible
+});
+
+// Share via email
+SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@example.org&#39;).then(() =&gt; {
+  // Success!
+}).catch(() =&gt; {
+  // Error!
+});
 </code></pre>
 
 
@@ -877,6 +888,31 @@ Share via SMS
 
 
 
+<div id="canShareViaEmail"></div>
+<h3><code>canShareViaEmail()</code>
+  
+</h3>
+
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+</p>
+
+
+Checks if you can share via email
+
+
+
+
+
+
+
+
+
+
 <div id="shareViaEmail"></div>
 <h3><code>shareViaEmail(message,&nbsp;subject,&nbsp;to,&nbsp;cc,&nbsp;bcc,&nbsp;files)</code>
   
@@ -944,7 +980,7 @@ Share via Email
     </td>
     <td>
       
-<code>Array&lt;string&gt;</code>
+<code>string[]</code>
     </td>
     <td>
       
@@ -960,7 +996,7 @@ Share via Email
     </td>
     <td>
       
-<code>Array&lt;string&gt;</code>
+<code>string[]</code>
     </td>
     <td>
       
@@ -976,7 +1012,7 @@ Share via Email
     </td>
     <td>
       
-<code>Array&lt;string&gt;</code>
+<code>string[]</code>
     </td>
     <td>
       

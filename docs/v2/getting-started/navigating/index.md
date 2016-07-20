@@ -28,7 +28,7 @@ So, take your `PlaylistPage` from the previous example and navigate to it when y
 
 When the user taps this, the `openPlaylist()` function will be called with a reference to the playlist that was tapped.
 
-Open `app/playlists/playlists.js`, and add a method to `PlaylistsPage` to handle this:
+Open `app/playlists/playlists.ts`, and add a method to `PlaylistsPage` to handle this:
 
 ```ts
 export class PlaylistsPage {

@@ -4,15 +4,13 @@
   Improve this Doc
 </a>
 
-_For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
+Navigation is how users move between different views in your app. Ionic's navigation follows standard native animation concepts, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-Navigation is how users move between different pages in your app. Ionic's navigation follows standard native animation concepts, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
+Views are pushed on and popped off of a navigation controller's view stack.
 
-Like native apps, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  URLs can be used to link back to unique, important parts of your app ("deeplinking") but don't define navigation as your app runs.
+_For more information, Check out the [API docs for NavController](../api/components/nav/NavController), the [API docs for NavBar](../api/components/navbar/Navbar/), and the [API docs for Nav](../api/components/nav/Nav)._
 
-There are several ways to navigate throughout an Ionic app:
-
-<h3 id="basic_navigation">Basic Navigation</h3>
+<h3 id="basic_navigation">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/navigation/basic">
   Demo Source
 </a>
@@ -20,126 +18,20 @@ There are several ways to navigate throughout an Ionic app:
 The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](../api/components/nav/Nav/):
 
 ```typescript
-  import {StartPage} from 'start'
+import { StartPage } from './start-page'
+import { ionicBootstrap } from 'ionic-angular'
 
-  @Component({
-    template: '<ion-nav [root]="rootPage"></ion-nav>'
-  })
-  class MyApp {
-    // First page to push onto the stack
-    rootPage = StartPage;
-    constructor(){}
-  }
-
-  ionicBootstrap(MyApp)
-```
-
-You can access the navigation controller you create by injecting it into any of your Pages:
-
-```typescript
 @Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>Hello World</ion-content>`
+  template: '<ion-nav [root]="rootPage"></ion-nav>'
 })
-export class StartPage {
-  constructor(private nav: NavController){}
-}
-```
+class MyApp {
 
-To navigate from one page to another simply push or pop a new page onto the stack:
+  // First page to push onto the stack
+  private rootPage :any = StartPage;
 
-```typescript
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>
-      <button (click)="goToOtherPage()">
-        Go to OtherPage
-      </button>
-    </ion-content>`
-})
-export class StartPage {
-  constructor(private nav: NavController) {}
-
-  goToOtherPage(){
-    //push another page onto the history stack
-    //causing the nav controller to animate the new page in
-    this.nav.push(OtherPage);
+  constructor(){
   }
 }
 
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Other Page</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>I'm the other page!</ion-content>`
-})
-class OtherPage {}
+ionicBootstrap(MyApp)
 ```
-
-If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.
-
-Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
-
-```typescript
-@Component({
-  template: `
-    <ion-content>
-      <button (click)="goBack()">
-        There's no place like home
-      </button>
-    </ion-content>`
-})
-class OtherPage {
-  constructor(private nav: NavController) {}
-
-  goBack() {
-    this.nav.pop();
-  }
-}
-```
-
-For more information on basic navigation, check out the [Nav API reference](../api/components/nav/Nav/).
-
-
-<h3 id="navigating_from_root">Navigating from the Root Component</h3>
-What if you want to control navigation from your root app component? You can't inject `NavController` because any components that are navigation controllers are _children_ of the root component so they aren't available to be injected.
-
-By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to get an instance of the `Nav` component, which is a navigation controller (it extends `NavController`):
-
-```typescript
-@App({
-  template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
-})
-export class MyApp {
-  @ViewChild('myNav') nav
-  rootPage = TabsPage;
-
-  // Wait for the components in MyApp's template to be initialized
-  // In this case, we are waiting for the Nav with id="my-nav"
-  ngAfterViewInit() {
-    // Let's navigate from TabsPage to Page1
-    this.nav.push(Page1);
-  }
-}
-```
-
-
-<h3 id="advanced_navigation">Advanced Navigation</h3>
-What if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menus).
-

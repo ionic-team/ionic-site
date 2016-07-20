@@ -17,11 +17,11 @@ next_page_link: /docs/v2/getting-started/tutorial/adding-pages
   Improve this doc
 </a>
 
-Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files.
+Let's walk through the anatomy of an Ionic 2 app. Ionic uses the same project structure as a typical [Cordova](/docs/what-is/#cordova) project.  This makes it seamless to install native plugins, and create platform-specific project files.
 
 <h3 class="file-title">./www/index.html</h3>
 
-`www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and bootstrap, or start running, our app. We won't spend much of our time in this file.
+`www/index.html` is the main entry point for the app.  It’s purpose is to set up our javascript and css imports, and initialize our application.  We won’t spend much of our time in this file.
 
 For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In this example we have:
 
@@ -36,19 +36,22 @@ And the following scripts near the bottom:
 <script src="build/js/app.bundle.js"></script>
 ```
 
-- `build/js/app.bundle.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
+- `build/js/app.bundle.js` is a concatenated file containing Ionic, Angular and your app's compiled code.
 
-- `cordova.js` will 404 during local development, as it gets injected into your project during Cordova's build process.
+- `cordova.js` will 404 during local development, as it gets injected into your project during Cordova’s build process.  This is the expected behavior, so don’t be alarmed.  It is important to note that Cordova functionality is only available on emulators or physical devices.
 
 <h3 class="file-title">./app/app.ts</h3>
 
-Inside of the `app` directory we find our pre-compiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](/docs/v2/resources/what-is/#es2015-es6), but compile down to the older form of Javascript the browser needs.
+The `app` directory is where most of the work for an Ionic 2 app takes place.  It’s where the application’s source code is found. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript, but compile down to the older form of Javascript the browser needs.
 
 `app/app.ts` is the entry point for our app.
 
 Near the top of the file, we should see this:
 
 ```ts
+import { Component } from `@angular/core`;
+import { ionicBootstrap } from `ionic-angular`;
+
 @Component({
   templateUrl: 'build/app.html'
 })
@@ -89,6 +92,6 @@ Here's the main template for the app in `app/app.html`:
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
-In this template, we set up an [`ion-menu`](/docs/v2/components/#menus) to function as a side menu, and then an [`ion-nav`](/docs/v2/api/components/nav/Nav/) component to act as the main content area. The [`ion-menu`](/docs/v2/components/#menus)'s `[content]` property is bound to the local variable `content` from our [`ion-nav`](/docs/v2/api/components/nav/Nav/), so it knows where it should animate around.
+In this template, we set up an [`ion-menu`](/docs/v2/components/#menus) to function as a side menu, and then an [`ion-nav`](/docs/v2/api/components/nav/Nav/) component to act as the main content area. The [`ion-menu`](/docs/v2/components/#menus)'s `[content]` property is bound to the local variable `content` from our [`ion-nav`](/docs/v2/api/components/nav/Nav/), so it knows what it should animate around.
 
 Next let's see how to create more pages and perform basic navigation.

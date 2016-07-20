@@ -10,7 +10,7 @@ next_page_link: /docs/v2/getting-started/installation/
 
 # Welcome to Ionic
 
-We designed Ionic to help web developers build great mobile apps and web apps in a way that felt just like building websites. That means we focus on taking the standard HTML, CSS, and JavaScript languages you'd use to build a website and help you turn them into mobile magic. These technologies have served developers well for the last twenty years, and we think that makes them a pretty great bet for the next twenty.
+We designed Ionic to help web developers build great mobile apps and web apps in a way that felt just like building websites. That means we focus on taking the standard HTML, CSS, and JavaScript languages you'd use to build a website and help you turn them into magic. These technologies have served developers well for the last twenty years, and we think that makes them a pretty great bet for the next twenty.
 
 Many developers will find that their Ionic apps can be built almost entirely with a standard web browser and any old computer. And once you're ready to grab data from a sensor or use a new device feature like TouchID, the mobile toolkit is just an install away. We think that's pretty neat.
 

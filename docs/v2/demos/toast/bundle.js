@@ -55493,16 +55493,17 @@
 	        this.onSlideStart(this.slide, ev);
 	    };
 	    SlideGesture.prototype.onDragMove = function (ev) {
+	        var slide = this.slide;
 	        var coord = dom_1.pointerCoord(ev);
 	        var newPos = coord[this.direction];
 	        var newTimestamp = Date.now();
-	        var velocity = (newPos - this.slide.pos) / (newTimestamp - this.slide.timestamp);
-	        this.slide.pos = newPos;
-	        this.slide.timestamp = newTimestamp;
-	        this.slide.distance = util_1.clamp(this.slide.min, newPos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
-	        this.slide.velocity = velocity;
-	        this.slide.delta = newPos - this.slide.pointerStartPos;
-	        this.onSlide(this.slide, ev);
+	        var velocity = (newPos - slide.pos) / (newTimestamp - slide.timestamp);
+	        slide.pos = newPos;
+	        slide.timestamp = newTimestamp;
+	        slide.distance = util_1.clamp(slide.min, newPos - slide.pointerStartPos + slide.elementStartPos, slide.max);
+	        slide.velocity = velocity;
+	        slide.delta = newPos - slide.pointerStartPos;
+	        this.onSlide(slide, ev);
 	        return true;
 	    };
 	    SlideGesture.prototype.onDragEnd = function (ev) {
@@ -67665,11 +67666,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67682,7 +67678,6 @@
 	var core_1 = __webpack_require__(6);
 	var backdrop_1 = __webpack_require__(423);
 	var config_1 = __webpack_require__(338);
-	var ion_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
 	var keyboard_1 = __webpack_require__(359);
 	var menu_gestures_1 = __webpack_require__(431);
@@ -67852,10 +67847,8 @@
 	 * @see {@link ../../nav/Nav Nav API Docs}
 	 * @see {@link ../../nav/NavController NavController API Docs}
 	 */
-	var Menu = (function (_super) {
-	    __extends(Menu, _super);
+	var Menu = (function () {
 	    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, gestureCtrl) {
-	        _super.call(this, _elementRef);
 	        this._menuCtrl = _menuCtrl;
 	        this._elementRef = _elementRef;
 	        this._config = _config;
@@ -68161,11 +68154,14 @@
 	        this.swipeEnabled = shouldEnable;
 	        return this;
 	    };
+	    Menu.prototype.getNativeElement = function () {
+	        return this._elementRef.nativeElement;
+	    };
 	    /**
 	     * @private
 	     */
 	    Menu.prototype.getMenuElement = function () {
-	        return this.getNativeElement();
+	        return this.getNativeElement().querySelector('.menu-inner');
 	    };
 	    /**
 	     * @private
@@ -68178,6 +68174,9 @@
 	     */
 	    Menu.prototype.getBackdropElement = function () {
 	        return this.backdrop.getNativeElement();
+	    };
+	    Menu.prototype.width = function () {
+	        return this.getMenuElement().offsetWidth;
 	    };
 	    /**
 	     * @private
@@ -68249,7 +68248,7 @@
 	            host: {
 	                'role': 'navigation'
 	            },
-	            template: "\n    <ng-content></ng-content>\n    <ion-backdrop (click)=\"bdClick($event)\" disableScroll=\"false\"></ion-backdrop>\n  ",
+	            template: "\n    <div class=\"menu-inner\"><ng-content></ng-content></div>\n    <ion-backdrop (click)=\"bdClick($event)\" disableScroll=\"false\"></ion-backdrop>\n  ",
 	            directives: [backdrop_1.Backdrop],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
@@ -68258,7 +68257,7 @@
 	    ], Menu);
 	    return Menu;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-	}(ion_1.Ion));
+	}());
 	exports.Menu = Menu;
 
 /***/ },

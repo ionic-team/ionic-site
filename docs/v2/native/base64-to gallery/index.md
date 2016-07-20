@@ -86,7 +86,7 @@ Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="base64ToGallery"></div>
-<h3><code>base64ToGallery(data,&nbsp;prefix)</code>
+<h3><code>base64ToGallery(data,&nbsp;options)</code>
   
 </h3>
 
@@ -122,16 +122,16 @@ Converts a base64 string to an image file in the device gallery
   
   <tr>
     <td>
-      prefix
+      options
       
       
     </td>
     <td>
       
-<code>string</code>
+<code>any</code>
     </td>
     <td>
-      <p>Prefix the file with a string. Default is &#39;img_&#39;. Optional.</p>
+      <p>(optional) An object with properties: prefix, mediaScanner</p>
 
       
     </td>

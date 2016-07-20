@@ -50,51 +50,57 @@ If you are using **Angular 1.x** or plain **ES5 JavaScript**, you need to add `i
 <h4 id="Install_Plugins_Needed">Install The Needed Plugins</h4>
 Ionic Native will **not** install plugins for you automatically. You still need to install the plugins you need using Cordova CLI or Ionic CLI. Ionic Native will notify you if you are missing a plugin, and will provide you with the plugin package name to install.
 
-It is recommended to follow the installation instruction on each plugin's documentation.
+It is recommended to follow the installation instruction on each plugin's documentation, as some plugins require additional steps to fully install.
 
 <h4 id="Using_Ionic_Native_Wrappers">Examples</h4>
 
-Ionic Native supports plain JavaScript usage, ES6/TypeScript Usage, and Angular 1. Here are examples demonstrating different implementations:
+Ionic Native works with any app as long as you have Promise support. Ionic Native be used with ES5, ES6, or TypeScript. The library also generates Angular 1 services automatically if you are using it with Angular 1 / Ionic 1. Below are examples demonstrating different implementations.
 
 ```js
-// plain ES5 JavaScript
-IonicNative.Camera.getPicture().then(
-  function(res) {
-    console.log("We have taken a picture!", res);
-    // Run code to save the picture or use it elsewhere
-  },
-  function(err){
-    console.error("Error taking a picture", err);
-  }
-);
+// ES5 JavaScript
+document.addEventListener('ondeviceready', function(){
+  IonicNative.Camera.getPicture().then(
+    function(res) {
+      console.log("We have taken a picture!", res);
+      // Run code to save the picture or use it elsewhere
+    },
+    function(err){
+      console.error("Error taking a picture", err);
+    }
+  );
+});
 
-// Angular 1
+// Angular 1 / Ionic 1
 // first we import 'ionic.native' module into our app
 angular.module('MyApp', ['ionic.native'])
 // then we import the service for the plugin we wish to use
-// the name of the service is the same name for ES6/TypeScript with a $cordova prefix
+// the name of the service is the same name for ES5/ES6/TypeScript with a $cordova prefix
 // for example, the Camera plugin becomes $cordovaCamera in Angular 1
-.controller('MyController', function($cordovaCamera){
-    // now we can call any of the functionality as documented in Native docs
-    $cordovaCamera.getPicture().then(
-      function(res) {
-        console.log("We have taken a picture!", res);
-        // Run code to save the picture or use it elsewhere
-      },
-      function(err){
-        console.error("Error taking a picture", err);
-      }
-    );
+.controller('MyController', function($cordovaCamera,  $ionicPlatform){
+    // wait for ondeviceready, or use $ionicPlatform.ready() if you're using Ionic Framework 1
+    $ionicPlatform.ready(function(){
+       // now we can call any of the functionality as documented in Native docs
+      $cordovaCamera.getPicture().then(
+        function(res) {
+          console.log("We have taken a picture!", res);
+          // Run code to save the picture or use it elsewhere
+        },
+        function(err){
+          console.error("Error taking a picture", err);
+        }
+      );
+    });
 });
-
 
 // ES6 / TypeScript / Ionic 2 / Angular 2
 // Import the plugin you need to use from 'ionic-native' package
 import {Camera} from 'ionic-native';
 
-// Use it!
-Camera.getPicture().then(
-  res => console.log("We have taken a picture!"),
-  err => console.error("Error taking picture", err)
-);
+// wait for `ondeviceready` or use `platform.ready()` if you're using Ionic Framework 2
+this.platform().then(() => { // we're assuming you injected platform in your constructor
+  Camera.getPicture().then(
+    res => console.log("We have taken a picture!"),
+    err => console.error("Error taking picture", err)
+  );
+});
 ```

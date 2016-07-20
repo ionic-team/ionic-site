@@ -222,9 +222,7 @@ Login to Facebook to authenticate this app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
-
-
+<code>Promise&lt;FacebookLoginResponse&gt;</code> Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
 </div>
 
 

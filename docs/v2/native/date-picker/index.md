@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L63">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L64">
   Improve this doc
 </a>
 
@@ -60,15 +60,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {DatePicker} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { DatePicker } from &#39;ionic-native&#39;;
 
 
 DatePicker.show({
   date: new Date(),
   mode: &#39;date&#39;
 }).then(
-  date =&gt; console.log(&quot;Got date: &quot;, date),
-  err =&gt; console.log(&quot;Error occurred while getting date:&quot;, err)
+  date =&gt; console.log(&#39;Got date: &#39;, date),
+  err =&gt; console.log(&#39;Error occurred while getting date: &#39;, err)
 );
 </code></pre>
 

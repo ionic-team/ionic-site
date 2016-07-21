@@ -58,19 +58,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {DeviceOrientation} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { DeviceOrientation } from &#39;ionic-native&#39;;
 
 
 // Get the device current compass heading
 DeviceOrientation.getCurrentHeading().then(
-  data =&gt; console.log(data),
-  error =&gt; console.log(error)
+  (data: CompassHeading) =&gt; console.log(data),
+  (error: any) =&gt; console.log(error)
 );
 
 // Watch the device compass heading change
 var subscription = DeviceOrientation.watchHeading().subscribe(
-  data =&gt; console.log(data)
+  (data: CompassHeading) =&gt; console.log(data)
 );
 
 // Stop watching heading change

@@ -67,13 +67,13 @@ docType: "class"
 <h2>Usage</h2>
 
 <p>Please do refer to the original plugin&#39;s repo for detailed usage. The usage example here might not be sufficient.</p>
-<pre><code>import {ThreeDeeTouch} from &#39;ionic-native&#39;;
+<pre><code>import { ThreeDeeTouch } from &#39;ionic-native&#39;;
 
 // import for type completion on variables
-import {ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch} from &#39;ionic-native&#39;;
+import { ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch } from &#39;ionic-native&#39;;
 ...
 
-ThreeDeeTouch.isAvailable().then(isAvailable =&gt; console.log(&quot;3D Touch available? &quot; + isAvailable)):
+ThreeDeeTouch.isAvailable().then(isAvailable =&gt; console.log(&quot;3D Touch available? &quot; + isAvailable));
 
 ThreeDeeTouch.watchForceTouches()
   .subscribe(
@@ -114,7 +114,7 @@ ThreeDeeTouch.configureQuickActions(actions);
 ThreeDeeTouchForceTouch.onHomeIconPressed().subscribe(
  (payload) =&gt; {
    // returns an object that is the button you presed
-   console.log(`Pressed the ${payload.title} button`)
+   console.log(&#39;Pressed the ${payload.title} button&#39;)
    console.log(payload.type)
 
  }

@@ -70,7 +70,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {AppRate} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppRate } from &#39;ionic-native&#39;;
 
 
 AppRate.preferences.storeAppURL.ios = &#39;&lt;my_app_id&gt;&#39;;

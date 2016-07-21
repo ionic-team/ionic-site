@@ -80,7 +80,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {BarcodeScanner} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { BarcodeScanner } from &#39;ionic-native&#39;;
 
 
 BarcodeScanner.scan().then((barcodeData) =&gt; {

@@ -93,7 +93,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Facebook} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Facebook } from &#39;ionic-native&#39;;
 </code></pre>
 
 
@@ -169,7 +169,7 @@ Browser wrapper
 
 Login to Facebook to authenticate this app.
 
-```ts
+```typescript
 {
   status: "connected",
   authResponse: {

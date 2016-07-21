@@ -71,12 +71,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Base64ToGallery} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Base64ToGallery } from &#39;ionic-native&#39;;
 
 
 Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
-  res =&gt; console.log(&quot;Saved image to gallery &quot;, res),
-  err =&gt; console.log(&quot;Error saving image to gallery &quot;, err)
+  res =&gt; console.log(&#39;Saved image to gallery &#39;, res),
+  err =&gt; console.log(&#39;Error saving image to gallery &#39;, err)
 );
 </code></pre>
 
@@ -131,7 +131,7 @@ Converts a base64 string to an image file in the device gallery
 <code>any</code>
     </td>
     <td>
-      <p>(optional) An object with properties: prefix, mediaScanner</p>
+      <p>(optional) An object with properties: prefix: string, mediaScanner: boolean. Prefix will be prepended to the filename. If true, mediaScanner runs Media Scanner on Android and saves to Camera Roll on iOS; if false, saves to Library folder on iOS.</p>
 
       
     </td>

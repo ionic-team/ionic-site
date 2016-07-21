@@ -60,7 +60,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Push} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Push } from &#39;ionic-native&#39;;
 </code></pre>
 
 
@@ -80,10 +80,10 @@ Initialize the plugin on the native side.
 ```
 var push = Push.init({
    android: {
-       senderID: "12345679"
+       senderID: '12345679'
    },
    ios: {
-       alert: "true",
+       alert: 'true',
        badge: true,
        sound: 'false'
    },

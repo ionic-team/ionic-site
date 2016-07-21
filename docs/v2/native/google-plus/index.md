@@ -70,7 +70,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>
+<pre><code class="lang-typescript">import { GooglePlus } from &#39;ionic-native&#39;;
 </code></pre>
 
 

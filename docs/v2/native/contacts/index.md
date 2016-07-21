@@ -58,15 +58,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Contact} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { Contact } from &#39;ionic-native&#39;;
 
 
 let contact = new Contact();
-contact.displayName = &quot;Mr. Ionitron&quot;;
+contact.displayName = &#39;Mr. Ionitron&#39;;
 contact.save().then(
-  () =&gt; console.log(&quot;Contact saved!&quot;, contact),
-  (error: any) =&gt; console.error(&quot;Error saving contact.&quot;, error)
+  () =&gt; console.log(&#39;Contact saved!&#39;, contact),
+  (error: any) =&gt; console.error(&#39;Error saving contact.&#39;, error)
 );
 </code></pre>
 

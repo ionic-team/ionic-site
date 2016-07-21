@@ -70,7 +70,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {IBeacon} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { IBeacon } from &#39;ionic-native&#39;;
 
 
 // Request permission to use location on iOS
@@ -81,13 +81,13 @@ let delegate = IBeacon.Delegate();
 // Subscribe to some of the delegate&#39;s event handlers
 delegate.didRangeBeaconsInRegion()
   .subscribe(
-    data =&gt; {console.log(&#39;didRangeBeaconsInRegion: &#39;, data)},
-    error =&gt; console.error
+    data =&gt; console.log(&#39;didRangeBeaconsInRegion: &#39;, data),
+    error =&gt; console.error();
   );
 delegate.didStartMonitoringForRegion()
   .subscribe(
-    data =&gt; {console.log(&#39;didStartMonitoringForRegion: &#39;, data)},
-    error =&gt; console.error
+    data =&gt; console.log(&#39;didStartMonitoringForRegion: &#39;, data),
+    error =&gt; console.error();
   );
 delegate.didEnterRegion()
   .subscribe(

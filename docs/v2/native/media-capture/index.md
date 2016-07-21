@@ -57,9 +57,8 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import {MediaCapture} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { MediaCapture } from &#39;ionic-native&#39;;
 
-...
 
 let options: CaptureImageOptions = { limit: 3 };
 MediaCapture.captureImage(options)

@@ -59,19 +59,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Geolocation} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { Geolocation } from &#39;ionic-native&#39;;
 
 
 Geolocation.getCurrentPosition().then((resp) =&gt; {
- //resp.coords.latitude
- //resp.coords.longitude
+ // resp.coords.latitude
+ // resp.coords.longitude
 })
 
 let watch = Geolocation.watchPosition();
 watch.subscribe((data) =&gt; {
- //data.coords.latitude
- //data.coords.longitude
+ // data.coords.latitude
+ // data.coords.longitude
 })
 </code></pre>
 
@@ -141,7 +140,7 @@ Get the device's current position.
 </h3>Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
-```ts
+```typescript
 var subscription = Geolocation.watchPosition().subscribe(position => {
   console.log(position.coords.longitude + ' ' + position.coords.latitude);
 });

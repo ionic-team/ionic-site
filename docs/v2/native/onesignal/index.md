@@ -73,14 +73,15 @@ OneSignal is a simple implementation for delivering push notifications.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {OneSignal} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { OneSignal } from &#39;ionic-native&#39;;
 
 let notificationOpenedCallback(jsonData: any) {
   console.log(&#39;didReceiveRemoteNotificationCallBack: &#39; + JSON.stringify(jsonData));
 };
-OneSignal.init(&quot;b2f7f966-d8cc-11e4-bed1-df8f05be55ba&quot;,
-                               {googleProjectNumber: &quot;703322744261&quot;},
-                               notificationOpenedCallback);
+
+OneSignal.init(&#39;b2f7f966-d8cc-11e4-bed1-df8f05be55ba&#39;,
+                       {googleProjectNumber: &#39;703322744261&#39;},
+                       notificationOpenedCallback);
 
 OneSignal.enableInAppAlertNotification(true);
 </code></pre>

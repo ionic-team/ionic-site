@@ -58,14 +58,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {LocalNotifications} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { LocalNotifications } from &#39;ionic-native&#39;;
 
 
 // Schedule a single notification
 LocalNotifications.schedule({
   id: 1,
-  text: &quot;Single Notification&quot;,
+  text: &#39;Single Notification&#39;,
   sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;
   data: { secret: key }
 });
@@ -74,22 +73,22 @@ LocalNotifications.schedule({
 // Schedule multiple notifications
 LocalNotifications.schedule([{
    id: 1,
-   text: &quot;Multi Notification 1&quot;,
+   text: &#39;Multi Notification 1&#39;,
    sound: isAndroid ? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
    data: { secret:key }
   },{
    id: 2,
-   title: &quot;Local Notification Example&quot;,
-   text: &quot;Multi Notification 2&quot;,
-   icon: &quot;http://example.com/icon.png&quot;
+   title: &#39;Local Notification Example&#39;,
+   text: &#39;Multi Notification 2&#39;,
+   icon: &#39;http://example.com/icon.png&#39;
 }]);
 
 
 // Schedule delayed notification
 LocalNotifications.schedule({
-   text: &quot;Delayed Notification&quot;,
+   text: &#39;Delayed Notification&#39;,
    at: new Date(new Date().getTime() + 3600),
-   led: &quot;FF0000&quot;,
+   led: &#39;FF0000&#39;,
    sound: null
 });
 </code></pre>

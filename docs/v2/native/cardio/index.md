@@ -68,9 +68,8 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {CardIO} from &#39;ionic-native&#39;;
+<pre><code>import { CardIO } from &#39;ionic-native&#39;;
 
-...
 
 CardIO.canScan()
   .then(

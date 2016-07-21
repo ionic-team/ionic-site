@@ -72,10 +72,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {EmailComposer} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { EmailComposer } from &#39;ionic-native&#39;;
 
 
-EmailComposer.isAvailable().then((available) =&gt;{
+EmailComposer.isAvailable().then((available: boolean) =&gt;{
  if(available) {
    //Now we know we can send
  }

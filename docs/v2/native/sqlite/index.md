@@ -58,7 +58,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import { SQLite } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SQLite } from &#39;ionic-native&#39;;
 
 let db = new SQLite();
 db.openDatabse({
@@ -68,10 +68,10 @@ db.openDatabse({
   db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {
 
   }, (err) =&gt; {
-    console.error(&#39;Unable to execute sql&#39;, err);
-  })
+    console.error(&#39;Unable to execute sql: &#39;, err);
+  });
 }, (err) =&gt; {
-  console.error(&#39;Unable to open database&#39;, err);
+  console.error(&#39;Unable to open database: &#39;, err);
 });
 </code></pre>
 

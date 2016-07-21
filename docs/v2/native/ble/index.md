@@ -81,7 +81,7 @@ docType: "class"
 
 <h2 id="peripheral-data">Peripheral Data</h2>
 <p>Peripheral Data is passed to the success callback when scanning and connecting. Limited data is passed when scanning.</p>
-<pre><code class="lang-ts">{
+<pre><code class="lang-typescript">{
     &quot;name&quot;: &quot;Battery Demo&quot;,
     &quot;id&quot;: &quot;20:FF:D0:FF:D1:C0&quot;,
     &quot;advertising&quot;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
@@ -89,7 +89,7 @@ docType: "class"
 }
 </code></pre>
 <p>After connecting, the peripheral object also includes service, characteristic and descriptor information.</p>
-<pre><code class="lang-ts">{
+<pre><code class="lang-typescript">{
     &quot;name&quot;: &quot;Battery Demo&quot;,
     &quot;id&quot;: &quot;20:FF:D0:FF:D1:C0&quot;,
     &quot;advertising&quot;: [2,1,6,3,3,15,24,8,9,66,97,116,116,101,114,121],
@@ -143,7 +143,7 @@ docType: "class"
 <p>Bluetooth advertising data is returned in when scanning for devices. The format format varies depending on your platform. On Android advertising data will be the raw advertising bytes. iOS does not allow access to raw advertising data, so a dictionary of data is returned.</p>
 <p>The advertising information for both Android and iOS appears to be a combination of advertising data and scan response data.</p>
 <h3 id="android">Android</h3>
-<pre><code class="lang-ts"> {
+<pre><code class="lang-typescript"> {
      &quot;name&quot;: &quot;demo&quot;,
      &quot;id&quot;: &quot;00:1A:7D:DA:71:13&quot;,
      &quot;advertising&quot;: ArrayBuffer,
@@ -153,7 +153,7 @@ docType: "class"
 <p>Convert the advertising info to a Uint8Array for processing. <code>var adData = new Uint8Array(peripheral.advertising)</code></p>
 <h3 id="ios">iOS</h3>
 <p>Note that iOS uses the string value of the constants for the <a href="https://developer.apple.com/library/ios/documentation/CoreBluetooth/Reference/CBCentralManagerDelegate_Protocol/index.html#//apple_ref/doc/constant_group/Advertisement_Data_Retrieval_Keys">Advertisement Data Retrieval Keys</a>. This will likely change in the future.</p>
-<pre><code class="lang-ts">{
+<pre><code class="lang-typescript">{
     &quot;name&quot;: &quot;demo&quot;,
     &quot;id&quot;: &quot;D8479A4F-7517-BCD3-91B5-3302B2F81802&quot;,
     &quot;advertising&quot;: {
@@ -177,7 +177,7 @@ docType: "class"
 <h2 id="typed-arrays">Typed Arrays</h2>
 <p>This plugin uses typed Arrays or ArrayBuffers for sending and receiving data.</p>
 <p>This means that you need convert your data to ArrayBuffers before sending and from ArrayBuffers when receiving.</p>
-<pre><code class="lang-ts">// ASCII only
+<pre><code class="lang-typescript">// ASCII only
 function stringToBytes(string) {
    var array = new Uint8Array(string.length);
    for (var i = 0, l = string.length; i &lt; l; i++) {

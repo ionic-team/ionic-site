@@ -57,14 +57,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import {PinDialog} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { PinDialog } from &#39;ionic-native&#39;;
 
-...
 
 PinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#39;, &#39;Cancel&#39;])
   .then(
     (result: any) =&gt; {
-      if(result.buttonIndex == 1) console.log(&#39;User clicked OK, value is: &#39;, result.input1);
+      if (result.buttonIndex == 1) console.log(&#39;User clicked OK, value is: &#39;, result.input1);
       else if(result.buttonIndex == 2) console.log(&#39;User cancelled&#39;);
     }
   );

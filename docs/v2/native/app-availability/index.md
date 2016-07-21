@@ -70,21 +70,21 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {AppAvailability} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppAvailability } from &#39;ionic-native&#39;;
 
 
-var app;
+let app;
 
-if(device.platform === &#39;iOS&#39;) {
+if (device.platform === &#39;iOS&#39;) {
   app = &#39;twitter://&#39;;
-}else if(device.platform === &#39;Android&#39;){
+} else if (device.platform === &#39;Android&#39;) {
   app = &#39;com.twitter.android&#39;;
 }
 
 AppAvailability.check(app)
   .then(
-    yes =&gt; console.log(app + &quot; is available&quot;),
-    no =&gt; console.log(app + &quot; is NOT available&quot;)
+    (yes: string) =&gt; console.log(app + &#39; is available&#39;),
+    (no: string) =&gt; console.log(app + &#39; is NOT available&#39;)
   );
 </code></pre>
 

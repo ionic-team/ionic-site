@@ -58,17 +58,20 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<p>Create instance:</p>
-<pre><code class="lang-ts">const fileTransfer = new Transfer();
-</code></pre>
-<p>Upload a file:</p>
-<pre><code class="lang-ts">fileTransfer.upload(..).then(..).catch(..);
-</code></pre>
-<p>Download a file:</p>
-<pre><code class="lang-ts">fileTransfer.download(..).then(..).catch(..);
-</code></pre>
-<p>Abort active transfer:</p>
-<pre><code class="lang-ts">fileTransfer.abort();
+<pre><code class="lang-typescript">import { Transfer } from &#39;ionic-native&#39;;
+
+
+// Create instance:
+const fileTransfer = new Transfer();
+
+// Upload a file:
+fileTransfer.upload(..).then(..).catch(..);
+
+// Download a file:
+fileTransfer.download(..).then(..).catch(..);
+
+// Abort active transfer:
+fileTransfer.abort();
 </code></pre>
 
 

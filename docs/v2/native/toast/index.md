@@ -72,11 +72,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Toast} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Toast } from &#39;ionic-native&#39;;
 
 
-
-Toast.show(&quot;I&#39;m a toast&quot;, &quot;5000&quot;, &quot;center&quot;).subscribe(
+Toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscribe(
   toast =&gt; {
     console.log(toast);
   }

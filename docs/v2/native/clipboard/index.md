@@ -85,18 +85,17 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Clipboard} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Clipboard } from &#39;ionic-native&#39;;
 
 
-
-Clipboard.copy(&quot;Hello world&quot;);
+Clipboard.copy(&#39;Hello world&#39;);
 
 Clipboard.paste().then(
-   (resolve : string) =&gt; {
+   (resolve: string) =&gt; {
     alert(resolve);
     },
-    (reject : string) =&gt; {
-    alert(&quot;Error: &quot; + reject);
+    (reject: string) =&gt; {
+    alert(&#39;Error: &#39; + reject);
     }
     );
 );

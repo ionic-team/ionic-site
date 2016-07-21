@@ -66,13 +66,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Hotspot, Network} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Hotspot, Network } from &#39;ionic-native&#39;;
 
-...
-    Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
-        console.log(networks);
-    });
-...
+
+Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
+    console.log(networks);
+});
 </code></pre>
 
 

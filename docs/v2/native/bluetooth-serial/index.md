@@ -73,11 +73,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Write a string
-Bluetooth.write(&quot;hello world&quot;).then(success, failure);
+<pre><code class="lang-typescript">import { BluetoothSerial } from &#39;ionic-native&#39;;
+
+
+// Write a string
+BluetoothSerial.write(&quot;hello world&quot;).then(success, failure);
 
 // Array of int or bytes
-Bluetooth.write([186, 220, 222]).then(success, failure);
+BluetoothSerial.write([186, 220, 222]).then(success, failure);
 
 // Typed Array
 var data = new Uint8Array(4);
@@ -85,10 +88,10 @@ data[0] = 0x41;
 data[1] = 0x42;
 data[2] = 0x43;
 data[3] = 0x44;
-Bluetooth.write(data).then(success, failure);
+BluetoothSerial.write(data).then(success, failure);
 
 // Array Buffer
-Bluetooth.write(data.buffer).then(success, failure);
+BluetoothSerial.write(data.buffer).then(success, failure);
 </code></pre>
 
 

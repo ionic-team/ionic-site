@@ -69,8 +69,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {DBMeter} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { DBMeter } from &#39;ionic-native&#39;;
 
 
 // Start listening
@@ -80,7 +79,7 @@ let subscription = DBMeter.start().subscribe(
 
 // Check if we are listening
 DBMeter.isListening().then(
-  (isListening : boolean) =&gt; console.log(isListening)
+  (isListening: boolean) =&gt; console.log(isListening)
 );
 
 // Stop listening
@@ -88,8 +87,8 @@ subscription.unsubscribe();
 
 // Delete DBMeter instance from memory
 DBMeter.delete().then(
-  () =&gt; console.log(&quot;Deleted DB Meter instance&quot;),
-  error =&gt; console.log(&quot;Error occurred while deleting DB Meter instance&quot;)
+  () =&gt; console.log(&#39;Deleted DB Meter instance&#39;),
+  error =&gt; console.log(&#39;Error occurred while deleting DB Meter instance&#39;)
 );
 </code></pre>
 

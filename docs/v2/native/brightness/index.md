@@ -70,7 +70,8 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Brightness} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Brightness } from &#39;ionic-native&#39;;
+
 
 let brightnessValue: number = 0.8;
 Brightness.setBrightness(brightnessValue);

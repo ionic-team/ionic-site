@@ -72,8 +72,7 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {BackgroundGeolocation} from &#39;ionic-native&#39;;
-
+<pre><code class="lang-typescript">import { BackgroundGeolocation } from &#39;ionic-native&#39;;
 
 
 // When device is ready :

@@ -72,12 +72,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Sim} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Sim } from &#39;ionic-native&#39;;
 
 
 Sim.getSimInfo().then(
-  (info) =&gt; console.log(&#39;Sim info:&#39;, info),
-  (err) =&gt; console.log(&#39;Unable to get sim info:&#39;, err)
+  (info) =&gt; console.log(&#39;Sim info: &#39;, info),
+  (err) =&gt; console.log(&#39;Unable to get sim info: &#39;, err)
 );
 </code></pre>
 

@@ -72,7 +72,8 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {ActionSheet} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { ActionSheet } from &#39;ionic-native&#39;;
+
 
 let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
 ActionSheet.show({
@@ -80,7 +81,7 @@ ActionSheet.show({
   &#39;buttonLabels&#39;: buttonLabels,
   &#39;addCancelButtonWithLabel&#39;: &#39;Cancel&#39;,
   &#39;addDestructiveButtonWithLabel&#39; : &#39;Delete&#39;
-}).then(buttonIndex =&gt; {
+}).then((buttonIndex: number) =&gt; {
   console.log(&#39;Button pressed: &#39; + buttonLabels[buttonIndex - 1]);
 });
 </code></pre>

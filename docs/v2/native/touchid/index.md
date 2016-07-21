@@ -79,20 +79,19 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {TouchID} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { TouchID } from &#39;ionic-native&#39;;
 
-...
 
 TouchID.isAvailable()
   .then(
-    res =&gt; console.log(&quot;TouchID is available!&quot;),
-    err =&gt; console.error(&quot;TouchID isn&#39;t available&quot;, err)
+    res =&gt; console.log(&#39;TouchID is available!&#39;),
+    err =&gt; console.error(&#39;TouchID isn&#39;t available&#39;, err)
   );
 
 TouchID.verifyFingerprint(&#39;Scan your fingerprint please&#39;)
   .then(
-    res =&gt; console.log(&quot;Ok&quot;, res),
-    err =&gt; console.error(&quot;Error&quot;, err)
+    res =&gt; console.log(&#39;Ok&#39;, res),
+    err =&gt; console.error(&#39;Error&#39;, err)
   );
 </code></pre>
 

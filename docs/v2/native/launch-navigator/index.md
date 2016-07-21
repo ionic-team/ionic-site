@@ -59,17 +59,17 @@ docType: "class"
 <h2>Usage</h2>
 
 <p>Please refer to the plugin&#39;s repo for detailed usage. This docs page only explains the Native wrapper.</p>
-<pre><code class="lang-js">import {LaunchNavigator, LaunchNavigatorOptions} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { LaunchNavigator, LaunchNavigatorOptions } from &#39;ionic-native&#39;;
 
 let options: LaunchNavigatorOptions = {
   start: &#39;London, ON&#39;,
   app: LaunchNavigator.APPS.UBER
 };
 
-LaunchNavigator.navigate(&quot;Toronto, ON&quot;, options)
+LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
   .then(
-    success =&gt; console.log(&quot;Launched navigator&quot;),
-    error =&gt; console.log(&quot;Error launching navigator&quot;, error)
+    success =&gt; console.log(&#39;Launched navigator&#39;),
+    error =&gt; console.log(&#39;Error launching navigator&#39;, error)
   );
 </code></pre>
 

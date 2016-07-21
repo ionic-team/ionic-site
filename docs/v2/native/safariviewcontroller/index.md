@@ -68,13 +68,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {SafariViewController} from &#39;ionic-native&#39;;
+<pre><code>import { SafariViewController } from &#39;ionic-native&#39;;
 
-...
 
 SafariViewController.isAvailable()
   .then(
-    (available) =&gt; {
+    (available: boolean) =&gt; {
       if(available){
 
         SafariViewController.show({
@@ -87,9 +86,9 @@ SafariViewController.isAvailable()
         })
         .then(
           (result: any) =&gt; {
-            if(result.event === &#39;opened&#39;) console.log(&quot;Opened&quot;);
-            else if(result.event === &#39;loaded&#39;) console.log(&quot;Loaded&quot;);
-            else if(result.event === &#39;closed&#39;) console.log(&quot;Closed&quot;);
+            if(result.event === &#39;opened&#39;) console.log(&#39;Opened&#39;);
+            else if(result.event === &#39;loaded&#39;) console.log(&#39;Loaded&#39;);
+            else if(result.event === &#39;closed&#39;) console.log(&#39;Closed&#39;);
           },
           (error: any) =&gt; console.error(error)
         );

@@ -57,7 +57,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import {NativeStorage} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { NativeStorage } from &#39;ionic-native&#39;;
 
 NativeStorage.setItem(&#39;myitem&#39;, {property: &#39;value&#39;, anotherProperty: &#39;anotherValue&#39;})
   .then(

@@ -20,7 +20,7 @@ Once installed, you should have access to both `node` and `npm` from your comman
 
 
 ### iOS
-The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](http://ionic.io/platform#packaging), part of the Ionic Platform.
+The iOS SDK does not run on Windows, so nothing to do here. Still want to build for iOS, though? Check out [Package](http://ionic.io/cloud#packaging), part of the Ionic Cloud.
 
 ### Java
 We'll need to download Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). The install puts Java in your `C:\Program Files\Java` folder, so navigate there and pick the version of Java you've installed. Copy this location (including the version number) as you'll need it for later.
@@ -73,4 +73,3 @@ By default the `build` command produces two packages: Windows 8.1 and Windows Ph
 ```xml
 <preference name="windows-target-version" value="10.0" />
 ```
-

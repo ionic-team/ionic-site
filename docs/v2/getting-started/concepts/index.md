@@ -32,7 +32,7 @@ This website and documentation content (found in the [ionic-site](https://github
 
 ### What is the Ionic CLI?
 
-The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to export code and even interact with your account programmatically.
+The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Cloud](http://ionic.io/), the CLI can be used to export code and even interact with your account programmatically.
 
 ### What are components?
 

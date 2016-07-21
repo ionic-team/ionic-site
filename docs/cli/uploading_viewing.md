@@ -13,7 +13,7 @@ First, you'll need to get started with an account.
 
 ## Getting an account
 
-Head over to our [Ionic platform signup page](http://apps.ionic.io/signup) to get signed up. Currently, this is in beta, and you may be accepted to join the beta testing.
+Head over to our [Ionic Cloud signup page](http://apps.ionic.io/signup) to get signed up. Currently, this is in beta, and you may be accepted to join the beta testing.
 
 # Uploading your Ionic App
 
@@ -41,4 +41,3 @@ Log in with your credentials. Once logged in, you should see the app you uploade
 # Having others view your Ionic app
 
 Have the ones you want to view your app sign up for the Ionic beta. Then, have them download the Ionic View app. If you grant their account permission to your app, they can then select the app and run it just as if they had installed it.
-

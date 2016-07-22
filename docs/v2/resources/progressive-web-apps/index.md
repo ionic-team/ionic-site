@@ -10,7 +10,7 @@ header_sub_title: Ionic Resources
 
 ### The web...but better
 
-Progressive Web Apps are web apps that use modern web capabilities to deliver an app-like user experience to users.
+A Progressive Web App (PWA) is a web app that uses modern web capabilities to deliver an app-like experience to users.
 These apps meet certain requirements (see below), are deployed to servers, accessible through URLs, and indexed by search engines.
 
 This can work in conjunction with Cordova to provide a multiple deploy targets for all your users.
@@ -18,17 +18,17 @@ You can deploy your app as a PWA as well as Native app and take advantage of bot
 
 Ionic allows you to ship your app to not only the app store, but also deploy to the mobile web as a PWA.
 
-### What's required
+### What is required
 
-To be considered a progressive web app, you app must be:
+To be considered a Progressive Web App, your app must be:
 
-- Progressive - Work for every user, regardless of browser choice because they’re built with progressive enhancement as a core tenet.
+- Progressive - Work for every user, regardless of browser choice, because they are built with progressive enhancement as a core tenet.
 
 - Responsive - Fit any form factor, desktop, mobile, tablet, or whatever is next.
 
 - Connectivity independent - Enhanced with service workers to work offline or on low quality networks.
 
-- App-like - Use the app-shell model to provide app-style navigations and interactions.
+- App-like - Use the app-shell model to provide app-style navigation and interactions.
 
 - Fresh - Always up-to-date thanks to the service worker update process.
 
@@ -44,11 +44,11 @@ To be considered a progressive web app, you app must be:
 
 _[Addy Osmani: Progressive web apps](https://addyosmani.com/blog/getting-started-with-progressive-web-apps/)_
 
-There's a lot here, but it boils down to a few points for Ionic apps.
+There is a lot here, but it boils down to a few points for Ionic apps.
 
 #### Offline Support
 
-Apps should be able to work offline. Weather that be displaying a proper "offline" message or caching app data for display purpose.
+Apps should be able to work offline. Whether that be displaying a proper "offline" message or caching app data for display purpose.
 
 #### [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
@@ -56,5 +56,4 @@ An app manifest file should describe the resources your app will need. This incl
 
 #### [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
-Service worker could be mentioned in Offline Support, but it really deserves its own section. Service worker provides a programmatic way to cache app resources. Be it JavaScript files or JSON data from a HTTP request. The programmatic API allows devs to decide how to handle caching and provides a much more flexible experience than other options.
-
+Service worker could be mentioned in Offline Support, but it really deserves its own section. Service worker provides a programmatic way to cache app resources. Be it JavaScript files or JSON data from a HTTP request. The programmatic API allows developers to decide how to handle caching and provides a much more flexible experience than other options.

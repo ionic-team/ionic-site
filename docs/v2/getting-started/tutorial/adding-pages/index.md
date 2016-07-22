@@ -22,7 +22,7 @@ Now that we have a basic understanding of the layout of an Ionic 2 app, let's wa
 Taking a look at `app/app.html`, we see this line near the bottom:
 
 ```html
-<ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
+<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 ```
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.

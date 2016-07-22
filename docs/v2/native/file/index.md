@@ -863,7 +863,7 @@ If an existing file exists and the replace value is false, the promise will fail
 
 
 <div id="readAsText"></div>
-<h3><code>readAsText(path,&nbsp;fileName)</code>
+<h3><code>readAsText(uri)</code>
   
 </h3>Read a file as string.
 
@@ -881,7 +881,7 @@ If an existing file exists and the replace value is false, the promise will fail
   
   <tr>
     <td>
-      path
+      uri
       
       
     </td>
@@ -896,9 +896,43 @@ If an existing file exists and the replace value is false, the promise will fail
     </td>
   </tr>
   
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves or rejects with an error.
+
+
+</div>
+
+
+
+<div id="readAsDataURL"></div>
+<h3><code>readAsDataURL(uri)</code>
+  
+</h3>Read a file as string.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
   <tr>
     <td>
-      fileName
+      uri
       
       
     </td>
@@ -907,7 +941,7 @@ If an existing file exists and the replace value is false, the promise will fail
 <code>string</code>
     </td>
     <td>
-      <p>Name of file to move</p>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
     </td>

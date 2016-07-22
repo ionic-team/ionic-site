@@ -43,15 +43,15 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-camera-preview</code></pre>
 <p>Repo:
-  <a href="https://github.com/westonganger/cordova-plugin-camera-preview">
-    https://github.com/westonganger/cordova-plugin-camera-preview
+  <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">
+    https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview
   </a>
 </p>
 
 <!-- description -->
 
 <p>Showing camera preview in HTML</p>
-<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera-preview</code>. For more info, please see the <a href="https://github.com/westonganger/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
+<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera-preview</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
 
 
 <!-- @platforms tag -->
@@ -225,24 +225,6 @@ Hide the camera preview box.
 
 
 
-<div id="setFlashMode"></div>
-<h3><code>setFlashMode()</code>
-  
-</h3>
-
-
-
-Set the default mode for the Flash.
-
-
-
-
-
-
-
-
-
-
 <div id="setColorEffect"></div>
 <h3><code>setColorEffect()</code>
   
@@ -250,6 +232,7 @@ Set the default mode for the Flash.
 
 
 
+Set the default mode for the Flash.
 Set camera color effect.
 
 

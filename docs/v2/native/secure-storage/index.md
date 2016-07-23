@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/securestorage.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/securestorage.ts#L1">
   Improve this doc
 </a>
 
@@ -79,7 +79,7 @@ docType: "class"
 let secureStorage: SecureStorage = new SecureStorage();
 secureStorage.create(&#39;my_store_name&#39;)
  .then(
-   () =&gt; console.log(&#39;Success&#39;), 
+   () =&gt; console.log(&#39;Storage is ready!&#39;),
    error =&gt; console.log(error);
 );
 
@@ -120,7 +120,7 @@ secureStorage.remove(&#39;myitem&#39;)
 
 </h3>
 
-Creates a namespaced storage. 
+Creates a namespaced storage.
 
 
 <table class="table param-table" style="margin:0;">

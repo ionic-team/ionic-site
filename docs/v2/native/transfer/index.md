@@ -72,6 +72,26 @@ fileTransfer.download(..).then(..).catch(..);
 
 // Abort active transfer:
 fileTransfer.abort();
+
+E.g
+
+upload(){
+  const fileTransfer = new Transfer();
+  var options: any;
+
+  options = {
+     fileKey: &#39;file&#39;,
+     fileName: &#39;name.jpg&#39;,
+     headers: {}
+     ..... 
+  }
+  fileTransfer.upload(&quot;&lt;file path&gt;&quot;, &quot;&lt;api endpoint&gt;&quot;, options)
+   .then((data) =&gt; {
+     // success
+   }, (err) =&gt; {
+     // error
+   })
+}
 </code></pre>
 
 

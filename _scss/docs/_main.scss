@@ -893,6 +893,15 @@ ul.docs-example {
   td p {
     margin: 0;
     line-height: 22px;
+
+    .tag {
+      background: $blue;
+      margin-left: 10px;
+      padding: 5px 7px;
+      border-radius: 4px;
+      color: white;
+      font-weight: 600;
+    }
   }
 
   td ul {
@@ -949,4 +958,3 @@ ul.docs-example {
 .native-docs a{
   margin-top: 0 !important;
 }
-

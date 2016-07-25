@@ -8295,6 +8295,13 @@ ul.docs-example {
 .param-table td p {
   margin: 0;
   line-height: 22px; }
+  .param-table td p .tag {
+    background: #4f8ff7;
+    margin-left: 10px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600; }
 
 .param-table td ul {
   list-style: none;

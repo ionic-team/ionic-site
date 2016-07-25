@@ -63,20 +63,25 @@ textarea&#39;s inner content.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-item&gt;
-  &lt;ion-label&gt;Comments&lt;/ion-label&gt;
-  &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
+<pre><code class="lang-html"> &lt;ion-item&gt;
+   &lt;ion-label&gt;Comments&lt;/ion-label&gt;
+   &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
+
+ &lt;ion-item&gt;
+   &lt;ion-label stacked&gt;Message&lt;/ion-label&gt;
+   &lt;ion-textarea [(ngModel)]=&quot;msg&quot;&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
+
+ &lt;ion-item&gt;
+   &lt;ion-label floating&gt;Description&lt;/ion-label&gt;
+   &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-label stacked&gt;Message&lt;/ion-label&gt;
-  &lt;ion-textarea [(ngModel)]=&quot;msg&quot;&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
-
-&lt;ion-item&gt;
-  &lt;ion-label floating&gt;Description&lt;/ion-label&gt;
-  &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
+   &lt;ion-label&gt;Long Description&lt;/ion-label&gt;
+   &lt;ion-textarea rows=&quot;6&quot; placeholder=&quot;enter long description here...&quot;&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
 </code></pre>
 
 

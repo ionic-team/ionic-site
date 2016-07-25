@@ -86073,6 +86073,11 @@
 	 *    <ion-label floating>Description</ion-label>
 	 *    <ion-textarea></ion-textarea>
 	 *  </ion-item>
+	 *
+	 * <ion-item>
+	 *    <ion-label>Long Description</ion-label>
+	 *    <ion-textarea rows="6" placeholder="enter long description here..."></ion-textarea>
+	 *  </ion-item>
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/textarea/

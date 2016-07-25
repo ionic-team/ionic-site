@@ -132,7 +132,7 @@ floating
 
 
 <td>
-A label that will float about the input if the input is empty or loses focus.
+A label that will float above the input if the input is empty or loses focus.
 </td>
 </tr>
 

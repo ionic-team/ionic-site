@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L1">
   Improve this doc
 </a>
 
@@ -54,19 +54,6 @@ docType: "class"
 OneSignal is a simple implementation for delivering push notifications.</p>
 <p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
 
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
-
-<!-- @platforms tag end -->
 
 
 <!-- @usage tag -->
@@ -95,6 +82,8 @@ OneSignal.enableInAppAlertNotification(true);
 <h3><code>init(Your,&nbsp;The)</code>
   
 </h3>
+
+
 
 Only required method you need to call to setup OneSignal to receive push notifications. Call this from the `deviceready` event.
 
@@ -154,7 +143,7 @@ Only required method you need to call to setup OneSignal to receive push notific
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when remote notification was recieved.
+<code>Observable</code> when a notification is received. Handle your notification action here.
 </div>
 
 

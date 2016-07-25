@@ -88,9 +88,9 @@ angular.module('mySuperApp', ['ionic'])
 ```
 
 
+  
 
-
-
+  
 ## Methods
 
 <div id="show"></div>
@@ -115,15 +115,15 @@ action sheet and the new element will be appended into the body.
     </tr>
   </thead>
   <tbody>
-
+    
     <tr>
       <td>
         options
-
-
+        
+        
       </td>
       <td>
-
+        
   <code>object</code>
       </td>
       <td>
@@ -145,10 +145,10 @@ to a new state.  Default true.</li>
 <li><code>{string}</code> <code>cssClass</code> The custom CSS class name.</li>
 </ul>
 
-
+        
       </td>
     </tr>
-
+    
   </tbody>
 </table>
 
@@ -157,5 +157,16 @@ to a new state.  Default true.</li>
 
 
 
-* Returns:
+* Returns: 
   <code>function</code> `hideSheet` A function which, when called, hides & cancels the action sheet.
+
+
+
+  
+  
+
+
+
+
+
+

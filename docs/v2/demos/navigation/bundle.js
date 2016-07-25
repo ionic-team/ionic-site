@@ -56415,13 +56415,13 @@
 	    Animation.prototype.element = function (ele) {
 	        var i;
 	        if (ele) {
-	            if (ele.length) {
+	            if (typeof ele === 'string') {
+	                ele = document.querySelectorAll(ele);
 	                for (i = 0; i < ele.length; i++) {
 	                    this._addEle(ele[i]);
 	                }
 	            }
-	            else if (typeof ele === 'string') {
-	                ele = document.querySelectorAll(ele);
+	            else if (ele.length) {
 	                for (i = 0; i < ele.length; i++) {
 	                    this._addEle(ele[i]);
 	                }

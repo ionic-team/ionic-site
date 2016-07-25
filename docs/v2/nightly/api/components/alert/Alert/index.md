@@ -384,7 +384,7 @@ Present the alert instance.
   <code>NavOptions</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>

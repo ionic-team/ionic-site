@@ -277,7 +277,7 @@ Returns a single config value, given a key.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -296,7 +296,7 @@ Returns a single config value, given a key.
       <td>
         <p>a fallback value to use when the config
 value was not found, or is config value is <code>null</code>. Fallback value
- defaults to <code>null</code>.</p>
+ defaults to <code>null</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -349,7 +349,7 @@ the config value was the string value `"true"`.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -367,7 +367,7 @@ the config value was the string value `"true"`.
       </td>
       <td>
         <p>a fallback value to use when the config
-value was <code>null</code>. Fallback value defaults to <code>false</code>.</p>
+value was <code>null</code>. Fallback value defaults to <code>false</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -420,7 +420,7 @@ is not a valid number.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -438,7 +438,7 @@ is not a valid number.
       </td>
       <td>
         <p>a fallback value to use when the config
-value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</code>.</p>
+value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -487,7 +487,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.</p>
+        <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -504,7 +504,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The key used to look up the value at a later point in time.</p>
+        <p>The key used to look up the value at a later point in time.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -521,7 +521,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The config value being stored.</p>
+        <p>The config value being stored.<strong class="tag">Optional</strong></p>
 
         
       </td>

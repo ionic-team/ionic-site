@@ -216,7 +216,7 @@ export class MyPage{
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -291,7 +291,7 @@ export class MyPage{
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -422,7 +422,7 @@ Scroll to the bottom of the content component.
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>

@@ -201,7 +201,7 @@ is given then it'll close that exact menu.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -259,7 +259,7 @@ will close.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -319,7 +319,7 @@ will also automatically disable all the others that are on the same side.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -393,7 +393,7 @@ Used to enable or disable the ability to swipe open the menu.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -508,7 +508,7 @@ property. If a menu is not found then it'll return `null`.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>

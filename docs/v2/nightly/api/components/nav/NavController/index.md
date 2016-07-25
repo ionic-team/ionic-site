@@ -486,7 +486,7 @@ Set the root for the current navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view.</p>
+        <p>Any nav-params you want to pass along to the next view.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -503,7 +503,7 @@ Set the root for the current navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any options you want to use pass to transtion.</p>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -581,7 +581,7 @@ navigation params to the individual pages in the array.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -657,7 +657,7 @@ along as an object. This additional information is acessible through NavParams
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view</p>
+        <p>Any nav-params you want to pass along to the next view<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -674,7 +674,7 @@ along as an object. This additional information is acessible through NavParams
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -768,7 +768,7 @@ you need to add a component at any point in your navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next page.</p>
+        <p>Any nav-params you want to pass along to the next page.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -785,7 +785,7 @@ you need to add a component at any point in your navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -879,7 +879,7 @@ and animate in to become the active view.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -938,7 +938,7 @@ can also pass navigation options.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -996,7 +996,7 @@ Navigate back to the root of the stack, no matter how far back that is.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1071,7 +1071,7 @@ Pop to a specific view in the history stack.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1129,7 +1129,7 @@ Removes a page from the nav stack at the specified index.
   <code>number</code>
       </td>
       <td>
-        <p>The starting index to remove pages from the stack. Default is the index of the last page.</p>
+        <p>The starting index to remove pages from the stack. Default is the index of the last page.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1146,7 +1146,7 @@ Removes a page from the nav stack at the specified index.
   <code>number</code>
       </td>
       <td>
-        <p>The number of pages to remove, defaults to remove <code>1</code>.</p>
+        <p>The number of pages to remove, defaults to remove <code>1</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1163,7 +1163,7 @@ Removes a page from the nav stack at the specified index.
   <code>object</code>
       </td>
       <td>
-        <p>Any options you want to use pass to transtion.</p>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
 
         
       </td>

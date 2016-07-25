@@ -270,7 +270,7 @@ Transition to the specified slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -287,7 +287,7 @@ Transition to the specified slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -337,7 +337,7 @@ Transition to the next slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -354,7 +354,7 @@ Transition to the next slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -404,7 +404,7 @@ Transition to the previous slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -421,7 +421,7 @@ Transition to the previous slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>

@@ -73728,8 +73728,8 @@
 	     * Transition to the specified slide.
 	     *
 	     * @param {number} index  The index number of the slide.
-	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+	     * @param {number} [speed]  Transition duration (in ms).
+	     * @param {boolean} [runCallbacks] Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
 	     */
 	    Slides.prototype.slideTo = function (index, speed, runCallbacks) {
 	        this.slider.slideTo(index, speed, runCallbacks);
@@ -73737,8 +73737,8 @@
 	    /**
 	     * Transition to the next slide.
 	     *
-	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+	     * @param {number} [speed]  Transition duration (in ms).
+	     * @param {boolean} [runCallbacks]  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
 	     */
 	    Slides.prototype.slideNext = function (speed, runCallbacks) {
 	        this.slider.slideNext(runCallbacks, speed);
@@ -73746,8 +73746,8 @@
 	    /**
 	     * Transition to the previous slide.
 	     *
-	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+	     * @param {number} [speed]  Transition duration (in ms).
+	     * @param {boolean} [runCallbacks]  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
 	     */
 	    Slides.prototype.slidePrev = function (speed, runCallbacks) {
 	        this.slider.slidePrev(runCallbacks, speed);

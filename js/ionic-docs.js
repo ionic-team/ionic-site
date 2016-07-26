@@ -1736,6 +1736,12 @@ document.getElementById('sidebar-toggle').onclick = function() {
 
 $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
+  $('#collapse-toggle').unbind().click(function() {
+    $('#navbar-collapse').collapse('toggle');
+    var ariaVal = $('#collapse-toggle').attr('aria-expanded');
+    ariaVal = ariaVal === 'false' ? 'true' : 'false';
+    $('#collapse-toggle').attr('aria-expanded', ariaVal);
+  });
 });
 
 // highlight.js syntax highlighting

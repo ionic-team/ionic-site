@@ -27,7 +27,7 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
 
-In `app/app.ts`, the `MyApp` component specifies this in its constructor:
+In `app/app.ts`, the `MyApp` component specifies this in its rootPage property:
 
 ```ts
 ...
@@ -36,14 +36,10 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 
 class MyApp {
   ...
-
-  constructor(app, platform, menu) {
-    ...
-
-    // make HelloIonicPage the root (or first) page
-    this.rootPage = HelloIonicPage;
-  }
-
+  
+  // make HelloIonicPage the root (or first) page
+  rootPage: any = HelloIonicPage;
+  
   ...
 }
 
@@ -74,12 +70,14 @@ All pages have both a class, and an associated template that's being compiled as
 
 ```html
 {% raw %}
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Hello Ionic</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content padding class="getting-started">
@@ -100,7 +98,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 
@@ -111,7 +109,7 @@ To create an additional page, we don't need to do much beyond making sure we cor
 Let's check out the contents of `app/pages/list/list.ts`. Inside, you will see a new page is defined:
 
 ```ts
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 
@@ -120,14 +118,11 @@ import {ItemDetailsPage} from '../item-details/item-details';
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
-  // provide Angular with metadata about things it should inject in the constructor
-  static get parameters() {
-    return [[NavController], [NavParams]];
-  }
+  selectedItem: any;
+  icons: string[];
+  items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(nav, navParams) {
-    this.nav = nav;
-
+  constructor(private navCtrl: NavController, navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -145,15 +140,13 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-     this.nav.push(ItemDetailsPage, {
-       item: item
-     });
+    this.navCtrl.push(ItemDetailsPage, {
+      item: item
+    });
   }
 }
 ```
 
 This page will create a basic list page containing a number of items.
-
-> What the heck is that `static get parameters()`? Angular2 is written in TypeScript, and normally depends on [types](http://www.typescriptlang.org/Handbook#basic-types) to know what kind of objects to inject into class constructors as part of its [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) framework.  Since these examples are in JavaScript and not TypeScript, we need a way to tell Angular what "types" of objects should be injected, without actually using types. The way we do this is with the static getter `parameters` which attaches this type information to the class.
 
 Overall, this page is very similar to the `HelloIonicPage` we saw earlier. In the next section, we will learn how to navigate to a new page!

@@ -120,12 +120,8 @@ import {ItemDetailsPage} from '../item-details/item-details';
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
-  // provide Angular with metadata about things it should inject in the constructor
-  static get parameters() {
-    return [[NavController], [NavParams]];
-  }
 
-  constructor(nav, navParams) {
+  constructor(private navCtrl: NavController, navParams: NavParams) {
     this.nav = nav;
 
     // If we navigated to this page, we will have an item available as a nav param
@@ -153,7 +149,5 @@ export class ListPage {
 ```
 
 This page will create a basic list page containing a number of items.
-
-> What the heck is that `static get parameters()`? Angular2 is written in TypeScript, and normally depends on [types](http://www.typescriptlang.org/Handbook#basic-types) to know what kind of objects to inject into class constructors as part of its [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) framework.  Since these examples are in JavaScript and not TypeScript, we need a way to tell Angular what "types" of objects should be injected, without actually using types. The way we do this is with the static getter `parameters` which attaches this type information to the class.
 
 Overall, this page is very similar to the `HelloIonicPage` we saw earlier. In the next section, we will learn how to navigate to a new page!

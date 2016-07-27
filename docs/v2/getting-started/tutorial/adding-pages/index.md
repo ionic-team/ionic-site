@@ -37,7 +37,10 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 class MyApp {
   ...
 
-  constructor(app, platform, menu) {
+    constructor(
+    private platform: Platform,
+    private menu: MenuController
+    ) {
     ...
 
     // make HelloIonicPage the root (or first) page

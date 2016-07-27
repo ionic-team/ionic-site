@@ -74,7 +74,7 @@ All pages have both a class, and an associated template that's being compiled as
 
 ```html
 {% raw %}
-<ion-navbar *navbar>
+<ion-navbar navbar>
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>

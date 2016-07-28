@@ -29,7 +29,7 @@ itemTapped(event, item) {
 }
 ```
 
-You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/pages/list/list.js` so we can use it:
+You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/pages/list/list.ts` so we can use it:
 
 ```ts
 ...

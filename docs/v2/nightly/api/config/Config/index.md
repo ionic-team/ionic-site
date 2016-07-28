@@ -217,6 +217,11 @@ chart displays each property with a description of what it controls.</p>
 <td>The position of the tabs relative to the content. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
 </tr>
 <tr>
+<td><code>tabsHideOnSubPages</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</td>
+</tr>
+<tr>
 <td><code>toastEnter</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while a toast is presented.</td>

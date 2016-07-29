@@ -68,26 +68,6 @@ removing items.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="gestureCtrl"></div>
-
-<h3>
-<a class="anchor" name="gestureCtrl" href="#gestureCtrl"></a>
-<code>gestureCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="closeSlidingItems"></div>
 
 <h3>
@@ -97,23 +77,7 @@ removing items.</p>
 
 </h3>
 
-Close the open sliding item.
-
-```ts
-import { Component, ViewChild } from '@angular/core';
-import { List } from 'ionic-angular';
-
-@Component({...})
-export class MyClass {
-  @ViewChild(List) list: List;
-
-  constructor() { }
-
-  closeItems() {
-    this.list.closeSlidingItems();
-  }
-}
-```
+Close any sliding items that are open.
 
 
 
@@ -138,24 +102,29 @@ export class MyClass {
     
     <tr>
       <td>sliding</td>
-      <td><code> Component, ViewChild </code></td>
-      <td><p> from &#39;@angular/core&#39;;
-import { List } from &#39;ionic-angular&#39;;</p>
-<p>@Component({...})
-export class MyClass {
-  @ViewChild(List) list: List;</p>
-<p>  constructor() { }</p>
-<p>  stopSliding() {
-    this.list.enableSlidingItems(false);
-  }
-}
-```
-@param {boolean} shouldEnable whether the item-sliding should be enabled or not</p>
+      <td><code>boolean</code></td>
+      <td><p> shouldEnable whether the item-sliding should be enabled or not</p>
 </td>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Enable the sliding items.</p>
+<pre><code class="lang-ts">import { Component, ViewChild } from &#39;@angular/core&#39;;
+import { List } from &#39;ionic-angular&#39;;
+
+@Component({...})
+export class MyClass {
+  @ViewChild(List) list: List;
+
+  constructor() { }
+
+  stopSliding() {
+    this.list.enableSlidingItems(false);
+  }
+}
+</code></pre>
+
 
 
 <!-- related link -->

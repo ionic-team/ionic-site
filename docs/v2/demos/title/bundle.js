@@ -80211,14 +80211,33 @@
 	 *
 	 * @demo /docs/v2/demos/list/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
+	 * @advanced
+	 *
+	 * Enable the sliding items.
+	 *
+	 * ```ts
+	 * import { Component, ViewChild } from '@angular/core';
+	 * import { List } from 'ionic-angular';
+	 *
+	 * @Component({...})
+	 * export class MyClass {
+	 *   @ViewChild(List) list: List;
+	 *
+	 *   constructor() { }
+	 *
+	 *   stopSliding() {
+	 *     this.list.enableSlidingItems(false);
+	 *   }
+	 * }
+	 * ```
 	 *
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, _rendered, gestureCtrl) {
+	    function List(elementRef, _rendered, _gestureCtrl) {
 	        _super.call(this, elementRef);
 	        this._rendered = _rendered;
-	        this.gestureCtrl = gestureCtrl;
+	        this._gestureCtrl = _gestureCtrl;
 	        this._enableSliding = true;
 	        this._containsSlidingItems = false;
 	    }
@@ -80230,24 +80249,7 @@
 	    };
 	    Object.defineProperty(List.prototype, "sliding", {
 	        /**
-	         * Enable the sliding items.
-	         *
-	         * ```ts
-	         * import { Component, ViewChild } from '@angular/core';
-	         * import { List } from 'ionic-angular';
-	         *
-	         * @Component({...})
-	         * export class MyClass {
-	         *   @ViewChild(List) list: List;
-	         *
-	         *   constructor() { }
-	         *
-	         *   stopSliding() {
-	         *     this.list.enableSlidingItems(false);
-	         *   }
-	         * }
-	         * ```
-	         * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
+	         * @input {boolean} shouldEnable whether the item-sliding should be enabled or not
 	         */
 	        get: function () {
 	            return this._enableSliding;
@@ -80279,23 +80281,7 @@
 	        }
 	    };
 	    /**
-	     * Close the open sliding item.
-	     *
-	     * ```ts
-	     * import { Component, ViewChild } from '@angular/core';
-	     * import { List } from 'ionic-angular';
-	     *
-	     * @Component({...})
-	     * export class MyClass {
-	     *   @ViewChild(List) list: List;
-	     *
-	     *   constructor() { }
-	     *
-	     *   closeItems() {
-	     *     this.list.closeSlidingItems();
-	     *   }
-	     * }
-	     * ```
+	     * Close any sliding items that are open.
 	     */
 	    List.prototype.closeSlidingItems = function () {
 	        this._slidingGesture && this._slidingGesture.closeOpened();
@@ -80367,7 +80353,7 @@
 	        _super.call(this, list.getNativeElement(), {
 	            maxAngle: MAX_ATTACK_ANGLE,
 	            threshold: DRAG_THRESHOLD,
-	            gesture: list.gestureCtrl.create('item-sliding', {
+	            gesture: list._gestureCtrl.create('item-sliding', {
 	                priority: gesture_controller_1.GesturePriority.SlidingItem,
 	            })
 	        });

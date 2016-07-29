@@ -32,3 +32,34 @@ presentToast() {
   }
 
 ```
+
+Its also possible to dismiss a Taost from another method within your page.
+
+```typescript
+
+import {Toast} from "ionic-angular";
+
+export class MyPage {
+
+  toast: Toast;
+  
+  constructor() {
+  }
+
+  presentToast() {
+    this.toast = Toast.create({
+      message: 'User was added successfully',
+      duration: 3000
+    });
+
+    this.nav.present(this.toast);
+  }
+  
+  // Could be called on click or other interaction
+  anotherMethod(){
+    (this.toast) ? this.toast.dismiss() : false;
+  }
+
+```
+
+

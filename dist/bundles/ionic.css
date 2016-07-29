@@ -7953,7 +7953,8 @@ ion-icon {
   .ios ion-nav > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .ios ion-tab > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > .toolbar.statusbar-padding:first-child,
-  .ios ion-menu > .toolbar.statusbar-padding:first-child {
+  .ios ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child,
+  .ios ion-menu > .menu-inner > ion-header > .toolbar.statusbar-padding:first-child {
     padding-top: 20px;
     height: calc(44px + 20px);
     min-height: calc(44px + 20px); }
@@ -7961,7 +7962,8 @@ ion-icon {
   .ios ion-nav > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .ios ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child scroll-content,
-  .ios ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+  .ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child scroll-content,
+  .ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child scroll-content {
     padding-top: 20px; }
   .ios ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .ios ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
@@ -7971,8 +7973,10 @@ ion-icon {
   .ios ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
-  .ios ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
-  .ios ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+  .ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
   .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
   .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
@@ -7982,8 +7986,10 @@ ion-icon {
   .ios ion-tab > ion-page > ion-header > .toolbar.statusbar-padding:first-child ion-title,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > .toolbar.statusbar-padding:first-child ion-segment,
   .ios ion-tabs > ion-page.tab-subpage > ion-header > .toolbar.statusbar-padding:first-child ion-title,
-  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
-  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-title {
+  .ios ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-menu > .menu-inner > ion-header > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-menu > .menu-inner > ion-header > .toolbar.statusbar-padding:first-child ion-title {
     padding-top: 20px;
     height: calc(44px + 20px);
     min-height: calc(44px + 20px); }
@@ -11891,7 +11897,8 @@ ion-icon {
   .md ion-nav > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .md ion-tab > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .md ion-tabs > ion-page.tab-subpage > ion-header > .toolbar.statusbar-padding:first-child,
-  .md ion-menu > .toolbar.statusbar-padding:first-child {
+  .md ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child,
+  .md ion-menu > .menu-inner > ion-header > .toolbar.statusbar-padding:first-child {
     padding-top: 20px;
     height: calc(5.6rem + 20px);
     min-height: calc(5.6rem + 20px); }
@@ -11899,7 +11906,8 @@ ion-icon {
   .md ion-nav > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .md ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .md ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child scroll-content,
-  .md ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+  .md ion-menu > .menu-inner > ion-content.statusbar-padding:first-child scroll-content,
+  .md ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child scroll-content {
     padding-top: 20px; }
   .md ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .md ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
@@ -11909,8 +11917,10 @@ ion-icon {
   .md ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
   .md ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .md ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
-  .md ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
-  .md ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+  .md ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .md ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .md ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .md ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
   @media only screen and (max-width: 767px) {
     .md .modal-wrapper > ion-page > ion-header > .toolbar.statusbar-padding:first-child {
@@ -15610,7 +15620,8 @@ ion-icon {
   .wp ion-nav > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .wp ion-tab > ion-page > ion-header > .toolbar.statusbar-padding:first-child,
   .wp ion-tabs > ion-page.tab-subpage > ion-header > .toolbar.statusbar-padding:first-child,
-  .wp ion-menu > .toolbar.statusbar-padding:first-child {
+  .wp ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child,
+  .wp ion-menu > .menu-inner > ion-header > .toolbar.statusbar-padding:first-child {
     padding-top: 20px;
     height: calc(4.6rem + 20px);
     min-height: calc(4.6rem + 20px); }
@@ -15618,7 +15629,8 @@ ion-icon {
   .wp ion-nav > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .wp ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child scroll-content,
   .wp ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child scroll-content,
-  .wp ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+  .wp ion-menu > .menu-inner > ion-content.statusbar-padding:first-child scroll-content,
+  .wp ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child scroll-content {
     padding-top: 20px; }
   .wp ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .wp ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
@@ -15628,8 +15640,10 @@ ion-icon {
   .wp ion-tab > ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
   .wp ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .wp ion-tabs > ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
-  .wp ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
-  .wp ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+  .wp ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .wp ion-menu > .menu-inner > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .wp ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .wp ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
   @media only screen and (max-width: 767px) {
     .wp .modal-wrapper > ion-page > ion-header > .toolbar.statusbar-padding:first-child {

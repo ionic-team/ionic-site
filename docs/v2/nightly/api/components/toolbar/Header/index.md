@@ -42,12 +42,35 @@ Improve this doc
 
 
 
+<p>Header is a parent compnent that holds the navbar and toolbar component.
+It&#39;s important to note that <code>ion-header</code> needs to be the one of the three root elements of a page</p>
 
 
 
 
 
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-ts">@Component({
+  template: `
+     &lt;ion-header&gt;
+       &lt;ion-navbar&gt;
+         &lt;ion-title&gt;Page1&lt;/ion-title&gt;
+       &lt;/ion-navbar&gt;
+
+       &lt;ion-toolbar&gt;
+         &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
+       &lt;/ion-toolbar&gt;
+     &lt;/ion-header&gt;
+
+     &lt;ion-content&gt;&lt;/ion-content&gt;
+  `
+})
+</code></pre>
+
+
 
 
 <!-- @property tags -->

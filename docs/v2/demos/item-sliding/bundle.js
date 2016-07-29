@@ -69162,7 +69162,31 @@
 	var ion_1 = __webpack_require__(342);
 	var view_controller_1 = __webpack_require__(357);
 	/**
-	 * @private
+	 * @name Header
+	 * @description
+	 * Header is a parent compnent that holds the navbar and toolbar component.
+	 * It's important to note that `ion-header` needs to be the one of the three root elements of a page
+	 *
+	 * @usage
+	 *
+	 * ```ts
+	 * @Component({
+	 *   template: `
+	 *      <ion-header>
+	 *        <ion-navbar>
+	 *          <ion-title>Page1</ion-title>
+	 *        </ion-navbar>
+	 *
+	 *        <ion-toolbar>
+	 *          <ion-title>Subheader</ion-title>
+	 *        </ion-toolbar>
+	 *      </ion-header>
+	 *
+	 *      <ion-content></ion-content>
+	 *   `
+	 * })
+	 * ```
+	 *
 	 */
 	var Header = (function () {
 	    function Header(viewCtrl) {
@@ -69180,7 +69204,26 @@
 	}());
 	exports.Header = Header;
 	/**
-	 * @private
+	 * @name Footer
+	 * @description
+	 * Footer is a root component of a page that sits at the bottom of the page.
+	 * Footer can be a wrapper for `ion-toolbar` to make sure the content area is sized correctly.
+	 *
+	 * @usage
+	 *
+	 * ```ts
+	 * @Component({
+	 *   template: `
+	 *      <ion-content></ion-content>
+	 *      <ion-footer>
+	 *        <ion-toolbar>
+	 *          <ion-title>Footer</ion-title>
+	 *        </ion-toolbar>
+	 *      </ion-footer>
+	 *   `
+	 * })
+	 * ```
+	 *
 	 */
 	var Footer = (function () {
 	    function Footer(viewCtrl) {

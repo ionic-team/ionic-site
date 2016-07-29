@@ -63,9 +63,9 @@ docType: "class"
 
 
 
-StatuBar.overlaysWebView(true);
+StatuBar.overlaysWebView(true); // let status var overlay webview
 
-StatusBar.
+StatusBar.backgroundColorByHexString('#ffffff'); // set status bar to white
 </code></pre>
 
 

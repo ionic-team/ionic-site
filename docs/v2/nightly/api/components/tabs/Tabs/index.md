@@ -396,6 +396,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
 </td>
     </tr>
     
+    <tr>
+      <td>tabsHighlight</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether to show the tab highlight bar under the selected tab. Default: <code>false</code>.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

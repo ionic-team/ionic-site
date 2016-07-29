@@ -70854,7 +70854,7 @@
 	        this.id = 't' + (++tabIds);
 	        this._sbPadding = _config.getBoolean('statusbarPadding');
 	        this.subPages = _config.getBoolean('tabsHideOnSubPages');
-	        this._useHighlight = _config.getBoolean('tabsHighlight');
+	        this.tabsHighlight = _config.getBoolean('tabsHighlight');
 	        // TODO deprecated 07-07-2016 beta.11
 	        if (_config.get('tabSubPages') !== null) {
 	            console.warn('Config option "tabSubPages" has been deprecated. Please use "tabsHideOnSubPages" instead.');
@@ -70863,7 +70863,7 @@
 	        // TODO deprecated 07-07-2016 beta.11
 	        if (_config.get('tabbarHighlight') !== null) {
 	            console.warn('Config option "tabbarHighlight" has been deprecated. Please use "tabsHighlight" instead.');
-	            this._useHighlight = _config.getBoolean('tabbarHighlight');
+	            this.tabsHighlight = _config.getBoolean('tabbarHighlight');
 	        }
 	        if (this.parent) {
 	            // this Tabs has a parent Nav
@@ -70891,6 +70891,7 @@
 	        var _this = this;
 	        this._setConfig('tabsPlacement', 'bottom');
 	        this._setConfig('tabsLayout', 'icon-top');
+	        this._setConfig('tabsHighlight', this.tabsHighlight);
 	        // TODO deprecated 07-07-2016 beta.11
 	        this._setConfig('tabbarPlacement', 'bottom');
 	        this._setConfig('tabbarLayout', 'icon-top');
@@ -70916,7 +70917,7 @@
 	            console.warn('Config option "tabbarLayout" has been deprecated. Please use "tabsLayout" instead.');
 	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsLayout', this._config.get('tabsLayout'));
 	        }
-	        if (this._useHighlight) {
+	        if (this.tabsHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
 	            });
@@ -71009,7 +71010,7 @@
 	                _this._tabs.forEach(function (tab) {
 	                    tab.setSelected(tab === selectedTab);
 	                });
-	                if (_this._useHighlight) {
+	                if (_this.tabsHighlight) {
 	                    _this._highlight.select(selectedTab);
 	                }
 	            }
@@ -71167,6 +71168,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', String)
 	    ], Tabs.prototype, "tabsPlacement", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tabs.prototype, "tabsHighlight", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -92440,9 +92445,9 @@
 	    popoverEnter: 'popover-md-pop-in',
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'crescent',
-	    tabsHighlight: true,
-	    tabsPlacement: 'top',
-	    tabsHideOnSubPages: true,
+	    tabsHighlight: false,
+	    tabsPlacement: 'bottom',
+	    tabsHideOnSubPages: false,
 	    toastEnter: 'toast-md-slide-in',
 	    toastLeave: 'toast-md-slide-out',
 	});

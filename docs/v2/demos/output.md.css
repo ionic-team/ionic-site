@@ -7879,29 +7879,33 @@ ion-tabbar {
   background: #f8f8f8; }
 
 .tab-button {
-  padding: 12px 10px 5px 10px;
-  min-height: 4.8rem;
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
+  padding: 8px 0 10px 0;
+  min-height: 5.6rem;
   font-size: 1.4rem;
-  font-weight: 500;
-  color: rgba(140, 140, 140, 0.7);
-  box-shadow: none; }
+  font-weight: normal;
+  color: rgba(140, 140, 140, 0.7); }
   .tab-button[aria-selected=true] {
-    color: #387ef5; }
+    color: #387ef5;
+    font-size: 1.5rem;
+    padding-top: 6px; }
 
 .tab-button-text {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-transform: uppercase; }
+  margin: 6px 0;
+  text-transform: none; }
 
 .tab-button-icon {
   min-width: 7.4rem;
   font-size: 2.4rem; }
 
+[tabsLayout=icon-top] .has-icon .tab-button-text {
+  margin-bottom: 0; }
+
 [tabsLayout=icon-bottom] .tab-button {
   padding-top: 8px;
   padding-bottom: 8px; }
+
+[tabsLayout=icon-bottom] .tab-button-text {
+  margin-top: 0; }
 
 [tabsLayout=icon-right] .tab-button,
 [tabsLayout=icon-left] .tab-button {
@@ -7916,7 +7920,7 @@ ion-tabbar {
 .tab-button.has-title-only {
   padding: 6px 10px; }
 
-tab-highlight {
+[tabsHighlight=true] tab-highlight {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -7928,11 +7932,11 @@ tab-highlight {
   transform: translateZ(0);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0; }
-  tab-highlight.animate {
+  [tabsHighlight=true] tab-highlight.animate {
     -webkit-transition-duration: 300ms;
     transition-duration: 300ms; }
 
-[tabsPlacement=bottom] tab-highlight {
+[tabsHighlight=true][tabsPlacement=bottom] tab-highlight {
   top: 0; }
 
 ion-tabs[primary] ion-tabbar {

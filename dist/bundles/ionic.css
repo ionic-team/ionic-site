@@ -10768,9 +10768,9 @@ ion-icon {
     font-weight: normal;
     color: rgba(140, 140, 140, 0.7); }
     .md .tab-button[aria-selected=true] {
-      color: #327eff;
+      padding: 6px 0 10px 0;
       font-size: 1.5rem;
-      padding-top: 6px; }
+      color: #327eff; }
   .md .tab-button-text {
     margin: 6px 0;
     text-transform: none; }

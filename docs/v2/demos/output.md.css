@@ -7885,9 +7885,9 @@ ion-tabbar {
   font-weight: normal;
   color: rgba(140, 140, 140, 0.7); }
   .tab-button[aria-selected=true] {
-    color: #387ef5;
+    padding: 6px 0 10px 0;
     font-size: 1.5rem;
-    padding-top: 6px; }
+    color: #387ef5; }
 
 .tab-button-text {
   margin: 6px 0;

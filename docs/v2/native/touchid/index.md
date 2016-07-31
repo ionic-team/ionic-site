@@ -85,7 +85,7 @@ docType: "class"
 TouchID.isAvailable()
   .then(
     res =&gt; console.log(&#39;TouchID is available!&#39;),
-    err =&gt; console.error(&#39;TouchID isn&#39;t available&#39;, err)
+    err =&gt; console.error(&quot;TouchID isn&#39;t available&quot;, err)
   );
 
 TouchID.verifyFingerprint(&#39;Scan your fingerprint please&#39;)

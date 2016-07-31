@@ -50,10 +50,18 @@ docType: "class"
 
 <!-- description -->
 
+<p>Checks whether device hardware features are enabled or available to the app, e.g. camera, GPS, wifi</p>
 
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import { Diagnostic } from &#39;ionic-native&#39;;
+</code></pre>
+
+
 
 
 <!-- @property tags -->

@@ -61,7 +61,7 @@ docType: "class"
 <pre><code class="lang-typescript">import { SQLite } from &#39;ionic-native&#39;;
 
 let db = new SQLite();
-db.openDatabse({
+db.openDatabase({
   name: &#39;data.db&#39;,
   location: &#39;default&#39; // the location field is required
 }).then(() =&gt; {

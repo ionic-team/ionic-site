@@ -66,8 +66,8 @@ docType: "class"
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="isLocationEnabled"></div>
-<h3><code>isLocationEnabled()</code>
+<div id="isLocationAvailable"></div>
+<h3><code>isLocationAvailable()</code>
   
 </h3>
 
@@ -82,8 +82,8 @@ Checks if app is able to access device location.
 
 
 
-<div id="isWifiEnabled"></div>
-<h3><code>isWifiEnabled()</code>
+<div id="isWifiAvailable"></div>
+<h3><code>isWifiAvailable()</code>
   
 </h3>
 
@@ -99,8 +99,8 @@ On Android this requires permission. `<uses-permission android:name="android.per
 
 
 
-<div id="isCameraEnabled"></div>
-<h3><code>isCameraEnabled()</code>
+<div id="isCameraAvailable"></div>
+<h3><code>isCameraAvailable()</code>
   
 </h3>
 
@@ -116,8 +116,8 @@ application is authorized to use it.
 
 
 
-<div id="isBluetoothEnabled"></div>
-<h3><code>isBluetoothEnabled()</code>
+<div id="isBluetoothAvailable"></div>
+<h3><code>isBluetoothAvailable()</code>
   
 </h3>
 

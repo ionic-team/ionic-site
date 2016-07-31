@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=<Fabric API Key></code></pre>
+<pre><code>$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key</code></pre>
 <p>Repo:
   <a href="''">
     ''

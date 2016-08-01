@@ -72,11 +72,11 @@ docType: "class"
 
 <pre><code class="lang-typescript">import { AppRate } from &#39;ionic-native&#39;;
 
+ AppRate.preferences.storeAppURL = {
+   ios: &#39;&lt;my_app_id&gt;&#39;,
+   android: &#39;market://details?id=&lt;package_name&gt;&#39;,
+ };
 
-AppRate.preferences.storeAppURL.ios = &#39;&lt;my_app_id&gt;&#39;;
-AppRate.preferences.storeAppURL.android = &#39;market://details?id=&lt;package_name&gt;&#39;;
-AppRate.preferences.storeAppURL.blackberry = &#39;appworld://content/[App Id]/&#39;;
-AppRate.preferences.storeAppURL.windows8 = &#39;ms-windows-store:Review?name=&lt;the Package Family Name of the application&gt;&#39;;
 AppRate.promptForRating();
 </code></pre>
 

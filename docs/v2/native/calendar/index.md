@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L15">
   Improve this doc
 </a>
 
@@ -67,6 +67,20 @@ docType: "class"
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code>import {Calendar} from &#39;ionic-native&#39;;
+
+
+
+Calendar.createCalendar(&#39;MyCalendar&#39;).then(
+  (msg) =&gt; { console.log(msg); },
+  (err) =&gt; { console.log(err); }
+);
+</code></pre>
+
+
 
 
 <!-- @property tags -->
@@ -228,10 +242,7 @@ Create a calendar. (iOS only)
 <code>string</code>|<code>Object</code>
     </td>
     <td>
-      <p>either a string name or a options object.
-options:
-  calendarName: string  the name of the calendar
-  calendarColor: string  the hex color of the calendar</p>
+      <p>either a string name or a options object. If string, provide the calendar name. IF an object, provide a calendar name as a string and a calendar color in hex format as a string</p>
 
       
     </td>
@@ -247,9 +258,7 @@ options:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise</code> Returns a Promise
 </div>
 
 
@@ -260,7 +269,6 @@ options:
 </h3>
 
 Delete a calendar. (iOS only)
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -346,7 +354,6 @@ Returns the default calendar options.
 </h3>
 
 Silently create an event.
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -985,7 +992,6 @@ Find an event.
 </h3>
 
 Find an event with additional options.
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -1919,12 +1925,42 @@ Delete an event from the specified Calendar. (iOS only)
 
 
 <div id="openCalendar"></div>
-<h3><code>openCalendar()</code>
+<h3><code>openCalendar(date)</code>
   
 </h3>
 
 Open the calendar at the specified date.
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      date
+      
+      
+    </td>
+    <td>
+      
+<code>Date</code>
+    </td>
+    <td>
+      <p>The date you want to open the calendar on</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -1933,53 +1969,13 @@ Open the calendar at the specified date.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Date</code> date
+<code>Promise&lt;any&gt;</code> Promise returns a promise
 </div>
 
 
 
 
 <!-- methods on the class -->
-
-<h2>Instance Members</h2>
-
-<div id="id"></div>
-
-<h3>
-  <code>id</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="name"></div>
-
-<h3>
-  <code>name</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- related link --><!-- end content block -->
 

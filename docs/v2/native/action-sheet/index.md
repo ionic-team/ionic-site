@@ -82,7 +82,7 @@ ActionSheet.show({
   &#39;addCancelButtonWithLabel&#39;: &#39;Cancel&#39;,
   &#39;addDestructiveButtonWithLabel&#39; : &#39;Delete&#39;
 }).then((buttonIndex: number) =&gt; {
-  console.log(&#39;Button pressed: &#39; + buttonLabels[buttonIndex - 1]);
+  console.log(&#39;Button pressed: &#39; + buttonIndex);
 });
 </code></pre>
 

@@ -87,18 +87,19 @@ platform.ready().then(() =&gt; {
             stopOnTerminate: false, // enable this to clear background location settings when the app terminates
     };
 
-    BackgroundGeolocation.configure(config)
-       .then((location) =&gt; {
-            console.log(&#39;[js] BackgroundGeolocation callback:  &#39; + location.latitude + &#39;,&#39; + location.longitude);
+    BackgroundGeolocation.configure((location) =&gt; {
+         console.log(&#39;[js] BackgroundGeolocation callback:  &#39; + location.latitude + &#39;,&#39; + location.longitude);
 
-            // IMPORTANT:  You must execute the finish method here to inform the native plugin that you&#39;re finished,
-            // and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
-            // IF YOU DON&#39;T, ios will CRASH YOUR APP for spending too much time in the background.
-            BackgroundGeolocation.finish(); // FOR IOS ONLY
-        })
-       .catch((error) =&gt; {
-            console.log(&#39;BackgroundGeolocation error&#39;);
-        });
+          // IMPORTANT:  You must execute the finish method here to inform the native plugin that you&#39;re finished,
+          // and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
+          // IF YOU DON&#39;T, ios will CRASH YOUR APP for spending too much time in the background.
+          BackgroundGeolocation.finish(); // FOR IOS ONLY
+
+     }, (error) =&gt; {
+       console.log(&#39;BackgroundGeolocation error&#39;);
+     }, {
+      //options
+    });
 
     // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
     BackgroundGeolocation.start();

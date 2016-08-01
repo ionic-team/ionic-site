@@ -54921,9 +54921,6 @@
 	/**
 	 * @name NavController
 	 * @description
-	 * _For examples on the basic usage of NavController, check out the
-	 * [Navigation section](../../../../components/#navigation) of the Component
-	 * docs._
 	 *
 	 * NavController is the base class for navigation controller components like
 	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
@@ -54942,6 +54939,30 @@
 	 * specific NavController, most times you will inject and use a reference to the
 	 * nearest NavController to manipulate the navigation stack.
 	 *
+	 * ## Basic usage
+	 * The simplest way to navigate through an app is to create and initialize a new
+	 * nav controller using the `<ion-nav>` component.  `ion-nav` extends the `NavController`
+	 * class.
+	 *
+	 * ```typescript
+	 * import { Component } from `@angular/core`;
+	 * import { ionicBootstrap } from 'ionic-angular';
+	 * import { StartPage } from './start-page';
+	 *
+	 * @Component(
+	 *   template: `<ion-nav [root]="rootPage"></ion-nav>`
+	 * })
+	 * class MyApp {
+	 *   // set the rootPage to the first page we want displayed
+	 *   private rootPage: any = StartPage;
+	 *
+	 *   constructor(){
+	 *   }
+	 * }
+	 *
+	 * ionicBootstrap(MyApp);
+	 * ```
+	 *
 	 * ### Injecting NavController
 	 * Injecting NavController will always get you an instance of the nearest
 	 * NavController, regardless of whether it is a Tab or a Nav.
@@ -54956,6 +54977,8 @@
 	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
 	 *
 	 * ```ts
+	 *  import { NavController } from 'ionic-angular';
+	 *
 	 *  class MyComponent {
 	 *    constructor(private nav: NavController) {
 	 *
@@ -54963,9 +54986,39 @@
 	 *  }
 	 * ```
 	 *
+	 * ### Navigating from the Root component
+	 * What if you want to control navigation from your root app component?
+	 * You can't inject `NavController` because any components that are navigation
+	 * controllers are _children_ of the root component so they aren't available
+	 * to be injected.
 	 *
-	 * ## Page creation
-	 * Pages are created when they are added to the navigation stack.  For methods
+	 * By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to
+	 * get an instance of the `Nav` component, which is a navigation controller
+	 * (it extends `NavController`):
+	 *
+	 * ```typescript
+	 *
+	 * import { App, ViewChild } from '@angular/core';
+	 * import { NavController } from 'ionic-angular';
+	 *
+	 * @App({
+	 *    template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
+	 * })
+	 * export class MyApp {
+	 *    @ViewChild('myNav') nav : NavController
+	 *    private rootPage = TabsPage;
+	 *
+	 *    // Wait for the components in MyApp's template to be initialized
+	 *    // In this case, we are waiting for the Nav with id="my-nav"
+	 *    ngAfterViewInit() {
+	 *       // Let's navigate from TabsPage to Page1
+	 *       this.nav.push(Page1);
+	 *    }
+	 * }
+	 * ```
+	 *
+	 * ## View creation
+	 * Views are created when they are added to the navigation stack.  For methods
 	 * like [push()](#push), the NavController takes any component class that is
 	 * decorated with `@Component` as its first argument.  The NavController then
 	 * compiles that component, adds it to the app and animates it into view.
@@ -54975,6 +55028,94 @@
 	 * example).  They are destroyed when removed from the navigation stack (on
 	 * [pop()](#pop) or [setRoot()](#setRoot)).
 	 *
+	 * ## Pushing a View
+	 * To push a new view on to the navigation stack, use the `push` method.
+	 * If the page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/),
+	 * a back button will automatically be added to the pushed view.
+	 *
+	 * Data can also be passed to a view by passing an object to the `push` method.
+	 * The pushed view can then receive the data by accessing it via the `NavParams`
+	 * class.
+	 *
+	 * ```typescript
+	 * import { Component } from '@angular/core';
+	 * import { NavController } from 'ionic-angular';
+	 * import { OtherPage } from './other-page';
+	 * @Component({
+	 *    template: `
+	 *    <ion-header>
+	 *      <ion-navbar>
+	 *        <ion-title>Login</ion-title>
+	 *      </ion-navbar>
+	 *    </ion-header>
+	 *
+	 *    <ion-content>
+	 *      <button (click)="pushPage()">
+	 *        Go to OtherPage
+	 *      </button>
+	 *    </ion-content>
+	 *    `
+	 * })
+	 * export class StartPage {
+	 *   constructor(private nav: NavController) {
+	 *   }
+	 *
+	 *   pushPage(){
+	 *     // push another page on to the navigation stack
+	 *     // causing the nav controller to transition to the new page
+	 *     // optional data can also be passed to the pushed page.
+	 *     this.nav.push(OtherPage, {
+	 *       id: "123",
+	 *       name: "Carl"
+	 *     });
+	 *   }
+	 * }
+	 *
+	 * import { NavParams } from 'ionic-angular';
+	 *
+	 * @Component({
+	 *   template: `
+	 *   <ion-header>
+	 *     <ion-navbar>
+	 *       <ion-title>Other Page</ion-title>
+	 *     </ion-navbar>
+	 *   </ion-header>
+	 *   <ion-content>I'm the other page!</ion-content>`
+	 * })
+	 * class OtherPage {
+	 *   constructor(private navParams: NavParams) {
+	 *      let id = navParams.get('id');
+	 *      let name = navParams.get('name');
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * ## Removing a view
+	 * To remove a view from the stack, use the `pop` method.
+	 * Popping a view will transition to the previous view.
+	 *
+	 * ```ts
+	 * import { Component } from '@angular/core';
+	 * import { NavController } from 'ionic-angular';
+	 *
+	 * @Component({
+	 *   template: `
+	 *   <ion-header>
+	 *     <ion-navbar>
+	 *       <ion-title>Other Page</ion-title>
+	 *     </ion-navbar>
+	 *   </ion-header>
+	 *   <ion-content>I'm the other page!</ion-content>`
+	 * })
+	 * class OtherPage {
+	 *    constructor(private navController: NavController ){
+	 *    }
+	 *
+	 *    popView(){
+	 *      this.navController.pop();
+	 *    }
+	 * }
+	 * ```
 	 *
 	 * ## Lifecycle events
 	 * Lifecycle events are fired during various stages of navigation.  They can be
@@ -55007,47 +55148,38 @@
 	 *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
 	 *
 	 *
-	 * ## Nav Transition Promises
+	 * ## Asynchronous Nav Transitions
 	 *
-	 * Navigation transitions are asynchronous, meaning they take a few moments to finish, and
-	 * the duration of a transition could be any number. In most cases the async nature of a
-	 * transition doesn't cause any problems and the nav controller is pretty good about handling
-	 * which transition was the most recent when multiple transitions have been kicked off.
-	 * However, when an app begins firing off many transitions, on the same stack at
-	 * *roughly* the same time, the nav controller can start to get lost as to which transition
-	 * should be finishing, and which transitions should not be animated.
+	 * Navigation transitions are asynchronous operations. When a transition is started,
+	 * the `push` or `pop` method will return immediately, before the transition is complete.
 	 *
-	 * In cases where an app's navigation can be altered by other async tasks, which may or
-	 * may not take a long time, it's best to rely on each nav transition's returned
-	 * promise. So instead of firing and forgetting multiple `push` or `pop` nav transitions,
-	 * it's better to fire the next nav transition when the previous one has finished.
+	 * Generally, the developer does not need to be concerned about this. In the event
+	 * multiple transitions need to be synchronized or transition timing is critical,
+	 * the best practice is to chain the transitions together using the return value
+	 * from the `push` and `pop` methods.
 	 *
-	 * In the example below, after the async operation has completed, we then want to transition
-	 * to another page. Where the potential problem comes in, is that if the async operation
-	 * completed 100ms after the first transition started, then kicking off another transition
-	 * halfway through the first transition ends up with a janky animation. Instead, it's best
-	 * to always ensure the first transition has already finished before starting the next.
+	 * The `push` and `pop` methods return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+	 * Promises are a way to represent and chain together multiple asynchronous
+	 * operations in order. Navigation actions can be chained together very easily using promises.
 	 *
-	 * ```ts
-	 * // begin the first transition
-	 * let navTransition = this.nav.push(SomePage);
-	 *
-	 * // start an async call, we're not sure how long it'll take
-	 * someAsyncOperation().then(() => {
-	 *   // incase the async operation completed faster than the time
-	 *   // it took to finish the first transition, this logic should
-	 *   // always ensure that the previous transition has resolved
-	 *   // first before kicking off the next transition
-	 *   navTransition.then(() => {
-	 *     this.nav.push(AnotherPage);
-	 *   });
-	 * });
+	 * ```typescript
+	 * let navTransitionPromise = this.navController.push(Page2);
+	 * navTransitionPromise.then( () => {
+	 *   // the transition has completed, so I can push another page now
+	 *   return this.navController.push(Page3);
+	 * }).then( () => {
+	 *   // the second transition has completed, so I can push yet another page
+	    return this.navController.push(Page4);
+	 * }).then( () => {
+	 *   console.log('The transitions are complete!');
+	 * })
 	 * ```
 	 *
 	 * ## NavOptions
 	 *
 	 * Some methods on `NavController` allow for customizing the current transition.
 	 * To do this, we can pass an object with the modified properites.
+	 *
 	 *
 	 * | Property  | Value     | Description                                                                                                |
 	 * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
@@ -70806,18 +70938,21 @@
 	 * @description
 	 * Tabs make it easy to navigate between different pages or functional
 	 * aspects of an app. The Tabs component, written as `<ion-tabs>`, is
-	 * a container of individual [Tab](../Tab/) components.
+	 * a container of individual [Tab](../Tab/) components. Each individual `ion-tab`
+	 * is a declarative component for a [NavController](../NavController/)
+
+	 * For more information on using nav controllers like Tab or [Nav](../../nav/Nav/),
+	 * take a look at the [NavController API Docs](../NavController/).
 	 *
 	 * ### Placement
 	 *
 	 * The position of the tabs relative to the content varies based on
-	 * the mode. By default, the tabs are placed at the bottom of the screen
-	 * for `ios` mode, and at the top for the `md` and `wp` modes. You can
-	 * configure the position using the `tabsPlacement` property on the
-	 * `<ion-tabs>` element, or in your app's [config](../../config/Config/).
+	 * the mode. The tabs are placed at the bottom of the screen
+	 * for iOS and Android, and at the top for Windows by default. The position can be configured using the `tabsPlacement` attribute
+	 * on the `<ion-tabs>` component, or in an app's [config](../../config/Config/).
 	 * See the [Input Properties](#input-properties) below for the available
 	 * values of `tabsPlacement`.
-	 *
+
 	 * ### Layout
 	 *
 	 * The layout for all of the tabs can be defined using the `tabsLayout`
@@ -71419,7 +71554,8 @@
 	 * The Tab component, written `<ion-tab>`, is styled based on the mode and should
 	 * be used in conjunction with the [Tabs](../Tabs/) component.
 	 *
-	 * Each tab has a separate navigation controller. For more information on using
+	 * Each `ion-tab` is a declarative component for a [NavController](../NavController/).
+	 * Basically, each tab is a `NavController`. For more information on using
 	 * navigation controllers take a look at the [NavController API Docs](../../nav/NavController/).
 	 *
 	 * See the [Tabs API Docs](../Tabs/) for more details on configuring Tabs.
@@ -88838,21 +88974,17 @@
 	/**
 	 * @name Nav
 	 * @description
-	 * _For a quick walkthrough of navigation in Ionic, check out the
-	 * [Navigation section](../../../../components/#navigation) of the Component
-	 * docs._
 	 *
-	 * Nav is a basic navigation controller component.  As a subclass of NavController
-	 * you use it to navigate to pages in your app and manipulate the navigation stack.
-	 * Nav automatically animates transitions between pages for you.
+	 * `ion-nav` is the declarative component for a [NavController](../NavController/).
 	 *
-	 * For more information on using navigation controllers like Nav or [Tab](../../Tabs/Tab/),
+	 * For more information on using nav controllers like Nav or [Tab](../../Tabs/Tab/),
 	 * take a look at the [NavController API Docs](../NavController/).
 	 *
+	 *
+	 * @usage
 	 * You must set a root page to be loaded initially by any Nav you create, using
 	 * the 'root' property:
 	 *
-	 * @usage
 	 * ```ts
 	 * import { Component } from '@angular/core';
 	 * import { ionicBootstrap } from 'ionic-angular';
@@ -88862,73 +88994,15 @@
 	 *   template: `<ion-nav [root]="root"></ion-nav>`
 	 * })
 	 * class MyApp {
-	 *   root = GettingStartedPage;
+	 *   private root: any = GettingStartedPage;
+	 *
+	 *   constructor(){
+	 *   }
 	 * }
 	 *
 	 * ionicBootstrap(MyApp);
 	 * ```
 	 *
-	 * ### Back Navigation
-	 *
-	 * If a [page](../NavController/#creating_pages) you navigate to has a [NavBar](../NavBar/),
-	 * Nav will automatically add a back button to it if there is a page
-	 * before the one you are navigating to in the navigation stack.
-	 *
-	 * Additionally, specifying the `swipeBackEnabled` property will allow you to
-	 * swipe to go back:
-	 * ```html
-	 * <ion-nav swipeBackEnabled="false" [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * Here is a diagram of how Nav animates smoothly between pages:
-	 *
-	 * <div class="highlight less-margin">
-	 *   <pre>
-	 *                           +-------+
-	 *                           |  App  |
-	 *                           +---+---+
-	 *                           &lt;ion-app&gt;
-	 *                               |
-	 *                  +------------+-------------+
-	 *                  |   Ionic Nav Controller   |
-	 *                  +------------+-------------+
-	 *                           &lt;ion-nav&gt;
-	 *                               |
-	 *                               |
-	 *             Page 3  +--------------------+                     LoginPage
-	 *           Page 2  +--------------------+ |
-	 *         Page 1  +--------------------+ | |              +--------------------+
-	 *                 | | Header           |&lt;-----------------|       Login        |
-	 *                 +--------------------+ | |              +--------------------+
-	 *                 | | |                | | |              | Username:          |
-	 *                 | | |                | | |              | Password:          |
-	 *                 | | |  Page 3 is     | | |              |                    |
-	 *                 | | |  only content  | | |              |                    |
-	 *                 | | |                |&lt;-----------------|                    |
-	 *                 | | |                | | |              |                    |
-	 *                 | | |                | | |              |                    |
-	 *                 | +------------------|-+ |              |                    |
-	 *                 | | Footer           |-|-+              |                    |
-	 *                 | +------------------|-+                |                    |
-	 *                 +--------------------+                  +--------------------+
-	 *
-	 *           +--------------------+    +--------------------+    +--------------------+
-	 *           | Header             |    | Content            |    | Content            |
-	 *           +--------------------+    |                    |    |                    |
-	 *           | Content            |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    |                    |    |                    |
-	 *           |                    |    +--------------------+    |                    |
-	 *           |                    |    | Footer             |    |                    |
-	 *           +--------------------+    +--------------------+    +--------------------+
-	 *
-	 *   </pre>
-	 * </div>
 	 *
 	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}

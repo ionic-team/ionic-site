@@ -40,9 +40,6 @@ Improve this doc
 
 
 
-<p><em>For examples on the basic usage of NavController, check out the
-<a href="../../../../components/#navigation">Navigation section</a> of the Component
-docs.</em></p>
 <p>NavController is the base class for navigation controller components like
 <a href="../Nav/"><code>Nav</code></a> and <a href="../../Tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
 to navigate to <a href="#creating_pages">pages</a> in your app. At a basic level, a
@@ -57,6 +54,27 @@ the current page will navigate to the previous page in the stack.</p>
 <p>Unless you are using a directive like <a href="../NavPush/">NavPush</a>, or need a
 specific NavController, most times you will inject and use a reference to the
 nearest NavController to manipulate the navigation stack.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The simplest way to navigate through an app is to create and initialize a new
+nav controller using the <code>&lt;ion-nav&gt;</code> component.  <code>ion-nav</code> extends the <code>NavController</code>
+class.</p>
+<pre><code class="lang-typescript">import { Component } from `@angular/core`;
+import { ionicBootstrap } from &#39;ionic-angular&#39;;
+import { StartPage } from &#39;./start-page&#39;;
+
+@Component(
+  template: `&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;`
+})
+class MyApp {
+  // set the rootPage to the first page we want displayed
+  private rootPage: any = StartPage;
+
+  constructor(){
+  }
+}
+
+ionicBootstrap(MyApp);
+</code></pre>
 <h3 id="injecting-navcontroller">Injecting NavController</h3>
 <p>Injecting NavController will always get you an instance of the nearest
 NavController, regardless of whether it is a Tab or a Nav.</p>
@@ -67,14 +85,42 @@ providers and dependency injection, see <a href="">Providers and DI</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
 <a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
-<pre><code class="lang-ts">class MyComponent {
+<pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
+
+class MyComponent {
   constructor(private nav: NavController) {
 
   }
 }
 </code></pre>
-<h2 id="page-creation">Page creation</h2>
-<p>Pages are created when they are added to the navigation stack.  For methods
+<h3 id="navigating-from-the-root-component">Navigating from the Root component</h3>
+<p>What if you want to control navigation from your root app component?
+You can&#39;t inject <code>NavController</code> because any components that are navigation
+controllers are <em>children</em> of the root component so they aren&#39;t available
+to be injected.</p>
+<p>By adding a reference variable to the <code>ion-nav</code>, you can use <code>@ViewChild</code> to
+get an instance of the <code>Nav</code> component, which is a navigation controller
+(it extends <code>NavController</code>):</p>
+<pre><code class="lang-typescript">import { App, ViewChild } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+
+@App({
+   template: &#39;&lt;ion-nav #myNav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;&#39;
+})
+export class MyApp {
+   @ViewChild(&#39;myNav&#39;) nav : NavController
+   private rootPage = TabsPage;
+
+   // Wait for the components in MyApp&#39;s template to be initialized
+   // In this case, we are waiting for the Nav with id=&quot;my-nav&quot;
+   ngAfterViewInit() {
+      // Let&#39;s navigate from TabsPage to Page1
+      this.nav.push(Page1);
+   }
+}
+</code></pre>
+<h2 id="view-creation">View creation</h2>
+<p>Views are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
 decorated with <code>@Component</code> as its first argument.  The NavController then
 compiles that component, adds it to the app and animates it into view.</p>
@@ -82,6 +128,88 @@ compiles that component, adds it to the app and animates it into view.</p>
 from but still in the navigation stack (the exiting page on a <code>push()</code> for
 example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
+<h2 id="pushing-a-view">Pushing a View</h2>
+<p>To push a new view on to the navigation stack, use the <code>push</code> method.
+If the page has an <a href="../api/components/nav-bar/NavBar/"><code>&lt;ion-navbar&gt;</code></a>,
+a back button will automatically be added to the pushed view.</p>
+<p>Data can also be passed to a view by passing an object to the <code>push</code> method.
+The pushed view can then receive the data by accessing it via the <code>NavParams</code>
+class.</p>
+<pre><code class="lang-typescript">import { Component } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+import { OtherPage } from &#39;./other-page&#39;;
+@Component({
+   template: `
+   &lt;ion-header&gt;
+     &lt;ion-navbar&gt;
+       &lt;ion-title&gt;Login&lt;/ion-title&gt;
+     &lt;/ion-navbar&gt;
+   &lt;/ion-header&gt;
+
+   &lt;ion-content&gt;
+     &lt;button (click)=&quot;pushPage()&quot;&gt;
+       Go to OtherPage
+     &lt;/button&gt;
+   &lt;/ion-content&gt;
+   `
+})
+export class StartPage {
+  constructor(private nav: NavController) {
+  }
+
+  pushPage(){
+    // push another page on to the navigation stack
+    // causing the nav controller to transition to the new page
+    // optional data can also be passed to the pushed page.
+    this.nav.push(OtherPage, {
+      id: &quot;123&quot;,
+      name: &quot;Carl&quot;
+    });
+  }
+}
+
+import { NavParams } from &#39;ionic-angular&#39;;
+
+@Component({
+  template: `
+  &lt;ion-header&gt;
+    &lt;ion-navbar&gt;
+      &lt;ion-title&gt;Other Page&lt;/ion-title&gt;
+    &lt;/ion-navbar&gt;
+  &lt;/ion-header&gt;
+  &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
+})
+class OtherPage {
+  constructor(private navParams: NavParams) {
+     let id = navParams.get(&#39;id&#39;);
+     let name = navParams.get(&#39;name&#39;);
+  }
+}
+</code></pre>
+<h2 id="removing-a-view">Removing a view</h2>
+<p>To remove a view from the stack, use the <code>pop</code> method.
+Popping a view will transition to the previous view.</p>
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+
+@Component({
+  template: `
+  &lt;ion-header&gt;
+    &lt;ion-navbar&gt;
+      &lt;ion-title&gt;Other Page&lt;/ion-title&gt;
+    &lt;/ion-navbar&gt;
+  &lt;/ion-header&gt;
+  &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
+})
+class OtherPage {
+   constructor(private navController: NavController ){
+   }
+
+   popView(){
+     this.navController.pop();
+   }
+}
+</code></pre>
 <h2 id="lifecycle-events">Lifecycle events</h2>
 <p>Lifecycle events are fired during various stages of navigation.  They can be
 defined in any component type which is pushed/popped from a <code>NavController</code>.</p>
@@ -137,36 +265,26 @@ class HelloWorld {
 </tr>
 </tbody>
 </table>
-<h2 id="nav-transition-promises">Nav Transition Promises</h2>
-<p>Navigation transitions are asynchronous, meaning they take a few moments to finish, and
-the duration of a transition could be any number. In most cases the async nature of a
-transition doesn&#39;t cause any problems and the nav controller is pretty good about handling
-which transition was the most recent when multiple transitions have been kicked off.
-However, when an app begins firing off many transitions, on the same stack at
-<em>roughly</em> the same time, the nav controller can start to get lost as to which transition
-should be finishing, and which transitions should not be animated.</p>
-<p>In cases where an app&#39;s navigation can be altered by other async tasks, which may or
-may not take a long time, it&#39;s best to rely on each nav transition&#39;s returned
-promise. So instead of firing and forgetting multiple <code>push</code> or <code>pop</code> nav transitions,
-it&#39;s better to fire the next nav transition when the previous one has finished.</p>
-<p>In the example below, after the async operation has completed, we then want to transition
-to another page. Where the potential problem comes in, is that if the async operation
-completed 100ms after the first transition started, then kicking off another transition
-halfway through the first transition ends up with a janky animation. Instead, it&#39;s best
-to always ensure the first transition has already finished before starting the next.</p>
-<pre><code class="lang-ts">// begin the first transition
-let navTransition = this.nav.push(SomePage);
-
-// start an async call, we&#39;re not sure how long it&#39;ll take
-someAsyncOperation().then(() =&gt; {
-  // incase the async operation completed faster than the time
-  // it took to finish the first transition, this logic should
-  // always ensure that the previous transition has resolved
-  // first before kicking off the next transition
-  navTransition.then(() =&gt; {
-    this.nav.push(AnotherPage);
-  });
-});
+<h2 id="asynchronous-nav-transitions">Asynchronous Nav Transitions</h2>
+<p>Navigation transitions are asynchronous operations. When a transition is started,
+the <code>push</code> or <code>pop</code> method will return immediately, before the transition is complete.</p>
+<p>Generally, the developer does not need to be concerned about this. In the event
+multiple transitions need to be synchronized or transition timing is critical,
+the best practice is to chain the transitions together using the return value
+from the <code>push</code> and <code>pop</code> methods.</p>
+<p>The <code>push</code> and <code>pop</code> methods return a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>.
+Promises are a way to represent and chain together multiple asynchronous
+operations in order. Navigation actions can be chained together very easily using promises.</p>
+<pre><code class="lang-typescript">let navTransitionPromise = this.navController.push(Page2);
+navTransitionPromise.then( () =&gt; {
+  // the transition has completed, so I can push another page now
+  return this.navController.push(Page3);
+}).then( () =&gt; {
+  // the second transition has completed, so I can push yet another page
+    return this.navController.push(Page4);
+}).then( () =&gt; {
+  console.log(&#39;The transitions are complete!&#39;);
+})
 </code></pre>
 <h2 id="navoptions">NavOptions</h2>
 <p>Some methods on <code>NavController</code> allow for customizing the current transition.

@@ -44,16 +44,9 @@ Improve this doc
 
 
 
-<p><em>For a quick walkthrough of navigation in Ionic, check out the
-<a href="../../../../components/#navigation">Navigation section</a> of the Component
-docs.</em></p>
-<p>Nav is a basic navigation controller component.  As a subclass of NavController
-you use it to navigate to pages in your app and manipulate the navigation stack.
-Nav automatically animates transitions between pages for you.</p>
-<p>For more information on using navigation controllers like Nav or <a href="../../Tabs/Tab/">Tab</a>,
+<p><code>ion-nav</code> is the declarative component for a <a href="../NavController/">NavController</a>.</p>
+<p>For more information on using nav controllers like Nav or <a href="../../Tabs/Tab/">Tab</a>,
 take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
-<p>You must set a root page to be loaded initially by any Nav you create, using
-the &#39;root&#39; property:</p>
 
 
 
@@ -63,6 +56,8 @@ the &#39;root&#39; property:</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
+<p>You must set a root page to be loaded initially by any Nav you create, using
+the &#39;root&#39; property:</p>
 <pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
 import { ionicBootstrap } from &#39;ionic-angular&#39;;
 import { GettingStartedPage } from &#39;./getting-started&#39;;
@@ -71,67 +66,15 @@ import { GettingStartedPage } from &#39;./getting-started&#39;;
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
 })
 class MyApp {
-  root = GettingStartedPage;
+  private root: any = GettingStartedPage;
+
+  constructor(){
+  }
 }
 
 ionicBootstrap(MyApp);
 </code></pre>
-<h3 id="back-navigation">Back Navigation</h3>
-<p>If a <a href="../NavController/#creating_pages">page</a> you navigate to has a <a href="../NavBar/">NavBar</a>,
-Nav will automatically add a back button to it if there is a page
-before the one you are navigating to in the navigation stack.</p>
-<p>Additionally, specifying the <code>swipeBackEnabled</code> property will allow you to
-swipe to go back:</p>
-<pre><code class="lang-html">&lt;ion-nav swipeBackEnabled=&quot;false&quot; [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
-</code></pre>
-<p>Here is a diagram of how Nav animates smoothly between pages:</p>
-<div class="highlight less-margin">
-  <pre>
-                          +-------+
-                          |  App  |
-                          +---+---+
-                          &lt;ion-app&gt;
-                              |
-                 +------------+-------------+
-                 |   Ionic Nav Controller   |
-                 +------------+-------------+
-                          &lt;ion-nav&gt;
-                              |
-                              |
-            Page 3  +--------------------+                     LoginPage
-          Page 2  +--------------------+ |
-        Page 1  +--------------------+ | |              +--------------------+
-                | | Header           |&lt;-----------------|       Login        |
-                +--------------------+ | |              +--------------------+
-                | | |                | | |              | Username:          |
-                | | |                | | |              | Password:          |
-                | | |  Page 3 is     | | |              |                    |
-                | | |  only content  | | |              |                    |
-                | | |                |&lt;-----------------|                    |
-                | | |                | | |              |                    |
-                | | |                | | |              |                    |
-                | +------------------|-+ |              |                    |
-                | | Footer           |-|-+              |                    |
-                | +------------------|-+                |                    |
-                +--------------------+                  +--------------------+
 
-          +--------------------+    +--------------------+    +--------------------+
-          | Header             |    | Content            |    | Content            |
-          +--------------------+    |                    |    |                    |
-          | Content            |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    |                    |    |                    |
-          |                    |    +--------------------+    |                    |
-          |                    |    | Footer             |    |                    |
-          +--------------------+    +--------------------+    +--------------------+
-
-  </pre>
-</div>
 
 
 

@@ -65,7 +65,7 @@ docType: "class"
 LocalNotifications.schedule({
   id: 1,
   text: &#39;Single Notification&#39;,
-  sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;
+  sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
   data: { secret: key }
 });
 

@@ -27,7 +27,7 @@ You'll want to install Xcode from Apple. You can either do this from the Mac App
 You'll need to download and install Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 ### Android
-Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
+Download [Android Studio](https://developer.android.com/studio/) and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
 
 Next, inside the new `SDK` location, we'll run `tools/android` to open the Android SDK Manager. We'll want to install:
 

@@ -201,6 +201,13 @@ See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</
     </tr>
     
     <tr>
+      <td>selectedText</td>
+      <td><code>string</code></td>
+      <td><p> The text to display instead of the selected option&#39;s value.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>multiple</td>
       <td><code>boolean</code></td>
       <td><p> Whether or not the select component can accept multiple values. Default: <code>false</code>.</p>

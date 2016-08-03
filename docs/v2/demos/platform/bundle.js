@@ -83869,6 +83869,10 @@
 	         */
 	        this.interface = '';
 	        /**
+	         * @input {string} The text to display instead of the selected option's value.
+	         */
+	        this.selectedText = '';
+	        /**
 	         * @output {any} Any expression you want to evaluate when the selection has changed.
 	         */
 	        this.ionChange = new core_1.EventEmitter();
@@ -84132,6 +84136,10 @@
 	        __metadata('design:type', String)
 	    ], Select.prototype, "interface", void 0);
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "selectedText", void 0);
+	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Select.prototype, "ionChange", void 0);
@@ -84167,7 +84175,7 @@
 	    Select = __decorate([
 	        core_1.Component({
 	            selector: 'ion-select',
-	            template: "\n    <div *ngIf=\"!_text\" class=\"select-placeholder select-text\">{{placeholder}}</div>\n    <div *ngIf=\"_text\" class=\"select-text\">{{_text}}</div>\n    <div class=\"select-icon\">\n      <div class=\"select-icon-inner\"></div>\n    </div>\n    <button aria-haspopup=\"true\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div *ngIf=\"!_text\" class=\"select-placeholder select-text\">{{placeholder}}</div>\n    <div *ngIf=\"_text\" class=\"select-text\">{{selectedText || _text}}</div>\n    <div class=\"select-icon\">\n      <div class=\"select-icon-inner\"></div>\n    </div>\n    <button aria-haspopup=\"true\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
 	            directives: [common_1.NgIf],
 	            host: {
 	                '[class.select-disabled]': '_disabled'

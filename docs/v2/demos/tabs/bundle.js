@@ -87959,6 +87959,7 @@
 	        this._dual = false;
 	        this._disabled = false;
 	        this._start = null;
+	        this._ticks = [];
 	        this._min = 0;
 	        this._max = 100;
 	        this._step = 1;

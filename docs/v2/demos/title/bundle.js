@@ -83771,7 +83771,7 @@
 	 * <ion-item>
 	 *   <ion-label>Gender</ion-label>
 	 *   <ion-select [(ngModel)]="gender">
-	 *     <ion-option value="f" checked="true">Female</ion-option>
+	 *     <ion-option value="f" selected="true">Female</ion-option>
 	 *     <ion-option value="m">Male</ion-option>
 	 *   </ion-select>
 	 * </ion-item>
@@ -83866,10 +83866,6 @@
 	         */
 	        this.alertOptions = {};
 	        /**
-	         * @private
-	         */
-	        this.checked = false;
-	        /**
 	         * @input {string} The interface the select should use: `action-sheet` or `alert`. Default: `alert`.
 	         */
 	        this.interface = '';
@@ -83939,7 +83935,7 @@
 	        if (this.interface === 'action-sheet') {
 	            alertOptions.buttons = alertOptions.buttons.concat(options.map(function (input) {
 	                return {
-	                    role: (input.checked ? 'selected' : ''),
+	                    role: (input.selected ? 'selected' : ''),
 	                    text: input.text,
 	                    handler: function () {
 	                        _this.onChange(input.value);
@@ -83960,7 +83956,7 @@
 	                    type: (_this._multi ? 'checkbox' : 'radio'),
 	                    label: input.text,
 	                    value: input.value,
-	                    checked: input.checked,
+	                    checked: input.selected,
 	                    disabled: input.disabled
 	                };
 	            });
@@ -84023,8 +84019,8 @@
 	            this._options = val;
 	            if (!this._values.length) {
 	                // there are no values set at this point
-	                // so check to see who should be checked
-	                this._values = val.filter(function (o) { return o.checked; }).map(function (o) { return o.value; });
+	                // so check to see who should be selected
+	                this._values = val.filter(function (o) { return o.selected; }).map(function (o) { return o.value; });
 	            }
 	            this._updOpts();
 	        },
@@ -84040,10 +84036,10 @@
 	        if (this._options) {
 	            this._options.forEach(function (option) {
 	                // check this option if the option's value is in the values array
-	                option.checked = _this._values.some(function (selectValue) {
+	                option.selected = _this._values.some(function (selectValue) {
 	                    return util_1.isCheckedProperty(selectValue, option.value);
 	                });
-	                if (option.checked) {
+	                if (option.selected) {
 	                    _this._texts.push(option.text);
 	                }
 	            });
@@ -84134,10 +84130,6 @@
 	    ], Select.prototype, "alertOptions", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Select.prototype, "checked", void 0);
-	    __decorate([
-	        core_1.Input(), 
 	        __metadata('design:type', String)
 	    ], Select.prototype, "interface", void 0);
 	    __decorate([
@@ -84212,29 +84204,29 @@
 	/**
 	 * @name Option
 	 * @description
-	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
+	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a selected property.
 	 *
 	 * @demo /docs/v2/demos/item-sliding/
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {
 	        this._elementRef = _elementRef;
-	        this._checked = false;
+	        this._selected = false;
 	        this._disabled = false;
 	        /**
 	         * @input {any} Event to evaluate when option is selected
 	         */
 	        this.ionSelect = new core_1.EventEmitter();
 	    }
-	    Object.defineProperty(Option.prototype, "checked", {
+	    Object.defineProperty(Option.prototype, "selected", {
 	        /**
-	         * @input {boolean} Whether or not the option is already checked and selected
+	         * @input {boolean} Whether or not the option is already selected
 	         */
 	        get: function () {
-	            return this._checked;
+	            return this._selected;
 	        },
 	        set: function (val) {
-	            this._checked = util_1.isTrueProperty(val);
+	            this._selected = util_1.isTrueProperty(val);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -84285,7 +84277,7 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Option.prototype, "checked", null);
+	    ], Option.prototype, "selected", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)

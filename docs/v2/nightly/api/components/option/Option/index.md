@@ -44,7 +44,7 @@ Improve this doc
 
 
 
-<p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
+<p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a selected property.</p>
 
 
 
@@ -71,9 +71,9 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>checked</td>
+      <td>selected</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the option is already checked and selected</p>
+      <td><p> Whether or not the option is already selected</p>
 </td>
     </tr>
     

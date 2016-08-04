@@ -290,7 +290,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
     <tbody>
       
       <tr>
-        <td>$tabs-ios-border</td>
+        <td><code>$tabs-ios-border</code></td>
         
           <td><code>1px solid $toolbar-ios-border-color</code></td>
         
@@ -299,7 +299,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-background</td>
+        <td><code>$tabs-ios-background</code></td>
         
           <td><code>$toolbar-ios-background</code></td>
         
@@ -308,7 +308,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-padding</td>
+        <td><code>$tabs-ios-tab-padding</code></td>
         
           <td><code>0 2px</code></td>
         
@@ -317,7 +317,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-max-width</td>
+        <td><code>$tabs-ios-tab-max-width</code></td>
         
           <td><code>240px</code></td>
         
@@ -326,7 +326,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-min-height</td>
+        <td><code>$tabs-ios-tab-min-height</code></td>
         
           <td><code>49px</code></td>
         
@@ -335,7 +335,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-color</td>
+        <td><code>$tabs-ios-tab-color</code></td>
         
           <td><code>$toolbar-ios-inactive-color</code></td>
         
@@ -344,7 +344,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-color-active</td>
+        <td><code>$tabs-ios-tab-color-active</code></td>
         
           <td><code>$toolbar-ios-active-color</code></td>
         
@@ -353,7 +353,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-font-size</td>
+        <td><code>$tabs-ios-tab-font-size</code></td>
         
           <td><code>10px</code></td>
         
@@ -362,7 +362,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-ios-tab-icon-size</td>
+        <td><code>$tabs-ios-tab-icon-size</code></td>
         
           <td><code>30px</code></td>
         
@@ -384,7 +384,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
     <tbody>
       
       <tr>
-        <td>$tabs-md-background</td>
+        <td><code>$tabs-md-background</code></td>
         
           <td><code>$toolbar-md-background</code></td>
         
@@ -393,7 +393,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-padding</td>
+        <td><code>$tabs-md-tab-padding</code></td>
         
           <td><code>8px 0 10px 0</code></td>
         
@@ -402,7 +402,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-min-height</td>
+        <td><code>$tabs-md-tab-min-height</code></td>
         
           <td><code>5.6rem</code></td>
         
@@ -411,7 +411,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-font-size</td>
+        <td><code>$tabs-md-tab-font-size</code></td>
         
           <td><code>1.2rem</code></td>
         
@@ -420,7 +420,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-font-weight</td>
+        <td><code>$tabs-md-tab-font-weight</code></td>
         
           <td><code>normal</code></td>
         
@@ -429,7 +429,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-opacity</td>
+        <td><code>$tabs-md-tab-opacity</code></td>
         
           <td><code>.7</code></td>
         
@@ -438,7 +438,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-color</td>
+        <td><code>$tabs-md-tab-color</code></td>
         
           <td><code>rgba($toolbar-md-inactive-color, $tabs-md-tab-opacity)</code></td>
         
@@ -447,7 +447,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-padding-active</td>
+        <td><code>$tabs-md-tab-padding-active</code></td>
         
           <td><code>6px 0 10px 0</code></td>
         
@@ -456,7 +456,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-font-size-active</td>
+        <td><code>$tabs-md-tab-font-size-active</code></td>
         
           <td><code>1.4rem</code></td>
         
@@ -465,7 +465,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-color-active</td>
+        <td><code>$tabs-md-tab-color-active</code></td>
         
           <td><code>$toolbar-md-active-color</code></td>
         
@@ -474,7 +474,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-margin</td>
+        <td><code>$tabs-md-tab-text-margin</code></td>
         
           <td><code>6px 0</code></td>
         
@@ -483,7 +483,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-capitalization</td>
+        <td><code>$tabs-md-tab-text-capitalization</code></td>
         
           <td><code>none</code></td>
         
@@ -492,7 +492,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-transform</td>
+        <td><code>$tabs-md-tab-text-transform</code></td>
         
           <td><code>scale(.85)</code></td>
         
@@ -501,7 +501,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-transform-origin</td>
+        <td><code>$tabs-md-tab-text-transform-origin</code></td>
         
           <td><code>bottom center</code></td>
         
@@ -510,7 +510,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-margin-active</td>
+        <td><code>$tabs-md-tab-text-margin-active</code></td>
         
           <td><code>7px 0</code></td>
         
@@ -519,7 +519,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-transform-active</td>
+        <td><code>$tabs-md-tab-text-transform-active</code></td>
         
           <td><code>scale(1)</code></td>
         
@@ -528,7 +528,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-text-transition</td>
+        <td><code>$tabs-md-tab-text-transition</code></td>
         
           <td><code>transform 200ms ease-in-out</code></td>
         
@@ -537,7 +537,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-md-tab-icon-size</td>
+        <td><code>$tabs-md-tab-icon-size</code></td>
         
           <td><code>2.4rem</code></td>
         
@@ -559,7 +559,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
     <tbody>
       
       <tr>
-        <td>$tabs-wp-background</td>
+        <td><code>$tabs-wp-background</code></td>
         
           <td><code>$toolbar-wp-background</code></td>
         
@@ -568,7 +568,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-padding</td>
+        <td><code>$tabs-wp-tab-padding</code></td>
         
           <td><code>12px 10px 5px 10px</code></td>
         
@@ -577,7 +577,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-min-height</td>
+        <td><code>$tabs-wp-tab-min-height</code></td>
         
           <td><code>4.8rem</code></td>
         
@@ -586,7 +586,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-font-size</td>
+        <td><code>$tabs-wp-tab-font-size</code></td>
         
           <td><code>1.2rem</code></td>
         
@@ -595,7 +595,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-font-weight</td>
+        <td><code>$tabs-wp-tab-font-weight</code></td>
         
           <td><code>normal</code></td>
         
@@ -604,7 +604,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-opacity</td>
+        <td><code>$tabs-wp-tab-opacity</code></td>
         
           <td><code>.7</code></td>
         
@@ -613,7 +613,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-color</td>
+        <td><code>$tabs-wp-tab-color</code></td>
         
           <td><code>rgba($toolbar-wp-inactive-color, $tabs-wp-tab-opacity)</code></td>
         
@@ -622,7 +622,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-color-active</td>
+        <td><code>$tabs-wp-tab-color-active</code></td>
         
           <td><code>$toolbar-wp-active-color</code></td>
         
@@ -631,7 +631,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-border</td>
+        <td><code>$tabs-wp-tab-border</code></td>
         
           <td><code>2px solid transparent</code></td>
         
@@ -640,7 +640,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-border-color-active</td>
+        <td><code>$tabs-wp-tab-border-color-active</code></td>
         
           <td><code>$tabs-wp-tab-color-active</code></td>
         
@@ -649,7 +649,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-background-activated</td>
+        <td><code>$tabs-wp-tab-background-activated</code></td>
         
           <td><code>rgba(0, 0, 0, .1)</code></td>
         
@@ -658,7 +658,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       </tr>
       
       <tr>
-        <td>$tabs-wp-tab-icon-size</td>
+        <td><code>$tabs-wp-tab-icon-size</code></td>
         
           <td><code>2.4rem</code></td>
         

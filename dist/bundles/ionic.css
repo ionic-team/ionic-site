@@ -4700,7 +4700,8 @@ ion-icon {
     padding: 0;
     font-weight: normal; }
   .ios .alert-message {
-    overflow: auto; }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
   .ios .alert-input {
     padding: 10px 0;
     border: 0;
@@ -4783,7 +4784,8 @@ ion-icon {
   .ios .alert-checkbox-group {
     overflow: scroll;
     max-height: 240px;
-    border-top: 1px solid #dbdbdf; }
+    border-top: 1px solid #dbdbdf;
+    -webkit-overflow-scrolling: touch; }
   .ios .alert-tappable {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8193,7 +8195,8 @@ ion-icon {
     padding: 0;
     font-weight: normal; }
   .md .alert-message {
-    overflow: auto; }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
   .md .alert-input {
     padding: 10px 0;
     border: 0;
@@ -12151,7 +12154,8 @@ ion-icon {
     padding: 0;
     font-weight: normal; }
   .wp .alert-message {
-    overflow: auto; }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
   .wp .alert-input {
     padding: 10px 0;
     border: 0;

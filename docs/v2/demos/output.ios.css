@@ -4760,7 +4760,8 @@ ion-alert {
   font-weight: normal; }
 
 .alert-message {
-  overflow: auto; }
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .alert-input {
   padding: 10px 0;
@@ -4855,7 +4856,8 @@ ion-alert {
 .alert-checkbox-group {
   overflow: scroll;
   max-height: 240px;
-  border-top: 1px solid #dbdbdf; }
+  border-top: 1px solid #dbdbdf;
+  -webkit-overflow-scrolling: touch; }
 
 .alert-tappable {
   display: -webkit-box;

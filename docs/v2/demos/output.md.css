@@ -4742,7 +4742,8 @@ ion-alert {
   font-weight: normal; }
 
 .alert-message {
-  overflow: auto; }
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .alert-input {
   padding: 10px 0;

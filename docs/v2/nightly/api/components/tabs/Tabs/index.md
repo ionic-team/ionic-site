@@ -460,7 +460,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td>tabs-ios-border</td>
+        <td>$tabs-ios-border</td>
         
           <td><code>1px solid $toolbar-ios-border-color</code></td>
         
@@ -469,7 +469,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-background</td>
+        <td>$tabs-ios-background</td>
         
           <td><code>$toolbar-ios-background</code></td>
         
@@ -478,7 +478,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-padding</td>
+        <td>$tabs-ios-tab-padding</td>
         
           <td><code>0 2px</code></td>
         
@@ -487,7 +487,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-max-width</td>
+        <td>$tabs-ios-tab-max-width</td>
         
           <td><code>240px</code></td>
         
@@ -496,7 +496,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-min-height</td>
+        <td>$tabs-ios-tab-min-height</td>
         
           <td><code>49px</code></td>
         
@@ -505,7 +505,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-color</td>
+        <td>$tabs-ios-tab-color</td>
         
           <td><code>$toolbar-ios-inactive-color</code></td>
         
@@ -514,7 +514,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-color-active</td>
+        <td>$tabs-ios-tab-color-active</td>
         
           <td><code>$toolbar-ios-active-color</code></td>
         
@@ -523,7 +523,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-font-size</td>
+        <td>$tabs-ios-tab-font-size</td>
         
           <td><code>10px</code></td>
         
@@ -532,7 +532,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-ios-tab-icon-size</td>
+        <td>$tabs-ios-tab-icon-size</td>
         
           <td><code>30px</code></td>
         
@@ -554,7 +554,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td>tabs-md-background</td>
+        <td>$tabs-md-background</td>
         
           <td><code>$toolbar-md-background</code></td>
         
@@ -563,7 +563,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-padding</td>
+        <td>$tabs-md-tab-padding</td>
         
           <td><code>8px 0 10px 0</code></td>
         
@@ -572,7 +572,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-min-height</td>
+        <td>$tabs-md-tab-min-height</td>
         
           <td><code>5.6rem</code></td>
         
@@ -581,7 +581,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-font-size</td>
+        <td>$tabs-md-tab-font-size</td>
         
           <td><code>1.2rem</code></td>
         
@@ -590,7 +590,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-font-weight</td>
+        <td>$tabs-md-tab-font-weight</td>
         
           <td><code>normal</code></td>
         
@@ -599,7 +599,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-opacity</td>
+        <td>$tabs-md-tab-opacity</td>
         
           <td><code>.7</code></td>
         
@@ -608,7 +608,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-color</td>
+        <td>$tabs-md-tab-color</td>
         
           <td><code>rgba($toolbar-md-inactive-color, $tabs-md-tab-opacity)</code></td>
         
@@ -617,7 +617,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-padding-active</td>
+        <td>$tabs-md-tab-padding-active</td>
         
           <td><code>6px 0 10px 0</code></td>
         
@@ -626,7 +626,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-font-size-active</td>
+        <td>$tabs-md-tab-font-size-active</td>
         
           <td><code>1.4rem</code></td>
         
@@ -635,7 +635,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-color-active</td>
+        <td>$tabs-md-tab-color-active</td>
         
           <td><code>$toolbar-md-active-color</code></td>
         
@@ -644,7 +644,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-margin</td>
+        <td>$tabs-md-tab-text-margin</td>
         
           <td><code>6px 0</code></td>
         
@@ -653,7 +653,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-capitalization</td>
+        <td>$tabs-md-tab-text-capitalization</td>
         
           <td><code>none</code></td>
         
@@ -662,7 +662,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-transform</td>
+        <td>$tabs-md-tab-text-transform</td>
         
           <td><code>scale(.85)</code></td>
         
@@ -671,7 +671,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-transform-origin</td>
+        <td>$tabs-md-tab-text-transform-origin</td>
         
           <td><code>bottom center</code></td>
         
@@ -680,7 +680,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-margin-active</td>
+        <td>$tabs-md-tab-text-margin-active</td>
         
           <td><code>7px 0</code></td>
         
@@ -689,7 +689,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-transform-active</td>
+        <td>$tabs-md-tab-text-transform-active</td>
         
           <td><code>scale(1)</code></td>
         
@@ -698,7 +698,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-text-transition</td>
+        <td>$tabs-md-tab-text-transition</td>
         
           <td><code>transform 200ms ease-in-out</code></td>
         
@@ -707,7 +707,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-md-tab-icon-size</td>
+        <td>$tabs-md-tab-icon-size</td>
         
           <td><code>2.4rem</code></td>
         
@@ -729,7 +729,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td>tabs-wp-background</td>
+        <td>$tabs-wp-background</td>
         
           <td><code>$toolbar-wp-background</code></td>
         
@@ -738,7 +738,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-padding</td>
+        <td>$tabs-wp-tab-padding</td>
         
           <td><code>12px 10px 5px 10px</code></td>
         
@@ -747,7 +747,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-min-height</td>
+        <td>$tabs-wp-tab-min-height</td>
         
           <td><code>4.8rem</code></td>
         
@@ -756,7 +756,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-font-size</td>
+        <td>$tabs-wp-tab-font-size</td>
         
           <td><code>1.2rem</code></td>
         
@@ -765,7 +765,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-font-weight</td>
+        <td>$tabs-wp-tab-font-weight</td>
         
           <td><code>normal</code></td>
         
@@ -774,7 +774,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-opacity</td>
+        <td>$tabs-wp-tab-opacity</td>
         
           <td><code>.7</code></td>
         
@@ -783,7 +783,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-color</td>
+        <td>$tabs-wp-tab-color</td>
         
           <td><code>rgba($toolbar-wp-inactive-color, $tabs-wp-tab-opacity)</code></td>
         
@@ -792,7 +792,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-color-active</td>
+        <td>$tabs-wp-tab-color-active</td>
         
           <td><code>$toolbar-wp-active-color</code></td>
         
@@ -801,7 +801,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-border</td>
+        <td>$tabs-wp-tab-border</td>
         
           <td><code>2px solid transparent</code></td>
         
@@ -810,7 +810,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-border-color-active</td>
+        <td>$tabs-wp-tab-border-color-active</td>
         
           <td><code>$tabs-wp-tab-color-active</code></td>
         
@@ -819,7 +819,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-background-activated</td>
+        <td>$tabs-wp-tab-background-activated</td>
         
           <td><code>rgba(0, 0, 0, .1)</code></td>
         
@@ -828,7 +828,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td>tabs-wp-tab-icon-size</td>
+        <td>$tabs-wp-tab-icon-size</td>
         
           <td><code>2.4rem</code></td>
         

@@ -814,6 +814,21 @@ a.footer-link {
   margin-bottom: 0px;
   position: relative;
   bottom: 15px;
+
+  .table.param-table {
+    td,
+    th {
+      white-space: nowrap;
+
+      &:last-child, &:nth-last-child(2) {
+        white-space: normal;
+      }
+
+      &:nth-last-child(2) {
+        width: 40%;
+      }
+    }
+  }
 }
 
 @media (max-width: 1300px) and (min-width: $screen-xs) {
@@ -825,6 +840,12 @@ a.footer-link {
 @media (max-width: $screen-xs) {
   #sass-variables {
     bottom: -25px;
+
+    .table.param-table {
+      tr,td {
+        white-space: normal;
+      }
+    }
   }
 }
 

@@ -8241,6 +8241,16 @@ a.footer-link {
   margin-bottom: 0px;
   position: relative;
   bottom: 15px; }
+  #sass-variables .table.param-table td,
+  #sass-variables .table.param-table th {
+    white-space: nowrap; }
+    #sass-variables .table.param-table td:last-child, #sass-variables .table.param-table td:nth-last-child(2),
+    #sass-variables .table.param-table th:last-child,
+    #sass-variables .table.param-table th:nth-last-child(2) {
+      white-space: normal; }
+    #sass-variables .table.param-table td:nth-last-child(2),
+    #sass-variables .table.param-table th:nth-last-child(2) {
+      width: 40%; }
 
 @media (max-width: 1300px) and (min-width: 480px) {
   #sass-variables {
@@ -8248,7 +8258,9 @@ a.footer-link {
 
 @media (max-width: 480px) {
   #sass-variables {
-    bottom: -25px; } }
+    bottom: -25px; }
+    #sass-variables .table.param-table tr, #sass-variables .table.param-table td {
+      white-space: normal; } }
 
 #demo-device-ios, #demo-device-android, #demo-device-windows {
   width: 467px;

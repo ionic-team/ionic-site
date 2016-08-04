@@ -57,7 +57,6 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -123,6 +122,8 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

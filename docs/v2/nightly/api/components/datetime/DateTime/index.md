@@ -352,7 +352,6 @@ configuration should be decided by the end-developer.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -575,6 +574,8 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

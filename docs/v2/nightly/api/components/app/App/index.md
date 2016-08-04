@@ -45,7 +45,6 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -294,6 +293,8 @@ Get an instance of the global app injector that contains references to all of th
   <code>Injector</code> 
 
 </div>
+
+
 
 
 

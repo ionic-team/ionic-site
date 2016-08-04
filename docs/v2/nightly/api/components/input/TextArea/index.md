@@ -58,7 +58,6 @@ textarea&#39;s inner content.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -92,6 +91,8 @@ textarea&#39;s inner content.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

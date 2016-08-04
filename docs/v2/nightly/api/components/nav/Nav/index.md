@@ -51,7 +51,6 @@ take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -111,6 +110,8 @@ ionicBootstrap(MyApp);
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

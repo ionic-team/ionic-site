@@ -57,7 +57,6 @@ display or hide the refresher.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -375,6 +374,8 @@ updated to <code>refreshing</code>. From within your refresh handler, you must c
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

@@ -85,7 +85,6 @@ See <a href="#usage">usage</a> below for some examples.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -160,6 +159,8 @@ with <code>from</code> and <code>to</code> properties.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

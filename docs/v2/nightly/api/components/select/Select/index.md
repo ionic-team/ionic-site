@@ -120,7 +120,6 @@ for more properties.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -248,6 +247,8 @@ See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

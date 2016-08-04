@@ -50,7 +50,6 @@ to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkb
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -156,6 +155,8 @@ A stacked label will always appear on top of the input.
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

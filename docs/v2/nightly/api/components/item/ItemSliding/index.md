@@ -51,7 +51,6 @@ a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -211,6 +210,8 @@ It reports the relative position.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

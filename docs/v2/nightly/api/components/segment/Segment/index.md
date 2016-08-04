@@ -92,7 +92,6 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -120,6 +119,8 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

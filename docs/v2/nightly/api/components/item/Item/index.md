@@ -154,7 +154,6 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -295,6 +294,8 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 &lt;/ion-list&gt;
 </code></pre>
+
+
 
 
 

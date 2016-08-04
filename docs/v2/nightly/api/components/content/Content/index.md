@@ -50,7 +50,6 @@ some useful methods to control the scrollable area.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -716,6 +715,8 @@ seen under the header as the user scrolls.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

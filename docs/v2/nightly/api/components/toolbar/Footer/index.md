@@ -48,7 +48,6 @@ Footer can be a wrapper for <code>ion-toolbar</code> to make sure the content ar
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -73,6 +72,8 @@ Footer can be a wrapper for <code>ion-toolbar</code> to make sure the content ar
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

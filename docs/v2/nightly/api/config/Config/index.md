@@ -237,7 +237,6 @@ chart displays each property with a description of what it controls.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -534,6 +533,8 @@ Sets a single config value.
     
   </tbody>
 </table>
+
+
 
 
 

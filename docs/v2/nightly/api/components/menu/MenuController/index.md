@@ -50,7 +50,6 @@ of these are passed to it, it will grab the first menu it finds.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -582,6 +581,8 @@ property. If a menu is not found then it'll return `null`.
 
 
 </div>
+
+
 
 
 

@@ -110,7 +110,6 @@ are part of the app&#39;s default directives.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -119,6 +118,8 @@ are part of the app&#39;s default directives.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

@@ -52,7 +52,6 @@ by the operating system (iOS).</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -292,6 +291,8 @@ Clear data stored in LocalStorage
 
 
 </div>
+
+
 
 
 

@@ -330,7 +330,6 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -1657,6 +1656,8 @@ back to. Otherwise returns `false`.
   <code>boolean</code> 
 
 </div>
+
+
 
 
 

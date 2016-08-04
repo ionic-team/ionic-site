@@ -81,7 +81,6 @@ to the <code>Menu</code> with <code>persistent</code> set to true, any other <co
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -327,6 +326,8 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

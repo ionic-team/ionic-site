@@ -50,7 +50,6 @@ and be enhanced by a wide range of attributes.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -393,6 +392,8 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

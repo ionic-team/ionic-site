@@ -102,7 +102,6 @@ the appropriate spinner for the platform on which it’s running.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -171,6 +170,8 @@ of <code>background-color</code>.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

@@ -46,7 +46,6 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -55,6 +54,8 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

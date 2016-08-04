@@ -71,7 +71,6 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -251,6 +250,8 @@ event after each change in the range value. Default <code>0</code>.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

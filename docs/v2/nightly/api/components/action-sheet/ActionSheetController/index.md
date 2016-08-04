@@ -67,7 +67,6 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -291,6 +290,8 @@ the handler returns <code>false</code>, then the action sheet does not automatic
 itself. Instead, you now have complete control of when the action sheet has finished
 transitioning, and the ability to wait for the action sheet to finish transitioning
 out before starting a new transition.</p>
+
+
 
 
 

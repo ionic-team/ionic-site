@@ -75,7 +75,6 @@ building the form within a modal instead.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -388,6 +387,8 @@ the handler returns <code>false</code>, then the alert does not automatically di
 itself. Instead, you now have complete control of when the alert has finished
 transitioning, and the ability to wait for the alert to finish transitioning
 out before starting a new transition.</p>
+
+
 
 
 

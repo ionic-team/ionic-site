@@ -47,7 +47,6 @@ app as an array for the second argument. You can also pass a config object as th
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -71,6 +70,8 @@ ionicBootstrap(MyClass, null, {tabsPlacement: &#39;bottom&#39;})
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

@@ -48,7 +48,6 @@ You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</cod
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -114,6 +113,8 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

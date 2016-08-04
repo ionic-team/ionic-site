@@ -80,7 +80,6 @@ a higher <code>z-index</code> than this element.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -237,6 +236,8 @@ Create a loading indicator. See below for options.
 </tr>
 </tbody>
 </table>
+
+
 
 
 

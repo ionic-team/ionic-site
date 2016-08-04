@@ -49,7 +49,6 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -172,6 +171,8 @@ set the max zoom amount for ion-scroll
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

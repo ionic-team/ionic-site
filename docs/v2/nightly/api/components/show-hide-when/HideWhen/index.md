@@ -56,7 +56,6 @@ platforms you can use.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -90,6 +89,8 @@ platforms you can use.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

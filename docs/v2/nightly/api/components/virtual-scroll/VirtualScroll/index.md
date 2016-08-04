@@ -153,7 +153,6 @@ dataset, so please make sure they&#39;re performant.</li>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -310,6 +309,8 @@ must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

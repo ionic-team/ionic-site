@@ -44,7 +44,6 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -159,6 +158,8 @@ Present the toast instance.
 
 
 </div>
+
+
 
 
 

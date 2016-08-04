@@ -53,7 +53,6 @@ customize your app to fit any device.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -735,6 +734,8 @@ Returns `true` if the app is in portait mode.
 </h3>
 
 Returns `true` if the app is in landscape mode.
+
+
 
 
 

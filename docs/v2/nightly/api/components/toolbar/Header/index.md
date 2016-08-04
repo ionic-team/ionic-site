@@ -48,7 +48,6 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -78,6 +77,8 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

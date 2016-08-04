@@ -49,7 +49,6 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -70,6 +69,8 @@ directive a value.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

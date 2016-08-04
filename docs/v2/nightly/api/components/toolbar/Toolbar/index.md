@@ -126,7 +126,6 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -195,6 +194,8 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

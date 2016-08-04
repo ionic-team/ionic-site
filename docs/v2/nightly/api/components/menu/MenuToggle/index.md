@@ -52,7 +52,6 @@ docs for more information.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -117,6 +116,8 @@ on the different positions.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

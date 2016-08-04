@@ -84285,7 +84285,7 @@
 	 * @description
 	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a selected property.
 	 *
-	 * @demo /docs/v2/demos/item-sliding/
+	 * @demo /docs/v2/demos/select/
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {

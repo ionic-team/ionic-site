@@ -8207,24 +8207,48 @@ a.footer-link {
   .platform-preview.fixey {
     position: fixed;
     top: 0; }
-  .platform-preview .platform-toggle {
-    padding: 8px 10px 4px; }
-    .platform-preview .platform-toggle a {
-      cursor: pointer;
-      display: inline-block;
-      padding: 4px 16px;
-      border-radius: 16px;
-      color: #9da5b3;
-      font-size: 14px;
-      font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-      transition: .2s color, .2s background-color; }
-      .platform-preview .platform-toggle a.active, .platform-preview .platform-toggle a.active:hover {
-        background-color: #4f8ff7;
-        color: white; }
-      .platform-preview .platform-toggle a:hover {
-        color: #4f8ff7;
-        text-decoration: none; }
+
+.platform-preview .platform-toggle a, .docs-container .sass-platform-toggle a {
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 16px;
+  color: #9da5b3;
+  font-size: 14px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  transition: .2s color, .2s background-color; }
+  .platform-preview .platform-toggle a.active, .platform-preview .platform-toggle a.active:hover, .docs-container .sass-platform-toggle a.active, .docs-container .sass-platform-toggle a.active:hover {
+    background-color: #4f8ff7;
+    color: white; }
+  .platform-preview .platform-toggle a:hover, .docs-container .sass-platform-toggle a:hover {
+    color: #4f8ff7;
+    text-decoration: none; }
+
+.platform-preview .platform-toggle {
+  padding: 8px 10px 4px; }
+
+.docs-container .sass-platform-toggle {
+  padding-top: 0px 10px 4px;
+  margin-bottom: 10px;
+  float: right; }
+
+#sass-variable-header {
+  margin-bottom: 0px;
+  padding-bottom: 0px; }
+
+#sass-variables {
+  margin-bottom: 0px;
+  position: relative;
+  bottom: 15px; }
+
+@media (max-width: 1300px) and (min-width: 480px) {
+  #sass-variables {
+    bottom: -10px; } }
+
+@media (max-width: 480px) {
+  #sass-variables {
+    bottom: -25px; } }
 
 #demo-device-ios, #demo-device-android, #demo-device-windows {
   width: 467px;

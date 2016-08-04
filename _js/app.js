@@ -6,6 +6,11 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     $sideNav[0].scrollTop =  navItemPos - 300;
   }
 }])
+.controller('SassToggleCtrl', ['$scope', function ($scope) {
+  $scope.setSassPlatform = function (platform) {
+    $scope.active = platform;
+  }
+}])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
                        function($scope, $timeout) {
   var $androidIframe = $('iframe#demo-android');
@@ -158,6 +163,17 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       ev.preventDefault();
     });
   })();
+  (function setMobileMenuHandlers() {
+    $(document).ready(function() {
+     $('.dropdown-toggle').dropdown();
+     $('#collapse-toggle').unbind().click(function() {
+       $('#navbar-collapse').collapse('toggle');
+       var ariaVal = $('#collapse-toggle').attr('aria-expanded');
+       ariaVal = ariaVal === 'false' ? 'true' : 'false';
+       $('#collapse-toggle').attr('aria-expanded', ariaVal);
+     });
+   });
+ })();
 
   function sendCurrentHash(platform) {
     // send the initial hash if possible

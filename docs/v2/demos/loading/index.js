@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var Page1 = (function () {
-    function Page1(loadingCtrl, nav) {
+    function Page1(loadingCtrl, navCtrl) {
         this.loadingCtrl = loadingCtrl;
-        this.nav = nav;
+        this.navCtrl = navCtrl;
     }
     Page1.prototype.presentLoadingIos = function () {
         var loading = this.loadingCtrl.create({
@@ -85,7 +85,7 @@ var Page1 = (function () {
         });
         loading.present();
         setTimeout(function () {
-            _this.nav.push(Page2);
+            _this.navCtrl.push(Page2);
         }, 1000);
         setTimeout(function () {
             loading.dismiss();

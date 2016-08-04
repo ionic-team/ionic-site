@@ -88,7 +88,7 @@ navigation controller for most situations (for more advanced situations, see
 <pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
 
 class MyComponent {
-  constructor(private nav: NavController) {
+  constructor(public navCtrl: NavController) {
 
   }
 }
@@ -154,14 +154,14 @@ import { OtherPage } from &#39;./other-page&#39;;
    `
 })
 export class StartPage {
-  constructor(private nav: NavController) {
+  constructor(public navCtrl: NavController) {
   }
 
   pushPage(){
     // push another page on to the navigation stack
     // causing the nav controller to transition to the new page
     // optional data can also be passed to the pushed page.
-    this.nav.push(OtherPage, {
+    this.navCtrl.push(OtherPage, {
       id: &quot;123&quot;,
       name: &quot;Carl&quot;
     });

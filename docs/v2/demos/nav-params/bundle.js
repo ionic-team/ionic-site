@@ -2498,12 +2498,12 @@
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(116);
 	var ApiDemoPage = (function () {
-	    function ApiDemoPage(nav) {
-	        this.nav = nav;
+	    function ApiDemoPage(navCtrl) {
+	        this.navCtrl = navCtrl;
 	        this.myParam = '';
 	    }
 	    ApiDemoPage.prototype.pushParams = function () {
-	        this.nav.push(PushPage, { 'myParam': this.myParam });
+	        this.navCtrl.push(PushPage, { 'myParam': this.myParam });
 	    };
 	    ApiDemoPage = __decorate([
 	        core_1.Component({
@@ -2516,18 +2516,17 @@
 	}());
 	exports.ApiDemoPage = ApiDemoPage;
 	var PushPage = (function () {
-	    function PushPage(nav, params) {
-	        this.nav = nav;
+	    function PushPage(params) {
 	        this.myParam = params.get('myParam');
 	    }
 	    PushPage = __decorate([
 	        core_1.Component({
 	            templateUrl: "page.html"
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _a) || Object])
 	    ], PushPage);
 	    return PushPage;
-	    var _a, _b;
+	    var _a;
 	}());
 	exports.PushPage = PushPage;
 	var ApiDemoApp = (function () {
@@ -54943,7 +54942,7 @@
 	 *  import { NavController } from 'ionic-angular';
 	 *
 	 *  class MyComponent {
-	 *    constructor(private nav: NavController) {
+	 *    constructor(public navCtrl: NavController) {
 	 *
 	 *    }
 	 *  }
@@ -55020,14 +55019,14 @@
 	 *    `
 	 * })
 	 * export class StartPage {
-	 *   constructor(private nav: NavController) {
+	 *   constructor(public navCtrl: NavController) {
 	 *   }
 	 *
 	 *   pushPage(){
 	 *     // push another page on to the navigation stack
 	 *     // causing the nav controller to transition to the new page
 	 *     // optional data can also be passed to the pushed page.
-	 *     this.nav.push(OtherPage, {
+	 *     this.navCtrl.push(OtherPage, {
 	 *       id: "123",
 	 *       name: "Carl"
 	 *     });
@@ -55186,7 +55185,7 @@
 	 * @usage
 	 * ```ts
 	 * export class MyClass{
-	 *  constructor(private params: NavParams){
+	 *  constructor(public params: NavParams){
 	 *    // userParams is an object we have in our nav-parameters
 	 *    this.params.get('userParams');
 	 *  }
@@ -55212,7 +55211,7 @@
 	     *
 	     * ```ts
 	     * export class MyClass{
-	     *  constructor(private params: NavParams){
+	     *  constructor(public params: NavParams){
 	     *    // userParams is an object we have in our nav-parameters
 	     *    this.params.get('userParams');
 	     *  }
@@ -66110,7 +66109,7 @@
 	 *
 	 * export class MyClass{
 	 *
-	 *  constructor(private actionSheetCtrl: ActionSheetController) {}
+	 *  constructor(public actionSheetCtrl: ActionSheetController) {}
 	 *
 	 *  presentActionSheet() {
 	 *    let actionSheet = this.actionSheetCtrl.create({
@@ -67944,10 +67943,10 @@
 	 *
 	 * @Component({...})
 	 * export class MyPage {
-	 *  constructor(private menu: MenuController) {}
+	 *  constructor(public menuCtrl: MenuController) {}
 	 *
 	 *  openMenu() {
-	 *    this.menu.open();
+	 *    this.menuCtrl.open();
 	 *  }
 	 * }
 	 * ```
@@ -68513,20 +68512,20 @@
 	 * @Component({...})
 	 * export class MyPage {
 	 *
-	 *  constructor(private menu: MenuController) {
+	 *  constructor(public menuCtrl: MenuController) {
 	 *
 	 *  }
 	 *
 	 *  openMenu() {
-	 *    this.menu.open();
+	 *    this.menuCtrl.open();
 	 *  }
 	 *
 	 *  closeMenu() {
-	 *    this.menu.close();
+	 *    this.menuCtrl.close();
 	 *  }
 	 *
 	 *  toggleMenu() {
-	 *    this.menu.toggle();
+	 *    this.menuCtrl.toggle();
 	 *  }
 	 *
 	 * }
@@ -89953,7 +89952,7 @@
 	 * @Component(...)
 	 * class HomePage {
 	 *
-	 *  constructor(private modalCtrl: ModalController) {
+	 *  constructor(public modalCtrl: ModalController) {
 	 *
 	 *  }
 	 *
@@ -89993,7 +89992,7 @@
 	 * @Component(...)
 	 * class HomePage {
 	 *
-	 *  constructor(private modalCtrl: ModalController) {
+	 *  constructor(public modalCtrl: ModalController) {
 	 *
 	 *  }
 	 *
@@ -90015,7 +90014,7 @@
 	 * @Component(...)
 	 * class Profile {
 	 *
-	 *  constructor(private viewCtrl: ViewController) {
+	 *  constructor(public viewCtrl: ViewController) {
 	 *
 	 *  }
 	 *

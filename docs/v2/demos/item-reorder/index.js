@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(navCtrl) {
+        this.navCtrl = navCtrl;
         this.editButton = 'Edit';
         this.editing = false;
         this.songs = [

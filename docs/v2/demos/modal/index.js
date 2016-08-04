@@ -45,8 +45,7 @@ var ModalFirstPage = (function () {
 }());
 exports.ModalFirstPage = ModalFirstPage;
 var ModalContentPage = (function () {
-    function ModalContentPage(nav, viewCtrl, params) {
-        this.nav = nav;
+    function ModalContentPage(viewCtrl, params) {
         this.viewCtrl = viewCtrl;
         this.myParam = params.get('myParam');
     }
@@ -57,10 +56,10 @@ var ModalContentPage = (function () {
         core_1.Component({
             templateUrl: "modal-content.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _b) || Object])
     ], ModalContentPage);
     return ModalContentPage;
-    var _a, _b, _c;
+    var _a, _b;
 }());
 exports.ModalContentPage = ModalContentPage;
 var ApiDemoApp = (function () {

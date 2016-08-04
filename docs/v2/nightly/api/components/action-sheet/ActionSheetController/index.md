@@ -75,7 +75,7 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 export class MyClass{
 
- constructor(private actionSheetCtrl: ActionSheetController) {}
+ constructor(public actionSheetCtrl: ActionSheetController) {}
 
  presentActionSheet() {
    let actionSheet = this.actionSheetCtrl.create({

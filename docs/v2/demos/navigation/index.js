@@ -12,11 +12,11 @@ var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var PAGE_NUM = 2;
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(navCtrl) {
+        this.navCtrl = navCtrl;
     }
     ApiDemoPage.prototype.push = function () {
-        this.nav.push(PushPage);
+        this.navCtrl.push(PushPage);
     };
     ApiDemoPage = __decorate([
         core_1.Component({
@@ -29,19 +29,19 @@ var ApiDemoPage = (function () {
 }());
 exports.ApiDemoPage = ApiDemoPage;
 var PushPage = (function () {
-    function PushPage(nav) {
-        this.nav = nav;
+    function PushPage(navCtrl) {
+        this.navCtrl = navCtrl;
         this.pageNum = PAGE_NUM;
     }
     PushPage.prototype.push = function () {
         PAGE_NUM++;
-        this.nav.push(PushPage);
+        this.navCtrl.push(PushPage);
     };
     PushPage.prototype.pop = function () {
         if (PAGE_NUM > 2) {
             PAGE_NUM--;
         }
-        this.nav.pop();
+        this.navCtrl.pop();
     };
     PushPage = __decorate([
         core_1.Component({

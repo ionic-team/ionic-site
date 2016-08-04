@@ -98,9 +98,9 @@ var TabPage = (function () {
 }());
 exports.TabPage = TabPage;
 var ApiDemoPage = (function () {
-    function ApiDemoPage(platform, nav) {
+    function ApiDemoPage(platform, navCtrl) {
         this.platform = platform;
-        this.nav = nav;
+        this.navCtrl = navCtrl;
         if (window.localStorage.getItem('configDemo') !== null) {
             this.config = JSON.parse(window.localStorage.getItem('configDemo'));
         }
@@ -125,7 +125,7 @@ var ApiDemoPage = (function () {
         window.location.reload();
     };
     ApiDemoPage.prototype.push = function () {
-        this.nav.push(PushPage);
+        this.navCtrl.push(PushPage);
     };
     ApiDemoPage = __decorate([
         core_1.Component({
@@ -138,11 +138,11 @@ var ApiDemoPage = (function () {
 }());
 exports.ApiDemoPage = ApiDemoPage;
 var PushPage = (function () {
-    function PushPage(nav) {
-        this.nav = nav;
+    function PushPage(navCtrl) {
+        this.navCtrl = navCtrl;
     }
     PushPage.prototype.pop = function () {
-        this.nav.pop();
+        this.navCtrl.pop();
     };
     PushPage = __decorate([
         core_1.Component({

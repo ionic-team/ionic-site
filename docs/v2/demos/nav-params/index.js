@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(navCtrl) {
+        this.navCtrl = navCtrl;
         this.myParam = '';
     }
     ApiDemoPage.prototype.pushParams = function () {
-        this.nav.push(PushPage, { 'myParam': this.myParam });
+        this.navCtrl.push(PushPage, { 'myParam': this.myParam });
     };
     ApiDemoPage = __decorate([
         core_1.Component({
@@ -29,18 +29,17 @@ var ApiDemoPage = (function () {
 }());
 exports.ApiDemoPage = ApiDemoPage;
 var PushPage = (function () {
-    function PushPage(nav, params) {
-        this.nav = nav;
+    function PushPage(params) {
         this.myParam = params.get('myParam');
     }
     PushPage = __decorate([
         core_1.Component({
             templateUrl: "page.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _a) || Object])
     ], PushPage);
     return PushPage;
-    var _a, _b;
+    var _a;
 }());
 exports.PushPage = PushPage;
 var ApiDemoApp = (function () {

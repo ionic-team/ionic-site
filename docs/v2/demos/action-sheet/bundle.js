@@ -54970,7 +54970,7 @@
 	 *  import { NavController } from 'ionic-angular';
 	 *
 	 *  class MyComponent {
-	 *    constructor(private nav: NavController) {
+	 *    constructor(public navCtrl: NavController) {
 	 *
 	 *    }
 	 *  }
@@ -55047,14 +55047,14 @@
 	 *    `
 	 * })
 	 * export class StartPage {
-	 *   constructor(private nav: NavController) {
+	 *   constructor(public navCtrl: NavController) {
 	 *   }
 	 *
 	 *   pushPage(){
 	 *     // push another page on to the navigation stack
 	 *     // causing the nav controller to transition to the new page
 	 *     // optional data can also be passed to the pushed page.
-	 *     this.nav.push(OtherPage, {
+	 *     this.navCtrl.push(OtherPage, {
 	 *       id: "123",
 	 *       name: "Carl"
 	 *     });
@@ -55213,7 +55213,7 @@
 	 * @usage
 	 * ```ts
 	 * export class MyClass{
-	 *  constructor(private params: NavParams){
+	 *  constructor(public params: NavParams){
 	 *    // userParams is an object we have in our nav-parameters
 	 *    this.params.get('userParams');
 	 *  }
@@ -55239,7 +55239,7 @@
 	     *
 	     * ```ts
 	     * export class MyClass{
-	     *  constructor(private params: NavParams){
+	     *  constructor(public params: NavParams){
 	     *    // userParams is an object we have in our nav-parameters
 	     *    this.params.get('userParams');
 	     *  }
@@ -66137,7 +66137,7 @@
 	 *
 	 * export class MyClass{
 	 *
-	 *  constructor(private actionSheetCtrl: ActionSheetController) {}
+	 *  constructor(public actionSheetCtrl: ActionSheetController) {}
 	 *
 	 *  presentActionSheet() {
 	 *    let actionSheet = this.actionSheetCtrl.create({
@@ -67971,10 +67971,10 @@
 	 *
 	 * @Component({...})
 	 * export class MyPage {
-	 *  constructor(private menu: MenuController) {}
+	 *  constructor(public menuCtrl: MenuController) {}
 	 *
 	 *  openMenu() {
-	 *    this.menu.open();
+	 *    this.menuCtrl.open();
 	 *  }
 	 * }
 	 * ```
@@ -68540,20 +68540,20 @@
 	 * @Component({...})
 	 * export class MyPage {
 	 *
-	 *  constructor(private menu: MenuController) {
+	 *  constructor(public menuCtrl: MenuController) {
 	 *
 	 *  }
 	 *
 	 *  openMenu() {
-	 *    this.menu.open();
+	 *    this.menuCtrl.open();
 	 *  }
 	 *
 	 *  closeMenu() {
-	 *    this.menu.close();
+	 *    this.menuCtrl.close();
 	 *  }
 	 *
 	 *  toggleMenu() {
-	 *    this.menu.toggle();
+	 *    this.menuCtrl.toggle();
 	 *  }
 	 *
 	 * }
@@ -89980,7 +89980,7 @@
 	 * @Component(...)
 	 * class HomePage {
 	 *
-	 *  constructor(private modalCtrl: ModalController) {
+	 *  constructor(public modalCtrl: ModalController) {
 	 *
 	 *  }
 	 *
@@ -90020,7 +90020,7 @@
 	 * @Component(...)
 	 * class HomePage {
 	 *
-	 *  constructor(private modalCtrl: ModalController) {
+	 *  constructor(public modalCtrl: ModalController) {
 	 *
 	 *  }
 	 *
@@ -90042,7 +90042,7 @@
 	 * @Component(...)
 	 * class Profile {
 	 *
-	 *  constructor(private viewCtrl: ViewController) {
+	 *  constructor(public viewCtrl: ViewController) {
 	 *
 	 *  }
 	 *

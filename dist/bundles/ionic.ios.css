@@ -295,23 +295,6 @@ ion-content.js-scroll > scroll-content {
 .nav-decor {
   display: none; }
 
-.css-scrollbars ::-webkit-scrollbar {
-  width: 9px; }
-
-.css-scrollbars ::-webkit-scrollbar-thumb:vertical {
-  min-height: 10px;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.4);
-  background-clip: padding-box; }
-
-.css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
-  min-height: 10px;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  background-clip: padding-box; }
-
 html {
   font-size: 62.5%; }
 

@@ -13,41 +13,7 @@ var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
     function ApiDemoPage(toastCtrl) {
         this.toastCtrl = toastCtrl;
-        this.editButton = 'Edit';
-        this.editing = false;
         this.chats = [
-            {
-                img: './avatar-cher.png',
-                name: 'Cher',
-                message: 'Ugh. As if.',
-                time: '9:38 pm'
-            }, {
-                img: './avatar-dionne.png',
-                name: 'Dionne',
-                message: 'Mr. Hall was way harsh.',
-                time: '8:59 pm'
-            }, {
-                img: './avatar-murray.png',
-                name: 'Murray',
-                message: 'Excuse me, "Ms. Dione."',
-                time: 'Wed'
-            },
-            {
-                img: './avatar-cher.png',
-                name: 'Cher',
-                message: 'Ugh. As if.',
-                time: '9:38 pm'
-            }, {
-                img: './avatar-dionne.png',
-                name: 'Dionne',
-                message: 'Mr. Hall was way harsh.',
-                time: '8:59 pm'
-            }, {
-                img: './avatar-murray.png',
-                name: 'Murray',
-                message: 'Excuse me, "Ms. Dione."',
-                time: 'Wed'
-            },
             {
                 img: './avatar-cher.png',
                 name: 'Cher',
@@ -83,15 +49,6 @@ var ApiDemoPage = (function () {
                 username: 'administrator',
             }];
     }
-    ApiDemoPage.prototype.toggleEdit = function () {
-        this.editing = !this.editing;
-        if (this.editing) {
-            this.editButton = 'Done';
-        }
-        else {
-            this.editButton = 'Edit';
-        }
-    };
     ApiDemoPage.prototype.more = function (item) {
         console.log('More');
         item.close();

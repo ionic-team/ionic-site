@@ -977,7 +977,7 @@ and animate in to become the active view.
       </td>
       <td>
         
-  <code>array&lt;{page: Page, params=: any}&gt;</code>
+  <code>array</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property.</p>

@@ -62,20 +62,21 @@ var ApiDemoPage = (function () {
         item.close();
     };
     ApiDemoPage.prototype.archive = function (item) {
-        console.log('Archive');
-        item.close();
+        this.expandAction(item, 'archiving', 'Chat was archived.');
     };
     ApiDemoPage.prototype.download = function (item) {
+        this.expandAction(item, 'downloading', 'Login was downloaded.');
+    };
+    ApiDemoPage.prototype.expandAction = function (item, action, text) {
         var _this = this;
-        item.setCssClass('downloading', true);
+        item.setCssClass(action, true);
         setTimeout(function () {
             var toast = _this.toastCtrl.create({
-                message: 'Item was downloaded!'
+                message: text
             });
             toast.present();
-            item.setCssClass('downloading', false);
+            item.setCssClass(action, false);
             item.close();
-            // Wait 2s to close toast
             setTimeout(function () { return toast.dismiss(); }, 2000);
         }, 1500);
     };

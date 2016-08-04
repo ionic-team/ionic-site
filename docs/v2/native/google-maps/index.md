@@ -63,7 +63,9 @@ docType: "class"
 ...
 
 // somewhere in your component
-let map = new GoogleMap(&#39;elementID&#39;);
+let map = new GoogleMap(&#39;elementID&#39;, {
+ // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
+ });
 
 map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is ready!&#39;));
 </code></pre>
@@ -78,7 +80,8 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is rea
   
 </h3>
 
-Checks if a map object has been created.
+Checks if a map object has been created and is available.
+
 
 
 
@@ -88,7 +91,7 @@ Checks if a map object has been created.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the plugin is available.
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -106,6 +109,7 @@ Checks if a map object has been created.
 
 </h3>
 
+Listen to a map event.
 
 
 
@@ -113,6 +117,11 @@ Checks if a map object has been created.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 
@@ -125,6 +134,7 @@ Checks if a map object has been created.
 
 </h3>
 
+Listen to a map event only once.
 
 
 
@@ -132,6 +142,11 @@ Checks if a map object has been created.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -182,7 +197,7 @@ Checks if a map object has been created.
 
 </h3>
 
-Get the position of the camera
+Get the position of the camera.
 
 
 
@@ -190,6 +205,11 @@ Get the position of the camera
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;CameraPosition&gt;</code> 
+</div>
 
 
 
@@ -202,7 +222,7 @@ Get the position of the camera
 
 </h3>
 
-Get the location of the user
+Get the location of the user.
 
 
 
@@ -210,6 +230,11 @@ Get the location of the user
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;MyLocation&gt;</code> 
+</div>
 
 
 
@@ -222,7 +247,7 @@ Get the location of the user
 
 </h3>
 
-Get the visible region
+Get the visible region.
 
 
 
@@ -230,6 +255,11 @@ Get the visible region
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;VisibleRegion&gt;</code> 
+</div>
 
 
 

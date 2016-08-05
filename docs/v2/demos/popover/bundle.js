@@ -53940,6 +53940,13 @@
 	                    // return a promise and resolve when the transition has completed
 	                    // get the leaving view which the _insert() already set
 	                    var leavingView = this.getByState(exports.STATE_INIT_LEAVE);
+	                    if (!leavingView && this._isPortal) {
+	                        // if we didn't find an active view, and this is a portal
+	                        var activeNav = this._app.getActiveNav();
+	                        if (activeNav) {
+	                            leavingView = activeNav.getByState(exports.STATE_INIT_LEAVE);
+	                        }
+	                    }
 	                    // start the transition, fire resolve when done...
 	                    this._transition(enteringView, leavingView, opts, done);
 	                    return promise;
@@ -53966,6 +53973,13 @@
 	        }
 	        // first see if there's an active view
 	        var view = this.getActive();
+	        if (!view && this._isPortal) {
+	            // if we didn't find an active view, and this is a portal
+	            var activeNav = this._app.getActiveNav();
+	            if (activeNav) {
+	                view = activeNav.getActive();
+	            }
+	        }
 	        if (view) {
 	            // there's an active view, set that it's initialized to leave
 	            view.state = exports.STATE_INIT_LEAVE;
@@ -54063,6 +54077,16 @@
 	            // to happen and the previously active view is going to animate out
 	            // get the view thats ready to enter
 	            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
+	            if (!enteringView && this._isPortal) {
+	                // if we didn't find an active view, and this is a portal
+	                var activeNav = this._app.getActiveNav();
+	                if (activeNav) {
+	                    enteringView = activeNav.last();
+	                    if (enteringView) {
+	                        enteringView.state = exports.STATE_INIT_ENTER;
+	                    }
+	                }
+	            }
 	            if (!enteringView && !this._isPortal) {
 	                // oh nos! no entering view to go to!
 	                // if there is no previous view that would enter in this nav stack
@@ -57988,6 +58012,7 @@
 	    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl, viewPort) {
 	        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
 	        this._isPortal = true;
+	        this._init = true;
 	        this.setViewport(viewPort);
 	        app.setPortal(this);
 	        // on every page change make sure the portal has

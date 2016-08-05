@@ -70297,6 +70297,61 @@
 	 * }
 	 * ```
 	 *
+	 * @advanced
+	 *
+	 * Resizing the content
+	 *
+	 *
+	 * ```ts
+	 * @Component({
+	 *   template: `
+	 *     <ion-header>
+	 *       <ion-navbar>
+	 *         <ion-title>Main Navbar</ion-title>
+	 *       </ion-navbar>
+	 *       <ion-toolbar *ngIf="showToolbar">
+	 *         <ion-title>Dynamic Toolbar</ion-title>
+	 *       </ion-toolbar>
+	 *     </ion-header>
+	 *     <ion-content>
+	 *       <button (click)="toggleToolbar()">Toggle Toolbar</button>
+	 *     </ion-content>
+	 * `})
+	 *
+	 * class E2EPage {
+	 *   @ViewChild(Content) content: Content;
+	 *   showToolbar: boolean = false;
+	 *
+	 *   toggleToolbar() {
+	 *     this.showToolbar = !this.showToolbar;
+	 *     this.content.resize();
+	 *   }
+	 * }
+	 * ```
+	 *
+	 *
+	 * Scroll to a specific position
+	 *
+	 * ```ts
+	 * import { Component, ViewChild } from '@angular/core';
+	 * import { Content } from 'ionic-angular';
+	 *
+	 * @Component({
+	 *   template: `<ion-content>
+	 *                <button (click)="scrollTo()">Down 500px</button>
+	 *              </ion-content>`
+	 * )}
+	 * export class MyPage{
+	 *   @ViewChild(Content) content: Content;
+	 *
+	 *   scrollTo() {
+	 *     // set the scrollLeft to 0px, and scrollTop to 500px
+	 *     // the scroll duration should take 200ms
+	 *     this.content.scrollTo(0, 500, 200);
+	 *   }
+	 * }
+	 * ```
+	 *
 	 */
 	var Content = (function (_super) {
 	    __extends(Content, _super);
@@ -70433,25 +70488,6 @@
 	    /**
 	     * Scroll to the specified position.
 	     *
-	     * ```ts
-	     * import { Component, ViewChild } from '@angular/core';
-	     * import { Content } from 'ionic-angular';
-	     *
-	     * @Component({
-	     *   template: `<ion-content>
-	     *                <button (click)="scrollTo()">Down 500px</button>
-	     *              </ion-content>`
-	     * )}
-	     * export class MyPage{
-	     *   @ViewChild(Content) content: Content;
-	     *
-	     *   scrollTo() {
-	     *     // set the scrollLeft to 0px, and scrollTop to 500px
-	     *     // the scroll duration should take 200ms
-	     *     this.content.scrollTo(0, 500, 200);
-	     *   }
-	     * }
-	     * ```
 	     * @param {number} x  The x-value to scroll to.
 	     * @param {number} y  The y-value to scroll to.
 	     * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
@@ -70464,23 +70500,6 @@
 	    /**
 	     * Scroll to the top of the content component.
 	     *
-	     * ```ts
-	     * import { Component, ViewChild } from '@angular/core';
-	     * import { Content } from 'ionic-angular';
-	     *
-	     * @Component({
-	     *   template: `<ion-content>
-	     *                <button (click)="scrollToTop()">Scroll to top</button>
-	     *              </ion-content>`
-	     * )}
-	     * export class MyPage{
-	     *   @ViewChild(Content) content: Content;
-	     *
-	     *   scrollToTop() {
-	     *     this.content.scrollToTop();
-	     *   }
-	     * }
-	     * ```
 	     * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
 	     * @returns {Promise} Returns a promise which is resolved when the scroll has completed.
 	     */
@@ -70622,33 +70641,6 @@
 	    /**
 	     * Tell the content to recalculate its dimensions. This should be called
 	     * after dynamically adding headers, footers, or tabs.
-	     *
-	     * ```ts
-	     * @Component({
-	     *   template: `
-	     *     <ion-header>
-	     *       <ion-navbar>
-	     *         <ion-title>Main Navbar</ion-title>
-	     *       </ion-navbar>
-	     *       <ion-toolbar *ngIf="showToolbar">
-	     *         <ion-title>Dynamic Toolbar</ion-title>
-	     *       </ion-toolbar>
-	     *     </ion-header>
-	     *     <ion-content>
-	     *       <button (click)="toggleToolbar()">Toggle Toolbar</button>
-	     *     </ion-content>
-	     * `})
-	     *
-	     * class E2EPage {
-	     *   @ViewChild(Content) content: Content;
-	     *   showToolbar: boolean = false;
-	     *
-	     *   toggleToolbar() {
-	     *     this.showToolbar = !this.showToolbar;
-	     *     this.content.resize();
-	     *   }
-	     * }
-	     * ```
 	     *
 	     */
 	    Content.prototype.resize = function () {

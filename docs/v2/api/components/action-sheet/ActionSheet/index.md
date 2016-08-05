@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-beta.11"
+versionHref: "/docs/v2/2.0.0-beta-11"
 path: ""
 category: api
 id: "actionsheet"
@@ -60,7 +60,7 @@ Improve this doc
 <h3>
 <a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(title)</code>
-  
+
 
 </h3>
 
@@ -76,24 +76,24 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         title
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Action sheet title</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -109,7 +109,7 @@ Improve this doc
 <h3>
 <a class="anchor" name="setSubTitle" href="#setSubTitle"></a>
 <code>setSubTitle(subTitle)</code>
-  
+
 
 </h3>
 
@@ -125,24 +125,24 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         subTitle
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Action sheet subtitle</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -158,7 +158,7 @@ Improve this doc
 <h3>
 <a class="anchor" name="addButton" href="#addButton"></a>
 <code>addButton(button)</code>
-  
+
 
 </h3>
 
@@ -174,24 +174,24 @@ Improve this doc
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         button
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Action sheet button</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -207,7 +207,7 @@ Improve this doc
 <h3>
 <a class="anchor" name="present" href="#present"></a>
 <code>present(opts)</code>
-  
+
 
 </h3>
 
@@ -224,24 +224,24 @@ Present the action sheet instance.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>NavOptions</code>
       </td>
       <td>
         <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -251,7 +251,7 @@ Present the action sheet instance.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
 
 
@@ -267,4 +267,3 @@ Present the action sheet instance.
 
 
 <!-- end body block -->
-

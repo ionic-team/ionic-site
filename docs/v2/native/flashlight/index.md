@@ -155,14 +155,17 @@ Toggles the flashlight
 
 
 Checks if the flashlight is turned on.
-Returns a boolean
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
 
 
 

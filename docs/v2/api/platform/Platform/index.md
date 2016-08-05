@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
 id: "platform"
@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/platform/platform.ts#L3">
 Improve this doc
 </a>
 

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
 id: "showwhen"
@@ -35,7 +35,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L56">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/components/show-hide-when/show-hide-when.ts#L56">
 Improve this doc
 </a>
 

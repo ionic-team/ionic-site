@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta.11"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
 id: "pangesture"
@@ -31,7 +31,7 @@ PanGesture
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/drag-gesture.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/gestures/drag-gesture.ts#L15">
 Improve this doc
 </a>
 

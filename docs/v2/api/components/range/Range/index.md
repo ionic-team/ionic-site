@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/range/range.ts#L102">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/range/range.ts#L105">
 Improve this doc
 </a>
 
@@ -67,7 +67,6 @@ tick mark based on the step property value.</p>
 <p>Setting the <code>dualKnobs</code> property to <code>true</code> on the range component will
 enable two knobs on the range. If the range has two knobs, the value will
 be an object containing two properties: <code>lower</code> and <code>upper</code>.</p>
-
 
 
 
@@ -211,7 +210,8 @@ If there is only one knob, then this will return `null`.
     <tr>
       <td>debounce</td>
       <td><code>number</code></td>
-      <td><p> If true, a pin with integer value is shown when the knob is pressed. Defaults to <code>false</code>.</p>
+      <td><p> How long, in milliseconds, to wait to trigger the <code>ionChange</code>
+event after each change in the range value. Default <code>0</code>.</p>
 </td>
     </tr>
     
@@ -250,6 +250,8 @@ If there is only one knob, then this will return `null`.
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

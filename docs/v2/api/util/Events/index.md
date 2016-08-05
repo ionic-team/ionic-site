@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -48,12 +48,11 @@ events across your app.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Events} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Events } from &#39;ionic-angular&#39;;
 
 constructor(public events: Events) {}
 
@@ -282,6 +281,8 @@ Publish an event to the given topic.
     
   </tbody>
 </table>
+
+
 
 
 

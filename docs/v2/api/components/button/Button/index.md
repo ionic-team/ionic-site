@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -46,7 +46,6 @@ Improve this doc
 
 <p>Buttons are simple components in Ionic. They can consist of text and icons
 and be enhanced by a wide range of attributes.</p>
-
 
 
 
@@ -393,6 +392,8 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

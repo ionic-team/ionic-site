@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L125">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L124">
 Improve this doc
 </a>
 
@@ -58,25 +58,29 @@ textarea&#39;s inner content.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-item&gt;
-  &lt;ion-label&gt;Comments&lt;/ion-label&gt;
-  &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
+<pre><code class="lang-html"> &lt;ion-item&gt;
+   &lt;ion-label&gt;Comments&lt;/ion-label&gt;
+   &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
+
+ &lt;ion-item&gt;
+   &lt;ion-label stacked&gt;Message&lt;/ion-label&gt;
+   &lt;ion-textarea [(ngModel)]=&quot;msg&quot;&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
+
+ &lt;ion-item&gt;
+   &lt;ion-label floating&gt;Description&lt;/ion-label&gt;
+   &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-label stacked&gt;Message&lt;/ion-label&gt;
-  &lt;ion-textarea [(ngModel)]=&quot;msg&quot;&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
-
-&lt;ion-item&gt;
-  &lt;ion-label floating&gt;Description&lt;/ion-label&gt;
-  &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
-&lt;/ion-item&gt;
+   &lt;ion-label&gt;Long Description&lt;/ion-label&gt;
+   &lt;ion-textarea rows=&quot;6&quot; placeholder=&quot;enter long description here...&quot;&gt;&lt;/ion-textarea&gt;
+ &lt;/ion-item&gt;
 </code></pre>
 
 
@@ -87,6 +91,8 @@ textarea&#39;s inner content.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

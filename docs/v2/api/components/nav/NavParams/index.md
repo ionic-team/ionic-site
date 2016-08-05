@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -49,13 +49,12 @@ option with a simple <code>get</code> method.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
- constructor(private params: NavParams){
+ constructor(public params: NavParams){
    // userParams is an object we have in our nav-parameters
    this.params.get(&#39;userParams&#39;);
  }
@@ -106,7 +105,7 @@ Get the value of a nav-parameter for the current view
 
 ```ts
 export class MyClass{
- constructor(private params: NavParams){
+ constructor(public params: NavParams){
    // userParams is an object we have in our nav-parameters
    this.params.get('userParams');
  }
@@ -145,6 +144,8 @@ export class MyClass{
     
   </tbody>
 </table>
+
+
 
 
 

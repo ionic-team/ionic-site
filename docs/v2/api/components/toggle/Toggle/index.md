@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,7 +50,6 @@ Toggles can also have colors assigned to them, by adding any color
 attribute.</p>
 <p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
 for more info on forms and inputs.</p>
-
 
 
 
@@ -134,6 +133,8 @@ for more info on forms and inputs.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

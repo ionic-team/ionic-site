@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L59">
 Improve this doc
 </a>
 
@@ -47,8 +47,9 @@ Improve this doc
 <p>Navbar acts as the navigational toolbar, which also comes with a back
 button. A navbar can contain a <code>ion-title</code>, any number of buttons,
 a segment, or a searchbar. Navbars must be placed within an
-<code>&lt;ion-header&gt;</code> in order for them to be placed above the content.</p>
-
+<code>&lt;ion-header&gt;</code> in order for them to be placed above the content.
+It&#39;s important to note that navbar&#39;s are part of the dynamica navigation
+stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
 
@@ -107,6 +108,8 @@ a segment, or a searchbar. Navbars must be placed within an
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -44,38 +44,38 @@ Improve this doc
 
 <p>The Config lets you configure your entire app or specific platforms.
 You can set the tab placement, icon mode, animations, and more here.</p>
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
 
 ionicBootstrap(AppRoot, customProviders, {
   backButtonText: &#39;Go Back&#39;,
   iconMode: &#39;ios&#39;,
   modalEnter: &#39;modal-slide-in&#39;,
   modalLeave: &#39;modal-slide-out&#39;,
-  tabbarPlacement: &#39;bottom&#39;,
+  tabsPlacement: &#39;bottom&#39;,
   pageTransition: &#39;ios&#39;,
 });
 </code></pre>
 <p>Config can be overwritten at multiple levels allowing for more granular configuration.
 Below is an example where an app can override any setting we want based on a platform.</p>
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
 
 ionicBootstrap(AppRoot, customProviders, {
-  tabbarPlacement: &#39;bottom&#39;,
+  tabsPlacement: &#39;bottom&#39;,
   platforms: {
   ios: {
-    tabbarPlacement: &#39;top&#39;,
+    tabsPlacement: &#39;top&#39;,
   }
 });
 </code></pre>
-<p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>,
+<p>We could also configure these values at a component level. Take <code>tabsPlacement</code>,
 we can configure this as a property on our <code>ion-tabs</code>.</p>
-<pre><code class="lang-html">&lt;ion-tabs tabbarPlacement=&quot;top&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs tabsPlacement=&quot;top&quot;&gt;
   &lt;ion-tab tabTitle=&quot;Dash&quot; tabIcon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>The last way we could configure is through URL query strings. This is useful for testing
 while in the browser. Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
-<pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
+<pre><code class="lang-bash">http://localhost:8100/?ionicTabsPlacement=bottom
 </code></pre>
 <p>Any value can be added to config, and looked up at a later in any component.</p>
 <pre><code class="lang-js">config.set(&#39;ios&#39;, &#39;favoriteColor&#39;, &#39;green&#39;);
@@ -202,22 +202,22 @@ chart displays each property with a description of what it controls.</p>
 <td>The default spinner to use when a name is not defined.</td>
 </tr>
 <tr>
-<td><code>tabbarHighlight</code></td>
+<td><code>tabsHighlight</code></td>
 <td><code>boolean</code></td>
 <td>Whether to show a highlight line under the tab when it is selected.</td>
 </tr>
 <tr>
-<td><code>tabbarLayout</code></td>
+<td><code>tabsLayout</code></td>
 <td><code>string</code></td>
 <td>The layout to use for all tabs. Available options: <code>&quot;icon-top&quot;</code>, <code>&quot;icon-left&quot;</code>, <code>&quot;icon-right&quot;</code>, <code>&quot;icon-bottom&quot;</code>, <code>&quot;icon-hide&quot;</code>, <code>&quot;title-hide&quot;</code>.</td>
 </tr>
 <tr>
-<td><code>tabbarPlacement</code></td>
+<td><code>tabsPlacement</code></td>
 <td><code>string</code></td>
-<td>The position of the tabs. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
+<td>The position of the tabs relative to the content. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
 </tr>
 <tr>
-<td><code>tabSubPages</code></td>
+<td><code>tabsHideOnSubPages</code></td>
 <td><code>boolean</code></td>
 <td>Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</td>
 </tr>
@@ -233,7 +233,6 @@ chart displays each property with a description of what it controls.</p>
 </tr>
 </tbody>
 </table>
-
 
 
 
@@ -282,7 +281,7 @@ Returns a single config value, given a key.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -301,7 +300,7 @@ Returns a single config value, given a key.
       <td>
         <p>a fallback value to use when the config
 value was not found, or is config value is <code>null</code>. Fallback value
- defaults to <code>null</code>.</p>
+ defaults to <code>null</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -354,7 +353,7 @@ the config value was the string value `"true"`.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -372,7 +371,7 @@ the config value was the string value `"true"`.
       </td>
       <td>
         <p>a fallback value to use when the config
-value was <code>null</code>. Fallback value defaults to <code>false</code>.</p>
+value was <code>null</code>. Fallback value defaults to <code>false</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -425,7 +424,7 @@ is not a valid number.
   <code>string</code>
       </td>
       <td>
-        <p>the key for the config value</p>
+        <p>the key for the config value<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -443,7 +442,7 @@ is not a valid number.
       </td>
       <td>
         <p>a fallback value to use when the config
-value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</code>.</p>
+value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -492,7 +491,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.</p>
+        <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -509,7 +508,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The key used to look up the value at a later point in time.</p>
+        <p>The key used to look up the value at a later point in time.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -526,7 +525,7 @@ Sets a single config value.
   <code>string</code>
       </td>
       <td>
-        <p>The config value being stored.</p>
+        <p>The config value being stored.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -534,6 +533,8 @@ Sets a single config value.
     
   </tbody>
 </table>
+
+
 
 
 

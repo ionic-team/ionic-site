@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L14">
 Improve this doc
 </a>
 
@@ -67,7 +67,7 @@ component&#39;s value receives the value of the selected option&#39;s value.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Gender&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
-    &lt;ion-option value=&quot;f&quot; checked=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
+    &lt;ion-option value=&quot;f&quot; selected=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
     &lt;ion-option value=&quot;m&quot;&gt;Male&lt;/ion-option&gt;
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
@@ -120,7 +120,6 @@ for more properties.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -129,6 +128,29 @@ for more properties.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="open"></div>
+
+<h3>
+<a class="anchor" name="open" href="#open"></a>
+<code>open()</code>
+  
+
+</h3>
+
+Open the select interface.
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -178,6 +200,13 @@ See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</
     </tr>
     
     <tr>
+      <td>selectedText</td>
+      <td><code>string</code></td>
+      <td><p> The text to display instead of the selected option&#39;s value.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>multiple</td>
       <td><code>boolean</code></td>
       <td><p> Whether or not the select component can accept multiple values. Default: <code>false</code>.</p>
@@ -218,6 +247,8 @@ See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

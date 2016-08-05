@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L3">
 Improve this doc
 </a>
 
@@ -53,12 +53,11 @@ customize your app to fit any device.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Platform} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Platform } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export MyPage {
@@ -117,7 +116,7 @@ from Cordova then `cordova` would be true, and if it was running
 from a web browser on the iPad then `mobileweb` would be `true`.
 
 ```
-import {Platform} from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
@@ -205,7 +204,7 @@ Each possible value is a hierarchy of platforms. For example, on an iPhone,
 it would return `mobile`, `ios`, and `iphone`.
 
 ```
-import {Platform} from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
@@ -246,7 +245,7 @@ export MyPage {
 Returns an object containing version information about all of the platforms.
 
 ```
-import {Platform} from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
@@ -300,8 +299,8 @@ platform the app is running from. For example, only Cordova can execute
 the status bar plugin, so the web should not run status bar plugin logic.
 
 ```
-import {Component} from '@angular/core';
-import {Platform} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyApp {
@@ -735,6 +734,8 @@ Returns `true` if the app is in portait mode.
 </h3>
 
 Returns `true` if the app is in landscape mode.
+
+
 
 
 

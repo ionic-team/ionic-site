@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -125,7 +125,6 @@ getting the <code>Swiper</code> instance and using its methods directly.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -144,8 +143,8 @@ getting the <code>Swiper</code> instance and using its methods directly.</p>
 &lt;/ion-slides&gt;
 </code></pre>
 <p>To add <a href="#configuring">options</a>, we will define them in <code>mySlideOptions</code> in our class <code>MyPage</code>:</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {Slides} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { Slides } from &#39;ionic-angular&#39;;
 
 @Component({
   templateUrl: &#39;my-page.html&#39;
@@ -170,7 +169,7 @@ to <code>&lt;ion-slides&gt;</code> called <code>mySlider</code>:</p>
 <pre><code class="lang-html">&lt;ion-slides #mySlider [options]=&quot;mySlideOptions&quot;&gt;
 </code></pre>
 <p>Next, we can use <code>ViewChild</code> to assign the Slides instance to <code>slider</code>:</p>
-<pre><code class="lang-ts">import {ViewChild} from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
 
 class MyPage {
   @ViewChild(&#39;mySlider&#39;) slider: Slides;
@@ -178,7 +177,7 @@ class MyPage {
   ...
 }
 </code></pre>
-<p>Now we can call any of the <code>Slider</code> <a href="(#instance-members">methods</a>),
+<p>Now we can call any of the <code>Slider</code> <a href="#instance-members">methods</a>,
 for example we can use the Slider&#39;s <code>slideTo()</code> method in order to
 navigate to a specific slide on a button click. Below we call the
 <code>goToSlide()</code> method and it navigates to the 3rd slide:</p>
@@ -270,7 +269,7 @@ Transition to the specified slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -287,7 +286,7 @@ Transition to the specified slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -337,7 +336,7 @@ Transition to the next slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -354,7 +353,7 @@ Transition to the next slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -404,7 +403,7 @@ Transition to the previous slide.
   <code>number</code>
       </td>
       <td>
-        <p>Transition duration (in ms). Optional.</p>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -421,7 +420,7 @@ Transition to the previous slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -659,6 +658,8 @@ the `Swiper` instance directly.
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

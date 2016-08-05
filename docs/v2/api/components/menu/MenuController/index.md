@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,7 +50,6 @@ of these are passed to it, it will grab the first menu it finds.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -70,26 +69,26 @@ for more information on adding menu components.</p>
 <p>To call the controller methods, inject the <code>MenuController</code> provider
 into the page. Then, create some methods for opening, closing, and
 toggling the menu.</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {MenuController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { MenuController } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage {
 
- constructor(private menu: MenuController) {
+ constructor(public menuCtrl: MenuController) {
 
  }
 
  openMenu() {
-   this.menu.open();
+   this.menuCtrl.open();
  }
 
  closeMenu() {
-   this.menu.close();
+   this.menuCtrl.close();
  }
 
  toggleMenu() {
-   this.menu.toggle();
+   this.menuCtrl.toggle();
  }
 
 }
@@ -201,7 +200,7 @@ is given then it'll close that exact menu.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -221,26 +220,6 @@ is given then it'll close that exact menu.
 
 
 </div>
-
-
-
-
-<div id="tempDisable"></div>
-
-<h3>
-<a class="anchor" name="tempDisable" href="#tempDisable"></a>
-<code>tempDisable()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
 
 
 
@@ -279,7 +258,7 @@ will close.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -339,7 +318,7 @@ will also automatically disable all the others that are on the same side.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -413,7 +392,7 @@ Used to enable or disable the ability to swipe open the menu.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -528,7 +507,7 @@ property. If a menu is not found then it'll return `null`.
   <code>string</code>
       </td>
       <td>
-        <p>Optionally get the menu by its id, or side.</p>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -545,6 +524,33 @@ property. If a menu is not found then it'll return `null`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
+
+
+</div>
+
+
+
+
+<div id="getOpen"></div>
+
+<h3>
+<a class="anchor" name="getOpen" href="#getOpen"></a>
+<code>getOpen()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
 
 
 </div>
@@ -575,6 +581,8 @@ property. If a menu is not found then it'll return `null`.
 
 
 </div>
+
+
 
 
 

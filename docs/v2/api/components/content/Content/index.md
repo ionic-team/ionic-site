@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,7 +50,6 @@ some useful methods to control the scrollable area.</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
@@ -61,8 +60,8 @@ some useful methods to control the scrollable area.</p>
 </code></pre>
 <p>To get a reference to the content component from a Page&#39;s logic,
 you can use Angular&#39;s <code>@ViewChild</code> annotation:</p>
-<pre><code class="lang-ts">import {Component, ViewChild} from &#39;@angular/core&#39;;
-import {Content} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component, ViewChild } from &#39;@angular/core&#39;;
+import { Content } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage{
@@ -85,6 +84,50 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="contentTop"></div>
+
+<h3>
+<a class="anchor" name="contentTop" href="#contentTop"></a>
+<code>contentTop</code>
+  
+
+</h3>
+
+A number representing how many pixels the top of the content has been
+adjusted, which could be by either padding or margin.
+
+
+
+
+
+
+
+
+
+
+
+<div id="contentBottom"></div>
+
+<h3>
+<a class="anchor" name="contentBottom" href="#contentBottom"></a>
+<code>contentBottom</code>
+  
+
+</h3>
+
+A number representing how many pixels the bottom of the content has been
+adjusted, which could be by either padding or margin.
+
+
+
+
+
+
+
+
+
+
+
 <div id="scrollTo"></div>
 
 <h3>
@@ -96,25 +139,6 @@ export class MyPage{
 
 Scroll to the specified position.
 
-```ts
-import {Component, ViewChild} from '@angular/core';
-import {Content} from 'ionic-angular';
-
-@Component({
-  template: `<ion-content>
-               <button (click)="scrollTo()">Down 500px</button>
-             </ion-content>`
-)}
-export class MyPage{
-  @ViewChild(Content) content: Content;
-
-  scrollTo() {
-    // set the scrollLeft to 0px, and scrollTop to 500px
-    // the scroll duration should take 200ms
-    this.content.scrollTo(0, 500, 200);
-  }
-}
-```
 
 
 <table class="table param-table" style="margin:0;">
@@ -172,7 +196,7 @@ export class MyPage{
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -207,23 +231,6 @@ export class MyPage{
 
 Scroll to the top of the content component.
 
-```ts
-import {Component, ViewChild} from '@angular/core';
-import {Content} from 'ionic-angular';
-
-@Component({
-  template: `<ion-content>
-               <button (click)="scrollToTop()">Scroll to top</button>
-             </ion-content>`
-)}
-export class MyPage{
-  @ViewChild(Content) content: Content;
-
-  scrollToTop() {
-    this.content.scrollToTop();
-  }
-}
-```
 
 
 <table class="table param-table" style="margin:0;">
@@ -247,7 +254,7 @@ export class MyPage{
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -378,7 +385,7 @@ Scroll to the bottom of the content component.
   <code>number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -597,6 +604,28 @@ Returns the content and scroll elements' dimensions.
 
 
 
+
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+Tell the content to recalculate its dimensions. This should be called
+after dynamically adding headers, footers, or tabs.
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -622,7 +651,55 @@ seen under the header as the user scrolls.</p>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Resizing the content</p>
+<pre><code class="lang-ts">@Component({
+  template: `
+    &lt;ion-header&gt;
+      &lt;ion-navbar&gt;
+        &lt;ion-title&gt;Main Navbar&lt;/ion-title&gt;
+      &lt;/ion-navbar&gt;
+      &lt;ion-toolbar *ngIf=&quot;showToolbar&quot;&gt;
+        &lt;ion-title&gt;Dynamic Toolbar&lt;/ion-title&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-header&gt;
+    &lt;ion-content&gt;
+      &lt;button (click)=&quot;toggleToolbar()&quot;&gt;Toggle Toolbar&lt;/button&gt;
+    &lt;/ion-content&gt;
+`})
+
+class E2EPage {
+  @ViewChild(Content) content: Content;
+  showToolbar: boolean = false;
+
+  toggleToolbar() {
+    this.showToolbar = !this.showToolbar;
+    this.content.resize();
+  }
+}
+</code></pre>
+<p>Scroll to a specific position</p>
+<pre><code class="lang-ts">import { Component, ViewChild } from &#39;@angular/core&#39;;
+import { Content } from &#39;ionic-angular&#39;;
+
+@Component({
+  template: `&lt;ion-content&gt;
+               &lt;button (click)=&quot;scrollTo()&quot;&gt;Down 500px&lt;/button&gt;
+             &lt;/ion-content&gt;`
+)}
+export class MyPage{
+  @ViewChild(Content) content: Content;
+
+  scrollTo() {
+    // set the scrollLeft to 0px, and scrollTop to 500px
+    // the scroll duration should take 200ms
+    this.content.scrollTo(0, 500, 200);
+  }
+}
+</code></pre>
+
+
+
 
 
 <!-- related link --><!-- end content block -->

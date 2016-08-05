@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -9,9 +9,7 @@ title: "Modal"
 header_sub_title: "Ionic API Documentation"
 doc: "Modal"
 docType: "class"
-show_preview_device: true
-preview_device_url: "/docs/v2/demos/modal/"
-angular_controller: APIDemoCtrl 
+
 ---
 
 
@@ -33,7 +31,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L7">
 Improve this doc
 </a>
 
@@ -42,119 +40,31 @@ Improve this doc
 
 
 
-<p>A Modal is a content pane that goes over the user&#39;s current page.
-Usually it is used for making a choice or editing an item. A modal uses the
-<code>NavController</code> to
-<a href='/docs/v2/api/components/nav/NavController/#present'>present</a>
-itself in the root nav stack. It is added to the stack similar to how
-<a href='/docs/v2/api/components/nav/NavController/#push'>NavController.push</a>
-works.</p>
-<p>When a modal (or any other overlay such as an alert or actionsheet) is
-&quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
-After the modal has been presented, from within the component instance The
-modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
-<code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
-on the root nav controller.</p>
-<p>Data can be passed to a new modal through <code>Modal.create()</code> as the second
-argument. The data can then be accessed from the opened page by injecting
-<code>NavParams</code>. Note that the page, which opened as a modal, has no special
-&quot;modal&quot; logic within it, but uses <code>NavParams</code> no differently than a
-standard page.</p>
-
 
 
 
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<pre><code class="lang-ts">import { Modal, NavController, NavParams } from &#39;ionic-angular&#39;;
-
-@Component(...)
-class HomePage {
-
- constructor(nav: NavController) {
-   this.nav = nav;
- }
-
- presentProfileModal() {
-   let profileModal = Modal.create(Profile, { userId: 8675309 });
-   this.nav.present(profileModal);
- }
-
-}
-
-@Component(...)
-class Profile {
-
- constructor(params: NavParams) {
-   console.log(&#39;UserId&#39;, params.get(&#39;userId&#39;));
- }
-
-}
-</code></pre>
-<p>A modal can also emit data, which is useful when it is used to add or edit
-data. For example, a profile page could slide up in a modal, and on submit,
-the submit button could pass the updated profile data, then dismiss the
-modal.</p>
-<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
-import { Modal, NavController, ViewController } from &#39;ionic-angular&#39;;
-
-@Component(...)
-class HomePage {
-
- constructor(nav: NavController) {
-   this.nav = nav;
- }
-
- presentContactModal() {
-   let contactModal = Modal.create(ContactUs);
-   this.nav.present(contactModal);
- }
-
- presentProfileModal() {
-   let profileModal = Modal.create(Profile, { userId: 8675309 });
-   profileModal.onDismiss(data =&gt; {
-     console.log(data);
-   });
-   this.nav.present(profileModal);
- }
-
-}
-
-@Component(...)
-class Profile {
-
- constructor(viewCtrl: ViewController) {
-   this.viewCtrl = viewCtrl;
- }
-
- dismiss() {
-   let data = { &#39;foo&#39;: &#39;bar&#39; };
-   this.viewCtrl.dismiss(data);
- }
-
-}
-</code></pre>
-
-
-
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="create"></div>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(componentType,&nbsp;data,&nbsp;opts)</code>
+
+
+
+<!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="present"></div>
+
+<h3>
+<a class="anchor" name="present" href="#present"></a>
+<code>present(opts)</code>
   
+
 </h3>
 
-Create a modal with the following options
-
-| Option                | Type       | Description                                                                                                      |
-|-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-| showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-| enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-
+Present the action sheet instance.
 
 
 
@@ -170,50 +80,16 @@ Create a modal with the following options
     
     <tr>
       <td>
-        componentType
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>The Modal view</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        data
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Any data to pass to the Modal view</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
         opts
         
         
       </td>
       <td>
         
-  <code>object</code>
+  <code>NavOptions</code>
       </td>
       <td>
-        <p>Modal options</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -226,22 +102,13 @@ Create a modal with the following options
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
 
 
-
-
-<!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="loaded"></div>
-
-<h3>
-<a class="anchor" name="loaded" href="#loaded"></a>
-<code>loaded()</code>
-  
-
-</h3>
+</div>
 
 
 
@@ -249,17 +116,7 @@ Create a modal with the following options
 
 
 
-
-
-
-
-
-
-<!-- related link -->
-
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
-
-<a href='/docs/v2/components#modals'>Modal Component Docs</a><!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

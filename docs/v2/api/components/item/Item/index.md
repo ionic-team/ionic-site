@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item.ts#L7">
 Improve this doc
 </a>
 
@@ -146,7 +146,10 @@ following components are all placed in the same position as the <code>item-conte
 <a href="../../range/Range">Range</a>.</p>
 <p>Any element directly placed inside of an <code>&lt;ion-item&gt;</code> that does not have one of the previously mentioned
 attributes and isn&#39;t one of the above elements will be placed inside of a <a href="../../label/Label">Label</a>.</p>
-
+<h3 id="text-alignment">Text Alignment</h3>
+<p>By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
+See the <a href="../../../../theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
+be added to <code>ion-item</code> to transform the text.</p>
 
 
 
@@ -291,6 +294,8 @@ attributes and isn&#39;t one of the above elements will be placed inside of a <a
 
 &lt;/ion-list&gt;
 </code></pre>
+
+
 
 
 

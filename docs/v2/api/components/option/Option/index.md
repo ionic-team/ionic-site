@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Option"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/item-sliding/"
+preview_device_url: "/docs/v2/demos/select/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -44,8 +44,7 @@ Improve this doc
 
 
 
-<p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
-
+<p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a selected property.</p>
 
 
 
@@ -71,9 +70,9 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>checked</td>
+      <td>selected</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the option is already checked and selected</p>
+      <td><p> Whether or not the option is already selected</p>
 </td>
     </tr>
     
@@ -81,6 +80,13 @@ Improve this doc
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the option</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the option is disabled</p>
 </td>
     </tr>
     
@@ -105,6 +111,8 @@ Improve this doc
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

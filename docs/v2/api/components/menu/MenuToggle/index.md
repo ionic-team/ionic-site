@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -48,7 +48,6 @@ Improve this doc
 If it is added to the <a href="../../nav/NavBar">NavBar</a> of a page, the button will only appear
 when the page it&#39;s in is currently a root page. See the <a href="../Menu#navigation-bar-behavior">Menu Navigation Bar Behavior</a>
 docs for more information.</p>
-
 
 
 
@@ -117,6 +116,8 @@ on the different positions.</p>
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

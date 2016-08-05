@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-controller.ts#L8">
 Improve this doc
 </a>
 
@@ -40,9 +40,6 @@ Improve this doc
 
 
 
-<p><em>For examples on the basic usage of NavController, check out the
-<a href="../../../../components/#navigation">Navigation section</a> of the Component
-docs.</em></p>
 <p>NavController is the base class for navigation controller components like
 <a href="../Nav/"><code>Nav</code></a> and <a href="../../Tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
 to navigate to <a href="#creating_pages">pages</a> in your app. At a basic level, a
@@ -57,6 +54,27 @@ the current page will navigate to the previous page in the stack.</p>
 <p>Unless you are using a directive like <a href="../NavPush/">NavPush</a>, or need a
 specific NavController, most times you will inject and use a reference to the
 nearest NavController to manipulate the navigation stack.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The simplest way to navigate through an app is to create and initialize a new
+nav controller using the <code>&lt;ion-nav&gt;</code> component.  <code>ion-nav</code> extends the <code>NavController</code>
+class.</p>
+<pre><code class="lang-typescript">import { Component } from `@angular/core`;
+import { ionicBootstrap } from &#39;ionic-angular&#39;;
+import { StartPage } from &#39;./start-page&#39;;
+
+@Component(
+  template: `&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;`
+})
+class MyApp {
+  // set the rootPage to the first page we want displayed
+  private rootPage: any = StartPage;
+
+  constructor(){
+  }
+}
+
+ionicBootstrap(MyApp);
+</code></pre>
 <h3 id="injecting-navcontroller">Injecting NavController</h3>
 <p>Injecting NavController will always get you an instance of the nearest
 NavController, regardless of whether it is a Tab or a Nav.</p>
@@ -67,14 +85,42 @@ providers and dependency injection, see <a href="">Providers and DI</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
 <a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
-<pre><code class="lang-ts">class MyComponent {
-  constructor(nav: NavController) {
-    this.nav = nav;
+<pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
+
+class MyComponent {
+  constructor(public navCtrl: NavController) {
+
   }
 }
 </code></pre>
-<h2 id="page-creation">Page creation</h2>
-<p>Pages are created when they are added to the navigation stack.  For methods
+<h3 id="navigating-from-the-root-component">Navigating from the Root component</h3>
+<p>What if you want to control navigation from your root app component?
+You can&#39;t inject <code>NavController</code> because any components that are navigation
+controllers are <em>children</em> of the root component so they aren&#39;t available
+to be injected.</p>
+<p>By adding a reference variable to the <code>ion-nav</code>, you can use <code>@ViewChild</code> to
+get an instance of the <code>Nav</code> component, which is a navigation controller
+(it extends <code>NavController</code>):</p>
+<pre><code class="lang-typescript">import { App, ViewChild } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+
+@App({
+   template: &#39;&lt;ion-nav #myNav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;&#39;
+})
+export class MyApp {
+   @ViewChild(&#39;myNav&#39;) nav : NavController
+   private rootPage = TabsPage;
+
+   // Wait for the components in MyApp&#39;s template to be initialized
+   // In this case, we are waiting for the Nav with id=&quot;my-nav&quot;
+   ngAfterViewInit() {
+      // Let&#39;s navigate from TabsPage to Page1
+      this.nav.push(Page1);
+   }
+}
+</code></pre>
+<h2 id="view-creation">View creation</h2>
+<p>Views are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
 decorated with <code>@Component</code> as its first argument.  The NavController then
 compiles that component, adds it to the app and animates it into view.</p>
@@ -82,10 +128,92 @@ compiles that component, adds it to the app and animates it into view.</p>
 from but still in the navigation stack (the exiting page on a <code>push()</code> for
 example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
+<h2 id="pushing-a-view">Pushing a View</h2>
+<p>To push a new view on to the navigation stack, use the <code>push</code> method.
+If the page has an <a href="../api/components/nav-bar/NavBar/"><code>&lt;ion-navbar&gt;</code></a>,
+a back button will automatically be added to the pushed view.</p>
+<p>Data can also be passed to a view by passing an object to the <code>push</code> method.
+The pushed view can then receive the data by accessing it via the <code>NavParams</code>
+class.</p>
+<pre><code class="lang-typescript">import { Component } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+import { OtherPage } from &#39;./other-page&#39;;
+@Component({
+   template: `
+   &lt;ion-header&gt;
+     &lt;ion-navbar&gt;
+       &lt;ion-title&gt;Login&lt;/ion-title&gt;
+     &lt;/ion-navbar&gt;
+   &lt;/ion-header&gt;
+
+   &lt;ion-content&gt;
+     &lt;button (click)=&quot;pushPage()&quot;&gt;
+       Go to OtherPage
+     &lt;/button&gt;
+   &lt;/ion-content&gt;
+   `
+})
+export class StartPage {
+  constructor(public navCtrl: NavController) {
+  }
+
+  pushPage(){
+    // push another page on to the navigation stack
+    // causing the nav controller to transition to the new page
+    // optional data can also be passed to the pushed page.
+    this.navCtrl.push(OtherPage, {
+      id: &quot;123&quot;,
+      name: &quot;Carl&quot;
+    });
+  }
+}
+
+import { NavParams } from &#39;ionic-angular&#39;;
+
+@Component({
+  template: `
+  &lt;ion-header&gt;
+    &lt;ion-navbar&gt;
+      &lt;ion-title&gt;Other Page&lt;/ion-title&gt;
+    &lt;/ion-navbar&gt;
+  &lt;/ion-header&gt;
+  &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
+})
+class OtherPage {
+  constructor(private navParams: NavParams) {
+     let id = navParams.get(&#39;id&#39;);
+     let name = navParams.get(&#39;name&#39;);
+  }
+}
+</code></pre>
+<h2 id="removing-a-view">Removing a view</h2>
+<p>To remove a view from the stack, use the <code>pop</code> method.
+Popping a view will transition to the previous view.</p>
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+
+@Component({
+  template: `
+  &lt;ion-header&gt;
+    &lt;ion-navbar&gt;
+      &lt;ion-title&gt;Other Page&lt;/ion-title&gt;
+    &lt;/ion-navbar&gt;
+  &lt;/ion-header&gt;
+  &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
+})
+class OtherPage {
+   constructor(private navController: NavController ){
+   }
+
+   popView(){
+     this.navController.pop();
+   }
+}
+</code></pre>
 <h2 id="lifecycle-events">Lifecycle events</h2>
 <p>Lifecycle events are fired during various stages of navigation.  They can be
 defined in any component type which is pushed/popped from a <code>NavController</code>.</p>
-<pre><code class="lang-ts">import {Component } from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
 
 @Component({
   template: &#39;Hello World&#39;
@@ -137,36 +265,26 @@ class HelloWorld {
 </tr>
 </tbody>
 </table>
-<h2 id="nav-transition-promises">Nav Transition Promises</h2>
-<p>Navigation transitions are asynchronous, meaning they take a few moments to finish, and
-the duration of a transition could be any number. In most cases the async nature of a
-transition doesn&#39;t cause any problems and the nav controller is pretty good about handling
-which transition was the most recent when multiple transitions have been kicked off.
-However, when an app begins firing off many transitions, on the same stack at
-<em>roughly</em> the same time, the nav controller can start to get lost as to which transition
-should be finishing, and which transitions should not be animated.</p>
-<p>In cases where an app&#39;s navigation can be altered by other async tasks, which may or
-may not take a long time, it&#39;s best to rely on each nav transition&#39;s returned
-promise. So instead of firing and forgetting multiple <code>push</code> or <code>pop</code> nav transitions,
-it&#39;s better to fire the next nav transition when the previous one has finished.</p>
-<p>In the example below, after the async operation has completed, we then want to transition
-to another page. Where the potential problem comes in, is that if the async operation
-completed 100ms after the first transition started, then kicking off another transition
-halfway through the first transition ends up with a janky animation. Instead, it&#39;s best
-to always ensure the first transition has already finished before starting the next.</p>
-<pre><code class="lang-ts">// begin the first transition
-let navTransition = this.nav.push(SomePage);
-
-// start an async call, we&#39;re not sure how long it&#39;ll take
-someAsyncOperation().then(() =&gt; {
-  // incase the async operation completed faster than the time
-  // it took to finish the first transition, this logic should
-  // always ensure that the previous transition has resolved
-  // first before kicking off the next transition
-  navTransition.then(() =&gt; {
-    this.nav.push(AnotherPage);
-  });
-});
+<h2 id="asynchronous-nav-transitions">Asynchronous Nav Transitions</h2>
+<p>Navigation transitions are asynchronous operations. When a transition is started,
+the <code>push</code> or <code>pop</code> method will return immediately, before the transition is complete.</p>
+<p>Generally, the developer does not need to be concerned about this. In the event
+multiple transitions need to be synchronized or transition timing is critical,
+the best practice is to chain the transitions together using the return value
+from the <code>push</code> and <code>pop</code> methods.</p>
+<p>The <code>push</code> and <code>pop</code> methods return a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>.
+Promises are a way to represent and chain together multiple asynchronous
+operations in order. Navigation actions can be chained together very easily using promises.</p>
+<pre><code class="lang-typescript">let navTransitionPromise = this.navController.push(Page2);
+navTransitionPromise.then( () =&gt; {
+  // the transition has completed, so I can push another page now
+  return this.navController.push(Page3);
+}).then( () =&gt; {
+  // the second transition has completed, so I can push yet another page
+    return this.navController.push(Page4);
+}).then( () =&gt; {
+  console.log(&#39;The transitions are complete!&#39;);
+})
 </code></pre>
 <h2 id="navoptions">NavOptions</h2>
 <p>Some methods on <code>NavController</code> allow for customizing the current transition.
@@ -212,7 +330,6 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-
 <!-- @usage tag -->
 
 
@@ -233,13 +350,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component is loaded.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -253,13 +377,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component is about to be loaded.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -273,13 +404,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component has fully become the active component.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -293,13 +431,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component is about to leave, and no longer active.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -313,13 +458,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component has fully left and is no longer active.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -333,13 +485,20 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component is about to be unloaded and destroyed.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
+
+</div>
 
 
 
@@ -353,6 +512,36 @@ To do this, we can pass an object with the modified properites.</p>
 
 </h3>
 
+Observable to be subscribed to when a component has fully been unloaded and destroyed.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="parent"></div>
+
+<h3>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
+  
+
+</h3>
+
+The parent navigation instance. If this is the root nav, then
+it'll be `null`. A `Tab` instance's parent is `Tabs`, otherwise
+the parent would be another nav, if it's not already the root nav.
 
 
 
@@ -414,7 +603,7 @@ Set the root for the current navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view.</p>
+        <p>Any nav-params you want to pass along to the next view.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -431,7 +620,7 @@ Set the root for the current navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any options you want to use pass to transtion.</p>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -464,77 +653,10 @@ Set the root for the current navigation stack.
 
 </h3>
 
-You can set the views of the current navigation stack and navigate to the
-last view.
-
-
-```ts
-import {NavController } from 'ionic-angular'
-import {Detail } from '../detail/detail'
-import {Info } from '../info/info'
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
-   }
- }
-```
-
-
-In this example, we're giving the current nav stack an array of pages.
-Then the navigation stack will navigate to the last page in the array
-and remove the previously active page.
-
-By default animations are disabled, but they can be enabled by passing
-options to the navigation controller.
-
-
-```ts
-import {NavController } from 'ionic-angular'
-import {Detail } from '../detail/detail'
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([ {page: List}, {page: Detail} ], {
-       animate: true
-     });
-   }
- }
-```
-
-You can also pass any navigation params to the individual pages in
-the array.
-
-
-```ts
-import {NavController } from 'ionic-angular';
-import {Info } from '../info/info';
-import {List } from '../list/list';
-import {Detail } from '../detail/detail';
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([{
-       page: Info
-     }, {
-       page: List,
-       params: {tags: 'css'}
-     }, {
-       page: Detail,
-       params: {id: 325}
-     }]);
-   }
- }
-```
+Set the views of the current navigation stack and navigate to the
+last view. By default animations are disabled, but they can be enabled
+by passing options to the navigation controller.You can also pass any
+navigation params to the individual pages in the array.
 
 
 
@@ -576,7 +698,7 @@ import {Detail } from '../detail/detail';
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -609,66 +731,9 @@ import {Detail } from '../detail/detail';
 
 </h3>
 
-Push is how we can pass components and navigate to them. We push the component
-we want to navigate to on to the navigation stack.
+Push a new component onto the current navication stack. Pass any aditional information
+along as an object. This additional information is acessible through NavParams
 
-```ts
-class MyClass{
-   constructor(nav:NavController){
-     this.nav = nav;
-   }
-
-   pushPage(){
-     this.nav.push(SecondView);
-   }
-}
-```
-
-We can also pass along parameters to the next view, such as data that we have
-on the current view. This is a similar concept to to V1 apps with `$stateParams`.
-
-```ts
-class MyClass{
-   constructor(nav:NavController){
-     this.nav = nav;
-   }
-
-   pushPage(user){
-      // user is an object we have in our view
-      // typically this comes from an ngFor or some array
-      // here we can create an object with a property of
-      // paramUser, and set its value to the user object we passed in
-     this.nav.push(SecondView, { paramUser: user });
-   }
-}
-```
-
-We'll look at how we can access that data in the `SecondView` in the
-navParam docs.
-
-We can also pass any options to the transtion from that same method.
-
-```ts
-class MyClass{
-   constructor(nav: NavController){
-     this.nav = nav;
-   }
-
-   pushPage(user){
-     this.nav.push(SecondView,{
-      // user is an object we have in our view
-      // typically this comes from an ngFor or some array
-      // here we can create an object with a property of
-      // paramUser, and set it's value to the user object we passed in
-      paramUser: user
-     },{
-      // here we can configure things like the animations direction or
-      // or if the view should animate at all.
-      direction: 'back'
-     });
-   }
-}
-```
 
 
 <table class="table param-table" style="margin:0;">
@@ -709,7 +774,7 @@ class MyClass{
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view</p>
+        <p>Any nav-params you want to pass along to the next view<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -726,101 +791,7 @@ class MyClass{
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
-
-
-</div>
-
-
-
-
-<div id="present"></div>
-
-<h3>
-<a class="anchor" name="present" href="#present"></a>
-<code>present(enteringView,&nbsp;opts)</code>
-  
-
-</h3>
-
-Present is how an app display overlays on top of the content, from within the
-root level `NavController`. The `present` method is used by overlays, such
-as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
-and `present` is that `present` takes a `ViewController` instance, whereas
-`push` takes a component class which hasn't been instantiated yet.
-Additionally, `present` will place the overlay in the root NavController's
-stack.
-
-```ts
-class MyClass{
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-
-   presentModal() {
-     let modal = Modal.create(ProfilePage);
-     this.nav.present(modal);
-   }
-}
-```
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        enteringView
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        <p>The component you want to push on the navigation stack.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -853,21 +824,9 @@ class MyClass{
 
 </h3>
 
-Inserts a view into the nav stack at the specified index. This is useful if
-you need to add a view at any point in your navigation stack.
+Inserts a component into the nav stack at the specified index. This is useful if
+you need to add a component at any point in your navigation stack.
 
-```ts
-export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   insertPage(){
-     this.nav.insert(1, Info);
-   }
- }
-```
-
-This will insert the `Info` page into the second slot of our navigation stack.
 
 
 
@@ -926,7 +885,7 @@ This will insert the `Info` page into the second slot of our navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next page.</p>
+        <p>Any nav-params you want to pass along to the next page.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -943,7 +902,7 @@ This will insert the `Info` page into the second slot of our navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -976,27 +935,9 @@ This will insert the `Info` page into the second slot of our navigation stack.
 
 </h3>
 
-Inserts multiple pages into the nav stack at the specified index.
-
-```ts
-export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   insertPages(){
-     let pages = [
-       { page: Info },
-       { page: ProfileList },
-       { page: ProfileDetail, params: {userId:5} }
-     ];
-     this.nav.insertPages(2, pages);
-   }
- }
-```
-
-This will insert each of the pages in the array, starting at the third slot
-(second index) of the nav stack. The last page in the array will animate
-in and become the active page.
+Inserts an array of components into the nav stack at the specified index.
+The last component in the array will become instantiated as a view,
+and animate in to become the active view.
 
 
 
@@ -1035,7 +976,7 @@ in and become the active page.
       </td>
       <td>
         
-  <code>array&lt;{page: Page, params=: any}&gt;</code>
+  <code>array</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property.</p>
@@ -1055,7 +996,7 @@ in and become the active page.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1088,20 +1029,8 @@ in and become the active page.
 
 </h3>
 
-If you wanted to navigate back from a current view, you can use the
-back-button or programatically call `pop()`. Similar to `push()`, you
+Call to navigate back from a current component. Similar to `push()`, you
 can also pass navigation options.
-
-```ts
-class SecondView{
-   constructor(nav:NavController){
-     this.nav = nav;
-   }
-   goBack(){
-     this.nav.pop();
-   }
-}
-```
 
 
 
@@ -1126,7 +1055,7 @@ class SecondView{
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1159,8 +1088,8 @@ class SecondView{
 
 </h3>
 
-Similar to `pop()`, this method let's you navigate back to the root of
-the stack, no matter how many pages back that is.
+Navigate back to the root of the stack, no matter how far back that is.
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -1184,81 +1113,7 @@ the stack, no matter how many pages back that is.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options to go with this transition.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
-
-
-</div>
-
-
-
-
-<div id="popTo"></div>
-
-<h3>
-<a class="anchor" name="popTo" href="#popTo"></a>
-<code>popTo(view,&nbsp;opts)</code>
-  
-
-</h3>
-
-Pop to a specific view in the history stack.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        <p>to pop to</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Nav options to go with this transition.</p>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1293,17 +1148,6 @@ Pop to a specific view in the history stack.
 
 Removes a page from the nav stack at the specified index.
 
-```ts
-export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   removePage(){
-     this.nav.remove(1);
-   }
- }
-```
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -1327,7 +1171,7 @@ export class Detail {
   <code>number</code>
       </td>
       <td>
-        <p>The starting index to remove pages from the stack. Default is the index of the last page.</p>
+        <p>The starting index to remove pages from the stack. Default is the index of the last page.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1344,7 +1188,7 @@ export class Detail {
   <code>number</code>
       </td>
       <td>
-        <p>The number of pages to remove, defaults to remove <code>1</code>.</p>
+        <p>The number of pages to remove, defaults to remove <code>1</code>.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1361,7 +1205,7 @@ export class Detail {
   <code>object</code>
       </td>
       <td>
-        <p>Any options you want to use pass to transtion.</p>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1379,88 +1223,6 @@ export class Detail {
 <b>Returns:</b> 
   <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
 
-
-</div>
-
-
-
-
-<div id="canSwipeBack"></div>
-
-<h3>
-<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
-<code>canSwipeBack()</code>
-  
-
-</h3>
-
-If it's possible to use swipe back or not. If it's not possible
-to go back, or swipe back is not enabled, then this will return `false`.
-If it is possible to go back, and swipe back is enabled, then this
-will return `true`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="canGoBack"></div>
-
-<h3>
-<a class="anchor" name="canGoBack" href="#canGoBack"></a>
-<code>canGoBack()</code>
-  
-
-</h3>
-
-Returns `true` if there's a valid previous page that we can pop
-back to. Otherwise returns `false`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="isTransitioning"></div>
-
-<h3>
-<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
-<code>isTransitioning()</code>
-  
-
-</h3>
-
-Returns if the nav controller is actively transitioning or not.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
 
 </div>
 
@@ -1560,7 +1322,7 @@ Returns if the nav controller is actively transitioning or not.
 
 </h3>
 
-
+Returns if the given view is the active view or not.
 
 
 <table class="table param-table" style="margin:0;">
@@ -1795,16 +1557,37 @@ Returns the number of views in this nav controller.
 
 
 
-<div id="rootNav"></div>
+<div id="getActiveChildNav"></div>
 
 <h3>
-<a class="anchor" name="rootNav" href="#rootNav"></a>
-<code>rootNav</code>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<code>getActiveChildNav()</code>
   
 
 </h3>
 
-Returns the root `NavController`.
+Returns the active child navigation.
+
+
+
+
+
+
+
+
+
+
+
+<div id="isTransitioning"></div>
+
+<h3>
+<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
+<code>isTransitioning()</code>
+  
+
+</h3>
+
+Returns if the nav controller is actively transitioning or not.
 
 
 
@@ -1814,9 +1597,67 @@ Returns the root `NavController`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> 
+  <code>boolean</code> 
 
 </div>
+
+
+
+
+<div id="canSwipeBack"></div>
+
+<h3>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
+<code>canSwipeBack()</code>
+  
+
+</h3>
+
+If it's possible to use swipe back or not. If it's not possible
+to go back, or swipe back is not enabled, then this will return `false`.
+If it is possible to go back, and swipe back is enabled, then this
+will return `true`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="canGoBack"></div>
+
+<h3>
+<a class="anchor" name="canGoBack" href="#canGoBack"></a>
+<code>canGoBack()</code>
+  
+
+</h3>
+
+Returns `true` if there's a valid previous page that we can pop
+back to. Otherwise returns `false`.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
 
 
 

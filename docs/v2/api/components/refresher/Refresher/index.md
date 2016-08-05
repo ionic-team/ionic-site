@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/refresher/refresher.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/refresher/refresher.ts#L6">
 Improve this doc
 </a>
 
@@ -53,7 +53,6 @@ has completed and the refreshing should end, call <code>complete()</code>.</p>
 <p>Note: Do not wrap the <code>ion-refresher</code> in a <code>*ngIf</code>. It will not render
 properly this way. Please use the <code>enabled</code> property instead to
 display or hide the refresher.</p>
-
 
 
 
@@ -375,6 +374,8 @@ updated to <code>refreshing</code>. From within your refresh handler, you must c
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

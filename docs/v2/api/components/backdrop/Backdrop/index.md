@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -46,102 +46,16 @@ Improve this doc
 
 
 
-
 <!-- @usage tag -->
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="nuBackDrops"></div>
-<h3><a class="anchor" name="nuBackDrops" href="#nuBackDrops"></a><code>nuBackDrops()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="push"></div>
-<h3><a class="anchor" name="push" href="#push"></a><code>push()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="pop"></div>
-<h3><a class="anchor" name="pop" href="#pop"></a><code>pop()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="pushed"></div>
-
-<h3>
-<a class="anchor" name="pushed" href="#pushed"></a>
-<code>pushed</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="elementRef"></div>
-
-<h3>
-<a class="anchor" name="elementRef" href="#elementRef"></a>
-<code>elementRef</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="ngOnInit"></div>
 
@@ -182,6 +96,26 @@ Improve this doc
 
 
 
+
+<div id="getNativeElement"></div>
+
+<h3>
+<a class="anchor" name="getNativeElement" href="#getNativeElement"></a>
+<code>getNativeElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -202,6 +136,8 @@ Improve this doc
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

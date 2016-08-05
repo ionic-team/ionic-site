@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -45,7 +45,6 @@ Improve this doc
 
 
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places where you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
-
 
 
 
@@ -172,6 +171,8 @@ set the max zoom amount for ion-scroll
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

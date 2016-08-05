@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L11">
 Improve this doc
 </a>
 
@@ -77,7 +77,6 @@ is <code>Page1</code>, making it the root page. <code>Page1</code> will display 
 on all pages in the navigation stack. To make a menu persistent set <code>persistent</code> to <code>true</code> on the
 <code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>NavBar</code> attached
 to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>
-
 
 
 
@@ -151,10 +150,10 @@ import { MenuController } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage {
- constructor(private menu: MenuController) {}
+ constructor(public menuCtrl: MenuController) {}
 
  openMenu() {
-   this.menu.open();
+   this.menuCtrl.open();
  }
 }
 </code></pre>
@@ -169,6 +168,68 @@ and usage information.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="gestureCtrl"></div>
+
+<h3>
+<a class="anchor" name="gestureCtrl" href="#gestureCtrl"></a>
+<code>gestureCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getNativeElement"></div>
+
+<h3>
+<a class="anchor" name="getNativeElement" href="#getNativeElement"></a>
+<code>getNativeElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="width"></div>
+
+<h3>
+<a class="anchor" name="width" href="#width"></a>
+<code>width()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -265,6 +326,8 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

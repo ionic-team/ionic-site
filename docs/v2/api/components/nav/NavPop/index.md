@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="nav-pop" href="#nav-pop"></a>
 
 NavPop
-<h3><code>[nav-pop]</code></h3>
+<h3><code>[navPop]</code></h3>
 
 
 
@@ -44,8 +44,8 @@ Improve this doc
 
 
 
-<p>Directive for declaratively pop the current page off from the navigation stack.</p>
-
+<p>Directive to declaratively pop the current page off from the
+navigation stack.</p>
 
 
 
@@ -55,10 +55,11 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
- &lt;div block button nav-pop&gt;go back&lt;/div&gt;
+
+ &lt;button navPop&gt;Go Back&lt;/button&gt;
+
 &lt;/ion-content&gt;
 </code></pre>
-<p>This will go back one page in the navigation stack</p>
 <p>Similar to <a href='/docs/v2/api/components/nav/NavPush/'><code>NavPush</code></a></p>
 
 
@@ -69,6 +70,30 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="onClick"></div>
+
+<h3>
+<a class="anchor" name="onClick" href="#onClick"></a>
+<code>onClick()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- related link -->

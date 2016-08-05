@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -121,6 +121,8 @@ because when an <code>&lt;img&gt;</code> element is added to the DOM, it immedia
 makes a HTTP request for the image file. HTTP requests, image
 decoding, and image rendering can cause issues while scrolling. For virtual
 scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable features.</p>
+<p>Note: <code>&lt;ion-img&gt;</code> should only be used with Virtual Scroll. If you are using
+an image outside of Virtual Scroll you should use the standard <code>&lt;img&gt;</code> tag.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
@@ -147,7 +149,6 @@ if possible.</li>
 footer functions. These functions are called for every record in the
 dataset, so please make sure they&#39;re performant.</li>
 </ul>
-
 
 
 
@@ -308,6 +309,8 @@ must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

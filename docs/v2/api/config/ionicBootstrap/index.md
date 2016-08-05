@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ ionicBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L8">
 Improve this doc
 </a>
 
@@ -43,7 +43,6 @@ Improve this doc
 <p><code>ionicBootstrap</code> allows you to bootstrap your entire application. Similar to Angular&#39;s <code>bootstrap</code>, <code>ionicBootstrap</code>
 takes a root component in order to start the app. You can pass along any providers that you may want to inject into your
 app as an array for the second argument. You can also pass a config object as the third argument to configure your app&#39;s settings.</p>
-
 
 
 
@@ -60,7 +59,7 @@ import { Component } from &#39;@angular/core&#39;;
 })
 export class MyClass{}
 
-ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})
+ionicBootstrap(MyClass, null, {tabsPlacement: &#39;bottom&#39;})
 </code></pre>
 
 
@@ -71,6 +70,8 @@ ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link --><!-- end content block -->

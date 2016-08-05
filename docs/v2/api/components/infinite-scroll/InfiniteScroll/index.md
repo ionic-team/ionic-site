@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,7 +50,6 @@ scrolls a specified distance from the bottom of the page.</p>
 the user scrolls to the specified distance. When this expression
 has finished its tasks, it should call the <code>complete()</code> method
 on the infinite scroll instance.</p>
-
 
 
 
@@ -283,6 +282,8 @@ your async operation has completed.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

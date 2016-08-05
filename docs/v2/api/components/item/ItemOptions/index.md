@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -44,7 +44,6 @@ Improve this doc
 
 <p>The option buttons for an <code>ion-item-sliding</code>. These buttons can be placed either on the left or right side.
 You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
-
 
 
 
@@ -114,6 +113,8 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

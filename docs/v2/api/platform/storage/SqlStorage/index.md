@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -40,13 +40,13 @@ Improve this doc
 
 
 
-<p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
-persistent SQL store on the filesystem.</p>
+<p>SqlStorage is a wrapper that uses SQLite when running natively (if available)
+to store data in a persistent SQL store on the filesystem
+or uses WebSQL when serving the app to the browser.</p>
 <p>This is the preferred storage engine, as data will be stored in appropriate
 app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
-
 
 
 
@@ -415,6 +415,8 @@ Clear all keys/values of your database.
 
 
 </div>
+
+
 
 
 

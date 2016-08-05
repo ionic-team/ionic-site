@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L18">
 Improve this doc
 </a>
 
@@ -46,30 +46,31 @@ Improve this doc
 
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
-a container of individual <a href="../Tab/">Tab</a> components.</p>
+a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
+is a declarative component for a <a href="../NavController/">NavController</a></p>
+<p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
+take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
-the mode. By default, the tabs are placed at the bottom of the screen
-for <code>ios</code> mode, and at the top for the <code>md</code> and <code>wp</code> modes. You can
-configure the position using the <code>tabbarPlacement</code> property on the
-<code>&lt;ion-tabs&gt;</code> element, or in your app&#39;s <a href="../../config/Config/">config</a>.
+the mode. The tabs are placed at the bottom of the screen
+for iOS and Android, and at the top for Windows by default. The position can be configured using the <code>tabsPlacement</code> attribute
+on the <code>&lt;ion-tabs&gt;</code> component, or in an app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
-values of <code>tabbarPlacement</code>.</p>
+values of <code>tabsPlacement</code>.</p>
 <h3 id="layout">Layout</h3>
-<p>The layout for all of the tabs can be defined using the <code>tabbarLayout</code>
+<p>The layout for all of the tabs can be defined using the <code>tabsLayout</code>
 property. If the individual tab has a title and icon, the icons will
 show on top of the title by default. All tabs can be changed by setting
-the value of <code>tabbarLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
+the value of <code>tabsLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
 app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful if
 you want to show tabs with a title only on Android, but show icons
 and a title for iOS. See the <a href="#input-properties">Input Properties</a>
-below for the available values of <code>tabbarLayout</code>.</p>
+below for the available values of <code>tabsLayout</code>.</p>
 <h3 id="selecting-a-tab">Selecting a Tab</h3>
 <p>There are different ways you can select a specific tab from the tabs
 component. You can use the <code>selectedIndex</code> property to set the index
 on the <code>&lt;ion-tabs&gt;</code> element, or you can call <code>select()</code> from the <code>Tabs</code>
 instance after creation. See <a href="#usage">usage</a> below for more information.</p>
-
 
 
 
@@ -147,6 +148,26 @@ ionViewDidEnter() {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="viewCtrl"></div>
+
+<h3>
+<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="select"></div>
 
@@ -363,16 +384,23 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
     
     <tr>
-      <td>tabbarLayout</td>
+      <td>tabsLayout</td>
       <td><code>string</code></td>
       <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>tabbarPlacement</td>
+      <td>tabsPlacement</td>
       <td><code>string</code></td>
       <td><p> Set position of the tabbar: <code>top</code>, <code>bottom</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabsHighlight</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether to show the tab highlight bar under the selected tab. Default: <code>false</code>.</p>
 </td>
     </tr>
     
@@ -397,6 +425,422 @@ Get the previously selected Tab which is currently not disabled or hidden.
     
   </tbody>
 </table>
+
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$tabs-ios-border</code></td>
+        
+          <td><code>1px solid $toolbar-ios-border-color</code></td>
+        
+        <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-background</code></td>
+        
+          <td><code>$toolbar-ios-background</code></td>
+        
+        <td><p>Background color of the tabbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-padding</code></td>
+        
+          <td><code>0 2px</code></td>
+        
+        <td><p>Padding on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-max-width</code></td>
+        
+          <td><code>240px</code></td>
+        
+        <td><p>Max width of the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-min-height</code></td>
+        
+          <td><code>49px</code></td>
+        
+        <td><p>Min height of the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-color</code></td>
+        
+          <td><code>$toolbar-ios-inactive-color</code></td>
+        
+        <td><p>Text color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-color-active</code></td>
+        
+          <td><code>$toolbar-ios-active-color</code></td>
+        
+        <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-font-size</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Font size of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-icon-size</code></td>
+        
+          <td><code>30px</code></td>
+        
+        <td><p>Size of the tab button icon</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$tabs-md-background</code></td>
+        
+          <td><code>$toolbar-md-background</code></td>
+        
+        <td><p>Background color of the tabbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding</code></td>
+        
+          <td><code>8px 0 10px 0</code></td>
+        
+        <td><p>Padding on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-min-height</code></td>
+        
+          <td><code>5.6rem</code></td>
+        
+        <td><p>Min height of the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-font-size</code></td>
+        
+          <td><code>1.2rem</code></td>
+        
+        <td><p>Font size of the inactive tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-font-weight</code></td>
+        
+          <td><code>normal</code></td>
+        
+        <td><p>Font weight of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-opacity</code></td>
+        
+          <td><code>.7</code></td>
+        
+        <td><p>Opacity of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-color</code></td>
+        
+          <td><code>rgba($toolbar-md-inactive-color, $tabs-md-tab-opacity)</code></td>
+        
+        <td><p>Text color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-padding-active</code></td>
+        
+          <td><code>6px 0 10px 0</code></td>
+        
+        <td><p>Padding of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-font-size-active</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the active tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-color-active</code></td>
+        
+          <td><code>$toolbar-md-active-color</code></td>
+        
+        <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-margin</code></td>
+        
+          <td><code>6px 0</code></td>
+        
+        <td><p>Margin on the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-capitalization</code></td>
+        
+          <td><code>none</code></td>
+        
+        <td><p>Capitalization of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform</code></td>
+        
+          <td><code>scale(.85)</code></td>
+        
+        <td><p>Transform for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform-origin</code></td>
+        
+          <td><code>bottom center</code></td>
+        
+        <td><p>Transform origin for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-margin-active</code></td>
+        
+          <td><code>7px 0</code></td>
+        
+        <td><p>Margin on the active tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transform-active</code></td>
+        
+          <td><code>scale(1)</code></td>
+        
+        <td><p>Transform for the active tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-transition</code></td>
+        
+          <td><code>transform 200ms ease-in-out</code></td>
+        
+        <td><p>Text transition for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-size</code></td>
+        
+          <td><code>2.4rem</code></td>
+        
+        <td><p>Size of the tab button icon</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$tabs-wp-background</code></td>
+        
+          <td><code>$toolbar-wp-background</code></td>
+        
+        <td><p>Background color of the tabbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-padding</code></td>
+        
+          <td><code>12px 10px 5px 10px</code></td>
+        
+        <td><p>Padding on the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-min-height</code></td>
+        
+          <td><code>4.8rem</code></td>
+        
+        <td><p>Min height of the tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-font-size</code></td>
+        
+          <td><code>1.2rem</code></td>
+        
+        <td><p>Font size of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-font-weight</code></td>
+        
+          <td><code>normal</code></td>
+        
+        <td><p>Font weight of the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-opacity</code></td>
+        
+          <td><code>.7</code></td>
+        
+        <td><p>Opacity of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-color</code></td>
+        
+          <td><code>rgba($toolbar-wp-inactive-color, $tabs-wp-tab-opacity)</code></td>
+        
+        <td><p>Text color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-color-active</code></td>
+        
+          <td><code>$toolbar-wp-active-color</code></td>
+        
+        <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-border</code></td>
+        
+          <td><code>2px solid transparent</code></td>
+        
+        <td><p>Border on the inactive tab button (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-border-color-active</code></td>
+        
+          <td><code>$tabs-wp-tab-color-active</code></td>
+        
+        <td><p>Border color on the active tab button (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-background-activated</code></td>
+        
+          <td><code>rgba(0, 0, 0, .1)</code></td>
+        
+        <td><p>Background of the tab button when pressed</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-icon-size</code></td>
+        
+          <td><code>2.4rem</code></td>
+        
+        <td><p>Size of the tab button icon</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
 
 
 <!-- related link -->

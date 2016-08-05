@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Toolbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L88">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L131">
 Improve this doc
 </a>
 
@@ -82,18 +82,46 @@ property.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="multiple-toolbars">Multiple Toolbars</h3>
-<p>Toolbars can be stacked up vertically in <code>&lt;ion-header&gt;</code>, <code>&lt;ion-content&gt;</code>, and
-<code>&lt;ion-footer&gt;</code> elements. However, toolbars also come with borders on both
-the top and bottom of the toolbar. To give developers full control of the
-design, Ionic also includes the <code>no-border-bottom</code> and <code>no-border-top</code> attributes.
-For example, sometimes two vertically stacked toolbars may have different
-background colors, in this case it might be best to leave a border between them.
-However, if they have the same background color, the app may look best without
-a border between them. The main point here is, it&#39;s entirely up to the app&#39;s design
-to decide when and when not to show borders between toolbars, and to do so then
-each toolbar can individually set <code>no-border-bottom</code> and <code>no-border-top</code> attributes.</p>
+<h3 id="header-footer-box-shadow">Header / Footer Box Shadow</h3>
+<p>In <code>md</code> mode, the <code>ion-header</code> will receive a box-shadow on the bottom, and the
+<code>ion-footer</code> will receive a box-shadow on the top. This can be removed by adding
+the <code>no-shadow</code> attribute to the element.</p>
+<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Header&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
 
+&lt;ion-content&gt;
+&lt;/ion-content&gt;
+
+&lt;ion-footer no-shadow&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Footer&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-footer&gt;
+</code></pre>
+<h3 id="toolbar-borders">Toolbar Borders</h3>
+<p>Toolbars can be stacked up vertically in <code>&lt;ion-header&gt;</code>, <code>&lt;ion-content&gt;</code>, and
+<code>&lt;ion-footer&gt;</code> elements. In <code>ios</code> mode, toolbars have borders on the top and
+bottom. To hide both borders, the <code>no-border</code> attribute should be used on the
+<code>ion-toolbar</code>. To hide the top or bottom border, the <code>no-border-top</code> and
+<code>no-border-bottom</code> attribute should be used.</p>
+<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
+  &lt;ion-toolbar no-border-bottom&gt;
+    &lt;ion-title&gt;Header&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+  &lt;ion-toolbar no-border&gt;
+    &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+  &lt;ion-toolbar no-border-top&gt;
+    &lt;ion-title&gt;Another Header&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+&lt;/ion-content&gt;
+</code></pre>
 
 
 
@@ -102,7 +130,7 @@ each toolbar can individually set <code>no-border-bottom</code> and <code>no-bor
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-header&gt;
+<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
 
   &lt;ion-toolbar no-border-bottom&gt;
     &lt;ion-buttons start&gt;
@@ -134,7 +162,7 @@ each toolbar can individually set <code>no-border-bottom</code> and <code>no-bor
 
 &lt;ion-footer&gt;
 
-  &lt;ion-toolbar no-border-bottom&gt;
+  &lt;ion-toolbar no-border&gt;
     &lt;ion-title&gt;I&#39;m a subfooter&lt;/ion-title&gt;
     &lt;ion-buttons right&gt;
       &lt;button&gt;
@@ -166,6 +194,8 @@ each toolbar can individually set <code>no-border-bottom</code> and <code>no-bor
 
 
 <!-- instance methods on the class -->
+
+
 
 
 <!-- related link -->

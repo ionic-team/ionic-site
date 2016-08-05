@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Slide
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L843">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L829">
 Improve this doc
 </a>
 
@@ -48,7 +48,6 @@ Improve this doc
 should be written as <code>ion-slide</code>. Any slide content should be written
 in this component and it should be used in conjunction with <a href="../Slides">Slides</a>.</p>
 <p>See the <a href="../Slides">Slides API Docs</a> for more usage information.</p>
-
 
 
 
@@ -92,6 +91,8 @@ in this component and it should be used in conjunction with <a href="../Slides">
   
 
 </h3>
+
+
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -34,7 +34,6 @@ DisplayWhen
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L2">
 Improve this doc
 </a>
-
 
 
 
@@ -124,6 +123,8 @@ Improve this doc
   
 
 </h3>
+
+
 
 
 

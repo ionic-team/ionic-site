@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,10 +31,9 @@ Picker
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker.ts#L7">
 Improve this doc
 </a>
-
 
 
 
@@ -49,21 +48,6 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="create"></div>
-<h3><a class="anchor" name="create" href="#create"></a><code>create()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -257,6 +241,64 @@ Improve this doc
 
 
 
+
+<div id="present"></div>
+
+<h3>
+<a class="anchor" name="present" href="#present"></a>
+<code>present(opts)</code>
+  
+
+</h3>
+
+Present the picker instance.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>NavOptions</code>
+      </td>
+      <td>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
 <!-- output events on the class -->
 <h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
@@ -275,6 +317,8 @@ Improve this doc
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link --><!-- end content block -->

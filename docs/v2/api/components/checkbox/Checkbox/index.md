@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -48,7 +48,6 @@ Improve this doc
 placed in an <code>ion-item</code> or used as a stand-alone checkbox.</p>
 <p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
 for more info on forms and inputs.</p>
-
 
 
 
@@ -132,6 +131,8 @@ for more info on forms and inputs.</p>
     
   </tbody>
 </table>
+
+
 
 
 <!-- related link -->

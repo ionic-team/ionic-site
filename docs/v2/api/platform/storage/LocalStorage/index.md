@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.10"
+version: "2.0.0-beta.11"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -52,13 +52,12 @@ by the operating system (iOS).</p>
 
 
 
-
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {Storage, LocalStorage} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { Storage, LocalStorage } from &#39;ionic-angular&#39;;
 @Component({
   template: `&lt;ion-content&gt;&lt;/ion-content&gt;`
 });
@@ -292,6 +291,8 @@ Clear data stored in LocalStorage
 
 
 </div>
+
+
 
 
 

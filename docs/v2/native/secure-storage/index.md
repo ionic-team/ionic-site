@@ -80,7 +80,7 @@ let secureStorage: SecureStorage = new SecureStorage();
 secureStorage.create(&#39;my_store_name&#39;)
  .then(
    () =&gt; console.log(&#39;Storage is ready!&#39;),
-   error =&gt; console.log(error);
+   error =&gt; console.log(error)
 );
 
 secureStorage.get(&#39;myitem&#39;)

@@ -56,146 +56,6 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="viewDidLoad"></div>
-
-<h3>
-<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
-<code>viewDidLoad</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewWillEnter"></div>
-
-<h3>
-<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
-<code>viewWillEnter</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewDidEnter"></div>
-
-<h3>
-<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
-<code>viewDidEnter</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewWillLeave"></div>
-
-<h3>
-<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
-<code>viewWillLeave</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewDidLeave"></div>
-
-<h3>
-<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
-<code>viewDidLeave</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewWillUnload"></div>
-
-<h3>
-<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
-<code>viewWillUnload</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewDidUnload"></div>
-
-<h3>
-<a class="anchor" name="viewDidUnload" href="#viewDidUnload"></a>
-<code>viewDidUnload</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="setTitle"></div>
 
 <h3>
@@ -267,6 +127,27 @@ Boolean if the app is actively scrolling or not.
   <code>boolean</code> 
 
 </div>
+
+
+
+
+<div id="getRootNav"></div>
+
+<h3>
+<a class="anchor" name="getRootNav" href="#getRootNav"></a>
+<code>getRootNav()</code>
+  
+
+</h3>
+
+retuns the root NavController
+
+
+
+
+
+
+
 
 
 

@@ -51923,12 +51923,33 @@
 	        this._title = '';
 	        this._titleSrv = new platform_browser_1.Title();
 	        this._rootNav = null;
+	        /**
+	         * @private
+	         */
 	        this.viewDidLoad = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewWillEnter = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewDidEnter = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewWillLeave = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewDidLeave = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewWillUnload = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.viewDidUnload = new core_1.EventEmitter();
 	        // listen for hardware back button events
 	        // register this back button action with a default priority
@@ -52021,7 +52042,7 @@
 	        return nav;
 	    };
 	    /**
-	     * @private
+	     * retuns the root NavController
 	     */
 	    App.prototype.getRootNav = function () {
 	        return this._rootNav;
@@ -55389,6 +55410,9 @@
 	    DisableScroll[DisableScroll["Always"] = 2] = "Always";
 	})(exports.DisableScroll || (exports.DisableScroll = {}));
 	var DisableScroll = exports.DisableScroll;
+	/**
+	* @priavte
+	*/
 	var GestureController = (function () {
 	    function GestureController(_app) {
 	        this._app = _app;
@@ -55501,6 +55525,9 @@
 	    var _a;
 	}());
 	exports.GestureController = GestureController;
+	/**
+	* @priavte
+	*/
 	var GestureDelegate = (function () {
 	    function GestureDelegate(name, id, controller, opts) {
 	        this.name = name;
@@ -71973,6 +72000,9 @@
 	var dom_1 = __webpack_require__(337);
 	var util_1 = __webpack_require__(340);
 	var platform_1 = __webpack_require__(339);
+	/**
+	 * @private
+	 */
 	var Img = (function () {
 	    function Img(_elementRef, _platform, _zone) {
 	        this._elementRef = _elementRef;

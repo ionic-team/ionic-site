@@ -125,10 +125,11 @@ import {ItemDetailsPage} from '../item-details/item-details';
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
+  selectedItem: any;
+  icons: string[];
+  items: Array<{title: string, note: string, icon: string}>;
 
   constructor(private navCtrl: NavController, navParams: NavParams) {
-    this.nav = nav;
-
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -146,7 +147,7 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-     this.nav.push(ItemDetailsPage, {
+     this.navCtrl.push(ItemDetailsPage, {
        item: item
      });
   }

@@ -36,15 +36,15 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 
 class MyApp {
   ...
+  
+  // make HelloIonicPage the root (or first) page
+  rootPage: any = HelloIonicPage;
 
     constructor(
       private platform: Platform,
       private menu: MenuController
     ) {
     ...
-
-    // make HelloIonicPage the root (or first) page
-    this.rootPage = HelloIonicPage;
   }
 
   ...

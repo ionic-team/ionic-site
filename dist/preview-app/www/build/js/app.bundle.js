@@ -125,7 +125,7 @@ ionic_angular_1.ionicBootstrap(DemoApp, [], {
     }
 });
 
-},{"./directives/helpers":2,"./pages/action-sheets/action-sheets":3,"./pages/menus/menus":65,"./pipes/display-route":99,"@angular/core":247,"ionic-angular":513}],2:[function(require,module,exports){
+},{"./directives/helpers":2,"./pages/action-sheets/action-sheets":3,"./pages/menus/menus":65,"./pipes/display-route":99,"@angular/core":247,"ionic-angular":561}],2:[function(require,module,exports){
 "use strict";
 var actionSheets = require('../pages/action-sheets/action-sheets');
 var alerts = require('../pages/alerts/alerts');
@@ -299,12 +299,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
-    function BasicPage(platform, nav) {
+    function BasicPage(platform, actionsheetCtrl) {
         this.platform = platform;
-        this.nav = nav;
+        this.actionsheetCtrl = actionsheetCtrl;
     }
     BasicPage.prototype.openMenu = function () {
-        var actionSheet = ionic_angular_1.ActionSheet.create({
+        var actionSheet = this.actionsheetCtrl.create({
             title: 'Albums',
             cssClass: 'action-sheets-basic-page',
             buttons: [
@@ -347,19 +347,19 @@ var BasicPage = (function () {
                 }
             ]
         });
-        this.nav.present(actionSheet);
+        actionSheet.present();
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/action-sheets/basic/basic.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.Platform, ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.Platform, ionic_angular_1.ActionSheetController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],5:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],5:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -384,28 +384,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
+    function BasicPage(alerCtrl) {
+        this.alerCtrl = alerCtrl;
     }
     BasicPage.prototype.doAlert = function () {
-        var alert = ionic_angular_1.Alert.create({
+        var alert = this.alerCtrl.create({
             title: 'New Friend!',
             message: 'Your friend, Obi wan Kenobi, just approved your friend request!',
             buttons: ['Ok']
         });
-        this.nav.present(alert);
+        alert.present();
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/alerts/basic/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],7:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],7:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -419,12 +419,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var CheckboxPage = (function () {
-    function CheckboxPage(nav) {
-        this.nav = nav;
+    function CheckboxPage(alerCtrl) {
+        this.alerCtrl = alerCtrl;
     }
     CheckboxPage.prototype.doCheckbox = function () {
         var _this = this;
-        var alert = ionic_angular_1.Alert.create();
+        var alert = this.alerCtrl.create();
         alert.setTitle('Which planets have you visited?');
         alert.addInput({
             type: 'checkbox',
@@ -481,7 +481,7 @@ var CheckboxPage = (function () {
                 _this.testCheckboxResult = data;
             }
         });
-        this.nav.present(alert).then(function () {
+        alert.present().then(function () {
             _this.testCheckboxOpen = true;
         });
     };
@@ -489,13 +489,13 @@ var CheckboxPage = (function () {
         core_1.Component({
             templateUrl: './build/pages/alerts/checkbox/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], CheckboxPage);
     return CheckboxPage;
 }());
 exports.CheckboxPage = CheckboxPage;
 
-},{"@angular/core":247,"ionic-angular":513}],8:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],8:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -509,11 +509,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ConfirmPage = (function () {
-    function ConfirmPage(nav) {
-        this.nav = nav;
+    function ConfirmPage(alerCtrl) {
+        this.alerCtrl = alerCtrl;
     }
     ConfirmPage.prototype.doConfirm = function () {
-        var confirm = ionic_angular_1.Alert.create({
+        var confirm = this.alerCtrl.create({
             title: 'Use this lightsaber?',
             message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
             buttons: [
@@ -531,19 +531,19 @@ var ConfirmPage = (function () {
                 }
             ]
         });
-        this.nav.present(confirm);
+        confirm.present();
     };
     ConfirmPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/alerts/confirm/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], ConfirmPage);
     return ConfirmPage;
 }());
 exports.ConfirmPage = ConfirmPage;
 
-},{"@angular/core":247,"ionic-angular":513}],9:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],9:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -557,11 +557,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var PromptPage = (function () {
-    function PromptPage(nav) {
-        this.nav = nav;
+    function PromptPage(alerCtrl) {
+        this.alerCtrl = alerCtrl;
     }
     PromptPage.prototype.doPrompt = function () {
-        var prompt = ionic_angular_1.Alert.create({
+        var prompt = this.alerCtrl.create({
             title: 'Login',
             message: "Enter a name for this new album you're so keen on adding",
             inputs: [
@@ -585,19 +585,19 @@ var PromptPage = (function () {
                 }
             ]
         });
-        this.nav.present(prompt);
+        prompt.present();
     };
     PromptPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/alerts/prompt/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], PromptPage);
     return PromptPage;
 }());
 exports.PromptPage = PromptPage;
 
-},{"@angular/core":247,"ionic-angular":513}],10:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],10:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -611,12 +611,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var RadioPage = (function () {
-    function RadioPage(nav) {
-        this.nav = nav;
+    function RadioPage(alerCtrl) {
+        this.alerCtrl = alerCtrl;
     }
     RadioPage.prototype.doRadio = function () {
         var _this = this;
-        var alert = ionic_angular_1.Alert.create();
+        var alert = this.alerCtrl.create();
         alert.setTitle('Lightsaber color');
         alert.addInput({
             type: 'radio',
@@ -663,7 +663,7 @@ var RadioPage = (function () {
                 _this.testRadioResult = data;
             }
         });
-        this.nav.present(alert).then(function () {
+        alert.present().then(function () {
             _this.testRadioOpen = true;
         });
     };
@@ -671,13 +671,13 @@ var RadioPage = (function () {
         core_1.Component({
             templateUrl: './build/pages/alerts/radio/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], RadioPage);
     return RadioPage;
 }());
 exports.RadioPage = RadioPage;
 
-},{"@angular/core":247,"ionic-angular":513}],11:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],11:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1381,19 +1381,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var common_1 = require('@angular/common');
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
+var forms_1 = require('@angular/forms');
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
-        this.form = new common_1.ControlGroup({
-            firstName: new common_1.Control("", common_1.Validators.required),
-            lastName: new common_1.Control("", common_1.Validators.required)
+    function BasicPage(alertCtrl) {
+        this.alertCtrl = alertCtrl;
+        this.form = new forms_1.FormGroup({
+            firstName: new forms_1.FormControl("", forms_1.Validators.required),
+            lastName: new forms_1.FormControl("", forms_1.Validators.required)
         });
     }
     BasicPage.prototype.processForm = function () {
-        var alert = ionic_angular_1.Alert.create({
+        var alert = this.alertCtrl.create({
             title: "Account Created",
             message: "Created Account for: " + this.form.value.firstName + " " + this.form.value.lastName,
             buttons: [{
@@ -1401,21 +1401,20 @@ var BasicPage = (function () {
                 }]
         });
         if (this.form.status === 'VALID') {
-            this.nav.present(alert);
+            alert.present();
         }
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/inputs/basic/template.html',
-            providers: [common_1.FormBuilder]
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.AlertController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/common":100,"@angular/core":247,"ionic-angular":513}],44:[function(require,module,exports){
+},{"@angular/core":247,"@angular/forms":336,"ionic-angular":561}],44:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1858,28 +1857,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
+    function BasicPage(loadingCtrl) {
+        this.loadingCtrl = loadingCtrl;
     }
     BasicPage.prototype.presentLoading = function () {
-        var loading = ionic_angular_1.Loading.create({
+        var loading = this.loadingCtrl.create({
             content: "Please wait...",
             duration: 3000,
             dismissOnPageChange: true
         });
-        this.nav.present(loading);
+        loading.present();
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/loading/basic/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.LoadingController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],63:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],63:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1949,7 +1948,7 @@ var PageThree = (function () {
 }());
 exports.PageThree = PageThree;
 
-},{"@angular/core":247,"ionic-angular":513}],65:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],65:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1970,18 +1969,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
+    function BasicPage(modalCtrl) {
+        this.modalCtrl = modalCtrl;
     }
     BasicPage.prototype.openModal = function (characterNum) {
-        var modal = ionic_angular_1.Modal.create(ModalsContentPage, characterNum);
-        this.nav.present(modal);
+        var modal = this.modalCtrl.create(ModalsContentPage, characterNum);
+        modal.present();
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/modals/basic/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.ModalController])
     ], BasicPage);
     return BasicPage;
 }());
@@ -2037,7 +2036,7 @@ var ModalsContentPage = (function () {
     return ModalsContentPage;
 }());
 
-},{"@angular/core":247,"ionic-angular":513}],67:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],67:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2143,7 +2142,7 @@ var BasicPage = (function () {
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],69:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],69:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2223,22 +2222,22 @@ var PopoverPage = (function () {
     };
     PopoverPage = __decorate([
         core_1.Component({
-            template: "\n    <ion-list radio-group [(ngModel)]=\"fontFamily\" (ionChange)=\"changeFontFamily()\" class=\"popover-page\">\n      <ion-row>\n        <ion-col>\n          <button (click)=\"changeFontSize('smaller')\" ion-item detail-none class=\"text-button text-smaller\">A</button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeFontSize('larger')\" ion-item detail-none class=\"text-button text-larger\">A</button>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"row-dots\">\n        <ion-col>\n          <button (click)=\"changeBackground('white')\" category=\"dot\" class=\"dot-white\" [class.selected]=\"background == 'white'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('tan')\" category=\"dot\" class=\"dot-tan\" [class.selected]=\"background == 'tan'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('grey')\" category=\"dot\" class=\"dot-grey\" [class.selected]=\"background == 'grey'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('black')\" category=\"dot\" class=\"dot-black\" [class.selected]=\"background == 'black'\"></button>\n        </ion-col>\n      </ion-row>\n      <ion-item class=\"text-athelas\">\n        <ion-label>Athelas</ion-label>\n        <ion-radio value=\"Athelas\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-charter\">\n        <ion-label>Charter</ion-label>\n        <ion-radio value=\"Charter\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-iowan\">\n        <ion-label>Iowan</ion-label>\n        <ion-radio value=\"Iowan\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-palatino\">\n        <ion-label>Palatino</ion-label>\n        <ion-radio value=\"Palatino\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-san-francisco\">\n        <ion-label>San Francisco</ion-label>\n        <ion-radio value=\"San Francisco\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-seravek\">\n        <ion-label>Seravek</ion-label>\n        <ion-radio value=\"Seravek\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-times-new-roman\">\n        <ion-label>Times New Roman</ion-label>\n        <ion-radio value=\"Times New Roman\"></ion-radio>\n      </ion-item>\n    </ion-list>\n  ",
+            template: "\n    <ion-list radio-group [(ngModel)]=\"fontFamily\" (ionChange)=\"changeFontFamily()\" class=\"popover-page\">\n      <ion-row>\n        <ion-col>\n          <button (click)=\"changeFontSize('smaller')\" ion-item detail-none class=\"text-button text-smaller\">A</button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeFontSize('larger')\" ion-item detail-none class=\"text-button text-larger\">A</button>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"row-dots\">\n        <ion-col>\n          <button (click)=\"changeBackground('white')\" category=\"dot\" class=\"dot-white\" [class.selected]=\"background == 'white'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('tan')\" category=\"dot\" class=\"dot-tan\" [class.selected]=\"background == 'tan'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('grey')\" category=\"dot\" class=\"dot-grey\" [class.selected]=\"background == 'grey'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('black')\" category=\"dot\" class=\"dot-black\" [class.selected]=\"background == 'black'\"></button>\n        </ion-col>\n      </ion-row>\n      <ion-item class=\"text-athelas\">\n        <ion-label>Athelas</ion-label>\n        <ion-radio value=\"Athelas\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-charter\">\n        <ion-label>Charter</ion-label>\n        <ion-radio value=\"Charter\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-iowan\">\n        <ion-label>Iowan</ion-label>\n        <ion-radio value=\"Iowan\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-palatino\">\n        <ion-label>Palatino</ion-label>\n        <ion-radio value=\"Palatino\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-san-francisco\">\n        <ion-label>San Francisco</ion-label>\n        <ion-radio value=\"San Francisco\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-seravek\">\n        <ion-label>Seravek</ion-label>\n        <ion-radio value=\"Seravek\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-times-new-roman\">\n        <ion-label>Times New Roman</ion-label>\n        <ion-radio value=\"Times New Roman\"></ion-radio>\n      </ion-item>\n    </ion-list>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavParams])
     ], PopoverPage);
     return PopoverPage;
 }());
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
+    function BasicPage(popoverCtrl) {
+        this.popoverCtrl = popoverCtrl;
     }
     BasicPage.prototype.presentPopover = function (ev) {
-        var popover = ionic_angular_1.Popover.create(PopoverPage, {
+        var popover = this.popoverCtrl.create(PopoverPage, {
             contentEle: this.content.nativeElement,
             textEle: this.text.nativeElement
         });
-        this.nav.present(popover, {
+        popover.present({
             ev: ev
         });
     };
@@ -2254,13 +2253,13 @@ var BasicPage = (function () {
         core_1.Component({
             templateUrl: './build/pages/popovers/basic/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.PopoverController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],71:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],71:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2279,12 +2278,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var BasicPage = (function () {
     function BasicPage() {
-        this.langs = new common_1.Control("");
-        this.langForm = new common_1.ControlGroup({
-            "langs": this.langs
+        this.langForm = new forms_1.FormGroup({
+            "langs": new forms_1.FormControl('')
         });
     }
     BasicPage.prototype.doSubmit = function (event) {
@@ -2301,7 +2299,7 @@ var BasicPage = (function () {
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/common":100,"@angular/core":247}],73:[function(require,module,exports){
+},{"@angular/core":247,"@angular/forms":336}],73:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2460,7 +2458,7 @@ var BasicPage = (function () {
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],79:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],79:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2634,7 +2632,7 @@ var BasicPage = (function () {
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],86:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],86:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2677,7 +2675,7 @@ var IconTextPage = (function () {
 }());
 exports.IconTextPage = IconTextPage;
 
-},{"@angular/core":247,"ionic-angular":513}],87:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],87:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2728,7 +2726,7 @@ var IconPage = (function () {
 }());
 exports.IconPage = IconPage;
 
-},{"@angular/core":247,"ionic-angular":513}],88:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],88:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2752,43 +2750,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
-    function BasicPage(nav) {
-        this.nav = nav;
+    function BasicPage(toastCtrl) {
+        this.toastCtrl = toastCtrl;
     }
     BasicPage.prototype.showToast = function (position) {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'Mmmm, buttered toast',
             duration: 2000,
             position: position
         });
-        this.nav.present(toast);
+        toast.present(toast);
     };
     BasicPage.prototype.showToastWithCloseButton = function () {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'Your files were successfully saved',
             showCloseButton: true,
             closeButtonText: 'Ok'
         });
-        this.nav.present(toast);
+        toast.present();
     };
     BasicPage.prototype.showLongToast = function () {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
             duration: 2000,
         });
-        this.nav.present(toast);
+        toast.present();
     };
     BasicPage = __decorate([
         core_1.Component({
             templateUrl: './build/pages/toast/basic/template.html'
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
+        __metadata('design:paramtypes', [ionic_angular_1.ToastController])
     ], BasicPage);
     return BasicPage;
 }());
 exports.BasicPage = BasicPage;
 
-},{"@angular/core":247,"ionic-angular":513}],90:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],90:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -2889,7 +2887,7 @@ var ButtonsPage = (function () {
 }());
 exports.ButtonsPage = ButtonsPage;
 
-},{"@angular/core":247,"ionic-angular":513}],95:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],95:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2967,7 +2965,7 @@ var ColorsPage = (function () {
 }());
 exports.ColorsPage = ColorsPage;
 
-},{"@angular/core":247,"ionic-angular":513}],96:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],96:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3054,7 +3052,7 @@ var SegmentPage = (function () {
 }());
 exports.SegmentPage = SegmentPage;
 
-},{"@angular/core":247,"ionic-angular":513}],98:[function(require,module,exports){
+},{"@angular/core":247,"ionic-angular":561}],98:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -4185,7 +4183,7 @@ var EventEmitter = (function (_super) {
 }(Subject_1.Subject));
 exports.EventEmitter = EventEmitter;
 
-},{"./lang":117,"./promise":118,"rxjs/Observable":540,"rxjs/Subject":542,"rxjs/observable/PromiseObservable":546,"rxjs/operator/toPromise":547}],112:[function(require,module,exports){
+},{"./lang":117,"./promise":118,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],112:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -13731,7 +13729,7 @@ var SimpleExpressionChecker = (function () {
 
 },{"../chars":173,"../facade/collection":185,"../facade/exceptions":187,"../facade/lang":188,"../interpolation_config":202,"./ast":180,"./lexer":181,"@angular/core":247}],183:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"./lang":188,"./promise":190,"dup":111,"rxjs/Observable":540,"rxjs/Subject":542,"rxjs/observable/PromiseObservable":546,"rxjs/operator/toPromise":547}],184:[function(require,module,exports){
+},{"./lang":188,"./promise":190,"dup":111,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],184:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
 },{"dup":112}],185:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
@@ -32870,7 +32868,7 @@ function _createDependency(token /** TODO #9100 */, optional /** TODO #9100 */, 
 
 },{"../facade/collection":288,"../facade/lang":291,"../reflection/reflection":323,"./forward_ref":276,"./metadata":278,"./provider":280,"./provider_util":281,"./reflective_exceptions":282,"./reflective_key":284}],286:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"./lang":291,"./promise":293,"dup":111,"rxjs/Observable":540,"rxjs/Subject":542,"rxjs/observable/PromiseObservable":546,"rxjs/operator/toPromise":547}],287:[function(require,module,exports){
+},{"./lang":291,"./promise":293,"dup":111,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],287:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
 },{"dup":112}],288:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
@@ -40218,6 +40216,3393 @@ exports.NgZoneImpl = NgZoneImpl;
  * found in the LICENSE file at https://angular.io/license
  */
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./src/forms'));
+
+},{"./src/forms":370}],337:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var checkbox_value_accessor_1 = require('./directives/checkbox_value_accessor');
+var default_value_accessor_1 = require('./directives/default_value_accessor');
+var ng_control_status_1 = require('./directives/ng_control_status');
+var ng_form_1 = require('./directives/ng_form');
+var ng_model_1 = require('./directives/ng_model');
+var ng_model_group_1 = require('./directives/ng_model_group');
+var number_value_accessor_1 = require('./directives/number_value_accessor');
+var radio_control_value_accessor_1 = require('./directives/radio_control_value_accessor');
+var form_array_name_1 = require('./directives/reactive_directives/form_array_name');
+var form_control_directive_1 = require('./directives/reactive_directives/form_control_directive');
+var form_control_name_1 = require('./directives/reactive_directives/form_control_name');
+var form_group_directive_1 = require('./directives/reactive_directives/form_group_directive');
+var form_group_name_1 = require('./directives/reactive_directives/form_group_name');
+var select_control_value_accessor_1 = require('./directives/select_control_value_accessor');
+var select_multiple_control_value_accessor_1 = require('./directives/select_multiple_control_value_accessor');
+var validators_1 = require('./directives/validators');
+var checkbox_value_accessor_2 = require('./directives/checkbox_value_accessor');
+exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
+var default_value_accessor_2 = require('./directives/default_value_accessor');
+exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
+var ng_control_1 = require('./directives/ng_control');
+exports.NgControl = ng_control_1.NgControl;
+var ng_control_status_2 = require('./directives/ng_control_status');
+exports.NgControlStatus = ng_control_status_2.NgControlStatus;
+var ng_form_2 = require('./directives/ng_form');
+exports.NgForm = ng_form_2.NgForm;
+var ng_model_2 = require('./directives/ng_model');
+exports.NgModel = ng_model_2.NgModel;
+var ng_model_group_2 = require('./directives/ng_model_group');
+exports.NgModelGroup = ng_model_group_2.NgModelGroup;
+var number_value_accessor_2 = require('./directives/number_value_accessor');
+exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
+var radio_control_value_accessor_2 = require('./directives/radio_control_value_accessor');
+exports.RadioControlValueAccessor = radio_control_value_accessor_2.RadioControlValueAccessor;
+var form_array_name_2 = require('./directives/reactive_directives/form_array_name');
+exports.FormArrayName = form_array_name_2.FormArrayName;
+var form_control_directive_2 = require('./directives/reactive_directives/form_control_directive');
+exports.FormControlDirective = form_control_directive_2.FormControlDirective;
+var form_control_name_2 = require('./directives/reactive_directives/form_control_name');
+exports.FormControlName = form_control_name_2.FormControlName;
+var form_group_directive_2 = require('./directives/reactive_directives/form_group_directive');
+exports.FormGroupDirective = form_group_directive_2.FormGroupDirective;
+var form_group_name_2 = require('./directives/reactive_directives/form_group_name');
+exports.FormGroupName = form_group_name_2.FormGroupName;
+var select_control_value_accessor_2 = require('./directives/select_control_value_accessor');
+exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
+exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
+var select_multiple_control_value_accessor_2 = require('./directives/select_multiple_control_value_accessor');
+exports.NgSelectMultipleOption = select_multiple_control_value_accessor_2.NgSelectMultipleOption;
+exports.SelectMultipleControlValueAccessor = select_multiple_control_value_accessor_2.SelectMultipleControlValueAccessor;
+var validators_2 = require('./directives/validators');
+exports.MaxLengthValidator = validators_2.MaxLengthValidator;
+exports.MinLengthValidator = validators_2.MinLengthValidator;
+exports.PatternValidator = validators_2.PatternValidator;
+exports.RequiredValidator = validators_2.RequiredValidator;
+/**
+ *
+ * A list of all the form directives used as part of a `@Component` annotation.
+ *
+ *  This is a shorthand for importing them each individually.
+ *
+ * ### Example
+ *
+ * ```typescript
+ * @Component({
+ *   selector: 'my-app',
+ *   directives: [FORM_DIRECTIVES]
+ * })
+ * class MyApp {}
+ * ```
+ * @experimental
+ */
+exports.FORM_DIRECTIVES = [
+    ng_model_1.NgModel, ng_model_group_1.NgModelGroup, ng_form_1.NgForm,
+    select_control_value_accessor_1.NgSelectOption, select_multiple_control_value_accessor_1.NgSelectMultipleOption, default_value_accessor_1.DefaultValueAccessor, number_value_accessor_1.NumberValueAccessor,
+    checkbox_value_accessor_1.CheckboxControlValueAccessor, select_control_value_accessor_1.SelectControlValueAccessor, select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor,
+    radio_control_value_accessor_1.RadioControlValueAccessor, ng_control_status_1.NgControlStatus,
+    validators_1.RequiredValidator, validators_1.MinLengthValidator, validators_1.MaxLengthValidator, validators_1.PatternValidator
+];
+/**
+ * @experimental
+ */
+exports.REACTIVE_FORM_DIRECTIVES = 
+/*@ts2dart_const*/ [
+    form_control_directive_1.FormControlDirective, form_group_directive_1.FormGroupDirective, form_control_name_1.FormControlName, form_group_name_1.FormGroupName, form_array_name_1.FormArrayName
+];
+
+},{"./directives/checkbox_value_accessor":340,"./directives/default_value_accessor":343,"./directives/ng_control":344,"./directives/ng_control_status":345,"./directives/ng_form":346,"./directives/ng_model":347,"./directives/ng_model_group":348,"./directives/number_value_accessor":350,"./directives/radio_control_value_accessor":351,"./directives/reactive_directives/form_array_name":352,"./directives/reactive_directives/form_control_directive":353,"./directives/reactive_directives/form_control_name":354,"./directives/reactive_directives/form_group_directive":355,"./directives/reactive_directives/form_group_name":356,"./directives/select_control_value_accessor":357,"./directives/select_multiple_control_value_accessor":358,"./directives/validators":360}],338:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var exceptions_1 = require('../facade/exceptions');
+var lang_1 = require('../facade/lang');
+/**
+ * Base class for control directives.
+ *
+ * Only used internally in the forms module.
+ *
+ * @experimental
+ */
+var AbstractControlDirective = (function () {
+    function AbstractControlDirective() {
+    }
+    Object.defineProperty(AbstractControlDirective.prototype, "control", {
+        get: function () { return exceptions_1.unimplemented(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "value", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.value : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "valid", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.valid : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "errors", {
+        get: function () {
+            return lang_1.isPresent(this.control) ? this.control.errors : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "pristine", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.pristine : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "dirty", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.dirty : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "touched", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.touched : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "untouched", {
+        get: function () { return lang_1.isPresent(this.control) ? this.control.untouched : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "statusChanges", {
+        get: function () {
+            return lang_1.isPresent(this.control) ? this.control.statusChanges : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "valueChanges", {
+        get: function () {
+            return lang_1.isPresent(this.control) ? this.control.valueChanges : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControlDirective.prototype, "path", {
+        get: function () { return null; },
+        enumerable: true,
+        configurable: true
+    });
+    return AbstractControlDirective;
+}());
+exports.AbstractControlDirective = AbstractControlDirective;
+
+},{"../facade/exceptions":365,"../facade/lang":366}],339:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var control_container_1 = require('./control_container');
+var shared_1 = require('./shared');
+/**
+  This is a base class for code shared between {@link NgModelGroup} and {@link FormGroupName}.
+ */
+var AbstractFormGroupDirective = (function (_super) {
+    __extends(AbstractFormGroupDirective, _super);
+    function AbstractFormGroupDirective() {
+        _super.apply(this, arguments);
+    }
+    AbstractFormGroupDirective.prototype.ngOnInit = function () { this.formDirective.addFormGroup(this); };
+    AbstractFormGroupDirective.prototype.ngOnDestroy = function () { this.formDirective.removeFormGroup(this); };
+    Object.defineProperty(AbstractFormGroupDirective.prototype, "control", {
+        /**
+         * Get the {@link FormGroup} backing this binding.
+         */
+        get: function () { return this.formDirective.getFormGroup(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractFormGroupDirective.prototype, "path", {
+        /**
+         * Get the path to this control group.
+         */
+        get: function () { return shared_1.controlPath(this.name, this._parent); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractFormGroupDirective.prototype, "formDirective", {
+        /**
+         * Get the {@link Form} to which this group belongs.
+         */
+        get: function () { return this._parent.formDirective; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractFormGroupDirective.prototype, "validator", {
+        get: function () { return shared_1.composeValidators(this._validators); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractFormGroupDirective.prototype, "asyncValidator", {
+        get: function () { return shared_1.composeAsyncValidators(this._asyncValidators); },
+        enumerable: true,
+        configurable: true
+    });
+    return AbstractFormGroupDirective;
+}(control_container_1.ControlContainer));
+exports.AbstractFormGroupDirective = AbstractFormGroupDirective;
+
+},{"./control_container":341,"./shared":359}],340:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var control_value_accessor_1 = require('./control_value_accessor');
+exports.CHECKBOX_VALUE_ACCESSOR = {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }),
+    multi: true
+};
+var CheckboxControlValueAccessor = (function () {
+    function CheckboxControlValueAccessor(_renderer, _elementRef) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    CheckboxControlValueAccessor.prototype.writeValue = function (value) {
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'checked', value);
+    };
+    CheckboxControlValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+    CheckboxControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    /** @nocollapse */
+    CheckboxControlValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'input[type=checkbox][formControlName],input[type=checkbox][formControl],input[type=checkbox][ngModel]',
+                    host: { '(change)': 'onChange($event.target.checked)', '(blur)': 'onTouched()' },
+                    providers: [exports.CHECKBOX_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    CheckboxControlValueAccessor.ctorParameters = [
+        { type: core_1.Renderer, },
+        { type: core_1.ElementRef, },
+    ];
+    return CheckboxControlValueAccessor;
+}());
+exports.CheckboxControlValueAccessor = CheckboxControlValueAccessor;
+
+},{"./control_value_accessor":342,"@angular/core":247}],341:[function(require,module,exports){
+arguments[4][123][0].apply(exports,arguments)
+},{"./abstract_control_directive":338,"dup":123}],342:[function(require,module,exports){
+arguments[4][124][0].apply(exports,arguments)
+},{"@angular/core":247,"dup":124}],343:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var lang_1 = require('../facade/lang');
+var control_value_accessor_1 = require('./control_value_accessor');
+exports.DEFAULT_VALUE_ACCESSOR = 
+/* @ts2dart_Provider */ {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return DefaultValueAccessor; }),
+    multi: true
+};
+var DefaultValueAccessor = (function () {
+    function DefaultValueAccessor(_renderer, _elementRef) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    DefaultValueAccessor.prototype.writeValue = function (value) {
+        var normalizedValue = lang_1.isBlank(value) ? '' : value;
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
+    };
+    DefaultValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+    DefaultValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    /** @nocollapse */
+    DefaultValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]',
+                    // TODO: vsavkin replace the above selector with the one below it once
+                    // https://github.com/angular/angular/issues/3011 is implemented
+                    // selector: '[ngControl],[ngModel],[ngFormControl]',
+                    host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
+                    providers: [exports.DEFAULT_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    DefaultValueAccessor.ctorParameters = [
+        { type: core_1.Renderer, },
+        { type: core_1.ElementRef, },
+    ];
+    return DefaultValueAccessor;
+}());
+exports.DefaultValueAccessor = DefaultValueAccessor;
+
+},{"../facade/lang":366,"./control_value_accessor":342,"@angular/core":247}],344:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var exceptions_1 = require('../facade/exceptions');
+var abstract_control_directive_1 = require('./abstract_control_directive');
+/**
+ * A base class that all control directive extend.
+ * It binds a {@link Control} object to a DOM element.
+ *
+ * Used internally by Angular forms.
+ *
+ * @experimental
+ */
+var NgControl = (function (_super) {
+    __extends(NgControl, _super);
+    function NgControl() {
+        _super.apply(this, arguments);
+        this.name = null;
+        this.valueAccessor = null;
+    }
+    Object.defineProperty(NgControl.prototype, "validator", {
+        get: function () { return exceptions_1.unimplemented(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControl.prototype, "asyncValidator", {
+        get: function () { return exceptions_1.unimplemented(); },
+        enumerable: true,
+        configurable: true
+    });
+    return NgControl;
+}(abstract_control_directive_1.AbstractControlDirective));
+exports.NgControl = NgControl;
+
+},{"../facade/exceptions":365,"./abstract_control_directive":338}],345:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var lang_1 = require('../facade/lang');
+var ng_control_1 = require('./ng_control');
+var NgControlStatus = (function () {
+    function NgControlStatus(cd) {
+        this._cd = cd;
+    }
+    Object.defineProperty(NgControlStatus.prototype, "ngClassUntouched", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? this._cd.control.untouched : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControlStatus.prototype, "ngClassTouched", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? this._cd.control.touched : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControlStatus.prototype, "ngClassPristine", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? this._cd.control.pristine : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControlStatus.prototype, "ngClassDirty", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? this._cd.control.dirty : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControlStatus.prototype, "ngClassValid", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? this._cd.control.valid : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgControlStatus.prototype, "ngClassInvalid", {
+        get: function () {
+            return lang_1.isPresent(this._cd.control) ? !this._cd.control.valid : false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @nocollapse */
+    NgControlStatus.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[formControlName],[ngModel],[formControl]',
+                    host: {
+                        '[class.ng-untouched]': 'ngClassUntouched',
+                        '[class.ng-touched]': 'ngClassTouched',
+                        '[class.ng-pristine]': 'ngClassPristine',
+                        '[class.ng-dirty]': 'ngClassDirty',
+                        '[class.ng-valid]': 'ngClassValid',
+                        '[class.ng-invalid]': 'ngClassInvalid'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    NgControlStatus.ctorParameters = [
+        { type: ng_control_1.NgControl, decorators: [{ type: core_1.Self },] },
+    ];
+    return NgControlStatus;
+}());
+exports.NgControlStatus = NgControlStatus;
+
+},{"../facade/lang":366,"./ng_control":344,"@angular/core":247}],346:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var async_1 = require('../facade/async');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var model_1 = require('../model');
+var validators_1 = require('../validators');
+var control_container_1 = require('./control_container');
+var shared_1 = require('./shared');
+exports.formDirectiveProvider = 
+/*@ts2dart_const*/ { provide: control_container_1.ControlContainer, useExisting: core_1.forwardRef(function () { return NgForm; }) };
+var NgForm = (function (_super) {
+    __extends(NgForm, _super);
+    function NgForm(validators, asyncValidators) {
+        _super.call(this);
+        this._submitted = false;
+        this.ngSubmit = new async_1.EventEmitter();
+        this.form = new model_1.FormGroup({}, null, shared_1.composeValidators(validators), shared_1.composeAsyncValidators(asyncValidators));
+    }
+    Object.defineProperty(NgForm.prototype, "submitted", {
+        get: function () { return this._submitted; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgForm.prototype, "formDirective", {
+        get: function () { return this; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgForm.prototype, "control", {
+        get: function () { return this.form; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgForm.prototype, "path", {
+        get: function () { return []; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgForm.prototype, "controls", {
+        get: function () { return this.form.controls; },
+        enumerable: true,
+        configurable: true
+    });
+    NgForm.prototype.addControl = function (dir) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () {
+            var container = _this._findContainer(dir.path);
+            dir._control = container.registerControl(dir.name, dir.control);
+            shared_1.setUpControl(dir.control, dir);
+            dir.control.updateValueAndValidity({ emitEvent: false });
+        });
+    };
+    NgForm.prototype.getControl = function (dir) { return this.form.find(dir.path); };
+    NgForm.prototype.removeControl = function (dir) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () {
+            var container = _this._findContainer(dir.path);
+            if (lang_1.isPresent(container)) {
+                container.removeControl(dir.name);
+            }
+        });
+    };
+    NgForm.prototype.addFormGroup = function (dir) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () {
+            var container = _this._findContainer(dir.path);
+            var group = new model_1.FormGroup({});
+            shared_1.setUpFormContainer(group, dir);
+            container.registerControl(dir.name, group);
+            group.updateValueAndValidity({ emitEvent: false });
+        });
+    };
+    NgForm.prototype.removeFormGroup = function (dir) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () {
+            var container = _this._findContainer(dir.path);
+            if (lang_1.isPresent(container)) {
+                container.removeControl(dir.name);
+            }
+        });
+    };
+    NgForm.prototype.getFormGroup = function (dir) { return this.form.find(dir.path); };
+    NgForm.prototype.updateModel = function (dir, value) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () {
+            var ctrl = _this.form.find(dir.path);
+            ctrl.updateValue(value);
+        });
+    };
+    NgForm.prototype.onSubmit = function () {
+        this._submitted = true;
+        async_1.ObservableWrapper.callEmit(this.ngSubmit, null);
+        return false;
+    };
+    /** @internal */
+    NgForm.prototype._findContainer = function (path) {
+        path.pop();
+        return collection_1.ListWrapper.isEmpty(path) ? this.form : this.form.find(path);
+    };
+    /** @nocollapse */
+    NgForm.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'form:not([ngNoForm]):not([formGroup]),ngForm,[ngForm]',
+                    providers: [exports.formDirectiveProvider],
+                    host: {
+                        '(submit)': 'onSubmit()',
+                    },
+                    outputs: ['ngSubmit'],
+                    exportAs: 'ngForm'
+                },] },
+    ];
+    /** @nocollapse */
+    NgForm.ctorParameters = [
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+    ];
+    return NgForm;
+}(control_container_1.ControlContainer));
+exports.NgForm = NgForm;
+
+},{"../facade/async":361,"../facade/collection":363,"../facade/lang":366,"../model":371,"../validators":372,"./control_container":341,"./shared":359,"@angular/core":247}],347:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var async_1 = require('../facade/async');
+var exceptions_1 = require('../facade/exceptions');
+var model_1 = require('../model');
+var validators_1 = require('../validators');
+var control_container_1 = require('./control_container');
+var control_value_accessor_1 = require('./control_value_accessor');
+var ng_control_1 = require('./ng_control');
+var shared_1 = require('./shared');
+exports.formControlBinding = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: ng_control_1.NgControl,
+    useExisting: core_1.forwardRef(function () { return NgModel; })
+};
+var NgModel = (function (_super) {
+    __extends(NgModel, _super);
+    function NgModel(_parent, _validators, _asyncValidators, valueAccessors) {
+        _super.call(this);
+        this._parent = _parent;
+        this._validators = _validators;
+        this._asyncValidators = _asyncValidators;
+        /** @internal */
+        this._control = new model_1.FormControl();
+        /** @internal */
+        this._registered = false;
+        this.update = new async_1.EventEmitter();
+        this.valueAccessor = shared_1.selectValueAccessor(this, valueAccessors);
+    }
+    NgModel.prototype.ngOnChanges = function (changes) {
+        this._checkName();
+        if (!this._registered)
+            this._setUpControl();
+        if (shared_1.isPropertyUpdated(changes, this.viewModel)) {
+            this._updateValue(this.model);
+            this.viewModel = this.model;
+        }
+    };
+    NgModel.prototype.ngOnDestroy = function () { this.formDirective && this.formDirective.removeControl(this); };
+    Object.defineProperty(NgModel.prototype, "control", {
+        get: function () { return this._control; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgModel.prototype, "path", {
+        get: function () {
+            return this._parent ? shared_1.controlPath(this.name, this._parent) : [];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgModel.prototype, "formDirective", {
+        get: function () { return this._parent ? this._parent.formDirective : null; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgModel.prototype, "validator", {
+        get: function () { return shared_1.composeValidators(this._validators); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgModel.prototype, "asyncValidator", {
+        get: function () {
+            return shared_1.composeAsyncValidators(this._asyncValidators);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    NgModel.prototype.viewToModelUpdate = function (newValue) {
+        this.viewModel = newValue;
+        async_1.ObservableWrapper.callEmit(this.update, newValue);
+    };
+    NgModel.prototype._setUpControl = function () {
+        this._isStandalone() ? this._setUpStandalone() :
+            this.formDirective.addControl(this);
+        this._registered = true;
+    };
+    NgModel.prototype._isStandalone = function () {
+        return !this._parent || (this.options && this.options.standalone);
+    };
+    NgModel.prototype._setUpStandalone = function () {
+        shared_1.setUpControl(this._control, this);
+        this._control.updateValueAndValidity({ emitEvent: false });
+    };
+    NgModel.prototype._checkName = function () {
+        if (this.options && this.options.name)
+            this.name = this.options.name;
+        if (!this._isStandalone() && !this.name) {
+            throw new exceptions_1.BaseException("If ngModel is used within a form tag, either the name attribute must be set\n                      or the form control must be defined as 'standalone' in ngModelOptions.\n\n                      Example 1: <input [(ngModel)]=\"person.firstName\" name=\"first\">\n                      Example 2: <input [(ngModel)]=\"person.firstName\" [ngModelOptions]=\"{standalone: true}\">\n                   ");
+        }
+    };
+    NgModel.prototype._updateValue = function (value) {
+        var _this = this;
+        async_1.PromiseWrapper.scheduleMicrotask(function () { _this.control.updateValue(value); });
+    };
+    /** @nocollapse */
+    NgModel.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[ngModel]:not([formControlName]):not([formControl])',
+                    providers: [exports.formControlBinding],
+                    exportAs: 'ngModel'
+                },] },
+    ];
+    /** @nocollapse */
+    NgModel.ctorParameters = [
+        { type: control_container_1.ControlContainer, decorators: [{ type: core_1.Optional }, { type: core_1.Host },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [control_value_accessor_1.NG_VALUE_ACCESSOR,] },] },
+    ];
+    /** @nocollapse */
+    NgModel.propDecorators = {
+        'model': [{ type: core_1.Input, args: ['ngModel',] },],
+        'name': [{ type: core_1.Input },],
+        'options': [{ type: core_1.Input, args: ['ngModelOptions',] },],
+        'update': [{ type: core_1.Output, args: ['ngModelChange',] },],
+    };
+    return NgModel;
+}(ng_control_1.NgControl));
+exports.NgModel = NgModel;
+
+},{"../facade/async":361,"../facade/exceptions":365,"../model":371,"../validators":372,"./control_container":341,"./control_value_accessor":342,"./ng_control":344,"./shared":359,"@angular/core":247}],348:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var validators_1 = require('../validators');
+var abstract_form_group_directive_1 = require('./abstract_form_group_directive');
+var control_container_1 = require('./control_container');
+exports.modelGroupProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: control_container_1.ControlContainer,
+    useExisting: core_1.forwardRef(function () { return NgModelGroup; })
+};
+var NgModelGroup = (function (_super) {
+    __extends(NgModelGroup, _super);
+    function NgModelGroup(parent, validators, asyncValidators) {
+        _super.call(this);
+        this._parent = parent;
+        this._validators = validators;
+        this._asyncValidators = asyncValidators;
+    }
+    /** @nocollapse */
+    NgModelGroup.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[ngModelGroup]', providers: [exports.modelGroupProvider], exportAs: 'ngModelGroup' },] },
+    ];
+    /** @nocollapse */
+    NgModelGroup.ctorParameters = [
+        { type: control_container_1.ControlContainer, decorators: [{ type: core_1.Host }, { type: core_1.SkipSelf },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+    ];
+    /** @nocollapse */
+    NgModelGroup.propDecorators = {
+        'name': [{ type: core_1.Input, args: ['ngModelGroup',] },],
+    };
+    return NgModelGroup;
+}(abstract_form_group_directive_1.AbstractFormGroupDirective));
+exports.NgModelGroup = NgModelGroup;
+
+},{"../validators":372,"./abstract_form_group_directive":339,"./control_container":341,"@angular/core":247}],349:[function(require,module,exports){
+arguments[4][134][0].apply(exports,arguments)
+},{"dup":134}],350:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var lang_1 = require('../facade/lang');
+var control_value_accessor_1 = require('./control_value_accessor');
+exports.NUMBER_VALUE_ACCESSOR = {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return NumberValueAccessor; }),
+    multi: true
+};
+var NumberValueAccessor = (function () {
+    function NumberValueAccessor(_renderer, _elementRef) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    NumberValueAccessor.prototype.writeValue = function (value) {
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
+    };
+    NumberValueAccessor.prototype.registerOnChange = function (fn) {
+        this.onChange = function (value) { fn(value == '' ? null : lang_1.NumberWrapper.parseFloat(value)); };
+    };
+    NumberValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    /** @nocollapse */
+    NumberValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]',
+                    host: {
+                        '(change)': 'onChange($event.target.value)',
+                        '(input)': 'onChange($event.target.value)',
+                        '(blur)': 'onTouched()'
+                    },
+                    providers: [exports.NUMBER_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    NumberValueAccessor.ctorParameters = [
+        { type: core_1.Renderer, },
+        { type: core_1.ElementRef, },
+    ];
+    return NumberValueAccessor;
+}());
+exports.NumberValueAccessor = NumberValueAccessor;
+
+},{"../facade/lang":366,"./control_value_accessor":342,"@angular/core":247}],351:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var collection_1 = require('../facade/collection');
+var exceptions_1 = require('../facade/exceptions');
+var lang_1 = require('../facade/lang');
+var control_value_accessor_1 = require('./control_value_accessor');
+var ng_control_1 = require('./ng_control');
+exports.RADIO_VALUE_ACCESSOR = {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return RadioControlValueAccessor; }),
+    multi: true
+};
+var RadioControlRegistry = (function () {
+    function RadioControlRegistry() {
+        this._accessors = [];
+    }
+    RadioControlRegistry.prototype.add = function (control, accessor) {
+        this._accessors.push([control, accessor]);
+    };
+    RadioControlRegistry.prototype.remove = function (accessor) {
+        var indexToRemove = -1;
+        for (var i = 0; i < this._accessors.length; ++i) {
+            if (this._accessors[i][1] === accessor) {
+                indexToRemove = i;
+            }
+        }
+        collection_1.ListWrapper.removeAt(this._accessors, indexToRemove);
+    };
+    RadioControlRegistry.prototype.select = function (accessor) {
+        var _this = this;
+        this._accessors.forEach(function (c) {
+            if (_this._isSameGroup(c, accessor) && c[1] !== accessor) {
+                c[1].fireUncheck(accessor.value);
+            }
+        });
+    };
+    RadioControlRegistry.prototype._isSameGroup = function (controlPair, accessor) {
+        if (!controlPair[0].control)
+            return false;
+        return controlPair[0].control.root === accessor._control.control.root &&
+            controlPair[1].name === accessor.name;
+    };
+    /** @nocollapse */
+    RadioControlRegistry.decorators = [
+        { type: core_1.Injectable },
+    ];
+    return RadioControlRegistry;
+}());
+exports.RadioControlRegistry = RadioControlRegistry;
+var RadioControlValueAccessor = (function () {
+    function RadioControlValueAccessor(_renderer, _elementRef, _registry, _injector) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        this._registry = _registry;
+        this._injector = _injector;
+        this.onChange = function () { };
+        this.onTouched = function () { };
+    }
+    RadioControlValueAccessor.prototype.ngOnInit = function () {
+        this._control = this._injector.get(ng_control_1.NgControl);
+        this._checkName();
+        this._registry.add(this._control, this);
+    };
+    RadioControlValueAccessor.prototype.ngOnDestroy = function () { this._registry.remove(this); };
+    RadioControlValueAccessor.prototype.writeValue = function (value) {
+        this._state = value === this.value;
+        if (lang_1.isPresent(value)) {
+            this._renderer.setElementProperty(this._elementRef.nativeElement, 'checked', this._state);
+        }
+    };
+    RadioControlValueAccessor.prototype.registerOnChange = function (fn) {
+        var _this = this;
+        this._fn = fn;
+        this.onChange = function () {
+            fn(_this.value);
+            _this._registry.select(_this);
+        };
+    };
+    RadioControlValueAccessor.prototype.fireUncheck = function (value) { this.writeValue(value); };
+    RadioControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    RadioControlValueAccessor.prototype._checkName = function () {
+        if (this.name && this.formControlName && this.name !== this.formControlName) {
+            this._throwNameError();
+        }
+        if (!this.name && this.formControlName)
+            this.name = this.formControlName;
+    };
+    RadioControlValueAccessor.prototype._throwNameError = function () {
+        throw new exceptions_1.BaseException("\n      If you define both a name and a formControlName attribute on your radio button, their values\n      must match. Ex: <input type=\"radio\" formControlName=\"food\" name=\"food\">\n    ");
+    };
+    /** @nocollapse */
+    RadioControlValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'input[type=radio][formControlName],input[type=radio][formControl],input[type=radio][ngModel]',
+                    host: { '(change)': 'onChange()', '(blur)': 'onTouched()' },
+                    providers: [exports.RADIO_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    RadioControlValueAccessor.ctorParameters = [
+        { type: core_1.Renderer, },
+        { type: core_1.ElementRef, },
+        { type: RadioControlRegistry, },
+        { type: core_1.Injector, },
+    ];
+    /** @nocollapse */
+    RadioControlValueAccessor.propDecorators = {
+        'name': [{ type: core_1.Input },],
+        'formControlName': [{ type: core_1.Input },],
+        'value': [{ type: core_1.Input },],
+    };
+    return RadioControlValueAccessor;
+}());
+exports.RadioControlValueAccessor = RadioControlValueAccessor;
+
+},{"../facade/collection":363,"../facade/exceptions":365,"../facade/lang":366,"./control_value_accessor":342,"./ng_control":344,"@angular/core":247}],352:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var validators_1 = require('../../validators');
+var control_container_1 = require('../control_container');
+var shared_1 = require('../shared');
+exports.formArrayNameProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: control_container_1.ControlContainer,
+    useExisting: core_1.forwardRef(function () { return FormArrayName; })
+};
+var FormArrayName = (function (_super) {
+    __extends(FormArrayName, _super);
+    function FormArrayName(parent, validators, asyncValidators) {
+        _super.call(this);
+        this._parent = parent;
+        this._validators = validators;
+        this._asyncValidators = asyncValidators;
+    }
+    FormArrayName.prototype.ngOnInit = function () { this.formDirective.addFormArray(this); };
+    FormArrayName.prototype.ngOnDestroy = function () { this.formDirective.removeFormArray(this); };
+    Object.defineProperty(FormArrayName.prototype, "control", {
+        get: function () { return this.formDirective.getFormArray(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormArrayName.prototype, "formDirective", {
+        get: function () { return this._parent.formDirective; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormArrayName.prototype, "path", {
+        get: function () { return shared_1.controlPath(this.name, this._parent); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormArrayName.prototype, "validator", {
+        get: function () { return shared_1.composeValidators(this._validators); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormArrayName.prototype, "asyncValidator", {
+        get: function () { return shared_1.composeAsyncValidators(this._asyncValidators); },
+        enumerable: true,
+        configurable: true
+    });
+    /** @nocollapse */
+    FormArrayName.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[formArrayName]', providers: [exports.formArrayNameProvider] },] },
+    ];
+    /** @nocollapse */
+    FormArrayName.ctorParameters = [
+        { type: control_container_1.ControlContainer, decorators: [{ type: core_1.Host }, { type: core_1.SkipSelf },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+    ];
+    /** @nocollapse */
+    FormArrayName.propDecorators = {
+        'name': [{ type: core_1.Input, args: ['formArrayName',] },],
+    };
+    return FormArrayName;
+}(control_container_1.ControlContainer));
+exports.FormArrayName = FormArrayName;
+
+},{"../../validators":372,"../control_container":341,"../shared":359,"@angular/core":247}],353:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var async_1 = require('../../facade/async');
+var collection_1 = require('../../facade/collection');
+var validators_1 = require('../../validators');
+var control_value_accessor_1 = require('../control_value_accessor');
+var ng_control_1 = require('../ng_control');
+var shared_1 = require('../shared');
+exports.formControlBinding = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: ng_control_1.NgControl,
+    useExisting: core_1.forwardRef(function () { return FormControlDirective; })
+};
+var FormControlDirective = (function (_super) {
+    __extends(FormControlDirective, _super);
+    function FormControlDirective(_validators, _asyncValidators, valueAccessors) {
+        _super.call(this);
+        this._validators = _validators;
+        this._asyncValidators = _asyncValidators;
+        this.update = new async_1.EventEmitter();
+        this.valueAccessor = shared_1.selectValueAccessor(this, valueAccessors);
+    }
+    FormControlDirective.prototype.ngOnChanges = function (changes) {
+        if (this._isControlChanged(changes)) {
+            shared_1.setUpControl(this.form, this);
+            this.form.updateValueAndValidity({ emitEvent: false });
+        }
+        if (shared_1.isPropertyUpdated(changes, this.viewModel)) {
+            this.form.updateValue(this.model);
+            this.viewModel = this.model;
+        }
+    };
+    Object.defineProperty(FormControlDirective.prototype, "path", {
+        get: function () { return []; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlDirective.prototype, "validator", {
+        get: function () { return shared_1.composeValidators(this._validators); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlDirective.prototype, "asyncValidator", {
+        get: function () {
+            return shared_1.composeAsyncValidators(this._asyncValidators);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlDirective.prototype, "control", {
+        get: function () { return this.form; },
+        enumerable: true,
+        configurable: true
+    });
+    FormControlDirective.prototype.viewToModelUpdate = function (newValue) {
+        this.viewModel = newValue;
+        async_1.ObservableWrapper.callEmit(this.update, newValue);
+    };
+    FormControlDirective.prototype._isControlChanged = function (changes) {
+        return collection_1.StringMapWrapper.contains(changes, 'form');
+    };
+    /** @nocollapse */
+    FormControlDirective.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[formControl]', providers: [exports.formControlBinding], exportAs: 'ngForm' },] },
+    ];
+    /** @nocollapse */
+    FormControlDirective.ctorParameters = [
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [control_value_accessor_1.NG_VALUE_ACCESSOR,] },] },
+    ];
+    /** @nocollapse */
+    FormControlDirective.propDecorators = {
+        'form': [{ type: core_1.Input, args: ['formControl',] },],
+        'model': [{ type: core_1.Input, args: ['ngModel',] },],
+        'update': [{ type: core_1.Output, args: ['ngModelChange',] },],
+    };
+    return FormControlDirective;
+}(ng_control_1.NgControl));
+exports.FormControlDirective = FormControlDirective;
+
+},{"../../facade/async":361,"../../facade/collection":363,"../../validators":372,"../control_value_accessor":342,"../ng_control":344,"../shared":359,"@angular/core":247}],354:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var async_1 = require('../../facade/async');
+var validators_1 = require('../../validators');
+var control_container_1 = require('../control_container');
+var control_value_accessor_1 = require('../control_value_accessor');
+var ng_control_1 = require('../ng_control');
+var shared_1 = require('../shared');
+exports.controlNameBinding = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: ng_control_1.NgControl,
+    useExisting: core_1.forwardRef(function () { return FormControlName; })
+};
+var FormControlName = (function (_super) {
+    __extends(FormControlName, _super);
+    function FormControlName(_parent, _validators, _asyncValidators, valueAccessors) {
+        _super.call(this);
+        this._parent = _parent;
+        this._validators = _validators;
+        this._asyncValidators = _asyncValidators;
+        this._added = false;
+        this.update = new async_1.EventEmitter();
+        this.valueAccessor = shared_1.selectValueAccessor(this, valueAccessors);
+    }
+    FormControlName.prototype.ngOnChanges = function (changes) {
+        if (!this._added) {
+            this.formDirective.addControl(this);
+            this._added = true;
+        }
+        if (shared_1.isPropertyUpdated(changes, this.viewModel)) {
+            this.viewModel = this.model;
+            this.formDirective.updateModel(this, this.model);
+        }
+    };
+    FormControlName.prototype.ngOnDestroy = function () { this.formDirective.removeControl(this); };
+    FormControlName.prototype.viewToModelUpdate = function (newValue) {
+        this.viewModel = newValue;
+        async_1.ObservableWrapper.callEmit(this.update, newValue);
+    };
+    Object.defineProperty(FormControlName.prototype, "path", {
+        get: function () { return shared_1.controlPath(this.name, this._parent); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlName.prototype, "formDirective", {
+        get: function () { return this._parent.formDirective; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlName.prototype, "validator", {
+        get: function () { return shared_1.composeValidators(this._validators); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlName.prototype, "asyncValidator", {
+        get: function () {
+            return shared_1.composeAsyncValidators(this._asyncValidators);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormControlName.prototype, "control", {
+        get: function () { return this.formDirective.getControl(this); },
+        enumerable: true,
+        configurable: true
+    });
+    /** @nocollapse */
+    FormControlName.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[formControlName]', providers: [exports.controlNameBinding] },] },
+    ];
+    /** @nocollapse */
+    FormControlName.ctorParameters = [
+        { type: control_container_1.ControlContainer, decorators: [{ type: core_1.Host }, { type: core_1.SkipSelf },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [control_value_accessor_1.NG_VALUE_ACCESSOR,] },] },
+    ];
+    /** @nocollapse */
+    FormControlName.propDecorators = {
+        'name': [{ type: core_1.Input, args: ['formControlName',] },],
+        'model': [{ type: core_1.Input, args: ['ngModel',] },],
+        'update': [{ type: core_1.Output, args: ['ngModelChange',] },],
+    };
+    return FormControlName;
+}(ng_control_1.NgControl));
+exports.FormControlName = FormControlName;
+
+},{"../../facade/async":361,"../../validators":372,"../control_container":341,"../control_value_accessor":342,"../ng_control":344,"../shared":359,"@angular/core":247}],355:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var async_1 = require('../../facade/async');
+var collection_1 = require('../../facade/collection');
+var exceptions_1 = require('../../facade/exceptions');
+var lang_1 = require('../../facade/lang');
+var validators_1 = require('../../validators');
+var control_container_1 = require('../control_container');
+var shared_1 = require('../shared');
+exports.formDirectiveProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: control_container_1.ControlContainer,
+    useExisting: core_1.forwardRef(function () { return FormGroupDirective; })
+};
+var FormGroupDirective = (function (_super) {
+    __extends(FormGroupDirective, _super);
+    function FormGroupDirective(_validators, _asyncValidators) {
+        _super.call(this);
+        this._validators = _validators;
+        this._asyncValidators = _asyncValidators;
+        this._submitted = false;
+        this.directives = [];
+        this.form = null;
+        this.ngSubmit = new async_1.EventEmitter();
+    }
+    FormGroupDirective.prototype.ngOnChanges = function (changes) {
+        this._checkFormPresent();
+        if (collection_1.StringMapWrapper.contains(changes, 'form')) {
+            var sync = shared_1.composeValidators(this._validators);
+            this.form.validator = validators_1.Validators.compose([this.form.validator, sync]);
+            var async = shared_1.composeAsyncValidators(this._asyncValidators);
+            this.form.asyncValidator = validators_1.Validators.composeAsync([this.form.asyncValidator, async]);
+            this.form.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+        }
+        this._updateDomValue();
+    };
+    Object.defineProperty(FormGroupDirective.prototype, "submitted", {
+        get: function () { return this._submitted; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormGroupDirective.prototype, "formDirective", {
+        get: function () { return this; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormGroupDirective.prototype, "control", {
+        get: function () { return this.form; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormGroupDirective.prototype, "path", {
+        get: function () { return []; },
+        enumerable: true,
+        configurable: true
+    });
+    FormGroupDirective.prototype.addControl = function (dir) {
+        var ctrl = this.form.find(dir.path);
+        shared_1.setUpControl(ctrl, dir);
+        ctrl.updateValueAndValidity({ emitEvent: false });
+        this.directives.push(dir);
+    };
+    FormGroupDirective.prototype.getControl = function (dir) { return this.form.find(dir.path); };
+    FormGroupDirective.prototype.removeControl = function (dir) { collection_1.ListWrapper.remove(this.directives, dir); };
+    FormGroupDirective.prototype.addFormGroup = function (dir) {
+        var ctrl = this.form.find(dir.path);
+        shared_1.setUpFormContainer(ctrl, dir);
+        ctrl.updateValueAndValidity({ emitEvent: false });
+    };
+    FormGroupDirective.prototype.removeFormGroup = function (dir) { };
+    FormGroupDirective.prototype.getFormGroup = function (dir) { return this.form.find(dir.path); };
+    FormGroupDirective.prototype.addFormArray = function (dir) {
+        var ctrl = this.form.find(dir.path);
+        shared_1.setUpFormContainer(ctrl, dir);
+        ctrl.updateValueAndValidity({ emitEvent: false });
+    };
+    FormGroupDirective.prototype.removeFormArray = function (dir) { };
+    FormGroupDirective.prototype.getFormArray = function (dir) { return this.form.find(dir.path); };
+    FormGroupDirective.prototype.updateModel = function (dir, value) {
+        var ctrl = this.form.find(dir.path);
+        ctrl.updateValue(value);
+    };
+    FormGroupDirective.prototype.onSubmit = function () {
+        this._submitted = true;
+        async_1.ObservableWrapper.callEmit(this.ngSubmit, null);
+        return false;
+    };
+    /** @internal */
+    FormGroupDirective.prototype._updateDomValue = function () {
+        var _this = this;
+        this.directives.forEach(function (dir) {
+            var ctrl = _this.form.find(dir.path);
+            dir.valueAccessor.writeValue(ctrl.value);
+        });
+    };
+    FormGroupDirective.prototype._checkFormPresent = function () {
+        if (lang_1.isBlank(this.form)) {
+            throw new exceptions_1.BaseException("formGroup expects a FormGroup instance. Please pass one in.\n           Example: <form [formGroup]=\"myFormGroup\">\n      ");
+        }
+    };
+    /** @nocollapse */
+    FormGroupDirective.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[formGroup]',
+                    providers: [exports.formDirectiveProvider],
+                    host: { '(submit)': 'onSubmit()' },
+                    exportAs: 'ngForm'
+                },] },
+    ];
+    /** @nocollapse */
+    FormGroupDirective.ctorParameters = [
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+    ];
+    /** @nocollapse */
+    FormGroupDirective.propDecorators = {
+        'form': [{ type: core_1.Input, args: ['formGroup',] },],
+        'ngSubmit': [{ type: core_1.Output },],
+    };
+    return FormGroupDirective;
+}(control_container_1.ControlContainer));
+exports.FormGroupDirective = FormGroupDirective;
+
+},{"../../facade/async":361,"../../facade/collection":363,"../../facade/exceptions":365,"../../facade/lang":366,"../../validators":372,"../control_container":341,"../shared":359,"@angular/core":247}],356:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var core_1 = require('@angular/core');
+var validators_1 = require('../../validators');
+var abstract_form_group_directive_1 = require('../abstract_form_group_directive');
+var control_container_1 = require('../control_container');
+exports.formGroupNameProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
+    provide: control_container_1.ControlContainer,
+    useExisting: core_1.forwardRef(function () { return FormGroupName; })
+};
+var FormGroupName = (function (_super) {
+    __extends(FormGroupName, _super);
+    function FormGroupName(parent, validators, asyncValidators) {
+        _super.call(this);
+        this._parent = parent;
+        this._validators = validators;
+        this._asyncValidators = asyncValidators;
+    }
+    /** @nocollapse */
+    FormGroupName.decorators = [
+        { type: core_1.Directive, args: [{ selector: '[formGroupName]', providers: [exports.formGroupNameProvider] },] },
+    ];
+    /** @nocollapse */
+    FormGroupName.ctorParameters = [
+        { type: control_container_1.ControlContainer, decorators: [{ type: core_1.Host }, { type: core_1.SkipSelf },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_VALIDATORS,] },] },
+        { type: Array, decorators: [{ type: core_1.Optional }, { type: core_1.Self }, { type: core_1.Inject, args: [validators_1.NG_ASYNC_VALIDATORS,] },] },
+    ];
+    /** @nocollapse */
+    FormGroupName.propDecorators = {
+        'name': [{ type: core_1.Input, args: ['formGroupName',] },],
+    };
+    return FormGroupName;
+}(abstract_form_group_directive_1.AbstractFormGroupDirective));
+exports.FormGroupName = FormGroupName;
+
+},{"../../validators":372,"../abstract_form_group_directive":339,"../control_container":341,"@angular/core":247}],357:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var control_value_accessor_1 = require('./control_value_accessor');
+exports.SELECT_VALUE_ACCESSOR = {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }),
+    multi: true
+};
+function _buildValueString(id, value) {
+    if (lang_1.isBlank(id))
+        return "" + value;
+    if (!lang_1.isPrimitive(value))
+        value = 'Object';
+    return lang_1.StringWrapper.slice(id + ": " + value, 0, 50);
+}
+function _extractId(valueString) {
+    return valueString.split(':')[0];
+}
+var SelectControlValueAccessor = (function () {
+    function SelectControlValueAccessor(_renderer, _elementRef) {
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        /** @internal */
+        this._optionMap = new Map();
+        /** @internal */
+        this._idCounter = 0;
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    SelectControlValueAccessor.prototype.writeValue = function (value) {
+        this.value = value;
+        var valueString = _buildValueString(this._getOptionId(value), value);
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', valueString);
+    };
+    SelectControlValueAccessor.prototype.registerOnChange = function (fn) {
+        var _this = this;
+        this.onChange = function (valueString) {
+            _this.value = valueString;
+            fn(_this._getOptionValue(valueString));
+        };
+    };
+    SelectControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    /** @internal */
+    SelectControlValueAccessor.prototype._registerOption = function () { return (this._idCounter++).toString(); };
+    /** @internal */
+    SelectControlValueAccessor.prototype._getOptionId = function (value) {
+        for (var _i = 0, _a = collection_1.MapWrapper.keys(this._optionMap); _i < _a.length; _i++) {
+            var id = _a[_i];
+            if (lang_1.looseIdentical(this._optionMap.get(id), value))
+                return id;
+        }
+        return null;
+    };
+    /** @internal */
+    SelectControlValueAccessor.prototype._getOptionValue = function (valueString) {
+        var value = this._optionMap.get(_extractId(valueString));
+        return lang_1.isPresent(value) ? value : valueString;
+    };
+    /** @nocollapse */
+    SelectControlValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'select:not([multiple])[formControlName],select:not([multiple])[formControl],select:not([multiple])[ngModel]',
+                    host: { '(change)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
+                    providers: [exports.SELECT_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    SelectControlValueAccessor.ctorParameters = [
+        { type: core_1.Renderer, },
+        { type: core_1.ElementRef, },
+    ];
+    return SelectControlValueAccessor;
+}());
+exports.SelectControlValueAccessor = SelectControlValueAccessor;
+var NgSelectOption = (function () {
+    function NgSelectOption(_element, _renderer, _select) {
+        this._element = _element;
+        this._renderer = _renderer;
+        this._select = _select;
+        if (lang_1.isPresent(this._select))
+            this.id = this._select._registerOption();
+    }
+    Object.defineProperty(NgSelectOption.prototype, "ngValue", {
+        set: function (value) {
+            if (this._select == null)
+                return;
+            this._select._optionMap.set(this.id, value);
+            this._setElementValue(_buildValueString(this.id, value));
+            this._select.writeValue(this._select.value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgSelectOption.prototype, "value", {
+        set: function (value) {
+            this._setElementValue(value);
+            if (lang_1.isPresent(this._select))
+                this._select.writeValue(this._select.value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @internal */
+    NgSelectOption.prototype._setElementValue = function (value) {
+        this._renderer.setElementProperty(this._element.nativeElement, 'value', value);
+    };
+    NgSelectOption.prototype.ngOnDestroy = function () {
+        if (lang_1.isPresent(this._select)) {
+            this._select._optionMap.delete(this.id);
+            this._select.writeValue(this._select.value);
+        }
+    };
+    /** @nocollapse */
+    NgSelectOption.decorators = [
+        { type: core_1.Directive, args: [{ selector: 'option' },] },
+    ];
+    /** @nocollapse */
+    NgSelectOption.ctorParameters = [
+        { type: core_1.ElementRef, },
+        { type: core_1.Renderer, },
+        { type: SelectControlValueAccessor, decorators: [{ type: core_1.Optional }, { type: core_1.Host },] },
+    ];
+    /** @nocollapse */
+    NgSelectOption.propDecorators = {
+        'ngValue': [{ type: core_1.Input, args: ['ngValue',] },],
+        'value': [{ type: core_1.Input, args: ['value',] },],
+    };
+    return NgSelectOption;
+}());
+exports.NgSelectOption = NgSelectOption;
+
+},{"../facade/collection":363,"../facade/lang":366,"./control_value_accessor":342,"@angular/core":247}],358:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var control_value_accessor_1 = require('./control_value_accessor');
+var SELECT_MULTIPLE_VALUE_ACCESSOR = {
+    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return SelectMultipleControlValueAccessor; }),
+    multi: true
+};
+function _buildValueString(id, value) {
+    if (lang_1.isBlank(id))
+        return "" + value;
+    if (lang_1.isString(value))
+        value = "'" + value + "'";
+    if (!lang_1.isPrimitive(value))
+        value = 'Object';
+    return lang_1.StringWrapper.slice(id + ": " + value, 0, 50);
+}
+function _extractId(valueString) {
+    return valueString.split(':')[0];
+}
+/** Mock interface for HTMLCollection */
+var HTMLCollection = (function () {
+    function HTMLCollection() {
+    }
+    return HTMLCollection;
+}());
+var SelectMultipleControlValueAccessor = (function () {
+    function SelectMultipleControlValueAccessor() {
+        /** @internal */
+        this._optionMap = new Map();
+        /** @internal */
+        this._idCounter = 0;
+        this.onChange = function (_) { };
+        this.onTouched = function () { };
+    }
+    SelectMultipleControlValueAccessor.prototype.writeValue = function (value) {
+        var _this = this;
+        this.value = value;
+        if (value == null)
+            return;
+        var values = value;
+        // convert values to ids
+        var ids = values.map(function (v) { return _this._getOptionId(v); });
+        this._optionMap.forEach(function (opt, o) { opt._setSelected(ids.indexOf(o.toString()) > -1); });
+    };
+    SelectMultipleControlValueAccessor.prototype.registerOnChange = function (fn) {
+        var _this = this;
+        this.onChange = function (_) {
+            var selected = [];
+            if (_.hasOwnProperty('selectedOptions')) {
+                var options = _.selectedOptions;
+                for (var i = 0; i < options.length; i++) {
+                    var opt = options.item(i);
+                    var val = _this._getOptionValue(opt.value);
+                    selected.push(val);
+                }
+            }
+            else {
+                var options = _.options;
+                for (var i = 0; i < options.length; i++) {
+                    var opt = options.item(i);
+                    if (opt.selected) {
+                        var val = _this._getOptionValue(opt.value);
+                        selected.push(val);
+                    }
+                }
+            }
+            fn(selected);
+        };
+    };
+    SelectMultipleControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    /** @internal */
+    SelectMultipleControlValueAccessor.prototype._registerOption = function (value) {
+        var id = (this._idCounter++).toString();
+        this._optionMap.set(id, value);
+        return id;
+    };
+    /** @internal */
+    SelectMultipleControlValueAccessor.prototype._getOptionId = function (value) {
+        for (var _i = 0, _a = collection_1.MapWrapper.keys(this._optionMap); _i < _a.length; _i++) {
+            var id = _a[_i];
+            if (lang_1.looseIdentical(this._optionMap.get(id)._value, value))
+                return id;
+        }
+        return null;
+    };
+    /** @internal */
+    SelectMultipleControlValueAccessor.prototype._getOptionValue = function (valueString) {
+        var opt = this._optionMap.get(_extractId(valueString));
+        return lang_1.isPresent(opt) ? opt._value : valueString;
+    };
+    /** @nocollapse */
+    SelectMultipleControlValueAccessor.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: 'select[multiple][formControlName],select[multiple][formControl],select[multiple][ngModel]',
+                    host: { '(input)': 'onChange($event.target)', '(blur)': 'onTouched()' },
+                    providers: [SELECT_MULTIPLE_VALUE_ACCESSOR]
+                },] },
+    ];
+    /** @nocollapse */
+    SelectMultipleControlValueAccessor.ctorParameters = [];
+    return SelectMultipleControlValueAccessor;
+}());
+exports.SelectMultipleControlValueAccessor = SelectMultipleControlValueAccessor;
+var NgSelectMultipleOption = (function () {
+    function NgSelectMultipleOption(_element, _renderer, _select) {
+        this._element = _element;
+        this._renderer = _renderer;
+        this._select = _select;
+        if (lang_1.isPresent(this._select)) {
+            this.id = this._select._registerOption(this);
+        }
+    }
+    Object.defineProperty(NgSelectMultipleOption.prototype, "ngValue", {
+        set: function (value) {
+            if (this._select == null)
+                return;
+            this._value = value;
+            this._setElementValue(_buildValueString(this.id, value));
+            this._select.writeValue(this._select.value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgSelectMultipleOption.prototype, "value", {
+        set: function (value) {
+            if (lang_1.isPresent(this._select)) {
+                this._value = value;
+                this._setElementValue(_buildValueString(this.id, value));
+                this._select.writeValue(this._select.value);
+            }
+            else {
+                this._setElementValue(value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @internal */
+    NgSelectMultipleOption.prototype._setElementValue = function (value) {
+        this._renderer.setElementProperty(this._element.nativeElement, 'value', value);
+    };
+    /** @internal */
+    NgSelectMultipleOption.prototype._setSelected = function (selected) {
+        this._renderer.setElementProperty(this._element.nativeElement, 'selected', selected);
+    };
+    NgSelectMultipleOption.prototype.ngOnDestroy = function () {
+        if (lang_1.isPresent(this._select)) {
+            this._select._optionMap.delete(this.id);
+            this._select.writeValue(this._select.value);
+        }
+    };
+    /** @nocollapse */
+    NgSelectMultipleOption.decorators = [
+        { type: core_1.Directive, args: [{ selector: 'option' },] },
+    ];
+    /** @nocollapse */
+    NgSelectMultipleOption.ctorParameters = [
+        { type: core_1.ElementRef, },
+        { type: core_1.Renderer, },
+        { type: SelectMultipleControlValueAccessor, decorators: [{ type: core_1.Optional }, { type: core_1.Host },] },
+    ];
+    /** @nocollapse */
+    NgSelectMultipleOption.propDecorators = {
+        'ngValue': [{ type: core_1.Input, args: ['ngValue',] },],
+        'value': [{ type: core_1.Input, args: ['value',] },],
+    };
+    return NgSelectMultipleOption;
+}());
+exports.NgSelectMultipleOption = NgSelectMultipleOption;
+exports.SELECT_DIRECTIVES = [SelectMultipleControlValueAccessor, NgSelectMultipleOption];
+
+},{"../facade/collection":363,"../facade/lang":366,"./control_value_accessor":342,"@angular/core":247}],359:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var collection_1 = require('../facade/collection');
+var exceptions_1 = require('../facade/exceptions');
+var lang_1 = require('../facade/lang');
+var validators_1 = require('../validators');
+var checkbox_value_accessor_1 = require('./checkbox_value_accessor');
+var default_value_accessor_1 = require('./default_value_accessor');
+var normalize_validator_1 = require('./normalize_validator');
+var number_value_accessor_1 = require('./number_value_accessor');
+var radio_control_value_accessor_1 = require('./radio_control_value_accessor');
+var select_control_value_accessor_1 = require('./select_control_value_accessor');
+var select_multiple_control_value_accessor_1 = require('./select_multiple_control_value_accessor');
+function controlPath(name, parent) {
+    var p = collection_1.ListWrapper.clone(parent.path);
+    p.push(name);
+    return p;
+}
+exports.controlPath = controlPath;
+function setUpControl(control, dir) {
+    if (lang_1.isBlank(control))
+        _throwError(dir, 'Cannot find control');
+    if (lang_1.isBlank(dir.valueAccessor))
+        _throwError(dir, 'No value accessor for');
+    control.validator = validators_1.Validators.compose([control.validator, dir.validator]);
+    control.asyncValidator = validators_1.Validators.composeAsync([control.asyncValidator, dir.asyncValidator]);
+    dir.valueAccessor.writeValue(control.value);
+    // view -> model
+    dir.valueAccessor.registerOnChange(function (newValue) {
+        dir.viewToModelUpdate(newValue);
+        control.updateValue(newValue, { emitModelToViewChange: false });
+        control.markAsDirty();
+    });
+    // model -> view
+    control.registerOnChange(function (newValue) { return dir.valueAccessor.writeValue(newValue); });
+    // touched
+    dir.valueAccessor.registerOnTouched(function () { return control.markAsTouched(); });
+}
+exports.setUpControl = setUpControl;
+function setUpFormContainer(control, dir) {
+    if (lang_1.isBlank(control))
+        _throwError(dir, 'Cannot find control');
+    control.validator = validators_1.Validators.compose([control.validator, dir.validator]);
+    control.asyncValidator = validators_1.Validators.composeAsync([control.asyncValidator, dir.asyncValidator]);
+}
+exports.setUpFormContainer = setUpFormContainer;
+function _throwError(dir, message) {
+    var path = dir.path.join(' -> ');
+    throw new exceptions_1.BaseException(message + " '" + path + "'");
+}
+function composeValidators(validators) {
+    return lang_1.isPresent(validators) ? validators_1.Validators.compose(validators.map(normalize_validator_1.normalizeValidator)) : null;
+}
+exports.composeValidators = composeValidators;
+function composeAsyncValidators(validators) {
+    return lang_1.isPresent(validators) ? validators_1.Validators.composeAsync(validators.map(normalize_validator_1.normalizeAsyncValidator)) :
+        null;
+}
+exports.composeAsyncValidators = composeAsyncValidators;
+function isPropertyUpdated(changes, viewModel) {
+    if (!collection_1.StringMapWrapper.contains(changes, 'model'))
+        return false;
+    var change = changes['model'];
+    if (change.isFirstChange())
+        return true;
+    return !lang_1.looseIdentical(viewModel, change.currentValue);
+}
+exports.isPropertyUpdated = isPropertyUpdated;
+// TODO: vsavkin remove it once https://github.com/angular/angular/issues/3011 is implemented
+function selectValueAccessor(dir, valueAccessors) {
+    if (lang_1.isBlank(valueAccessors))
+        return null;
+    var defaultAccessor;
+    var builtinAccessor;
+    var customAccessor;
+    valueAccessors.forEach(function (v) {
+        if (lang_1.hasConstructor(v, default_value_accessor_1.DefaultValueAccessor)) {
+            defaultAccessor = v;
+        }
+        else if (lang_1.hasConstructor(v, checkbox_value_accessor_1.CheckboxControlValueAccessor) || lang_1.hasConstructor(v, number_value_accessor_1.NumberValueAccessor) ||
+            lang_1.hasConstructor(v, select_control_value_accessor_1.SelectControlValueAccessor) ||
+            lang_1.hasConstructor(v, select_multiple_control_value_accessor_1.SelectMultipleControlValueAccessor) ||
+            lang_1.hasConstructor(v, radio_control_value_accessor_1.RadioControlValueAccessor)) {
+            if (lang_1.isPresent(builtinAccessor))
+                _throwError(dir, 'More than one built-in value accessor matches');
+            builtinAccessor = v;
+        }
+        else {
+            if (lang_1.isPresent(customAccessor))
+                _throwError(dir, 'More than one custom value accessor matches');
+            customAccessor = v;
+        }
+    });
+    if (lang_1.isPresent(customAccessor))
+        return customAccessor;
+    if (lang_1.isPresent(builtinAccessor))
+        return builtinAccessor;
+    if (lang_1.isPresent(defaultAccessor))
+        return defaultAccessor;
+    _throwError(dir, 'No valid value accessor for');
+    return null;
+}
+exports.selectValueAccessor = selectValueAccessor;
+
+},{"../facade/collection":363,"../facade/exceptions":365,"../facade/lang":366,"../validators":372,"./checkbox_value_accessor":340,"./default_value_accessor":343,"./normalize_validator":349,"./number_value_accessor":350,"./radio_control_value_accessor":351,"./select_control_value_accessor":357,"./select_multiple_control_value_accessor":358}],360:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var lang_1 = require('../facade/lang');
+var validators_1 = require('../validators');
+var REQUIRED = validators_1.Validators.required;
+exports.REQUIRED_VALIDATOR = {
+    provide: validators_1.NG_VALIDATORS,
+    useValue: REQUIRED,
+    multi: true
+};
+var RequiredValidator = (function () {
+    function RequiredValidator() {
+    }
+    /** @nocollapse */
+    RequiredValidator.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[required][formControlName],[required][formControl],[required][ngModel]',
+                    providers: [exports.REQUIRED_VALIDATOR]
+                },] },
+    ];
+    return RequiredValidator;
+}());
+exports.RequiredValidator = RequiredValidator;
+/**
+ * Provivder which adds {@link MinLengthValidator} to {@link NG_VALIDATORS}.
+ *
+ * ## Example:
+ *
+ * {@example common/forms/ts/validators/validators.ts region='min'}
+ */
+exports.MIN_LENGTH_VALIDATOR = {
+    provide: validators_1.NG_VALIDATORS,
+    useExisting: core_1.forwardRef(function () { return MinLengthValidator; }),
+    multi: true
+};
+var MinLengthValidator = (function () {
+    function MinLengthValidator(minLength) {
+        this._validator = validators_1.Validators.minLength(lang_1.NumberWrapper.parseInt(minLength, 10));
+    }
+    MinLengthValidator.prototype.validate = function (c) { return this._validator(c); };
+    /** @nocollapse */
+    MinLengthValidator.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[minlength][formControlName],[minlength][formControl],[minlength][ngModel]',
+                    providers: [exports.MIN_LENGTH_VALIDATOR]
+                },] },
+    ];
+    /** @nocollapse */
+    MinLengthValidator.ctorParameters = [
+        { type: undefined, decorators: [{ type: core_1.Attribute, args: ['minlength',] },] },
+    ];
+    return MinLengthValidator;
+}());
+exports.MinLengthValidator = MinLengthValidator;
+/**
+ * Provider which adds {@link MaxLengthValidator} to {@link NG_VALIDATORS}.
+ *
+ * ## Example:
+ *
+ * {@example common/forms/ts/validators/validators.ts region='max'}
+ */
+exports.MAX_LENGTH_VALIDATOR = {
+    provide: validators_1.NG_VALIDATORS,
+    useExisting: core_1.forwardRef(function () { return MaxLengthValidator; }),
+    multi: true
+};
+var MaxLengthValidator = (function () {
+    function MaxLengthValidator(maxLength) {
+        this._validator = validators_1.Validators.maxLength(lang_1.NumberWrapper.parseInt(maxLength, 10));
+    }
+    MaxLengthValidator.prototype.validate = function (c) { return this._validator(c); };
+    /** @nocollapse */
+    MaxLengthValidator.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[maxlength][formControlName],[maxlength][formControl],[maxlength][ngModel]',
+                    providers: [exports.MAX_LENGTH_VALIDATOR]
+                },] },
+    ];
+    /** @nocollapse */
+    MaxLengthValidator.ctorParameters = [
+        { type: undefined, decorators: [{ type: core_1.Attribute, args: ['maxlength',] },] },
+    ];
+    return MaxLengthValidator;
+}());
+exports.MaxLengthValidator = MaxLengthValidator;
+exports.PATTERN_VALIDATOR = {
+    provide: validators_1.NG_VALIDATORS,
+    useExisting: core_1.forwardRef(function () { return PatternValidator; }),
+    multi: true
+};
+var PatternValidator = (function () {
+    function PatternValidator(pattern) {
+        this._validator = validators_1.Validators.pattern(pattern);
+    }
+    PatternValidator.prototype.validate = function (c) { return this._validator(c); };
+    /** @nocollapse */
+    PatternValidator.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[pattern][formControlName],[pattern][formControl],[pattern][ngModel]',
+                    providers: [exports.PATTERN_VALIDATOR]
+                },] },
+    ];
+    /** @nocollapse */
+    PatternValidator.ctorParameters = [
+        { type: undefined, decorators: [{ type: core_1.Attribute, args: ['pattern',] },] },
+    ];
+    return PatternValidator;
+}());
+exports.PatternValidator = PatternValidator;
+
+},{"../facade/lang":366,"../validators":372,"@angular/core":247}],361:[function(require,module,exports){
+arguments[4][111][0].apply(exports,arguments)
+},{"./lang":366,"./promise":367,"dup":111,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],362:[function(require,module,exports){
+arguments[4][112][0].apply(exports,arguments)
+},{"dup":112}],363:[function(require,module,exports){
+arguments[4][113][0].apply(exports,arguments)
+},{"./lang":366,"dup":113}],364:[function(require,module,exports){
+arguments[4][114][0].apply(exports,arguments)
+},{"./base_wrapped_exception":362,"./collection":363,"./lang":366,"dup":114}],365:[function(require,module,exports){
+arguments[4][115][0].apply(exports,arguments)
+},{"./base_wrapped_exception":362,"./exception_handler":364,"dup":115}],366:[function(require,module,exports){
+(function (global){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var globalScope;
+if (typeof window === 'undefined') {
+    if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+        // TODO: Replace any with WorkerGlobalScope from lib.webworker.d.ts #3492
+        globalScope = self;
+    }
+    else {
+        globalScope = global;
+    }
+}
+else {
+    globalScope = window;
+}
+function scheduleMicroTask(fn) {
+    Zone.current.scheduleMicroTask('scheduleMicrotask', fn);
+}
+exports.scheduleMicroTask = scheduleMicroTask;
+exports.IS_DART = false;
+// Need to declare a new variable for global here since TypeScript
+// exports the original value of the symbol.
+var _global = globalScope;
+exports.global = _global;
+/**
+ * Runtime representation a type that a Component or other object is instances of.
+ *
+ * An example of a `Type` is `MyCustomComponent` class, which in JavaScript is be represented by
+ * the `MyCustomComponent` constructor function.
+ *
+ * @stable
+ */
+exports.Type = Function;
+function getTypeNameForDebugging(type) {
+    if (type['name']) {
+        return type['name'];
+    }
+    return typeof type;
+}
+exports.getTypeNameForDebugging = getTypeNameForDebugging;
+exports.Math = _global.Math;
+exports.Date = _global.Date;
+// TODO: remove calls to assert in production environment
+// Note: Can't just export this and import in in other files
+// as `assert` is a reserved keyword in Dart
+_global.assert = function assert(condition) {
+    // TODO: to be fixed properly via #2830, noop for now
+};
+function isPresent(obj) {
+    return obj !== undefined && obj !== null;
+}
+exports.isPresent = isPresent;
+function isBlank(obj) {
+    return obj === undefined || obj === null;
+}
+exports.isBlank = isBlank;
+function isBoolean(obj) {
+    return typeof obj === 'boolean';
+}
+exports.isBoolean = isBoolean;
+function isNumber(obj) {
+    return typeof obj === 'number';
+}
+exports.isNumber = isNumber;
+function isString(obj) {
+    return typeof obj === 'string';
+}
+exports.isString = isString;
+function isFunction(obj) {
+    return typeof obj === 'function';
+}
+exports.isFunction = isFunction;
+function isType(obj) {
+    return isFunction(obj);
+}
+exports.isType = isType;
+function isStringMap(obj) {
+    return typeof obj === 'object' && obj !== null;
+}
+exports.isStringMap = isStringMap;
+var STRING_MAP_PROTO = Object.getPrototypeOf({});
+function isStrictStringMap(obj) {
+    return isStringMap(obj) && Object.getPrototypeOf(obj) === STRING_MAP_PROTO;
+}
+exports.isStrictStringMap = isStrictStringMap;
+function isPromise(obj) {
+    return obj instanceof _global.Promise;
+}
+exports.isPromise = isPromise;
+function isArray(obj) {
+    return Array.isArray(obj);
+}
+exports.isArray = isArray;
+function isDate(obj) {
+    return obj instanceof exports.Date && !isNaN(obj.valueOf());
+}
+exports.isDate = isDate;
+function noop() { }
+exports.noop = noop;
+function stringify(token) {
+    if (typeof token === 'string') {
+        return token;
+    }
+    if (token === undefined || token === null) {
+        return '' + token;
+    }
+    if (token.name) {
+        return token.name;
+    }
+    if (token.overriddenName) {
+        return token.overriddenName;
+    }
+    var res = token.toString();
+    var newLineIndex = res.indexOf('\n');
+    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
+}
+exports.stringify = stringify;
+// serialize / deserialize enum exist only for consistency with dart API
+// enums in typescript don't need to be serialized
+function serializeEnum(val) {
+    return val;
+}
+exports.serializeEnum = serializeEnum;
+function deserializeEnum(val, values) {
+    return val;
+}
+exports.deserializeEnum = deserializeEnum;
+function resolveEnumToken(enumValue, val) {
+    return enumValue[val];
+}
+exports.resolveEnumToken = resolveEnumToken;
+var StringWrapper = (function () {
+    function StringWrapper() {
+    }
+    StringWrapper.fromCharCode = function (code) { return String.fromCharCode(code); };
+    StringWrapper.charCodeAt = function (s, index) { return s.charCodeAt(index); };
+    StringWrapper.split = function (s, regExp) { return s.split(regExp); };
+    StringWrapper.equals = function (s, s2) { return s === s2; };
+    StringWrapper.stripLeft = function (s, charVal) {
+        if (s && s.length) {
+            var pos = 0;
+            for (var i = 0; i < s.length; i++) {
+                if (s[i] != charVal)
+                    break;
+                pos++;
+            }
+            s = s.substring(pos);
+        }
+        return s;
+    };
+    StringWrapper.stripRight = function (s, charVal) {
+        if (s && s.length) {
+            var pos = s.length;
+            for (var i = s.length - 1; i >= 0; i--) {
+                if (s[i] != charVal)
+                    break;
+                pos--;
+            }
+            s = s.substring(0, pos);
+        }
+        return s;
+    };
+    StringWrapper.replace = function (s, from, replace) {
+        return s.replace(from, replace);
+    };
+    StringWrapper.replaceAll = function (s, from, replace) {
+        return s.replace(from, replace);
+    };
+    StringWrapper.slice = function (s, from, to) {
+        if (from === void 0) { from = 0; }
+        if (to === void 0) { to = null; }
+        return s.slice(from, to === null ? undefined : to);
+    };
+    StringWrapper.replaceAllMapped = function (s, from, cb) {
+        return s.replace(from, function () {
+            var matches = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                matches[_i - 0] = arguments[_i];
+            }
+            // Remove offset & string from the result array
+            matches.splice(-2, 2);
+            // The callback receives match, p1, ..., pn
+            return cb(matches);
+        });
+    };
+    StringWrapper.contains = function (s, substr) { return s.indexOf(substr) != -1; };
+    StringWrapper.compare = function (a, b) {
+        if (a < b) {
+            return -1;
+        }
+        else if (a > b) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    };
+    return StringWrapper;
+}());
+exports.StringWrapper = StringWrapper;
+var StringJoiner = (function () {
+    function StringJoiner(parts) {
+        if (parts === void 0) { parts = []; }
+        this.parts = parts;
+    }
+    StringJoiner.prototype.add = function (part) { this.parts.push(part); };
+    StringJoiner.prototype.toString = function () { return this.parts.join(''); };
+    return StringJoiner;
+}());
+exports.StringJoiner = StringJoiner;
+var NumberParseError = (function (_super) {
+    __extends(NumberParseError, _super);
+    function NumberParseError(message) {
+        _super.call(this);
+        this.message = message;
+    }
+    NumberParseError.prototype.toString = function () { return this.message; };
+    return NumberParseError;
+}(Error));
+exports.NumberParseError = NumberParseError;
+var NumberWrapper = (function () {
+    function NumberWrapper() {
+    }
+    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
+    NumberWrapper.equal = function (a, b) { return a === b; };
+    NumberWrapper.parseIntAutoRadix = function (text) {
+        var result = parseInt(text);
+        if (isNaN(result)) {
+            throw new NumberParseError('Invalid integer literal when parsing ' + text);
+        }
+        return result;
+    };
+    NumberWrapper.parseInt = function (text, radix) {
+        if (radix == 10) {
+            if (/^(\-|\+)?[0-9]+$/.test(text)) {
+                return parseInt(text, radix);
+            }
+        }
+        else if (radix == 16) {
+            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
+                return parseInt(text, radix);
+            }
+        }
+        else {
+            var result = parseInt(text, radix);
+            if (!isNaN(result)) {
+                return result;
+            }
+        }
+        throw new NumberParseError('Invalid integer literal when parsing ' + text + ' in base ' + radix);
+    };
+    // TODO: NaN is a valid literal but is returned by parseFloat to indicate an error.
+    NumberWrapper.parseFloat = function (text) { return parseFloat(text); };
+    Object.defineProperty(NumberWrapper, "NaN", {
+        get: function () { return NaN; },
+        enumerable: true,
+        configurable: true
+    });
+    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
+    NumberWrapper.isNaN = function (value) { return isNaN(value); };
+    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
+    return NumberWrapper;
+}());
+exports.NumberWrapper = NumberWrapper;
+exports.RegExp = _global.RegExp;
+var RegExpWrapper = (function () {
+    function RegExpWrapper() {
+    }
+    RegExpWrapper.create = function (regExpStr, flags) {
+        if (flags === void 0) { flags = ''; }
+        flags = flags.replace(/g/g, '');
+        return new _global.RegExp(regExpStr, flags + 'g');
+    };
+    RegExpWrapper.firstMatch = function (regExp, input) {
+        // Reset multimatch regex state
+        regExp.lastIndex = 0;
+        return regExp.exec(input);
+    };
+    RegExpWrapper.test = function (regExp, input) {
+        regExp.lastIndex = 0;
+        return regExp.test(input);
+    };
+    RegExpWrapper.matcher = function (regExp, input) {
+        // Reset regex state for the case
+        // someone did not loop over all matches
+        // last time.
+        regExp.lastIndex = 0;
+        return { re: regExp, input: input };
+    };
+    RegExpWrapper.replaceAll = function (regExp, input, replace) {
+        var c = regExp.exec(input);
+        var res = '';
+        regExp.lastIndex = 0;
+        var prev = 0;
+        while (c) {
+            res += input.substring(prev, c.index);
+            res += replace(c);
+            prev = c.index + c[0].length;
+            regExp.lastIndex = prev;
+            c = regExp.exec(input);
+        }
+        res += input.substring(prev);
+        return res;
+    };
+    return RegExpWrapper;
+}());
+exports.RegExpWrapper = RegExpWrapper;
+var RegExpMatcherWrapper = (function () {
+    function RegExpMatcherWrapper() {
+    }
+    RegExpMatcherWrapper.next = function (matcher) {
+        return matcher.re.exec(matcher.input);
+    };
+    return RegExpMatcherWrapper;
+}());
+exports.RegExpMatcherWrapper = RegExpMatcherWrapper;
+var FunctionWrapper = (function () {
+    function FunctionWrapper() {
+    }
+    FunctionWrapper.apply = function (fn, posArgs) { return fn.apply(null, posArgs); };
+    FunctionWrapper.bind = function (fn, scope) { return fn.bind(scope); };
+    return FunctionWrapper;
+}());
+exports.FunctionWrapper = FunctionWrapper;
+// JS has NaN !== NaN
+function looseIdentical(a, b) {
+    return a === b || typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b);
+}
+exports.looseIdentical = looseIdentical;
+// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
+// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+function getMapKey(value) {
+    return value;
+}
+exports.getMapKey = getMapKey;
+function normalizeBlank(obj) {
+    return isBlank(obj) ? null : obj;
+}
+exports.normalizeBlank = normalizeBlank;
+function normalizeBool(obj) {
+    return isBlank(obj) ? false : obj;
+}
+exports.normalizeBool = normalizeBool;
+function isJsObject(o) {
+    return o !== null && (typeof o === 'function' || typeof o === 'object');
+}
+exports.isJsObject = isJsObject;
+function print(obj) {
+    console.log(obj);
+}
+exports.print = print;
+function warn(obj) {
+    console.warn(obj);
+}
+exports.warn = warn;
+// Can't be all uppercase as our transpiler would think it is a special directive...
+var Json = (function () {
+    function Json() {
+    }
+    Json.parse = function (s) { return _global.JSON.parse(s); };
+    Json.stringify = function (data) {
+        // Dart doesn't take 3 arguments
+        return _global.JSON.stringify(data, null, 2);
+    };
+    return Json;
+}());
+exports.Json = Json;
+var DateWrapper = (function () {
+    function DateWrapper() {
+    }
+    DateWrapper.create = function (year, month, day, hour, minutes, seconds, milliseconds) {
+        if (month === void 0) { month = 1; }
+        if (day === void 0) { day = 1; }
+        if (hour === void 0) { hour = 0; }
+        if (minutes === void 0) { minutes = 0; }
+        if (seconds === void 0) { seconds = 0; }
+        if (milliseconds === void 0) { milliseconds = 0; }
+        return new exports.Date(year, month - 1, day, hour, minutes, seconds, milliseconds);
+    };
+    DateWrapper.fromISOString = function (str) { return new exports.Date(str); };
+    DateWrapper.fromMillis = function (ms) { return new exports.Date(ms); };
+    DateWrapper.toMillis = function (date) { return date.getTime(); };
+    DateWrapper.now = function () { return new exports.Date(); };
+    DateWrapper.toJson = function (date) { return date.toJSON(); };
+    return DateWrapper;
+}());
+exports.DateWrapper = DateWrapper;
+function setValueOnPath(global, path, value) {
+    var parts = path.split('.');
+    var obj = global;
+    while (parts.length > 1) {
+        var name = parts.shift();
+        if (obj.hasOwnProperty(name) && isPresent(obj[name])) {
+            obj = obj[name];
+        }
+        else {
+            obj = obj[name] = {};
+        }
+    }
+    if (obj === undefined || obj === null) {
+        obj = {};
+    }
+    obj[parts.shift()] = value;
+}
+exports.setValueOnPath = setValueOnPath;
+var _symbolIterator = null;
+function getSymbolIterator() {
+    if (isBlank(_symbolIterator)) {
+        if (isPresent(globalScope.Symbol) && isPresent(Symbol.iterator)) {
+            _symbolIterator = Symbol.iterator;
+        }
+        else {
+            // es6-shim specific logic
+            var keys = Object.getOwnPropertyNames(Map.prototype);
+            for (var i = 0; i < keys.length; ++i) {
+                var key = keys[i];
+                if (key !== 'entries' && key !== 'size' &&
+                    Map.prototype[key] === Map.prototype['entries']) {
+                    _symbolIterator = key;
+                }
+            }
+        }
+    }
+    return _symbolIterator;
+}
+exports.getSymbolIterator = getSymbolIterator;
+function evalExpression(sourceUrl, expr, declarations, vars) {
+    var fnBody = declarations + "\nreturn " + expr + "\n//# sourceURL=" + sourceUrl;
+    var fnArgNames = [];
+    var fnArgValues = [];
+    for (var argName in vars) {
+        fnArgNames.push(argName);
+        fnArgValues.push(vars[argName]);
+    }
+    return new (Function.bind.apply(Function, [void 0].concat(fnArgNames.concat(fnBody))))().apply(void 0, fnArgValues);
+}
+exports.evalExpression = evalExpression;
+function isPrimitive(obj) {
+    return !isJsObject(obj);
+}
+exports.isPrimitive = isPrimitive;
+function hasConstructor(value, type) {
+    return value.constructor === type;
+}
+exports.hasConstructor = hasConstructor;
+function escape(s) {
+    return _global.encodeURI(s);
+}
+exports.escape = escape;
+function escapeRegExp(s) {
+    return s.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
+}
+exports.escapeRegExp = escapeRegExp;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
+},{}],367:[function(require,module,exports){
+arguments[4][118][0].apply(exports,arguments)
+},{"dup":118}],368:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var collection_1 = require('./facade/collection');
+var lang_1 = require('./facade/lang');
+var model_1 = require('./model');
+var FormBuilder = (function () {
+    function FormBuilder() {
+    }
+    /**
+     * Construct a new {@link FormGroup} with the given map of configuration.
+     * Valid keys for the `extra` parameter map are `optionals` and `validator`.
+     *
+     * See the {@link FormGroup} constructor for more details.
+     */
+    FormBuilder.prototype.group = function (controlsConfig, extra) {
+        if (extra === void 0) { extra = null; }
+        var controls = this._reduceControls(controlsConfig);
+        var optionals = (lang_1.isPresent(extra) ? collection_1.StringMapWrapper.get(extra, 'optionals') : null);
+        var validator = lang_1.isPresent(extra) ? collection_1.StringMapWrapper.get(extra, 'validator') : null;
+        var asyncValidator = lang_1.isPresent(extra) ? collection_1.StringMapWrapper.get(extra, 'asyncValidator') : null;
+        return new model_1.FormGroup(controls, optionals, validator, asyncValidator);
+    };
+    /**
+     * Construct a new {@link FormControl} with the given `value`,`validator`, and `asyncValidator`.
+     */
+    FormBuilder.prototype.control = function (value, validator, asyncValidator) {
+        if (validator === void 0) { validator = null; }
+        if (asyncValidator === void 0) { asyncValidator = null; }
+        return new model_1.FormControl(value, validator, asyncValidator);
+    };
+    /**
+     * Construct an array of {@link FormControl}s from the given `controlsConfig` array of
+     * configuration, with the given optional `validator` and `asyncValidator`.
+     */
+    FormBuilder.prototype.array = function (controlsConfig, validator, asyncValidator) {
+        var _this = this;
+        if (validator === void 0) { validator = null; }
+        if (asyncValidator === void 0) { asyncValidator = null; }
+        var controls = controlsConfig.map(function (c) { return _this._createControl(c); });
+        return new model_1.FormArray(controls, validator, asyncValidator);
+    };
+    /** @internal */
+    FormBuilder.prototype._reduceControls = function (controlsConfig) {
+        var _this = this;
+        var controls = {};
+        collection_1.StringMapWrapper.forEach(controlsConfig, function (controlConfig, controlName) {
+            controls[controlName] = _this._createControl(controlConfig);
+        });
+        return controls;
+    };
+    /** @internal */
+    FormBuilder.prototype._createControl = function (controlConfig) {
+        if (controlConfig instanceof model_1.FormControl || controlConfig instanceof model_1.FormGroup ||
+            controlConfig instanceof model_1.FormArray) {
+            return controlConfig;
+        }
+        else if (lang_1.isArray(controlConfig)) {
+            var value = controlConfig[0];
+            var validator = controlConfig.length > 1 ? controlConfig[1] : null;
+            var asyncValidator = controlConfig.length > 2 ? controlConfig[2] : null;
+            return this.control(value, validator, asyncValidator);
+        }
+        else {
+            return this.control(controlConfig);
+        }
+    };
+    /** @nocollapse */
+    FormBuilder.decorators = [
+        { type: core_1.Injectable },
+    ];
+    return FormBuilder;
+}());
+exports.FormBuilder = FormBuilder;
+
+},{"./facade/collection":363,"./facade/lang":366,"./model":371,"@angular/core":247}],369:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var common_1 = require('@angular/common');
+var compiler_1 = require('@angular/compiler');
+var core_1 = require('@angular/core');
+var directives_1 = require('./directives');
+var radio_control_value_accessor_1 = require('./directives/radio_control_value_accessor');
+var collection_1 = require('./facade/collection');
+var form_builder_1 = require('./form_builder');
+/**
+ * Shorthand set of providers used for building Angular forms.
+ *
+ * ### Example
+ *
+ * ```typescript
+ * bootstrap(MyApp, [FORM_PROVIDERS]);
+ * ```
+ *
+ * @experimental
+ */
+exports.FORM_PROVIDERS = [form_builder_1.FormBuilder, radio_control_value_accessor_1.RadioControlRegistry];
+function flatten(platformDirectives) {
+    var flattenedDirectives = [];
+    platformDirectives.forEach(function (directives) {
+        if (Array.isArray(directives)) {
+            flattenedDirectives = flattenedDirectives.concat(directives);
+        }
+        else {
+            flattenedDirectives.push(directives);
+        }
+    });
+    return flattenedDirectives;
+}
+/**
+ * @experimental
+ */
+function disableDeprecatedForms() {
+    return [{
+            provide: compiler_1.CompilerConfig,
+            useFactory: function (platformDirectives, platformPipes) {
+                var flattenedDirectives = flatten(platformDirectives);
+                collection_1.ListWrapper.remove(flattenedDirectives, common_1.FORM_DIRECTIVES);
+                return new compiler_1.CompilerConfig({ platformDirectives: flattenedDirectives, platformPipes: platformPipes });
+            },
+            deps: [core_1.PLATFORM_DIRECTIVES, core_1.PLATFORM_PIPES]
+        }];
+}
+exports.disableDeprecatedForms = disableDeprecatedForms;
+/**
+ * @experimental
+ */
+function provideForms() {
+    return [
+        { provide: core_1.PLATFORM_DIRECTIVES, useValue: directives_1.FORM_DIRECTIVES, multi: true }, exports.FORM_PROVIDERS
+    ];
+}
+exports.provideForms = provideForms;
+
+},{"./directives":337,"./directives/radio_control_value_accessor":351,"./facade/collection":363,"./form_builder":368,"@angular/common":100,"@angular/compiler":166,"@angular/core":247}],370:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+/**
+ * @module
+ * @description
+ * This module is used for handling user input, by defining and building a {@link FormGroup} that
+ * consists of
+ * {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl} objects can then
+ * be used
+ * to read information
+ * from the form DOM elements.
+ *
+ * Forms providers are not included in default providers; you must import these providers
+ * explicitly.
+ */
+var directives_1 = require('./directives');
+exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
+exports.REACTIVE_FORM_DIRECTIVES = directives_1.REACTIVE_FORM_DIRECTIVES;
+var abstract_control_directive_1 = require('./directives/abstract_control_directive');
+exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
+var checkbox_value_accessor_1 = require('./directives/checkbox_value_accessor');
+exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
+var control_container_1 = require('./directives/control_container');
+exports.ControlContainer = control_container_1.ControlContainer;
+var control_value_accessor_1 = require('./directives/control_value_accessor');
+exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
+var default_value_accessor_1 = require('./directives/default_value_accessor');
+exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
+var ng_control_1 = require('./directives/ng_control');
+exports.NgControl = ng_control_1.NgControl;
+var ng_control_status_1 = require('./directives/ng_control_status');
+exports.NgControlStatus = ng_control_status_1.NgControlStatus;
+var ng_form_1 = require('./directives/ng_form');
+exports.NgForm = ng_form_1.NgForm;
+var ng_model_1 = require('./directives/ng_model');
+exports.NgModel = ng_model_1.NgModel;
+var ng_model_group_1 = require('./directives/ng_model_group');
+exports.NgModelGroup = ng_model_group_1.NgModelGroup;
+var form_array_name_1 = require('./directives/reactive_directives/form_array_name');
+exports.FormArrayName = form_array_name_1.FormArrayName;
+var form_control_directive_1 = require('./directives/reactive_directives/form_control_directive');
+exports.FormControlDirective = form_control_directive_1.FormControlDirective;
+var form_control_name_1 = require('./directives/reactive_directives/form_control_name');
+exports.FormControlName = form_control_name_1.FormControlName;
+var form_group_directive_1 = require('./directives/reactive_directives/form_group_directive');
+exports.FormGroupDirective = form_group_directive_1.FormGroupDirective;
+var form_group_name_1 = require('./directives/reactive_directives/form_group_name');
+exports.FormGroupName = form_group_name_1.FormGroupName;
+var select_control_value_accessor_1 = require('./directives/select_control_value_accessor');
+exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
+exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
+var validators_1 = require('./directives/validators');
+exports.MaxLengthValidator = validators_1.MaxLengthValidator;
+exports.MinLengthValidator = validators_1.MinLengthValidator;
+exports.PatternValidator = validators_1.PatternValidator;
+exports.RequiredValidator = validators_1.RequiredValidator;
+var form_builder_1 = require('./form_builder');
+exports.FormBuilder = form_builder_1.FormBuilder;
+var model_1 = require('./model');
+exports.AbstractControl = model_1.AbstractControl;
+exports.FormArray = model_1.FormArray;
+exports.FormControl = model_1.FormControl;
+exports.FormGroup = model_1.FormGroup;
+var validators_2 = require('./validators');
+exports.NG_ASYNC_VALIDATORS = validators_2.NG_ASYNC_VALIDATORS;
+exports.NG_VALIDATORS = validators_2.NG_VALIDATORS;
+exports.Validators = validators_2.Validators;
+__export(require('./form_providers'));
+
+},{"./directives":337,"./directives/abstract_control_directive":338,"./directives/checkbox_value_accessor":340,"./directives/control_container":341,"./directives/control_value_accessor":342,"./directives/default_value_accessor":343,"./directives/ng_control":344,"./directives/ng_control_status":345,"./directives/ng_form":346,"./directives/ng_model":347,"./directives/ng_model_group":348,"./directives/reactive_directives/form_array_name":352,"./directives/reactive_directives/form_control_directive":353,"./directives/reactive_directives/form_control_name":354,"./directives/reactive_directives/form_group_directive":355,"./directives/reactive_directives/form_group_name":356,"./directives/select_control_value_accessor":357,"./directives/validators":360,"./form_builder":368,"./form_providers":369,"./model":371,"./validators":372}],371:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var shared_1 = require('./directives/shared');
+var async_1 = require('./facade/async');
+var collection_1 = require('./facade/collection');
+var lang_1 = require('./facade/lang');
+/**
+ * Indicates that a FormControl is valid, i.e. that no errors exist in the input value.
+ */
+exports.VALID = 'VALID';
+/**
+ * Indicates that a FormControl is invalid, i.e. that an error exists in the input value.
+ */
+exports.INVALID = 'INVALID';
+/**
+ * Indicates that a FormControl is pending, i.e. that async validation is occurring and
+ * errors are not yet available for the input value.
+ */
+exports.PENDING = 'PENDING';
+function isControl(control) {
+    return control instanceof AbstractControl;
+}
+exports.isControl = isControl;
+function _find(control, path) {
+    if (lang_1.isBlank(path))
+        return null;
+    if (!(path instanceof Array)) {
+        path = path.split('/');
+    }
+    if (path instanceof Array && collection_1.ListWrapper.isEmpty(path))
+        return null;
+    return path.reduce(function (v, name) {
+        if (v instanceof FormGroup) {
+            return lang_1.isPresent(v.controls[name]) ? v.controls[name] : null;
+        }
+        else if (v instanceof FormArray) {
+            var index = name;
+            return lang_1.isPresent(v.at(index)) ? v.at(index) : null;
+        }
+        else {
+            return null;
+        }
+    }, control);
+}
+function toObservable(r) {
+    return lang_1.isPromise(r) ? async_1.ObservableWrapper.fromPromise(r) : r;
+}
+function coerceToValidator(validator) {
+    return Array.isArray(validator) ? shared_1.composeValidators(validator) : validator;
+}
+function coerceToAsyncValidator(asyncValidator) {
+    return Array.isArray(asyncValidator) ? shared_1.composeAsyncValidators(asyncValidator) : asyncValidator;
+}
+/**
+ * @experimental
+ */
+var AbstractControl = (function () {
+    function AbstractControl(validator, asyncValidator) {
+        this.validator = validator;
+        this.asyncValidator = asyncValidator;
+        this._pristine = true;
+        this._touched = false;
+    }
+    Object.defineProperty(AbstractControl.prototype, "value", {
+        get: function () { return this._value; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "status", {
+        get: function () { return this._status; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "valid", {
+        get: function () { return this._status === exports.VALID; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "errors", {
+        /**
+         * Returns the errors of this control.
+         */
+        get: function () { return this._errors; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "pristine", {
+        get: function () { return this._pristine; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "dirty", {
+        get: function () { return !this.pristine; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "touched", {
+        get: function () { return this._touched; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "untouched", {
+        get: function () { return !this._touched; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "valueChanges", {
+        get: function () { return this._valueChanges; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "statusChanges", {
+        get: function () { return this._statusChanges; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractControl.prototype, "pending", {
+        get: function () { return this._status == exports.PENDING; },
+        enumerable: true,
+        configurable: true
+    });
+    AbstractControl.prototype.setAsyncValidators = function (newValidator) {
+        this.asyncValidator = coerceToAsyncValidator(newValidator);
+    };
+    AbstractControl.prototype.clearAsyncValidators = function () { this.asyncValidator = null; };
+    AbstractControl.prototype.setValidators = function (newValidator) {
+        this.validator = coerceToValidator(newValidator);
+    };
+    AbstractControl.prototype.clearValidators = function () { this.validator = null; };
+    AbstractControl.prototype.markAsTouched = function () { this._touched = true; };
+    AbstractControl.prototype.markAsDirty = function (_a) {
+        var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
+        onlySelf = lang_1.normalizeBool(onlySelf);
+        this._pristine = false;
+        if (lang_1.isPresent(this._parent) && !onlySelf) {
+            this._parent.markAsDirty({ onlySelf: onlySelf });
+        }
+    };
+    AbstractControl.prototype.markAsPending = function (_a) {
+        var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
+        onlySelf = lang_1.normalizeBool(onlySelf);
+        this._status = exports.PENDING;
+        if (lang_1.isPresent(this._parent) && !onlySelf) {
+            this._parent.markAsPending({ onlySelf: onlySelf });
+        }
+    };
+    AbstractControl.prototype.setParent = function (parent) { this._parent = parent; };
+    AbstractControl.prototype.updateValueAndValidity = function (_a) {
+        var _b = _a === void 0 ? {} : _a, onlySelf = _b.onlySelf, emitEvent = _b.emitEvent;
+        onlySelf = lang_1.normalizeBool(onlySelf);
+        emitEvent = lang_1.isPresent(emitEvent) ? emitEvent : true;
+        this._updateValue();
+        this._errors = this._runValidator();
+        this._status = this._calculateStatus();
+        if (this._status == exports.VALID || this._status == exports.PENDING) {
+            this._runAsyncValidator(emitEvent);
+        }
+        if (emitEvent) {
+            async_1.ObservableWrapper.callEmit(this._valueChanges, this._value);
+            async_1.ObservableWrapper.callEmit(this._statusChanges, this._status);
+        }
+        if (lang_1.isPresent(this._parent) && !onlySelf) {
+            this._parent.updateValueAndValidity({ onlySelf: onlySelf, emitEvent: emitEvent });
+        }
+    };
+    AbstractControl.prototype._runValidator = function () {
+        return lang_1.isPresent(this.validator) ? this.validator(this) : null;
+    };
+    AbstractControl.prototype._runAsyncValidator = function (emitEvent) {
+        var _this = this;
+        if (lang_1.isPresent(this.asyncValidator)) {
+            this._status = exports.PENDING;
+            this._cancelExistingSubscription();
+            var obs = toObservable(this.asyncValidator(this));
+            this._asyncValidationSubscription = async_1.ObservableWrapper.subscribe(obs, function (res) { return _this.setErrors(res, { emitEvent: emitEvent }); });
+        }
+    };
+    AbstractControl.prototype._cancelExistingSubscription = function () {
+        if (lang_1.isPresent(this._asyncValidationSubscription)) {
+            async_1.ObservableWrapper.dispose(this._asyncValidationSubscription);
+        }
+    };
+    /**
+     * Sets errors on a form control.
+     *
+     * This is used when validations are run not automatically, but manually by the user.
+     *
+     * Calling `setErrors` will also update the validity of the parent control.
+     *
+     * ## Usage
+     *
+     * ```
+     * var login = new FormControl("someLogin");
+     * login.setErrors({
+     *   "notUnique": true
+     * });
+     *
+     * expect(login.valid).toEqual(false);
+     * expect(login.errors).toEqual({"notUnique": true});
+     *
+     * login.updateValue("someOtherLogin");
+     *
+     * expect(login.valid).toEqual(true);
+     * ```
+     */
+    AbstractControl.prototype.setErrors = function (errors, _a) {
+        var emitEvent = (_a === void 0 ? {} : _a).emitEvent;
+        emitEvent = lang_1.isPresent(emitEvent) ? emitEvent : true;
+        this._errors = errors;
+        this._updateControlsErrors(emitEvent);
+    };
+    AbstractControl.prototype.find = function (path) { return _find(this, path); };
+    AbstractControl.prototype.getError = function (errorCode, path) {
+        if (path === void 0) { path = null; }
+        var control = lang_1.isPresent(path) && !collection_1.ListWrapper.isEmpty(path) ? this.find(path) : this;
+        if (lang_1.isPresent(control) && lang_1.isPresent(control._errors)) {
+            return collection_1.StringMapWrapper.get(control._errors, errorCode);
+        }
+        else {
+            return null;
+        }
+    };
+    AbstractControl.prototype.hasError = function (errorCode, path) {
+        if (path === void 0) { path = null; }
+        return lang_1.isPresent(this.getError(errorCode, path));
+    };
+    Object.defineProperty(AbstractControl.prototype, "root", {
+        get: function () {
+            var x = this;
+            while (lang_1.isPresent(x._parent)) {
+                x = x._parent;
+            }
+            return x;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @internal */
+    AbstractControl.prototype._updateControlsErrors = function (emitEvent) {
+        this._status = this._calculateStatus();
+        if (emitEvent) {
+            async_1.ObservableWrapper.callEmit(this._statusChanges, this._status);
+        }
+        if (lang_1.isPresent(this._parent)) {
+            this._parent._updateControlsErrors(emitEvent);
+        }
+    };
+    /** @internal */
+    AbstractControl.prototype._initObservables = function () {
+        this._valueChanges = new async_1.EventEmitter();
+        this._statusChanges = new async_1.EventEmitter();
+    };
+    AbstractControl.prototype._calculateStatus = function () {
+        if (lang_1.isPresent(this._errors))
+            return exports.INVALID;
+        if (this._anyControlsHaveStatus(exports.PENDING))
+            return exports.PENDING;
+        if (this._anyControlsHaveStatus(exports.INVALID))
+            return exports.INVALID;
+        return exports.VALID;
+    };
+    return AbstractControl;
+}());
+exports.AbstractControl = AbstractControl;
+/**
+ * Defines a part of a form that cannot be divided into other controls. `FormControl`s have values
+ * and
+ * validation state, which is determined by an optional validation function.
+ *
+ * `FormControl` is one of the three fundamental building blocks used to define forms in Angular,
+ * along
+ * with {@link FormGroup} and {@link FormArray}.
+ *
+ * ## Usage
+ *
+ * By default, a `FormControl` is created for every `<input>` or other form component.
+ * With {@link FormControlDirective} or {@link FormGroupDirective} an existing {@link FormControl}
+ * can be bound to a DOM element instead. This `FormControl` can be configured with a custom
+ * validation function.
+ *
+ * @experimental
+ */
+var FormControl = (function (_super) {
+    __extends(FormControl, _super);
+    function FormControl(value, validator, asyncValidator) {
+        if (value === void 0) { value = null; }
+        if (validator === void 0) { validator = null; }
+        if (asyncValidator === void 0) { asyncValidator = null; }
+        _super.call(this, coerceToValidator(validator), coerceToAsyncValidator(asyncValidator));
+        /** @internal */
+        this._onChange = [];
+        this._value = value;
+        this.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+        this._initObservables();
+    }
+    /**
+     * Set the value of the form control to `value`.
+     *
+     * If `onlySelf` is `true`, this change will only affect the validation of this `FormControl`
+     * and not its parent component. If `emitEvent` is `true`, this change will cause a
+     * `valueChanges` event on the `FormControl` to be emitted. Both of these options default to
+     * `false`.
+     *
+     * If `emitModelToViewChange` is `true`, the view will be notified about the new value
+     * via an `onChange` event. This is the default behavior if `emitModelToViewChange` is not
+     * specified.
+     */
+    FormControl.prototype.updateValue = function (value, _a) {
+        var _this = this;
+        var _b = _a === void 0 ? {} : _a, onlySelf = _b.onlySelf, emitEvent = _b.emitEvent, emitModelToViewChange = _b.emitModelToViewChange;
+        emitModelToViewChange = lang_1.isPresent(emitModelToViewChange) ? emitModelToViewChange : true;
+        this._value = value;
+        if (this._onChange.length && emitModelToViewChange) {
+            this._onChange.forEach(function (changeFn) { return changeFn(_this._value); });
+        }
+        this.updateValueAndValidity({ onlySelf: onlySelf, emitEvent: emitEvent });
+    };
+    /**
+     * @internal
+     */
+    FormControl.prototype._updateValue = function () { };
+    /**
+     * @internal
+     */
+    FormControl.prototype._anyControlsHaveStatus = function (status) { return false; };
+    /**
+     * Register a listener for change events.
+     */
+    FormControl.prototype.registerOnChange = function (fn) { this._onChange.push(fn); };
+    return FormControl;
+}(AbstractControl));
+exports.FormControl = FormControl;
+/**
+ * Defines a part of a form, of fixed length, that can contain other controls.
+ *
+ * A `FormGroup` aggregates the values of each {@link FormControl} in the group.
+ * The status of a `FormGroup` depends on the status of its children.
+ * If one of the controls in a group is invalid, the entire group is invalid.
+ * Similarly, if a control changes its value, the entire group changes as well.
+ *
+ * `FormGroup` is one of the three fundamental building blocks used to define forms in Angular,
+ * along with {@link FormControl} and {@link FormArray}. {@link FormArray} can also contain other
+ * controls, but is of variable length.
+ *
+ * ### Example ([live demo](http://plnkr.co/edit/23DESOpbNnBpBHZt1BR4?p=preview))
+ *
+ * @experimental
+ */
+var FormGroup = (function (_super) {
+    __extends(FormGroup, _super);
+    function FormGroup(controls, optionals, validator, asyncValidator) {
+        if (optionals === void 0) { optionals = null; }
+        if (validator === void 0) { validator = null; }
+        if (asyncValidator === void 0) { asyncValidator = null; }
+        _super.call(this, validator, asyncValidator);
+        this.controls = controls;
+        this._optionals = lang_1.isPresent(optionals) ? optionals : {};
+        this._initObservables();
+        this._setParentForControls();
+        this.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+    }
+    /**
+     * Register a control with the group's list of controls.
+     */
+    FormGroup.prototype.registerControl = function (name, control) {
+        if (this.controls[name])
+            return this.controls[name];
+        this.controls[name] = control;
+        control.setParent(this);
+        return control;
+    };
+    /**
+     * Add a control to this group.
+     */
+    FormGroup.prototype.addControl = function (name, control) {
+        this.registerControl(name, control);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Remove a control from this group.
+     */
+    FormGroup.prototype.removeControl = function (name) {
+        collection_1.StringMapWrapper.delete(this.controls, name);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Mark the named control as non-optional.
+     */
+    FormGroup.prototype.include = function (controlName) {
+        collection_1.StringMapWrapper.set(this._optionals, controlName, true);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Mark the named control as optional.
+     */
+    FormGroup.prototype.exclude = function (controlName) {
+        collection_1.StringMapWrapper.set(this._optionals, controlName, false);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Check whether there is a control with the given name in the group.
+     */
+    FormGroup.prototype.contains = function (controlName) {
+        var c = collection_1.StringMapWrapper.contains(this.controls, controlName);
+        return c && this._included(controlName);
+    };
+    /** @internal */
+    FormGroup.prototype._setParentForControls = function () {
+        var _this = this;
+        collection_1.StringMapWrapper.forEach(this.controls, function (control, name) { control.setParent(_this); });
+    };
+    /** @internal */
+    FormGroup.prototype._updateValue = function () { this._value = this._reduceValue(); };
+    /** @internal */
+    FormGroup.prototype._anyControlsHaveStatus = function (status) {
+        var _this = this;
+        var res = false;
+        collection_1.StringMapWrapper.forEach(this.controls, function (control, name) {
+            res = res || (_this.contains(name) && control.status == status);
+        });
+        return res;
+    };
+    /** @internal */
+    FormGroup.prototype._reduceValue = function () {
+        return this._reduceChildren({}, function (acc, control, name) {
+            acc[name] = control.value;
+            return acc;
+        });
+    };
+    /** @internal */
+    FormGroup.prototype._reduceChildren = function (initValue, fn) {
+        var _this = this;
+        var res = initValue;
+        collection_1.StringMapWrapper.forEach(this.controls, function (control, name) {
+            if (_this._included(name)) {
+                res = fn(res, control, name);
+            }
+        });
+        return res;
+    };
+    /** @internal */
+    FormGroup.prototype._included = function (controlName) {
+        var isOptional = collection_1.StringMapWrapper.contains(this._optionals, controlName);
+        return !isOptional || collection_1.StringMapWrapper.get(this._optionals, controlName);
+    };
+    return FormGroup;
+}(AbstractControl));
+exports.FormGroup = FormGroup;
+/**
+ * Defines a part of a form, of variable length, that can contain other controls.
+ *
+ * A `FormArray` aggregates the values of each {@link FormControl} in the group.
+ * The status of a `FormArray` depends on the status of its children.
+ * If one of the controls in a group is invalid, the entire array is invalid.
+ * Similarly, if a control changes its value, the entire array changes as well.
+ *
+ * `FormArray` is one of the three fundamental building blocks used to define forms in Angular,
+ * along with {@link FormControl} and {@link FormGroup}. {@link FormGroup} can also contain
+ * other controls, but is of fixed length.
+ *
+ * ## Adding or removing controls
+ *
+ * To change the controls in the array, use the `push`, `insert`, or `removeAt` methods
+ * in `FormArray` itself. These methods ensure the controls are properly tracked in the
+ * form's hierarchy. Do not modify the array of `AbstractControl`s used to instantiate
+ * the `FormArray` directly, as that will result in strange and unexpected behavior such
+ * as broken change detection.
+ *
+ * ### Example ([live demo](http://plnkr.co/edit/23DESOpbNnBpBHZt1BR4?p=preview))
+ *
+ * @experimental
+ */
+var FormArray = (function (_super) {
+    __extends(FormArray, _super);
+    function FormArray(controls, validator, asyncValidator) {
+        if (validator === void 0) { validator = null; }
+        if (asyncValidator === void 0) { asyncValidator = null; }
+        _super.call(this, validator, asyncValidator);
+        this.controls = controls;
+        this._initObservables();
+        this._setParentForControls();
+        this.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+    }
+    /**
+     * Get the {@link AbstractControl} at the given `index` in the array.
+     */
+    FormArray.prototype.at = function (index) { return this.controls[index]; };
+    /**
+     * Insert a new {@link AbstractControl} at the end of the array.
+     */
+    FormArray.prototype.push = function (control) {
+        this.controls.push(control);
+        control.setParent(this);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Insert a new {@link AbstractControl} at the given `index` in the array.
+     */
+    FormArray.prototype.insert = function (index, control) {
+        collection_1.ListWrapper.insert(this.controls, index, control);
+        control.setParent(this);
+        this.updateValueAndValidity();
+    };
+    /**
+     * Remove the control at the given `index` in the array.
+     */
+    FormArray.prototype.removeAt = function (index) {
+        collection_1.ListWrapper.removeAt(this.controls, index);
+        this.updateValueAndValidity();
+    };
+    Object.defineProperty(FormArray.prototype, "length", {
+        /**
+         * Length of the control array.
+         */
+        get: function () { return this.controls.length; },
+        enumerable: true,
+        configurable: true
+    });
+    /** @internal */
+    FormArray.prototype._updateValue = function () { this._value = this.controls.map(function (control) { return control.value; }); };
+    /** @internal */
+    FormArray.prototype._anyControlsHaveStatus = function (status) {
+        return this.controls.some(function (c) { return c.status == status; });
+    };
+    /** @internal */
+    FormArray.prototype._setParentForControls = function () {
+        var _this = this;
+        this.controls.forEach(function (control) { control.setParent(_this); });
+    };
+    return FormArray;
+}(AbstractControl));
+exports.FormArray = FormArray;
+
+},{"./directives/shared":359,"./facade/async":361,"./facade/collection":363,"./facade/lang":366}],372:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
+var core_1 = require('@angular/core');
+var async_1 = require('./facade/async');
+var collection_1 = require('./facade/collection');
+var lang_1 = require('./facade/lang');
+var promise_1 = require('./facade/promise');
+/**
+ * Providers for validators to be used for {@link FormControl}s in a form.
+ *
+ * Provide this using `multi: true` to add validators.
+ *
+ * ### Example
+ *
+ * {@example core/forms/ts/ng_validators/ng_validators.ts region='ng_validators'}
+ * @experimental
+ */
+exports.NG_VALIDATORS = new core_1.OpaqueToken('NgValidators');
+/**
+ * Providers for asynchronous validators to be used for {@link FormControl}s
+ * in a form.
+ *
+ * Provide this using `multi: true` to add validators.
+ *
+ * See {@link NG_VALIDATORS} for more details.
+ *
+ * @experimental
+ */
+exports.NG_ASYNC_VALIDATORS = 
+/*@ts2dart_const*/ new core_1.OpaqueToken('NgAsyncValidators');
+/**
+ * Provides a set of validators used by form controls.
+ *
+ * A validator is a function that processes a {@link FormControl} or collection of
+ * controls and returns a map of errors. A null map means that validation has passed.
+ *
+ * ### Example
+ *
+ * ```typescript
+ * var loginControl = new FormControl("", Validators.required)
+ * ```
+ *
+ * @experimental
+ */
+var Validators = (function () {
+    function Validators() {
+    }
+    /**
+     * Validator that requires controls to have a non-empty value.
+     */
+    Validators.required = function (control) {
+        return lang_1.isBlank(control.value) || (lang_1.isString(control.value) && control.value == '') ?
+            { 'required': true } :
+            null;
+    };
+    /**
+     * Validator that requires controls to have a value of a minimum length.
+     */
+    Validators.minLength = function (minLength) {
+        return function (control) {
+            if (lang_1.isPresent(Validators.required(control)))
+                return null;
+            var v = control.value;
+            return v.length < minLength ?
+                { 'minlength': { 'requiredLength': minLength, 'actualLength': v.length } } :
+                null;
+        };
+    };
+    /**
+     * Validator that requires controls to have a value of a maximum length.
+     */
+    Validators.maxLength = function (maxLength) {
+        return function (control) {
+            if (lang_1.isPresent(Validators.required(control)))
+                return null;
+            var v = control.value;
+            return v.length > maxLength ?
+                { 'maxlength': { 'requiredLength': maxLength, 'actualLength': v.length } } :
+                null;
+        };
+    };
+    /**
+     * Validator that requires a control to match a regex to its value.
+     */
+    Validators.pattern = function (pattern) {
+        return function (control) {
+            if (lang_1.isPresent(Validators.required(control)))
+                return null;
+            var regex = new RegExp("^" + pattern + "$");
+            var v = control.value;
+            return regex.test(v) ? null :
+                { 'pattern': { 'requiredPattern': "^" + pattern + "$", 'actualValue': v } };
+        };
+    };
+    /**
+     * No-op validator.
+     */
+    Validators.nullValidator = function (c) { return null; };
+    /**
+     * Compose multiple validators into a single function that returns the union
+     * of the individual error maps.
+     */
+    Validators.compose = function (validators) {
+        if (lang_1.isBlank(validators))
+            return null;
+        var presentValidators = validators.filter(lang_1.isPresent);
+        if (presentValidators.length == 0)
+            return null;
+        return function (control) {
+            return _mergeErrors(_executeValidators(control, presentValidators));
+        };
+    };
+    Validators.composeAsync = function (validators) {
+        if (lang_1.isBlank(validators))
+            return null;
+        var presentValidators = validators.filter(lang_1.isPresent);
+        if (presentValidators.length == 0)
+            return null;
+        return function (control) {
+            var promises = _executeAsyncValidators(control, presentValidators).map(_convertToPromise);
+            return promise_1.PromiseWrapper.all(promises).then(_mergeErrors);
+        };
+    };
+    return Validators;
+}());
+exports.Validators = Validators;
+function _convertToPromise(obj) {
+    return lang_1.isPromise(obj) ? obj : async_1.ObservableWrapper.toPromise(obj);
+}
+function _executeValidators(control, validators) {
+    return validators.map(function (v) { return v(control); });
+}
+function _executeAsyncValidators(control, validators) {
+    return validators.map(function (v) { return v(control); });
+}
+function _mergeErrors(arrayOfErrors) {
+    var res = arrayOfErrors.reduce(function (res, errors) {
+        return lang_1.isPresent(errors) ? collection_1.StringMapWrapper.merge(res, errors) : res;
+    }, {});
+    return collection_1.StringMapWrapper.isEmpty(res) ? null : res;
+}
+
+},{"./facade/async":361,"./facade/collection":363,"./facade/lang":366,"./facade/promise":367,"@angular/core":247}],373:[function(require,module,exports){
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+"use strict";
 var browser_jsonp_1 = require('./src/backends/browser_jsonp');
 var browser_xhr_1 = require('./src/backends/browser_xhr');
 var jsonp_backend_1 = require('./src/backends/jsonp_backend');
@@ -40557,7 +43942,7 @@ function jsonpFactory(jsonpBackend, requestOptions) {
  */
 exports.JSON_BINDINGS = exports.JSONP_PROVIDERS;
 
-},{"./src/backends/browser_jsonp":338,"./src/backends/browser_xhr":339,"./src/backends/jsonp_backend":340,"./src/backends/xhr_backend":341,"./src/base_request_options":342,"./src/base_response_options":343,"./src/enums":344,"./src/headers":350,"./src/http":351,"./src/interfaces":353,"./src/static_request":354,"./src/static_response":355,"./src/url_search_params":356}],337:[function(require,module,exports){
+},{"./src/backends/browser_jsonp":375,"./src/backends/browser_xhr":376,"./src/backends/jsonp_backend":377,"./src/backends/xhr_backend":378,"./src/base_request_options":379,"./src/base_response_options":380,"./src/enums":381,"./src/headers":387,"./src/http":388,"./src/interfaces":390,"./src/static_request":391,"./src/static_response":392,"./src/url_search_params":393}],374:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -40571,7 +43956,7 @@ function __export(m) {
 }
 __export(require('./http'));
 
-},{"./http":336}],338:[function(require,module,exports){
+},{"./http":373}],375:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -40626,7 +44011,7 @@ var BrowserJsonp = (function () {
 }());
 exports.BrowserJsonp = BrowserJsonp;
 
-},{"../facade/lang":349,"@angular/core":247}],339:[function(require,module,exports){
+},{"../facade/lang":386,"@angular/core":247}],376:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -40650,7 +44035,7 @@ var BrowserXhr = (function () {
 }());
 exports.BrowserXhr = BrowserXhr;
 
-},{"@angular/core":247}],340:[function(require,module,exports){
+},{"@angular/core":247}],377:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -40804,7 +44189,7 @@ var JSONPBackend_ = (function (_super) {
 }(JSONPBackend));
 exports.JSONPBackend_ = JSONPBackend_;
 
-},{"../base_response_options":343,"../enums":344,"../facade/exceptions":348,"../facade/lang":349,"../interfaces":353,"../static_response":355,"./browser_jsonp":338,"@angular/core":247,"rxjs/Observable":540}],341:[function(require,module,exports){
+},{"../base_response_options":380,"../enums":381,"../facade/exceptions":385,"../facade/lang":386,"../interfaces":390,"../static_response":392,"./browser_jsonp":375,"@angular/core":247,"rxjs/Observable":588}],378:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -40986,7 +44371,7 @@ var XHRBackend = (function () {
 }());
 exports.XHRBackend = XHRBackend;
 
-},{"../base_response_options":343,"../enums":344,"../facade/lang":349,"../headers":350,"../http_utils":352,"../interfaces":353,"../static_response":355,"./browser_xhr":339,"@angular/core":247,"@angular/platform-browser":369,"rxjs/Observable":540}],342:[function(require,module,exports){
+},{"../base_response_options":380,"../enums":381,"../facade/lang":386,"../headers":387,"../http_utils":389,"../interfaces":390,"../static_response":392,"./browser_xhr":376,"@angular/core":247,"@angular/platform-browser":406,"rxjs/Observable":588}],379:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -41102,7 +44487,7 @@ var BaseRequestOptions = (function (_super) {
 }(RequestOptions));
 exports.BaseRequestOptions = BaseRequestOptions;
 
-},{"../src/facade/lang":349,"./enums":344,"./headers":350,"./http_utils":352,"./url_search_params":356,"@angular/core":247}],343:[function(require,module,exports){
+},{"../src/facade/lang":386,"./enums":381,"./headers":387,"./http_utils":389,"./url_search_params":393,"@angular/core":247}],380:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -41212,7 +44597,7 @@ var BaseResponseOptions = (function (_super) {
 }(ResponseOptions));
 exports.BaseResponseOptions = BaseResponseOptions;
 
-},{"../src/facade/lang":349,"./enums":344,"./headers":350,"@angular/core":247}],344:[function(require,module,exports){
+},{"../src/facade/lang":386,"./enums":381,"./headers":387,"@angular/core":247}],381:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -41278,15 +44663,15 @@ var ResponseType = exports.ResponseType;
 })(exports.ContentType || (exports.ContentType = {}));
 var ContentType = exports.ContentType;
 
-},{}],345:[function(require,module,exports){
+},{}],382:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],346:[function(require,module,exports){
+},{"dup":112}],383:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"./lang":349,"dup":113}],347:[function(require,module,exports){
+},{"./lang":386,"dup":113}],384:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./base_wrapped_exception":345,"./collection":346,"./lang":349,"dup":114}],348:[function(require,module,exports){
+},{"./base_wrapped_exception":382,"./collection":383,"./lang":386,"dup":114}],385:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"./base_wrapped_exception":345,"./exception_handler":347,"dup":115}],349:[function(require,module,exports){
+},{"./base_wrapped_exception":382,"./exception_handler":384,"dup":115}],386:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -41755,7 +45140,7 @@ exports.escapeRegExp = escapeRegExp;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],350:[function(require,module,exports){
+},{}],387:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -41900,7 +45285,7 @@ var Headers = (function () {
 }());
 exports.Headers = Headers;
 
-},{"../src/facade/collection":346,"../src/facade/exceptions":348,"../src/facade/lang":349}],351:[function(require,module,exports){
+},{"../src/facade/collection":383,"../src/facade/exceptions":385,"../src/facade/lang":386}],388:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42065,7 +45450,7 @@ var Jsonp = (function (_super) {
 }(Http));
 exports.Jsonp = Jsonp;
 
-},{"../src/facade/exceptions":348,"../src/facade/lang":349,"./base_request_options":342,"./enums":344,"./interfaces":353,"./static_request":354,"@angular/core":247}],352:[function(require,module,exports){
+},{"../src/facade/exceptions":385,"../src/facade/lang":386,"./base_request_options":379,"./enums":381,"./interfaces":390,"./static_request":391,"@angular/core":247}],389:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42103,7 +45488,7 @@ exports.getResponseURL = getResponseURL;
 var lang_2 = require('../src/facade/lang');
 exports.isJsObject = lang_2.isJsObject;
 
-},{"../src/facade/exceptions":348,"../src/facade/lang":349,"./enums":344}],353:[function(require,module,exports){
+},{"../src/facade/exceptions":385,"../src/facade/lang":386,"./enums":381}],390:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42149,7 +45534,7 @@ var XSRFStrategy = (function () {
 }());
 exports.XSRFStrategy = XSRFStrategy;
 
-},{}],354:[function(require,module,exports){
+},{}],391:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42319,7 +45704,7 @@ var FormData = w['FormData'] || noop;
 var Blob = w['Blob'] || noop;
 var ArrayBuffer = w['ArrayBuffer'] || noop;
 
-},{"../src/facade/lang":349,"./enums":344,"./headers":350,"./http_utils":352,"./url_search_params":356}],355:[function(require,module,exports){
+},{"../src/facade/lang":386,"./enums":381,"./headers":387,"./http_utils":389,"./url_search_params":393}],392:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42397,7 +45782,7 @@ var Response = (function () {
 }());
 exports.Response = Response;
 
-},{"../src/facade/exceptions":348,"../src/facade/lang":349,"./http_utils":352}],356:[function(require,module,exports){
+},{"../src/facade/exceptions":385,"../src/facade/lang":386,"./http_utils":389}],393:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42588,7 +45973,7 @@ var URLSearchParams = (function () {
 }());
 exports.URLSearchParams = URLSearchParams;
 
-},{"../src/facade/collection":346,"../src/facade/lang":349}],357:[function(require,module,exports){
+},{"../src/facade/collection":383,"../src/facade/lang":386}],394:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42601,7 +45986,7 @@ var core_1 = require('@angular/core');
 exports.ReflectionCapabilities = core_1.__core_private__.ReflectionCapabilities;
 exports.reflector = core_1.__core_private__.reflector;
 
-},{"@angular/core":247}],358:[function(require,module,exports){
+},{"@angular/core":247}],395:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42761,17 +46146,17 @@ function bootstrapWorkerApp(appComponentType, customProviders) {
 }
 exports.bootstrapWorkerApp = bootstrapWorkerApp;
 
-},{"./core_private":357,"./src/facade/async":359,"./src/facade/lang":364,"./src/xhr/xhr_cache":366,"./src/xhr/xhr_impl":367,"@angular/common":100,"@angular/compiler":166,"@angular/core":247,"@angular/platform-browser":369}],359:[function(require,module,exports){
+},{"./core_private":394,"./src/facade/async":396,"./src/facade/lang":401,"./src/xhr/xhr_cache":403,"./src/xhr/xhr_impl":404,"@angular/common":100,"@angular/compiler":166,"@angular/core":247,"@angular/platform-browser":406}],396:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"./lang":364,"./promise":365,"dup":111,"rxjs/Observable":540,"rxjs/Subject":542,"rxjs/observable/PromiseObservable":546,"rxjs/operator/toPromise":547}],360:[function(require,module,exports){
+},{"./lang":401,"./promise":402,"dup":111,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],397:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],361:[function(require,module,exports){
+},{"dup":112}],398:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"./lang":364,"dup":113}],362:[function(require,module,exports){
+},{"./lang":401,"dup":113}],399:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./base_wrapped_exception":360,"./collection":361,"./lang":364,"dup":114}],363:[function(require,module,exports){
+},{"./base_wrapped_exception":397,"./collection":398,"./lang":401,"dup":114}],400:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"./base_wrapped_exception":360,"./exception_handler":362,"dup":115}],364:[function(require,module,exports){
+},{"./base_wrapped_exception":397,"./exception_handler":399,"dup":115}],401:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -43240,9 +46625,9 @@ exports.escapeRegExp = escapeRegExp;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],365:[function(require,module,exports){
+},{}],402:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"dup":118}],366:[function(require,module,exports){
+},{"dup":118}],403:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43288,7 +46673,7 @@ var CachedXHR = (function (_super) {
 }(compiler_1.XHR));
 exports.CachedXHR = CachedXHR;
 
-},{"../facade/exceptions":363,"../facade/lang":364,"../facade/promise":365,"@angular/compiler":166}],367:[function(require,module,exports){
+},{"../facade/exceptions":400,"../facade/lang":401,"../facade/promise":402,"@angular/compiler":166}],404:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43342,7 +46727,7 @@ var XHRImpl = (function (_super) {
 }(compiler_1.XHR));
 exports.XHRImpl = XHRImpl;
 
-},{"../facade/lang":364,"../facade/promise":365,"@angular/compiler":166}],368:[function(require,module,exports){
+},{"../facade/lang":401,"../facade/promise":402,"@angular/compiler":166}],405:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43378,7 +46763,7 @@ exports.flattenStyles = core_1.__core_private__.flattenStyles;
 exports.clearStyles = core_1.__core_private__.clearStyles;
 exports.collectAndResolveStyles = core_1.__core_private__.collectAndResolveStyles;
 
-},{"@angular/core":247}],369:[function(require,module,exports){
+},{"@angular/core":247}],406:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43432,7 +46817,7 @@ __export(require('./src/worker_render'));
 __export(require('./src/worker_app'));
 __export(require('./private_export'));
 
-},{"./private_export":370,"./src/browser":371,"./src/browser/location/browser_platform_location":374,"./src/browser/title":377,"./src/browser/tools/tools":379,"./src/dom/debug/by":380,"./src/dom/dom_tokens":384,"./src/dom/events/event_manager":386,"./src/dom/events/hammer_gestures":388,"./src/security/dom_sanitization_service":402,"./src/web_workers/shared/client_message_broker":407,"./src/web_workers/shared/message_bus":408,"./src/web_workers/shared/serializer":413,"./src/web_workers/shared/service_message_broker":414,"./src/web_workers/ui/location_providers":417,"./src/web_workers/worker/location_providers":421,"./src/worker_app":425,"./src/worker_render":426}],370:[function(require,module,exports){
+},{"./private_export":407,"./src/browser":408,"./src/browser/location/browser_platform_location":411,"./src/browser/title":414,"./src/browser/tools/tools":416,"./src/dom/debug/by":417,"./src/dom/dom_tokens":421,"./src/dom/events/event_manager":423,"./src/dom/events/hammer_gestures":425,"./src/security/dom_sanitization_service":439,"./src/web_workers/shared/client_message_broker":444,"./src/web_workers/shared/message_bus":445,"./src/web_workers/shared/serializer":450,"./src/web_workers/shared/service_message_broker":451,"./src/web_workers/ui/location_providers":454,"./src/web_workers/worker/location_providers":458,"./src/worker_app":462,"./src/worker_render":463}],407:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43458,7 +46843,7 @@ exports.__platform_browser_private__ = {
     DomEventsPlugin: dom_events.DomEventsPlugin
 };
 
-},{"./src/dom/debug/ng_probe":381,"./src/dom/dom_adapter":382,"./src/dom/dom_renderer":383,"./src/dom/events/dom_events":385,"./src/dom/shared_styles_host":390}],371:[function(require,module,exports){
+},{"./src/dom/debug/ng_probe":418,"./src/dom/dom_adapter":419,"./src/dom/dom_renderer":420,"./src/dom/events/dom_events":422,"./src/dom/shared_styles_host":427}],408:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -43557,7 +46942,7 @@ function _resolveDefaultAnimationDriver() {
     return new core_private_1.NoOpAnimationDriver();
 }
 
-},{"../core_private":368,"../src/dom/web_animations_driver":392,"./browser/browser_adapter":372,"./browser/location/browser_platform_location":374,"./browser/testability":376,"./dom/debug/ng_probe":381,"./dom/dom_adapter":382,"./dom/dom_renderer":383,"./dom/dom_tokens":384,"./dom/events/dom_events":385,"./dom/events/event_manager":386,"./dom/events/hammer_gestures":388,"./dom/events/key_events":389,"./dom/shared_styles_host":390,"./facade/lang":400,"./security/dom_sanitization_service":402,"@angular/common":100,"@angular/core":247}],372:[function(require,module,exports){
+},{"../core_private":405,"../src/dom/web_animations_driver":429,"./browser/browser_adapter":409,"./browser/location/browser_platform_location":411,"./browser/testability":413,"./dom/debug/ng_probe":418,"./dom/dom_adapter":419,"./dom/dom_renderer":420,"./dom/dom_tokens":421,"./dom/events/dom_events":422,"./dom/events/event_manager":423,"./dom/events/hammer_gestures":425,"./dom/events/key_events":426,"./dom/shared_styles_host":427,"./facade/lang":437,"./security/dom_sanitization_service":439,"@angular/common":100,"@angular/core":247}],409:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44029,7 +47414,7 @@ function parseCookieValue(cookie, name) {
 }
 exports.parseCookieValue = parseCookieValue;
 
-},{"../dom/dom_adapter":382,"../facade/collection":397,"../facade/lang":400,"./generic_browser_adapter":373}],373:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"../facade/collection":434,"../facade/lang":437,"./generic_browser_adapter":410}],410:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44106,7 +47491,7 @@ var GenericBrowserDomAdapter = (function (_super) {
 }(dom_adapter_1.DomAdapter));
 exports.GenericBrowserDomAdapter = GenericBrowserDomAdapter;
 
-},{"../dom/dom_adapter":382,"../facade/collection":397,"../facade/lang":400}],374:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"../facade/collection":434,"../facade/lang":437}],411:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44193,7 +47578,7 @@ var BrowserPlatformLocation = (function (_super) {
 }(common_1.PlatformLocation));
 exports.BrowserPlatformLocation = BrowserPlatformLocation;
 
-},{"../../dom/dom_adapter":382,"./history":375,"@angular/common":100,"@angular/core":247}],375:[function(require,module,exports){
+},{"../../dom/dom_adapter":419,"./history":412,"@angular/common":100,"@angular/core":247}],412:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44207,7 +47592,7 @@ function supportsState() {
 }
 exports.supportsState = supportsState;
 
-},{}],376:[function(require,module,exports){
+},{}],413:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44292,7 +47677,7 @@ var BrowserGetTestability = (function () {
 }());
 exports.BrowserGetTestability = BrowserGetTestability;
 
-},{"../dom/dom_adapter":382,"../facade/collection":397,"../facade/lang":400,"@angular/core":247}],377:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"../facade/collection":434,"../facade/lang":437,"@angular/core":247}],414:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44329,7 +47714,7 @@ var Title = (function () {
 }());
 exports.Title = Title;
 
-},{"../dom/dom_adapter":382}],378:[function(require,module,exports){
+},{"../dom/dom_adapter":419}],415:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44416,7 +47801,7 @@ var AngularProfiler = (function () {
 }());
 exports.AngularProfiler = AngularProfiler;
 
-},{"../../dom/dom_adapter":382,"../../facade/browser":396,"../../facade/lang":400,"@angular/core":247}],379:[function(require,module,exports){
+},{"../../dom/dom_adapter":419,"../../facade/browser":433,"../../facade/lang":437,"@angular/core":247}],416:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44456,7 +47841,7 @@ function disableDebugTools() {
 }
 exports.disableDebugTools = disableDebugTools;
 
-},{"../../facade/lang":400,"./common_tools":378}],380:[function(require,module,exports){
+},{"../../facade/lang":437,"./common_tools":415}],417:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44511,7 +47896,7 @@ var By = (function () {
 }());
 exports.By = By;
 
-},{"../../dom/dom_adapter":382,"../../facade/lang":400}],381:[function(require,module,exports){
+},{"../../dom/dom_adapter":419,"../../facade/lang":437}],418:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44556,7 +47941,7 @@ function _createRootRenderer(rootRenderer /** TODO #9100 */) {
 exports.ELEMENT_PROBE_PROVIDERS = [{ provide: core_1.RootRenderer, useFactory: _createConditionalRootRenderer, deps: [dom_renderer_1.DomRootRenderer] }];
 exports.ELEMENT_PROBE_PROVIDERS_PROD_MODE = [{ provide: core_1.RootRenderer, useFactory: _createRootRenderer, deps: [dom_renderer_1.DomRootRenderer] }];
 
-},{"../../../core_private":368,"../dom_adapter":382,"../dom_renderer":383,"@angular/core":247}],382:[function(require,module,exports){
+},{"../../../core_private":405,"../dom_adapter":419,"../dom_renderer":420,"@angular/core":247}],419:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44607,7 +47992,7 @@ var DomAdapter = (function () {
 }());
 exports.DomAdapter = DomAdapter;
 
-},{"../facade/lang":400}],383:[function(require,module,exports){
+},{"../facade/lang":437}],420:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44900,7 +48285,7 @@ function splitNamespace(name) {
     return [match[1], match[2]];
 }
 
-},{"../../core_private":368,"../facade/exceptions":399,"../facade/lang":400,"./dom_adapter":382,"./dom_tokens":384,"./events/event_manager":386,"./shared_styles_host":390,"./util":391,"@angular/core":247}],384:[function(require,module,exports){
+},{"../../core_private":405,"../facade/exceptions":436,"../facade/lang":437,"./dom_adapter":419,"./dom_tokens":421,"./events/event_manager":423,"./shared_styles_host":427,"./util":428,"@angular/core":247}],421:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44920,7 +48305,7 @@ var core_1 = require('@angular/core');
  */
 exports.DOCUMENT = new core_1.OpaqueToken('DocumentToken');
 
-},{"@angular/core":247}],385:[function(require,module,exports){
+},{"@angular/core":247}],422:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -44964,7 +48349,7 @@ var DomEventsPlugin = (function (_super) {
 }(event_manager_1.EventManagerPlugin));
 exports.DomEventsPlugin = DomEventsPlugin;
 
-},{"../dom_adapter":382,"./event_manager":386,"@angular/core":247}],386:[function(require,module,exports){
+},{"../dom_adapter":419,"./event_manager":423,"@angular/core":247}],423:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45034,7 +48419,7 @@ var EventManagerPlugin = (function () {
 }());
 exports.EventManagerPlugin = EventManagerPlugin;
 
-},{"../../facade/collection":397,"../../facade/exceptions":399,"@angular/core":247}],387:[function(require,module,exports){
+},{"../../facade/collection":434,"../../facade/exceptions":436,"@angular/core":247}],424:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45100,7 +48485,7 @@ var HammerGesturesPluginCommon = (function (_super) {
 }(event_manager_1.EventManagerPlugin));
 exports.HammerGesturesPluginCommon = HammerGesturesPluginCommon;
 
-},{"../../facade/collection":397,"./event_manager":386}],388:[function(require,module,exports){
+},{"../../facade/collection":434,"./event_manager":423}],425:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45187,7 +48572,7 @@ var HammerGesturesPlugin = (function (_super) {
 }(hammer_common_1.HammerGesturesPluginCommon));
 exports.HammerGesturesPlugin = HammerGesturesPlugin;
 
-},{"../../facade/exceptions":399,"../../facade/lang":400,"./hammer_common":387,"@angular/core":247}],389:[function(require,module,exports){
+},{"../../facade/exceptions":436,"../../facade/lang":437,"./hammer_common":424,"@angular/core":247}],426:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45302,7 +48687,7 @@ var KeyEventsPlugin = (function (_super) {
 }(event_manager_1.EventManagerPlugin));
 exports.KeyEventsPlugin = KeyEventsPlugin;
 
-},{"../../facade/collection":397,"../../facade/lang":400,"../dom_adapter":382,"./event_manager":386,"@angular/core":247}],390:[function(require,module,exports){
+},{"../../facade/collection":434,"../../facade/lang":437,"../dom_adapter":419,"./event_manager":423,"@angular/core":247}],427:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45385,7 +48770,7 @@ var DomSharedStylesHost = (function (_super) {
 }(SharedStylesHost));
 exports.DomSharedStylesHost = DomSharedStylesHost;
 
-},{"../facade/collection":397,"./dom_adapter":382,"./dom_tokens":384,"@angular/core":247}],391:[function(require,module,exports){
+},{"../facade/collection":434,"./dom_adapter":419,"./dom_tokens":421,"@angular/core":247}],428:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45406,7 +48791,7 @@ function dashCaseToCamelCase(input) {
 }
 exports.dashCaseToCamelCase = dashCaseToCamelCase;
 
-},{"../facade/lang":400}],392:[function(require,module,exports){
+},{"../facade/lang":437}],429:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45543,7 +48928,7 @@ function _computeStyle(element, prop) {
     return dom_adapter_1.getDOM().getComputedStyle(element)[prop];
 }
 
-},{"../facade/collection":397,"../facade/lang":400,"./dom_adapter":382,"./util":391,"./web_animations_player":393,"@angular/core":247}],393:[function(require,module,exports){
+},{"../facade/collection":434,"../facade/lang":437,"./dom_adapter":419,"./util":428,"./web_animations_player":430,"@angular/core":247}],430:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45597,11 +48982,11 @@ var WebAnimationsPlayer = (function () {
 }());
 exports.WebAnimationsPlayer = WebAnimationsPlayer;
 
-},{"../facade/lang":400}],394:[function(require,module,exports){
+},{"../facade/lang":437}],431:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"./lang":400,"./promise":401,"dup":111,"rxjs/Observable":540,"rxjs/Subject":542,"rxjs/observable/PromiseObservable":546,"rxjs/operator/toPromise":547}],395:[function(require,module,exports){
+},{"./lang":437,"./promise":438,"dup":111,"rxjs/Observable":588,"rxjs/Subject":590,"rxjs/observable/PromiseObservable":594,"rxjs/operator/toPromise":595}],432:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],396:[function(require,module,exports){
+},{"dup":112}],433:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -45627,13 +49012,13 @@ exports.History = win['History'];
 exports.Location = win['Location'];
 exports.EventListener = win['EventListener'];
 
-},{}],397:[function(require,module,exports){
+},{}],434:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"./lang":400,"dup":113}],398:[function(require,module,exports){
+},{"./lang":437,"dup":113}],435:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./base_wrapped_exception":395,"./collection":397,"./lang":400,"dup":114}],399:[function(require,module,exports){
+},{"./base_wrapped_exception":432,"./collection":434,"./lang":437,"dup":114}],436:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"./base_wrapped_exception":395,"./exception_handler":398,"dup":115}],400:[function(require,module,exports){
+},{"./base_wrapped_exception":432,"./exception_handler":435,"dup":115}],437:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -46102,9 +49487,9 @@ exports.escapeRegExp = escapeRegExp;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],401:[function(require,module,exports){
+},{}],438:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"dup":118}],402:[function(require,module,exports){
+},{"dup":118}],439:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46274,7 +49659,7 @@ var SafeResourceUrlImpl = (function (_super) {
     return SafeResourceUrlImpl;
 }(SafeValueImpl));
 
-},{"../../core_private":368,"./html_sanitizer":403,"./style_sanitizer":404,"./url_sanitizer":405,"@angular/core":247}],403:[function(require,module,exports){
+},{"../../core_private":405,"./html_sanitizer":440,"./style_sanitizer":441,"./url_sanitizer":442,"@angular/core":247}],440:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46532,7 +49917,7 @@ function sanitizeHtml(unsafeHtmlInput) {
 }
 exports.sanitizeHtml = sanitizeHtml;
 
-},{"../dom/dom_adapter":382,"./url_sanitizer":405,"@angular/core":247}],404:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"./url_sanitizer":442,"@angular/core":247}],441:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46626,7 +50011,7 @@ function sanitizeStyle(value) {
 }
 exports.sanitizeStyle = sanitizeStyle;
 
-},{"../dom/dom_adapter":382,"./url_sanitizer":405,"@angular/core":247}],405:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"./url_sanitizer":442,"@angular/core":247}],442:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46684,7 +50069,7 @@ function sanitizeSrcset(srcset) {
 }
 exports.sanitizeSrcset = sanitizeSrcset;
 
-},{"../dom/dom_adapter":382,"@angular/core":247}],406:[function(require,module,exports){
+},{"../dom/dom_adapter":419,"@angular/core":247}],443:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46696,7 +50081,7 @@ exports.sanitizeSrcset = sanitizeSrcset;
 var core_1 = require('@angular/core');
 exports.ON_WEB_WORKER = new core_1.OpaqueToken('WebWorker.onWebWorker');
 
-},{"@angular/core":247}],407:[function(require,module,exports){
+},{"@angular/core":247}],444:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46888,7 +50273,7 @@ var UiArguments = (function () {
 }());
 exports.UiArguments = UiArguments;
 
-},{"../../facade/async":394,"../../facade/collection":397,"../../facade/lang":400,"./message_bus":408,"./serializer":413,"@angular/core":247}],408:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/collection":434,"../../facade/lang":437,"./message_bus":445,"./serializer":450,"@angular/core":247}],445:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46912,7 +50297,7 @@ var MessageBus = (function () {
 }());
 exports.MessageBus = MessageBus;
 
-},{}],409:[function(require,module,exports){
+},{}],446:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -46929,7 +50314,7 @@ exports.RENDERER_CHANNEL = 'ng-Renderer';
 exports.EVENT_CHANNEL = 'ng-Events';
 exports.ROUTER_CHANNEL = 'ng-Router';
 
-},{}],410:[function(require,module,exports){
+},{}],447:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47084,7 +50469,7 @@ var _Channel = (function () {
     return _Channel;
 }());
 
-},{"../../facade/async":394,"../../facade/collection":397,"../../facade/exceptions":399,"@angular/core":247}],411:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/collection":434,"../../facade/exceptions":436,"@angular/core":247}],448:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47135,7 +50520,7 @@ var RenderStore = (function () {
 }());
 exports.RenderStore = RenderStore;
 
-},{"@angular/core":247}],412:[function(require,module,exports){
+},{"@angular/core":247}],449:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47162,7 +50547,7 @@ var LocationType = (function () {
 }());
 exports.LocationType = LocationType;
 
-},{}],413:[function(require,module,exports){
+},{}],450:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47289,7 +50674,7 @@ var RenderStoreObject = (function () {
 }());
 exports.RenderStoreObject = RenderStoreObject;
 
-},{"../../../core_private":368,"../../facade/exceptions":399,"../../facade/lang":400,"./render_store":411,"./serialized_types":412,"@angular/core":247}],414:[function(require,module,exports){
+},{"../../../core_private":405,"../../facade/exceptions":436,"../../facade/lang":437,"./render_store":448,"./serialized_types":449,"@angular/core":247}],451:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47413,7 +50798,7 @@ var ReceivedMessage = (function () {
 }());
 exports.ReceivedMessage = ReceivedMessage;
 
-},{"../../facade/async":394,"../../facade/collection":397,"../../facade/lang":400,"../shared/message_bus":408,"../shared/serializer":413,"@angular/core":247}],415:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/collection":434,"../../facade/lang":437,"../shared/message_bus":445,"../shared/serializer":450,"@angular/core":247}],452:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47528,7 +50913,7 @@ var EventDispatcher = (function () {
 }());
 exports.EventDispatcher = EventDispatcher;
 
-},{"../../facade/async":394,"../../facade/exceptions":399,"../shared/serializer":413,"./event_serializer":416}],416:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/exceptions":436,"../shared/serializer":450,"./event_serializer":453}],453:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47595,7 +50980,7 @@ function serializeEvent(e, properties) {
     return serialized;
 }
 
-},{"../../facade/collection":397,"../../facade/lang":400}],417:[function(require,module,exports){
+},{"../../facade/collection":434,"../../facade/lang":437}],454:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47623,7 +51008,7 @@ function initUiLocation(injector) {
     };
 }
 
-},{"../../browser/location/browser_platform_location":374,"./platform_location":418,"@angular/core":247}],418:[function(require,module,exports){
+},{"../../browser/location/browser_platform_location":411,"./platform_location":455,"@angular/core":247}],455:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47683,7 +51068,7 @@ var MessageBasedPlatformLocation = (function () {
 }());
 exports.MessageBasedPlatformLocation = MessageBasedPlatformLocation;
 
-},{"../../browser/location/browser_platform_location":374,"../../facade/async":394,"../../facade/lang":400,"../shared/message_bus":408,"../shared/messaging_api":409,"../shared/serialized_types":412,"../shared/serializer":413,"../shared/service_message_broker":414,"@angular/core":247}],419:[function(require,module,exports){
+},{"../../browser/location/browser_platform_location":411,"../../facade/async":431,"../../facade/lang":437,"../shared/message_bus":445,"../shared/messaging_api":446,"../shared/serialized_types":449,"../shared/serializer":450,"../shared/service_message_broker":451,"@angular/core":247}],456:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47822,7 +51207,7 @@ var MessageBasedRenderer = (function () {
 }());
 exports.MessageBasedRenderer = MessageBasedRenderer;
 
-},{"../../facade/lang":400,"../shared/message_bus":408,"../shared/messaging_api":409,"../shared/render_store":411,"../shared/serializer":413,"../shared/service_message_broker":414,"../ui/event_dispatcher":415,"@angular/core":247}],420:[function(require,module,exports){
+},{"../../facade/lang":437,"../shared/message_bus":445,"../shared/messaging_api":446,"../shared/render_store":448,"../shared/serializer":450,"../shared/service_message_broker":451,"../ui/event_dispatcher":452,"@angular/core":247}],457:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47838,7 +51223,7 @@ function deserializeGenericEvent(serializedEvent) {
 }
 exports.deserializeGenericEvent = deserializeGenericEvent;
 
-},{}],421:[function(require,module,exports){
+},{}],458:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -47867,7 +51252,7 @@ function appInitFnFactory(platformLocation, zone) {
     return function () { return zone.runGuarded(function () { return platformLocation.init(); }); };
 }
 
-},{"./platform_location":422,"@angular/common":100,"@angular/core":247}],422:[function(require,module,exports){
+},{"./platform_location":459,"@angular/common":100,"@angular/core":247}],459:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -48009,7 +51394,7 @@ var WebWorkerPlatformLocation = (function (_super) {
 }(common_1.PlatformLocation));
 exports.WebWorkerPlatformLocation = WebWorkerPlatformLocation;
 
-},{"../../facade/async":394,"../../facade/collection":397,"../../facade/exceptions":399,"../../facade/lang":400,"../shared/client_message_broker":407,"../shared/message_bus":408,"../shared/messaging_api":409,"../shared/serialized_types":412,"../shared/serializer":413,"./event_deserializer":420,"@angular/common":100,"@angular/core":247}],423:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/collection":434,"../../facade/exceptions":436,"../../facade/lang":437,"../shared/client_message_broker":444,"../shared/message_bus":445,"../shared/messaging_api":446,"../shared/serialized_types":449,"../shared/serializer":450,"./event_deserializer":457,"@angular/common":100,"@angular/core":247}],460:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -48258,7 +51643,7 @@ var WebWorkerRenderNode = (function () {
 }());
 exports.WebWorkerRenderNode = WebWorkerRenderNode;
 
-},{"../../facade/async":394,"../../facade/collection":397,"../../facade/lang":400,"../shared/client_message_broker":407,"../shared/message_bus":408,"../shared/messaging_api":409,"../shared/render_store":411,"../shared/serializer":413,"./event_deserializer":420,"@angular/core":247}],424:[function(require,module,exports){
+},{"../../facade/async":431,"../../facade/collection":434,"../../facade/lang":437,"../shared/client_message_broker":444,"../shared/message_bus":445,"../shared/messaging_api":446,"../shared/render_store":448,"../shared/serializer":450,"./event_deserializer":457,"@angular/core":247}],461:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -48474,7 +51859,7 @@ var WorkerDomAdapter = (function (_super) {
 }(dom_adapter_1.DomAdapter));
 exports.WorkerDomAdapter = WorkerDomAdapter;
 
-},{"../../dom/dom_adapter":382}],425:[function(require,module,exports){
+},{"../../dom/dom_adapter":419}],462:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -48553,7 +51938,7 @@ function setupWebWorker() {
     worker_adapter_1.WorkerDomAdapter.makeCurrent();
 }
 
-},{"./browser":371,"./facade/lang":400,"./web_workers/shared/api":406,"./web_workers/shared/client_message_broker":407,"./web_workers/shared/message_bus":408,"./web_workers/shared/post_message_bus":410,"./web_workers/shared/render_store":411,"./web_workers/shared/serializer":413,"./web_workers/shared/service_message_broker":414,"./web_workers/worker/renderer":423,"./web_workers/worker/worker_adapter":424,"@angular/common":100,"@angular/core":247}],426:[function(require,module,exports){
+},{"./browser":408,"./facade/lang":437,"./web_workers/shared/api":443,"./web_workers/shared/client_message_broker":444,"./web_workers/shared/message_bus":445,"./web_workers/shared/post_message_bus":447,"./web_workers/shared/render_store":448,"./web_workers/shared/serializer":450,"./web_workers/shared/service_message_broker":451,"./web_workers/worker/renderer":460,"./web_workers/worker/worker_adapter":461,"@angular/common":100,"@angular/core":247}],463:[function(require,module,exports){
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -48714,7 +52099,7 @@ function _resolveDefaultAnimationDriver() {
     return new core_private_1.NoOpAnimationDriver();
 }
 
-},{"../core_private":368,"./browser":371,"./browser/browser_adapter":372,"./browser/testability":376,"./dom/dom_adapter":382,"./dom/dom_renderer":383,"./dom/dom_tokens":384,"./dom/events/dom_events":385,"./dom/events/event_manager":386,"./dom/events/hammer_gestures":388,"./dom/events/key_events":389,"./dom/shared_styles_host":390,"./facade/exceptions":399,"./facade/lang":400,"./web_workers/shared/api":406,"./web_workers/shared/client_message_broker":407,"./web_workers/shared/message_bus":408,"./web_workers/shared/post_message_bus":410,"./web_workers/shared/render_store":411,"./web_workers/shared/serializer":413,"./web_workers/shared/service_message_broker":414,"./web_workers/ui/renderer":419,"@angular/core":247}],427:[function(require,module,exports){
+},{"../core_private":405,"./browser":408,"./browser/browser_adapter":409,"./browser/testability":413,"./dom/dom_adapter":419,"./dom/dom_renderer":420,"./dom/dom_tokens":421,"./dom/events/dom_events":422,"./dom/events/event_manager":423,"./dom/events/hammer_gestures":425,"./dom/events/key_events":426,"./dom/shared_styles_host":427,"./facade/exceptions":436,"./facade/lang":437,"./web_workers/shared/api":443,"./web_workers/shared/client_message_broker":444,"./web_workers/shared/message_bus":445,"./web_workers/shared/post_message_bus":447,"./web_workers/shared/render_store":448,"./web_workers/shared/serializer":450,"./web_workers/shared/service_message_broker":451,"./web_workers/ui/renderer":456,"@angular/core":247}],464:[function(require,module,exports){
 "use strict";
 var dom_1 = require('../util/dom');
 var util_1 = require('../util/util');
@@ -48739,6 +52124,8 @@ var Animation = (function () {
         this._c = [];
         this._el = [];
         this._fx = {};
+        this._dur = null;
+        this._easing = null;
         this._bfSty = {};
         this._bfAdd = [];
         this._bfRmv = [];
@@ -48772,13 +52159,13 @@ var Animation = (function () {
     Animation.prototype.element = function (ele) {
         var i;
         if (ele) {
-            if (ele.length) {
+            if (typeof ele === 'string') {
+                ele = document.querySelectorAll(ele);
                 for (i = 0; i < ele.length; i++) {
                     this._addEle(ele[i]);
                 }
             }
-            else if (typeof ele === 'string') {
-                ele = document.querySelectorAll(ele);
+            else if (ele.length) {
                 for (i = 0; i < ele.length; i++) {
                     this._addEle(ele[i]);
                 }
@@ -48979,8 +52366,9 @@ var Animation = (function () {
         if (opts === void 0) { opts = {}; }
         var self = this;
         var i;
+        var dur = this._dur;
         if (util_1.isDefined(opts.duration)) {
-            self._dur = opts.duration;
+            dur = opts.duration;
         }
         void 0;
         // always default that an animation does not tween
@@ -48998,7 +52386,7 @@ var Animation = (function () {
         // kick off the animation by setting the TO property for each animation
         // ensure all past transition end events have been cleared
         self._clearAsync();
-        if (self._dur > 30) {
+        if (dur > 30) {
             // this animation has a duration, so it should animate
             // place all the elements with their FROM properties
             // set the FROM properties
@@ -49010,7 +52398,7 @@ var Animation = (function () {
             // set the async TRANSITION END event
             // and run onFinishes when the transition ends
             // ******** DOM WRITE ****************
-            self._asyncEnd(self._dur, true);
+            self._asyncEnd(dur, true);
             // begin each animation when everything is rendered in their place
             // and the transition duration/easing is ready to go
             dom_1.rafFrames(self._opts.renderDelay / 16, function () {
@@ -49246,15 +52634,21 @@ var Animation = (function () {
             this._c[i]._setTrans(duration, forcedLinearEasing);
         }
         if (Object.keys(this._fx).length) {
+            easing = (forcedLinearEasing ? 'linear' : this.getEasing());
             for (i = 0; i < this._el.length; i++) {
-                // all parent/child animations should have the same duration
-                // ******** DOM WRITE ****************
-                this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
-                // each animation can have a different easing
-                easing = (forcedLinearEasing ? 'linear' : this.getEasing());
-                if (easing) {
+                if (duration > 0) {
+                    // all parent/child animations should have the same duration
                     // ******** DOM WRITE ****************
-                    this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
+                    this._el[i].style[dom_1.CSS.transition] = '';
+                    this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
+                    // each animation can have a different easing
+                    if (easing) {
+                        // ******** DOM WRITE ****************
+                        this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
+                    }
+                }
+                else {
+                    this._el[i].style[dom_1.CSS.transition] = 'none';
                 }
             }
         }
@@ -49420,6 +52814,8 @@ var Animation = (function () {
             // ******** DOM WRITE ****************
             this._c[i].progressStart();
         }
+        // ******** DOM WRITE ****************
+        this._willChg(true);
         // ******** DOM WRITE ****************
         this._before();
         // force no duration, linear easing
@@ -49587,7 +52983,7 @@ var CSS_VALUE_REGEX = /(^-?\d*\.?\d*)(.*)/;
 var SUPPORTS_WILL_CHANGE = (typeof document.documentElement.style['willChange'] !== 'undefined');
 var AnimationRegistry = {};
 
-},{"../util/dom":531,"../util/util":539}],428:[function(require,module,exports){
+},{"../util/dom":579,"../util/util":587}],465:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -49644,12 +53040,14 @@ var FadeOut = (function (_super) {
 }(animation_1.Animation));
 animation_1.Animation.register('fade-out', FadeOut);
 
-},{"./animation":427}],429:[function(require,module,exports){
+},{"./animation":464}],466:[function(require,module,exports){
 "use strict";
 var action_sheet_1 = require('./components/action-sheet/action-sheet');
 exports.ActionSheet = action_sheet_1.ActionSheet;
+exports.ActionSheetController = action_sheet_1.ActionSheetController;
 var alert_1 = require('./components/alert/alert');
 exports.Alert = alert_1.Alert;
+exports.AlertController = alert_1.AlertController;
 var app_1 = require('./components/app/app');
 exports.App = app_1.App;
 var backdrop_1 = require('./components/backdrop/backdrop');
@@ -49689,6 +53087,7 @@ exports.List = list_1.List;
 exports.ListHeader = list_1.ListHeader;
 var loading_1 = require('./components/loading/loading');
 exports.Loading = loading_1.Loading;
+exports.LoadingController = loading_1.LoadingController;
 var menu_1 = require('./components/menu/menu');
 exports.Menu = menu_1.Menu;
 var menu_close_1 = require('./components/menu/menu-close');
@@ -49701,6 +53100,7 @@ var menu_types_1 = require('./components/menu/menu-types');
 exports.MenuType = menu_types_1.MenuType;
 var modal_1 = require('./components/modal/modal');
 exports.Modal = modal_1.Modal;
+exports.ModalController = modal_1.ModalController;
 var nav_1 = require('./components/nav/nav');
 exports.Nav = nav_1.Nav;
 var nav_controller_1 = require('./components/nav/nav-controller');
@@ -49720,8 +53120,10 @@ var option_1 = require('./components/option/option');
 exports.Option = option_1.Option;
 var picker_1 = require('./components/picker/picker');
 exports.Picker = picker_1.Picker;
+exports.PickerController = picker_1.PickerController;
 var popover_1 = require('./components/popover/popover');
 exports.Popover = popover_1.Popover;
+exports.PopoverController = popover_1.PopoverController;
 var radio_button_1 = require('./components/radio/radio-button');
 exports.RadioButton = radio_button_1.RadioButton;
 var radio_group_1 = require('./components/radio/radio-group');
@@ -49761,6 +53163,7 @@ exports.TapClick = tap_click_1.TapClick;
 exports.isActivatable = tap_click_1.isActivatable;
 var toast_1 = require('./components/toast/toast');
 exports.Toast = toast_1.Toast;
+exports.ToastController = toast_1.ToastController;
 var toggle_1 = require('./components/toggle/toggle');
 exports.Toggle = toggle_1.Toggle;
 var toolbar_1 = require('./components/toolbar/toolbar');
@@ -49771,7 +53174,7 @@ exports.Footer = toolbar_1.Footer;
 var virtual_scroll_1 = require('./components/virtual-scroll/virtual-scroll');
 exports.VirtualScroll = virtual_scroll_1.VirtualScroll;
 
-},{"./components/action-sheet/action-sheet":430,"./components/alert/alert":431,"./components/app/app":432,"./components/backdrop/backdrop":433,"./components/badge/badge":434,"./components/button/button":435,"./components/checkbox/checkbox":436,"./components/content/content":437,"./components/datetime/datetime":438,"./components/icon/icon":439,"./components/img/img":440,"./components/infinite-scroll/infinite-scroll":442,"./components/infinite-scroll/infinite-scroll-content":441,"./components/input/input":444,"./components/item/item":451,"./components/item/item-reorder":448,"./components/item/item-sliding":450,"./components/label/label":452,"./components/list/list":453,"./components/loading/loading":454,"./components/menu/menu":460,"./components/menu/menu-close":455,"./components/menu/menu-controller":456,"./components/menu/menu-toggle":458,"./components/menu/menu-types":459,"./components/modal/modal":461,"./components/nav/nav":468,"./components/nav/nav-controller":462,"./components/nav/nav-params":463,"./components/nav/nav-pop":464,"./components/nav/nav-push":466,"./components/nav/view-controller":470,"./components/navbar/navbar":471,"./components/option/option":472,"./components/picker/picker":473,"./components/popover/popover":474,"./components/radio/radio-button":475,"./components/radio/radio-group":476,"./components/range/range":477,"./components/refresher/refresher":479,"./components/refresher/refresher-content":478,"./components/scroll/scroll":480,"./components/searchbar/searchbar":481,"./components/segment/segment":482,"./components/select/select":483,"./components/show-hide-when/show-hide-when":484,"./components/slides/slides":485,"./components/spinner/spinner":487,"./components/tabs/tab":490,"./components/tabs/tabs":491,"./components/tap-click/tap-click":494,"./components/toast/toast":495,"./components/toggle/toggle":496,"./components/toolbar/toolbar":499,"./components/virtual-scroll/virtual-scroll":501}],430:[function(require,module,exports){
+},{"./components/action-sheet/action-sheet":468,"./components/alert/alert":470,"./components/app/app":471,"./components/backdrop/backdrop":472,"./components/badge/badge":473,"./components/button/button":474,"./components/checkbox/checkbox":475,"./components/content/content":476,"./components/datetime/datetime":477,"./components/icon/icon":478,"./components/img/img":479,"./components/infinite-scroll/infinite-scroll":481,"./components/infinite-scroll/infinite-scroll-content":480,"./components/input/input":483,"./components/item/item":490,"./components/item/item-reorder":487,"./components/item/item-sliding":489,"./components/label/label":491,"./components/list/list":492,"./components/loading/loading":494,"./components/menu/menu":500,"./components/menu/menu-close":495,"./components/menu/menu-controller":496,"./components/menu/menu-toggle":498,"./components/menu/menu-types":499,"./components/modal/modal":502,"./components/nav/nav":510,"./components/nav/nav-controller":504,"./components/nav/nav-params":506,"./components/nav/nav-pop":507,"./components/nav/nav-push":509,"./components/nav/view-controller":512,"./components/navbar/navbar":513,"./components/option/option":514,"./components/picker/picker":516,"./components/popover/popover":518,"./components/radio/radio-button":519,"./components/radio/radio-group":520,"./components/range/range":521,"./components/refresher/refresher":523,"./components/refresher/refresher-content":522,"./components/scroll/scroll":524,"./components/searchbar/searchbar":525,"./components/segment/segment":526,"./components/select/select":527,"./components/show-hide-when/show-hide-when":528,"./components/slides/slides":529,"./components/spinner/spinner":531,"./components/tabs/tab":534,"./components/tabs/tabs":535,"./components/tap-click/tap-click":538,"./components/toast/toast":540,"./components/toggle/toggle":541,"./components/toolbar/toolbar":544,"./components/virtual-scroll/virtual-scroll":546}],467:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -49788,215 +53191,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var animation_1 = require('../../animations/animation');
-var transition_1 = require('../../transitions/transition');
+var backdrop_1 = require('../backdrop/backdrop');
 var config_1 = require('../../config/config');
-var util_1 = require('../../util/util');
+var form_1 = require('../../util/form');
+var icon_1 = require('../icon/icon');
 var key_1 = require('../../util/key');
 var nav_params_1 = require('../nav/nav-params');
+var transition_1 = require('../../transitions/transition');
 var view_controller_1 = require('../nav/view-controller');
 /**
- * @name ActionSheet
- * @description
- * An Action Sheet is a dialog that lets the user choose from a set of
- * options. It appears on top of the app's content, and must be manually
- * dismissed by the user before they can resume interaction with the app.
- * Dangerous (destructive) options are made obvious in `ios` mode. There are easy
- * ways to cancel out of the action sheet, such as tapping the backdrop or
- * hitting the escape key on desktop.
- *
- * An action sheet is created from an array of `buttons`, with each button
- * including properties for its `text`, and optionally a `handler` and `role`.
- * If a handler returns `false` then the action sheet will not be dismissed. An
- * action sheet can also optionally have a `title`, `subTitle` and an `icon`.
- *
- * A button's `role` property can either be `destructive` or `cancel`. Buttons
- * without a role property will have the default look for the platform. Buttons
- * with the `cancel` role will always load as the bottom button, no matter where
- * they are in the array. All other buttons will be displayed in the order they
- * have been added to the `buttons` array. Note: We recommend that `destructive`
- * buttons are always the first button in the array, making them the top button.
- * Additionally, if the action sheet is dismissed by tapping the backdrop, then
- * it will fire the handler from the button with the cancel role.
- *
- * You can pass all of the action sheet's options in the first argument of
- * the create method: `ActionSheet.create(opts)`. Otherwise the action sheet's
- * instance has methods to add options, like `setTitle()` or `addButton()`.
- *
- * @usage
- * ```ts
- * constructor(nav: NavController) {
- *   this.nav = nav;
- * }
- *
- * presentActionSheet() {
- *   let actionSheet = ActionSheet.create({
- *     title: 'Modify your album',
- *     buttons: [
- *       {
- *         text: 'Destructive',
- *         role: 'destructive',
- *         handler: () => {
- *           console.log('Destructive clicked');
- *         }
- *       },
- *       {
- *         text: 'Archive',
- *         handler: () => {
- *           console.log('Archive clicked');
- *         }
- *       },
- *       {
- *         text: 'Cancel',
- *         role: 'cancel',
- *         handler: () => {
- *           console.log('Cancel clicked');
- *         }
- *       }
- *     ]
- *   });
- *
- *   this.nav.present(actionSheet);
- * }
- * ```
- *
- *
- * ### Dismissing And Async Navigation
- *
- * After an action sheet has been dismissed, the app may need to also transition
- * to another page depending on the handler's logic. However, because multiple
- * transitions were fired at roughly the same time, it's difficult for the
- * nav controller to cleanly animate multiple transitions that may
- * have been kicked off asynchronously. This is further described in the
- * [`Nav Transition Promises`](../../nav/NavController/#nav-transition-promises) section. For action sheets,
- * this means it's best to wait for the action sheet to finish its transition
- * out before starting a new transition on the same nav controller.
- *
- * In the example below, after the button has been clicked, its handler
- * waits on async operation to complete, *then* it uses `pop` to navigate
- * back a page in the same stack. The potential problem is that the async operation
- * may have been completed before the action sheet has even finished its transition
- * out. In this case, it's best to ensure the action sheet has finished its transition
- * out first, *then* start the next transition.
- *
- * ```ts
- * let actionSheet = ActionSheet.create({
- *   title: 'Hello',
- *   buttons: [{
- *     text: 'Ok',
- *     handler: () => {
- *       // user has clicked the action sheet button
- *       // begin the action sheet's dimiss transition
- *       let navTransition = actionSheet.dismiss();
- *
- *       // start some async method
- *       someAsyncOperation().then(() => {
- *         // once the async operation has completed
- *         // then run the next nav transition after the
- *         // first transition has finished animating out
- *
- *         navTransition.then(() => {
- *           this.nav.pop();
- *         });
- *       });
- *       return false;
- *     }
- *   }]
- * });
- *
- * this.nav.present(actionSheet);
- * ```
- *
- * It's important to note that the handler returns `false`. A feature of
- * button handlers is that they automatically dismiss the action sheet when their button
- * was clicked, however, we'll need more control regarding the transition. Because
- * the handler returns `false`, then the action sheet does not automatically dismiss
- * itself. Instead, you now have complete control of when the action sheet has finished
- * transitioning, and the ability to wait for the action sheet to finish transitioning
- * out before starting a new transition.
- *
- *
- * @demo /docs/v2/demos/action-sheet/
- * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
+ * @private
  */
-var ActionSheet = (function (_super) {
-    __extends(ActionSheet, _super);
-    function ActionSheet(opts) {
-        if (opts === void 0) { opts = {}; }
-        opts.buttons = opts.buttons || [];
-        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-        _super.call(this, ActionSheetCmp, opts);
-        this.isOverlay = true;
-        // by default, actionsheets should not fire lifecycle events of other views
-        // for example, when an actionsheets enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
-    }
-    /**
-    * @private
-    */
-    ActionSheet.prototype.getTransitionName = function (direction) {
-        var key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * @param {string} title Action sheet title
-     */
-    ActionSheet.prototype.setTitle = function (title) {
-        this.data.title = title;
-    };
-    /**
-     * @param {string} subTitle Action sheet subtitle
-     */
-    ActionSheet.prototype.setSubTitle = function (subTitle) {
-        this.data.subTitle = subTitle;
-    };
-    /**
-     * @param {object} button Action sheet button
-     */
-    ActionSheet.prototype.addButton = function (button) {
-        this.data.buttons.push(button);
-    };
-    /**
-     * Open an action sheet with the following options
-     *
-     * | Option                | Type       | Description                                                     |
-     * |-----------------------|------------|-----------------------------------------------------------------|
-     * | title                 |`string`    | The title for the actionsheet                                   |
-     * | subTitle              |`string`    | The sub-title for the actionsheet                               |
-     * | cssClass              |`string`    | An additional class for custom styles                           |
-     * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
-     * | buttons               |`array<any>`| An array of buttons to display                                  |
-     *
-     * For the buttons:
-     *
-     * | Option   | Type     | Description                                                                                                                                      |
-     * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | text     | `string` | The buttons text                                                                                                                                 |
-     * | icon     | `icon`   | The buttons icons                                                                                                                                |
-     * | handler  | `any`    | An express the button should evaluate                                                                                                            |
-     * | cssClass | `string` | An additional class for custom styles                                                                                                            |
-     * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
-     *
-     *
-     *
-     * @param {object} opts Action sheet options
-     */
-    ActionSheet.create = function (opts) {
-        if (opts === void 0) { opts = {}; }
-        return new ActionSheet(opts);
-    };
-    return ActionSheet;
-}(view_controller_1.ViewController));
-exports.ActionSheet = ActionSheet;
-/**
-* @private
-*/
 var ActionSheetCmp = (function () {
-    function ActionSheetCmp(_viewCtrl, _config, _elementRef, params, renderer) {
+    function ActionSheetCmp(_viewCtrl, _config, _elementRef, _form, params, renderer) {
         this._viewCtrl = _viewCtrl;
         this._config = _config;
         this._elementRef = _elementRef;
+        this._form = _form;
         this.d = params.data;
         if (this.d.cssClass) {
             renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
@@ -50020,11 +53233,6 @@ var ActionSheetCmp = (function () {
             if (!button.cssClass) {
                 button.cssClass = '';
             }
-            // deprecated warning
-            if (button.style) {
-                void 0;
-                button.role = button.style;
-            }
             if (button.role === 'cancel') {
                 _this.d.cancelButton = button;
             }
@@ -50041,10 +53249,7 @@ var ActionSheetCmp = (function () {
         this.d.buttons = buttons;
     };
     ActionSheetCmp.prototype.ionViewDidEnter = function () {
-        var activeElement = document.activeElement;
-        if (document.activeElement) {
-            activeElement.blur();
-        }
+        this._form.focusOut();
         var focusableEle = this._elementRef.nativeElement.querySelector('button');
         if (focusableEle) {
             focusableEle.focus();
@@ -50100,25 +53305,8 @@ var ActionSheetCmp = (function () {
     ActionSheetCmp = __decorate([
         core_1.Component({
             selector: 'ion-action-sheet',
-            template: '<ion-backdrop (click)="bdClick()"></ion-backdrop>' +
-                '<div class="action-sheet-wrapper">' +
-                '<div class="action-sheet-container">' +
-                '<div class="action-sheet-group">' +
-                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
-                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-                '<button category="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [ngClass]="b.cssClass">' +
-                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
-                '{{b.text}}' +
-                '</button>' +
-                '</div>' +
-                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-                '<button category="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
-                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
-                '{{d.cancelButton.text}}' +
-                '</button>' +
-                '</div>' +
-                '</div>' +
-                '</div>',
+            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"action-sheet-wrapper\">\n      <div class=\"action-sheet-container\">\n        <div class=\"action-sheet-group\">\n          <div class=\"action-sheet-title\" id=\"{{hdrId}}\" *ngIf=\"d.title\">{{d.title}}</div>\n          <div class=\"action-sheet-sub-title\" id=\"{{descId}}\" *ngIf=\"d.subTitle\">{{d.subTitle}}</div>\n          <button category=\"action-sheet-button\" (click)=\"click(b)\" *ngFor=\"let b of d.buttons\" class=\"disable-hover\" [ngClass]=\"b.cssClass\">\n            <ion-icon [name]=\"b.icon\" *ngIf=\"b.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{b.text}}\n          </button>\n        </div>\n        <div class=\"action-sheet-group\" *ngIf=\"d.cancelButton\">\n          <button category=\"action-sheet-button\" (click)=\"click(d.cancelButton)\" class=\"action-sheet-cancel disable-hover\" [ngClass]=\"d.cancelButton.cssClass\">\n            <ion-icon [name]=\"d.cancelButton.icon\" *ngIf=\"d.cancelButton.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{d.cancelButton.text}}\n          </button>\n        </div>\n      </div>\n    </div>\n    ",
+            directives: [backdrop_1.Backdrop, icon_1.Icon, common_1.NgClass, common_1.NgFor, common_1.NgIf],
             host: {
                 'role': 'dialog',
                 '[attr.aria-labelledby]': 'hdrId',
@@ -50126,10 +53314,11 @@ var ActionSheetCmp = (function () {
             },
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
-        __metadata('design:paramtypes', [view_controller_1.ViewController, config_1.Config, core_1.ElementRef, nav_params_1.NavParams, core_1.Renderer])
+        __metadata('design:paramtypes', [view_controller_1.ViewController, config_1.Config, core_1.ElementRef, form_1.Form, nav_params_1.NavParams, core_1.Renderer])
     ], ActionSheetCmp);
     return ActionSheetCmp;
 }());
+exports.ActionSheetCmp = ActionSheetCmp;
 var ActionSheetSlideIn = (function (_super) {
     __extends(ActionSheetSlideIn, _super);
     function ActionSheetSlideIn(enteringView, leavingView, opts) {
@@ -50216,7 +53405,7 @@ var ActionSheetWpSlideOut = (function (_super) {
 transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
 var actionSheetIds = -1;
 
-},{"../../animations/animation":427,"../../config/config":504,"../../transitions/transition":524,"../../util/key":535,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],431:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/config":549,"../../transitions/transition":572,"../../util/form":582,"../../util/key":583,"../backdrop/backdrop":472,"../icon/icon":478,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/common":100,"@angular/core":247}],468:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -50233,160 +53422,191 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var animation_1 = require('../../animations/animation');
-var transition_1 = require('../../transitions/transition');
-var config_1 = require('../../config/config');
+var action_sheet_component_1 = require('./action-sheet-component');
+var app_1 = require('../app/app');
 var util_1 = require('../../util/util');
-var key_1 = require('../../util/key');
-var nav_params_1 = require('../nav/nav-params');
 var view_controller_1 = require('../nav/view-controller');
 /**
- * @name Alert
+ * @private
+ */
+var ActionSheet = (function (_super) {
+    __extends(ActionSheet, _super);
+    function ActionSheet(app, opts) {
+        opts.buttons = opts.buttons || [];
+        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+        _super.call(this, action_sheet_component_1.ActionSheetCmp, opts);
+        this._app = app;
+        this.isOverlay = true;
+        // by default, actionsheets should not fire lifecycle events of other views
+        // for example, when an actionsheets enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+     * @private
+     */
+    ActionSheet.prototype.getTransitionName = function (direction) {
+        var key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * @param {string} title Action sheet title
+     */
+    ActionSheet.prototype.setTitle = function (title) {
+        this.data.title = title;
+    };
+    /**
+     * @param {string} subTitle Action sheet subtitle
+     */
+    ActionSheet.prototype.setSubTitle = function (subTitle) {
+        this.data.subTitle = subTitle;
+    };
+    /**
+     * @param {object} button Action sheet button
+     */
+    ActionSheet.prototype.addButton = function (button) {
+        this.data.buttons.push(button);
+    };
+    /**
+     * Present the action sheet instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    ActionSheet.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject ActionSheetController instead
+     */
+    ActionSheet.create = function (opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return ActionSheet;
+}(view_controller_1.ViewController));
+exports.ActionSheet = ActionSheet;
+/**
+ * @name ActionSheetController
  * @description
- * An Alert is a dialog that presents users with information or collects
- * information from the user using inputs. An alert appears on top
- * of the app's content, and must be manually dismissed by the user before
- * they can resume interaction with the app. It can also optionally have a
- * `title`, `subTitle` and `message`.
+ * An Action Sheet is a dialog that lets the user choose from a set of
+ * options. It appears on top of the app's content, and must be manually
+ * dismissed by the user before they can resume interaction with the app.
+ * Dangerous (destructive) options are made obvious in `ios` mode. There are easy
+ * ways to cancel out of the action sheet, such as tapping the backdrop or
+ * hitting the escape key on desktop.
  *
- * You can pass all of the alert's options in the first argument of
- * the create method: `Alert.create(opts)`. Otherwise the alert's instance
- * has methods to add options, such as `setTitle()` or `addButton()`.
+ * An action sheet is created from an array of `buttons`, with each button
+ * including properties for its `text`, and optionally a `handler` and `role`.
+ * If a handler returns `false` then the action sheet will not be dismissed. An
+ * action sheet can also optionally have a `title`, `subTitle` and an `icon`.
  *
+ * A button's `role` property can either be `destructive` or `cancel`. Buttons
+ * without a role property will have the default look for the platform. Buttons
+ * with the `cancel` role will always load as the bottom button, no matter where
+ * they are in the array. All other buttons will be displayed in the order they
+ * have been added to the `buttons` array. Note: We recommend that `destructive`
+ * buttons are always the first button in the array, making them the top button.
+ * Additionally, if the action sheet is dismissed by tapping the backdrop, then
+ * it will fire the handler from the button with the cancel role.
  *
- * ### Alert Buttons
- *
- * In the array of `buttons`, each button includes properties for its `text`,
- * and optionally a `handler`. If a handler returns `false` then the alert
- * will not automatically be dismissed when the button is clicked. All
- * buttons will show  up in the order they have been added to the `buttons`
- * array, from left to right. Note: The right most button (the last one in
- * the array) is the main button.
- *
- * Optionally, a `role` property can be added to a button, such as `cancel`.
- * If a `cancel` role is on one of the buttons, then if the alert is
- * dismissed by tapping the backdrop, then it will fire the handler from
- * the button with a cancel role.
- *
- *
- * ### Alert Inputs
- *
- * Alerts can also include several different inputs whose data can be passed
- * back to the app. Inputs can be used as a simple way to prompt users for
- * information. Radios, checkboxes and text inputs are all accepted, but they
- * cannot be mixed. For example, an alert could have all radio button inputs,
- * or all checkbox inputs, but the same alert cannot mix radio and checkbox
- * inputs. Do note however, different types of "text"" inputs can be mixed,
- * such as `url`, `email`, `text`, etc. If you require a complex form UI
- * which doesn't fit within the guidelines of an alert then we recommend
- * building the form within a modal instead.
- *
+ * You can pass all of the action sheet's options in the first argument of
+ * the create method: `ActionSheet.create(opts)`. Otherwise the action sheet's
+ * instance has methods to add options, like `setTitle()` or `addButton()`.
  *
  * @usage
  * ```ts
- * constructor(nav: NavController) {
- *   this.nav = nav;
- * }
+ * import { ActionSheetController } from 'ionic-angular'
  *
- * presentAlert() {
- *   let alert = Alert.create({
- *     title: 'Low battery',
- *     subTitle: '10% of battery remaining',
- *     buttons: ['Dismiss']
- *   });
- *   this.nav.present(alert);
- * }
+ * export class MyClass{
  *
- * presentConfirm() {
- *   let alert = Alert.create({
- *     title: 'Confirm purchase',
- *     message: 'Do you want to buy this book?',
- *     buttons: [
- *       {
- *         text: 'Cancel',
- *         role: 'cancel',
- *         handler: () => {
- *           console.log('Cancel clicked');
- *         }
- *       },
- *       {
- *         text: 'Buy',
- *         handler: () => {
- *           console.log('Buy clicked');
- *         }
- *       }
- *     ]
- *   });
- *   this.nav.present(alert);
- * }
+ *  constructor(public actionSheetCtrl: ActionSheetController) {}
  *
- * presentPrompt() {
- *   let alert = Alert.create({
- *     title: 'Login',
- *     inputs: [
- *       {
- *         name: 'username',
- *         placeholder: 'Username'
- *       },
- *       {
- *         name: 'password',
- *         placeholder: 'Password',
- *         type: 'password'
- *       }
- *     ],
- *     buttons: [
- *       {
- *         text: 'Cancel',
- *         role: 'cancel',
- *         handler: data => {
- *           console.log('Cancel clicked');
- *         }
- *       },
- *       {
- *         text: 'Login',
- *         handler: data => {
- *           if (User.isValid(data.username, data.password)) {
- *             // logged in!
- *           } else {
- *             // invalid login
- *             return false;
- *           }
- *         }
- *       }
- *     ]
- *   });
- *   this.nav.present(alert);
+ *  presentActionSheet() {
+ *    let actionSheet = this.actionSheetCtrl.create({
+ *      title: 'Modify your album',
+ *      buttons: [
+ *        {
+ *          text: 'Destructive',
+ *          role: 'destructive',
+ *          handler: () => {
+ *            console.log('Destructive clicked');
+ *          }
+ *        },
+ *        {
+ *          text: 'Archive',
+ *          handler: () => {
+ *            console.log('Archive clicked');
+ *          }
+ *        },
+ *        {
+ *          text: 'Cancel',
+ *          role: 'cancel',
+ *          handler: () => {
+ *            console.log('Cancel clicked');
+ *          }
+ *        }
+ *      ]
+ *    });
+ *
+ *    actionSheet.present();
+ *  }
  * }
  * ```
+ *
+ * @advanced
+ *
+ * ActionSheet create options
+ *
+ * | Option                | Type       | Description                                                     |
+ * |-----------------------|------------|-----------------------------------------------------------------|
+ * | title                 |`string`    | The title for the actionsheet                                   |
+ * | subTitle              |`string`    | The sub-title for the actionsheet                               |
+ * | cssClass              |`string`    | An additional class for custom styles                           |
+ * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
+ * | buttons               |`array<any>`| An array of buttons to display                                  |
+ *
+ * ActionSheet button options
+ *
+ * | Option   | Type     | Description                                                                                                                                      |
+ * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+ * | text     | `string` | The buttons text                                                                                                                                 |
+ * | icon     | `icon`   | The buttons icons                                                                                                                                |
+ * | handler  | `any`    | An express the button should evaluate                                                                                                            |
+ * | cssClass | `string` | An additional class for custom styles                                                                                                            |
+ * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
+ *
  *
  *
  * ### Dismissing And Async Navigation
  *
- * After an alert has been dismissed, the app may need to also transition
+ * After an action sheet has been dismissed, the app may need to also transition
  * to another page depending on the handler's logic. However, because multiple
  * transitions were fired at roughly the same time, it's difficult for the
  * nav controller to cleanly animate multiple transitions that may
  * have been kicked off asynchronously. This is further described in the
- * [`Nav Transition Promises`](../../nav/NavController) section. For alerts,
- * this means it's best to wait for the alert to finish its transition
+ * [`Nav Transition Promises`](../../nav/NavController/#nav-transition-promises) section. For action sheets,
+ * this means it's best to wait for the action sheet to finish its transition
  * out before starting a new transition on the same nav controller.
  *
- * In the example below, after the alert button has been clicked, its handler
+ * In the example below, after the button has been clicked, its handler
  * waits on async operation to complete, *then* it uses `pop` to navigate
  * back a page in the same stack. The potential problem is that the async operation
- * may have been completed before the alert has even finished its transition
- * out. In this case, it's best to ensure the alert has finished its transition
+ * may have been completed before the action sheet has even finished its transition
+ * out. In this case, it's best to ensure the action sheet has finished its transition
  * out first, *then* start the next transition.
  *
  * ```ts
- * let alert = Alert.create({
+ * let actionSheet = this.actionSheetCtrl.create({
  *   title: 'Hello',
  *   buttons: [{
  *     text: 'Ok',
  *     handler: () => {
- *       // user has clicked the alert button
- *       // begin the alert's dismiss transition
- *       let navTransition = alert.dismiss();
+ *       // user has clicked the action sheet button
+ *       // begin the action sheet's dimiss transition
+ *       let navTransition = actionSheet.dismiss();
  *
  *       // start some async method
  *       someAsyncOperation().then(() => {
@@ -50403,130 +53623,68 @@ var view_controller_1 = require('../nav/view-controller');
  *   }]
  * });
  *
- * this.nav.present(alert);
+ * actionSheet.present();
  * ```
  *
  * It's important to note that the handler returns `false`. A feature of
- * button handlers is that they automatically dismiss the alert when their button
+ * button handlers is that they automatically dismiss the action sheet when their button
  * was clicked, however, we'll need more control regarding the transition. Because
- * the handler returns `false`, then the alert does not automatically dismiss
- * itself. Instead, you now have complete control of when the alert has finished
- * transitioning, and the ability to wait for the alert to finish transitioning
+ * the handler returns `false`, then the action sheet does not automatically dismiss
+ * itself. Instead, you now have complete control of when the action sheet has finished
+ * transitioning, and the ability to wait for the action sheet to finish transitioning
  * out before starting a new transition.
  *
  *
- * @demo /docs/v2/demos/alert/
+ * @demo /docs/v2/demos/action-sheet/
+ * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
  */
-var Alert = (function (_super) {
-    __extends(Alert, _super);
-    function Alert(opts) {
-        if (opts === void 0) { opts = {}; }
-        opts.inputs = opts.inputs || [];
-        opts.buttons = opts.buttons || [];
-        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-        _super.call(this, AlertCmp, opts);
-        this.isOverlay = true;
-        // by default, alerts should not fire lifecycle events of other views
-        // for example, when an alert enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
+var ActionSheetController = (function () {
+    function ActionSheetController(_app) {
+        this._app = _app;
     }
     /**
-    * @private
-    */
-    Alert.prototype.getTransitionName = function (direction) {
-        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * @param {string} title Alert title
+     * Open an action sheet with a title, subTitle, and an array of buttons
+     * @param {ActionSheetOptions} opts Action sheet options
      */
-    Alert.prototype.setTitle = function (title) {
-        this.data.title = title;
-    };
-    /**
-     * @param {string} subTitle Alert subtitle
-     */
-    Alert.prototype.setSubTitle = function (subTitle) {
-        this.data.subTitle = subTitle;
-    };
-    /**
-     * @private
-     */
-    Alert.prototype.setBody = function (message) {
-        // deprecated warning
-        void 0;
-        this.setMessage(message);
-    };
-    /**
-     * @param {string} message  Alert message content
-     */
-    Alert.prototype.setMessage = function (message) {
-        this.data.message = message;
-    };
-    /**
-     * @param {object} input Alert input
-     */
-    Alert.prototype.addInput = function (input) {
-        this.data.inputs.push(input);
-    };
-    /**
-     * @param {any} button Alert button
-     */
-    Alert.prototype.addButton = function (button) {
-        this.data.buttons.push(button);
-    };
-    /**
-     * @param {string} cssClass CSS class name to add to the alert's outer wrapper
-     */
-    Alert.prototype.setCssClass = function (cssClass) {
-        this.data.cssClass = cssClass;
-    };
-    /**
-     *
-     *  Alert options
-     *
-     *  | Property              | Type      | Description                                                               |
-     *  |-----------------------|-----------|---------------------------------------------------------------------------|
-     *  | title                 | `string`  | The string for the alert (optional)                                       |
-     *  | subTitle              | `string`  | The subtitle for the alert (optional)                                     |
-     *  | message               | `string`  | The message for the alert (optional)                                      |
-     *  | cssClass              | `string`  | Any additional class for the alert (optional)                             |
-     *  | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
-     *  | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
-     *  | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
-     *
-     *
-     *  Input options
-     *
-     *  | Property    | Type      | Description                                                     |
-     *  |-------------|-----------|-----------------------------------------------------------------|
-     *  | type        | `string`  | The type the input should be, text, tel, number, etc (optional) |
-     *  | name        | `string`  | The name for the input (optional)                               |
-     *  | placeholder | `string`  | The input's placeholder (optional, for textual/numeric inputs)  |
-     *  | value       | `string`  | The input's value (optional)                                    |
-     *  | label       | `string`  | The input's label (optional, only for radio/checkbox inputs)    |
-     *  | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
-     *  | id          | `string`  | The input's id (optional)                                       |
-     *
-     *  Button options
-     *
-     *  | Property | Type     | Description                                                    |
-     *  |----------|----------|----------------------------------------------------------------|
-     *  | text     | `string` | The buttons displayed text                                     |
-     *  | handler  | `any`    | Expression that should be evaluated when the button is pressed |
-     *  | cssClass | `string` | An additional CSS class for the button                         |
-     *  | role     | `string` | The buttons role, null or `cancel`                             |
-     *
-     * @param {object} opts Alert. See the table above
-     */
-    Alert.create = function (opts) {
+    ActionSheetController.prototype.create = function (opts) {
         if (opts === void 0) { opts = {}; }
-        return new Alert(opts);
+        return new ActionSheet(this._app, opts);
     };
-    return Alert;
-}(view_controller_1.ViewController));
-exports.Alert = Alert;
+    ActionSheetController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], ActionSheetController);
+    return ActionSheetController;
+}());
+exports.ActionSheetController = ActionSheetController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./action-sheet-component":467,"@angular/core":247}],469:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var animation_1 = require('../../animations/animation');
+var backdrop_1 = require('../backdrop/backdrop');
+var config_1 = require('../../config/config');
+var util_1 = require('../../util/util');
+var key_1 = require('../../util/key');
+var nav_params_1 = require('../nav/nav-params');
+var transition_1 = require('../../transitions/transition');
+var view_controller_1 = require('../nav/view-controller');
 /**
  * @private
  */
@@ -50538,7 +53696,9 @@ var AlertCmp = (function () {
         this.d = params.data;
         if (this.d.cssClass) {
             this.d.cssClass.split(' ').forEach(function (cssClass) {
-                renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+                // Make sure the class isn't whitespace, otherwise it throws exceptions
+                if (cssClass.trim() !== '')
+                    renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
             });
         }
         this.id = (++alertIds);
@@ -50576,6 +53736,7 @@ var AlertCmp = (function () {
                 value: util_1.isPresent(input.value) ? input.value : '',
                 label: input.label,
                 checked: !!input.checked,
+                disabled: !!input.disabled,
                 id: 'alert-input-' + _this.id + '-' + index
             };
         });
@@ -50704,48 +53865,8 @@ var AlertCmp = (function () {
     AlertCmp = __decorate([
         core_1.Component({
             selector: 'ion-alert',
-            template: '<ion-backdrop (click)="bdClick()"></ion-backdrop>' +
-                '<div class="alert-wrapper">' +
-                '<div class="alert-head">' +
-                '<h2 id="{{hdrId}}" class="alert-title" *ngIf="d.title" [innerHTML]="d.title"></h2>' +
-                '<h3 id="{{subHdrId}}" class="alert-sub-title" *ngIf="d.subTitle" [innerHTML]="d.subTitle"></h3>' +
-                '</div>' +
-                '<div id="{{msgId}}" class="alert-message" [innerHTML]="d.message"></div>' +
-                '<div *ngIf="d.inputs.length" [ngSwitch]="inputType">' +
-                '<template ngSwitchCase="radio">' +
-                '<div class="alert-radio-group" role="radiogroup" [attr.aria-labelledby]="hdrId" [attr.aria-activedescendant]="activeId">' +
-                '<button category="alert-radio-button" *ngFor="let i of d.inputs" (click)="rbClick(i)" [attr.aria-checked]="i.checked" [attr.id]="i.id" class="alert-tappable alert-radio" role="radio">' +
-                '<div class="alert-radio-icon"><div class="alert-radio-inner"></div></div>' +
-                '<div class="alert-radio-label">' +
-                '{{i.label}}' +
-                '</div>' +
-                '</button>' +
-                '</div>' +
-                '</template>' +
-                '<template ngSwitchCase="checkbox">' +
-                '<div class="alert-checkbox-group">' +
-                '<button category="alert-checkbox-button" *ngFor="let i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" role="checkbox">' +
-                '<div class="alert-checkbox-icon"><div class="alert-checkbox-inner"></div></div>' +
-                '<div class="alert-checkbox-label">' +
-                '{{i.label}}' +
-                '</div>' +
-                '</button>' +
-                '</div>' +
-                '</template>' +
-                '<template ngSwitchDefault>' +
-                '<div class="alert-input-group">' +
-                '<div *ngFor="let i of d.inputs" class="alert-input-wrapper">' +
-                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
-                '</div>' +
-                '</div>' +
-                '</template>' +
-                '</div>' +
-                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
-                '<button category="alert-button" *ngFor="let b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass">' +
-                '{{b.text}}' +
-                '</button>' +
-                '</div>' +
-                '</div>',
+            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"alert-wrapper\">\n      <div class=\"alert-head\">\n        <h2 id=\"{{hdrId}}\" class=\"alert-title\" *ngIf=\"d.title\" [innerHTML]=\"d.title\"></h2>\n        <h3 id=\"{{subHdrId}}\" class=\"alert-sub-title\" *ngIf=\"d.subTitle\" [innerHTML]=\"d.subTitle\"></h3>\n      </div>\n      <div id=\"{{msgId}}\" class=\"alert-message\" [innerHTML]=\"d.message\"></div>\n      <div *ngIf=\"d.inputs.length\" [ngSwitch]=\"inputType\">\n\n        <template ngSwitchCase=\"radio\">\n          <div class=\"alert-radio-group\" role=\"radiogroup\" [attr.aria-labelledby]=\"hdrId\" [attr.aria-activedescendant]=\"activeId\">\n            <button category=\"alert-radio-button\" *ngFor=\"let i of d.inputs\" (click)=\"rbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" [attr.id]=\"i.id\" class=\"alert-tappable alert-radio\" role=\"radio\">\n              <div class=\"alert-radio-icon\"><div class=\"alert-radio-inner\"></div></div>\n              <div class=\"alert-radio-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchCase=\"checkbox\">\n          <div class=\"alert-checkbox-group\">\n            <button category=\"alert-checkbox-button\" *ngFor=\"let i of d.inputs\" (click)=\"cbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" class=\"alert-tappable alert-checkbox\" role=\"checkbox\">\n              <div class=\"alert-checkbox-icon\"><div class=\"alert-checkbox-inner\"></div></div>\n              <div class=\"alert-checkbox-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchDefault>\n          <div class=\"alert-input-group\">\n            <div *ngFor=\"let i of d.inputs\" class=\"alert-input-wrapper\">\n              <input [placeholder]=\"i.placeholder\" [(ngModel)]=\"i.value\" [type]=\"i.type\" class=\"alert-input\">\n            </div>\n          </div>\n        </template>\n\n      </div>\n      <div class=\"alert-button-group\" [ngClass]=\"{vertical: d.buttons.length>2}\">\n        <button category=\"alert-button\" *ngFor=\"let b of d.buttons\" (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\">\n          {{b.text}}\n        </button>\n      </div>\n    </div>\n    ",
+            directives: [backdrop_1.Backdrop, common_1.NgClass, common_1.NgFor, common_1.NgIf, forms_1.NgModel, common_1.NgSwitch, common_1.NgSwitchCase, common_1.NgSwitchDefault],
             host: {
                 'role': 'dialog',
                 '[attr.aria-labelledby]': 'hdrId',
@@ -50757,6 +53878,7 @@ var AlertCmp = (function () {
     ], AlertCmp);
     return AlertCmp;
 }());
+exports.AlertCmp = AlertCmp;
 /**
  * Animations for alerts
  */
@@ -50870,7 +53992,349 @@ var AlertWpPopOut = (function (_super) {
 transition_1.Transition.register('alert-wp-pop-out', AlertWpPopOut);
 var alertIds = -1;
 
-},{"../../animations/animation":427,"../../config/config":504,"../../transitions/transition":524,"../../util/key":535,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],432:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/config":549,"../../transitions/transition":572,"../../util/key":583,"../../util/util":587,"../backdrop/backdrop":472,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/common":100,"@angular/core":247,"@angular/forms":336}],470:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var alert_component_1 = require('./alert-component');
+var util_1 = require('../../util/util');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Alert = (function (_super) {
+    __extends(Alert, _super);
+    function Alert(app, opts) {
+        if (opts === void 0) { opts = {}; }
+        opts.inputs = opts.inputs || [];
+        opts.buttons = opts.buttons || [];
+        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+        _super.call(this, alert_component_1.AlertCmp, opts);
+        this._app = app;
+        this.isOverlay = true;
+        // by default, alerts should not fire lifecycle events of other views
+        // for example, when an alert enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+    * @private
+    */
+    Alert.prototype.getTransitionName = function (direction) {
+        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * @param {string} title Alert title
+     */
+    Alert.prototype.setTitle = function (title) {
+        this.data.title = title;
+    };
+    /**
+     * @param {string} subTitle Alert subtitle
+     */
+    Alert.prototype.setSubTitle = function (subTitle) {
+        this.data.subTitle = subTitle;
+    };
+    /**
+     * @private
+     */
+    Alert.prototype.setBody = function (message) {
+        // deprecated warning
+        void 0;
+        this.setMessage(message);
+    };
+    /**
+     * @param {string} message  Alert message content
+     */
+    Alert.prototype.setMessage = function (message) {
+        this.data.message = message;
+    };
+    /**
+     * @param {object} input Alert input
+     */
+    Alert.prototype.addInput = function (input) {
+        this.data.inputs.push(input);
+    };
+    /**
+     * @param {any} button Alert button
+     */
+    Alert.prototype.addButton = function (button) {
+        this.data.buttons.push(button);
+    };
+    /**
+     * @param {string} cssClass Set the CSS class names on the alert's outer wrapper.
+     */
+    Alert.prototype.setCssClass = function (cssClass) {
+        this.data.cssClass = cssClass;
+    };
+    /**
+     * Present the alert instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Alert.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject AlertController instead
+     */
+    Alert.create = function (opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return Alert;
+}(view_controller_1.ViewController));
+exports.Alert = Alert;
+/**
+ * @name AlertController
+ * @description
+ * An Alert is a dialog that presents users with information or collects
+ * information from the user using inputs. An alert appears on top
+ * of the app's content, and must be manually dismissed by the user before
+ * they can resume interaction with the app. It can also optionally have a
+ * `title`, `subTitle` and `message`.
+ *
+ * You can pass all of the alert's options in the first argument of
+ * the create method: `create(opts)`. Otherwise the alert's instance
+ * has methods to add options, such as `setTitle()` or `addButton()`.
+ *
+ *
+ * ### Alert Buttons
+ *
+ * In the array of `buttons`, each button includes properties for its `text`,
+ * and optionally a `handler`. If a handler returns `false` then the alert
+ * will not automatically be dismissed when the button is clicked. All
+ * buttons will show  up in the order they have been added to the `buttons`
+ * array, from left to right. Note: The right most button (the last one in
+ * the array) is the main button.
+ *
+ * Optionally, a `role` property can be added to a button, such as `cancel`.
+ * If a `cancel` role is on one of the buttons, then if the alert is
+ * dismissed by tapping the backdrop, then it will fire the handler from
+ * the button with a cancel role.
+ *
+ *
+ * ### Alert Inputs
+ *
+ * Alerts can also include several different inputs whose data can be passed
+ * back to the app. Inputs can be used as a simple way to prompt users for
+ * information. Radios, checkboxes and text inputs are all accepted, but they
+ * cannot be mixed. For example, an alert could have all radio button inputs,
+ * or all checkbox inputs, but the same alert cannot mix radio and checkbox
+ * inputs. Do note however, different types of "text"" inputs can be mixed,
+ * such as `url`, `email`, `text`, etc. If you require a complex form UI
+ * which doesn't fit within the guidelines of an alert then we recommend
+ * building the form within a modal instead.
+ *
+ *
+ * @usage
+ * ```ts
+ * constructor(private alertCtrl: AlertController) {
+ *
+ * }
+ *
+ * presentAlert() {
+ *   let alert = this.alertCtrl.create({
+ *     title: 'Low battery',
+ *     subTitle: '10% of battery remaining',
+ *     buttons: ['Dismiss']
+ *   });
+ *   alert.present();
+ * }
+ *
+ * presentConfirm() {
+ *   let alert = this.alertCtrl.create({
+ *     title: 'Confirm purchase',
+ *     message: 'Do you want to buy this book?',
+ *     buttons: [
+ *       {
+ *         text: 'Cancel',
+ *         role: 'cancel',
+ *         handler: () => {
+ *           console.log('Cancel clicked');
+ *         }
+ *       },
+ *       {
+ *         text: 'Buy',
+ *         handler: () => {
+ *           console.log('Buy clicked');
+ *         }
+ *       }
+ *     ]
+ *   });
+ *   alert.present();
+ * }
+ *
+ * presentPrompt() {
+ *   let alert = this.alertCtrl.create({
+ *     title: 'Login',
+ *     inputs: [
+ *       {
+ *         name: 'username',
+ *         placeholder: 'Username'
+ *       },
+ *       {
+ *         name: 'password',
+ *         placeholder: 'Password',
+ *         type: 'password'
+ *       }
+ *     ],
+ *     buttons: [
+ *       {
+ *         text: 'Cancel',
+ *         role: 'cancel',
+ *         handler: data => {
+ *           console.log('Cancel clicked');
+ *         }
+ *       },
+ *       {
+ *         text: 'Login',
+ *         handler: data => {
+ *           if (User.isValid(data.username, data.password)) {
+ *             // logged in!
+ *           } else {
+ *             // invalid login
+ *             return false;
+ *           }
+ *         }
+ *       }
+ *     ]
+ *   });
+ *   alert.present();
+ * }
+ * ```
+ * @advanced
+ *
+ *
+ *  Alert options
+ *
+ *  | Property              | Type      | Description                                                               |
+ *  |-----------------------|-----------|---------------------------------------------------------------------------|
+ *  | title                 | `string`  | The string for the alert (optional)                                       |
+ *  | subTitle              | `string`  | The subtitle for the alert (optional)                                     |
+ *  | message               | `string`  | The message for the alert (optional)                                      |
+ *  | cssClass              | `string`  | Any additional class for the alert (optional)                             |
+ *  | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
+ *  | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
+ *  | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
+ *
+ *
+ *  Input options
+ *
+ *  | Property    | Type      | Description                                                     |
+ *  |-------------|-----------|-----------------------------------------------------------------|
+ *  | type        | `string`  | The type the input should be, text, tel, number, etc (optional) |
+ *  | name        | `string`  | The name for the input (optional)                               |
+ *  | placeholder | `string`  | The input's placeholder (optional, for textual/numeric inputs)  |
+ *  | value       | `string`  | The input's value (optional)                                    |
+ *  | label       | `string`  | The input's label (optional, only for radio/checkbox inputs)    |
+ *  | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
+ *  | id          | `string`  | The input's id (optional)                                       |
+ *
+ *  Button options
+ *
+ *  | Property | Type     | Description                                                    |
+ *  |----------|----------|----------------------------------------------------------------|
+ *  | text     | `string` | The buttons displayed text                                     |
+ *  | handler  | `any`    | Expression that should be evaluated when the button is pressed |
+ *  | cssClass | `string` | An additional CSS class for the button                         |
+ *  | role     | `string` | The buttons role, null or `cancel`                             |
+ * ### Dismissing And Async Navigation
+ *
+ * After an alert has been dismissed, the app may need to also transition
+ * to another page depending on the handler's logic. However, because multiple
+ * transitions were fired at roughly the same time, it's difficult for the
+ * nav controller to cleanly animate multiple transitions that may
+ * have been kicked off asynchronously. This is further described in the
+ * [`Nav Transition Promises`](../../nav/NavController) section. For alerts,
+ * this means it's best to wait for the alert to finish its transition
+ * out before starting a new transition on the same nav controller.
+ *
+ * In the example below, after the alert button has been clicked, its handler
+ * waits on async operation to complete, *then* it uses `pop` to navigate
+ * back a page in the same stack. The potential problem is that the async operation
+ * may have been completed before the alert has even finished its transition
+ * out. In this case, it's best to ensure the alert has finished its transition
+ * out first, *then* start the next transition.
+ *
+ * ```ts
+ * let alert = this.alertCtrl.create({
+ *   title: 'Hello',
+ *   buttons: [{
+ *     text: 'Ok',
+ *     handler: () => {
+ *       // user has clicked the alert button
+ *       // begin the alert's dismiss transition
+ *       let navTransition = alert.dismiss();
+ *
+ *       // start some async method
+ *       someAsyncOperation().then(() => {
+ *         // once the async operation has completed
+ *         // then run the next nav transition after the
+ *         // first transition has finished animating out
+ *
+ *         navTransition.then(() => {
+ *           this.nav.pop();
+ *         });
+ *       });
+ *       return false;
+ *     }
+ *   }]
+ * });
+ *
+ * alert.present();
+ * ```
+ *
+ * It's important to note that the handler returns `false`. A feature of
+ * button handlers is that they automatically dismiss the alert when their button
+ * was clicked, however, we'll need more control regarding the transition. Because
+ * the handler returns `false`, then the alert does not automatically dismiss
+ * itself. Instead, you now have complete control of when the alert has finished
+ * transitioning, and the ability to wait for the alert to finish transitioning
+ * out before starting a new transition.
+ *
+ *
+ * @demo /docs/v2/demos/alert/
+ */
+var AlertController = (function () {
+    function AlertController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Display an alert with a title, inputs, and buttons
+     * @param {AlertOptions} opts Alert. See the table below
+     */
+    AlertController.prototype.create = function (opts) {
+        if (opts === void 0) { opts = {}; }
+        return new Alert(this._app, opts);
+    };
+    AlertController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], AlertController);
+    return AlertController;
+}());
+exports.AlertController = AlertController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./alert-component":469,"@angular/core":247}],471:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50885,20 +54349,37 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var click_block_1 = require('../../util/click-block');
 var config_1 = require('../../config/config');
+var nav_controller_base_1 = require('../nav/nav-controller-base');
+var nav_portal_1 = require('../nav/nav-portal');
 var platform_1 = require('../../platform/platform');
+/**
+ * @private
+ */
+var UserComponent = (function () {
+    function UserComponent() {
+    }
+    return UserComponent;
+}());
+exports.UserComponent = UserComponent;
 /**
  * Ionic App utility service.
  */
 var App = (function () {
-    function App(_config, _clickBlock, _platform) {
+    function App(_config, _platform) {
         this._config = _config;
-        this._clickBlock = _clickBlock;
         this._platform = _platform;
         this._disTime = 0;
         this._scrollTime = 0;
         this._title = '';
         this._titleSrv = new platform_browser_1.Title();
         this._rootNav = null;
+        this.viewDidLoad = new core_1.EventEmitter();
+        this.viewWillEnter = new core_1.EventEmitter();
+        this.viewDidEnter = new core_1.EventEmitter();
+        this.viewWillLeave = new core_1.EventEmitter();
+        this.viewDidLeave = new core_1.EventEmitter();
+        this.viewWillUnload = new core_1.EventEmitter();
+        this.viewDidUnload = new core_1.EventEmitter();
         // listen for hardware back button events
         // register this back button action with a default priority
         _platform.registerBackButtonAction(this.navPop.bind(this));
@@ -50928,17 +54409,30 @@ var App = (function () {
     App.prototype.setEnabled = function (isEnabled, duration) {
         if (duration === void 0) { duration = 700; }
         this._disTime = (isEnabled ? 0 : Date.now() + duration);
-        var CLICK_BLOCK_BUFFER_IN_MILLIS = 64;
-        if (this._clickBlock) {
+        if (this.clickBlock) {
             if (isEnabled || duration <= 32) {
                 // disable the click block if it's enabled, or the duration is tiny
-                this._clickBlock.show(false, 0);
+                this.clickBlock.activate(false, 0);
             }
             else {
                 // show the click block for duration + some number
-                this._clickBlock.show(true, duration + CLICK_BLOCK_BUFFER_IN_MILLIS);
+                this.clickBlock.activate(true, duration + CLICK_BLOCK_BUFFER_IN_MILLIS);
             }
         }
+    };
+    /**
+     * @private
+     */
+    App.prototype.setScrollDisabled = function (disableScroll) {
+        var enabled = this._config.get('canDisableScroll', true);
+        if (!enabled) {
+            return;
+        }
+        if (!this.appRoot) {
+            void 0;
+            return;
+        }
+        this.appRoot.disableScroll = disableScroll;
     };
     /**
      * @private
@@ -50959,7 +54453,7 @@ var App = (function () {
      * @return {boolean}
      */
     App.prototype.isScrolling = function () {
-        return (this._scrollTime + 64 > Date.now());
+        return (this._scrollTime + 48 > Date.now());
     };
     /**
      * @private
@@ -50991,17 +54485,36 @@ var App = (function () {
     /**
      * @private
      */
+    App.prototype.setPortal = function (portal) {
+        this._portal = portal;
+    };
+    /**
+     * @private
+     */
+    App.prototype.present = function (enteringView, opts) {
+        if (opts === void 0) { opts = {}; }
+        enteringView.setNav(this._portal);
+        opts.keyboardClose = false;
+        opts.direction = 'forward';
+        if (!opts.animation) {
+            opts.animation = enteringView.getTransitionName('forward');
+        }
+        enteringView.setLeavingOpts({
+            keyboardClose: false,
+            direction: 'back',
+            animation: enteringView.getTransitionName('back'),
+            ev: opts.ev
+        });
+        return this._portal.insertViews(-1, [enteringView], opts);
+    };
+    /**
+     * @private
+     */
     App.prototype.navPop = function () {
         // function used to climb up all parent nav controllers
         function navPop(nav) {
             if (nav) {
-                if (nav.length && nav.length() > 1) {
-                    // this nav controller has more than one view
-                    // pop the current view on this nav and we're done here
-                    void 0;
-                    return nav.pop();
-                }
-                else if (nav.previousTab) {
+                if (nav_controller_base_1.isTabs(nav)) {
                     // FYI, using "nav instanceof Tabs" throws a Promise runtime error for whatever reason, idk
                     // this is a Tabs container
                     // see if there is a valid previous tab to go to
@@ -51011,6 +54524,12 @@ var App = (function () {
                         nav.select(prevTab);
                         return Promise.resolve();
                     }
+                }
+                else if (nav_controller_base_1.isNav(nav) && nav.length() > 1) {
+                    // this nav controller has more than one view
+                    // pop the current view on this nav and we're done here
+                    void 0;
+                    return nav.pop();
                 }
                 // try again using the parent nav (if there is one)
                 return navPop(nav.parent);
@@ -51023,12 +54542,11 @@ var App = (function () {
         if (this._rootNav && this.isEnabled()) {
             // first check if the root navigation has any overlays
             // opened in it's portal, like alert/actionsheet/popup
-            var portal = this._rootNav.getPortal && this._rootNav.getPortal();
-            if (portal && portal.length() > 0) {
+            if (this._portal && this._portal.length() > 0) {
                 // there is an overlay view in the portal
                 // let's pop this one off to go back
                 void 0;
-                return portal.pop();
+                return this._portal.pop();
             }
             // next get the active nav, check itself and climb up all
             // of its parent navs until it finds a nav that can pop
@@ -51041,9 +54559,7 @@ var App = (function () {
                     this._platform.exitApp();
                 }
             }
-            else {
-                return navPromise;
-            }
+            return navPromise;
         }
         return Promise.resolve();
     };
@@ -51062,28 +54578,63 @@ var App = (function () {
         void 0;
     };
     /**
-     * Set the global app injector that contains references to all of the instantiated providers
-     * @param injector
-     */
-    App.prototype.setAppInjector = function (injector) {
-        this._appInjector = injector;
-    };
-    /**
      * Get an instance of the global app injector that contains references to all of the instantiated providers
      * @returns {Injector}
      */
     App.prototype.getAppInjector = function () {
-        return this._appInjector;
+        // deprecated warning: added 2016-06-27, beta10
+        void 0;
     };
     App = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [config_1.Config, click_block_1.ClickBlock, platform_1.Platform])
+        __metadata('design:paramtypes', [config_1.Config, platform_1.Platform])
     ], App);
     return App;
 }());
 exports.App = App;
+/**
+ * @private
+ */
+var AppRoot = (function () {
+    function AppRoot(_cmp, _cr, _renderer, app) {
+        this._cmp = _cmp;
+        this._cr = _cr;
+        this._renderer = _renderer;
+        this.disableScroll = false;
+        app.appRoot = this;
+    }
+    AppRoot.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        // load the user app's root component
+        this._cr.resolveComponent(this._cmp).then(function (componentFactory) {
+            var appEle = _this._renderer.createElement(null, componentFactory.selector || 'div', null);
+            appEle.setAttribute('class', 'app-root');
+            var componentRef = componentFactory.create(_this._viewport.injector, null, appEle);
+            _this._viewport.insert(componentRef.hostView, 0);
+        });
+    };
+    __decorate([
+        core_1.ViewChild('anchor', { read: core_1.ViewContainerRef }), 
+        __metadata('design:type', core_1.ViewContainerRef)
+    ], AppRoot.prototype, "_viewport", void 0);
+    __decorate([
+        core_1.HostBinding('class.disable-scroll'), 
+        __metadata('design:type', Boolean)
+    ], AppRoot.prototype, "disableScroll", void 0);
+    AppRoot = __decorate([
+        core_1.Component({
+            selector: 'ion-app',
+            template: "\n    <div #anchor nav-portal></div>\n    <click-block></click-block>\n  ",
+            directives: [nav_portal_1.NavPortal, click_block_1.ClickBlock]
+        }), 
+        __metadata('design:paramtypes', [UserComponent, core_1.ComponentResolver, core_1.Renderer, App])
+    ], AppRoot);
+    return AppRoot;
+}());
+exports.AppRoot = AppRoot;
+var CLICK_BLOCK_BUFFER_IN_MILLIS = 64;
 
-},{"../../config/config":504,"../../platform/platform":514,"../../util/click-block":528,"@angular/core":247,"@angular/platform-browser":369}],433:[function(require,module,exports){
+},{"../../config/config":549,"../../platform/platform":562,"../../util/click-block":576,"../nav/nav-controller-base":503,"../nav/nav-portal":508,"@angular/core":247,"@angular/platform-browser":406}],472:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51095,51 +54646,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 var util_1 = require('../../util/util');
-var DISABLE_SCROLL = 'disable-scroll';
 /**
  * @private
  */
 var Backdrop = (function () {
-    function Backdrop(elementRef) {
-        this.elementRef = elementRef;
-        this.pushed = false;
+    function Backdrop(_gestureCtrl, _elementRef) {
+        this._gestureCtrl = _gestureCtrl;
+        this._elementRef = _elementRef;
+        this._gestureID = null;
         this.disableScroll = true;
     }
-    Backdrop.push = function () {
-        if (this.nuBackDrops === 0) {
-            void 0;
-            document.body.classList.add(DISABLE_SCROLL);
-        }
-        else {
-            void 0;
-        }
-        this.nuBackDrops++;
-    };
-    Backdrop.pop = function () {
-        if (this.nuBackDrops === 0) {
-            void 0;
-            return;
-        }
-        this.nuBackDrops--;
-        if (this.nuBackDrops === 0) {
-            void 0;
-            document.body.classList.remove(DISABLE_SCROLL);
-        }
-    };
     Backdrop.prototype.ngOnInit = function () {
         if (util_1.isTrueProperty(this.disableScroll)) {
-            Backdrop.push();
-            this.pushed = true;
+            this._gestureID = this._gestureCtrl.newID();
+            this._gestureCtrl.disableScroll(this._gestureID);
         }
     };
     Backdrop.prototype.ngOnDestroy = function () {
-        if (this.pushed) {
-            Backdrop.pop();
-            this.pushed = false;
+        if (this._gestureID) {
+            this._gestureCtrl.enableScroll(this._gestureID);
         }
     };
-    Backdrop.nuBackDrops = 0;
+    Backdrop.prototype.getNativeElement = function () {
+        return this._elementRef.nativeElement;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
@@ -51153,13 +54685,13 @@ var Backdrop = (function () {
                 'disable-activated': ''
             },
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
+        __metadata('design:paramtypes', [gesture_controller_1.GestureController, core_1.ElementRef])
     ], Backdrop);
     return Backdrop;
 }());
 exports.Backdrop = Backdrop;
 
-},{"../../util/util":539,"@angular/core":247}],434:[function(require,module,exports){
+},{"../../gestures/gesture-controller":555,"../../util/util":587,"@angular/core":247}],473:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51219,7 +54751,7 @@ var Badge = (function () {
 }());
 exports.Badge = Badge;
 
-},{"../../config/config":504,"@angular/core":247}],435:[function(require,module,exports){
+},{"../../config/config":549,"@angular/core":247}],474:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51444,7 +54976,10 @@ var Button = (function () {
      * @private
      */
     Button.prototype.setRole = function (val) {
+        this._assignCss(false);
         this._role = val;
+        this._readIcon(this._elementRef.nativeElement);
+        this._assignCss(true);
     };
     /**
      * @private
@@ -51558,15 +55093,6 @@ var Button = (function () {
             });
         }
     };
-    /**
-     * @private
-     */
-    Button.setRoles = function (contentButtonChildren, role) {
-        var buttons = contentButtonChildren.toArray();
-        buttons.forEach(function (button) {
-            button.setRole(role);
-        });
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
@@ -51624,10 +55150,8 @@ var Button = (function () {
     Button = __decorate([
         core_1.Component({
             selector: 'button:not([ion-item]),[button]',
-            template: '<span class="button-inner">' +
-                '<ng-content></ng-content>' +
-                '</span>' +
-                '<ion-button-effect></ion-button-effect>',
+            // NOTE: template must not contain spaces between elements
+            template: '<span class="button-inner"><ng-content></ng-content></span><ion-button-effect></ion-button-effect>',
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             encapsulation: core_1.ViewEncapsulation.None,
         }),
@@ -51645,7 +55169,7 @@ var IGNORE_ATTRS = /_ng|button|left|right/;
 var TEXT = 1;
 var ICON = 2;
 
-},{"../../config/config":504,"../../util/util":539,"@angular/core":247}],436:[function(require,module,exports){
+},{"../../config/config":549,"../../util/util":587,"@angular/core":247}],475:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51660,11 +55184,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var form_1 = require('../../util/form');
 var item_1 = require('../item/item');
 var util_1 = require('../../util/util');
-var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
+exports.CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 /**
  * @name Checkbox
  * @module ionic
@@ -51796,7 +55320,7 @@ var Checkbox = (function () {
      * @private
      */
     Checkbox.prototype.onChange = function (isChecked) {
-        // used when this input does not have an ngModel or ngControl
+        // used when this input does not have an ngModel or formControlName
         void 0;
         this._setChecked(isChecked);
         this.onTouched();
@@ -51838,22 +55362,11 @@ var Checkbox = (function () {
     Checkbox = __decorate([
         core_1.Component({
             selector: 'ion-checkbox',
-            template: '<div class="checkbox-icon" [class.checkbox-checked]="_checked">' +
-                '<div class="checkbox-inner"></div>' +
-                '</div>' +
-                '<button role="checkbox" ' +
-                'type="button" ' +
-                'category="item-cover" ' +
-                '[id]="id" ' +
-                '[attr.aria-checked]="_checked" ' +
-                '[attr.aria-labelledby]="_labelId" ' +
-                '[attr.aria-disabled]="_disabled" ' +
-                'class="item-cover">' +
-                '</button>',
+            template: "\n    <div class=\"checkbox-icon\" [class.checkbox-checked]=\"_checked\">\n      <div class=\"checkbox-inner\"></div>\n    </div>\n    <button role=\"checkbox\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
             host: {
                 '[class.checkbox-disabled]': '_disabled'
             },
-            providers: [CHECKBOX_VALUE_ACCESSOR],
+            providers: [exports.CHECKBOX_VALUE_ACCESSOR],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(1, core_1.Optional()), 
@@ -51863,7 +55376,7 @@ var Checkbox = (function () {
 }());
 exports.Checkbox = Checkbox;
 
-},{"../../util/form":534,"../../util/util":539,"../item/item":451,"@angular/common":100,"@angular/core":247}],437:[function(require,module,exports){
+},{"../../util/form":582,"../../util/util":587,"../item/item":490,"@angular/core":247,"@angular/forms":336}],476:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -51912,8 +55425,8 @@ var util_1 = require('../../util/util');
  * you can use Angular's `@ViewChild` annotation:
  *
  * ```ts
- * import {Component, ViewChild} from '@angular/core';
- * import {Content} from 'ionic-angular';
+ * import { Component, ViewChild } from '@angular/core';
+ * import { Content } from 'ionic-angular';
  *
  * @Component({...})
  * export class MyPage{
@@ -51925,19 +55438,73 @@ var util_1 = require('../../util/util');
  * }
  * ```
  *
+ * @advanced
+ *
+ * Resizing the content
+ *
+ *
+ * ```ts
+ * @Component({
+ *   template: `
+ *     <ion-header>
+ *       <ion-navbar>
+ *         <ion-title>Main Navbar</ion-title>
+ *       </ion-navbar>
+ *       <ion-toolbar *ngIf="showToolbar">
+ *         <ion-title>Dynamic Toolbar</ion-title>
+ *       </ion-toolbar>
+ *     </ion-header>
+ *     <ion-content>
+ *       <button (click)="toggleToolbar()">Toggle Toolbar</button>
+ *     </ion-content>
+ * `})
+ *
+ * class E2EPage {
+ *   @ViewChild(Content) content: Content;
+ *   showToolbar: boolean = false;
+ *
+ *   toggleToolbar() {
+ *     this.showToolbar = !this.showToolbar;
+ *     this.content.resize();
+ *   }
+ * }
+ * ```
+ *
+ *
+ * Scroll to a specific position
+ *
+ * ```ts
+ * import { Component, ViewChild } from '@angular/core';
+ * import { Content } from 'ionic-angular';
+ *
+ * @Component({
+ *   template: `<ion-content>
+ *                <button (click)="scrollTo()">Down 500px</button>
+ *              </ion-content>`
+ * )}
+ * export class MyPage{
+ *   @ViewChild(Content) content: Content;
+ *
+ *   scrollTo() {
+ *     // set the scrollLeft to 0px, and scrollTop to 500px
+ *     // the scroll duration should take 200ms
+ *     this.content.scrollTo(0, 500, 200);
+ *   }
+ * }
+ * ```
+ *
  */
 var Content = (function (_super) {
     __extends(Content, _super);
-    function Content(_elementRef, _config, _app, _keyboard, _zone, viewCtrl, _tabs) {
+    function Content(_elementRef, config, _app, _keyboard, _zone, viewCtrl, _tabs) {
         _super.call(this, _elementRef);
         this._elementRef = _elementRef;
-        this._config = _config;
         this._app = _app;
         this._keyboard = _keyboard;
         this._zone = _zone;
         this._tabs = _tabs;
         this._inputPolling = false;
-        this._sbPadding = _config.getBoolean('statusbarPadding', false);
+        this._sbPadding = config.getBoolean('statusbarPadding', false);
         if (viewCtrl) {
             viewCtrl.setContent(this);
             viewCtrl.setContentRef(_elementRef);
@@ -51947,15 +55514,11 @@ var Content = (function (_super) {
      * @private
      */
     Content.prototype.ngOnInit = function () {
-        var self = this;
-        self._scrollEle = self._elementRef.nativeElement.children[0];
-        self._zone.runOutsideAngular(function () {
-            self._scroll = new scroll_view_1.ScrollView(self._scrollEle);
-            if (self._config.getBoolean('tapPolyfill')) {
-                self._scLsn = self.addScrollListener(function () {
-                    self._app.setScrolling();
-                });
-            }
+        var _this = this;
+        this._scrollEle = this._elementRef.nativeElement.children[0];
+        this._zone.runOutsideAngular(function () {
+            _this._scroll = new scroll_view_1.ScrollView(_this._scrollEle);
+            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
         });
     };
     /**
@@ -51964,7 +55527,7 @@ var Content = (function (_super) {
     Content.prototype.ngOnDestroy = function () {
         this._scLsn && this._scLsn();
         this._scroll && this._scroll.destroy();
-        this._scrollEle = this._footerEle = this._scLsn = null;
+        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
     };
     /**
      * @private
@@ -52066,25 +55629,6 @@ var Content = (function (_super) {
     /**
      * Scroll to the specified position.
      *
-     * ```ts
-     * import {Component, ViewChild} from '@angular/core';
-     * import {Content} from 'ionic-angular';
-     *
-     * @Component({
-     *   template: `<ion-content>
-     *                <button (click)="scrollTo()">Down 500px</button>
-     *              </ion-content>`
-     * )}
-     * export class MyPage{
-     *   @ViewChild(Content) content: Content;
-     *
-     *   scrollTo() {
-     *     // set the scrollLeft to 0px, and scrollTop to 500px
-     *     // the scroll duration should take 200ms
-     *     this.content.scrollTo(0, 500, 200);
-     *   }
-     * }
-     * ```
      * @param {number} x  The x-value to scroll to.
      * @param {number} y  The y-value to scroll to.
      * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
@@ -52097,23 +55641,6 @@ var Content = (function (_super) {
     /**
      * Scroll to the top of the content component.
      *
-     * ```ts
-     * import {Component, ViewChild} from '@angular/core';
-     * import {Content} from 'ionic-angular';
-     *
-     * @Component({
-     *   template: `<ion-content>
-     *                <button (click)="scrollToTop()">Scroll to top</button>
-     *              </ion-content>`
-     * )}
-     * export class MyPage{
-     *   @ViewChild(Content) content: Content;
-     *
-     *   scrollToTop() {
-     *     this.content.scrollToTop();
-     *   }
-     * }
-     * ```
      * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
      * @returns {Promise} Returns a promise which is resolved when the scroll has completed.
      */
@@ -52253,6 +55780,18 @@ var Content = (function (_super) {
         }
     };
     /**
+     * Tell the content to recalculate its dimensions. This should be called
+     * after dynamically adding headers, footers, or tabs.
+     *
+     */
+    Content.prototype.resize = function () {
+        var _this = this;
+        dom_1.nativeRaf(function () {
+            _this.readDimensions();
+            _this.writeDimensions();
+        });
+    };
+    /**
      * @private
      * DOM READ
      */
@@ -52263,8 +55802,10 @@ var Content = (function (_super) {
         this._paddingLeft = 0;
         this._headerHeight = 0;
         this._footerHeight = 0;
-        this._tabbarPlacement = null;
+        this._tabsPlacement = null;
         var ele = this._elementRef.nativeElement;
+        if (!ele)
+            return;
         var parentEle = ele.parentElement;
         var computedStyle;
         for (var i = 0; i < parentEle.children.length; i++) {
@@ -52292,9 +55833,9 @@ var Content = (function (_super) {
             if (ele.tagName === 'ION-TABS') {
                 tabbarEle = ele.firstElementChild;
                 this._tabbarHeight = tabbarEle.clientHeight;
-                if (this._tabbarPlacement === null) {
+                if (this._tabsPlacement === null) {
                     // this is the first tabbar found, remember it's position
-                    this._tabbarPlacement = ele.getAttribute('tabbarplacement');
+                    this._tabsPlacement = ele.getAttribute('tabsplacement');
                 }
             }
             ele = ele.parentElement;
@@ -52307,6 +55848,8 @@ var Content = (function (_super) {
     Content.prototype.writeDimensions = function () {
         var newVal;
         var scrollEle = this._scrollEle;
+        if (!scrollEle)
+            return;
         // only write when it has changed
         if (this._fullscreen) {
             // adjust the content with padding, allowing content to scroll under headers/footers
@@ -52314,50 +55857,50 @@ var Content = (function (_super) {
             // only add inline padding styles if the computed padding value, which would
             // have come from the app's css, is different than the new padding value
             newVal = this._headerHeight + this._paddingTop;
-            if (this._tabbarPlacement === 'top') {
+            if (this._tabsPlacement === 'top') {
                 newVal += this._tabbarHeight;
             }
-            if (newVal !== this.adjustedTop) {
+            if (newVal !== this.contentTop) {
                 scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
-                this.adjustedTop = newVal;
+                this.contentTop = newVal;
             }
             newVal = this._footerHeight + this._paddingBottom;
-            if (this._tabbarPlacement === 'bottom') {
+            if (this._tabsPlacement === 'bottom') {
                 newVal += this._tabbarHeight;
                 if (newVal > 0 && this._footerEle) {
                     this._footerEle.style.bottom = (newVal - this._footerHeight - this._paddingBottom) + 'px';
                 }
             }
-            if (newVal !== this.adjustedBottom) {
+            if (newVal !== this.contentBottom) {
                 scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
-                this.adjustedBottom = newVal;
+                this.contentBottom = newVal;
             }
         }
         else {
             // adjust the content with margins
             newVal = this._headerHeight;
-            if (this._tabbarPlacement === 'top') {
+            if (this._tabsPlacement === 'top') {
                 newVal += this._tabbarHeight;
             }
-            if (newVal !== this.adjustedTop) {
+            if (newVal !== this.contentTop) {
                 scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
-                this.adjustedTop = newVal;
+                this.contentTop = newVal;
             }
             newVal = this._footerHeight;
-            if (this._tabbarPlacement === 'bottom') {
+            if (this._tabsPlacement === 'bottom') {
                 newVal += this._tabbarHeight;
             }
-            if (newVal !== this.adjustedBottom) {
+            if (newVal !== this.contentBottom) {
                 scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
-                this.adjustedBottom = newVal;
+                this.contentBottom = newVal;
                 if (newVal > 0 && this._footerEle) {
                     this._footerEle.style.bottom = (newVal - this._footerHeight) + 'px';
                 }
             }
         }
-        if (this._tabbarPlacement !== null && this._tabs) {
+        if (this._tabsPlacement !== null && this._tabs) {
             // set the position of the tabbar
-            if (this._tabbarPlacement === 'top') {
+            if (this._tabsPlacement === 'top') {
                 this._tabs.setTabbarPosition(this._headerHeight, -1);
             }
             else {
@@ -52394,7 +55937,7 @@ function parsePxUnit(val) {
     return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
 }
 
-},{"../../config/config":504,"../../util/dom":531,"../../util/keyboard":536,"../../util/scroll-view":537,"../../util/util":539,"../app/app":432,"../ion":446,"../nav/view-controller":470,"../tabs/tabs":491,"@angular/core":247}],438:[function(require,module,exports){
+},{"../../config/config":549,"../../util/dom":579,"../../util/keyboard":584,"../../util/scroll-view":585,"../../util/util":587,"../app/app":471,"../ion":485,"../nav/view-controller":512,"../tabs/tabs":535,"@angular/core":247}],477:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -52409,15 +55952,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var config_1 = require('../../config/config');
 var picker_1 = require('../picker/picker');
 var form_1 = require('../../util/form');
 var item_1 = require('../item/item');
 var util_1 = require('../../util/util');
 var datetime_util_1 = require('../../util/datetime-util');
-var nav_controller_1 = require('../nav/nav-controller');
-var DATETIME_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DateTime; }), multi: true });
+exports.DATETIME_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DateTime; }), multi: true });
 /**
  * @name DateTime
  * @description
@@ -52598,7 +56140,7 @@ var DATETIME_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { 
  * ### App Config Level
  *
  * ```ts
- * import {ionicBootstrap} from 'ionic-angular';
+ * import { ionicBootstrap } from 'ionic-angular';
  *
  * ionicBootstrap(MyApp, customProviders, {
  *   monthNames: ['janeiro', 'fevereiro', 'mar\u00e7o', ... ],
@@ -52651,11 +56193,11 @@ var DATETIME_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { 
  * @demo /docs/v2/demos/datetime/
  */
 var DateTime = (function () {
-    function DateTime(_form, _config, _item, _nav) {
+    function DateTime(_form, _config, _item, _pickerCtrl) {
         this._form = _form;
         this._config = _config;
         this._item = _item;
-        this._nav = _nav;
+        this._pickerCtrl = _pickerCtrl;
         this._disabled = false;
         this._text = '';
         this._isOpen = false;
@@ -52696,9 +56238,6 @@ var DateTime = (function () {
             this._labelId = 'lbl-' + _item.id;
             this._item.setCssClass('item-datetime', true);
         }
-        if (!_nav) {
-            void 0;
-        }
     }
     DateTime.prototype._click = function (ev) {
         if (ev.detail === 0) {
@@ -52725,7 +56264,7 @@ var DateTime = (function () {
         void 0;
         // the user may have assigned some options specifically for the alert
         var pickerOptions = util_1.merge({}, this.pickerOptions);
-        var picker = picker_1.Picker.create(pickerOptions);
+        var picker = this._pickerCtrl.create(pickerOptions);
         pickerOptions.buttons = [
             {
                 text: this.cancelText,
@@ -52748,9 +56287,9 @@ var DateTime = (function () {
         picker.ionChange.subscribe(function () {
             _this.validate(picker);
         });
-        this._nav.present(picker, pickerOptions);
+        picker.present(pickerOptions);
         this._isOpen = true;
-        picker.onDismiss(function () {
+        picker.onDidDismiss(function () {
             _this._isOpen = false;
         });
     };
@@ -53037,7 +56576,7 @@ var DateTime = (function () {
      * @private
      */
     DateTime.prototype.onChange = function (val) {
-        // onChange used when there is not an ngControl
+        // onChange used when there is not an formControlName
         void 0;
         this.setValue(val);
         this.updateText();
@@ -53144,24 +56683,16 @@ var DateTime = (function () {
     DateTime = __decorate([
         core_1.Component({
             selector: 'ion-datetime',
-            template: '<div class="datetime-text">{{_text}}</div>' +
-                '<button aria-haspopup="true" ' +
-                'type="button" ' +
-                '[id]="id" ' +
-                'category="item-cover" ' +
-                '[attr.aria-labelledby]="_labelId" ' +
-                '[attr.aria-disabled]="_disabled" ' +
-                'class="item-cover">' +
-                '</button>',
+            template: "\n    <div class=\"datetime-text\">{{_text}}</div>\n    <button aria-haspopup=\"true\"\n            type=\"button\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
             host: {
                 '[class.datetime-disabled]': '_disabled'
             },
-            providers: [DATETIME_VALUE_ACCESSOR],
+            providers: [exports.DATETIME_VALUE_ACCESSOR],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(2, core_1.Optional()),
         __param(3, core_1.Optional()), 
-        __metadata('design:paramtypes', [form_1.Form, config_1.Config, item_1.Item, nav_controller_1.NavController])
+        __metadata('design:paramtypes', [form_1.Form, config_1.Config, item_1.Item, picker_1.PickerController])
     ], DateTime);
     return DateTime;
 }());
@@ -53221,7 +56752,7 @@ function convertToArrayOfStrings(input, type) {
     }
 }
 
-},{"../../config/config":504,"../../util/datetime-util":529,"../../util/form":534,"../../util/util":539,"../item/item":451,"../nav/nav-controller":462,"../picker/picker":473,"@angular/common":100,"@angular/core":247}],439:[function(require,module,exports){
+},{"../../config/config":549,"../../util/datetime-util":577,"../../util/form":582,"../../util/util":587,"../item/item":490,"../picker/picker":516,"@angular/core":247,"@angular/forms":336}],478:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -53406,7 +56937,7 @@ var Icon = (function () {
 }());
 exports.Icon = Icon;
 
-},{"../../config/config":504,"@angular/core":247}],440:[function(require,module,exports){
+},{"../../config/config":549,"@angular/core":247}],479:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -53594,7 +57125,7 @@ function getUnitValue(val) {
     return '';
 }
 
-},{"../../platform/platform":514,"../../util/dom":531,"../../util/util":539,"@angular/core":247}],441:[function(require,module,exports){
+},{"../../platform/platform":562,"../../util/dom":579,"../../util/util":587,"@angular/core":247}],480:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -53606,8 +57137,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var config_1 = require('../../config/config');
 var infinite_scroll_1 = require('./infinite-scroll');
+var spinner_1 = require('../spinner/spinner');
 /**
  * @private
  */
@@ -53641,6 +57174,7 @@ var InfiniteScrollContent = (function () {
                 '</div>' +
                 '<div class="infinite-loading-text" [innerHTML]="loadingText" *ngIf="loadingText"></div>' +
                 '</div>',
+            directives: [common_1.NgIf, spinner_1.Spinner],
             host: {
                 '[attr.state]': 'inf.state'
             },
@@ -53652,7 +57186,7 @@ var InfiniteScrollContent = (function () {
 }());
 exports.InfiniteScrollContent = InfiniteScrollContent;
 
-},{"../../config/config":504,"./infinite-scroll":442,"@angular/core":247}],442:[function(require,module,exports){
+},{"../../config/config":549,"../spinner/spinner":531,"./infinite-scroll":481,"@angular/common":100,"@angular/core":247}],481:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -53918,7 +57452,7 @@ var STATE_ENABLED = 'enabled';
 var STATE_DISABLED = 'disabled';
 var STATE_LOADING = 'loading';
 
-},{"../content/content":437,"@angular/core":247}],443:[function(require,module,exports){
+},{"../content/content":476,"@angular/core":247}],482:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -53930,24 +57464,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var util_1 = require('../../util/util');
 var dom_1 = require('../../util/dom');
+var util_1 = require('../../util/util');
 var native_input_1 = require('./native-input');
 var InputBase = (function () {
-    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
+    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, nav, ngControl) {
         this._form = _form;
         this._item = _item;
         this._app = _app;
         this._platform = _platform;
         this._elementRef = _elementRef;
         this._scrollView = _scrollView;
-        this._nav = _nav;
         this._disabled = false;
         this._type = 'text';
         this._value = '';
         this.placeholder = '';
-        this.blur = new core_1.EventEmitter;
-        this.focus = new core_1.EventEmitter;
+        this.blur = new core_1.EventEmitter();
+        this.focus = new core_1.EventEmitter();
+        this._nav = nav;
         this._useAssist = config.getBoolean('scrollAssist', false);
         this._usePadding = config.getBoolean('scrollPadding', this._useAssist);
         this._keyboardHeight = config.getNumber('keyboardHeight');
@@ -54279,15 +57813,14 @@ var InputBase = (function () {
     };
     /**
      * @private
-     * Angular2 Forms API method called by the view (NgControl) to register the
+     * Angular2 Forms API method called by the view (formControlName) to register the
      * onChange event handler that updates the model (Control).
-     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
      * @param {Function} fn  the onChange event handler.
      */
     InputBase.prototype.registerOnChange = function (fn) { this.onChange = fn; };
     /**
      * @private
-     * Angular2 Forms API method called by the view (NgControl) to register
+     * Angular2 Forms API method called by the view (formControlName) to register
      * the onTouched event handler that marks model (Control) as touched.
      * @param {Function} fn  onTouched event handler.
      */
@@ -54468,7 +58001,7 @@ function getScrollAssistDuration(distanceToScroll) {
     return Math.min(400, Math.max(150, duration));
 }
 
-},{"../../util/dom":531,"../../util/util":539,"./native-input":445,"@angular/core":247}],444:[function(require,module,exports){
+},{"../../util/dom":579,"../../util/util":587,"./native-input":484,"@angular/core":247}],483:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -54489,6 +58022,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var app_1 = require('../app/app');
 var config_1 = require('../../config/config');
 var content_1 = require('../content/content');
@@ -54586,21 +58120,15 @@ var TextInput = (function (_super) {
     TextInput = __decorate([
         core_1.Component({
             selector: 'ion-input',
-            template: '<input [type]="type" [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" class="text-input">' +
-                '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
-                '<button clear [hidden]="!clearInput" type="button" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
-                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
-            directives: [
-                native_input_1.NextInput,
-                native_input_1.NativeInput,
-            ],
+            template: "\n    <input [type]=\"type\" [(ngModel)]=\"_value\" (blur)=\"inputBlurred($event)\" (focus)=\"inputFocused($event)\" [placeholder]=\"placeholder\" class=\"text-input\">\n    <input [type]=\"type\" aria-hidden=\"true\" next-input *ngIf=\"_useAssist\">\n    <button clear [hidden]=\"!clearInput\" type=\"button\" class=\"text-input-clear-icon\" (click)=\"clearTextInput()\" (mousedown)=\"clearTextInput()\"></button>\n    <div (touchstart)=\"pointerStart($event)\" (touchend)=\"pointerEnd($event)\" (mousedown)=\"pointerStart($event)\" (mouseup)=\"pointerEnd($event)\" class=\"input-cover\" tappable *ngIf=\"_useAssist\"></div>\n  ",
+            directives: [native_input_1.NativeInput, native_input_1.NextInput, common_1.NgIf, forms_1.NgModel],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(2, core_1.Optional()),
         __param(6, core_1.Optional()),
         __param(7, core_1.Optional()),
         __param(8, core_1.Optional()), 
-        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.App, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
+        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.App, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, forms_1.NgControl])
     ], TextInput);
     return TextInput;
 }(input_base_1.InputBase));
@@ -54638,6 +58166,11 @@ exports.TextInput = TextInput;
  *    <ion-label floating>Description</ion-label>
  *    <ion-textarea></ion-textarea>
  *  </ion-item>
+ *
+ * <ion-item>
+ *    <ion-label>Long Description</ion-label>
+ *    <ion-textarea rows="6" placeholder="enter long description here..."></ion-textarea>
+ *  </ion-item>
  * ```
  *
  * @demo /docs/v2/demos/textarea/
@@ -54674,23 +58207,20 @@ var TextArea = (function (_super) {
             template: '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" class="text-input"></textarea>' +
                 '<input type="text" aria-hidden="true" next-input *ngIf="_useAssist">' +
                 '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
-            directives: [
-                native_input_1.NextInput,
-                native_input_1.NativeInput
-            ],
+            directives: [native_input_1.NativeInput, native_input_1.NextInput, common_1.NgIf],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(2, core_1.Optional()),
         __param(6, core_1.Optional()),
         __param(7, core_1.Optional()),
         __param(8, core_1.Optional()), 
-        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.App, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
+        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.App, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, forms_1.NgControl])
     ], TextArea);
     return TextArea;
 }(input_base_1.InputBase));
 exports.TextArea = TextArea;
 
-},{"../../config/config":504,"../../platform/platform":514,"../../util/form":534,"../app/app":432,"../content/content":437,"../item/item":451,"../nav/nav-controller":462,"./input-base":443,"./native-input":445,"@angular/common":100,"@angular/core":247}],445:[function(require,module,exports){
+},{"../../config/config":549,"../../platform/platform":562,"../../util/form":582,"../app/app":471,"../content/content":476,"../item/item":490,"../nav/nav-controller":504,"./input-base":482,"./native-input":484,"@angular/common":100,"@angular/core":247,"@angular/forms":336}],484:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -54702,7 +58232,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var config_1 = require('../../config/config');
 var dom_1 = require('../../util/dom');
 /**
@@ -54865,7 +58395,7 @@ var NativeInput = (function () {
         core_1.Directive({
             selector: '.text-input'
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, config_1.Config, common_1.NgControl])
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, config_1.Config, forms_1.NgControl])
     ], NativeInput);
     return NativeInput;
 }());
@@ -54919,7 +58449,7 @@ var NextInput = (function () {
 }());
 exports.NextInput = NextInput;
 
-},{"../../config/config":504,"../../util/dom":531,"@angular/common":100,"@angular/core":247}],446:[function(require,module,exports){
+},{"../../config/config":549,"../../util/dom":579,"@angular/core":247,"@angular/forms":336}],485:[function(require,module,exports){
 "use strict";
 var dom_1 = require('../util/dom');
 var ids = 0;
@@ -54955,8 +58485,9 @@ var Ion = (function () {
 }());
 exports.Ion = Ion;
 
-},{"../util/dom":531}],447:[function(require,module,exports){
+},{"../util/dom":579}],486:[function(require,module,exports){
 "use strict";
+var item_reorder_1 = require('../item/item-reorder');
 var ui_event_manager_1 = require('../../util/ui-event-manager');
 var dom_1 = require('../../util/dom');
 var AUTO_SCROLL_MARGIN = 60;
@@ -54966,19 +58497,29 @@ var ITEM_REORDER_ACTIVE = 'reorder-active';
  * @private
  */
 var ItemReorderGesture = (function () {
-    function ItemReorderGesture(list) {
-        this.list = list;
+    function ItemReorderGesture(reorderList) {
+        this.reorderList = reorderList;
         this.selectedItemEle = null;
         this.events = new ui_event_manager_1.UIEventManager(false);
-        var element = this.list.getNativeElement();
-        this.events.pointerEvents(element, this.onDragStart.bind(this), this.onDragMove.bind(this), this.onDragEnd.bind(this));
+        this.events.pointerEvents({
+            element: this.reorderList.getNativeElement(),
+            pointerDown: this.onDragStart.bind(this),
+            pointerMove: this.onDragMove.bind(this),
+            pointerUp: this.onDragEnd.bind(this)
+        });
     }
     ItemReorderGesture.prototype.onDragStart = function (ev) {
         var reorderElement = ev.target;
         if (reorderElement.nodeName !== 'ION-REORDER') {
             return false;
         }
-        var item = reorderElement['$ionReorderNode'];
+        var reorderMark = reorderElement['$ionComponent'];
+        if (!reorderMark) {
+            void 0;
+            return false;
+        }
+        this.reorderList.reorderPrepare();
+        var item = reorderMark.getReorderNode();
         if (!item) {
             void 0;
             return false;
@@ -54987,13 +58528,14 @@ var ItemReorderGesture = (function () {
         // Preparing state
         this.selectedItemEle = item;
         this.selectedItemHeight = item.offsetHeight;
-        this.lastYcoord = this.lastToIndex = -100;
+        this.lastYcoord = -100;
+        this.lastToIndex = item_reorder_1.indexForItem(item);
         this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
-        this.lastScrollPosition = this.list.scrollContent(0);
+        this.lastScrollPosition = this.reorderList.scrollContent(0);
         this.offset = dom_1.pointerCoord(ev);
         this.offset.y += this.lastScrollPosition;
         item.classList.add(ITEM_REORDER_ACTIVE);
-        this.list.reorderStart();
+        this.reorderList.reorderStart();
         return true;
     };
     ItemReorderGesture.prototype.onDragMove = function (ev) {
@@ -55011,13 +58553,13 @@ var ItemReorderGesture = (function () {
         if (Math.abs(posY - this.lastYcoord) > 30) {
             var overItem = this.itemForCoord(coord);
             if (overItem) {
-                var toIndex = indexForItem(overItem);
-                if (toIndex && (toIndex !== this.lastToIndex || this.emptyZone)) {
-                    var fromIndex = indexForItem(this.selectedItemEle);
+                var toIndex = item_reorder_1.indexForItem(overItem);
+                if (toIndex !== undefined && (toIndex !== this.lastToIndex || this.emptyZone)) {
+                    var fromIndex = item_reorder_1.indexForItem(this.selectedItemEle);
                     this.lastToIndex = toIndex;
                     this.lastYcoord = posY;
                     this.emptyZone = false;
-                    this.list.reorderMove(fromIndex, toIndex, this.selectedItemHeight);
+                    this.reorderList.reorderMove(fromIndex, toIndex, this.selectedItemHeight);
                 }
             }
             else {
@@ -55029,24 +58571,35 @@ var ItemReorderGesture = (function () {
         selectedItem.style[dom_1.CSS.transform] = "translateY(" + ydiff + "px)";
     };
     ItemReorderGesture.prototype.onDragEnd = function () {
+        var _this = this;
         if (!this.selectedItemEle) {
             return;
         }
         var toIndex = this.lastToIndex;
-        var fromIndex = indexForItem(this.selectedItemEle);
-        this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
-        this.selectedItemEle = null;
-        this.list.reorderEmit(fromIndex, toIndex);
+        var fromIndex = item_reorder_1.indexForItem(this.selectedItemEle);
+        var reorderInactive = function () {
+            _this.selectedItemEle.style.transition = '';
+            _this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
+            _this.selectedItemEle = null;
+        };
+        if (toIndex === fromIndex) {
+            this.selectedItemEle.style.transition = 'transform 200ms ease-in-out';
+            setTimeout(reorderInactive, 200);
+        }
+        else {
+            reorderInactive();
+        }
+        this.reorderList.reorderEmit(fromIndex, toIndex);
     };
     ItemReorderGesture.prototype.itemForCoord = function (coord) {
         return itemForPosition(this.offset.x - 100, coord.y);
     };
     ItemReorderGesture.prototype.scroll = function (posY) {
         if (posY < AUTO_SCROLL_MARGIN) {
-            this.lastScrollPosition = this.list.scrollContent(-SCROLL_JUMP);
+            this.lastScrollPosition = this.reorderList.scrollContent(-SCROLL_JUMP);
         }
         else if (posY > this.windowHeight) {
-            this.lastScrollPosition = this.list.scrollContent(SCROLL_JUMP);
+            this.lastScrollPosition = this.reorderList.scrollContent(SCROLL_JUMP);
         }
         return this.lastScrollPosition;
     };
@@ -55057,33 +58610,17 @@ var ItemReorderGesture = (function () {
         this.onDragEnd();
         this.events.unlistenAll();
         this.events = null;
-        this.list = null;
+        this.reorderList = null;
     };
     return ItemReorderGesture;
 }());
 exports.ItemReorderGesture = ItemReorderGesture;
 function itemForPosition(x, y) {
     var element = document.elementFromPoint(x, y);
-    if (!element) {
-        return null;
-    }
-    if (element.nodeName !== 'ION-ITEM' && !element.hasAttribute('ion-item')) {
-        return null;
-    }
-    if (indexForItem(element)) {
-        return element;
-    }
-    var parent = element.parentNode;
-    if (indexForItem(parent)) {
-        return parent;
-    }
-    return null;
-}
-function indexForItem(element) {
-    return element['$ionIndex'];
+    return item_reorder_1.findReorderItem(element);
 }
 
-},{"../../util/dom":531,"../../util/ui-event-manager":538}],448:[function(require,module,exports){
+},{"../../util/dom":579,"../../util/ui-event-manager":586,"../item/item-reorder":487}],487:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -55104,26 +58641,142 @@ var item_1 = require('./item');
 var item_reorder_gesture_1 = require('../item/item-reorder-gesture');
 var util_1 = require('../../util/util');
 /**
- * @private
+ * @name ItemReorder
+ * @description
+ * Item reorder adds the ability to change an item's order in a group.
+ * It can be used within an `ion-list` or `ion-item-group` to provide a
+ * visual drag and drop interface.
+ *
+ * ## Grouping Items
+ *
+ * All reorderable items must be grouped in the same element. If an item
+ * should not be reordered, it shouldn't be included in this group. For
+ * example, the following code works because the items are grouped in the
+ * `<ion-list>`:
+ *
+ *  ```html
+ *  <ion-list reorder="true">
+ *    <ion-item *ngFor="let item of items">{% raw %}{{ item }}{% endraw %}</ion-item>
+ *  </ion-list>
+ *  ```
+ *
+ * However, the below list includes a header that shouldn't be reordered:
+ *
+ *  ```html
+ *  <ion-list reorder="true">
+ *    <ion-list-header>Header</ion-list-header>
+ *    <ion-item *ngFor="let item of items">{% raw %}{{ item }}{% endraw %}</ion-item>
+ *  </ion-list>
+ *  ```
+ *
+ * In order to mix different sets of items, `ion-item-group` should be used to
+ * group the reorderable items:
+ *
+ *  ```html
+ *  <ion-list>
+ *    <ion-list-header>Header</ion-list-header>
+ *    <ion-item-group reorder="true">
+ *      <ion-item *ngFor="let item of items">{% raw %}{{ item }}{% endraw %}</ion-item>
+ *    </ion-item-group>
+ *  </ion-list>
+ *  ```
+ *
+ * It's important to note that in this example, the `[reorder]` directive is applied to
+ * the `<ion-item-group>` instead of the `<ion-list>`. This way makes it possible to
+ * mix items that should and shouldn't be reordered.
+ *
+ *
+ * ## Implementing the Reorder Function
+ *
+ * When the item is dragged and dropped into the new position, the `(ionItemReorder)` event is
+ * emitted. This event provides the initial index (from) and the new index (to) of the reordered
+ * item. For example, if the first item is dragged to the fifth position, the event will emit
+ * `{from: 0, to: 4}`. Note that the index starts at zero.
+ *
+ * A function should be called when the event is emitted that handles the reordering of the items.
+ * See [usage](#usage) below for some examples.
+ *
+ *
+ * @usage
+ *
+ * ```html
+ * <ion-list>
+ *   <ion-list-header>Header</ion-list-header>
+ *   <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+ *     <ion-item *ngFor="let item of items">{% raw %}{{ item }}{% endraw %}</ion-item>
+ *   </ion-item-group>
+ * </ion-list>
+ * ```
+ *
+ * ```ts
+ * class MyComponent {
+ *   items = [];
+ *
+ *   constructor() {
+ *     for (let x = 0; x < 5; x++) {
+ *       this.items.push(x);
+ *     }
+ *   }
+ *
+ *   reorderItems(indexes) {
+ *     let element = this.items[indexes.from];
+ *     this.items.splice(indexes.from, 1);
+ *     this.items.splice(indexes.to, 0, element);
+ *   }
+ * }
+ * ```
+ *
+ * Ionic also provides a helper function called `reorderArray` to
+ * reorder the array of items. This can be used instead:
+ *
+ * ```ts
+ * import { reorderArray } from 'ionic-angular';
+ *
+ * class MyComponent {
+ *   items = [];
+ *
+ *   constructor() {
+ *     for (let x = 0; x < 5; x++) {
+ *       this.items.push(x);
+ *     }
+ *   }
+ *
+ *   reorderItems(indexes) {
+ *     this.items = reorderArray(this.items, indexes);
+ *   }
+ * }
+ * ```
+ *
+ * @demo /docs/v2/demos/item-reorder/
+ * @see {@link /docs/v2/components#lists List Component Docs}
+ * @see {@link ../../list/List List API Docs}
+ * @see {@link ../Item Item API Docs}
  */
-var Reorder = (function () {
-    function Reorder(elementRef, _rendered, _zone, _content) {
+var ItemReorder = (function () {
+    function ItemReorder(elementRef, _rendered, _zone, _content) {
         this._rendered = _rendered;
         this._zone = _zone;
         this._content = _content;
         this._enableReorder = false;
         this._lastToIndex = -1;
+        /**
+         * @output {object} The expression to evaluate when the item is reordered. Emits an object
+         * with `from` and `to` properties.
+         */
         this.ionItemReorder = new core_1.EventEmitter();
         this._element = elementRef.nativeElement;
     }
     /**
      * @private
      */
-    Reorder.prototype.ngOnDestroy = function () {
+    ItemReorder.prototype.ngOnDestroy = function () {
         this._element = null;
         this._reorderGesture && this._reorderGesture.destroy();
     };
-    Object.defineProperty(Reorder.prototype, "reorder", {
+    Object.defineProperty(ItemReorder.prototype, "reorder", {
+        /**
+         * @private
+         */
         get: function () {
             return this._enableReorder;
         },
@@ -55144,10 +58797,9 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.reorderStart = function () {
+    ItemReorder.prototype.reorderPrepare = function () {
         var children = this._element.children;
         var len = children.length;
-        this.setCssClass('reorder-active', true);
         for (var i = 0; i < len; i++) {
             children[i]['$ionIndex'] = i;
         }
@@ -55155,7 +58807,13 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.reorderEmit = function (fromIndex, toIndex) {
+    ItemReorder.prototype.reorderStart = function () {
+        this.setCssClass('reorder-list-active', true);
+    };
+    /**
+     * @private
+     */
+    ItemReorder.prototype.reorderEmit = function (fromIndex, toIndex) {
         var _this = this;
         this.reorderReset();
         if (fromIndex !== toIndex) {
@@ -55170,7 +58828,7 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.scrollContent = function (scroll) {
+    ItemReorder.prototype.scrollContent = function (scroll) {
         var scrollTop = this._content.getScrollTop() + scroll;
         if (scroll !== 0) {
             this._content.scrollTo(0, scrollTop, 0);
@@ -55180,10 +58838,10 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.reorderReset = function () {
+    ItemReorder.prototype.reorderReset = function () {
         var children = this._element.children;
         var len = children.length;
-        this.setCssClass('reorder-active', false);
+        this.setCssClass('reorder-list-active', false);
         var transform = dom_1.CSS.transform;
         for (var i = 0; i < len; i++) {
             children[i].style[transform] = '';
@@ -55193,7 +58851,7 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
+    ItemReorder.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
         if (this._lastToIndex === -1) {
             this._lastToIndex = fromIndex;
         }
@@ -55225,32 +58883,56 @@ var Reorder = (function () {
     /**
      * @private
      */
-    Reorder.prototype.setCssClass = function (classname, add) {
+    ItemReorder.prototype.setCssClass = function (classname, add) {
         this._rendered.setElementClass(this._element, classname, add);
     };
     /**
      * @private
      */
-    Reorder.prototype.getNativeElement = function () {
+    ItemReorder.prototype.getNativeElement = function () {
         return this._element;
     };
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], Reorder.prototype, "ionItemReorder", void 0);
+    ], ItemReorder.prototype, "ionItemReorder", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], Reorder.prototype, "reorder", null);
-    Reorder = __decorate([
+    ], ItemReorder.prototype, "reorder", null);
+    ItemReorder = __decorate([
         core_1.Directive({
-            selector: '[reorder]',
+            selector: 'ion-list[reorder],ion-item-group[reorder]',
             host: {
                 '[class.reorder-enabled]': '_enableReorder',
             }
         }),
         __param(3, core_1.Optional()), 
         __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, core_1.NgZone, content_1.Content])
+    ], ItemReorder);
+    return ItemReorder;
+}());
+exports.ItemReorder = ItemReorder;
+/**
+ * @private
+ */
+var Reorder = (function () {
+    function Reorder(item, elementRef) {
+        this.item = item;
+        this.elementRef = elementRef;
+        elementRef.nativeElement['$ionComponent'] = this;
+    }
+    Reorder.prototype.getReorderNode = function () {
+        var node = this.item.getNativeElement();
+        return findReorderItem(node);
+    };
+    Reorder = __decorate([
+        core_1.Component({
+            selector: 'ion-reorder',
+            template: "<ion-icon name=\"menu\"></ion-icon>"
+        }),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
+        __metadata('design:paramtypes', [item_1.Item, core_1.ElementRef])
     ], Reorder);
     return Reorder;
 }());
@@ -55258,134 +58940,114 @@ exports.Reorder = Reorder;
 /**
  * @private
  */
-var ItemReorder = (function () {
-    function ItemReorder(item, elementRef) {
-        this.item = item;
-        this.elementRef = elementRef;
+function findReorderItem(node) {
+    var nested = 0;
+    while (node && nested < 4) {
+        if (indexForItem(node) !== undefined) {
+            return node;
+        }
+        node = node.parentNode;
+        nested++;
     }
-    ItemReorder.prototype.ngAfterContentInit = function () {
-        var item = this.item.getNativeElement();
-        if (item.parentNode.nodeName === 'ION-ITEM-SLIDING') {
-            this.elementRef.nativeElement['$ionReorderNode'] = item.parentNode;
-        }
-        else {
-            this.elementRef.nativeElement['$ionReorderNode'] = item;
-        }
-    };
-    ItemReorder = __decorate([
-        core_1.Component({
-            selector: 'ion-reorder',
-            template: "<ion-icon name=\"menu\"></ion-icon>"
-        }),
-        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
-        __metadata('design:paramtypes', [item_1.Item, core_1.ElementRef])
-    ], ItemReorder);
-    return ItemReorder;
-}());
-exports.ItemReorder = ItemReorder;
+    return null;
+}
+exports.findReorderItem = findReorderItem;
+/**
+ * @private
+ */
+function indexForItem(element) {
+    return element['$ionIndex'];
+}
+exports.indexForItem = indexForItem;
 
-},{"../../util/dom":531,"../../util/util":539,"../content/content":437,"../item/item-reorder-gesture":447,"./item":451,"@angular/core":247}],449:[function(require,module,exports){
+},{"../../util/dom":579,"../../util/util":587,"../content/content":476,"../item/item-reorder-gesture":486,"./item":490,"@angular/core":247}],488:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var drag_gesture_1 = require('../../gestures/drag-gesture');
 var dom_1 = require('../../util/dom');
-var DRAG_THRESHOLD = 20;
+var drag_gesture_1 = require('../../gestures/drag-gesture');
+var DRAG_THRESHOLD = 10;
 var MAX_ATTACK_ANGLE = 20;
 var ItemSlidingGesture = (function (_super) {
     __extends(ItemSlidingGesture, _super);
     function ItemSlidingGesture(list) {
         _super.call(this, list.getNativeElement(), {
-            direction: 'x',
-            threshold: DRAG_THRESHOLD
+            maxAngle: MAX_ATTACK_ANGLE,
+            threshold: DRAG_THRESHOLD,
+            gesture: list._gestureCtrl.create('item-sliding', {
+                priority: -10 /* SlidingItem */,
+            })
         });
         this.list = list;
+        this.preSelectedContainer = null;
         this.selectedContainer = null;
         this.openContainer = null;
-        this.listen();
     }
-    ItemSlidingGesture.prototype.onTapCallback = function (ev) {
-        if (isFromOptionButtons(ev.target)) {
-            return;
-        }
-        var didClose = this.closeOpened();
-        if (didClose) {
-            void 0;
-            ev.preventDefault();
-        }
-    };
-    ItemSlidingGesture.prototype.onDragStart = function (ev) {
-        var angle = Math.abs(ev.angle);
-        if (angle > MAX_ATTACK_ANGLE && Math.abs(angle - 180) > MAX_ATTACK_ANGLE) {
-            this.closeOpened();
-            return false;
-        }
+    ItemSlidingGesture.prototype.canStart = function (ev) {
         if (this.selectedContainer) {
-            void 0;
             return false;
         }
+        // Get swiped sliding container
         var container = getContainer(ev);
         if (!container) {
-            void 0;
+            this.closeOpened();
             return false;
         }
         // Close open container if it is not the selected one.
         if (container !== this.openContainer) {
             this.closeOpened();
         }
-        this.selectedContainer = container;
-        this.openContainer = container;
-        container.startSliding(ev.center.x);
+        var coord = dom_1.pointerCoord(ev);
+        this.preSelectedContainer = container;
+        this.firstCoordX = coord.x;
+        this.firstTimestamp = Date.now();
         return true;
     };
-    ItemSlidingGesture.prototype.onDrag = function (ev) {
-        if (this.selectedContainer) {
-            this.selectedContainer.moveSliding(ev.center.x);
-            ev.preventDefault();
-        }
-        return;
+    ItemSlidingGesture.prototype.onDragStart = function (ev) {
+        ev.preventDefault();
+        var coord = dom_1.pointerCoord(ev);
+        this.selectedContainer = this.openContainer = this.preSelectedContainer;
+        this.selectedContainer.startSliding(coord.x);
+    };
+    ItemSlidingGesture.prototype.onDragMove = function (ev) {
+        ev.preventDefault();
+        var coordX = dom_1.pointerCoord(ev).x;
+        this.selectedContainer.moveSliding(coordX);
     };
     ItemSlidingGesture.prototype.onDragEnd = function (ev) {
-        var _this = this;
-        if (!this.selectedContainer) {
-            return;
-        }
         ev.preventDefault();
-        var openAmount = this.selectedContainer.endSliding(ev.velocityX);
+        var coordX = dom_1.pointerCoord(ev).x;
+        var deltaX = (coordX - this.firstCoordX);
+        var deltaT = (Date.now() - this.firstTimestamp);
+        var openAmount = this.selectedContainer.endSliding(deltaX / deltaT);
         this.selectedContainer = null;
-        // TODO: I am not sure listening for a tap event is the best idea
-        // we should try mousedown/touchstart
-        if (openAmount === 0) {
-            this.openContainer = null;
-            this.off('tap', this.onTap);
-            this.onTap = null;
-        }
-        else if (!this.onTap) {
-            this.onTap = function (event) { return _this.onTapCallback(event); };
-            this.on('tap', this.onTap);
-        }
+        this.preSelectedContainer = null;
+    };
+    ItemSlidingGesture.prototype.notCaptured = function (ev) {
+        this.closeOpened();
     };
     ItemSlidingGesture.prototype.closeOpened = function () {
-        if (!this.openContainer) {
-            return false;
-        }
-        this.openContainer.close();
-        this.openContainer = null;
         this.selectedContainer = null;
-        this.off('tap', this.onTap);
-        this.onTap = null;
-        return true;
+        if (this.openContainer) {
+            this.openContainer.close();
+            this.openContainer = null;
+            return true;
+        }
+        return false;
     };
-    ItemSlidingGesture.prototype.unlisten = function () {
+    ItemSlidingGesture.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
         this.closeOpened();
-        _super.prototype.unlisten.call(this);
         this.list = null;
+        this.preSelectedContainer = null;
+        this.selectedContainer = null;
+        this.openContainer = null;
     };
     return ItemSlidingGesture;
-}(drag_gesture_1.DragGesture));
+}(drag_gesture_1.PanGesture));
 exports.ItemSlidingGesture = ItemSlidingGesture;
 function getContainer(ev) {
     var ele = dom_1.closest(ev.target, 'ion-item-sliding', true);
@@ -55394,11 +59056,8 @@ function getContainer(ev) {
     }
     return null;
 }
-function isFromOptionButtons(ele) {
-    return !!dom_1.closest(ele, 'ion-item-options', true);
-}
 
-},{"../../gestures/drag-gesture":508,"../../util/dom":531}],450:[function(require,module,exports){
+},{"../../gestures/drag-gesture":554,"../../util/dom":579}],489:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -55417,7 +59076,7 @@ var dom_1 = require('../../util/dom');
 var item_1 = require('./item');
 var util_1 = require('../../util/util');
 var list_1 = require('../list/list');
-var SWIPE_MARGIN = 20;
+var SWIPE_MARGIN = 30;
 var ELASTIC_FACTOR = 0.55;
 /**
  * @name ItemOptions
@@ -55715,6 +59374,9 @@ var ItemSliding = (function () {
         this.fireSwipeEvent();
         return restingPoint;
     };
+    /**
+     * @private
+     */
     ItemSliding.prototype.fireSwipeEvent = function () {
         if (this._state & 32 /* SwipeRight */) {
             this._rightOptions.ionSwipe.emit(this);
@@ -55723,6 +59385,9 @@ var ItemSliding = (function () {
             this._leftOptions.ionSwipe.emit(this);
         }
     };
+    /**
+     * @private
+     */
     ItemSliding.prototype.calculateOptsWidth = function () {
         var _this = this;
         dom_1.nativeRaf(function () {
@@ -55807,8 +59472,8 @@ var ItemSliding = (function () {
      * ```
      *
      * ```ts
-     * import {Component} from '@angular/core';
-     * import {ItemSliding} from 'ionic-angular';
+     * import { Component } from '@angular/core';
+     * import { ItemSliding } from 'ionic-angular';
      *
      * @Component({...})
      * export class MyClass {
@@ -55851,8 +59516,7 @@ var ItemSliding = (function () {
     ItemSliding = __decorate([
         core_1.Component({
             selector: 'ion-item-sliding',
-            template: '<ng-content select="ion-item,[ion-item]"></ng-content>' +
-                '<ng-content select="ion-item-options"></ng-content>',
+            template: "\n    <ng-content select=\"ion-item,[ion-item]\"></ng-content>\n    <ng-content select=\"ion-item-options\"></ng-content>\n  ",
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             encapsulation: core_1.ViewEncapsulation.None
         }),
@@ -55881,7 +59545,7 @@ function shouldClose(isCloseDirection, isMovingFast, isOnCloseZone) {
     return shouldClose;
 }
 
-},{"../../util/dom":531,"../../util/util":539,"../list/list":453,"./item":451,"@angular/core":247}],451:[function(require,module,exports){
+},{"../../util/dom":579,"../../util/util":587,"../list/list":492,"./item":490,"@angular/core":247}],490:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -55893,6 +59557,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var button_1 = require('../button/button');
 var form_1 = require('../../util/form');
 var icon_1 = require('../icon/icon');
@@ -56013,6 +59678,10 @@ var label_1 = require('../label/label');
  * Any element directly placed inside of an `<ion-item>` that does not have one of the previously mentioned
  * attributes and isn't one of the above elements will be placed inside of a [Label](../../label/Label).
  *
+ * ### Text Alignment
+ * By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
+ * See the [Utility Attributes Documentation](../../../../theming/css-utilities/) for attributes that can
+ * be added to `ion-item` to transform the text.
  *
  * @usage
  *
@@ -56292,20 +59961,8 @@ var Item = (function () {
     Item = __decorate([
         core_1.Component({
             selector: 'ion-list-header,ion-item,[ion-item],ion-item-divider',
-            template: '<ng-content select="[item-left],ion-checkbox:not([item-right])"></ng-content>' +
-                '<div class="item-inner">' +
-                '<div class="input-wrapper">' +
-                '<ng-content select="ion-label"></ng-content>' +
-                '<ion-label *ngIf="_viewLabel">' +
-                '<ng-content></ng-content>' +
-                '</ion-label>' +
-                '<ng-content select="ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]"></ng-content>' +
-                '</div>' +
-                '<ng-content select="[item-right],ion-radio,ion-toggle"></ng-content>' +
-                '<ion-reorder></ion-reorder>' +
-                '</div>' +
-                '<ion-button-effect></ion-button-effect>',
-            directives: [core_1.forwardRef(function () { return item_reorder_1.ItemReorder; })],
+            template: "\n    <ng-content select=\"[item-left],ion-checkbox:not([item-right])\"></ng-content>\n    <div class=\"item-inner\">\n      <div class=\"input-wrapper\">\n        <ng-content select=\"ion-label\"></ng-content>\n        <ion-label *ngIf=\"_viewLabel\">\n          <ng-content></ng-content>\n        </ion-label>\n        <ng-content select=\"ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]\"></ng-content>\n      </div>\n      <ng-content select=\"[item-right],ion-radio,ion-toggle\"></ng-content>\n      <ion-reorder></ion-reorder>\n    </div>\n    <ion-button-effect></ion-button-effect>\n  ",
+            directives: [common_1.NgIf, label_1.Label, core_1.forwardRef(function () { return item_reorder_1.Reorder; })],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
@@ -56333,7 +59990,7 @@ var ItemContent = (function () {
 }());
 exports.ItemContent = ItemContent;
 
-},{"../../util/form":534,"../button/button":435,"../icon/icon":439,"../item/item-reorder":448,"../label/label":452,"@angular/core":247}],452:[function(require,module,exports){
+},{"../../util/form":582,"../button/button":474,"../icon/icon":478,"../item/item-reorder":487,"../label/label":491,"@angular/common":100,"@angular/core":247}],491:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -56355,7 +60012,7 @@ var core_1 = require('@angular/core');
  * to describe an `ion-input`, `ion-toggle`, `ion-checkbox`, and more.
  *
  * @property [fixed] - A persistent label that sits next the input.
- * @property [floating] - A label that will float about the input if the input is empty or loses focus.
+ * @property [floating] - A label that will float above the input if the input is empty or loses focus.
  * @property [stacked] - A stacked label will always appear on top of the input.
 
  *
@@ -56454,7 +60111,7 @@ var Label = (function () {
 }());
 exports.Label = Label;
 
-},{"@angular/core":247}],453:[function(require,module,exports){
+},{"@angular/core":247}],492:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -56477,6 +60134,7 @@ var core_1 = require('@angular/core');
 var ion_1 = require('../ion');
 var util_1 = require('../../util/util');
 var item_sliding_gesture_1 = require('../item/item-sliding-gesture');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 /**
  * The List is a widely used interface element in almost any mobile app,
  * and can include content ranging from basic text all the way to
@@ -56491,13 +60149,33 @@ var item_sliding_gesture_1 = require('../item/item-sliding-gesture');
  *
  * @demo /docs/v2/demos/list/
  * @see {@link /docs/v2/components#lists List Component Docs}
+ * @advanced
+ *
+ * Enable the sliding items.
+ *
+ * ```ts
+ * import { Component, ViewChild } from '@angular/core';
+ * import { List } from 'ionic-angular';
+ *
+ * @Component({...})
+ * export class MyClass {
+ *   @ViewChild(List) list: List;
+ *
+ *   constructor() { }
+ *
+ *   stopSliding() {
+ *     this.list.enableSlidingItems(false);
+ *   }
+ * }
+ * ```
  *
  */
 var List = (function (_super) {
     __extends(List, _super);
-    function List(elementRef, _rendered) {
+    function List(elementRef, _rendered, _gestureCtrl) {
         _super.call(this, elementRef);
         this._rendered = _rendered;
+        this._gestureCtrl = _gestureCtrl;
         this._enableSliding = true;
         this._containsSlidingItems = false;
     }
@@ -56509,24 +60187,7 @@ var List = (function (_super) {
     };
     Object.defineProperty(List.prototype, "sliding", {
         /**
-         * Enable the sliding items.
-         *
-         * ```ts
-         * import {Component, ViewChild} from '@angular/core';
-         * import {List} from 'ionic-angular';
-         *
-         * @Component({...})
-         * export class MyClass {
-         *   @ViewChild(List) list: List;
-         *
-         *   constructor() { }
-         *
-         *   stopSliding() {
-         *     this.list.enableSlidingItems(false);
-         *   }
-         * }
-         * ```
-         * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
+         * @input {boolean} shouldEnable whether the item-sliding should be enabled or not
          */
         get: function () {
             return this._enableSliding;
@@ -56548,32 +60209,17 @@ var List = (function (_super) {
     List.prototype._updateSlidingState = function () {
         var shouldSlide = this._enableSliding && this._containsSlidingItems;
         if (!shouldSlide) {
-            this._slidingGesture && this._slidingGesture.unlisten();
+            this._slidingGesture && this._slidingGesture.destroy();
             this._slidingGesture = null;
         }
         else if (!this._slidingGesture) {
             void 0;
             this._slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(this);
+            this._slidingGesture.listen();
         }
     };
     /**
-     * Close the open sliding item.
-     *
-     * ```ts
-     * import {Component, ViewChild} from '@angular/core';
-     * import {List} from 'ionic-angular';
-     *
-     * @Component({...})
-     * export class MyClass {
-     *   @ViewChild(List) list: List;
-     *
-     *   constructor() { }
-     *
-     *   closeItems() {
-     *     this.list.closeSlidingItems();
-     *   }
-     * }
-     * ```
+     * Close any sliding items that are open.
      */
     List.prototype.closeSlidingItems = function () {
         this._slidingGesture && this._slidingGesture.closeOpened();
@@ -56586,7 +60232,7 @@ var List = (function (_super) {
         core_1.Directive({
             selector: 'ion-list',
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, gesture_controller_1.GestureController])
     ], List);
     return List;
 }(ion_1.Ion));
@@ -56622,7 +60268,7 @@ var ListHeader = (function () {
 }());
 exports.ListHeader = ListHeader;
 
-},{"../../util/util":539,"../ion":446,"../item/item-sliding-gesture":449,"@angular/core":247}],454:[function(require,module,exports){
+},{"../../gestures/gesture-controller":555,"../../util/util":587,"../ion":485,"../item/item-sliding-gesture":488,"@angular/core":247}],493:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -56639,151 +60285,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var animation_1 = require('../../animations/animation');
+var backdrop_1 = require('../backdrop/backdrop');
 var config_1 = require('../../config/config');
 var util_1 = require('../../util/util');
 var nav_params_1 = require('../nav/nav-params');
+var spinner_1 = require('../spinner/spinner');
 var transition_1 = require('../../transitions/transition');
 var view_controller_1 = require('../nav/view-controller');
-/**
- * @name Loading
- * @description
- * An overlay that can be used to indicate activity while blocking user
- * interaction. The loading indicator appears on top of the app's content,
- * and can be dismissed by the app to resume user interaction with
- * the app. It includes an optional backdrop, which can be disabled
- * by setting `showBackdrop: false` upon creation.
- *
- * ### Creating
- * You can pass all of the loading options in the first argument of
- * the create method: `Loading.create(opts)`. The spinner name should be
- * passed in the `spinner` property, and any optional HTML can be passed
- * in the `content` property. If you do not pass a value to `spinner`
- * the loading indicator will use the spinner specified by the mode. To
- * set the spinner name across the app, set the value of `loadingSpinner`
- * in your app's config. To hide the spinner, set `loadingSpinner: 'hide'`
- * in the app's config or pass `spinner: 'hide'` in the loading
- * options. See the [create](#create) method below for all available options.
- *
- * ### Dismissing
- * The loading indicator can be dismissed automatically after a specific
- * amount of time by passing the number of milliseconds to display it in
- * the `duration` of the loading options. By default the loading indicator
- * will show even during page changes, but this can be disabled by setting
- * `dismissOnPageChange` to `true`. To dismiss the loading indicator after
- * creation, call the `dismiss()` method on the Loading instance. The
- * `onDismiss` function can be called to perform an action after the loading
- * indicator is dismissed.
- *
- * >Note that after the component is dismissed, it will not be usable anymore
- * and another one must be created. This can be avoided by wrapping the
- * creation and presentation of the component in a reusable function as shown
- * in the `usage` section below.
- *
- * ### Limitations
- * The element is styled to appear on top of other content by setting its
- * `z-index` property. You must ensure no element has a stacking context with
- * a higher `z-index` than this element.
- *
- * @usage
- * ```ts
- * constructor(nav: NavController) {
- *   this.nav = nav;
- * }
- *
- * presentLoadingDefault() {
- *   let loading = Loading.create({
- *     content: 'Please wait...'
- *   });
- *
- *   this.nav.present(loading);
- *
- *   setTimeout(() => {
- *     loading.dismiss();
- *   }, 5000);
- * }
- *
- * presentLoadingCustom() {
- *   let loading = Loading.create({
- *     spinner: 'hide',
- *     content: `
- *       <div class="custom-spinner-container">
- *         <div class="custom-spinner-box"></div>
- *       </div>`,
- *     duration: 5000
- *   });
- *
- *   loading.onDismiss(() => {
- *     console.log('Dismissed loading');
- *   });
- *
- *   this.nav.present(loading);
- * }
- *
- * presentLoadingText() {
- *   let loading = Loading.create({
- *     spinner: 'hide',
- *     content: 'Loading Please Wait...'
- *   });
- *
- *   this.nav.present(loading);
- *
- *   setTimeout(() => {
- *     this.nav.push(Page2);
- *   }, 1000);
- *
- *   setTimeout(() => {
- *     loading.dismiss();
- *   }, 5000);
- * }
- * ```
- *
- * @demo /docs/v2/demos/loading/
- * @see {@link /docs/v2/api/components/spinner/Spinner Spinner API Docs}
- */
-var Loading = (function (_super) {
-    __extends(Loading, _super);
-    function Loading(opts) {
-        if (opts === void 0) { opts = {}; }
-        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
-        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
-        _super.call(this, LoadingCmp, opts);
-        this.isOverlay = true;
-        this.usePortal = true;
-        // by default, loading indicators should not fire lifecycle events of other views
-        // for example, when an loading indicators enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
-    }
-    /**
-    * @private
-    */
-    Loading.prototype.getTransitionName = function (direction) {
-        var key = (direction === 'back' ? 'loadingLeave' : 'loadingEnter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * Create a loading indicator with the following options
-     *
-     * | Option                | Type       | Description                                                                                                      |
-     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-     * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
-     * | content               |`string`    | The html content for the loading indicator.                                                                      |
-     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
-     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-     * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
-     * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
-     *
-     *
-     * @param {object} opts Loading options
-     */
-    Loading.create = function (opts) {
-        if (opts === void 0) { opts = {}; }
-        return new Loading(opts);
-    };
-    return Loading;
-}(view_controller_1.ViewController));
-exports.Loading = Loading;
 /**
 * @private
 */
@@ -56814,21 +60324,19 @@ var LoadingCmp = (function () {
             activeElement.blur();
         }
         // If there is a duration, dismiss after that amount of time
-        this.d.duration ? setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration) : null;
+        this.d.duration ? this.durationTimeout = setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration) : null;
     };
     LoadingCmp.prototype.dismiss = function (role) {
+        if (this.durationTimeout) {
+            clearTimeout(this.durationTimeout);
+        }
         return this._viewCtrl.dismiss(null, role);
     };
     LoadingCmp = __decorate([
         core_1.Component({
             selector: 'ion-loading',
-            template: '<ion-backdrop [class.hide-backdrop]="!d.showBackdrop"></ion-backdrop>' +
-                '<div class="loading-wrapper">' +
-                '<div *ngIf="showSpinner" class="loading-spinner">' +
-                '<ion-spinner [name]="d.spinner"></ion-spinner>' +
-                '</div>' +
-                '<div *ngIf="d.content" [innerHTML]="d.content" class="loading-content"></div>' +
-                '</div>',
+            template: "\n    <ion-backdrop [class.hide-backdrop]=\"!d.showBackdrop\"></ion-backdrop>\n    <div class=\"loading-wrapper\">\n      <div *ngIf=\"showSpinner\" class=\"loading-spinner\">\n        <ion-spinner [name]=\"d.spinner\"></ion-spinner>\n      </div>\n      <div *ngIf=\"d.content\" [innerHTML]=\"d.content\" class=\"loading-content\"></div>\n    </div>\n  ",
+            directives: [backdrop_1.Backdrop, common_1.NgIf, spinner_1.Spinner],
             host: {
                 'role': 'dialog'
             },
@@ -56838,6 +60346,7 @@ var LoadingCmp = (function () {
     ], LoadingCmp);
     return LoadingCmp;
 }());
+exports.LoadingCmp = LoadingCmp;
 /**
  * Animations for loading
  */
@@ -56951,7 +60460,201 @@ var LoadingWpPopOut = (function (_super) {
 transition_1.Transition.register('loading-wp-pop-out', LoadingWpPopOut);
 var loadingIds = -1;
 
-},{"../../animations/animation":427,"../../config/config":504,"../../transitions/transition":524,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],455:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/config":549,"../../transitions/transition":572,"../../util/util":587,"../backdrop/backdrop":472,"../nav/nav-params":506,"../nav/view-controller":512,"../spinner/spinner":531,"@angular/common":100,"@angular/core":247}],494:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var util_1 = require('../../util/util');
+var loading_component_1 = require('./loading-component');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Loading = (function (_super) {
+    __extends(Loading, _super);
+    function Loading(app, opts) {
+        if (opts === void 0) { opts = {}; }
+        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
+        _super.call(this, loading_component_1.LoadingCmp, opts);
+        this._app = app;
+        this.isOverlay = true;
+        // by default, loading indicators should not fire lifecycle events of other views
+        // for example, when an loading indicators enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+     * @private
+     */
+    Loading.prototype.getTransitionName = function (direction) {
+        var key = (direction === 'back' ? 'loadingLeave' : 'loadingEnter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * Present the loading instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Loading.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject LoadingController instead
+     */
+    Loading.create = function (opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return Loading;
+}(view_controller_1.ViewController));
+exports.Loading = Loading;
+/**
+ * @name LoadingController
+ * @description
+ * An overlay that can be used to indicate activity while blocking user
+ * interaction. The loading indicator appears on top of the app's content,
+ * and can be dismissed by the app to resume user interaction with
+ * the app. It includes an optional backdrop, which can be disabled
+ * by setting `showBackdrop: false` upon creation.
+ *
+ * ### Creating
+ * You can pass all of the loading options in the first argument of
+ * the create method: `create(opts)`. The spinner name should be
+ * passed in the `spinner` property, and any optional HTML can be passed
+ * in the `content` property. If you do not pass a value to `spinner`
+ * the loading indicator will use the spinner specified by the mode. To
+ * set the spinner name across the app, set the value of `loadingSpinner`
+ * in your app's config. To hide the spinner, set `loadingSpinner: 'hide'`
+ * in the app's config or pass `spinner: 'hide'` in the loading
+ * options. See the [create](#create) method below for all available options.
+ *
+ * ### Dismissing
+ * The loading indicator can be dismissed automatically after a specific
+ * amount of time by passing the number of milliseconds to display it in
+ * the `duration` of the loading options. By default the loading indicator
+ * will show even during page changes, but this can be disabled by setting
+ * `dismissOnPageChange` to `true`. To dismiss the loading indicator after
+ * creation, call the `dismiss()` method on the Loading instance. The
+ * `onDidDismiss` function can be called to perform an action after the loading
+ * indicator is dismissed.
+ *
+ * >Note that after the component is dismissed, it will not be usable anymore
+ * and another one must be created. This can be avoided by wrapping the
+ * creation and presentation of the component in a reusable function as shown
+ * in the `usage` section below.
+ *
+ * ### Limitations
+ * The element is styled to appear on top of other content by setting its
+ * `z-index` property. You must ensure no element has a stacking context with
+ * a higher `z-index` than this element.
+ *
+ * @usage
+ * ```ts
+ * constructor(private loadingCtrl: LoadingController) {
+ *
+ * }
+ *
+ * presentLoadingDefault() {
+ *   let loading = this.loadingCtrl.create({
+ *     content: 'Please wait...'
+ *   });
+ *
+ *   loading.present();
+ *
+ *   setTimeout(() => {
+ *     loading.dismiss();
+ *   }, 5000);
+ * }
+ *
+ * presentLoadingCustom() {
+ *   let loading = this.loadingCtrl.create({
+ *     spinner: 'hide',
+ *     content: `
+ *       <div class="custom-spinner-container">
+ *         <div class="custom-spinner-box"></div>
+ *       </div>`,
+ *     duration: 5000
+ *   });
+ *
+ *   loading.onDidDismiss(() => {
+ *     console.log('Dismissed loading');
+ *   });
+ *
+ *   loading.present();
+ * }
+ *
+ * presentLoadingText() {
+ *   let loading = this.loadingCtrl.create({
+ *     spinner: 'hide',
+ *     content: 'Loading Please Wait...'
+ *   });
+ *
+ *   loading.present();
+ *
+ *   setTimeout(() => {
+ *     this.nav.push(Page2);
+ *   }, 1000);
+ *
+ *   setTimeout(() => {
+ *     loading.dismiss();
+ *   }, 5000);
+ * }
+ * ```
+ * @advanced
+ *
+ * Loading options
+ *
+ * | Option                | Type       | Description                                                                                                      |
+ * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+ * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
+ * | content               |`string`    | The html content for the loading indicator.                                                                      |
+ * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+ * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+ * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
+ * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
+ *
+ * @demo /docs/v2/demos/loading/
+ * @see {@link /docs/v2/api/components/spinner/Spinner Spinner API Docs}
+ */
+var LoadingController = (function () {
+    function LoadingController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Create a loading indicator. See below for options.
+     * @param {LoadingOptions} opts Loading options
+     */
+    LoadingController.prototype.create = function (opts) {
+        if (opts === void 0) { opts = {}; }
+        return new Loading(this._app, opts);
+    };
+    LoadingController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], LoadingController);
+    return LoadingController;
+}());
+exports.LoadingController = LoadingController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./loading-component":493,"@angular/core":247}],495:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -57019,7 +60722,7 @@ var MenuClose = (function () {
 }());
 exports.MenuClose = MenuClose;
 
-},{"./menu-controller":456,"@angular/core":247}],456:[function(require,module,exports){
+},{"./menu-controller":496,"@angular/core":247}],496:[function(require,module,exports){
 "use strict";
 /**
  * @name MenuController
@@ -57052,26 +60755,26 @@ exports.MenuClose = MenuClose;
  * toggling the menu.
  *
  * ```ts
- * import {Component} from '@angular/core';
- * import {MenuController} from 'ionic-angular';
+ * import { Component } from '@angular/core';
+ * import { MenuController } from 'ionic-angular';
  *
  * @Component({...})
  * export class MyPage {
  *
- *  constructor(private menu: MenuController) {
+ *  constructor(public menuCtrl: MenuController) {
  *
  *  }
  *
  *  openMenu() {
- *    this.menu.open();
+ *    this.menuCtrl.open();
  *  }
  *
  *  closeMenu() {
- *    this.menu.close();
+ *    this.menuCtrl.close();
  *  }
  *
  *  toggleMenu() {
- *    this.menu.toggle();
+ *    this.menuCtrl.toggle();
  *  }
  *
  * }
@@ -57144,6 +60847,10 @@ var MenuController = (function () {
     MenuController.prototype.open = function (menuId) {
         var menu = this.get(menuId);
         if (menu) {
+            var openedMenu = this.getOpen();
+            if (openedMenu && menu !== openedMenu) {
+                openedMenu.setOpen(false, false);
+            }
             return menu.open();
         }
         return Promise.resolve(false);
@@ -57163,18 +60870,13 @@ var MenuController = (function () {
         }
         else {
             // find the menu that is open
-            menu = this._menus.find(function (m) { return m.isOpen; });
+            menu = this.getOpen();
         }
         if (menu) {
             // close the menu
             return menu.close();
         }
         return Promise.resolve(false);
-    };
-    MenuController.prototype.tempDisable = function (temporarilyDisable) {
-        this._menus.forEach(function (menu) {
-            menu.tempDisable(temporarilyDisable);
-        });
     };
     /**
      * Toggle the menu. If it's closed, it will open, and if opened, it
@@ -57185,6 +60887,10 @@ var MenuController = (function () {
     MenuController.prototype.toggle = function (menuId) {
         var menu = this.get(menuId);
         if (menu) {
+            var openedMenu = this.getOpen();
+            if (openedMenu && menu !== openedMenu) {
+                openedMenu.setOpen(false, false);
+            }
             return menu.toggle();
         }
         return Promise.resolve(false);
@@ -57236,7 +60942,7 @@ var MenuController = (function () {
      * provided, then it'll try to find the menu using the menu's `id`
      * property. If a menu is not found then it'll return `null`.
      * @param {string} [menuId]  Optionally get the menu by its id, or side.
-     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+     * @return {Menu} Returns the instance of the menu if found, otherwise `null`.
      */
     MenuController.prototype.get = function (menuId) {
         var menu;
@@ -57257,10 +60963,17 @@ var MenuController = (function () {
         }
         // return the first enabled menu
         menu = this._menus.find(function (m) { return m.enabled; });
-        if (menu)
+        if (menu) {
             return menu;
+        }
         // get the first menu in the array, if one exists
         return (this._menus.length ? this._menus[0] : null);
+    };
+    /**
+     * @return {Menu} Returns the instance of the menu already opened, otherwise `null`.
+     */
+    MenuController.prototype.getOpen = function () {
+        return this._menus.find(function (m) { return m.isOpen; });
     };
     /**
      * @return {Array<Menu>}  Returns an array of all menu instances.
@@ -57300,7 +61013,7 @@ var MenuController = (function () {
 exports.MenuController = MenuController;
 var menuTypes = {};
 
-},{}],457:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -57320,50 +61033,26 @@ var MenuContentGesture = (function (_super) {
             direction: 'x',
             edge: menu.side,
             threshold: 0,
-            maxEdgeStart: menu.maxEdgeStart || 75
+            maxEdgeStart: menu.maxEdgeStart || 50,
+            maxAngle: 40,
+            gesture: menu.gestureCtrl.create('menu-swipe', {
+                priority: 10 /* MenuSwipe */,
+            })
         }, options));
         this.menu = menu;
     }
     MenuContentGesture.prototype.canStart = function (ev) {
         var menu = this.menu;
         if (!menu.enabled || !menu.swipeEnabled) {
-            void 0;
             return false;
         }
-        if (ev.distance > 50) {
-            // the distance is longer than you'd expect a side menu swipe to be
-            void 0;
+        if (menu.isOpen) {
+            return true;
+        }
+        else if (menu.getMenuController().getOpen()) {
             return false;
         }
-        void 0;
-        if (menu.side === 'right') {
-            // right side
-            if (menu.isOpen) {
-                // right side, opened
-                return true;
-            }
-            else {
-                // right side, closed
-                if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
-                    return _super.prototype.canStart.call(this, ev);
-                }
-            }
-        }
-        else {
-            // left side
-            if (menu.isOpen) {
-                // left side, opened
-                return true;
-            }
-            else {
-                // left side, closed
-                if (ev.angle > -40 && ev.angle < 40) {
-                    return _super.prototype.canStart.call(this, ev);
-                }
-            }
-        }
-        // didn't pass the test, don't open this menu
-        return false;
+        return _super.prototype.canStart.call(this, ev);
     };
     // Set CSS, then wait one frame for it to apply before sliding starts
     MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
@@ -57374,18 +61063,18 @@ var MenuContentGesture = (function (_super) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var stepValue = (slide.distance / z);
         void 0;
-        ev.srcEvent.preventDefault();
         ev.preventDefault();
         this.menu.swipeProgress(stepValue);
     };
     MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var currentStepValue = (slide.distance / z);
+        var velocity = slide.velocity;
         z = Math.abs(z * 0.5);
-        var shouldCompleteRight = (ev.velocityX >= 0)
-            && (ev.velocityX > 0.2 || slide.delta > z);
-        var shouldCompleteLeft = (ev.velocityX <= 0)
-            && (ev.velocityX < -0.2 || slide.delta < -z);
+        var shouldCompleteRight = (velocity >= 0)
+            && (velocity > 0.2 || slide.delta > z);
+        var shouldCompleteLeft = (velocity <= 0)
+            && (velocity < -0.2 || slide.delta < -z);
         void 0;
         this.menu.swipeEnd(shouldCompleteLeft, shouldCompleteRight, currentStepValue);
     };
@@ -57414,21 +61103,8 @@ var MenuContentGesture = (function (_super) {
     return MenuContentGesture;
 }(slide_edge_gesture_1.SlideEdgeGesture));
 exports.MenuContentGesture = MenuContentGesture;
-/**
- * Gesture attached to the actual menu itself
- */
-var MenuTargetGesture = (function (_super) {
-    __extends(MenuTargetGesture, _super);
-    function MenuTargetGesture(menu, menuEle) {
-        _super.call(this, menu, menuEle, {
-            maxEdgeStart: 0
-        });
-    }
-    return MenuTargetGesture;
-}(MenuContentGesture));
-exports.MenuTargetGesture = MenuTargetGesture;
 
-},{"../../gestures/slide-edge-gesture":511,"../../util/util":539}],458:[function(require,module,exports){
+},{"../../gestures/slide-edge-gesture":559,"../../util/util":587}],498:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -57587,7 +61263,7 @@ var MenuToggle = (function () {
 }());
 exports.MenuToggle = MenuToggle;
 
-},{"../nav/view-controller":470,"../navbar/navbar":471,"./menu-controller":456,"@angular/core":247}],459:[function(require,module,exports){
+},{"../nav/view-controller":512,"../navbar/navbar":513,"./menu-controller":496,"@angular/core":247}],499:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -57607,11 +61283,16 @@ var MenuType = (function () {
     function MenuType() {
         this.ani = new animation_1.Animation();
     }
-    MenuType.prototype.setOpen = function (shouldOpen, done) {
-        this.ani
+    MenuType.prototype.setOpen = function (shouldOpen, animated, done) {
+        var ani = this.ani
             .onFinish(done, true)
-            .reverse(!shouldOpen)
-            .play();
+            .reverse(!shouldOpen);
+        if (animated) {
+            ani.play();
+        }
+        else {
+            ani.play({ duration: 0 });
+        }
     };
     MenuType.prototype.setProgressStart = function (isOpen) {
         this.isOpening = !isOpen;
@@ -57733,13 +61414,8 @@ var MenuOverlayType = (function (_super) {
 }(MenuType));
 menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
-},{"../../animations/animation":427,"./menu-controller":456}],460:[function(require,module,exports){
+},{"../../animations/animation":464,"./menu-controller":496}],500:[function(require,module,exports){
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57752,12 +61428,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var backdrop_1 = require('../backdrop/backdrop');
 var config_1 = require('../../config/config');
-var ion_1 = require('../ion');
 var util_1 = require('../../util/util');
 var keyboard_1 = require('../../util/keyboard');
 var menu_gestures_1 = require('./menu-gestures');
 var menu_controller_1 = require('./menu-controller');
 var platform_1 = require('../../platform/platform');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 /**
  * @name Menu
  * @description
@@ -57902,10 +61578,10 @@ var platform_1 = require('../../platform/platform');
  *
  * @Component({...})
  * export class MyPage {
- *  constructor(private menu: MenuController) {}
+ *  constructor(public menuCtrl: MenuController) {}
  *
  *  openMenu() {
- *    this.menu.open();
+ *    this.menuCtrl.open();
  *  }
  * }
  * ```
@@ -57921,10 +61597,8 @@ var platform_1 = require('../../platform/platform');
  * @see {@link ../../nav/Nav Nav API Docs}
  * @see {@link ../../nav/NavController NavController API Docs}
  */
-var Menu = (function (_super) {
-    __extends(Menu, _super);
-    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone) {
-        _super.call(this, _elementRef);
+var Menu = (function () {
+    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, gestureCtrl) {
         this._menuCtrl = _menuCtrl;
         this._elementRef = _elementRef;
         this._config = _config;
@@ -57932,6 +61606,7 @@ var Menu = (function (_super) {
         this._renderer = _renderer;
         this._keyboard = _keyboard;
         this._zone = _zone;
+        this.gestureCtrl = gestureCtrl;
         this._preventTime = 0;
         this._isEnabled = true;
         this._isSwipeEnabled = true;
@@ -58018,8 +61693,7 @@ var Menu = (function (_super) {
         }
         self._renderer.setElementAttribute(self._elementRef.nativeElement, 'type', self.type);
         // add the gestures
-        self._cntGesture = new menu_gestures_1.MenuContentGesture(self, self.getContentElement());
-        self._menuGesture = new menu_gestures_1.MenuTargetGesture(self, self.getNativeElement());
+        self._cntGesture = new menu_gestures_1.MenuContentGesture(self, document.body);
         // register listeners if this menu is enabled
         // check if more than one menu is on the same side
         var hasEnabledSameSideMenu = self._menuCtrl.getMenus().some(function (m) {
@@ -58062,16 +61736,12 @@ var Menu = (function (_super) {
             if (self._isEnabled && self._isSwipeEnabled && !self._cntGesture.isListening) {
                 // should listen, but is not currently listening
                 void 0;
-                self._zone.runOutsideAngular(function () {
-                    self._cntGesture.listen();
-                    self._menuGesture.listen();
-                });
+                self._cntGesture.listen();
             }
             else if (self._cntGesture.isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
                 // should not listen, but is currently listening
                 void 0;
                 self._cntGesture.unlisten();
-                self._menuGesture.unlisten();
             }
         }
     };
@@ -58090,8 +61760,9 @@ var Menu = (function (_super) {
     /**
      * @private
      */
-    Menu.prototype.setOpen = function (shouldOpen) {
+    Menu.prototype.setOpen = function (shouldOpen, animated) {
         var _this = this;
+        if (animated === void 0) { animated = true; }
         // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
         // or swiping open the menu while pressing down on the MenuToggle button
         if ((shouldOpen && this.isOpen) || this._isPrevented()) {
@@ -58099,7 +61770,7 @@ var Menu = (function (_super) {
         }
         this._before();
         return new Promise(function (resolve) {
-            _this._getType().setOpen(shouldOpen, function () {
+            _this._getType().setOpen(shouldOpen, animated, function () {
                 _this._after(shouldOpen);
                 resolve(_this.isOpen);
             });
@@ -58179,20 +61850,6 @@ var Menu = (function (_super) {
             }
         }
     };
-    /**
-     * @private
-     */
-    Menu.prototype.tempDisable = function (temporarilyDisable) {
-        if (temporarilyDisable) {
-            this._prevEnabled = this._isEnabled;
-            this._getType().setProgessStep(0);
-            this.enable(false);
-        }
-        else {
-            this.enable(this._prevEnabled);
-            this._after(false);
-        }
-    };
     Menu.prototype._prevent = function () {
         // used to prevent unwanted opening/closing after swiping open/close
         // or swiping open the menu while pressing down on the MenuToggle
@@ -58247,11 +61904,14 @@ var Menu = (function (_super) {
         this.swipeEnabled = shouldEnable;
         return this;
     };
+    Menu.prototype.getNativeElement = function () {
+        return this._elementRef.nativeElement;
+    };
     /**
      * @private
      */
     Menu.prototype.getMenuElement = function () {
-        return this.getNativeElement();
+        return this.getNativeElement().querySelector('.menu-inner');
     };
     /**
      * @private
@@ -58263,7 +61923,16 @@ var Menu = (function (_super) {
      * @private
      */
     Menu.prototype.getBackdropElement = function () {
-        return this.backdrop.elementRef.nativeElement;
+        return this.backdrop.getNativeElement();
+    };
+    Menu.prototype.width = function () {
+        return this.getMenuElement().offsetWidth;
+    };
+    /**
+     * @private
+     */
+    Menu.prototype.getMenuController = function () {
+        return this._menuCtrl;
     };
     /**
      * @private
@@ -58271,7 +61940,6 @@ var Menu = (function (_super) {
     Menu.prototype.ngOnDestroy = function () {
         this._menuCtrl.unregister(this);
         this._cntGesture && this._cntGesture.destroy();
-        this._menuGesture && this._menuGesture.destroy();
         this._type && this._type.destroy();
         this._resizeUnreg && this._resizeUnreg();
         this._cntEle = null;
@@ -58330,18 +61998,18 @@ var Menu = (function (_super) {
             host: {
                 'role': 'navigation'
             },
-            template: '<ng-content></ng-content>' +
-                '<ion-backdrop (click)="bdClick($event)" disableScroll="false"></ion-backdrop>',
+            template: "\n    <div class=\"menu-inner\"><ng-content></ng-content></div>\n    <ion-backdrop (click)=\"bdClick($event)\" disableScroll=\"false\"></ion-backdrop>\n  ",
+            directives: [backdrop_1.Backdrop],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
-        __metadata('design:paramtypes', [menu_controller_1.MenuController, core_1.ElementRef, config_1.Config, platform_1.Platform, core_1.Renderer, keyboard_1.Keyboard, core_1.NgZone])
+        __metadata('design:paramtypes', [menu_controller_1.MenuController, core_1.ElementRef, config_1.Config, platform_1.Platform, core_1.Renderer, keyboard_1.Keyboard, core_1.NgZone, gesture_controller_1.GestureController])
     ], Menu);
     return Menu;
-}(ion_1.Ion));
+}());
 exports.Menu = Menu;
 
-},{"../../config/config":504,"../../platform/platform":514,"../../util/keyboard":536,"../../util/util":539,"../backdrop/backdrop":433,"../ion":446,"./menu-controller":456,"./menu-gestures":457,"@angular/core":247}],461:[function(require,module,exports){
+},{"../../config/config":549,"../../gestures/gesture-controller":555,"../../platform/platform":562,"../../util/keyboard":584,"../../util/util":587,"../backdrop/backdrop":472,"./menu-controller":496,"./menu-gestures":497,"@angular/core":247}],501:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -58360,165 +62028,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var bootstrap_1 = require('../../config/bootstrap');
 var animation_1 = require('../../animations/animation');
-var util_1 = require('../../util/util');
+var backdrop_1 = require('../backdrop/backdrop');
 var key_1 = require('../../util/key');
 var nav_params_1 = require('../nav/nav-params');
+var util_1 = require('../../util/util');
 var page_transition_1 = require('../../transitions/page-transition');
 var view_controller_1 = require('../nav/view-controller');
 var dom_1 = require('../../util/dom');
 /**
- * @name Modal
- * @description
- * A Modal is a content pane that goes over the user's current page.
- * Usually it is used for making a choice or editing an item. A modal uses the
- * `NavController` to
- * {@link /docs/v2/api/components/nav/NavController/#present present}
- * itself in the root nav stack. It is added to the stack similar to how
- * {@link /docs/v2/api/components/nav/NavController/#push NavController.push}
- * works.
- *
- * When a modal (or any other overlay such as an alert or actionsheet) is
- * "presented" to a nav controller, the overlay is added to the app's root nav.
- * After the modal has been presented, from within the component instance The
- * modal can later be closed or "dismissed" by using the ViewController's
- * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
- * on the root nav controller.
- *
- * Data can be passed to a new modal through `Modal.create()` as the second
- * argument. The data can then be accessed from the opened page by injecting
- * `NavParams`. Note that the page, which opened as a modal, has no special
- * "modal" logic within it, but uses `NavParams` no differently than a
- * standard page.
- *
- * @usage
- * ```ts
- * import { Modal, NavController, NavParams } from 'ionic-angular';
- *
- * @Component(...)
- * class HomePage {
- *
- *  constructor(nav: NavController) {
- *    this.nav = nav;
- *  }
- *
- *  presentProfileModal() {
- *    let profileModal = Modal.create(Profile, { userId: 8675309 });
- *    this.nav.present(profileModal);
- *  }
- *
- * }
- *
- * @Component(...)
- * class Profile {
- *
- *  constructor(params: NavParams) {
- *    console.log('UserId', params.get('userId'));
- *  }
- *
- * }
- * ```
- *
- * A modal can also emit data, which is useful when it is used to add or edit
- * data. For example, a profile page could slide up in a modal, and on submit,
- * the submit button could pass the updated profile data, then dismiss the
- * modal.
- *
- * ```ts
- * import { Component } from '@angular/core';
- * import { Modal, NavController, ViewController } from 'ionic-angular';
- *
- * @Component(...)
- * class HomePage {
- *
- *  constructor(nav: NavController) {
- *    this.nav = nav;
- *  }
- *
- *  presentContactModal() {
- *    let contactModal = Modal.create(ContactUs);
- *    this.nav.present(contactModal);
- *  }
- *
- *  presentProfileModal() {
- *    let profileModal = Modal.create(Profile, { userId: 8675309 });
- *    profileModal.onDismiss(data => {
- *      console.log(data);
- *    });
- *    this.nav.present(profileModal);
- *  }
- *
- * }
- *
- * @Component(...)
- * class Profile {
- *
- *  constructor(viewCtrl: ViewController) {
- *    this.viewCtrl = viewCtrl;
- *  }
- *
- *  dismiss() {
- *    let data = { 'foo': 'bar' };
- *    this.viewCtrl.dismiss(data);
- *  }
- *
- * }
- * ```
- * @demo /docs/v2/demos/modal/
- * @see {@link /docs/v2/components#modals Modal Component Docs}
+ * @private
  */
-var Modal = (function (_super) {
-    __extends(Modal, _super);
-    function Modal(componentType, data, opts) {
-        if (data === void 0) { data = {}; }
-        if (opts === void 0) { opts = {}; }
-        data.componentType = componentType;
-        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
-        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-        data.opts = opts;
-        _super.call(this, ModalCmp, data);
-        this.isOverlay = true;
-        this.usePortal = true;
-    }
-    /**
-     * @private
-     */
-    Modal.prototype.getTransitionName = function (direction) {
-        var key = (direction === 'back' ? 'modalLeave' : 'modalEnter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * Create a modal with the following options
-     *
-     * | Option                | Type       | Description                                                                                                      |
-     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-     *
-     *
-     * @param {object} componentType The Modal view
-     * @param {object} data Any data to pass to the Modal view
-     * @param {object} opts Modal options
-     */
-    Modal.create = function (componentType, data, opts) {
-        if (data === void 0) { data = {}; }
-        if (opts === void 0) { opts = {}; }
-        return new Modal(componentType, data, opts);
-    };
-    // Override the load method and load our child component
-    Modal.prototype.loaded = function (done) {
-        var _this = this;
-        // grab the instance, and proxy the ngAfterViewInit method
-        var originalNgAfterViewInit = this.instance.ngAfterViewInit;
-        this.instance.ngAfterViewInit = function () {
-            if (originalNgAfterViewInit) {
-                originalNgAfterViewInit();
-            }
-            _this.instance.loadComponent(done);
-        };
-    };
-    return Modal;
-}(view_controller_1.ViewController));
-exports.Modal = Modal;
 var ModalCmp = (function () {
     function ModalCmp(_compiler, _renderer, _navParams, _viewCtrl) {
         this._compiler = _compiler;
@@ -58571,10 +62090,8 @@ var ModalCmp = (function () {
     ModalCmp = __decorate([
         core_1.Component({
             selector: 'ion-modal',
-            template: '<ion-backdrop disableScroll="false" (click)="bdClick($event)"></ion-backdrop>' +
-                '<div class="modal-wrapper">' +
-                '<div #viewport nav-viewport></div>' +
-                '</div>'
+            template: "\n    <ion-backdrop disableScroll=\"false\" (click)=\"bdClick($event)\"></ion-backdrop>\n    <div class=\"modal-wrapper\">\n      <div #viewport nav-viewport></div>\n    </div>\n  ",
+            directives: [backdrop_1.Backdrop]
         }), 
         __metadata('design:paramtypes', [core_1.ComponentResolver, core_1.Renderer, nav_params_1.NavParams, view_controller_1.ViewController])
     ], ModalCmp);
@@ -58680,7 +62197,218 @@ var ModalMDSlideOut = (function (_super) {
 }(page_transition_1.PageTransition));
 page_transition_1.PageTransition.register('modal-md-slide-out', ModalMDSlideOut);
 
-},{"../../animations/animation":427,"../../config/bootstrap":503,"../../transitions/page-transition":520,"../../util/dom":531,"../../util/key":535,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],462:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/bootstrap":548,"../../transitions/page-transition":568,"../../util/dom":579,"../../util/key":583,"../../util/util":587,"../backdrop/backdrop":472,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/core":247}],502:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var util_1 = require('../../util/util');
+var modal_component_1 = require('./modal-component');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Modal = (function (_super) {
+    __extends(Modal, _super);
+    function Modal(app, componentType, data, opts) {
+        if (data === void 0) { data = {}; }
+        if (opts === void 0) { opts = {}; }
+        data.componentType = componentType;
+        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+        data.opts = opts;
+        _super.call(this, modal_component_1.ModalCmp, data);
+        this._app = app;
+        this.isOverlay = true;
+    }
+    /**
+     * @private
+     */
+    Modal.prototype.getTransitionName = function (direction) {
+        var key = (direction === 'back' ? 'modalLeave' : 'modalEnter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * @private
+     * Override the load method and load our child component
+     */
+    Modal.prototype.loaded = function (done) {
+        var _this = this;
+        // grab the instance, and proxy the ngAfterViewInit method
+        var originalNgAfterViewInit = this.instance.ngAfterViewInit;
+        this.instance.ngAfterViewInit = function () {
+            if (originalNgAfterViewInit) {
+                originalNgAfterViewInit();
+            }
+            _this.instance.loadComponent(done);
+        };
+    };
+    /**
+     * Present the action sheet instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Modal.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject ModalController instead
+     */
+    Modal.create = function (cmp, opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return Modal;
+}(view_controller_1.ViewController));
+exports.Modal = Modal;
+/**
+ * @name ModalController
+ * @description
+ * A Modal is a content pane that goes over the user's current page.
+ * Usually it is used for making a choice or editing an item. A modal uses the
+ * `NavController` to
+ * {@link /docs/v2/api/components/nav/NavController/#present present}
+ * itself in the root nav stack. It is added to the stack similar to how
+ * {@link /docs/v2/api/components/nav/NavController/#push NavController.push}
+ * works.
+ *
+ * When a modal (or any other overlay such as an alert or actionsheet) is
+ * "presented" to a nav controller, the overlay is added to the app's root nav.
+ * After the modal has been presented, from within the component instance The
+ * modal can later be closed or "dismissed" by using the ViewController's
+ * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
+ * on the root nav controller.
+ *
+ * Data can be passed to a new modal through `Modal.create()` as the second
+ * argument. The data can then be accessed from the opened page by injecting
+ * `NavParams`. Note that the page, which opened as a modal, has no special
+ * "modal" logic within it, but uses `NavParams` no differently than a
+ * standard page.
+ *
+ * @usage
+ * ```ts
+ * import { ModalController, NavParams } from 'ionic-angular';
+ *
+ * @Component(...)
+ * class HomePage {
+ *
+ *  constructor(public modalCtrl: ModalController) {
+ *
+ *  }
+ *
+ *  presentProfileModal() {
+ *    let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+ *    profileModal.present();
+ *  }
+ *
+ * }
+ *
+ * @Component(...)
+ * class Profile {
+ *
+ *  constructor(params: NavParams) {
+ *    console.log('UserId', params.get('userId'));
+ *  }
+ *
+ * }
+ * ```
+ *
+ * @advanced
+ *
+ * | Option                | Type       | Description                                                                                                      |
+ * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+ * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+ * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+ *
+ * A modal can also emit data, which is useful when it is used to add or edit
+ * data. For example, a profile page could slide up in a modal, and on submit,
+ * the submit button could pass the updated profile data, then dismiss the
+ * modal.
+ *
+ * ```ts
+ * import { Component } from '@angular/core';
+ * import { ModalController, ViewController } from 'ionic-angular';
+ *
+ * @Component(...)
+ * class HomePage {
+ *
+ *  constructor(public modalCtrl: ModalController) {
+ *
+ *  }
+ *
+ *  presentContactModal() {
+ *    let contactModal = this.modalCtrl.create(ContactUs);
+ *    contactModal.present();
+ *  }
+ *
+ *  presentProfileModal() {
+ *    let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+ *    profileModal.onDidDismiss(data => {
+ *      console.log(data);
+ *    });
+ *    profileModal.present();
+ *  }
+ *
+ * }
+ *
+ * @Component(...)
+ * class Profile {
+ *
+ *  constructor(public viewCtrl: ViewController) {
+ *
+ *  }
+ *
+ *  dismiss() {
+ *    let data = { 'foo': 'bar' };
+ *    this.viewCtrl.dismiss(data);
+ *  }
+ *
+ * }
+ * ```
+ * @demo /docs/v2/demos/modal/
+ * @see {@link /docs/v2/components#modals Modal Component Docs}
+ */
+var ModalController = (function () {
+    function ModalController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Create a modal to display. See below for options.
+     *
+     * @param {object} componentType The Modal view
+     * @param {object} data Any data to pass to the Modal view
+     * @param {object} opts Modal options
+     */
+    ModalController.prototype.create = function (componentType, data, opts) {
+        if (data === void 0) { data = {}; }
+        if (opts === void 0) { opts = {}; }
+        return new Modal(this._app, componentType, data, opts);
+    };
+    ModalController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], ModalController);
+    return ModalController;
+}());
+exports.ModalController = ModalController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./modal-component":501,"@angular/core":247}],503:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -58691,186 +62419,37 @@ var core_1 = require('@angular/core');
 var bootstrap_1 = require('../../config/bootstrap');
 var ion_1 = require('../ion');
 var util_1 = require('../../util/util');
-var menu_controller_1 = require('../menu/menu-controller');
+var nav_controller_1 = require('./nav-controller');
+var nav_interfaces_1 = require('./nav-interfaces');
 var nav_params_1 = require('./nav-params');
 var swipe_back_1 = require('./swipe-back');
 var transition_1 = require('../../transitions/transition');
 var view_controller_1 = require('./view-controller');
 /**
- * @name NavController
- * @description
- * _For examples on the basic usage of NavController, check out the
- * [Navigation section](../../../../components/#navigation) of the Component
- * docs._
- *
- * NavController is the base class for navigation controller components like
- * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
- * to navigate to [pages](#creating_pages) in your app. At a basic level, a
- * navigation controller is an array of pages representing a particular history
- * (of a Tab for example). This array can be manipulated to navigate throughout
- * an app by pushing and popping pages or inserting and removing them at
- * arbitrary locations in history.
- *
- * The current page is the last one in the array, or the top of the stack if we
- * think of it that way.  [Pushing](#push) a new page onto the top of the
- * navigation stack causes the new page to be animated in, while [popping](#pop)
- * the current page will navigate to the previous page in the stack.
- *
- * Unless you are using a directive like [NavPush](../NavPush/), or need a
- * specific NavController, most times you will inject and use a reference to the
- * nearest NavController to manipulate the navigation stack.
- *
- * ### Injecting NavController
- * Injecting NavController will always get you an instance of the nearest
- * NavController, regardless of whether it is a Tab or a Nav.
- *
- * Behind the scenes, when Ionic instantiates a new NavController, it creates an
- * injector with NavController bound to that instance (usually either a Nav or
- * Tab) and adds the injector to its own providers.  For more information on
- * providers and dependency injection, see [Providers and DI]().
- *
- * Instead, you can inject NavController and know that it is the correct
- * navigation controller for most situations (for more advanced situations, see
- * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
- *
- * ```ts
- *  class MyComponent {
- *    constructor(nav: NavController) {
- *      this.nav = nav;
- *    }
- *  }
- * ```
- *
- *
- * ## Page creation
- * Pages are created when they are added to the navigation stack.  For methods
- * like [push()](#push), the NavController takes any component class that is
- * decorated with `@Component` as its first argument.  The NavController then
- * compiles that component, adds it to the app and animates it into view.
- *
- * By default, pages are cached and left in the DOM if they are navigated away
- * from but still in the navigation stack (the exiting page on a `push()` for
- * example).  They are destroyed when removed from the navigation stack (on
- * [pop()](#pop) or [setRoot()](#setRoot)).
- *
- *
- * ## Lifecycle events
- * Lifecycle events are fired during various stages of navigation.  They can be
- * defined in any component type which is pushed/popped from a `NavController`.
- *
- * ```ts
- * import {Component } from '@angular/core';
- *
- * @Component({
- *   template: 'Hello World'
- * })
- * class HelloWorld {
- *   ionViewLoaded() {
- *     console.log("I'm alive!");
- *   }
- *   ionViewWillLeave() {
- *     console.log("Looks like I'm about to leave :(");
- *   }
- * }
- * ```
- *
- *  | Page Event         | Description                                                                                                                                                                                                                                                                       |
- *  |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
- *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
- *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                  |
- *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                            |
- *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                            |
- *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                         |
- *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                        |
- *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
- *
- *
- * ## Nav Transition Promises
- *
- * Navigation transitions are asynchronous, meaning they take a few moments to finish, and
- * the duration of a transition could be any number. In most cases the async nature of a
- * transition doesn't cause any problems and the nav controller is pretty good about handling
- * which transition was the most recent when multiple transitions have been kicked off.
- * However, when an app begins firing off many transitions, on the same stack at
- * *roughly* the same time, the nav controller can start to get lost as to which transition
- * should be finishing, and which transitions should not be animated.
- *
- * In cases where an app's navigation can be altered by other async tasks, which may or
- * may not take a long time, it's best to rely on each nav transition's returned
- * promise. So instead of firing and forgetting multiple `push` or `pop` nav transitions,
- * it's better to fire the next nav transition when the previous one has finished.
- *
- * In the example below, after the async operation has completed, we then want to transition
- * to another page. Where the potential problem comes in, is that if the async operation
- * completed 100ms after the first transition started, then kicking off another transition
- * halfway through the first transition ends up with a janky animation. Instead, it's best
- * to always ensure the first transition has already finished before starting the next.
- *
- * ```ts
- * // begin the first transition
- * let navTransition = this.nav.push(SomePage);
- *
- * // start an async call, we're not sure how long it'll take
- * someAsyncOperation().then(() => {
- *   // incase the async operation completed faster than the time
- *   // it took to finish the first transition, this logic should
- *   // always ensure that the previous transition has resolved
- *   // first before kicking off the next transition
- *   navTransition.then(() => {
- *     this.nav.push(AnotherPage);
- *   });
- * });
- * ```
- *
- * ## NavOptions
- *
- * Some methods on `NavController` allow for customizing the current transition.
- * To do this, we can pass an object with the modified properites.
- *
- * | Property  | Value     | Description                                                                                                |
- * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
- * | animate   | `boolean` | Whether or not the transition should animate.                                                              |
- * | animation | `string`  | What kind of animation should be used.                                                                     |
- * | direction | `string`  | The conceptual direction the user is navigating. For example, is the user navigating `forward`, or `back`? |
- * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
- * | easing    | `string`  | The easing for the animation.                                                                              |
- *
- * The property 'animation' understands the following values: `md-transition`, `ios-transition` and `wp-transition`.
- *
- * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+ * This class is for internal use only. It is not exported publicly.
  */
-var NavController = (function (_super) {
-    __extends(NavController, _super);
-    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler) {
+var NavControllerBase = (function (_super) {
+    __extends(NavControllerBase, _super);
+    function NavControllerBase(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler, _gestureCtrl) {
         _super.call(this, elementRef);
         this._app = _app;
         this._keyboard = _keyboard;
         this._zone = _zone;
         this._renderer = _renderer;
         this._compiler = _compiler;
+        this._gestureCtrl = _gestureCtrl;
         this._transIds = 0;
         this._init = false;
         this._children = [];
         this._ids = -1;
         this._views = [];
-        /**
-         * @private
-         */
-        this.routers = [];
-        /**
-         * @private
-         */
-        this.isPortal = false;
-        /**
-         * @private
-         */
-        this._trnsTime = 0;
+        this.trnsTime = 0;
         this.parent = parent;
         this.config = config;
         this._trnsDelay = config.get('pageTransitionDelay');
         this._sbEnabled = config.getBoolean('swipeBackEnabled');
         this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
-        this.id = (++ctrlIds).toString();
+        this.id = 'n' + (++ctrlIds);
         this.viewDidLoad = new core_1.EventEmitter();
         this.viewWillEnter = new core_1.EventEmitter();
         this.viewDidEnter = new core_1.EventEmitter();
@@ -58879,112 +62458,13 @@ var NavController = (function (_super) {
         this.viewWillUnload = new core_1.EventEmitter();
         this.viewDidUnload = new core_1.EventEmitter();
     }
-    /**
-     * @private
-     */
-    NavController.prototype.getPortal = function () {
-        return this._portal;
-    };
-    /**
-     * @private
-     */
-    NavController.prototype.setPortal = function (val) {
-        this._portal = val;
-    };
-    /**
-     * @private
-     */
-    NavController.prototype.setViewport = function (val) {
+    NavControllerBase.prototype.setViewport = function (val) {
         this._viewport = val;
     };
-    /**
-     * Set the root for the current navigation stack.
-     * @param {Page} page  The name of the component you want to push on the navigation stack.
-     * @param {object} [params={}] Any nav-params you want to pass along to the next view.
-     * @param {object} [opts={}] Any options you want to use pass to transtion.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.setRoot = function (page, params, opts) {
+    NavControllerBase.prototype.setRoot = function (page, params, opts) {
         return this.setPages([{ page: page, params: params }], opts);
     };
-    /**
-     * You can set the views of the current navigation stack and navigate to the
-     * last view.
-     *
-     *
-     *```ts
-     * import {NavController } from 'ionic-angular'
-     * import {Detail } from '../detail/detail'
-     * import {Info } from '../info/info'
-     *
-     *  export class Home {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    setPages() {
-     *      this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
-     *    }
-     *  }
-     *```
-     *
-     *
-     * In this example, we're giving the current nav stack an array of pages.
-     * Then the navigation stack will navigate to the last page in the array
-     * and remove the previously active page.
-     *
-     * By default animations are disabled, but they can be enabled by passing
-     * options to the navigation controller.
-     *
-     *
-     * ```ts
-     * import {NavController } from 'ionic-angular'
-     * import {Detail } from '../detail/detail'
-     *
-     *  export class Home {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    setPages() {
-     *      this.nav.setPages([ {page: List}, {page: Detail} ], {
-     *        animate: true
-     *      });
-     *    }
-     *  }
-     * ```
-     *
-     * You can also pass any navigation params to the individual pages in
-     * the array.
-     *
-     *
-     * ```ts
-     * import {NavController } from 'ionic-angular';
-     * import {Info } from '../info/info';
-     * import {List } from '../list/list';
-     * import {Detail } from '../detail/detail';
-     *
-     *  export class Home {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    setPages() {
-     *      this.nav.setPages([{
-     *        page: Info
-     *      }, {
-     *        page: List,
-     *        params: {tags: 'css'}
-     *      }, {
-     *        page: Detail,
-     *        params: {id: 325}
-     *      }]);
-     *    }
-     *  }
-     *```
-     *
-     * @param {array<Page>} pages  An arry of page components and their params to load in the stack.
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.setPages = function (pages, opts) {
+    NavControllerBase.prototype.setPages = function (pages, opts) {
         if (!pages || !pages.length) {
             return Promise.resolve(false);
         }
@@ -59001,7 +62481,7 @@ var NavController = (function (_super) {
             opts.animate = false;
         }
         // set the nav direction to "back" if it wasn't set
-        opts.direction = opts.direction || 'back';
+        opts.direction = opts.direction || nav_interfaces_1.DIRECTION_BACK;
         var resolve;
         var promise = new Promise(function (res) { resolve = res; });
         // start the transition, fire resolve when done...
@@ -59011,192 +62491,34 @@ var NavController = (function (_super) {
         });
         return promise;
     };
-    /**
-     * Push is how we can pass components and navigate to them. We push the component
-     * we want to navigate to on to the navigation stack.
-     *
-     * ```ts
-     * class MyClass{
-     *    constructor(nav:NavController){
-     *      this.nav = nav;
-     *    }
-     *
-     *    pushPage(){
-     *      this.nav.push(SecondView);
-     *    }
-     * }
-     * ```
-     *
-     * We can also pass along parameters to the next view, such as data that we have
-     * on the current view. This is a similar concept to to V1 apps with `$stateParams`.
-     *
-     * ```ts
-     * class MyClass{
-     *    constructor(nav:NavController){
-     *      this.nav = nav;
-     *    }
-     *
-     *    pushPage(user){
-     *       // user is an object we have in our view
-     *       // typically this comes from an ngFor or some array
-     *       // here we can create an object with a property of
-     *       // paramUser, and set its value to the user object we passed in
-     *      this.nav.push(SecondView, { paramUser: user });
-     *    }
-     * }
-     * ```
-     *
-     * We'll look at how we can access that data in the `SecondView` in the
-     * navParam docs.
-     *
-     * We can also pass any options to the transtion from that same method.
-     *
-     * ```ts
-     * class MyClass{
-     *    constructor(nav: NavController){
-     *      this.nav = nav;
-     *    }
-     *
-     *    pushPage(user){
-     *      this.nav.push(SecondView,{
-     *       // user is an object we have in our view
-     *       // typically this comes from an ngFor or some array
-     *       // here we can create an object with a property of
-     *       // paramUser, and set it's value to the user object we passed in
-     *       paramUser: user
-     *      },{
-     *       // here we can configure things like the animations direction or
-     *       // or if the view should animate at all.
-     *       direction: 'back'
-     *      });
-     *    }
-     * }
-     * ```
-     * @param {Page} page  The page component class you want to push on to the navigation stack
-     * @param {object} [params={}] Any nav-params you want to pass along to the next view
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.push = function (page, params, opts) {
-        return this.insertPages(-1, [{ page: page, params: params }], opts);
+    NavControllerBase.prototype.push = function (page, params, opts, done) {
+        return this.insertPages(-1, [{ page: page, params: params }], opts, done);
     };
     /**
-     * Present is how an app display overlays on top of the content, from within the
-     * root level `NavController`. The `present` method is used by overlays, such
-     * as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
-     * and `present` is that `present` takes a `ViewController` instance, whereas
-     * `push` takes a component class which hasn't been instantiated yet.
-     * Additionally, `present` will place the overlay in the root NavController's
-     * stack.
-     *
-     * ```ts
-     * class MyClass{
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *
-     *    presentModal() {
-     *      let modal = Modal.create(ProfilePage);
-     *      this.nav.present(modal);
-     *    }
-     * }
-     * ```
-     *
-     * @param {ViewController} enteringView The component you want to push on the navigation stack.
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     * DEPRECATED: Please use inject the overlays controller and use the present method on the instance instead.
      */
-    NavController.prototype.present = function (enteringView, opts) {
-        var rootNav = this.rootNav;
-        if (rootNav['_tabs']) {
-            // TODO: must have until this goes in
-            // https://github.com/angular/angular/issues/5481
-            void 0;
-            return;
-        }
-        if (util_1.isBlank(opts)) {
-            opts = {};
-        }
-        if (enteringView.usePortal && rootNav._portal) {
-            return rootNav._portal.present(enteringView, opts);
-        }
-        enteringView.setNav(rootNav);
-        opts.keyboardClose = false;
-        opts.direction = 'forward';
-        if (!opts.animation) {
-            opts.animation = enteringView.getTransitionName('forward');
-        }
-        enteringView.setLeavingOpts({
-            keyboardClose: false,
-            direction: 'back',
-            animation: enteringView.getTransitionName('back'),
-            ev: opts.ev
-        });
-        // present() always uses the root nav
-        // start the transition
-        return rootNav._insertViews(-1, [enteringView], opts);
+    NavControllerBase.prototype.present = function (enteringView, opts) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+        return Promise.resolve();
     };
-    /**
-     * Inserts a view into the nav stack at the specified index. This is useful if
-     * you need to add a view at any point in your navigation stack.
-     *
-     * ```ts
-     * export class Detail {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    insertPage(){
-     *      this.nav.insert(1, Info);
-     *    }
-     *  }
-     * ```
-     *
-     * This will insert the `Info` page into the second slot of our navigation stack.
-     *
-     * @param {number} insertIndex  The index where to insert the page.
-     * @param {Page} page  The component you want to insert into the nav stack.
-     * @param {object} [params={}] Any nav-params you want to pass along to the next page.
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.insert = function (insertIndex, page, params, opts) {
-        return this.insertPages(insertIndex, [{ page: page, params: params }], opts);
+    NavControllerBase.prototype.insert = function (insertIndex, page, params, opts, done) {
+        return this.insertPages(insertIndex, [{ page: page, params: params }], opts, done);
     };
-    /**
-     * Inserts multiple pages into the nav stack at the specified index.
-     *
-     * ```ts
-     * export class Detail {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    insertPages(){
-     *      let pages = [
-     *        { page: Info },
-     *        { page: ProfileList },
-     *        { page: ProfileDetail, params: {userId:5} }
-     *      ];
-     *      this.nav.insertPages(2, pages);
-     *    }
-     *  }
-     * ```
-     *
-     * This will insert each of the pages in the array, starting at the third slot
-     * (second index) of the nav stack. The last page in the array will animate
-     * in and become the active page.
-     *
-     * @param {number} insertIndex  The index where you want to insert the page.
-     * @param {array<{page: Page, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
+    NavControllerBase.prototype.insertPages = function (insertIndex, insertPages, opts, done) {
         var views = insertPages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
-        return this._insertViews(insertIndex, views, opts);
+        return this.insertViews(insertIndex, views, opts, done);
     };
-    NavController.prototype._insertViews = function (insertIndex, insertViews, opts) {
+    NavControllerBase.prototype.insertViews = function (insertIndex, insertViews, opts, done) {
+        if (opts === void 0) { opts = {}; }
+        var promise;
+        if (!done) {
+            // only create a promise if a done callback wasn't provided
+            promise = new Promise(function (res) { done = res; });
+        }
         if (!insertViews || !insertViews.length) {
-            return Promise.reject('invalid pages');
+            done(false);
+            return promise;
         }
         if (util_1.isBlank(opts)) {
             opts = {};
@@ -59204,20 +62526,22 @@ var NavController = (function (_super) {
         // insert the new page into the stack
         // returns the newly created entering view
         var enteringView = this._insert(insertIndex, insertViews);
+        // manually set the new view's id if an id was passed in the options
+        if (util_1.isPresent(opts.id)) {
+            enteringView.id = opts.id;
+        }
         // set the nav direction to "forward" if it wasn't set
         opts.direction = opts.direction || 'forward';
         // set which animation it should use if it wasn't set yet
         if (!opts.animation) {
             opts.animation = enteringView.getTransitionName(opts.direction);
         }
-        var resolve;
-        var promise = new Promise(function (res) { resolve = res; });
         // it's possible that the newly added view doesn't need to
         // transition in, but was simply inserted somewhere in the stack
         // go backwards through the stack and find the first active view
         // which could be active or one ready to enter
         for (var i = this._views.length - 1; i >= 0; i--) {
-            if (this._views[i].state === STATE_ACTIVE || this._views[i].state === STATE_INIT_ENTER) {
+            if (this._views[i].state === exports.STATE_ACTIVE || this._views[i].state === exports.STATE_INIT_ENTER) {
                 // found the view at the end of the stack that's either
                 // already active or it is about to enter
                 if (this._views[i] === enteringView) {
@@ -59225,12 +62549,16 @@ var NavController = (function (_super) {
                     // this means we should animate that bad boy in so it's the active view
                     // return a promise and resolve when the transition has completed
                     // get the leaving view which the _insert() already set
-                    var leavingView = this.getByState(STATE_INIT_LEAVE);
+                    var leavingView = this.getByState(exports.STATE_INIT_LEAVE);
+                    if (!leavingView && this._isPortal) {
+                        // if we didn't find an active view, and this is a portal
+                        var activeNav = this._app.getActiveNav();
+                        if (activeNav) {
+                            leavingView = activeNav.getByState(exports.STATE_INIT_LEAVE);
+                        }
+                    }
                     // start the transition, fire resolve when done...
-                    this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-                        // transition has completed!!
-                        resolve(hasCompleted);
-                    });
+                    this._transition(enteringView, leavingView, opts, done);
                     return promise;
                 }
                 break;
@@ -59240,12 +62568,10 @@ var NavController = (function (_super) {
         // but rather inserted somewhere in the middle or beginning
         // Since there are views after this new one, don't transition in
         // auto resolve cuz there was is no need for an animation
-        return Promise.resolve(enteringView);
+        done(enteringView);
+        return promise;
     };
-    /**
-     * @private
-     */
-    NavController.prototype._insert = function (insertIndex, insertViews) {
+    NavControllerBase.prototype._insert = function (insertIndex, insertViews) {
         // when this is done, there should only be at most
         // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
         // there should not be any that are STATE_ACTIVE after this is done
@@ -59257,15 +62583,22 @@ var NavController = (function (_super) {
         }
         // first see if there's an active view
         var view = this.getActive();
+        if (!view && this._isPortal) {
+            // if we didn't find an active view, and this is a portal
+            var activeNav = this._app.getActiveNav();
+            if (activeNav) {
+                view = activeNav.getActive();
+            }
+        }
         if (view) {
             // there's an active view, set that it's initialized to leave
-            view.state = STATE_INIT_LEAVE;
+            view.state = exports.STATE_INIT_LEAVE;
         }
-        else if (view = this.getByState(STATE_INIT_ENTER)) {
+        else if (view = this.getByState(exports.STATE_INIT_ENTER)) {
             // oh no, there's already a transition initalized ready to enter!
             // but it actually hasn't entered yet at all so lets
             // just keep it in the array, but not render or animate it in
-            view.state = STATE_INACTIVE;
+            view.state = exports.STATE_INACTIVE;
         }
         // insert each of the views in the pages array
         var insertView = null;
@@ -59273,42 +62606,55 @@ var NavController = (function (_super) {
             insertView = view;
             // create the new entering view
             view.setNav(_this);
-            view.state = STATE_INACTIVE;
+            view.state = exports.STATE_INACTIVE;
             // give this inserted view an ID
-            _this._incId(view);
+            view.id = _this.id + '-' + (++_this._ids);
             // insert the entering view into the correct index in the stack
             _this._views.splice(insertIndex + i, 0, view);
         });
         if (insertView) {
-            insertView.state = STATE_INIT_ENTER;
+            insertView.state = exports.STATE_INIT_ENTER;
         }
         return insertView;
     };
-    /**
-     * If you wanted to navigate back from a current view, you can use the
-     * back-button or programatically call `pop()`. Similar to `push()`, you
-     * can also pass navigation options.
-     *
-     * ```ts
-     * class SecondView{
-     *    constructor(nav:NavController){
-     *      this.nav = nav;
-     *    }
-     *    goBack(){
-     *      this.nav.pop();
-     *    }
-     * }
-     * ```
-     *
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.pop = function (opts) {
+    NavControllerBase.prototype.pop = function (opts, done) {
         // get the index of the active view
         // which will become the view to be leaving
-        var activeView = this.getByState(STATE_TRANS_ENTER) ||
-            this.getByState(STATE_INIT_ENTER) ||
+        var activeView = this.getByState(exports.STATE_TRANS_ENTER) ||
+            this.getByState(exports.STATE_INIT_ENTER) ||
             this.getActive();
+        return this.remove(this.indexOf(activeView), 1, opts, done);
+    };
+    NavControllerBase.prototype.popToRoot = function (opts, done) {
+        return this.popTo(this.first(), opts, done);
+    };
+    NavControllerBase.prototype.popTo = function (view, opts, done) {
+        var startIndex = this.indexOf(view);
+        if (startIndex < 0) {
+            return Promise.reject('View not found to pop to');
+        }
+        var activeView = this.getByState(exports.STATE_TRANS_ENTER) ||
+            this.getByState(exports.STATE_INIT_ENTER) ||
+            this.getActive();
+        var removeCount = this.indexOf(activeView) - startIndex;
+        return this.remove(startIndex + 1, removeCount, opts, done);
+    };
+    NavControllerBase.prototype.remove = function (startIndex, removeCount, opts, done) {
+        var _this = this;
+        if (startIndex === void 0) { startIndex = -1; }
+        if (removeCount === void 0) { removeCount = 1; }
+        var promise;
+        if (!done) {
+            promise = new Promise(function (resolve) { done = resolve; });
+        }
+        if (startIndex === -1) {
+            startIndex = (this._views.length - 1);
+        }
+        else if (startIndex < 0 || startIndex >= this._views.length) {
+            void 0;
+            done(false);
+            return promise;
+        }
         if (util_1.isBlank(opts)) {
             opts = {};
         }
@@ -59317,72 +62663,12 @@ var NavController = (function (_super) {
         if (util_1.isBlank(opts.climbNav)) {
             opts.climbNav = true;
         }
-        return this.remove(this.indexOf(activeView), 1, opts);
-    };
-    /**
-     * Similar to `pop()`, this method let's you navigate back to the root of
-     * the stack, no matter how many pages back that is.
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.popToRoot = function (opts) {
-        return this.popTo(this.first(), opts);
-    };
-    /**
-     * Pop to a specific view in the history stack.
-     * @param {ViewController} view  to pop to
-     * @param {object} [opts={}] Nav options to go with this transition.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.popTo = function (view, opts) {
-        var startIndex = this.indexOf(view);
-        if (startIndex < 0) {
-            return Promise.reject('View not found to pop to');
-        }
-        var activeView = this.getByState(STATE_TRANS_ENTER) ||
-            this.getByState(STATE_INIT_ENTER) ||
-            this.getActive();
-        var removeCount = this.indexOf(activeView) - startIndex;
-        return this.remove(startIndex + 1, removeCount, opts);
-    };
-    /**
-     * Removes a page from the nav stack at the specified index.
-     *
-     * ```ts
-     * export class Detail {
-     *    constructor(nav: NavController) {
-     *      this.nav = nav;
-     *    }
-     *    removePage(){
-     *      this.nav.remove(1);
-     *    }
-     *  }
-     * ```
-     *
-     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
-     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
-     * @param {object} [opts={}] Any options you want to use pass to transtion.
-     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
-     */
-    NavController.prototype.remove = function (startIndex, removeCount, opts) {
-        var _this = this;
-        if (startIndex === void 0) { startIndex = -1; }
-        if (removeCount === void 0) { removeCount = 1; }
-        if (startIndex === -1) {
-            startIndex = this._views.length - 1;
-        }
-        else if (startIndex < 0 || startIndex >= this._views.length) {
-            return Promise.reject('remove index out of range');
-        }
-        if (util_1.isBlank(opts)) {
-            opts = {};
-        }
         // default the direction to "back"
-        opts.direction = opts.direction || 'back';
+        opts.direction = opts.direction || nav_interfaces_1.DIRECTION_BACK;
         // figure out the states of each view in the stack
         var leavingView = this._remove(startIndex, removeCount);
         if (!leavingView) {
-            var forcedActive = this.getByState(STATE_FORCE_ACTIVE);
+            var forcedActive = this.getByState(exports.STATE_FORCE_ACTIVE);
             if (forcedActive) {
                 // this scenario happens when a remove is going on
                 // during a transition
@@ -59392,15 +62678,26 @@ var NavController = (function (_super) {
                     this._trans = null;
                     this._cleanup();
                 }
-                return Promise.resolve(false);
+                done(false);
+                return promise;
             }
         }
         if (leavingView) {
             // there is a view ready to leave, meaning that a transition needs
             // to happen and the previously active view is going to animate out
             // get the view thats ready to enter
-            var enteringView = this.getByState(STATE_INIT_ENTER);
-            if (!enteringView && !this.isPortal) {
+            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
+            if (!enteringView && this._isPortal) {
+                // if we didn't find an active view, and this is a portal
+                var activeNav = this._app.getActiveNav();
+                if (activeNav) {
+                    enteringView = activeNav.last();
+                    if (enteringView) {
+                        enteringView.state = exports.STATE_INIT_ENTER;
+                    }
+                }
+            }
+            if (!enteringView && !this._isPortal) {
                 // oh nos! no entering view to go to!
                 // if there is no previous view that would enter in this nav stack
                 // and the option is set to climb up the nav parent looking
@@ -59408,14 +62705,16 @@ var NavController = (function (_super) {
                 if (opts.climbNav) {
                     var parentNav = this.parent;
                     while (parentNav) {
-                        if (!parentNav['_tabs']) {
+                        if (!exports.isTabs(parentNav)) {
                             // Tabs can be a parent, but it is not a collection of views
                             // only we're looking for an actual NavController w/ stack of views
                             leavingView.fireWillLeave();
                             this.viewWillLeave.emit(leavingView);
+                            this._app.viewWillLeave.emit(leavingView);
                             return parentNav.pop(opts).then(function (rtnVal) {
                                 leavingView.fireDidLeave();
                                 _this.viewDidLeave.emit(leavingView);
+                                _this._app.viewDidLeave.emit(leavingView);
                                 return rtnVal;
                             });
                         }
@@ -59425,31 +62724,28 @@ var NavController = (function (_super) {
                 // there's no previous view and there's no valid parent nav
                 // to climb to so this shouldn't actually remove the leaving
                 // view because there's nothing that would enter, eww
-                leavingView.state = STATE_ACTIVE;
-                return Promise.resolve(false);
+                leavingView.state = exports.STATE_ACTIVE;
+                done(false);
+                return promise;
             }
-            var resolve_1;
-            var promise = new Promise(function (res) { resolve_1 = res; });
             if (!opts.animation) {
                 opts.animation = leavingView.getTransitionName(opts.direction);
             }
             // start the transition, fire resolve when done...
-            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
-                // transition has completed!!
-                resolve_1(hasCompleted);
-            });
+            this._transition(enteringView, leavingView, opts, done);
             return promise;
         }
         // no need to transition when the active view isn't being removed
         // there's still an active view after _remove() figured out states
         // so this means views that were only removed before the active
         // view, so auto-resolve since no transition needs to happen
-        return Promise.resolve(false);
+        done(false);
+        return promise;
     };
     /**
      * @private
      */
-    NavController.prototype._remove = function (startIndex, removeCount) {
+    NavControllerBase.prototype._remove = function (startIndex, removeCount) {
         var _this = this;
         // when this is done, there should only be at most
         // 1 STATE_INIT_ENTER and 1 STATE_INIT_LEAVE
@@ -59460,55 +62756,60 @@ var NavController = (function (_super) {
             view = this.getByIndex(i);
             if (!view)
                 break;
-            if (view.state === STATE_TRANS_ENTER || view.state === STATE_TRANS_LEAVE) {
+            if (view.state === exports.STATE_TRANS_ENTER || view.state === exports.STATE_TRANS_LEAVE) {
                 // oh no!!! this view should be removed, but it's
                 // actively transitioning in at the moment!!
                 // since it's viewable right now, let's just set that
                 // it should be removed after the transition
-                view.state = STATE_REMOVE_AFTER_TRANS;
+                view.state = exports.STATE_REMOVE_AFTER_TRANS;
+            }
+            else if (view.state === exports.STATE_INIT_ENTER) {
+                // asked to be removed before it even entered!
+                view.state = exports.STATE_CANCEL_ENTER;
             }
             else {
                 // if this view is already leaving then no need to immediately
                 // remove it, otherwise set the remove state
                 // this is useful if the view being removed isn't going to
                 // animate out, but just removed from the stack, no transition
-                view.state = STATE_REMOVE;
+                view.state = exports.STATE_REMOVE;
             }
         }
-        if (view = this.getByState(STATE_INIT_LEAVE)) {
+        if (view = this.getByState(exports.STATE_INIT_LEAVE)) {
             // looks like there's already an active leaving view
             // reassign previous entering view to just be inactive
-            var enteringView = this.getByState(STATE_INIT_ENTER);
+            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
             if (enteringView) {
-                enteringView.state = STATE_INACTIVE;
+                enteringView.state = exports.STATE_INACTIVE;
             }
             // from the index of the leaving view, go backwards and
             // find the first view that is inactive
             for (var i = this.indexOf(view) - 1; i >= 0; i--) {
-                if (this._views[i].state === STATE_INACTIVE) {
-                    this._views[i].state = STATE_INIT_ENTER;
+                if (this._views[i].state === exports.STATE_INACTIVE) {
+                    this._views[i].state = exports.STATE_INIT_ENTER;
                     break;
                 }
             }
         }
-        else if (view = this.getByState(STATE_TRANS_LEAVE)) {
+        else if (view = this.getByState(exports.STATE_TRANS_LEAVE)) {
             // an active transition is happening, but a new transition
             // still needs to happen force this view to be the active one
-            view.state = STATE_FORCE_ACTIVE;
+            view.state = exports.STATE_FORCE_ACTIVE;
         }
-        else if (view = this.getByState(STATE_REMOVE)) {
+        else if (view = this.getByState(exports.STATE_REMOVE)) {
             // there is no active transition about to happen
             // find the first view that is supposed to be removed and
             // set that it is the init leaving view
             // the first view to be removed, it should init leave
-            view.state = STATE_INIT_LEAVE;
+            view.state = exports.STATE_INIT_LEAVE;
             view.fireWillUnload();
             this.viewWillUnload.emit(view);
+            this._app.viewWillUnload.emit(view);
             // from the index of the leaving view, go backwards and
             // find the first view that is inactive so it can be the entering
             for (var i = this.indexOf(view) - 1; i >= 0; i--) {
-                if (this._views[i].state === STATE_INACTIVE) {
-                    this._views[i].state = STATE_INIT_ENTER;
+                if (this._views[i].state === exports.STATE_INACTIVE) {
+                    this._views[i].state = exports.STATE_INIT_ENTER;
                     break;
                 }
             }
@@ -59519,39 +62820,38 @@ var NavController = (function (_super) {
         if (view) {
             // the active view remains untouched, so all the removes
             // must have happened before it, so really no need for transition
-            view = this.getByState(STATE_INIT_ENTER);
+            view = this.getByState(exports.STATE_INIT_ENTER);
             if (view) {
                 // if it was going to enter, then just make inactive
-                view.state = STATE_INACTIVE;
+                view.state = exports.STATE_INACTIVE;
             }
-            view = this.getByState(STATE_INIT_LEAVE);
+            view = this.getByState(exports.STATE_INIT_LEAVE);
             if (view) {
                 // this was going to leave, so just remove it completely
-                view.state = STATE_REMOVE;
+                view.state = exports.STATE_REMOVE;
             }
         }
         // remove views that have been set to be removed, but not
         // apart of any transitions that will eventually happen
-        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
+        this._views.filter(function (v) { return v.state === exports.STATE_REMOVE; }).forEach(function (view) {
             view.fireWillLeave();
-            _this.viewWillLeave.emit(view);
             view.fireDidLeave();
-            _this.viewDidLeave.emit(view);
             _this._views.splice(_this.indexOf(view), 1);
             view.destroy();
         });
-        return this.getByState(STATE_INIT_LEAVE);
+        return this.getByState(exports.STATE_INIT_LEAVE);
     };
     /**
      * @private
      */
-    NavController.prototype._transition = function (enteringView, leavingView, opts, done) {
+    NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, done) {
         var _this = this;
         var transId = ++this._transIds;
         if (enteringView === leavingView) {
             // if the entering view and leaving view are the same thing don't continue
-            this._transFinish(transId, enteringView, leavingView, null, false);
-            return done(false);
+            this._transFinish(transId, enteringView, leavingView, null, false, false);
+            done(false);
+            return;
         }
         if (util_1.isBlank(opts)) {
             opts = {};
@@ -59565,7 +62865,6 @@ var NavController = (function (_super) {
             // if no entering view then create a bogus one
             enteringView = new view_controller_1.ViewController();
             enteringView.fireLoaded();
-            this.viewDidLoad.emit(enteringView);
         }
         /* Async steps to complete a transition
           1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
@@ -59576,31 +62875,31 @@ var NavController = (function (_super) {
         */
         // begin the multiple async process of transitioning to the entering view
         this._render(transId, enteringView, leavingView, opts, function (hasCompleted) {
-            _this._transFinish(transId, enteringView, leavingView, opts.direction, hasCompleted);
+            _this._transFinish(transId, enteringView, leavingView, opts.direction, false, hasCompleted);
             done(hasCompleted);
         });
     };
     /**
      * @private
      */
-    NavController.prototype._setAnimate = function (opts) {
-        if ((this._views.length === 1 && !this._init && !this.isPortal) || this.config.get('animate') === false) {
+    NavControllerBase.prototype._setAnimate = function (opts) {
+        if ((this._views.length === 1 && !this._init && !this._isPortal) || this.config.get('animate') === false) {
             opts.animate = false;
         }
     };
     /**
      * @private
      */
-    NavController.prototype._render = function (transId, enteringView, leavingView, opts, done) {
+    NavControllerBase.prototype._render = function (transId, enteringView, leavingView, opts, done) {
         // compile/load the view into the DOM
         var _this = this;
-        if (enteringView.state === STATE_INACTIVE) {
+        if (enteringView.state === exports.STATE_INACTIVE) {
             // this entering view is already set to inactive, so this
             // transition must be canceled, so don't continue
             return done();
         }
-        enteringView.state = STATE_INIT_ENTER;
-        leavingView.state = STATE_INIT_LEAVE;
+        enteringView.state = exports.STATE_INIT_ENTER;
+        leavingView.state = exports.STATE_INIT_LEAVE;
         // remember if this nav is already transitioning or not
         var isAlreadyTransitioning = this.isTransitioning();
         if (enteringView.isLoaded()) {
@@ -59615,6 +62914,7 @@ var NavController = (function (_super) {
             this.loadPage(enteringView, this._viewport, opts, function () {
                 enteringView.fireLoaded();
                 _this.viewDidLoad.emit(enteringView);
+                _this._app.viewDidLoad.emit(enteringView);
                 _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
             });
         }
@@ -59622,9 +62922,10 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype._postRender = function (transId, enteringView, leavingView, isAlreadyTransitioning, opts, done) {
+    NavControllerBase.prototype._postRender = function (transId, enteringView, leavingView, isAlreadyTransitioning, opts, done) {
         // called after _render has completed and the view is compiled/loaded
-        if (enteringView.state === STATE_INACTIVE) {
+        var _this = this;
+        if (enteringView.state === exports.STATE_INACTIVE) {
             // this entering view is already set to inactive, so this
             // transition must be canceled, so don't continue
             return done();
@@ -59635,7 +62936,7 @@ var NavController = (function (_super) {
             // if there's already another trans_enter happening then
             // the zIndex for the entering view should go off of that one
             // DOM WRITE
-            var lastestLeavingView = this.getByState(STATE_TRANS_ENTER) || leavingView;
+            var lastestLeavingView = this.getByState(exports.STATE_TRANS_ENTER) || leavingView;
             this._setZIndex(enteringView, lastestLeavingView, opts.direction);
             // make sure the entering and leaving views are showing
             // DOM WRITE
@@ -59651,16 +62952,9 @@ var NavController = (function (_super) {
                 // only entering/leaving should show, all others hidden
                 // also if a view is an overlay or the previous view is an
                 // overlay then always show the overlay and the view before it
-                var view;
-                var shouldShow;
-                for (var i = 0, ii = this._views.length; i < ii; i++) {
-                    view = this._views[i];
-                    shouldShow = (view === enteringView) ||
-                        (view === leavingView) ||
-                        view.isOverlay ||
-                        (i < ii - 1 ? this._views[i + 1].isOverlay : false);
-                    view.domShow(shouldShow, this._renderer);
-                }
+                this._views.forEach(function (view) {
+                    view.domShow(_this._isPortal || (view === enteringView) || (view === leavingView), _this._renderer);
+                });
             }
             // call each view's lifecycle events
             if (leavingView.fireOtherLifecycles) {
@@ -59668,12 +62962,14 @@ var NavController = (function (_super) {
                 // view hasn't explicitly set not to
                 enteringView.fireWillEnter();
                 this.viewWillEnter.emit(enteringView);
+                this._app.viewWillEnter.emit(enteringView);
             }
             if (enteringView.fireOtherLifecycles) {
                 // only fire leaving lifecycle if the entering
                 // view hasn't explicitly set not to
                 leavingView.fireWillLeave();
                 this.viewWillLeave.emit(leavingView);
+                this._app.viewWillLeave.emit(leavingView);
             }
         }
         else {
@@ -59686,18 +62982,18 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
+    NavControllerBase.prototype._beforeTrans = function (enteringView, leavingView, opts, done) {
         // called after one raf from postRender()
         // create the transitions animation, play the animation
         // when the transition ends call wait for it to end
         var _this = this;
-        if (enteringView.state === STATE_INACTIVE) {
-            // this entering view is already set to inactive, so this
-            // transition must be canceled, so don't continue
+        if (enteringView.state === exports.STATE_INACTIVE || enteringView.state === exports.STATE_CANCEL_ENTER) {
+            // this entering view is already set to inactive or has been canceled
+            // so this transition must not begin, so don't continue
             return done();
         }
-        enteringView.state = STATE_TRANS_ENTER;
-        leavingView.state = STATE_TRANS_LEAVE;
+        enteringView.state = exports.STATE_TRANS_ENTER;
+        leavingView.state = exports.STATE_TRANS_LEAVE;
         // everything during the transition should runOutsideAngular
         this._zone.runOutsideAngular(function () {
             // init the transition animation
@@ -59718,7 +63014,7 @@ var NavController = (function (_super) {
                 transAnimation.duration(0);
             }
             // check if a parent is transitioning and get the time that it ends
-            var parentTransitionEndTime = _this._getLongestTrans(Date.now());
+            var parentTransitionEndTime = _this.getLongestTrans(Date.now());
             if (parentTransitionEndTime > 0) {
                 // the parent is already transitioning and has disabled the app
                 // so just update the local transitioning information
@@ -59760,7 +63056,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, hasCompleted, done) {
+    NavControllerBase.prototype._afterTrans = function (enteringView, leavingView, opts, hasCompleted, done) {
         // transition has completed, update each view's state
         // place back into the zone, run didEnter/didLeave
         // call the final callback when done
@@ -59773,15 +63069,18 @@ var NavController = (function (_super) {
                     // view hasn't explicitly set not to
                     enteringView.fireDidEnter();
                     _this.viewDidEnter.emit(enteringView);
+                    _this._app.viewDidEnter.emit(enteringView);
                 }
-                if (enteringView.fireOtherLifecycles) {
+                if (enteringView.fireOtherLifecycles && _this._init) {
                     // only fire leaving lifecycle if the entering
                     // view hasn't explicitly set not to
+                    // and after the nav has initialized
                     leavingView.fireDidLeave();
                     _this.viewDidLeave.emit(leavingView);
+                    _this._app.viewDidLeave.emit(leavingView);
                 }
             }
-            if (enteringView.state === STATE_INACTIVE) {
+            if (enteringView.state === exports.STATE_INACTIVE) {
                 // this entering view is already set to inactive, so this
                 // transition must be canceled, so don't continue
                 return done(hasCompleted);
@@ -59804,10 +63103,14 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype._transFinish = function (transId, enteringView, leavingView, direction, hasCompleted) {
+    NavControllerBase.prototype._transFinish = function (transId, enteringView, leavingView, direction, updateUrl, hasCompleted) {
         // a transition has completed, but not sure if it's the last one or not
         // check if this transition is the most recent one or not
         var _this = this;
+        if (enteringView.state === exports.STATE_CANCEL_ENTER) {
+            // this view was told to leave before it finished entering
+            this.remove(enteringView.index, 1);
+        }
         if (transId === this._transIds) {
             // ok, good news, there were no other transitions that kicked
             // off during the time this transition started and ended
@@ -59815,11 +63118,11 @@ var NavController = (function (_super) {
                 // this transition has completed as normal
                 // so the entering one is now the active view
                 // and the leaving view is now just inactive
-                if (enteringView.state !== STATE_REMOVE_AFTER_TRANS) {
-                    enteringView.state = STATE_ACTIVE;
+                if (enteringView.state !== exports.STATE_REMOVE_AFTER_TRANS) {
+                    enteringView.state = exports.STATE_ACTIVE;
                 }
-                if (leavingView.state !== STATE_REMOVE_AFTER_TRANS) {
-                    leavingView.state = STATE_INACTIVE;
+                if (leavingView.state !== exports.STATE_REMOVE_AFTER_TRANS) {
+                    leavingView.state = exports.STATE_INACTIVE;
                 }
                 // only need to do all this clean up if the transition
                 // completed, otherwise nothing actually changed
@@ -59830,22 +63133,19 @@ var NavController = (function (_super) {
                 // do not make any changes to the stack's current visibility
                 // if there is an overlay somewhere in the stack
                 leavingView = this.getPrevious(enteringView);
-                if (this.hasOverlay()) {
+                if (this._isPortal) {
                     // ensure the entering view is showing
                     enteringView.domShow(true, this._renderer);
                 }
                 else {
                     // only possibly hide a view if there are no overlays in the stack
                     this._views.forEach(function (view) {
-                        var shouldShow = (view === enteringView) || (view === leavingView);
-                        view.domShow(shouldShow, _this._renderer);
+                        view.domShow((view === enteringView) || (view === leavingView), _this._renderer);
                     });
                 }
                 // this check only needs to happen once, which will add the css
                 // class to the nav when it's finished its first transition
-                if (!this._init) {
-                    this._init = true;
-                }
+                this._init = true;
             }
             else {
                 // this transition has not completed, meaning the
@@ -59853,33 +63153,20 @@ var NavController = (function (_super) {
                 // this would happen when swipe to go back started
                 // but the user did not complete the swipe and the
                 // what was the active view stayed as the active view
-                leavingView.state = STATE_ACTIVE;
-                enteringView.state = STATE_INACTIVE;
+                leavingView.state = exports.STATE_ACTIVE;
+                enteringView.state = exports.STATE_INACTIVE;
             }
             // check if there is a parent actively transitioning
-            var transitionEndTime = this._getLongestTrans(Date.now());
+            var transitionEndTime = this.getLongestTrans(Date.now());
             // if transitionEndTime is greater than 0, there is a parent transition occurring
             // so delegate enabling the app to the parent.  If it <= 0, go ahead and enable the app
             if (transitionEndTime <= 0) {
                 this._app && this._app.setEnabled(true);
             }
+            // update that this nav is not longer actively transitioning
             this.setTransitioning(false);
-            if (direction !== null && hasCompleted && !this.isPortal) {
-                // notify router of the state change if a direction was provided
-                // multiple routers can exist and each should be notified
-                this.routers.forEach(function (router) {
-                    router.stateChange(direction, enteringView);
-                });
-            }
             // see if we should add the swipe back gesture listeners or not
             this._sbCheck();
-            if (this._portal) {
-                this._portal._views.forEach(function (view) {
-                    if (view.data && view.data.dismissOnPageChange) {
-                        view.dismiss();
-                    }
-                });
-            }
         }
         else {
             // darn, so this wasn't the most recent transition
@@ -59888,11 +63175,11 @@ var NavController = (function (_super) {
             // then this entering view isn't actually going to be the active
             // one, so only update the state to active/inactive if the state
             // wasn't already updated somewhere else during its transition
-            if (enteringView.state === STATE_TRANS_ENTER) {
-                enteringView.state = STATE_INACTIVE;
+            if (enteringView.state === exports.STATE_TRANS_ENTER) {
+                enteringView.state = exports.STATE_INACTIVE;
             }
-            if (leavingView.state === STATE_TRANS_LEAVE) {
-                leavingView.state = STATE_INACTIVE;
+            if (leavingView.state === exports.STATE_TRANS_LEAVE) {
+                leavingView.state = exports.STATE_INACTIVE;
             }
         }
     };
@@ -59902,17 +63189,17 @@ var NavController = (function (_super) {
      * to make it easy/possible to mock the method call by overriding the function.
      * In testing we don't want to actually do the animation, we want to return a stub instead
      */
-    NavController.prototype._createTrans = function (enteringView, leavingView, transitionOpts) {
+    NavControllerBase.prototype._createTrans = function (enteringView, leavingView, transitionOpts) {
         return transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
     };
-    NavController.prototype._cleanup = function () {
+    NavControllerBase.prototype._cleanup = function () {
         var _this = this;
         // ok, cleanup time!! Destroy all of the views that are
         // INACTIVE and come after the active view
         var activeViewIndex = this.indexOf(this.getActive());
-        var destroys = this._views.filter(function (v) { return v.state === STATE_REMOVE_AFTER_TRANS; });
+        var destroys = this._views.filter(function (v) { return v.state === exports.STATE_REMOVE_AFTER_TRANS; });
         for (var i = activeViewIndex + 1; i < this._views.length; i++) {
-            if (this._views[i].state === STATE_INACTIVE) {
+            if (this._views[i].state === exports.STATE_INACTIVE) {
                 destroys.push(this._views[i]);
             }
         }
@@ -59921,6 +63208,8 @@ var NavController = (function (_super) {
         destroys.forEach(function (view) {
             _this._views.splice(_this.indexOf(view), 1);
             view.destroy();
+            _this.viewDidUnload.emit(view);
+            _this._app.viewDidUnload.emit(view);
         });
         // if any z-index goes under 0, then reset them all
         var shouldResetZIndex = this._views.some(function (v) { return v.zIndex < 0; });
@@ -59930,22 +63219,19 @@ var NavController = (function (_super) {
             });
         }
     };
-    /**
-     * @private
-     */
-    NavController.prototype.getActiveChildNav = function () {
+    NavControllerBase.prototype.getActiveChildNav = function () {
         return this._children[this._children.length - 1];
     };
     /**
      * @private
      */
-    NavController.prototype.registerChildNav = function (nav) {
+    NavControllerBase.prototype.registerChildNav = function (nav) {
         this._children.push(nav);
     };
     /**
      * @private
      */
-    NavController.prototype.unregisterChildNav = function (nav) {
+    NavControllerBase.prototype.unregisterChildNav = function (nav) {
         var index = this._children.indexOf(nav);
         if (index > -1) {
             this._children.splice(index, 1);
@@ -59954,7 +63240,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype.ngOnDestroy = function () {
+    NavControllerBase.prototype.ngOnDestroy = function () {
         for (var i = this._views.length - 1; i >= 0; i--) {
             this._views[i].destroy();
         }
@@ -59966,7 +63252,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype.loadPage = function (view, viewport, opts, done) {
+    NavControllerBase.prototype.loadPage = function (view, viewport, opts, done) {
         var _this = this;
         if (!viewport || !view.componentType) {
             return;
@@ -59975,9 +63261,16 @@ var NavController = (function (_super) {
         // TODO: use componentFactory.create once fixed
         bootstrap_1.addSelector(view.componentType, 'ion-page');
         this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
+            if (view.state === exports.STATE_CANCEL_ENTER) {
+                // view may have already been removed from the stack
+                // if so, don't even bother adding it
+                view.destroy();
+                _this._views.splice(view.index, 1);
+                return;
+            }
             // add more providers to just this page
             var componentProviders = core_1.ReflectiveInjector.resolve([
-                core_1.provide(NavController, { useValue: _this }),
+                core_1.provide(nav_controller_1.NavController, { useValue: _this }),
                 core_1.provide(view_controller_1.ViewController, { useValue: view }),
                 core_1.provide(nav_params_1.NavParams, { useValue: view.getNavParams() })
             ]);
@@ -60012,10 +63305,10 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype.swipeBackStart = function () {
+    NavControllerBase.prototype.swipeBackStart = function () {
         // default the direction to "back"
         var opts = {
-            direction: 'back',
+            direction: nav_interfaces_1.DIRECTION_BACK,
             progressAnimation: true
         };
         // figure out the states of each view in the stack
@@ -60023,7 +63316,7 @@ var NavController = (function (_super) {
         if (leavingView) {
             opts.animation = leavingView.getTransitionName(opts.direction);
             // get the view thats ready to enter
-            var enteringView = this.getByState(STATE_INIT_ENTER);
+            var enteringView = this.getByState(exports.STATE_INIT_ENTER);
             // start the transition, fire callback when done...
             this._transition(enteringView, leavingView, opts, function (hasCompleted) {
                 // swipe back has finished!!
@@ -60034,7 +63327,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype.swipeBackProgress = function (stepValue) {
+    NavControllerBase.prototype.swipeBackProgress = function (stepValue) {
         if (this._trans && this._sbGesture) {
             // continue to disable the app while actively dragging
             this._app.setEnabled(false, 4000);
@@ -60046,7 +63339,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
+    NavControllerBase.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
         if (this._trans && this._sbGesture) {
             // the swipe back gesture has ended
             this._trans.progressEnd(shouldComplete, currentStepValue);
@@ -60055,7 +63348,7 @@ var NavController = (function (_super) {
     /**
      * @private
      */
-    NavController.prototype._sbCheck = function () {
+    NavControllerBase.prototype._sbCheck = function () {
         var _this = this;
         if (this._sbEnabled) {
             // this nav controller can have swipe to go back
@@ -60065,8 +63358,7 @@ var NavController = (function (_super) {
                     edge: 'left',
                     threshold: this._sbThreshold
                 };
-                var menuCtrl = this._app.getAppInjector().get(menu_controller_1.MenuController);
-                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, menuCtrl);
+                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, this._gestureCtrl);
             }
             if (this.canSwipeBack()) {
                 // it is be possible to swipe back
@@ -60086,76 +63378,44 @@ var NavController = (function (_super) {
             }
         }
     };
-    /**
-     * If it's possible to use swipe back or not. If it's not possible
-     * to go back, or swipe back is not enabled, then this will return `false`.
-     * If it is possible to go back, and swipe back is enabled, then this
-     * will return `true`.
-     * @returns {boolean}
-     */
-    NavController.prototype.canSwipeBack = function () {
+    NavControllerBase.prototype.canSwipeBack = function () {
         return (this._sbEnabled && !this.isTransitioning() && this._app.isEnabled() && this.canGoBack());
     };
-    /**
-     * Returns `true` if there's a valid previous page that we can pop
-     * back to. Otherwise returns `false`.
-     * @returns {boolean}
-     */
-    NavController.prototype.canGoBack = function () {
+    NavControllerBase.prototype.canGoBack = function () {
         var activeView = this.getActive();
         if (activeView) {
             return activeView.enableBack();
         }
         return false;
     };
-    /**
-     * Returns if the nav controller is actively transitioning or not.
-     * @return {boolean}
-     */
-    NavController.prototype.isTransitioning = function () {
-        return (this._trnsTime > Date.now());
+    NavControllerBase.prototype.isTransitioning = function (includeAncestors) {
+        var now = Date.now();
+        if (includeAncestors && this.getLongestTrans(now) > 0) {
+            return true;
+        }
+        return (this.trnsTime > now);
     };
-    /**
-     * @private
-     */
-    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
+    NavControllerBase.prototype.setTransitioning = function (isTransitioning, fallback) {
         if (fallback === void 0) { fallback = 700; }
-        this._trnsTime = (isTransitioning ? Date.now() + fallback : 0);
+        this.trnsTime = (isTransitioning ? Date.now() + fallback : 0);
     };
-    /**
-     * @private
-     * This method traverses the tree of parents upwards
-     * and looks at the time the transition ends (if it's transitioning)
-     * and returns the value that is the furthest into the future
-     * thus giving us the longest transition duration
-     */
-    NavController.prototype._getLongestTrans = function (now) {
+    NavControllerBase.prototype.getLongestTrans = function (now) {
+        // traverses parents upwards and looks at the time the
+        // transition ends (if it's transitioning) and returns the
+        // value that is the furthest into the future thus giving us
+        // the longest transition duration
         var parentNav = this.parent;
         var transitionEndTime = -1;
         while (parentNav) {
-            if (parentNav._trnsTime > transitionEndTime) {
-                transitionEndTime = parentNav._trnsTime;
+            if (parentNav.trnsTime > transitionEndTime) {
+                transitionEndTime = parentNav.trnsTime;
             }
             parentNav = parentNav.parent;
         }
         // only check if the transitionTime is greater than the current time once
         return transitionEndTime > 0 && transitionEndTime > now ? transitionEndTime : 0;
     };
-    /**
-     * @private
-     */
-    NavController.prototype.hasOverlay = function () {
-        for (var i = this._views.length - 1; i >= 0; i--) {
-            if (this._views[i].isOverlay) {
-                return true;
-            }
-        }
-        return false;
-    };
-    /**
-     * @private
-     */
-    NavController.prototype.getByState = function (state) {
+    NavControllerBase.prototype.getByState = function (state) {
         for (var i = this._views.length - 1; i >= 0; i--) {
             if (this._views[i].state === state) {
                 return this._views[i];
@@ -60163,100 +63423,65 @@ var NavController = (function (_super) {
         }
         return null;
     };
-    /**
-     * @param {number} index  The index of the page to get.
-     * @returns {ViewController} Returns the view controller that matches the given index.
-     */
-    NavController.prototype.getByIndex = function (index) {
+    NavControllerBase.prototype.getByIndex = function (index) {
         return (index < this._views.length && index > -1 ? this._views[index] : null);
     };
-    /**
-     * @returns {ViewController} Returns the active page's view controller.
-     */
-    NavController.prototype.getActive = function () {
-        return this.getByState(STATE_ACTIVE);
+    NavControllerBase.prototype.getActive = function () {
+        return this.getByState(exports.STATE_ACTIVE);
     };
-    /**
-     * @param {ViewController} view
-     * @returns {boolean}
-     */
-    NavController.prototype.isActive = function (view) {
-        return !!(view && view.state === STATE_ACTIVE);
+    NavControllerBase.prototype.isActive = function (view) {
+        // returns if the given view is the active view or not
+        return !!(view && view.state === exports.STATE_ACTIVE);
     };
-    /**
-     * Returns the view controller which is before the given view controller.
-     * @param {ViewController} view
-     * @returns {viewController}
-     */
-    NavController.prototype.getPrevious = function (view) {
+    NavControllerBase.prototype.getPrevious = function (view) {
+        // returns the view controller which is before the given view controller.
         return this.getByIndex(this.indexOf(view) - 1);
     };
-    /**
-     * Returns the first view controller in this nav controller's stack.
-     * @returns {ViewController}
-     */
-    NavController.prototype.first = function () {
+    NavControllerBase.prototype.first = function () {
+        // returns the first view controller in this nav controller's stack.
         return (this._views.length ? this._views[0] : null);
     };
-    /**
-     * Returns the last page in this nav controller's stack.
-     * @returns {ViewController}
-     */
-    NavController.prototype.last = function () {
+    NavControllerBase.prototype.last = function () {
+        // returns the last page in this nav controller's stack.
         return (this._views.length ? this._views[this._views.length - 1] : null);
     };
-    /**
-     * Returns the index number of the given view controller.
-     * @param {ViewController} view
-     * @returns {number}
-     */
-    NavController.prototype.indexOf = function (view) {
+    NavControllerBase.prototype.indexOf = function (view) {
+        // returns the index number of the given view controller.
         return this._views.indexOf(view);
     };
-    /**
-     * Returns the number of views in this nav controller.
-     * @returns {number} The number of views in this stack, including the current view.
-     */
-    NavController.prototype.length = function () {
+    NavControllerBase.prototype.length = function () {
         return this._views.length;
     };
-    /**
-     * @private
-     */
-    NavController.prototype.isSwipeBackEnabled = function () {
+    NavControllerBase.prototype.isSwipeBackEnabled = function () {
         return this._sbEnabled;
     };
-    Object.defineProperty(NavController.prototype, "rootNav", {
+    Object.defineProperty(NavControllerBase.prototype, "rootNav", {
         /**
-         * Returns the root `NavController`.
-         * @returns {NavController}
+         * DEPRECATED: Please use app.getRootNav() instead
          */
         get: function () {
-            var nav = this;
-            while (nav.parent) {
-                nav = nav.parent;
-            }
-            return nav;
+            // deprecated 07-14-2016 beta.11
+            void 0;
+            return this._app.getRootNav();
         },
         enumerable: true,
         configurable: true
     });
     /**
      * @private
+     * Dismiss all pages which have set the `dismissOnPageChange` property.
      */
-    NavController.prototype.registerRouter = function (router) {
-        this.routers.push(router);
+    NavControllerBase.prototype.dismissPageChangeViews = function () {
+        this._views.forEach(function (view) {
+            if (view.data && view.data.dismissOnPageChange) {
+                view.dismiss();
+            }
+        });
     };
     /**
      * @private
      */
-    NavController.prototype._incId = function (view) {
-        view.id = this.id + '-' + (++this._ids);
-    };
-    /**
-     * @private
-     */
-    NavController.prototype._setZIndex = function (enteringView, leavingView, direction) {
+    NavControllerBase.prototype._setZIndex = function (enteringView, leavingView, direction) {
         if (enteringView) {
             // get the leaving view, which could be in various states
             if (!leavingView || !leavingView.isLoaded()) {
@@ -60270,10 +63495,10 @@ var NavController = (function (_super) {
                 }
                 else {
                     // this is the initial view
-                    enteringView.setZIndex(this.isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
+                    enteringView.setZIndex(this._isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
                 }
             }
-            else if (direction === 'back') {
+            else if (direction === nav_interfaces_1.DIRECTION_BACK) {
                 // moving back
                 enteringView.setZIndex(leavingView.zIndex - 1, this._renderer);
             }
@@ -60283,23 +63508,325 @@ var NavController = (function (_super) {
             }
         }
     };
-    return NavController;
+    return NavControllerBase;
 }(ion_1.Ion));
-exports.NavController = NavController;
-var STATE_ACTIVE = 'active';
-var STATE_INACTIVE = 'inactive';
-var STATE_INIT_ENTER = 'init_enter';
-var STATE_INIT_LEAVE = 'init_leave';
-var STATE_TRANS_ENTER = 'trans_enter';
-var STATE_TRANS_LEAVE = 'trans_leave';
-var STATE_REMOVE = 'remove';
-var STATE_REMOVE_AFTER_TRANS = 'remove_after_trans';
-var STATE_FORCE_ACTIVE = 'force_active';
+exports.NavControllerBase = NavControllerBase;
+exports.isTabs = function (nav) {
+    // Tabs (ion-tabs)
+    return !!nav.getSelected;
+};
+exports.isTab = function (nav) {
+    // Tab (ion-tab)
+    return util_1.isPresent(nav._tabId);
+};
+exports.isNav = function (nav) {
+    // Nav (ion-nav), Tab (ion-tab), Portal (ion-portal)
+    return util_1.isPresent(nav.push);
+};
+exports.STATE_ACTIVE = 1;
+exports.STATE_INACTIVE = 2;
+exports.STATE_INIT_ENTER = 3;
+exports.STATE_INIT_LEAVE = 4;
+exports.STATE_TRANS_ENTER = 5;
+exports.STATE_TRANS_LEAVE = 6;
+exports.STATE_REMOVE = 7;
+exports.STATE_REMOVE_AFTER_TRANS = 8;
+exports.STATE_CANCEL_ENTER = 9;
+exports.STATE_FORCE_ACTIVE = 10;
 var INIT_ZINDEX = 100;
 var PORTAL_ZINDEX = 9999;
 var ctrlIds = -1;
 
-},{"../../config/bootstrap":503,"../../transitions/transition":524,"../../util/util":539,"../ion":446,"../menu/menu-controller":456,"./nav-params":463,"./swipe-back":469,"./view-controller":470,"@angular/core":247}],463:[function(require,module,exports){
+},{"../../config/bootstrap":548,"../../transitions/transition":572,"../../util/util":587,"../ion":485,"./nav-controller":504,"./nav-interfaces":505,"./nav-params":506,"./swipe-back":511,"./view-controller":512,"@angular/core":247}],504:[function(require,module,exports){
+"use strict";
+/**
+ * @name NavController
+ * @description
+ *
+ * NavController is the base class for navigation controller components like
+ * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
+ * to navigate to [pages](#creating_pages) in your app. At a basic level, a
+ * navigation controller is an array of pages representing a particular history
+ * (of a Tab for example). This array can be manipulated to navigate throughout
+ * an app by pushing and popping pages or inserting and removing them at
+ * arbitrary locations in history.
+ *
+ * The current page is the last one in the array, or the top of the stack if we
+ * think of it that way.  [Pushing](#push) a new page onto the top of the
+ * navigation stack causes the new page to be animated in, while [popping](#pop)
+ * the current page will navigate to the previous page in the stack.
+ *
+ * Unless you are using a directive like [NavPush](../NavPush/), or need a
+ * specific NavController, most times you will inject and use a reference to the
+ * nearest NavController to manipulate the navigation stack.
+ *
+ * ## Basic usage
+ * The simplest way to navigate through an app is to create and initialize a new
+ * nav controller using the `<ion-nav>` component.  `ion-nav` extends the `NavController`
+ * class.
+ *
+ * ```typescript
+ * import { Component } from `@angular/core`;
+ * import { ionicBootstrap } from 'ionic-angular';
+ * import { StartPage } from './start-page';
+ *
+ * @Component(
+ *   template: `<ion-nav [root]="rootPage"></ion-nav>`
+ * })
+ * class MyApp {
+ *   // set the rootPage to the first page we want displayed
+ *   private rootPage: any = StartPage;
+ *
+ *   constructor(){
+ *   }
+ * }
+ *
+ * ionicBootstrap(MyApp);
+ * ```
+ *
+ * ### Injecting NavController
+ * Injecting NavController will always get you an instance of the nearest
+ * NavController, regardless of whether it is a Tab or a Nav.
+ *
+ * Behind the scenes, when Ionic instantiates a new NavController, it creates an
+ * injector with NavController bound to that instance (usually either a Nav or
+ * Tab) and adds the injector to its own providers.  For more information on
+ * providers and dependency injection, see [Providers and DI]().
+ *
+ * Instead, you can inject NavController and know that it is the correct
+ * navigation controller for most situations (for more advanced situations, see
+ * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
+ *
+ * ```ts
+ *  import { NavController } from 'ionic-angular';
+ *
+ *  class MyComponent {
+ *    constructor(public navCtrl: NavController) {
+ *
+ *    }
+ *  }
+ * ```
+ *
+ * ### Navigating from the Root component
+ * What if you want to control navigation from your root app component?
+ * You can't inject `NavController` because any components that are navigation
+ * controllers are _children_ of the root component so they aren't available
+ * to be injected.
+ *
+ * By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to
+ * get an instance of the `Nav` component, which is a navigation controller
+ * (it extends `NavController`):
+ *
+ * ```typescript
+ *
+ * import { App, ViewChild } from '@angular/core';
+ * import { NavController } from 'ionic-angular';
+ *
+ * @App({
+ *    template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
+ * })
+ * export class MyApp {
+ *    @ViewChild('myNav') nav : NavController
+ *    private rootPage = TabsPage;
+ *
+ *    // Wait for the components in MyApp's template to be initialized
+ *    // In this case, we are waiting for the Nav with id="my-nav"
+ *    ngAfterViewInit() {
+ *       // Let's navigate from TabsPage to Page1
+ *       this.nav.push(Page1);
+ *    }
+ * }
+ * ```
+ *
+ * ## View creation
+ * Views are created when they are added to the navigation stack.  For methods
+ * like [push()](#push), the NavController takes any component class that is
+ * decorated with `@Component` as its first argument.  The NavController then
+ * compiles that component, adds it to the app and animates it into view.
+ *
+ * By default, pages are cached and left in the DOM if they are navigated away
+ * from but still in the navigation stack (the exiting page on a `push()` for
+ * example).  They are destroyed when removed from the navigation stack (on
+ * [pop()](#pop) or [setRoot()](#setRoot)).
+ *
+ * ## Pushing a View
+ * To push a new view on to the navigation stack, use the `push` method.
+ * If the page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/),
+ * a back button will automatically be added to the pushed view.
+ *
+ * Data can also be passed to a view by passing an object to the `push` method.
+ * The pushed view can then receive the data by accessing it via the `NavParams`
+ * class.
+ *
+ * ```typescript
+ * import { Component } from '@angular/core';
+ * import { NavController } from 'ionic-angular';
+ * import { OtherPage } from './other-page';
+ * @Component({
+ *    template: `
+ *    <ion-header>
+ *      <ion-navbar>
+ *        <ion-title>Login</ion-title>
+ *      </ion-navbar>
+ *    </ion-header>
+ *
+ *    <ion-content>
+ *      <button (click)="pushPage()">
+ *        Go to OtherPage
+ *      </button>
+ *    </ion-content>
+ *    `
+ * })
+ * export class StartPage {
+ *   constructor(public navCtrl: NavController) {
+ *   }
+ *
+ *   pushPage(){
+ *     // push another page on to the navigation stack
+ *     // causing the nav controller to transition to the new page
+ *     // optional data can also be passed to the pushed page.
+ *     this.navCtrl.push(OtherPage, {
+ *       id: "123",
+ *       name: "Carl"
+ *     });
+ *   }
+ * }
+ *
+ * import { NavParams } from 'ionic-angular';
+ *
+ * @Component({
+ *   template: `
+ *   <ion-header>
+ *     <ion-navbar>
+ *       <ion-title>Other Page</ion-title>
+ *     </ion-navbar>
+ *   </ion-header>
+ *   <ion-content>I'm the other page!</ion-content>`
+ * })
+ * class OtherPage {
+ *   constructor(private navParams: NavParams) {
+ *      let id = navParams.get('id');
+ *      let name = navParams.get('name');
+ *   }
+ * }
+ * ```
+ *
+ * ## Removing a view
+ * To remove a view from the stack, use the `pop` method.
+ * Popping a view will transition to the previous view.
+ *
+ * ```ts
+ * import { Component } from '@angular/core';
+ * import { NavController } from 'ionic-angular';
+ *
+ * @Component({
+ *   template: `
+ *   <ion-header>
+ *     <ion-navbar>
+ *       <ion-title>Other Page</ion-title>
+ *     </ion-navbar>
+ *   </ion-header>
+ *   <ion-content>I'm the other page!</ion-content>`
+ * })
+ * class OtherPage {
+ *    constructor(private navController: NavController ){
+ *    }
+ *
+ *    popView(){
+ *      this.navController.pop();
+ *    }
+ * }
+ * ```
+ *
+ * ## Lifecycle events
+ * Lifecycle events are fired during various stages of navigation.  They can be
+ * defined in any component type which is pushed/popped from a `NavController`.
+ *
+ * ```ts
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *   template: 'Hello World'
+ * })
+ * class HelloWorld {
+ *   ionViewLoaded() {
+ *     console.log("I'm alive!");
+ *   }
+ *   ionViewWillLeave() {
+ *     console.log("Looks like I'm about to leave :(");
+ *   }
+ * }
+ * ```
+ *
+ *  | Page Event          | Description                                                                                                                                                                                                                                                                        |
+ *  |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
+ *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                   |
+ *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                             |
+ *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                             |
+ *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                          |
+ *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                         |
+ *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
+ *
+ *
+ * ## Asynchronous Nav Transitions
+ *
+ * Navigation transitions are asynchronous operations. When a transition is started,
+ * the `push` or `pop` method will return immediately, before the transition is complete.
+ *
+ * Generally, the developer does not need to be concerned about this. In the event
+ * multiple transitions need to be synchronized or transition timing is critical,
+ * the best practice is to chain the transitions together using the return value
+ * from the `push` and `pop` methods.
+ *
+ * The `push` and `pop` methods return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+ * Promises are a way to represent and chain together multiple asynchronous
+ * operations in order. Navigation actions can be chained together very easily using promises.
+ *
+ * ```typescript
+ * let navTransitionPromise = this.navController.push(Page2);
+ * navTransitionPromise.then( () => {
+ *   // the transition has completed, so I can push another page now
+ *   return this.navController.push(Page3);
+ * }).then( () => {
+ *   // the second transition has completed, so I can push yet another page
+    return this.navController.push(Page4);
+ * }).then( () => {
+ *   console.log('The transitions are complete!');
+ * })
+ * ```
+ *
+ * ## NavOptions
+ *
+ * Some methods on `NavController` allow for customizing the current transition.
+ * To do this, we can pass an object with the modified properites.
+ *
+ *
+ * | Property  | Value     | Description                                                                                                |
+ * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
+ * | animate   | `boolean` | Whether or not the transition should animate.                                                              |
+ * | animation | `string`  | What kind of animation should be used.                                                                     |
+ * | direction | `string`  | The conceptual direction the user is navigating. For example, is the user navigating `forward`, or `back`? |
+ * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
+ * | easing    | `string`  | The easing for the animation.                                                                              |
+ *
+ * The property 'animation' understands the following values: `md-transition`, `ios-transition` and `wp-transition`.
+ *
+ * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+ */
+var NavController = (function () {
+    function NavController() {
+    }
+    return NavController;
+}());
+exports.NavController = NavController;
+
+},{}],505:[function(require,module,exports){
+"use strict";
+exports.DIRECTION_BACK = 'back';
+exports.DIRECTION_FORWARD = 'forward';
+
+},{}],506:[function(require,module,exports){
 "use strict";
 /**
  * @name NavParams
@@ -60311,7 +63838,7 @@ var ctrlIds = -1;
  * @usage
  * ```ts
  * export class MyClass{
- *  constructor(private params: NavParams){
+ *  constructor(public params: NavParams){
  *    // userParams is an object we have in our nav-parameters
  *    this.params.get('userParams');
  *  }
@@ -60337,7 +63864,7 @@ var NavParams = (function () {
      *
      * ```ts
      * export class MyClass{
-     *  constructor(private params: NavParams){
+     *  constructor(public params: NavParams){
      *    // userParams is an object we have in our nav-parameters
      *    this.params.get('userParams');
      *  }
@@ -60354,7 +63881,7 @@ var NavParams = (function () {
 }());
 exports.NavParams = NavParams;
 
-},{}],464:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -60370,18 +63897,21 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var nav_controller_1 = require('./nav-controller');
+var util_1 = require('../../util/util');
 /**
  * @name NavPop
  * @description
- * Directive for declaratively pop the current page off from the navigation stack.
+ * Directive to declaratively pop the current page off from the
+ * navigation stack.
  *
  * @usage
  * ```html
  * <ion-content>
- *  <div block button nav-pop>go back</div>
+ *
+ *  <button navPop>Go Back</button>
+ *
  * </ion-content>
  * ```
- * This will go back one page in the navigation stack
  *
  * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
  * @demo /docs/v2/demos/navigation/
@@ -60395,19 +63925,23 @@ var NavPop = (function () {
             void 0;
         }
     }
-    /**
-     * @private
-     */
     NavPop.prototype.onClick = function () {
-        this._nav && this._nav.pop();
+        // If no target, or if target is _self, prevent default browser behavior
+        if (this._nav) {
+            this._nav.pop(null, util_1.noop);
+            return false;
+        }
+        return true;
     };
+    __decorate([
+        core_1.HostListener('click'), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', Boolean)
+    ], NavPop.prototype, "onClick", null);
     NavPop = __decorate([
         core_1.Directive({
-            selector: '[nav-pop]',
-            host: {
-                '(click)': 'onClick()',
-                'role': 'link'
-            }
+            selector: '[navPop]'
         }),
         __param(0, core_1.Optional()), 
         __metadata('design:paramtypes', [nav_controller_1.NavController])
@@ -60416,7 +63950,7 @@ var NavPop = (function () {
 }());
 exports.NavPop = NavPop;
 
-},{"./nav-controller":462,"@angular/core":247}],465:[function(require,module,exports){
+},{"../../util/util":587,"./nav-controller":504,"@angular/core":247}],508:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -60438,32 +63972,36 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require('@angular/core');
 var app_1 = require('../app/app');
 var config_1 = require('../../config/config');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 var keyboard_1 = require('../../util/keyboard');
-var nav_controller_1 = require('./nav-controller');
-var view_controller_1 = require('./view-controller');
+var nav_controller_base_1 = require('../nav/nav-controller-base');
 /**
  * @private
  */
 var NavPortal = (function (_super) {
     __extends(NavPortal, _super);
-    function NavPortal(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler, viewPort) {
-        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
-        this.isPortal = true;
+    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl, viewPort) {
+        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
+        this._isPortal = true;
+        this._init = true;
         this.setViewport(viewPort);
+        app.setPortal(this);
+        // on every page change make sure the portal has
+        // dismissed any views that should be auto dismissed on page change
+        app.viewDidLeave.subscribe(this.dismissPageChangeViews.bind(this));
     }
     NavPortal = __decorate([
         core_1.Directive({
             selector: '[nav-portal]'
         }),
-        __param(0, core_1.Optional()),
-        __param(1, core_1.Optional()), 
-        __metadata('design:paramtypes', [view_controller_1.ViewController, nav_controller_1.NavController, app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver, core_1.ViewContainerRef])
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
+        __metadata('design:paramtypes', [app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver, gesture_controller_1.GestureController, core_1.ViewContainerRef])
     ], NavPortal);
     return NavPortal;
-}(nav_controller_1.NavController));
+}(nav_controller_base_1.NavControllerBase));
 exports.NavPortal = NavPortal;
 
-},{"../../config/config":504,"../../util/keyboard":536,"../app/app":432,"./nav-controller":462,"./view-controller":470,"@angular/core":247}],466:[function(require,module,exports){
+},{"../../config/config":549,"../../gestures/gesture-controller":555,"../../util/keyboard":584,"../app/app":471,"../nav/nav-controller-base":503,"@angular/core":247}],509:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -60479,27 +64017,34 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var nav_controller_1 = require('./nav-controller');
+var util_1 = require('../../util/util');
 /**
  * @name NavPush
  * @description
- * Directive for declaratively linking to a new page instead of using
- * {@link ../NavController/#push NavController.push}. Similar to ui-router's `ui-sref`.
+ * Directive to declaratively push a new page to the current nav
+ * stack.
  *
  * @usage
  * ```html
  * <button [navPush]="pushPage"></button>
  * ```
- * To specify parameters you can use array syntax or the `nav-params` property:
+ *
+ * To specify parameters you can use array syntax or the `navParams`
+ * property:
+ *
  * ```html
- * <button [navPush]="pushPage" [navParams]="params"></button>
+ * <button [navPush]="pushPage" [navParams]="params">Go</button>
  * ```
- * Where `pushPage` and `params` are specified in your component, and `pushPage`
- * contains a reference to a [@Page component](../../../config/Page/):
+ *
+ * Where `pushPage` and `params` are specified in your component,
+ * and `pushPage` contains a reference to a
+ * [@Page component](../../../config/Page/):
  *
  * ```ts
- * import {LoginPage} from 'login';
+ * import { LoginPage } from './login';
+ *
  * @Component({
- *   template: `<button [navPush]="pushPage" [navParams]="params"></button>`
+ *   template: `<button [navPush]="pushPage" [navParams]="params">Go</button>`
  * })
  * class MyPage {
  *   constructor(){
@@ -60509,15 +64054,10 @@ var nav_controller_1 = require('./nav-controller');
  * }
  * ```
  *
- * ### Alternate syntax
- * You can also use syntax similar to Angular2's router, passing an array to
- * NavPush:
- * ```html
- * <button [navPush]="[pushPage, params]"></button>
- * ```
  * @demo /docs/v2/demos/navigation/
  * @see {@link /docs/v2/components#navigation Navigation Component Docs}
  * @see {@link ../NavPop NavPop API Docs}
+ *
  */
 var NavPush = (function () {
     function NavPush(_nav) {
@@ -60526,23 +64066,13 @@ var NavPush = (function () {
             void 0;
         }
     }
-    /**
-     * @private
-     */
     NavPush.prototype.onClick = function () {
-        var destination, params;
-        if (this.navPush instanceof Array) {
-            if (this.navPush.length > 2) {
-                throw 'Too many [navPush] arguments, expects [View, { params }]';
-            }
-            destination = this.navPush[0];
-            params = this.navPush[1] || this.navParams;
+        // If no target, or if target is _self, prevent default browser behavior
+        if (this._nav) {
+            this._nav.push(this.navPush, this.navParams, util_1.noop);
+            return false;
         }
-        else {
-            destination = this.navPush;
-            params = this.navParams;
-        }
-        this._nav && this._nav.push(destination, params);
+        return true;
     };
     __decorate([
         core_1.Input(), 
@@ -60552,13 +64082,15 @@ var NavPush = (function () {
         core_1.Input(), 
         __metadata('design:type', Object)
     ], NavPush.prototype, "navParams", void 0);
+    __decorate([
+        core_1.HostListener('click'), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', Boolean)
+    ], NavPush.prototype, "onClick", null);
     NavPush = __decorate([
         core_1.Directive({
-            selector: '[navPush]',
-            host: {
-                '(click)': 'onClick()',
-                'role': 'link'
-            }
+            selector: '[navPush]'
         }),
         __param(0, core_1.Optional()), 
         __metadata('design:paramtypes', [nav_controller_1.NavController])
@@ -60567,35 +64099,7 @@ var NavPush = (function () {
 }());
 exports.NavPush = NavPush;
 
-},{"./nav-controller":462,"@angular/core":247}],467:[function(require,module,exports){
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require('@angular/core');
-/**
- * @private
- */
-var NavRouter = (function () {
-    function NavRouter() {
-    }
-    NavRouter = __decorate([
-        core_1.Directive({
-            selector: 'ion-nav'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], NavRouter);
-    return NavRouter;
-}());
-exports.NavRouter = NavRouter;
-
-},{"@angular/core":247}],468:[function(require,module,exports){
+},{"../../util/util":587,"./nav-controller":504,"@angular/core":247}],510:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -60618,112 +64122,50 @@ var core_1 = require('@angular/core');
 var app_1 = require('../app/app');
 var config_1 = require('../../config/config');
 var keyboard_1 = require('../../util/keyboard');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 var util_1 = require('../../util/util');
-var nav_controller_1 = require('./nav-controller');
-var nav_portal_1 = require('./nav-portal');
+var nav_controller_base_1 = require('./nav-controller-base');
 var view_controller_1 = require('./view-controller');
 /**
  * @name Nav
  * @description
- * _For a quick walkthrough of navigation in Ionic, check out the
- * [Navigation section](../../../../components/#navigation) of the Component
- * docs._
  *
- * Nav is a basic navigation controller component.  As a subclass of NavController
- * you use it to navigate to pages in your app and manipulate the navigation stack.
- * Nav automatically animates transitions between pages for you.
+ * `ion-nav` is the declarative component for a [NavController](../NavController/).
  *
- * For more information on using navigation controllers like Nav or [Tab](../../Tabs/Tab/),
+ * For more information on using nav controllers like Nav or [Tab](../../Tabs/Tab/),
  * take a look at the [NavController API Docs](../NavController/).
  *
+ *
+ * @usage
  * You must set a root page to be loaded initially by any Nav you create, using
  * the 'root' property:
  *
- * @usage
  * ```ts
- * import {Component} from '@angular/core';
- * import {ionicBootstrap} from 'ionic-angular';
- * import {GettingStartedPage} from './getting-started';
+ * import { Component } from '@angular/core';
+ * import { ionicBootstrap } from 'ionic-angular';
+ * import { GettingStartedPage } from './getting-started';
  *
  * @Component({
  *   template: `<ion-nav [root]="root"></ion-nav>`
  * })
  * class MyApp {
- *   root = GettingStartedPage;
+ *   private root: any = GettingStartedPage;
+ *
+ *   constructor(){
+ *   }
  * }
  *
  * ionicBootstrap(MyApp);
  * ```
  *
- * ### Back Navigation
- *
- * If a [page](../NavController/#creating_pages) you navigate to has a [NavBar](../NavBar/),
- * Nav will automatically add a back button to it if there is a page
- * before the one you are navigating to in the navigation stack.
- *
- * Additionally, specifying the `swipeBackEnabled` property will allow you to
- * swipe to go back:
- * ```html
- * <ion-nav swipeBackEnabled="false" [root]="rootPage"></ion-nav>
- * ```
- *
- * Here is a diagram of how Nav animates smoothly between pages:
- *
- * <div class="highlight less-margin">
- *   <pre>
- *                           +-------+
- *                           |  App  |
- *                           +---+---+
- *                           &lt;ion-app&gt;
- *                               |
- *                  +------------+-------------+
- *                  |   Ionic Nav Controller   |
- *                  +------------+-------------+
- *                           &lt;ion-nav&gt;
- *                               |
- *                               |
- *             Page 3  +--------------------+                     LoginPage
- *           Page 2  +--------------------+ |
- *         Page 1  +--------------------+ | |              +--------------------+
- *                 | | Header           |&lt;-----------------|       Login        |
- *                 +--------------------+ | |              +--------------------+
- *                 | | |                | | |              | Username:          |
- *                 | | |                | | |              | Password:          |
- *                 | | |  Page 3 is     | | |              |                    |
- *                 | | |  only content  | | |              |                    |
- *                 | | |                |&lt;-----------------|                    |
- *                 | | |                | | |              |                    |
- *                 | | |                | | |              |                    |
- *                 | +------------------|-+ |              |                    |
- *                 | | Footer           |-|-+              |                    |
- *                 | +------------------|-+                |                    |
- *                 +--------------------+                  +--------------------+
- *
- *           +--------------------+    +--------------------+    +--------------------+
- *           | Header             |    | Content            |    | Content            |
- *           +--------------------+    |                    |    |                    |
- *           | Content            |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    |                    |    |                    |
- *           |                    |    +--------------------+    |                    |
- *           |                    |    | Footer             |    |                    |
- *           +--------------------+    +--------------------+    +--------------------+
- *
- *   </pre>
- * </div>
  *
  * @demo /docs/v2/demos/navigation/
  * @see {@link /docs/v2/components#navigation Navigation Component Docs}
  */
 var Nav = (function (_super) {
     __extends(Nav, _super);
-    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler) {
-        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
+    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl) {
+        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
         this._hasInit = false;
         if (viewCtrl) {
             // an ion-nav can also act as an ion-page within a parent ion-nav
@@ -60735,9 +64177,15 @@ var Nav = (function (_super) {
             // this Nav has a parent Nav
             parent.registerChildNav(this);
         }
-        else if (app) {
+        else if (viewCtrl && viewCtrl.getNav()) {
+            // this Nav was opened from a modal
+            this.parent = viewCtrl.getNav();
+            this.parent.registerChildNav(this);
+        }
+        else if (app && !app.getRootNav()) {
+            // a root nav has not been registered yet with the app
             // this is the root navcontroller for the entire app
-            this._app.setRootNav(this);
+            app.setRootNav(this);
         }
     }
     Object.defineProperty(Nav.prototype, "_vp", {
@@ -60756,9 +64204,6 @@ var Nav = (function (_super) {
     Nav.prototype.ngAfterViewInit = function () {
         this._hasInit = true;
         if (this._root) {
-            if (typeof this._root !== 'function') {
-                throw 'The [root] property in <ion-nav> must be given a reference to a component class from within the constructor.';
-            }
             this.push(this._root);
         }
     };
@@ -60791,13 +64236,6 @@ var Nav = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Nav.prototype, "_np", {
-        set: function (val) {
-            this.setPortal(val);
-        },
-        enumerable: true,
-        configurable: true
-    });
     __decorate([
         core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
         __metadata('design:type', core_1.ViewContainerRef), 
@@ -60811,27 +64249,21 @@ var Nav = (function (_super) {
         core_1.Input(), 
         __metadata('design:type', Boolean)
     ], Nav.prototype, "swipeBackEnabled", null);
-    __decorate([
-        core_1.ViewChild(nav_portal_1.NavPortal), 
-        __metadata('design:type', nav_portal_1.NavPortal), 
-        __metadata('design:paramtypes', [nav_portal_1.NavPortal])
-    ], Nav.prototype, "_np", null);
     Nav = __decorate([
         core_1.Component({
             selector: 'ion-nav',
-            template: '<div #viewport nav-viewport></div><div class="nav-decor"></div><div nav-portal></div>',
-            directives: [nav_portal_1.NavPortal],
+            template: "\n    <div #viewport nav-viewport></div>\n    <div class=\"nav-decor\"></div>\n  ",
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(0, core_1.Optional()),
         __param(1, core_1.Optional()), 
-        __metadata('design:paramtypes', [view_controller_1.ViewController, nav_controller_1.NavController, app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver])
+        __metadata('design:paramtypes', [view_controller_1.ViewController, nav_controller_base_1.NavControllerBase, app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver, gesture_controller_1.GestureController])
     ], Nav);
     return Nav;
-}(nav_controller_1.NavController));
+}(nav_controller_base_1.NavControllerBase));
 exports.Nav = Nav;
 
-},{"../../config/config":504,"../../util/keyboard":536,"../../util/util":539,"../app/app":432,"./nav-controller":462,"./nav-portal":465,"./view-controller":470,"@angular/core":247}],469:[function(require,module,exports){
+},{"../../config/config":549,"../../gestures/gesture-controller":555,"../../util/keyboard":584,"../../util/util":587,"../app/app":471,"./nav-controller-base":503,"./view-controller":512,"@angular/core":247}],511:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -60842,32 +64274,26 @@ var util_1 = require('../../util/util');
 var slide_edge_gesture_1 = require('../../gestures/slide-edge-gesture');
 var SwipeBackGesture = (function (_super) {
     __extends(SwipeBackGesture, _super);
-    function SwipeBackGesture(element, options, _nav, _menuCtrl) {
+    function SwipeBackGesture(element, options, _nav, gestureCtlr) {
         _super.call(this, element, util_1.assign({
             direction: 'x',
-            maxEdgeStart: 75
+            maxEdgeStart: 75,
+            gesture: gestureCtlr.create('goback-swipe', {
+                priority: 20 /* GoBackSwipe */,
+            })
         }, options));
         this._nav = _nav;
-        this._menuCtrl = _menuCtrl;
     }
     SwipeBackGesture.prototype.canStart = function (ev) {
         // the gesture swipe angle must be mainly horizontal and the
         // gesture distance would be relatively short for a swipe back
         // and swipe back must be possible on this nav controller
-        if (ev.angle > -40 &&
-            ev.angle < 40 &&
-            ev.distance < 50 &&
-            this._nav.canSwipeBack()) {
-            // passed the tests, now see if the super says it's cool or not
-            return _super.prototype.canStart.call(this, ev);
-        }
-        // nerp, not today
-        return false;
+        return (this._nav.canSwipeBack() &&
+            _super.prototype.canStart.call(this, ev));
     };
     SwipeBackGesture.prototype.onSlideBeforeStart = function (slideData, ev) {
         void 0;
         this._nav.swipeBackStart();
-        this._menuCtrl.tempDisable(true);
     };
     SwipeBackGesture.prototype.onSlide = function (slide) {
         var stepValue = (slide.distance / slide.max);
@@ -60875,17 +64301,16 @@ var SwipeBackGesture = (function (_super) {
         this._nav.swipeBackProgress(stepValue);
     };
     SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
-        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
+        var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
         var currentStepValue = (slide.distance / slide.max);
         void 0;
         this._nav.swipeBackEnd(shouldComplete, currentStepValue);
-        this._menuCtrl.tempDisable(false);
     };
     return SwipeBackGesture;
 }(slide_edge_gesture_1.SlideEdgeGesture));
 exports.SwipeBackGesture = SwipeBackGesture;
 
-},{"../../gestures/slide-edge-gesture":511,"../../util/util":539}],470:[function(require,module,exports){
+},{"../../gestures/slide-edge-gesture":559,"../../util/util":587}],512:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -60923,7 +64348,8 @@ var ViewController = (function () {
         this._hdAttr = null;
         this._leavingOpts = null;
         this._loaded = false;
-        this._onDismiss = null;
+        this._onDidDismiss = null;
+        this._onWillDismiss = null;
         /**
          * @private
          */
@@ -60931,7 +64357,7 @@ var ViewController = (function () {
         /**
          * @private
          */
-        this.state = '';
+        this.state = 0;
         /**
          * @private
          * If this is currently the active view, then set to false
@@ -60942,10 +64368,6 @@ var ViewController = (function () {
          * @private
          */
         this.isOverlay = false;
-        /**
-         * @private
-         */
-        this.usePortal = false;
         /**
          * @private
          */
@@ -60973,9 +64395,24 @@ var ViewController = (function () {
     };
     /**
      * @private
+     * onDismiss(..) has been deprecated. Please use onDidDismiss(..) instead
      */
     ViewController.prototype.onDismiss = function (callback) {
-        this._onDismiss = callback;
+        // deprecated warning: added beta.11 2016-06-30
+        void 0;
+        this.onDidDismiss(callback);
+    };
+    /**
+     * @private
+     */
+    ViewController.prototype.onDidDismiss = function (callback) {
+        this._onDidDismiss = callback;
+    };
+    /**
+     * @private
+     */
+    ViewController.prototype.onWillDismiss = function (callback) {
+        this._onWillDismiss = callback;
     };
     /**
      * @private
@@ -60984,8 +64421,9 @@ var ViewController = (function () {
         var _this = this;
         if (navOptions === void 0) { navOptions = {}; }
         var options = util_1.merge({}, this._leavingOpts, navOptions);
+        this._onWillDismiss && this._onWillDismiss(data, role);
         return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
-            _this._onDismiss && _this._onDismiss(data, role);
+            _this._onDidDismiss && _this._onDidDismiss(data, role);
             return data;
         });
     };
@@ -61058,17 +64496,7 @@ var ViewController = (function () {
     });
     Object.defineProperty(ViewController.prototype, "index", {
         /**
-         * You can find out the index of the current view is in the current navigation stack.
-         *
-         * ```ts
-         *  export class Page1 {
-         *    constructor(private view: ViewController){
-         *      // Just log out the index
-         *      console.log(this.view.index);
-         *    }
-         *  }
-         * ```
-         *
+         * Get the index of the current component in the current navigation stack.
          * @returns {number} Returns the index of this page within its `NavController`.
          */
         get: function () {
@@ -61201,20 +64629,10 @@ var ViewController = (function () {
         return this._nbDir;
     };
     /**
-     * You can find out of the current view has a Navbar or not. Be sure
+     *
+     * Find out if the current component has a NavBar or not. Be sure
      * to wrap this in an `ionViewWillEnter` method in order to make sure
      * the view has rendered fully.
-     *
-     * ```ts
-     * export class Page1 {
-     *  constructor(private viewCtrl: ViewController) {}
-     *
-     *  ionViewWillEnter(){
-     *    console.log('Do we have a Navbar?', this.viewCtrl.hasNavbar());
-     *  }
-     *}
-     * ```
-     *
      * @returns {boolean} Returns a boolean if this Page has a navbar or not.
      */
     ViewController.prototype.hasNavbar = function () {
@@ -61263,19 +64681,8 @@ var ViewController = (function () {
         return navbar && navbar.getBackgroundRef();
     };
     /**
-     * You can change the text of the back button on a view-by-view basis.
-     *
-     * ```ts
-     * export class MyClass{
-     *  constructor(private viewCtrl: ViewController) {}
-     *
-     *  ionViewWillEnter() {
-     *    this.viewCtrl.setBackButtonText('Previous');
-     *  }
-     * }
-     * ```
-     * Make sure you use the view events when calling this method, otherwise the back-button will not have been created
-     *
+     * Change the title of the back-button. Be sure to call this
+     * after `ionViewWillEnter` to make sure the  DOM has been rendered.
      * @param {string} backButtonText Set the back button text.
      */
     ViewController.prototype.setBackButtonText = function (val) {
@@ -61285,7 +64692,8 @@ var ViewController = (function () {
         }
     };
     /**
-     * Set if the back button for the current view is visible or not. Be sure to wrap this in `ionViewWillEnter` to make sure the has been compleltly rendered.
+     * Set if the back button for the current view is visible or not. Be sure to call this
+     * after `ionViewWillEnter` to make sure the  DOM has been rendered.
      * @param {boolean} Set if this Page's back button should show or not.
      */
     ViewController.prototype.showBackButton = function (shouldShow) {
@@ -61422,7 +64830,7 @@ function ctrlFn(viewCtrl, fnName) {
     }
 }
 
-},{"../../util/util":539,"./nav-params":463,"@angular/core":247}],471:[function(require,module,exports){
+},{"../../util/util":587,"./nav-params":506,"@angular/core":247}],513:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -61444,6 +64852,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require('@angular/core');
 var app_1 = require('../app/app');
 var config_1 = require('../../config/config');
+var icon_1 = require('../icon/icon');
 var ion_1 = require('../ion');
 var util_1 = require('../../util/util');
 var nav_controller_1 = require('../nav/nav-controller');
@@ -61508,6 +64917,8 @@ var ToolbarBackground = (function () {
  * button. A navbar can contain a `ion-title`, any number of buttons,
  * a segment, or a searchbar. Navbars must be placed within an
  * `<ion-header>` in order for them to be placed above the content.
+ * It's important to note that navbar's are part of the dynamica navigation
+ * stack. If you need a static toolbar, use ion-toolbar.
  *
  * @usage
  * ```html
@@ -61627,27 +65038,13 @@ var Navbar = (function (_super) {
     Navbar = __decorate([
         core_1.Component({
             selector: 'ion-navbar',
-            template: '<div class="toolbar-background"></div>' +
-                '<button category="bar-button" class="back-button" [hidden]="_hideBb">' +
-                '<span class="button-inner">' +
-                '<ion-icon class="back-button-icon" [name]="_bbIcon"></ion-icon>' +
-                '<span class="back-button-text">' +
-                '<span class="back-default">{{_bbText}}</span>' +
-                '</span>' +
-                '</span>' +
-                '</button>' +
-                '<ng-content select="[menuToggle],ion-buttons[left]"></ng-content>' +
-                '<ng-content select="ion-buttons[start]"></ng-content>' +
-                '<ng-content select="ion-buttons[end],ion-buttons[right]"></ng-content>' +
-                '<div class="toolbar-content">' +
-                '<ng-content></ng-content>' +
-                '</div>',
+            template: "\n    <div class=\"toolbar-background\"></div>\n    <button category=\"bar-button\" class=\"back-button\" [hidden]=\"_hideBb\">\n      <span class=\"button-inner\">\n        <ion-icon class=\"back-button-icon\" [name]=\"_bbIcon\"></ion-icon>\n        <span class=\"back-button-text\">\n          <span class=\"back-default\">{{_bbText}}</span>\n        </span>\n      </span>\n    </button>\n    <ng-content select=\"[menuToggle],ion-buttons[left]\"></ng-content>\n    <ng-content select=\"ion-buttons[start]\"></ng-content>\n    <ng-content select=\"ion-buttons[end],ion-buttons[right]\"></ng-content>\n    <div class=\"toolbar-content\">\n      <ng-content></ng-content>\n    </div>\n  ",
+            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground],
             host: {
                 '[hidden]': '_hidden',
                 'class': 'toolbar',
                 '[class.statusbar-padding]': '_sbPadding'
-            },
-            directives: [BackButton, BackButtonText, ToolbarBackground]
+            }
         }),
         __param(1, core_1.Optional()), 
         __metadata('design:paramtypes', [app_1.App, view_controller_1.ViewController, core_1.ElementRef, config_1.Config])
@@ -61673,7 +65070,7 @@ var NavbarTemplate = (function () {
 }());
 exports.NavbarTemplate = NavbarTemplate;
 
-},{"../../config/config":504,"../../util/util":539,"../app/app":432,"../ion":446,"../nav/nav-controller":462,"../nav/view-controller":470,"../toolbar/toolbar":499,"@angular/core":247}],472:[function(require,module,exports){
+},{"../../config/config":549,"../../util/util":587,"../app/app":471,"../icon/icon":478,"../ion":485,"../nav/nav-controller":504,"../nav/view-controller":512,"../toolbar/toolbar":544,"@angular/core":247}],514:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -61689,28 +65086,29 @@ var util_1 = require('../../util/util');
 /**
  * @name Option
  * @description
- * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
+ * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a selected property.
  *
- * @demo /docs/v2/demos/item-sliding/
+ * @demo /docs/v2/demos/select/
  */
 var Option = (function () {
     function Option(_elementRef) {
         this._elementRef = _elementRef;
-        this._checked = false;
+        this._selected = false;
+        this._disabled = false;
         /**
          * @input {any} Event to evaluate when option is selected
          */
         this.ionSelect = new core_1.EventEmitter();
     }
-    Object.defineProperty(Option.prototype, "checked", {
+    Object.defineProperty(Option.prototype, "selected", {
         /**
-         * @input {boolean} Whether or not the option is already checked and selected
+         * @input {boolean} Whether or not the option is already selected
          */
         get: function () {
-            return this._checked;
+            return this._selected;
         },
         set: function (val) {
-            this._checked = util_1.isTrueProperty(val);
+            this._selected = util_1.isTrueProperty(val);
         },
         enumerable: true,
         configurable: true
@@ -61727,6 +65125,19 @@ var Option = (function () {
         },
         set: function (val) {
             this._value = val;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Option.prototype, "disabled", {
+        /**
+         * @input {boolean} Whether or not the option is disabled
+         */
+        get: function () {
+            return this._disabled;
+        },
+        set: function (val) {
+            this._disabled = util_1.isTrueProperty(val);
         },
         enumerable: true,
         configurable: true
@@ -61748,11 +65159,15 @@ var Option = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], Option.prototype, "checked", null);
+    ], Option.prototype, "selected", null);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], Option.prototype, "value", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Option.prototype, "disabled", null);
     Option = __decorate([
         core_1.Directive({
             selector: 'ion-option'
@@ -61763,7 +65178,7 @@ var Option = (function () {
 }());
 exports.Option = Option;
 
-},{"../../util/util":539,"@angular/core":247}],473:[function(require,module,exports){
+},{"../../util/util":587,"@angular/core":247}],515:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -61780,8 +65195,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var platform_browser_1 = require('@angular/platform-browser');
 var animation_1 = require('../../animations/animation');
+var backdrop_1 = require('../backdrop/backdrop');
 var dom_1 = require('../../util/dom');
 var util_1 = require('../../util/util');
 var config_1 = require('../../config/config');
@@ -61790,69 +65207,6 @@ var nav_params_1 = require('../nav/nav-params');
 var transition_1 = require('../../transitions/transition');
 var ui_event_manager_1 = require('../../util/ui-event-manager');
 var view_controller_1 = require('../nav/view-controller');
-/**
- * @name Picker
- * @description
- *
- */
-var Picker = (function (_super) {
-    __extends(Picker, _super);
-    function Picker(opts) {
-        if (opts === void 0) { opts = {}; }
-        opts.columns = opts.columns || [];
-        opts.buttons = opts.buttons || [];
-        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-        _super.call(this, PickerDisplayCmp, opts);
-        this.isOverlay = true;
-        this.ionChange = new core_1.EventEmitter();
-        // by default, pickers should not fire lifecycle events of other views
-        // for example, when an picker enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
-        this.usePortal = true;
-    }
-    /**
-    * @private
-    */
-    Picker.prototype.getTransitionName = function (direction) {
-        var key = (direction === 'back' ? 'pickerLeave' : 'pickerEnter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * @param {any} button Picker toolbar button
-     */
-    Picker.prototype.addButton = function (button) {
-        this.data.buttons.push(button);
-    };
-    /**
-     * @param {any} button Picker toolbar button
-     */
-    Picker.prototype.addColumn = function (column) {
-        this.data.columns.push(column);
-    };
-    Picker.prototype.getColumns = function () {
-        return this.data.columns;
-    };
-    Picker.prototype.refresh = function () {
-        this.instance.refresh && this.instance.refresh();
-    };
-    /**
-     * @param {string} cssClass CSS class name to add to the picker's outer wrapper.
-     */
-    Picker.prototype.setCssClass = function (cssClass) {
-        this.data.cssClass = cssClass;
-    };
-    Picker.create = function (opts) {
-        if (opts === void 0) { opts = {}; }
-        return new Picker(opts);
-    };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], Picker.prototype, "ionChange", void 0);
-    return Picker;
-}(view_controller_1.ViewController));
-exports.Picker = Picker;
 /**
  * @private
  */
@@ -61869,7 +65223,6 @@ var PickerColumnCmp = (function () {
         this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
     }
     PickerColumnCmp.prototype.ngAfterViewInit = function () {
-        var _this = this;
         // get the scrollable element within the column
         var colEle = this.colEle.nativeElement;
         this.colHeight = colEle.clientHeight;
@@ -61878,7 +65231,12 @@ var PickerColumnCmp = (function () {
         // set the scroll position for the selected option
         this.setSelected(this.col.selectedIndex, 0);
         // Listening for pointer events
-        this.events.pointerEventsRef(this.elementRef, function (ev) { return _this.pointerStart(ev); }, function (ev) { return _this.pointerMove(ev); }, function (ev) { return _this.pointerEnd(ev); });
+        this.events.pointerEvents({
+            elementRef: this.elementRef,
+            pointerDown: this.pointerStart.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerEnd.bind(this)
+        });
     };
     PickerColumnCmp.prototype.ngOnDestroy = function () {
         this.events.unlistenAll();
@@ -62100,13 +65458,8 @@ var PickerColumnCmp = (function () {
     PickerColumnCmp = __decorate([
         core_1.Component({
             selector: '.picker-col',
-            template: '<div *ngIf="col.prefix" class="picker-prefix" [style.width]="col.prefixWidth">{{col.prefix}}</div>' +
-                '<div class="picker-opts" #colEle [style.width]="col.optionsWidth">' +
-                '<button *ngFor="let o of col.options; let i=index" [style.transform]="o._trans" [style.transitionDuration]="o._dur" [class.picker-opt-selected]="col.selectedIndex === i" [class.picker-opt-disabled]="o.disabled" (click)="optClick($event, i)" type="button" category="picker-opt">' +
-                '{{o.text}}' +
-                '</button>' +
-                '</div>' +
-                '<div *ngIf="col.suffix" class="picker-suffix" [style.width]="col.suffixWidth">{{col.suffix}}</div>',
+            template: "\n    <div *ngIf=\"col.prefix\" class=\"picker-prefix\" [style.width]=\"col.prefixWidth\">{{col.prefix}}</div>\n    <div class=\"picker-opts\" #colEle [style.width]=\"col.optionsWidth\">\n      <button *ngFor=\"let o of col.options; let i=index\" [style.transform]=\"o._trans\" [style.transitionDuration]=\"o._dur\" [style.webkitTransform]=\"o._trans\" [style.webkitTransitionDuration]=\"o._dur\" [class.picker-opt-selected]=\"col.selectedIndex === i\" [class.picker-opt-disabled]=\"o.disabled\" (click)=\"optClick($event, i)\" type=\"button\" category=\"picker-opt\">\n        {{o.text}}\n      </button>\n    </div>\n    <div *ngIf=\"col.suffix\" class=\"picker-suffix\" [style.width]=\"col.suffixWidth\">{{col.suffix}}</div>\n  ",
+            directives: [common_1.NgFor, common_1.NgIf],
             host: {
                 '[style.min-width]': 'col.columnWidth',
                 '[class.picker-opts-left]': 'col.align=="left"',
@@ -62117,11 +65470,12 @@ var PickerColumnCmp = (function () {
     ], PickerColumnCmp);
     return PickerColumnCmp;
 }());
+exports.PickerColumnCmp = PickerColumnCmp;
 /**
  * @private
  */
-var PickerDisplayCmp = (function () {
-    function PickerDisplayCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+var PickerCmp = (function () {
+    function PickerCmp(_viewCtrl, _elementRef, _config, params, renderer) {
         this._viewCtrl = _viewCtrl;
         this._elementRef = _elementRef;
         this._config = _config;
@@ -62134,7 +65488,7 @@ var PickerDisplayCmp = (function () {
         this.id = (++pickerIds);
         this.lastClick = 0;
     }
-    PickerDisplayCmp.prototype.ionViewLoaded = function () {
+    PickerCmp.prototype.ionViewLoaded = function () {
         // normalize the data
         var data = this.d;
         data.buttons = data.buttons.map(function (button) {
@@ -62175,17 +65529,17 @@ var PickerDisplayCmp = (function () {
             return column;
         });
     };
-    PickerDisplayCmp.prototype.refresh = function () {
+    PickerCmp.prototype.refresh = function () {
         this._cols.forEach(function (column) {
             column.refresh();
         });
     };
-    PickerDisplayCmp.prototype._colChange = function (selectedOption) {
+    PickerCmp.prototype._colChange = function (selectedOption) {
         // one of the columns has changed its selected index
         var picker = this._viewCtrl;
         picker.ionChange.emit(this.getSelected());
     };
-    PickerDisplayCmp.prototype._keyUp = function (ev) {
+    PickerCmp.prototype._keyUp = function (ev) {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === key_1.Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
@@ -62204,7 +65558,7 @@ var PickerDisplayCmp = (function () {
             }
         }
     };
-    PickerDisplayCmp.prototype.ionViewDidEnter = function () {
+    PickerCmp.prototype.ionViewDidEnter = function () {
         var activeElement = document.activeElement;
         if (activeElement) {
             activeElement.blur();
@@ -62215,7 +65569,7 @@ var PickerDisplayCmp = (function () {
         }
         this.enabled = true;
     };
-    PickerDisplayCmp.prototype.btnClick = function (button, dismissDelay) {
+    PickerCmp.prototype.btnClick = function (button, dismissDelay) {
         var _this = this;
         if (!this.enabled) {
             return;
@@ -62237,15 +65591,15 @@ var PickerDisplayCmp = (function () {
             }, dismissDelay || this._config.get('pageTransitionDelay'));
         }
     };
-    PickerDisplayCmp.prototype.bdClick = function () {
+    PickerCmp.prototype.bdClick = function () {
         if (this.enabled && this.d.enableBackdropDismiss) {
             this.dismiss('backdrop');
         }
     };
-    PickerDisplayCmp.prototype.dismiss = function (role) {
+    PickerCmp.prototype.dismiss = function (role) {
         return this._viewCtrl.dismiss(this.getSelected(), role);
     };
-    PickerDisplayCmp.prototype.getSelected = function () {
+    PickerCmp.prototype.getSelected = function () {
         var selected = {};
         this.d.columns.forEach(function (col, index) {
             var selectedColumn = col.options[col.selectedIndex];
@@ -62260,41 +65614,28 @@ var PickerDisplayCmp = (function () {
     __decorate([
         core_1.ViewChildren(PickerColumnCmp), 
         __metadata('design:type', core_1.QueryList)
-    ], PickerDisplayCmp.prototype, "_cols", void 0);
+    ], PickerCmp.prototype, "_cols", void 0);
     __decorate([
         core_1.HostListener('body:keyup', ['$event']), 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', [KeyboardEvent]), 
         __metadata('design:returntype', void 0)
-    ], PickerDisplayCmp.prototype, "_keyUp", null);
-    PickerDisplayCmp = __decorate([
+    ], PickerCmp.prototype, "_keyUp", null);
+    PickerCmp = __decorate([
         core_1.Component({
             selector: 'ion-picker-cmp',
-            template: '<ion-backdrop (click)="bdClick()"></ion-backdrop>' +
-                '<div class="picker-wrapper">' +
-                '<div class="picker-toolbar">' +
-                '<div *ngFor="let b of d.buttons" class="picker-toolbar-button" [ngClass]="b.cssRole">' +
-                '<button (click)="btnClick(b)" [ngClass]="b.cssClass" class="picker-button" clear>' +
-                '{{b.text}}' +
-                '</button>' +
-                '</div>' +
-                '</div>' +
-                '<div class="picker-columns">' +
-                '<div class="picker-above-highlight"></div>' +
-                '<div *ngFor="let c of d.columns" [col]="c" class="picker-col" (ionChange)="_colChange($event)"></div>' +
-                '<div class="picker-below-highlight"></div>' +
-                '</div>' +
-                '</div>',
+            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"picker-wrapper\">\n      <div class=\"picker-toolbar\">\n        <div *ngFor=\"let b of d.buttons\" class=\"picker-toolbar-button\" [ngClass]=\"b.cssRole\">\n          <button (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\" class=\"picker-button\" clear>\n            {{b.text}}\n          </button>\n        </div>\n      </div>\n      <div class=\"picker-columns\">\n        <div class=\"picker-above-highlight\"></div>\n        <div *ngFor=\"let c of d.columns\" [col]=\"c\" class=\"picker-col\" (ionChange)=\"_colChange($event)\"></div>\n        <div class=\"picker-below-highlight\"></div>\n      </div>\n    </div>\n  ",
+            directives: [backdrop_1.Backdrop, common_1.NgClass, common_1.NgFor, PickerColumnCmp],
             host: {
                 'role': 'dialog'
             },
-            directives: [PickerColumnCmp],
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
         __metadata('design:paramtypes', [view_controller_1.ViewController, core_1.ElementRef, config_1.Config, nav_params_1.NavParams, core_1.Renderer])
-    ], PickerDisplayCmp);
-    return PickerDisplayCmp;
+    ], PickerCmp);
+    return PickerCmp;
 }());
+exports.PickerCmp = PickerCmp;
 /**
  * Animations for pickers
  */
@@ -62330,7 +65671,128 @@ var pickerIds = -1;
 var DECELERATION_FRICTION = 0.97;
 var FRAME_MS = (1000 / 60);
 
-},{"../../animations/animation":427,"../../config/config":504,"../../transitions/transition":524,"../../util/dom":531,"../../util/key":535,"../../util/ui-event-manager":538,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247,"@angular/platform-browser":369}],474:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/config":549,"../../transitions/transition":572,"../../util/dom":579,"../../util/key":583,"../../util/ui-event-manager":586,"../../util/util":587,"../backdrop/backdrop":472,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/common":100,"@angular/core":247,"@angular/platform-browser":406}],516:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var util_1 = require('../../util/util');
+var picker_component_1 = require('./picker-component');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Picker = (function (_super) {
+    __extends(Picker, _super);
+    function Picker(app, opts) {
+        if (opts === void 0) { opts = {}; }
+        opts.columns = opts.columns || [];
+        opts.buttons = opts.buttons || [];
+        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+        _super.call(this, picker_component_1.PickerCmp, opts);
+        this._app = app;
+        this.isOverlay = true;
+        this.ionChange = new core_1.EventEmitter();
+        // by default, pickers should not fire lifecycle events of other views
+        // for example, when an picker enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+    * @private
+    */
+    Picker.prototype.getTransitionName = function (direction) {
+        var key = (direction === 'back' ? 'pickerLeave' : 'pickerEnter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * @param {any} button Picker toolbar button
+     */
+    Picker.prototype.addButton = function (button) {
+        this.data.buttons.push(button);
+    };
+    /**
+     * @param {any} button Picker toolbar button
+     */
+    Picker.prototype.addColumn = function (column) {
+        this.data.columns.push(column);
+    };
+    Picker.prototype.getColumns = function () {
+        return this.data.columns;
+    };
+    Picker.prototype.refresh = function () {
+        this.instance.refresh && this.instance.refresh();
+    };
+    /**
+     * @param {string} cssClass CSS class name to add to the picker's outer wrapper.
+     */
+    Picker.prototype.setCssClass = function (cssClass) {
+        this.data.cssClass = cssClass;
+    };
+    /**
+     * Present the picker instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Picker.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject PickerController instead
+     */
+    Picker.create = function (opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], Picker.prototype, "ionChange", void 0);
+    return Picker;
+}(view_controller_1.ViewController));
+exports.Picker = Picker;
+/**
+ * @private
+ * @name PickerController
+ * @description
+ *
+ */
+var PickerController = (function () {
+    function PickerController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Open a picker.
+     */
+    PickerController.prototype.create = function (opts) {
+        if (opts === void 0) { opts = {}; }
+        return new Picker(this._app, opts);
+    };
+    PickerController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], PickerController);
+    return PickerController;
+}());
+exports.PickerController = PickerController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./picker-component":515,"@angular/core":247}],517:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -62349,153 +65811,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var bootstrap_1 = require('../../config/bootstrap');
 var animation_1 = require('../../animations/animation');
+var backdrop_1 = require('../backdrop/backdrop');
 var config_1 = require('../../config/config');
 var dom_1 = require('../../util/dom');
-var util_1 = require('../../util/util');
 var key_1 = require('../../util/key');
 var nav_params_1 = require('../nav/nav-params');
 var page_transition_1 = require('../../transitions/page-transition');
 var view_controller_1 = require('../nav/view-controller');
-var POPOVER_IOS_BODY_PADDING = 2;
-var POPOVER_MD_BODY_PADDING = 12;
 /**
- * @name Popover
- * @description
- * A Popover is a dialog that appears on top of the current page.
- * It can be used for anything, but generally it is used for overflow
- * actions that don't fit in the navigation bar.
- *
- * ### Creating
- * A popover can be created by calling the `create` method. The view
- * to display in the popover should be passed as the first argument.
- * Any data to pass to the popover view can optionally be passed in
- * the second argument. Options for the popover can optionally be
- * passed in the third argument. See the [create](#create) method
- * below for all available options.
- *
- * ### Presenting
- * To present a popover, call the `present` method on the [NavController](../../nav/NavController).
- * The first argument passed to the `present` should be the popover. In order
- * to position the popover relative to the element clicked, the event needs to be
- * passed as the second argument. If the event is not passed, the popover will be
- * positioned in the center of the current view. See the [usage](#usage) section for
- * an example of passing this event.
- *
- * ### Dismissing
- * To dismiss the popover after creation, call the `dismiss()` method on the
- * `Popover` instance. The popover can also be dismissed from within the popover's
- * view by calling the `dismiss()` method on the [ViewController](../../nav/ViewController).
- * The `onDismiss` function can be called to perform an action after the popover
- * is dismissed. The popover will dismiss when the backdrop is clicked, but this
- * can be disabled by setting `enableBackdropDismiss` to `false` in the popover
- * options.
- *
- * > Note that after the component is dismissed, it will not be usable anymore and
- * another one must be created. This can be avoided by wrapping the creation and
- * presentation of the component in a reusable function as shown in the [usage](#usage)
- * section below.
- *
- * @usage
- *
- * To open a popover on the click of a button, pass `$event` to the method
- * which creates and presents the popover:
- *
- * ```html
- * <button (click)="presentPopover($event)">
- *   <ion-icon name="more"></ion-icon>
- * </button>
- * ```
- *
- * ```ts
- * @Component({})
- * class MyPage {
- *   constructor(private nav: NavController) {}
- *
- *   presentPopover(myEvent) {
- *     let popover = Popover.create(PopoverPage);
- *     this.nav.present(popover, {
- *       ev: myEvent
- *     });
- *   }
- * }
- * ```
- *
- * The `PopoverPage` will display inside of the popover, and
- * can be anything. Below is an example of a page with items
- * that close the popover on click.
- *
- * ```ts
- * @Component({
- *   template: `
- *     <ion-list>
- *       <ion-list-header>Ionic</ion-list-header>
- *       <button ion-item (click)="close()">Learn Ionic</button>
- *       <button ion-item (click)="close()">Documentation</button>
- *       <button ion-item (click)="close()">Showcase</button>
- *       <button ion-item (click)="close()">GitHub Repo</button>
- *     </ion-list>
- *   `
- * })
- * class PopoverPage {
- *   constructor(private viewCtrl: ViewController) {}
- *
- *   close() {
- *     this.viewCtrl.dismiss();
- *   }
- * }
- * ```
- *
- *
- * @demo /docs/v2/demos/popover/
+ * @private
  */
-var Popover = (function (_super) {
-    __extends(Popover, _super);
-    function Popover(componentType, data, opts) {
-        if (data === void 0) { data = {}; }
-        if (opts === void 0) { opts = {}; }
-        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
-        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-        data.componentType = componentType;
-        data.opts = opts;
-        _super.call(this, PopoverCmp, data);
-        this.isOverlay = true;
-        // by default, popovers should not fire lifecycle events of other views
-        // for example, when a popover enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
-    }
-    /**
-     * @private
-     */
-    Popover.prototype.getTransitionName = function (direction) {
-        var key = (direction === 'back' ? 'popoverLeave' : 'popoverEnter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-     * Create a popover with the following options
-     *
-     * | Option                | Type       | Description                                                                                                      |
-     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
-     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-     *
-     *
-     * @param {object} componentType The Popover
-     * @param {object} data Any data to pass to the Popover view
-     * @param {object} opts Popover options
-     */
-    Popover.create = function (componentType, data, opts) {
-        if (data === void 0) { data = {}; }
-        if (opts === void 0) { opts = {}; }
-        return new Popover(componentType, data, opts);
-    };
-    return Popover;
-}(view_controller_1.ViewController));
-exports.Popover = Popover;
-/**
-* @private
-*/
 var PopoverCmp = (function () {
     function PopoverCmp(_compiler, _elementRef, _renderer, _config, _navParams, _viewCtrl) {
         this._compiler = _compiler;
@@ -62557,20 +65882,14 @@ var PopoverCmp = (function () {
     PopoverCmp = __decorate([
         core_1.Component({
             selector: 'ion-popover',
-            template: '<ion-backdrop (click)="bdClick($event)" [class.hide-backdrop]="!d.showBackdrop"></ion-backdrop>' +
-                '<div class="popover-wrapper">' +
-                '<div class="popover-arrow"></div>' +
-                '<div class="popover-content">' +
-                '<div class="popover-viewport">' +
-                '<div #viewport nav-viewport></div>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+            template: "\n    <ion-backdrop (click)=\"bdClick($event)\" [class.hide-backdrop]=\"!d.showBackdrop\"></ion-backdrop>\n    <div class=\"popover-wrapper\">\n      <div class=\"popover-arrow\"></div>\n      <div class=\"popover-content\">\n        <div class=\"popover-viewport\">\n          <div #viewport nav-viewport></div>\n        </div>\n      </div>\n    </div>\n  ",
+            directives: [backdrop_1.Backdrop]
         }), 
         __metadata('design:paramtypes', [core_1.ComponentResolver, core_1.ElementRef, core_1.Renderer, config_1.Config, nav_params_1.NavParams, view_controller_1.ViewController])
     ], PopoverCmp);
     return PopoverCmp;
 }());
+exports.PopoverCmp = PopoverCmp;
 /**
  * Animations for popover
  */
@@ -62784,8 +66103,203 @@ var PopoverMdPopOut = (function (_super) {
 }(PopoverTransition));
 page_transition_1.PageTransition.register('popover-md-pop-out', PopoverMdPopOut);
 var popoverIds = -1;
+var POPOVER_IOS_BODY_PADDING = 2;
+var POPOVER_MD_BODY_PADDING = 12;
 
-},{"../../animations/animation":427,"../../config/bootstrap":503,"../../config/config":504,"../../transitions/page-transition":520,"../../util/dom":531,"../../util/key":535,"../../util/util":539,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],475:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/bootstrap":548,"../../config/config":549,"../../transitions/page-transition":568,"../../util/dom":579,"../../util/key":583,"../backdrop/backdrop":472,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/core":247}],518:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var util_1 = require('../../util/util');
+var popover_component_1 = require('./popover-component');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Popover = (function (_super) {
+    __extends(Popover, _super);
+    function Popover(app, componentType, data, opts) {
+        if (data === void 0) { data = {}; }
+        if (opts === void 0) { opts = {}; }
+        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+        data.componentType = componentType;
+        data.opts = opts;
+        _super.call(this, popover_component_1.PopoverCmp, data);
+        this._app = app;
+        this.isOverlay = true;
+        // by default, popovers should not fire lifecycle events of other views
+        // for example, when a popover enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+     * @private
+     */
+    Popover.prototype.getTransitionName = function (direction) {
+        var key = (direction === 'back' ? 'popoverLeave' : 'popoverEnter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+     * Present the popover instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Popover.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject PopoverController instead
+     */
+    Popover.create = function (componentType, data, opts) {
+        if (data === void 0) { data = {}; }
+        if (opts === void 0) { opts = {}; }
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return Popover;
+}(view_controller_1.ViewController));
+exports.Popover = Popover;
+/**
+ * @name PopoverController
+ * @description
+ * A Popover is a dialog that appears on top of the current page.
+ * It can be used for anything, but generally it is used for overflow
+ * actions that don't fit in the navigation bar.
+ *
+ * ### Creating
+ * A popover can be created by calling the `create` method. The view
+ * to display in the popover should be passed as the first argument.
+ * Any data to pass to the popover view can optionally be passed in
+ * the second argument. Options for the popover can optionally be
+ * passed in the third argument. See the [create](#create) method
+ * below for all available options.
+ *
+ * ### Presenting
+ * To present a popover, call the `present` method on the [NavController](../../nav/NavController).
+ * The first argument passed to the `present` should be the popover. In order
+ * to position the popover relative to the element clicked, the event needs to be
+ * passed as the second argument. If the event is not passed, the popover will be
+ * positioned in the center of the current view. See the [usage](#usage) section for
+ * an example of passing this event.
+ *
+ * ### Dismissing
+ * To dismiss the popover after creation, call the `dismiss()` method on the
+ * `Popover` instance. The popover can also be dismissed from within the popover's
+ * view by calling the `dismiss()` method on the [ViewController](../../nav/ViewController).
+ * The `onDidDismiss` function can be called to perform an action after the popover
+ * is dismissed. The popover will dismiss when the backdrop is clicked, but this
+ * can be disabled by setting `enableBackdropDismiss` to `false` in the popover
+ * options.
+ *
+ * > Note that after the component is dismissed, it will not be usable anymore and
+ * another one must be created. This can be avoided by wrapping the creation and
+ * presentation of the component in a reusable function as shown in the [usage](#usage)
+ * section below.
+ *
+ * @usage
+ *
+ * To open a popover on the click of a button, pass `$event` to the method
+ * which creates and presents the popover:
+ *
+ * ```html
+ * <button (click)="presentPopover($event)">
+ *   <ion-icon name="more"></ion-icon>
+ * </button>
+ * ```
+ *
+ * ```ts
+ * @Component({})
+ * class MyPage {
+ *   constructor(private popoverCtrl: PopoverController) {}
+ *
+ *   presentPopover(myEvent) {
+ *     let popover = this.popoverCtrl.create(PopoverPage);
+ *     popover.present({
+ *       ev: myEvent
+ *     });
+ *   }
+ * }
+ * ```
+ *
+ * The `PopoverPage` will display inside of the popover, and
+ * can be anything. Below is an example of a page with items
+ * that close the popover on click.
+ *
+ * ```ts
+ * @Component({
+ *   template: `
+ *     <ion-list>
+ *       <ion-list-header>Ionic</ion-list-header>
+ *       <button ion-item (click)="close()">Learn Ionic</button>
+ *       <button ion-item (click)="close()">Documentation</button>
+ *       <button ion-item (click)="close()">Showcase</button>
+ *       <button ion-item (click)="close()">GitHub Repo</button>
+ *     </ion-list>
+ *   `
+ * })
+ * class PopoverPage {
+ *   constructor(private viewCtrl: ViewController) {}
+ *
+ *   close() {
+ *     this.viewCtrl.dismiss();
+ *   }
+ * }
+ * ```
+ * @advanced
+ * Popover Options
+ *
+ * | Option                | Type       | Description                                                                                                      |
+ * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+ * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+ * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+ * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+ *
+ *
+ *
+ * @demo /docs/v2/demos/popover/
+ */
+var PopoverController = (function () {
+    function PopoverController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Present a popover. See below for options
+     * @param {object} componentType The Popover
+     * @param {object} data Any data to pass to the Popover view
+     * @param {PopoverOptions} opts Popover options
+     */
+    PopoverController.prototype.create = function (componentType, data, opts) {
+        if (data === void 0) { data = {}; }
+        if (opts === void 0) { opts = {}; }
+        return new Popover(this._app, componentType, data, opts);
+    };
+    PopoverController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], PopoverController);
+    return PopoverController;
+}());
+exports.PopoverController = PopoverController;
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./popover-component":517,"@angular/core":247}],519:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -62958,18 +66472,7 @@ var RadioButton = (function () {
     RadioButton = __decorate([
         core_1.Component({
             selector: 'ion-radio',
-            template: '<div class="radio-icon" [class.radio-checked]="_checked">' +
-                '<div class="radio-inner"></div>' +
-                '</div>' +
-                '<button role="radio" ' +
-                'type="button" ' +
-                'category="item-cover" ' +
-                '[id]="id" ' +
-                '[attr.aria-checked]="_checked" ' +
-                '[attr.aria-labelledby]="_labelId" ' +
-                '[attr.aria-disabled]="_disabled" ' +
-                'class="item-cover">' +
-                '</button>',
+            template: "\n    <div class=\"radio-icon\" [class.radio-checked]=\"_checked\">\n      <div class=\"radio-inner\"></div>\n    </div>\n    <button role=\"radio\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
             host: {
                 '[class.radio-disabled]': '_disabled'
             },
@@ -62983,7 +66486,7 @@ var RadioButton = (function () {
 }());
 exports.RadioButton = RadioButton;
 
-},{"../../util/form":534,"../../util/util":539,"../item/item":451,"./radio-group":476,"@angular/core":247}],476:[function(require,module,exports){
+},{"../../util/form":582,"../../util/util":587,"../item/item":490,"./radio-group":520,"@angular/core":247}],520:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -62995,10 +66498,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var list_1 = require('../list/list');
 var util_1 = require('../../util/util');
-var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
+exports.RADIO_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 /**
  * @name RadioGroup
  * @description
@@ -63066,6 +66569,15 @@ var RadioGroup = (function () {
     /**
      * @private
      */
+    RadioGroup.prototype.ngAfterContentInit = function () {
+        var activeButton = this._btns.find(function (b) { return b.checked; });
+        if (activeButton) {
+            this._setActive(activeButton);
+        }
+    };
+    /**
+     * @private
+     */
     RadioGroup.prototype.writeValue = function (val) {
         void 0;
         this.value = val;
@@ -63079,20 +66591,11 @@ var RadioGroup = (function () {
     /**
      * @private
      */
-    RadioGroup.prototype.ngAfterContentInit = function () {
-        var activeButton = this._btns.find(function (b) { return b.checked; });
-        if (activeButton) {
-            this._setActive(activeButton);
-        }
-    };
-    /**
-     * @private
-     */
     RadioGroup.prototype.registerOnChange = function (fn) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // onChange used when there's an ngControl
+            // onChange used when there's an formControlName
             void 0;
             fn(val);
             _this.value = val;
@@ -63171,7 +66674,7 @@ var RadioGroup = (function () {
      * @private
      */
     RadioGroup.prototype.onChange = function (val) {
-        // onChange used when there is not an ngControl
+        // onChange used when there is not an formControlName
         void 0;
         this.value = val;
         this._update();
@@ -63198,7 +66701,7 @@ var RadioGroup = (function () {
                 '[attr.aria-activedescendant]': 'activeId',
                 'role': 'radiogroup'
             },
-            providers: [RADIO_VALUE_ACCESSOR]
+            providers: [exports.RADIO_VALUE_ACCESSOR]
         }), 
         __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
     ], RadioGroup);
@@ -63207,7 +66710,7 @@ var RadioGroup = (function () {
 exports.RadioGroup = RadioGroup;
 var radioGroupIds = -1;
 
-},{"../../util/util":539,"../list/list":453,"@angular/common":100,"@angular/core":247}],477:[function(require,module,exports){
+},{"../../util/util":587,"../list/list":492,"@angular/core":247,"@angular/forms":336}],521:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -63223,13 +66726,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var util_1 = require('../../util/util');
 var dom_1 = require('../../util/dom');
 var debouncer_1 = require('../../util/debouncer');
 var form_1 = require('../../util/form');
 var item_1 = require('../item/item');
 var ui_event_manager_1 = require('../../util/ui-event-manager');
-var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
+exports.RANGE_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 /**
  * @private
  */
@@ -63302,8 +66806,8 @@ var RangeKnob = (function () {
     RangeKnob = __decorate([
         core_1.Component({
             selector: '.range-knob-handle',
-            template: '<div class="range-pin" *ngIf="range.pin">{{_val}}</div>' +
-                '<div class="range-knob"></div>',
+            template: "\n    <div class=\"range-pin\" *ngIf=\"range.pin\">{{_val}}</div>\n    <div class=\"range-knob\"></div>\n  ",
+            directives: [common_1.NgIf],
             host: {
                 '[class.range-knob-pressed]': 'pressed',
                 '[class.range-knob-min]': '_val===range.min',
@@ -63403,6 +66907,7 @@ var Range = (function () {
         this._dual = false;
         this._disabled = false;
         this._start = null;
+        this._ticks = [];
         this._min = 0;
         this._max = 100;
         this._step = 1;
@@ -63496,7 +67001,8 @@ var Range = (function () {
     });
     Object.defineProperty(Range.prototype, "debounce", {
         /**
-         * @input {number} If true, a pin with integer value is shown when the knob is pressed. Defaults to `false`.
+         * @input {number} How long, in milliseconds, to wait to trigger the `ionChange`
+         * event after each change in the range value. Default `0`.
          */
         get: function () {
             return this._debouncer.wait;
@@ -63538,7 +67044,12 @@ var Range = (function () {
         this._renderer.setElementStyle(this._bar.nativeElement, 'left', barL);
         this._renderer.setElementStyle(this._bar.nativeElement, 'right', barR);
         // add touchstart/mousedown listeners
-        this._events.pointerEventsRef(this._slider, this.pointerDown.bind(this), this.pointerMove.bind(this), this.pointerUp.bind(this));
+        this._events.pointerEvents({
+            elementRef: this._slider,
+            pointerDown: this.pointerDown.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerUp.bind(this)
+        });
         this.createTicks();
     };
     /**
@@ -63588,15 +67099,11 @@ var Range = (function () {
         // prevent default so scrolling does not happen
         ev.preventDefault();
         ev.stopPropagation();
-        if (this._start !== null && this._active !== null) {
-            // only use pointer move if it's a valid pointer
-            // and we already have start coordinates
-            // update the ratio for the active knob
-            this.updateKnob(dom_1.pointerCoord(ev), this._rect);
-            // update the active knob's position
-            this._active.position();
-            this._pressed = this._active.pressed = true;
-        }
+        // update the ratio for the active knob
+        this.updateKnob(dom_1.pointerCoord(ev), this._rect);
+        // update the active knob's position
+        this._active.position();
+        this._pressed = this._active.pressed = true;
     };
     /**
      * @private
@@ -63808,7 +67315,7 @@ var Range = (function () {
      * @private
      */
     Range.prototype.onChange = function (val) {
-        // used when this input does not have an ngModel or ngControl
+        // used when this input does not have an ngModel or formControlName
         this.onTouched();
     };
     /**
@@ -63873,22 +67380,14 @@ var Range = (function () {
     Range = __decorate([
         core_1.Component({
             selector: 'ion-range',
-            template: '<ng-content select="[range-left]"></ng-content>' +
-                '<div class="range-slider" #slider>' +
-                '<div class="range-tick" *ngFor="let t of _ticks" [style.left]="t.left" [class.range-tick-active]="t.active"></div>' +
-                '<div class="range-bar"></div>' +
-                '<div class="range-bar range-bar-active" [style.left]="_barL" [style.right]="_barR" #bar></div>' +
-                '<div class="range-knob-handle"></div>' +
-                '<div class="range-knob-handle" [upper]="true" *ngIf="_dual"></div>' +
-                '</div>' +
-                '<ng-content select="[range-right]"></ng-content>',
+            template: "\n    <ng-content select=\"[range-left]\"></ng-content>\n    <div class=\"range-slider\" #slider>\n      <div class=\"range-tick\" *ngFor=\"let t of _ticks\" [style.left]=\"t.left\" [class.range-tick-active]=\"t.active\"></div>\n      <div class=\"range-bar\"></div>\n      <div class=\"range-bar range-bar-active\" [style.left]=\"_barL\" [style.right]=\"_barR\" #bar></div>\n      <div class=\"range-knob-handle\"></div>\n      <div class=\"range-knob-handle\" [upper]=\"true\" *ngIf=\"_dual\"></div>\n    </div>\n    <ng-content select=\"[range-right]\"></ng-content>\n  ",
+            directives: [common_1.NgFor, common_1.NgIf, RangeKnob],
             host: {
                 '[class.range-disabled]': '_disabled',
                 '[class.range-pressed]': '_pressed',
                 '[class.range-has-pin]': '_pin'
             },
-            directives: [RangeKnob],
-            providers: [RANGE_VALUE_ACCESSOR],
+            providers: [exports.RANGE_VALUE_ACCESSOR],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(1, core_1.Optional()), 
@@ -63898,7 +67397,7 @@ var Range = (function () {
 }());
 exports.Range = Range;
 
-},{"../../util/debouncer":530,"../../util/dom":531,"../../util/form":534,"../../util/ui-event-manager":538,"../../util/util":539,"../item/item":451,"@angular/common":100,"@angular/core":247}],478:[function(require,module,exports){
+},{"../../util/debouncer":578,"../../util/dom":579,"../../util/form":582,"../../util/ui-event-manager":586,"../../util/util":587,"../item/item":490,"@angular/common":100,"@angular/core":247,"@angular/forms":336}],522:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -63910,8 +67409,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var config_1 = require('../../config/config');
+var icon_1 = require('../icon/icon');
 var refresher_1 = require('./refresher');
+var spinner_1 = require('../spinner/spinner');
 /**
  * @private
  */
@@ -63950,18 +67452,8 @@ var RefresherContent = (function () {
     RefresherContent = __decorate([
         core_1.Component({
             selector: 'ion-refresher-content',
-            template: '<div class="refresher-pulling">' +
-                '<div class="refresher-pulling-icon" *ngIf="pullingIcon">' +
-                '<ion-icon [name]="pullingIcon"></ion-icon>' +
-                '</div>' +
-                '<div class="refresher-pulling-text" [innerHTML]="pullingText" *ngIf="pullingText"></div>' +
-                '</div>' +
-                '<div class="refresher-refreshing">' +
-                '<div class="refresher-refreshing-icon">' +
-                '<ion-spinner [name]="refreshingSpinner"></ion-spinner>' +
-                '</div>' +
-                '<div class="refresher-refreshing-text" [innerHTML]="refreshingText" *ngIf="refreshingText"></div>' +
-                '</div>',
+            template: "\n    <div class=\"refresher-pulling\">\n      <div class=\"refresher-pulling-icon\" *ngIf=\"pullingIcon\">\n        <ion-icon [name]=\"pullingIcon\"></ion-icon>\n      </div>\n      <div class=\"refresher-pulling-text\" [innerHTML]=\"pullingText\" *ngIf=\"pullingText\"></div>\n    </div>\n    <div class=\"refresher-refreshing\">\n      <div class=\"refresher-refreshing-icon\">\n        <ion-spinner [name]=\"refreshingSpinner\"></ion-spinner>\n      </div>\n      <div class=\"refresher-refreshing-text\" [innerHTML]=\"refreshingText\" *ngIf=\"refreshingText\"></div>\n    </div>\n  ",
+            directives: [icon_1.Icon, common_1.NgIf, spinner_1.Spinner],
             host: {
                 '[attr.state]': 'r.state'
             },
@@ -63973,7 +67465,7 @@ var RefresherContent = (function () {
 }());
 exports.RefresherContent = RefresherContent;
 
-},{"../../config/config":504,"./refresher":479,"@angular/core":247}],479:[function(require,module,exports){
+},{"../../config/config":549,"../icon/icon":478,"../spinner/spinner":531,"./refresher":523,"@angular/common":100,"@angular/core":247}],523:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -63990,6 +67482,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require('@angular/core');
 var content_1 = require('../content/content');
 var dom_1 = require('../../util/dom');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 var util_1 = require('../../util/util');
 var ui_event_manager_1 = require('../../util/ui-event-manager');
 /**
@@ -64073,7 +67566,7 @@ var ui_event_manager_1 = require('../../util/ui-event-manager');
  *
  */
 var Refresher = (function () {
-    function Refresher(_content, _zone) {
+    function Refresher(_content, _zone, gestureCtrl) {
         this._content = _content;
         this._zone = _zone;
         this._appliedStyles = false;
@@ -64150,6 +67643,9 @@ var Refresher = (function () {
          */
         this.ionStart = new core_1.EventEmitter();
         _content.addCssClass('has-refresher');
+        this._gesture = gestureCtrl.create('refresher', {
+            priority: 0 /* Refresher */,
+        });
     }
     Object.defineProperty(Refresher.prototype, "enabled", {
         /**
@@ -64179,17 +67675,20 @@ var Refresher = (function () {
         if (scrollHostScrollTop > 0) {
             return false;
         }
+        if (!this._gesture.canStart()) {
+            return false;
+        }
         var coord = dom_1.pointerCoord(ev);
         void 0;
-        if (this._content.adjustedTop > 0) {
-            var newTop = this._content.adjustedTop + 'px';
+        if (this._content.contentTop > 0) {
+            var newTop = this._content.contentTop + 'px';
             if (this._top !== newTop) {
                 this._top = newTop;
             }
         }
         this.startY = this.currentY = coord.y;
         this.progress = 0;
-        this.state = STATE_PULLING;
+        this.state = STATE_INACTIVE;
         return true;
     };
     Refresher.prototype._onMove = function (ev) {
@@ -64200,6 +67699,9 @@ var Refresher = (function () {
         // if multitouch then get out immediately
         if (ev.touches && ev.touches.length > 1) {
             return 1;
+        }
+        if (!this._gesture.canStart()) {
+            return 0;
         }
         // do nothing if it's actively refreshing
         // or it's in the process of closing
@@ -64380,7 +67882,12 @@ var Refresher = (function () {
         this._events.unlistenAll();
         this._pointerEvents = null;
         if (shouldListen) {
-            this._pointerEvents = this._events.pointerEvents(this._content.getScrollElement(), this._onStart.bind(this), this._onMove.bind(this), this._onEnd.bind(this));
+            this._pointerEvents = this._events.pointerEvents({
+                element: this._content.getScrollElement(),
+                pointerDown: this._onStart.bind(this),
+                pointerMove: this._onMove.bind(this),
+                pointerUp: this._onEnd.bind(this)
+            });
         }
     };
     /**
@@ -64395,6 +67902,7 @@ var Refresher = (function () {
      * @private
      */
     Refresher.prototype.ngOnDestroy = function () {
+        this._gesture.destroy();
         this._setListeners(false);
     };
     __decorate([
@@ -64438,7 +67946,7 @@ var Refresher = (function () {
             }
         }),
         __param(0, core_1.Host()), 
-        __metadata('design:paramtypes', [content_1.Content, core_1.NgZone])
+        __metadata('design:paramtypes', [content_1.Content, core_1.NgZone, gesture_controller_1.GestureController])
     ], Refresher);
     return Refresher;
 }());
@@ -64450,7 +67958,7 @@ var STATE_REFRESHING = 'refreshing';
 var STATE_CANCELLING = 'cancelling';
 var STATE_COMPLETING = 'completing';
 
-},{"../../util/dom":531,"../../util/ui-event-manager":538,"../../util/util":539,"../content/content":437,"@angular/core":247}],480:[function(require,module,exports){
+},{"../../gestures/gesture-controller":555,"../../util/dom":579,"../../util/ui-event-manager":586,"../../util/util":587,"../content/content":476,"@angular/core":247}],524:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -64549,7 +68057,7 @@ var Scroll = (function (_super) {
 }(ion_1.Ion));
 exports.Scroll = Scroll;
 
-},{"../ion":446,"@angular/core":247}],481:[function(require,module,exports){
+},{"../ion":485,"@angular/core":247}],525:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -64564,8 +68072,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var config_1 = require('../../config/config');
+var icon_1 = require('../icon/icon');
 var util_1 = require('../../util/util');
 var debouncer_1 = require('../../util/debouncer');
 /**
@@ -64936,12 +68445,6 @@ var Searchbar = (function () {
     Searchbar = __decorate([
         core_1.Component({
             selector: 'ion-searchbar',
-            host: {
-                '[class.searchbar-has-value]': '_value',
-                '[class.searchbar-active]': '_isActive',
-                '[class.searchbar-show-cancel]': 'showCancelButton',
-                '[class.searchbar-left-aligned]': 'shouldAlignLeft()'
-            },
             template: '<div class="searchbar-input-container">' +
                 '<button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear dark class="searchbar-md-cancel">' +
                 '<ion-icon name="arrow-back"></ion-icon>' +
@@ -64951,16 +68454,23 @@ var Searchbar = (function () {
                 '<button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
                 '</div>' +
                 '<button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
+            directives: [icon_1.Icon, forms_1.NgModel],
+            host: {
+                '[class.searchbar-has-value]': '_value',
+                '[class.searchbar-active]': '_isActive',
+                '[class.searchbar-show-cancel]': 'showCancelButton',
+                '[class.searchbar-left-aligned]': 'shouldAlignLeft()'
+            },
             encapsulation: core_1.ViewEncapsulation.None
         }),
         __param(2, core_1.Optional()), 
-        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, common_1.NgControl])
+        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, forms_1.NgControl])
     ], Searchbar);
     return Searchbar;
 }());
 exports.Searchbar = Searchbar;
 
-},{"../../config/config":504,"../../util/debouncer":530,"../../util/util":539,"@angular/common":100,"@angular/core":247}],482:[function(require,module,exports){
+},{"../../config/config":549,"../../util/debouncer":578,"../../util/util":587,"../icon/icon":478,"@angular/core":247,"@angular/forms":336}],526:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -64975,40 +68485,37 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var util_1 = require('../../util/util');
 /**
  * @name SegmentButton
  * @description
  * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
+ *
  * @usage
+ *
  * ```html
- * <ion-segment [(ngModel)]="relationship" primary>
- *   <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
- *     Friends
- *   </ion-segment-button>
- *   <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
- *     Enemies
- *   </ion-segment-button>
- * </ion-segment>
- *```
- *
- * Or with `FormBuilder`
- *
- *```html
- * <form [ngFormModel]="myForm">
- *   <ion-segment ngControl="mapStyle" danger>
- *     <ion-segment-button value="standard">
- *       Standard
+ * <ion-content>
+ *   <!-- Segment buttons with icons -->
+ *   <ion-segment [(ngModel)]="icons" secondary>
+ *     <ion-segment-button value="camera">
+ *       <ion-icon name="camera"></ion-icon>
  *     </ion-segment-button>
- *     <ion-segment-button value="hybrid">
- *       Hybrid
- *     </ion-segment-button>
- *     <ion-segment-button value="sat">
- *       Satellite
+ *     <ion-segment-button value="bookmark">
+ *       <ion-icon name="bookmark"></ion-icon>
  *     </ion-segment-button>
  *   </ion-segment>
- * </form>
+ *
+ *   <!-- Segment buttons with text -->
+ *   <ion-segment [(ngModel)]="relationship" primary>
+ *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
+ *       Friends
+ *     </ion-segment-button>
+ *     <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
+ *       Enemies
+ *     </ion-segment-button>
+ *   </ion-segment>
+ * </ion-content>
  * ```
  *
  *
@@ -65094,8 +68601,7 @@ var SegmentButton = (function () {
     SegmentButton = __decorate([
         core_1.Component({
             selector: 'ion-segment-button',
-            template: '<ng-content></ng-content>' +
-                '<ion-button-effect></ion-button-effect>',
+            template: "\n    <ng-content></ng-content>\n    <ion-button-effect></ion-button-effect>\n  ",
             host: {
                 'tappable': '',
                 'class': 'segment-button',
@@ -65116,34 +68622,47 @@ exports.SegmentButton = SegmentButton;
  * You could use Angular 2's `ngModel` or `FormBuilder` API. For an overview on how `FormBuilder` works, checkout [Angular 2 Forms](http://learnangular2.com/forms/), or [Angular FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html)
  *
  *
- * @usage
  * ```html
- * <ion-segment [(ngModel)]="relationship" (ionChange)="onSegmentChanged($event)" danger>
- *   <ion-segment-button value="friends">
- *     Friends
- *   </ion-segment-button>
- *   <ion-segment-button value="enemies">
- *     Enemies
- *   </ion-segment-button>
- * </ion-segment>
- *```
+ * <!-- Segment in a header -->
+ * <ion-header>
+ *   <ion-toolbar>
+ *     <ion-segment [(ngModel)]="icons" secondary>
+ *       <ion-segment-button value="camera">
+ *         <ion-icon name="camera"></ion-icon>
+ *       </ion-segment-button>
+ *       <ion-segment-button value="bookmark">
+ *         <ion-icon name="bookmark"></ion-icon>
+ *       </ion-segment-button>
+ *     </ion-segment>
+ *   </ion-toolbar>
+ * </ion-header>
  *
- * Or with `FormBuilder`
- *
- *```html
- * <form [ngFormModel]="myForm">
- *   <ion-segment ngControl="mapStyle" danger>
- *     <ion-segment-button value="standard">
- *       Standard
+ * <ion-content>
+ *   <!-- Segment in content -->
+ *   <ion-segment [(ngModel)]="relationship" primary>
+ *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
+ *       Friends
  *     </ion-segment-button>
- *     <ion-segment-button value="hybrid">
- *       Hybrid
- *     </ion-segment-button>
- *     <ion-segment-button value="sat">
- *       Satellite
+ *     <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
+ *       Enemies
  *     </ion-segment-button>
  *   </ion-segment>
- * </form>
+ *
+ *   <!-- Segment in a form -->
+ *   <form [formGroup]="myForm">
+ *     <ion-segment formControlName="mapStyle" danger>
+ *       <ion-segment-button value="standard">
+ *         Standard
+ *       </ion-segment-button>
+ *       <ion-segment-button value="hybrid">
+ *         Hybrid
+ *       </ion-segment-button>
+ *       <ion-segment-button value="sat">
+ *         Satellite
+ *       </ion-segment-button>
+ *     </ion-segment>
+ *   </form>
+ * </ion-content>
  * ```
  *
  *
@@ -65252,13 +68771,13 @@ var Segment = (function () {
             selector: 'ion-segment'
         }),
         __param(0, core_1.Optional()), 
-        __metadata('design:paramtypes', [common_1.NgControl])
+        __metadata('design:paramtypes', [forms_1.NgControl])
     ], Segment);
     return Segment;
 }());
 exports.Segment = Segment;
 
-},{"../../util/util":539,"@angular/common":100,"@angular/core":247}],483:[function(require,module,exports){
+},{"../../util/util":587,"@angular/core":247,"@angular/forms":336}],527:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -65274,14 +68793,16 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var action_sheet_1 = require('../action-sheet/action-sheet');
 var alert_1 = require('../alert/alert');
+var app_1 = require('../app/app');
 var form_1 = require('../../util/form');
 var util_1 = require('../../util/util');
 var item_1 = require('../item/item');
 var nav_controller_1 = require('../nav/nav-controller');
 var option_1 = require('../option/option');
-var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
+exports.SELECT_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 /**
  * @name Select
  * @description
@@ -65315,7 +68836,7 @@ var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { us
  * <ion-item>
  *   <ion-label>Gender</ion-label>
  *   <ion-select [(ngModel)]="gender">
- *     <ion-option value="f" checked="true">Female</ion-option>
+ *     <ion-option value="f" selected="true">Female</ion-option>
  *     <ion-option value="m">Male</ion-option>
  *   </ion-select>
  * </ion-item>
@@ -65383,7 +68904,8 @@ var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { us
  * @demo /docs/v2/demos/select/
  */
 var Select = (function () {
-    function Select(_form, _elementRef, _renderer, _item, _nav) {
+    function Select(_app, _form, _elementRef, _renderer, _item, _nav) {
+        this._app = _app;
         this._form = _form;
         this._elementRef = _elementRef;
         this._renderer = _renderer;
@@ -65409,13 +68931,13 @@ var Select = (function () {
          */
         this.alertOptions = {};
         /**
-         * @private
-         */
-        this.checked = false;
-        /**
          * @input {string} The interface the select should use: `action-sheet` or `alert`. Default: `alert`.
          */
         this.interface = '';
+        /**
+         * @input {string} The text to display instead of the selected option's value.
+         */
+        this.selectedText = '';
         /**
          * @output {any} Any expression you want to evaluate when the selection has changed.
          */
@@ -65430,9 +68952,6 @@ var Select = (function () {
             this._labelId = 'lbl-' + _item.id;
             this._item.setCssClass('item-select', true);
         }
-        if (!_nav) {
-            void 0;
-        }
     }
     Select.prototype._click = function (ev) {
         if (ev.detail === 0) {
@@ -65441,14 +68960,17 @@ var Select = (function () {
         }
         ev.preventDefault();
         ev.stopPropagation();
-        this._open();
+        this.open();
     };
     Select.prototype._keyup = function () {
         if (!this._isOpen) {
-            this._open();
+            this.open();
         }
     };
-    Select.prototype._open = function () {
+    /**
+     * Open the select interface.
+     */
+    Select.prototype.open = function () {
         var _this = this;
         if (this._disabled) {
             return;
@@ -65482,7 +69004,7 @@ var Select = (function () {
         if (this.interface === 'action-sheet') {
             alertOptions.buttons = alertOptions.buttons.concat(options.map(function (input) {
                 return {
-                    role: (input.checked ? 'selected' : ''),
+                    role: (input.selected ? 'selected' : ''),
                     text: input.text,
                     handler: function () {
                         _this.onChange(input.value);
@@ -65491,7 +69013,7 @@ var Select = (function () {
                 };
             }));
             alertOptions.cssClass = 'select-action-sheet';
-            overlay = action_sheet_1.ActionSheet.create(alertOptions);
+            overlay = new action_sheet_1.ActionSheet(this._app, alertOptions);
         }
         else {
             // default to use the alert interface
@@ -65503,19 +69025,24 @@ var Select = (function () {
                     type: (_this._multi ? 'checkbox' : 'radio'),
                     label: input.text,
                     value: input.value,
-                    checked: input.checked
+                    checked: input.selected,
+                    disabled: input.disabled
                 };
             });
+            var selectCssClass = 'select-alert';
             // create the alert instance from our built up alertOptions
-            overlay = alert_1.Alert.create(alertOptions);
+            overlay = new alert_1.Alert(this._app, alertOptions);
             if (this._multi) {
                 // use checkboxes
-                overlay.setCssClass('select-alert multiple-select-alert');
+                selectCssClass += ' multiple-select-alert';
             }
             else {
                 // use radio buttons
-                overlay.setCssClass('select-alert single-select-alert');
+                selectCssClass += ' single-select-alert';
             }
+            // If the user passed a cssClass for the select, add it
+            selectCssClass += alertOptions.cssClass ? ' ' + alertOptions.cssClass : '';
+            overlay.setCssClass(selectCssClass);
             overlay.addButton({
                 text: this.okText,
                 handler: function (selectedValues) {
@@ -65524,9 +69051,9 @@ var Select = (function () {
                 }
             });
         }
-        this._nav.present(overlay, alertOptions);
+        overlay.present(alertOptions);
         this._isOpen = true;
-        overlay.onDismiss(function () {
+        overlay.onDidDismiss(function () {
             _this._isOpen = false;
         });
     };
@@ -65561,8 +69088,8 @@ var Select = (function () {
             this._options = val;
             if (!this._values.length) {
                 // there are no values set at this point
-                // so check to see who should be checked
-                this._values = val.filter(function (o) { return o.checked; }).map(function (o) { return o.value; });
+                // so check to see who should be selected
+                this._values = val.filter(function (o) { return o.selected; }).map(function (o) { return o.value; });
             }
             this._updOpts();
         },
@@ -65578,10 +69105,10 @@ var Select = (function () {
         if (this._options) {
             this._options.forEach(function (option) {
                 // check this option if the option's value is in the values array
-                option.checked = _this._values.some(function (selectValue) {
+                option.selected = _this._values.some(function (selectValue) {
                     return util_1.isCheckedProperty(selectValue, option.value);
                 });
-                if (option.checked) {
+                if (option.selected) {
                     _this._texts.push(option.text);
                 }
             });
@@ -65638,7 +69165,7 @@ var Select = (function () {
      * @private
      */
     Select.prototype.onChange = function (val) {
-        // onChange used when there is not an ngControl
+        // onChange used when there is not an formControlName
         void 0;
         this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
         this._updOpts();
@@ -65672,12 +69199,12 @@ var Select = (function () {
     ], Select.prototype, "alertOptions", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Select.prototype, "checked", void 0);
+        __metadata('design:type', String)
+    ], Select.prototype, "interface", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
-    ], Select.prototype, "interface", void 0);
+    ], Select.prototype, "selectedText", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
@@ -65714,33 +69241,23 @@ var Select = (function () {
     Select = __decorate([
         core_1.Component({
             selector: 'ion-select',
-            template: '<div *ngIf="!_text" class="select-placeholder select-text">{{placeholder}}</div>' +
-                '<div *ngIf="_text" class="select-text">{{_text}}</div>' +
-                '<div class="select-icon">' +
-                '<div class="select-icon-inner"></div>' +
-                '</div>' +
-                '<button aria-haspopup="true" ' +
-                '[id]="id" ' +
-                'category="item-cover" ' +
-                '[attr.aria-labelledby]="_labelId" ' +
-                '[attr.aria-disabled]="_disabled" ' +
-                'class="item-cover">' +
-                '</button>',
+            template: "\n    <div *ngIf=\"!_text\" class=\"select-placeholder select-text\">{{placeholder}}</div>\n    <div *ngIf=\"_text\" class=\"select-text\">{{selectedText || _text}}</div>\n    <div class=\"select-icon\">\n      <div class=\"select-icon-inner\"></div>\n    </div>\n    <button aria-haspopup=\"true\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+            directives: [common_1.NgIf],
             host: {
                 '[class.select-disabled]': '_disabled'
             },
-            providers: [SELECT_VALUE_ACCESSOR],
+            providers: [exports.SELECT_VALUE_ACCESSOR],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
-        __param(3, core_1.Optional()),
-        __param(4, core_1.Optional()), 
-        __metadata('design:paramtypes', [form_1.Form, core_1.ElementRef, core_1.Renderer, item_1.Item, nav_controller_1.NavController])
+        __param(4, core_1.Optional()),
+        __param(5, core_1.Optional()), 
+        __metadata('design:paramtypes', [app_1.App, form_1.Form, core_1.ElementRef, core_1.Renderer, item_1.Item, nav_controller_1.NavController])
     ], Select);
     return Select;
 }());
 exports.Select = Select;
 
-},{"../../util/form":534,"../../util/util":539,"../action-sheet/action-sheet":430,"../alert/alert":431,"../item/item":451,"../nav/nav-controller":462,"../option/option":472,"@angular/common":100,"@angular/core":247}],484:[function(require,module,exports){
+},{"../../util/form":582,"../../util/util":587,"../action-sheet/action-sheet":468,"../alert/alert":470,"../app/app":471,"../item/item":490,"../nav/nav-controller":504,"../option/option":514,"@angular/common":100,"@angular/core":247,"@angular/forms":336}],528:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -65924,7 +69441,7 @@ var HideWhen = (function (_super) {
 }(DisplayWhen));
 exports.HideWhen = HideWhen;
 
-},{"../../platform/platform":514,"@angular/core":247}],485:[function(require,module,exports){
+},{"../../platform/platform":562,"@angular/core":247}],529:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -66025,8 +69542,8 @@ var swiper_widget_1 = require('./swiper-widget');
  * To add [options](#configuring), we will define them in `mySlideOptions` in our class `MyPage`:
  *
  * ```ts
- * import {Component} from '@angular/core';
- * import {Slides} from 'ionic-angular';
+ * import { Component } from '@angular/core';
+ * import { Slides } from 'ionic-angular';
  *
  * @Component({
  *   templateUrl: 'my-page.html'
@@ -66060,7 +69577,7 @@ var swiper_widget_1 = require('./swiper-widget');
  * Next, we can use `ViewChild` to assign the Slides instance to `slider`:
  *
  * ```ts
- * import {ViewChild} from '@angular/core';
+ * import { ViewChild } from '@angular/core';
  *
  * class MyPage {
  *   @ViewChild('mySlider') slider: Slides;
@@ -66069,7 +69586,7 @@ var swiper_widget_1 = require('./swiper-widget');
  * }
  * ```
  *
- * Now we can call any of the `Slider` [methods]((#instance-members)),
+ * Now we can call any of the `Slider` [methods](#instance-members),
  * for example we can use the Slider's `slideTo()` method in order to
  * navigate to a specific slide on a button click. Below we call the
  * `goToSlide()` method and it navigates to the 3rd slide:
@@ -66154,18 +69671,6 @@ var Slides = (function (_super) {
         if (!this.options) {
             this.options = {};
         }
-        if (util_1.isPresent(this.pager)) {
-            // beta.5 2016-04-18 deprecated warning
-            // Pager should be passed as an option
-            void 0;
-            // Remove this with the deprecation warning
-            this.showPager = util_1.isTrueProperty(this.pager);
-        }
-        if (util_1.isPresent(this.zoom)) {
-            // beta.5 2016-04-18 deprecated warning
-            // Zoom should be passed as an option
-            void 0;
-        }
         if (util_1.isPresent(this.options.pager)) {
             this.showPager = util_1.isTrueProperty(this.options.pager);
         }
@@ -66214,7 +69719,7 @@ var Slides = (function (_super) {
         setTimeout(function () {
             var swiper = new swiper_widget_1.Swiper(_this.getNativeElement().children[0], options);
             _this.slider = swiper;
-        });
+        }, 300);
         /*
         * TODO: Finish this
         if (isTrueProperty(this.zoom)) {
@@ -66497,14 +70002,14 @@ var Slides = (function (_super) {
             if (_this.length() > 10) {
                 _this.showPager = false;
             }
-        });
+        }, 300);
     };
     /**
      * Transition to the specified slide.
      *
      * @param {number} index  The index number of the slide.
-     * @param {number} speed  Transition duration (in ms). Optional.
-     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+     * @param {number} [speed]  Transition duration (in ms).
+     * @param {boolean} [runCallbacks] Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
      */
     Slides.prototype.slideTo = function (index, speed, runCallbacks) {
         this.slider.slideTo(index, speed, runCallbacks);
@@ -66512,8 +70017,8 @@ var Slides = (function (_super) {
     /**
      * Transition to the next slide.
      *
-     * @param {number} speed  Transition duration (in ms). Optional.
-     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+     * @param {number} [speed]  Transition duration (in ms).
+     * @param {boolean} [runCallbacks]  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
      */
     Slides.prototype.slideNext = function (speed, runCallbacks) {
         this.slider.slideNext(runCallbacks, speed);
@@ -66521,8 +70026,8 @@ var Slides = (function (_super) {
     /**
      * Transition to the previous slide.
      *
-     * @param {number} speed  Transition duration (in ms). Optional.
-     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
+     * @param {number} [speed]  Transition duration (in ms).
+     * @param {boolean} [runCallbacks]  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Default true.
      */
     Slides.prototype.slidePrev = function (speed, runCallbacks) {
         this.slider.slidePrev(runCallbacks, speed);
@@ -66687,7 +70192,7 @@ var SlideLazy = (function () {
 exports.SlideLazy = SlideLazy;
 var slidesId = -1;
 
-},{"../../animations/animation":427,"../../gestures/gesture":509,"../../util":527,"../../util/dom":531,"../../util/util":539,"../ion":446,"./swiper-widget":486,"@angular/core":247}],486:[function(require,module,exports){
+},{"../../animations/animation":464,"../../gestures/gesture":556,"../../util":575,"../../util/dom":579,"../../util/util":587,"../ion":485,"./swiper-widget":530,"@angular/core":247}],530:[function(require,module,exports){
 /**
  * Swiper 3.1.2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -70643,7 +74148,7 @@ function Swiper(container, params) {
       }
   }
 
-},{}],487:[function(require,module,exports){
+},{}],531:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -70655,6 +74160,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var config_1 = require('../../config/config');
 /**
  * @name Spinner
@@ -70838,12 +74344,8 @@ var Spinner = (function () {
     Spinner = __decorate([
         core_1.Component({
             selector: 'ion-spinner',
-            template: '<svg viewBox="0 0 64 64" *ngFor="let i of _c" [ngStyle]="i.style">' +
-                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
-                '</svg>' +
-                '<svg viewBox="0 0 64 64" *ngFor="let i of _l" [ngStyle]="i.style">' +
-                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
-                '</svg>',
+            template: "\n    <svg viewBox=\"0 0 64 64\" *ngFor=\"let i of _c\" [ngStyle]=\"i.style\">\n     <circle [attr.r]=\"i.r\" transform=\"translate(32,32)\"></circle>\n    </svg>\n    <svg viewBox=\"0 0 64 64\" *ngFor=\"let i of _l\" [ngStyle]=\"i.style\">\n     <line [attr.y1]=\"i.y1\" [attr.y2]=\"i.y2\" transform=\"translate(32,32)\"></line>\n    </svg>\n  ",
+            directives: [common_1.NgFor, common_1.NgStyle],
             host: {
                 '[class]': '_applied',
                 '[class.spinner-paused]': 'paused'
@@ -70938,7 +74440,7 @@ var SPINNERS = {
     }
 };
 
-},{"../../config/config":504,"@angular/core":247}],488:[function(require,module,exports){
+},{"../../config/config":549,"@angular/common":100,"@angular/core":247}],532:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -70967,11 +74469,15 @@ var TabButton = (function (_super) {
         _super.call(this, elementRef);
         this.ionSelect = new core_1.EventEmitter();
         this.disHover = (config.get('hoverCSS') === false);
-        this.layout = config.get('tabbarLayout');
+        this.layout = config.get('tabsLayout');
+        // TODO deprecated 07-07-2016 beta.11
+        if (config.get('tabbarLayout') !== undefined) {
+            this.layout = config.get('tabbarLayout');
+        }
     }
     TabButton.prototype.ngOnInit = function () {
         this.tab.btn = this;
-        this.layout = this.tab.parent.tabbarLayout || this.layout;
+        this.layout = this.tab.parent.tabsLayout || this.layout;
         this.hasTitle = !!this.tab.tabTitle;
         this.hasIcon = !!this.tab.tabIcon && this.layout !== 'icon-hide';
         this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
@@ -71001,7 +74507,7 @@ var TabButton = (function (_super) {
             selector: '.tab-button',
             host: {
                 '[attr.id]': 'tab._btnId',
-                '[attr.aria-controls]': 'tab._panelId',
+                '[attr.aria-controls]': 'tab._tabId',
                 '[attr.aria-selected]': 'tab.isSelected',
                 '[class.has-title]': 'hasTitle',
                 '[class.has-icon]': 'hasIcon',
@@ -71017,7 +74523,7 @@ var TabButton = (function (_super) {
 }(ion_1.Ion));
 exports.TabButton = TabButton;
 
-},{"../../config/config":504,"../ion":446,"./tab":490,"@angular/core":247}],489:[function(require,module,exports){
+},{"../../config/config":549,"../ion":485,"./tab":534,"@angular/core":247}],533:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -71061,7 +74567,7 @@ var TabHighlight = (function () {
 }());
 exports.TabHighlight = TabHighlight;
 
-},{"../../util/dom":531,"@angular/core":247}],490:[function(require,module,exports){
+},{"../../util/dom":579,"@angular/core":247}],534:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -71083,9 +74589,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require('@angular/core');
 var app_1 = require('../app/app');
 var config_1 = require('../../config/config');
+var gesture_controller_1 = require('../../gestures/gesture-controller');
 var util_1 = require('../../util/util');
 var keyboard_1 = require('../../util/keyboard');
-var nav_controller_1 = require('../nav/nav-controller');
+var nav_controller_base_1 = require('../nav/nav-controller-base');
 var tabs_1 = require('./tabs');
 /**
  * @name Tab
@@ -71093,7 +74600,8 @@ var tabs_1 = require('./tabs');
  * The Tab component, written `<ion-tab>`, is styled based on the mode and should
  * be used in conjunction with the [Tabs](../Tabs/) component.
  *
- * Each tab has a separate navigation controller. For more information on using
+ * Each `ion-tab` is a declarative component for a [NavController](../NavController/).
+ * Basically, each tab is a `NavController`. For more information on using
  * navigation controllers take a look at the [NavController API Docs](../../nav/NavController/).
  *
  * See the [Tabs API Docs](../Tabs/) for more details on configuring Tabs.
@@ -71113,7 +74621,7 @@ var tabs_1 = require('./tabs');
  * Then, in your class you can set `chatRoot` to an imported class:
  *
  * ```ts
- * import {ChatPage} from '../chat/chat';
+ * import { ChatPage } from '../chat/chat';
  *
  * export class Tabs {
  *   // here we'll set the property of chatRoot to
@@ -71174,13 +74682,13 @@ var tabs_1 = require('./tabs');
  *
  * ```ts
  * export class Tabs {
- *   constructor(nav: NavController) {
- *     this.nav = nav;
+ *   constructor(private modalCtrl: ModalController) {
+ *
  *   }
  *
  *   chat() {
- *     let modal = Modal.create(ChatPage);
- *     this.nav.present(modal);
+ *     let modal = this.modalCtrl.create(ChatPage);
+ *     modal.present();
  *   }
  * }
  * ```
@@ -71194,9 +74702,9 @@ var tabs_1 = require('./tabs');
  */
 var Tab = (function (_super) {
     __extends(Tab, _super);
-    function Tab(parent, app, config, keyboard, elementRef, zone, renderer, compiler, _cd) {
+    function Tab(parent, app, config, keyboard, elementRef, zone, renderer, compiler, _cd, gestureCtrl) {
         // A Tab is a NavController for its child pages
-        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
+        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler, gestureCtrl);
         this.parent = parent;
         this._cd = _cd;
         this._isEnabled = true;
@@ -71206,10 +74714,7 @@ var Tab = (function (_super) {
          */
         this.ionSelect = new core_1.EventEmitter();
         parent.add(this);
-        if (parent.rootNav) {
-            this._sbEnabled = parent.rootNav.isSwipeBackEnabled();
-        }
-        this._panelId = 'tabpanel-' + this.id;
+        this._tabId = 'tabpanel-' + this.id;
         this._btnId = 'tab-' + this.id;
     }
     Object.defineProperty(Tab.prototype, "enabled", {
@@ -71276,7 +74781,7 @@ var Tab = (function (_super) {
      */
     Tab.prototype.load = function (opts, done) {
         if (!this._loaded && this.root) {
-            this.push(this.root, this.rootParams, opts).then(function () {
+            this.push(this.root, this.rootParams, opts, function () {
                 done(true);
             });
             this._loaded = true;
@@ -71401,7 +74906,7 @@ var Tab = (function (_super) {
             selector: 'ion-tab',
             host: {
                 '[class.show-tab]': 'isSelected',
-                '[attr.id]': '_panelId',
+                '[attr.id]': '_tabId',
                 '[attr.aria-labelledby]': '_btnId',
                 'role': 'tabpanel'
             },
@@ -71409,13 +74914,13 @@ var Tab = (function (_super) {
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-        __metadata('design:paramtypes', [tabs_1.Tabs, app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver, core_1.ChangeDetectorRef])
+        __metadata('design:paramtypes', [tabs_1.Tabs, app_1.App, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.NgZone, core_1.Renderer, core_1.ComponentResolver, core_1.ChangeDetectorRef, gesture_controller_1.GestureController])
     ], Tab);
     return Tab;
-}(nav_controller_1.NavController));
+}(nav_controller_base_1.NavControllerBase));
 exports.Tab = Tab;
 
-},{"../../config/config":504,"../../util/keyboard":536,"../../util/util":539,"../app/app":432,"../nav/nav-controller":462,"./tabs":491,"@angular/core":247}],491:[function(require,module,exports){
+},{"../../config/config":549,"../../gestures/gesture-controller":555,"../../util/keyboard":584,"../../util/util":587,"../app/app":471,"../nav/nav-controller-base":503,"./tabs":535,"@angular/core":247}],535:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -71435,9 +74940,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var app_1 = require('../app/app');
+var badge_1 = require('../badge/badge');
 var config_1 = require('../../config/config');
 var content_1 = require('../content/content');
+var icon_1 = require('../icon/icon');
 var ion_1 = require('../ion');
 var util_1 = require('../../util/util');
 var dom_1 = require('../../util/dom');
@@ -71451,28 +74959,31 @@ var view_controller_1 = require('../nav/view-controller');
  * @description
  * Tabs make it easy to navigate between different pages or functional
  * aspects of an app. The Tabs component, written as `<ion-tabs>`, is
- * a container of individual [Tab](../Tab/) components.
+ * a container of individual [Tab](../Tab/) components. Each individual `ion-tab`
+ * is a declarative component for a [NavController](../NavController/)
+
+ * For more information on using nav controllers like Tab or [Nav](../../nav/Nav/),
+ * take a look at the [NavController API Docs](../NavController/).
  *
  * ### Placement
  *
  * The position of the tabs relative to the content varies based on
- * the mode. By default, the tabs are placed at the bottom of the screen
- * for `ios` mode, and at the top for the `md` and `wp` modes. You can
- * configure the position using the `tabbarPlacement` property on the
- * `<ion-tabs>` element, or in your app's [config](../../config/Config/).
+ * the mode. The tabs are placed at the bottom of the screen
+ * for iOS and Android, and at the top for Windows by default. The position can be configured using the `tabsPlacement` attribute
+ * on the `<ion-tabs>` component, or in an app's [config](../../config/Config/).
  * See the [Input Properties](#input-properties) below for the available
- * values of `tabbarPlacement`.
- *
+ * values of `tabsPlacement`.
+
  * ### Layout
  *
- * The layout for all of the tabs can be defined using the `tabbarLayout`
+ * The layout for all of the tabs can be defined using the `tabsLayout`
  * property. If the individual tab has a title and icon, the icons will
  * show on top of the title by default. All tabs can be changed by setting
- * the value of `tabbarLayout` on the `<ion-tabs>` element, or in your
+ * the value of `tabsLayout` on the `<ion-tabs>` element, or in your
  * app's [config](../../config/Config/). For example, this is useful if
  * you want to show tabs with a title only on Android, but show icons
  * and a title for iOS. See the [Input Properties](#input-properties)
- * below for the available values of `tabbarLayout`.
+ * below for the available values of `tabsLayout`.
  *
  * ### Selecting a Tab
  *
@@ -71569,6 +75080,7 @@ var Tabs = (function (_super) {
     function Tabs(parent, viewCtrl, _app, _config, _elementRef, _platform, _renderer) {
         var _this = this;
         _super.call(this, _elementRef);
+        this.viewCtrl = viewCtrl;
         this._app = _app;
         this._config = _config;
         this._elementRef = _elementRef;
@@ -71586,13 +75098,28 @@ var Tabs = (function (_super) {
          */
         this.ionChange = new core_1.EventEmitter();
         this.parent = parent;
-        this.id = ++tabIds;
-        this.subPages = _config.getBoolean('tabSubPages');
-        this._useHighlight = _config.getBoolean('tabbarHighlight');
+        this.id = 't' + (++tabIds);
         this._sbPadding = _config.getBoolean('statusbarPadding');
-        if (parent) {
+        this.subPages = _config.getBoolean('tabsHideOnSubPages');
+        this.tabsHighlight = _config.getBoolean('tabsHighlight');
+        // TODO deprecated 07-07-2016 beta.11
+        if (_config.get('tabSubPages') !== null) {
+            void 0;
+            this.subPages = _config.getBoolean('tabSubPages');
+        }
+        // TODO deprecated 07-07-2016 beta.11
+        if (_config.get('tabbarHighlight') !== null) {
+            void 0;
+            this.tabsHighlight = _config.getBoolean('tabbarHighlight');
+        }
+        if (this.parent) {
             // this Tabs has a parent Nav
-            parent.registerChildNav(this);
+            this.parent.registerChildNav(this);
+        }
+        else if (viewCtrl && viewCtrl.getNav()) {
+            // this Nav was opened from a modal
+            this.parent = viewCtrl.getNav();
+            this.parent.registerChildNav(this);
         }
         else if (this._app) {
             // this is the root navcontroller for the entire app
@@ -71614,42 +75141,69 @@ var Tabs = (function (_super) {
      */
     Tabs.prototype.ngAfterViewInit = function () {
         var _this = this;
+        this._setConfig('tabsPlacement', 'bottom');
+        this._setConfig('tabsLayout', 'icon-top');
+        this._setConfig('tabsHighlight', this.tabsHighlight);
+        // TODO deprecated 07-07-2016 beta.11
         this._setConfig('tabbarPlacement', 'bottom');
         this._setConfig('tabbarLayout', 'icon-top');
-        if (this._useHighlight) {
+        // TODO deprecated 07-07-2016 beta.11
+        if (this.tabbarPlacement !== undefined) {
+            void 0;
+            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsPlacement', this.tabbarPlacement);
+            this.tabsPlacement = this.tabbarPlacement;
+        }
+        // TODO deprecated 07-07-2016 beta.11
+        if (this._config.get('tabbarPlacement') !== null) {
+            void 0;
+            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsPlacement', this._config.get('tabbarPlacement'));
+        }
+        // TODO deprecated 07-07-2016 beta.11
+        if (this.tabbarLayout !== undefined) {
+            void 0;
+            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsLayout', this.tabbarLayout);
+            this.tabsLayout = this.tabbarLayout;
+        }
+        // TODO deprecated 07-07-2016 beta.11
+        if (this._config.get('tabbarLayout') !== null) {
+            void 0;
+            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsLayout', this._config.get('tabsLayout'));
+        }
+        if (this.tabsHighlight) {
             this._platform.onResize(function () {
                 _this._highlight.select(_this.getSelected());
             });
         }
-        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
-        // get the selected index
-        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
-        // ensure the selectedIndex isn't a hidden or disabled tab
-        // also find the first available index incase we need it later
-        var availableIndex = -1;
-        this._tabs.forEach(function (tab, index) {
-            if (tab.enabled && tab.show && availableIndex < 0) {
-                // we know this tab index is safe to show
-                availableIndex = index;
-            }
-            if (index === selectedIndex && (!tab.enabled || !tab.show)) {
-                // the selectedIndex is not safe to show
-                selectedIndex = -1;
-            }
-        });
-        if (selectedIndex < 0) {
-            // the selected index wasn't safe to show
-            // instead use an available index found to be safe to show
-            selectedIndex = availableIndex;
+        this.initTabs();
+    };
+    /**
+     * @private
+     */
+    Tabs.prototype.initTabs = function () {
+        var _this = this;
+        // get the selected index from the input
+        // otherwise default it to use the first index
+        var selectedIndex = (util_1.isBlank(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
+        // get the selectedIndex and ensure it isn't hidden or disabled
+        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
+        if (!selectedTab) {
+            // wasn't able to select the tab they wanted
+            // try to find the first tab that's available
+            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
         }
-        this._tabs.forEach(function (tab, index) {
-            if (index === selectedIndex) {
-                _this.select(tab);
-            }
-            else if (preloadTabs) {
-                tab.preload(1000 * index);
-            }
-        });
+        if (selectedTab) {
+            // we found a tab to select
+            this.select(selectedTab);
+        }
+        // check if preloadTab is set as an input @Input
+        // otherwise check the preloadTabs config
+        var shouldPreloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
+        if (shouldPreloadTabs) {
+            // preload all the tabs which isn't the selected tab
+            this._tabs.filter(function (t) { return t !== selectedTab; }).forEach(function (tab, index) {
+                tab.preload(_this._config.getNumber('tabsPreloadDelay', 1000) * index);
+            });
+        }
     };
     /**
      * @private
@@ -71671,26 +75225,30 @@ var Tabs = (function (_super) {
     /**
      * @param {number|Tab} tabOrIndex Index, or the Tab instance, of the tab to select.
      */
-    Tabs.prototype.select = function (tabOrIndex) {
+    Tabs.prototype.select = function (tabOrIndex, opts, done) {
         var _this = this;
+        if (opts === void 0) { opts = {}; }
+        var promise;
+        if (!done) {
+            promise = new Promise(function (res) { done = res; });
+        }
         var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
         if (util_1.isBlank(selectedTab)) {
-            return;
+            return Promise.resolve();
         }
         var deselectedTab = this.getSelected();
         if (selectedTab === deselectedTab) {
             // no change
-            return this._touchActive(selectedTab);
+            this._touchActive(selectedTab);
+            return Promise.resolve();
         }
         void 0;
-        var opts = {
-            animate: false
-        };
         var deselectedPage;
         if (deselectedTab) {
             deselectedPage = deselectedTab.getActive();
             deselectedPage && deselectedPage.fireWillLeave();
         }
+        opts.animate = false;
         var selectedPage = selectedTab.getActive();
         selectedPage && selectedPage.fireWillEnter();
         selectedTab.load(opts, function (initialLoad) {
@@ -71704,7 +75262,7 @@ var Tabs = (function (_super) {
                 _this._tabs.forEach(function (tab) {
                     tab.setSelected(tab === selectedTab);
                 });
-                if (_this._useHighlight) {
+                if (_this.tabsHighlight) {
                     _this._highlight.select(selectedTab);
                 }
             }
@@ -71731,7 +75289,9 @@ var Tabs = (function (_super) {
                     });
                 }
             }
+            done();
         });
+        return promise;
     };
     /**
      * Get the previously selected Tab which is currently not disabled or hidden.
@@ -71790,6 +75350,12 @@ var Tabs = (function (_super) {
     };
     /**
      * @private
+     */
+    Tabs.prototype.length = function () {
+        return this._tabs.length;
+    };
+    /**
+     * @private
      * "Touch" the active tab, going back to the root view of the tab
      * or optionally letting the tab handle the event
      */
@@ -71816,23 +75382,6 @@ var Tabs = (function (_super) {
         // And failing all of that, we do something safe and secure
         return Promise.resolve();
     };
-    Object.defineProperty(Tabs.prototype, "rootNav", {
-        /**
-         * @private
-         * Returns the root NavController. Returns `null` if Tabs is not
-         * within a NavController.
-         * @returns {NavController}
-         */
-        get: function () {
-            var nav = this.parent;
-            while (nav && nav.parent) {
-                nav = nav.parent;
-            }
-            return nav;
-        },
-        enumerable: true,
-        configurable: true
-    });
     /**
      * @private
      * DOM WRITE
@@ -71862,7 +75411,19 @@ var Tabs = (function (_super) {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
+    ], Tabs.prototype, "tabsLayout", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
     ], Tabs.prototype, "tabbarPlacement", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], Tabs.prototype, "tabsPlacement", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], Tabs.prototype, "tabsHighlight", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
@@ -71882,21 +75443,8 @@ var Tabs = (function (_super) {
     Tabs = __decorate([
         core_1.Component({
             selector: 'ion-tabs',
-            template: '<ion-tabbar role="tablist" #tabbar>' +
-                '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
-                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
-                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
-                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
-                '<ion-button-effect></ion-button-effect>' +
-                '</a>' +
-                '<tab-highlight></tab-highlight>' +
-                '</ion-tabbar>' +
-                '<ng-content></ng-content>' +
-                '<div #portal tab-portal></div>',
-            directives: [
-                tab_button_1.TabButton,
-                tab_highlight_1.TabHighlight
-            ],
+            template: "\n    <ion-tabbar role=\"tablist\" #tabbar>\n      <a *ngFor=\"let t of _tabs\" [tab]=\"t\" class=\"tab-button\" [class.tab-disabled]=\"!t.enabled\" [class.tab-hidden]=\"!t.show\" role=\"tab\" href=\"#\" (ionSelect)=\"select($event)\">\n        <ion-icon *ngIf=\"t.tabIcon\" [name]=\"t.tabIcon\" [isActive]=\"t.isSelected\" class=\"tab-button-icon\"></ion-icon>\n        <span *ngIf=\"t.tabTitle\" class=\"tab-button-text\">{{t.tabTitle}}</span>\n        <ion-badge *ngIf=\"t.tabBadge\" class=\"tab-badge\" [ngClass]=\"'badge-' + t.tabBadgeStyle\">{{t.tabBadge}}</ion-badge>\n        <ion-button-effect></ion-button-effect>\n      </a>\n      <tab-highlight></tab-highlight>\n    </ion-tabbar>\n    <ng-content></ng-content>\n    <div #portal tab-portal></div>\n  ",
+            directives: [badge_1.Badge, icon_1.Icon, common_1.NgClass, common_1.NgFor, common_1.NgIf, tab_button_1.TabButton, tab_highlight_1.TabHighlight],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(0, core_1.Optional()),
@@ -71908,7 +75456,7 @@ var Tabs = (function (_super) {
 exports.Tabs = Tabs;
 var tabIds = -1;
 
-},{"../../config/config":504,"../../platform/platform":514,"../../util/dom":531,"../../util/util":539,"../app/app":432,"../content/content":437,"../ion":446,"../nav/nav-controller":462,"../nav/view-controller":470,"./tab-button":488,"./tab-highlight":489,"@angular/core":247}],492:[function(require,module,exports){
+},{"../../config/config":549,"../../platform/platform":562,"../../util/dom":579,"../../util/util":587,"../app/app":471,"../badge/badge":473,"../content/content":476,"../icon/icon":478,"../ion":485,"../nav/nav-controller":504,"../nav/view-controller":512,"./tab-button":532,"./tab-highlight":533,"@angular/common":100,"@angular/core":247}],536:[function(require,module,exports){
 "use strict";
 var dom_1 = require('../../util/dom');
 var Activator = (function () {
@@ -71990,7 +75538,7 @@ var Activator = (function () {
 exports.Activator = Activator;
 var CLEAR_STATE_DEFERS = 5;
 
-},{"../../util/dom":531}],493:[function(require,module,exports){
+},{"../../util/dom":579}],537:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -72097,7 +75645,7 @@ var RippleActivator = (function (_super) {
 exports.RippleActivator = RippleActivator;
 var TOUCH_DOWN_ACCEL = 300;
 
-},{"../../util/dom":531,"./activator":492}],494:[function(require,module,exports){
+},{"../../util/dom":579,"./activator":536}],538:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72201,7 +75749,7 @@ var TapClick = (function () {
         if (activatableEle) {
             this.startCoord = dom_1.pointerCoord(ev);
             var now = Date.now();
-            if (this.lastActivated + 150 < now) {
+            if (this.lastActivated + 150 < now && !this.app.isScrolling()) {
                 this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
                 this.lastActivated = now;
             }
@@ -72293,7 +75841,7 @@ var POINTER_TOLERANCE = 4;
 var POINTER_MOVE_UNTIL_CANCEL = 10;
 var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
-},{"../../config/config":504,"../../util/dom":531,"../app/app":432,"./activator":492,"./ripple":493,"@angular/core":247}],495:[function(require,module,exports){
+},{"../../config/config":549,"../../util/dom":579,"../app/app":471,"./activator":536,"./ripple":537,"@angular/core":247}],539:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -72310,135 +75858,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var animation_1 = require('../../animations/animation');
 var config_1 = require('../../config/config');
-var util_1 = require('../../util/util');
-var nav_controller_1 = require('../nav/nav-controller');
 var nav_params_1 = require('../nav/nav-params');
 var transition_1 = require('../../transitions/transition');
 var view_controller_1 = require('../nav/view-controller');
 /**
- * @name Toast
- * @description
- * A Toast is a subtle notification commonly used in modern applications.
- * It can be used to provide feedback about an operation or to
- * display a system message. The toast appears on top of the app's content,
- * and can be dismissed by the app to resume user interaction with
- * the app.
- *
- * ### Creating
- * All of the toast options should be passed in the first argument of
- * the create method: `Toast.create(opts)`. The message to display should be
- * passed in the `message` property. The `showCloseButton` option can be set to
- * true in order to display a close button on the toast. See the [create](#create)
- * method below for all available options.
- *
- * ### Positioning
- * Toasts can be positioned at the top, bottom or middle of the
- * view port. The position can be passed to the `Toast.create(opts)` method.
- * The position option is a string, and the values accepted are `top`, `bottom` and `middle`.
- * If the position is not specified, the toast will be displayed at the bottom of the view port.
- *
- * ### Dismissing
- * The toast can be dismissed automatically after a specific amount of time
- * by passing the number of milliseconds to display it in the `duration` of
- * the toast options. If `showCloseButton` is set to true, then the close button
- * will dismiss the toast. To dismiss the toast after creation, call the `dismiss()`
- * method on the Toast instance. The `onDismiss` function can be called to perform an action after the toast
- * is dismissed.
- *
- * @usage
- * ```ts
- * constructor(nav: NavController) {
- *   this.nav = nav;
- * }
- *
- * presentToast() {
- *   let toast = Toast.create({
- *     message: 'User was added successfully',
- *     duration: 3000,
- *     position: 'top'
- *   });
- *
- *   toast.onDismiss(() => {
- *     console.log('Dismissed toast');
- *   });
- *
- *   this.nav.present(toast);
- * }
- * ```
- *
- * @demo /docs/v2/demos/toast/
- */
-var Toast = (function (_super) {
-    __extends(Toast, _super);
-    function Toast(opts) {
-        if (opts === void 0) { opts = {}; }
-        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
-        _super.call(this, ToastCmp, opts);
-        // set the position to the bottom if not provided
-        if (!opts.position || !this.isValidPosition(opts.position)) {
-            opts.position = TOAST_POSITION_BOTTOM;
-        }
-        this.isOverlay = true;
-        this.usePortal = true;
-        // by default, toasts should not fire lifecycle events of other views
-        // for example, when an toast enters, the current active view should
-        // not fire its lifecycle events because it's not conceptually leaving
-        this.fireOtherLifecycles = false;
-    }
-    /**
-    * @private
-    */
-    Toast.prototype.getTransitionName = function (direction) {
-        var key = 'toast' + (direction === 'back' ? 'Leave' : 'Enter');
-        return this._nav && this._nav.config.get(key);
-    };
-    /**
-    * @private
-    */
-    Toast.prototype.isValidPosition = function (position) {
-        return position === TOAST_POSITION_TOP || position === TOAST_POSITION_MIDDLE || position === TOAST_POSITION_BOTTOM;
-    };
-    /**
-     * @param {string} message  Toast message content
-     */
-    Toast.prototype.setMessage = function (message) {
-        this.data.message = message;
-    };
-    /**
-     *
-     *  Toast options
-     *
-     *  | Property              | Type      | Default         | Description                                                                                                   |
-     *  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
-     *  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
-     *  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
-     *  | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
-     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
-     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
-     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
-     *  | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
-     *
-     * @param {object} opts Toast options. See the above table for available options.
-     */
-    Toast.create = function (opts) {
-        if (opts === void 0) { opts = {}; }
-        return new Toast(opts);
-    };
-    return Toast;
-}(view_controller_1.ViewController));
-exports.Toast = Toast;
-/* Don't expose these for now - let's move to an enum or something long term */
-var TOAST_POSITION_TOP = 'top';
-var TOAST_POSITION_MIDDLE = 'middle';
-var TOAST_POSITION_BOTTOM = 'bottom';
-/**
 * @private
 */
 var ToastCmp = (function () {
-    function ToastCmp(_nav, _viewCtrl, _config, _elementRef, params, renderer) {
-        this._nav = _nav;
+    function ToastCmp(_viewCtrl, _config, _elementRef, params, renderer) {
         this._viewCtrl = _viewCtrl;
         this._config = _config;
         this._elementRef = _elementRef;
@@ -72486,17 +75916,19 @@ var ToastCmp = (function () {
     ToastCmp = __decorate([
         core_1.Component({
             selector: 'ion-toast',
-            template: "\n    <div class=\"toast-wrapper\"\n      [class.toast-bottom]=\"d.position === 'bottom'\"\n      [class.toast-middle]=\"d.position === 'middle'\"\n      [class.toast-top]=\"d.position === 'top'\"\n      >\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
+            template: "\n    <div class=\"toast-wrapper\"\n      [class.toast-bottom]=\"d.position === 'bottom'\"\n      [class.toast-middle]=\"d.position === 'middle'\"\n      [class.toast-top]=\"d.position === 'top'\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
+            directives: [common_1.NgIf],
             host: {
                 'role': 'dialog',
                 '[attr.aria-labelledby]': 'hdrId',
                 '[attr.aria-describedby]': 'descId',
             },
         }), 
-        __metadata('design:paramtypes', [nav_controller_1.NavController, view_controller_1.ViewController, config_1.Config, core_1.ElementRef, nav_params_1.NavParams, core_1.Renderer])
+        __metadata('design:paramtypes', [view_controller_1.ViewController, config_1.Config, core_1.ElementRef, nav_params_1.NavParams, core_1.Renderer])
     ], ToastCmp);
     return ToastCmp;
 }());
+exports.ToastCmp = ToastCmp;
 var ToastSlideIn = (function (_super) {
     __extends(ToastSlideIn, _super);
     function ToastSlideIn(enteringView, leavingView, opts) {
@@ -72683,8 +76115,178 @@ transition_1.Transition.register('toast-md-slide-out', ToastMdSlideOut);
 transition_1.Transition.register('toast-wp-slide-out', ToastWpPopOut);
 transition_1.Transition.register('toast-wp-slide-in', ToastWpPopIn);
 var toastIds = -1;
+var TOAST_POSITION_TOP = 'top';
+var TOAST_POSITION_MIDDLE = 'middle';
+var TOAST_POSITION_BOTTOM = 'bottom';
 
-},{"../../animations/animation":427,"../../config/config":504,"../../transitions/transition":524,"../../util/util":539,"../nav/nav-controller":462,"../nav/nav-params":463,"../nav/view-controller":470,"@angular/core":247}],496:[function(require,module,exports){
+},{"../../animations/animation":464,"../../config/config":549,"../../transitions/transition":572,"../nav/nav-params":506,"../nav/view-controller":512,"@angular/common":100,"@angular/core":247}],540:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../app/app');
+var util_1 = require('../../util/util');
+var toast_component_1 = require('./toast-component');
+var view_controller_1 = require('../nav/view-controller');
+/**
+ * @private
+ */
+var Toast = (function (_super) {
+    __extends(Toast, _super);
+    function Toast(app, opts) {
+        if (opts === void 0) { opts = {}; }
+        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
+        _super.call(this, toast_component_1.ToastCmp, opts);
+        this._app = app;
+        // set the position to the bottom if not provided
+        if (!opts.position || !this.isValidPosition(opts.position)) {
+            opts.position = TOAST_POSITION_BOTTOM;
+        }
+        this.isOverlay = true;
+        // by default, toasts should not fire lifecycle events of other views
+        // for example, when an toast enters, the current active view should
+        // not fire its lifecycle events because it's not conceptually leaving
+        this.fireOtherLifecycles = false;
+    }
+    /**
+    * @private
+    */
+    Toast.prototype.getTransitionName = function (direction) {
+        var key = 'toast' + (direction === 'back' ? 'Leave' : 'Enter');
+        return this._nav && this._nav.config.get(key);
+    };
+    /**
+    * @private
+    */
+    Toast.prototype.isValidPosition = function (position) {
+        return position === TOAST_POSITION_TOP || position === TOAST_POSITION_MIDDLE || position === TOAST_POSITION_BOTTOM;
+    };
+    /**
+     * @param {string} message  Toast message content
+     */
+    Toast.prototype.setMessage = function (message) {
+        this.data.message = message;
+    };
+    /**
+     * Present the toast instance.
+     *
+     * @param {NavOptions} [opts={}] Nav options to go with this transition.
+     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
+     */
+    Toast.prototype.present = function (navOptions) {
+        if (navOptions === void 0) { navOptions = {}; }
+        return this._app.present(this, navOptions);
+    };
+    /**
+     * @private
+     * DEPRECATED: Please inject ToastController instead
+     */
+    Toast.create = function (opt) {
+        // deprecated warning: added beta.11 2016-06-27
+        void 0;
+    };
+    return Toast;
+}(view_controller_1.ViewController));
+exports.Toast = Toast;
+/**
+ * @name ToastController
+ * @description
+ * A Toast is a subtle notification commonly used in modern applications.
+ * It can be used to provide feedback about an operation or to
+ * display a system message. The toast appears on top of the app's content,
+ * and can be dismissed by the app to resume user interaction with
+ * the app.
+ *
+ * ### Creating
+ * All of the toast options should be passed in the first argument of
+ * the create method: `create(opts)`. The message to display should be
+ * passed in the `message` property. The `showCloseButton` option can be set to
+ * true in order to display a close button on the toast. See the [create](#create)
+ * method below for all available options.
+ *
+ * ### Positioning
+ * Toasts can be positioned at the top, bottom or middle of the
+ * view port. The position can be passed to the `Toast.create(opts)` method.
+ * The position option is a string, and the values accepted are `top`, `bottom` and `middle`.
+ * If the position is not specified, the toast will be displayed at the bottom of the view port.
+ *
+ * ### Dismissing
+ * The toast can be dismissed automatically after a specific amount of time
+ * by passing the number of milliseconds to display it in the `duration` of
+ * the toast options. If `showCloseButton` is set to true, then the close button
+ * will dismiss the toast. To dismiss the toast after creation, call the `dismiss()`
+ * method on the Toast instance. The `onDidDismiss` function can be called to perform an action after the toast
+ * is dismissed.
+ *
+ * @usage
+ * ```ts
+ * constructor(private toastCtrl: ToastController) {
+ *
+ * }
+ *
+ * presentToast() {
+ *   let toast = this.toastCtrl.create({
+ *     message: 'User was added successfully',
+ *     duration: 3000,
+ *     position: 'top'
+ *   });
+ *
+ *   toast.onDidDismiss(() => {
+ *     console.log('Dismissed toast');
+ *   });
+ *
+ *   toast.present();
+ * }
+ * ```
+ * @advanced
+ * | Property              | Type      | Default         | Description                                                                                                   |
+ * |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
+ * | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
+ * | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
+ * | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
+ * | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
+ * | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
+ * | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
+ * | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
+ *
+ * @demo /docs/v2/demos/toast/
+ */
+var ToastController = (function () {
+    function ToastController(_app) {
+        this._app = _app;
+    }
+    /**
+     * Create a new toast component. See options below
+     * @param {ToastOptions} opts Toast options. See the above table for available options.
+     */
+    ToastController.prototype.create = function (opts) {
+        if (opts === void 0) { opts = {}; }
+        return new Toast(this._app, opts);
+    };
+    ToastController = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], ToastController);
+    return ToastController;
+}());
+exports.ToastController = ToastController;
+var TOAST_POSITION_TOP = 'top';
+var TOAST_POSITION_MIDDLE = 'middle';
+var TOAST_POSITION_BOTTOM = 'bottom';
+
+},{"../../util/util":587,"../app/app":471,"../nav/view-controller":512,"./toast-component":539,"@angular/core":247}],541:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72699,13 +76301,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var form_1 = require('../../util/form');
 var util_1 = require('../../util/util');
 var item_1 = require('../item/item');
 var dom_1 = require('../../util/dom');
 var ui_event_manager_1 = require('../../util/ui-event-manager');
-var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
+exports.TOGGLE_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 /**
  * @name Toggle
  * @description
@@ -72876,7 +76478,7 @@ var Toggle = (function () {
      * @private
      */
     Toggle.prototype.onChange = function (isChecked) {
-        // used when this input does not have an ngModel or ngControl
+        // used when this input does not have an ngModel or formControlName
         void 0;
         this._setChecked(isChecked);
         this.onTouched();
@@ -72889,9 +76491,13 @@ var Toggle = (function () {
      * @private
      */
     Toggle.prototype.ngAfterContentInit = function () {
-        var _this = this;
         this._init = true;
-        this._events.pointerEventsRef(this._elementRef, function (ev) { return _this.pointerDown(ev); }, function (ev) { return _this.pointerMove(ev); }, function (ev) { return _this.pointerUp(ev); });
+        this._events.pointerEvents({
+            elementRef: this._elementRef,
+            pointerDown: this.pointerDown.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerUp.bind(this)
+        });
     };
     /**
      * @private
@@ -72915,22 +76521,11 @@ var Toggle = (function () {
     Toggle = __decorate([
         core_1.Component({
             selector: 'ion-toggle',
-            template: '<div class="toggle-icon" [class.toggle-checked]="_checked" [class.toggle-activated]="_activated">' +
-                '<div class="toggle-inner"></div>' +
-                '</div>' +
-                '<button role="checkbox" ' +
-                'type="button" ' +
-                'category="item-cover" ' +
-                '[id]="id" ' +
-                '[attr.aria-checked]="_checked" ' +
-                '[attr.aria-labelledby]="_labelId" ' +
-                '[attr.aria-disabled]="_disabled" ' +
-                'class="item-cover">' +
-                '</button>',
+            template: "\n    <div class=\"toggle-icon\" [class.toggle-checked]=\"_checked\" [class.toggle-activated]=\"_activated\">\n      <div class=\"toggle-inner\"></div>\n    </div>\n    <button role=\"checkbox\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
             host: {
                 '[class.toggle-disabled]': '_disabled'
             },
-            providers: [TOGGLE_VALUE_ACCESSOR],
+            providers: [exports.TOGGLE_VALUE_ACCESSOR],
             encapsulation: core_1.ViewEncapsulation.None,
         }),
         __param(3, core_1.Optional()), 
@@ -72940,7 +76535,7 @@ var Toggle = (function () {
 }());
 exports.Toggle = Toggle;
 
-},{"../../util/dom":531,"../../util/form":534,"../../util/ui-event-manager":538,"../../util/util":539,"../item/item":451,"@angular/common":100,"@angular/core":247}],497:[function(require,module,exports){
+},{"../../util/dom":579,"../../util/form":582,"../../util/ui-event-manager":586,"../../util/util":587,"../item/item":490,"@angular/core":247,"@angular/forms":336}],542:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72970,7 +76565,9 @@ var ToolbarItem = (function () {
     Object.defineProperty(ToolbarItem.prototype, "_buttons", {
         set: function (buttons) {
             if (this.inToolbar) {
-                button_1.Button.setRoles(buttons, 'bar-button');
+                buttons.forEach(function (button) {
+                    button.setRole('bar-button');
+                });
             }
         },
         enumerable: true,
@@ -72994,7 +76591,7 @@ var ToolbarItem = (function () {
 }());
 exports.ToolbarItem = ToolbarItem;
 
-},{"../button/button":435,"../navbar/navbar":471,"./toolbar":499,"@angular/core":247}],498:[function(require,module,exports){
+},{"../button/button":474,"../navbar/navbar":513,"./toolbar":544,"@angular/core":247}],543:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -73084,7 +76681,7 @@ var ToolbarTitle = (function (_super) {
 }(ion_1.Ion));
 exports.ToolbarTitle = ToolbarTitle;
 
-},{"../ion":446,"../navbar/navbar":471,"./toolbar":499,"@angular/core":247}],499:[function(require,module,exports){
+},{"../ion":485,"../navbar/navbar":513,"./toolbar":544,"@angular/core":247}],544:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -73108,7 +76705,31 @@ var config_1 = require('../../config/config');
 var ion_1 = require('../ion');
 var view_controller_1 = require('../nav/view-controller');
 /**
- * @private
+ * @name Header
+ * @description
+ * Header is a parent compnent that holds the navbar and toolbar component.
+ * It's important to note that `ion-header` needs to be the one of the three root elements of a page
+ *
+ * @usage
+ *
+ * ```ts
+ * @Component({
+ *   template: `
+ *      <ion-header>
+ *        <ion-navbar>
+ *          <ion-title>Page1</ion-title>
+ *        </ion-navbar>
+ *
+ *        <ion-toolbar>
+ *          <ion-title>Subheader</ion-title>
+ *        </ion-toolbar>
+ *      </ion-header>
+ *
+ *      <ion-content></ion-content>
+ *   `
+ * })
+ * ```
+ *
  */
 var Header = (function () {
     function Header(viewCtrl) {
@@ -73125,7 +76746,26 @@ var Header = (function () {
 }());
 exports.Header = Header;
 /**
- * @private
+ * @name Footer
+ * @description
+ * Footer is a root component of a page that sits at the bottom of the page.
+ * Footer can be a wrapper for `ion-toolbar` to make sure the content area is sized correctly.
+ *
+ * @usage
+ *
+ * ```ts
+ * @Component({
+ *   template: `
+ *      <ion-content></ion-content>
+ *      <ion-footer>
+ *        <ion-toolbar>
+ *          <ion-title>Footer</ion-title>
+ *        </ion-toolbar>
+ *      </ion-footer>
+ *   `
+ * })
+ * ```
+ *
  */
 var Footer = (function () {
     function Footer(viewCtrl) {
@@ -73214,22 +76854,56 @@ exports.ToolbarBase = ToolbarBase;
  * | `right`     | Positions element to the right of all other elements.                                                           |
  *
  *
- * ### Multiple Toolbars
+ * ### Header / Footer Box Shadow
+ * In `md` mode, the `ion-header` will receive a box-shadow on the bottom, and the
+ * `ion-footer` will receive a box-shadow on the top. This can be removed by adding
+ * the `no-shadow` attribute to the element.
+ *
+ * ```html
+ * <ion-header no-shadow>
+ *   <ion-toolbar>
+ *     <ion-title>Header</ion-title>
+ *   </ion-toolbar>
+ * </ion-header>
+ *
+ * <ion-content>
+ * </ion-content>
+ *
+ * <ion-footer no-shadow>
+ *   <ion-toolbar>
+ *     <ion-title>Footer</ion-title>
+ *   </ion-toolbar>
+ * </ion-footer>
+ * ```
+ *
+ * ### Toolbar Borders
  * Toolbars can be stacked up vertically in `<ion-header>`, `<ion-content>`, and
- * `<ion-footer>` elements. However, toolbars also come with borders on both
- * the top and bottom of the toolbar. To give developers full control of the
- * design, Ionic also includes the `no-border-bottom` and `no-border-top` attributes.
- * For example, sometimes two vertically stacked toolbars may have different
- * background colors, in this case it might be best to leave a border between them.
- * However, if they have the same background color, the app may look best without
- * a border between them. The main point here is, it's entirely up to the app's design
- * to decide when and when not to show borders between toolbars, and to do so then
- * each toolbar can individually set `no-border-bottom` and `no-border-top` attributes.
+ * `<ion-footer>` elements. In `ios` mode, toolbars have borders on the top and
+ * bottom. To hide both borders, the `no-border` attribute should be used on the
+ * `ion-toolbar`. To hide the top or bottom border, the `no-border-top` and
+ * `no-border-bottom` attribute should be used.
+ *
+ * ```html
+ * <ion-header no-shadow>
+ *   <ion-toolbar no-border-bottom>
+ *     <ion-title>Header</ion-title>
+ *   </ion-toolbar>
+ *   <ion-toolbar no-border>
+ *     <ion-title>Subheader</ion-title>
+ *   </ion-toolbar>
+ *   <ion-toolbar no-border-top>
+ *     <ion-title>Another Header</ion-title>
+ *   </ion-toolbar>
+ * </ion-header>
+ *
+ * <ion-content>
+ * </ion-content>
+ * ```
  *
  *
  * @usage
  * ```html
- * <ion-header>
+ * <ion-header no-shadow>
  *
  *   <ion-toolbar no-border-bottom>
  *     <ion-buttons start>
@@ -73261,7 +76935,7 @@ exports.ToolbarBase = ToolbarBase;
  *
  * <ion-footer>
  *
- *   <ion-toolbar no-border-bottom>
+ *   <ion-toolbar no-border>
  *     <ion-title>I'm a subfooter</ion-title>
  *     <ion-buttons right>
  *       <button>
@@ -73303,13 +76977,7 @@ var Toolbar = (function (_super) {
     Toolbar = __decorate([
         core_1.Component({
             selector: 'ion-toolbar',
-            template: '<div class="toolbar-background"></div>' +
-                '<ng-content select="[menuToggle],ion-buttons[left]"></ng-content>' +
-                '<ng-content select="ion-buttons[start]"></ng-content>' +
-                '<ng-content select="ion-buttons[end],ion-buttons[right]"></ng-content>' +
-                '<div class="toolbar-content">' +
-                '<ng-content></ng-content>' +
-                '</div>',
+            template: "\n    <div class=\"toolbar-background\"></div>\n    <ng-content select=\"[menuToggle],ion-buttons[left]\"></ng-content>\n    <ng-content select=\"ion-buttons[start]\"></ng-content>\n    <ng-content select=\"ion-buttons[end],ion-buttons[right]\"></ng-content>\n    <div class=\"toolbar-content\">\n      <ng-content></ng-content>\n    </div>\n  ",
             host: {
                 'class': 'toolbar',
                 '[class.statusbar-padding]': '_sbPadding'
@@ -73325,7 +76993,7 @@ var Toolbar = (function (_super) {
 }(ToolbarBase));
 exports.Toolbar = Toolbar;
 
-},{"../../config/config":504,"../ion":446,"../nav/view-controller":470,"@angular/core":247}],500:[function(require,module,exports){
+},{"../../config/config":549,"../ion":485,"../nav/view-controller":512,"@angular/core":247}],545:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -73381,7 +77049,7 @@ var VirtualItem = (function () {
 }());
 exports.VirtualItem = VirtualItem;
 
-},{"@angular/core":247}],501:[function(require,module,exports){
+},{"@angular/core":247}],546:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -73508,6 +77176,9 @@ var virtual_item_1 = require('./virtual-item');
  * makes a HTTP request for the image file. HTTP requests, image
  * decoding, and image rendering can cause issues while scrolling. For virtual
  * scrolling, the natural effects of the `<img>` are not desirable features.
+ *
+ * Note: `<ion-img>` should only be used with Virtual Scroll. If you are using
+ * an image outside of Virtual Scroll you should use the standard `<img>` tag.
  *
  * ```html
  * <ion-list [virtualScroll]="items">
@@ -73986,7 +77657,7 @@ var SCROLL_END_TIMEOUT_MS = 140;
 var SCROLL_DIFFERENCE_MINIMUM = 20;
 var QUEUE_CHANGE_DETECTION = 0;
 
-},{"../../config/config":504,"../../platform/platform":514,"../../util/dom":531,"../../util/util":539,"../content/content":437,"../img/img":440,"../nav/view-controller":470,"./virtual-item":500,"./virtual-util":502,"@angular/core":247}],502:[function(require,module,exports){
+},{"../../config/config":549,"../../platform/platform":562,"../../util/dom":579,"../../util/util":587,"../content/content":476,"../img/img":479,"../nav/view-controller":512,"./virtual-item":545,"./virtual-util":547,"@angular/core":247}],547:[function(require,module,exports){
 "use strict";
 var dom_1 = require('../../util/dom');
 /**
@@ -74519,26 +78190,15 @@ var TEMPLATE_FOOTER = 2;
 var VIEWABLE_RENDERED_PADDING = 3;
 var REQUIRED_DOM_READS = 2;
 
-},{"../../util/dom":531}],503:[function(require,module,exports){
+},{"../../util/dom":579}],548:[function(require,module,exports){
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
 var app_1 = require('../components/app/app');
-var click_block_1 = require('../util/click-block');
 var dom_1 = require('../util/dom');
-var config_1 = require('./config');
-var events_1 = require('../util/events');
-var feature_detect_1 = require('../util/feature-detect');
-var form_1 = require('../util/form');
-var directives_1 = require('./directives');
-var util_1 = require('../util/util');
-var keyboard_1 = require('../util/keyboard');
-var menu_controller_1 = require('../components/menu/menu-controller');
+var providers_1 = require('./providers');
 var platform_1 = require('../platform/platform');
-var scroll_view_1 = require('../util/scroll-view');
 var tap_click_1 = require('../components/tap-click/tap-click');
-var translate_1 = require('../translation/translate');
 var _reflect = Reflect;
 /**
  * @name ionicBootstrap
@@ -74558,19 +78218,21 @@ var _reflect = Reflect;
  * })
  * export class MyClass{}
  *
- * ionicBootstrap(MyClass, null, {tabbarPlacement: 'bottom'})
+ * ionicBootstrap(MyClass, null, {tabsPlacement: 'bottom'})
  * ```
  */
 function ionicBootstrap(appRootComponent, customProviders, config) {
     // get all Ionic Providers
-    var providers = ionicProviders(customProviders, config);
-    // automatically set "ion-app" selector to users root component
-    addSelector(appRootComponent, 'ion-app');
-    cssReady(function () {
-        // call angular bootstrap
-        platform_browser_dynamic_1.bootstrap(appRootComponent, providers).then(function (ngComponentRef) {
-            // ionic app has finished bootstrapping
-            ionicPostBootstrap(ngComponentRef);
+    var providers = providers_1.ionicProviders(customProviders, config);
+    providers.push({ provide: app_1.UserComponent, useValue: appRootComponent });
+    return new Promise(function (resolve) {
+        cssReady(function () {
+            // call angular bootstrap
+            platform_browser_dynamic_1.bootstrap(app_1.AppRoot, providers).then(function (ngComponentRef) {
+                // ionic app has finished bootstrapping
+                ionicPostBootstrap(ngComponentRef);
+                resolve(ngComponentRef);
+            });
         });
     });
 }
@@ -74579,13 +78241,10 @@ exports.ionicBootstrap = ionicBootstrap;
  * @private
  */
 function ionicPostBootstrap(ngComponentRef) {
-    var app = ngComponentRef.injector.get(app_1.App);
-    app.setAppInjector(ngComponentRef.injector);
     // prepare platform ready
     var platform = ngComponentRef.injector.get(platform_1.Platform);
     platform.setZone(ngComponentRef.injector.get(core_1.NgZone));
     platform.prepareReady();
-    // TODO: Use PLATFORM_INITIALIZER
     ngComponentRef.injector.get(tap_click_1.TapClick);
     return ngComponentRef;
 }
@@ -74606,127 +78265,6 @@ function cssReady(done) {
 /**
  * @private
  */
-function ionicProviders(customProviders, config) {
-    // create an instance of Config
-    if (!(config instanceof config_1.Config)) {
-        config = new config_1.Config(config);
-    }
-    // enable production mode if config set to true
-    if (config.getBoolean('prodMode')) {
-        core_1.enableProdMode();
-    }
-    // create an instance of Platform
-    var platform = new platform_1.Platform();
-    // initialize platform
-    platform.setUrl(window.location.href);
-    platform.setUserAgent(window.navigator.userAgent);
-    platform.setNavigatorPlatform(window.navigator.platform);
-    platform.load(config);
-    config.setPlatform(platform);
-    var clickBlock = new click_block_1.ClickBlock();
-    var events = new events_1.Events();
-    var featureDetect = new feature_detect_1.FeatureDetect();
-    setupDom(window, document, config, platform, clickBlock, featureDetect);
-    bindEvents(window, document, platform, events);
-    var providers = [
-        app_1.App,
-        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
-        core_1.provide(config_1.Config, { useValue: config }),
-        core_1.provide(events_1.Events, { useValue: events }),
-        core_1.provide(feature_detect_1.FeatureDetect, { useValue: featureDetect }),
-        form_1.Form,
-        keyboard_1.Keyboard,
-        menu_controller_1.MenuController,
-        core_1.provide(platform_1.Platform, { useValue: platform }),
-        translate_1.Translate,
-        tap_click_1.TapClick,
-        core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: directives_1.IONIC_DIRECTIVES, multi: true }),
-        http_1.HTTP_PROVIDERS
-    ];
-    if (util_1.isPresent(customProviders)) {
-        providers.push(customProviders);
-    }
-    return providers;
-}
-exports.ionicProviders = ionicProviders;
-function setupDom(window, document, config, platform, clickBlock, featureDetect) {
-    var bodyEle = document.body;
-    var mode = config.get('mode');
-    // if dynamic mode links have been added the fire up the correct one
-    var modeLinkAttr = mode + '-href';
-    var linkEle = document.head.querySelector('link[' + modeLinkAttr + ']');
-    if (linkEle) {
-        var href = linkEle.getAttribute(modeLinkAttr);
-        linkEle.removeAttribute(modeLinkAttr);
-        linkEle.href = href;
-    }
-    // set the mode class name
-    // ios/md/wp
-    bodyEle.classList.add(mode);
-    // language and direction
-    platform.setDir(document.documentElement.dir, false);
-    platform.setLang(document.documentElement.lang, false);
-    var versions = platform.versions();
-    platform.platforms().forEach(function (platformName) {
-        // platform-ios
-        var platformClass = 'platform-' + platformName;
-        bodyEle.classList.add(platformClass);
-        var platformVersion = versions[platformName];
-        if (platformVersion) {
-            // platform-ios9
-            platformClass += platformVersion.major;
-            bodyEle.classList.add(platformClass);
-            // platform-ios9_3
-            bodyEle.classList.add(platformClass + '_' + platformVersion.minor);
-        }
-    });
-    // touch devices should not use :hover CSS pseudo
-    // enable :hover CSS when the "hoverCSS" setting is not false
-    if (config.getBoolean('hoverCSS', true) !== false) {
-        bodyEle.classList.add('enable-hover');
-    }
-    if (config.getBoolean('clickBlock', true) !== false) {
-        clickBlock.enable();
-    }
-    // run feature detection tests
-    featureDetect.run(window, document);
-}
-/**
- * Bind some global events and publish on the 'app' channel
- */
-function bindEvents(window, document, platform, events) {
-    window.addEventListener('online', function (ev) {
-        events.publish('app:online', ev);
-    }, false);
-    window.addEventListener('offline', function (ev) {
-        events.publish('app:offline', ev);
-    }, false);
-    window.addEventListener('orientationchange', function (ev) {
-        events.publish('app:rotated', ev);
-    });
-    // When that status taps, we respond
-    window.addEventListener('statusTap', function (ev) {
-        // TODO: Make this more better
-        var el = document.elementFromPoint(platform.width() / 2, platform.height() / 2);
-        if (!el) {
-            return;
-        }
-        var content = dom_1.closest(el, 'scroll-content');
-        if (content) {
-            var scroll = new scroll_view_1.ScrollView(content);
-            scroll.scrollTo(0, 0, 300);
-        }
-    });
-    // start listening for resizes XXms after the app starts
-    dom_1.nativeTimeout(function () {
-        window.addEventListener('resize', function () {
-            platform.windowResize();
-        });
-    }, 2000);
-}
-/**
- * @private
- */
 function addSelector(type, selector) {
     if (type) {
         var annotations = _reflect.getMetadata('annotations', type);
@@ -74738,7 +78276,7 @@ function addSelector(type, selector) {
 }
 exports.addSelector = addSelector;
 
-},{"../components/app/app":432,"../components/menu/menu-controller":456,"../components/tap-click/tap-click":494,"../platform/platform":514,"../translation/translate":525,"../util/click-block":528,"../util/dom":531,"../util/events":532,"../util/feature-detect":533,"../util/form":534,"../util/keyboard":536,"../util/scroll-view":537,"../util/util":539,"./config":504,"./directives":505,"@angular/core":247,"@angular/http":337,"@angular/platform-browser-dynamic":358}],504:[function(require,module,exports){
+},{"../components/app/app":471,"../components/tap-click/tap-click":538,"../platform/platform":562,"../util/dom":579,"./providers":552,"@angular/core":247,"@angular/platform-browser-dynamic":395}],549:[function(require,module,exports){
 /**
 * @ngdoc service
 * @name Config
@@ -74757,14 +78295,14 @@ var util_1 = require('../util/util');
  * You can set the tab placement, icon mode, animations, and more here.
  *
  * ```ts
- * import {ionicBootstrap} from 'ionic-angular';
+ * import { ionicBootstrap } from 'ionic-angular';
  *
  * ionicBootstrap(AppRoot, customProviders, {
  *   backButtonText: 'Go Back',
  *   iconMode: 'ios',
  *   modalEnter: 'modal-slide-in',
  *   modalLeave: 'modal-slide-out',
- *   tabbarPlacement: 'bottom',
+ *   tabsPlacement: 'bottom',
  *   pageTransition: 'ios',
  * });
  * ```
@@ -74774,22 +78312,22 @@ var util_1 = require('../util/util');
  * Below is an example where an app can override any setting we want based on a platform.
  *
  * ```ts
- * import {ionicBootstrap} from 'ionic-angular';
+ * import { ionicBootstrap } from 'ionic-angular';
  *
  * ionicBootstrap(AppRoot, customProviders, {
- *   tabbarPlacement: 'bottom',
+ *   tabsPlacement: 'bottom',
  *   platforms: {
  *   ios: {
- *     tabbarPlacement: 'top',
+ *     tabsPlacement: 'top',
  *   }
  * });
  * ```
  *
- * We could also configure these values at a component level. Take `tabbarPlacement`,
+ * We could also configure these values at a component level. Take `tabsPlacement`,
  * we can configure this as a property on our `ion-tabs`.
  *
  * ```html
- * <ion-tabs tabbarPlacement="top">
+ * <ion-tabs tabsPlacement="top">
  *   <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
  * </ion-tabs>
  * ```
@@ -74798,7 +78336,7 @@ var util_1 = require('../util/util');
  * while in the browser. Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
  *
  * ```bash
- * http://localhost:8100/?ionicTabbarPlacement=bottom
+ * http://localhost:8100/?ionicTabsPlacement=bottom
  * ```
  *
  * Any value can be added to config, and looked up at a later in any component.
@@ -74840,10 +78378,10 @@ var util_1 = require('../util/util');
  * | `popoverLeave`           | `string`            | The name of the transition to use while a popover is dismissed.                                                                                  |
  * | `prodMode`               | `boolean`           | Disable development mode, which turns off assertions and other checks within the framework. One important assertion this disables verifies that a change detection pass does not result in additional changes to any bindings (also known as unidirectional data flow).
  * | `spinner`                | `string`            | The default spinner to use when a name is not defined.                                                                                           |
- * | `tabbarHighlight`        | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
- * | `tabbarLayout`           | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
- * | `tabbarPlacement`        | `string`            | The position of the tabs. Available options: `"top"`, `"bottom"`                                                                                 |
- * | `tabSubPages`            | `boolean`           | Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.                                              |
+ * | `tabsHighlight`          | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
+ * | `tabsLayout`             | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
+ * | `tabsPlacement`          | `string`            | The position of the tabs relative to the content. Available options: `"top"`, `"bottom"`                                                         |
+ * | `tabsHideOnSubPages`     | `boolean`           | Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.                                              |
  * | `toastEnter`             | `string`            | The name of the transition to use while a toast is presented.                                                                                    |
  * | `toastLeave`             | `string`            | The name of the transition to use while a toast is dismissed.                                                                                    |
  *
@@ -75070,9 +78608,10 @@ var Config = (function () {
 exports.Config = Config;
 var modeConfigs = {};
 
-},{"../platform/platform":514,"../util/util":539}],505:[function(require,module,exports){
+},{"../platform/platform":562,"../util/util":587}],550:[function(require,module,exports){
 "use strict";
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var menu_1 = require('../components/menu/menu');
 var menu_toggle_1 = require('../components/menu/menu-toggle');
 var menu_close_1 = require('../components/menu/menu-close');
@@ -75115,7 +78654,6 @@ var searchbar_1 = require('../components/searchbar/searchbar');
 var nav_1 = require('../components/nav/nav');
 var nav_pop_1 = require('../components/nav/nav-pop');
 var nav_push_1 = require('../components/nav/nav-push');
-var nav_router_1 = require('../components/nav/nav-router');
 var navbar_1 = require('../components/navbar/navbar');
 var show_hide_when_1 = require('../components/show-hide-when/show-hide-when');
 /**
@@ -75184,7 +78722,6 @@ var show_hide_when_1 = require('../components/show-hide-when/show-hide-when');
  * - Navbar
  * - NavPush
  * - NavPop
- * - NavRouter
  * - IdRef
  * - ShowWhen
  * - HideWhen
@@ -75192,7 +78729,7 @@ var show_hide_when_1 = require('../components/show-hide-when/show-hide-when');
 exports.IONIC_DIRECTIVES = [
     // Angular
     common_1.CORE_DIRECTIVES,
-    common_1.FORM_DIRECTIVES,
+    forms_1.REACTIVE_FORM_DIRECTIVES,
     // Content
     menu_1.Menu,
     menu_toggle_1.MenuToggle,
@@ -75214,7 +78751,7 @@ exports.IONIC_DIRECTIVES = [
     item_1.ItemContent,
     item_sliding_1.ItemSliding,
     item_sliding_1.ItemOptions,
-    item_reorder_1.Reorder,
+    item_reorder_1.ItemReorder,
     virtual_scroll_1.VirtualScroll,
     virtual_item_1.VirtualItem,
     virtual_item_1.VirtualHeader,
@@ -75256,12 +78793,11 @@ exports.IONIC_DIRECTIVES = [
     navbar_1.Navbar,
     nav_push_1.NavPush,
     nav_pop_1.NavPop,
-    nav_router_1.NavRouter,
     show_hide_when_1.ShowWhen,
     show_hide_when_1.HideWhen
 ];
 
-},{"../components/backdrop/backdrop":433,"../components/badge/badge":434,"../components/button/button":435,"../components/checkbox/checkbox":436,"../components/content/content":437,"../components/datetime/datetime":438,"../components/icon/icon":439,"../components/img/img":440,"../components/infinite-scroll/infinite-scroll":442,"../components/infinite-scroll/infinite-scroll-content":441,"../components/input/input":444,"../components/item/item":451,"../components/item/item-reorder":448,"../components/item/item-sliding":450,"../components/label/label":452,"../components/list/list":453,"../components/menu/menu":460,"../components/menu/menu-close":455,"../components/menu/menu-toggle":458,"../components/nav/nav":468,"../components/nav/nav-pop":464,"../components/nav/nav-push":466,"../components/nav/nav-router":467,"../components/navbar/navbar":471,"../components/option/option":472,"../components/radio/radio-button":475,"../components/radio/radio-group":476,"../components/range/range":477,"../components/refresher/refresher":479,"../components/refresher/refresher-content":478,"../components/scroll/scroll":480,"../components/searchbar/searchbar":481,"../components/segment/segment":482,"../components/select/select":483,"../components/show-hide-when/show-hide-when":484,"../components/slides/slides":485,"../components/spinner/spinner":487,"../components/tabs/tab":490,"../components/tabs/tabs":491,"../components/toggle/toggle":496,"../components/toolbar/toolbar":499,"../components/toolbar/toolbar-item":497,"../components/toolbar/toolbar-title":498,"../components/virtual-scroll/virtual-item":500,"../components/virtual-scroll/virtual-scroll":501,"@angular/common":100}],506:[function(require,module,exports){
+},{"../components/backdrop/backdrop":472,"../components/badge/badge":473,"../components/button/button":474,"../components/checkbox/checkbox":475,"../components/content/content":476,"../components/datetime/datetime":477,"../components/icon/icon":478,"../components/img/img":479,"../components/infinite-scroll/infinite-scroll":481,"../components/infinite-scroll/infinite-scroll-content":480,"../components/input/input":483,"../components/item/item":490,"../components/item/item-reorder":487,"../components/item/item-sliding":489,"../components/label/label":491,"../components/list/list":492,"../components/menu/menu":500,"../components/menu/menu-close":495,"../components/menu/menu-toggle":498,"../components/nav/nav":510,"../components/nav/nav-pop":507,"../components/nav/nav-push":509,"../components/navbar/navbar":513,"../components/option/option":514,"../components/radio/radio-button":519,"../components/radio/radio-group":520,"../components/range/range":521,"../components/refresher/refresher":523,"../components/refresher/refresher-content":522,"../components/scroll/scroll":524,"../components/searchbar/searchbar":525,"../components/segment/segment":526,"../components/select/select":527,"../components/show-hide-when/show-hide-when":528,"../components/slides/slides":529,"../components/spinner/spinner":531,"../components/tabs/tab":534,"../components/tabs/tabs":535,"../components/toggle/toggle":541,"../components/toolbar/toolbar":544,"../components/toolbar/toolbar-item":542,"../components/toolbar/toolbar-title":543,"../components/virtual-scroll/virtual-item":545,"../components/virtual-scroll/virtual-scroll":546,"@angular/common":100,"@angular/forms":336}],551:[function(require,module,exports){
 "use strict";
 var config_1 = require('./config');
 // iOS Mode Settings
@@ -75287,9 +78823,9 @@ config_1.Config.setModeConfig('ios', {
     popoverEnter: 'popover-pop-in',
     popoverLeave: 'popover-pop-out',
     spinner: 'ios',
-    tabbarHighlight: false,
-    tabbarPlacement: 'bottom',
-    tabSubPages: false,
+    tabsHighlight: false,
+    tabsPlacement: 'bottom',
+    tabsHideOnSubPages: false,
     toastEnter: 'toast-slide-in',
     toastLeave: 'toast-slide-out',
 });
@@ -75316,9 +78852,9 @@ config_1.Config.setModeConfig('md', {
     popoverEnter: 'popover-md-pop-in',
     popoverLeave: 'popover-md-pop-out',
     spinner: 'crescent',
-    tabbarHighlight: true,
-    tabbarPlacement: 'top',
-    tabSubPages: true,
+    tabsHighlight: false,
+    tabsPlacement: 'bottom',
+    tabsHideOnSubPages: false,
     toastEnter: 'toast-md-slide-in',
     toastLeave: 'toast-md-slide-out',
 });
@@ -75345,13 +78881,168 @@ config_1.Config.setModeConfig('wp', {
     popoverEnter: 'popover-md-pop-in',
     popoverLeave: 'popover-md-pop-out',
     spinner: 'circles',
-    tabbarPlacement: 'top',
-    tabSubPages: true,
+    tabsHighlight: false,
+    tabsPlacement: 'top',
+    tabsHideOnSubPages: true,
     toastEnter: 'toast-wp-slide-in',
     toastLeave: 'toast-wp-slide-out',
 });
 
-},{"./config":504}],507:[function(require,module,exports){
+},{"./config":549}],552:[function(require,module,exports){
+"use strict";
+var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
+var action_sheet_1 = require('../components/action-sheet/action-sheet');
+var alert_1 = require('../components/alert/alert');
+var app_1 = require('../components/app/app');
+var config_1 = require('./config');
+var dom_1 = require('../util/dom');
+var events_1 = require('../util/events');
+var feature_detect_1 = require('../util/feature-detect');
+var form_1 = require('../util/form');
+var gesture_controller_1 = require('../gestures/gesture-controller');
+var directives_1 = require('./directives');
+var util_1 = require('../util/util');
+var keyboard_1 = require('../util/keyboard');
+var loading_1 = require('../components/loading/loading');
+var menu_controller_1 = require('../components/menu/menu-controller');
+var modal_1 = require('../components/modal/modal');
+var picker_1 = require('../components/picker/picker');
+var platform_1 = require('../platform/platform');
+var popover_1 = require('../components/popover/popover');
+var scroll_view_1 = require('../util/scroll-view');
+var tap_click_1 = require('../components/tap-click/tap-click');
+var toast_1 = require('../components/toast/toast');
+var translate_1 = require('../translation/translate');
+/**
+ * @private
+ */
+function ionicProviders(customProviders, config) {
+    // create an instance of Config
+    if (!(config instanceof config_1.Config)) {
+        config = new config_1.Config(config);
+    }
+    // enable production mode if config set to true
+    if (config.getBoolean('prodMode')) {
+        core_1.enableProdMode();
+    }
+    // create an instance of Platform
+    var platform = new platform_1.Platform();
+    // initialize platform
+    platform.setUrl(window.location.href);
+    platform.setUserAgent(window.navigator.userAgent);
+    platform.setNavigatorPlatform(window.navigator.platform);
+    platform.load();
+    config.setPlatform(platform);
+    var events = new events_1.Events();
+    var featureDetect = new feature_detect_1.FeatureDetect();
+    setupDom(window, document, config, platform, featureDetect);
+    bindEvents(window, document, platform, events);
+    var providers = [
+        action_sheet_1.ActionSheetController,
+        alert_1.AlertController,
+        app_1.App,
+        core_1.provide(config_1.Config, { useValue: config }),
+        forms_1.disableDeprecatedForms(),
+        core_1.provide(events_1.Events, { useValue: events }),
+        core_1.provide(feature_detect_1.FeatureDetect, { useValue: featureDetect }),
+        form_1.Form,
+        gesture_controller_1.GestureController,
+        http_1.HTTP_PROVIDERS,
+        keyboard_1.Keyboard,
+        loading_1.LoadingController,
+        menu_controller_1.MenuController,
+        modal_1.ModalController,
+        picker_1.PickerController,
+        popover_1.PopoverController,
+        core_1.provide(platform_1.Platform, { useValue: platform }),
+        core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: directives_1.IONIC_DIRECTIVES, multi: true }),
+        forms_1.provideForms(),
+        tap_click_1.TapClick,
+        toast_1.ToastController,
+        translate_1.Translate,
+    ];
+    if (util_1.isPresent(customProviders)) {
+        providers.push(customProviders);
+    }
+    return providers;
+}
+exports.ionicProviders = ionicProviders;
+function setupDom(window, document, config, platform, featureDetect) {
+    var bodyEle = document.body;
+    var mode = config.get('mode');
+    // if dynamic mode links have been added the fire up the correct one
+    var modeLinkAttr = mode + '-href';
+    var linkEle = document.head.querySelector('link[' + modeLinkAttr + ']');
+    if (linkEle) {
+        var href = linkEle.getAttribute(modeLinkAttr);
+        linkEle.removeAttribute(modeLinkAttr);
+        linkEle.href = href;
+    }
+    // set the mode class name
+    // ios/md/wp
+    bodyEle.classList.add(mode);
+    // language and direction
+    platform.setDir(document.documentElement.dir, false);
+    platform.setLang(document.documentElement.lang, false);
+    var versions = platform.versions();
+    platform.platforms().forEach(function (platformName) {
+        // platform-ios
+        var platformClass = 'platform-' + platformName;
+        bodyEle.classList.add(platformClass);
+        var platformVersion = versions[platformName];
+        if (platformVersion) {
+            // platform-ios9
+            platformClass += platformVersion.major;
+            bodyEle.classList.add(platformClass);
+            // platform-ios9_3
+            bodyEle.classList.add(platformClass + '_' + platformVersion.minor);
+        }
+    });
+    // touch devices should not use :hover CSS pseudo
+    // enable :hover CSS when the "hoverCSS" setting is not false
+    if (config.getBoolean('hoverCSS', true)) {
+        bodyEle.classList.add('enable-hover');
+    }
+    // run feature detection tests
+    featureDetect.run(window, document);
+}
+/**
+ * Bind some global events and publish on the 'app' channel
+ */
+function bindEvents(window, document, platform, events) {
+    window.addEventListener('online', function (ev) {
+        events.publish('app:online', ev);
+    }, false);
+    window.addEventListener('offline', function (ev) {
+        events.publish('app:offline', ev);
+    }, false);
+    window.addEventListener('orientationchange', function (ev) {
+        events.publish('app:rotated', ev);
+    });
+    // When that status taps, we respond
+    window.addEventListener('statusTap', function (ev) {
+        // TODO: Make this more better
+        var el = document.elementFromPoint(platform.width() / 2, platform.height() / 2);
+        if (!el) {
+            return;
+        }
+        var content = dom_1.closest(el, 'scroll-content');
+        if (content) {
+            var scroll = new scroll_view_1.ScrollView(content);
+            scroll.scrollTo(0, 0, 300);
+        }
+    });
+    // start listening for resizes XXms after the app starts
+    dom_1.nativeTimeout(function () {
+        window.addEventListener('resize', function () {
+            platform.windowResize();
+        });
+    }, 2000);
+}
+
+},{"../components/action-sheet/action-sheet":468,"../components/alert/alert":470,"../components/app/app":471,"../components/loading/loading":494,"../components/menu/menu-controller":496,"../components/modal/modal":502,"../components/picker/picker":516,"../components/popover/popover":518,"../components/tap-click/tap-click":538,"../components/toast/toast":540,"../gestures/gesture-controller":555,"../platform/platform":562,"../translation/translate":573,"../util/dom":579,"../util/events":580,"../util/feature-detect":581,"../util/form":582,"../util/keyboard":584,"../util/scroll-view":585,"../util/util":587,"./config":549,"./directives":550,"@angular/core":247,"@angular/forms":336,"@angular/http":374}],553:[function(require,module,exports){
 "use strict";
 var core_1 = require('@angular/core');
 var _reflect = Reflect;
@@ -75374,55 +79065,321 @@ function Page(config) {
 }
 exports.Page = Page;
 
-},{"@angular/core":247}],508:[function(require,module,exports){
+},{"@angular/core":247}],554:[function(require,module,exports){
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var gesture_1 = require('./gesture');
 var util_1 = require('../util');
+var ui_event_manager_1 = require('../util/ui-event-manager');
+var recognizers_1 = require('./recognizers');
+var dom_1 = require('../util/dom');
 /**
  * @private
  */
-var DragGesture = (function (_super) {
-    __extends(DragGesture, _super);
-    function DragGesture(element, opts) {
+var PanGesture = (function () {
+    function PanGesture(element, opts) {
         if (opts === void 0) { opts = {}; }
-        util_1.defaults(opts, {});
-        _super.call(this, element, opts);
+        this.element = element;
+        this.events = new ui_event_manager_1.UIEventManager(false);
+        this.started = false;
+        this.captured = false;
+        this.isListening = false;
+        util_1.defaults(opts, {
+            threshold: 20,
+            maxAngle: 40,
+            direction: 'x'
+        });
+        this.gestute = opts.gesture;
+        this.direction = opts.direction;
+        this.detector = new recognizers_1.PanRecognizer(opts.direction, opts.threshold, opts.maxAngle);
     }
-    DragGesture.prototype.listen = function () {
-        var _this = this;
-        _super.prototype.listen.call(this);
-        this.on('panstart', function (ev) {
-            if (_this.onDragStart(ev) !== false) {
-                _this.dragging = true;
-            }
-        });
-        this.on('panmove', function (ev) {
-            if (!_this.dragging)
-                return;
-            if (_this.onDrag(ev) === false) {
-                _this.dragging = false;
-            }
-        });
-        this.on('panend', function (ev) {
-            if (!_this.dragging)
-                return;
-            _this.onDragEnd(ev);
-            _this.dragging = false;
-        });
+    PanGesture.prototype.listen = function () {
+        if (!this.isListening) {
+            this.pointerEvents = this.events.pointerEvents({
+                element: this.element,
+                pointerDown: this.pointerDown.bind(this),
+                pointerMove: this.pointerMove.bind(this),
+                pointerUp: this.pointerUp.bind(this),
+            });
+            this.isListening = true;
+        }
     };
-    DragGesture.prototype.onDrag = function (ev) { return true; };
-    DragGesture.prototype.onDragStart = function (ev) { return true; };
-    DragGesture.prototype.onDragEnd = function (ev) { };
-    return DragGesture;
-}(gesture_1.Gesture));
-exports.DragGesture = DragGesture;
+    PanGesture.prototype.unlisten = function () {
+        this.gestute && this.gestute.release();
+        this.events.unlistenAll();
+        this.isListening = false;
+    };
+    PanGesture.prototype.destroy = function () {
+        this.gestute && this.gestute.destroy();
+        this.unlisten();
+        this.element = null;
+    };
+    PanGesture.prototype.pointerDown = function (ev) {
+        if (this.started) {
+            return;
+        }
+        if (!this.canStart(ev)) {
+            return false;
+        }
+        if (this.gestute) {
+            // Release fallback
+            this.gestute.release();
+            // Start gesture
+            if (!this.gestute.start()) {
+                return false;
+            }
+        }
+        var coord = dom_1.pointerCoord(ev);
+        this.detector.start(coord);
+        this.started = true;
+        this.captured = false;
+        return true;
+    };
+    PanGesture.prototype.pointerMove = function (ev) {
+        if (!this.started) {
+            return;
+        }
+        if (this.captured) {
+            this.onDragMove(ev);
+            return;
+        }
+        var coord = dom_1.pointerCoord(ev);
+        if (this.detector.detect(coord)) {
+            if (this.detector.pan() !== 0 && this.canCapture(ev) &&
+                (!this.gestute || this.gestute.capture())) {
+                this.onDragStart(ev);
+                this.captured = true;
+                return;
+            }
+            // Detection/capturing was not successful, aborting!
+            this.started = false;
+            this.captured = false;
+            this.pointerEvents.stop();
+            this.notCaptured(ev);
+        }
+    };
+    PanGesture.prototype.pointerUp = function (ev) {
+        if (!this.started) {
+            return;
+        }
+        this.gestute && this.gestute.release();
+        if (this.captured) {
+            this.onDragEnd(ev);
+        }
+        else {
+            this.notCaptured(ev);
+        }
+        this.captured = false;
+        this.started = false;
+    };
+    PanGesture.prototype.getNativeElement = function () {
+        return this.element;
+    };
+    // Implemented in a subclass
+    PanGesture.prototype.canStart = function (ev) { return true; };
+    PanGesture.prototype.canCapture = function (ev) { return true; };
+    PanGesture.prototype.onDragStart = function (ev) { };
+    PanGesture.prototype.onDragMove = function (ev) { };
+    PanGesture.prototype.onDragEnd = function (ev) { };
+    PanGesture.prototype.notCaptured = function (ev) { };
+    return PanGesture;
+}());
+exports.PanGesture = PanGesture;
 
-},{"../util":527,"./gesture":509}],509:[function(require,module,exports){
+},{"../util":575,"../util/dom":579,"../util/ui-event-manager":586,"./recognizers":558}],555:[function(require,module,exports){
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../components/app/app');
+var GestureController = (function () {
+    function GestureController(_app) {
+        this._app = _app;
+        this.id = 1;
+        this.requestedStart = {};
+        this.disabledGestures = {};
+        this.disabledScroll = new Set();
+        this.capturedID = null;
+    }
+    GestureController.prototype.create = function (name, opts) {
+        if (opts === void 0) { opts = {}; }
+        return new GestureDelegate(name, this.newID(), this, opts);
+    };
+    GestureController.prototype.newID = function () {
+        var id = this.id;
+        this.id++;
+        return id;
+    };
+    GestureController.prototype.start = function (gestureName, id, priority) {
+        if (!this.canStart(gestureName)) {
+            delete this.requestedStart[id];
+            return false;
+        }
+        this.requestedStart[id] = priority;
+        return true;
+    };
+    GestureController.prototype.capture = function (gestureName, id, priority) {
+        if (!this.start(gestureName, id, priority)) {
+            return false;
+        }
+        var requestedStart = this.requestedStart;
+        var maxPriority = -10000 /* Minimun */;
+        for (var gestureID in requestedStart) {
+            maxPriority = Math.max(maxPriority, requestedStart[gestureID]);
+        }
+        if (maxPriority === priority) {
+            this.capturedID = id;
+            this.requestedStart = {};
+            return true;
+        }
+        delete requestedStart[id];
+        void 0;
+        return false;
+    };
+    GestureController.prototype.release = function (id) {
+        delete this.requestedStart[id];
+        if (this.capturedID && id === this.capturedID) {
+            this.capturedID = null;
+        }
+    };
+    GestureController.prototype.disableGesture = function (gestureName, id) {
+        var set = this.disabledGestures[gestureName];
+        if (!set) {
+            set = new Set();
+            this.disabledGestures[gestureName] = set;
+        }
+        set.add(id);
+    };
+    GestureController.prototype.enableGesture = function (gestureName, id) {
+        var set = this.disabledGestures[gestureName];
+        if (set) {
+            set.delete(id);
+        }
+    };
+    GestureController.prototype.disableScroll = function (id) {
+        var isEnabled = !this.isScrollDisabled();
+        this.disabledScroll.add(id);
+        if (this._app && isEnabled && this.isScrollDisabled()) {
+            void 0;
+            this._app.setScrollDisabled(true);
+        }
+    };
+    GestureController.prototype.enableScroll = function (id) {
+        var isDisabled = this.isScrollDisabled();
+        this.disabledScroll.delete(id);
+        if (this._app && isDisabled && !this.isScrollDisabled()) {
+            void 0;
+            this._app.setScrollDisabled(false);
+        }
+    };
+    GestureController.prototype.canStart = function (gestureName) {
+        if (this.capturedID) {
+            // a gesture already captured
+            return false;
+        }
+        if (this.isDisabled(gestureName)) {
+            return false;
+        }
+        return true;
+    };
+    GestureController.prototype.isCaptured = function () {
+        return !!this.capturedID;
+    };
+    GestureController.prototype.isScrollDisabled = function () {
+        return this.disabledScroll.size > 0;
+    };
+    GestureController.prototype.isDisabled = function (gestureName) {
+        var disabled = this.disabledGestures[gestureName];
+        if (disabled && disabled.size > 0) {
+            return true;
+        }
+        return false;
+    };
+    GestureController = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
+        __metadata('design:paramtypes', [app_1.App])
+    ], GestureController);
+    return GestureController;
+}());
+exports.GestureController = GestureController;
+var GestureDelegate = (function () {
+    function GestureDelegate(name, id, controller, opts) {
+        this.name = name;
+        this.id = id;
+        this.controller = controller;
+        this.priority = 0;
+        this.disable = opts.disable || [];
+        this.disableScroll = opts.disableScroll || 0 /* Never */;
+        this.priority = opts.priority || 0;
+        // Disable gestures
+        for (var _i = 0, _a = this.disable; _i < _a.length; _i++) {
+            var gestureName = _a[_i];
+            controller.disableGesture(gestureName, id);
+        }
+        // Disable scrolling (always)
+        if (this.disableScroll === 2 /* Always */) {
+            controller.disableScroll(id);
+        }
+    }
+    GestureDelegate.prototype.canStart = function () {
+        if (!this.controller) {
+            return false;
+        }
+        return this.controller.canStart(this.name);
+    };
+    GestureDelegate.prototype.start = function () {
+        if (!this.controller) {
+            return false;
+        }
+        return this.controller.start(this.name, this.id, this.priority);
+    };
+    GestureDelegate.prototype.capture = function () {
+        if (!this.controller) {
+            return false;
+        }
+        var captured = this.controller.capture(this.name, this.id, this.priority);
+        if (captured && this.disableScroll === 1 /* DuringCapture */) {
+            this.controller.disableScroll(this.id);
+        }
+        return captured;
+    };
+    GestureDelegate.prototype.release = function () {
+        if (!this.controller) {
+            return;
+        }
+        this.controller.release(this.id);
+        if (this.disableScroll === 1 /* DuringCapture */) {
+            this.controller.enableScroll(this.id);
+        }
+    };
+    GestureDelegate.prototype.destroy = function () {
+        if (!this.controller) {
+            return;
+        }
+        this.release();
+        for (var _i = 0, _a = this.disable; _i < _a.length; _i++) {
+            var disabled = _a[_i];
+            this.controller.enableGesture(disabled, this.id);
+        }
+        if (this.disableScroll === 2 /* Always */) {
+            this.controller.enableScroll(this.id);
+        }
+        this.controller = null;
+    };
+    return GestureDelegate;
+}());
+exports.GestureDelegate = GestureDelegate;
+
+},{"../components/app/app":471,"@angular/core":247}],556:[function(require,module,exports){
 "use strict";
 var util_1 = require('../util');
 var hammer_1 = require('./hammer');
@@ -75490,7 +79447,7 @@ var Gesture = (function () {
 }());
 exports.Gesture = Gesture;
 
-},{"../util":527,"./hammer":510}],510:[function(require,module,exports){
+},{"../util":575,"./hammer":557}],557:[function(require,module,exports){
 "use strict";
 /* tslint:disable */
 var util_1 = require('../util/util');
@@ -77644,7 +81601,62 @@ util_1.assign(Hammer, {
 });
 win.Hammer = Hammer;
 
-},{"../util/util":539}],511:[function(require,module,exports){
+},{"../util/util":587}],558:[function(require,module,exports){
+"use strict";
+var PanRecognizer = (function () {
+    function PanRecognizer(direction, threshold, maxAngle) {
+        this.direction = direction;
+        this.dirty = false;
+        this._angle = 0;
+        this._isPan = 0;
+        var radians = maxAngle * (Math.PI / 180);
+        this.maxCosine = Math.cos(radians);
+        this.threshold = threshold * threshold;
+    }
+    PanRecognizer.prototype.start = function (coord) {
+        this.startCoord = coord;
+        this._angle = 0;
+        this._isPan = 0;
+        this.dirty = true;
+    };
+    PanRecognizer.prototype.detect = function (coord) {
+        if (!this.dirty) {
+            return false;
+        }
+        var deltaX = (coord.x - this.startCoord.x);
+        var deltaY = (coord.y - this.startCoord.y);
+        var distance = deltaX * deltaX + deltaY * deltaY;
+        if (distance >= this.threshold) {
+            var angle = Math.atan2(deltaY, deltaX);
+            var cosine = (this.direction === 'y')
+                ? Math.sin(angle)
+                : Math.cos(angle);
+            this._angle = angle;
+            if (cosine > this.maxCosine) {
+                this._isPan = 1;
+            }
+            else if (cosine < -this.maxCosine) {
+                this._isPan = -1;
+            }
+            else {
+                this._isPan = 0;
+            }
+            this.dirty = false;
+            return true;
+        }
+        return false;
+    };
+    PanRecognizer.prototype.angle = function () {
+        return this._angle;
+    };
+    PanRecognizer.prototype.pan = function () {
+        return this._isPan;
+    };
+    return PanRecognizer;
+}());
+exports.PanRecognizer = PanRecognizer;
+
+},{}],559:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -77654,6 +81666,9 @@ var __extends = (this && this.__extends) || function (d, b) {
 var slide_gesture_1 = require('./slide-gesture');
 var util_1 = require('../util/util');
 var dom_1 = require('../util/dom');
+/**
+ * @private
+ */
 var SlideEdgeGesture = (function (_super) {
     __extends(SlideEdgeGesture, _super);
     function SlideEdgeGesture(element, opts) {
@@ -77669,8 +81684,9 @@ var SlideEdgeGesture = (function (_super) {
     }
     SlideEdgeGesture.prototype.canStart = function (ev) {
         var _this = this;
+        var coord = dom_1.pointerCoord(ev);
         this._d = this.getContainerDimensions();
-        return this.edges.every(function (edge) { return _this._checkEdge(edge, ev.center); });
+        return this.edges.every(function (edge) { return _this._checkEdge(edge, coord); });
     };
     SlideEdgeGesture.prototype.getContainerDimensions = function () {
         return {
@@ -77692,7 +81708,7 @@ var SlideEdgeGesture = (function (_super) {
 }(slide_gesture_1.SlideGesture));
 exports.SlideEdgeGesture = SlideEdgeGesture;
 
-},{"../util/dom":531,"../util/util":539,"./slide-gesture":512}],512:[function(require,module,exports){
+},{"../util/dom":579,"../util/util":587,"./slide-gesture":560}],560:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -77701,13 +81717,16 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var drag_gesture_1 = require('./drag-gesture');
 var util_1 = require('../util');
+var dom_1 = require('../util/dom');
+/**
+ * @private
+ */
 var SlideGesture = (function (_super) {
     __extends(SlideGesture, _super);
     function SlideGesture(element, opts) {
         if (opts === void 0) { opts = {}; }
         _super.call(this, element, opts);
         this.slide = null;
-        this.element = element;
     }
     /*
      * Get the min and max for the slide. pageX/pageY.
@@ -77716,7 +81735,7 @@ var SlideGesture = (function (_super) {
     SlideGesture.prototype.getSlideBoundaries = function (slide, ev) {
         return {
             min: 0,
-            max: this.element.offsetWidth
+            max: this.getNativeElement().offsetWidth
         };
     };
     /*
@@ -77727,37 +81746,35 @@ var SlideGesture = (function (_super) {
     SlideGesture.prototype.getElementStartPos = function (slide, ev) {
         return 0;
     };
-    SlideGesture.prototype.canStart = function (ev) {
-        return true;
-    };
     SlideGesture.prototype.onDragStart = function (ev) {
-        if (!this.canStart(ev)) {
-            return false;
-        }
         this.slide = {};
         this.onSlideBeforeStart(this.slide, ev);
         var _a = this.getSlideBoundaries(this.slide, ev), min = _a.min, max = _a.max;
+        var coord = dom_1.pointerCoord(ev);
         this.slide.min = min;
         this.slide.max = max;
         this.slide.elementStartPos = this.getElementStartPos(this.slide, ev);
-        this.slide.pointerStartPos = ev.center[this.direction];
+        this.slide.pos = this.slide.pointerStartPos = coord[this.direction];
+        this.slide.timestamp = Date.now();
         this.slide.started = true;
+        this.slide.velocity = 0;
         this.onSlideStart(this.slide, ev);
-        return true;
     };
-    SlideGesture.prototype.onDrag = function (ev) {
-        if (!this.slide || !this.slide.started) {
-            return false;
-        }
-        this.slide.pos = ev.center[this.direction];
-        this.slide.distance = util_1.clamp(this.slide.min, this.slide.pos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
-        this.slide.delta = this.slide.pos - this.slide.pointerStartPos;
-        this.onSlide(this.slide, ev);
+    SlideGesture.prototype.onDragMove = function (ev) {
+        var slide = this.slide;
+        var coord = dom_1.pointerCoord(ev);
+        var newPos = coord[this.direction];
+        var newTimestamp = Date.now();
+        var velocity = (newPos - slide.pos) / (newTimestamp - slide.timestamp);
+        slide.pos = newPos;
+        slide.timestamp = newTimestamp;
+        slide.distance = util_1.clamp(slide.min, newPos - slide.pointerStartPos + slide.elementStartPos, slide.max);
+        slide.velocity = velocity;
+        slide.delta = newPos - slide.pointerStartPos;
+        this.onSlide(slide, ev);
         return true;
     };
     SlideGesture.prototype.onDragEnd = function (ev) {
-        if (!this.slide || !this.slide.started)
-            return;
         this.onSlideEnd(this.slide, ev);
         this.slide = null;
     };
@@ -77766,23 +81783,30 @@ var SlideGesture = (function (_super) {
     SlideGesture.prototype.onSlide = function (slide, ev) { };
     SlideGesture.prototype.onSlideEnd = function (slide, ev) { };
     return SlideGesture;
-}(drag_gesture_1.DragGesture));
+}(drag_gesture_1.PanGesture));
 exports.SlideGesture = SlideGesture;
 
-},{"../util":527,"./drag-gesture":508}],513:[function(require,module,exports){
+},{"../util":575,"../util/dom":579,"./drag-gesture":554}],561:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(require('./config/bootstrap'));
-__export(require('./config/config'));
-__export(require('./config/directives'));
+var bootstrap_1 = require('./config/bootstrap');
+exports.ionicBootstrap = bootstrap_1.ionicBootstrap;
+exports.ionicPostBootstrap = bootstrap_1.ionicPostBootstrap;
+var config_1 = require('./config/config');
+exports.Config = config_1.Config;
+var directives_1 = require('./config/directives');
+exports.IONIC_DIRECTIVES = directives_1.IONIC_DIRECTIVES;
+var providers_1 = require('./config/providers');
+exports.ionicProviders = providers_1.ionicProviders;
 __export(require('./decorators/page'));
 __export(require('./components'));
 __export(require('./gestures/drag-gesture'));
 __export(require('./gestures/gesture'));
 __export(require('./gestures/slide-edge-gesture'));
 __export(require('./gestures/slide-gesture'));
+__export(require('./gestures/gesture-controller'));
 __export(require('./platform/platform'));
 __export(require('./platform/storage'));
 __export(require('./util/click-block'));
@@ -77804,7 +81828,7 @@ require('./transitions/transition-ios');
 require('./transitions/transition-md');
 require('./transitions/transition-wp');
 
-},{"./animations/animation":427,"./animations/builtins":428,"./components":429,"./config/bootstrap":503,"./config/config":504,"./config/directives":505,"./config/modes":506,"./decorators/page":507,"./gestures/drag-gesture":508,"./gestures/gesture":509,"./gestures/slide-edge-gesture":511,"./gestures/slide-gesture":512,"./platform/platform":514,"./platform/registry":515,"./platform/storage":516,"./transitions/page-transition":520,"./transitions/transition":524,"./transitions/transition-ios":521,"./transitions/transition-md":522,"./transitions/transition-wp":523,"./translation/translate":525,"./translation/translate_pipe":526,"./util/click-block":528,"./util/events":532,"./util/form":534,"./util/keyboard":536,"./util/util":539}],514:[function(require,module,exports){
+},{"./animations/animation":464,"./animations/builtins":465,"./components":466,"./config/bootstrap":548,"./config/config":549,"./config/directives":550,"./config/modes":551,"./config/providers":552,"./decorators/page":553,"./gestures/drag-gesture":554,"./gestures/gesture":556,"./gestures/gesture-controller":555,"./gestures/slide-edge-gesture":559,"./gestures/slide-gesture":560,"./platform/platform":562,"./platform/registry":563,"./platform/storage":564,"./transitions/page-transition":568,"./transitions/transition":572,"./transitions/transition-ios":569,"./transitions/transition-md":570,"./transitions/transition-wp":571,"./translation/translate":573,"./translation/translate_pipe":574,"./util/click-block":576,"./util/events":580,"./util/form":582,"./util/keyboard":584,"./util/util":587}],562:[function(require,module,exports){
 "use strict";
 var core_1 = require('@angular/core');
 var util_1 = require('../util/util');
@@ -77822,7 +81846,7 @@ var dom_1 = require('../util/dom');
  *
  * @usage
  * ```ts
- * import {Platform} from 'ionic-angular';
+ * import { Platform } from 'ionic-angular';
  *
  * @Component({...})
  * export MyPage {
@@ -77888,7 +81912,7 @@ var Platform = (function () {
      * from a web browser on the iPad then `mobileweb` would be `true`.
      *
      * ```
-     * import {Platform} from 'ionic-angular';
+     * import { Platform } from 'ionic-angular';
      *
      * @Component({...})
      * export MyPage {
@@ -77930,7 +81954,7 @@ var Platform = (function () {
      * it would return `mobile`, `ios`, and `iphone`.
      *
      * ```
-     * import {Platform} from 'ionic-angular';
+     * import { Platform } from 'ionic-angular';
      *
      * @Component({...})
      * export MyPage {
@@ -77952,7 +81976,7 @@ var Platform = (function () {
      * Returns an object containing version information about all of the platforms.
      *
      * ```
-     * import {Platform} from 'ionic-angular';
+     * import { Platform } from 'ionic-angular';
      *
      * @Component({...})
      * export MyPage {
@@ -77998,8 +82022,8 @@ var Platform = (function () {
      * the status bar plugin, so the web should not run status bar plugin logic.
      *
      * ```
-     * import {Component} from '@angular/core';
-     * import {Platform} from 'ionic-angular';
+     * import { Component } from '@angular/core';
+     * import { Platform } from 'ionic-angular';
      *
      * @Component({...})
      * export MyApp {
@@ -78340,7 +82364,7 @@ var Platform = (function () {
     /**
      * @private
      */
-    Platform.prototype.load = function (config) {
+    Platform.prototype.load = function () {
         var rootPlatformNode;
         var enginePlatformNode;
         var self = this;
@@ -78393,7 +82417,7 @@ var Platform = (function () {
             }
             platformNode = rootPlatformNode;
             while (platformNode) {
-                platformNode.initialize(this, config);
+                platformNode.initialize(this);
                 // set the array of active platforms with
                 // the last one in the array the most important
                 this._platforms.push(platformNode.name);
@@ -78461,8 +82485,8 @@ var PlatformNode = (function () {
     PlatformNode.prototype.isMatch = function (p) {
         return this.c.isMatch && this.c.isMatch(p) || false;
     };
-    PlatformNode.prototype.initialize = function (platform, config) {
-        this.c.initialize && this.c.initialize(platform, config);
+    PlatformNode.prototype.initialize = function (platform) {
+        this.c.initialize && this.c.initialize(platform);
     };
     PlatformNode.prototype.version = function (p) {
         if (this.c.versionParser) {
@@ -78515,7 +82539,7 @@ var PlatformNode = (function () {
 var platformRegistry = {};
 var platformDefault = null;
 
-},{"../util/dom":531,"../util/util":539,"@angular/core":247}],515:[function(require,module,exports){
+},{"../util/dom":579,"../util/util":587,"@angular/core":247}],563:[function(require,module,exports){
 "use strict";
 var platform_1 = require('./platform');
 var dom_1 = require('../util/dom');
@@ -78608,7 +82632,8 @@ platform_1.Platform.register({
         swipeBackEnabled: isIOSDevice,
         swipeBackThreshold: 40,
         tapPolyfill: isIOSDevice,
-        virtualScrollEventAssist: !(win.indexedDB)
+        virtualScrollEventAssist: !(win.indexedDB),
+        canDisableScroll: !!(win.indexedDB),
     },
     isMatch: function (p) {
         return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
@@ -78658,7 +82683,7 @@ platform_1.Platform.register({
 platform_1.Platform.register({
     name: 'cordova',
     isEngine: true,
-    initialize: function (p, config) {
+    initialize: function (p) {
         // prepare a custom "ready" for cordova "deviceready"
         p.prepareReady = function () {
             // 1) ionic bootstrapped
@@ -78704,7 +82729,7 @@ function isIOSDevice(p) {
     return p.testNavigatorPlatform('iphone|ipad|ipod');
 }
 
-},{"../util/dom":531,"./platform":514}],516:[function(require,module,exports){
+},{"../util/dom":579,"./platform":562}],564:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -78713,7 +82738,7 @@ __export(require('./storage/storage'));
 __export(require('./storage/local-storage'));
 __export(require('./storage/sql'));
 
-},{"./storage/local-storage":517,"./storage/sql":518,"./storage/storage":519}],517:[function(require,module,exports){
+},{"./storage/local-storage":565,"./storage/sql":566,"./storage/storage":567}],565:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -78735,8 +82760,8 @@ var storage_1 = require('./storage');
  *
  * @usage
  * ```ts
- * import {Component} from '@angular/core';
- * import {Storage, LocalStorage} from 'ionic-angular';
+ * import { Component } from '@angular/core';
+ * import { Storage, LocalStorage } from 'ionic-angular';
  * @Component({
  *   template: `<ion-content></ion-content>`
  * });
@@ -78824,7 +82849,7 @@ var LocalStorage = (function (_super) {
 }(storage_1.StorageEngine));
 exports.LocalStorage = LocalStorage;
 
-},{"./storage":519}],518:[function(require,module,exports){
+},{"./storage":567}],566:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -78836,8 +82861,9 @@ var util_1 = require('../../util/util');
 var DB_NAME = '__ionicstorage';
 var win = window;
 /**
- * SqlStorage uses SQLite or WebSQL (development only!) to store data in a
- * persistent SQL store on the filesystem.
+ * SqlStorage is a wrapper that uses SQLite when running natively (if available)
+ * to store data in a persistent SQL store on the filesystem
+ * or uses WebSQL when serving the app to the browser.
  *
  * This is the preferred storage engine, as data will be stored in appropriate
  * app storage, unlike Local Storage which is treated differently by the OS.
@@ -78973,7 +82999,7 @@ var SqlStorage = (function (_super) {
 }(storage_1.StorageEngine));
 exports.SqlStorage = SqlStorage;
 
-},{"../../util/util":539,"./storage":519}],519:[function(require,module,exports){
+},{"../../util/util":587,"./storage":567}],567:[function(require,module,exports){
 "use strict";
 /**
  * Storage is an easy way to store key/value pairs and other complicated
@@ -79054,7 +83080,7 @@ var StorageEngine = (function () {
 }());
 exports.StorageEngine = StorageEngine;
 
-},{}],520:[function(require,module,exports){
+},{}],568:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -79106,7 +83132,7 @@ function parsePxUnit(val) {
     return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
 }
 
-},{"../animations/animation":427,"../components/content/content":437,"./transition":524}],521:[function(require,module,exports){
+},{"../animations/animation":464,"../components/content/content":476,"./transition":572}],569:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -79276,7 +83302,7 @@ var IOSTransition = (function (_super) {
 }(page_transition_1.PageTransition));
 page_transition_1.PageTransition.register('ios-transition', IOSTransition);
 
-},{"../animations/animation":427,"./page-transition":520}],522:[function(require,module,exports){
+},{"../animations/animation":464,"./page-transition":568}],570:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -79333,7 +83359,7 @@ var MDTransition = (function (_super) {
 }(page_transition_1.PageTransition));
 page_transition_1.PageTransition.register('md-transition', MDTransition);
 
-},{"../animations/animation":427,"./page-transition":520}],523:[function(require,module,exports){
+},{"../animations/animation":464,"./page-transition":568}],571:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -79388,7 +83414,7 @@ var WPTransition = (function (_super) {
 }(page_transition_1.PageTransition));
 page_transition_1.PageTransition.register('wp-transition', WPTransition);
 
-},{"../animations/animation":427,"./page-transition":520}],524:[function(require,module,exports){
+},{"../animations/animation":464,"./page-transition":568}],572:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -79435,7 +83461,7 @@ var Transition = (function (_super) {
 exports.Transition = Transition;
 var TransitionRegistry = {};
 
-},{"../animations/animation":427}],525:[function(require,module,exports){
+},{"../animations/animation":464}],573:[function(require,module,exports){
 "use strict";
 /**
  * @private
@@ -79500,7 +83526,7 @@ var Translate = (function () {
 }());
 exports.Translate = Translate;
 
-},{}],526:[function(require,module,exports){
+},{}],574:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -79546,7 +83572,7 @@ var TranslatePipe = (function () {
 }());
 exports.TranslatePipe = TranslatePipe;
 
-},{"./translate":525,"@angular/core":247}],527:[function(require,module,exports){
+},{"./translate":573,"@angular/core":247}],575:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -79556,60 +83582,60 @@ exports.dom = domUtil;
 __export(require('./util/util'));
 __export(require('./util/datetime-util'));
 
-},{"./util/datetime-util":529,"./util/dom":531,"./util/util":539}],528:[function(require,module,exports){
+},{"./util/datetime-util":577,"./util/dom":579,"./util/util":587}],576:[function(require,module,exports){
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var core_1 = require('@angular/core');
+var app_1 = require('../components/app/app');
 var dom_1 = require('./dom');
-var CSS_CLICK_BLOCK = 'click-block-active';
+var config_1 = require('../config/config');
 var DEFAULT_EXPIRE = 330;
-var cbEle;
-var fallbackTimerId;
-var isShowing = false;
 /**
  * @private
  */
 var ClickBlock = (function () {
-    function ClickBlock() {
-        this._enabled = false;
+    function ClickBlock(app, config, elementRef, renderer) {
+        this.elementRef = elementRef;
+        this.renderer = renderer;
+        this._showing = false;
+        app.clickBlock = this;
+        this.isEnabled = config.getBoolean('clickBlock', true);
     }
-    ClickBlock.prototype.enable = function () {
-        cbEle = document.createElement('click-block');
-        document.body.appendChild(cbEle);
-        cbEle.addEventListener('touchmove', function (ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
-        });
-        this._enabled = true;
-    };
-    ClickBlock.prototype.show = function (shouldShow, expire) {
-        if (this._enabled) {
+    ClickBlock.prototype.activate = function (shouldShow, expire) {
+        if (this.isEnabled) {
+            dom_1.clearNativeTimeout(this._tmrId);
             if (shouldShow) {
-                show(expire);
+                this._tmrId = dom_1.nativeTimeout(this.activate.bind(this, false), expire || DEFAULT_EXPIRE);
             }
-            else {
-                hide();
+            if (this._showing !== shouldShow) {
+                this.renderer.setElementClass(this.elementRef.nativeElement, 'click-block-active', shouldShow);
+                this._showing = shouldShow;
             }
         }
     };
+    ClickBlock = __decorate([
+        core_1.Directive({
+            selector: 'click-block'
+        }),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
+        __metadata('design:paramtypes', [app_1.App, config_1.Config, core_1.ElementRef, core_1.Renderer])
+    ], ClickBlock);
     return ClickBlock;
 }());
 exports.ClickBlock = ClickBlock;
-function show(expire) {
-    clearTimeout(fallbackTimerId);
-    fallbackTimerId = dom_1.nativeTimeout(hide, expire || DEFAULT_EXPIRE);
-    if (!isShowing) {
-        cbEle.classList.add(CSS_CLICK_BLOCK);
-        isShowing = true;
-    }
-}
-function hide() {
-    clearTimeout(fallbackTimerId);
-    if (isShowing) {
-        cbEle.classList.remove(CSS_CLICK_BLOCK);
-        isShowing = false;
-    }
-}
 
-},{"./dom":531}],529:[function(require,module,exports){
+},{"../components/app/app":471,"../config/config":549,"./dom":579,"@angular/core":247}],577:[function(require,module,exports){
 "use strict";
 var util_1 = require('./util');
 function renderDateTime(template, value, locale) {
@@ -79661,7 +83687,7 @@ function renderTextFormat(format, value, date, locale) {
     }
     if (format === FORMAT_YY || format === FORMAT_MM ||
         format === FORMAT_DD || format === FORMAT_HH ||
-        format === FORMAT_mm) {
+        format === FORMAT_mm || format === FORMAT_ss) {
         return twoDigit(value);
     }
     if (format === FORMAT_YYYY) {
@@ -79720,6 +83746,12 @@ function dateValueRange(format, min, max) {
     }
     else if (format === FORMAT_mm || format === FORMAT_m) {
         // minutes
+        for (i = 0; i < 60; i++) {
+            opts.push(i);
+        }
+    }
+    else if (format === FORMAT_ss || format === FORMAT_s) {
+        // seconds
         for (i = 0; i < 60; i++) {
             opts.push(i);
         }
@@ -79941,13 +83973,13 @@ function convertDataToISO(data) {
 }
 exports.convertDataToISO = convertDataToISO;
 function twoDigit(val) {
-    return ('0' + (util_1.isPresent(val) ? val : '0')).slice(-2);
+    return ('0' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-2);
 }
 function threeDigit(val) {
-    return ('00' + (util_1.isPresent(val) ? val : '0')).slice(-3);
+    return ('00' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-3);
 }
 function fourDigit(val) {
-    return ('000' + (util_1.isPresent(val) ? val : '0')).slice(-4);
+    return ('000' + (util_1.isPresent(val) ? Math.abs(val) : '0')).slice(-4);
 }
 var FORMAT_YYYY = 'YYYY';
 var FORMAT_YY = 'YY';
@@ -79965,6 +83997,8 @@ var FORMAT_hh = 'hh';
 var FORMAT_h = 'h';
 var FORMAT_mm = 'mm';
 var FORMAT_m = 'm';
+var FORMAT_ss = 'ss';
+var FORMAT_s = 's';
 var FORMAT_A = 'A';
 var FORMAT_a = 'a';
 var FORMAT_KEYS = [
@@ -79979,11 +84013,13 @@ var FORMAT_KEYS = [
     { f: FORMAT_HH, k: 'hour' },
     { f: FORMAT_hh, k: 'hour' },
     { f: FORMAT_mm, k: 'minute' },
+    { f: FORMAT_ss, k: 'second' },
     { f: FORMAT_M, k: 'month' },
     { f: FORMAT_D, k: 'day' },
     { f: FORMAT_H, k: 'hour' },
     { f: FORMAT_h, k: 'hour' },
     { f: FORMAT_m, k: 'minute' },
+    { f: FORMAT_s, k: 'second' },
     { f: FORMAT_A, k: 'ampm' },
     { f: FORMAT_a, k: 'ampm' },
 ];
@@ -80035,7 +84071,7 @@ var MONTH_SHORT_NAMES = [
     'Dec',
 ];
 
-},{"./util":539}],530:[function(require,module,exports){
+},{"./util":587}],578:[function(require,module,exports){
 "use strict";
 var Debouncer = (function () {
     function Debouncer(wait) {
@@ -80062,7 +84098,7 @@ var Debouncer = (function () {
 }());
 exports.Debouncer = Debouncer;
 
-},{}],531:[function(require,module,exports){
+},{}],579:[function(require,module,exports){
 "use strict";
 // RequestAnimationFrame Polyfill (Android 4.3 and below)
 /*! @author Paul Irish */
@@ -80215,8 +84251,10 @@ function pointerCoord(ev) {
 }
 exports.pointerCoord = pointerCoord;
 function hasPointerMoved(threshold, startCoord, endCoord) {
-    return startCoord && endCoord &&
-        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
+    var deltaX = (startCoord.x - endCoord.x);
+    var deltaY = (startCoord.y - endCoord.y);
+    var distance = deltaX * deltaX + deltaY * deltaY;
+    return distance > (threshold * threshold);
 }
 exports.hasPointerMoved = hasPointerMoved;
 function isActive(ele) {
@@ -80329,7 +84367,7 @@ function flushDimensionCache() {
 exports.flushDimensionCache = flushDimensionCache;
 var dimensionCache = {};
 
-},{}],532:[function(require,module,exports){
+},{}],580:[function(require,module,exports){
 "use strict";
 /**
  * @name Events
@@ -80339,7 +84377,7 @@ var dimensionCache = {};
  *
  * @usage
  * ```ts
- * import {Events} from 'ionic-angular';
+ * import { Events } from 'ionic-angular';
  *
  * constructor(public events: Events) {}
  *
@@ -80438,7 +84476,7 @@ var Events = (function () {
 }());
 exports.Events = Events;
 
-},{}],533:[function(require,module,exports){
+},{}],581:[function(require,module,exports){
 "use strict";
 var FeatureDetect = (function () {
     function FeatureDetect() {
@@ -80478,8 +84516,21 @@ FeatureDetect.add('hairlines', function (window, document, body) {
     }
     return canDo;
 });
+FeatureDetect.add('backdrop-filter', function (window, document, body) {
+    /**
+    * backdrop-filter Shim
+    * Checks if css backdrop-filter is implemented by the browser.
+    */
+    var styles = body.style;
+    var backdrop = styles['backdrop-filter'] !== undefined ||
+        styles['-webkit-backdrop-filter'] !== undefined;
+    if (backdrop) {
+        body.classList.add('backdrop-filter');
+    }
+    return backdrop;
+});
 
-},{}],534:[function(require,module,exports){
+},{}],582:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -80499,7 +84550,6 @@ var Form = (function () {
         this._focused = null;
         this._ids = -1;
         this._inputs = [];
-        this.focusCtrl(document);
     }
     Form.prototype.register = function (input) {
         this._inputs.push(input);
@@ -80513,22 +84563,9 @@ var Form = (function () {
             this._focused = null;
         }
     };
-    Form.prototype.focusCtrl = function (document) {
-        // raw DOM fun
-        var focusCtrl = document.createElement('focus-ctrl');
-        focusCtrl.setAttribute('aria-hidden', true);
-        this._blur = document.createElement('button');
-        this._blur.tabIndex = -1;
-        focusCtrl.appendChild(this._blur);
-        document.body.appendChild(focusCtrl);
-    };
     Form.prototype.focusOut = function () {
-        void 0;
         var activeElement = document.activeElement;
-        if (activeElement) {
-            activeElement.blur();
-        }
-        this._blur.focus();
+        activeElement && activeElement.blur && activeElement.blur();
     };
     Form.prototype.setAsFocused = function (input) {
         this._focused = input;
@@ -80565,7 +84602,7 @@ var Form = (function () {
 }());
 exports.Form = Form;
 
-},{"@angular/core":247}],535:[function(require,module,exports){
+},{"@angular/core":247}],583:[function(require,module,exports){
 "use strict";
 (function (Key) {
     Key[Key["ENTER"] = 13] = "ENTER";
@@ -80575,7 +84612,7 @@ exports.Form = Form;
 var Key = exports.Key;
 ;
 
-},{}],536:[function(require,module,exports){
+},{}],584:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -80760,7 +84797,7 @@ exports.Keyboard = Keyboard;
 var KEYBOARD_CLOSE_POLLING = 150;
 var KEYBOARD_POLLING_CHECKS_MAX = 100;
 
-},{"../config/config":504,"./dom":531,"./form":534,"./key":535,"@angular/core":247}],537:[function(require,module,exports){
+},{"../config/config":549,"./dom":579,"./form":582,"./key":583,"@angular/core":247}],585:[function(require,module,exports){
 "use strict";
 var dom_1 = require('../util/dom');
 var ScrollView = (function () {
@@ -80987,14 +85024,13 @@ var MIN_VELOCITY_CONTINUE_DECELERATION = 0.12;
 var DECELERATION_FRICTION = 0.97;
 var FRAME_MS = (1000 / 60);
 
-},{"../util/dom":531}],538:[function(require,module,exports){
+},{"../util/dom":579}],586:[function(require,module,exports){
 "use strict";
 /**
  * @private
  */
 var PointerEvents = (function () {
     function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
-        var _this = this;
         this.ele = ele;
         this.pointerDown = pointerDown;
         this.pointerMove = pointerMove;
@@ -81004,16 +85040,18 @@ var PointerEvents = (function () {
         this.rmTouchStart = null;
         this.rmTouchMove = null;
         this.rmTouchEnd = null;
+        this.rmTouchCancel = null;
         this.rmMouseStart = null;
         this.rmMouseMove = null;
         this.rmMouseUp = null;
         this.lastTouchEvent = 0;
         this.mouseWait = 2 * 1000;
-        this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, function (ev) { return _this.handleTouchStart(ev); });
-        this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, function (ev) { return _this.handleMouseDown(ev); });
+        this.bindTouchEnd = this.handleTouchEnd.bind(this);
+        this.bindMouseUp = this.handleMouseUp.bind(this);
+        this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, this.handleTouchStart.bind(this));
+        this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, this.handleMouseDown.bind(this));
     }
     PointerEvents.prototype.handleTouchStart = function (ev) {
-        var _this = this;
         this.lastTouchEvent = Date.now() + this.mouseWait;
         if (!this.pointerDown(ev)) {
             return;
@@ -81022,11 +85060,13 @@ var PointerEvents = (function () {
             this.rmTouchMove = listenEvent(this.ele, 'touchmove', this.zone, this.option, this.pointerMove);
         }
         if (!this.rmTouchEnd) {
-            this.rmTouchEnd = listenEvent(this.ele, 'touchend', this.zone, this.option, function (ev) { return _this.handleTouchEnd(ev); });
+            this.rmTouchEnd = listenEvent(this.ele, 'touchend', this.zone, this.option, this.bindTouchEnd);
+        }
+        if (!this.rmTouchCancel) {
+            this.rmTouchCancel = listenEvent(this.ele, 'touchcancel', this.zone, this.option, this.bindTouchEnd);
         }
     };
     PointerEvents.prototype.handleMouseDown = function (ev) {
-        var _this = this;
         if (this.lastTouchEvent > Date.now()) {
             void 0;
             return;
@@ -81035,35 +85075,37 @@ var PointerEvents = (function () {
             return;
         }
         if (!this.rmMouseMove) {
-            this.rmMouseMove = listenEvent(window, 'mousemove', this.zone, this.option, this.pointerMove);
+            this.rmMouseMove = listenEvent(document, 'mousemove', this.zone, this.option, this.pointerMove);
         }
         if (!this.rmMouseUp) {
-            this.rmMouseUp = listenEvent(window, 'mouseup', this.zone, this.option, function (ev) { return _this.handleMouseUp(ev); });
+            this.rmMouseUp = listenEvent(document, 'mouseup', this.zone, this.option, this.bindMouseUp);
         }
     };
     PointerEvents.prototype.handleTouchEnd = function (ev) {
-        this.rmTouchMove && this.rmTouchMove();
-        this.rmTouchMove = null;
-        this.rmTouchEnd && this.rmTouchEnd();
-        this.rmTouchEnd = null;
+        this.stopTouch();
         this.pointerUp(ev);
     };
     PointerEvents.prototype.handleMouseUp = function (ev) {
-        this.rmMouseMove && this.rmMouseMove();
-        this.rmMouseMove = null;
-        this.rmMouseUp && this.rmMouseUp();
-        this.rmMouseUp = null;
+        this.stopMouse();
         this.pointerUp(ev);
     };
-    PointerEvents.prototype.stop = function () {
+    PointerEvents.prototype.stopTouch = function () {
         this.rmTouchMove && this.rmTouchMove();
         this.rmTouchEnd && this.rmTouchEnd();
+        this.rmTouchCancel && this.rmTouchCancel();
         this.rmTouchMove = null;
         this.rmTouchEnd = null;
+        this.rmTouchCancel = null;
+    };
+    PointerEvents.prototype.stopMouse = function () {
         this.rmMouseMove && this.rmMouseMove();
         this.rmMouseUp && this.rmMouseUp();
         this.rmMouseMove = null;
         this.rmMouseUp = null;
+    };
+    PointerEvents.prototype.stop = function () {
+        this.stopTouch();
+        this.stopMouse();
     };
     PointerEvents.prototype.destroy = function () {
         this.rmTouchStart && this.rmTouchStart();
@@ -81091,15 +85133,18 @@ var UIEventManager = (function () {
     UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
         return this.listen(ref.nativeElement, eventName, callback, option);
     };
-    UIEventManager.prototype.pointerEventsRef = function (ref, pointerStart, pointerMove, pointerEnd, option) {
-        return this.pointerEvents(ref.nativeElement, pointerStart, pointerMove, pointerEnd, option);
-    };
-    UIEventManager.prototype.pointerEvents = function (element, pointerDown, pointerMove, pointerUp, option) {
-        if (option === void 0) { option = false; }
+    UIEventManager.prototype.pointerEvents = function (config) {
+        var element = config.element;
         if (!element) {
+            element = config.elementRef.nativeElement;
+        }
+        if (!element || !config.pointerDown || !config.pointerMove || !config.pointerUp) {
+            void 0;
             return;
         }
-        var submanager = new PointerEvents(element, pointerDown, pointerMove, pointerUp, this.zoneWrapped, option);
+        var zone = config.zone || this.zoneWrapped;
+        var options = config.nativeOptions || false;
+        var submanager = new PointerEvents(element, config.pointerDown, config.pointerMove, config.pointerUp, zone, options);
         var removeFunc = function () { return submanager.destroy(); };
         this.events.push(removeFunc);
         return submanager;
@@ -81135,8 +85180,10 @@ function listenEvent(ele, eventName, zoneWrapped, option, callback) {
     }
 }
 
-},{}],539:[function(require,module,exports){
+},{}],587:[function(require,module,exports){
 "use strict";
+function noop() { }
+exports.noop = noop;
 /**
  * Given a min and max, restrict the given number
  * to the range.
@@ -81262,6 +85309,9 @@ exports.isPresent = function (val) { return val !== undefined && val !== null; }
 exports.isBlank = function (val) { return val === undefined || val === null; };
 exports.isObject = function (val) { return typeof val === 'object'; };
 exports.isArray = Array.isArray;
+exports.isPrimitive = function (val) {
+    return exports.isString(val) || exports.isBoolean(val) || (exports.isNumber(val) && !isNaN(val));
+};
 exports.isTrueProperty = function (val) {
     if (typeof val === 'string') {
         val = val.toLowerCase().trim();
@@ -81325,6 +85375,9 @@ function getQuerystring(url) {
     return queryParams;
 }
 exports.getQuerystring = getQuerystring;
+/**
+ * @private
+ */
 function reorderArray(array, indexes) {
     var element = array[indexes.from];
     array.splice(indexes.from, 1);
@@ -81333,7 +85386,7 @@ function reorderArray(array, indexes) {
 }
 exports.reorderArray = reorderArray;
 
-},{}],540:[function(require,module,exports){
+},{}],588:[function(require,module,exports){
 "use strict";
 var root_1 = require('./util/root');
 var observable_1 = require('./symbol/observable');
@@ -81469,7 +85522,7 @@ var Observable = (function () {
 }());
 exports.Observable = Observable;
 
-},{"./symbol/observable":548,"./util/root":556,"./util/toSubscriber":558}],541:[function(require,module,exports){
+},{"./symbol/observable":596,"./util/root":604,"./util/toSubscriber":606}],589:[function(require,module,exports){
 "use strict";
 exports.empty = {
     isUnsubscribed: true,
@@ -81478,7 +85531,7 @@ exports.empty = {
     complete: function () { }
 };
 
-},{}],542:[function(require,module,exports){
+},{}],590:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -81685,7 +85738,7 @@ var SubjectObservable = (function (_super) {
     return SubjectObservable;
 }(Observable_1.Observable));
 
-},{"./Observable":540,"./SubjectSubscription":543,"./Subscriber":544,"./Subscription":545,"./symbol/rxSubscriber":549,"./util/ObjectUnsubscribedError":550,"./util/throwError":557}],543:[function(require,module,exports){
+},{"./Observable":588,"./SubjectSubscription":591,"./Subscriber":592,"./Subscription":593,"./symbol/rxSubscriber":597,"./util/ObjectUnsubscribedError":598,"./util/throwError":605}],591:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -81726,7 +85779,7 @@ var SubjectSubscription = (function (_super) {
 }(Subscription_1.Subscription));
 exports.SubjectSubscription = SubjectSubscription;
 
-},{"./Subscription":545}],544:[function(require,module,exports){
+},{"./Subscription":593}],592:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -81978,7 +86031,7 @@ var SafeSubscriber = (function (_super) {
     return SafeSubscriber;
 }(Subscriber));
 
-},{"./Observer":541,"./Subscription":545,"./symbol/rxSubscriber":549,"./util/isFunction":554}],545:[function(require,module,exports){
+},{"./Observer":589,"./Subscription":593,"./symbol/rxSubscriber":597,"./util/isFunction":602}],593:[function(require,module,exports){
 "use strict";
 var isArray_1 = require('./util/isArray');
 var isObject_1 = require('./util/isObject');
@@ -82129,7 +86182,7 @@ var Subscription = (function () {
 }());
 exports.Subscription = Subscription;
 
-},{"./util/UnsubscriptionError":551,"./util/errorObject":552,"./util/isArray":553,"./util/isFunction":554,"./util/isObject":555,"./util/tryCatch":559}],546:[function(require,module,exports){
+},{"./util/UnsubscriptionError":599,"./util/errorObject":600,"./util/isArray":601,"./util/isFunction":602,"./util/isObject":603,"./util/tryCatch":607}],594:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -82235,7 +86288,7 @@ function dispatchError(arg) {
     }
 }
 
-},{"../Observable":540,"../util/root":556}],547:[function(require,module,exports){
+},{"../Observable":588,"../util/root":604}],595:[function(require,module,exports){
 "use strict";
 var root_1 = require('../util/root');
 /**
@@ -82264,7 +86317,7 @@ function toPromise(PromiseCtor) {
 }
 exports.toPromise = toPromise;
 
-},{"../util/root":556}],548:[function(require,module,exports){
+},{"../util/root":604}],596:[function(require,module,exports){
 "use strict";
 var root_1 = require('../util/root');
 var Symbol = root_1.root.Symbol;
@@ -82286,14 +86339,14 @@ else {
     exports.$$observable = '@@observable';
 }
 
-},{"../util/root":556}],549:[function(require,module,exports){
+},{"../util/root":604}],597:[function(require,module,exports){
 "use strict";
 var root_1 = require('../util/root');
 var Symbol = root_1.root.Symbol;
 exports.$$rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function') ?
     Symbol.for('rxSubscriber') : '@@rxSubscriber';
 
-},{"../util/root":556}],550:[function(require,module,exports){
+},{"../util/root":604}],598:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -82319,7 +86372,7 @@ var ObjectUnsubscribedError = (function (_super) {
 }(Error));
 exports.ObjectUnsubscribedError = ObjectUnsubscribedError;
 
-},{}],551:[function(require,module,exports){
+},{}],599:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -82342,30 +86395,30 @@ var UnsubscriptionError = (function (_super) {
 }(Error));
 exports.UnsubscriptionError = UnsubscriptionError;
 
-},{}],552:[function(require,module,exports){
+},{}],600:[function(require,module,exports){
 "use strict";
 // typeof any so that it we don't have to cast when comparing a result to the error object
 exports.errorObject = { e: {} };
 
-},{}],553:[function(require,module,exports){
+},{}],601:[function(require,module,exports){
 "use strict";
 exports.isArray = Array.isArray || (function (x) { return x && typeof x.length === 'number'; });
 
-},{}],554:[function(require,module,exports){
+},{}],602:[function(require,module,exports){
 "use strict";
 function isFunction(x) {
     return typeof x === 'function';
 }
 exports.isFunction = isFunction;
 
-},{}],555:[function(require,module,exports){
+},{}],603:[function(require,module,exports){
 "use strict";
 function isObject(x) {
     return x != null && typeof x === 'object';
 }
 exports.isObject = isObject;
 
-},{}],556:[function(require,module,exports){
+},{}],604:[function(require,module,exports){
 (function (global){
 "use strict";
 var objectTypes = {
@@ -82387,12 +86440,12 @@ if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === fre
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],557:[function(require,module,exports){
+},{}],605:[function(require,module,exports){
 "use strict";
 function throwError(e) { throw e; }
 exports.throwError = throwError;
 
-},{}],558:[function(require,module,exports){
+},{}],606:[function(require,module,exports){
 "use strict";
 var Subscriber_1 = require('../Subscriber');
 var rxSubscriber_1 = require('../symbol/rxSubscriber');
@@ -82409,7 +86462,7 @@ function toSubscriber(nextOrObserver, error, complete) {
 }
 exports.toSubscriber = toSubscriber;
 
-},{"../Subscriber":544,"../symbol/rxSubscriber":549}],559:[function(require,module,exports){
+},{"../Subscriber":592,"../symbol/rxSubscriber":597}],607:[function(require,module,exports){
 "use strict";
 var errorObject_1 = require('./errorObject');
 var tryCatchTarget;
@@ -82429,9 +86482,9 @@ function tryCatch(fn) {
 exports.tryCatch = tryCatch;
 ;
 
-},{"./errorObject":552}],560:[function(require,module,exports){
+},{"./errorObject":600}],608:[function(require,module,exports){
 
-},{}]},{},[1,560])
+},{}]},{},[1,608])
 
 
 //# sourceMappingURL=app.bundle.js.map

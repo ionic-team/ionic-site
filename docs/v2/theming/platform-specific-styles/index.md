@@ -60,10 +60,10 @@ Each mode has a default configuration. The [configuration properties](../../api/
 | `popoverEnter`        | `"popover-pop-in"`         | `"popover-md-pop-in"`         | `"popover-md-pop-in"`         |
 | `popoverLeave`        | `"popover-pop-out"`        | `"popover-md-pop-out"`        | `"popover-md-pop-out"`        |
 | `spinner`             | `"ios"`                    | `"crescent"`                  | `"circles"`                   |
-| `tabsHighlight`       | `false`                    | `true`                        | `false`                       |
+| `tabsHighlight`       | `false`                    | `false`                       | `false`                       |
 | `tabsLayout`          | `"icon-top"`               | `"icon-top"`                  | `"icon-top"`                  |
-| `tabsPlacement`       | `"bottom"`                 | `"top"`                       | `"top"`                       |
-| `tabsHideOnSubPages`  | `false`                    | `true`                        | `true`                        |
+| `tabsPlacement`       | `"bottom"`                 | `"bottom"`                    | `"top"`                       |
+| `tabsHideOnSubPages`  | `false`                    | `false`                       | `true`                        |
 | `toastEnter`          | `"toast-slide-in"`         | `"toast-md-slide-in"`         | `"toast-wp-slide-in"`         |
 | `toastLeave`          | `"toast-slide-out"`        | `"toast-md-slide-out"`        | `"toast-wp-slide-out"`        |
 

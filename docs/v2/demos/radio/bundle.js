@@ -66319,7 +66319,11 @@
 	        this._form = _form;
 	        this.d = params.data;
 	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                // Make sure the class isn't whitespace, otherwise it throws exceptions
+	                if (cssClass.trim() !== '')
+	                    renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
 	        }
 	        this.id = (++actionSheetIds);
 	        if (this.d.title) {
@@ -89708,7 +89712,11 @@
 	        this._elementRef = _elementRef;
 	        this.d = params.data;
 	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                // Make sure the class isn't whitespace, otherwise it throws exceptions
+	                if (cssClass.trim() !== '')
+	                    renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
 	        }
 	        this.id = (++loadingIds);
 	    }
@@ -90566,7 +90574,11 @@
 	        this._viewCtrl = _viewCtrl;
 	        this.d = _navParams.data.opts;
 	        if (this.d.cssClass) {
-	            _renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                // Make sure the class isn't whitespace, otherwise it throws exceptions
+	                if (cssClass.trim() !== '')
+	                    _renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
 	        }
 	        this.id = (++popoverIds);
 	    }
@@ -91445,7 +91457,11 @@
 	        this.dismissTimeout = undefined;
 	        this.d = params.data;
 	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                // Make sure the class isn't whitespace, otherwise it throws exceptions
+	                if (cssClass.trim() !== '')
+	                    renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
 	        }
 	        this.id = (++toastIds);
 	        if (this.d.message) {

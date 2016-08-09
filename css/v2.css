@@ -8250,7 +8250,7 @@ a.footer-link {
       white-space: normal; }
     #sass-variables .table.param-table td:nth-last-child(2),
     #sass-variables .table.param-table th:nth-last-child(2) {
-      width: 40%; }
+      width: 10%; }
 
 @media (max-width: 1300px) and (min-width: 480px) {
   #sass-variables {

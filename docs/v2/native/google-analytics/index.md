@@ -122,7 +122,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
 
 <div id="trackView"></div>
-<h3><code>trackView(title)</code>
+<h3><code>trackView(title,&nbsp;campaignUrl)</code>
   
 </h3>
 
@@ -153,6 +153,23 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
     </td>
     <td>
       <p>Screen title</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      campaignUrl
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Campaign url for measuring referrals</p>
 
       
     </td>

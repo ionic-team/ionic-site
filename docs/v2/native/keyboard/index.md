@@ -68,7 +68,11 @@ docType: "class"
 <div id="hideKeyboardAccessoryBar"></div>
 <h3><code>hideKeyboardAccessoryBar(hide)</code>
   
-</h3>Hide the keyboard accessory bar with the next, previous and done buttons.
+</h3>
+
+
+
+Hide the keyboard accessory bar with the next, previous and done buttons.
 
 
 <table class="table param-table" style="margin:0;">

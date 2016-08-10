@@ -183,7 +183,7 @@ Create a new toast component. See options below
 <td>cssClass</td>
 <td><code>string</code></td>
 <td>-</td>
-<td>Any additional class for custom styles.</td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 <tr>
 <td>showCloseButton</td>

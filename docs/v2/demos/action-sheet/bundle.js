@@ -86056,7 +86056,7 @@
 	        configurable: true
 	    });
 	    Toggle.prototype._setChecked = function (isChecked) {
-	        if (isChecked !== this._checked) {
+	        if (!this._disabled && isChecked !== this._checked) {
 	            this._checked = isChecked;
 	            if (this._init) {
 	                this.ionChange.emit(this);

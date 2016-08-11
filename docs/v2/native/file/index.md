@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L336">
   Improve this doc
 </a>
 
@@ -67,6 +67,21 @@ docType: "class"
 <h3><code>cordovaFileError()</code>
   
 </h3>
+
+
+
+
+
+
+
+
+
+<div id="getFreeDiskSpace"></div>
+<h3><code>getFreeDiskSpace()</code>
+  
+</h3>
+
+
 
 
 
@@ -862,105 +877,81 @@ If an existing file exists and the replace value is false, the promise will fail
 
 
 
+<div id="writeFile"></div>
+<h3><code>writeFile()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="writeExistingFile"></div>
+<h3><code>writeExistingFile()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
 <div id="readAsText"></div>
-<h3><code>readAsText(uri)</code>
+<h3><code>readAsText()</code>
   
-</h3>Read a file as string.
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      uri
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
+</h3>
 
 
 
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
- Returns a Promise that resolves or rejects with an error.
 
-
-</div>
 
 
 
 <div id="readAsDataURL"></div>
-<h3><code>readAsDataURL(uri)</code>
+<h3><code>readAsDataURL()</code>
   
-</h3>Read a file as string.
+</h3>
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
+
+
+
+
+
+
+<div id="readAsBinaryString"></div>
+<h3><code>readAsBinaryString()</code>
   
-  <tr>
-    <td>
-      uri
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+</h3>
 
-      
-    </td>
-  </tr>
+
+
+
+
+
+
+
+
+<div id="readAsArrayBuffer"></div>
+<h3><code>readAsArrayBuffer()</code>
   
-  </tbody>
-</table>
+</h3>
 
 
 
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
- Returns a Promise that resolves or rejects with an error.
 
-
-</div>
 
 
 
@@ -1165,6 +1156,162 @@ If an existing file exists and the replace value is false, the promise will fail
 
 
 </div>
+
+
+
+<div id="fillErrorMessage"></div>
+<h3><code>fillErrorMessage()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="resolveLocalFilesystemUrl"></div>
+<h3><code>resolveLocalFilesystemUrl()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="resolveDirectoryUrl"></div>
+<h3><code>resolveDirectoryUrl()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="getDirectory"></div>
+<h3><code>getDirectory()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="getFile"></div>
+<h3><code>getFile()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="remove"></div>
+<h3><code>remove()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="move"></div>
+<h3><code>move()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="copy"></div>
+<h3><code>copy()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="readEntries"></div>
+<h3><code>readEntries()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="rimraf"></div>
+<h3><code>rimraf()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="createWriter"></div>
+<h3><code>createWriter()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="write"></div>
+<h3><code>write()</code>
+  
+</h3>
+
+
+
+
+
+
 
 
 

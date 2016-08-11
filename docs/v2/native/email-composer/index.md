@@ -51,7 +51,8 @@ docType: "class"
 <!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/katzer/cordova-plugin-email-composer">Email Composer plugin docs</a>.</p>
-<p>DISCLAIMER: This plugin is experiencing issues with the latest versions of Cordova. Use at your own risk. Functionality is not guaranteed. Please stay tuned for a more stable version.</p>
+<p>DISCLAIMER: This plugin is experiencing issues with the latest versions of Cordova. Use at your own risk. Functionality is not guaranteed. Please stay tuned for a more stable version.
+A good alternative to this plugin is the social sharing plugin.</p>
 
 
 <!-- @platforms tag -->

@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key</code></pre>
 <p>Repo:
-  <a href="''">
-    ''
+  <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
+    https://github.com/ManifestWebDesign/twitter-connect-plugin
   </a>
 </p>
 
@@ -52,6 +52,24 @@ docType: "class"
 
 <p>Plugin to use Twitter Single Sign On
 Uses Twitter&#39;s Fabric SDK</p>
+<pre><code class="lang-typescript">import {TwitterConnect} from &#39;ionic-native&#39;;
+
+function onSuccess(response) {
+  console.log(response);
+
+  // Will console log something like:
+  // {
+  //   userName: &#39;myuser&#39;,
+  //   userId: &#39;12358102&#39;,
+  //   secret: &#39;tokenSecret&#39;
+  //   token: &#39;accessTokenHere&#39;
+  // }
+}
+
+TwitterConnect.login().then(onSuccess, onError);
+
+TwitterConnect.logout().then(onLogoutSuccess, onLogoutError);
+</code></pre>
 
 
 

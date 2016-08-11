@@ -50,6 +50,7 @@ docType: "class"
 
 <!-- description -->
 
+<p>Prints documents or HTML rendered content</p>
 
 
 <!-- @platforms tag -->
@@ -65,6 +66,25 @@ docType: "class"
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import {Printer, PrintOptions} from &#39;ionic-native&#39;;
+
+Printer.isAvailable().then(onSuccess, onError);
+
+let options: PrintOptions = {
+     name: &#39;MyDocument&#39;,
+     printerId: &#39;printer007&#39;,
+     duplex: true,
+     landscape: true,
+     grayscale: true
+   };
+
+Printer.print(content, options).then(onSuccess, onError);
+</code></pre>
+
+
 
 
 <!-- @property tags -->

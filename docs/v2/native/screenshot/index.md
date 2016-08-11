@@ -50,10 +50,24 @@ docType: "class"
 
 <!-- description -->
 
+<p>Captures a screen shot</p>
 
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import {Screenshot} from &#39;ionic-native&#39;;
+
+// Take a screenshot and save to file
+Screneshot.save(&#39;jpg&#39;, 80, &#39;myscreenshot.jpg&#39;).then(onSuccess, onError);
+
+// Take a screenshot and get temporary file URI
+Screneshot.URI(80).then(onSuccess, onError);
+</code></pre>
+
+
 
 
 <!-- @property tags -->

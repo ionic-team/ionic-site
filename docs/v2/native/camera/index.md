@@ -132,7 +132,7 @@ Take a picture or video, or load one from the library.
 <code>CameraOptions</code>
     </td>
     <td>
-      <p>Options that you want to pass to the camera. Encoding type, quality, etc. Optional</p>
+      <p>Options that you want to pass to the camera. Encoding type, quality, etc.</p>
 
       
     </td>

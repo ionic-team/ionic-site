@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/inappbrowser.ts#L65">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/inappbrowser.ts#L13">
   Improve this doc
 </a>
 
@@ -43,29 +43,106 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-inappbrowser</code></pre>
 <p>Repo:
-  <a href="">
-    
+  <a href="https://github.com/apache/cordova-plugin-inappbrowser">
+    https://github.com/apache/cordova-plugin-inappbrowser
   </a>
 </p>
 
 <!-- description -->
 
+<p>Launches in app Browser</p>
 
 
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import {InAppBrowser} from &#39;ionic-native&#39;;
+
+
+...
+
+
+let browser = new InAppBrowser(&#39;https://ionic.io&#39;, &#39;_system&#39;);
+browser.executeScript(...);
+browser.insertCSS(...);
+browser.close();
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="InAppBrowser"></div>
-<h3><code>InAppBrowser(url,&nbsp;target,&nbsp;options)</code>
+<div id="open"></div>
+<h3><code>open()</code>
   
 </h3>
 
 
 
-Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
+
+
+
+
+
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+
+<div id="show"></div>
+
+<h3>
+  <code>show()</code>
+  
+
+</h3>
+
+Displays an InAppBrowser window that was opened hidden. Calling this has no effect
+if the InAppBrowser was already visible.
+
+
+
+
+
+
+
+
+
+
+
+<div id="close"></div>
+
+<h3>
+  <code>close()</code>
+  
+
+</h3>
+
+Closes the InAppBrowser window.
+
+
+
+
+
+
+
+
+
+
+
+<div id="executeScript"></div>
+
+<h3>
+  <code>executeScript(script)</code>
+  
+
+</h3>
+
+Injects JavaScript code into the InAppBrowser window.
 
 
 <table class="table param-table" style="margin:0;">
@@ -80,7 +157,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
   
   <tr>
     <td>
-      url
+      script
       
       
     </td>
@@ -89,43 +166,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
     </td>
     <td>
-      <p>The URL to load.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      target
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      <p>The target in which to load the URL, an optional parameter that defaults to _self.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      options
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      <p>Options for the InAppBrowser. Optional, defaulting to: location=yes.
-                The options string must not contain any blank space, and each feature&#39;s
-                name/value pairs must be separated by a comma. Feature names are case insensitive.</p>
+      <p>Details of the script to run, specifying either a file or code key.</p>
 
       
     </td>
@@ -141,7 +182,107 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
 
 
-<!-- methods on the class -->
+<div id="insertCss"></div>
+
+<h3>
+  <code>insertCss(css)</code>
+  
+
+</h3>
+
+Injects CSS into the InAppBrowser window.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      css
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Details of the script to run, specifying either a file or code key.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="on"></div>
+
+<h3>
+  <code>on(event)</code>
+  
+
+</h3>
+
+A method that allows you to listen to events happening in the browser.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      event
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Event name</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
+</div>
+
+
+
 
 <!-- related link --><!-- end content block -->
 

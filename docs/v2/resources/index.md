@@ -82,7 +82,7 @@ title: Ionic Resources
       </li>
       <li>
         <a target="_blank" href="http://browserify.org/" class="title">Bundling with Browserify</a>
-        <p>Learn how to convert Angular controllers to ES6 classes.</p>
+        <p>Learn about how Browserify bundles your apps code into one single file</p>
       </li>
       <li>
         <a target="_blank" href="https://webpack.github.io/" class="title">Working with Webpack</a>

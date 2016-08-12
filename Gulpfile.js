@@ -177,6 +177,10 @@ gulp.task('watch', ['server'], function() {
 
 });
 
+gulp.task('watch.min', ['server'], function() {
+  gulp.watch(['_layouts/*/*','_includes/**/*', 'docs/v2/**/*.{md,html}'], ['server:jekyll']);
+
+});
 gulp.task('cli-docs', function() {
   try {
     var fs = require('fs');

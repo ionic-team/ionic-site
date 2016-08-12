@@ -15,14 +15,14 @@ _For more information, Check out the [API docs](../api/components/toast/ToastCon
 
 
 ```typescript
-import { ToastController } from 'ionic-angular';
+import { Toast } from 'ionic-angular';
 
 export class MyPage {
-  constructor ( private toastController : ToastController ){
+  constructor ( ){
   }
 
   presentToast() {
-    let toast = this.toastController.create({
+    let toast = Toast.create({
       message: 'User was added successfully',
       duration: 3000
     });

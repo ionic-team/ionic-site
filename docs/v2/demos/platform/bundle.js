@@ -55347,7 +55347,7 @@
 	})(exports.DisableScroll || (exports.DisableScroll = {}));
 	var DisableScroll = exports.DisableScroll;
 	/**
-	* @priavte
+	* @private
 	*/
 	var GestureController = (function () {
 	    function GestureController(_app) {
@@ -55462,7 +55462,7 @@
 	}());
 	exports.GestureController = GestureController;
 	/**
-	* @priavte
+	* @private
 	*/
 	var GestureDelegate = (function () {
 	    function GestureDelegate(name, id, controller, opts) {

@@ -69,19 +69,13 @@ PhotoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My image t
 
 
 <!-- @property tags -->
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-
+<h2>Static Members</h2>
 <div id="show"></div>
-
-<h3>
-  <code>show(url,&nbsp;title,&nbsp;options)</code>
+<h3><code>show(url,&nbsp;title,&nbsp;options)</code>
   
-
 </h3>
+
+
 
 Shows an image in full screen
 
@@ -154,6 +148,8 @@ Shows an image in full screen
 
 
 
+
+<!-- methods on the class -->
 
 <!-- related link --><!-- end content block -->
 

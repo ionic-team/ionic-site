@@ -755,6 +755,8 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
   
 </h3>
 
+
+
 Set a UserId
 https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 
@@ -794,10 +796,147 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 
 
 
+<div id="setAppVersion"></div>
+<h3><code>setAppVersion(appVersion)</code>
+  
+</h3>
+
+
+
+Sets the app version
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      appVersion
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<div id="setAnonymizeIp"></div>
+<h3><code>setAnonymizeIp(anonymize)</code>
+  
+</h3>
+
+
+
+Set a anonymize Ip address
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      anonymize
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<div id="setAllowIDFACollection"></div>
+<h3><code>setAllowIDFACollection(allow)</code>
+  
+</h3>
+
+
+
+Enabling Advertising Features in Google Analytics allows you to take advantage of Remarketing, Demographics & Interests reports, and more
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      allow
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <div id="debugMode"></div>
 <h3><code>debugMode()</code>
   
 </h3>
+
+
 
 Enable verbose logging
 

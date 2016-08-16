@@ -664,7 +664,7 @@ seen under the header as the user scrolls.</p>
       &lt;/ion-toolbar&gt;
     &lt;/ion-header&gt;
     &lt;ion-content&gt;
-      &lt;button (click)=&quot;toggleToolbar()&quot;&gt;Toggle Toolbar&lt;/button&gt;
+      &lt;button ion-button (click)=&quot;toggleToolbar()&quot;&gt;Toggle Toolbar&lt;/button&gt;
     &lt;/ion-content&gt;
 `})
 
@@ -684,7 +684,7 @@ import { Content } from &#39;ionic-angular&#39;;
 
 @Component({
   template: `&lt;ion-content&gt;
-               &lt;button (click)=&quot;scrollTo()&quot;&gt;Down 500px&lt;/button&gt;
+               &lt;button ion-button (click)=&quot;scrollTo()&quot;&gt;Down 500px&lt;/button&gt;
              &lt;/ion-content&gt;`
 )}
 export class MyPage{

@@ -55041,7 +55041,7 @@
 	 *    </ion-header>
 	 *
 	 *    <ion-content>
-	 *      <button (click)="pushPage()">
+	 *      <button ion-button (click)="pushPage()">
 	 *        Go to OtherPage
 	 *      </button>
 	 *    </ion-content>
@@ -66422,7 +66422,7 @@
 	    ActionSheetCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-action-sheet',
-	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"action-sheet-wrapper\">\n      <div class=\"action-sheet-container\">\n        <div class=\"action-sheet-group\">\n          <div class=\"action-sheet-title\" id=\"{{hdrId}}\" *ngIf=\"d.title\">{{d.title}}</div>\n          <div class=\"action-sheet-sub-title\" id=\"{{descId}}\" *ngIf=\"d.subTitle\">{{d.subTitle}}</div>\n          <button category=\"action-sheet-button\" (click)=\"click(b)\" *ngFor=\"let b of d.buttons\" class=\"disable-hover\" [ngClass]=\"b.cssClass\">\n            <ion-icon [name]=\"b.icon\" *ngIf=\"b.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{b.text}}\n          </button>\n        </div>\n        <div class=\"action-sheet-group\" *ngIf=\"d.cancelButton\">\n          <button category=\"action-sheet-button\" (click)=\"click(d.cancelButton)\" class=\"action-sheet-cancel disable-hover\" [ngClass]=\"d.cancelButton.cssClass\">\n            <ion-icon [name]=\"d.cancelButton.icon\" *ngIf=\"d.cancelButton.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{d.cancelButton.text}}\n          </button>\n        </div>\n      </div>\n    </div>\n    ",
+	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"action-sheet-wrapper\">\n      <div class=\"action-sheet-container\">\n        <div class=\"action-sheet-group\">\n          <div class=\"action-sheet-title\" id=\"{{hdrId}}\" *ngIf=\"d.title\">{{d.title}}</div>\n          <div class=\"action-sheet-sub-title\" id=\"{{descId}}\" *ngIf=\"d.subTitle\">{{d.subTitle}}</div>\n          <button ion-button=\"action-sheet-button\" (click)=\"click(b)\" *ngFor=\"let b of d.buttons\" class=\"disable-hover\" [ngClass]=\"b.cssClass\">\n            <ion-icon [name]=\"b.icon\" *ngIf=\"b.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{b.text}}\n          </button>\n        </div>\n        <div class=\"action-sheet-group\" *ngIf=\"d.cancelButton\">\n          <button ion-button=\"action-sheet-button\" (click)=\"click(d.cancelButton)\" class=\"action-sheet-cancel disable-hover\" [ngClass]=\"d.cancelButton.cssClass\">\n            <ion-icon [name]=\"d.cancelButton.icon\" *ngIf=\"d.cancelButton.icon\" class=\"action-sheet-icon\"></ion-icon>\n            {{d.cancelButton.text}}\n          </button>\n        </div>\n      </div>\n    </div>\n    ",
 	            directives: [backdrop_1.Backdrop, icon_1.Icon, common_1.NgClass, common_1.NgFor, common_1.NgIf],
 	            host: {
 	                'role': 'dialog',
@@ -67330,7 +67330,7 @@
 	    AlertCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-alert',
-	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"alert-wrapper\">\n      <div class=\"alert-head\">\n        <h2 id=\"{{hdrId}}\" class=\"alert-title\" *ngIf=\"d.title\" [innerHTML]=\"d.title\"></h2>\n        <h3 id=\"{{subHdrId}}\" class=\"alert-sub-title\" *ngIf=\"d.subTitle\" [innerHTML]=\"d.subTitle\"></h3>\n      </div>\n      <div id=\"{{msgId}}\" class=\"alert-message\" [innerHTML]=\"d.message\"></div>\n      <div *ngIf=\"d.inputs.length\" [ngSwitch]=\"inputType\">\n\n        <template ngSwitchCase=\"radio\">\n          <div class=\"alert-radio-group\" role=\"radiogroup\" [attr.aria-labelledby]=\"hdrId\" [attr.aria-activedescendant]=\"activeId\">\n            <button category=\"alert-radio-button\" *ngFor=\"let i of d.inputs\" (click)=\"rbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" [attr.id]=\"i.id\" class=\"alert-tappable alert-radio\" role=\"radio\">\n              <div class=\"alert-radio-icon\"><div class=\"alert-radio-inner\"></div></div>\n              <div class=\"alert-radio-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchCase=\"checkbox\">\n          <div class=\"alert-checkbox-group\">\n            <button category=\"alert-checkbox-button\" *ngFor=\"let i of d.inputs\" (click)=\"cbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" class=\"alert-tappable alert-checkbox\" role=\"checkbox\">\n              <div class=\"alert-checkbox-icon\"><div class=\"alert-checkbox-inner\"></div></div>\n              <div class=\"alert-checkbox-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchDefault>\n          <div class=\"alert-input-group\">\n            <div *ngFor=\"let i of d.inputs\" class=\"alert-input-wrapper\">\n              <input [placeholder]=\"i.placeholder\" [(ngModel)]=\"i.value\" [type]=\"i.type\" class=\"alert-input\">\n            </div>\n          </div>\n        </template>\n\n      </div>\n      <div class=\"alert-button-group\" [ngClass]=\"{vertical: d.buttons.length>2}\">\n        <button category=\"alert-button\" *ngFor=\"let b of d.buttons\" (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\">\n          {{b.text}}\n        </button>\n      </div>\n    </div>\n    ",
+	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"alert-wrapper\">\n      <div class=\"alert-head\">\n        <h2 id=\"{{hdrId}}\" class=\"alert-title\" *ngIf=\"d.title\" [innerHTML]=\"d.title\"></h2>\n        <h3 id=\"{{subHdrId}}\" class=\"alert-sub-title\" *ngIf=\"d.subTitle\" [innerHTML]=\"d.subTitle\"></h3>\n      </div>\n      <div id=\"{{msgId}}\" class=\"alert-message\" [innerHTML]=\"d.message\"></div>\n      <div *ngIf=\"d.inputs.length\" [ngSwitch]=\"inputType\">\n\n        <template ngSwitchCase=\"radio\">\n          <div class=\"alert-radio-group\" role=\"radiogroup\" [attr.aria-labelledby]=\"hdrId\" [attr.aria-activedescendant]=\"activeId\">\n            <button ion-button=\"alert-radio-button\" *ngFor=\"let i of d.inputs\" (click)=\"rbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" [attr.id]=\"i.id\" class=\"alert-tappable alert-radio\" role=\"radio\">\n              <div class=\"alert-radio-icon\"><div class=\"alert-radio-inner\"></div></div>\n              <div class=\"alert-radio-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchCase=\"checkbox\">\n          <div class=\"alert-checkbox-group\">\n            <button ion-button=\"alert-checkbox-button\" *ngFor=\"let i of d.inputs\" (click)=\"cbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" class=\"alert-tappable alert-checkbox\" role=\"checkbox\">\n              <div class=\"alert-checkbox-icon\"><div class=\"alert-checkbox-inner\"></div></div>\n              <div class=\"alert-checkbox-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchDefault>\n          <div class=\"alert-input-group\">\n            <div *ngFor=\"let i of d.inputs\" class=\"alert-input-wrapper\">\n              <input [placeholder]=\"i.placeholder\" [(ngModel)]=\"i.value\" [type]=\"i.type\" class=\"alert-input\">\n            </div>\n          </div>\n        </template>\n\n      </div>\n      <div class=\"alert-button-group\" [ngClass]=\"{vertical: d.buttons.length>2}\">\n        <button ion-button=\"alert-button\" *ngFor=\"let b of d.buttons\" (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\">\n          {{b.text}}\n        </button>\n      </div>\n    </div>\n    ",
 	            directives: [backdrop_1.Backdrop, common_1.NgClass, common_1.NgFor, common_1.NgIf, forms_1.NgModel, common_1.NgSwitch, common_1.NgSwitchCase, common_1.NgSwitchDefault],
 	            host: {
 	                'role': 'dialog',
@@ -68003,7 +68003,7 @@
 	 * directive anywhere in the page's template:
 	 *
 	 * ```html
-	 * <button menuToggle>Toggle Menu</button>
+	 * <button ion-button menuToggle>Toggle Menu</button>
 	 * ```
 	 *
 	 * To close a menu, add the `menuClose` button. It can be added anywhere
@@ -68014,7 +68014,7 @@
 	 * <ion-menu [content]="mycontent">
 	 *   <ion-content>
 	 *     <ion-list>
-	 *       <button menuClose ion-item detail-none>Close Menu</button>
+	 *       <button ion-button menuClose ion-item detail-none>Close Menu</button>
 	 *     </ion-list>
 	 *   </ion-content>
 	 * </ion-menu>
@@ -68890,14 +68890,14 @@
 	 * A simple `menuToggle` button can be added using the following markup:
 	 *
 	 * ```html
-	 * <button menuToggle>Toggle Menu</button>
+	 * <button ion-button menuToggle>Toggle Menu</button>
 	 * ```
 	 *
 	 * To toggle a specific menu by its id or side, give the `menuToggle`
 	 * directive a value.
 	 *
 	 * ```html
-	 * <button menuToggle="right">Toggle Right Menu</button>
+	 * <button ion-button menuToggle="right">Toggle Right Menu</button>
 	 * ```
 	 *
 	 * If placing the `menuToggle` in a navbar or toolbar, it should be
@@ -68909,18 +68909,18 @@
 	 *
 	 *   <ion-navbar>
 	 *     <ion-buttons start>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="contact"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
-	 *     <button menuToggle>
+	 *     <button ion-button menuToggle>
 	 *       <ion-icon name="menu"></ion-icon>
 	 *     </button>
 	 *     <ion-title>
 	 *       Title
 	 *     </ion-title>
 	 *     <ion-buttons end>
-	 *       <button (click)="doClick()">
+	 *       <button ion-button (click)="doClick()">
 	 *         <ion-icon name="more"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
@@ -68934,14 +68934,14 @@
 	 *
 	 * ```html
 	 * <ion-toolbar>
-	 *   <button menuToggle right>
+	 *   <button ion-button menuToggle right>
 	 *     <ion-icon name="menu"></ion-icon>
 	 *   </button>
 	 *   <ion-title>
 	 *     Title
 	 *   </ion-title>
 	 *   <ion-buttons end>
-	 *     <button (click)="doClick()">
+	 *     <button ion-button (click)="doClick()">
 	 *       <ion-icon name="more"></ion-icon>
 	 *     </button>
 	 *   </ion-buttons>
@@ -69119,7 +69119,7 @@
 	 * <ion-header>
 	 *
 	 *   <ion-navbar>
-	 *     <button menuToggle>
+	 *     <button ion-button menuToggle>
 	 *       <ion-icon name="menu"></ion-icon>
 	 *     </button>
 	 *
@@ -69128,7 +69128,7 @@
 	 *     </ion-title>
 	 *
 	 *     <ion-buttons end>
-	 *       <button (click)="openModal()">
+	 *       <button ion-button (click)="openModal()">
 	 *         <ion-icon name="options"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
@@ -69232,7 +69232,7 @@
 	    Navbar = __decorate([
 	        core_1.Component({
 	            selector: 'ion-navbar',
-	            template: "\n    <div class=\"toolbar-background\"></div>\n    <button category=\"bar-button\" class=\"back-button\" [hidden]=\"_hideBb\">\n      <span class=\"button-inner\">\n        <ion-icon class=\"back-button-icon\" [name]=\"_bbIcon\"></ion-icon>\n        <span class=\"back-button-text\">\n          <span class=\"back-default\">{{_bbText}}</span>\n        </span>\n      </span>\n    </button>\n    <ng-content select=\"[menuToggle],ion-buttons[left]\"></ng-content>\n    <ng-content select=\"ion-buttons[start]\"></ng-content>\n    <ng-content select=\"ion-buttons[end],ion-buttons[right]\"></ng-content>\n    <div class=\"toolbar-content\">\n      <ng-content></ng-content>\n    </div>\n  ",
+	            template: "\n    <div class=\"toolbar-background\"></div>\n    <button ion-button=\"bar-button\" class=\"back-button\" [hidden]=\"_hideBb\">\n      <span class=\"button-inner\">\n        <ion-icon class=\"back-button-icon\" [name]=\"_bbIcon\"></ion-icon>\n        <span class=\"back-button-text\">\n          <span class=\"back-default\">{{_bbText}}</span>\n        </span>\n      </span>\n    </button>\n    <ng-content select=\"[menuToggle],ion-buttons[left]\"></ng-content>\n    <ng-content select=\"ion-buttons[start]\"></ng-content>\n    <ng-content select=\"ion-buttons[end],ion-buttons[right]\"></ng-content>\n    <div class=\"toolbar-content\">\n      <ng-content></ng-content>\n    </div>\n  ",
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground],
 	            host: {
 	                '[hidden]': '_hidden',
@@ -69501,10 +69501,10 @@
 	 *
 	 *   <ion-toolbar no-border-bottom>
 	 *     <ion-buttons start>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="contact"></ion-icon>
 	 *       </button>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="search"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
@@ -69532,7 +69532,7 @@
 	 *   <ion-toolbar no-border>
 	 *     <ion-title>I'm a subfooter</ion-title>
 	 *     <ion-buttons right>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="menu"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
@@ -69541,10 +69541,10 @@
 	 *   <ion-toolbar no-border-top>
 	 *     <ion-title>I'm a footer</ion-title>
 	 *     <ion-buttons end>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="more"></ion-icon>
 	 *       </button>
-	 *       <button>
+	 *       <button ion-button>
 	 *         <ion-icon name="options"></ion-icon>
 	 *       </button>
 	 *     </ion-buttons>
@@ -69614,14 +69614,14 @@
 	 * A simple `menuClose` button can be added using the following markup:
 	 *
 	 * ```html
-	 * <button menuClose>Close Menu</button>
+	 * <button ion-button menuClose>Close Menu</button>
 	 * ```
 	 *
 	 * To close a certain menu by its id or side, give the `menuClose`
 	 * directive a value.
 	 *
 	 * ```html
-	 * <button menuClose="left">Close Left Menu</button>
+	 * <button ion-button menuClose="left">Close Left Menu</button>
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/menu/
@@ -69769,14 +69769,70 @@
 	  * @property [fab-fixed] - Makes a fab button have a fixed position.
 	  * @property [color] - Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 	  *
+	  * @usage
+	  *
+	  * ```html
+	  *
+	  *  <!-- Colors -->
+	  *  <button ion-button>Default</button>
+	  *
+	  *  <button ion-button secondary>Secondary</button>
+	  *
+	  *  <button ion-button danger>Danger</button>
+	  *
+	  *  <button ion-button light>Light</button>
+	  *
+	  *  <button ion-button dark>Dark</button>
+	  *
+	  *  <!-- Shapes -->
+	  *  <button ion-button full>Full Button</button>
+	  *
+	  *  <button ion-button block>Block Button</button>
+	  *
+	  *  <button ion-button round>Round Button</button>
+	  *
+	  *  <button ion-button fab>FAB</button>
+	  *
+	  *  <!-- Outline -->
+	  *  <button ion-button full outline>Outline + Full</button>
+	  *
+	  *  <button ion-button block outline>Outline + Block</button>
+	  *
+	  *  <button ion-button round outline>Outline + Round</button>
+	  *
+	  *  <button ion-button fab outline>FAB</button>
+	  *
+	  *  <!-- Icons -->
+	  *  <button ion-button icon-left>
+	  *    <ion-icon name="star"></ion-icon>
+	  *    Left Icon
+	  *  </button>
+	  *
+	  *  <button ion-button icon-right>
+	  *    Right Icon
+	  *    <ion-icon name="star"></ion-icon>
+	  *  </button>
+	  *
+	  *  <button ion-button icon-only>
+	  *    <ion-icon name="star"></ion-icon>
+	  *  </button>
+	  *
+	  *  <!-- Sizes -->
+	  *  <button ion-button large>Large</button>
+	  *
+	  *  <button ion-button>Default</button>
+	  *
+	  *  <button ion-button small>Small</button>
+	  * ```
+	  *
 	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 	 */
 	var Button = (function () {
-	    function Button(config, _elementRef, _renderer, ionItem) {
+	    function Button(ionButton, config, _elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
-	        this._role = 'button'; // bar-button/item-button
+	        this._role = 'button'; // bar-button
 	        this._size = null; // large/small/default
 	        this._style = 'default'; // outline/clear/solid
 	        this._shape = null; // round/fab
@@ -69784,18 +69840,15 @@
 	        this._colors = []; // primary/secondary
 	        this._icon = null; // left/right/only
 	        this._disabled = false; // disabled
-	        this.isItem = (ionItem === '');
 	        var element = _elementRef.nativeElement;
 	        if (config.get('hoverCSS') === false) {
-	            _renderer.setElementClass(_elementRef.nativeElement, 'disable-hover', true);
-	        }
-	        if (element.hasAttribute('ion-item')) {
-	            // no need to put on these classes for an ion-item
-	            this._role = null;
-	            return;
+	            _renderer.setElementClass(element, 'disable-hover', true);
 	        }
 	        if (element.hasAttribute('disabled')) {
 	            this._disabled = true;
+	        }
+	        if (ionButton.trim().length > 0) {
+	            this.setRole(ionButton);
 	        }
 	        this._readAttrs(element);
 	    }
@@ -69921,25 +69974,14 @@
 	    /**
 	     * @private
 	     */
-	    Button.prototype.ngOnInit = function () {
-	        // If the button has a role applied to it
-	        if (this.category) {
-	            this.setRole(this.category);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
 	    Button.prototype.ngAfterContentInit = function () {
 	        this._init = true;
-	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
 	    };
 	    /**
 	     * @private
 	     */
 	    Button.prototype.ngAfterContentChecked = function () {
-	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
 	    };
 	    /**
@@ -69954,52 +69996,7 @@
 	    Button.prototype.setRole = function (val) {
 	        this._assignCss(false);
 	        this._role = val;
-	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._readIcon = function (element) {
-	        // figure out if and where the icon lives in the button
-	        var childNodes = element.childNodes;
-	        if (childNodes.length > 0) {
-	            childNodes = childNodes[0].childNodes;
-	        }
-	        var childNode;
-	        var nodes = [];
-	        for (var i = 0, l = childNodes.length; i < l; i++) {
-	            childNode = childNodes[i];
-	            if (childNode.nodeType === 3) {
-	                // text node
-	                if (childNode.textContent.trim() !== '') {
-	                    nodes.push(TEXT);
-	                }
-	            }
-	            else if (childNode.nodeType === 1) {
-	                if (childNode.nodeName === 'ION-ICON') {
-	                    // icon element node
-	                    nodes.push(ICON);
-	                }
-	                else {
-	                    // element other than an <ion-icon>
-	                    nodes.push(TEXT);
-	                }
-	            }
-	        }
-	        // Remove any classes that are set already
-	        this._setClass(this._icon, false);
-	        if (nodes.length > 1) {
-	            if (nodes[0] === ICON && nodes[1] === TEXT) {
-	                this._icon = 'icon-left';
-	            }
-	            else if (nodes[0] === TEXT && nodes[1] === ICON) {
-	                this._icon = 'icon-right';
-	            }
-	        }
-	        else if (nodes.length === 1 && nodes[0] === ICON) {
-	            this._icon = 'icon-only';
-	        }
 	    };
 	    /**
 	     * @private
@@ -70071,10 +70068,6 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Button.prototype, "category", void 0);
-	    __decorate([
-	        core_1.Input(), 
 	        __metadata('design:type', Boolean), 
 	        __metadata('design:paramtypes', [Boolean])
 	    ], Button.prototype, "large", null);
@@ -70125,14 +70118,14 @@
 	    ], Button.prototype, "color", null);
 	    Button = __decorate([
 	        core_1.Component({
-	            selector: 'button:not([ion-item]),[button]',
+	            selector: '[ion-button]',
 	            // NOTE: template must not contain spaces between elements
 	            template: '<span class="button-inner"><ng-content></ng-content></span><ion-button-effect></ion-button-effect>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
-	        __param(3, core_1.Attribute('ion-item')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
+	        __param(0, core_1.Attribute('ion-button')), 
+	        __metadata('design:paramtypes', [String, (typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Button);
 	    return Button;
 	    var _a, _b, _c;
@@ -70228,7 +70221,7 @@
 	 *       </ion-toolbar>
 	 *     </ion-header>
 	 *     <ion-content>
-	 *       <button (click)="toggleToolbar()">Toggle Toolbar</button>
+	 *       <button ion-button (click)="toggleToolbar()">Toggle Toolbar</button>
 	 *     </ion-content>
 	 * `})
 	 *
@@ -70252,7 +70245,7 @@
 	 *
 	 * @Component({
 	 *   template: `<ion-content>
-	 *                <button (click)="scrollTo()">Down 500px</button>
+	 *                <button ion-button (click)="scrollTo()">Down 500px</button>
 	 *              </ion-content>`
 	 * )}
 	 * export class MyPage{
@@ -80872,9 +80865,9 @@
 	 *
 	 *   <!-- List header with buttons on each side -->
 	 *   <ion-list-header>
-	 *     <button item-left (click)="buttonClick()">Button</button>
+	 *     <button ion-button item-left (click)="buttonClick()">Button</button>
 	 *     List Header
-	 *     <button outline item-right (click)="buttonClick()">Outline</button>
+	 *     <button ion-button outline item-right (click)="buttonClick()">Outline</button>
 	 *   </ion-list-header>
 	 *
 	 *   <!-- Loops through and creates multiple items -->
@@ -80900,25 +80893,25 @@
 	 *
 	 *   <!-- Item with left and right buttons -->
 	 *   <ion-item>
-	 *     <button item-left (click)="buttonClick()">Button</button>
+	 *     <button ion-button item-left (click)="buttonClick()">Button</button>
 	 *     Item
-	 *     <button outline item-right (click)="buttonClick()">Outline</button>
+	 *     <button ion-button outline item-right (click)="buttonClick()">Outline</button>
 	 *   </ion-item>
 	 *
 	 *   <!-- Item divider with a right button -->
 	 *   <ion-item-divider>
 	 *     Item Divider
-	 *     <button item-right>Button</button>
+	 *     <button ion-button item-right>Button</button>
 	 *   </ion-item-divider>
 	 *
 	 *   <!-- Disabled button item with left and right buttons -->
 	 *   <button ion-item disabled>
-	 *     <button item-left (click)="buttonClick()">
+	 *     <button ion-button item-left (click)="buttonClick()">
 	 *       <ion-icon name="home"></ion-icon>
 	 *       Left Icon
 	 *     </button>
 	 *     Disabled Button Item
-	 *     <button outline item-right (click)="buttonClick()">
+	 *     <button ion-button outline item-right (click)="buttonClick()">
 	 *       <ion-icon name="star"></ion-icon>
 	 *       Left Icon
 	 *     </button>
@@ -80930,7 +80923,7 @@
 	 *       <img src="img/my-avatar.png">
 	 *     </ion-avatar>
 	 *     Avatar Item
-	 *     <button outline item-right>View</button>
+	 *     <button ion-button outline item-right>View</button>
 	 *   </ion-item>
 	 *
 	 *   <!-- Item with a thumbnail on the right -->
@@ -80948,7 +80941,7 @@
 	 *       Item
 	 *     </ion-item>
 	 *     <ion-item-options>
-	 *       <button primary (click)="archive()">Archive</button>
+	 *       <button ion-button primary (click)="archive()">Archive</button>
 	 *     </ion-item-options>
 	 *   </ion-item-sliding>
 	 *
@@ -81780,7 +81773,7 @@
 	 *     Item 1
 	 *   </ion-item>
 	 *   <ion-item-options side="right" (ionSwipe)="saveItem(item)">
-	 *     <button expandable (click)="saveItem(item)">
+	 *     <button ion-button expandable (click)="saveItem(item)">
 	 *       <ion-icon name="star"></ion-icon>
 	 *     </button>
 	 *   </ion-item-options>
@@ -81861,12 +81854,12 @@
 	 *       Item
 	 *     </ion-item>
 	 *     <ion-item-options side="left">
-	 *       <button (click)="favorite(item)">Favorite</button>
-	 *       <button danger (click)="share(item)">Share</button>
+	 *       <button ion-button (click)="favorite(item)">Favorite</button>
+	 *       <button ion-button danger (click)="share(item)">Share</button>
 	 *     </ion-item-options>
 
 	 *     <ion-item-options side="right">
-	 *       <button (click)="unread(item)">Unread</button>
+	 *       <button ion-button (click)="unread(item)">Unread</button>
 	 *     </ion-item-options>
 	 *   </ion-item-sliding>
 	 * </ion-list>
@@ -81881,14 +81874,14 @@
 	 *
 	 * ```html
 	 * <ion-item-options side="right">
-	 *   <button (click)="archive(item)">
+	 *   <button ion-button (click)="archive(item)">
 	 *     <ion-icon name="archive"></ion-icon>
 	 *     Archive
 	 *   </button>
 	 * </ion-item-options>
 
 	 * <ion-item-options side="left">
-	 *   <button (click)="archive(item)">
+	 *   <button ion-button (click)="archive(item)">
 	 *     <ion-icon name="archive"></ion-icon>
 	 *     Archive
 	 *   </button>
@@ -81903,7 +81896,7 @@
 	 * <ion-item-sliding (ionDrag)="logDrag($event)">
 	 *   <ion-item>Item</ion-item>
 	 *   <ion-item-options>
-	 *     <button>Favorite</button>
+	 *     <button ion-button>Favorite</button>
 	 *   </ion-item-options>
 	 * </ion-item-sliding>
 	 * ```
@@ -81916,7 +81909,7 @@
 	 *
 	 * ```html
 	 * <ion-item-options icon-left>
-	 *    <button (click)="archive(item)">
+	 *    <button ion-button (click)="archive(item)">
 	 *      <ion-icon name="archive"></ion-icon>
 	 *      Archive
 	 *    </button>
@@ -82163,7 +82156,7 @@
 	     *       Item
 	     *     </ion-item>
 	     *     <ion-item-options>
-	     *       <button (click)="share(slidingItem)">Share</button>
+	     *       <button ion-button (click)="share(slidingItem)">Share</button>
 	     *     </ion-item-options>
 	     *   </ion-item-sliding>
 	     * </ion-list>
@@ -83804,7 +83797,7 @@
 	    Checkbox = __decorate([
 	        core_1.Component({
 	            selector: 'ion-checkbox',
-	            template: "\n    <div class=\"checkbox-icon\" [class.checkbox-checked]=\"_checked\">\n      <div class=\"checkbox-inner\"></div>\n    </div>\n    <button role=\"checkbox\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div class=\"checkbox-icon\" [class.checkbox-checked]=\"_checked\">\n      <div class=\"checkbox-inner\"></div>\n    </div>\n    <button ion-button=\"item-cover\"\n            role=\"checkbox\"\n            type=\"button\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\">\n    </button>\n  ",
 	            host: {
 	                '[class.checkbox-disabled]': '_disabled'
 	            },
@@ -84286,7 +84279,7 @@
 	    Select = __decorate([
 	        core_1.Component({
 	            selector: 'ion-select',
-	            template: "\n    <div *ngIf=\"!_text\" class=\"select-placeholder select-text\">{{placeholder}}</div>\n    <div *ngIf=\"_text\" class=\"select-text\">{{selectedText || _text}}</div>\n    <div class=\"select-icon\">\n      <div class=\"select-icon-inner\"></div>\n    </div>\n    <button aria-haspopup=\"true\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div *ngIf=\"!_text\" class=\"select-placeholder select-text\">{{placeholder}}</div>\n    <div *ngIf=\"_text\" class=\"select-text\">{{selectedText || _text}}</div>\n    <div class=\"select-icon\">\n      <div class=\"select-icon-inner\"></div>\n    </div>\n    <button ion-button=\"item-cover\"\n            aria-haspopup=\"true\"\n            [id]=\"id\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\">\n    </button>\n  ",
 	            directives: [common_1.NgIf],
 	            host: {
 	                '[class.select-disabled]': '_disabled'
@@ -85164,7 +85157,7 @@
 	    DateTime = __decorate([
 	        core_1.Component({
 	            selector: 'ion-datetime',
-	            template: "\n    <div class=\"datetime-text\">{{_text}}</div>\n    <button aria-haspopup=\"true\"\n            type=\"button\"\n            [id]=\"id\"\n            category=\"item-cover\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div class=\"datetime-text\">{{_text}}</div>\n    <button ion-button=\"item-cover\" \n            aria-haspopup=\"true\"\n            type=\"button\"\n            [id]=\"id\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\">\n    </button>\n  ",
 	            host: {
 	                '[class.datetime-disabled]': '_disabled'
 	            },
@@ -85644,7 +85637,7 @@
 	    PickerColumnCmp = __decorate([
 	        core_1.Component({
 	            selector: '.picker-col',
-	            template: "\n    <div *ngIf=\"col.prefix\" class=\"picker-prefix\" [style.width]=\"col.prefixWidth\">{{col.prefix}}</div>\n    <div class=\"picker-opts\" #colEle [style.width]=\"col.optionsWidth\">\n      <button *ngFor=\"let o of col.options; let i=index\" [style.transform]=\"o._trans\" [style.transitionDuration]=\"o._dur\" [style.webkitTransform]=\"o._trans\" [style.webkitTransitionDuration]=\"o._dur\" [class.picker-opt-selected]=\"col.selectedIndex === i\" [class.picker-opt-disabled]=\"o.disabled\" (click)=\"optClick($event, i)\" type=\"button\" category=\"picker-opt\">\n        {{o.text}}\n      </button>\n    </div>\n    <div *ngIf=\"col.suffix\" class=\"picker-suffix\" [style.width]=\"col.suffixWidth\">{{col.suffix}}</div>\n  ",
+	            template: "\n    <div *ngIf=\"col.prefix\" class=\"picker-prefix\" [style.width]=\"col.prefixWidth\">{{col.prefix}}</div>\n    <div class=\"picker-opts\" #colEle [style.width]=\"col.optionsWidth\">\n      <button ion-button=\"picker-opt\" *ngFor=\"let o of col.options; let i=index\" [style.transform]=\"o._trans\" [style.transitionDuration]=\"o._dur\" [style.webkitTransform]=\"o._trans\" [style.webkitTransitionDuration]=\"o._dur\" [class.picker-opt-selected]=\"col.selectedIndex === i\" [class.picker-opt-disabled]=\"o.disabled\" (click)=\"optClick($event, i)\" type=\"button\">\n        {{o.text}}\n      </button>\n    </div>\n    <div *ngIf=\"col.suffix\" class=\"picker-suffix\" [style.width]=\"col.suffixWidth\">{{col.suffix}}</div>\n  ",
 	            directives: [common_1.NgFor, common_1.NgIf],
 	            host: {
 	                '[style.min-width]': 'col.columnWidth',
@@ -85811,7 +85804,7 @@
 	    PickerCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-picker-cmp',
-	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"picker-wrapper\">\n      <div class=\"picker-toolbar\">\n        <div *ngFor=\"let b of d.buttons\" class=\"picker-toolbar-button\" [ngClass]=\"b.cssRole\">\n          <button (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\" class=\"picker-button\" clear>\n            {{b.text}}\n          </button>\n        </div>\n      </div>\n      <div class=\"picker-columns\">\n        <div class=\"picker-above-highlight\"></div>\n        <div *ngFor=\"let c of d.columns\" [col]=\"c\" class=\"picker-col\" (ionChange)=\"_colChange($event)\"></div>\n        <div class=\"picker-below-highlight\"></div>\n      </div>\n    </div>\n  ",
+	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"picker-wrapper\">\n      <div class=\"picker-toolbar\">\n        <div *ngFor=\"let b of d.buttons\" class=\"picker-toolbar-button\" [ngClass]=\"b.cssRole\">\n          <button ion-button (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\" class=\"picker-button\" clear>\n            {{b.text}}\n          </button>\n        </div>\n      </div>\n      <div class=\"picker-columns\">\n        <div class=\"picker-above-highlight\"></div>\n        <div *ngFor=\"let c of d.columns\" [col]=\"c\" class=\"picker-col\" (ionChange)=\"_colChange($event)\"></div>\n        <div class=\"picker-below-highlight\"></div>\n      </div>\n    </div>\n  ",
 	            directives: [backdrop_1.Backdrop, common_1.NgClass, common_1.NgFor, PickerColumnCmp],
 	            host: {
 	                'role': 'dialog'
@@ -86103,7 +86096,7 @@
 	    Toggle = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toggle',
-	            template: "\n    <div class=\"toggle-icon\" [class.toggle-checked]=\"_checked\" [class.toggle-activated]=\"_activated\">\n      <div class=\"toggle-inner\"></div>\n    </div>\n    <button role=\"checkbox\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div class=\"toggle-icon\" [class.toggle-checked]=\"_checked\" [class.toggle-activated]=\"_activated\">\n      <div class=\"toggle-inner\"></div>\n    </div>\n    <button ion-button=\"item-cover\"\n            role=\"checkbox\"\n            type=\"button\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\">\n    </button>\n  ",
 	            host: {
 	                '[class.toggle-disabled]': '_disabled'
 	            },
@@ -86240,7 +86233,7 @@
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',
-	            template: "\n    <input [type]=\"type\" [(ngModel)]=\"_value\" (blur)=\"inputBlurred($event)\" (focus)=\"inputFocused($event)\" [placeholder]=\"placeholder\" class=\"text-input\">\n    <input [type]=\"type\" aria-hidden=\"true\" next-input *ngIf=\"_useAssist\">\n    <button clear [hidden]=\"!clearInput\" type=\"button\" class=\"text-input-clear-icon\" (click)=\"clearTextInput()\" (mousedown)=\"clearTextInput()\"></button>\n    <div (touchstart)=\"pointerStart($event)\" (touchend)=\"pointerEnd($event)\" (mousedown)=\"pointerStart($event)\" (mouseup)=\"pointerEnd($event)\" class=\"input-cover\" tappable *ngIf=\"_useAssist\"></div>\n  ",
+	            template: "\n    <input [type]=\"type\" [(ngModel)]=\"_value\" (blur)=\"inputBlurred($event)\" (focus)=\"inputFocused($event)\" [placeholder]=\"placeholder\" class=\"text-input\">\n    <input [type]=\"type\" aria-hidden=\"true\" next-input *ngIf=\"_useAssist\">\n    <button ion-button clear [hidden]=\"!clearInput\" type=\"button\" class=\"text-input-clear-icon\" (click)=\"clearTextInput()\" (mousedown)=\"clearTextInput()\"></button>\n    <div (touchstart)=\"pointerStart($event)\" (touchend)=\"pointerEnd($event)\" (mousedown)=\"pointerStart($event)\" (mouseup)=\"pointerEnd($event)\" class=\"input-cover\" tappable *ngIf=\"_useAssist\"></div>\n  ",
 	            directives: [native_input_1.NativeInput, native_input_1.NextInput, common_1.NgIf, forms_1.NgModel],
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
@@ -87617,7 +87610,7 @@
 	    RadioButton = __decorate([
 	        core_1.Component({
 	            selector: 'ion-radio',
-	            template: "\n    <div class=\"radio-icon\" [class.radio-checked]=\"_checked\">\n      <div class=\"radio-inner\"></div>\n    </div>\n    <button role=\"radio\"\n            type=\"button\"\n            category=\"item-cover\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\"\n            class=\"item-cover\">\n    </button>\n  ",
+	            template: "\n    <div class=\"radio-icon\" [class.radio-checked]=\"_checked\">\n      <div class=\"radio-inner\"></div>\n    </div>\n    <button ion-button=\"item-cover\" \n            role=\"radio\"\n            type=\"button\"\n            [id]=\"id\"\n            [attr.aria-checked]=\"_checked\"\n            [attr.aria-labelledby]=\"_labelId\"\n            [attr.aria-disabled]=\"_disabled\">\n    </button>\n  ",
 	            host: {
 	                '[class.radio-disabled]': '_disabled'
 	            },
@@ -88973,14 +88966,14 @@
 	        core_1.Component({
 	            selector: 'ion-searchbar',
 	            template: '<div class="searchbar-input-container">' +
-	                '<button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear dark class="searchbar-md-cancel">' +
+	                '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear dark class="searchbar-md-cancel">' +
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div #searchbarIcon class="searchbar-search-icon"></div>' +
 	                '<input #searchbarInput [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
-	                '<button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
+	                '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
 	                '</div>' +
-	                '<button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
+	                '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
 	            directives: [icon_1.Icon, forms_1.NgModel],
 	            host: {
 	                '[class.searchbar-has-value]': '_value',
@@ -89196,7 +89189,7 @@
 	 * ```html
 	 * <ion-content>
 	 *
-	 *  <button navPop>Go Back</button>
+	 *  <button ion-button navPop>Go Back</button>
 	 *
 	 * </ion-content>
 	 * ```
@@ -89267,14 +89260,14 @@
 	 *
 	 * @usage
 	 * ```html
-	 * <button [navPush]="pushPage"></button>
+	 * <button ion-button [navPush]="pushPage"></button>
 	 * ```
 	 *
 	 * To specify parameters you can use array syntax or the `navParams`
 	 * property:
 	 *
 	 * ```html
-	 * <button [navPush]="pushPage" [navParams]="params">Go</button>
+	 * <button ion-button [navPush]="pushPage" [navParams]="params">Go</button>
 	 * ```
 	 *
 	 * Where `pushPage` and `params` are specified in your component,
@@ -89285,7 +89278,7 @@
 	 * import { LoginPage } from './login';
 	 *
 	 * @Component({
-	 *   template: `<button [navPush]="pushPage" [navParams]="params">Go</button>`
+	 *   template: `<button ion-button [navPush]="pushPage" [navParams]="params">Go</button>`
 	 * })
 	 * class MyPage {
 	 *   constructor(){
@@ -90507,7 +90500,7 @@
 	 * which creates and presents the popover:
 	 *
 	 * ```html
-	 * <button (click)="presentPopover($event)">
+	 * <button ion-button (click)="presentPopover($event)">
 	 *   <ion-icon name="more"></ion-icon>
 	 * </button>
 	 * ```
@@ -91557,7 +91550,7 @@
 	    ToastCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toast',
-	            template: "\n    <div class=\"toast-wrapper\"\n      [class.toast-bottom]=\"d.position === 'bottom'\"\n      [class.toast-middle]=\"d.position === 'middle'\"\n      [class.toast-top]=\"d.position === 'top'\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
+	            template: "\n    <div class=\"toast-wrapper\"\n      [class.toast-bottom]=\"d.position === 'bottom'\"\n      [class.toast-middle]=\"d.position === 'middle'\"\n      [class.toast-top]=\"d.position === 'top'\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button ion-button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
 	            directives: [common_1.NgIf],
 	            host: {
 	                'role': 'dialog',

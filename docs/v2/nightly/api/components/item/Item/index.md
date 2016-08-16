@@ -212,9 +212,9 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- List header with buttons on each side --&gt;
   &lt;ion-list-header&gt;
-    &lt;button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     List Header
-    &lt;button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-list-header&gt;
 
   &lt;!-- Loops through and creates multiple items --&gt;
@@ -240,25 +240,25 @@ be added to <code>ion-item</code> to transform the text.</p>
 
   &lt;!-- Item with left and right buttons --&gt;
   &lt;ion-item&gt;
-    &lt;button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
     Item
-    &lt;button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item divider with a right button --&gt;
   &lt;ion-item-divider&gt;
     Item Divider
-    &lt;button item-right&gt;Button&lt;/button&gt;
+    &lt;button ion-button item-right&gt;Button&lt;/button&gt;
   &lt;/ion-item-divider&gt;
 
   &lt;!-- Disabled button item with left and right buttons --&gt;
   &lt;button ion-item disabled&gt;
-    &lt;button item-left (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button item-left (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;home&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
     Disabled Button Item
-    &lt;button outline item-right (click)=&quot;buttonClick()&quot;&gt;
+    &lt;button ion-button outline item-right (click)=&quot;buttonClick()&quot;&gt;
       &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
       Left Icon
     &lt;/button&gt;
@@ -270,7 +270,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       &lt;img src=&quot;img/my-avatar.png&quot;&gt;
     &lt;/ion-avatar&gt;
     Avatar Item
-    &lt;button outline item-right&gt;View&lt;/button&gt;
+    &lt;button ion-button outline item-right&gt;View&lt;/button&gt;
   &lt;/ion-item&gt;
 
   &lt;!-- Item with a thumbnail on the right --&gt;
@@ -288,7 +288,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       Item
     &lt;/ion-item&gt;
     &lt;ion-item-options&gt;
-      &lt;button primary (click)=&quot;archive()&quot;&gt;Archive&lt;/button&gt;
+      &lt;button ion-button primary (click)=&quot;archive()&quot;&gt;Archive&lt;/button&gt;
     &lt;/ion-item-options&gt;
   &lt;/ion-item-sliding&gt;
 

@@ -56,7 +56,7 @@ navigation stack.</p>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
- &lt;button navPop&gt;Go Back&lt;/button&gt;
+ &lt;button ion-button navPop&gt;Go Back&lt;/button&gt;
 
 &lt;/ion-content&gt;
 </code></pre>

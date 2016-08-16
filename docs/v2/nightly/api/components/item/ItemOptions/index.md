@@ -57,7 +57,7 @@ You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</cod
     Item 1
   &lt;/ion-item&gt;
   &lt;ion-item-options side=&quot;right&quot; (ionSwipe)=&quot;saveItem(item)&quot;&gt;
-    &lt;button expandable (click)=&quot;saveItem(item)&quot;&gt;
+    &lt;button ion-button expandable (click)=&quot;saveItem(item)&quot;&gt;
       &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
   &lt;/ion-item-options&gt;

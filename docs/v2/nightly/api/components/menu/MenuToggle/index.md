@@ -57,11 +57,11 @@ docs for more information.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>A simple <code>menuToggle</code> button can be added using the following markup:</p>
-<pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button menuToggle&gt;Toggle Menu&lt;/button&gt;
 </code></pre>
 <p>To toggle a specific menu by its id or side, give the <code>menuToggle</code>
 directive a value.</p>
-<pre><code class="lang-html">&lt;button menuToggle=&quot;right&quot;&gt;Toggle Right Menu&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button menuToggle=&quot;right&quot;&gt;Toggle Right Menu&lt;/button&gt;
 </code></pre>
 <p>If placing the <code>menuToggle</code> in a navbar or toolbar, it should be
 placed as a child of the <code>&lt;ion-navbar&gt;</code> or <code>&lt;ion-toolbar&gt;</code>, and not in
@@ -70,18 +70,18 @@ the <code>&lt;ion-buttons&gt;</code> element:</p>
 
   &lt;ion-navbar&gt;
     &lt;ion-buttons start&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;
-    &lt;button menuToggle&gt;
+    &lt;button ion-button menuToggle&gt;
       &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
     &lt;ion-title&gt;
       Title
     &lt;/ion-title&gt;
     &lt;ion-buttons end&gt;
-      &lt;button (click)=&quot;doClick()&quot;&gt;
+      &lt;button ion-button (click)=&quot;doClick()&quot;&gt;
         &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;
@@ -92,14 +92,14 @@ the <code>&lt;ion-buttons&gt;</code> element:</p>
 <p>Similar to <code>&lt;ion-buttons&gt;</code>, the <code>menuToggle</code> can be positioned using
 <code>start</code>, <code>end</code>, <code>left</code>, or <code>right</code>:</p>
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
-  &lt;button menuToggle right&gt;
+  &lt;button ion-button menuToggle right&gt;
     &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
   &lt;/button&gt;
   &lt;ion-title&gt;
     Title
   &lt;/ion-title&gt;
   &lt;ion-buttons end&gt;
-    &lt;button (click)=&quot;doClick()&quot;&gt;
+    &lt;button ion-button (click)=&quot;doClick()&quot;&gt;
       &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
   &lt;/ion-buttons&gt;

@@ -134,10 +134,10 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
 
   &lt;ion-toolbar no-border-bottom&gt;
     &lt;ion-buttons start&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;search&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;
@@ -165,7 +165,7 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
   &lt;ion-toolbar no-border&gt;
     &lt;ion-title&gt;I&#39;m a subfooter&lt;/ion-title&gt;
     &lt;ion-buttons right&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;
@@ -174,10 +174,10 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
   &lt;ion-toolbar no-border-top&gt;
     &lt;ion-title&gt;I&#39;m a footer&lt;/ion-title&gt;
     &lt;ion-buttons end&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
-      &lt;button&gt;
+      &lt;button ion-button&gt;
         &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;

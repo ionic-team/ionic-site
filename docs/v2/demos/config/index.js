@@ -111,11 +111,18 @@ var ApiDemoPage = (function () {
                 'tabsPlacement': 'bottom'
             };
         }
+        else if (platform.is('windows')) {
+            this.config = {
+                'backButtonIcon': 'ios-arrow-back',
+                'iconMode': 'ios',
+                'tabsPlacement': 'top'
+            };
+        }
         else {
             this.config = {
                 'backButtonIcon': 'md-arrow-back',
                 'iconMode': 'md',
-                'tabsPlacement': 'top'
+                'tabsPlacement': 'bottom'
             };
         }
         this.initialConfig = JSON.parse(JSON.stringify(this.config));

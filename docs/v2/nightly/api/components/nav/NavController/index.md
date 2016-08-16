@@ -147,7 +147,7 @@ import { OtherPage } from &#39;./other-page&#39;;
    &lt;/ion-header&gt;
 
    &lt;ion-content&gt;
-     &lt;button (click)=&quot;pushPage()&quot;&gt;
+     &lt;button ion-button (click)=&quot;pushPage()&quot;&gt;
        Go to OtherPage
      &lt;/button&gt;
    &lt;/ion-content&gt;

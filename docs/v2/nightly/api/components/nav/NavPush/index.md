@@ -54,11 +54,11 @@ stack.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>To specify parameters you can use array syntax or the <code>navParams</code>
 property:</p>
-<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;
 </code></pre>
 <p>Where <code>pushPage</code> and <code>params</code> are specified in your component,
 and <code>pushPage</code> contains a reference to a
@@ -66,7 +66,7 @@ and <code>pushPage</code> contains a reference to a
 <pre><code class="lang-ts">import { LoginPage } from &#39;./login&#39;;
 
 @Component({
-  template: `&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
+  template: `&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
   constructor(){

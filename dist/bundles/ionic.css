@@ -4971,12 +4971,11 @@ ion-icon {
     justify-content: center;
     width: 100%;
     height: 100%; }
-  .ios a.button,
-  .ios a[button] {
+  .ios [ion-button] {
     text-decoration: none; }
   .ios a[disabled],
   .ios button[disabled],
-  .ios .button[disabled] {
+  .ios [ion-button][disabled] {
     cursor: default;
     opacity: .4;
     pointer-events: none; }
@@ -4989,13 +4988,10 @@ ion-icon {
   .ios .button-full {
     display: block;
     width: 100%; }
-    .ios .button-full.button-outline {
-      border-right-width: 0;
-      border-left-width: 0;
-      border-radius: 0; }
-  .ios .button-round {
-    padding: 0 2.6rem;
-    border-radius: 64px; }
+  .ios .button-full.button-outline {
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 0; }
   .ios .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1em;
@@ -5004,12 +5000,11 @@ ion-icon {
     font-size: 1.6rem;
     color: #fff;
     background-color: #327eff; }
-    .ios .button:hover:not(.disable-hover) {
-      text-decoration: none;
-      opacity: 0.8; }
     .ios .button.activated {
       background-color: #2e74eb;
       opacity: 1; }
+    .ios .button:hover:not(.disable-hover) {
+      opacity: 0.8; }
   .ios .button-large {
     padding: 0 1em;
     height: 2.8em;
@@ -5018,7 +5013,7 @@ ion-icon {
     padding: 0 0.9em;
     height: 2.1em;
     font-size: 1.3rem; }
-    .ios .button-small.button-icon-only ion-icon {
+    .ios .button-small[icon-only] ion-icon {
       font-size: 1.3em; }
   .ios .button-block {
     margin-right: 0;
@@ -5046,13 +5041,15 @@ ion-icon {
     background-color: transparent; }
     .ios .button-clear.activated {
       background-color: transparent;
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear:hover:not(.disable-hover) {
       color: #327eff;
-      opacity: .6; }
+      opacity: 0.6; }
   .ios .button-round {
     padding: 0 2.6rem;
     border-radius: 64px; }
+  .ios .button-fab {
+    border-radius: 50%; }
   .ios ion-button-effect {
     display: none; }
   .ios .button-primary {
@@ -5072,7 +5069,7 @@ ion-icon {
     color: #327eff;
     background-color: transparent; }
     .ios .button-clear-primary.activated {
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear-primary:hover:not(.disable-hover) {
       color: #327eff; }
   .ios .button-secondary {
@@ -5092,7 +5089,7 @@ ion-icon {
     color: #32db64;
     background-color: transparent; }
     .ios .button-clear-secondary.activated {
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear-secondary:hover:not(.disable-hover) {
       color: #32db64; }
   .ios .button-danger {
@@ -5112,7 +5109,7 @@ ion-icon {
     color: #f53d3d;
     background-color: transparent; }
     .ios .button-clear-danger.activated {
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear-danger:hover:not(.disable-hover) {
       color: #f53d3d; }
   .ios .button-light {
@@ -5132,7 +5129,7 @@ ion-icon {
     color: #f4f4f4;
     background-color: transparent; }
     .ios .button-clear-light.activated {
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear-light:hover:not(.disable-hover) {
       color: #f4f4f4; }
   .ios .button-dark {
@@ -5152,7 +5149,7 @@ ion-icon {
     color: #222;
     background-color: transparent; }
     .ios .button-clear-dark.activated {
-      opacity: .4; }
+      opacity: 0.4; }
     .ios .button-clear-dark:hover:not(.disable-hover) {
       color: #222; }
   .ios .button-fab {
@@ -5161,17 +5158,16 @@ ion-icon {
     width: 56px;
     min-width: 0;
     height: 56px;
-    border-radius: 50%;
     font-size: 14px;
     line-height: 56px;
     vertical-align: middle;
     background-clip: padding-box; }
-    .ios .button-fab ion-icon {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      font-size: 2.8rem; }
+  .ios .button-fab ion-icon {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 2.8rem; }
   .ios [fab-center] {
     left: 50%;
     margin-left: -28px; }
@@ -5185,24 +5181,24 @@ ion-icon {
     left: 16px; }
   .ios [fab-fixed] {
     position: fixed; }
-  .ios .button-icon-left ion-icon {
+  .ios [icon-left] ion-icon {
     padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .ios .button-icon-right ion-icon {
+  .ios [icon-right] ion-icon {
     padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .ios .button-icon-only {
+  .ios [icon-only] {
     padding: 0;
     min-width: .9em; }
-    .ios .button-icon-only ion-icon {
-      padding: 0 .5em;
-      font-size: 1.8em;
-      line-height: .67;
-      pointer-events: none; }
+  .ios [icon-only] ion-icon {
+    padding: 0 .5em;
+    font-size: 1.8em;
+    line-height: .67;
+    pointer-events: none; }
   .ios ion-card {
     display: block;
     overflow: hidden; }
@@ -5802,13 +5798,13 @@ ion-icon {
     border-radius: 0;
     box-shadow: none;
     box-sizing: content-box; }
-  .ios ion-item-options:not([icon-left]) .button-icon-left .button-inner {
+  .ios ion-item-options:not([icon-left]) .button .button-inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-  .ios ion-item-options:not([icon-left]) .button-icon-left ion-icon {
+  .ios ion-item-options:not([icon-left]) .button ion-icon {
     padding-right: 0;
     padding-bottom: .3em;
     padding-left: 0; }
@@ -5975,8 +5971,8 @@ ion-icon {
     padding: 0 .5em;
     height: 24px;
     font-size: 1.3rem; }
-  .ios .item-button.button-icon-only ion-icon,
-  .ios .item-button.button-icon-only {
+  .ios .item-button[icon-only] ion-icon,
+  .ios .item-button[icon-only] {
     padding: 0 1px; }
   .ios ion-avatar {
     min-width: 3.6rem;
@@ -7753,10 +7749,10 @@ ion-icon {
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .ios .bar-button-icon-only {
+  .ios .bar-button[icon-only] {
     padding: 0;
     min-width: .9em; }
-    .ios .bar-button-icon-only ion-icon {
+    .ios .bar-button[icon-only] ion-icon {
       padding: 0 .1em;
       font-size: 1.8em;
       line-height: .67;
@@ -8462,12 +8458,11 @@ ion-icon {
     justify-content: center;
     width: 100%;
     height: 100%; }
-  .md a.button,
-  .md a[button] {
+  .md [ion-button] {
     text-decoration: none; }
   .md a[disabled],
   .md button[disabled],
-  .md .button[disabled] {
+  .md [ion-button][disabled] {
     cursor: default;
     opacity: .4;
     pointer-events: none; }
@@ -8480,13 +8475,10 @@ ion-icon {
   .md .button-full {
     display: block;
     width: 100%; }
-    .md .button-full.button-outline {
-      border-right-width: 0;
-      border-left-width: 0;
-      border-radius: 0; }
-  .md .button-round {
-    padding: 0 2.6rem;
-    border-radius: 64px; }
+  .md .button-full.button-outline {
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 0; }
   .md .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1.1em;
@@ -8515,7 +8507,7 @@ ion-icon {
     padding: 0 0.9em;
     height: 2.1em;
     font-size: 1.3rem; }
-    .md .button-small.button-icon-only ion-icon {
+    .md .button-small[icon-only] ion-icon {
       font-size: 1.4em; }
   .md .button-block {
     margin-right: 0;
@@ -8564,7 +8556,7 @@ ion-icon {
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
     .md .button-fab.activated {
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
-  .md .button-icon-only {
+  .md [icon-only] {
     padding: 0; }
   .md ion-button-effect {
     position: absolute;
@@ -8727,17 +8719,16 @@ ion-icon {
     width: 56px;
     min-width: 0;
     height: 56px;
-    border-radius: 50%;
     font-size: 14px;
     line-height: 56px;
     vertical-align: middle;
     background-clip: padding-box; }
-    .md .button-fab ion-icon {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      font-size: 2.8rem; }
+  .md .button-fab ion-icon {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 2.8rem; }
   .md [fab-center] {
     left: 50%;
     margin-left: -28px; }
@@ -8751,24 +8742,24 @@ ion-icon {
     left: 16px; }
   .md [fab-fixed] {
     position: fixed; }
-  .md .button-icon-left ion-icon {
+  .md [icon-left] ion-icon {
     padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .md .button-icon-right ion-icon {
+  .md [icon-right] ion-icon {
     padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .md .button-icon-only {
+  .md [icon-only] {
     padding: 0;
     min-width: .9em; }
-    .md .button-icon-only ion-icon {
-      padding: 0 .5em;
-      font-size: 1.8em;
-      line-height: .67;
-      pointer-events: none; }
+  .md [icon-only] ion-icon {
+    padding: 0 .5em;
+    font-size: 1.8em;
+    line-height: .67;
+    pointer-events: none; }
   .md ion-card {
     display: block;
     overflow: hidden; }
@@ -9384,13 +9375,13 @@ ion-icon {
     border-radius: 0;
     box-shadow: none;
     box-sizing: content-box; }
-  .md ion-item-options:not([icon-left]) .button-icon-left .button-inner {
+  .md ion-item-options:not([icon-left]) .button .button-inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-  .md ion-item-options:not([icon-left]) .button-icon-left ion-icon {
+  .md ion-item-options:not([icon-left]) .button ion-icon {
     padding-right: 0;
     padding-bottom: .3em;
     padding-left: 0; }
@@ -9542,8 +9533,8 @@ ion-icon {
     padding: 0 .6em;
     height: 25px;
     font-size: 1.2rem; }
-  .md .item-button.button-icon-only ion-icon,
-  .md .item-button.button-icon-only {
+  .md .item-button[icon-only] ion-icon,
+  .md .item-button[icon-only] {
     padding: 0 1px; }
   .md ion-icon[item-left] + .item-inner,
   .md ion-icon[item-left] + .item-input {
@@ -11221,9 +11212,9 @@ ion-icon {
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .md .bar-button-icon-only {
+  .md .bar-button[icon-only] {
     padding: 0; }
-    .md .bar-button-icon-only ion-icon {
+    .md .bar-button[icon-only] ion-icon {
       padding: 0 .1em;
       min-width: 28px;
       font-size: 1.8em;
@@ -12420,12 +12411,11 @@ ion-icon {
     justify-content: center;
     width: 100%;
     height: 100%; }
-  .wp a.button,
-  .wp a[button] {
+  .wp [ion-button] {
     text-decoration: none; }
   .wp a[disabled],
   .wp button[disabled],
-  .wp .button[disabled] {
+  .wp [ion-button][disabled] {
     cursor: default;
     opacity: .4;
     pointer-events: none; }
@@ -12438,13 +12428,10 @@ ion-icon {
   .wp .button-full {
     display: block;
     width: 100%; }
-    .wp .button-full.button-outline {
-      border-right-width: 0;
-      border-left-width: 0;
-      border-radius: 0; }
-  .wp .button-round {
-    padding: 0 2.6rem;
-    border-radius: 64px; }
+  .wp .button-full.button-outline {
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 0; }
   .wp .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1.1em;
@@ -12467,7 +12454,7 @@ ion-icon {
     padding: 0 0.9em;
     height: 2.1em;
     font-size: 1.3rem; }
-    .wp .button-small.button-icon-only ion-icon {
+    .wp .button-small[icon-only] ion-icon {
       font-size: 1.4em; }
   .wp .button-block {
     margin-right: 0;
@@ -12500,7 +12487,7 @@ ion-icon {
     border-radius: 64px; }
   .wp .button-fab {
     border-radius: 50%; }
-  .wp .button-icon-only {
+  .wp [icon-only] {
     padding: 0; }
   .wp ion-button-effect {
     display: none; }
@@ -12630,17 +12617,16 @@ ion-icon {
     width: 56px;
     min-width: 0;
     height: 56px;
-    border-radius: 50%;
     font-size: 14px;
     line-height: 56px;
     vertical-align: middle;
     background-clip: padding-box; }
-    .wp .button-fab ion-icon {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      font-size: 2.8rem; }
+  .wp .button-fab ion-icon {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 2.8rem; }
   .wp [fab-center] {
     left: 50%;
     margin-left: -28px; }
@@ -12654,24 +12640,24 @@ ion-icon {
     left: 16px; }
   .wp [fab-fixed] {
     position: fixed; }
-  .wp .button-icon-left ion-icon {
+  .wp [icon-left] ion-icon {
     padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .wp .button-icon-right ion-icon {
+  .wp [icon-right] ion-icon {
     padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .wp .button-icon-only {
+  .wp [icon-only] {
     padding: 0;
     min-width: .9em; }
-    .wp .button-icon-only ion-icon {
-      padding: 0 .5em;
-      font-size: 1.8em;
-      line-height: .67;
-      pointer-events: none; }
+  .wp [icon-only] ion-icon {
+    padding: 0 .5em;
+    font-size: 1.8em;
+    line-height: .67;
+    pointer-events: none; }
   .wp ion-card {
     display: block;
     overflow: hidden; }
@@ -13276,13 +13262,13 @@ ion-icon {
     border-radius: 0;
     box-shadow: none;
     box-sizing: content-box; }
-  .wp ion-item-options:not([icon-left]) .button-icon-left .button-inner {
+  .wp ion-item-options:not([icon-left]) .button .button-inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-  .wp ion-item-options:not([icon-left]) .button-icon-left ion-icon {
+  .wp ion-item-options:not([icon-left]) .button ion-icon {
     padding-right: 0;
     padding-bottom: .3em;
     padding-left: 0; }
@@ -13432,8 +13418,8 @@ ion-icon {
     padding: 0 .6em;
     height: 25px;
     font-size: 1.2rem; }
-  .wp .item-button.button-icon-only ion-icon,
-  .wp .item-button.button-icon-only {
+  .wp .item-button[icon-only] ion-icon,
+  .wp .item-button[icon-only] {
     padding: 0 1px; }
   .wp [text-wrap] ion-label {
     font-size: 1.4rem;
@@ -14975,9 +14961,9 @@ ion-icon {
     font-size: 1.4em;
     line-height: .67;
     pointer-events: none; }
-  .wp .bar-button-icon-only {
+  .wp .bar-button[icon-only] {
     padding: 0; }
-    .wp .bar-button-icon-only ion-icon {
+    .wp .bar-button[icon-only] ion-icon {
       padding: 0 .1em;
       min-width: 28px;
       font-size: 1.8em;

@@ -33,7 +33,7 @@ RangeKnob
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/components/range/range.ts#L13">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L13">
 Improve this doc
 </a>
 

@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/components/button/button.ts#L4">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/button/button.ts#L4">
 Improve this doc
 </a>
 

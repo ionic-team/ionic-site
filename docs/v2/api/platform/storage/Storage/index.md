@@ -31,7 +31,7 @@ Storage
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/platform/storage/storage.ts#L0">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/platform/storage/storage.ts#L0">
 Improve this doc
 </a>
 

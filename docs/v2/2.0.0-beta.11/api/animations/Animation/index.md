@@ -31,7 +31,7 @@ Animation
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/animations/animation.ts#L1">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/animations/animation.ts#L1">
 Improve this doc
 </a>
 

@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/components/nav/nav-controller.ts#L8">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/nav/nav-controller.ts#L8">
 Improve this doc
 </a>
 

@@ -35,7 +35,7 @@ Toolbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/mhartington/GitHub/ionic/src/components/toolbar/toolbar.ts#L131">
+<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar.ts#L131">
 Improve this doc
 </a>
 

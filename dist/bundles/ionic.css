@@ -5182,15 +5182,15 @@ ion-icon {
   .ios [fab-fixed] {
     position: fixed; }
   .ios [icon-left] ion-icon {
-    padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-right: .3em; }
   .ios [icon-right] ion-icon {
-    padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-left: .4em; }
   .ios [icon-only] {
     padding: 0;
     min-width: .9em; }
@@ -8743,15 +8743,15 @@ ion-icon {
   .md [fab-fixed] {
     position: fixed; }
   .md [icon-left] ion-icon {
-    padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-right: .3em; }
   .md [icon-right] ion-icon {
-    padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-left: .4em; }
   .md [icon-only] {
     padding: 0;
     min-width: .9em; }
@@ -12641,15 +12641,15 @@ ion-icon {
   .wp [fab-fixed] {
     position: fixed; }
   .wp [icon-left] ion-icon {
-    padding-right: .3em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-right: .3em; }
   .wp [icon-right] ion-icon {
-    padding-left: .4em;
     font-size: 1.4em;
     line-height: .67;
-    pointer-events: none; }
+    pointer-events: none;
+    padding-left: .4em; }
   .wp [icon-only] {
     padding: 0;
     min-width: .9em; }

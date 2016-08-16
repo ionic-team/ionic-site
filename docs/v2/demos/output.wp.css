@@ -5379,16 +5379,16 @@ ion-button-effect {
   position: fixed; }
 
 [icon-left] ion-icon {
-  padding-right: .3em;
   font-size: 1.4em;
   line-height: .67;
-  pointer-events: none; }
+  pointer-events: none;
+  padding-right: .3em; }
 
 [icon-right] ion-icon {
-  padding-left: .4em;
   font-size: 1.4em;
   line-height: .67;
-  pointer-events: none; }
+  pointer-events: none;
+  padding-left: .4em; }
 
 [icon-only] {
   padding: 0;

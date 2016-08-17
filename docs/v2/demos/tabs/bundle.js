@@ -89582,6 +89582,12 @@
 	        return this._nav && this._nav.config.get(key);
 	    };
 	    /**
+	     * @param {string} content  loading message content
+	     */
+	    Loading.prototype.setContent = function (content) {
+	        this.data.content = content;
+	    };
+	    /**
 	     * Present the loading instance.
 	     *
 	     * @param {NavOptions} [opts={}] Nav options to go with this transition.

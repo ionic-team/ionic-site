@@ -6,6 +6,7 @@ title: Ionic Resources
 ---
 
 <h1 class="banner resources">Resources</h1>
+<!--
 <h2>Find just what you need.</h2>
 <form class="form-group search" role="search">
   <input type="text"
@@ -14,6 +15,7 @@ title: Ionic Resources
          data-searchpos="resources"
          ng-model="searchTerm">
 </form>
+-->
 <div class="sections">
   <section>
     <h3>Videos</h3>
@@ -47,14 +49,14 @@ title: Ionic Resources
 
 
   <section class="articles">
-    <h3>Articles</h3>
+    <h3>Basics</h3>
     <ul>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/beginners-guide-to-getting-started-with-ionic-2/" class="title">Getting started with Ionic 2</a>
         <p>Learn how to add performant animations to your Ionic 2 App.</p>
       </li>
       <li>
-        <a target="_blank" href="http://www.joshmorony.com/ionic-2-first-look-series-new-angular-2-concepts-syntax/" class="title">Ionic2 and Angualr 2 Concepts</a>
+        <a target="_blank" href="http://www.joshmorony.com/ionic-2-first-look-series-new-angular-2-concepts-syntax/" class="title">Ionic2 and Angular 2 Concepts</a>
         <p>Familiarize yourself with some of the new concepts in Ionic 2 and Angular 2.</p>
       </li>
       <li>
@@ -70,6 +72,32 @@ title: Ionic Resources
         <p>Forms are essential to any app. Learn how you can validate them before sending them off.</p>
       </li>
     </ul>
+  </section>
+
+  <section class="articles">
+      <h3>Native</h3>
+      <ul>
+        <li>
+          <a target="_blank" href="http://blog.ionic.io/ionic-native-accessing-ios-photos-and-android-gallery-part-2/" class="title">Accessing Photos</a>
+          <p>Select multiple images from your photos on iOS and Android</p>
+        </li>
+        <li>
+          <a target="_blank" href="http://blog.ionic.io/ionic-native-accessing-ios-photos-and-android-gallery-part-i/" class="title">Using the Camera</a>
+          <p>Take and access photos on iOS and Android</p>
+        </li>
+        <li>
+          <a target="_blank" href="http://blog.ionic.io/ionic-native-enabling-login-with-touch-id-for-ios/" class="title">Using TouchID</a>
+          <p>Secure logins and improve user experience with the TouchID plugin</p>
+        </li>
+        <li>
+          <a target="_blank" href="http://blog.ionic.io/ionic-native-working-with-the-device-motion-plugin/" class="title">Using the Device Motion Plugin</a>
+          <p>Respond to accelerometer changes with Device Motion</p>
+        </li>
+        <li>
+          <a target="_blank" href="http://blog.ionic.io/ionic-native-native-powers-for-your-app/" class="title">Ionic Native: Super Powers for your App</a>
+          <p>Learn all about Ionic Native and how to access powerful native features in your apps</p>
+        </li>
+      </ul>
   </section>
 
 

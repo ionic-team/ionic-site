@@ -15,18 +15,18 @@ _For more information, Check out the [API docs](../api/components/loading/Loadin
 </a>
 
 ```typescript
-import { LoadingController } from 'ionic-angular';
+import { NavController, Loading } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private loadingController: LoadingController){
+  constructor(private nav: NavController){
   }
 
   presentLoading() {
-    let loader = this.loadingController.create({
+    let loader = Loading.create({
       content: "Please wait...",
       duration: 3000
     });
-    loader.present();
+    this.nav.present(this.loading);
   }
 }
 ```

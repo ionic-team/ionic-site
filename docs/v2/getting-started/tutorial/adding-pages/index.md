@@ -36,15 +36,15 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 
 class MyApp {
   ...
+  
+  // make HelloIonicPage the root (or first) page
+  rootPage: any = HelloIonicPage;
 
     constructor(
       private platform: Platform,
       private menu: MenuController
     ) {
     ...
-
-    // make HelloIonicPage the root (or first) page
-    this.rootPage = HelloIonicPage;
   }
 
   ...
@@ -52,7 +52,7 @@ class MyApp {
 
 ```
 
-We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be the first page loaded in the nav controller. Let's take a look at it.
+We see that `rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be the first page loaded in the nav controller. Let's take a look at it.
 
 
 ### Creating a Page

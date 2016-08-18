@@ -129,7 +129,7 @@ boolean
 
 
 <td>
-whether to enable scrolling along the Y axis
+whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }
 </td>
 </tr>
 

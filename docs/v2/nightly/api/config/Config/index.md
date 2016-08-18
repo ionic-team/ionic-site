@@ -202,6 +202,11 @@ chart displays each property with a description of what it controls.</p>
 <td>The default spinner to use when a name is not defined.</td>
 </tr>
 <tr>
+<td><code>swipeBackEnabled</code></td>
+<td><code>boolean</code></td>
+<td>Whether native iOS swipe to go back functionality is enabled.</td>
+</tr>
+<tr>
 <td><code>tabsHighlight</code></td>
 <td><code>boolean</code></td>
 <td>Whether to show a highlight line under the tab when it is selected.</td>

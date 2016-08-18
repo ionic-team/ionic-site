@@ -89289,7 +89289,7 @@
 	 *
 	 * Where `pushPage` and `params` are specified in your component,
 	 * and `pushPage` contains a reference to a
-	 * [@Page component](../../../config/Page/):
+	 * component you would like to push:
 	 *
 	 * ```ts
 	 * import { LoginPage } from './login';

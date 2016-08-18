@@ -62,7 +62,7 @@ property:</p>
 </code></pre>
 <p>Where <code>pushPage</code> and <code>params</code> are specified in your component,
 and <code>pushPage</code> contains a reference to a
-<a href="../../../config/Page/">@Page component</a>:</p>
+component you would like to push:</p>
 <pre><code class="lang-ts">import { LoginPage } from &#39;./login&#39;;
 
 @Component({

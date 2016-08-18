@@ -97,17 +97,17 @@ returned data.</p>
 }
 </code></pre>
 <h3 id="approximate-widths-and-heights">Approximate Widths and Heights</h3>
+<p>If the height of items in the virtual scroll are not close to the
+default size of 40px, it is extremely important to provide an value for
+approxItemHeight height. An exact pixel-perfect size is not necessary,
+but without an estimate the virtual scroll will not render correctly.</p>
 <p>The approximate width and height of each template is used to help
 determine how many cells should be created, and to help calculate
 the height of the scrollable area. Note that the actual rendered size
 of each cell comes from the app&#39;s CSS, whereas this approximation
 is only used to help calculate initial dimensions.</p>
 <p>It&#39;s also important to know that Ionic&#39;s default item sizes have
-slightly different heights between platforms, which is perfectly fine.
-An exact pixel-perfect size is not necessary, but a good estimation
-is important. Basically if each item is roughly 500px tall, rather than
-the default of 40px tall, it&#39;s extremely important to know for virtual
-scroll to calculate a good height.</p>
+slightly different heights between platforms, which is perfectly fine.</p>
 <h3 id="images-within-virtual-scroll">Images Within Virtual Scroll</h3>
 <p>Ionic provides <code>&lt;ion-img&gt;</code> to manage HTTP requests and image rendering.
 Additionally, it includes a customizable placeholder element which shows
@@ -213,13 +213,15 @@ initial dimensions. Default is <code>100%</code>.</p>
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
-      <td><p> The approximate height of each item template&#39;s cell.
+      <td><p> Default is <code>40px</code>. It is important to provide this
+if virtual item height will be significantly larger than the default
+The approximate height of each virtual item template&#39;s cell.
 This dimension is used to help determine how many cells should
 be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>40px</code>.</p>
+initial dimensions.</p>
 </td>
     </tr>
     

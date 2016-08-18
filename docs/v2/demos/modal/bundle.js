@@ -82402,6 +82402,11 @@
 	 *
 	 * ### Approximate Widths and Heights
 	 *
+	 * If the height of items in the virtual scroll are not close to the
+	 * default size of 40px, it is extremely important to provide an value for
+	 * approxItemHeight height. An exact pixel-perfect size is not necessary,
+	 * but without an estimate the virtual scroll will not render correctly.
+	 *
 	 * The approximate width and height of each template is used to help
 	 * determine how many cells should be created, and to help calculate
 	 * the height of the scrollable area. Note that the actual rendered size
@@ -82410,10 +82415,7 @@
 	 *
 	 * It's also important to know that Ionic's default item sizes have
 	 * slightly different heights between platforms, which is perfectly fine.
-	 * An exact pixel-perfect size is not necessary, but a good estimation
-	 * is important. Basically if each item is roughly 500px tall, rather than
-	 * the default of 40px tall, it's extremely important to know for virtual
-	 * scroll to calculate a good height.
+	 *
 	 *
 	 *
 	 * ### Images Within Virtual Scroll
@@ -82505,16 +82507,6 @@
 	         * initial dimensions. Default is `100%`.
 	         */
 	        this.approxItemWidth = '100%';
-	        /**
-	         * @input {string} The approximate height of each item template's cell.
-	         * This dimension is used to help determine how many cells should
-	         * be created when initialized, and to help calculate the height of
-	         * the scrollable area. This height value can only use `px` units.
-	         * Note that the actual rendered size of each cell comes from the
-	         * app's CSS, whereas this approximation is used to help calculate
-	         * initial dimensions. Default is `40px`.
-	         */
-	        this.approxItemHeight = '40px';
 	        /**
 	         * @input {string} The approximate width of each header template's cell.
 	         * This dimension is used to help determine how many cells should
@@ -82641,6 +82633,10 @@
 	                console.debug('VirtualScroll, onResize');
 	                _this.update(false);
 	            });
+	            if (!this.approxItemHeight) {
+	                this.approxItemHeight = '40px';
+	                console.warn('approxItemHeight set to default: Provide approxItemHeight to ensure proper virtual scroll rendering');
+	            }
 	        }
 	    };
 	    /**

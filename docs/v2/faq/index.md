@@ -3,6 +3,12 @@ layout: v2_fluid/docs_base
 id: faq
 category: faq
 title: Ionic Frequently Asked Questions
+footer_includes: |
+  <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+  <script>
+   anchors.options.placement = 'left';
+    anchors.add('.v2.docs.page-faq main h2, .v2.docs.page-faq main h3');
+  </script>
 ---
 
 # Trouble Shooting
@@ -15,7 +21,6 @@ You can add most third party libraries to your V2 project from NPM. For example 
 
 ```bash
 $ npm install moment --save
-
 ```
 
 From here, we can import it into what ever class we want to use it in.
@@ -357,3 +362,4 @@ This error is a more specific version of the `No provider` error above.  It happ
     '</form>'
 })
 ```
+

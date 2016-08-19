@@ -24,10 +24,10 @@ Once installed, you should have access to both `node` and `npm` from your comman
 You'll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple's Developer portal. The Mac App store is the easiest approach. Once XCode is installed, you'll have XCode, the iOS SDK, XCode command line tools, and all the build tools to output a native app.
 
 ### Java
-You'll need to download Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). The install puts Java in your `/Library/Java/JavaVirtualMachines/` folder, so navigate there and pick the version of Java you've installed. Copy this location (including the version number) as we'll need it for later.
+You'll need to download and install Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 ### Android
-Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
+Download [Android Studio](https://developer.android.com/studio/) and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
 
 Next, inside the new `SDK` location, we'll run `tools/android` to open the Android SDK Manager. We'll want to install:
 
@@ -42,7 +42,7 @@ Accept the license and let the packages install.
 Now that everything's installed, we'll need to set some environment variables for our command line. Open your terminal and enter the following:
 
 ```bash
-touch .bash_profile
+touch ~/.bash_profile
 ```
 
 Then open that file in your favorite editor.
@@ -53,8 +53,8 @@ If you've used the paths suggested, you should have something like this.
 
 
 ```bash
-  # Create a JAVA_HOME Variable, use, the name of the JDK folder
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/{replaceWithYourJavaVersion}/Contents/Home
+  # Create a JAVA_HOME variable, determined dynamically
+  export JAVA_HOME=$(/usr/libexec/java_home)
   # Add that to the global PATH variable
   export PATH=${JAVA_HOME}/bin:$PATH
   # Add the Android SDK to the PATH variable

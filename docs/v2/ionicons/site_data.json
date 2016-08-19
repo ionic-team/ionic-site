@@ -3739,7 +3739,8 @@
   },
   "lock": {
     "tags": [
-      "lock"
+      "lock",
+      "privacy"
     ],
     "icons": [
       {
@@ -4280,7 +4281,8 @@
   },
   "notifications": {
     "tags": [
-      "notifications"
+      "notifications",
+      "push"
     ],
     "icons": [
       {
@@ -4300,7 +4302,8 @@
   "notifications-off": {
     "tags": [
       "notifications",
-      "off"
+      "off",
+      "push"
     ],
     "icons": [
       {
@@ -4320,7 +4323,8 @@
   "notifications-outline": {
     "tags": [
       "notifications",
-      "outline"
+      "outline",
+      "push"
     ],
     "icons": [
       {
@@ -5565,7 +5569,8 @@
     "tags": [
       "email",
       "paper",
-      "send"
+      "send",
+      "push"
     ],
     "icons": [
       {

@@ -68685,6 +68685,7 @@
 	    }
 	    /**
 	     * Progamatically open the Menu.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Promise} returns a promise when the menu is fully opened
 	     */
 	    MenuController.prototype.open = function (menuId) {
@@ -68765,6 +68766,7 @@
 	        }
 	    };
 	    /**
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {boolean} Returns true if the menu is currently open, otherwise false.
 	     */
 	    MenuController.prototype.isOpen = function (menuId) {
@@ -68772,6 +68774,7 @@
 	        return menu && menu.isOpen || false;
 	    };
 	    /**
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {boolean} Returns true if the menu is currently enabled, otherwise false.
 	     */
 	    MenuController.prototype.isEnabled = function (menuId) {

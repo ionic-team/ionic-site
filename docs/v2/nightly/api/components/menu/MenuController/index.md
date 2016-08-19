@@ -142,13 +142,43 @@ id will be disabled.</p>
 
 <h3>
 <a class="anchor" name="open" href="#open"></a>
-<code>open()</code>
+<code>open(menuId)</code>
   
 
 </h3>
 
 Progamatically open the Menu.
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -420,13 +450,43 @@ Used to enable or disable the ability to swipe open the menu.
 
 <h3>
 <a class="anchor" name="isOpen" href="#isOpen"></a>
-<code>isOpen()</code>
+<code>isOpen(menuId)</code>
   
 
 </h3>
 
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -447,13 +507,43 @@ Used to enable or disable the ability to swipe open the menu.
 
 <h3>
 <a class="anchor" name="isEnabled" href="#isEnabled"></a>
-<code>isEnabled()</code>
+<code>isEnabled(menuId)</code>
   
 
 </h3>
 
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

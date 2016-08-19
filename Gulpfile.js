@@ -178,6 +178,8 @@ gulp.task('watch', ['server'], function() {
 });
 
 gulp.task('watch.min', ['server'], function() {
+  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss', '_scss/pages/*.scss'],
+             ['server:stylesv2']);
   gulp.watch(['_layouts/*/*','_includes/**/*', 'docs/v2/**/*.{md,html}'], ['server:jekyll']);
 
 });

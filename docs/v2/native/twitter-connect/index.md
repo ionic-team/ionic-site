@@ -118,6 +118,26 @@ Logs out
 
 
 
+<div id="showUser"></div>
+<h3><code>showUser()</code>
+  
+</h3>
+
+Returns user's profile information
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves if user profile is successfully retrieved and rejects if request fails
+</div>
+
+
+
 
 <!-- methods on the class -->
 

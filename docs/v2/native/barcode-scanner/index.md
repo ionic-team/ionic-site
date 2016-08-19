@@ -96,7 +96,7 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="scan"></div>
-<h3><code>scan()</code>
+<h3><code>scan(options)</code>
   
 </h3>
 
@@ -104,6 +104,36 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 
 Open the barcode scanner.
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>Optional options to pass to the scanner</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -146,10 +176,11 @@ NOTE: not well supported on Android
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>Type of encoding</p>
+
       
     </td>
   </tr>
@@ -162,10 +193,11 @@ NOTE: not well supported on Android
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
-      
+      <p>Data to encode</p>
+
       
     </td>
   </tr>

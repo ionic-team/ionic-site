@@ -6131,7 +6131,10 @@ ion-item-sliding.active-swipe-left .button-expandable {
   transition-property: padding-right; }
 
 ion-reorder {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -6148,6 +6151,10 @@ ion-reorder {
   height: 100%;
   font-size: 1.45em;
   opacity: .5;
+  -webkit-transform: translate3d(120%, 0, 0);
+  transform: translate3d(120%, 0, 0);
+  -webkit-transition: -webkit-transform 125ms ease-in;
+  transition: transform 125ms ease-in;
   pointer-events: all;
   -ms-touch-action: manipulation;
   touch-action: manipulation; }
@@ -6161,10 +6168,8 @@ ion-reorder {
   will-change: transform; }
 
 .reorder-enabled ion-reorder {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
 
 .reorder-list-active .item-inner {
   pointer-events: none; }

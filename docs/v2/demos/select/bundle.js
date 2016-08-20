@@ -81455,7 +81455,7 @@
 	    Reorder = __decorate([
 	        core_1.Component({
 	            selector: 'ion-reorder',
-	            template: "<ion-icon name=\"menu\"></ion-icon>"
+	            template: "<ion-icon name=\"reorder\"></ion-icon>"
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])

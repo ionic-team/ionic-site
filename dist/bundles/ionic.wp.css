@@ -6085,8 +6085,8 @@ ion-reorder {
   justify-content: center;
   max-width: 40px;
   height: 100%;
-  font-size: 1.45em;
-  opacity: .5;
+  font-size: 1.7em;
+  opacity: .25;
   -webkit-transform: translate3d(120%, 0, 0);
   transform: translate3d(120%, 0, 0);
   -webkit-transition: -webkit-transform 125ms ease-in;

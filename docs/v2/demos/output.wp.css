@@ -6217,15 +6217,15 @@ ion-reorder {
   ion-reorder ion-icon {
     pointer-events: none; }
 
-.reorder-enabled .item,
-.reorder-enabled .item-wrapper {
-  -webkit-transition: -webkit-transform 300ms;
-  transition: transform 300ms;
-  will-change: transform; }
-
 .reorder-enabled ion-reorder {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
+
+.reorder-list-active .item,
+.reorder-list-active .item-wrapper {
+  -webkit-transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  will-change: transform; }
 
 .reorder-list-active .item-inner {
   pointer-events: none; }

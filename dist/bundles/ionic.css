@@ -5888,14 +5888,14 @@ ion-icon {
     touch-action: manipulation; }
     .ios ion-reorder ion-icon {
       pointer-events: none; }
-  .ios .reorder-enabled .item,
-  .ios .reorder-enabled .item-wrapper {
-    -webkit-transition: -webkit-transform 300ms;
-    transition: transform 300ms;
-    will-change: transform; }
   .ios .reorder-enabled ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
+  .ios .reorder-list-active .item,
+  .ios .reorder-list-active .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    will-change: transform; }
   .ios .reorder-list-active .item-inner {
     pointer-events: none; }
   .ios .item-wrapper.reorder-active,
@@ -9470,14 +9470,14 @@ ion-icon {
     touch-action: manipulation; }
     .md ion-reorder ion-icon {
       pointer-events: none; }
-  .md .reorder-enabled .item,
-  .md .reorder-enabled .item-wrapper {
-    -webkit-transition: -webkit-transform 300ms;
-    transition: transform 300ms;
-    will-change: transform; }
   .md .reorder-enabled ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
+  .md .reorder-list-active .item,
+  .md .reorder-list-active .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    will-change: transform; }
   .md .reorder-list-active .item-inner {
     pointer-events: none; }
   .md .item-wrapper.reorder-active,
@@ -13365,14 +13365,14 @@ ion-icon {
     touch-action: manipulation; }
     .wp ion-reorder ion-icon {
       pointer-events: none; }
-  .wp .reorder-enabled .item,
-  .wp .reorder-enabled .item-wrapper {
-    -webkit-transition: -webkit-transform 300ms;
-    transition: transform 300ms;
-    will-change: transform; }
   .wp .reorder-enabled ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
+  .wp .reorder-list-active .item,
+  .wp .reorder-list-active .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    will-change: transform; }
   .wp .reorder-list-active .item-inner {
     pointer-events: none; }
   .wp .item-wrapper.reorder-active,

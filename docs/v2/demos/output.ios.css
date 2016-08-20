@@ -6172,10 +6172,7 @@ ion-item-sliding.active-swipe-left .button-expandable {
   transition-property: padding-right; }
 
 ion-reorder {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -6203,6 +6200,12 @@ ion-reorder {
     pointer-events: none; }
 
 .reorder-enabled ion-reorder {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.reorder-visible ion-reorder {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 

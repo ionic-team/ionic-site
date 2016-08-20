@@ -5859,10 +5859,7 @@ ion-icon {
     -webkit-transition-property: padding-right;
     transition-property: padding-right; }
   .ios ion-reorder {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -5889,6 +5886,11 @@ ion-icon {
     .ios ion-reorder ion-icon {
       pointer-events: none; }
   .ios .reorder-enabled ion-reorder {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .ios .reorder-visible ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .ios .reorder-list-active .item,
@@ -9441,10 +9443,7 @@ ion-icon {
     -webkit-transition-property: padding-right;
     transition-property: padding-right; }
   .md ion-reorder {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -9471,6 +9470,11 @@ ion-icon {
     .md ion-reorder ion-icon {
       pointer-events: none; }
   .md .reorder-enabled ion-reorder {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .md .reorder-visible ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .md .reorder-list-active .item,
@@ -13336,10 +13340,7 @@ ion-icon {
     -webkit-transition-property: padding-right;
     transition-property: padding-right; }
   .wp ion-reorder {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -13366,6 +13367,11 @@ ion-icon {
     .wp ion-reorder ion-icon {
       pointer-events: none; }
   .wp .reorder-enabled ion-reorder {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .wp .reorder-visible ion-reorder {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .wp .reorder-list-active .item,

@@ -52304,6 +52304,19 @@
 	    }
 	}
 	exports.rafFrames = rafFrames;
+	// TODO: DRY rafFrames and zoneRafFrames
+	function zoneRafFrames(framesToWait, callback) {
+	    framesToWait = Math.ceil(framesToWait);
+	    if (framesToWait < 2) {
+	        exports.raf(callback);
+	    }
+	    else {
+	        setTimeout(function () {
+	            exports.raf(callback);
+	        }, (framesToWait - 1) * 16.6667);
+	    }
+	}
+	exports.zoneRafFrames = zoneRafFrames;
 	exports.CSS = {};
 	(function () {
 	    // transform
@@ -58127,11 +58140,9 @@
 	        function checkKeyboard() {
 	            console.debug('keyboard isOpen', self.isOpen());
 	            if (!self.isOpen() || checks > pollingChecksMax) {
-	                dom_1.rafFrames(30, function () {
-	                    self._zone.run(function () {
-	                        console.debug('keyboard closed');
-	                        callback();
-	                    });
+	                dom_1.zoneRafFrames(30, function () {
+	                    console.debug('keyboard closed');
+	                    callback();
 	                });
 	            }
 	            else {
@@ -81320,6 +81331,7 @@
 	        this._zone = _zone;
 	        this._content = _content;
 	        this._enableReorder = false;
+	        this._visibleReorder = false;
 	        this._lastToIndex = -1;
 	        /**
 	         * @output {object} The expression to evaluate when the item is reordered. Emits an object
@@ -81343,14 +81355,19 @@
 	            return this._enableReorder;
 	        },
 	        set: function (val) {
-	            this._enableReorder = util_1.isTrueProperty(val);
-	            if (!this._enableReorder) {
-	                this._reorderGesture && this._reorderGesture.destroy();
+	            var _this = this;
+	            var enabled = util_1.isTrueProperty(val);
+	            if (!enabled && this._reorderGesture) {
+	                this._reorderGesture.destroy();
 	                this._reorderGesture = null;
+	                this._visibleReorder = false;
+	                setTimeout(function () { return _this._enableReorder = false; }, 400);
 	            }
-	            else if (!this._reorderGesture) {
+	            else if (enabled && !this._reorderGesture) {
 	                console.debug('enableReorderItems');
 	                this._reorderGesture = new item_reorder_gesture_1.ItemReorderGesture(this);
+	                this._enableReorder = true;
+	                dom_1.zoneRafFrames(2, function () { return _this._visibleReorder = true; });
 	            }
 	        },
 	        enumerable: true,
@@ -81467,6 +81484,7 @@
 	            selector: 'ion-list[reorder],ion-item-group[reorder]',
 	            host: {
 	                '[class.reorder-enabled]': '_enableReorder',
+	                '[class.reorder-visible]': '_visibleReorder',
 	            }
 	        }),
 	        __param(3, core_1.Optional()), 

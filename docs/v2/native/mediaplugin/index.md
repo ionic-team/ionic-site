@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media.ts#L9">
   Improve this doc
 </a>
 
@@ -168,6 +168,58 @@ newFile.stopRecord();
 
 <div id="MEDIA_STOPPED"></div>
 <h3><code>MEDIA_STOPPED()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="MEDIA_ERR_ABORTED"></div>
+<h3><code>MEDIA_ERR_ABORTED()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="MEDIA_ERR_NETWORK"></div>
+<h3><code>MEDIA_ERR_NETWORK()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="MEDIA_ERR_DECODE"></div>
+<h3><code>MEDIA_ERR_DECODE()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div id="MEDIA_ERR_NONE_SUPPORTED"></div>
+<h3><code>MEDIA_ERR_NONE_SUPPORTED()</code>
   
 </h3>
 

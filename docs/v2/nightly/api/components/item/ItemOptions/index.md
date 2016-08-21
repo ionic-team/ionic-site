@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>The option buttons for an <code>ion-item-sliding</code>. These buttons can be placed either on the left or right side.
-You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
+You can combind the <code>(ionSwipe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
 
 
 

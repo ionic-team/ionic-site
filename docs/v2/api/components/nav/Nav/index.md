@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p><code>ion-nav</code> is the declarative component for a <a href="../NavController/">NavController</a>.</p>
-<p>For more information on using nav controllers like Nav or <a href="../../Tabs/Tab/">Tab</a>,
+<p>For more information on using nav controllers like Nav or <a href="../../tabs/Tab/">Tab</a>,
 take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
 
 

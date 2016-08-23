@@ -20,7 +20,6 @@ To use NG2-Translate, you must first import it and add it to your `ionicBootstra
 import { TranslateService, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
 ionicBootstrap(MyApp, [
-  HTTP_PROVIDERS,
   { 
     provide: TranslateLoader,
     useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
@@ -30,7 +29,7 @@ ionicBootstrap(MyApp, [
 ]);
 ```
 
-This loads the `TranslateService`, sets the default loader, and also bootstraps the Angular 2 http module, which NG2-Translate requires. The most important part here is the `TranslateStaticLoader` constructor. The first argument is injecting the Angular 2 http module, which it uses to fetch each translation file. The second argument is the path to your translation assets, and the third argument is the type of file that your translation assets are in (usually json).
+This loads the `TranslateService`, sets the default loader, and also bootstraps the Angular 2 http module, which NG2-Translate requires. Normally you would also have to import the Angular 2 http module too, but because Ionic 2 already provides it for you, there is no need to import and bootstrap it again. The most important part here is the `TranslateStaticLoader` constructor. The first argument is injecting the Angular 2 http module, which it uses to fetch each translation file. The second argument is the path to your translation assets, and the third argument is the type of file that your translation assets are in (usually json).
 
 ### Usage
 

@@ -291,7 +291,7 @@ Can be used to get notified or run function when the background mode has been ac
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>The name of the event. Available events: activate, deactivate, failure</p>

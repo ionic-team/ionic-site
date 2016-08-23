@@ -96,17 +96,7 @@ ScreenOrientation.unlockOrientation();
 
 
 Lock the orientation to the passed value.
-
-Accepted orientation values:
-| Value                         | Description                                                                  |
-|-------------------------------|------------------------------------------------------------------------------|
-| portrait-primary              | The orientation is in the primary portrait mode.                             |
-| portrait-secondary            | The orientation is in the secondary portrait mode.                           |
-| landscape-primary             | The orientation is in the primary landscape mode.                            |
-| landscape-secondary           | The orientation is in the secondary landscape mode.                          |
-| portrait                      | The orientation is either portrait-primary or portrait-secondary (sensor).   |
-| landscape                     | The orientation is either landscape-primary or landscape-secondary (sensor). |
-
+See below for accepted values
 
 
 <table class="table param-table" style="margin:0;">
@@ -179,7 +169,17 @@ Unlock and allow all orientations.
 
 
 
-<!-- methods on the class -->
+<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Accepted orientation values:
+| Value                         | Description                                                                  |
+|-------------------------------|------------------------------------------------------------------------------|
+| portrait-primary              | The orientation is in the primary portrait mode.                             |
+| portrait-secondary            | The orientation is in the secondary portrait mode.                           |
+| landscape-primary             | The orientation is in the primary landscape mode.                            |
+| landscape-secondary           | The orientation is in the secondary landscape mode.                          |
+| portrait                      | The orientation is either portrait-primary or portrait-secondary (sensor).   |
+| landscape                     | The orientation is either landscape-primary or landscape-secondary (sensor). |</p>
+
 
 <!-- related link --><!-- end content block -->
 

@@ -57,7 +57,7 @@ While Angular 2 requires apps to be updated for the syntax change, developers ca
 
 ### ControllerAs Syntax
 
-ControllerAs Syntax is a feature in Angular 1.x where instead of binding data to `$scope`, you can bind to the direct instance of the controller instead. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
+ControllerAs Syntax is a feature in Angular 1.x where, instead of binding data to `$scope`, you can bind to the direct instance of the controller. This makes migrating a Angular 1.x controller to an Angular 2 class much easier. It's fairly easy to migrate to `controllerAs` from a traditional controller:
 
 _index.html_
 

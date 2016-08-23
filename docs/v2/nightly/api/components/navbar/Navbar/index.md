@@ -100,6 +100,13 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
   <tbody>
     
     <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>hideBackButton</td>
       <td><code>boolean</code></td>
       <td><p> whether the back button should be shown or not</p>

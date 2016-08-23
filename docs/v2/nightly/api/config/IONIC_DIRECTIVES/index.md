@@ -31,7 +31,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/directives.ts#L118">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/directives.ts#L120">
 Improve this doc
 </a>
 
@@ -105,6 +105,7 @@ are part of the app&#39;s default directives.</p>
 <li>IdRef</li>
 <li>ShowWhen</li>
 <li>HideWhen</li>
+<li>Typography</li>
 </ul>
 
 

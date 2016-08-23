@@ -370,6 +370,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
   <tbody>
     
     <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>selectedIndex</td>
       <td><code>number</code></td>
       <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>

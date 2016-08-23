@@ -18364,15 +18364,15 @@
 	exports.IONIC_DIRECTIVES = directives_1.IONIC_DIRECTIVES;
 	var providers_1 = __webpack_require__(362);
 	exports.ionicProviders = providers_1.ionicProviders;
-	__export(__webpack_require__(503));
 	__export(__webpack_require__(504));
+	__export(__webpack_require__(505));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(454));
 	__export(__webpack_require__(348));
 	__export(__webpack_require__(349));
 	__export(__webpack_require__(347));
 	__export(__webpack_require__(339));
-	__export(__webpack_require__(512));
+	__export(__webpack_require__(513));
 	__export(__webpack_require__(336));
 	__export(__webpack_require__(427));
 	__export(__webpack_require__(359));
@@ -18380,17 +18380,17 @@
 	var util_1 = __webpack_require__(340);
 	exports.reorderArray = util_1.reorderArray;
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(494));
+	__export(__webpack_require__(495));
 	__export(__webpack_require__(355));
-	__export(__webpack_require__(502));
-	__export(__webpack_require__(516));
+	__export(__webpack_require__(503));
+	__export(__webpack_require__(517));
 	// these modules don't export anything
-	__webpack_require__(517);
 	__webpack_require__(518);
 	__webpack_require__(519);
 	__webpack_require__(520);
 	__webpack_require__(521);
 	__webpack_require__(522);
+	__webpack_require__(523);
 
 /***/ },
 /* 117 */
@@ -18403,7 +18403,7 @@
 	var dom_1 = __webpack_require__(337);
 	var providers_1 = __webpack_require__(362);
 	var platform_1 = __webpack_require__(339);
-	var tap_click_1 = __webpack_require__(497);
+	var tap_click_1 = __webpack_require__(498);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -58297,16 +58297,16 @@
 	var directives_1 = __webpack_require__(430);
 	var util_1 = __webpack_require__(340);
 	var keyboard_1 = __webpack_require__(359);
-	var loading_1 = __webpack_require__(490);
+	var loading_1 = __webpack_require__(491);
 	var menu_controller_1 = __webpack_require__(433);
-	var modal_1 = __webpack_require__(492);
+	var modal_1 = __webpack_require__(493);
 	var picker_1 = __webpack_require__(473);
 	var platform_1 = __webpack_require__(339);
-	var popover_1 = __webpack_require__(495);
+	var popover_1 = __webpack_require__(496);
 	var scroll_view_1 = __webpack_require__(441);
-	var tap_click_1 = __webpack_require__(497);
-	var toast_1 = __webpack_require__(500);
-	var translate_1 = __webpack_require__(502);
+	var tap_click_1 = __webpack_require__(498);
+	var toast_1 = __webpack_require__(501);
+	var translate_1 = __webpack_require__(503);
 	/**
 	 * @private
 	 */
@@ -66664,6 +66664,19 @@
 	        this._css = '';
 	        this.mode = config.get('iconMode');
 	    }
+	    Object.defineProperty(Icon.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -66766,6 +66779,26 @@
 	    Icon.prototype.addClass = function (className) {
 	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
 	    };
+	    /**
+	    * @internal
+	    */
+	    Icon.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Icon.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "icon-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Icon.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -67749,6 +67782,7 @@
 	var nav_push_1 = __webpack_require__(488);
 	var navbar_1 = __webpack_require__(435);
 	var show_hide_when_1 = __webpack_require__(489);
+	var typography_1 = __webpack_require__(490);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -67818,6 +67852,7 @@
 	 * - IdRef
 	 * - ShowWhen
 	 * - HideWhen
+	 * - Typography
 	 */
 	exports.IONIC_DIRECTIVES = [
 	    // Angular
@@ -67887,7 +67922,8 @@
 	    nav_push_1.NavPush,
 	    nav_pop_1.NavPop,
 	    show_hide_when_1.ShowWhen,
-	    show_hide_when_1.HideWhen
+	    show_hide_when_1.HideWhen,
+	    typography_1.Typography
 	];
 
 /***/ },
@@ -69168,9 +69204,11 @@
 	 */
 	var Navbar = (function (_super) {
 	    __extends(Navbar, _super);
-	    function Navbar(_app, viewCtrl, elementRef, config) {
-	        _super.call(this, elementRef);
+	    function Navbar(_app, viewCtrl, _elementRef, _renderer, config) {
+	        _super.call(this, _elementRef);
 	        this._app = _app;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        this._hidden = false;
 	        this._hideBb = false;
 	        viewCtrl && viewCtrl.setNavbar(this);
@@ -69178,6 +69216,19 @@
 	        this._bbText = config.get('backButtonText');
 	        this._sbPadding = config.getBoolean('statusbarPadding', false);
 	    }
+	    Object.defineProperty(Navbar.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Navbar.prototype, "hideBackButton", {
 	        /**
 	         * @input {boolean} whether the back button should be shown or not
@@ -69251,6 +69302,26 @@
 	        // used to display none/block the navbar
 	        this._hidden = isHidden;
 	    };
+	    /**
+	     * @internal
+	     */
+	    Navbar.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Navbar.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "toolbar-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Navbar.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
@@ -69267,10 +69338,10 @@
 	            }
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object])
 	    ], Navbar);
 	    return Navbar;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}(toolbar_1.ToolbarBase));
 	exports.Navbar = Navbar;
 	/**
@@ -69584,16 +69655,51 @@
 	 */
 	var Toolbar = (function (_super) {
 	    __extends(Toolbar, _super);
-	    function Toolbar(viewCtrl, header, footer, config, elementRef) {
-	        _super.call(this, elementRef);
+	    function Toolbar(viewCtrl, header, footer, config, _elementRef, _renderer) {
+	        _super.call(this, _elementRef);
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        if (viewCtrl && (header || footer)) {
 	            // only toolbars within headers and footer are view toolbars
 	            // toolbars within the content are not view toolbars, since they
 	            // are apart of the content, and could be anywhere within the content
-	            viewCtrl.setToolbarRef(elementRef);
+	            viewCtrl.setToolbarRef(_elementRef);
 	        }
 	        this._sbPadding = config.getBoolean('statusbarPadding');
 	    }
+	    Object.defineProperty(Toolbar.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @internal
+	     */
+	    Toolbar.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Toolbar.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "toolbar-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Toolbar.prototype, "color", null);
 	    Toolbar = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toolbar',
@@ -69607,10 +69713,10 @@
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, Header, Footer, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, Header, Footer, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
 	    ], Toolbar);
 	    return Toolbar;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d;
 	}(ToolbarBase));
 	exports.Toolbar = Toolbar;
 
@@ -69708,37 +69814,45 @@
 	  * @description
 	  * Badges are simple components in Ionic containing numbers or text. You can display a badge to indicate that there is new information associated with the item it is on.
 	  * @see {@link /docs/v2/components/#badges Badges Component Docs}
-
 	 */
 	var Badge = (function () {
 	    function Badge(config, _elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
-	        var element = _elementRef.nativeElement;
-	        this._readAttrs(element);
 	    }
+	    Object.defineProperty(Badge.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
-	     * @private
+	     * @internal
 	     */
-	    Badge.prototype._readAttrs = function (element) {
-	        var elementAttrs = element.attributes;
-	        var attrName;
-	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
-	            if (elementAttrs[i].value !== '')
-	                continue;
-	            attrName = elementAttrs[i].name;
-	            // Ignore attributes item-left, item-right
-	            if (attrName.indexOf('item') === -1) {
-	                this._setClass(attrName);
-	            }
+	    Badge.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Badge.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "badge-" + color, isAdd);
 	        }
 	    };
-	    /**
-	     * @private
-	     */
-	    Badge.prototype._setClass = function (color) {
-	        this._renderer.setElementClass(this._elementRef.nativeElement, 'badge-' + color, true);
-	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Badge.prototype, "color", null);
 	    Badge = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-badge'
@@ -69802,13 +69916,13 @@
 	  *  <!-- Colors -->
 	  *  <button ion-button>Default</button>
 	  *
-	  *  <button ion-button secondary>Secondary</button>
+	  *  <button ion-button color="secondary">Secondary</button>
 	  *
-	  *  <button ion-button danger>Danger</button>
+	  *  <button ion-button color="danger">Danger</button>
 	  *
-	  *  <button ion-button light>Light</button>
+	  *  <button ion-button color="light">Light</button>
 	  *
-	  *  <button ion-button dark>Dark</button>
+	  *  <button ion-button color="dark">Dark</button>
 	  *
 	  *  <!-- Shapes -->
 	  *  <button ion-button full>Full Button</button>
@@ -69855,16 +69969,16 @@
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 	 */
 	var Button = (function () {
-	    function Button(ionButton, config, _elementRef, _renderer) {
+	    function Button(menuToggle, ionButton, config, _elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._role = 'button'; // bar-button
+	        this._mt = false; // menutoggle
 	        this._size = null; // large/small/default
 	        this._style = 'default'; // outline/clear/solid
 	        this._shape = null; // round/fab
 	        this._display = null; // block/full
-	        this._colors = []; // primary/secondary
-	        this._icon = null; // left/right/only
+	        this._color = null; // primary/secondary
 	        this._disabled = false; // disabled
 	        var element = _elementRef.nativeElement;
 	        if (config.get('hoverCSS') === false) {
@@ -69876,7 +69990,11 @@
 	        if (ionButton.trim().length > 0) {
 	            this.setRole(ionButton);
 	        }
-	        this._readAttrs(element);
+	        // menuToggle can be added with or without a string
+	        // but if the attribute isn't added it will be null
+	        if (menuToggle !== null) {
+	            this._mt = true;
+	        }
 	    }
 	    Object.defineProperty(Button.prototype, "large", {
 	        /**
@@ -69948,6 +70066,16 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Button.prototype, "fab", {
+	        /**
+	         * @input {string} A floating action button.
+	         */
+	        set: function (val) {
+	            this._attr('_shape', 'fab', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Button.prototype, "block", {
 	        /**
 	         * @input {string} A button that fills its parent container with a border-radius.
@@ -69969,6 +70097,9 @@
 	        configurable: true
 	    });
 	    Button.prototype._attr = function (type, attrName, attrValue) {
+	        if (type === '_style') {
+	            this._setColor(this._color, util_1.isTrueProperty(attrValue));
+	        }
 	        this._setClass(this[type], false);
 	        if (util_1.isTrueProperty(attrValue)) {
 	            this[type] = attrName;
@@ -69977,9 +70108,7 @@
 	        else {
 	            // Special handling for '_style' which defaults to 'default'.
 	            this[type] = (type === '_style' ? 'default' : null);
-	        }
-	        if (type === '_style') {
-	            this._setColor(attrName, util_1.isTrueProperty(attrValue));
+	            this._setClass(this[type], true);
 	        }
 	    };
 	    Object.defineProperty(Button.prototype, "color", {
@@ -69987,12 +70116,7 @@
 	         * @input {string} Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 	         */
 	        set: function (val) {
-	            // Clear the colors for all styles including the default one.
-	            this._setColor(BUTTON_STYLE_ATTRS.concat(['default']), false);
-	            // Support array input which is also supported via multiple attributes (e.g. primary, secondary, etc).
-	            this._colors = (val instanceof Array ? val : [val]);
-	            // Set the colors for the currently effective style.
-	            this._setColor(this._style, true);
+	            this._updateColor(val);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -70005,10 +70129,12 @@
 	        this._assignCss(true);
 	    };
 	    /**
-	     * @private
+	     * @internal
 	     */
-	    Button.prototype.ngAfterContentChecked = function () {
-	        this._assignCss(true);
+	    Button.prototype._updateColor = function (newColor) {
+	        this._setColor(this._color, false);
+	        this._setColor(newColor, true);
+	        this._color = newColor;
 	    };
 	    /**
 	     * @private
@@ -70027,47 +70153,20 @@
 	    /**
 	     * @private
 	     */
-	    Button.prototype._readAttrs = function (element) {
-	        var elementAttrs = element.attributes;
-	        var attrName;
-	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
-	            if (elementAttrs[i].value !== '')
-	                continue;
-	            attrName = elementAttrs[i].name;
-	            if (BUTTON_STYLE_ATTRS.indexOf(attrName) > -1) {
-	                this._style = attrName;
-	            }
-	            else if (BUTTON_DISPLAY_ATTRS.indexOf(attrName) > -1) {
-	                this._display = attrName;
-	            }
-	            else if (BUTTON_SHAPE_ATTRS.indexOf(attrName) > -1) {
-	                this._shape = attrName;
-	            }
-	            else if (BUTTON_SIZE_ATTRS.indexOf(attrName) > -1) {
-	                this._size = attrName;
-	            }
-	            else if (!(IGNORE_ATTRS.test(attrName))) {
-	                this._colors.push(attrName);
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
 	    Button.prototype._assignCss = function (assignCssClass) {
 	        var role = this._role;
 	        if (role) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button
+	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button    
+	            this._setClass('menutoggle', this._mt); // menutoggle
 	            this._setClass(this._style, assignCssClass); // button-clear
 	            this._setClass(this._shape, assignCssClass); // button-round
 	            this._setClass(this._display, assignCssClass); // button-full
 	            this._setClass(this._size, assignCssClass); // button-small
-	            this._setClass(this._icon, assignCssClass); // button-icon-left
-	            this._setColor(this._style, assignCssClass); // button-secondary, button-clear-secondary
+	            this._setColor(this._color, assignCssClass); // button-secondary, bar-button-secondary
 	        }
 	    };
 	    /**
-	     * @private
+	     * @internal
 	     */
 	    Button.prototype._setClass = function (type, assignCssClass) {
 	        if (type && this._init) {
@@ -70075,21 +70174,20 @@
 	        }
 	    };
 	    /**
-	     * @private
+	     * @internal
 	     */
-	    Button.prototype._setColor = function (type, assignCssClass) {
-	        var _this = this;
-	        if (type && this._init) {
-	            // Support array to allow removal of many styles at once.
-	            var styles = (type instanceof Array ? type : [type]);
-	            styles.forEach(function (styleName) {
-	                // If the role is not a bar-button, don't apply the solid style
-	                styleName = (_this._role !== 'bar-button' && styleName === 'solid' ? 'default' : styleName);
-	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
-	                _this._colors.forEach(function (colorName) {
-	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
-	                });
-	            });
+	    Button.prototype._setColor = function (color, isAdd) {
+	        if (color && this._init) {
+	            // The class should begin with the button role
+	            // button, bar-button
+	            var className = this._role;
+	            // If the role is not a bar-button, don't apply the solid style
+	            var style = this._style;
+	            style = (this._role !== 'bar-button' && style === 'solid' ? 'default' : style);
+	            className += (style !== null && style !== '' && style !== 'default' ? '-' + style.toLowerCase() : '');
+	            if (color !== null && color !== '') {
+	                this._renderer.setElementClass(this._elementRef.nativeElement, className + "-" + color, isAdd);
+	            }
 	        }
 	    };
 	    __decorate([
@@ -70131,6 +70229,11 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean), 
 	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "fab", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
 	    ], Button.prototype, "block", null);
 	    __decorate([
 	        core_1.Input(), 
@@ -70139,8 +70242,8 @@
 	    ], Button.prototype, "full", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
+	        __metadata('design:type', String), 
+	        __metadata('design:paramtypes', [String])
 	    ], Button.prototype, "color", null);
 	    Button = __decorate([
 	        core_1.Component({
@@ -70150,20 +70253,14 @@
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
-	        __param(0, core_1.Attribute('ion-button')), 
-	        __metadata('design:paramtypes', [String, (typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        __param(0, core_1.Attribute('menuToggle')),
+	        __param(1, core_1.Attribute('ion-button')), 
+	        __metadata('design:paramtypes', [String, String, (typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Button);
 	    return Button;
 	    var _a, _b, _c;
 	}());
 	exports.Button = Button;
-	var BUTTON_SIZE_ATTRS = ['large', 'small', 'default'];
-	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
-	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
-	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
-	var IGNORE_ATTRS = /_ng|button|left|right/;
-	var TEXT = 1;
-	var ICON = 2;
 
 /***/ },
 /* 440 */
@@ -71179,6 +71276,19 @@
 	            };
 	        }
 	    }
+	    Object.defineProperty(Tabs.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -71257,6 +71367,22 @@
 	            val = this._config.get(attrKey, fallback);
 	        }
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, attrKey, val);
+	    };
+	    /**
+	     * @internal
+	     */
+	    Tabs.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Tabs.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "tabs-" + color, isAdd);
+	        }
 	    };
 	    /**
 	     * @private
@@ -71439,6 +71565,10 @@
 	            this._bottom = bottom;
 	        }
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tabs.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -72736,14 +72866,29 @@
 	 * ```
 	 */
 	var Spinner = (function () {
-	    function Spinner(_config) {
+	    function Spinner(_config, _elementRef, _renderer) {
 	        this._config = _config;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        this._dur = null;
 	        /**
 	         * @input {string} If the animation is paused or not. Defaults to `false`.
 	         */
 	        this.paused = false;
 	    }
+	    Object.defineProperty(Spinner.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Spinner.prototype, "name", {
 	        /**
 	         * @input {string} SVG spinner name.
@@ -72800,6 +72945,7 @@
 	                        this._c.push(this._loadEle(spinner, i, l));
 	                    }
 	                }
+	                this._renderer.setElementClass(this._elementRef.nativeElement, this._applied, true);
 	            }
 	        }
 	    };
@@ -72809,6 +72955,26 @@
 	        data.style.animationDuration = duration + 'ms';
 	        return data;
 	    };
+	    /**
+	     * @internal
+	     */
+	    Spinner.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Spinner.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "spinner-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Spinner.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -72827,16 +72993,15 @@
 	            template: "\n    <svg viewBox=\"0 0 64 64\" *ngFor=\"let i of _c\" [ngStyle]=\"i.style\">\n     <circle [attr.r]=\"i.r\" transform=\"translate(32,32)\"></circle>\n    </svg>\n    <svg viewBox=\"0 0 64 64\" *ngFor=\"let i of _l\" [ngStyle]=\"i.style\">\n     <line [attr.y1]=\"i.y1\" [attr.y2]=\"i.y2\" transform=\"translate(32,32)\"></line>\n    </svg>\n  ",
 	            directives: [common_1.NgFor, common_1.NgStyle],
 	            host: {
-	                '[class]': '_applied',
 	                '[class.spinner-paused]': 'paused'
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
 	    ], Spinner);
 	    return Spinner;
-	    var _a;
+	    var _a, _b, _d;
 	}());
 	exports.Spinner = Spinner;
 	var SPINNERS = {
@@ -80967,7 +81132,7 @@
 	 *       Item
 	 *     </ion-item>
 	 *     <ion-item-options>
-	 *       <button ion-button primary (click)="archive()">Archive</button>
+	 *       <button ion-button color="primary" (click)="archive()">Archive</button>
 	 *     </ion-item-options>
 	 *   </ion-item-sliding>
 	 *
@@ -80993,6 +81158,19 @@
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
 	    }
+	    Object.defineProperty(Item.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -81088,11 +81266,32 @@
 	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
 	    /**
+	     * @internal
+	     */
+	    Item.prototype._updateColor = function (newColor, colorClass) {
+	        this._setElementColor(this._color, false, colorClass);
+	        this._setElementColor(newColor, true, colorClass);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Item.prototype._setElementColor = function (color, isAdd, colorClass) {
+	        colorClass = colorClass || 'item'; // item-radio
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, colorClass + "-" + color, isAdd);
+	        }
+	    };
+	    /**
 	     * @private
 	     */
 	    Item.prototype.getNativeElement = function () {
 	        return this._elementRef.nativeElement;
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Item.prototype, "color", null);
 	    __decorate([
 	        core_1.ContentChild(label_1.Label), 
 	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object), 
@@ -81709,6 +81908,19 @@
 	        this._renderer = _renderer;
 	        this.type = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
 	    }
+	    Object.defineProperty(Label.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Label.prototype, "id", {
 	        /**
 	         * @private
@@ -81742,6 +81954,26 @@
 	    Label.prototype.addClass = function (className) {
 	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
 	    };
+	    /**
+	     * @internal
+	     */
+	    Label.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Label.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "label-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Label.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -81888,7 +82120,7 @@
 	 *     </ion-item>
 	 *     <ion-item-options side="left">
 	 *       <button ion-button (click)="favorite(item)">Favorite</button>
-	 *       <button ion-button danger (click)="share(item)">Share</button>
+	 *       <button ion-button color="danger" (click)="share(item)">Share</button>
 	 *     </ion-item-options>
 
 	 *     <ion-item-options side="right">
@@ -83650,8 +83882,8 @@
 	var core_1 = __webpack_require__(6);
 	var forms_1 = __webpack_require__(363);
 	var form_1 = __webpack_require__(360);
-	var item_1 = __webpack_require__(459);
 	var util_1 = __webpack_require__(340);
+	var item_1 = __webpack_require__(459);
 	exports.CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(forms_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
 	 * @name Checkbox
@@ -83692,9 +83924,11 @@
 	 * @see {@link /docs/v2/components#checkbox Checkbox Component Docs}
 	 */
 	var Checkbox = (function () {
-	    function Checkbox(_form, _item) {
+	    function Checkbox(_form, _item, _elementRef, _renderer) {
 	        this._form = _form;
 	        this._item = _item;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        this._checked = false;
 	        this._disabled = false;
 	        /**
@@ -83708,6 +83942,35 @@
 	            this._item.setCssClass('item-checkbox', true);
 	        }
 	    }
+	    Object.defineProperty(Checkbox.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @internal
+	     */
+	    Checkbox.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Checkbox.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "checkbox-" + color, isAdd);
+	        }
+	    };
 	    /**
 	     * @private
 	     */
@@ -83806,6 +84069,10 @@
 	        this._form.deregister(this);
 	    };
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Checkbox.prototype, "color", null);
+	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Checkbox.prototype, "ionChange", void 0);
@@ -83834,10 +84101,10 @@
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], Checkbox);
 	    return Checkbox;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d, _e;
 	}());
 	exports.Checkbox = Checkbox;
 
@@ -85958,7 +86225,6 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        this._activated = false;
-	        this._msPrv = 0;
 	        this._events = new ui_event_manager_1.UIEventManager();
 	        /**
 	         * @output {Toggle} expression to evaluate when the toggle value changes
@@ -85971,6 +86237,19 @@
 	            this._item.setCssClass('item-toggle', true);
 	        }
 	    }
+	    Object.defineProperty(Toggle.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -86079,6 +86358,22 @@
 	        configurable: true
 	    });
 	    /**
+	     * @internal
+	     */
+	    Toggle.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Toggle.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "toggle-" + color, isAdd);
+	        }
+	    };
+	    /**
 	     * @private
 	     */
 	    Toggle.prototype.onChange = function (isChecked) {
@@ -86110,6 +86405,10 @@
 	        this._form.deregister(this);
 	        this._events.unlistenAll();
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Toggle.prototype, "color", null);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -86197,12 +86496,12 @@
 	 * ```html
 	 * <ion-list>
 	 *   <ion-item>
-	 *     <ion-label primary>Inline Label</ion-label>
+	 *     <ion-label color="primary">Inline Label</ion-label>
 	 *     <ion-input placeholder="Text Input"></ion-input>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-label primary fixed>Fixed Label</ion-label>
+	 *     <ion-label color="primary" fixed>Fixed Label</ion-label>
 	 *     <ion-input type="tel" placeholder="Tel Input"></ion-input>
 	 *   </ion-item>
 	 *
@@ -86211,17 +86510,17 @@
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-label primary stacked>Stacked Label</ion-label>
+	 *     <ion-label color="primary" stacked>Stacked Label</ion-label>
 	 *     <ion-input type="email" placeholder="Email Input"></ion-input>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-label primary stacked>Stacked Label</ion-label>
+	 *     <ion-label color="primary" stacked>Stacked Label</ion-label>
 	 *     <ion-input type="password" placeholder="Password Input"></ion-input>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-label primary floating>Floating Label</ion-label>
+	 *     <ion-label color="primary" floating>Floating Label</ion-label>
 	 *     <ion-input></ion-input>
 	 *   </ion-item>
 	 *
@@ -87181,7 +87480,7 @@
 	 * ```html
 	 * <ion-content>
 	 *   <!-- Segment buttons with icons -->
-	 *   <ion-segment [(ngModel)]="icons" secondary>
+	 *   <ion-segment [(ngModel)]="icons" color="secondary">
 	 *     <ion-segment-button value="camera">
 	 *       <ion-icon name="camera"></ion-icon>
 	 *     </ion-segment-button>
@@ -87191,7 +87490,7 @@
 	 *   </ion-segment>
 	 *
 	 *   <!-- Segment buttons with text -->
-	 *   <ion-segment [(ngModel)]="relationship" primary>
+	 *   <ion-segment [(ngModel)]="relationship" color="primary">
 	 *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
 	 *       Friends
 	 *     </ion-segment-button>
@@ -87311,7 +87610,7 @@
 	 * <!-- Segment in a header -->
 	 * <ion-header>
 	 *   <ion-toolbar>
-	 *     <ion-segment [(ngModel)]="icons" secondary>
+	 *     <ion-segment [(ngModel)]="icons" color="secondary">
 	 *       <ion-segment-button value="camera">
 	 *         <ion-icon name="camera"></ion-icon>
 	 *       </ion-segment-button>
@@ -87324,7 +87623,7 @@
 	 *
 	 * <ion-content>
 	 *   <!-- Segment in content -->
-	 *   <ion-segment [(ngModel)]="relationship" primary>
+	 *   <ion-segment [(ngModel)]="relationship" color="primary">
 	 *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
 	 *       Friends
 	 *     </ion-segment-button>
@@ -87335,7 +87634,7 @@
 	 *
 	 *   <!-- Segment in a form -->
 	 *   <form [formGroup]="myForm">
-	 *     <ion-segment formControlName="mapStyle" danger>
+	 *     <ion-segment formControlName="mapStyle" color="danger">
 	 *       <ion-segment-button value="standard">
 	 *         Standard
 	 *       </ion-segment-button>
@@ -87356,7 +87655,9 @@
 	 * @see [Angular 2 Forms](http://learnangular2.com/forms/)
 	 */
 	var Segment = (function () {
-	    function Segment(ngControl) {
+	    function Segment(_elementRef, _renderer, ngControl) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        this._disabled = false;
 	        /**
 	         * @output {Any}  expression to evaluate when a segment button has been changed
@@ -87374,6 +87675,19 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
+	    Object.defineProperty(Segment.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Segment.prototype, "disabled", {
 	        /**
 	         * @private
@@ -87394,6 +87708,22 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @internal
+	     */
+	    Segment.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Segment.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "segment-" + color, isAdd);
+	        }
+	    };
 	    /**
 	     * @private
 	     * Write a new value to the element.
@@ -87440,6 +87770,10 @@
 	     */
 	    Segment.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Segment.prototype, "color", null);
+	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Segment.prototype, "ionChange", void 0);
@@ -87455,11 +87789,11 @@
 	        core_1.Directive({
 	            selector: 'ion-segment'
 	        }),
-	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof forms_1.NgControl !== 'undefined' && forms_1.NgControl) === 'function' && _c) || Object])
+	        __param(2, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof forms_1.NgControl !== 'undefined' && forms_1.NgControl) === 'function' && _e) || Object])
 	    ], Segment);
 	    return Segment;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d, _e;
 	}());
 	exports.Segment = Segment;
 
@@ -87521,8 +87855,10 @@
 	 * @see {@link ../RadioGroup RadioGroup API Docs}
 	 */
 	var RadioButton = (function () {
-	    function RadioButton(_form, _item, _group) {
+	    function RadioButton(_form, _elementRef, _renderer, _item, _group) {
 	        this._form = _form;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
 	        this._item = _item;
 	        this._group = _group;
 	        this._checked = false;
@@ -87545,6 +87881,19 @@
 	            this._item.setCssClass('item-radio', true);
 	        }
 	    }
+	    Object.defineProperty(RadioButton.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(RadioButton.prototype, "value", {
 	        /**
 	         * @input {any} The value of the radio button. Defaults to the generated id.
@@ -87614,6 +87963,29 @@
 	        this._form.deregister(this);
 	        this._group && this._group.remove(this);
 	    };
+	    /**
+	     * @internal
+	     */
+	    RadioButton.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    RadioButton.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "radio-" + color, isAdd);
+	            if (this._item) {
+	                this._item._updateColor(color, 'item-radio');
+	            }
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], RadioButton.prototype, "color", null);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -87645,12 +88017,12 @@
 	            },
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
-	        __param(1, core_1.Optional()),
-	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof radio_group_1.RadioGroup !== 'undefined' && radio_group_1.RadioGroup) === 'function' && _d) || Object])
+	        __param(3, core_1.Optional()),
+	        __param(4, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _e) || Object, (typeof (_f = typeof radio_group_1.RadioGroup !== 'undefined' && radio_group_1.RadioGroup) === 'function' && _f) || Object])
 	    ], RadioButton);
 	    return RadioButton;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e, _f;
 	}());
 	exports.RadioButton = RadioButton;
 
@@ -88042,11 +88414,11 @@
 	 * ```html
 	 * <ion-list>
 	 *   <ion-item>
-	 *     <ion-range [(ngModel)]="singleValue" danger pin="true"></ion-range>
+	 *     <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-range min="-200" max="200" [(ngModel)]="saturation" secondary>
+	 *     <ion-range min="-200" max="200" [(ngModel)]="saturation" color="secondary">
 	 *       <ion-label range-left>-200</ion-label>
 	 *       <ion-label range-right>200</ion-label>
 	 *     </ion-range>
@@ -88061,7 +88433,7 @@
 	 *
 	 *   <ion-item>
 	 *     <ion-label>step=100, snaps, {{singleValue4}}</ion-label>
-	 *     <ion-range min="1000" max="2000" step="100" snaps="true" secondary [(ngModel)]="singleValue4"></ion-range>
+	 *     <ion-range min="1000" max="2000" step="100" snaps="true" color="secondary" [(ngModel)]="singleValue4"></ion-range>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
@@ -88075,9 +88447,10 @@
 	 * @demo /docs/v2/demos/range/
 	 */
 	var Range = (function () {
-	    function Range(_form, _item, _renderer) {
+	    function Range(_form, _item, _elementRef, _renderer) {
 	        this._form = _form;
 	        this._item = _item;
+	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._dual = false;
 	        this._disabled = false;
@@ -88100,6 +88473,19 @@
 	            _item.setCssClass('item-range', true);
 	        }
 	    }
+	    Object.defineProperty(Range.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Range.prototype, "min", {
 	        /**
 	         * @input {number} Minimum integer value of the range. Defaults to `0`.
@@ -88409,6 +88795,22 @@
 	        return (value - this._min) / (this._max - this._min);
 	    };
 	    /**
+	     * @internal
+	     */
+	    Range.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Range.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "range-" + color, isAdd);
+	        }
+	    };
+	    /**
 	     * @private
 	     */
 	    Range.prototype.writeValue = function (val) {
@@ -88505,6 +88907,10 @@
 	        this._events.unlistenAll();
 	    };
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Range.prototype, "color", null);
+	    __decorate([
 	        core_1.ViewChild('bar'), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
 	    ], Range.prototype, "_bar", void 0);
@@ -88566,10 +88972,10 @@
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object])
 	    ], Range);
 	    return Range;
-	    var _a, _b, _c, _d, _e, _f, _g;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	}());
 	exports.Range = Range;
 
@@ -88646,9 +89052,10 @@
 	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
 	var Searchbar = (function () {
-	    function Searchbar(_elementRef, _config, ngControl) {
+	    function Searchbar(_elementRef, _config, _renderer, ngControl) {
 	        this._elementRef = _elementRef;
 	        this._config = _config;
+	        this._renderer = _renderer;
 	        this._value = '';
 	        this._shouldBlur = true;
 	        this._isActive = false;
@@ -88702,6 +89109,19 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
+	    Object.defineProperty(Searchbar.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Searchbar.prototype, "debounce", {
 	        /**
 	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
@@ -88897,6 +89317,22 @@
 	        this._isActive = false;
 	    };
 	    /**
+	     * @internal
+	     */
+	    Searchbar.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Searchbar.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "searchbar-" + color, isAdd);
+	        }
+	    };
+	    /**
 	     * @private
 	     * Write a new value to the element.
 	     */
@@ -88918,6 +89354,10 @@
 	    Searchbar.prototype.registerOnTouched = function (fn) {
 	        this.onTouched = fn;
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Searchbar.prototype, "color", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -88995,7 +89435,7 @@
 	        core_1.Component({
 	            selector: 'ion-searchbar',
 	            template: '<div class="searchbar-input-container">' +
-	                '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear dark class="searchbar-md-cancel">' +
+	                '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel">' +
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div #searchbarIcon class="searchbar-search-icon"></div>' +
@@ -89012,11 +89452,11 @@
 	            },
 	            encapsulation: core_1.ViewEncapsulation.None
 	        }),
-	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_k = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _k) || Object, (typeof (_l = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _l) || Object, (typeof (_m = typeof forms_1.NgControl !== 'undefined' && forms_1.NgControl) === 'function' && _m) || Object])
+	        __param(3, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_k = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _k) || Object, (typeof (_l = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _l) || Object, (typeof (_m = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _m) || Object, (typeof (_o = typeof forms_1.NgControl !== 'undefined' && forms_1.NgControl) === 'function' && _o) || Object])
 	    ], Searchbar);
 	    return Searchbar;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 	}());
 	exports.Searchbar = Searchbar;
 
@@ -89557,6 +89997,74 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(6);
+	/**
+	  * @private
+	  * Select all of the HTML text elements with the color attribute to apply the text-color class.
+	 */
+	var Typography = (function () {
+	    function Typography(_elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	    }
+	    Object.defineProperty(Typography.prototype, "color", {
+	        /**
+	         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+	         */
+	        get: function () {
+	            return this._color;
+	        },
+	        set: function (value) {
+	            this._updateColor(value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @internal
+	     */
+	    Typography.prototype._updateColor = function (newColor) {
+	        this._setElementColor(this._color, false);
+	        this._setElementColor(newColor, true);
+	        this._color = newColor;
+	    };
+	    /**
+	     * @internal
+	     */
+	    Typography.prototype._setElementColor = function (color, isAdd) {
+	        if (color !== null && color !== '') {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, "text-" + color, isAdd);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Typography.prototype, "color", null);
+	    Typography = __decorate([
+	        core_1.Directive({
+	            selector: 'h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color], p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
+	    ], Typography);
+	    return Typography;
+	    var _a, _b;
+	}());
+	exports.Typography = Typography;
+
+/***/ },
+/* 491 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -89574,7 +90082,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var loading_component_1 = __webpack_require__(491);
+	var loading_component_1 = __webpack_require__(492);
 	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
@@ -89757,7 +90265,7 @@
 	exports.LoadingController = LoadingController;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89957,7 +90465,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89978,7 +90486,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var modal_component_1 = __webpack_require__(493);
+	var modal_component_1 = __webpack_require__(494);
 	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
@@ -90172,7 +90680,7 @@
 	exports.ModalController = ModalController;
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90197,7 +90705,7 @@
 	var key_1 = __webpack_require__(361);
 	var nav_params_1 = __webpack_require__(345);
 	var util_1 = __webpack_require__(340);
-	var page_transition_1 = __webpack_require__(494);
+	var page_transition_1 = __webpack_require__(495);
 	var view_controller_1 = __webpack_require__(357);
 	var dom_1 = __webpack_require__(337);
 	/**
@@ -90364,7 +90872,7 @@
 	page_transition_1.PageTransition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90419,7 +90927,7 @@
 	}
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90440,7 +90948,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var popover_component_1 = __webpack_require__(496);
+	var popover_component_1 = __webpack_require__(497);
 	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
@@ -90615,7 +91123,7 @@
 	exports.PopoverController = PopoverController;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90641,7 +91149,7 @@
 	var dom_1 = __webpack_require__(337);
 	var key_1 = __webpack_require__(361);
 	var nav_params_1 = __webpack_require__(345);
-	var page_transition_1 = __webpack_require__(494);
+	var page_transition_1 = __webpack_require__(495);
 	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
@@ -90937,7 +91445,7 @@
 	var POPOVER_MD_BODY_PADDING = 12;
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90951,11 +91459,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var activator_1 = __webpack_require__(498);
+	var activator_1 = __webpack_require__(499);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
-	var ripple_1 = __webpack_require__(499);
+	var ripple_1 = __webpack_require__(500);
 	/**
 	 * @private
 	 */
@@ -91137,7 +91645,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91222,7 +91730,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91231,7 +91739,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(498);
+	var activator_1 = __webpack_require__(499);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -91332,7 +91840,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91353,7 +91861,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var toast_component_1 = __webpack_require__(501);
+	var toast_component_1 = __webpack_require__(502);
 	var view_controller_1 = __webpack_require__(357);
 	/**
 	 * @private
@@ -91503,7 +92011,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91789,7 +92297,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -91857,7 +92365,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91883,19 +92391,19 @@
 	exports.Page = Page;
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var action_sheet_1 = __webpack_require__(421);
 	exports.ActionSheet = action_sheet_1.ActionSheet;
 	exports.ActionSheetController = action_sheet_1.ActionSheetController;
-	var action_sheet_options_1 = __webpack_require__(505);
+	var action_sheet_options_1 = __webpack_require__(506);
 	exports.ActionSheetOptions = action_sheet_options_1.ActionSheetOptions;
 	var alert_1 = __webpack_require__(425);
 	exports.Alert = alert_1.Alert;
 	exports.AlertController = alert_1.AlertController;
-	var alert_options_1 = __webpack_require__(506);
+	var alert_options_1 = __webpack_require__(507);
 	exports.AlertOptions = alert_options_1.AlertOptions;
 	exports.AlertInputOptions = alert_options_1.AlertInputOptions;
 	var app_1 = __webpack_require__(335);
@@ -91936,10 +92444,10 @@
 	var list_1 = __webpack_require__(457);
 	exports.List = list_1.List;
 	exports.ListHeader = list_1.ListHeader;
-	var loading_1 = __webpack_require__(490);
+	var loading_1 = __webpack_require__(491);
 	exports.Loading = loading_1.Loading;
 	exports.LoadingController = loading_1.LoadingController;
-	var loading_options_1 = __webpack_require__(507);
+	var loading_options_1 = __webpack_require__(508);
 	exports.LoadingOptions = loading_options_1.LoadingOptions;
 	var menu_1 = __webpack_require__(431);
 	exports.Menu = menu_1.Menu;
@@ -91949,12 +92457,12 @@
 	exports.MenuController = menu_controller_1.MenuController;
 	var menu_toggle_1 = __webpack_require__(434);
 	exports.MenuToggle = menu_toggle_1.MenuToggle;
-	var menu_types_1 = __webpack_require__(508);
+	var menu_types_1 = __webpack_require__(509);
 	exports.MenuType = menu_types_1.MenuType;
-	var modal_1 = __webpack_require__(492);
+	var modal_1 = __webpack_require__(493);
 	exports.Modal = modal_1.Modal;
 	exports.ModalController = modal_1.ModalController;
-	var modal_options_1 = __webpack_require__(509);
+	var modal_options_1 = __webpack_require__(510);
 	exports.ModalOptions = modal_options_1.ModalOptions;
 	var nav_1 = __webpack_require__(486);
 	exports.Nav = nav_1.Nav;
@@ -91982,10 +92490,10 @@
 	exports.PickerOptions = picker_options_1.PickerOptions;
 	exports.PickerColumn = picker_options_1.PickerColumn;
 	exports.PickerColumnOption = picker_options_1.PickerColumnOption;
-	var popover_1 = __webpack_require__(495);
+	var popover_1 = __webpack_require__(496);
 	exports.Popover = popover_1.Popover;
 	exports.PopoverController = popover_1.PopoverController;
-	var popover_options_1 = __webpack_require__(510);
+	var popover_options_1 = __webpack_require__(511);
 	exports.PopoverOptions = popover_options_1.PopoverOptions;
 	var radio_button_1 = __webpack_require__(481);
 	exports.RadioButton = radio_button_1.RadioButton;
@@ -92022,13 +92530,13 @@
 	exports.Tab = tab_1.Tab;
 	var tabs_1 = __webpack_require__(442);
 	exports.Tabs = tabs_1.Tabs;
-	var tap_click_1 = __webpack_require__(497);
+	var tap_click_1 = __webpack_require__(498);
 	exports.TapClick = tap_click_1.TapClick;
 	exports.isActivatable = tap_click_1.isActivatable;
-	var toast_1 = __webpack_require__(500);
+	var toast_1 = __webpack_require__(501);
 	exports.Toast = toast_1.Toast;
 	exports.ToastController = toast_1.ToastController;
-	var toast_options_1 = __webpack_require__(511);
+	var toast_options_1 = __webpack_require__(512);
 	exports.ToastOptions = toast_options_1.ToastOptions;
 	var toggle_1 = __webpack_require__(476);
 	exports.Toggle = toggle_1.Toggle;
@@ -92037,14 +92545,10 @@
 	exports.ToolbarBase = toolbar_1.ToolbarBase;
 	exports.Header = toolbar_1.Header;
 	exports.Footer = toolbar_1.Footer;
+	var typography_1 = __webpack_require__(490);
+	exports.Typography = typography_1.Typography;
 	var virtual_scroll_1 = __webpack_require__(464);
 	exports.VirtualScroll = virtual_scroll_1.VirtualScroll;
-
-/***/ },
-/* 505 */
-/***/ function(module, exports) {
-
-	"use strict";
 
 /***/ },
 /* 506 */
@@ -92060,6 +92564,12 @@
 
 /***/ },
 /* 508 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92213,12 +92723,6 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 509 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
 /* 510 */
 /***/ function(module, exports) {
 
@@ -92232,18 +92736,24 @@
 
 /***/ },
 /* 512 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(513));
 	__export(__webpack_require__(514));
 	__export(__webpack_require__(515));
+	__export(__webpack_require__(516));
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -92327,7 +92837,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92336,7 +92846,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(513);
+	var storage_1 = __webpack_require__(514);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -92441,7 +92951,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92450,7 +92960,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(513);
+	var storage_1 = __webpack_require__(514);
 	var util_1 = __webpack_require__(340);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -92594,7 +93104,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92608,7 +93118,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(502);
+	var translate_1 = __webpack_require__(503);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -92644,7 +93154,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92738,7 +93248,7 @@
 	});
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92931,7 +93441,7 @@
 	}
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92991,7 +93501,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 520 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93001,7 +93511,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(356);
-	var page_transition_1 = __webpack_require__(494);
+	var page_transition_1 = __webpack_require__(495);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -93164,7 +93674,7 @@
 	page_transition_1.PageTransition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 521 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93174,7 +93684,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(356);
-	var page_transition_1 = __webpack_require__(494);
+	var page_transition_1 = __webpack_require__(495);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -93224,7 +93734,7 @@
 	page_transition_1.PageTransition.register('md-transition', MDTransition);
 
 /***/ },
-/* 522 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -93234,7 +93744,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(356);
-	var page_transition_1 = __webpack_require__(494);
+	var page_transition_1 = __webpack_require__(495);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {

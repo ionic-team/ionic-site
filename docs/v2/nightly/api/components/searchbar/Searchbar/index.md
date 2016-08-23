@@ -82,6 +82,13 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>cancelButtonText</td>
       <td><code>string</code></td>
       <td><p> Set the the cancel button text. Default: <code>&quot;Cancel&quot;</code>.</p>

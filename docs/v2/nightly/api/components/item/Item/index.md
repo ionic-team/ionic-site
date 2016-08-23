@@ -207,7 +207,28 @@ be added to <code>ion-item</code> to transform the text.</p>
 
 
 
-<!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <pre><code class="lang-html">&lt;ion-list&gt;
 
   &lt;!-- List header with buttons on each side --&gt;
@@ -288,7 +309,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       Item
     &lt;/ion-item&gt;
     &lt;ion-item-options&gt;
-      &lt;button ion-button primary (click)=&quot;archive()&quot;&gt;Archive&lt;/button&gt;
+      &lt;button ion-button color=&quot;primary&quot; (click)=&quot;archive()&quot;&gt;Archive&lt;/button&gt;
     &lt;/ion-item-options&gt;
   &lt;/ion-item-sliding&gt;
 

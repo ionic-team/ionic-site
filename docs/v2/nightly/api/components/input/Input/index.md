@@ -63,12 +63,12 @@ interactivity.</p>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
-    &lt;ion-label primary&gt;Inline Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot;&gt;Inline Label&lt;/ion-label&gt;
     &lt;ion-input placeholder=&quot;Text Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary fixed&gt;Fixed Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; fixed&gt;Fixed Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;tel&quot; placeholder=&quot;Tel Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
@@ -77,17 +77,17 @@ interactivity.</p>
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;email&quot; placeholder=&quot;Email Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;password&quot; placeholder=&quot;Password Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary floating&gt;Floating Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; floating&gt;Floating Label&lt;/ion-label&gt;
     &lt;ion-input&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 

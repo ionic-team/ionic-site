@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L3">
 Improve this doc
 </a>
 
@@ -57,13 +57,13 @@ and be enhanced by a wide range of attributes.</p>
 <pre><code class="lang-html">&lt;!-- Colors --&gt;
 &lt;button ion-button&gt;Default&lt;/button&gt;
 
-&lt;button ion-button secondary&gt;Secondary&lt;/button&gt;
+&lt;button ion-button color=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
 
-&lt;button ion-button danger&gt;Danger&lt;/button&gt;
+&lt;button ion-button color=&quot;danger&quot;&gt;Danger&lt;/button&gt;
 
-&lt;button ion-button light&gt;Light&lt;/button&gt;
+&lt;button ion-button color=&quot;light&quot;&gt;Light&lt;/button&gt;
 
-&lt;button ion-button dark&gt;Dark&lt;/button&gt;
+&lt;button ion-button color=&quot;dark&quot;&gt;Dark&lt;/button&gt;
 
 &lt;!-- Shapes --&gt;
 &lt;button ion-button full&gt;Full Button&lt;/button&gt;
@@ -415,6 +415,13 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
       <td>round</td>
       <td><code>string</code></td>
       <td><p> A button with rounded corners.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>fab</td>
+      <td><code>string</code></td>
+      <td><p> A floating action button.</p>
 </td>
     </tr>
     

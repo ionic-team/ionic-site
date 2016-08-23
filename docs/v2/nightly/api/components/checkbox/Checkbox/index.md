@@ -97,6 +97,13 @@ for more info on forms and inputs.</p>
   <tbody>
     
     <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>checked</td>
       <td><code>boolean</code></td>
       <td><p> whether or not the checkbox is checked (defaults to false)</p>

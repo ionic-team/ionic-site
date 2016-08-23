@@ -55,7 +55,7 @@ Improve this doc
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;!-- Segment buttons with icons --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;icons&quot; secondary&gt;
+  &lt;ion-segment [(ngModel)]=&quot;icons&quot; color=&quot;secondary&quot;&gt;
     &lt;ion-segment-button value=&quot;camera&quot;&gt;
       &lt;ion-icon name=&quot;camera&quot;&gt;&lt;/ion-icon&gt;
     &lt;/ion-segment-button&gt;
@@ -65,7 +65,7 @@ Improve this doc
   &lt;/ion-segment&gt;
 
   &lt;!-- Segment buttons with text --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
+  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; color=&quot;primary&quot;&gt;
     &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
       Friends
     &lt;/ion-segment-button&gt;

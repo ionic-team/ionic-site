@@ -148,6 +148,13 @@ of <code>background-color</code>.</p>
   <tbody>
     
     <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>name</td>
       <td><code>string</code></td>
       <td><p> SVG spinner name.</p>

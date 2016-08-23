@@ -91980,6 +91980,8 @@
 	exports.PickerController = picker_1.PickerController;
 	var picker_options_1 = __webpack_require__(475);
 	exports.PickerOptions = picker_options_1.PickerOptions;
+	exports.PickerColumn = picker_options_1.PickerColumn;
+	exports.PickerColumnOption = picker_options_1.PickerColumnOption;
 	var popover_1 = __webpack_require__(495);
 	exports.Popover = popover_1.Popover;
 	exports.PopoverController = popover_1.PopoverController;

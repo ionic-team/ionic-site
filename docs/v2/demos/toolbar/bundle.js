@@ -69960,13 +69960,21 @@
 	    function Button(menuToggle, ionButton, config, _elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
+	        /** @internal */
 	        this._role = 'button'; // bar-button
+	        /** @internal */
 	        this._mt = false; // menutoggle
+	        /** @internal */
 	        this._size = null; // large/small/default
+	        /** @internal */
 	        this._style = 'default'; // outline/clear/solid
+	        /** @internal */
 	        this._shape = null; // round/fab
+	        /** @internal */
 	        this._display = null; // block/full
+	        /** @internal */
 	        this._color = null; // primary/secondary
+	        /** @internal */
 	        this._disabled = false; // disabled
 	        var element = _elementRef.nativeElement;
 	        if (config.get('hoverCSS') === false) {
@@ -70139,12 +70147,12 @@
 	        this._assignCss(true);
 	    };
 	    /**
-	     * @private
+	     * @internal
 	     */
 	    Button.prototype._assignCss = function (assignCssClass) {
 	        var role = this._role;
 	        if (role) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button    
+	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button
 	            this._setClass('menutoggle', this._mt); // menutoggle
 	            this._setClass(this._style, assignCssClass); // button-clear
 	            this._setClass(this._shape, assignCssClass); // button-round

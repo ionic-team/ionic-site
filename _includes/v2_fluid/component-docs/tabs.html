@@ -38,16 +38,14 @@ import { Tab2 } from './tab2-page';
 })
 class MyApp {
 
-  private tab1: any;
-  private tab2: any;
+  tab1: any;
+  tab2: any;
 
   constructor() {
     this.tab1 = Tab1;
     this.tab2 = Tab2;
   }
 }
-
-ionicBootstrap(MyApp)
 ```
 
 Individual tabs are just `@Components`
@@ -88,8 +86,7 @@ import { NavController } from 'ionic-angular';
 ...
 })
 class Tab1 {
-  constructor(
-    private nav: NavController) {
+  constructor(public navCtrl: NavController) {
     // Id is 1, nav refers to Tab1
     console.log(this.nav.id)
   }
@@ -99,7 +96,7 @@ class Tab1 {
 ...
 })
 class Tab2 {
-  constructor(private nav: NavController) {
+  constructor(public navCtrl: NavController) {
     // Id is 2, nav refers to Tab2
     console.log(this.nav.id)
   }

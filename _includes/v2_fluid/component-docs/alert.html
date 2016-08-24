@@ -33,11 +33,11 @@ Basic Alerts are typically used to notify the user about new information (a chan
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showAlert() {
-    let alert = this.alertController.create({
+    let alert = this.alertCtrl.create({
       title: 'New Friend!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
       buttons: ['OK']
@@ -59,11 +59,11 @@ Prompts offer a way to input data or information.  Often times  Prompts will be 
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showPrompt() {
-    let prompt = this.alertController.create({
+    let prompt = this.alertCtrl.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -104,11 +104,11 @@ Confirmation Alerts are used when it is required that the user explicitly confir
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showConfirm() {
-    let confirm = this.alertController.create({
+    let confirm = this.alertCtrl.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -144,11 +144,11 @@ Radio Alerts are a type of Confirmation Alert, but use the [Radio](http://ionicf
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showRadio() {
-    let alert = this.alertController.create();
+    let alert = this.alertCtrl.create();
     alert.setTitle('Lightsaber color');
 
     alert.addInput({
@@ -184,11 +184,11 @@ Checkbox Alerts are a type of Confirmation Alert, but use the [Checkbox](/docs/v
 import { AlertController } from 'ionic-angular';
 
 export class MyPage {
-  constructor(private alertController: AlertController){
+  constructor(public alertCtrl: AlertController) {
   }
 
   showCheckbox() {
-    let alert = this.alertController.create();
+    let alert = this.alertCtrl.create();
     alert.setTitle('Which planets have you visited?');
 
     alert.addInput({

@@ -18,11 +18,11 @@ import { ModalController } from 'ionic-angular';
 import { ModalPage } from './modal-page';
 
 export class MyPage {
-  constructor ( private modalController : ModalController ){
+  constructor(public modalCtrl: ModalController) {
   }
 
   presentModal() {
-    let modal = this.modalController.create(ModalPage);
+    let modal = this.modalCtrl.create(ModalPage);
     modal.present();
   }
 }

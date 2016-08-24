@@ -104,14 +104,14 @@ on any of the options will automatically close the overlay and select
 that value.</p>
 <h3 id="alert-options">Alert Options</h3>
 <p>Since <code>ion-select</code> is a wrapper to <code>Alert</code>, by default, it can be
-passed options in the <code>alertOptions</code> property. This can be used to
+passed options in the <code>selectOptions</code> property. This can be used to
 pass a custom alert title, subtitle or message. See the <a href='../../alert/Alert'>Alert API docs</a>
 for more properties.</p>
-<pre><code class="lang-html">&lt;ion-select [alertOptions]=&quot;alertOptions&quot;&gt;
+<pre><code class="lang-html">&lt;ion-select [selectOptions]=&quot;selectOptions&quot;&gt;
   ...
 &lt;/ion-select&gt;
 </code></pre>
-<pre><code class="lang-ts">this.alertOptions = {
+<pre><code class="lang-ts">this.selectOptions = {
   title: &#39;Pizza Toppings&#39;,
   subTitle: &#39;Select your toppings&#39;
 };
@@ -185,10 +185,12 @@ Open the select interface.
     </tr>
     
     <tr>
-      <td>alertOptions</td>
+      <td>selectOptions</td>
       <td><code>any</code></td>
-      <td><p> Any addition options that the alert interface can take.
-See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</p>
+      <td><p> Any additional options that the <code>alert</code> or <code>action-sheet</code> interface can take.
+See the <a href="../../alert/AlertController/#create">Alert API docs</a> and the
+<a href="../../action-sheet/ActionSheetController/#create">ActionSheetController API docs</a> for the
+create options for each interface.</p>
 </td>
     </tr>
     

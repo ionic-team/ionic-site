@@ -5246,63 +5246,64 @@ ion-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 2px 0;
-    padding: 0 12px;
-    height: 32px;
-    border-radius: 16px;
-    font-size: 13px;
     font-weight: normal;
-    line-height: 32px;
-    background: rgba(0, 0, 0, 0.12);
     vertical-align: middle;
     box-sizing: border-box; }
-    .ios ion-chip ion-label {
+    .ios ion-chip .button {
+      border-radius: 50%;
       margin: 0;
-      color: rgba(0, 0, 0, 0.87); }
-    .ios ion-chip > ion-icon,
-    .ios ion-chip > ion-avatar {
-      margin-left: -12px;
+      height: 32px;
+      width: 32px; }
+    .ios ion-chip ion-icon {
+      border-radius: 50%;
+      line-height: 32px;
+      font-size: 18px;
+      width: 32px;
+      height: 32px; }
+    .ios ion-chip ion-avatar {
+      border-radius: 50%;
       width: 32px;
       height: 32px;
-      border-radius: 50%;
-      font-size: 18px;
-      line-height: 32px;
-      text-align: center;
-      color: rgba(0, 0, 0, 0.87);
-      vertical-align: top; }
-      .ios ion-chip > ion-icon img,
-      .ios ion-chip > ion-avatar img {
+      min-width: 32px;
+      min-height: 32px; }
+      .ios ion-chip ion-avatar img {
         display: block;
         width: 100%;
         max-width: 100%;
         height: 100%;
         max-height: 100%;
         border-radius: 50%; }
-      .ios ion-chip > ion-icon + ion-label,
-      .ios ion-chip > ion-avatar + ion-label {
-        margin-left: 8px; }
-    .ios ion-chip ion-avatar {
-      min-width: 32px;
-      min-height: 32px; }
-    .ios ion-chip .button {
-      margin: 0;
-      margin-right: -4px;
-      height: inherit; }
-    .ios ion-chip ion-icon[name="close-circle"] {
-      font-size: 1.2em; }
-  .ios ion-chip ion-icon[primary] {
+  .ios ion-chip {
+    margin: 2px 0;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.87);
+    background: rgba(0, 0, 0, 0.12); }
+    .ios ion-chip > ion-label {
+      margin: 0 10px; }
+    .ios ion-chip > ion-icon {
+      color: #fff;
+      background-color: #327eff; }
+  .ios .chip-primary,
+  .ios ion-chip .icon-primary {
     color: #fff;
     background-color: #327eff; }
-  .ios ion-chip ion-icon[secondary] {
+  .ios .chip-secondary,
+  .ios ion-chip .icon-secondary {
     color: #fff;
     background-color: #32db64; }
-  .ios ion-chip ion-icon[danger] {
+  .ios .chip-danger,
+  .ios ion-chip .icon-danger {
     color: #fff;
     background-color: #f53d3d; }
-  .ios ion-chip ion-icon[light] {
+  .ios .chip-light,
+  .ios ion-chip .icon-light {
     color: #000;
     background-color: #f4f4f4; }
-  .ios ion-chip ion-icon[dark] {
+  .ios .chip-dark,
+  .ios ion-chip .icon-dark {
     color: #fff;
     background-color: #222; }
   .ios [no-padding],
@@ -9027,63 +9028,64 @@ ion-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 2px 0;
-    padding: 0 12px;
-    height: 32px;
-    border-radius: 16px;
-    font-size: 13px;
     font-weight: normal;
-    line-height: 32px;
-    background: rgba(0, 0, 0, 0.12);
     vertical-align: middle;
     box-sizing: border-box; }
-    .md ion-chip ion-label {
+    .md ion-chip .button {
+      border-radius: 50%;
       margin: 0;
-      color: rgba(0, 0, 0, 0.87); }
-    .md ion-chip > ion-icon,
-    .md ion-chip > ion-avatar {
-      margin-left: -12px;
+      height: 32px;
+      width: 32px; }
+    .md ion-chip ion-icon {
+      border-radius: 50%;
+      line-height: 32px;
+      font-size: 18px;
+      width: 32px;
+      height: 32px; }
+    .md ion-chip ion-avatar {
+      border-radius: 50%;
       width: 32px;
       height: 32px;
-      border-radius: 50%;
-      font-size: 18px;
-      line-height: 32px;
-      text-align: center;
-      color: rgba(0, 0, 0, 0.87);
-      vertical-align: top; }
-      .md ion-chip > ion-icon img,
-      .md ion-chip > ion-avatar img {
+      min-width: 32px;
+      min-height: 32px; }
+      .md ion-chip ion-avatar img {
         display: block;
         width: 100%;
         max-width: 100%;
         height: 100%;
         max-height: 100%;
         border-radius: 50%; }
-      .md ion-chip > ion-icon + ion-label,
-      .md ion-chip > ion-avatar + ion-label {
-        margin-left: 8px; }
-    .md ion-chip ion-avatar {
-      min-width: 32px;
-      min-height: 32px; }
-    .md ion-chip .button {
-      margin: 0;
-      margin-right: -4px;
-      height: inherit; }
-    .md ion-chip ion-icon[name="close-circle"] {
-      font-size: 1.2em; }
-  .md ion-chip ion-icon[primary] {
+  .md ion-chip {
+    margin: 2px 0;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.87);
+    background: rgba(0, 0, 0, 0.12); }
+    .md ion-chip > ion-label {
+      margin: 0 10px; }
+    .md ion-chip > ion-icon {
+      color: #fff;
+      background-color: #327eff; }
+  .md .chip-primary,
+  .md ion-chip .icon-primary {
     color: #fff;
     background-color: #327eff; }
-  .md ion-chip ion-icon[secondary] {
+  .md .chip-secondary,
+  .md ion-chip .icon-secondary {
     color: #fff;
     background-color: #32db64; }
-  .md ion-chip ion-icon[danger] {
+  .md .chip-danger,
+  .md ion-chip .icon-danger {
     color: #fff;
     background-color: #f53d3d; }
-  .md ion-chip ion-icon[light] {
+  .md .chip-light,
+  .md ion-chip .icon-light {
     color: #000;
     background-color: #f4f4f4; }
-  .md ion-chip ion-icon[dark] {
+  .md .chip-dark,
+  .md ion-chip .icon-dark {
     color: #fff;
     background-color: #222; }
   .md [no-padding],
@@ -13176,63 +13178,66 @@ ion-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 2px 0;
-    padding: 0 12px;
-    height: 32px;
-    border-radius: 16px;
-    font-size: 13px;
     font-weight: normal;
-    line-height: 32px;
-    background: rgba(0, 0, 0, 0.12);
     vertical-align: middle;
     box-sizing: border-box; }
-    .wp ion-chip ion-label {
+    .wp ion-chip .button {
+      border-radius: 50%;
       margin: 0;
-      color: rgba(0, 0, 0, 0.87); }
-    .wp ion-chip > ion-icon,
-    .wp ion-chip > ion-avatar {
-      margin-left: -12px;
+      height: 32px;
+      width: 32px; }
+    .wp ion-chip ion-icon {
+      border-radius: 50%;
+      line-height: 32px;
+      font-size: 18px;
+      width: 32px;
+      height: 32px; }
+    .wp ion-chip ion-avatar {
+      border-radius: 50%;
       width: 32px;
       height: 32px;
-      border-radius: 50%;
-      font-size: 18px;
-      line-height: 32px;
-      text-align: center;
-      color: rgba(0, 0, 0, 0.87);
-      vertical-align: top; }
-      .wp ion-chip > ion-icon img,
-      .wp ion-chip > ion-avatar img {
+      min-width: 32px;
+      min-height: 32px; }
+      .wp ion-chip ion-avatar img {
         display: block;
         width: 100%;
         max-width: 100%;
         height: 100%;
         max-height: 100%;
         border-radius: 50%; }
-      .wp ion-chip > ion-icon + ion-label,
-      .wp ion-chip > ion-avatar + ion-label {
-        margin-left: 8px; }
-    .wp ion-chip ion-avatar {
-      min-width: 32px;
-      min-height: 32px; }
+  .wp ion-chip {
+    margin: 2px 0;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.87);
+    background: rgba(0, 0, 0, 0.12); }
+    .wp ion-chip > ion-label {
+      margin: 0 10px; }
+    .wp ion-chip > ion-icon {
+      color: #fff;
+      background-color: #327eff; }
     .wp ion-chip .button {
-      margin: 0;
-      margin-right: -4px;
-      height: inherit; }
-    .wp ion-chip ion-icon[name="close-circle"] {
-      font-size: 1.2em; }
-  .wp ion-chip ion-icon[primary] {
+      border: 0; }
+  .wp .chip-primary,
+  .wp ion-chip .icon-primary {
     color: #fff;
     background-color: #327eff; }
-  .wp ion-chip ion-icon[secondary] {
+  .wp .chip-secondary,
+  .wp ion-chip .icon-secondary {
     color: #fff;
     background-color: #32db64; }
-  .wp ion-chip ion-icon[danger] {
+  .wp .chip-danger,
+  .wp ion-chip .icon-danger {
     color: #fff;
     background-color: #f53d3d; }
-  .wp ion-chip ion-icon[light] {
+  .wp .chip-light,
+  .wp ion-chip .icon-light {
     color: #000;
     background-color: #f4f4f4; }
-  .wp ion-chip ion-icon[dark] {
+  .wp .chip-dark,
+  .wp ion-chip .icon-dark {
     color: #fff;
     background-color: #222; }
   .wp [no-padding],

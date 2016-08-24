@@ -5357,68 +5357,70 @@ ion-chip {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  margin: 2px 0;
-  padding: 0 12px;
-  height: 32px;
-  border-radius: 16px;
-  font-size: 13px;
   font-weight: normal;
-  line-height: 32px;
-  background: rgba(0, 0, 0, 0.12);
   vertical-align: middle;
   box-sizing: border-box; }
-  ion-chip ion-label {
+  ion-chip .button {
+    border-radius: 50%;
     margin: 0;
-    color: rgba(0, 0, 0, 0.87); }
-  ion-chip > ion-icon,
-  ion-chip > ion-avatar {
-    margin-left: -12px;
+    height: 32px;
+    width: 32px; }
+  ion-chip ion-icon {
+    border-radius: 50%;
+    line-height: 32px;
+    font-size: 18px;
+    width: 32px;
+    height: 32px; }
+  ion-chip ion-avatar {
+    border-radius: 50%;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    font-size: 18px;
-    line-height: 32px;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.87);
-    vertical-align: top; }
-    ion-chip > ion-icon img,
-    ion-chip > ion-avatar img {
+    min-width: 32px;
+    min-height: 32px; }
+    ion-chip ion-avatar img {
       display: block;
       width: 100%;
       max-width: 100%;
       height: 100%;
       max-height: 100%;
       border-radius: 50%; }
-    ion-chip > ion-icon + ion-label,
-    ion-chip > ion-avatar + ion-label {
-      margin-left: 8px; }
-  ion-chip ion-avatar {
-    min-width: 32px;
-    min-height: 32px; }
-  ion-chip .button {
-    margin: 0;
-    margin-right: -4px;
-    height: inherit; }
-  ion-chip ion-icon[name="close-circle"] {
-    font-size: 1.2em; }
 
-ion-chip ion-icon[primary] {
+ion-chip {
+  margin: 2px 0;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 32px;
+  color: rgba(0, 0, 0, 0.87);
+  background: rgba(0, 0, 0, 0.12); }
+  ion-chip > ion-label {
+    margin: 0 10px; }
+  ion-chip > ion-icon {
+    color: #fff;
+    background-color: #327eff; }
+
+.chip-primary,
+ion-chip .icon-primary {
   color: #fff;
   background-color: #327eff; }
 
-ion-chip ion-icon[secondary] {
+.chip-secondary,
+ion-chip .icon-secondary {
   color: #fff;
   background-color: #32db64; }
 
-ion-chip ion-icon[danger] {
+.chip-danger,
+ion-chip .icon-danger {
   color: #fff;
   background-color: #f53d3d; }
 
-ion-chip ion-icon[light] {
+.chip-light,
+ion-chip .icon-light {
   color: #000;
   background-color: #f4f4f4; }
 
-ion-chip ion-icon[dark] {
+.chip-dark,
+ion-chip .icon-dark {
   color: #fff;
   background-color: #222; }
 

@@ -31,7 +31,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/directives.ts#L120">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/directives.ts#L122">
 Improve this doc
 </a>
 
@@ -56,6 +56,7 @@ are part of the app&#39;s default directives.</p>
 <li>MenuClose</li>
 <li>Badge</li>
 <li>Button</li>
+<li>Chip</li>
 <li>Content</li>
 <li>Scroll</li>
 <li>InfiniteScroll</li>

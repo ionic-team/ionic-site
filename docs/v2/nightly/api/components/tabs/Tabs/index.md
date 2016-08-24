@@ -47,14 +47,15 @@ Improve this doc
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
 a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
-is a declarative component for a <a href="../NavController/">NavController</a></p>
+is a declarative component for a <a href="../../nav/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
-for iOS and Android, and at the top for Windows by default. The position can be configured using the <code>tabsPlacement</code> attribute
-on the <code>&lt;ion-tabs&gt;</code> component, or in an app&#39;s <a href="../../config/Config/">config</a>.
+for iOS and Android, and at the top for Windows by default. The position can
+be configured using the <code>tabsPlacement</code> attribute on the <code>&lt;ion-tabs&gt;</code> component,
+or in an app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
 values of <code>tabsPlacement</code>.</p>
 <h3 id="layout">Layout</h3>

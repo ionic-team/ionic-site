@@ -54965,8 +54965,8 @@
 	 * @description
 	 *
 	 * NavController is the base class for navigation controller components like
-	 * [`Nav`](../Nav/) and [`Tab`](../../Tabs/Tab/). You use navigation controllers
-	 * to navigate to [pages](#creating_pages) in your app. At a basic level, a
+	 * [`Nav`](../Nav/) and [`Tab`](../../tabs/Tab/). You use navigation controllers
+	 * to navigate to [pages](#view-creation) in your app. At a basic level, a
 	 * navigation controller is an array of pages representing a particular history
 	 * (of a Tab for example). This array can be manipulated to navigate throughout
 	 * an app by pushing and popping pages or inserting and removing them at
@@ -55016,7 +55016,7 @@
 	 *
 	 * Instead, you can inject NavController and know that it is the correct
 	 * navigation controller for most situations (for more advanced situations, see
-	 * [Menu](../../Menu/Menu/) and [Tab](../../Tab/Tab/)).
+	 * [Menu](../../menu/Menu/) and [Tab](../../tab/Tab/)).
 	 *
 	 * ```ts
 	 *  import { NavController } from 'ionic-angular';
@@ -55072,7 +55072,7 @@
 	 *
 	 * ## Pushing a View
 	 * To push a new view on to the navigation stack, use the `push` method.
-	 * If the page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/),
+	 * If the page has an [`<ion-navbar>`](../../navbar/Navbar/),
 	 * a back button will automatically be added to the pushed view.
 	 *
 	 * Data can also be passed to a view by passing an object to the `push` method.
@@ -71134,20 +71134,21 @@
 	 * Tabs make it easy to navigate between different pages or functional
 	 * aspects of an app. The Tabs component, written as `<ion-tabs>`, is
 	 * a container of individual [Tab](../Tab/) components. Each individual `ion-tab`
-	 * is a declarative component for a [NavController](../NavController/)
-
+	 * is a declarative component for a [NavController](../../nav/NavController/)
+	 *
 	 * For more information on using nav controllers like Tab or [Nav](../../nav/Nav/),
-	 * take a look at the [NavController API Docs](../NavController/).
+	 * take a look at the [NavController API Docs](../../nav/NavController/).
 	 *
 	 * ### Placement
 	 *
 	 * The position of the tabs relative to the content varies based on
 	 * the mode. The tabs are placed at the bottom of the screen
-	 * for iOS and Android, and at the top for Windows by default. The position can be configured using the `tabsPlacement` attribute
-	 * on the `<ion-tabs>` component, or in an app's [config](../../config/Config/).
+	 * for iOS and Android, and at the top for Windows by default. The position can
+	 * be configured using the `tabsPlacement` attribute on the `<ion-tabs>` component,
+	 * or in an app's [config](../../config/Config/).
 	 * See the [Input Properties](#input-properties) below for the available
 	 * values of `tabsPlacement`.
-
+	 *
 	 * ### Layout
 	 *
 	 * The layout for all of the tabs can be defined using the `tabsLayout`

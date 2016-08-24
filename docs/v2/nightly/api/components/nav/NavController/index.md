@@ -41,8 +41,8 @@ Improve this doc
 
 
 <p>NavController is the base class for navigation controller components like
-<a href="../Nav/"><code>Nav</code></a> and <a href="../../Tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
-to navigate to <a href="#creating_pages">pages</a> in your app. At a basic level, a
+<a href="../Nav/"><code>Nav</code></a> and <a href="../../tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
+to navigate to <a href="#view-creation">pages</a> in your app. At a basic level, a
 navigation controller is an array of pages representing a particular history
 (of a Tab for example). This array can be manipulated to navigate throughout
 an app by pushing and popping pages or inserting and removing them at
@@ -84,7 +84,7 @@ Tab) and adds the injector to its own providers.  For more information on
 providers and dependency injection, see <a href="">Providers and DI</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
-<a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
+<a href="../../menu/Menu/">Menu</a> and <a href="../../tab/Tab/">Tab</a>).</p>
 <pre><code class="lang-ts">import { NavController } from &#39;ionic-angular&#39;;
 
 class MyComponent {
@@ -130,7 +130,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
 <p>To push a new view on to the navigation stack, use the <code>push</code> method.
-If the page has an <a href="../api/components/nav-bar/NavBar/"><code>&lt;ion-navbar&gt;</code></a>,
+If the page has an <a href="../../navbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
 The pushed view can then receive the data by accessing it via the <code>NavParams</code>

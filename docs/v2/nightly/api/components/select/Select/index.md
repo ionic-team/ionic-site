@@ -52,10 +52,10 @@ for users.</p>
 <p>The select component takes child <code>ion-option</code> components. If <code>ion-option</code> is not
 given a <code>value</code> attribute then it will use its text as the value.</p>
 <h3 id="interfaces">Interfaces</h3>
-<p>By default, the <code>ion-select</code> uses the <a href='../../alert/Alert'>Alert API</a> to
-open up the overlay of options in an alert. The interface can be changed to use the
-<a href='../../action-sheet/ActionSheet'>ActionSheet API</a> by passing <code>action-sheet</code> to
-the <code>interface</code> property. Read the other sections for the limitations of the
+<p>By default, the <code>ion-select</code> uses the <a href='../../alert/AlertController'>AlertController API</a>
+to open up the overlay of options in an alert. The interface can be changed to use the
+<a href='../../action-sheet/ActionSheetController'>ActionSheetController API</a> by passing
+<code>action-sheet</code> to the <code>interface</code> property. Read the other sections for the limitations of the
 action sheet interface.</p>
 <h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
 <p>The standard <code>ion-select</code> component allows the user to select only one

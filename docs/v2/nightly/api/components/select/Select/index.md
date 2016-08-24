@@ -102,11 +102,13 @@ can be customized using the <code>cancelText</code> and <code>okText</code> attr
 <p>The action sheet interface does not have an <code>OK</code> button, clicking
 on any of the options will automatically close the overlay and select
 that value.</p>
-<h3 id="alert-options">Alert Options</h3>
-<p>Since <code>ion-select</code> is a wrapper to <code>Alert</code>, by default, it can be
-passed options in the <code>selectOptions</code> property. This can be used to
-pass a custom alert title, subtitle or message. See the <a href='../../alert/Alert'>Alert API docs</a>
-for more properties.</p>
+<h3 id="select-options">Select Options</h3>
+<p>Since <code>ion-select</code> uses the <code>Alert</code> and <code>Action Sheet</code> interfaces, options can be
+passed to these components through the <code>selectOptions</code> property. This can be used
+to pass a custom title, subtitle, css class, and more. See the
+<a href='../../alert/AlertController/#create'>AlertController API docs</a> and
+<a href='../../action-sheet/ActionSheetController/#create'>ActionSheetController API docs</a>
+for the properties that each interface accepts.</p>
 <pre><code class="lang-html">&lt;ion-select [selectOptions]=&quot;selectOptions&quot;&gt;
   ...
 &lt;/ion-select&gt;
@@ -188,7 +190,7 @@ Open the select interface.
       <td>selectOptions</td>
       <td><code>any</code></td>
       <td><p> Any additional options that the <code>alert</code> or <code>action-sheet</code> interface can take.
-See the <a href="../../alert/AlertController/#create">Alert API docs</a> and the
+See the <a href="../../alert/AlertController/#create">AlertController API docs</a> and the
 <a href="../../action-sheet/ActionSheetController/#create">ActionSheetController API docs</a> for the
 create options for each interface.</p>
 </td>

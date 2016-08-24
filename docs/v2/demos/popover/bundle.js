@@ -69469,7 +69469,7 @@
 	/**
 	 * @name Header
 	 * @description
-	 * Header is a parent compnent that holds the navbar and toolbar component.
+	 * Header is a parent component that holds the navbar and toolbar component.
 	 * It's important to note that `ion-header` needs to be the one of the three root elements of a page
 	 *
 	 * @usage

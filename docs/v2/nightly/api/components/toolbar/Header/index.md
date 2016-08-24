@@ -42,7 +42,7 @@ Improve this doc
 
 
 
-<p>Header is a parent compnent that holds the navbar and toolbar component.
+<p>Header is a parent component that holds the navbar and toolbar component.
 It&#39;s important to note that <code>ion-header</code> needs to be the one of the three root elements of a page</p>
 
 

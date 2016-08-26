@@ -120,7 +120,7 @@ See below for accepted values
 <code>orientation</code>
     </td>
     <td>
-      <p>orientation which should be locked. Accepted values see table above.</p>
+      <p>orientation which should be locked. Accepted values see table below.</p>
 
       
     </td>
@@ -170,15 +170,41 @@ Unlock and allow all orientations.
 
 
 <!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>Accepted orientation values:
-| Value                         | Description                                                                  |
-|-------------------------------|------------------------------------------------------------------------------|
-| portrait-primary              | The orientation is in the primary portrait mode.                             |
-| portrait-secondary            | The orientation is in the secondary portrait mode.                           |
-| landscape-primary             | The orientation is in the primary landscape mode.                            |
-| landscape-secondary           | The orientation is in the secondary landscape mode.                          |
-| portrait                      | The orientation is either portrait-primary or portrait-secondary (sensor).   |
-| landscape                     | The orientation is either landscape-primary or landscape-secondary (sensor). |</p>
+<p>Accepted orientation values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>portrait-primary</td>
+<td>The orientation is in the primary portrait mode.</td>
+</tr>
+<tr>
+<td>portrait-secondary</td>
+<td>The orientation is in the secondary portrait mode.</td>
+</tr>
+<tr>
+<td>landscape-primary</td>
+<td>The orientation is in the primary landscape mode.</td>
+</tr>
+<tr>
+<td>landscape-secondary</td>
+<td>The orientation is in the secondary landscape mode.</td>
+</tr>
+<tr>
+<td>portrait</td>
+<td>The orientation is either portrait-primary or portrait-secondary (sensor).</td>
+</tr>
+<tr>
+<td>landscape</td>
+<td>The orientation is either landscape-primary or landscape-secondary (sensor).</td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- related link --><!-- end content block -->

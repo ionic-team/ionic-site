@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.17"
+version: "1.3.18"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -97,13 +97,11 @@ platform.ready().then(() =&gt; {
 
      }, (error) =&gt; {
        console.log(&#39;BackgroundGeolocation error&#39;);
-     }, {
-      //options
-    });
+     }, config);
 
     // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
     BackgroundGeolocation.start();
-}
+})
 
 // If you wish to turn OFF background-tracking, call the #stop method.
 BackgroundGeolocation.stop();
@@ -115,27 +113,93 @@ BackgroundGeolocation.stop();
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="configure"></div>
-<h3><code>configure()</code>
+<h3><code>configure(Success,&nbsp;Fail,&nbsp;An)</code>
   
 </h3>
 
 
 
 Configure the plugin.
-Success callback will be called with one argument - Location object, which tries to mimic w3c Coordinates interface.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      Success
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      <p>callback will be called when background location is determined.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Fail
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      <p>callback to be executed every time a geolocation error occurs.</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      An
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>object of type Config</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Location object, which tries to mimic w3c Coordinates interface.
 See http://dev.w3.org/geo/api/spec-source.html#coordinates_interface
 Callback to be executed every time a geolocation is recorded in the background.
 
-Fail callback to be executed every time a geolocation error occurs.
 
-Options a json object of type Config
-
-
-
-
-
-
-
+</div>
 
 
 

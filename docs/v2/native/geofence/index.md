@@ -209,7 +209,6 @@ Returns an array of geofences currently being monitored.
 <h3><code>onTransitionReceived()</code>
   
 </h3>Called when a geofence is crossed in the direction specified by `TransitType`.
-Commenting out. Not yet implemented in plugin.
 
 
 
@@ -228,8 +227,7 @@ Commenting out. Not yet implemented in plugin.
 <div id="onNotificationClicked"></div>
 <h3><code>onNotificationClicked()</code>
   
-</h3>Called when the user clicks a geofence notification. iOS and Android only.
-Commenting out. Not yet implemented in plugin.
+</h3>Called when the user clicks a geofence notification. iOS and Android only.   
 
 
 

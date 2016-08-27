@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-googlemaps</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"</code></pre>
 <p>Repo:
   <a href="https://github.com/mapsplugin/cordova-plugin-googlemaps">
     https://github.com/mapsplugin/cordova-plugin-googlemaps

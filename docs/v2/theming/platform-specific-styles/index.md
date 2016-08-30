@@ -4,8 +4,8 @@ category: theming
 id: platform-specific-styles
 title: Platform Specific Styles
 header_sub_title: Ionic Theming
-prev_page_title: Platform Specific Theming
-prev_page_link: /docs/v2/theming/platform-specific-styles/
+prev_page_title: Utility Attributes
+prev_page_link: /docs/v2/theming/css-utilities/
 next_page_title: Overriding Ionic Variables
 next_page_link: /docs/v2/theming/overriding-ionic-variables/
 ---

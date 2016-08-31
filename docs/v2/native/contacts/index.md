@@ -77,13 +77,20 @@ contact.save().then(
 <div id="create"></div>
 <h3><code>create()</code>
   
-</h3>
+</h3>Create a single contact.
 
 
 
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a object Contact
+
+
+</div>
 
 
 

@@ -90,6 +90,8 @@ Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
   
 </h3>
 
+
+
 Converts a base64 string to an image file in the device gallery
 
 

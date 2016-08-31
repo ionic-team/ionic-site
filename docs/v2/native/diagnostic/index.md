@@ -70,7 +70,7 @@ Diagnostic.isBluetoothAvailable().then(successCallback, errorCallback);
 
 Diagnostic.getBluetoothState()
   .then((state) =&gt; {
-    if(state == Diagnostic.bluetoothStates.POWERED_ON){
+    if (state == Diagnostic.bluetoothStates.POWERED_ON){
       // do something
     } else {
       // do something else

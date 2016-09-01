@@ -5250,22 +5250,22 @@ ion-icon {
     vertical-align: middle;
     box-sizing: border-box; }
     .ios ion-chip .button {
-      border-radius: 50%;
       margin: 0;
+      width: 32px;
       height: 32px;
-      width: 32px; }
+      border-radius: 50%; }
     .ios ion-chip ion-icon {
-      border-radius: 50%;
-      line-height: 32px;
-      font-size: 18px;
-      width: 32px;
-      height: 32px; }
-    .ios ion-chip ion-avatar {
-      border-radius: 50%;
       width: 32px;
       height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 32px; }
+    .ios ion-chip ion-avatar {
+      width: 32px;
       min-width: 32px;
-      min-height: 32px; }
+      height: 32px;
+      min-height: 32px;
+      border-radius: 50%; }
       .ios ion-chip ion-avatar img {
         display: block;
         width: 100%;
@@ -9032,22 +9032,22 @@ ion-icon {
     vertical-align: middle;
     box-sizing: border-box; }
     .md ion-chip .button {
-      border-radius: 50%;
       margin: 0;
+      width: 32px;
       height: 32px;
-      width: 32px; }
+      border-radius: 50%; }
     .md ion-chip ion-icon {
-      border-radius: 50%;
-      line-height: 32px;
-      font-size: 18px;
-      width: 32px;
-      height: 32px; }
-    .md ion-chip ion-avatar {
-      border-radius: 50%;
       width: 32px;
       height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 32px; }
+    .md ion-chip ion-avatar {
+      width: 32px;
       min-width: 32px;
-      min-height: 32px; }
+      height: 32px;
+      min-height: 32px;
+      border-radius: 50%; }
       .md ion-chip ion-avatar img {
         display: block;
         width: 100%;
@@ -13182,22 +13182,22 @@ ion-icon {
     vertical-align: middle;
     box-sizing: border-box; }
     .wp ion-chip .button {
-      border-radius: 50%;
       margin: 0;
+      width: 32px;
       height: 32px;
-      width: 32px; }
+      border-radius: 50%; }
     .wp ion-chip ion-icon {
-      border-radius: 50%;
-      line-height: 32px;
-      font-size: 18px;
-      width: 32px;
-      height: 32px; }
-    .wp ion-chip ion-avatar {
-      border-radius: 50%;
       width: 32px;
       height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 32px; }
+    .wp ion-chip ion-avatar {
+      width: 32px;
       min-width: 32px;
-      min-height: 32px; }
+      height: 32px;
+      min-height: 32px;
+      border-radius: 50%; }
       .wp ion-chip ion-avatar img {
         display: block;
         width: 100%;

@@ -5427,22 +5427,22 @@ ion-chip {
   vertical-align: middle;
   box-sizing: border-box; }
   ion-chip .button {
-    border-radius: 50%;
     margin: 0;
+    width: 32px;
     height: 32px;
-    width: 32px; }
+    border-radius: 50%; }
   ion-chip ion-icon {
-    border-radius: 50%;
-    line-height: 32px;
-    font-size: 18px;
-    width: 32px;
-    height: 32px; }
-  ion-chip ion-avatar {
-    border-radius: 50%;
     width: 32px;
     height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 32px; }
+  ion-chip ion-avatar {
+    width: 32px;
     min-width: 32px;
-    min-height: 32px; }
+    height: 32px;
+    min-height: 32px;
+    border-radius: 50%; }
     ion-chip ion-avatar img {
       display: block;
       width: 100%;

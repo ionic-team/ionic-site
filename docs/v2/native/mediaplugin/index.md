@@ -113,123 +113,6 @@ newFile.stopRecord();
 
 
 <!-- @property tags -->
-<h2>Static Members</h2>
-<div id="MEDIA_NONE"></div>
-<h3><code>MEDIA_NONE()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_STARTING"></div>
-<h3><code>MEDIA_STARTING()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_RUNNING"></div>
-<h3><code>MEDIA_RUNNING()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_PAUSED"></div>
-<h3><code>MEDIA_PAUSED()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_STOPPED"></div>
-<h3><code>MEDIA_STOPPED()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_ERR_ABORTED"></div>
-<h3><code>MEDIA_ERR_ABORTED()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_ERR_NETWORK"></div>
-<h3><code>MEDIA_ERR_NETWORK()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_ERR_DECODE"></div>
-<h3><code>MEDIA_ERR_DECODE()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div id="MEDIA_ERR_NONE_SUPPORTED"></div>
-<h3><code>MEDIA_ERR_NONE_SUPPORTED()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
 
 
 <!-- methods on the class -->
@@ -282,14 +165,18 @@ newFile.stopRecord();
 
 </h3>
 
-Returns the current amplitude of the current recording.
+Get the current amplitude of the current recording.
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise with the amplitude of the current recording
+</div>
 
 
 
@@ -302,14 +189,18 @@ Returns the current amplitude of the current recording.
 
 </h3>
 
-Returns the current position within an audio file. Also updates the Media object's position parameter.
+Get the current position within an audio file. Also updates the Media object's position parameter.
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise with the position of the current recording
+</div>
 
 
 
@@ -322,14 +213,18 @@ Returns the current position within an audio file. Also updates the Media object
 
 </h3>
 
-Returns the duration of an audio file in seconds. If the duration is unknown, it returns a value of -1.
+Get the duration of an audio file in seconds. If the duration is unknown, it returns a value of -1.
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise with the duration of the current recording
+</div>
 
 
 
@@ -423,10 +318,11 @@ Sets the current position within an audio file.
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
-      
+      <p>The time position you want to set for the current audio file</p>
+
       
     </td>
   </tr>

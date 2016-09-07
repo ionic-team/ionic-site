@@ -68,6 +68,53 @@ docType: "class"
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code>import { CameraPreview } from &#39;ionic-native&#39;;
+
+// camera options (Size and location)
+let cameraRect: CameraPreviewRect = {
+  x: 100,
+  y: 100,
+  width: 200,
+  height: 200
+};
+
+
+// start camera
+CameraPreview.startCamera(
+  cameraRect, // position and size of preview
+  &#39;front&#39;, // default camera
+  true, // tape to take picture
+  false, // disable drag
+  true // send the preview to the back of the screen so we can add overlaying elements
+);
+
+// Set the handler to run every time we take a picture
+CameraPreview.setOnPictureTakenHandler().subscribe((result) =&gt; {
+  console.log(result);
+  // do something with the result
+});
+
+
+// take a picture
+CameraPreview.takePicture({
+  maxWidth: 640,
+  maxHeight: 640
+});
+
+// Switch camera
+CameraPreview.switchCamera();
+
+// set color effect to negative
+CameraPreview.setColorEffect(&#39;negative&#39;);
+
+// Stop the camera preview
+CameraPreview.stopCamera();
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 <h2>Static Members</h2>

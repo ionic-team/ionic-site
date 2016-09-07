@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L92">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L104">
   Improve this doc
 </a>
 
@@ -141,7 +141,9 @@ Get the device's current position.
 Observable changes.
 
 ```typescript
-var subscription = Geolocation.watchPosition().subscribe(position => {
+var subscription = Geolocation.watchPosition()
+                              .filter((p) => p.code === undefined) //Filter Out Errors
+                              .subscribe(position => {
   console.log(position.coords.longitude + ' ' + position.coords.latitude);
 });
 

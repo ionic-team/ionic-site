@@ -60,14 +60,44 @@ docType: "class"
 
 <pre><code>import { GoogleMap, GoogleMapsEvent } from &#39;ionic-native&#39;;
 
-...
+// create a new map using element ID
+let map = new GoogleMap(&#39;elementID&#39;);
 
-// somewhere in your component
-let map = new GoogleMap(&#39;elementID&#39;, {
- // Map Options: https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapOptions
- });
+// or create a new map by passing HTMLElement
+let element: HTMLElement = document.getElementById(&#39;elementID&#39;);
 
-map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is ready!&#39;));
+// In Angular 2 or Ionic 2, if we have this element in html: &lt;div #map&gt;&lt;/div&gt;
+// then we can use @ViewChild to find the element and pass it to GoogleMaps
+@ViewChild(&#39;map&#39;) mapElement;
+let map = new GoogleMap(mapElement);
+
+// listen to MAP_READY event
+map.one(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is ready!&#39;));
+
+
+// create LatLng object
+let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
+
+// create CameraPosition
+let position: CameraPosition = {
+  target: ionic,
+  zoom: 18,
+  tilt: 30
+};
+
+// move the map&#39;s camera to position
+map.moveCamera(position);
+
+// create new marker
+let markerOptions: GoogleMapsMarkerOptions = {
+  position: ionic,
+  title: &#39;Ionic&#39;
+};
+
+map.addMarker(markerOptions)
+  .then((marker: GoogleMapsMarker) =&gt; {
+    marker.showInfoWindow();
+  });
 </code></pre>
 
 

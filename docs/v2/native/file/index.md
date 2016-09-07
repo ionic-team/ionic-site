@@ -924,10 +924,10 @@ If an existing file exists and the replace value is false, the promise will fail
     </td>
     <td>
       
-<code>string</code>
+<code>string</code>|<code>Blob</code>
     </td>
     <td>
-      <p>content to write</p>
+      <p>content or blob to write</p>
 
       
     </td>
@@ -1024,10 +1024,10 @@ If an existing file exists and the replace value is false, the promise will fail
     </td>
     <td>
       
-<code>string</code>
+<code>string</code>|<code>Blob</code>
     </td>
     <td>
-      <p>content to write</p>
+      <p>content or blob to write</p>
 
       
     </td>

@@ -186,6 +186,12 @@ Shares using the share sheet
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
 
 
 <div id="shareWithOptions"></div>
@@ -239,10 +245,16 @@ Shares using the share sheet with additional options and returns a result object
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
 
 
 <div id="canShareVia"></div>
-<h3><code>canShareVia(appName)</code>
+<h3><code>canShareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
   
 </h3>
 
@@ -276,11 +288,75 @@ Checks if you can share via a specific app.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
 
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subject
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      image
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
       
     </td>
   </tr>
@@ -291,6 +367,12 @@ Checks if you can share via a specific app.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -329,7 +411,7 @@ Shares directly to Twitter
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -345,7 +427,7 @@ Shares directly to Twitter
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -361,7 +443,7 @@ Shares directly to Twitter
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -375,6 +457,12 @@ Shares directly to Twitter
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -459,6 +547,12 @@ Shares directly to Facebook
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -560,6 +654,12 @@ Shares directly to Facebook with a paste message hint
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
 
 
 <div id="shareViaInstagram"></div>
@@ -627,6 +727,12 @@ Shares directly to Instagram
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -711,6 +817,12 @@ Shares directly to WhatsApp
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -816,6 +928,12 @@ Shares directly to a WhatsApp Contact
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
 
 
 <div id="shareViaSMS"></div>
@@ -886,6 +1004,12 @@ Share via SMS
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
 
 
 <div id="canShareViaEmail"></div>
@@ -909,7 +1033,11 @@ Checks if you can share via email
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 
@@ -999,7 +1127,8 @@ Share via Email
 <code>string[]</code>
     </td>
     <td>
-      
+      <p>Optional</p>
+
       
     </td>
   </tr>
@@ -1015,7 +1144,8 @@ Share via Email
 <code>string[]</code>
     </td>
     <td>
-      
+      <p>Optional</p>
+
       
     </td>
   </tr>
@@ -1031,7 +1161,7 @@ Share via Email
 <code>string</code>|<code>Array.&lt;string&gt;</code>
     </td>
     <td>
-      <p>URL or local path to file(s) to attach</p>
+      <p>Optional URL or local path to file(s) to attach</p>
 
       
     </td>
@@ -1043,6 +1173,135 @@ Share via Email
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
+
+
+
+<div id="shareVia"></div>
+<h3><code>shareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
+  
+</h3>
+
+
+<p>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+</p>
+
+
+Share via AppName
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      appName
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subject
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      image
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
+</div>
 
 
 

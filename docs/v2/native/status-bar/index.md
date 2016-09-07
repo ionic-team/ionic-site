@@ -79,7 +79,7 @@ docType: "class"
 <pre><code class="lang-typescript">import { StatusBar } from &#39;ionic-native&#39;;
 
 
-StatusBar.overlaysWebView(true); // let status var overlay webview
+StatusBar.overlaysWebView(true); // let status bar overlay webview
 
 StatusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to white
 </code></pre>

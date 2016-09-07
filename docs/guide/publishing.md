@@ -212,3 +212,10 @@ Apple prides itself with a manual review process, which basically means it can t
 Since you'll probably want to update your app at some point you'll first have to update the build and version numbers in the Cordova `config.xml` file and then rebuild the application and open it up from the Xcode and follow the same steps all over again.
 
 Once you submit for the review, you'll have to wait for the review process again. It's pivotal to note that if your changes aren't too big you could use [Ionic Deploy](http://docs.ionic.io/docs/deploy-from-scratch) to update your application without going through the review process.
+
+<style>
+  img{
+    display: block;
+    max-width: 100%;
+  }
+</style>

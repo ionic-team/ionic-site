@@ -230,6 +230,12 @@ Clears single or multiple notifications
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise when the notification had been cleared
+</div>
+
 
 
 <div id="clearAll"></div>
@@ -246,7 +252,11 @@ Clears all notifications
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise when all notifications have cleared
+</div>
 
 
 
@@ -292,6 +302,12 @@ Cancels single or multiple notifications
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise when the notification is canceled
+</div>
+
 
 
 <div id="cancelAll"></div>
@@ -308,7 +324,11 @@ Cancels all notifications
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise when all notifications are canceled
+</div>
 
 
 
@@ -353,6 +373,12 @@ Checks presence of a notification
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
 
 
 <div id="isScheduled"></div>
@@ -395,6 +421,12 @@ Checks is a notification is scheduled
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -439,6 +471,12 @@ Checks if a notification is triggered
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
 
 
 <div id="getAllIds"></div>
@@ -453,7 +491,11 @@ Get all the notification ids
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -469,7 +511,11 @@ Get the ids of triggered notifications
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -485,7 +531,11 @@ Get the ids of scheduled notifications
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -531,6 +581,12 @@ Get a notification object
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
 
 
 <div id="getScheduled"></div>
@@ -574,6 +630,12 @@ Get a scheduled notification object
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -619,6 +681,12 @@ Get a triggered notification object
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
 
 
 <div id="getAll"></div>
@@ -633,7 +701,11 @@ Get all notification objects
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -649,7 +721,11 @@ Get all scheduled notification objects
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 
@@ -665,7 +741,11 @@ Get all triggered notification objects
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
 
 
 

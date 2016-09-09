@@ -19,7 +19,7 @@ Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool
 To install the Ionic SDK and create Ionic 2 projects, you'll need to install the latest beta release:
 
 ```bash
-$ npm install -g ionic@beta
+$ npm install -g ionic
 ```
 
 Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/dist/latest-v5.x/) or use your favorite package manager. It's best to get the 5x version of node along with the 3x version of npm. This offers the best in stability and speed for building.
@@ -29,7 +29,7 @@ Make sure you have NodeJS installed. Download the installer [here](https://nodej
 
 > In case you get an **EACCES** error, it means node doesn't have write permissions to the global packages folder. Follow the instructions [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to set the correct folder permissions.
 
-Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.
+Worried about your V1 Ionic projects? Don't worry! The V2 CLI has all the functionality to work with both V1 projects and V2 projects.
 
 Once that's done, create your first Ionic app:
 

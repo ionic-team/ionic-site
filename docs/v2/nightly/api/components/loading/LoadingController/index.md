@@ -192,6 +192,14 @@ Create a loading indicator. See below for options.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Loading</code> <p>Returns a Loading Instance</p>
+
+
+</div>
+
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Loading options</p>

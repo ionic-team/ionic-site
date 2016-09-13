@@ -90459,6 +90459,7 @@
 	    /**
 	     * Create a loading indicator. See below for options.
 	     * @param {LoadingOptions} opts Loading options
+	     * @returns {Loading} Returns a Loading Instance
 	     */
 	    LoadingController.prototype.create = function (opts) {
 	        if (opts === void 0) { opts = {}; }

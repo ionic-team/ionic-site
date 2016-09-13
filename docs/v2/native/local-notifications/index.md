@@ -749,6 +749,46 @@ Get all triggered notification objects
 
 
 
+<div id="registerPermission"></div>
+<h3><code>registerPermission()</code>
+  
+</h3>
+
+Register permission to show notifications if not already granted.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
+
+
+<div id="hasPermission"></div>
+<h3><code>hasPermission()</code>
+  
+</h3>
+
+Informs if the app has the permission to show notifications.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise
+</div>
+
+
+
 <div id="on"></div>
 <h3><code>on(eventName,&nbsp;callback)</code>
   

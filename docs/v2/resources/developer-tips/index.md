@@ -63,7 +63,7 @@ header_sub_title: Ionic Resources
 
   <section id="debugging-android-chrome">
     <h3><a href="#debugging-android-chrome">Remote Debugging - Android and Chrome</a></h3>
-    <p><a href="https://developers.google.com/web/tools/setup/workspace/setup-devtools">Chrome DevTools</a> are a very powerful set of tools for debugging your application. When you use <code>ionic serve</code> to run your in the browser, DevTools can be used to inspect elements, view console logs, profile your application, and much more.</p>
+    <p><a href="https://developers.google.com/web/tools/setup/workspace/setup-devtools">Chrome DevTools</a> are a very powerful set of tools for debugging your application. When you use <code>ionic serve</code> to run your application in the browser, DevTools can be used to inspect elements, view console logs, profile your application, and much more.</p>
     <p>In addition to using DevTools to debug your app in the browser, DevTools can be used to debug a remote physical Android device, or even a Genymotion emulator running your app. First off, we will need to have <a href="http://developer.android.com/tools/help/adb.html">adb</a> installed. Once installed, if your device is connected, or an Android emulator is running, you should be able to see your device listed when you run the following command:</p>
     {% highlight bash %}
     $ adb devices

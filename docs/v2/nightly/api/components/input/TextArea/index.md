@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "TextArea"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/textarea/"
+preview_device_url: "/docs/v2/demos/src/textarea/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L124">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L236">
 Improve this doc
 </a>
 
@@ -91,6 +91,27 @@ textarea&#39;s inner content.</p>
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

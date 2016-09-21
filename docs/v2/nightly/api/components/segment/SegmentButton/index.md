@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/segment/"
+preview_device_url: "/docs/v2/demos/src/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ SegmentButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L5">
 Improve this doc
 </a>
 

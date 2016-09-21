@@ -24,7 +24,7 @@ docType: "class"
 <a class="anchor" name="click-block" href="#click-block"></a>
 
 ClickBlock
-<h3><code>click-block</code></h3>
+<h3><code>.click-block</code></h3>
 
 
 

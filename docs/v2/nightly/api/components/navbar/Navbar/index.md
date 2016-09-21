@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Navbar"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/navbar/"
+preview_device_url: "/docs/v2/demos/src/navbar/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L7">
 Improve this doc
 </a>
 
@@ -87,6 +87,89 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="navCtrl"></div>
+
+<h3>
+<a class="anchor" name="navCtrl" href="#navCtrl"></a>
+<code>navCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngAfterViewInit"></div>
+
+<h3>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<code>ngAfterViewInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="backButtonClick"></div>
+
+<h3>
+<a class="anchor" name="backButtonClick" href="#backButtonClick"></a>
+<code>backButtonClick()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setBackButtonText"></div>
+
+<h3>
+<a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
+<code>setBackButtonText()</code>
+  
+
+</h3>
+
+Set the text of the Back Button in the Nav Bar. Defaults to "Back".
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -103,6 +186,13 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Scroll"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/scroll/"
+preview_device_url: "/docs/v2/demos/src/scroll/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -171,6 +171,44 @@ set the max zoom amount for ion-scroll
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>scrollX</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>scrollY</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>zoom</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>maxZoom</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Menu"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L10">
 Improve this doc
 </a>
 

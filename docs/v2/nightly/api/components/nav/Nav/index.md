@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Nav"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/navigation/"
+preview_device_url: "/docs/v2/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L11">
 Improve this doc
 </a>
 
@@ -58,20 +58,17 @@ take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
 <p>You must set a root page to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
 <pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
-import { ionicBootstrap } from &#39;ionic-angular&#39;;
 import { GettingStartedPage } from &#39;./getting-started&#39;;
 
 @Component({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
 })
 class MyApp {
-  private root: any = GettingStartedPage;
+  root = GettingStartedPage;
 
   constructor(){
   }
 }
-
-ionicBootstrap(MyApp);
 </code></pre>
 
 
@@ -82,6 +79,48 @@ ionicBootstrap(MyApp);
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngAfterViewInit"></div>
+
+<h3>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<code>ngAfterViewInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="goToRoot"></div>
+
+<h3>
+<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<code>goToRoot()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -98,6 +137,13 @@ ionicBootstrap(MyApp);
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> The Page component to load as the root page within this nav.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>rootParams</td>
+      <td><code>object</code></td>
+      <td><p> Any nav-params to pass to the root page of this nav.</p>
 </td>
     </tr>
     

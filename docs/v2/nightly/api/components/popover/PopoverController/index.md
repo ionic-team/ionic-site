@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "PopoverController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/popover/"
+preview_device_url: "/docs/v2/demos/src/popover/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L54">
 Improve this doc
 </a>
 
@@ -88,7 +88,7 @@ which creates and presents the popover:</p>
 </code></pre>
 <pre><code class="lang-ts">@Component({})
 class MyPage {
-  constructor(private popoverCtrl: PopoverController) {}
+  constructor(public popoverCtrl: PopoverController) {}
 
   presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
@@ -113,7 +113,7 @@ that close the popover on click.</p>
   `
 })
 class PopoverPage {
-  constructor(private viewCtrl: ViewController) {}
+  constructor(public viewCtrl: ViewController) {}
 
   close() {
     this.viewCtrl.dismiss();
@@ -136,7 +136,7 @@ class PopoverPage {
 
 <h3>
 <a class="anchor" name="create" href="#create"></a>
-<code>create(componentType,&nbsp;data,&nbsp;opts)</code>
+<code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
 </h3>
@@ -156,7 +156,7 @@ Present a popover. See below for options
     
     <tr>
       <td>
-        componentType
+        component
         
         
       </td>

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Select"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/select/"
+preview_device_url: "/docs/v2/demos/src/select/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L18">
 Improve this doc
 </a>
 
@@ -207,6 +207,13 @@ create options for each interface.</p>
       <td>selectedText</td>
       <td><code>string</code></td>
       <td><p> The text to display instead of the selected option&#39;s value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

@@ -31,7 +31,7 @@ PanGesture
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/drag-gesture.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/drag-gesture.ts#L14">
 Improve this doc
 </a>
 
@@ -54,26 +54,6 @@ Improve this doc
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="dragging"></div>
-
-<h3>
-<a class="anchor" name="dragging" href="#dragging"></a>
-<code>dragging</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="events"></div>
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Slides"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/slides/"
+preview_device_url: "/docs/v2/demos/src/slides/"
 angular_controller: APIDemoCtrl 
 ---
 

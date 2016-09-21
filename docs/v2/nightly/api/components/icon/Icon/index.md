@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Icon"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/icon/"
+preview_device_url: "/docs/v2/demos/src/icon/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Icon
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/icon/icon.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/icon/icon.ts#L3">
 Improve this doc
 </a>
 
@@ -96,6 +96,13 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

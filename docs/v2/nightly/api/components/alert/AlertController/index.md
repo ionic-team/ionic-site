@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "AlertController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/alert/"
+preview_device_url: "/docs/v2/demos/src/alert/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L109">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L95">
 Improve this doc
 </a>
 

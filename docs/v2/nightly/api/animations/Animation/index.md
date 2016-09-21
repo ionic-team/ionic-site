@@ -48,36 +48,6 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="create"></div>
-<h3><a class="anchor" name="create" href="#create"></a><code>create()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="register"></div>
-<h3><a class="anchor" name="register" href="#register"></a><code>register()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,11 +55,11 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="isPlaying"></div>
+<div id="parent"></div>
 
 <h3>
-<a class="anchor" name="isPlaying" href="#isPlaying"></a>
-<code>isPlaying</code>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
   
 
 </h3>
@@ -105,11 +75,31 @@ Improve this doc
 
 
 
-<div id="hasTween"></div>
+<div id="opts"></div>
 
 <h3>
-<a class="anchor" name="hasTween" href="#hasTween"></a>
-<code>hasTween</code>
+<a class="anchor" name="opts" href="#opts"></a>
+<code>opts</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isPlaying"></div>
+
+<h3>
+<a class="anchor" name="isPlaying" href="#isPlaying"></a>
+<code>isPlaying</code>
   
 
 </h3>
@@ -165,27 +155,6 @@ Improve this doc
 
 
 
-<div id="parent"></div>
-
-<h3>
-<a class="anchor" name="parent" href="#parent"></a>
-<code>parent()</code>
-  
-
-</h3>
-
-NO DOM
-
-
-
-
-
-
-
-
-
-
-
 <div id="add"></div>
 
 <h3>
@@ -195,7 +164,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Add a child animation to this animation.
 
 
 
@@ -216,7 +185,8 @@ NO DOM
 
 </h3>
 
-NO DOM
+Get the duration of this animation. If this animation does
+not have a duration, then it'll get the duration from its parent.
 
 
 
@@ -237,7 +207,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Set the duration for this animation.
 
 
 
@@ -258,7 +228,8 @@ NO DOM
 
 </h3>
 
-NO DOM
+Get the easing of this animation. If this animation does
+not have an easing, then it'll get the easing from its parent.
 
 
 
@@ -279,7 +250,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Set the easing for this animation.
 
 
 
@@ -300,7 +271,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Add the "from" value for a specific property.
 
 
 
@@ -321,7 +292,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Add the "to" value for a specific property.
 
 
 
@@ -342,7 +313,7 @@ NO DOM
 
 </h3>
 
-NO DOM
+Shortcut to add both the "from" and "to" for the same property.
 
 
 
@@ -354,16 +325,17 @@ NO DOM
 
 
 
-<div id="before"></div>
+<div id="beforeAddClass"></div>
 
 <h3>
-<a class="anchor" name="before" href="#before"></a>
-<code>before</code>
+<a class="anchor" name="beforeAddClass" href="#beforeAddClass"></a>
+<code>beforeAddClass()</code>
   
 
 </h3>
 
-NO DOM
+Add CSS class to this animation's elements
+before the animation begins.
 
 
 
@@ -375,16 +347,193 @@ NO DOM
 
 
 
-<div id="after"></div>
+<div id="beforeRemoveClass"></div>
 
 <h3>
-<a class="anchor" name="after" href="#after"></a>
-<code>after</code>
+<a class="anchor" name="beforeRemoveClass" href="#beforeRemoveClass"></a>
+<code>beforeRemoveClass()</code>
   
 
 </h3>
 
-NO DOM
+Remove CSS class from this animation's elements
+before the animation begins.
+
+
+
+
+
+
+
+
+
+
+
+<div id="beforeStyles"></div>
+
+<h3>
+<a class="anchor" name="beforeStyles" href="#beforeStyles"></a>
+<code>beforeStyles()</code>
+  
+
+</h3>
+
+Set CSS inline styles to this animation's elements
+before the animation begins.
+
+
+
+
+
+
+
+
+
+
+
+<div id="beforeClearStyles"></div>
+
+<h3>
+<a class="anchor" name="beforeClearStyles" href="#beforeClearStyles"></a>
+<code>beforeClearStyles()</code>
+  
+
+</h3>
+
+Clear CSS inline styles from this animation's elements
+before the animation begins.
+
+
+
+
+
+
+
+
+
+
+
+<div id="beforeAddRead"></div>
+
+<h3>
+<a class="anchor" name="beforeAddRead" href="#beforeAddRead"></a>
+<code>beforeAddRead()</code>
+  
+
+</h3>
+
+Add a function which contains DOM reads, which will run
+before the animation begins.
+
+
+
+
+
+
+
+
+
+
+
+<div id="beforeAddWrite"></div>
+
+<h3>
+<a class="anchor" name="beforeAddWrite" href="#beforeAddWrite"></a>
+<code>beforeAddWrite()</code>
+  
+
+</h3>
+
+Add a function which contains DOM writes, which will run
+before the animation begins.
+
+
+
+
+
+
+
+
+
+
+
+<div id="afterAddClass"></div>
+
+<h3>
+<a class="anchor" name="afterAddClass" href="#afterAddClass"></a>
+<code>afterAddClass()</code>
+  
+
+</h3>
+
+Add CSS class to this animation's elements
+after the animation finishes.
+
+
+
+
+
+
+
+
+
+
+
+<div id="afterRemoveClass"></div>
+
+<h3>
+<a class="anchor" name="afterRemoveClass" href="#afterRemoveClass"></a>
+<code>afterRemoveClass()</code>
+  
+
+</h3>
+
+Remove CSS class from this animation's elements
+after the animation finishes.
+
+
+
+
+
+
+
+
+
+
+
+<div id="afterStyles"></div>
+
+<h3>
+<a class="anchor" name="afterStyles" href="#afterStyles"></a>
+<code>afterStyles()</code>
+  
+
+</h3>
+
+Set CSS inline styles to this animation's elements
+after the animation finishes.
+
+
+
+
+
+
+
+
+
+
+
+<div id="afterClearStyles"></div>
+
+<h3>
+<a class="anchor" name="afterClearStyles" href="#afterClearStyles"></a>
+<code>afterClearStyles()</code>
+  
+
+</h3>
+
+Clear CSS inline styles from this animation's elements
+after the animation finishes.
 
 
 
@@ -405,7 +554,7 @@ NO DOM
 
 </h3>
 
-DOM WRITE
+Play the animation.
 
 
 
@@ -426,7 +575,7 @@ DOM WRITE
 
 </h3>
 
-DOM WRITE
+Immediately stop at the end of the animation.
 
 
 
@@ -447,7 +596,7 @@ DOM WRITE
 
 </h3>
 
-DOM WRITE
+Start the animation with a user controlled progress.
 
 
 
@@ -468,7 +617,7 @@ DOM WRITE
 
 </h3>
 
-DOM WRITE
+Set the progress step for this animation.
 
 
 
@@ -489,7 +638,7 @@ DOM WRITE
 
 </h3>
 
-DOM WRITE
+End the progress animation.
 
 
 
@@ -510,7 +659,7 @@ DOM WRITE
 
 </h3>
 
-POSSIBLE DOM READ/WRITE
+Add a callback to fire when the animation has finished.
 
 
 
@@ -531,7 +680,7 @@ POSSIBLE DOM READ/WRITE
 
 </h3>
 
-NO DOM
+Reverse the animation.
 
 
 
@@ -552,7 +701,7 @@ NO DOM
 
 </h3>
 
-DOM WRITE
+Recursively destroy this animation and all child animations.
 
 
 

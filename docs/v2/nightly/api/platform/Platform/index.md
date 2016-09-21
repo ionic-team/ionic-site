@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Platform"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/platform/"
+preview_device_url: "/docs/v2/demos/src/platform/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -77,26 +77,6 @@ export MyPage {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="zone"></div>
-
-<h3>
-<a class="anchor" name="zone" href="#zone"></a>
-<code>zone</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="is"></div>
 

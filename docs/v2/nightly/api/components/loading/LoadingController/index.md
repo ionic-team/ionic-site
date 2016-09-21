@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "LoadingController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/loading/"
+preview_device_url: "/docs/v2/demos/src/loading/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ LoadingController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L65">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L66">
 Improve this doc
 </a>
 
@@ -84,7 +84,7 @@ a higher <code>z-index</code> than this element.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private loadingCtrl: LoadingController) {
+<pre><code class="lang-ts">constructor(public loadingCtrl: LoadingController) {
 
 }
 

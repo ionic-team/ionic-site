@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemReorder"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/item-reorder/"
+preview_device_url: "/docs/v2/demos/src/item-reorder/"
 angular_controller: APIDemoCtrl 
 ---
 

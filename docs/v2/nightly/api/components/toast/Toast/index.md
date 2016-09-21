@@ -31,7 +31,7 @@ Toast
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L8">
 Improve this doc
 </a>
 
@@ -158,6 +158,27 @@ Present the toast instance.
 
 
 </div>
+
+
+
+
+<div id="dismissAll"></div>
+
+<h3>
+<a class="anchor" name="dismissAll" href="#dismissAll"></a>
+<code>dismissAll()</code>
+  
+
+</h3>
+
+Dismiss all toast components which have been presented.
+
+
+
+
+
+
+
 
 
 

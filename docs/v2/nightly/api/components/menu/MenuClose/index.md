@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuClose"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 

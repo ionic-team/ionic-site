@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Button"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/button/"
+preview_device_url: "/docs/v2/demos/src/button/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L4">
 Improve this doc
 </a>
 
@@ -357,6 +357,28 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngAfterContentInit"></div>
+
+<h3>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
+<code>ngAfterContentInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -440,6 +462,13 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     </tr>
     
     <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).</p>
@@ -485,15 +514,6 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td><code>$button-fab-size</code></td>
-        
-          <td><code>56px</code></td>
-        
-        <td><p>Width and height of the FAB button</p>
-</td>
-      </tr>
       
       <tr>
         <td><code>$button-round-padding</code></td>

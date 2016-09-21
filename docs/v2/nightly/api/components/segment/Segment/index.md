@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Segment"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/segment/"
+preview_device_url: "/docs/v2/demos/src/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L118">
 Improve this doc
 </a>
 
@@ -100,6 +100,27 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="mode"></div>
+
+<h3>
+<a class="anchor" name="mode" href="#mode"></a>
+<code>mode</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

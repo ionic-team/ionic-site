@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ActionSheetController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/action-sheet/"
+preview_device_url: "/docs/v2/demos/src/action-sheet/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ ActionSheetController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L77">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L72">
 Improve this doc
 </a>
 

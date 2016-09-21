@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ToastController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/toast/"
+preview_device_url: "/docs/v2/demos/src/toast/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ ToastController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L75">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L77">
 Improve this doc
 </a>
 
@@ -136,7 +136,7 @@ Create a new toast component. See options below
   <code>ToastOptions</code>
       </td>
       <td>
-        <p>Toast options. See the above table for available options.</p>
+        <p>Toast options. See the below table for available options.</p>
 
         
       </td>

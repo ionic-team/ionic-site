@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -104,11 +104,11 @@ default to the <code>&quot;left&quot;</code> menu.</p>
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <pre><code class="lang-ts">toggleLeftMenu() {
-  this.menu.toggle();
+  this.menuCtrl.toggle();
 }
 
 toggleRightMenu() {
-  this.menu.toggle(&#39;right&#39;);
+  this.menuCtrl.toggle(&#39;right&#39;);
 }
 </code></pre>
 <h3 id="multiple-menus-on-the-same-side">Multiple Menus on the Same Side</h3>
@@ -121,8 +121,8 @@ id will be disabled.</p>
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <pre><code class="lang-ts">enableAuthenticatedMenu() {
-  this.menu.enable(true, &#39;authenticated&#39;);
-  this.menu.enable(false, &#39;unauthenticated&#39;);
+  this.menuCtrl.enable(true, &#39;authenticated&#39;);
+  this.menuCtrl.enable(false, &#39;unauthenticated&#39;);
 }
 </code></pre>
 <p>Note: if an app only has one menu, there is no reason to pass an <code>id</code>.</p>

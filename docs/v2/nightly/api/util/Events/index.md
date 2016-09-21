@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Events"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/events/"
+preview_device_url: "/docs/v2/demos/src/events/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ Events
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/events.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/events.ts#L2">
 Improve this doc
 </a>
 

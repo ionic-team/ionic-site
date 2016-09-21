@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Config"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/config/"
+preview_device_url: "/docs/v2/demos/src/config/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L10">
 Improve this doc
 </a>
 
@@ -252,6 +252,26 @@ chart displays each property with a description of what it controls.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="init"></div>
+
+<h3>
+<a class="anchor" name="init" href="#init"></a>
+<code>init()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="get"></div>
 

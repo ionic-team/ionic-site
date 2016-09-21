@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/app/app.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/app/app.ts#L9">
 Improve this doc
 </a>
 
@@ -40,7 +40,7 @@ Improve this doc
 
 
 
-<p>Ionic App utility service.</p>
+<p>Ionic App</p>
 
 
 
@@ -270,32 +270,6 @@ retuns the root NavController
 
 
 
-
-
-
-
-<div id="getAppInjector"></div>
-
-<h3>
-<a class="anchor" name="getAppInjector" href="#getAppInjector"></a>
-<code>getAppInjector()</code>
-  
-
-</h3>
-
-Get an instance of the global app injector that contains references to all of the instantiated providers
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Injector</code> 
-
-</div>
 
 
 

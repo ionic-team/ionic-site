@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/checkbox/"
+preview_device_url: "/docs/v2/demos/src/checkbox/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Checkbox
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/checkbox/checkbox.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/checkbox/checkbox.ts#L13">
 Improve this doc
 </a>
 
@@ -100,6 +100,13 @@ for more info on forms and inputs.</p>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

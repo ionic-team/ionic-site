@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ModalController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/modal/"
+preview_device_url: "/docs/v2/demos/src/modal/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L69">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L53">
 Improve this doc
 </a>
 
@@ -109,7 +109,7 @@ class Profile {
 
 <h3>
 <a class="anchor" name="create" href="#create"></a>
-<code>create(componentType,&nbsp;data,&nbsp;opts)</code>
+<code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
 </h3>
@@ -130,7 +130,7 @@ Create a modal to display. See below for options.
     
     <tr>
       <td>
-        componentType
+        component
         
         
       </td>

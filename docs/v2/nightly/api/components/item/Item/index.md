@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Item"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/item/"
+preview_device_url: "/docs/v2/demos/src/item/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -224,6 +224,13 @@ be added to <code>ion-item</code> to transform the text.</p>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

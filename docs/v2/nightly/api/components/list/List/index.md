@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "List"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/list/"
+preview_device_url: "/docs/v2/demos/src/list/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -98,6 +98,13 @@ Close any sliding items that are open.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
     
     <tr>
       <td>sliding</td>

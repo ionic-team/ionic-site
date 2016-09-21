@@ -33,7 +33,7 @@ Footer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L43">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L46">
 Improve this doc
 </a>
 

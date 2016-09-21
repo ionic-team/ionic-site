@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tabs"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/tabs/"
+preview_device_url: "/docs/v2/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L15">
 Improve this doc
 </a>
 
@@ -378,16 +378,16 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
     
     <tr>
-      <td>selectedIndex</td>
-      <td><code>number</code></td>
-      <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     
     <tr>
-      <td>preloadTabs</td>
-      <td><code>boolean</code></td>
-      <td><p> Set whether to preload all the tabs: <code>true</code>, <code>false</code>.</p>
+      <td>selectedIndex</td>
+      <td><code>number</code></td>
+      <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
 </td>
     </tr>
     
@@ -470,7 +470,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-ios-border</code></td>
         
-          <td><code>1px solid $toolbar-ios-border-color</code></td>
+          <td><code>$hairlines-width solid $toolbar-ios-border-color</code></td>
         
         <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
 </td>

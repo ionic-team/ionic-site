@@ -162,6 +162,27 @@ Present the loading instance.
 
 
 
+<div id="dismissAll"></div>
+
+<h3>
+<a class="anchor" name="dismissAll" href="#dismissAll"></a>
+<code>dismissAll()</code>
+  
+
+</h3>
+
+Dismiss all loading components which have been presented.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ShowWhen"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/show-when/"
+preview_device_url: "/docs/v2/demos/src/show-when/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L56">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L55">
 Improve this doc
 </a>
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.21"
+version: "1.3.25"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add ''</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-market</code></pre>
 <p>Repo:
   <a href="https://github.com/xmartlabs/cordova-plugin-market">
     https://github.com/xmartlabs/cordova-plugin-market

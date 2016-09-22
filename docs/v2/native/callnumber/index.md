@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.21"
+version: "1.3.25"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -109,10 +109,10 @@ Calls a phone number
     </td>
     <td>
       
-<code>number</code>
+<code>string</code>
     </td>
     <td>
-      <p>The phone number to call</p>
+      <p>The phone number to call as a string</p>
 
       
     </td>

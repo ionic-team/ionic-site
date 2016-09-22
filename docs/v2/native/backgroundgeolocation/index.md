@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.21"
+version: "1.3.25"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -77,6 +77,7 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 
 // When device is ready :
 platform.ready().then(() =&gt; {
+    // IMPORTANT: BackgroundGeolocation must be called within app.ts and or before Geolocation. Otherwise the platform will not ask you for background tracking permission. 
 
     // BackgroundGeolocation is highly configurable. See platform specific configuration options
     let config = {
@@ -344,10 +345,30 @@ NOTE: ANDROID only
 
 
 
+<div id="showAppSettings"></div>
+<h3><code>showAppSettings()</code>
+  
+</h3>
+
+
+
+Display app settings to change permissions
+
+
+
+
+
+
+
+
+
+
 <div id="showLocationSettings"></div>
 <h3><code>showLocationSettings()</code>
   
 </h3>
+
+
 
 Display device location settings
 

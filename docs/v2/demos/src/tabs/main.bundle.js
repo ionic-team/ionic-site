@@ -112,11 +112,6 @@ function isFunction(obj) {
 
 
 
-function isPromise(obj) {
-    // allow any Promise/A+ compliant thenable.
-    // It's up to the caller to ensure that obj.then conforms to the spec
-    return isPresent(obj) && isFunction(obj.then);
-}
 function isArray(obj) {
     return Array.isArray(obj);
 }
@@ -760,8 +755,12 @@ var Query = (function () {
  *  @Annotation
  */
 var ContentChildren = makePropDecorator('ContentChildren', [
-    ['selector', undefined],
-    { first: false, isViewQuery: false, descendants: false, read: undefined }
+    ['selector', undefined], {
+        first: false,
+        isViewQuery: false,
+        descendants: false,
+        read: undefined,
+    }
 ], Query);
 /**
  * @whatItDoes Configures a content query.
@@ -796,7 +795,7 @@ var ContentChild = makePropDecorator('ContentChild', [
     ['selector', undefined], {
         first: true,
         isViewQuery: false,
-        descendants: false,
+        descendants: true,
         read: undefined,
     }
 ], Query);
@@ -1233,13 +1232,6 @@ var VIEW_ENCAPSULATION_VALUES = [ViewEncapsulation.Emulated, ViewEncapsulation.N
 /**
  * Metadata properties available for configuring Views.
  *
- * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
- * `@View` annotation specifies the HTML template to use, and lists the directives that are active
- * within the template.
- *
- * When a component is instantiated, the template is loaded into the component's shadow root, and
- * the expressions and statements in the template are evaluated against the component.
- *
  * For details on the `@Component` annotation, see {@link Component}.
  *
  * ### Example
@@ -1248,7 +1240,6 @@ var VIEW_ENCAPSULATION_VALUES = [ViewEncapsulation.Emulated, ViewEncapsulation.N
  * @Component({
  *   selector: 'greet',
  *   template: 'Hello {{name}}!',
- *   directives: [GreetUser, Bold]
  * })
  * class Greet {
  *   name: string;
@@ -1260,6 +1251,8 @@ var VIEW_ENCAPSULATION_VALUES = [ViewEncapsulation.Emulated, ViewEncapsulation.N
  * ```
  *
  * @deprecated Use Component instead.
+ *
+ * {@link Component}
  */
 var ViewMetadata = (function () {
     function ViewMetadata(_a) {
@@ -1454,7 +1447,6 @@ var Injector = (function () {
      * - Throws {@link NoProviderError} if no `notFoundValue` that is not equal to
      * Injector.THROW_IF_NOT_FOUND is given
      * - Returns the `notFoundValue` otherwise
-     * ```
      */
     Injector.prototype.get = function (token, notFoundValue) { return unimplemented(); };
     Injector.THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
@@ -1469,20 +1461,18 @@ var Injector = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Map$1 = _global.Map;
-var Set$1 = _global.Set;
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Map constructor.  We work around that by manually adding the items.
 var createMapFromPairs = (function () {
     try {
-        if (new Map$1([[1, 2]]).size === 1) {
-            return function createMapFromPairs(pairs) { return new Map$1(pairs); };
+        if (new Map([[1, 2]]).size === 1) {
+            return function createMapFromPairs(pairs) { return new Map(pairs); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map$1();
+        var map = new Map();
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i];
             map.set(pair[0], pair[1]);
@@ -1492,20 +1482,20 @@ var createMapFromPairs = (function () {
 })();
 var createMapFromMap = (function () {
     try {
-        if (new Map$1(new Map$1())) {
-            return function createMapFromMap(m) { return new Map$1(m); };
+        if (new Map(new Map())) {
+            return function createMapFromMap(m) { return new Map(m); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromMap(m) {
-        var map = new Map$1();
+        var map = new Map();
         m.forEach(function (v, k) { map.set(k, v); });
         return map;
     };
 })();
 var _clearValues = (function () {
-    if ((new Map$1()).keys().next) {
+    if ((new Map()).keys().next) {
         return function _clearValues(m) {
             var keyIterator = m.keys();
             var k;
@@ -1524,7 +1514,7 @@ var _clearValues = (function () {
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap = (function () {
     try {
-        if ((new Map$1()).values().next) {
+        if ((new Map()).values().next) {
             return function createArrayFromMap(m, getValues) {
                 return getValues ? Array.from(m.values()) : Array.from(m.keys());
             };
@@ -1533,7 +1523,7 @@ var _arrayFromMap = (function () {
     catch (e) {
     }
     return function createArrayFromMapWithForeach(m, getValues) {
-        var res = ListWrapper.createFixedSize(m.size), i = 0;
+        var res = new Array(m.size), i = 0;
         m.forEach(function (v, k) {
             res[i] = getValues ? v : k;
             i++;
@@ -1544,9 +1534,8 @@ var _arrayFromMap = (function () {
 var MapWrapper = (function () {
     function MapWrapper() {
     }
-    MapWrapper.clone = function (m) { return createMapFromMap(m); };
     MapWrapper.createFromStringMap = function (stringMap) {
-        var result = new Map$1();
+        var result = new Map();
         for (var prop in stringMap) {
             result.set(prop, stringMap[prop]);
         }
@@ -1558,7 +1547,6 @@ var MapWrapper = (function () {
         return r;
     };
     MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs(pairs); };
-    MapWrapper.clearValues = function (m) { _clearValues(m); };
     MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap(m, true); };
@@ -1570,15 +1558,6 @@ var MapWrapper = (function () {
 var StringMapWrapper = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.create = function () {
-        // Note: We are not using Object.create(null) here due to
-        // performance!
-        // http://jsperf.com/ng2-object-create-null
-        return {};
-    };
-    StringMapWrapper.contains = function (map, key) {
-        return map.hasOwnProperty(key);
-    };
     StringMapWrapper.get = function (map, key) {
         return map.hasOwnProperty(key) ? map[key] : undefined;
     };
@@ -1593,7 +1572,6 @@ var StringMapWrapper = (function () {
         }
         return true;
     };
-    StringMapWrapper.delete = function (map, key) { delete map[key]; };
     StringMapWrapper.forEach = function (map, callback) {
         for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
             var k = _a[_i];
@@ -1762,7 +1740,7 @@ function isListLikeIterable(obj) {
     if (!isJsObject(obj))
         return false;
     return isArray(obj) ||
-        (!(obj instanceof Map$1) &&
+        (!(obj instanceof Map) &&
             getSymbolIterator() in obj); // JS Iterable have a Symbol.iterator prop
 }
 function areIterablesEqual(a, b, comparator) {
@@ -1796,13 +1774,13 @@ function iterateListLike(obj, fn) {
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Set constructor.  We work around that by manually adding the items.
 var createSetFromList = (function () {
-    var test = new Set$1([1, 2, 3]);
+    var test = new Set([1, 2, 3]);
     if (test.size === 3) {
-        return function createSetFromList(lst) { return new Set$1(lst); };
+        return function createSetFromList(lst) { return new Set(lst); };
     }
     else {
         return function createSetAndPopulateFromList(lst) {
-            var res = new Set$1(lst);
+            var res = new Set(lst);
             if (res.size !== lst.length) {
                 for (var i = 0; i < lst.length; i++) {
                     res.add(lst[i]);
@@ -2402,16 +2380,17 @@ var Reflector = (function (_super) {
     __extends$2(Reflector, _super);
     function Reflector(reflectionCapabilities) {
         _super.call(this);
-        /** @internal */
-        this._injectableInfo = new Map$1();
-        /** @internal */
-        this._getters = new Map$1();
-        /** @internal */
-        this._setters = new Map$1();
-        /** @internal */
-        this._methods = new Map$1();
-        this._usedKeys = null;
         this.reflectionCapabilities = reflectionCapabilities;
+        /** @internal */
+        this._injectableInfo = new Map();
+        /** @internal */
+        this._getters = new Map();
+        /** @internal */
+        this._setters = new Map();
+        /** @internal */
+        this._methods = new Map();
+        /** @internal */
+        this._usedKeys = null;
     }
     Reflector.prototype.updateCapabilities = function (caps) { this.reflectionCapabilities = caps; };
     Reflector.prototype.isReflectionEnabled = function () { return this.reflectionCapabilities.isReflectionEnabled(); };
@@ -2419,7 +2398,7 @@ var Reflector = (function (_super) {
      * Causes `this` reflector to track keys used to access
      * {@link ReflectionInfo} objects.
      */
-    Reflector.prototype.trackUsage = function () { this._usedKeys = new Set$1(); };
+    Reflector.prototype.trackUsage = function () { this._usedKeys = new Set(); };
     /**
      * Lists types for which reflection information was not requested since
      * {@link #trackUsage} was called. This list could later be audited as
@@ -2878,7 +2857,7 @@ var ReflectiveProtoInjectorDynamicStrategy = (function () {
     function ReflectiveProtoInjectorDynamicStrategy(protoInj, providers) {
         this.providers = providers;
         var len = providers.length;
-        this.keyIds = ListWrapper.createFixedSize(len);
+        this.keyIds = new Array(len);
         for (var i = 0; i < len; i++) {
             this.keyIds[i] = providers[i].key.id;
         }
@@ -3023,7 +3002,7 @@ var ReflectiveInjectorDynamicStrategy = (function () {
     function ReflectiveInjectorDynamicStrategy(protoStrategy, injector) {
         this.protoStrategy = protoStrategy;
         this.injector = injector;
-        this.objs = ListWrapper.createFixedSize(protoStrategy.providers.length);
+        this.objs = new Array(protoStrategy.providers.length);
         ListWrapper.fill(this.objs, UNDEFINED);
     }
     ReflectiveInjectorDynamicStrategy.prototype.resetConstructionCounter = function () { this.injector._constructionCounter = 0; };
@@ -3367,7 +3346,7 @@ var ReflectiveInjector_ = (function () {
     };
     ReflectiveInjector_.prototype._instantiateProvider = function (provider) {
         if (provider.multiProvider) {
-            var res = ListWrapper.createFixedSize(provider.resolvedFactories.length);
+            var res = new Array(provider.resolvedFactories.length);
             for (var i = 0; i < provider.resolvedFactories.length; ++i) {
                 res[i] = this._instantiate(provider, provider.resolvedFactories[i]);
             }
@@ -3696,6 +3675,19 @@ var ErrorHandler = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+function isPromise(obj) {
+    // allow any Promise/A+ compliant thenable.
+    // It's up to the caller to ensure that obj.then conforms to the spec
+    return !!obj && typeof obj.then === 'function';
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * A function that will be executed when an application is initialized.
  * @experimental
@@ -3772,7 +3764,7 @@ function _appIdRandomProviderFactory() {
 var APP_ID_RANDOM_PROVIDER = {
     provide: APP_ID,
     useFactory: _appIdRandomProviderFactory,
-    deps: []
+    deps: [],
 };
 function _randomChar() {
     return StringWrapper.fromCharCode(97 + Math$1.floor(Math$1.random() * 25));
@@ -5901,7 +5893,7 @@ function ensureSlotCount(projectableNodes, expectedSlotCount) {
     }
     else if (projectableNodes.length < expectedSlotCount) {
         var givenSlotCount = projectableNodes.length;
-        res = ListWrapper.createFixedSize(expectedSlotCount);
+        res = new Array(expectedSlotCount);
         for (var i = 0; i < expectedSlotCount; i++) {
             res[i] = (i < givenSlotCount) ? projectableNodes[i] : EMPTY_ARR;
         }
@@ -7838,6 +7830,7 @@ var Testability = (function () {
         this._runCallbacksIfReady();
     };
     Testability.prototype.getPendingRequestCount = function () { return this._pendingCount; };
+    /** @deprecated use findProviders */
     Testability.prototype.findBindings = function (using, provider, exactMatch) {
         // TODO(juliemr): implement.
         return [];
@@ -7862,7 +7855,7 @@ var Testability = (function () {
 var TestabilityRegistry = (function () {
     function TestabilityRegistry() {
         /** @internal */
-        this._applications = new Map$1();
+        this._applications = new Map();
         _testabilityGetter.addToWindow(this);
     }
     TestabilityRegistry.prototype.registerApplication = function (token, testability) {
@@ -7950,12 +7943,12 @@ function isDevMode() {
  * @experimental APIs related to application bootstrap are currently under review.
  */
 function createPlatform(injector) {
-    if (isPresent(_platform) && !_platform.destroyed) {
+    if (_platform && !_platform.destroyed) {
         throw new Error('There can be only one platform. Destroy the previous one to create a new one.');
     }
     _platform = injector.get(PlatformRef);
     var inits = injector.get(PLATFORM_INITIALIZER, null);
-    if (isPresent(inits))
+    if (inits)
         inits.forEach(function (init) { return init(); });
     return _platform;
 }
@@ -7988,10 +7981,10 @@ function createPlatformFactory(parentPlaformFactory, name, providers) {
  */
 function assertPlatform(requiredToken) {
     var platform = getPlatform();
-    if (isBlank(platform)) {
+    if (!platform) {
         throw new Error('No platform exists!');
     }
-    if (isPresent(platform) && isBlank(platform.injector.get(requiredToken, null))) {
+    if (!platform.injector.get(requiredToken, null)) {
         throw new Error('A platform with a different configuration has been created. Please destroy it first.');
     }
     return platform;
@@ -8008,7 +8001,7 @@ function assertPlatform(requiredToken) {
  * @experimental APIs related to application bootstrap are currently under review.
  */
 function getPlatform() {
-    return isPresent(_platform) && !_platform.destroyed ? _platform : null;
+    return _platform && !_platform.destroyed ? _platform : null;
 }
 /**
  * The Angular platform is the entry point for Angular on a web page. Each page
@@ -8095,9 +8088,7 @@ function _callAndReportToErrorHandler(errorHandler, callback) {
                 throw e;
             });
         }
-        else {
-            return result;
-        }
+        return result;
     }
     catch (e) {
         errorHandler.handleError(e);
@@ -8129,8 +8120,8 @@ var PlatformRef_ = (function (_super) {
         if (this._destroyed) {
             throw new Error('The platform has already been destroyed!');
         }
-        ListWrapper.clone(this._modules).forEach(function (app) { return app.destroy(); });
-        this._destroyListeners.forEach(function (dispose) { return dispose(); });
+        this._modules.slice().forEach(function (module) { return module.destroy(); });
+        this._destroyListeners.forEach(function (listener) { return listener(); });
         this._destroyed = true;
     };
     PlatformRef_.prototype.bootstrapModuleFactory = function (moduleFactory) {
@@ -8172,7 +8163,7 @@ var PlatformRef_ = (function (_super) {
         var _this = this;
         if (compilerOptions === void 0) { compilerOptions = []; }
         var compilerFactory = this.injector.get(CompilerFactory);
-        var compiler = compilerFactory.createCompiler(compilerOptions instanceof Array ? compilerOptions : [compilerOptions]);
+        var compiler = compilerFactory.createCompiler(Array.isArray(compilerOptions) ? compilerOptions : [compilerOptions]);
         // ugly internal api hack: generate host component factories for all declared components and
         // pass the factories into the callback - this is used by UpdateAdapter to get hold of all
         // factories.
@@ -8284,7 +8275,7 @@ var ApplicationRef_ = (function (_super) {
         var compRef = componentFactory.create(this._injector, [], componentFactory.selector);
         compRef.onDestroy(function () { _this._unloadComponent(compRef); });
         var testability = compRef.injector.get(Testability, null);
-        if (isPresent(testability)) {
+        if (testability) {
             compRef.injector.get(TestabilityRegistry)
                 .registerApplication(compRef.location.nativeElement, testability);
         }
@@ -8306,7 +8297,7 @@ var ApplicationRef_ = (function (_super) {
     };
     /** @internal */
     ApplicationRef_.prototype._unloadComponent = function (componentRef) {
-        if (!ListWrapper.contains(this._rootComponents, componentRef)) {
+        if (this._rootComponents.indexOf(componentRef) == -1) {
             return;
         }
         this.unregisterChangeDetector(componentRef.changeDetectorRef);
@@ -8316,7 +8307,7 @@ var ApplicationRef_ = (function (_super) {
         if (this._runningTick) {
             throw new Error('ApplicationRef.tick is called recursively');
         }
-        var s = ApplicationRef_._tickScope();
+        var scope = ApplicationRef_._tickScope();
         try {
             this._runningTick = true;
             this._changeDetectorRefs.forEach(function (detector) { return detector.detectChanges(); });
@@ -8326,12 +8317,12 @@ var ApplicationRef_ = (function (_super) {
         }
         finally {
             this._runningTick = false;
-            wtfLeave(s);
+            wtfLeave(scope);
         }
     };
     ApplicationRef_.prototype.ngOnDestroy = function () {
         // TODO(alxhub): Dispose of the NgZone.
-        ListWrapper.clone(this._rootComponents).forEach(function (ref) { return ref.destroy(); });
+        this._rootComponents.slice().forEach(function (component) { return component.destroy(); });
     };
     Object.defineProperty(ApplicationRef_.prototype, "componentTypes", {
         get: function () { return this._rootComponentTypes; },
@@ -9118,9 +9109,12 @@ function _reflector() {
     return reflector;
 }
 var _CORE_PLATFORM_PROVIDERS = [
-    PlatformRef_, { provide: PlatformRef, useExisting: PlatformRef_ },
+    PlatformRef_,
+    { provide: PlatformRef, useExisting: PlatformRef_ },
     { provide: Reflector, useFactory: _reflector, deps: [] },
-    { provide: ReflectorReader, useExisting: Reflector }, TestabilityRegistry, Console
+    { provide: ReflectorReader, useExisting: Reflector },
+    TestabilityRegistry,
+    Console,
 ];
 /**
  * This platform has to be included in any other platform
@@ -10487,7 +10481,7 @@ var AnimationTransitionEvent = (function () {
  */
 var ViewAnimationMap = (function () {
     function ViewAnimationMap() {
-        this._map = new Map$1();
+        this._map = new Map();
         this._allPlayers = [];
     }
     Object.defineProperty(ViewAnimationMap.prototype, "length", {
@@ -10521,11 +10515,11 @@ var ViewAnimationMap = (function () {
     ViewAnimationMap.prototype.getAllPlayers = function () { return this._allPlayers; };
     ViewAnimationMap.prototype.remove = function (element, animationName) {
         var playersByAnimation = this._map.get(element);
-        if (isPresent(playersByAnimation)) {
+        if (playersByAnimation) {
             var player = playersByAnimation[animationName];
             delete playersByAnimation[animationName];
             var index = this._allPlayers.indexOf(player);
-            ListWrapper.removeAt(this._allPlayers, index);
+            this._allPlayers.splice(index, 1);
             if (StringMapWrapper.isEmpty(playersByAnimation)) {
                 this._map.delete(element);
             }
@@ -11066,7 +11060,8 @@ var __core_private__ = {
     DEFAULT_STATE: DEFAULT_STATE,
     EMPTY_STATE: EMPTY_STATE,
     FILL_STYLE_FLAG: FILL_STYLE_FLAG,
-    ComponentStillLoadingError: ComponentStillLoadingError
+    ComponentStillLoadingError: ComponentStillLoadingError,
+    isPromise: isPromise
 };
 
 /**
@@ -11194,25 +11189,14 @@ function isBlank$1(obj) {
     return obj === undefined || obj === null;
 }
 
-function isNumber$1(obj) {
-    return typeof obj === 'number';
-}
-function isString$1(obj) {
-    return typeof obj === 'string';
-}
-function isFunction$2(obj) {
-    return typeof obj === 'function';
-}
+
+
+
 
 function isStringMap$1(obj) {
     return typeof obj === 'object' && obj !== null;
 }
 
-function isPromise$1(obj) {
-    // allow any Promise/A+ compliant thenable.
-    // It's up to the caller to ensure that obj.then conforms to the spec
-    return isPresent$1(obj) && isFunction$2(obj.then);
-}
 function isArray$3(obj) {
     return Array.isArray(obj);
 }
@@ -11242,74 +11226,7 @@ function stringify$1(token) {
 
 
 
-var StringWrapper$1 = (function () {
-    function StringWrapper() {
-    }
-    StringWrapper.fromCharCode = function (code) { return String.fromCharCode(code); };
-    StringWrapper.charCodeAt = function (s, index) { return s.charCodeAt(index); };
-    StringWrapper.split = function (s, regExp) { return s.split(regExp); };
-    StringWrapper.equals = function (s, s2) { return s === s2; };
-    StringWrapper.stripLeft = function (s, charVal) {
-        if (s && s.length) {
-            var pos = 0;
-            for (var i = 0; i < s.length; i++) {
-                if (s[i] != charVal)
-                    break;
-                pos++;
-            }
-            s = s.substring(pos);
-        }
-        return s;
-    };
-    StringWrapper.stripRight = function (s, charVal) {
-        if (s && s.length) {
-            var pos = s.length;
-            for (var i = s.length - 1; i >= 0; i--) {
-                if (s[i] != charVal)
-                    break;
-                pos--;
-            }
-            s = s.substring(0, pos);
-        }
-        return s;
-    };
-    StringWrapper.replace = function (s, from, replace) {
-        return s.replace(from, replace);
-    };
-    StringWrapper.replaceAll = function (s, from, replace) {
-        return s.replace(from, replace);
-    };
-    StringWrapper.slice = function (s, from, to) {
-        if (from === void 0) { from = 0; }
-        if (to === void 0) { to = null; }
-        return s.slice(from, to === null ? undefined : to);
-    };
-    StringWrapper.replaceAllMapped = function (s, from, cb) {
-        return s.replace(from, function () {
-            var matches = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                matches[_i - 0] = arguments[_i];
-            }
-            // Remove offset & string from the result array
-            matches.splice(-2, 2);
-            // The callback receives match, p1, ..., pn
-            return cb(matches);
-        });
-    };
-    StringWrapper.contains = function (s, substr) { return s.indexOf(substr) != -1; };
-    StringWrapper.compare = function (a, b) {
-        if (a < b) {
-            return -1;
-        }
-        else if (a > b) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    };
-    return StringWrapper;
-}());
+
 
 var NumberWrapper$1 = (function () {
     function NumberWrapper() {
@@ -11377,25 +11294,7 @@ var Json$1 = (function () {
     };
     return Json;
 }());
-var DateWrapper$1 = (function () {
-    function DateWrapper() {
-    }
-    DateWrapper.create = function (year, month, day, hour, minutes, seconds, milliseconds) {
-        if (month === void 0) { month = 1; }
-        if (day === void 0) { day = 1; }
-        if (hour === void 0) { hour = 0; }
-        if (minutes === void 0) { minutes = 0; }
-        if (seconds === void 0) { seconds = 0; }
-        if (milliseconds === void 0) { milliseconds = 0; }
-        return new Date$2(year, month - 1, day, hour, minutes, seconds, milliseconds);
-    };
-    DateWrapper.fromISOString = function (str) { return new Date$2(str); };
-    DateWrapper.fromMillis = function (ms) { return new Date$2(ms); };
-    DateWrapper.toMillis = function (date) { return date.getTime(); };
-    DateWrapper.now = function () { return new Date$2(); };
-    DateWrapper.toJson = function (date) { return date.toJSON(); };
-    return DateWrapper;
-}());
+
 
 var _symbolIterator$1 = null;
 function getSymbolIterator$1() {
@@ -11465,7 +11364,13 @@ var Location = (function () {
         this._platformStrategy = platformStrategy;
         var browserBaseHref = this._platformStrategy.getBaseHref();
         this._baseHref = Location.stripTrailingSlash(_stripIndexHtml(browserBaseHref));
-        this._platformStrategy.onPopState(function (ev) { _this._subject.emit({ 'url': _this.path(true), 'pop': true, 'type': ev.type }); });
+        this._platformStrategy.onPopState(function (ev) {
+            _this._subject.emit({
+                'url': _this.path(true),
+                'pop': true,
+                'type': ev.type,
+            });
+        });
     }
     /**
      * Returns the normalized URL path.
@@ -12277,20 +12182,18 @@ function getPluralCase(locale, nLike) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Map$2 = _global$1.Map;
-var Set$2 = _global$1.Set;
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Map constructor.  We work around that by manually adding the items.
 var createMapFromPairs$1 = (function () {
     try {
-        if (new Map$2([[1, 2]]).size === 1) {
-            return function createMapFromPairs$1(pairs) { return new Map$2(pairs); };
+        if (new Map([[1, 2]]).size === 1) {
+            return function createMapFromPairs$1(pairs) { return new Map(pairs); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map$2();
+        var map = new Map();
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i];
             map.set(pair[0], pair[1]);
@@ -12300,20 +12203,20 @@ var createMapFromPairs$1 = (function () {
 })();
 var createMapFromMap$1 = (function () {
     try {
-        if (new Map$2(new Map$2())) {
-            return function createMapFromMap$1(m) { return new Map$2(m); };
+        if (new Map(new Map())) {
+            return function createMapFromMap$1(m) { return new Map(m); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromMap(m) {
-        var map = new Map$2();
+        var map = new Map();
         m.forEach(function (v, k) { map.set(k, v); });
         return map;
     };
 })();
 var _clearValues$1 = (function () {
-    if ((new Map$2()).keys().next) {
+    if ((new Map()).keys().next) {
         return function _clearValues$1(m) {
             var keyIterator = m.keys();
             var k;
@@ -12332,7 +12235,7 @@ var _clearValues$1 = (function () {
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$1 = (function () {
     try {
-        if ((new Map$2()).values().next) {
+        if ((new Map()).values().next) {
             return function createArrayFromMap(m, getValues) {
                 return getValues ? Array.from(m.values()) : Array.from(m.keys());
             };
@@ -12341,7 +12244,7 @@ var _arrayFromMap$1 = (function () {
     catch (e) {
     }
     return function createArrayFromMapWithForeach(m, getValues) {
-        var res = ListWrapper$1.createFixedSize(m.size), i = 0;
+        var res = new Array(m.size), i = 0;
         m.forEach(function (v, k) {
             res[i] = getValues ? v : k;
             i++;
@@ -12353,67 +12256,7 @@ var _arrayFromMap$1 = (function () {
 /**
  * Wraps Javascript Objects
  */
-var StringMapWrapper$1 = (function () {
-    function StringMapWrapper() {
-    }
-    StringMapWrapper.create = function () {
-        // Note: We are not using Object.create(null) here due to
-        // performance!
-        // http://jsperf.com/ng2-object-create-null
-        return {};
-    };
-    StringMapWrapper.contains = function (map, key) {
-        return map.hasOwnProperty(key);
-    };
-    StringMapWrapper.get = function (map, key) {
-        return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-    StringMapWrapper.values = function (map) {
-        return Object.keys(map).map(function (k) { return map[k]; });
-    };
-    StringMapWrapper.isEmpty = function (map) {
-        for (var prop in map) {
-            return false;
-        }
-        return true;
-    };
-    StringMapWrapper.delete = function (map, key) { delete map[key]; };
-    StringMapWrapper.forEach = function (map, callback) {
-        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-            var k = _a[_i];
-            callback(map[k], k);
-        }
-    };
-    StringMapWrapper.merge = function (m1, m2) {
-        var m = {};
-        for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
-            var k = _a[_i];
-            m[k] = m1[k];
-        }
-        for (var _b = 0, _c = Object.keys(m2); _b < _c.length; _b++) {
-            var k = _c[_b];
-            m[k] = m2[k];
-        }
-        return m;
-    };
-    StringMapWrapper.equals = function (m1, m2) {
-        var k1 = Object.keys(m1);
-        var k2 = Object.keys(m2);
-        if (k1.length != k2.length) {
-            return false;
-        }
-        for (var i = 0; i < k1.length; i++) {
-            var key = k1[i];
-            if (m1[key] !== m2[key]) {
-                return false;
-            }
-        }
-        return true;
-    };
-    return StringMapWrapper;
-}());
+
 var ListWrapper$1 = (function () {
     function ListWrapper() {
     }
@@ -12548,7 +12391,7 @@ function isListLikeIterable$1(obj) {
     if (!isJsObject$1(obj))
         return false;
     return isArray$3(obj) ||
-        (!(obj instanceof Map$2) &&
+        (!(obj instanceof Map) &&
             getSymbolIterator$1() in obj); // JS Iterable have a Symbol.iterator prop
 }
 
@@ -12556,13 +12399,13 @@ function isListLikeIterable$1(obj) {
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Set constructor.  We work around that by manually adding the items.
 var createSetFromList$1 = (function () {
-    var test = new Set$2([1, 2, 3]);
+    var test = new Set([1, 2, 3]);
     if (test.size === 3) {
-        return function createSetFromList$1(lst) { return new Set$2(lst); };
+        return function createSetFromList$1(lst) { return new Set(lst); };
     }
     else {
         return function createSetAndPopulateFromList(lst) {
-            var res = new Set$2(lst);
+            var res = new Set(lst);
             if (res.size !== lst.length) {
                 for (var i = 0; i < lst.length; i++) {
                     res.add(lst[i]);
@@ -13083,7 +12926,6 @@ var NgSwitch = (function () {
             this._activateViews(this._valueViews.get(_CASE_DEFAULT));
         }
     };
-    /** @internal */
     NgSwitch.prototype._emptyAllActiveViews = function () {
         var activeContainers = this._activeViews;
         for (var i = 0; i < activeContainers.length; i++) {
@@ -13091,9 +12933,7 @@ var NgSwitch = (function () {
         }
         this._activeViews = [];
     };
-    /** @internal */
     NgSwitch.prototype._activateViews = function (views) {
-        // TODO(vicb): assert(this._activeViews.length === 0);
         if (views) {
             for (var i = 0; i < views.length; i++) {
                 views[i].create();
@@ -13110,7 +12950,6 @@ var NgSwitch = (function () {
         }
         views.push(view);
     };
-    /** @internal */
     NgSwitch.prototype._deregisterView = function (value, view) {
         // `_CASE_DEFAULT` is used a marker for non-registered cases
         if (value === _CASE_DEFAULT)
@@ -13141,10 +12980,11 @@ var NgSwitch = (function () {
  *             expression.
  *
  * @howToUse
- *     <container-element [ngSwitch]="switch_expression">
- *       <some-element *ngSwitchCase="match_expression_1">...</some-element>
- *     </container-element>
- *
+ * ```
+ * <container-element [ngSwitch]="switch_expression">
+ *   <some-element *ngSwitchCase="match_expression_1">...</some-element>
+ * </container-element>
+ *```
  * @description
  *
  * Insert the sub-tree when the expression evaluates to the same value as the enclosing switch
@@ -13159,7 +12999,6 @@ var NgSwitch = (function () {
 var NgSwitchCase = (function () {
     function NgSwitchCase(viewContainer, templateRef, ngSwitch) {
         // `_CASE_DEFAULT` is used as a marker for a not yet initialized value
-        /** @internal */
         this._value = _CASE_DEFAULT;
         this._switch = ngSwitch;
         this._view = new SwitchView(viewContainer, templateRef);
@@ -13193,10 +13032,12 @@ var NgSwitchCase = (function () {
  *             switch expression.
  *
  * @howToUse
- *     <container-element [ngSwitch]="switch_expression">
- *       <some-element *ngSwitchCase="match_expression_1">...</some-element>
- *       <some-other-element *ngSwitchDefault>...</some-other-element>
- *     </container-element>
+ * ```
+ * <container-element [ngSwitch]="switch_expression">
+ *   <some-element *ngSwitchCase="match_expression_1">...</some-element>
+ *   <some-other-element *ngSwitchDefault>...</some-other-element>
+ * </container-element>
+ * ```
  *
  * @description
  *
@@ -13276,19 +13117,16 @@ var NgPlural = (function () {
         configurable: true
     });
     NgPlural.prototype.addCase = function (value, switchView) { this._caseViews[value] = switchView; };
-    /** @internal */
     NgPlural.prototype._updateView = function () {
         this._clearViews();
         var cases = Object.keys(this._caseViews);
         var key = getPluralCategory(this._switchValue, cases, this._localization);
         this._activateView(this._caseViews[key]);
     };
-    /** @internal */
     NgPlural.prototype._clearViews = function () {
         if (this._activeView)
             this._activeView.destroy();
     };
-    /** @internal */
     NgPlural.prototype._activateView = function (view) {
         if (view) {
             this._activeView = view;
@@ -13314,10 +13152,12 @@ var NgPlural = (function () {
  *             given expression matches the plural expression according to CLDR rules.
  *
  * @howToUse
- *     <some-element [ngPlural]="value">
- *       <ng-container *ngPluralCase="'=0'">...</ng-container>
- *       <ng-container *ngPluralCase="'other'">...</ng-container>
- *     </some-element>
+ * ```
+ * <some-element [ngPlural]="value">
+ *   <ng-container *ngPluralCase="'=0'">...</ng-container>
+ *   <ng-container *ngPluralCase="'other'">...</ng-container>
+ * </some-element>
+ *```
  *
  * See {@link NgPlural} for more details and example.
  *
@@ -13463,7 +13303,7 @@ var NgTemplateOutlet = (function () {
         enumerable: true,
         configurable: true
     });
-    NgTemplateOutlet.prototype.ngOnChanges = function () {
+    NgTemplateOutlet.prototype.ngOnChanges = function (changes) {
         if (this._viewRef) {
             this._viewContainerRef.remove(this._viewContainerRef.indexOf(this._viewRef));
         }
@@ -13508,6 +13348,15 @@ var COMMON_DIRECTIVES = [
     NgPlural,
     NgPluralCase,
 ];
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var isPromise$1 = __core_private__.isPromise;
 
 /**
  * @license
@@ -13649,25 +13498,21 @@ var _observableStrategy = new ObservableStrategy();
  */
 var AsyncPipe = (function () {
     function AsyncPipe(_ref) {
-        /** @internal */
+        this._ref = _ref;
         this._latestValue = null;
-        /** @internal */
         this._latestReturnedValue = null;
-        /** @internal */
         this._subscription = null;
-        /** @internal */
         this._obj = null;
         this._strategy = null;
-        this._ref = _ref;
     }
     AsyncPipe.prototype.ngOnDestroy = function () {
-        if (isPresent$1(this._subscription)) {
+        if (this._subscription) {
             this._dispose();
         }
     };
     AsyncPipe.prototype.transform = function (obj) {
-        if (isBlank$1(this._obj)) {
-            if (isPresent$1(obj)) {
+        if (!this._obj) {
+            if (obj) {
                 this._subscribe(obj);
             }
             this._latestReturnedValue = this._latestValue;
@@ -13680,31 +13525,24 @@ var AsyncPipe = (function () {
         if (this._latestValue === this._latestReturnedValue) {
             return this._latestReturnedValue;
         }
-        else {
-            this._latestReturnedValue = this._latestValue;
-            return WrappedValue.wrap(this._latestValue);
-        }
+        this._latestReturnedValue = this._latestValue;
+        return WrappedValue.wrap(this._latestValue);
     };
-    /** @internal */
     AsyncPipe.prototype._subscribe = function (obj) {
         var _this = this;
         this._obj = obj;
         this._strategy = this._selectStrategy(obj);
         this._subscription = this._strategy.createSubscription(obj, function (value) { return _this._updateLatestValue(obj, value); });
     };
-    /** @internal */
     AsyncPipe.prototype._selectStrategy = function (obj) {
         if (isPromise$1(obj)) {
             return _promiseStrategy;
         }
-        else if (obj.subscribe) {
+        if (obj.subscribe) {
             return _observableStrategy;
         }
-        else {
-            throw new InvalidPipeArgumentError(AsyncPipe, obj);
-        }
+        throw new InvalidPipeArgumentError(AsyncPipe, obj);
     };
-    /** @internal */
     AsyncPipe.prototype._dispose = function () {
         this._strategy.dispose(this._subscription);
         this._latestValue = null;
@@ -13712,7 +13550,6 @@ var AsyncPipe = (function () {
         this._subscription = null;
         this._obj = null;
     };
-    /** @internal */
     AsyncPipe.prototype._updateLatestValue = function (async, value) {
         if (async === this._obj) {
             this._latestValue = value;
@@ -14010,24 +13847,13 @@ var DatePipe = (function () {
             throw new InvalidPipeArgumentError(DatePipe, value);
         }
         if (NumberWrapper$1.isNumeric(value)) {
-            value = DateWrapper$1.fromMillis(parseFloat(value));
+            value = parseFloat(value);
         }
-        else if (isString$1(value)) {
-            value = DateWrapper$1.fromISOString(value);
-        }
-        if (StringMapWrapper$1.contains(DatePipe._ALIASES, pattern)) {
-            pattern = StringMapWrapper$1.get(DatePipe._ALIASES, pattern);
-        }
-        return DateFormatter.format(value, this._locale, pattern);
+        return DateFormatter.format(new Date(value), this._locale, DatePipe._ALIASES[pattern] || pattern);
     };
     DatePipe.prototype.supports = function (obj) {
-        if (isDate$1(obj) || NumberWrapper$1.isNumeric(obj)) {
-            return true;
-        }
-        if (isString$1(obj) && isDate$1(DateWrapper$1.fromISOString(obj))) {
-            return true;
-        }
-        return false;
+        return isDate$1(obj) || NumberWrapper$1.isNumeric(obj) ||
+            (typeof obj === 'string' && isDate$1(new Date(obj)));
     };
     /** @internal */
     DatePipe._ALIASES = {
@@ -14086,7 +13912,7 @@ var I18nPluralPipe = (function () {
             throw new InvalidPipeArgumentError(I18nPluralPipe, pluralMap);
         }
         var key = getPluralCategory(value, Object.keys(pluralMap), this._localization);
-        return StringWrapper$1.replaceAll(pluralMap[key], _INTERPOLATION_REGEXP, value.toString());
+        return pluralMap[key].replace(_INTERPOLATION_REGEXP, value.toString());
     };
     I18nPluralPipe.decorators = [
         { type: Pipe, args: [{ name: 'i18nPlural', pure: true },] },
@@ -14199,7 +14025,7 @@ var LowerCasePipe = (function () {
     LowerCasePipe.prototype.transform = function (value) {
         if (isBlank$1(value))
             return value;
-        if (!isString$1(value)) {
+        if (typeof value !== 'string') {
             throw new InvalidPipeArgumentError(LowerCasePipe, value);
         }
         return value.toLowerCase();
@@ -14219,15 +14045,15 @@ var LowerCasePipe = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(\-(\d+))?)?$/;
+var _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(-(\d+))?)?$/;
 function formatNumber(pipe, locale, value, style$$1, digits, currency, currencyAsSymbol) {
     if (currency === void 0) { currency = null; }
     if (currencyAsSymbol === void 0) { currencyAsSymbol = false; }
     if (isBlank$1(value))
         return null;
     // Convert strings to numbers
-    value = isString$1(value) && NumberWrapper$1.isNumeric(value) ? +value : value;
-    if (!isNumber$1(value)) {
+    value = typeof value === 'string' && NumberWrapper$1.isNumeric(value) ? +value : value;
+    if (typeof value !== 'number') {
         throw new InvalidPipeArgumentError(pipe, value);
     }
     var minInt;
@@ -14239,7 +14065,7 @@ function formatNumber(pipe, locale, value, style$$1, digits, currency, currencyA
         minFraction = 0;
         maxFraction = 3;
     }
-    if (isPresent$1(digits)) {
+    if (digits) {
         var parts = digits.match(_NUMBER_FORMAT_REGEXP);
         if (parts === null) {
             throw new Error(digits + " is not a valid digit info for number pipes");
@@ -14259,7 +14085,7 @@ function formatNumber(pipe, locale, value, style$$1, digits, currency, currencyA
         minimumFractionDigits: minFraction,
         maximumFractionDigits: maxFraction,
         currency: currency,
-        currencyAsSymbol: currencyAsSymbol
+        currencyAsSymbol: currencyAsSymbol,
     });
 }
 /**
@@ -14442,18 +14268,14 @@ var SlicePipe = (function () {
     function SlicePipe() {
     }
     SlicePipe.prototype.transform = function (value, start, end) {
-        if (end === void 0) { end = null; }
         if (isBlank$1(value))
             return value;
         if (!this.supports(value)) {
             throw new InvalidPipeArgumentError(SlicePipe, value);
         }
-        if (isString$1(value)) {
-            return StringWrapper$1.slice(value, start, end);
-        }
-        return ListWrapper$1.slice(value, start, end);
+        return value.slice(start, end);
     };
-    SlicePipe.prototype.supports = function (obj) { return isString$1(obj) || isArray$3(obj); };
+    SlicePipe.prototype.supports = function (obj) { return typeof obj === 'string' || Array.isArray(obj); };
     SlicePipe.decorators = [
         { type: Pipe, args: [{ name: 'slice', pure: false },] },
     ];
@@ -14489,7 +14311,7 @@ var UpperCasePipe = (function () {
     UpperCasePipe.prototype.transform = function (value) {
         if (isBlank$1(value))
             return value;
-        if (!isString$1(value)) {
+        if (typeof value !== 'string') {
             throw new InvalidPipeArgumentError(UpperCasePipe, value);
         }
         return value.toUpperCase();
@@ -14658,7 +14480,6 @@ function isString$2(obj) {
 function isFunction$3(obj) {
     return typeof obj === 'function';
 }
-
 
 
 
@@ -14888,20 +14709,18 @@ function getSymbolIterator$2() {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Map$3 = _global$2.Map;
-var Set$3 = _global$2.Set;
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Map constructor.  We work around that by manually adding the items.
 var createMapFromPairs$2 = (function () {
     try {
-        if (new Map$3([[1, 2]]).size === 1) {
-            return function createMapFromPairs$2(pairs) { return new Map$3(pairs); };
+        if (new Map([[1, 2]]).size === 1) {
+            return function createMapFromPairs$2(pairs) { return new Map(pairs); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map$3();
+        var map = new Map();
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i];
             map.set(pair[0], pair[1]);
@@ -14911,20 +14730,20 @@ var createMapFromPairs$2 = (function () {
 })();
 var createMapFromMap$2 = (function () {
     try {
-        if (new Map$3(new Map$3())) {
-            return function createMapFromMap$2(m) { return new Map$3(m); };
+        if (new Map(new Map())) {
+            return function createMapFromMap$2(m) { return new Map(m); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromMap(m) {
-        var map = new Map$3();
+        var map = new Map();
         m.forEach(function (v, k) { map.set(k, v); });
         return map;
     };
 })();
 var _clearValues$2 = (function () {
-    if ((new Map$3()).keys().next) {
+    if ((new Map()).keys().next) {
         return function _clearValues$2(m) {
             var keyIterator = m.keys();
             var k;
@@ -14943,7 +14762,7 @@ var _clearValues$2 = (function () {
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$2 = (function () {
     try {
-        if ((new Map$3()).values().next) {
+        if ((new Map()).values().next) {
             return function createArrayFromMap(m, getValues) {
                 return getValues ? Array.from(m.values()) : Array.from(m.keys());
             };
@@ -14952,7 +14771,7 @@ var _arrayFromMap$2 = (function () {
     catch (e) {
     }
     return function createArrayFromMapWithForeach(m, getValues) {
-        var res = ListWrapper$2.createFixedSize(m.size), i = 0;
+        var res = new Array(m.size), i = 0;
         m.forEach(function (v, k) {
             res[i] = getValues ? v : k;
             i++;
@@ -14967,15 +14786,6 @@ var _arrayFromMap$2 = (function () {
 var StringMapWrapper$2 = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.create = function () {
-        // Note: We are not using Object.create(null) here due to
-        // performance!
-        // http://jsperf.com/ng2-object-create-null
-        return {};
-    };
-    StringMapWrapper.contains = function (map, key) {
-        return map.hasOwnProperty(key);
-    };
     StringMapWrapper.get = function (map, key) {
         return map.hasOwnProperty(key) ? map[key] : undefined;
     };
@@ -14990,7 +14800,6 @@ var StringMapWrapper$2 = (function () {
         }
         return true;
     };
-    StringMapWrapper.delete = function (map, key) { delete map[key]; };
     StringMapWrapper.forEach = function (map, callback) {
         for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
             var k = _a[_i];
@@ -15161,13 +14970,13 @@ function _flattenArray$2(source, target) {
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Set constructor.  We work around that by manually adding the items.
 var createSetFromList$2 = (function () {
-    var test = new Set$3([1, 2, 3]);
+    var test = new Set([1, 2, 3]);
     if (test.size === 3) {
-        return function createSetFromList$2(lst) { return new Set$3(lst); };
+        return function createSetFromList$2(lst) { return new Set(lst); };
     }
     else {
         return function createSetAndPopulateFromList(lst) {
-            var res = new Set$3(lst);
+            var res = new Set(lst);
             if (res.size !== lst.length) {
                 for (var i = 0; i < lst.length; i++) {
                     res.add(lst[i]);
@@ -15690,7 +15499,7 @@ var BrowserDomAdapter = (function (_super) {
     BrowserDomAdapter.prototype.childNodes = function (el /** TODO #9100 */) { return el.childNodes; };
     BrowserDomAdapter.prototype.childNodesAsList = function (el /** TODO #9100 */) {
         var childNodes = el.childNodes;
-        var res = ListWrapper$2.createFixedSize(childNodes.length);
+        var res = new Array(childNodes.length);
         for (var i = 0; i < childNodes.length; i++) {
             res[i] = childNodes[i];
         }
@@ -16763,8 +16572,7 @@ var HammerGesturesPluginCommon = (function (_super) {
         _super.call(this);
     }
     HammerGesturesPluginCommon.prototype.supports = function (eventName) {
-        eventName = eventName.toLowerCase();
-        return StringMapWrapper$2.contains(_eventNames, eventName);
+        return _eventNames.hasOwnProperty(eventName.toLowerCase());
     };
     return HammerGesturesPluginCommon;
 }(EventManagerPlugin));
@@ -16909,7 +16717,7 @@ var KeyEventsPlugin = (function (_super) {
             // returning null instead of throwing to let another plugin process the event
             return null;
         }
-        var result = StringMapWrapper$2.create();
+        var result = {};
         StringMapWrapper$2.set(result, 'domEventName', domEventName);
         StringMapWrapper$2.set(result, 'fullKey', fullKey);
         return result;
@@ -17816,19 +17624,12 @@ function isBlank$3(obj) {
 function isString$3(obj) {
     return typeof obj === 'string';
 }
-function isFunction$4(obj) {
-    return typeof obj === 'function';
-}
+
 
 function isStringMap$3(obj) {
     return typeof obj === 'object' && obj !== null;
 }
 
-function isPromise$3(obj) {
-    // allow any Promise/A+ compliant thenable.
-    // It's up to the caller to ensure that obj.then conforms to the spec
-    return isPresent$3(obj) && isFunction$4(obj.then);
-}
 function isArray$5(obj) {
     return Array.isArray(obj);
 }
@@ -18156,20 +17957,18 @@ var ControlContainer = (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Map$4 = _global$3.Map;
-var Set$4 = _global$3.Set;
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Map constructor.  We work around that by manually adding the items.
 var createMapFromPairs$3 = (function () {
     try {
-        if (new Map$4([[1, 2]]).size === 1) {
-            return function createMapFromPairs$3(pairs) { return new Map$4(pairs); };
+        if (new Map([[1, 2]]).size === 1) {
+            return function createMapFromPairs$3(pairs) { return new Map(pairs); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map$4();
+        var map = new Map();
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i];
             map.set(pair[0], pair[1]);
@@ -18179,20 +17978,20 @@ var createMapFromPairs$3 = (function () {
 })();
 var createMapFromMap$3 = (function () {
     try {
-        if (new Map$4(new Map$4())) {
-            return function createMapFromMap$3(m) { return new Map$4(m); };
+        if (new Map(new Map())) {
+            return function createMapFromMap$3(m) { return new Map(m); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromMap(m) {
-        var map = new Map$4();
+        var map = new Map();
         m.forEach(function (v, k) { map.set(k, v); });
         return map;
     };
 })();
 var _clearValues$3 = (function () {
-    if ((new Map$4()).keys().next) {
+    if ((new Map()).keys().next) {
         return function _clearValues$3(m) {
             var keyIterator = m.keys();
             var k;
@@ -18211,7 +18010,7 @@ var _clearValues$3 = (function () {
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$3 = (function () {
     try {
-        if ((new Map$4()).values().next) {
+        if ((new Map()).values().next) {
             return function createArrayFromMap(m, getValues) {
                 return getValues ? Array.from(m.values()) : Array.from(m.keys());
             };
@@ -18220,7 +18019,7 @@ var _arrayFromMap$3 = (function () {
     catch (e) {
     }
     return function createArrayFromMapWithForeach(m, getValues) {
-        var res = ListWrapper$3.createFixedSize(m.size), i = 0;
+        var res = new Array(m.size), i = 0;
         m.forEach(function (v, k) {
             res[i] = getValues ? v : k;
             i++;
@@ -18231,9 +18030,8 @@ var _arrayFromMap$3 = (function () {
 var MapWrapper$3 = (function () {
     function MapWrapper() {
     }
-    MapWrapper.clone = function (m) { return createMapFromMap$3(m); };
     MapWrapper.createFromStringMap = function (stringMap) {
-        var result = new Map$4();
+        var result = new Map();
         for (var prop in stringMap) {
             result.set(prop, stringMap[prop]);
         }
@@ -18245,7 +18043,6 @@ var MapWrapper$3 = (function () {
         return r;
     };
     MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs$3(pairs); };
-    MapWrapper.clearValues = function (m) { _clearValues$3(m); };
     MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap$3(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap$3(m, true); };
@@ -18257,15 +18054,6 @@ var MapWrapper$3 = (function () {
 var StringMapWrapper$3 = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.create = function () {
-        // Note: We are not using Object.create(null) here due to
-        // performance!
-        // http://jsperf.com/ng2-object-create-null
-        return {};
-    };
-    StringMapWrapper.contains = function (map, key) {
-        return map.hasOwnProperty(key);
-    };
     StringMapWrapper.get = function (map, key) {
         return map.hasOwnProperty(key) ? map[key] : undefined;
     };
@@ -18280,7 +18068,6 @@ var StringMapWrapper$3 = (function () {
         }
         return true;
     };
-    StringMapWrapper.delete = function (map, key) { delete map[key]; };
     StringMapWrapper.forEach = function (map, callback) {
         for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
             var k = _a[_i];
@@ -18451,13 +18238,13 @@ function _flattenArray$3(source, target) {
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Set constructor.  We work around that by manually adding the items.
 var createSetFromList$3 = (function () {
-    var test = new Set$4([1, 2, 3]);
+    var test = new Set([1, 2, 3]);
     if (test.size === 3) {
-        return function createSetFromList$3(lst) { return new Set$4(lst); };
+        return function createSetFromList$3(lst) { return new Set(lst); };
     }
     else {
         return function createSetAndPopulateFromList(lst) {
-            var res = new Set$4(lst);
+            var res = new Set(lst);
             if (res.size !== lst.length) {
                 for (var i = 0; i < lst.length; i++) {
                     res.add(lst[i]);
@@ -18494,6 +18281,15 @@ function toPromise(PromiseCtor) {
     });
 }
 var toPromise_2 = toPromise;
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var isPromise$2 = __core_private__.isPromise;
 
 /**
  * @license
@@ -18620,7 +18416,7 @@ var Validators = (function () {
     return Validators;
 }());
 function _convertToPromise(obj) {
-    return isPromise$3(obj) ? obj : toPromise_2.call(obj);
+    return isPromise$2(obj) ? obj : toPromise_2.call(obj);
 }
 function _executeValidators(control, validators) {
     return validators.map(function (v) { return v(control); });
@@ -18944,21 +18740,33 @@ var RadioControlRegistry = (function () {
     return RadioControlRegistry;
 }());
 /**
- * The accessor for writing a radio control value and listening to changes that is used by the
- * {@link NgModel}, {@link FormControlDirective}, and {@link FormControlName} directives.
+ * @whatItDoes  Writes radio control values and listens to radio control changes.
  *
- *  ### Example
- *  ```
- *  @Component({
- *    template: `
- *      <input type="radio" name="food" [(ngModel)]="food" value="chicken">
- *      <input type="radio" name="food" [(ngModel)]="food" value="fish">
- *    `
- *  })
- *  class FoodCmp {
- *    food = 'chicken';
- *  }
- *  ```
+ * Used by {@link NgModel}, {@link FormControlDirective}, and {@link FormControlName}
+ * to keep the view synced with the {@link FormControl} model.
+ *
+ * @howToUse
+ *
+ * If you have imported the {@link FormsModule} or the {@link ReactiveFormsModule}, this
+ * value accessor will be active on any radio control that has a form directive. You do
+ * **not** need to add a special selector to activate it.
+ *
+ * ### How to use radio buttons with form directives
+ *
+ * To use radio buttons in a template-driven form, you'll want to ensure that radio buttons
+ * in the same group have the same `name` attribute.  Radio buttons with different `name`
+ * attributes do not affect each other.
+ *
+ * {@example forms/ts/radioButtons/radio_button_example.ts region='TemplateDriven'}
+ *
+ * When using radio buttons in a reactive form, radio buttons in the same group should have the
+ * same `formControlName`. You can also add a `name` attribute, but it's optional.
+ *
+ * {@example forms/ts/reactiveRadioButtons/reactive_radio_button_example.ts region='Reactive'}
+ *
+ *  * **npm package**: `@angular/forms`
+ *
+ *  @stable
  */
 var RadioControlValueAccessor = (function () {
     function RadioControlValueAccessor(_renderer, _elementRef, _registry, _injector) {
@@ -19047,12 +18855,40 @@ function _extractId(valueString) {
     return valueString.split(':')[0];
 }
 /**
- * The accessor for writing a value and listening to changes on a select element.
+ * @whatItDoes Writes values and listens to changes on a select element.
  *
- * Note: We have to listen to the 'change' event because 'input' events aren't fired
+ * Used by {@link NgModel}, {@link FormControlDirective}, and {@link FormControlName}
+ * to keep the view synced with the {@link FormControl} model.
+ *
+ * @howToUse
+ *
+ * If you have imported the {@link FormsModule} or the {@link ReactiveFormsModule}, this
+ * value accessor will be active on any select control that has a form directive. You do
+ * **not** need to add a special selector to activate it.
+ *
+ * ### How to use select controls with form directives
+ *
+ * To use a select in a template-driven form, simply add an `ngModel` and a `name`
+ * attribute to the main `<select>` tag.
+ *
+ * If your option values are simple strings, you can bind to the normal `value` property
+ * on the option.  If your option values happen to be objects (and you'd like to save the
+ * selection in your form as an object), use `ngValue` instead:
+ *
+ * {@example forms/ts/selectControl/select_control_example.ts region='Component'}
+ *
+ * In reactive forms, you'll also want to add your form directive (`formControlName` or
+ * `formControl`) on the main `<select>` tag. Like in the former example, you have the
+ * choice of binding to the  `value` or `ngValue` property on the select's options.
+ *
+ * {@example forms/ts/reactiveSelectControl/reactive_select_control_example.ts region='Component'}
+ *
+ * Note: We listen to the 'change' event because 'input' events aren't fired
  * for selects in Firefox and IE:
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1024350
  * https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4660045/
+ *
+ * * **npm package**: `@angular/forms`
  *
  * @stable
  */
@@ -19114,15 +18950,11 @@ var SelectControlValueAccessor = (function () {
     return SelectControlValueAccessor;
 }());
 /**
- * Marks `<option>` as dynamic, so Angular can be notified when options change.
+ * @whatItDoes Marks `<option>` as dynamic, so Angular can be notified when options change.
  *
- * ### Example
+ * @howToUse
  *
- * ```
- * <select name="city" ngModel>
- *   <option *ngFor="let c of cities" [value]="c"></option>
- * </select>
- * ```
+ * See docs for {@link SelectControlValueAccessor} for usage examples.
  *
  * @stable
  */
@@ -19454,7 +19286,7 @@ function composeAsyncValidators(validators) {
         null;
 }
 function isPropertyUpdated(changes, viewModel) {
-    if (!StringMapWrapper$3.contains(changes, 'model'))
+    if (!changes.hasOwnProperty('model'))
         return false;
     var change = changes['model'];
     if (change.isFirstChange())
@@ -19968,7 +19800,7 @@ function _find(control, path, delimiter) {
     }, control);
 }
 function toObservable(r) {
-    return isPromise$3(r) ? fromPromise_1(r) : r;
+    return isPromise$2(r) ? fromPromise_1(r) : r;
 }
 function coerceToValidator(validator) {
     return Array.isArray(validator) ? composeValidators(validator) : validator;
@@ -19995,6 +19827,8 @@ var AbstractControl = (function () {
         this._onCollectionChange = function () { };
         this._pristine = true;
         this._touched = false;
+        /** @internal */
+        this._onDisabledChange = [];
     }
     Object.defineProperty(AbstractControl.prototype, "value", {
         /**
@@ -20255,7 +20089,7 @@ var AbstractControl = (function () {
             this._statusChanges.emit(this._status);
         }
         this._updateAncestors(onlySelf);
-        this._onDisabledChange(true);
+        this._onDisabledChange.forEach(function (changeFn) { return changeFn(true); });
     };
     /**
      * Enables the control. This means the control will be included in validation checks and
@@ -20270,7 +20104,7 @@ var AbstractControl = (function () {
         this._forEachChild(function (control) { control.enable({ onlySelf: true }); });
         this.updateValueAndValidity({ onlySelf: true, emitEvent: emitEvent });
         this._updateAncestors(onlySelf);
-        this._onDisabledChange(false);
+        this._onDisabledChange.forEach(function (changeFn) { return changeFn(false); });
     };
     AbstractControl.prototype._updateAncestors = function (onlySelf) {
         if (isPresent$3(this._parent) && !onlySelf) {
@@ -20468,8 +20302,6 @@ var AbstractControl = (function () {
         }
     };
     /** @internal */
-    AbstractControl.prototype._onDisabledChange = function (isDisabled) { };
-    /** @internal */
     AbstractControl.prototype._isBoxedValue = function (formState) {
         return isStringMap$3(formState) && Object.keys(formState).length === 2 && 'value' in formState &&
             'disabled' in formState;
@@ -20628,13 +20460,15 @@ var FormControl = (function (_super) {
      */
     FormControl.prototype._clearChangeFns = function () {
         this._onChange = [];
-        this._onDisabledChange = null;
+        this._onDisabledChange = [];
         this._onCollectionChange = function () { };
     };
     /**
      * Register a listener for disabled events.
      */
-    FormControl.prototype.registerOnDisabledChange = function (fn) { this._onDisabledChange = fn; };
+    FormControl.prototype.registerOnDisabledChange = function (fn) {
+        this._onDisabledChange.push(fn);
+    };
     /**
      * @internal
      */
@@ -20742,7 +20576,7 @@ var FormGroup = (function (_super) {
     FormGroup.prototype.removeControl = function (name) {
         if (this.controls[name])
             this.controls[name]._registerOnCollectionChange(function () { });
-        StringMapWrapper$3.delete(this.controls, name);
+        delete (this.controls[name]);
         this.updateValueAndValidity();
         this._onCollectionChange();
     };
@@ -20752,7 +20586,7 @@ var FormGroup = (function (_super) {
     FormGroup.prototype.setControl = function (name, control) {
         if (this.controls[name])
             this.controls[name]._registerOnCollectionChange(function () { });
-        StringMapWrapper$3.delete(this.controls, name);
+        delete (this.controls[name]);
         if (control)
             this.registerControl(name, control);
         this.updateValueAndValidity();
@@ -21557,6 +21391,11 @@ var resolvedPromise$1 = Promise.resolve(null);
  *
  * {@example forms/ts/simpleForm/simple_form_example.ts region='Component'}
  *
+ * To see `ngModel` examples with different form control types, see:
+ *
+ * * Radio buttons: {@link RadioControlValueAccessor}
+ * * Selects: {@link SelectControlValueAccessor}
+ *
  * **npm package**: `@angular/forms`
  *
  * **NgModule**: `FormsModule`
@@ -21664,7 +21503,7 @@ var NgModel = (function (_super) {
     NgModel.prototype._updateDisabled = function (changes) {
         var _this = this;
         var disabledValue = changes['isDisabled'].currentValue;
-        var isDisabled = disabledValue != null && disabledValue != false;
+        var isDisabled = disabledValue === '' || (disabledValue && disabledValue !== 'false');
         resolvedPromise$1.then(function () {
             if (isDisabled && !_this.control.disabled) {
                 _this.control.disable();
@@ -21804,8 +21643,9 @@ var FormControlDirective = (function (_super) {
     FormControlDirective.prototype.ngOnChanges = function (changes) {
         if (this._isControlChanged(changes)) {
             setUpControl(this.form, this);
-            if (this.control.disabled)
+            if (this.control.disabled && this.valueAccessor.setDisabledState) {
                 this.valueAccessor.setDisabledState(true);
+            }
             this.form.updateValueAndValidity({ emitEvent: false });
         }
         if (isPropertyUpdated(changes, this.viewModel)) {
@@ -21840,7 +21680,7 @@ var FormControlDirective = (function (_super) {
         this.update.emit(newValue);
     };
     FormControlDirective.prototype._isControlChanged = function (changes) {
-        return StringMapWrapper$3.contains(changes, 'form');
+        return changes.hasOwnProperty('form');
     };
     FormControlDirective.decorators = [
         { type: Directive, args: [{ selector: '[formControl]', providers: [formControlBinding$1], exportAs: 'ngForm' },] },
@@ -21920,7 +21760,7 @@ var FormGroupDirective = (function (_super) {
     }
     FormGroupDirective.prototype.ngOnChanges = function (changes) {
         this._checkFormPresent();
-        if (StringMapWrapper$3.contains(changes, 'form')) {
+        if (changes.hasOwnProperty('form')) {
             this._updateValidators();
             this._updateDomValue();
             this._updateRegistrations();
@@ -22299,9 +22139,14 @@ var controlNameBinding = {
  *
  * {@example forms/ts/simpleFormGroup/simple_form_group_example.ts region='Component'}
  *
- *  * **npm package**: `@angular/forms`
+ * To see `formControlName` examples with different form control types, see:
  *
- *  * **NgModule**: {@link ReactiveFormsModule}
+ * * Radio buttons: {@link RadioControlValueAccessor}
+ * * Selects: {@link SelectControlValueAccessor}
+ *
+ * **npm package**: `@angular/forms`
+ *
+ * **NgModule**: {@link ReactiveFormsModule}
  *
  *  @stable
  */
@@ -22378,8 +22223,9 @@ var FormControlName = (function (_super) {
     FormControlName.prototype._setUpControl = function () {
         this._checkParentType();
         this._control = this.formDirective.addControl(this);
-        if (this.control.disabled)
+        if (this.control.disabled && this.valueAccessor.setDisabledState) {
             this.valueAccessor.setDisabledState(true);
+        }
         this._added = true;
     };
     FormControlName.decorators = [
@@ -22809,11 +22655,8 @@ var ReactiveFormsModule = (function () {
  * @module
  * @description
  * This module is used for handling user input, by defining and building a {@link FormGroup} that
- * consists of
- * {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl} objects can then
- * be used
- * to read information
- * from the form DOM elements.
+ * consists of {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl}
+ * objects can then be used to read information from the form DOM elements.
  *
  * Forms providers are not included in default providers; you must import these providers
  * explicitly.
@@ -22902,7 +22745,6 @@ function isBlank$4(obj) {
 function isString$4(obj) {
     return typeof obj === 'string';
 }
-
 
 
 
@@ -23158,20 +23000,18 @@ var ResponseContentType;
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Map$5 = _global$4.Map;
-var Set$5 = _global$4.Set;
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Map constructor.  We work around that by manually adding the items.
 var createMapFromPairs$4 = (function () {
     try {
-        if (new Map$5([[1, 2]]).size === 1) {
-            return function createMapFromPairs$4(pairs) { return new Map$5(pairs); };
+        if (new Map([[1, 2]]).size === 1) {
+            return function createMapFromPairs$4(pairs) { return new Map(pairs); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map$5();
+        var map = new Map();
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i];
             map.set(pair[0], pair[1]);
@@ -23181,20 +23021,20 @@ var createMapFromPairs$4 = (function () {
 })();
 var createMapFromMap$4 = (function () {
     try {
-        if (new Map$5(new Map$5())) {
-            return function createMapFromMap$4(m) { return new Map$5(m); };
+        if (new Map(new Map())) {
+            return function createMapFromMap$4(m) { return new Map(m); };
         }
     }
     catch (e) {
     }
     return function createMapAndPopulateFromMap(m) {
-        var map = new Map$5();
+        var map = new Map();
         m.forEach(function (v, k) { map.set(k, v); });
         return map;
     };
 })();
 var _clearValues$4 = (function () {
-    if ((new Map$5()).keys().next) {
+    if ((new Map()).keys().next) {
         return function _clearValues$4(m) {
             var keyIterator = m.keys();
             var k;
@@ -23213,7 +23053,7 @@ var _clearValues$4 = (function () {
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$4 = (function () {
     try {
-        if ((new Map$5()).values().next) {
+        if ((new Map()).values().next) {
             return function createArrayFromMap(m, getValues) {
                 return getValues ? Array.from(m.values()) : Array.from(m.keys());
             };
@@ -23222,7 +23062,7 @@ var _arrayFromMap$4 = (function () {
     catch (e) {
     }
     return function createArrayFromMapWithForeach(m, getValues) {
-        var res = ListWrapper$4.createFixedSize(m.size), i = 0;
+        var res = new Array(m.size), i = 0;
         m.forEach(function (v, k) {
             res[i] = getValues ? v : k;
             i++;
@@ -23233,9 +23073,8 @@ var _arrayFromMap$4 = (function () {
 var MapWrapper$4 = (function () {
     function MapWrapper() {
     }
-    MapWrapper.clone = function (m) { return createMapFromMap$4(m); };
     MapWrapper.createFromStringMap = function (stringMap) {
-        var result = new Map$5();
+        var result = new Map();
         for (var prop in stringMap) {
             result.set(prop, stringMap[prop]);
         }
@@ -23247,7 +23086,6 @@ var MapWrapper$4 = (function () {
         return r;
     };
     MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs$4(pairs); };
-    MapWrapper.clearValues = function (m) { _clearValues$4(m); };
     MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap$4(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap$4(m, true); };
@@ -23259,15 +23097,6 @@ var MapWrapper$4 = (function () {
 var StringMapWrapper$4 = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.create = function () {
-        // Note: We are not using Object.create(null) here due to
-        // performance!
-        // http://jsperf.com/ng2-object-create-null
-        return {};
-    };
-    StringMapWrapper.contains = function (map, key) {
-        return map.hasOwnProperty(key);
-    };
     StringMapWrapper.get = function (map, key) {
         return map.hasOwnProperty(key) ? map[key] : undefined;
     };
@@ -23282,7 +23111,6 @@ var StringMapWrapper$4 = (function () {
         }
         return true;
     };
-    StringMapWrapper.delete = function (map, key) { delete map[key]; };
     StringMapWrapper.forEach = function (map, callback) {
         for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
             var k = _a[_i];
@@ -23451,7 +23279,7 @@ function isListLikeIterable$4(obj) {
     if (!isJsObject$4(obj))
         return false;
     return isArray$6(obj) ||
-        (!(obj instanceof Map$5) &&
+        (!(obj instanceof Map) &&
             getSymbolIterator$4() in obj); // JS Iterable have a Symbol.iterator prop
 }
 
@@ -23472,13 +23300,13 @@ function iterateListLike$4(obj, fn) {
 // Safari and Internet Explorer do not support the iterable parameter to the
 // Set constructor.  We work around that by manually adding the items.
 var createSetFromList$4 = (function () {
-    var test = new Set$5([1, 2, 3]);
+    var test = new Set([1, 2, 3]);
     if (test.size === 3) {
-        return function createSetFromList$4(lst) { return new Set$5(lst); };
+        return function createSetFromList$4(lst) { return new Set(lst); };
     }
     else {
         return function createSetAndPopulateFromList(lst) {
-            var res = new Set$5(lst);
+            var res = new Set(lst);
             if (res.size !== lst.length) {
                 for (var i = 0; i < lst.length; i++) {
                     res.add(lst[i]);
@@ -23528,10 +23356,10 @@ var Headers = (function () {
     function Headers(headers) {
         var _this = this;
         if (headers instanceof Headers) {
-            this._headersMap = new Map$5(headers._headersMap);
+            this._headersMap = new Map(headers._headersMap);
             return;
         }
-        this._headersMap = new Map$5();
+        this._headersMap = new Map();
         if (isBlank$4(headers)) {
             return;
         }
@@ -23864,7 +23692,7 @@ function stringToArrayBuffer(input) {
  */
 function paramParser(rawParams) {
     if (rawParams === void 0) { rawParams = ''; }
-    var map = new Map$5();
+    var map = new Map();
     if (rawParams.length > 0) {
         var params = rawParams.split('&');
         params.forEach(function (param) {
@@ -23950,21 +23778,12 @@ var URLSearchParams = (function () {
     URLSearchParams.prototype.has = function (param) { return this.paramsMap.has(param); };
     URLSearchParams.prototype.get = function (param) {
         var storedParam = this.paramsMap.get(param);
-        if (isListLikeIterable$4(storedParam)) {
-            return ListWrapper$4.first(storedParam);
-        }
-        else {
-            return null;
-        }
+        return Array.isArray(storedParam) ? storedParam[0] : null;
     };
-    URLSearchParams.prototype.getAll = function (param) {
-        var mapParam = this.paramsMap.get(param);
-        return isPresent$4(mapParam) ? mapParam : [];
-    };
+    URLSearchParams.prototype.getAll = function (param) { return this.paramsMap.get(param) || []; };
     URLSearchParams.prototype.set = function (param, val) {
-        var mapParam = this.paramsMap.get(param);
-        var list = isPresent$4(mapParam) ? mapParam : [];
-        ListWrapper$4.clear(list);
+        var list = this.paramsMap.get(param) || [];
+        list.length = 0;
         list.push(val);
         this.paramsMap.set(param, list);
     };
@@ -23977,16 +23796,14 @@ var URLSearchParams = (function () {
     URLSearchParams.prototype.setAll = function (searchParams) {
         var _this = this;
         searchParams.paramsMap.forEach(function (value, param) {
-            var mapParam = _this.paramsMap.get(param);
-            var list = isPresent$4(mapParam) ? mapParam : [];
-            ListWrapper$4.clear(list);
+            var list = _this.paramsMap.get(param) || [];
+            list.length = 0;
             list.push(value[0]);
             _this.paramsMap.set(param, list);
         });
     };
     URLSearchParams.prototype.append = function (param, val) {
-        var mapParam = this.paramsMap.get(param);
-        var list = isPresent$4(mapParam) ? mapParam : [];
+        var list = this.paramsMap.get(param) || [];
         list.push(val);
         this.paramsMap.set(param, list);
     };
@@ -24000,8 +23817,7 @@ var URLSearchParams = (function () {
     URLSearchParams.prototype.appendAll = function (searchParams) {
         var _this = this;
         searchParams.paramsMap.forEach(function (value, param) {
-            var mapParam = _this.paramsMap.get(param);
-            var list = isPresent$4(mapParam) ? mapParam : [];
+            var list = _this.paramsMap.get(param) || [];
             for (var i = 0; i < value.length; ++i) {
                 list.push(value[i]);
             }
@@ -24018,9 +23834,8 @@ var URLSearchParams = (function () {
     URLSearchParams.prototype.replaceAll = function (searchParams) {
         var _this = this;
         searchParams.paramsMap.forEach(function (value, param) {
-            var mapParam = _this.paramsMap.get(param);
-            var list = isPresent$4(mapParam) ? mapParam : [];
-            ListWrapper$4.clear(list);
+            var list = _this.paramsMap.get(param) || [];
+            list.length = 0;
             for (var i = 0; i < value.length; ++i) {
                 list.push(value[i]);
             }

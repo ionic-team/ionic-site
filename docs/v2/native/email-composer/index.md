@@ -41,10 +41,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-email-composer</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-email</code></pre>
 <p>Repo:
-  <a href="https://github.com/katzer/cordova-plugin-email-composer.git">
-    https://github.com/katzer/cordova-plugin-email-composer.git
+  <a href="https://github.com/hypery2k/cordova-email-plugin">
+    https://github.com/hypery2k/cordova-email-plugin
   </a>
 </p>
 
@@ -62,8 +62,6 @@ A good alternative to this plugin is the social sharing plugin.</p>
   <li>Android</li>
   
   <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
   </ul>
 
 <!-- @platforms tag end -->

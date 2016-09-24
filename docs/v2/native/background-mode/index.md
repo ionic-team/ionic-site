@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L2">
   Improve this doc
 </a>
 
@@ -210,8 +210,8 @@ Available only for Android platform.
 
 
 
-<div id="update"></div>
-<h3><code>update(options)</code>
+<div id="configure"></div>
+<h3><code>configure(options)</code>
   
 </h3>
 
@@ -262,46 +262,47 @@ Available only for Android platform.
 
 
 
-<div id="on"></div>
-<h3><code>on(eventName)</code>
+<div id="onactivate"></div>
+<h3><code>onactivate()</code>
   
 </h3>
 
+Called when background mode is activated.
 
 
-Sets a callback for a specific event
-Can be used to get notified or run function when the background mode has been activated, deactivated or failed.
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
+
+
+
+
+
+
+<div id="ondeactivate"></div>
+<h3><code>ondeactivate()</code>
   
-  <tr>
-    <td>
-      eventName
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      <p>The name of the event. Available events: activate, deactivate, failure</p>
+</h3>
 
-      
-    </td>
-  </tr>
+Called when background mode is deactivated.
+
+
+
+
+
+
+
+
+
+
+<div id="onfailure"></div>
+<h3><code>onfailure()</code>
   
-  </tbody>
-</table>
+</h3>
+
+Called when background mode fails
+
+
+
 
 
 

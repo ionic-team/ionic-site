@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L154">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L256">
   Improve this doc
 </a>
 
@@ -113,6 +113,64 @@ BackgroundGeolocation.stop();
 
 <!-- @property tags -->
 <h2>Static Members</h2>
+<div id="LocationProvider"></div>
+<h3><code>LocationProvider()</code>
+  
+</h3>Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
+
+Possible values:
+ ANDROID_DISTANCE_FILTER_PROVIDER: 0, 
+ ANDROID_ACTIVITY_PROVIDER: 1 
+
+
+
+
+
+
+
+
+
+<div id="Accuracy"></div>
+<h3><code>Accuracy()</code>
+  
+</h3>Desired accuracy in meters. Possible values [0, 10, 100, 1000]. 
+The lower the number, the more power devoted to GeoLocation resulting in higher accuracy readings. 
+1000 results in lowest power drain and least accurate readings. 
+
+Possible values:
+ HIGH: 0 
+ MEDIUM: 10 
+ LOW: 100 
+ PASSIVE: 1000
+
+enum {number}
+
+
+
+
+
+
+
+
+
+
+<div id="Mode"></div>
+<h3><code>Mode()</code>
+  
+</h3>Used in the switchMode function 
+
+Possible values:
+ BACKGROUND: 0
+ FOREGROUND: 1 
+
+
+
+
+
+
+
+
+
 <div id="configure"></div>
 <h3><code>configure(Success,&nbsp;Fail,&nbsp;An)</code>
   
@@ -439,6 +497,22 @@ NOTE: ANDROID only
 
 
 
+<div id="getValidLocations"></div>
+<h3><code>getValidLocations()</code>
+  
+</h3>
+
+Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId.
+
+
+
+
+
+
+
+
+
+
 <div id="deleteLocation"></div>
 <h3><code>deleteLocation()</code>
   
@@ -466,6 +540,106 @@ NOTE: ANDROID only
 
 
 
+
+
+
+
+
+
+
+<div id="switchMode"></div>
+<h3><code>switchMode(See)</code>
+  
+</h3>
+
+Normally plugin will handle switching between BACKGROUND and FOREGROUND mode itself.
+Calling switchMode you can override plugin behavior and force plugin to switch into other mode.
+
+In FOREGROUND mode plugin uses iOS local manager to receive locations and behavior is affected by option.desiredAccuracy and option.distanceFilter.
+In BACKGROUND mode plugin uses significant changes and region monitoring to receive locations and uses option.stationaryRadius only. 
+
+BackgroundGeolocation.Mode.FOREGROUND
+BackgroundGeolocation.Mode.BACKGROUND 
+
+NOTE: iOS only
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      See
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>above.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<div id="getLogEntries"></div>
+<h3><code>getLogEntries(Limits)</code>
+  
+</h3>
+
+Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
+@see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      Limits
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>the number of entries</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

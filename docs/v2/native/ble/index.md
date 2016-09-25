@@ -387,6 +387,14 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns an Observable that notifies of each peripheral discovered.
+
+
+</div>
+
 
 
 <div id="stopScan"></div>

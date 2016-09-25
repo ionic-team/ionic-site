@@ -33,7 +33,7 @@ PopoverCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover-component.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover-component.ts#L5">
 Improve this doc
 </a>
 

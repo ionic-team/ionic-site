@@ -31,7 +31,7 @@ DeepLinkConfigToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/url-serializer.ts#L305">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/url-serializer.ts#L308">
 Improve this doc
 </a>
 

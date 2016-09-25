@@ -33,7 +33,7 @@ ModalCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal-component.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal-component.ts#L4">
 Improve this doc
 </a>
 

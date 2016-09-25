@@ -327,6 +327,68 @@ Scan and discover BLE peripherals until `stopScan` is called.
 
 
 
+<div id="startScanWithOptions"></div>
+<h3><code>startScanWithOptions(services,&nbsp;options)</code>
+  
+</h3>
+
+
+
+Scans for BLE devices. This function operates similarly to the `startScan` function, but allows you to specify extra options (like allowing duplicate device reports).
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      services
+      
+      
+    </td>
+    <td>
+      
+<code>string[]</code>
+    </td>
+    <td>
+      <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <div id="stopScan"></div>
 <h3><code>stopScan()</code>
   

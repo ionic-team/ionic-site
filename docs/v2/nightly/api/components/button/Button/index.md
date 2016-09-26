@@ -357,28 +357,6 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

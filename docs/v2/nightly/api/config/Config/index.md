@@ -253,26 +253,6 @@ chart displays each property with a description of what it controls.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="init"></div>
-
-<h3>
-<a class="anchor" name="init" href="#init"></a>
-<code>init()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="get"></div>
 
 <h3>

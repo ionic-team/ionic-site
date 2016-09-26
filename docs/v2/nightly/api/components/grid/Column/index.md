@@ -33,7 +33,7 @@ Column
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/grid/grid.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/grid/grid.ts#L26">
 Improve this doc
 </a>
 

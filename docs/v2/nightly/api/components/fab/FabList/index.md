@@ -44,11 +44,29 @@ Improve this doc
 
 
 
+<p><code>ion-fab-list</code> is a container for multiple FAB buttons. They are components of <code>ion-fab</code> and allow you to specificy the buttons position, left, right, top, bottom.</p>
 
 
 
 
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-fab bottom right &gt;
+  &lt;button ion-fab&gt;Share&lt;/button&gt;
+  &lt;ion-fab-list side=&quot;top&quot;&gt;
+    &lt;button ion-fab&gt;Facebook&lt;/button&gt;
+    &lt;button ion-fab&gt;Twitter&lt;/button&gt;
+    &lt;button ion-fab&gt;Youtube&lt;/button&gt;
+  &lt;/ion-fab-list&gt;
+  &lt;ion-fab-list side=&quot;left&quot;&gt;
+    &lt;button ion-fab&gt;Vimeo&lt;/button&gt;
+  &lt;/ion-fab-list&gt;
+&lt;/ion-fab&gt;
+</code></pre>
+
+
 
 
 <!-- @property tags -->

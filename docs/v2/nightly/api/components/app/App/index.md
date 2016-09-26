@@ -40,7 +40,7 @@ Improve this doc
 
 
 
-<p>Ionic App</p>
+<p>App is a utility class used in Ionic to get information about various aspects of an app</p>
 
 
 

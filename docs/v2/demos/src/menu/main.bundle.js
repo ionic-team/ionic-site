@@ -52560,7 +52560,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_9", {
         get: function () {
             if ((this.__LOCALE_ID_9 == null)) {
-                (this.__LOCALE_ID_9 = null);
+                (this.__LOCALE_ID_9 = 'en-US');
             }
             return this.__LOCALE_ID_9;
         },
@@ -53041,16 +53041,6 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TRANSLATIONS_FORMAT_73", {
-        get: function () {
-            if ((this.__TRANSLATIONS_FORMAT_73 == null)) {
-                (this.__TRANSLATIONS_FORMAT_73 = null);
-            }
-            return this.__TRANSLATIONS_FORMAT_73;
-        },
-        enumerable: true,
-        configurable: true
-    });
     AppModuleInjector.prototype.createInternal = function () {
         this._CommonModule_0 = new CommonModule();
         this._ApplicationModule_1 = new ApplicationModule();
@@ -53303,9 +53293,6 @@ var AppModuleInjector = (function (_super) {
         }
         if ((token === DeepLinker)) {
             return this._DeepLinker_72;
-        }
-        if ((token === TRANSLATIONS_FORMAT)) {
-            return this._TRANSLATIONS_FORMAT_73;
         }
         return notFoundResult;
     };

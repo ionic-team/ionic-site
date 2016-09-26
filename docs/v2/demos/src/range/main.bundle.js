@@ -52098,7 +52098,10 @@ var _View_ApiDemoPage0 = (function (_super) {
             [].concat([this._el_45])
         ], null);
         this._text_48 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_38_0.reset([]);
+        this._query_Label_38_0.reset([
+            this._Label_42_3,
+            this._Label_45_3
+        ]);
         this._Item_38_4.contentLabel = this._query_Label_38_0.first;
         compView_38.create(this._Item_38_4, [
             [],
@@ -52287,7 +52290,10 @@ var _View_ApiDemoPage0 = (function (_super) {
             [].concat([this._el_88])
         ], null);
         this._text_91 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_81_0.reset([]);
+        this._query_Label_81_0.reset([
+            this._Label_85_3,
+            this._Label_88_3
+        ]);
         this._Item_81_4.contentLabel = this._query_Label_81_0.first;
         compView_81.create(this._Item_81_4, [
             [],
@@ -53373,7 +53379,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_9", {
         get: function () {
             if ((this.__LOCALE_ID_9 == null)) {
-                (this.__LOCALE_ID_9 = null);
+                (this.__LOCALE_ID_9 = 'en-US');
             }
             return this.__LOCALE_ID_9;
         },
@@ -53854,16 +53860,6 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TRANSLATIONS_FORMAT_73", {
-        get: function () {
-            if ((this.__TRANSLATIONS_FORMAT_73 == null)) {
-                (this.__TRANSLATIONS_FORMAT_73 = null);
-            }
-            return this.__TRANSLATIONS_FORMAT_73;
-        },
-        enumerable: true,
-        configurable: true
-    });
     AppModuleInjector.prototype.createInternal = function () {
         this._CommonModule_0 = new CommonModule();
         this._ApplicationModule_1 = new ApplicationModule();
@@ -54116,9 +54112,6 @@ var AppModuleInjector = (function (_super) {
         }
         if ((token === DeepLinker)) {
             return this._DeepLinker_72;
-        }
-        if ((token === TRANSLATIONS_FORMAT)) {
-            return this._TRANSLATIONS_FORMAT_73;
         }
         return notFoundResult;
     };

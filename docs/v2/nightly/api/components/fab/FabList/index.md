@@ -35,7 +35,7 @@ FabList
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L105">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L100">
 Improve this doc
 </a>
 
@@ -95,7 +95,7 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$button-fab-size</code></td>
+        <td><code>$fab-size</code></td>
         
           <td><code>56px</code></td>
         
@@ -117,11 +117,56 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$button-ios-fab-border-radius</code></td>
+        <td><code>$fab-ios-background-color</code></td>
         
-          <td><code>50%</code></td>
+          <td><code>color($colors-ios, primary)</code></td>
         
-        <td><p>Border radius of the FAB button</p>
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-text-color</code></td>
+        
+          <td><code>color-contrast($colors-ios, $fab-ios-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-ios-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-in-list-background-color</code></td>
+        
+          <td><code>color($colors-ios, light)</code></td>
+        
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-in-list-text-color</code></td>
+        
+          <td><code>color-contrast($colors-ios, $fab-ios-in-list-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-in-list-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-ios-in-list-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
 </td>
       </tr>
       
@@ -139,16 +184,7 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$button-md-fab-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$button-md-fab-box-shadow</code></td>
+        <td><code>$fab-md-box-shadow</code></td>
         
           <td><code>0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1)</code></td>
         
@@ -157,11 +193,65 @@ Improve this doc
       </tr>
       
       <tr>
-        <td><code>$button-md-fab-box-shadow-activated</code></td>
+        <td><code>$fab-md-box-shadow-activated</code></td>
         
           <td><code>0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1)</code></td>
         
         <td><p>Box shadow of the activated FAB button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-background-color</code></td>
+        
+          <td><code>color($colors-md, primary)</code></td>
+        
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-text-color</code></td>
+        
+          <td><code>color-contrast($colors-md, $fab-md-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-md-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-in-list-background-color</code></td>
+        
+          <td><code>color($colors-md, light)</code></td>
+        
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-in-list-text-color</code></td>
+        
+          <td><code>color-contrast($colors-md, $fab-md-in-list-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-in-list-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-md-in-list-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
 </td>
       </tr>
       
@@ -179,11 +269,56 @@ Improve this doc
     <tbody>
       
       <tr>
-        <td><code>$button-wp-fab-border-radius</code></td>
+        <td><code>$fab-wp-background-color</code></td>
         
-          <td><code>50%</code></td>
+          <td><code>color($colors-wp, primary)</code></td>
         
-        <td><p>Border radius of the FAB button</p>
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-text-color</code></td>
+        
+          <td><code>color-contrast($colors-wp, $fab-wp-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-wp-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-in-list-background-color</code></td>
+        
+          <td><code>color($colors-wp, light)</code></td>
+        
+        <td><p>Background color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-in-list-text-color</code></td>
+        
+          <td><code>color-contrast($colors-wp, $fab-wp-in-list-background-color)</code></td>
+        
+        <td><p>Text color of the button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-in-list-background-color-activated</code></td>
+        
+          <td><code>color-shade($fab-wp-in-list-background-color)</code></td>
+        
+        <td><p>Background color of the activated button</p>
 </td>
       </tr>
       

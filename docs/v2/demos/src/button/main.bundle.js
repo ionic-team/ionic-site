@@ -25271,7 +25271,7 @@ var Form = (function () {
         if (index > -1 && (index + 1) < this._inputs.length) {
             var nextInput = this._inputs[index + 1];
             if (nextInput !== this._focused) {
-                console.debug('tabFocus, next');
+                // console.debug('tabFocus, next');
                 return nextInput.initFocus();
             }
         }
@@ -25279,7 +25279,7 @@ var Form = (function () {
         if (index > 0) {
             var previousInput = this._inputs[index - 1];
             if (previousInput) {
-                console.debug('tabFocus, previous');
+                // console.debug('tabFocus, previous');
                 previousInput.initFocus();
             }
         }
@@ -25624,7 +25624,7 @@ var ActionSheetCmp = (function () {
     ActionSheetCmp.prototype.keyUp = function (ev) {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ESCAPE) {
-                console.debug('actionsheet, escape button');
+                // console.debug('actionsheet, escape button');
                 this.bdClick();
             }
         }
@@ -26005,7 +26005,7 @@ var Platform = (function () {
         this.resume = new EventEmitter();
         this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
         this.backButton.subscribe(function () {
-            console.debug('hardware back button');
+            // console.debug('hardware back button');
             _this.runBackButtonAction();
         });
     }
@@ -26439,13 +26439,13 @@ var App = (function () {
                 if (isTabs(nav)) {
                     var prevTab = nav.previousTab(true);
                     if (prevTab) {
-                        console.debug('app, goBack previous tab');
+                        // console.debug('app, goBack previous tab');
                         nav.select(prevTab);
                         return Promise.resolve();
                     }
                 }
                 else if (isNav(nav) && nav.length() > 1) {
-                    console.debug('app, goBack pop nav');
+                    // console.debug('app, goBack pop nav');
                     return nav.pop();
                 }
                 return navPop(nav.parent);
@@ -26455,13 +26455,13 @@ var App = (function () {
         if (this._rootNav && this.isEnabled()) {
             var portal = this._appRoot._getPortal();
             if (portal.length() > 0) {
-                console.debug('app, goBack pop overlay');
+                // console.debug('app, goBack pop overlay');
                 return portal.pop();
             }
             var navPromise = navPop(this.getActiveNav());
             if (navPromise === null) {
                 if (this._config.getBoolean('navExitApp', true)) {
-                    console.debug('app, goBack exitApp');
+                    // console.debug('app, goBack exitApp');
                     this._platform.exitApp();
                 }
             }
@@ -26604,13 +26604,13 @@ var AlertCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    console.debug('alert, enter button');
+                    // console.debug('alert, enter button');
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                console.debug('alert, escape button');
+                // console.debug('alert, escape button');
                 this.bdClick();
             }
         }
@@ -26827,7 +26827,7 @@ var DeepLinker = (function () {
     DeepLinker.prototype.init = function () {
         var _this = this;
         var browserUrl = normalizeUrl(this.location.path());
-        console.debug("DeepLinker, init load: " + browserUrl);
+        // console.debug("DeepLinker, init load: " + browserUrl);
         this.segments = this.serializer.parse(browserUrl);
         this.historyPush(browserUrl);
         this.location.subscribe(function (locationChg) {
@@ -26837,11 +26837,11 @@ var DeepLinker = (function () {
     DeepLinker.prototype.urlChange = function (browserUrl) {
         if (!this.isCurrentUrl(browserUrl)) {
             if (this.isBackUrl(browserUrl)) {
-                console.debug("DeepLinker, browser urlChange, back to: " + browserUrl);
+                // console.debug("DeepLinker, browser urlChange, back to: " + browserUrl);
                 this.historyPop();
             }
             else {
-                console.debug("DeepLinker, browser urlChange, forward to: " + browserUrl);
+                // console.debug("DeepLinker, browser urlChange, forward to: " + browserUrl);
                 this.historyPush(browserUrl);
             }
             var appRootNav = this.app.getRootNav();
@@ -26878,12 +26878,12 @@ var DeepLinker = (function () {
             browserUrl = '/';
         }
         if (direction === DIRECTION_BACK && this.isBackUrl(browserUrl)) {
-            console.debug("DeepLinker, location.back(), url: '" + browserUrl + "'");
+            // console.debug("DeepLinker, location.back(), url: '" + browserUrl + "'");
             this.historyPop();
             this.location.back();
         }
         else if (!this.isCurrentUrl(browserUrl)) {
-            console.debug("DeepLinker, location.go('" + browserUrl + "')");
+            // console.debug("DeepLinker, location.go('" + browserUrl + "')");
             this.historyPush(browserUrl);
             this.location.go(browserUrl);
         }
@@ -27372,7 +27372,7 @@ var GestureController = (function () {
             return true;
         }
         delete requestedStart[id];
-        console.debug(gestureName + " can not start because it is has lower priority");
+        // console.debug(gestureName + " can not start because it is has lower priority");
         return false;
     };
     GestureController.prototype.release = function (id) {
@@ -27399,7 +27399,7 @@ var GestureController = (function () {
         var isEnabled = !this.isScrollDisabled();
         this.disabledScroll.add(id);
         if (this._app && isEnabled && this.isScrollDisabled()) {
-            console.debug('GestureController: Disabling scrolling');
+            // console.debug('GestureController: Disabling scrolling');
             this._app.setScrollDisabled(true);
         }
     };
@@ -27407,7 +27407,7 @@ var GestureController = (function () {
         var isDisabled = this.isScrollDisabled();
         this.disabledScroll.delete(id);
         if (this._app && isDisabled && !this.isScrollDisabled()) {
-            console.debug('GestureController: Enabling scrolling');
+            // console.debug('GestureController: Enabling scrolling');
             this._app.setScrollDisabled(false);
         }
     };
@@ -27545,7 +27545,7 @@ var Keyboard = (function () {
     Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
         if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
         if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
-        console.debug('keyboard onClose');
+        // console.debug('keyboard onClose');
         var self = this;
         var checks = 0;
         var promise = null;
@@ -27553,10 +27553,10 @@ var Keyboard = (function () {
             promise = new Promise(function (resolve) { callback = resolve; });
         }
         function checkKeyboard() {
-            console.debug('keyboard isOpen', self.isOpen());
+            // console.debug('keyboard isOpen', self.isOpen());
             if (!self.isOpen() || checks > pollingChecksMax) {
                 zoneRafFrames(30, function () {
-                    console.debug('keyboard closed');
+                    // console.debug('keyboard closed');
                     callback();
                 });
             }
@@ -27570,7 +27570,7 @@ var Keyboard = (function () {
     };
     Keyboard.prototype.close = function () {
         var _this = this;
-        console.debug('keyboard close()');
+        // console.debug('keyboard close()');
         nativeRaf(function () {
             if (hasFocusedTextInput()) {
                 _this._form.focusOut();
@@ -27788,7 +27788,7 @@ var PointerEvents = (function () {
     };
     PointerEvents.prototype.handleMouseDown = function (ev) {
         if (this.lastTouchEvent > Date.now()) {
-            console.debug('mousedown event dropped because of previous touch');
+            // console.debug('mousedown event dropped because of previous touch');
             return;
         }
         if (!this.pointerDown(ev)) {
@@ -28132,18 +28132,18 @@ var SwipeBackGesture = (function (_super) {
             _super.prototype.canStart.call(this, ev));
     };
     SwipeBackGesture.prototype.onSlideBeforeStart = function (ev) {
-        console.debug('swipeBack, onSlideBeforeStart', ev.type);
+        // console.debug('swipeBack, onSlideBeforeStart', ev.type);
         this._nav.swipeBackStart();
     };
     SwipeBackGesture.prototype.onSlide = function (slide) {
         var stepValue = (slide.distance / slide.max);
-        console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
+        // console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
         this._nav.swipeBackProgress(stepValue);
     };
     SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
         var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
         var currentStepValue = (slide.distance / slide.max);
-        console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+        // console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
         this._nav.swipeBackEnd(shouldComplete, currentStepValue);
     };
     return SwipeBackGesture;
@@ -28696,13 +28696,13 @@ var NavControllerBase = (function (_super) {
             if (this.canSwipeBack()) {
                 if (!this._sbGesture.isListening) {
                     this._zone.runOutsideAngular(function () {
-                        console.debug('swipeBack gesture, listen');
+                        // console.debug('swipeBack gesture, listen');
                         _this._sbGesture.listen();
                     });
                 }
             }
             else if (this._sbGesture.isListening) {
-                console.debug('swipeBack gesture, unlisten');
+                // console.debug('swipeBack gesture, unlisten');
                 this._sbGesture.unlisten();
             }
         }
@@ -28775,8 +28775,7 @@ var NavControllerBase = (function (_super) {
         configurable: true
     });
     NavControllerBase.prototype.present = function () {
-        console.warn('nav.present() has been deprecated.\n' +
-            'Please inject the overlay\'s controller and use the present method on the instance instead.');
+        console.warn('nav.present() has been deprecated.\n Please inject the overlay\'s controller and use the present method on the instance instead.');
         return Promise.resolve();
     };
     return NavControllerBase;
@@ -28992,7 +28991,7 @@ var Animation = (function () {
             self._didFinishAll(shouldComplete, true, false);
         }
         function onTransitionFallback() {
-            console.debug('Animation onTransitionFallback, CSS onTransitionEnd did not fire!');
+            // console.debug('Animation onTransitionFallback, CSS onTransitionEnd did not fire!');
             self._tm = 0;
             self._clearAsync();
             self._playEnd(1);
@@ -29236,7 +29235,7 @@ var Animation = (function () {
         }
     };
     Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
-        console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+        // console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
         this._isAsync = (currentStepValue > 0.05 && currentStepValue < 0.95);
         var dur = 64;
         var stepValue = shouldComplete ? 1 : 0;
@@ -29558,7 +29557,7 @@ var Tabs = (function (_super) {
     Tabs.prototype.previousTab = function (trimHistory) {
         var _this = this;
         if (trimHistory === void 0) { trimHistory = true; }
-        console.debug('run previousTab', this._selectHistory);
+        // console.debug('run previousTab', this._selectHistory);
         for (var i = this._selectHistory.length - 2; i >= 0; i--) {
             var tab = this._tabs.find(function (t) { return t.id === _this._selectHistory[i]; });
             if (tab && tab.enabled && tab.show) {
@@ -29813,7 +29812,7 @@ var Content = (function (_super) {
     };
     Content.prototype.addScrollPadding = function (newPadding) {
         if (newPadding > this._scrollPadding) {
-            console.debug('content addScrollPadding', newPadding);
+            // console.debug('content addScrollPadding', newPadding);
             this._scrollPadding = newPadding;
             this._scrollEle.style.paddingBottom = newPadding + 'px';
         }
@@ -31670,7 +31669,7 @@ var PickerColumnCmp = (function () {
         this.events.unlistenAll();
     };
     PickerColumnCmp.prototype.pointerStart = function (ev) {
-        console.debug('picker, pointerStart', ev.type, this.startY);
+        // console.debug('picker, pointerStart', ev.type, this.startY);
         cancelRaf(this.rafId);
         this.startY = pointerCoord(ev).y;
         this.receivingEvents = true;
@@ -31725,7 +31724,7 @@ var PickerColumnCmp = (function () {
         }
         else if (this.startY !== null) {
             var endY = pointerCoord(ev).y;
-            console.debug('picker, pointerEnd', ev.type, endY);
+            // console.debug('picker, pointerEnd', ev.type, endY);
             this.pos.push(endY, Date.now());
             var endPos = (this.pos.length - 1);
             var startPos = endPos;
@@ -31949,13 +31948,13 @@ var PickerCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    console.debug('picker, enter button');
+                    // console.debug('picker, enter button');
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                console.debug('picker, escape button');
+                // console.debug('picker, escape button');
                 this.bdClick();
             }
         }
@@ -32619,10 +32618,10 @@ var TapClick = (function () {
             if (!hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
                 this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
                 if (this.app.isScrolling()) {
-                    console.debug('click from touch prevented by scrolling ' + Date.now());
+                    // console.debug('click from touch prevented by scrolling ' + Date.now());
                 }
                 else {
-                    console.debug('create click from touch ' + Date.now());
+                    // console.debug('create click from touch ' + Date.now());
                     var clickEvent = document.createEvent('MouseEvents');
                     clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
                     clickEvent.isIonicTap = true;
@@ -32634,7 +32633,7 @@ var TapClick = (function () {
     };
     TapClick.prototype.mouseDown = function (ev) {
         if (this.isDisabledNativeClick()) {
-            console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
+            // console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
             ev.stopPropagation();
         }
         else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
@@ -32643,7 +32642,7 @@ var TapClick = (function () {
     };
     TapClick.prototype.mouseUp = function (ev) {
         if (this.isDisabledNativeClick()) {
-            console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
+            // console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
             ev.preventDefault();
             ev.stopPropagation();
         }
@@ -32676,7 +32675,7 @@ var TapClick = (function () {
         this.moveListeners(false);
     };
     TapClick.prototype.pointerCancel = function (ev) {
-        console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
+        // console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
         this.activator && this.activator.clearState();
         this.moveListeners(false);
     };
@@ -32695,7 +32694,7 @@ var TapClick = (function () {
             preventReason = 'nativeClick';
         }
         if (preventReason !== null) {
-            console.debug('click prevent ' + preventReason + ' ' + Date.now());
+            // console.debug('click prevent ' + preventReason + ' ' + Date.now());
             ev.preventDefault();
             ev.stopPropagation();
         }
@@ -34025,7 +34024,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype._click = function (ev) {
-        console.debug('checkbox, checked');
+        // console.debug('checkbox, checked');
         ev.preventDefault();
         ev.stopPropagation();
         this.onChange(!this._checked);
@@ -34057,7 +34056,7 @@ var Checkbox = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (isChecked) {
-            console.debug('checkbox, onChange', isChecked);
+            // console.debug('checkbox, onChange', isChecked);
             fn(isChecked);
             _this._setChecked(isChecked);
             _this.onTouched();
@@ -34076,7 +34075,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype.onChange = function (isChecked) {
-        console.debug('checkbox, onChange (no ngModel)', isChecked);
+        // console.debug('checkbox, onChange (no ngModel)', isChecked);
         this._setChecked(isChecked);
         this.onTouched();
     };
@@ -34607,7 +34606,7 @@ var DateTime = (function (_super) {
         if (this._disabled) {
             return;
         }
-        console.debug('datetime, open picker');
+        // console.debug('datetime, open picker');
         var pickerOptions = merge$1({}, this.pickerOptions);
         var picker = this._pickerCtrl.create(pickerOptions);
         pickerOptions.buttons = [
@@ -34813,7 +34812,7 @@ var DateTime = (function (_super) {
         configurable: true
     });
     DateTime.prototype.writeValue = function (val) {
-        console.debug('datetime, writeValue', val);
+        // console.debug('datetime, writeValue', val);
         this.setValue(val);
         this.updateText();
         this.checkHasValue(val);
@@ -34829,7 +34828,7 @@ var DateTime = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            console.debug('datetime, onChange', val);
+            // console.debug('datetime, onChange', val);
             _this.setValue(val);
             _this.updateText();
             _this.checkHasValue(val);
@@ -34839,7 +34838,7 @@ var DateTime = (function (_super) {
     };
     DateTime.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     DateTime.prototype.onChange = function (val) {
-        console.debug('datetime, onChange w/out formControlName', val);
+        // console.debug('datetime, onChange w/out formControlName', val);
         this.setValue(val);
         this.updateText();
         this.onTouched();
@@ -35582,7 +35581,7 @@ var ItemReorder = (function () {
                 setTimeout(function () { return _this._enableReorder = false; }, 400);
             }
             else if (enabled && !this._reorderGesture) {
-                console.debug('enableReorderItems');
+                // console.debug('enableReorderItems');
                 this._reorderGesture = new ItemReorderGesture(this);
                 this._enableReorder = true;
                 zoneRafFrames(2, function () { return _this._visibleReorder = true; });
@@ -35851,7 +35850,7 @@ var List = (function (_super) {
             this._slidingGesture = null;
         }
         else if (!this._slidingGesture) {
-            console.debug('enableSlidingItems');
+            // console.debug('enableSlidingItems');
             this._slidingGesture = new ItemSlidingGesture(this);
             this._slidingGesture.listen();
         }
@@ -36195,13 +36194,13 @@ var MenuContentGesture = (function (_super) {
         return _super.prototype.canStart.call(this, ev);
     };
     MenuContentGesture.prototype.onSlideBeforeStart = function (ev) {
-        console.debug('menu gesture, onSlideBeforeStart', this.menu.side);
+        // console.debug('menu gesture, onSlideBeforeStart', this.menu.side);
         this.menu.swipeStart();
     };
     MenuContentGesture.prototype.onSlide = function (slide, ev) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var stepValue = (slide.distance / z);
-        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
+        // console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
         ev.preventDefault();
         this.menu.swipeProgress(stepValue);
     };
@@ -36214,7 +36213,15 @@ var MenuContentGesture = (function (_super) {
             && (velocity > 0.2 || slide.delta > z);
         var shouldCompleteLeft = (velocity <= 0)
             && (velocity < -0.2 || slide.delta < -z);
-        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'delta', slide.delta, 'velocity', velocity, 'min', slide.min, 'max', slide.max, 'shouldCompleteLeft', shouldCompleteLeft, 'shouldCompleteRight', shouldCompleteRight, 'currentStepValue', currentStepValue);
+        // console.debug('menu gesture, onSlide', this.menu.side);
+        // console.debug('distance', slide.distance);
+        // console.debug('delta', slide.delta);
+        // console.debug('velocity', velocity);
+        // console.debug('min', slide.min);
+        // console.debug('max', slide.max);
+        // console.debug('shouldCompleteLeft', shouldCompleteLeft);
+        // console.debug('shouldCompleteRight', shouldCompleteRight);
+        // console.debug('currentStepValue', currentStepValue);
         this.menu.swipeEnd(shouldCompleteLeft, shouldCompleteRight, currentStepValue);
     };
     MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
@@ -36326,7 +36333,7 @@ var Menu = (function () {
         self._menuCtrl.register(self);
     };
     Menu.prototype.bdClick = function (ev) {
-        console.debug('backdrop clicked');
+        // console.debug('backdrop clicked');
         ev.preventDefault();
         ev.stopPropagation();
         this._menuCtrl.close();
@@ -36336,11 +36343,11 @@ var Menu = (function () {
             return;
         }
         if (this._isEnabled && this._isSwipeEnabled && !this._cntGesture.isListening) {
-            console.debug('menu, gesture listen', this.side);
+            // console.debug('menu, gesture listen', this.side);
             this._cntGesture.listen();
         }
         else if (this._cntGesture.isListening && (!this._isEnabled || !this._isSwipeEnabled)) {
-            console.debug('menu, gesture unlisten', this.side);
+            // console.debug('menu, gesture unlisten', this.side);
             this._cntGesture.unlisten();
         }
     };
@@ -36397,7 +36404,7 @@ var Menu = (function () {
             shouldComplete = (this.side === 'right') ? shouldCompleteRight : shouldCompleteLeft;
         }
         this._getType().setProgressEnd(shouldComplete, stepValue, function (isOpen) {
-            console.debug('menu, swipeEnd', _this.side);
+            // console.debug('menu, swipeEnd', _this.side);
             _this._after(isOpen);
         });
     };
@@ -36825,10 +36832,10 @@ var NativeInput = (function () {
             }
         }
         if (self._blurring) {
-            console.debug('input blurring enabled');
+            // console.debug('input blurring enabled');
             document.addEventListener('touchend', docTouchEnd, true);
             self._unrefBlur = function () {
-                console.debug('input blurring disabled');
+                // console.debug('input blurring disabled');
                 document.removeEventListener('touchend', docTouchEnd, true);
             };
         }
@@ -36878,7 +36885,7 @@ var NativeInput = (function () {
     };
     NativeInput.prototype.hideFocus = function (shouldHideFocus) {
         var focusedInputEle = this.element();
-        console.debug("native input hideFocus, shouldHideFocus: " + shouldHideFocus + ", input value: " + focusedInputEle.value);
+        // console.debug("native input hideFocus, shouldHideFocus: " + shouldHideFocus + ", input value: " + focusedInputEle.value);
         if (shouldHideFocus) {
             var clonedInputEle = cloneInput(focusedInputEle, 'cloned-move');
             focusedInputEle.classList.add('cloned-active');
@@ -36947,7 +36954,7 @@ var NextInput = (function () {
         this.focused = new EventEmitter();
     }
     NextInput.prototype.receivedFocus = function () {
-        console.debug('native-input, next-input received focus');
+        // console.debug('native-input, next-input received focus');
         this.focused.emit(true);
     };
     NextInput.decorators = [
@@ -37291,7 +37298,7 @@ var RadioGroup = (function () {
         }
     };
     RadioGroup.prototype.writeValue = function (val) {
-        console.debug('radio group, writeValue', val);
+        // console.debug('radio group, writeValue', val);
         this.value = val;
         if (this._init) {
             this._update();
@@ -37304,7 +37311,7 @@ var RadioGroup = (function () {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            console.debug('radio group, onChange', val);
+            // console.debug('radio group, onChange', val);
             fn(val);
             _this.value = val;
             _this._update();
@@ -37357,7 +37364,7 @@ var RadioGroup = (function () {
         configurable: true
     });
     RadioGroup.prototype.onChange = function (val) {
-        console.debug('radio group, onChange w/out formControlName', val);
+        // console.debug('radio group, onChange w/out formControlName', val);
         this.value = val;
         this._update();
         this.onTouched();
@@ -37464,7 +37471,7 @@ var RadioButton = (function (_super) {
         configurable: true
     });
     RadioButton.prototype._click = function (ev) {
-        console.debug('radio, select', this.id);
+        // console.debug('radio, select', this.id);
         ev.preventDefault();
         ev.stopPropagation();
         this.checked = true;
@@ -37779,7 +37786,7 @@ var Range = (function (_super) {
         if (this._disabled) {
             return false;
         }
-        console.debug("range, " + ev.type);
+        // console.debug("range, " + ev.type);
         ev.preventDefault();
         ev.stopPropagation();
         this._start = pointerCoord(ev);
@@ -37800,7 +37807,7 @@ var Range = (function (_super) {
         return true;
     };
     Range.prototype.pointerMove = function (ev) {
-        console.debug("range, " + ev.type);
+        // console.debug("range, " + ev.type);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -37808,7 +37815,7 @@ var Range = (function (_super) {
         this._pressed = this._active.pressed = true;
     };
     Range.prototype.pointerUp = function (ev) {
-        console.debug("range, " + ev.type);
+        // console.debug("range, " + ev.type);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -38067,7 +38074,7 @@ var Refresher = (function () {
             return false;
         }
         var coord = pointerCoord(ev);
-        console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
+        // console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
         if (this._content.contentTop > 0) {
             var newTop = this._content.contentTop + 'px';
             if (this._top !== newTop) {
@@ -38646,7 +38653,7 @@ var SegmentButton = (function () {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
     };
     SegmentButton.prototype.onClick = function () {
-        console.debug('SegmentButton, select', this.value);
+        // console.debug('SegmentButton, select', this.value);
         this.ionSelect.emit(this);
     };
     SegmentButton.prototype.ngOnInit = function () {
@@ -38842,7 +38849,7 @@ var Select = (function (_super) {
         if (this._disabled) {
             return;
         }
-        console.debug('select, open alert');
+        // console.debug('select, open alert');
         var selectOptions = merge$1({}, this.selectOptions);
         selectOptions.buttons = [{
                 text: this.cancelText,
@@ -38970,7 +38977,7 @@ var Select = (function (_super) {
         configurable: true
     });
     Select.prototype.writeValue = function (val) {
-        console.debug('select, writeValue', val);
+        // console.debug('select, writeValue', val);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
     };
@@ -38981,7 +38988,7 @@ var Select = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            console.debug('select, onChange', val);
+            // console.debug('select, onChange', val);
             fn(val);
             _this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
             _this._updOpts();
@@ -38990,7 +38997,7 @@ var Select = (function (_super) {
     };
     Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     Select.prototype.onChange = function (val) {
-        console.debug('select, onChange w/out formControlName', val);
+        // console.debug('select, onChange w/out formControlName', val);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
         this.onTouched();
@@ -41577,7 +41584,7 @@ function Swiper(container, params) {
 
       // Attach/detach events
       s.initEvents = function (detach) {
-          console.debug('swiper initEvents', detach ? 'detach' : 'attach');
+          // console.debug('swiper initEvents', detach ? 'detach' : 'attach');
           var actionDom = detach ? 'off' : 'on';
           var action = detach ? 'removeEventListener' : 'addEventListener';
           var touchEventsTarget = s.params.touchEventsTarget === 'container' ? s.container[0] : s.wrapper[0];
@@ -44652,11 +44659,11 @@ var Slides = (function (_super) {
         });
         this.zoomGesture.on('pinchstart', function (e) {
             lastScale = _this.scale;
-            console.debug('Last scale', e.scale);
+            // console.debug('Last scale', e.scale);
         });
         this.zoomGesture.on('pinch', function (e) {
             _this.scale = Math.max(1, Math.min(lastScale * e.scale, 10));
-            console.debug('Scaling', _this.scale);
+            // console.debug('Scaling', _this.scale);
             _this.zoomElement.style[CSS.transform] = 'scale(' + _this.scale + ')';
             zoomRect = _this.zoomElement.getBoundingClientRect();
         });
@@ -44682,11 +44689,11 @@ var Slides = (function (_super) {
         this.zoomLastPosY = 0;
     };
     Slides.prototype.toggleZoom = function (swiper, e) {
-        console.debug('Try toggle zoom');
+        // console.debug('Try toggle zoom');
         if (!this.enableZoom) {
             return;
         }
-        console.debug('Toggling zoom', e);
+        // console.debug('Toggling zoom', e);
         var zi = new Animation(this.touch.target.children[0])
             .duration(this.zoomDuration)
             .easing('linear');
@@ -44710,7 +44717,7 @@ var Slides = (function (_super) {
     Slides.prototype.onTransitionEnd = function (swiper, e) {
     };
     Slides.prototype.onTouchStart = function (e) {
-        console.debug('Touch start', e);
+        // console.debug('Touch start', e);
         var target = e.target.closest('.slide').children[0].children[0];
         this.touch = {
             x: null,
@@ -44726,7 +44733,7 @@ var Slides = (function (_super) {
             zoomableWidth: target.offsetWidth,
             zoomableHeight: target.offsetHeight
         };
-        console.debug('Target', this.touch.target);
+        // console.debug('Target', this.touch.target);
     };
     Slides.prototype.onTouchMove = function (e) {
         this.touch.deltaX = e.touches[0].clientX - this.touch.startX;
@@ -44737,25 +44744,25 @@ var Slides = (function (_super) {
         var x2 = -x1;
         var y1 = Math.min((this.viewportHeight / 2) - zoomableScaledHeight / 2, 0);
         var y2 = -y1;
-        console.debug('BOUNDS', x1, x2, y1, y2);
+        // console.debug('BOUNDS', x1, x2, y1, y2);
         if (this.scale <= 1) {
             return;
         }
-        console.debug('PAN', e);
+        // console.debug('PAN', e);
         this.touch.x = this.touch.deltaX + this.touch.lastX;
         this.touch.y = this.touch.deltaY + this.touch.lastY;
         if (this.touch.x < x1) {
-            console.debug('OUT ON LEFT');
+            // console.debug('OUT ON LEFT');
         }
         if (this.touch.x > x2) {
-            console.debug('OUT ON RIGHT');
+            // console.debug('OUT ON RIGHT');
         }
         if (this.touch.x > this.viewportWidth) {
         }
         else if (-this.touch.x > this.viewportWidth) {
         }
         else {
-            console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
+            // console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
             this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
             e.preventDefault();
             e.stopPropagation();
@@ -44763,11 +44770,11 @@ var Slides = (function (_super) {
         }
     };
     Slides.prototype.onTouchEnd = function (e) {
-        console.debug('PANEND', e);
+        // console.debug('PANEND', e);
         if (this.scale > 1) {
             if (Math.abs(this.touch.x) > this.viewportWidth) {
                 var posX = posX > 0 ? this.viewportWidth - 1 : -(this.viewportWidth - 1);
-                console.debug('Setting on posx', this.touch.x);
+                // console.debug('Setting on posx', this.touch.x);
             }
             this.touch.lastX = this.touch.x;
             this.touch.lastY = this.touch.y;
@@ -45438,7 +45445,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerStart = function (ev) {
-        console.debug('scroll assist pointerStart', ev.type);
+        // console.debug('scroll assist pointerStart', ev.type);
         if (ev.type === 'touchstart') {
             this._isTouch = true;
         }
@@ -45447,7 +45454,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerEnd = function (ev) {
-        console.debug('scroll assist pointerEnd', ev.type);
+        // console.debug('scroll assist pointerEnd', ev.type);
         if ((this._isTouch && ev.type === 'mouseup') || !this._app.isEnabled()) {
             ev.preventDefault();
             ev.stopPropagation();
@@ -45457,7 +45464,7 @@ var InputBase = (function (_super) {
             if (!hasPointerMoved(8, this._coord, endCoord) && !this.hasFocus()) {
                 ev.preventDefault();
                 ev.stopPropagation();
-                console.debug('initFocus', ev.type);
+                // console.debug('initFocus', ev.type);
                 this.initFocus();
             }
         }
@@ -45500,7 +45507,7 @@ var InputBase = (function (_super) {
     };
     InputBase.prototype.setFocus = function () {
         this._form.setAsFocused(this);
-        console.debug("input-base, setFocus " + this._native.element().value);
+        // console.debug("input-base, setFocus " + this._native.element().value);
         this._native.setFocus();
         document.body.scrollTop = 0;
     };
@@ -45669,7 +45676,7 @@ var TextInput = (function (_super) {
         this._form.deregister(this);
     };
     TextInput.prototype.clearTextInput = function () {
-        console.debug('Should clear input');
+        // console.debug('Should clear input');
         this._value = '';
         this.onChange(this._value);
         this.writeValue(this._value);
@@ -45888,7 +45895,7 @@ var Toggle = (function (_super) {
     Toggle.prototype.pointerMove = function (ev) {
         if (this._startX) {
             var currentX = pointerCoord(ev).x;
-            console.debug('toggle, pointerMove', ev.type, currentX);
+            // console.debug('toggle, pointerMove', ev.type, currentX);
             if (this._checked) {
                 if (currentX + 15 < this._startX) {
                     this.onChange(false);
@@ -45945,7 +45952,7 @@ var Toggle = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (isChecked) {
-            console.debug('toggle, onChange', isChecked);
+            // console.debug('toggle, onChange', isChecked);
             fn(isChecked);
             _this._setChecked(isChecked);
             _this.onTouched();
@@ -45964,7 +45971,7 @@ var Toggle = (function (_super) {
         configurable: true
     });
     Toggle.prototype.onChange = function (isChecked) {
-        console.debug('toggle, onChange (no ngModel)', isChecked);
+        // console.debug('toggle, onChange (no ngModel)', isChecked);
         this._setChecked(isChecked);
         this.onTouched();
     };
@@ -46678,7 +46685,7 @@ var VirtualScroll = (function () {
             this._init = true;
             this.update(true);
             this._platform.onResize(function () {
-                console.debug('VirtualScroll, onResize');
+                // console.debug('VirtualScroll, onResize');
                 _this.update(false);
             });
             if (!this.approxItemHeight) {
@@ -46698,7 +46705,7 @@ var VirtualScroll = (function () {
                     return;
             }
         }
-        console.debug('VirtualScroll, update, records:', self._records.length);
+        // console.debug('VirtualScroll, update, records:', self._records.length);
         self._cells.length = 0;
         self._nodes.length = 0;
         self._itmTmp.viewContainer.clear();
@@ -46786,7 +46793,7 @@ var VirtualScroll = (function () {
         if (newVirtualHeight !== this._vHeight) {
             this._renderer.setElementStyle(this._elementRef.nativeElement, 'height', newVirtualHeight > 0 ? newVirtualHeight + 'px' : '');
             this._vHeight = newVirtualHeight;
-            console.debug('VirtualScroll, height', newVirtualHeight);
+            // console.debug('VirtualScroll, height', newVirtualHeight);
         }
     };
     VirtualScroll.prototype.addScrollListener = function () {

@@ -47275,7 +47275,8 @@ var Page1 = (function () {
     };
     Page1.decorators = [
         { type: Component, args: [{
-                    templateUrl: 'page.html'
+                    templateUrl: 'page.html',
+                    styleUrls: ['style.css']
                 },] },
     ];
     Page1.ctorParameters = [
@@ -50650,6 +50651,8 @@ function viewFactory_ToastCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_ToastCmp2(viewUtils, parentInjector, declarationEl);
 }
 
+var styles = ['.custom-spinner-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  box-sizing: border-box;\n  width: 100%;\n  margin-bottom: 20px;\n}\n\n.custom-spinner-box[_ngcontent-%COMP%] {\n  margin: 0 auto;\n  position: relative;\n  box-sizing: border-box;\n  border: 4px solid #000;\n  width: 60px;\n  height: 60px;\n  animation: spin 3s infinite linear;\n}\n\n.custom-spinner-box[_ngcontent-%COMP%]:before {\n  content: \'\';\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  border: 4px solid #000;\n  width: 40px;\n  height: 40px;\n  animation: pulse 1.5s infinite ease;\n}\n\n.wp[_ngcontent-%COMP%]   .custom-spinner-box[_ngcontent-%COMP%], .wp[_ngcontent-%COMP%]   .custom-spinner-box[_ngcontent-%COMP%]:before {\n  border-color: #fff;\n}\n\n@-webkit-keyframes pulse {\n  50% {\n    border-width: 20px;\n  }\n}\n@keyframes pulse {\n  50% {\n    border-width: 20px;\n  }\n}\n\n@-webkit-keyframes spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}'];
+
 var __extends$131 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -51560,7 +51563,7 @@ function viewFactory_Page1_Host0(viewUtils, parentInjector, declarationEl) {
     return new _View_Page1_Host0(viewUtils, parentInjector, declarationEl);
 }
 var Page1NgFactory = new ComponentFactory('ng-component', viewFactory_Page1_Host0, Page1);
-var styles_Page1 = [];
+var styles_Page1 = [styles];
 var renderType_Page1 = null;
 var _View_Page10 = (function (_super) {
     __extends$130(_View_Page10, _super);
@@ -52523,7 +52526,7 @@ var _View_Page10 = (function (_super) {
 }(AppView));
 function viewFactory_Page10(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Page1 === null)) {
-        (renderType_Page1 = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/loading/page.html', 0, ViewEncapsulation.None, styles_Page1, {}));
+        (renderType_Page1 = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/loading/page.html', 0, ViewEncapsulation.Emulated, styles_Page1, {}));
     }
     return new _View_Page10(viewUtils, parentInjector, declarationEl);
 }

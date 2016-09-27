@@ -83,7 +83,8 @@ export var Page1 = (function () {
     };
     Page1.decorators = [
         { type: Component, args: [{
-                    templateUrl: 'page.html'
+                    templateUrl: 'page.html',
+                    styleUrls: ['style.css']
                 },] },
     ];
     Page1.ctorParameters = [

@@ -71,28 +71,6 @@ navigation stack.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="onClick"></div>
-
-<h3>
-<a class="anchor" name="onClick" href="#onClick"></a>
-<code>onClick()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

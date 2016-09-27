@@ -235,7 +235,7 @@ Observable to be subscribed to when the current component has been destroyed
 
 </h3>
 
-onDidDismiss
+Called when the current viewController has be successfully dismissed
 
 
 
@@ -256,7 +256,7 @@ onDidDismiss
 
 </h3>
 
-onWillDismiss
+Called when the current viewController will be dismissed
 
 
 
@@ -272,19 +272,89 @@ onWillDismiss
 
 <h3>
 <a class="anchor" name="dismiss" href="#dismiss"></a>
-<code>dismiss()</code>
+<code>dismiss(data,&nbsp;role ,&nbsp;NavOptions)</code>
   
 
 </h3>
 
-dismiss
+Dismiss the current viewController
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        data
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>Data that you want to return when the viewController is dismissed.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        role 
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p><strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        NavOptions
+        
+        
+      </td>
+      <td>
+        
+  <code>NavOptions</code>
+      </td>
+      <td>
+        <p>Options for the dismiss navigation.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>any</code> <p>data Returns the data passed in, if any.</p>
 
 
+</div>
 
 
 

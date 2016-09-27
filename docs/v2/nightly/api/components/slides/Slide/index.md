@@ -61,48 +61,6 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="slides"></div>
-
-<h3>
-<a class="anchor" name="slides" href="#slides"></a>
-<code>slides</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

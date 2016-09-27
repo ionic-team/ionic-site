@@ -42,6 +42,8 @@ Improve this doc
 
 
 
+<p>A Thumbnail is a component that creates a squated image for an item.
+Thumbnail&#39;s can be place on the left or right side of an itemt with the <code>item-left</code> or <code>item-right</code> directive.</p>
 
 
 
@@ -58,7 +60,11 @@ Improve this doc
 
 
 
-<!-- related link --><!-- end content block -->
+<!-- related link -->
+
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+
+<a href='/docs/v2/components/#thumbnail-list'>Thumbnail Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

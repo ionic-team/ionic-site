@@ -68,106 +68,6 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-scrollX
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable scrolling along the X axis
-</td>
-</tr>
-
-<tr>
-<td>
-scrollY
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }
-</td>
-</tr>
-
-<tr>
-<td>
-zoom
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable zooming
-</td>
-</tr>
-
-<tr>
-<td>
-maxZoom
-</td>
-
-
-<td>
-number
-</td>
-
-
-<td>
-set the max zoom amount for ion-scroll
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
@@ -185,26 +85,30 @@ set the max zoom amount for ion-scroll
     
     <tr>
       <td>scrollX</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable scrolling along the X axis</p>
+</td>
     </tr>
     
     <tr>
       <td>scrollY</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }</p>
+</td>
     </tr>
     
     <tr>
       <td>zoom</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable zooming</p>
+</td>
     </tr>
     
     <tr>
       <td>maxZoom</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>number</code></td>
+      <td><p> set the max zoom amount for ion-scroll</p>
+</td>
     </tr>
     
   </tbody>

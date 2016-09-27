@@ -31,7 +31,7 @@ UserAgentToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L841">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L847">
 Improve this doc
 </a>
 

@@ -50,13 +50,76 @@ Improve this doc
 <!-- @property tags -->
 <h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="forRoot"></div>
-<h3><a class="anchor" name="forRoot" href="#forRoot"></a><code>forRoot()</code>
+<h3><a class="anchor" name="forRoot" href="#forRoot"></a><code>forRoot(appRoot,&nbsp;config,&nbsp;deepLinkConfig)</code>
   
 </h3>
 
+Set the root app component for you IonicModule
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        appRoot
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>The root AppComponent for this app.</p>
 
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        config
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>Config Options for the app. Accepts any config property.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        deepLinkConfig
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>Any configuration needed for the Ionic Deeplinker.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

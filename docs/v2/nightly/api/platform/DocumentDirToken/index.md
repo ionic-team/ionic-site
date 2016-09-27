@@ -31,7 +31,7 @@ DocumentDirToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L843">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L855">
 Improve this doc
 </a>
 

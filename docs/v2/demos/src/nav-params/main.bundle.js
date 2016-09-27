@@ -47252,7 +47252,8 @@ var AppModule = (function () {
                     ],
                     bootstrap: [IonicApp],
                     entryComponents: [
-                        ApiDemoPage
+                        ApiDemoPage,
+                        PushPage
                     ]
                 },] },
     ];
@@ -52395,6 +52396,7 @@ var AppModuleInjector = (function (_super) {
             ToastCmpNgFactory,
             ApiDemoAppNgFactory,
             ApiDemoPageNgFactory,
+            PushPageNgFactory,
             IonicAppNgFactory
         ], [IonicAppNgFactory]);
     }

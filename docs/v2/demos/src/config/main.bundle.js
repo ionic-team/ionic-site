@@ -25090,12 +25090,6 @@ var isCheckedProperty = function (a, b) {
     }
     return (a == b);
 };
-function pascalCaseToDashCase(val) {
-    if (val === void 0) { val = ''; }
-    return val.charAt(0).toLowerCase() + val.substring(1).replace(/[A-Z]/g, function (match) {
-        return '-' + match.toLowerCase();
-    });
-}
 
 var Config = (function () {
     function Config() {
@@ -25366,6 +25360,7 @@ var ViewController = (function () {
         this._onWillDismiss && this._onWillDismiss(data, role);
         return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
             _this._onDidDismiss && _this._onDidDismiss(data, role);
+            _this._onDidDismiss = null;
             return data;
         });
     };
@@ -25533,7 +25528,7 @@ var ViewController = (function () {
                 this._nav._views.splice(index, 1);
             }
         }
-        this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._hdrDir = this._ftrDir = this._nb = this._onDidDismiss = this._onWillDismiss = null;
+        this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._hdrDir = this._ftrDir = this._nb = this._onWillDismiss = null;
     };
     ViewController.prototype._lifecycleTest = function (lifecycle) {
         var result = true;
@@ -25673,13 +25668,13 @@ var ActionSheetCmp = (function () {
                         '<div class="action-sheet-group">' +
                         '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
                         '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-                        '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [ngClass]="b.cssClass">' +
+                        '<button ion-button="action-sheet-button" (click)="click(b)" *ngFor="let b of d.buttons" class="disable-hover" [attr.icon-left]="b.icon ? \'\' : null" [ngClass]="b.cssClass">' +
                         '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon>' +
                         '{{b.text}}' +
                         '</button>' +
                         '</div>' +
                         '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-                        '<button ion-button="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
+                        '<button ion-button="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [attr.icon-left]="d.cancelButton.icon ? \'\' : null" [ngClass]="d.cancelButton.cssClass">' +
                         '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon>' +
                         '{{d.cancelButton.text}}' +
                         '</button>' +
@@ -25729,15 +25724,18 @@ function convertToView(linker, nameOrPageOrView, params) {
 }
 function convertToViews(linker, pages) {
     var views = [];
-    if (pages) {
+    if (isArray$7(pages)) {
         for (var i = 0; i < pages.length; i++) {
             var page = pages[i];
             if (page) {
                 if (isViewController(page)) {
                     views.push(page);
                 }
-                else {
+                else if (page.page) {
                     views.push(convertToView(linker, page.page, page.params));
+                }
+                else {
+                    views.push(convertToView(linker, page, null));
                 }
             }
         }
@@ -25955,29 +25953,6 @@ function copyInputAttributes(srcElement, destElement) {
             destElement.setAttribute(attr.name, attr.value);
         }
     }
-}
-if (typeof Element.prototype.matches !== 'function') {
-    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector || function matches(selector) {
-        var element = this;
-        var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-        var index = 0;
-        while (elements[index] && elements[index] !== element) {
-            ++index;
-        }
-        return Boolean(elements[index]);
-    };
-}
-if (typeof Element.prototype.closest !== 'function') {
-    Element.prototype.closest = function closest(selector) {
-        var element = this;
-        while (element && element.nodeType === 1) {
-            if (element.matches(selector)) {
-                return element;
-            }
-            element = element.parentNode;
-        }
-        return null;
-    };
 }
 function getDimensions(ele, id) {
     var dimensions = dimensionCache[id];
@@ -27801,7 +27776,7 @@ var PointerEvents = (function () {
         if (!this.pointerDown(ev)) {
             return;
         }
-        if (!this.rmTouchMove) {
+        if (!this.rmTouchMove && this.pointerMove) {
             this.rmTouchMove = listenEvent(this.ele, 'touchmove', this.zone, this.option, this.pointerMove);
         }
         if (!this.rmTouchEnd) {
@@ -27819,7 +27794,7 @@ var PointerEvents = (function () {
         if (!this.pointerDown(ev)) {
             return;
         }
-        if (!this.rmMouseMove) {
+        if (!this.rmMouseMove && this.pointerMove) {
             this.rmMouseMove = listenEvent(document, 'mousemove', this.zone, this.option, this.pointerMove);
         }
         if (!this.rmMouseUp) {
@@ -27828,11 +27803,11 @@ var PointerEvents = (function () {
     };
     PointerEvents.prototype.handleTouchEnd = function (ev) {
         this.stopTouch();
-        this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev);
     };
     PointerEvents.prototype.handleMouseUp = function (ev) {
         this.stopMouse();
-        this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev);
     };
     PointerEvents.prototype.stopTouch = function () {
         this.rmTouchMove && this.rmTouchMove();
@@ -27879,7 +27854,7 @@ var UIEventManager = (function () {
         if (!element) {
             element = config.elementRef.nativeElement;
         }
-        if (!element || !config.pointerDown || !config.pointerMove || !config.pointerUp) {
+        if (!element || !config.pointerDown) {
             console.error('PointerEvents config is invalid');
             return;
         }
@@ -28551,8 +28526,6 @@ var NavControllerBase = (function (_super) {
         if (view._cssClass) {
             this._renderer.setElementClass(pageElement, view._cssClass, true);
         }
-        var cssClassName = pascalCaseToDashCase(view.component.name);
-        this._renderer.setElementClass(pageElement, cssClassName, true);
         componentRef.changeDetectorRef.detectChanges();
     };
     NavControllerBase.prototype._trnsStart = function (trns, enteringView, leavingView, opts, resolve) {
@@ -28964,8 +28937,8 @@ var Animation = (function () {
         if (this._isAsync) {
             this._asyncEnd(dur, true);
         }
-        this._raf(function () {
-            _this._raf(_this._playDomInspect.bind(_this, opts));
+        this._raf && this._raf(function () {
+            _this._raf && _this._raf(_this._playDomInspect.bind(_this, opts));
         });
     };
     Animation.prototype._playInit = function (opts) {
@@ -28986,7 +28959,7 @@ var Animation = (function () {
         this._beforeWriteFn();
         this._playProgress(opts);
         if (this._isAsync) {
-            this._raf(this._playToStep.bind(this, 1));
+            this._raf && this._raf(this._playToStep.bind(this, 1));
         }
     };
     Animation.prototype._playProgress = function (opts) {
@@ -29270,7 +29243,7 @@ var Animation = (function () {
         this._progressEnd(shouldComplete, stepValue, dur, this._isAsync);
         if (this._isAsync) {
             this._asyncEnd(dur, true);
-            this._raf(this._playToStep.bind(this, stepValue));
+            this._raf && this._raf(this._playToStep.bind(this, stepValue));
         }
     };
     Animation.prototype._progressEnd = function (shouldComplete, stepValue, dur, isAsync) {
@@ -29710,7 +29683,8 @@ var Content = (function (_super) {
     }
     Content.prototype.ngOnInit = function () {
         var _this = this;
-        this._scrollEle = this._elementRef.nativeElement.children[0];
+        this._fixedEle = this._elementRef.nativeElement.children[0];
+        this._scrollEle = this._elementRef.nativeElement.children[1];
         this._zone.runOutsideAngular(function () {
             _this._scroll = new ScrollView(_this._scrollEle);
             _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
@@ -29909,51 +29883,44 @@ var Content = (function (_super) {
         }
     };
     Content.prototype.writeDimensions = function () {
-        var newVal;
         var scrollEle = this._scrollEle;
-        if (!scrollEle)
+        if (!scrollEle) {
             return;
-        if (this._fullscreen) {
-            newVal = this._headerHeight + this._paddingTop;
-            if (this._tabsPlacement === 'top') {
-                newVal += this._tabbarHeight;
-            }
-            if (newVal !== this.contentTop) {
-                scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
-                this.contentTop = newVal;
-            }
-            newVal = this._footerHeight + this._paddingBottom;
-            if (this._tabsPlacement === 'bottom') {
-                newVal += this._tabbarHeight;
-                if (newVal > 0 && this._footerEle) {
-                    this._footerEle.style.bottom = (newVal - this._footerHeight - this._paddingBottom) + 'px';
-                }
-            }
-            if (newVal !== this.contentBottom) {
-                scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
-                this.contentBottom = newVal;
+        }
+        var fixedEle = this._fixedEle;
+        if (!fixedEle) {
+            return;
+        }
+        var contentTop = this._headerHeight;
+        var contentBottom = this._footerHeight;
+        if (this._tabsPlacement === 'top') {
+            contentTop += this._tabbarHeight;
+        }
+        else if (this._tabsPlacement === 'bottom') {
+            contentBottom += this._tabbarHeight;
+            if (contentBottom > 0 && this._footerEle) {
+                this._footerEle.style.bottom = cssFormat(contentBottom - this._footerHeight);
             }
         }
-        else {
-            newVal = this._headerHeight;
-            if (this._tabsPlacement === 'top') {
-                newVal += this._tabbarHeight;
-            }
-            if (newVal !== this.contentTop) {
-                scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
-                this.contentTop = newVal;
-            }
-            newVal = this._footerHeight;
-            if (this._tabsPlacement === 'bottom') {
-                newVal += this._tabbarHeight;
-            }
-            if (newVal !== this.contentBottom) {
-                scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
-                this.contentBottom = newVal;
-                if (newVal > 0 && this._footerEle) {
-                    this._footerEle.style.bottom = (newVal - this._footerHeight) + 'px';
-                }
-            }
+        var topProperty = 'marginTop';
+        var bottomProperty = 'marginBottom';
+        var fixedTop = contentTop;
+        var fixedBottom = contentBottom;
+        if (this._fullscreen) {
+            contentTop += this._paddingTop;
+            contentBottom += this._paddingBottom;
+            topProperty = 'paddingTop';
+            bottomProperty = 'paddingBottom';
+        }
+        if (contentTop !== this.contentTop) {
+            scrollEle.style[topProperty] = cssFormat(contentTop);
+            fixedEle.style.marginTop = cssFormat(fixedTop);
+            this.contentTop = contentTop;
+        }
+        if (contentBottom !== this.contentBottom) {
+            scrollEle.style[bottomProperty] = cssFormat(contentBottom);
+            fixedEle.style.marginBottom = cssFormat(fixedBottom);
+            this.contentBottom = contentBottom;
         }
         if (this._tabsPlacement !== null && this._tabs) {
             if (this._tabsPlacement === 'top') {
@@ -29967,10 +29934,12 @@ var Content = (function (_super) {
     Content.decorators = [
         { type: Component, args: [{
                     selector: 'ion-content',
-                    template: '<div class="scroll-content">' +
+                    template: '<div class="fixed-content">' +
+                        '<ng-content select="[ion-fixed],ion-fab"></ng-content>' +
+                        '</div>' +
+                        '<div class="scroll-content">' +
                         '<ng-content></ng-content>' +
                         '</div>' +
-                        '<ng-content select="ion-fixed"></ng-content>' +
                         '<ng-content select="ion-refresher"></ng-content>',
                     host: {
                         '[class.statusbar-padding]': '_sbPadding'
@@ -29996,6 +29965,9 @@ var Content = (function (_super) {
 }(Ion));
 function parsePxUnit(val) {
     return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
+}
+function cssFormat(val) {
+    return (val > 0 ? val + 'px' : '');
 }
 
 var __extends$71 = (undefined && undefined.__extends) || function (d, b) {
@@ -31299,6 +31271,7 @@ var IonicApp = (function (_super) {
         if (this._config.getBoolean('hoverCSS', true)) {
             this.setElementClass('enable-hover', true);
         }
+        this._platform.prepareReady();
     };
     IonicApp.prototype._getPortal = function (portal) {
         if (portal === AppPortal.LOADING) {
@@ -31582,7 +31555,6 @@ var ModalCmp = (function () {
             this._viewCtrl._setInstance(componentRef.instance);
             this._setCssClass(componentRef, 'ion-page');
             this._setCssClass(componentRef, 'show-page');
-            this._setCssClass(componentRef, pascalCaseToDashCase(component.name));
             this._enabled = true;
         }
     };
@@ -32319,7 +32291,6 @@ var PopoverCmp = (function () {
             var componentFactory = this._cfr.resolveComponentFactory(component);
             var componentRef = this._viewport.createComponent(componentFactory, this._viewport.length, this._viewport.parentInjector, []);
             this._viewCtrl._setInstance(componentRef.instance);
-            this._setCssClass(componentRef, pascalCaseToDashCase(component.name));
             this._enabled = true;
         }
     };
@@ -32525,81 +32496,84 @@ var RippleActivator = (function (_super) {
         _super.call(this, app, config);
     }
     RippleActivator.prototype.downAction = function (ev, activatableEle, startCoord) {
-        var self = this;
-        if (self.disableActivated(ev)) {
+        if (this.disableActivated(ev)) {
             return;
         }
-        self._queue.push(activatableEle);
-        nativeRaf(function () {
-            for (var i = 0; i < self._queue.length; i++) {
-                var queuedEle = self._queue[i];
-                if (queuedEle && queuedEle.parentNode) {
-                    self._active.push(queuedEle);
-                    queuedEle.classList.add(self._css);
-                    var j = queuedEle.childElementCount;
-                    while (j--) {
-                        var rippleEle = queuedEle.children[j];
-                        if (rippleEle.classList.contains('button-effect')) {
-                            rippleEle.style.left = '-9999px';
-                            rippleEle.style.opacity = '';
-                            rippleEle.style[CSS.transform] = 'scale(0.001) translateZ(0px)';
-                            rippleEle.style[CSS.transition] = '';
-                            var clientRect = activatableEle.getBoundingClientRect();
-                            rippleEle.$top = clientRect.top;
-                            rippleEle.$left = clientRect.left;
-                            rippleEle.$width = clientRect.width;
-                            rippleEle.$height = clientRect.height;
-                            break;
-                        }
+        this._queue.push(activatableEle);
+        for (var i = 0; i < this._queue.length; i++) {
+            var queuedEle = this._queue[i];
+            if (queuedEle && queuedEle.parentNode) {
+                this._active.push(queuedEle);
+                queuedEle.classList.add(this._css);
+                var j = queuedEle.childElementCount;
+                while (j--) {
+                    var rippleEle = queuedEle.children[j];
+                    if (rippleEle.classList.contains('button-effect')) {
+                        var clientRect = activatableEle.getBoundingClientRect();
+                        rippleEle.$top = clientRect.top;
+                        rippleEle.$left = clientRect.left;
+                        rippleEle.$width = clientRect.width;
+                        rippleEle.$height = clientRect.height;
+                        break;
                     }
                 }
             }
-            self._queue = [];
-        });
+        }
+        this._queue = [];
     };
     RippleActivator.prototype.upAction = function (ev, activatableEle, startCoord) {
-        if (!hasPointerMoved(6, startCoord, pointerCoord(ev))) {
-            var i = activatableEle.childElementCount;
-            while (i--) {
-                var rippleEle = activatableEle.children[i];
-                if (rippleEle.classList.contains('button-effect')) {
-                    var clientPointerX = (startCoord.x - rippleEle.$left);
-                    var clientPointerY = (startCoord.y - rippleEle.$top);
-                    var x = Math.max(Math.abs(rippleEle.$width - clientPointerX), clientPointerX) * 2;
-                    var y = Math.max(Math.abs(rippleEle.$height - clientPointerY), clientPointerY) * 2;
-                    var diameter = Math.min(Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64), 240);
-                    if (activatableEle.hasAttribute('ion-item')) {
-                        diameter = Math.min(diameter, 140);
-                    }
-                    var radius = Math.sqrt(rippleEle.$width + rippleEle.$height);
-                    var scaleTransitionDuration = Math.max(1600 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5, 260);
-                    var opacityTransitionDuration = scaleTransitionDuration * 0.7;
-                    var opacityTransitionDelay = scaleTransitionDuration - opacityTransitionDuration;
-                    rippleEle.style.width = rippleEle.style.height = diameter + 'px';
-                    rippleEle.style.marginTop = rippleEle.style.marginLeft = -(diameter / 2) + 'px';
-                    rippleEle.style.left = clientPointerX + 'px';
-                    rippleEle.style.top = clientPointerY + 'px';
-                    rippleEle.style.opacity = '0';
-                    rippleEle.style[CSS.transform] = 'scale(1) translateZ(0px)';
-                    rippleEle.style[CSS.transition] = 'transform ' +
-                        scaleTransitionDuration +
-                        'ms,opacity ' +
-                        opacityTransitionDuration +
-                        'ms ' +
-                        opacityTransitionDelay + 'ms';
-                }
+        if (hasPointerMoved(6, startCoord, pointerCoord(ev))) {
+            return;
+        }
+        var i = activatableEle.childElementCount;
+        while (i--) {
+            var rippleEle = activatableEle.children[i];
+            if (rippleEle.classList.contains('button-effect')) {
+                this.startRippleEffect(rippleEle, activatableEle, startCoord);
+                break;
             }
         }
         _super.prototype.upAction.call(this, ev, activatableEle, startCoord);
     };
-    RippleActivator.prototype.deactivate = function () {
-        var self = this;
-        self._queue = [];
+    RippleActivator.prototype.startRippleEffect = function (rippleEle, activatableEle, startCoord) {
+        var clientPointerX = (startCoord.x - rippleEle.$left);
+        var clientPointerY = (startCoord.y - rippleEle.$top);
+        var x = Math.max(Math.abs(rippleEle.$width - clientPointerX), clientPointerX) * 2;
+        var y = Math.max(Math.abs(rippleEle.$height - clientPointerY), clientPointerY) * 2;
+        var diameter = Math.min(Math.max(Math.hypot(x, y), 64), 240);
+        if (activatableEle.hasAttribute('ion-item')) {
+            diameter = Math.min(diameter, 140);
+        }
+        clientPointerX -= diameter / 2;
+        clientPointerY -= diameter / 2;
+        clientPointerX = Math.round(clientPointerX);
+        clientPointerY = Math.round(clientPointerY);
+        diameter = Math.round(diameter);
+        rippleEle.style.opacity = '';
+        rippleEle.style[CSS.transform] = "translate3d(" + clientPointerX + "px, " + clientPointerY + "px, 0px) scale(0.001)";
+        rippleEle.style[CSS.transition] = '';
+        var radius = Math.sqrt(rippleEle.$width + rippleEle.$height);
+        var scaleTransitionDuration = Math.max(1600 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5, 260);
+        var opacityTransitionDuration = Math.round(scaleTransitionDuration * 0.7);
+        var opacityTransitionDelay = Math.round(scaleTransitionDuration - opacityTransitionDuration);
+        scaleTransitionDuration = Math.round(scaleTransitionDuration);
+        var transform = "translate3d(" + clientPointerX + "px, " + clientPointerY + "px, 0px) scale(1)";
+        var transition = "transform " + scaleTransitionDuration + "ms,opacity " + opacityTransitionDuration + "ms " + opacityTransitionDelay + "ms";
         rafFrames(2, function () {
-            for (var i = 0; i < self._active.length; i++) {
-                self._active[i].classList.remove(self._css);
+            rippleEle.style.width = rippleEle.style.height = diameter + 'px';
+            rippleEle.style.opacity = '0';
+            rippleEle.style[CSS.transform] = transform;
+            rippleEle.style[CSS.transition] = transition;
+        });
+    };
+    RippleActivator.prototype.deactivate = function () {
+        var _this = this;
+        this._queue = [];
+        rafFrames(2, function () {
+            for (var i = 0; i < _this._active.length; i++) {
+                _this._active[i].classList.remove(_this._css);
             }
-            self._active = [];
+            _this._active = [];
         });
     };
     return RippleActivator;
@@ -33069,7 +33043,8 @@ var UrlSerializer = (function () {
             id: configLink.name,
             name: configLink.name,
             component: configLink.component,
-            data: null
+            data: null,
+            defaultHistory: configLink.defaultHistory
         } : null;
     };
     UrlSerializer.prototype.serialize = function (path) {
@@ -33112,7 +33087,10 @@ var UrlSerializer = (function () {
         };
     };
     UrlSerializer.prototype.formatUrlPart = function (name) {
-        name = pascalCaseToDashCase(name.replace(URL_REPLACE_REG, '-'));
+        name = name.replace(URL_REPLACE_REG, '-');
+        name = name.charAt(0).toLowerCase() + name.substring(1).replace(/[A-Z]/g, function (match) {
+            return '-' + match.toLowerCase();
+        });
         while (name.indexOf('--') > -1) {
             name = name.replace('--', '-');
         }
@@ -33173,7 +33151,8 @@ var fillMatchedUrlParts = function (segments, urlParts, configLink) {
                 id: matchedUrlParts.join('/'),
                 name: configLink.name,
                 component: configLink.component,
-                data: createMatchedData(matchedUrlParts, configLink)
+                data: createMatchedData(matchedUrlParts, configLink),
+                defaultHistory: configLink.defaultHistory
             };
         }
     }
@@ -34961,16 +34940,162 @@ function convertToArrayOfStrings(input, type) {
     }
 }
 
-var Fixed = (function () {
-    function Fixed() {
+var __extends$95 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var FabButton = (function (_super) {
+    __extends$95(FabButton, _super);
+    function FabButton(config, elementRef, renderer) {
+        _super.call(this, config, elementRef, renderer);
+        this.setElementClass('fab', true);
+        this.mode = config.get('mode');
     }
-    Fixed.decorators = [
-        { type: Directive, args: [{
-                    selector: 'ion-fixed'
+    Object.defineProperty(FabButton.prototype, "color", {
+        set: function (val) {
+            this._setColor('fab', val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FabButton.prototype, "mode", {
+        set: function (val) {
+            this._setMode('fab', val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FabButton.prototype.setActiveClose = function (closeVisible) {
+        this.setElementClass('fab-close-active', closeVisible);
+    };
+    FabButton.decorators = [
+        { type: Component, args: [{
+                    selector: '[ion-fab]',
+                    template: '<ion-icon name="close" class="fab-close-icon"></ion-icon>' +
+                        '<span class="button-inner">' +
+                        '<ng-content></ng-content>' +
+                        '</span>' +
+                        '<div class="button-effect"></div>',
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    encapsulation: ViewEncapsulation.None,
                 },] },
     ];
-    Fixed.ctorParameters = [];
-    return Fixed;
+    FabButton.ctorParameters = [
+        { type: Config, },
+        { type: ElementRef, },
+        { type: Renderer, },
+    ];
+    FabButton.propDecorators = {
+        'color': [{ type: Input },],
+        'mode': [{ type: Input },],
+    };
+    return FabButton;
+}(Ion));
+var FabList = (function () {
+    function FabList() {
+        this._visible = false;
+        this._fabs = [];
+    }
+    Object.defineProperty(FabList.prototype, "_setbuttons", {
+        set: function (query) {
+            var fabs = this._fabs = query.toArray();
+            for (var _i = 0, fabs_1 = fabs; _i < fabs_1.length; _i++) {
+                var fab = fabs_1[_i];
+                fab.setElementClass('fab-in-list', true);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FabList.prototype.setVisible = function (val) {
+        var visible = isTrueProperty(val);
+        if (visible === this._visible) {
+            return;
+        }
+        var fabs = this._fabs;
+        var i = 1;
+        if (visible) {
+            fabs.forEach(function (fab) {
+                setTimeout(function () { return fab.setElementClass('show', true); }, i * 30);
+                i++;
+            });
+        }
+        else {
+            fabs.forEach(function (fab) { return fab.setElementClass('show', false); });
+        }
+        this._visible = visible;
+    };
+    FabList.decorators = [
+        { type: Directive, args: [{
+                    selector: 'ion-fab-list',
+                    host: {
+                        '[class.fab-list-active]': '_visible'
+                    }
+                },] },
+    ];
+    FabList.ctorParameters = [];
+    FabList.propDecorators = {
+        '_setbuttons': [{ type: ContentChildren, args: [FabButton,] },],
+    };
+    return FabList;
+}());
+var FabContainer = (function () {
+    function FabContainer(_elementRef) {
+        this._elementRef = _elementRef;
+        this._events = new UIEventManager();
+        this._listsActive = false;
+    }
+    FabContainer.prototype.ngAfterContentInit = function () {
+        this._events.listen(this._mainButton.getNativeElement(), 'click', this.pointerUp.bind(this));
+    };
+    FabContainer.prototype.pointerUp = function (ev) {
+        if (this.canActivateList(ev)) {
+            this.toggleList();
+        }
+    };
+    FabContainer.prototype.canActivateList = function (ev) {
+        if (this._fabLists.length > 0 && this._mainButton && ev.target) {
+            var ele = ev.target.closest('ion-fab>button');
+            return (ele && ele === this._mainButton.getNativeElement());
+        }
+        return false;
+    };
+    FabContainer.prototype.toggleList = function () {
+        this.setActiveLists(!this._listsActive);
+    };
+    FabContainer.prototype.setActiveLists = function (isActive) {
+        if (isActive === this._listsActive) {
+            return;
+        }
+        var lists = this._fabLists.toArray();
+        for (var _i = 0, lists_1 = lists; _i < lists_1.length; _i++) {
+            var list = lists_1[_i];
+            list.setVisible(isActive);
+        }
+        this._mainButton.setActiveClose(isActive);
+        this._listsActive = isActive;
+    };
+    FabContainer.prototype.close = function () {
+        this.setActiveLists(false);
+    };
+    FabContainer.prototype.ngOnDestroy = function () {
+        this._events.unlistenAll();
+    };
+    FabContainer.decorators = [
+        { type: Component, args: [{
+                    selector: 'ion-fab',
+                    template: '<ng-content></ng-content>'
+                },] },
+    ];
+    FabContainer.ctorParameters = [
+        { type: ElementRef, },
+    ];
+    FabContainer.propDecorators = {
+        '_mainButton': [{ type: ContentChild, args: [FabButton,] },],
+        '_fabLists': [{ type: ContentChildren, args: [FabList,] },],
+    };
+    return FabContainer;
 }());
 
 var Grid = (function () {
@@ -35473,7 +35598,7 @@ var ItemReorder = (function () {
         }
     };
     ItemReorder.prototype.reorderStart = function () {
-        this.setCssClass('reorder-list-active', true);
+        this.setElementClass('reorder-list-active', true);
     };
     ItemReorder.prototype.reorderEmit = function (fromIndex, toIndex) {
         var _this = this;
@@ -35497,7 +35622,7 @@ var ItemReorder = (function () {
     ItemReorder.prototype.reorderReset = function () {
         var children = this._element.children;
         var len = children.length;
-        this.setCssClass('reorder-list-active', false);
+        this.setElementClass('reorder-list-active', false);
         var transform = CSS.transform;
         for (var i = 0; i < len; i++) {
             children[i].style[transform] = '';
@@ -35529,7 +35654,7 @@ var ItemReorder = (function () {
             }
         }
     };
-    ItemReorder.prototype.setCssClass = function (classname, add) {
+    ItemReorder.prototype.setElementClass = function (classname, add) {
         this._rendered.setElementClass(this._element, classname, add);
     };
     ItemReorder.prototype.getNativeElement = function () {
@@ -35593,7 +35718,7 @@ function indexForItem(element) {
     return element['$ionIndex'];
 }
 
-var __extends$96 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$97 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -35601,7 +35726,7 @@ var __extends$96 = (undefined && undefined.__extends) || function (d, b) {
 var DRAG_THRESHOLD = 10;
 var MAX_ATTACK_ANGLE = 20;
 var ItemSlidingGesture = (function (_super) {
-    __extends$96(ItemSlidingGesture, _super);
+    __extends$97(ItemSlidingGesture, _super);
     function ItemSlidingGesture(list) {
         _super.call(this, list.getNativeElement(), {
             maxAngle: MAX_ATTACK_ANGLE,
@@ -35646,6 +35771,10 @@ var ItemSlidingGesture = (function (_super) {
     };
     ItemSlidingGesture.prototype.onDragEnd = function (ev) {
         ev.preventDefault();
+        var coordX = pointerCoord(ev).x;
+        var deltaX = (coordX - this.firstCoordX);
+        var deltaT = (Date.now() - this.firstTimestamp);
+        this.selectedContainer.endSliding(deltaX / deltaT);
         this.selectedContainer = null;
         this.preSelectedContainer = null;
     };
@@ -35679,13 +35808,13 @@ function getContainer(ev) {
     return null;
 }
 
-var __extends$95 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$96 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var List = (function (_super) {
-    __extends$95(List, _super);
+    __extends$96(List, _super);
     function List(config, elementRef, renderer, _gestureCtrl) {
         _super.call(this, config, elementRef, renderer);
         this._gestureCtrl = _gestureCtrl;
@@ -35759,9 +35888,6 @@ var ItemOptions = (function () {
         this._renderer = _renderer;
         this.ionSwipe = new EventEmitter();
     }
-    ItemOptions.prototype.setCssStyle = function (property, value) {
-        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
-    };
     ItemOptions.prototype.getSides = function () {
         if (isPresent$5(this.side) && this.side === 'left') {
             return 1;
@@ -35789,9 +35915,10 @@ var ItemOptions = (function () {
     return ItemOptions;
 }());
 var ItemSliding = (function () {
-    function ItemSliding(list, _renderer, _elementRef) {
+    function ItemSliding(list, _renderer, _elementRef, _zone) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
+        this._zone = _zone;
         this._openAmount = 0;
         this._startX = 0;
         this._optsWidthRightSide = 0;
@@ -35802,7 +35929,7 @@ var ItemSliding = (function () {
         this.ionDrag = new EventEmitter();
         list && list.containsSlidingItem(true);
         _elementRef.nativeElement.$ionComponent = this;
-        this._setCssClass('item-wrapper', true);
+        this.setElementClass('item-wrapper', true);
     }
     Object.defineProperty(ItemSliding.prototype, "_itemOptions", {
         set: function (itemOptions) {
@@ -35893,11 +36020,12 @@ var ItemSliding = (function () {
         return restingPoint;
     };
     ItemSliding.prototype.fireSwipeEvent = function () {
+        var _this = this;
         if (this._state & 32) {
-            this._rightOptions.ionSwipe.emit(this);
+            this._zone.run(function () { return _this._rightOptions.ionSwipe.emit(_this); });
         }
         else if (this._state & 64) {
-            this._leftOptions.ionSwipe.emit(this);
+            this._zone.run(function () { return _this._leftOptions.ionSwipe.emit(_this); });
         }
     };
     ItemSliding.prototype.calculateOptsWidth = function () {
@@ -35950,27 +36078,24 @@ var ItemSliding = (function () {
             return;
         }
         this.item.setElementStyle(CSS.transform, "translate3d(" + -openAmount + "px,0,0)");
-        this.ionDrag.emit(this);
+        this._zone.run(function () { return _this.ionDrag.emit(_this); });
     };
     ItemSliding.prototype._setState = function (state$$1) {
         if (state$$1 === this._state) {
             return;
         }
-        this._setCssClass('active-slide', (state$$1 !== 2));
-        this._setCssClass('active-options-right', !!(state$$1 & 8));
-        this._setCssClass('active-options-left', !!(state$$1 & 16));
-        this._setCssClass('active-swipe-right', !!(state$$1 & 32));
-        this._setCssClass('active-swipe-left', !!(state$$1 & 64));
+        this.setElementClass('active-slide', (state$$1 !== 2));
+        this.setElementClass('active-options-right', !!(state$$1 & 8));
+        this.setElementClass('active-options-left', !!(state$$1 & 16));
+        this.setElementClass('active-swipe-right', !!(state$$1 & 32));
+        this.setElementClass('active-swipe-left', !!(state$$1 & 64));
         this._state = state$$1;
     };
     ItemSliding.prototype.close = function () {
         this._setOpenAmount(0, true);
     };
-    ItemSliding.prototype._setCssClass = function (cssClass, shouldAdd) {
+    ItemSliding.prototype.setElementClass = function (cssClass, shouldAdd) {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
-    };
-    ItemSliding.prototype._setCssStyle = function (property, value) {
-        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
     };
     ItemSliding.decorators = [
         { type: Component, args: [{
@@ -35984,6 +36109,7 @@ var ItemSliding = (function () {
         { type: List, decorators: [{ type: Optional },] },
         { type: Renderer, },
         { type: ElementRef, },
+        { type: NgZone, },
     ];
     ItemSliding.propDecorators = {
         'item': [{ type: ContentChild, args: [Item,] },],
@@ -35997,13 +36123,13 @@ function shouldClose(isCloseDirection, isMovingFast, isOnCloseZone) {
     return shouldClose;
 }
 
-var __extends$97 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$98 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ListHeader = (function (_super) {
-    __extends$97(ListHeader, _super);
+    __extends$98(ListHeader, _super);
     function ListHeader(config, renderer, elementRef, _id) {
         _super.call(this, config, elementRef, renderer);
         this._id = _id;
@@ -36034,13 +36160,13 @@ var ListHeader = (function (_super) {
     return ListHeader;
 }(Ion));
 
-var __extends$98 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$99 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var MenuContentGesture = (function (_super) {
-    __extends$98(MenuContentGesture, _super);
+    __extends$99(MenuContentGesture, _super);
     function MenuContentGesture(menu, contentEle, options) {
         if (options === void 0) { options = {}; }
         _super.call(this, contentEle, assign({
@@ -36412,13 +36538,13 @@ var MenuClose = (function () {
     return MenuClose;
 }());
 
-var __extends$100 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$101 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Header = (function (_super) {
-    __extends$100(Header, _super);
+    __extends$101(Header, _super);
     function Header(config, elementRef, renderer, viewCtrl) {
         _super.call(this, config, elementRef, renderer);
         this._setMode('header', config.get('mode'));
@@ -36438,7 +36564,7 @@ var Header = (function (_super) {
     return Header;
 }(Ion));
 var Footer = (function (_super) {
-    __extends$100(Footer, _super);
+    __extends$101(Footer, _super);
     function Footer(config, elementRef, renderer, viewCtrl) {
         _super.call(this, config, elementRef, renderer);
         this._setMode('footer', config.get('mode'));
@@ -36458,7 +36584,7 @@ var Footer = (function (_super) {
     return Footer;
 }(Ion));
 var ToolbarBase = (function (_super) {
-    __extends$100(ToolbarBase, _super);
+    __extends$101(ToolbarBase, _super);
     function ToolbarBase(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
     }
@@ -36471,7 +36597,7 @@ var ToolbarBase = (function (_super) {
     return ToolbarBase;
 }(Ion));
 var Toolbar = (function (_super) {
-    __extends$100(Toolbar, _super);
+    __extends$101(Toolbar, _super);
     function Toolbar(viewCtrl, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -36521,13 +36647,13 @@ var Toolbar = (function (_super) {
     return Toolbar;
 }(ToolbarBase));
 
-var __extends$99 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$100 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Navbar = (function (_super) {
-    __extends$99(Navbar, _super);
+    __extends$100(Navbar, _super);
     function Navbar(_app, viewCtrl, navCtrl, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._app = _app;
@@ -36837,13 +36963,13 @@ var NextInput = (function () {
     return NextInput;
 }());
 
-var __extends$101 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$102 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Nav = (function (_super) {
-    __extends$101(Nav, _super);
+    __extends$102(Nav, _super);
     function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker) {
         _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker);
         this._hasInit = false;
@@ -37259,13 +37385,13 @@ var RadioGroup = (function () {
 }());
 var radioGroupIds = -1;
 
-var __extends$102 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$103 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var RadioButton = (function (_super) {
-    __extends$102(RadioButton, _super);
+    __extends$103(RadioButton, _super);
     function RadioButton(_form, config, elementRef, renderer, _item, _group) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -37418,7 +37544,7 @@ var Debouncer = (function () {
     return Debouncer;
 }());
 
-var __extends$103 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$104 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -37511,7 +37637,7 @@ var RangeKnob = (function () {
     return RangeKnob;
 }());
 var Range = (function (_super) {
-    __extends$103(Range, _super);
+    __extends$104(Range, _super);
     function Range(_form, _item, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -38264,13 +38390,13 @@ var Scroll = (function () {
     return Scroll;
 }());
 
-var __extends$104 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$105 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Searchbar = (function (_super) {
-    __extends$104(Searchbar, _super);
+    __extends$105(Searchbar, _super);
     function Searchbar(config, elementRef, renderer, ngControl) {
         _super.call(this, config, elementRef, renderer);
         this._value = '';
@@ -38493,7 +38619,7 @@ var Searchbar = (function (_super) {
     return Searchbar;
 }(Ion));
 
-var __extends$105 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$106 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -38511,12 +38637,12 @@ var SegmentButton = (function () {
         },
         set: function (val) {
             this._disabled = isTrueProperty(val);
-            this._setCssClass('segment-button-disabled', this._disabled);
+            this._setElementClass('segment-button-disabled', this._disabled);
         },
         enumerable: true,
         configurable: true
     });
-    SegmentButton.prototype._setCssClass = function (cssClass, shouldAdd) {
+    SegmentButton.prototype._setElementClass = function (cssClass, shouldAdd) {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
     };
     SegmentButton.prototype.onClick = function () {
@@ -38562,7 +38688,7 @@ var SegmentButton = (function () {
     return SegmentButton;
 }());
 var Segment = (function (_super) {
-    __extends$105(Segment, _super);
+    __extends$106(Segment, _super);
     function Segment(config, elementRef, renderer, ngControl) {
         _super.call(this, config, elementRef, renderer);
         this._disabled = false;
@@ -38597,7 +38723,7 @@ var Segment = (function (_super) {
             this._disabled = isTrueProperty(val);
             if (this._buttons) {
                 this._buttons.forEach(function (button) {
-                    button._setCssClass('segment-button-disabled', _this._disabled);
+                    button._setElementClass('segment-button-disabled', _this._disabled);
                 });
             }
         },
@@ -38626,7 +38752,7 @@ var Segment = (function (_super) {
                 button.isActive = (button.value === _this.value);
             }
             if (isTrueProperty(_this._disabled)) {
-                button._setCssClass('segment-button-disabled', _this._disabled);
+                button._setElementClass('segment-button-disabled', _this._disabled);
             }
         });
     };
@@ -38652,7 +38778,7 @@ var Segment = (function (_super) {
     return Segment;
 }(Ion));
 
-var __extends$106 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$107 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -38663,7 +38789,7 @@ var SELECT_VALUE_ACCESSOR$1 = {
     multi: true
 };
 var Select = (function (_super) {
-    __extends$106(Select, _super);
+    __extends$107(Select, _super);
     function Select(_app, _form, config, elementRef, renderer, _item, _nav) {
         _super.call(this, config, elementRef, renderer);
         this._app = _app;
@@ -38923,7 +39049,7 @@ var Select = (function (_super) {
     return Select;
 }(Ion));
 
-var __extends$107 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$108 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -38968,7 +39094,7 @@ var DisplayWhen = (function () {
     return DisplayWhen;
 }());
 var ShowWhen = (function (_super) {
-    __extends$107(ShowWhen, _super);
+    __extends$108(ShowWhen, _super);
     function ShowWhen(showWhen, platform, zone) {
         _super.call(this, showWhen, platform, zone);
     }
@@ -38988,7 +39114,7 @@ var ShowWhen = (function (_super) {
     return ShowWhen;
 }(DisplayWhen));
 var HideWhen = (function (_super) {
-    __extends$107(HideWhen, _super);
+    __extends$108(HideWhen, _super);
     function HideWhen(hideWhen, platform, zone) {
         _super.call(this, hideWhen, platform, zone);
     }
@@ -44415,13 +44541,13 @@ function Swiper(container, params) {
       }
   }
 
-var __extends$108 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$109 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Slides = (function (_super) {
-    __extends$108(Slides, _super);
+    __extends$109(Slides, _super);
     function Slides(config, elementRef, renderer) {
         var _this = this;
         _super.call(this, config, elementRef, renderer);
@@ -44756,13 +44882,13 @@ var SlideLazy = (function () {
 }());
 var slidesId = -1;
 
-var __extends$109 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$110 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Spinner = (function (_super) {
-    __extends$109(Spinner, _super);
+    __extends$110(Spinner, _super);
     function Spinner(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._dur = null;
@@ -44943,13 +45069,13 @@ var SPINNERS = {
     }
 };
 
-var __extends$110 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$111 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Tab = (function (_super) {
-    __extends$110(Tab, _super);
+    __extends$111(Tab, _super);
     function Tab(parent, app, config, keyboard, elementRef, zone, renderer, cfr, _cd, gestureCtrl, transCtrl, linker) {
         _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker);
         this._cd = _cd;
@@ -45093,13 +45219,13 @@ var Tab = (function (_super) {
     return Tab;
 }(NavControllerBase));
 
-var __extends$111 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$112 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var TabButton = (function (_super) {
-    __extends$111(TabButton, _super);
+    __extends$112(TabButton, _super);
     function TabButton(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.ionSelect = new EventEmitter();
@@ -45154,13 +45280,13 @@ var TabButton = (function (_super) {
     return TabButton;
 }(Ion));
 
-var __extends$113 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$114 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var InputBase = (function (_super) {
-    __extends$113(InputBase, _super);
+    __extends$114(InputBase, _super);
     function InputBase(config, _form, _item, _app, _platform, elementRef, renderer, _scrollView, nav, ngControl) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -45448,13 +45574,13 @@ function getScrollAssistDuration(distanceToScroll) {
     return Math.min(400, Math.max(150, duration));
 }
 
-var __extends$112 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$113 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var TextInput = (function (_super) {
-    __extends$112(TextInput, _super);
+    __extends$113(TextInput, _super);
     function TextInput(config, form, item, app, platform, elementRef, renderer, scrollView, nav, ngControl) {
         _super.call(this, config, form, item, app, platform, elementRef, renderer, scrollView, nav, ngControl);
         this._clearInput = false;
@@ -45585,7 +45711,7 @@ var TextInput = (function (_super) {
     return TextInput;
 }(InputBase));
 var TextArea = (function (_super) {
-    __extends$112(TextArea, _super);
+    __extends$113(TextArea, _super);
     function TextArea(config, form, item, app, platform, elementRef, renderer, scrollView, nav, ngControl) {
         _super.call(this, config, form, item, app, platform, elementRef, renderer, scrollView, nav, ngControl);
         this.placeholder = '';
@@ -45710,7 +45836,7 @@ var Thumbnail = (function () {
     return Thumbnail;
 }());
 
-var __extends$114 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$115 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -45721,7 +45847,7 @@ var TOGGLE_VALUE_ACCESSOR = {
     multi: true
 };
 var Toggle = (function (_super) {
-    __extends$114(Toggle, _super);
+    __extends$115(Toggle, _super);
     function Toggle(_form, config, elementRef, renderer, _item) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -45895,13 +46021,13 @@ var Toggle = (function (_super) {
     return Toggle;
 }(Ion));
 
-var __extends$115 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$116 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ToolbarItem = (function (_super) {
-    __extends$115(ToolbarItem, _super);
+    __extends$116(ToolbarItem, _super);
     function ToolbarItem(config, elementRef, renderer, toolbar, navbar) {
         _super.call(this, config, elementRef, renderer);
         this._setMode('bar-buttons', config.get('mode'));
@@ -45936,13 +46062,13 @@ var ToolbarItem = (function (_super) {
     return ToolbarItem;
 }(Ion));
 
-var __extends$116 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$117 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ToolbarTitle = (function (_super) {
-    __extends$116(ToolbarTitle, _super);
+    __extends$117(ToolbarTitle, _super);
     function ToolbarTitle(config, elementRef, renderer, toolbar, navbar) {
         _super.call(this, config, elementRef, renderer);
         this._setMode('title', this._mode = config.get('mode'));
@@ -45972,13 +46098,13 @@ var ToolbarTitle = (function (_super) {
     return ToolbarTitle;
 }(Ion));
 
-var __extends$117 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$118 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Typography = (function (_super) {
-    __extends$117(Typography, _super);
+    __extends$118(Typography, _super);
     function Typography(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -46723,7 +46849,7 @@ var SCROLL_END_TIMEOUT_MS = 140;
 var SCROLL_DIFFERENCE_MINIMUM = 20;
 var QUEUE_CHANGE_DETECTION = 0;
 
-var __extends$118 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$119 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -46770,7 +46896,7 @@ var MenuType = (function () {
     return MenuType;
 }());
 var MenuRevealType = (function (_super) {
-    __extends$118(MenuRevealType, _super);
+    __extends$119(MenuRevealType, _super);
     function MenuRevealType(menu, platform) {
         _super.call(this);
         var openedX = (menu.width() * (menu.side === 'right' ? -1 : 1)) + 'px';
@@ -46785,7 +46911,7 @@ var MenuRevealType = (function (_super) {
 }(MenuType));
 MenuController.registerType('reveal', MenuRevealType);
 var MenuPushType = (function (_super) {
-    __extends$118(MenuPushType, _super);
+    __extends$119(MenuPushType, _super);
     function MenuPushType(menu, platform) {
         _super.call(this);
         this.ani
@@ -46813,7 +46939,7 @@ var MenuPushType = (function (_super) {
 }(MenuType));
 MenuController.registerType('push', MenuPushType);
 var MenuOverlayType = (function (_super) {
-    __extends$118(MenuOverlayType, _super);
+    __extends$119(MenuOverlayType, _super);
     function MenuOverlayType(menu, platform) {
         _super.call(this);
         this.ani
@@ -46853,7 +46979,9 @@ var IONIC_DIRECTIVES = [
     Col,
     Content,
     DateTime,
-    Fixed,
+    FabContainer,
+    FabButton,
+    FabList,
     Footer,
     Grid,
     Header,
@@ -46952,6 +47080,7 @@ var IonicModule = (function () {
                 ActionSheetController,
                 AlertController,
                 App,
+                Events,
                 Form,
                 GestureController,
                 Keyboard,
@@ -47020,170 +47149,6 @@ function provideDocumentDirection() {
 function provideDocumentLang() {
     return document && document.documentElement.lang;
 }
-
-var StorageEngine = (function () {
-    function StorageEngine(options) {
-        if (options === void 0) { options = {}; }
-    }
-    StorageEngine.prototype.get = function (key) {
-        throw Error('get() not implemented for this storage engine');
-    };
-    StorageEngine.prototype.set = function (key, value) {
-        throw Error('set() not implemented for this storage engine');
-    };
-    StorageEngine.prototype.remove = function (key) {
-        throw Error('remove() not implemented for this storage engine');
-    };
-    StorageEngine.prototype.query = function (query, params) {
-        throw Error('query() not implemented for this storage engine');
-    };
-    StorageEngine.prototype.clear = function () {
-        throw Error('clear() not implemented for this storage engine');
-    };
-    return StorageEngine;
-}());
-
-var __extends$119 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var DB_NAME = '__ionicstorage';
-var win$2 = window;
-var SqlStorage = (function (_super) {
-    __extends$119(SqlStorage, _super);
-    function SqlStorage(options) {
-        if (options === void 0) { options = {}; }
-        _super.call(this);
-        var dbOptions = defaults(options, {
-            name: DB_NAME,
-            backupFlag: SqlStorage.BACKUP_LOCAL,
-            existingDatabase: false
-        });
-        if (win$2.sqlitePlugin) {
-            var location_1 = this._getBackupLocation(dbOptions.backupFlag);
-            this._db = win$2.sqlitePlugin.openDatabase(assign({
-                name: dbOptions.name,
-                location: location_1,
-                createFromLocation: dbOptions.existingDatabase ? 1 : 0
-            }, dbOptions));
-        }
-        else {
-            console.warn('Storage: SQLite plugin not installed, falling back to WebSQL. Make sure to install cordova-sqlite-storage in production!');
-            this._db = win$2.openDatabase(dbOptions.name, '1.0', 'database', 5 * 1024 * 1024);
-        }
-        this._tryInit();
-    }
-    SqlStorage.prototype._getBackupLocation = function (dbFlag) {
-        switch (dbFlag) {
-            case SqlStorage.BACKUP_LOCAL:
-                return 2;
-            case SqlStorage.BACKUP_LIBRARY:
-                return 1;
-            case SqlStorage.BACKUP_DOCUMENTS:
-                return 0;
-            default:
-                throw Error('Invalid backup flag: ' + dbFlag);
-        }
-    };
-    SqlStorage.prototype._tryInit = function () {
-        this.query('CREATE TABLE IF NOT EXISTS kv (key text primary key, value text)').catch(function (err) {
-            console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
-        });
-    };
-    SqlStorage.prototype.query = function (query, params) {
-        var _this = this;
-        if (params === void 0) { params = []; }
-        return new Promise(function (resolve, reject) {
-            try {
-                _this._db.transaction(function (tx) {
-                    tx.executeSql(query, params, function (tx, res) { return resolve({ tx: tx, res: res }); }, function (tx, err) { return reject({ tx: tx, err: err }); });
-                }, function (err) { return reject({ err: err }); });
-            }
-            catch (err) {
-                reject({ err: err });
-            }
-        });
-    };
-    SqlStorage.prototype.get = function (key) {
-        return this.query('select key, value from kv where key = ? limit 1', [key]).then(function (data) {
-            if (data.res.rows.length > 0) {
-                return data.res.rows.item(0).value;
-            }
-        });
-    };
-    SqlStorage.prototype.set = function (key, value) {
-        return this.query('insert or replace into kv(key, value) values (?, ?)', [key, value]);
-    };
-    SqlStorage.prototype.remove = function (key) {
-        return this.query('delete from kv where key = ?', [key]);
-    };
-    SqlStorage.prototype.clear = function () {
-        return this.query('delete from kv');
-    };
-    SqlStorage.BACKUP_LOCAL = 2;
-    SqlStorage.BACKUP_LIBRARY = 1;
-    SqlStorage.BACKUP_DOCUMENTS = 0;
-    return SqlStorage;
-}(StorageEngine));
-
-var __extends$120 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var LocalStorage = (function (_super) {
-    __extends$120(LocalStorage, _super);
-    function LocalStorage(options) {
-        if (options === void 0) { options = {}; }
-        _super.call(this);
-    }
-    LocalStorage.prototype.get = function (key) {
-        return new Promise(function (resolve, reject) {
-            try {
-                var value = window.localStorage.getItem(key);
-                resolve(value);
-            }
-            catch (e) {
-                reject(e);
-            }
-        });
-    };
-    LocalStorage.prototype.set = function (key, value) {
-        return new Promise(function (resolve, reject) {
-            try {
-                window.localStorage.setItem(key, value);
-                resolve();
-            }
-            catch (e) {
-                reject(e);
-            }
-        });
-    };
-    LocalStorage.prototype.remove = function (key) {
-        return new Promise(function (resolve, reject) {
-            try {
-                window.localStorage.removeItem(key);
-                resolve();
-            }
-            catch (e) {
-                reject(e);
-            }
-        });
-    };
-    LocalStorage.prototype.clear = function () {
-        return new Promise(function (resolve, reject) {
-            try {
-                window.localStorage.clear();
-                resolve();
-            }
-            catch (e) {
-                reject(e);
-            }
-        });
-    };
-    return LocalStorage;
-}(StorageEngine));
 
 var DEFAULT_EXPIRE = 330;
 var ClickBlock = (function () {
@@ -47410,14 +47375,14 @@ var AppModule = (function () {
     return AppModule;
 }());
 
-var __extends$122 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$121 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Button_Host = null;
 var _View_Button_Host0 = (function (_super) {
-    __extends$122(_View_Button_Host0, _super);
+    __extends$121(_View_Button_Host0, _super);
     function _View_Button_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Button_Host0, renderType_Button_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47459,7 +47424,7 @@ var ButtonNgFactory = new ComponentFactory('[ion-button]', viewFactory_Button_Ho
 var styles_Button = [];
 var renderType_Button = null;
 var _View_Button0 = (function (_super) {
-    __extends$122(_View_Button0, _super);
+    __extends$121(_View_Button0, _super);
     function _View_Button0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Button0, renderType_Button, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -47485,14 +47450,14 @@ function viewFactory_Button0(viewUtils, parentInjector, declarationEl) {
     return new _View_Button0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$121 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$120 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_ActionSheetCmp_Host = null;
 var _View_ActionSheetCmp_Host0 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp_Host0, _super);
+    __extends$120(_View_ActionSheetCmp_Host0, _super);
     function _View_ActionSheetCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp_Host0, renderType_ActionSheetCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47547,7 +47512,7 @@ var ActionSheetCmpNgFactory = new ComponentFactory('ion-action-sheet', viewFacto
 var styles_ActionSheetCmp = [];
 var renderType_ActionSheetCmp = null;
 var _View_ActionSheetCmp0 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp0, _super);
+    __extends$120(_View_ActionSheetCmp0, _super);
     function _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp0, renderType_ActionSheetCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47683,7 +47648,7 @@ function viewFactory_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp1 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp1, _super);
+    __extends$120(_View_ActionSheetCmp1, _super);
     function _View_ActionSheetCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp1, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47719,7 +47684,7 @@ function viewFactory_ActionSheetCmp1(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp2 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp2, _super);
+    __extends$120(_View_ActionSheetCmp2, _super);
     function _View_ActionSheetCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp2, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47755,7 +47720,7 @@ function viewFactory_ActionSheetCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp2(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp3 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp3, _super);
+    __extends$120(_View_ActionSheetCmp3, _super);
     function _View_ActionSheetCmp3(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp3, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47777,11 +47742,12 @@ var _View_ActionSheetCmp3 = (function (_super) {
                 this._appEl_1,
                 this._text_2
             ])], null);
-        var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
+        var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
+        this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1,
@@ -47805,23 +47771,23 @@ var _View_ActionSheetCmp3 = (function (_super) {
         return notFoundResult;
     };
     _View_ActionSheetCmp3.prototype.detectChangesInternal = function (throwOnChange) {
-        var currVal_1 = 'disable-hover';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_4.klass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        var currVal_2 = this.context.$implicit.cssClass;
+        var currVal_2 = 'disable-hover';
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_0_4.ngClass = currVal_2;
+            this._NgClass_0_4.klass = currVal_2;
             this._expr_2 = currVal_2;
+        }
+        var currVal_3 = this.context.$implicit.cssClass;
+        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
+            this._NgClass_0_4.ngClass = currVal_3;
+            this._expr_3 = currVal_3;
         }
         if (!throwOnChange) {
             this._NgClass_0_4.ngDoCheck();
         }
-        var currVal_3 = this.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_1_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
+        var currVal_4 = this.context.$implicit.icon;
+        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
+            this._NgIf_1_6.ngIf = currVal_4;
+            this._expr_4 = currVal_4;
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -47829,10 +47795,15 @@ var _View_ActionSheetCmp3 = (function (_super) {
                 this._Button_0_5.ngAfterContentInit();
             }
         }
-        var currVal_4 = interpolate(1, '', this.context.$implicit.text, '');
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this.renderer.setText(this._text_2, currVal_4);
-            this._expr_4 = currVal_4;
+        var currVal_1 = (this.context.$implicit.icon ? '' : null);
+        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
+            this.renderer.setElementAttribute(this._el_0, 'icon-left', ((currVal_1 == null) ? null : currVal_1.toString()));
+            this._expr_1 = currVal_1;
+        }
+        var currVal_5 = interpolate(1, '', this.context.$implicit.text, '');
+        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
+            this.renderer.setText(this._text_2, currVal_5);
+            this._expr_5 = currVal_5;
         }
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47847,7 +47818,7 @@ function viewFactory_ActionSheetCmp3(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp3(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp4 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp4, _super);
+    __extends$120(_View_ActionSheetCmp4, _super);
     function _View_ActionSheetCmp4(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp4, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47890,7 +47861,7 @@ function viewFactory_ActionSheetCmp4(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp4(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp5 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp5, _super);
+    __extends$120(_View_ActionSheetCmp5, _super);
     function _View_ActionSheetCmp5(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp5, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -47914,11 +47885,12 @@ var _View_ActionSheetCmp5 = (function (_super) {
                 this._appEl_2,
                 this._text_3
             ])], null);
-        var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
+        var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
+        this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._el_1,
@@ -47943,23 +47915,23 @@ var _View_ActionSheetCmp5 = (function (_super) {
         return notFoundResult;
     };
     _View_ActionSheetCmp5.prototype.detectChangesInternal = function (throwOnChange) {
-        var currVal_1 = 'action-sheet-cancel disable-hover';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_1_4.klass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        var currVal_2 = this.parent.context.d.cancelButton.cssClass;
+        var currVal_2 = 'action-sheet-cancel disable-hover';
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_1_4.ngClass = currVal_2;
+            this._NgClass_1_4.klass = currVal_2;
             this._expr_2 = currVal_2;
+        }
+        var currVal_3 = this.parent.context.d.cancelButton.cssClass;
+        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
+            this._NgClass_1_4.ngClass = currVal_3;
+            this._expr_3 = currVal_3;
         }
         if (!throwOnChange) {
             this._NgClass_1_4.ngDoCheck();
         }
-        var currVal_3 = this.parent.context.d.cancelButton.icon;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_2_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
+        var currVal_4 = this.parent.context.d.cancelButton.icon;
+        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
+            this._NgIf_2_6.ngIf = currVal_4;
+            this._expr_4 = currVal_4;
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -47967,10 +47939,15 @@ var _View_ActionSheetCmp5 = (function (_super) {
                 this._Button_1_5.ngAfterContentInit();
             }
         }
-        var currVal_4 = interpolate(1, '', this.parent.context.d.cancelButton.text, '');
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this.renderer.setText(this._text_3, currVal_4);
-            this._expr_4 = currVal_4;
+        var currVal_1 = (this.parent.context.d.cancelButton.icon ? '' : null);
+        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
+            this.renderer.setElementAttribute(this._el_1, 'icon-left', ((currVal_1 == null) ? null : currVal_1.toString()));
+            this._expr_1 = currVal_1;
+        }
+        var currVal_5 = interpolate(1, '', this.parent.context.d.cancelButton.text, '');
+        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
+            this.renderer.setText(this._text_3, currVal_5);
+            this._expr_5 = currVal_5;
         }
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47985,7 +47962,7 @@ function viewFactory_ActionSheetCmp5(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp5(viewUtils, parentInjector, declarationEl);
 }
 var _View_ActionSheetCmp6 = (function (_super) {
-    __extends$121(_View_ActionSheetCmp6, _super);
+    __extends$120(_View_ActionSheetCmp6, _super);
     function _View_ActionSheetCmp6(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ActionSheetCmp6, renderType_ActionSheetCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48028,14 +48005,14 @@ function viewFactory_ActionSheetCmp6(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp6(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$123 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$122 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_AlertCmp_Host = null;
 var _View_AlertCmp_Host0 = (function (_super) {
-    __extends$123(_View_AlertCmp_Host0, _super);
+    __extends$122(_View_AlertCmp_Host0, _super);
     function _View_AlertCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp_Host0, renderType_AlertCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48090,7 +48067,7 @@ var AlertCmpNgFactory = new ComponentFactory('ion-alert', viewFactory_AlertCmp_H
 var styles_AlertCmp = [];
 var renderType_AlertCmp = null;
 var _View_AlertCmp0 = (function (_super) {
-    __extends$123(_View_AlertCmp0, _super);
+    __extends$122(_View_AlertCmp0, _super);
     function _View_AlertCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp0, renderType_AlertCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48263,7 +48240,7 @@ function viewFactory_AlertCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp1 = (function (_super) {
-    __extends$123(_View_AlertCmp1, _super);
+    __extends$122(_View_AlertCmp1, _super);
     function _View_AlertCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp1, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48295,7 +48272,7 @@ function viewFactory_AlertCmp1(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp2 = (function (_super) {
-    __extends$123(_View_AlertCmp2, _super);
+    __extends$122(_View_AlertCmp2, _super);
     function _View_AlertCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp2, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48327,7 +48304,7 @@ function viewFactory_AlertCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp2(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp3 = (function (_super) {
-    __extends$123(_View_AlertCmp3, _super);
+    __extends$122(_View_AlertCmp3, _super);
     function _View_AlertCmp3(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp3, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48406,7 +48383,7 @@ function viewFactory_AlertCmp3(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp3(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp4 = (function (_super) {
-    __extends$123(_View_AlertCmp4, _super);
+    __extends$122(_View_AlertCmp4, _super);
     function _View_AlertCmp4(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp4, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48473,7 +48450,7 @@ function viewFactory_AlertCmp4(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp4(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp5 = (function (_super) {
-    __extends$123(_View_AlertCmp5, _super);
+    __extends$122(_View_AlertCmp5, _super);
     function _View_AlertCmp5(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp5, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48557,7 +48534,7 @@ function viewFactory_AlertCmp5(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp5(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp6 = (function (_super) {
-    __extends$123(_View_AlertCmp6, _super);
+    __extends$122(_View_AlertCmp6, _super);
     function _View_AlertCmp6(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp6, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48611,7 +48588,7 @@ function viewFactory_AlertCmp6(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp6(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp7 = (function (_super) {
-    __extends$123(_View_AlertCmp7, _super);
+    __extends$122(_View_AlertCmp7, _super);
     function _View_AlertCmp7(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp7, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48689,7 +48666,7 @@ function viewFactory_AlertCmp7(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp7(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp8 = (function (_super) {
-    __extends$123(_View_AlertCmp8, _super);
+    __extends$122(_View_AlertCmp8, _super);
     function _View_AlertCmp8(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp8, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48743,7 +48720,7 @@ function viewFactory_AlertCmp8(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp8(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp9 = (function (_super) {
-    __extends$123(_View_AlertCmp9, _super);
+    __extends$122(_View_AlertCmp9, _super);
     function _View_AlertCmp9(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp9, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48880,7 +48857,7 @@ function viewFactory_AlertCmp9(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp9(viewUtils, parentInjector, declarationEl);
 }
 var _View_AlertCmp10 = (function (_super) {
-    __extends$123(_View_AlertCmp10, _super);
+    __extends$122(_View_AlertCmp10, _super);
     function _View_AlertCmp10(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_AlertCmp10, renderType_AlertCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48945,14 +48922,14 @@ function viewFactory_AlertCmp10(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp10(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$124 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$123 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_IonicApp_Host = null;
 var _View_IonicApp_Host0 = (function (_super) {
-    __extends$124(_View_IonicApp_Host0, _super);
+    __extends$123(_View_IonicApp_Host0, _super);
     function _View_IonicApp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_IonicApp_Host0, renderType_IonicApp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -48991,7 +48968,7 @@ var IonicAppNgFactory = new ComponentFactory('ion-app', viewFactory_IonicApp_Hos
 var styles_IonicApp = [];
 var renderType_IonicApp = null;
 var _View_IonicApp0 = (function (_super) {
-    __extends$124(_View_IonicApp0, _super);
+    __extends$123(_View_IonicApp0, _super);
     function _View_IonicApp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_IonicApp0, renderType_IonicApp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49058,14 +49035,14 @@ function viewFactory_IonicApp0(viewUtils, parentInjector, declarationEl) {
     return new _View_IonicApp0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$126 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$125 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Spinner_Host = null;
 var _View_Spinner_Host0 = (function (_super) {
-    __extends$126(_View_Spinner_Host0, _super);
+    __extends$125(_View_Spinner_Host0, _super);
     function _View_Spinner_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Spinner_Host0, renderType_Spinner_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49110,7 +49087,7 @@ var SpinnerNgFactory = new ComponentFactory('ion-spinner', viewFactory_Spinner_H
 var styles_Spinner = [];
 var renderType_Spinner = null;
 var _View_Spinner0 = (function (_super) {
-    __extends$126(_View_Spinner0, _super);
+    __extends$125(_View_Spinner0, _super);
     function _View_Spinner0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Spinner0, renderType_Spinner, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -49193,7 +49170,7 @@ function viewFactory_Spinner0(viewUtils, parentInjector, declarationEl) {
     return new _View_Spinner0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Spinner1 = (function (_super) {
-    __extends$126(_View_Spinner1, _super);
+    __extends$125(_View_Spinner1, _super);
     function _View_Spinner1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Spinner1, renderType_Spinner, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49240,7 +49217,7 @@ function viewFactory_Spinner1(viewUtils, parentInjector, declarationEl) {
     return new _View_Spinner1(viewUtils, parentInjector, declarationEl);
 }
 var _View_Spinner2 = (function (_super) {
-    __extends$126(_View_Spinner2, _super);
+    __extends$125(_View_Spinner2, _super);
     function _View_Spinner2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Spinner2, renderType_Spinner, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49293,14 +49270,14 @@ function viewFactory_Spinner2(viewUtils, parentInjector, declarationEl) {
     return new _View_Spinner2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$125 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$124 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_LoadingCmp_Host = null;
 var _View_LoadingCmp_Host0 = (function (_super) {
-    __extends$125(_View_LoadingCmp_Host0, _super);
+    __extends$124(_View_LoadingCmp_Host0, _super);
     function _View_LoadingCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_LoadingCmp_Host0, renderType_LoadingCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49340,7 +49317,7 @@ var LoadingCmpNgFactory = new ComponentFactory('ion-loading', viewFactory_Loadin
 var styles_LoadingCmp = [];
 var renderType_LoadingCmp = null;
 var _View_LoadingCmp0 = (function (_super) {
-    __extends$125(_View_LoadingCmp0, _super);
+    __extends$124(_View_LoadingCmp0, _super);
     function _View_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_LoadingCmp0, renderType_LoadingCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49424,7 +49401,7 @@ function viewFactory_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_LoadingCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_LoadingCmp1 = (function (_super) {
-    __extends$125(_View_LoadingCmp1, _super);
+    __extends$124(_View_LoadingCmp1, _super);
     function _View_LoadingCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_LoadingCmp1, renderType_LoadingCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49480,7 +49457,7 @@ function viewFactory_LoadingCmp1(viewUtils, parentInjector, declarationEl) {
     return new _View_LoadingCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_LoadingCmp2 = (function (_super) {
-    __extends$125(_View_LoadingCmp2, _super);
+    __extends$124(_View_LoadingCmp2, _super);
     function _View_LoadingCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_LoadingCmp2, renderType_LoadingCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49506,14 +49483,14 @@ function viewFactory_LoadingCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_LoadingCmp2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$127 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$126 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_ModalCmp_Host = null;
 var _View_ModalCmp_Host0 = (function (_super) {
-    __extends$127(_View_ModalCmp_Host0, _super);
+    __extends$126(_View_ModalCmp_Host0, _super);
     function _View_ModalCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ModalCmp_Host0, renderType_ModalCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49560,7 +49537,7 @@ var ModalCmpNgFactory = new ComponentFactory('ion-modal', viewFactory_ModalCmp_H
 var styles_ModalCmp = [];
 var renderType_ModalCmp = null;
 var _View_ModalCmp0 = (function (_super) {
-    __extends$127(_View_ModalCmp0, _super);
+    __extends$126(_View_ModalCmp0, _super);
     function _View_ModalCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ModalCmp0, renderType_ModalCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49624,14 +49601,14 @@ function viewFactory_ModalCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_ModalCmp0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$128 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$127 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_PickerColumnCmp_Host = null;
 var _View_PickerColumnCmp_Host0 = (function (_super) {
-    __extends$128(_View_PickerColumnCmp_Host0, _super);
+    __extends$127(_View_PickerColumnCmp_Host0, _super);
     function _View_PickerColumnCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerColumnCmp_Host0, renderType_PickerColumnCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49694,7 +49671,7 @@ var PickerColumnCmpNgFactory = new ComponentFactory('.picker-col', viewFactory_P
 var styles_PickerColumnCmp = [];
 var renderType_PickerColumnCmp = null;
 var _View_PickerColumnCmp0 = (function (_super) {
-    __extends$128(_View_PickerColumnCmp0, _super);
+    __extends$127(_View_PickerColumnCmp0, _super);
     function _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerColumnCmp0, renderType_PickerColumnCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49795,7 +49772,7 @@ function viewFactory_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) 
     return new _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_PickerColumnCmp1 = (function (_super) {
-    __extends$128(_View_PickerColumnCmp1, _super);
+    __extends$127(_View_PickerColumnCmp1, _super);
     function _View_PickerColumnCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerColumnCmp1, renderType_PickerColumnCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49831,7 +49808,7 @@ function viewFactory_PickerColumnCmp1(viewUtils, parentInjector, declarationEl) 
     return new _View_PickerColumnCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_PickerColumnCmp2 = (function (_super) {
-    __extends$128(_View_PickerColumnCmp2, _super);
+    __extends$127(_View_PickerColumnCmp2, _super);
     function _View_PickerColumnCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerColumnCmp2, renderType_PickerColumnCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49920,7 +49897,7 @@ function viewFactory_PickerColumnCmp2(viewUtils, parentInjector, declarationEl) 
     return new _View_PickerColumnCmp2(viewUtils, parentInjector, declarationEl);
 }
 var _View_PickerColumnCmp3 = (function (_super) {
-    __extends$128(_View_PickerColumnCmp3, _super);
+    __extends$127(_View_PickerColumnCmp3, _super);
     function _View_PickerColumnCmp3(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerColumnCmp3, renderType_PickerColumnCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49957,7 +49934,7 @@ function viewFactory_PickerColumnCmp3(viewUtils, parentInjector, declarationEl) 
 }
 var renderType_PickerCmp_Host = null;
 var _View_PickerCmp_Host0 = (function (_super) {
-    __extends$128(_View_PickerCmp_Host0, _super);
+    __extends$127(_View_PickerCmp_Host0, _super);
     function _View_PickerCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerCmp_Host0, renderType_PickerCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49996,7 +49973,7 @@ var PickerCmpNgFactory = new ComponentFactory('ion-picker-cmp', viewFactory_Pick
 var styles_PickerCmp = [];
 var renderType_PickerCmp = null;
 var _View_PickerCmp0 = (function (_super) {
-    __extends$128(_View_PickerCmp0, _super);
+    __extends$127(_View_PickerCmp0, _super);
     function _View_PickerCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerCmp0, renderType_PickerCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50149,7 +50126,7 @@ function viewFactory_PickerCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_PickerCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_PickerCmp1 = (function (_super) {
-    __extends$128(_View_PickerCmp1, _super);
+    __extends$127(_View_PickerCmp1, _super);
     function _View_PickerCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerCmp1, renderType_PickerCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50260,7 +50237,7 @@ function viewFactory_PickerCmp1(viewUtils, parentInjector, declarationEl) {
     return new _View_PickerCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_PickerCmp2 = (function (_super) {
-    __extends$128(_View_PickerCmp2, _super);
+    __extends$127(_View_PickerCmp2, _super);
     function _View_PickerCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PickerCmp2, renderType_PickerCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50333,14 +50310,14 @@ function viewFactory_PickerCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_PickerCmp2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$129 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$128 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_PopoverCmp_Host = null;
 var _View_PopoverCmp_Host0 = (function (_super) {
-    __extends$129(_View_PopoverCmp_Host0, _super);
+    __extends$128(_View_PopoverCmp_Host0, _super);
     function _View_PopoverCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PopoverCmp_Host0, renderType_PopoverCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50387,7 +50364,7 @@ var PopoverCmpNgFactory = new ComponentFactory('ion-popover', viewFactory_Popove
 var styles_PopoverCmp = [];
 var renderType_PopoverCmp = null;
 var _View_PopoverCmp0 = (function (_super) {
-    __extends$129(_View_PopoverCmp0, _super);
+    __extends$128(_View_PopoverCmp0, _super);
     function _View_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PopoverCmp0, renderType_PopoverCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50459,14 +50436,14 @@ function viewFactory_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_PopoverCmp0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$130 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$129 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_ToastCmp_Host = null;
 var _View_ToastCmp_Host0 = (function (_super) {
-    __extends$130(_View_ToastCmp_Host0, _super);
+    __extends$129(_View_ToastCmp_Host0, _super);
     function _View_ToastCmp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToastCmp_Host0, renderType_ToastCmp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50520,7 +50497,7 @@ var ToastCmpNgFactory = new ComponentFactory('ion-toast', viewFactory_ToastCmp_H
 var styles_ToastCmp = [];
 var renderType_ToastCmp = null;
 var _View_ToastCmp0 = (function (_super) {
-    __extends$130(_View_ToastCmp0, _super);
+    __extends$129(_View_ToastCmp0, _super);
     function _View_ToastCmp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToastCmp0, renderType_ToastCmp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50614,7 +50591,7 @@ function viewFactory_ToastCmp0(viewUtils, parentInjector, declarationEl) {
     return new _View_ToastCmp0(viewUtils, parentInjector, declarationEl);
 }
 var _View_ToastCmp1 = (function (_super) {
-    __extends$130(_View_ToastCmp1, _super);
+    __extends$129(_View_ToastCmp1, _super);
     function _View_ToastCmp1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToastCmp1, renderType_ToastCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50650,7 +50627,7 @@ function viewFactory_ToastCmp1(viewUtils, parentInjector, declarationEl) {
     return new _View_ToastCmp1(viewUtils, parentInjector, declarationEl);
 }
 var _View_ToastCmp2 = (function (_super) {
-    __extends$130(_View_ToastCmp2, _super);
+    __extends$129(_View_ToastCmp2, _super);
     function _View_ToastCmp2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToastCmp2, renderType_ToastCmp, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50716,14 +50693,14 @@ function viewFactory_ToastCmp2(viewUtils, parentInjector, declarationEl) {
     return new _View_ToastCmp2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$131 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Tabs_Host = null;
 var _View_Tabs_Host0 = (function (_super) {
-    __extends$132(_View_Tabs_Host0, _super);
+    __extends$131(_View_Tabs_Host0, _super);
     function _View_Tabs_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs_Host0, renderType_Tabs_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50764,7 +50741,7 @@ var TabsNgFactory = new ComponentFactory('ion-tabs', viewFactory_Tabs_Host0, Tab
 var styles_Tabs = [];
 var renderType_Tabs = null;
 var _View_Tabs0 = (function (_super) {
-    __extends$132(_View_Tabs0, _super);
+    __extends$131(_View_Tabs0, _super);
     function _View_Tabs0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs0, renderType_Tabs, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50840,7 +50817,7 @@ function viewFactory_Tabs0(viewUtils, parentInjector, declarationEl) {
     return new _View_Tabs0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Tabs1 = (function (_super) {
-    __extends$132(_View_Tabs1, _super);
+    __extends$131(_View_Tabs1, _super);
     function _View_Tabs1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs1, renderType_Tabs, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51016,7 +50993,7 @@ function viewFactory_Tabs1(viewUtils, parentInjector, declarationEl) {
     return new _View_Tabs1(viewUtils, parentInjector, declarationEl);
 }
 var _View_Tabs2 = (function (_super) {
-    __extends$132(_View_Tabs2, _super);
+    __extends$131(_View_Tabs2, _super);
     function _View_Tabs2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs2, renderType_Tabs, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51065,7 +51042,7 @@ function viewFactory_Tabs2(viewUtils, parentInjector, declarationEl) {
     return new _View_Tabs2(viewUtils, parentInjector, declarationEl);
 }
 var _View_Tabs3 = (function (_super) {
-    __extends$132(_View_Tabs3, _super);
+    __extends$131(_View_Tabs3, _super);
     function _View_Tabs3(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs3, renderType_Tabs, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51095,7 +51072,7 @@ function viewFactory_Tabs3(viewUtils, parentInjector, declarationEl) {
     return new _View_Tabs3(viewUtils, parentInjector, declarationEl);
 }
 var _View_Tabs4 = (function (_super) {
-    __extends$132(_View_Tabs4, _super);
+    __extends$131(_View_Tabs4, _super);
     function _View_Tabs4(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tabs4, renderType_Tabs, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51151,14 +51128,14 @@ function viewFactory_Tabs4(viewUtils, parentInjector, declarationEl) {
     return new _View_Tabs4(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Tab_Host = null;
 var _View_Tab_Host0 = (function (_super) {
-    __extends$133(_View_Tab_Host0, _super);
+    __extends$132(_View_Tab_Host0, _super);
     function _View_Tab_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tab_Host0, renderType_Tab_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51210,7 +51187,7 @@ var TabNgFactory = new ComponentFactory('ion-tab', viewFactory_Tab_Host0, Tab);
 var styles_Tab = [];
 var renderType_Tab = null;
 var _View_Tab0 = (function (_super) {
-    __extends$133(_View_Tab0, _super);
+    __extends$132(_View_Tab0, _super);
     function _View_Tab0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Tab0, renderType_Tab, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51238,14 +51215,14 @@ function viewFactory_Tab0(viewUtils, parentInjector, declarationEl) {
     return new _View_Tab0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Navbar_Host = null;
 var _View_Navbar_Host0 = (function (_super) {
-    __extends$134(_View_Navbar_Host0, _super);
+    __extends$133(_View_Navbar_Host0, _super);
     function _View_Navbar_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar_Host0, renderType_Navbar_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51299,7 +51276,7 @@ var NavbarNgFactory = new ComponentFactory('ion-navbar', viewFactory_Navbar_Host
 var styles_Navbar = [];
 var renderType_Navbar = null;
 var _View_Navbar0 = (function (_super) {
-    __extends$134(_View_Navbar0, _super);
+    __extends$133(_View_Navbar0, _super);
     function _View_Navbar0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar0, renderType_Navbar, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51491,14 +51468,14 @@ function viewFactory_Navbar0(viewUtils, parentInjector, declarationEl) {
     return new _View_Navbar0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_ToolbarTitle_Host = null;
 var _View_ToolbarTitle_Host0 = (function (_super) {
-    __extends$135(_View_ToolbarTitle_Host0, _super);
+    __extends$134(_View_ToolbarTitle_Host0, _super);
     function _View_ToolbarTitle_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle_Host0, renderType_ToolbarTitle_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51530,7 +51507,7 @@ var ToolbarTitleNgFactory = new ComponentFactory('ion-title', viewFactory_Toolba
 var styles_ToolbarTitle = [];
 var renderType_ToolbarTitle = null;
 var _View_ToolbarTitle0 = (function (_super) {
-    __extends$135(_View_ToolbarTitle0, _super);
+    __extends$134(_View_ToolbarTitle0, _super);
     function _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle0, renderType_ToolbarTitle, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -51577,14 +51554,14 @@ function viewFactory_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
     return new _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Content_Host = null;
 var _View_Content_Host0 = (function (_super) {
-    __extends$136(_View_Content_Host0, _super);
+    __extends$135(_View_Content_Host0, _super);
     function _View_Content_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content_Host0, renderType_Content_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51632,18 +51609,23 @@ var ContentNgFactory = new ComponentFactory('ion-content', viewFactory_Content_H
 var styles_Content = [];
 var renderType_Content = null;
 var _View_Content0 = (function (_super) {
-    __extends$136(_View_Content0, _super);
+    __extends$135(_View_Content0, _super);
     function _View_Content0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content0, renderType_Content, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
     _View_Content0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
-        this.renderer.setElementAttribute(this._el_0, 'class', 'scroll-content');
+        this.renderer.setElementAttribute(this._el_0, 'class', 'fixed-content');
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[0]));
-        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[1]));
+        this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_1, 'class', 'scroll-content');
+        this.renderer.projectNodes(this._el_1, flattenNestedViewRenderNodes(this.projectableNodes[1]));
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[2]));
-        this.init([], [this._el_0], [], []);
+        this.init([], [
+            this._el_0,
+            this._el_1
+        ], [], []);
         return null;
     };
     return _View_Content0;
@@ -51655,14 +51637,14 @@ function viewFactory_Content0(viewUtils, parentInjector, declarationEl) {
     return new _View_Content0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$138 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Reorder_Host = null;
 var _View_Reorder_Host0 = (function (_super) {
-    __extends$138(_View_Reorder_Host0, _super);
+    __extends$137(_View_Reorder_Host0, _super);
     function _View_Reorder_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder_Host0, renderType_Reorder_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51694,7 +51676,7 @@ var ReorderNgFactory = new ComponentFactory('ion-reorder', viewFactory_Reorder_H
 var styles_Reorder = [];
 var renderType_Reorder = null;
 var _View_Reorder0 = (function (_super) {
-    __extends$138(_View_Reorder0, _super);
+    __extends$137(_View_Reorder0, _super);
     function _View_Reorder0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder0, renderType_Reorder, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51741,14 +51723,14 @@ function viewFactory_Reorder0(viewUtils, parentInjector, declarationEl) {
     return new _View_Reorder0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Item_Host = null;
 var _View_Item_Host0 = (function (_super) {
-    __extends$137(_View_Item_Host0, _super);
+    __extends$136(_View_Item_Host0, _super);
     function _View_Item_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item_Host0, renderType_Item_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51805,7 +51787,7 @@ var ItemNgFactory = new ComponentFactory('ion-list-header,ion-item,[ion-item],io
 var styles_Item = [];
 var renderType_Item = null;
 var _View_Item0 = (function (_super) {
-    __extends$137(_View_Item0, _super);
+    __extends$136(_View_Item0, _super);
     function _View_Item0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item0, renderType_Item, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -51880,7 +51862,7 @@ function viewFactory_Item0(viewUtils, parentInjector, declarationEl) {
     return new _View_Item0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Item1 = (function (_super) {
-    __extends$137(_View_Item1, _super);
+    __extends$136(_View_Item1, _super);
     function _View_Item1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item1, renderType_Item, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51906,14 +51888,14 @@ function viewFactory_Item1(viewUtils, parentInjector, declarationEl) {
     return new _View_Item1(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$139 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$138 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Select_Host = null;
 var _View_Select_Host0 = (function (_super) {
-    __extends$139(_View_Select_Host0, _super);
+    __extends$138(_View_Select_Host0, _super);
     function _View_Select_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select_Host0, renderType_Select_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51997,7 +51979,7 @@ var SelectNgFactory = new ComponentFactory('ion-select', viewFactory_Select_Host
 var styles_Select = [];
 var renderType_Select = null;
 var _View_Select0 = (function (_super) {
-    __extends$139(_View_Select0, _super);
+    __extends$138(_View_Select0, _super);
     function _View_Select0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select0, renderType_Select, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52099,7 +52081,7 @@ function viewFactory_Select0(viewUtils, parentInjector, declarationEl) {
     return new _View_Select0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Select1 = (function (_super) {
-    __extends$139(_View_Select1, _super);
+    __extends$138(_View_Select1, _super);
     function _View_Select1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select1, renderType_Select, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52129,7 +52111,7 @@ function viewFactory_Select1(viewUtils, parentInjector, declarationEl) {
     return new _View_Select1(viewUtils, parentInjector, declarationEl);
 }
 var _View_Select2 = (function (_super) {
-    __extends$139(_View_Select2, _super);
+    __extends$138(_View_Select2, _super);
     function _View_Select2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select2, renderType_Select, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52159,14 +52141,14 @@ function viewFactory_Select2(viewUtils, parentInjector, declarationEl) {
     return new _View_Select2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$140 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$139 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_Nav_Host = null;
 var _View_Nav_Host0 = (function (_super) {
-    __extends$140(_View_Nav_Host0, _super);
+    __extends$139(_View_Nav_Host0, _super);
     function _View_Nav_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav_Host0, renderType_Nav_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52207,7 +52189,7 @@ var NavNgFactory = new ComponentFactory('ion-nav', viewFactory_Nav_Host0, Nav);
 var styles_Nav = [];
 var renderType_Nav = null;
 var _View_Nav0 = (function (_super) {
-    __extends$140(_View_Nav0, _super);
+    __extends$139(_View_Nav0, _super);
     function _View_Nav0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav0, renderType_Nav, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52236,14 +52218,14 @@ function viewFactory_Nav0(viewUtils, parentInjector, declarationEl) {
     return new _View_Nav0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$131 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$130 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var renderType_TabPage_Host = null;
 var _View_TabPage_Host0 = (function (_super) {
-    __extends$131(_View_TabPage_Host0, _super);
+    __extends$130(_View_TabPage_Host0, _super);
     function _View_TabPage_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_TabPage_Host0, renderType_TabPage_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52275,7 +52257,7 @@ var TabPageNgFactory = new ComponentFactory('ng-component', viewFactory_TabPage_
 var styles_TabPage = [];
 var renderType_TabPage = null;
 var _View_TabPage0 = (function (_super) {
-    __extends$131(_View_TabPage0, _super);
+    __extends$130(_View_TabPage0, _super);
     function _View_TabPage0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_TabPage0, renderType_TabPage, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52473,7 +52455,7 @@ function viewFactory_TabPage0(viewUtils, parentInjector, declarationEl) {
 }
 var renderType_ApiDemoPage_Host = null;
 var _View_ApiDemoPage_Host0 = (function (_super) {
-    __extends$131(_View_ApiDemoPage_Host0, _super);
+    __extends$130(_View_ApiDemoPage_Host0, _super);
     function _View_ApiDemoPage_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ApiDemoPage_Host0, renderType_ApiDemoPage_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52505,7 +52487,7 @@ var ApiDemoPageNgFactory = new ComponentFactory('ng-component', viewFactory_ApiD
 var styles_ApiDemoPage = ['.config-demo[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n    background-color: #f8f8f8;\n  }\n\n  .config-demo[_ngcontent-%COMP%]   .note[_ngcontent-%COMP%] {\n    color: #444;\n    font-style: italic;\n    margin: 0 16px;\n  }'];
 var renderType_ApiDemoPage = null;
 var _View_ApiDemoPage0 = (function (_super) {
-    __extends$131(_View_ApiDemoPage0, _super);
+    __extends$130(_View_ApiDemoPage0, _super);
     function _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ApiDemoPage0, renderType_ApiDemoPage, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -52765,6 +52747,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_87 = this.renderer.createText(this._el_83, '\n  ', null);
         this._text_88 = this.renderer.createText(null, '\n\n', null);
         compView_9.create(this._Content_9_4, [
+            [],
             [].concat([
                 this._text_10,
                 this._el_11,
@@ -52781,7 +52764,6 @@ var _View_ApiDemoPage0 = (function (_super) {
                 this._el_83,
                 this._text_88
             ]),
-            [],
             []
         ], null);
         this._text_89 = this.renderer.createText(parentRenderNode, '\n\n', null);
@@ -53474,7 +53456,7 @@ function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
 }
 var renderType_PushPage_Host = null;
 var _View_PushPage_Host0 = (function (_super) {
-    __extends$131(_View_PushPage_Host0, _super);
+    __extends$130(_View_PushPage_Host0, _super);
     function _View_PushPage_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PushPage_Host0, renderType_PushPage_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -53506,7 +53488,7 @@ var PushPageNgFactory = new ComponentFactory('ng-component', viewFactory_PushPag
 var styles_PushPage = [];
 var renderType_PushPage = null;
 var _View_PushPage0 = (function (_super) {
-    __extends$131(_View_PushPage0, _super);
+    __extends$130(_View_PushPage0, _super);
     function _View_PushPage0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_PushPage0, renderType_PushPage, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -53563,12 +53545,12 @@ var _View_PushPage0 = (function (_super) {
         this._text_15 = this.renderer.createText(this._el_11, '\n  ', null);
         this._text_16 = this.renderer.createText(null, '\n', null);
         compView_9.create(this._Content_9_4, [
+            [],
             [].concat([
                 this._text_10,
                 this._el_11,
                 this._text_16
             ]),
-            [],
             []
         ], null);
         this._text_17 = this.renderer.createText(parentRenderNode, '\n', null);
@@ -53678,7 +53660,7 @@ function viewFactory_PushPage0(viewUtils, parentInjector, declarationEl) {
 }
 var renderType_ApiDemoApp_Host = null;
 var _View_ApiDemoApp_Host0 = (function (_super) {
-    __extends$131(_View_ApiDemoApp_Host0, _super);
+    __extends$130(_View_ApiDemoApp_Host0, _super);
     function _View_ApiDemoApp_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ApiDemoApp_Host0, renderType_ApiDemoApp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -53710,7 +53692,7 @@ var ApiDemoAppNgFactory = new ComponentFactory('ng-component', viewFactory_ApiDe
 var styles_ApiDemoApp = [];
 var renderType_ApiDemoApp = null;
 var _View_ApiDemoApp0 = (function (_super) {
-    __extends$131(_View_ApiDemoApp0, _super);
+    __extends$130(_View_ApiDemoApp0, _super);
     function _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ApiDemoApp0, renderType_ApiDemoApp, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -54103,162 +54085,172 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Form_57", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Events_57", {
         get: function () {
-            if ((this.__Form_57 == null)) {
-                (this.__Form_57 = new Form());
+            if ((this.__Events_57 == null)) {
+                (this.__Events_57 = new Events());
             }
-            return this.__Form_57;
+            return this.__Events_57;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_58", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Form_58", {
         get: function () {
-            if ((this.__GestureController_58 == null)) {
-                (this.__GestureController_58 = new GestureController(this._App_22));
+            if ((this.__Form_58 == null)) {
+                (this.__Form_58 = new Form());
             }
-            return this.__GestureController_58;
+            return this.__Form_58;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_59", {
+    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_59", {
         get: function () {
-            if ((this.__Keyboard_59 == null)) {
-                (this.__Keyboard_59 = new Keyboard(this._Config_21, this._Form_57, this.parent.get(NgZone)));
+            if ((this.__GestureController_59 == null)) {
+                (this.__GestureController_59 = new GestureController(this._App_22));
             }
-            return this.__Keyboard_59;
+            return this.__GestureController_59;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_60", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_60", {
         get: function () {
-            if ((this.__LoadingController_60 == null)) {
-                (this.__LoadingController_60 = new LoadingController(this._App_22));
+            if ((this.__Keyboard_60 == null)) {
+                (this.__Keyboard_60 = new Keyboard(this._Config_21, this._Form_58, this.parent.get(NgZone)));
             }
-            return this.__LoadingController_60;
+            return this.__Keyboard_60;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_61", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_61", {
         get: function () {
-            if ((this.__LocationStrategy_61 == null)) {
-                (this.__LocationStrategy_61 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
+            if ((this.__LoadingController_61 == null)) {
+                (this.__LoadingController_61 = new LoadingController(this._App_22));
             }
-            return this.__LocationStrategy_61;
+            return this.__LoadingController_61;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Location_62", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_62", {
         get: function () {
-            if ((this.__Location_62 == null)) {
-                (this.__Location_62 = new Location(this._LocationStrategy_61));
+            if ((this.__LocationStrategy_62 == null)) {
+                (this.__LocationStrategy_62 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
             }
-            return this.__Location_62;
+            return this.__LocationStrategy_62;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_63", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Location_63", {
         get: function () {
-            if ((this.__MenuController_63 == null)) {
-                (this.__MenuController_63 = new MenuController());
+            if ((this.__Location_63 == null)) {
+                (this.__Location_63 = new Location(this._LocationStrategy_62));
             }
-            return this.__MenuController_63;
+            return this.__Location_63;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_64", {
+    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_64", {
         get: function () {
-            if ((this.__ModalController_64 == null)) {
-                (this.__ModalController_64 = new ModalController(this._App_22));
+            if ((this.__MenuController_64 == null)) {
+                (this.__MenuController_64 = new MenuController());
             }
-            return this.__ModalController_64;
+            return this.__MenuController_64;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_65", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_65", {
         get: function () {
-            if ((this.__PickerController_65 == null)) {
-                (this.__PickerController_65 = new PickerController(this._App_22));
+            if ((this.__ModalController_65 == null)) {
+                (this.__ModalController_65 = new ModalController(this._App_22));
             }
-            return this.__PickerController_65;
+            return this.__ModalController_65;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_66", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_66", {
         get: function () {
-            if ((this.__PopoverController_66 == null)) {
-                (this.__PopoverController_66 = new PopoverController(this._App_22));
+            if ((this.__PickerController_66 == null)) {
+                (this.__PickerController_66 = new PickerController(this._App_22));
             }
-            return this.__PopoverController_66;
+            return this.__PickerController_66;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_67", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_67", {
         get: function () {
-            if ((this.__TapClick_67 == null)) {
-                (this.__TapClick_67 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
+            if ((this.__PopoverController_67 == null)) {
+                (this.__PopoverController_67 = new PopoverController(this._App_22));
             }
-            return this.__TapClick_67;
+            return this.__PopoverController_67;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_68", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_68", {
         get: function () {
-            if ((this.__ToastController_68 == null)) {
-                (this.__ToastController_68 = new ToastController(this._App_22));
+            if ((this.__TapClick_68 == null)) {
+                (this.__TapClick_68 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
             }
-            return this.__ToastController_68;
+            return this.__TapClick_68;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Translate_69", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_69", {
         get: function () {
-            if ((this.__Translate_69 == null)) {
-                (this.__Translate_69 = new Translate());
+            if ((this.__ToastController_69 == null)) {
+                (this.__ToastController_69 = new ToastController(this._App_22));
             }
-            return this.__Translate_69;
+            return this.__ToastController_69;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_70", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Translate_70", {
         get: function () {
-            if ((this.__TransitionController_70 == null)) {
-                (this.__TransitionController_70 = new TransitionController(this._Config_21));
+            if ((this.__Translate_70 == null)) {
+                (this.__Translate_70 = new Translate());
             }
-            return this.__TransitionController_70;
+            return this.__Translate_70;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_71", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_71", {
         get: function () {
-            if ((this.__UrlSerializer_71 == null)) {
-                (this.__UrlSerializer_71 = setupUrlSerializer(this._DeepLinkConfigToken_54));
+            if ((this.__TransitionController_71 == null)) {
+                (this.__TransitionController_71 = new TransitionController(this._Config_21));
             }
-            return this.__UrlSerializer_71;
+            return this.__TransitionController_71;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_72", {
+    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_72", {
         get: function () {
-            if ((this.__DeepLinker_72 == null)) {
-                (this.__DeepLinker_72 = setupDeepLinker(this._App_22, this._UrlSerializer_71, this._Location_62));
+            if ((this.__UrlSerializer_72 == null)) {
+                (this.__UrlSerializer_72 = setupUrlSerializer(this._DeepLinkConfigToken_54));
             }
-            return this.__DeepLinker_72;
+            return this.__UrlSerializer_72;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_73", {
+        get: function () {
+            if ((this.__DeepLinker_73 == null)) {
+                (this.__DeepLinker_73 = setupDeepLinker(this._App_22, this._UrlSerializer_72, this._Location_63));
+            }
+            return this.__DeepLinker_73;
         },
         enumerable: true,
         configurable: true
@@ -54468,53 +54460,56 @@ var AppModuleInjector = (function (_super) {
         if ((token === AlertController)) {
             return this._AlertController_56;
         }
+        if ((token === Events)) {
+            return this._Events_57;
+        }
         if ((token === Form)) {
-            return this._Form_57;
+            return this._Form_58;
         }
         if ((token === GestureController)) {
-            return this._GestureController_58;
+            return this._GestureController_59;
         }
         if ((token === Keyboard)) {
-            return this._Keyboard_59;
+            return this._Keyboard_60;
         }
         if ((token === LoadingController)) {
-            return this._LoadingController_60;
+            return this._LoadingController_61;
         }
         if ((token === LocationStrategy)) {
-            return this._LocationStrategy_61;
+            return this._LocationStrategy_62;
         }
         if ((token === Location)) {
-            return this._Location_62;
+            return this._Location_63;
         }
         if ((token === MenuController)) {
-            return this._MenuController_63;
+            return this._MenuController_64;
         }
         if ((token === ModalController)) {
-            return this._ModalController_64;
+            return this._ModalController_65;
         }
         if ((token === PickerController)) {
-            return this._PickerController_65;
+            return this._PickerController_66;
         }
         if ((token === PopoverController)) {
-            return this._PopoverController_66;
+            return this._PopoverController_67;
         }
         if ((token === TapClick)) {
-            return this._TapClick_67;
+            return this._TapClick_68;
         }
         if ((token === ToastController)) {
-            return this._ToastController_68;
+            return this._ToastController_69;
         }
         if ((token === Translate)) {
-            return this._Translate_69;
+            return this._Translate_70;
         }
         if ((token === TransitionController)) {
-            return this._TransitionController_70;
+            return this._TransitionController_71;
         }
         if ((token === UrlSerializer)) {
-            return this._UrlSerializer_71;
+            return this._UrlSerializer_72;
         }
         if ((token === DeepLinker)) {
-            return this._DeepLinker_72;
+            return this._DeepLinker_73;
         }
         return notFoundResult;
     };

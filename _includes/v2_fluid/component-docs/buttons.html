@@ -6,6 +6,8 @@
 
 Buttons are an essential way to interact with and navigate through an app, and should clearly communicate what action will occur after the user taps them. Buttons can consist of text and/or an icon, and can be enhanced with a wide variety of attributes.
 
+For accessibility reasons, buttons use a standard `<button>` element, but are enhanced with an `ion-button` directive.
+
 _For more information, Check out the [API docs](../api/components/button/Button)._
 
 <ul class="docs-content">
@@ -18,7 +20,6 @@ _For more information, Check out the [API docs](../api/components/button/Button)
   <li class="docs-content-item"><a href="#full-buttons">Full Buttons</a></li>
   <li class="docs-content-item"><a href="#button-sizes">Button Sizes</a></li>
   <li class="docs-content-item"><a href="#icon-buttons">Icon Buttons</a></li>
-  <li class="docs-content-item"><a href="#floating-action-buttons">Floating Action Buttons</a></li>
   <li class="docs-content-item"><a href="#buttons-in-components">Buttons In Components</a></li>
 
 </ul>
@@ -40,14 +41,14 @@ _For more information, Check out the [API docs](../api/components/button/Button)
 <button>Button</button>
 ```
 
-The `primary` property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:
+The `color` property sets the color of the button. Ionic includes a number of default colors which can be easily overridden:
 
 ```html
-<button light>Light</button>
-<button>Default</button>
-<button secondary>Secondary</button>
-<button danger>Danger</button>
-<button dark>Dark</button>
+<button ion-button color="light">Light</button>
+<button ion-button>Default</button>
+<button ion-button color="secondary">Secondary</button>
+<button ion-button color="danger">Danger</button>
+<button ion-button color="dark">Dark</button>
 ```
 
 <h3 class="section-nav" id="outline-buttons">Outline Style</h3>
@@ -58,11 +59,11 @@ The `primary` property sets the color of the button. Ionic includes a number of 
 To use the outline style for a button, just add the `outline` property:
 
 ```html
-<button light outline>Light Outline</button>
-<button outline>Primary Outline</button>
-<button secondary outline>Secondary Outline</button>
-<button danger outline>Danger Outline</button>
-<button dark outline>Dark Outline</button>
+<button ion-button color="light" outline>Light Outline</button>
+<button ion-button outline>Primary Outline</button>
+<button ion-button color="secondary" outline>Secondary Outline</button>
+<button ion-button color="danger" outline>Danger Outline</button>
+<button ion-button color="dark" outline>Dark Outline</button>
 ```
 
 <h3 class="section-nav" id="clear-buttons">Clear Style</h3>
@@ -73,11 +74,11 @@ To use the outline style for a button, just add the `outline` property:
 To use the clear style for a button, just add the `clear` property:
 
 ```html
-<button light clear>Light Clear</button>
-<button clear>Primary Clear</button>
-<button secondary clear>Secondary Clear</button>
-<button danger clear>Danger Clear</button>
-<button dark clear>Dark Clear</button>
+<button ion-button color="light" clear>Light Clear</button>
+<button ion-button clear>Primary Clear</button>
+<button ion-button color="secondary" clear>Secondary Clear</button>
+<button ion-button color="danger" clear>Danger Clear</button>
+<button ion-button color="dark" clear>Dark Clear</button>
 ```
 
 <h3 class="section-nav" id="round-buttons">Round Buttons</h3>
@@ -88,11 +89,11 @@ To use the clear style for a button, just add the `clear` property:
 To create a button with rounded corners, just add the `round` property:
 
 ```html
-<button light round>Light Round</button>
-<button round>Primary Round</button>
-<button secondary round>Secondary Round</button>
-<button danger round>Danger Round</button>
-<button dark round>Dark Round</button>
+<button ion-button color="light" round>Light Round</button>
+<button ion-button round>Primary Round</button>
+<button ion-button color="secondary" round>Secondary Round</button>
+<button ion-button color="danger" round>Danger Round</button>
+<button ion-button color="dark" round>Dark Round</button>
 ```
 
 <h3 class="section-nav" id="block-buttons">Block Buttons</h3>
@@ -103,7 +104,7 @@ To create a button with rounded corners, just add the `round` property:
 Adding `block` to a button will make the button take 100% of its parent's width. It will also add `display: block` to the button:
 
 ```html
-<button block>Block Button</button>
+<button ion-button block>Block Button</button>
 ```
 
 <h3 class="section-nav" id="full-buttons">Full Buttons</h3>
@@ -114,7 +115,7 @@ Adding `block` to a button will make the button take 100% of its parent's width.
 Adding `full` to a button will also make the button take 100% of its parent's width. However, it will also remove the button's left and right borders. This style is useful when the button should stretch across the entire width of the display.
 
 ```html
-<button full>Full Button</button>
+<button ion-button full>Full Button</button>
 ```
 
 <h3 class="section-nav" id="button-sizes">Button Sizes</h3>
@@ -125,8 +126,8 @@ Adding `full` to a button will also make the button take 100% of its parent's wi
 Add the `large` attribute to make a button larger, or `small` to make it smaller:
 
 ```html
-<button small>Small</button>
-<button>Default</button>
+<button ion-button small>Small</button>
+<button ion-button>Default</button>
 <button large>Large</button>
 ```
 
@@ -136,38 +137,26 @@ Add the `large` attribute to make a button larger, or `small` to make it smaller
 </a>
 
 
-To add icons to a button, add an icon component inside of it:
+To add icons to a button, add an icon component inside of it and a position attribute:
 
 ```html
 <!-- Float the icon left -->
-<button>
+<button ion-button icon-left>
   <ion-icon name="home"></ion-icon>
   Left Icon
 </button>
 
 <!-- Float the icon right -->
-<button>
+<button ion-button icon-right>
   Right Icon
   <ion-icon name="home"></ion-icon>
 </button>
 
 <!-- Only icon (no text) -->
-<button>
+<button ion-button icon-only>
   <ion-icon name="home"></ion-icon>
 </button>
 ```
-
-<h3 class="section-nav" id="floating-action-buttons">Floating Action Buttons</h3>
-<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/buttons/fab">
-  Demo Source
-</a>
-
-Adding `fab` to a button will turn it into a floating action button. This is a material design styled button that is meant to draw the user to take a specific action. Fab buttons are positioned absolutely, and their placement can be controlled by adding attributes like `fab-top` and `fab-left`. See the [Button API spec](../api/components/button/Button) for a full list of attributes.
-
-```html
-<button fab>FAB</button>
-```
-
 <h3 class="section-nav" id="buttons-in-components">Buttons In Components</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/buttons/components">
   Demo Source
@@ -202,3 +191,4 @@ Although buttons can be used on their own, they can easily be used within other 
   </ion-item>
 </ion-list>
 ```
+

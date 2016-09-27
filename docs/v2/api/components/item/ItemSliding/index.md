@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "itemsliding"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemSliding"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/item-sliding/"
+preview_device_url: "/docs/v2/demos/src/item-sliding/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/item/item-sliding.ts#L91">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L83">
 Improve this doc
 </a>
 
@@ -61,12 +61,12 @@ a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&
       Item
     &lt;/ion-item&gt;
     &lt;ion-item-options side=&quot;left&quot;&gt;
-      &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
-      &lt;button danger (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
+      &lt;button ion-button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
+      &lt;button ion-button color=&quot;danger&quot; (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
     &lt;/ion-item-options&gt;
 
     &lt;ion-item-options side=&quot;right&quot;&gt;
-      &lt;button (click)=&quot;unread(item)&quot;&gt;Unread&lt;/button&gt;
+      &lt;button ion-button (click)=&quot;unread(item)&quot;&gt;Unread&lt;/button&gt;
     &lt;/ion-item-options&gt;
   &lt;/ion-item-sliding&gt;
 &lt;/ion-list&gt;
@@ -78,14 +78,14 @@ in the right side (sliding from left to right) by setting the <code>side</code> 
 on the <code>ion-item-options</code> element. Up to 2 <code>ion-item-options</code> can used at the same time
 in order to reveal two different sets of buttons depending the swipping direction.</p>
 <pre><code class="lang-html">&lt;ion-item-options side=&quot;right&quot;&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
+  &lt;button ion-button (click)=&quot;archive(item)&quot;&gt;
     &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
     Archive
   &lt;/button&gt;
 &lt;/ion-item-options&gt;
 
 &lt;ion-item-options side=&quot;left&quot;&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
+  &lt;button ion-button (click)=&quot;archive(item)&quot;&gt;
     &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
     Archive
   &lt;/button&gt;
@@ -97,7 +97,7 @@ to the (ionDrag)` event.</p>
 <pre><code class="lang-html">&lt;ion-item-sliding (ionDrag)=&quot;logDrag($event)&quot;&gt;
   &lt;ion-item&gt;Item&lt;/ion-item&gt;
   &lt;ion-item-options&gt;
-    &lt;button&gt;Favorite&lt;/button&gt;
+    &lt;button ion-button&gt;Favorite&lt;/button&gt;
   &lt;/ion-item-options&gt;
 &lt;/ion-item-sliding&gt;
 </code></pre>
@@ -107,7 +107,7 @@ display the icon on top of the text. This can be changed to display the icon
 to the left of the text by setting <code>icon-left</code> as an attribute on the
 <code>&lt;ion-item-options&gt;</code> element.</p>
 <pre><code class="lang-html">&lt;ion-item-options icon-left&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
+  &lt;button ion-button (click)=&quot;archive(item)&quot;&gt;
     &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
     Archive
   &lt;/button&gt;
@@ -147,7 +147,7 @@ and passed to the `share` method.
       Item
     </ion-item>
     <ion-item-options>
-      <button (click)="share(slidingItem)">Share</button>
+      <button ion-button (click)="share(slidingItem)">Share</button>
     </ion-item-options>
   </ion-item-sliding>
 </ion-list>

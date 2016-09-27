@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "pagetransition"
@@ -31,7 +31,7 @@ PageTransition
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/transitions/page-transition.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/transitions/page-transition.ts#L2">
 Improve this doc
 </a>
 
@@ -60,6 +60,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="enteringPage" href="#enteringPage"></a>
 <code>enteringPage</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="init"></div>
+
+<h3>
+<a class="anchor" name="init" href="#init"></a>
+<code>init()</code>
   
 
 </h3>

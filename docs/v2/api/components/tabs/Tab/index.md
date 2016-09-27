@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "tab"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/tabs/"
+preview_device_url: "/docs/v2/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L13">
 Improve this doc
 </a>
 
@@ -109,12 +109,12 @@ export class Tabs {
 page. You can use the <code>(ionSelect)</code> event to call a method on your class when
 the tab is selected. Below is an example of presenting a modal from one of
 the tabs.</p>
-<pre><code class="lang-html">&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab (ionSelect)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
-  constructor(private modalCtrl: ModalController) {
+  constructor(public modalCtrl: ModalController) {
 
   }
 
@@ -136,11 +136,11 @@ the tabs.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="parent"></div>
+<div id="linker"></div>
 
 <h3>
-<a class="anchor" name="parent" href="#parent"></a>
-<code>parent</code>
+<a class="anchor" name="linker" href="#linker"></a>
+<code>linker</code>
   
 
 </h3>
@@ -178,6 +178,13 @@ the tabs.</p>
       <td>rootParams</td>
       <td><code>object</code></td>
       <td><p> Any nav-params to pass to the root page of this tab.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabUrlPath</td>
+      <td><code>string</code></td>
+      <td><p> The URL path name to represent this tab within the URL.</p>
 </td>
     </tr>
     
@@ -292,7 +299,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       <tr>
         <td><code>$tabs-ios-border</code></td>
         
-          <td><code>1px solid $toolbar-ios-border-color</code></td>
+          <td><code>$hairlines-width solid $toolbar-ios-border-color</code></td>
         
         <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
 </td>

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "slide"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Slide"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/slides/"
+preview_device_url: "/docs/v2/demos/src/slides/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Slide
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/slides/slides.ts#L829">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L829">
 Improve this doc
 </a>
 
@@ -60,48 +60,6 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="slides"></div>
-
-<h3>
-<a class="anchor" name="slides" href="#slides"></a>
-<code>slides</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

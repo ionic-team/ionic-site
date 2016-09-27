@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "popovercontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "PopoverController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/popover/"
+preview_device_url: "/docs/v2/demos/src/popover/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/popover/popover.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L54">
 Improve this doc
 </a>
 
@@ -53,12 +53,11 @@ the second argument. Options for the popover can optionally be
 passed in the third argument. See the <a href="#create">create</a> method
 below for all available options.</p>
 <h3 id="presenting">Presenting</h3>
-<p>To present a popover, call the <code>present</code> method on the <a href="../../nav/NavController">NavController</a>.
-The first argument passed to the <code>present</code> should be the popover. In order
-to position the popover relative to the element clicked, the event needs to be
-passed as the second argument. If the event is not passed, the popover will be
-positioned in the center of the current view. See the <a href="#usage">usage</a> section for
-an example of passing this event.</p>
+<p>To present a popover, call the <code>present</code> method on a <a href="../../nav/PopoverConroller">PopoverController</a> instance.
+In order to position the popover relative to the element clicked, a click event
+needs to be passed into the options of the the `present method. If the event
+is not passed, the popover will be positioned in the center of the current
+view. See the <a href="#usage">usage</a> section for an example of passing this event.</p>
 <h3 id="dismissing">Dismissing</h3>
 <p>To dismiss the popover after creation, call the <code>dismiss()</code> method on the
 <code>Popover</code> instance. The popover can also be dismissed from within the popover&#39;s
@@ -83,13 +82,13 @@ section below.</p>
 
 <p>To open a popover on the click of a button, pass <code>$event</code> to the method
 which creates and presents the popover:</p>
-<pre><code class="lang-html">&lt;button (click)=&quot;presentPopover($event)&quot;&gt;
+<pre><code class="lang-html">&lt;button ion-button (click)=&quot;presentPopover($event)&quot;&gt;
   &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;
 </code></pre>
 <pre><code class="lang-ts">@Component({})
 class MyPage {
-  constructor(private popoverCtrl: PopoverController) {}
+  constructor(public popoverCtrl: PopoverController) {}
 
   presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
@@ -114,7 +113,7 @@ that close the popover on click.</p>
   `
 })
 class PopoverPage {
-  constructor(private viewCtrl: ViewController) {}
+  constructor(public viewCtrl: ViewController) {}
 
   close() {
     this.viewCtrl.dismiss();
@@ -137,7 +136,7 @@ class PopoverPage {
 
 <h3>
 <a class="anchor" name="create" href="#create"></a>
-<code>create(componentType,&nbsp;data,&nbsp;opts)</code>
+<code>create(component,&nbsp;data,&nbsp;opts)</code>
   
 
 </h3>
@@ -157,7 +156,7 @@ Present a popover. See below for options
     
     <tr>
       <td>
-        componentType
+        component
         
         
       </td>
@@ -228,7 +227,7 @@ Present a popover. See below for options
 <tr>
 <td>cssClass</td>
 <td><code>string</code></td>
-<td>An additional class for custom styles.</td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 <tr>
 <td>showBackdrop</td>

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "menuclose"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuClose"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ MenuClose
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/menu/menu-close.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-close.ts#L2">
 Improve this doc
 </a>
 
@@ -54,11 +54,11 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>A simple <code>menuClose</code> button can be added using the following markup:</p>
-<pre><code class="lang-html">&lt;button menuClose&gt;Close Menu&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button menuClose&gt;Close Menu&lt;/button&gt;
 </code></pre>
 <p>To close a certain menu by its id or side, give the <code>menuClose</code>
 directive a value.</p>
-<pre><code class="lang-html">&lt;button menuClose=&quot;left&quot;&gt;Close Left Menu&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button menuClose=&quot;left&quot;&gt;Close Left Menu&lt;/button&gt;
 </code></pre>
 
 

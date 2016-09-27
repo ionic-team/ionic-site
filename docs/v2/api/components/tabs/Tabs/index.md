@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "tabs"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tabs"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/tabs/"
+preview_device_url: "/docs/v2/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/tabs/tabs.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L15">
 Improve this doc
 </a>
 
@@ -47,14 +47,15 @@ Improve this doc
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
 a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
-is a declarative component for a <a href="../NavController/">NavController</a></p>
+is a declarative component for a <a href="../../nav/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
-for iOS and Android, and at the top for Windows by default. The position can be configured using the <code>tabsPlacement</code> attribute
-on the <code>&lt;ion-tabs&gt;</code> component, or in an app&#39;s <a href="../../config/Config/">config</a>.
+for iOS and Android, and at the top for Windows by default. The position can
+be configured using the <code>tabsPlacement</code> attribute on the <code>&lt;ion-tabs&gt;</code> component,
+or in an app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
 values of <code>tabsPlacement</code>.</p>
 <h3 id="layout">Layout</h3>
@@ -370,16 +371,23 @@ Get the previously selected Tab which is currently not disabled or hidden.
   <tbody>
     
     <tr>
-      <td>selectedIndex</td>
-      <td><code>number</code></td>
-      <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>preloadTabs</td>
-      <td><code>boolean</code></td>
-      <td><p> Set whether to preload all the tabs: <code>true</code>, <code>false</code>.</p>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>selectedIndex</td>
+      <td><code>number</code></td>
+      <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
 </td>
     </tr>
     
@@ -462,7 +470,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-ios-border</code></td>
         
-          <td><code>1px solid $toolbar-ios-border-color</code></td>
+          <td><code>$hairlines-width solid $toolbar-ios-border-color</code></td>
         
         <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
 </td>

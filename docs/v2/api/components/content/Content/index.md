@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "content"
@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/content/content.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L10">
 Improve this doc
 </a>
 
@@ -664,7 +664,7 @@ seen under the header as the user scrolls.</p>
       &lt;/ion-toolbar&gt;
     &lt;/ion-header&gt;
     &lt;ion-content&gt;
-      &lt;button (click)=&quot;toggleToolbar()&quot;&gt;Toggle Toolbar&lt;/button&gt;
+      &lt;button ion-button (click)=&quot;toggleToolbar()&quot;&gt;Toggle Toolbar&lt;/button&gt;
     &lt;/ion-content&gt;
 `})
 
@@ -684,7 +684,7 @@ import { Content } from &#39;ionic-angular&#39;;
 
 @Component({
   template: `&lt;ion-content&gt;
-               &lt;button (click)=&quot;scrollTo()&quot;&gt;Down 500px&lt;/button&gt;
+               &lt;button ion-button (click)=&quot;scrollTo()&quot;&gt;Down 500px&lt;/button&gt;
              &lt;/ion-content&gt;`
 )}
 export class MyPage{

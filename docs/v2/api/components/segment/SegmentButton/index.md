@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "segmentbutton"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/segment/"
+preview_device_url: "/docs/v2/demos/src/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ SegmentButton
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/segment/segment.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L5">
 Improve this doc
 </a>
 
@@ -55,7 +55,7 @@ Improve this doc
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;!-- Segment buttons with icons --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;icons&quot; secondary&gt;
+  &lt;ion-segment [(ngModel)]=&quot;icons&quot; color=&quot;secondary&quot;&gt;
     &lt;ion-segment-button value=&quot;camera&quot;&gt;
       &lt;ion-icon name=&quot;camera&quot;&gt;&lt;/ion-icon&gt;
     &lt;/ion-segment-button&gt;
@@ -65,7 +65,7 @@ Improve this doc
   &lt;/ion-segment&gt;
 
   &lt;!-- Segment buttons with text --&gt;
-  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
+  &lt;ion-segment [(ngModel)]=&quot;relationship&quot; color=&quot;primary&quot;&gt;
     &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
       Friends
     &lt;/ion-segment-button&gt;

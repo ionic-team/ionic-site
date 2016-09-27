@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "navpush"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "NavPush"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/navigation/"
+preview_device_url: "/docs/v2/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/nav/nav-push.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-push.ts#L3">
 Improve this doc
 </a>
 
@@ -54,19 +54,19 @@ stack.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>To specify parameters you can use array syntax or the <code>navParams</code>
 property:</p>
-<pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;
 </code></pre>
 <p>Where <code>pushPage</code> and <code>params</code> are specified in your component,
 and <code>pushPage</code> contains a reference to a
-<a href="../../../config/Page/">@Page component</a>:</p>
+component you would like to push:</p>
 <pre><code class="lang-ts">import { LoginPage } from &#39;./login&#39;;
 
 @Component({
-  template: `&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
+  template: `&lt;button ion-button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;Go&lt;/button&gt;`
 })
 class MyPage {
   constructor(){
@@ -84,28 +84,6 @@ class MyPage {
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="onClick"></div>
-
-<h3>
-<a class="anchor" name="onClick" href="#onClick"></a>
-<code>onClick()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

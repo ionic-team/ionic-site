@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "transition"
@@ -31,7 +31,7 @@ Transition
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/transitions/transition.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/transitions/transition.ts#L1">
 Improve this doc
 </a>
 
@@ -48,36 +48,6 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="createTransition"></div>
-<h3><a class="anchor" name="createTransition" href="#createTransition"></a><code>createTransition()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="register"></div>
-<h3><a class="anchor" name="register" href="#register"></a><code>register()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,11 +55,171 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="parent"></div>
+
+<h3>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="hasChildTrns"></div>
+
+<h3>
+<a class="anchor" name="hasChildTrns" href="#hasChildTrns"></a>
+<code>hasChildTrns</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="trnsId"></div>
+
+<h3>
+<a class="anchor" name="trnsId" href="#trnsId"></a>
+<code>trnsId</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="enteringView"></div>
 
 <h3>
 <a class="anchor" name="enteringView" href="#enteringView"></a>
 <code>enteringView</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="leavingView"></div>
+
+<h3>
+<a class="anchor" name="leavingView" href="#leavingView"></a>
+<code>leavingView</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="init"></div>
+
+<h3>
+<a class="anchor" name="init" href="#init"></a>
+<code>init()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerStart"></div>
+
+<h3>
+<a class="anchor" name="registerStart" href="#registerStart"></a>
+<code>registerStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="start"></div>
+
+<h3>
+<a class="anchor" name="start" href="#start"></a>
+<code>start()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="destroy"></div>
+
+<h3>
+<a class="anchor" name="destroy" href="#destroy"></a>
+<code>destroy()</code>
   
 
 </h3>

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "toolbarbase"
@@ -31,7 +31,7 @@ ToolbarBase
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar.ts#L77">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L82">
 Improve this doc
 </a>
 
@@ -52,68 +52,6 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="itemRefs"></div>
-
-<h3>
-<a class="anchor" name="itemRefs" href="#itemRefs"></a>
-<code>itemRefs</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="titleRef"></div>
-
-<h3>
-<a class="anchor" name="titleRef" href="#titleRef"></a>
-<code>titleRef</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="titleCmp"></div>
-
-<h3>
-<a class="anchor" name="titleCmp" href="#titleCmp"></a>
-<code>titleCmp</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "alertcontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "AlertController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/alert/"
+preview_device_url: "/docs/v2/demos/src/alert/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/alert/alert.ts#L109">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L95">
 Improve this doc
 </a>
 
@@ -226,37 +226,37 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>title</td>
 <td><code>string</code></td>
-<td>The string for the alert (optional)</td>
+<td>The title for the alert.</td>
 </tr>
 <tr>
 <td>subTitle</td>
 <td><code>string</code></td>
-<td>The subtitle for the alert (optional)</td>
+<td>The subtitle for the alert.</td>
 </tr>
 <tr>
 <td>message</td>
 <td><code>string</code></td>
-<td>The message for the alert (optional)</td>
+<td>The message for the alert.</td>
 </tr>
 <tr>
 <td>cssClass</td>
 <td><code>string</code></td>
-<td>Any additional class for the alert (optional)</td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 <tr>
 <td>inputs</td>
 <td><code>array</code></td>
-<td>An array of inputs for the alert. See input options. (optional)</td>
+<td>An array of inputs for the alert. See input options.</td>
 </tr>
 <tr>
 <td>buttons</td>
 <td><code>array</code></td>
-<td>An array of buttons for the alert. See buttons options. (optional)</td>
+<td>An array of buttons for the alert. See buttons options.</td>
 </tr>
 <tr>
 <td>enableBackdropDismiss</td>
 <td><code>boolean</code></td>
-<td>Whether the alert should be dismissed by tapping the backdrop (optional)</td>
+<td>Whether the alert should be dismissed by tapping the backdrop.</td>
 </tr>
 </tbody>
 </table>
@@ -273,37 +273,37 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>type</td>
 <td><code>string</code></td>
-<td>The type the input should be, text, tel, number, etc (optional)</td>
+<td>The type the input should be: text, tel, number, etc.</td>
 </tr>
 <tr>
 <td>name</td>
 <td><code>string</code></td>
-<td>The name for the input (optional)</td>
+<td>The name for the input.</td>
 </tr>
 <tr>
 <td>placeholder</td>
 <td><code>string</code></td>
-<td>The input&#39;s placeholder (optional, for textual/numeric inputs)</td>
+<td>The input&#39;s placeholder (for textual/numeric inputs)</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>string</code></td>
-<td>The input&#39;s value (optional)</td>
+<td>The input&#39;s value.</td>
 </tr>
 <tr>
 <td>label</td>
 <td><code>string</code></td>
-<td>The input&#39;s label (optional, only for radio/checkbox inputs)</td>
+<td>The input&#39;s label (only for radio/checkbox inputs)</td>
 </tr>
 <tr>
 <td>checked</td>
 <td><code>boolean</code></td>
-<td>Whether or not the input is checked or not (optional)</td>
+<td>Whether or not the input is checked.</td>
 </tr>
 <tr>
 <td>id</td>
 <td><code>string</code></td>
-<td>The input&#39;s id (optional)</td>
+<td>The input&#39;s id.</td>
 </tr>
 </tbody>
 </table>
@@ -320,22 +320,22 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>text</td>
 <td><code>string</code></td>
-<td>The buttons displayed text</td>
+<td>The buttons displayed text.</td>
 </tr>
 <tr>
 <td>handler</td>
 <td><code>any</code></td>
-<td>Expression that should be evaluated when the button is pressed</td>
+<td>Expression that should be evaluated when the button is pressed.</td>
 </tr>
 <tr>
 <td>cssClass</td>
 <td><code>string</code></td>
-<td>An additional CSS class for the button</td>
+<td>An additional CSS class for the button.</td>
 </tr>
 <tr>
 <td>role</td>
 <td><code>string</code></td>
-<td>The buttons role, null or <code>cancel</code></td>
+<td>The buttons role, null or <code>cancel</code>.</td>
 </tr>
 </tbody>
 </table>

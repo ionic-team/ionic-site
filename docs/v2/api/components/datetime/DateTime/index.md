@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "datetime"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "DateTime"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/datetime/"
+preview_device_url: "/docs/v2/demos/src/datetime/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/datetime/datetime.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/datetime/datetime.ts#L16">
 Improve this doc
 </a>
 
@@ -537,6 +537,13 @@ locale names for each day in the week. Defaults to English.</p>
       <td><code>any</code></td>
       <td><p> Any additional options that the picker interface can accept.
 See the <a href="../../picker/Picker">Picker API docs</a> for the picker options.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

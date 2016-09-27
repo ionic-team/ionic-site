@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "scroll"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Scroll"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/scroll/"
+preview_device_url: "/docs/v2/demos/src/scroll/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Scroll
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/scroll/scroll.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/scroll/scroll.ts#L2">
 Improve this doc
 </a>
 
@@ -68,109 +68,51 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-scrollX
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable scrolling along the X axis
-</td>
-</tr>
-
-<tr>
-<td>
-scrollY
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable scrolling along the Y axis
-</td>
-</tr>
-
-<tr>
-<td>
-zoom
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether to enable zooming
-</td>
-</tr>
-
-<tr>
-<td>
-maxZoom
-</td>
-
-
-<td>
-number
-</td>
-
-
-<td>
-set the max zoom amount for ion-scroll
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>scrollX</td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable scrolling along the X axis</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>scrollY</td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>zoom</td>
+      <td><code>boolean</code></td>
+      <td><p> whether to enable zooming</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>maxZoom</td>
+      <td><code>number</code></td>
+      <td><p> set the max zoom amount for ion-scroll</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

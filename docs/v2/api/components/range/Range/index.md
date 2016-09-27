@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "range"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Range"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/range/"
+preview_device_url: "/docs/v2/demos/src/range/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L105">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/range/range.ts#L104">
 Improve this doc
 </a>
 
@@ -77,11 +77,11 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
-    &lt;ion-range [(ngModel)]=&quot;singleValue&quot; danger pin=&quot;true&quot;&gt;&lt;/ion-range&gt;
+    &lt;ion-range [(ngModel)]=&quot;singleValue&quot; color=&quot;danger&quot; pin=&quot;true&quot;&gt;&lt;/ion-range&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-range min=&quot;-200&quot; max=&quot;200&quot; [(ngModel)]=&quot;saturation&quot; secondary&gt;
+    &lt;ion-range min=&quot;-200&quot; max=&quot;200&quot; [(ngModel)]=&quot;saturation&quot; color=&quot;secondary&quot;&gt;
       &lt;ion-label range-left&gt;-200&lt;/ion-label&gt;
       &lt;ion-label range-right&gt;200&lt;/ion-label&gt;
     &lt;/ion-range&gt;
@@ -96,7 +96,7 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;step=100, snaps, {{singleValue4}}&lt;/ion-label&gt;
-    &lt;ion-range min=&quot;1000&quot; max=&quot;2000&quot; step=&quot;100&quot; snaps=&quot;true&quot; secondary [(ngModel)]=&quot;singleValue4&quot;&gt;&lt;/ion-range&gt;
+    &lt;ion-range min=&quot;1000&quot; max=&quot;2000&quot; step=&quot;100&quot; snaps=&quot;true&quot; color=&quot;secondary&quot; [(ngModel)]=&quot;singleValue4&quot;&gt;&lt;/ion-range&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
@@ -171,6 +171,20 @@ If there is only one knob, then this will return `null`.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
     
     <tr>
       <td>min</td>

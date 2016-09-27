@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "config"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Config"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/config/"
+preview_device_url: "/docs/v2/demos/src/config/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/config/config.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L10">
 Improve this doc
 </a>
 
@@ -200,6 +200,11 @@ chart displays each property with a description of what it controls.</p>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>
+</tr>
+<tr>
+<td><code>swipeBackEnabled</code></td>
+<td><code>boolean</code></td>
+<td>Whether native iOS swipe to go back functionality is enabled.</td>
 </tr>
 <tr>
 <td><code>tabsHighlight</code></td>

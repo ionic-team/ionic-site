@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "menu"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Menu"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/menu/menu.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L10">
 Improve this doc
 </a>
 
@@ -64,7 +64,7 @@ type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../
 via the <code>menuType</code> property, or passed in the <code>type</code> property on the <code>&lt;ion-menu&gt;</code> element.
 See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
 <h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
-<p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../nav/NavBar">NavBar</a> of
+<p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../navbar/Navbar">Navbar</a> of
 a page, the button will only appear when the page it&#39;s in is currently a root page. The
 root page is the initial page loaded in the app, or a page that has been set as the root
 using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <a href="../../nav/NavController">NavController</a>.</p>
@@ -73,9 +73,9 @@ using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <
 is <code>Page1</code>, making it the root page. <code>Page1</code> will display the <code>MenuToggle</code> button, but once
 <code>Page2</code> is pushed onto the navigation stack, the <code>MenuToggle</code> will not be displayed.</p>
 <h3 id="persistent-menus">Persistent Menus</h3>
-<p>Persistent menus display the <a href="../MenuToggle">MenuToggle</a> button in the <a href="../../nav/NavBar">NavBar</a>
+<p>Persistent menus display the <a href="../MenuToggle">MenuToggle</a> button in the <a href="../../navbar/Navbar">Navbar</a>
 on all pages in the navigation stack. To make a menu persistent set <code>persistent</code> to <code>true</code> on the
-<code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>NavBar</code> attached
+<code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>Navbar</code> attached
 to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>
 
 
@@ -126,7 +126,7 @@ ionicBootstrap(MyApp, customProviders, {
 <h3 id="displaying-the-menu">Displaying the Menu</h3>
 <p>To toggle a menu from the template, add a button with the <code>menuToggle</code>
 directive anywhere in the page&#39;s template:</p>
-<pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+<pre><code class="lang-html">&lt;button ion-button menuToggle&gt;Toggle Menu&lt;/button&gt;
 </code></pre>
 <p>To close a menu, add the <code>menuClose</code> button. It can be added anywhere
 in the content, or even the menu itself. Below it is added to the menu&#39;s
@@ -134,7 +134,7 @@ content:</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
     &lt;ion-list&gt;
-      &lt;button menuClose ion-item detail-none&gt;Close Menu&lt;/button&gt;
+      &lt;button ion-button menuClose ion-item detail-none&gt;Close Menu&lt;/button&gt;
     &lt;/ion-list&gt;
   &lt;/ion-content&gt;
 &lt;/ion-menu&gt;

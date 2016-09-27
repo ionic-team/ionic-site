@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "list"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "List"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/list/"
+preview_device_url: "/docs/v2/demos/src/list/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/list/list.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L6">
 Improve this doc
 </a>
 
@@ -98,6 +98,13 @@ Close any sliding items that are open.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
     
     <tr>
       <td>sliding</td>

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "loadingcontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "LoadingController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/loading/"
+preview_device_url: "/docs/v2/demos/src/loading/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ LoadingController
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/loading/loading.ts#L57">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L66">
 Improve this doc
 </a>
 
@@ -84,7 +84,7 @@ a higher <code>z-index</code> than this element.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private loadingCtrl: LoadingController) {
+<pre><code class="lang-ts">constructor(public loadingCtrl: LoadingController) {
 
 }
 
@@ -192,6 +192,14 @@ Create a loading indicator. See below for options.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Loading</code> <p>Returns a Loading Instance</p>
+
+
+</div>
+
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Loading options</p>
@@ -217,7 +225,7 @@ Create a loading indicator. See below for options.
 <tr>
 <td>cssClass</td>
 <td><code>string</code></td>
-<td>An additional class for custom styles.</td>
+<td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 <tr>
 <td>showBackdrop</td>

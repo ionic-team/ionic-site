@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "header"
@@ -33,7 +33,7 @@ Header
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L5">
 Improve this doc
 </a>
 
@@ -42,7 +42,7 @@ Improve this doc
 
 
 
-<p>Header is a parent compnent that holds the navbar and toolbar component.
+<p>Header is a parent component that holds the navbar and toolbar component.
 It&#39;s important to note that <code>ion-header</code> needs to be the one of the three root elements of a page</p>
 
 

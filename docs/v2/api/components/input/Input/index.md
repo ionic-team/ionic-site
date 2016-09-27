@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "input"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Input"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/input/"
+preview_device_url: "/docs/v2/demos/src/input/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/input/input.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L12">
 Improve this doc
 </a>
 
@@ -63,12 +63,12 @@ interactivity.</p>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item&gt;
-    &lt;ion-label primary&gt;Inline Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot;&gt;Inline Label&lt;/ion-label&gt;
     &lt;ion-input placeholder=&quot;Text Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary fixed&gt;Fixed Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; fixed&gt;Fixed Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;tel&quot; placeholder=&quot;Tel Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
@@ -77,17 +77,17 @@ interactivity.</p>
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;email&quot; placeholder=&quot;Email Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; stacked&gt;Stacked Label&lt;/ion-label&gt;
     &lt;ion-input type=&quot;password&quot; placeholder=&quot;Password Input&quot;&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-label primary floating&gt;Floating Label&lt;/ion-label&gt;
+    &lt;ion-label color=&quot;primary&quot; floating&gt;Floating Label&lt;/ion-label&gt;
     &lt;ion-input&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
 
@@ -152,6 +152,27 @@ A clear icon will appear in the input when there is a value. Clicking it clears 
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

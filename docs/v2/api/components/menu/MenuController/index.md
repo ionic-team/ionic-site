@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "menucontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/menu/"
+preview_device_url: "/docs/v2/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ MenuController
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/menu/menu-controller.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-controller.ts#L2">
 Improve this doc
 </a>
 
@@ -104,11 +104,11 @@ default to the <code>&quot;left&quot;</code> menu.</p>
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <pre><code class="lang-ts">toggleLeftMenu() {
-  this.menu.toggle();
+  this.menuCtrl.toggle();
 }
 
 toggleRightMenu() {
-  this.menu.toggle(&#39;right&#39;);
+  this.menuCtrl.toggle(&#39;right&#39;);
 }
 </code></pre>
 <h3 id="multiple-menus-on-the-same-side">Multiple Menus on the Same Side</h3>
@@ -121,8 +121,8 @@ id will be disabled.</p>
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <pre><code class="lang-ts">enableAuthenticatedMenu() {
-  this.menu.enable(true, &#39;authenticated&#39;);
-  this.menu.enable(false, &#39;unauthenticated&#39;);
+  this.menuCtrl.enable(true, &#39;authenticated&#39;);
+  this.menuCtrl.enable(false, &#39;unauthenticated&#39;);
 }
 </code></pre>
 <p>Note: if an app only has one menu, there is no reason to pass an <code>id</code>.</p>
@@ -142,13 +142,43 @@ id will be disabled.</p>
 
 <h3>
 <a class="anchor" name="open" href="#open"></a>
-<code>open()</code>
+<code>open(menuId)</code>
   
 
 </h3>
 
 Progamatically open the Menu.
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -420,13 +450,43 @@ Used to enable or disable the ability to swipe open the menu.
 
 <h3>
 <a class="anchor" name="isOpen" href="#isOpen"></a>
-<code>isOpen()</code>
+<code>isOpen(menuId)</code>
   
 
 </h3>
 
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -447,13 +507,43 @@ Used to enable or disable the ability to swipe open the menu.
 
 <h3>
 <a class="anchor" name="isEnabled" href="#isEnabled"></a>
-<code>isEnabled()</code>
+<code>isEnabled(menuId)</code>
   
 
 </h3>
 
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

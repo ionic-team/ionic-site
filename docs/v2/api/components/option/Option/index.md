@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "option"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Option"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/select/"
+preview_device_url: "/docs/v2/demos/src/select/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/option/option.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/option/option.ts#L2">
 Improve this doc
 </a>
 

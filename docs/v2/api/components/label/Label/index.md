@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "label"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Label"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/label/"
+preview_device_url: "/docs/v2/demos/src/label/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Label
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/label/label.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/label/label.ts#L3">
 Improve this doc
 </a>
 
@@ -155,6 +155,34 @@ A stacked label will always appear on top of the input.
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

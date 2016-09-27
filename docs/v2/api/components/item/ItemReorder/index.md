@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "itemreorder"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemReorder"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/item-reorder/"
+preview_device_url: "/docs/v2/demos/src/item-reorder/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ ItemReorder
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/item/item-reorder.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L12">
 Improve this doc
 </a>
 

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "radiobutton"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "RadioButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/radio/"
+preview_device_url: "/docs/v2/demos/src/radio/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ RadioButton
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/radio/radio-button.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/radio/radio-button.ts#L7">
 Improve this doc
 </a>
 
@@ -96,6 +96,20 @@ more information on forms and input.</p>
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
     
     <tr>
       <td>value</td>

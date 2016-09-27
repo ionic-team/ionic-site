@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "clickblock"
@@ -24,7 +24,7 @@ docType: "class"
 <a class="anchor" name="click-block" href="#click-block"></a>
 
 ClickBlock
-<h3><code>click-block</code></h3>
+<h3><code>.click-block</code></h3>
 
 
 
@@ -33,7 +33,7 @@ ClickBlock
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/util/click-block.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/click-block.ts#L6">
 Improve this doc
 </a>
 

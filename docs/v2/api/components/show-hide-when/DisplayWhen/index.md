@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "displaywhen"
@@ -31,7 +31,7 @@ DisplayWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/show-hide-when/show-hide-when.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L2">
 Improve this doc
 </a>
 
@@ -75,6 +75,26 @@ Improve this doc
 
 
 
+<div id="conditions"></div>
+
+<h3>
+<a class="anchor" name="conditions" href="#conditions"></a>
+<code>conditions</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="platform"></div>
 
 <h3>
@@ -95,11 +115,11 @@ Improve this doc
 
 
 
-<div id="conditions"></div>
+<div id="zone"></div>
 
 <h3>
-<a class="anchor" name="conditions" href="#conditions"></a>
-<code>conditions</code>
+<a class="anchor" name="zone" href="#zone"></a>
+<code>zone</code>
   
 
 </h3>

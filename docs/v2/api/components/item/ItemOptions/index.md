@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-beta.11"
-versionHref: "/docs/v2/2.0.0-beta-11"
+version: "2.0.0-rc.test"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "itemoptions"
@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="https://github.com/driftyco/ionic/edit/master/src/components/item/item-sliding.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L15">
 Improve this doc
 </a>
 
@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>The option buttons for an <code>ion-item-sliding</code>. These buttons can be placed either on the left or right side.
-You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
+You can combine the <code>(ionSwipe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
 
 
 
@@ -57,7 +57,7 @@ You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</cod
     Item 1
   &lt;/ion-item&gt;
   &lt;ion-item-options side=&quot;right&quot; (ionSwipe)=&quot;saveItem(item)&quot;&gt;
-    &lt;button expandable (click)=&quot;saveItem(item)&quot;&gt;
+    &lt;button ion-button expandable (click)=&quot;saveItem(item)&quot;&gt;
       &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
   &lt;/ion-item-options&gt;

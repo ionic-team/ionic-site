@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L16">
   Improve this doc
 </a>
 
@@ -1444,7 +1444,7 @@ Modify an event. (iOS only)
 
 
 <div id="modifyEventWithOptions"></div>
-<h3><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;options)</code>
+<h3><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code>
   
 </h3>
 
@@ -1634,7 +1634,7 @@ Modify an event with additional options. (iOS only)
   
   <tr>
     <td>
-      options
+      filterOptions
       
       
     </td>
@@ -1643,7 +1643,24 @@ Modify an event with additional options. (iOS only)
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>Additional options, see <code>getCalendarOptions</code></p>
+      <p>Event Options, see <code>getCalendarOptions</code></p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      newOptions
+      
+      
+    </td>
+    <td>
+      
+<code>CalendarOptions</code>
+    </td>
+    <td>
+      <p>New event options, see <code>getCalendarOptions</code></p>
 
       
     </td>

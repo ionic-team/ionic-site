@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-powermanagement-orig</code></pre>
 <p>Repo:
-  <a href="powerManagement">
-    powerManagement
+  <a href="https://github.com/Viras-/cordova-plugin-powermanagement">
+    https://github.com/Viras-/cordova-plugin-powermanagement
   </a>
 </p>
 

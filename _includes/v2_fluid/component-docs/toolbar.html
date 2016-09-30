@@ -48,7 +48,7 @@ One of the best uses of the toolbar is as a header.
 
 ```html
 <ion-header>
-  <ion-toolbar primary>
+  <ion-toolbar color="primary">
     <ion-buttons start>
       <ion-icon name="content"></ion-icon>
     </ion-buttons>
@@ -76,21 +76,21 @@ You can change the toolbars color by changing the property on the element.
 
 @Component({
   template: `
-    <ion-toolbar primary>
+    <ion-toolbar color="primary">
       <ion-title>Toolbar</ion-title>
     </ion-toolbar>
 
 
-    <ion-toolbar secondary>
+    <ion-toolbar color="secondary">
       <ion-title>Toolbar</ion-title>
     </ion-toolbar>
 
-    <ion-toolbar danger>
+    <ion-toolbar color="danger">
       <ion-title>Toolbar</ion-title>
     </ion-toolbar>
 
 
-    <ion-toolbar dark>
+    <ion-toolbar color="dark">
       <ion-title>Toolbar</ion-title>
     </ion-toolbar>
   `
@@ -102,20 +102,20 @@ You can also change the navbar's color the same way. This will allow you to have
 
 ```html
 <ion-header>
-  <ion-navbar dark>
+  <ion-navbar color="dark">
     <ion-title>Dark</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-header>
-  <ion-navbar danger>
+  <ion-navbar color="danger">
     <ion-title>Danger</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-header>
-  <ion-navbar secondary>
+  <ion-navbar color="secondary">
     <ion-title>Secondary</ion-title>
   </ion-navbar>
 </ion-header>
@@ -131,13 +131,13 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button royal>
+      <button color="royal">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Send To...</ion-title>
     <ion-buttons end>
-      <button royal>
+      <button color="royal">
         <ion-icon name="person-add"></ion-icon>
       </button>
     </ion-buttons>
@@ -150,7 +150,7 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
   <ion-toolbar>
     <p>Ash, Misty, Brock</p>
     <ion-buttons end>
-      <button royal>
+      <button color="royal">
         Send
         <ion-icon name="send"></ion-icon>
       </button>
@@ -197,7 +197,7 @@ Another common design paradigm is to include a searchbar inside your toolbar.
 
 ```html
 <ion-header>
-  <ion-toolbar primary>
+  <ion-toolbar color="primary">
     <ion-searchbar (input)="getItems($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>

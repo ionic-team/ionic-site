@@ -112,7 +112,7 @@ Improve this doc
     <tr>
       <td>debounce</td>
       <td><code>number</code></td>
-      <td><p> How long, in milliseconds, to wait to trigger the <code>input</code> event after each keystroke. Default <code>250</code>.</p>
+      <td><p> How long, in milliseconds, to wait to trigger the <code>ionInput</code> event after each keystroke. Default <code>250</code>.</p>
 </td>
     </tr>
     

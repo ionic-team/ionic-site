@@ -54,7 +54,8 @@ works.</p>
 After the modal has been presented, from within the component instance The
 modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
-on the root nav controller.</p>
+on the root nav controller. Modals are not reusable. When a modal is dismissed
+it is destroyed.</p>
 <p>Data can be passed to a new modal through <code>Modal.create()</code> as the second
 argument. The data can then be accessed from the opened page by injecting
 <code>NavParams</code>. Note that the page, which opened as a modal, has no special

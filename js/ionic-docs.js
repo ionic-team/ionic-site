@@ -1795,14 +1795,15 @@ $(document).ready(function() {
   var activeSearchInputPos;
 
   setTimeout(function() {
+    console.log('here')
     // check if there if there is recent search data in local storage
-    try {
-      var localData = JSON.parse(localStorage.getItem('v2-search-index'));
-      if (localData && (localData.ts + 86400000) > Date.now()) {
-        searchReady(localData);
-        return;
-      }
-    } catch (e) {}
+    // try {
+    //   var localData = JSON.parse(localStorage.getItem('v2-search-index'));
+    //   if (localData && (localData.ts + 86400000) > Date.now()) {
+    //     searchReady(localData);
+    //     return;
+    //   }
+    // } catch (e) {}
 
     $.getJSON('/docs/v2/data/index.json', function(requestData) {
       searchReady(requestData);

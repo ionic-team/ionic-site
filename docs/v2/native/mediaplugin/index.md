@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media.ts#L73">
   Improve this doc
 </a>
 
@@ -41,10 +41,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-media</code></pre>
+<pre><code>$ ionic plugin add </code></pre>
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-media">
-    https://github.com/apache/cordova-plugin-media
+  <a href="">
+    
   </a>
 </p>
 
@@ -55,62 +55,6 @@ docType: "class"
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
-
-<pre><code class="lang-typescript">import { MediaPlugin } from &#39;ionic-native&#39;;
-
-
-
-// Create a MediaPlugin instance.  Expects path to file or url as argument
-var file = new MediaPlugin(&#39;path/to/file.mp3&#39;);
-
-// Catch the Success &amp; Error Output
-// Platform Quirks
-// iOS calls success on completion of playback only
-// Android calls success on completion of playback AND on release()
-file.init.then(() =&gt; {
-  console.log(&#39;Playback Finished&#39;);
-}, (err) =&gt; {
-  console.log(&#39;somthing went wrong! error code: &#39; + err.code + &#39; message: &#39; + err.message);
-});
-
-// play the file
-file.play();
-
-// pause the file
-file.pause();
-
-// get current playback position
-file.getCurrentPosition().then((position) =&gt; {
-  console.log(position);
-});
-
-// get file duration
-file.getDuration().then((duration) =&gt; {
-  console.log(position);
-});
-
-// skip to 10 seconds (expects int value in ms)
-file.seekTo(10000);
-
-// stop playing the file
-file.stop();
-
-// release the native audio resource
-// Platform Quirks:
-// iOS simply create a new instance and the old one will be overwritten
-// Android you must call release() to destroy instances of media when you are done
-file.release();
-
-// Recording to a file
-var newFile = new MediaPlugin(&#39;path/to/file.mp3&#39;);
-newFile.startRecord();
-
-newFile.stopRecord();
-</code></pre>
-
-
-
 
 <!-- @property tags -->
 
@@ -118,25 +62,6 @@ newFile.stopRecord();
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
-<div id="status"></div>
-
-<h3>
-  <code>status</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="init"></div>
 

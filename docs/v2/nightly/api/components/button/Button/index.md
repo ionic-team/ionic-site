@@ -442,7 +442,7 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     

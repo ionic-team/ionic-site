@@ -54,7 +54,7 @@ has methods to add options, such as <code>setTitle()</code> or <code>addButton()
 <p>In the array of <code>buttons</code>, each button includes properties for its <code>text</code>,
 and optionally a <code>handler</code>. If a handler returns <code>false</code> then the alert
 will not automatically be dismissed when the button is clicked. All
-buttons will show  up in the order they have been added to the <code>buttons</code>
+buttons will show up in the order they have been added to the <code>buttons</code>
 array, from left to right. Note: The right most button (the last one in
 the array) is the main button.</p>
 <p>Optionally, a <code>role</code> property can be added to a button, such as <code>cancel</code>.

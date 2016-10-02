@@ -14,22 +14,18 @@ next_page_link: /docs/v2/getting-started/tutorial
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/installation/index.md'>Improve this doc</a>
 
-Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool or built and tested right in the browser.
+Ionic 2 apps are created and developed primarily through the Ionic command like utility (the "CLI").
 
-To install the Ionic SDK and create Ionic 2 projects, you'll need to install the latest beta release:
+To create Ionic 2 projects, you'll need to install the latest version of the CLI. Before you do that, you'll need a recent version of Node.js. [Download the installer](https://nodejs.org/en/) for Node.js 6 or greater and then proceed to install the Ionic CLI:
 
 ```bash
 $ npm install -g ionic
 ```
 
-Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/dist/latest-v5.x/) or use your favorite package manager. It's best to get the 6x version of Node which comes with NPM 3. This offers the best in stability and speed for building.
-
 
 > Unfamiliar with NPM? Learn more about it and what packages we use [here](/docs/v2/resources/using-npm/)
 
 > In case you get an **EACCES** error, it means node doesn't have write permissions to the global packages folder. Follow the instructions [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to set the correct folder permissions.
-
-Worried about your V1 Ionic projects? Don't worry! The V2 CLI has all the functionality to work with both V1 projects and V2 projects.
 
 Once that's done, create your first Ionic app:
 
@@ -37,15 +33,17 @@ Once that's done, create your first Ionic app:
 $ ionic start cutePuppyPics --v2
 ```
 
-To run your app, `cd` into the directory that was created and then run the `ionic serve` command:
+> The CLI works for Ionic 2 and 1 apps, so if you'd like to use v1, omit --v2
+
+To run your app, `cd` into the directory that was created and then run the `ionic serve` command to test your app right in the browser!
 
 ```bash
 $ cd cutePuppyPics
 $ ionic serve
 ```
+
 > Having issues with your app building? Make sure your package.json matches [our app base](https://github.com/driftyco/ionic2-app-base/blob/master/package.json)
 
-You can play with it right in the browser!
 
 
 ### [Building to a Device](#building-to-a-device)

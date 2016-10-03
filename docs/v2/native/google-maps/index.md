@@ -72,7 +72,7 @@ let element: HTMLElement = document.getElementById(&#39;elementID&#39;);
 let map = new GoogleMap(mapElement);
 
 // listen to MAP_READY event
-map.one(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&#39;Map is ready!&#39;));
+map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
 
 
 // create LatLng object

@@ -64,7 +64,7 @@ LocationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
 
   if(canRequest) {
     // the accuracy option will be ignored by iOS
-    LocationAccuracy.request(LocaitonAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
+    LocationAccuracy.request(LocationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
       () =&gt; console.log(&#39;Request successful&#39;),
       error =&gt; console.log(&#39;Error requesting location permissions&#39;, error)
     );

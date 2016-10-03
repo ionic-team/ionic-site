@@ -16,10 +16,10 @@ next_page_link: /docs/v2/theming/overriding-ionic-variables/
 </a>
 
 
-Ionic uses **modes** to customize the look of components. Each **platform** has a default **mode**, but this can be overridden. For example, an app being viewed on an Android platform will use the `md` (Material Design) mode. The `<body>` will have `class="md"` added to it by default and all of the components will use Material Design styles:
+Ionic uses **modes** to customize the look of components. Each **platform** has a default **mode**, but this can be overridden. For example, an app being viewed on an Android platform will use the `md` (Material Design) mode. The `<ion-app>` will have `class="md"` added to it by default and all of the components will use Material Design styles:
 
 ```html
-<body class="md">
+<ion-app class="md">
 ```
 
 The following chart displays the default **mode** that is added to each **platform**:

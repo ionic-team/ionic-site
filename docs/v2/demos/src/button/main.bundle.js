@@ -25158,12 +25158,9 @@ var Config = (function () {
                                 isDefined(platformModeValue) ? platformModeValue :
                                     null;
         }
-        var rtnVal;
-        if (isFunction$6(this._c[key])) {
-            rtnVal = this._c[key](this.platform);
-        }
-        else {
-            rtnVal = this._c[key];
+        var rtnVal = this._c[key];
+        if (isFunction$6(rtnVal)) {
+            rtnVal = rtnVal(this.platform);
         }
         return (rtnVal !== null ? rtnVal : fallbackValue);
     };
@@ -25316,6 +25313,7 @@ var ViewController = (function () {
     function ViewController(component, data, rootCssClass) {
         if (rootCssClass === void 0) { rootCssClass = DEFAULT_CSS_CLASS; }
         this.component = component;
+        this._isHidden = false;
         this.isOverlay = false;
         this._emitter = new EventEmitter();
         this.data = (data instanceof NavParams ? data.data : (isPresent$5(data) ? data : {}));
@@ -25356,6 +25354,9 @@ var ViewController = (function () {
     ViewController.prototype.dismiss = function (data, role, navOptions) {
         var _this = this;
         if (navOptions === void 0) { navOptions = {}; }
+        if (!this._nav) {
+            return Promise.resolve(false);
+        }
         var options = merge$1({}, this._leavingOpts, navOptions);
         this._onWillDismiss && this._onWillDismiss(data, role);
         return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
@@ -25405,9 +25406,10 @@ var ViewController = (function () {
     };
     ViewController.prototype._domShow = function (shouldShow, renderer) {
         if (this._cmp) {
-            if (shouldShow && this._hidden === '' || !shouldShow && this._hidden !== '') {
-                this._hidden = (shouldShow ? null : '');
-                renderer.setElementAttribute(this.pageRef().nativeElement, 'hidden', this._hidden);
+            if (shouldShow === this._isHidden) {
+                this._isHidden = !shouldShow;
+                var value = (shouldShow ? null : '');
+                renderer.setElementAttribute(this.pageRef().nativeElement, 'hidden', value);
             }
         }
     };
@@ -27261,6 +27263,7 @@ var Events = (function () {
         });
     };
     Events.prototype.unsubscribe = function (topic, handler) {
+        if (handler === void 0) { handler = null; }
         var t = this._channels[topic];
         if (!t) {
             return false;
@@ -28550,7 +28553,7 @@ var NavControllerBase = (function (_super) {
             _this._zone.run(_this._trnsFinish.bind(_this, trns, opts, resolve));
         });
         var duration = trns.getDuration();
-        this.setTransitioning(true, duration);
+        this.setTransitioning(true, duration + ACTIVE_TRANSITION_OFFSET);
         if (!trns.parent) {
             if (duration > DISABLE_APP_MINIMUM_DURATION) {
                 this._app.setEnabled(false, duration);
@@ -28775,7 +28778,8 @@ var NavControllerBase = (function (_super) {
         configurable: true
     });
     NavControllerBase.prototype.present = function () {
-        console.warn('nav.present() has been deprecated.\n Please inject the overlay\'s controller and use the present method on the instance instead.');
+        console.warn('nav.present() has been deprecated.\n' +
+            'Please inject the overlay\'s controller and use the present method on the instance instead.');
         return Promise.resolve();
     };
     return NavControllerBase;
@@ -28783,6 +28787,7 @@ var NavControllerBase = (function (_super) {
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
 var ACTIVE_TRANSITION_MAX_TIME = 5000;
+var ACTIVE_TRANSITION_OFFSET = 200;
 
 var Animation = (function () {
     function Animation(ele, opts, raf$$1) {
@@ -32423,21 +32428,21 @@ var Activator = (function () {
         this._css = config.get('activatedClass') || 'activated';
     }
     Activator.prototype.downAction = function (ev, activatableEle, startCoord) {
-        var self = this;
-        if (self.disableActivated(ev)) {
+        var _this = this;
+        if (this.disableActivated(ev)) {
             return;
         }
-        self._queue.push(activatableEle);
+        this._queue.push(activatableEle);
         rafFrames(2, function () {
             var activatableEle;
-            for (var i = 0; i < self._queue.length; i++) {
-                activatableEle = self._queue[i];
+            for (var i = 0; i < _this._queue.length; i++) {
+                activatableEle = _this._queue[i];
                 if (activatableEle && activatableEle.parentNode) {
-                    self._active.push(activatableEle);
-                    activatableEle.classList.add(self._css);
+                    _this._active.push(activatableEle);
+                    activatableEle.classList.add(_this._css);
                 }
             }
-            self._queue = [];
+            _this._queue = [];
         });
     };
     Activator.prototype.upAction = function (ev, activatableEle, startCoord) {
@@ -32458,24 +32463,27 @@ var Activator = (function () {
         }
     };
     Activator.prototype.deactivate = function () {
-        var self = this;
-        self._queue = [];
+        var _this = this;
+        this._queue = [];
         rafFrames(2, function () {
-            for (var i = 0; i < self._active.length; i++) {
-                self._active[i].classList.remove(self._css);
+            for (var i = 0; i < _this._active.length; i++) {
+                _this._active[i].classList.remove(_this._css);
             }
-            self._active = [];
+            _this._active = [];
         });
     };
     Activator.prototype.disableActivated = function (ev) {
-        if (ev.defaultPrevented)
+        if (ev.defaultPrevented) {
             return true;
+        }
         var targetEle = ev.target;
-        for (var x = 0; x < 4; x++) {
-            if (!targetEle)
+        for (var i = 0; i < 4; i++) {
+            if (!targetEle) {
                 break;
-            if (targetEle.hasAttribute('disable-activated'))
+            }
+            if (targetEle.hasAttribute('disable-activated')) {
                 return true;
+            }
             targetEle = targetEle.parentElement;
         }
         return false;
@@ -32521,15 +32529,14 @@ var RippleActivator = (function (_super) {
         this._queue = [];
     };
     RippleActivator.prototype.upAction = function (ev, activatableEle, startCoord) {
-        if (hasPointerMoved(6, startCoord, pointerCoord(ev))) {
-            return;
-        }
-        var i = activatableEle.childElementCount;
-        while (i--) {
-            var rippleEle = activatableEle.children[i];
-            if (rippleEle.classList.contains('button-effect')) {
-                this.startRippleEffect(rippleEle, activatableEle, startCoord);
-                break;
+        if (!hasPointerMoved(6, startCoord, pointerCoord(ev))) {
+            var i = activatableEle.childElementCount;
+            while (i--) {
+                var rippleEle = activatableEle.children[i];
+                if (rippleEle.classList.contains('button-effect')) {
+                    this.startRippleEffect(rippleEle, activatableEle, startCoord);
+                    break;
+                }
             }
         }
         _super.prototype.upAction.call(this, ev, activatableEle, startCoord);
@@ -32581,29 +32588,29 @@ var TOUCH_DOWN_ACCEL = 300;
 
 var TapClick = (function () {
     function TapClick(config, app, zone) {
+        var _this = this;
         this.app = app;
         this.lastTouch = 0;
         this.disableClick = 0;
         this.lastActivated = 0;
-        var self = this;
         if (config.get('activator') === 'ripple') {
-            self.activator = new RippleActivator(app, config);
+            this.activator = new RippleActivator(app, config);
         }
         else if (config.get('activator') === 'highlight') {
-            self.activator = new Activator(app, config);
+            this.activator = new Activator(app, config);
         }
-        self.usePolyfill = (config.get('tapPolyfill') === true);
+        this.usePolyfill = (config.get('tapPolyfill') === true);
         zone.runOutsideAngular(function () {
-            addListener('click', self.click.bind(self), true);
-            addListener('touchstart', self.touchStart.bind(self));
-            addListener('touchend', self.touchEnd.bind(self));
-            addListener('touchcancel', self.pointerCancel.bind(self));
-            addListener('mousedown', self.mouseDown.bind(self), true);
-            addListener('mouseup', self.mouseUp.bind(self), true);
+            addListener('click', _this.click.bind(_this), true);
+            addListener('touchstart', _this.touchStart.bind(_this));
+            addListener('touchend', _this.touchEnd.bind(_this));
+            addListener('touchcancel', _this.pointerCancel.bind(_this));
+            addListener('mousedown', _this.mouseDown.bind(_this), true);
+            addListener('mouseup', _this.mouseUp.bind(_this), true);
         });
-        self.pointerMove = function (ev) {
-            if (hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, self.startCoord, pointerCoord(ev))) {
-                self.pointerCancel(ev);
+        this.pointerMove = function (ev) {
+            if (!_this.startCoord || hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, _this.startCoord, pointerCoord(ev))) {
+                _this.pointerCancel(ev);
             }
         };
     }
@@ -33418,13 +33425,6 @@ var Button = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Button.prototype, "fab", {
-        set: function (val) {
-            this._attr('_shape', 'fab', val);
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(Button.prototype, "block", {
         set: function (val) {
             this._attr('_display', 'block', val);
@@ -33537,7 +33537,6 @@ var Button = (function (_super) {
         'clear': [{ type: Input },],
         'solid': [{ type: Input },],
         'round': [{ type: Input },],
-        'fab': [{ type: Input },],
         'block': [{ type: Input },],
         'full': [{ type: Input },],
         'mode': [{ type: Input },],
@@ -35450,6 +35449,9 @@ var ItemReorderGesture = (function () {
         });
     }
     ItemReorderGesture.prototype.onDragStart = function (ev) {
+        if (this.selectedItemEle) {
+            return false;
+        }
         var reorderElement = ev.target;
         if (reorderElement.nodeName !== 'ION-REORDER') {
             return false;
@@ -35492,7 +35494,7 @@ var ItemReorderGesture = (function () {
             if (overItem) {
                 var toIndex = indexForItem(overItem);
                 if (toIndex !== undefined && (toIndex !== this.lastToIndex || this.emptyZone)) {
-                    var fromIndex = indexForItem(this.selectedItemEle);
+                    var fromIndex = indexForItem(selectedItem);
                     this.lastToIndex = toIndex;
                     this.lastYcoord = posY;
                     this.emptyZone = false;
@@ -35506,20 +35508,25 @@ var ItemReorderGesture = (function () {
         var ydiff = Math.round(posY - this.offset.y + scrollPosition);
         selectedItem.style[CSS.transform] = "translateY(" + ydiff + "px)";
     };
-    ItemReorderGesture.prototype.onDragEnd = function () {
+    ItemReorderGesture.prototype.onDragEnd = function (ev) {
         var _this = this;
-        if (!this.selectedItemEle) {
+        var selectedItem = this.selectedItemEle;
+        if (!selectedItem) {
             return;
         }
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
         var toIndex = this.lastToIndex;
-        var fromIndex = indexForItem(this.selectedItemEle);
+        var fromIndex = indexForItem(selectedItem);
         var reorderInactive = function () {
             _this.selectedItemEle.style.transition = '';
             _this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
             _this.selectedItemEle = null;
         };
         if (toIndex === fromIndex) {
-            this.selectedItemEle.style.transition = 'transform 200ms ease-in-out';
+            selectedItem.style.transition = 'transform 200ms ease-in-out';
             setTimeout(reorderInactive, 200);
         }
         else {
@@ -35528,7 +35535,7 @@ var ItemReorderGesture = (function () {
         this.reorderList.reorderEmit(fromIndex, toIndex);
     };
     ItemReorderGesture.prototype.itemForCoord = function (coord) {
-        return itemForPosition(this.offset.x - 100, coord.y);
+        return itemForPosition(this.offset.x - 100, coord.y, this.reorderList.getNativeElement());
     };
     ItemReorderGesture.prototype.scroll = function (posY) {
         if (posY < AUTO_SCROLL_MARGIN) {
@@ -35540,16 +35547,16 @@ var ItemReorderGesture = (function () {
         return this.lastScrollPosition;
     };
     ItemReorderGesture.prototype.destroy = function () {
-        this.onDragEnd();
+        this.onDragEnd(null);
         this.events.unlistenAll();
         this.events = null;
         this.reorderList = null;
     };
     return ItemReorderGesture;
 }());
-function itemForPosition(x, y) {
+function itemForPosition(x, y, list) {
     var element = document.elementFromPoint(x, y);
-    return findReorderItem(element);
+    return findReorderItem(element, list);
 }
 
 var ItemReorder = (function () {
@@ -35591,9 +35598,12 @@ var ItemReorder = (function () {
         configurable: true
     });
     ItemReorder.prototype.reorderPrepare = function () {
-        var children = this._element.children;
+        var ele = this._element;
+        var children = ele.children;
         for (var i = 0, ilen = children.length; i < ilen; i++) {
-            children[i].$ionIndex = i;
+            var child = children[i];
+            child.$ionIndex = i;
+            child.$ionReorderList = ele;
         }
     };
     ItemReorder.prototype.reorderStart = function () {
@@ -35688,7 +35698,11 @@ var Reorder = (function () {
     }
     Reorder.prototype.getReorderNode = function () {
         var node = this.item.getNativeElement();
-        return findReorderItem(node);
+        return findReorderItem(node, null);
+    };
+    Reorder.prototype.onClick = function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
     };
     Reorder.decorators = [
         { type: Component, args: [{
@@ -35697,15 +35711,21 @@ var Reorder = (function () {
                 },] },
     ];
     Reorder.ctorParameters = [
-        { type: Item, decorators: [{ type: Inject, args: [forwardRef(function () { return Item; }),] },] },
+        { type: ItemReorder, decorators: [{ type: Inject, args: [forwardRef(function () { return Item; }),] },] },
         { type: ElementRef, },
     ];
+    Reorder.propDecorators = {
+        'onClick': [{ type: HostListener, args: ['click', ['$event'],] },],
+    };
     return Reorder;
 }());
-function findReorderItem(node) {
+function findReorderItem(node, listNode) {
     var nested = 0;
     while (node && nested < 4) {
         if (indexForItem(node) !== undefined) {
+            if (listNode && node.parentNode !== listNode) {
+                return null;
+            }
             return node;
         }
         node = node.parentNode;
@@ -36247,6 +36267,7 @@ var MenuContentGesture = (function (_super) {
 
 var Menu = (function () {
     function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, gestureCtrl) {
+        this._menuCtrl = _menuCtrl;
         this._elementRef = _elementRef;
         this._config = _config;
         this._platform = _platform;
@@ -36259,11 +36280,11 @@ var Menu = (function () {
         this._isAnimating = false;
         this._isPers = false;
         this._init = false;
+        this._events = new UIEventManager();
         this.isOpen = false;
         this.ionDrag = new EventEmitter();
         this.ionOpen = new EventEmitter();
         this.ionClose = new EventEmitter();
-        this._menuCtrl = _menuCtrl;
     }
     Object.defineProperty(Menu.prototype, "enabled", {
         get: function () {
@@ -36321,22 +36342,15 @@ var Menu = (function () {
             self._isEnabled = false;
         }
         self._setListeners();
-        self.onContentClick = function (ev) {
-            if (self._isEnabled) {
-                ev.preventDefault();
-                ev.stopPropagation();
-                self.close();
-            }
-        };
         self._cntEle.classList.add('menu-content');
         self._cntEle.classList.add('menu-content-' + self.type);
         self._menuCtrl.register(self);
     };
-    Menu.prototype.bdClick = function (ev) {
-        // console.debug('backdrop clicked');
+    Menu.prototype.onBackdropClick = function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
         this._menuCtrl.close();
+        return false;
     };
     Menu.prototype._setListeners = function () {
         if (!this._init) {
@@ -36418,9 +36432,17 @@ var Menu = (function () {
         this.isOpen = isOpen;
         this._isAnimating = false;
         this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-        this._cntEle.removeEventListener('click', this.onContentClick);
+        this._events.unlistenAll();
         if (isOpen) {
-            this._cntEle.addEventListener('click', this.onContentClick);
+            var callback = this.onBackdropClick.bind(this);
+            this._events.pointerEvents({
+                element: this._cntEle,
+                pointerDown: callback
+            });
+            this._events.pointerEvents({
+                element: this.backdrop.getNativeElement(),
+                pointerDown: callback
+            });
             this.ionOpen.emit(true);
         }
         else {
@@ -36475,6 +36497,7 @@ var Menu = (function () {
     };
     Menu.prototype.ngOnDestroy = function () {
         this._menuCtrl.unregister(this);
+        this._events.unlistenAll();
         this._cntGesture && this._cntGesture.destroy();
         this._type && this._type.destroy();
         this._resizeUnreg && this._resizeUnreg();
@@ -36487,7 +36510,7 @@ var Menu = (function () {
         { type: Component, args: [{
                     selector: 'ion-menu',
                     template: '<div class="menu-inner"><ng-content></ng-content></div>' +
-                        '<ion-backdrop (click)="bdClick($event)" disableScroll="false"></ion-backdrop>',
+                        '<ion-backdrop disableScroll="false"></ion-backdrop>',
                     host: {
                         'role': 'navigation'
                     },
@@ -38778,6 +38801,7 @@ var Segment = (function (_super) {
     ];
     Segment.propDecorators = {
         'color': [{ type: Input },],
+        'mode': [{ type: Input },],
         'ionChange': [{ type: Output },],
         '_buttons': [{ type: ContentChildren, args: [SegmentButton,] },],
         'disabled': [{ type: Input },],
@@ -45433,7 +45457,8 @@ var InputBase = (function (_super) {
     };
     InputBase.prototype.checkHasValue = function (inputValue) {
         if (this._item) {
-            this._item.setElementClass('input-has-value', !!(inputValue && inputValue !== ''));
+            var hasValue = (inputValue !== null && inputValue !== undefined && inputValue !== '');
+            this._item.setElementClass('input-has-value', hasValue);
         }
     };
     InputBase.prototype.focusChange = function (inputHasFocus) {
@@ -45860,9 +45885,11 @@ var Toggle = (function (_super) {
         this._form = _form;
         this._item = _item;
         this._checked = false;
+        this._init = false;
         this._disabled = false;
         this._activated = false;
         this._msPrv = 0;
+        this._fn = null;
         this._events = new UIEventManager();
         this.ionChange = new EventEmitter();
         this.mode = config.get('mode');
@@ -45949,16 +45976,11 @@ var Toggle = (function (_super) {
         this._setChecked(isTrueProperty(val));
     };
     Toggle.prototype.registerOnChange = function (fn) {
-        var _this = this;
         this._fn = fn;
-        this.onChange = function (isChecked) {
-            // console.debug('toggle, onChange', isChecked);
-            fn(isChecked);
-            _this._setChecked(isChecked);
-            _this.onTouched();
-        };
     };
-    Toggle.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+    Toggle.prototype.registerOnTouched = function (fn) {
+        this.onTouched = fn;
+    };
     Object.defineProperty(Toggle.prototype, "disabled", {
         get: function () {
             return this._disabled;
@@ -45971,7 +45993,8 @@ var Toggle = (function (_super) {
         configurable: true
     });
     Toggle.prototype.onChange = function (isChecked) {
-        // console.debug('toggle, onChange (no ngModel)', isChecked);
+        // console.debug('toggle, onChange', isChecked);
+        this._fn && this._fn(isChecked);
         this._setChecked(isChecked);
         this.onTouched();
     };
@@ -45988,6 +46011,7 @@ var Toggle = (function (_super) {
     Toggle.prototype.ngOnDestroy = function () {
         this._form.deregister(this);
         this._events.unlistenAll();
+        this._fn = null;
     };
     Toggle.decorators = [
         { type: Component, args: [{
@@ -46132,7 +46156,7 @@ var Typography = (function (_super) {
     });
     Typography.decorators = [
         { type: Directive, args: [{
-                    selector: 'h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color], p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]'
+                    selector: 'h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color]:not([ion-button]), p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]'
                 },] },
     ];
     Typography.ctorParameters = [
@@ -47043,6 +47067,7 @@ var IONIC_DIRECTIVES = [
     Tab,
     Tabs,
     TabButton,
+    TabHighlight,
     TextArea,
     TextInput,
     Thumbnail,
@@ -51474,8 +51499,6 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_32 = UNINITIALIZED;
         this._expr_33 = UNINITIALIZED;
         this._expr_34 = UNINITIALIZED;
-        this._expr_35 = UNINITIALIZED;
-        this._expr_36 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -51729,184 +51752,168 @@ var _View_ApiDemoPage0 = (function (_super) {
         changed = false;
         var currVal_10 = '';
         if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._Button_41_4.fab = currVal_10;
+            this._Button_47_4.outline = currVal_10;
             changed = true;
             this._expr_10 = currVal_10;
         }
-        if (changed) {
-            this._appEl_41.componentView.markAsCheckOnce();
-        }
-        changed = false;
         var currVal_11 = '';
         if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._Button_47_4.outline = currVal_11;
+            this._Button_47_4.full = currVal_11;
             changed = true;
             this._expr_11 = currVal_11;
         }
-        var currVal_12 = '';
+        var currVal_12 = 'secondary';
         if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Button_47_4.full = currVal_12;
+            this._Button_47_4.color = currVal_12;
             changed = true;
             this._expr_12 = currVal_12;
-        }
-        var currVal_13 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._Button_47_4.color = currVal_13;
-            changed = true;
-            this._expr_13 = currVal_13;
         }
         if (changed) {
             this._appEl_47.componentView.markAsCheckOnce();
         }
         changed = false;
+        var currVal_13 = '';
+        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
+            this._Button_50_4.outline = currVal_13;
+            changed = true;
+            this._expr_13 = currVal_13;
+        }
         var currVal_14 = '';
         if (checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Button_50_4.outline = currVal_14;
+            this._Button_50_4.block = currVal_14;
             changed = true;
             this._expr_14 = currVal_14;
         }
-        var currVal_15 = '';
+        var currVal_15 = 'secondary';
         if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Button_50_4.block = currVal_15;
+            this._Button_50_4.color = currVal_15;
             changed = true;
             this._expr_15 = currVal_15;
-        }
-        var currVal_16 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this._Button_50_4.color = currVal_16;
-            changed = true;
-            this._expr_16 = currVal_16;
         }
         if (changed) {
             this._appEl_50.componentView.markAsCheckOnce();
         }
         changed = false;
+        var currVal_16 = '';
+        if (checkBinding(throwOnChange, this._expr_16, currVal_16)) {
+            this._Button_53_4.outline = currVal_16;
+            changed = true;
+            this._expr_16 = currVal_16;
+        }
         var currVal_17 = '';
         if (checkBinding(throwOnChange, this._expr_17, currVal_17)) {
-            this._Button_53_4.outline = currVal_17;
+            this._Button_53_4.round = currVal_17;
             changed = true;
             this._expr_17 = currVal_17;
         }
-        var currVal_18 = '';
+        var currVal_18 = 'secondary';
         if (checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this._Button_53_4.round = currVal_18;
+            this._Button_53_4.color = currVal_18;
             changed = true;
             this._expr_18 = currVal_18;
-        }
-        var currVal_19 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this._Button_53_4.color = currVal_19;
-            changed = true;
-            this._expr_19 = currVal_19;
         }
         if (changed) {
             this._appEl_53.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_20 = '';
+        var currVal_19 = '';
+        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
+            this._Button_56_4.outline = currVal_19;
+            changed = true;
+            this._expr_19 = currVal_19;
+        }
+        var currVal_20 = 'secondary';
         if (checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._Button_56_4.outline = currVal_20;
+            this._Button_56_4.color = currVal_20;
             changed = true;
             this._expr_20 = currVal_20;
-        }
-        var currVal_21 = '';
-        if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Button_56_4.fab = currVal_21;
-            changed = true;
-            this._expr_21 = currVal_21;
-        }
-        var currVal_22 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this._Button_56_4.color = currVal_22;
-            changed = true;
-            this._expr_22 = currVal_22;
         }
         if (changed) {
             this._appEl_56.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_23 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_23, currVal_23)) {
-            this._Button_62_4.color = currVal_23;
+        var currVal_21 = 'dark';
+        if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this._Button_62_4.color = currVal_21;
             changed = true;
-            this._expr_23 = currVal_23;
+            this._expr_21 = currVal_21;
         }
         if (changed) {
             this._appEl_62.componentView.markAsCheckOnce();
         }
-        var currVal_24 = 'star';
-        if (checkBinding(throwOnChange, this._expr_24, currVal_24)) {
-            this._Icon_64_3.name = currVal_24;
-            this._expr_24 = currVal_24;
+        var currVal_22 = 'star';
+        if (checkBinding(throwOnChange, this._expr_22, currVal_22)) {
+            this._Icon_64_3.name = currVal_22;
+            this._expr_22 = currVal_22;
         }
         changed = false;
-        var currVal_26 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this._Button_67_4.color = currVal_26;
+        var currVal_24 = 'dark';
+        if (checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this._Button_67_4.color = currVal_24;
             changed = true;
-            this._expr_26 = currVal_26;
+            this._expr_24 = currVal_24;
         }
         if (changed) {
             this._appEl_67.componentView.markAsCheckOnce();
         }
-        var currVal_27 = 'star';
-        if (checkBinding(throwOnChange, this._expr_27, currVal_27)) {
-            this._Icon_69_3.name = currVal_27;
-            this._expr_27 = currVal_27;
+        var currVal_25 = 'star';
+        if (checkBinding(throwOnChange, this._expr_25, currVal_25)) {
+            this._Icon_69_3.name = currVal_25;
+            this._expr_25 = currVal_25;
         }
         changed = false;
-        var currVal_29 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this._Button_72_4.color = currVal_29;
+        var currVal_27 = 'dark';
+        if (checkBinding(throwOnChange, this._expr_27, currVal_27)) {
+            this._Button_72_4.color = currVal_27;
             changed = true;
-            this._expr_29 = currVal_29;
+            this._expr_27 = currVal_27;
         }
         if (changed) {
             this._appEl_72.componentView.markAsCheckOnce();
         }
-        var currVal_30 = 'star';
-        if (checkBinding(throwOnChange, this._expr_30, currVal_30)) {
-            this._Icon_74_3.name = currVal_30;
-            this._expr_30 = currVal_30;
+        var currVal_28 = 'star';
+        if (checkBinding(throwOnChange, this._expr_28, currVal_28)) {
+            this._Icon_74_3.name = currVal_28;
+            this._expr_28 = currVal_28;
         }
         changed = false;
-        var currVal_32 = '';
-        if (checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this._Button_80_4.large = currVal_32;
+        var currVal_30 = '';
+        if (checkBinding(throwOnChange, this._expr_30, currVal_30)) {
+            this._Button_80_4.large = currVal_30;
             changed = true;
-            this._expr_32 = currVal_32;
+            this._expr_30 = currVal_30;
         }
-        var currVal_33 = 'light';
-        if (checkBinding(throwOnChange, this._expr_33, currVal_33)) {
-            this._Button_80_4.color = currVal_33;
+        var currVal_31 = 'light';
+        if (checkBinding(throwOnChange, this._expr_31, currVal_31)) {
+            this._Button_80_4.color = currVal_31;
             changed = true;
-            this._expr_33 = currVal_33;
+            this._expr_31 = currVal_31;
         }
         if (changed) {
             this._appEl_80.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_34 = 'light';
-        if (checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Button_83_4.color = currVal_34;
+        var currVal_32 = 'light';
+        if (checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this._Button_83_4.color = currVal_32;
             changed = true;
-            this._expr_34 = currVal_34;
+            this._expr_32 = currVal_32;
         }
         if (changed) {
             this._appEl_83.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_35 = '';
-        if (checkBinding(throwOnChange, this._expr_35, currVal_35)) {
-            this._Button_86_4.small = currVal_35;
+        var currVal_33 = '';
+        if (checkBinding(throwOnChange, this._expr_33, currVal_33)) {
+            this._Button_86_4.small = currVal_33;
             changed = true;
-            this._expr_35 = currVal_35;
+            this._expr_33 = currVal_33;
         }
-        var currVal_36 = 'light';
-        if (checkBinding(throwOnChange, this._expr_36, currVal_36)) {
-            this._Button_86_4.color = currVal_36;
+        var currVal_34 = 'light';
+        if (checkBinding(throwOnChange, this._expr_34, currVal_34)) {
+            this._Button_86_4.color = currVal_34;
             changed = true;
-            this._expr_36 = currVal_36;
+            this._expr_34 = currVal_34;
         }
         if (changed) {
             this._appEl_86.componentView.markAsCheckOnce();
@@ -51986,20 +51993,20 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_25 = this._Icon_64_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this.renderer.setElementClass(this._el_64, 'hide', currVal_25);
-            this._expr_25 = currVal_25;
+        var currVal_23 = this._Icon_64_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this.renderer.setElementClass(this._el_64, 'hide', currVal_23);
+            this._expr_23 = currVal_23;
         }
-        var currVal_28 = this._Icon_69_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this.renderer.setElementClass(this._el_69, 'hide', currVal_28);
-            this._expr_28 = currVal_28;
+        var currVal_26 = this._Icon_69_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this.renderer.setElementClass(this._el_69, 'hide', currVal_26);
+            this._expr_26 = currVal_26;
         }
-        var currVal_31 = this._Icon_74_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this.renderer.setElementClass(this._el_74, 'hide', currVal_31);
-            this._expr_31 = currVal_31;
+        var currVal_29 = this._Icon_74_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_29, currVal_29)) {
+            this.renderer.setElementClass(this._el_74, 'hide', currVal_29);
+            this._expr_29 = currVal_29;
         }
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {

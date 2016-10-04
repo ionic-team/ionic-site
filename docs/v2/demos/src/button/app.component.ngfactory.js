@@ -450,8 +450,6 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_32 = import7.UNINITIALIZED;
         this._expr_33 = import7.UNINITIALIZED;
         this._expr_34 = import7.UNINITIALIZED;
-        this._expr_35 = import7.UNINITIALIZED;
-        this._expr_36 = import7.UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -705,184 +703,168 @@ var _View_ApiDemoPage0 = (function (_super) {
         changed = false;
         var currVal_10 = '';
         if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._Button_41_4.fab = currVal_10;
+            this._Button_47_4.outline = currVal_10;
             changed = true;
             this._expr_10 = currVal_10;
         }
-        if (changed) {
-            this._appEl_41.componentView.markAsCheckOnce();
-        }
-        changed = false;
         var currVal_11 = '';
         if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._Button_47_4.outline = currVal_11;
+            this._Button_47_4.full = currVal_11;
             changed = true;
             this._expr_11 = currVal_11;
         }
-        var currVal_12 = '';
+        var currVal_12 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Button_47_4.full = currVal_12;
+            this._Button_47_4.color = currVal_12;
             changed = true;
             this._expr_12 = currVal_12;
-        }
-        var currVal_13 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._Button_47_4.color = currVal_13;
-            changed = true;
-            this._expr_13 = currVal_13;
         }
         if (changed) {
             this._appEl_47.componentView.markAsCheckOnce();
         }
         changed = false;
+        var currVal_13 = '';
+        if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
+            this._Button_50_4.outline = currVal_13;
+            changed = true;
+            this._expr_13 = currVal_13;
+        }
         var currVal_14 = '';
         if (import4.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Button_50_4.outline = currVal_14;
+            this._Button_50_4.block = currVal_14;
             changed = true;
             this._expr_14 = currVal_14;
         }
-        var currVal_15 = '';
+        var currVal_15 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Button_50_4.block = currVal_15;
+            this._Button_50_4.color = currVal_15;
             changed = true;
             this._expr_15 = currVal_15;
-        }
-        var currVal_16 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this._Button_50_4.color = currVal_16;
-            changed = true;
-            this._expr_16 = currVal_16;
         }
         if (changed) {
             this._appEl_50.componentView.markAsCheckOnce();
         }
         changed = false;
+        var currVal_16 = '';
+        if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
+            this._Button_53_4.outline = currVal_16;
+            changed = true;
+            this._expr_16 = currVal_16;
+        }
         var currVal_17 = '';
         if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
-            this._Button_53_4.outline = currVal_17;
+            this._Button_53_4.round = currVal_17;
             changed = true;
             this._expr_17 = currVal_17;
         }
-        var currVal_18 = '';
+        var currVal_18 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this._Button_53_4.round = currVal_18;
+            this._Button_53_4.color = currVal_18;
             changed = true;
             this._expr_18 = currVal_18;
-        }
-        var currVal_19 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this._Button_53_4.color = currVal_19;
-            changed = true;
-            this._expr_19 = currVal_19;
         }
         if (changed) {
             this._appEl_53.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_20 = '';
+        var currVal_19 = '';
+        if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
+            this._Button_56_4.outline = currVal_19;
+            changed = true;
+            this._expr_19 = currVal_19;
+        }
+        var currVal_20 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._Button_56_4.outline = currVal_20;
+            this._Button_56_4.color = currVal_20;
             changed = true;
             this._expr_20 = currVal_20;
-        }
-        var currVal_21 = '';
-        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Button_56_4.fab = currVal_21;
-            changed = true;
-            this._expr_21 = currVal_21;
-        }
-        var currVal_22 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this._Button_56_4.color = currVal_22;
-            changed = true;
-            this._expr_22 = currVal_22;
         }
         if (changed) {
             this._appEl_56.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_23 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
-            this._Button_62_4.color = currVal_23;
+        var currVal_21 = 'dark';
+        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this._Button_62_4.color = currVal_21;
             changed = true;
-            this._expr_23 = currVal_23;
+            this._expr_21 = currVal_21;
         }
         if (changed) {
             this._appEl_62.componentView.markAsCheckOnce();
         }
-        var currVal_24 = 'star';
-        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
-            this._Icon_64_3.name = currVal_24;
-            this._expr_24 = currVal_24;
+        var currVal_22 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
+            this._Icon_64_3.name = currVal_22;
+            this._expr_22 = currVal_22;
         }
         changed = false;
-        var currVal_26 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this._Button_67_4.color = currVal_26;
+        var currVal_24 = 'dark';
+        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this._Button_67_4.color = currVal_24;
             changed = true;
-            this._expr_26 = currVal_26;
+            this._expr_24 = currVal_24;
         }
         if (changed) {
             this._appEl_67.componentView.markAsCheckOnce();
         }
-        var currVal_27 = 'star';
-        if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
-            this._Icon_69_3.name = currVal_27;
-            this._expr_27 = currVal_27;
+        var currVal_25 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_25, currVal_25)) {
+            this._Icon_69_3.name = currVal_25;
+            this._expr_25 = currVal_25;
         }
         changed = false;
-        var currVal_29 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this._Button_72_4.color = currVal_29;
+        var currVal_27 = 'dark';
+        if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
+            this._Button_72_4.color = currVal_27;
             changed = true;
-            this._expr_29 = currVal_29;
+            this._expr_27 = currVal_27;
         }
         if (changed) {
             this._appEl_72.componentView.markAsCheckOnce();
         }
-        var currVal_30 = 'star';
-        if (import4.checkBinding(throwOnChange, this._expr_30, currVal_30)) {
-            this._Icon_74_3.name = currVal_30;
-            this._expr_30 = currVal_30;
+        var currVal_28 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_28, currVal_28)) {
+            this._Icon_74_3.name = currVal_28;
+            this._expr_28 = currVal_28;
         }
         changed = false;
-        var currVal_32 = '';
-        if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this._Button_80_4.large = currVal_32;
+        var currVal_30 = '';
+        if (import4.checkBinding(throwOnChange, this._expr_30, currVal_30)) {
+            this._Button_80_4.large = currVal_30;
             changed = true;
-            this._expr_32 = currVal_32;
+            this._expr_30 = currVal_30;
         }
-        var currVal_33 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_33, currVal_33)) {
-            this._Button_80_4.color = currVal_33;
+        var currVal_31 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_31, currVal_31)) {
+            this._Button_80_4.color = currVal_31;
             changed = true;
-            this._expr_33 = currVal_33;
+            this._expr_31 = currVal_31;
         }
         if (changed) {
             this._appEl_80.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_34 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Button_83_4.color = currVal_34;
+        var currVal_32 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this._Button_83_4.color = currVal_32;
             changed = true;
-            this._expr_34 = currVal_34;
+            this._expr_32 = currVal_32;
         }
         if (changed) {
             this._appEl_83.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_35 = '';
-        if (import4.checkBinding(throwOnChange, this._expr_35, currVal_35)) {
-            this._Button_86_4.small = currVal_35;
+        var currVal_33 = '';
+        if (import4.checkBinding(throwOnChange, this._expr_33, currVal_33)) {
+            this._Button_86_4.small = currVal_33;
             changed = true;
-            this._expr_35 = currVal_35;
+            this._expr_33 = currVal_33;
         }
-        var currVal_36 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_36, currVal_36)) {
-            this._Button_86_4.color = currVal_36;
+        var currVal_34 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
+            this._Button_86_4.color = currVal_34;
             changed = true;
-            this._expr_36 = currVal_36;
+            this._expr_34 = currVal_34;
         }
         if (changed) {
             this._appEl_86.componentView.markAsCheckOnce();
@@ -962,20 +944,20 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_25 = this._Icon_64_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this.renderer.setElementClass(this._el_64, 'hide', currVal_25);
-            this._expr_25 = currVal_25;
+        var currVal_23 = this._Icon_64_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this.renderer.setElementClass(this._el_64, 'hide', currVal_23);
+            this._expr_23 = currVal_23;
         }
-        var currVal_28 = this._Icon_69_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this.renderer.setElementClass(this._el_69, 'hide', currVal_28);
-            this._expr_28 = currVal_28;
+        var currVal_26 = this._Icon_69_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this.renderer.setElementClass(this._el_69, 'hide', currVal_26);
+            this._expr_26 = currVal_26;
         }
-        var currVal_31 = this._Icon_74_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this.renderer.setElementClass(this._el_74, 'hide', currVal_31);
-            this._expr_31 = currVal_31;
+        var currVal_29 = this._Icon_74_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
+            this.renderer.setElementClass(this._el_74, 'hide', currVal_29);
+            this._expr_29 = currVal_29;
         }
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {

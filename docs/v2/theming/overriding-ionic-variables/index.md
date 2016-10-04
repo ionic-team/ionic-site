@@ -13,7 +13,7 @@ footer_includes: <script src="app.js"></script>
   Improve this doc
 </a>
 
-There are many variables you can override with Ionic. Any of the following variables can be overridden from your `app/theme/app.variables.scss` file, just add a new value to the file:
+There are many variables you can override with Ionic. Any of the following variables can be overridden from your `src/theme/variables.scss` file, just add a new value to the file:
 
 ```scss
 $text-color: #000099;

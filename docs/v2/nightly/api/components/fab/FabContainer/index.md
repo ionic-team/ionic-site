@@ -73,7 +73,7 @@ that shows a list of related actions when clicked.</p>
 <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code>. For example, if you want to have a list of button that are
 on the top of the main button, you should use <code>side=&quot;top&quot;</code> and so on. By default, if side is ommited, <code>side=&quot;bottom&quot;</code>.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
- &lt;!-- this fab is placed at top right --&gt;
+ &lt;!-- this fab is placed at bottom right --&gt;
  &lt;ion-fab bottom right &gt;
    &lt;button ion-fab&gt;Share&lt;/button&gt;
    &lt;ion-fab-list side=&quot;top&quot;&gt;

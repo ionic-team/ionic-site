@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   WebIntent
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/webintent.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,7 +53,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -76,11 +72,15 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="ACTION_VIEW"></div>
 <h3><code>ACTION_VIEW()</code>
   
 </h3>
+
 
 
 
@@ -107,10 +107,12 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+
 <div id="startActivity"></div>
 <h3><code>startActivity()</code>
   
 </h3>
+
 
 
 
@@ -137,10 +139,12 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+
 <div id="getExtra"></div>
 <h3><code>getExtra()</code>
   
 </h3>
+
 
 
 
@@ -167,10 +171,12 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+
 <div id="onNewIntent"></div>
 <h3><code>onNewIntent()</code>
   
 </h3>
+
 
 
 
@@ -198,7 +204,18 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

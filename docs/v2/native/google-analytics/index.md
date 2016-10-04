@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Google Analytics
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googleanalytics.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -63,10 +59,8 @@ Prerequisites:</p>
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -75,11 +69,15 @@ Prerequisites:</p>
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="startTrackerWithId"></div>
 <h3><code>startTrackerWithId(id)</code>
   
 </h3>
+
 
 In your 'deviceready' handler, set up your Analytics tracker.
 https://developers.google.com/analytics/devguides/collection/analyticsjs/
@@ -125,6 +123,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
 <h3><code>trackView(title,&nbsp;campaignUrl)</code>
   
 </h3>
+
 
 Track a screen
 https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
@@ -188,6 +187,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
 <h3><code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value)</code>
   
 </h3>
+
 
 Track an event
 https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -281,6 +281,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
   
 </h3>
 
+
 Track an exception
 
 
@@ -339,6 +340,7 @@ Track an exception
 <h3><code>trackTiming(category,&nbsp;intervalInMilliseconds,&nbsp;variable,&nbsp;label)</code>
   
 </h3>
+
 
 Track User Timing (App Speed)
 
@@ -430,6 +432,7 @@ Track User Timing (App Speed)
 <h3><code>addTransaction(id,&nbsp;affiliation,&nbsp;revenue,&nbsp;tax,&nbsp;shipping,&nbsp;currencyCode)</code>
   
 </h3>
+
 
 Add a Transaction (Ecommerce)
 https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
@@ -554,6 +557,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <h3><code>addTransactionItem(id,&nbsp;name,&nbsp;sku,&nbsp;category,&nbsp;price,&nbsp;quantity,&nbsp;currencyCode)</code>
   
 </h3>
+
 
 Add a Transaction Item (Ecommerce)
 https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
@@ -695,6 +699,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
   
 </h3>
 
+
 Add a Custom Dimension
 https://developers.google.com/analytics/devguides/platform/customdimsmets
 
@@ -757,6 +762,7 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
 
 
 
+
 Set a UserId
 https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 
@@ -800,6 +806,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 <h3><code>setAppVersion(appVersion)</code>
   
 </h3>
+
 
 
 
@@ -848,6 +855,7 @@ Sets the app version
 
 
 
+
 Set a anonymize Ip address
 
 
@@ -890,6 +898,7 @@ Set a anonymize Ip address
 <h3><code>setAllowIDFACollection(allow)</code>
   
 </h3>
+
 
 
 
@@ -938,6 +947,7 @@ Enabling Advertising Features in Google Analytics allows you to take advantage o
 
 
 
+
 Enable verbose logging
 
 
@@ -953,6 +963,7 @@ Enable verbose logging
 <h3><code>enableUncaughtExceptionReporting(shouldEnable)</code>
   
 </h3>
+
 
 Enable/disable automatic reporting of uncaught exceptions
 
@@ -994,6 +1005,16 @@ Enable/disable automatic reporting of uncaught exceptions
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

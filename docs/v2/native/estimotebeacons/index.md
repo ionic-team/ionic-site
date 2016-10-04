@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   EstimoteBeacons
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/estimote-beacons.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -69,11 +63,16 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="ProximityUnknown"></div>
 <h3><code>ProximityUnknown()</code>
   
-</h3>Proximity value
+</h3>
+
+Proximity value
 
 
 
@@ -87,7 +86,9 @@ docType: "class"
 <div id="ProximityImmediate"></div>
 <h3><code>ProximityImmediate()</code>
   
-</h3>Proximity value
+</h3>
+
+Proximity value
 
 
 
@@ -101,7 +102,9 @@ docType: "class"
 <div id="ProximityNear"></div>
 <h3><code>ProximityNear()</code>
   
-</h3>Proximity value
+</h3>
+
+Proximity value
 
 
 
@@ -115,7 +118,9 @@ docType: "class"
 <div id="ProximityFar"></div>
 <h3><code>ProximityFar()</code>
   
-</h3>Proximity value
+</h3>
+
+Proximity value
 
 
 
@@ -129,7 +134,9 @@ docType: "class"
 <div id="BeaconColorUnknown"></div>
 <h3><code>BeaconColorUnknown()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -143,7 +150,9 @@ docType: "class"
 <div id="BeaconColorMintCocktail"></div>
 <h3><code>BeaconColorMintCocktail()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -157,7 +166,9 @@ docType: "class"
 <div id="BeaconColorIcyMarshmallow"></div>
 <h3><code>BeaconColorIcyMarshmallow()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -171,7 +182,9 @@ docType: "class"
 <div id="BeaconColorBlueberryPie"></div>
 <h3><code>BeaconColorBlueberryPie()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -185,7 +198,9 @@ docType: "class"
 <div id="BeaconColorSweetBeetroot"></div>
 <h3><code>BeaconColorSweetBeetroot()</code>
   
-</h3>Beacon colour.
+</h3>
+
+Beacon colour.
 
 
 
@@ -199,7 +214,9 @@ docType: "class"
 <div id="BeaconColorCandyFloss"></div>
 <h3><code>BeaconColorCandyFloss()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -213,7 +230,9 @@ docType: "class"
 <div id="BeaconColorLemonTart"></div>
 <h3><code>BeaconColorLemonTart()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -227,7 +246,9 @@ docType: "class"
 <div id="BeaconColorVanillaJello"></div>
 <h3><code>BeaconColorVanillaJello()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -241,7 +262,9 @@ docType: "class"
 <div id="BeaconColorLiquoriceSwirl"></div>
 <h3><code>BeaconColorLiquoriceSwirl()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -255,7 +278,9 @@ docType: "class"
 <div id="BeaconColorWhite"></div>
 <h3><code>BeaconColorWhite()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -269,7 +294,9 @@ docType: "class"
 <div id="BeaconColorTransparent"></div>
 <h3><code>BeaconColorTransparent()</code>
   
-</h3>Beacon colour
+</h3>
+
+Beacon colour
 
 
 
@@ -283,7 +310,9 @@ docType: "class"
 <div id="RegionStateUnknown"></div>
 <h3><code>RegionStateUnknown()</code>
   
-</h3>Region state
+</h3>
+
+Region state
 
 
 
@@ -297,7 +326,9 @@ docType: "class"
 <div id="RegionStateOutside"></div>
 <h3><code>RegionStateOutside()</code>
   
-</h3>Region state
+</h3>
+
+Region state
 
 
 
@@ -311,7 +342,9 @@ docType: "class"
 <div id="RegionStateInside"></div>
 <h3><code>RegionStateInside()</code>
   
-</h3>Region state
+</h3>
+
+Region state
 
 
 
@@ -326,6 +359,7 @@ docType: "class"
 <h3><code>requestWhenInUseAuthorization()</code>
   
 </h3>
+
 
 Ask the user for permission to use location services
 while the app is in the foreground.
@@ -354,6 +388,7 @@ Does nothing on other platforms.
   
 </h3>
 
+
 Ask the user for permission to use location services
 whenever the app is running.
 You need to call this function or requestWhenInUseAuthorization
@@ -381,6 +416,7 @@ Does nothing on other platforms.
   
 </h3>
 
+
 Get the current location authorization status.
 Implemented on iOS 8+.
 Does nothing on other platforms.
@@ -405,6 +441,7 @@ Does nothing on other platforms.
 <h3><code>startAdvertisingAsBeacon(uuid,&nbsp;major,&nbsp;minor,&nbsp;regionId)</code>
   
 </h3>
+
 
 
 
@@ -512,6 +549,7 @@ Start advertising as a beacon.
   
 </h3>
 
+
 Stop advertising as a beacon.
 
 
@@ -534,6 +572,7 @@ Stop advertising as a beacon.
 <h3><code>enableAnalytics(enable)</code>
   
 </h3>
+
 
 Enable analytics.
 
@@ -588,6 +627,7 @@ Enable analytics.
   
 </h3>
 
+
 Test if analytics is enabled.
 
 
@@ -611,6 +651,7 @@ Test if analytics is enabled.
   
 </h3>
 
+
 Test if App ID and App Token is set.
 
 
@@ -633,6 +674,7 @@ Test if App ID and App Token is set.
 <h3><code>setupAppIDAndAppToken(appID,&nbsp;appToken)</code>
   
 </h3>
+
 
 Set App ID and App Token.
 
@@ -706,6 +748,7 @@ Set App ID and App Token.
 
 
 
+
 Start scanning for all nearby beacons using CoreBluetooth (no region object is used).
 Available on iOS.
 
@@ -730,6 +773,7 @@ Available on iOS.
   
 </h3>
 
+
 Stop CoreBluetooth scan. Available on iOS.
 
 
@@ -752,6 +796,7 @@ Stop CoreBluetooth scan. Available on iOS.
 <h3><code>startRangingBeaconsInRegion(region)</code>
   
 </h3>
+
 
 
 
@@ -808,6 +853,7 @@ Start ranging beacons. Available on iOS and Android.
   
 </h3>
 
+
 Stop ranging beacons. Available on iOS and Android.
 
 
@@ -863,6 +909,7 @@ Stop ranging beacons. Available on iOS and Android.
 
 
 
+
 Start ranging secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 <a href='undefined'><code>startRangingBeaconsInRegion</code></a>.
@@ -883,6 +930,7 @@ To use secure beacons set the App ID and App Token using
   
 </h3>
 
+
 Stop ranging secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 <a href='undefined'><code>stopRangingBeaconsInRegion</code></a>.
@@ -900,6 +948,7 @@ This function has the same parameters/behaviour as
 <h3><code>startMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
   
 </h3>
+
 
 
 
@@ -976,6 +1025,7 @@ for further details (optional, defaults to false, iOS only).</p>
   
 </h3>
 
+
 Stop monitoring beacons. Available on iOS and Android.
 
 
@@ -1031,6 +1081,7 @@ Stop monitoring beacons. Available on iOS and Android.
 
 
 
+
 Start monitoring secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 EstimoteBeacons.startMonitoringForRegion.
@@ -1049,6 +1100,7 @@ To use secure beacons set the App ID and App Token using
   
 </h3>
 
+
 Stop monitoring secure beacons. Available on iOS.
 This function has the same parameters/behaviour as
 <a href='undefined'><code>stopMonitoringForRegion</code></a>.
@@ -1066,6 +1118,7 @@ This function has the same parameters/behaviour as
 <h3><code>connectToBeacon(beacon)</code>
   
 </h3>
+
 
 Connect to Estimote Beacon. Available on Android.
 
@@ -1120,6 +1173,7 @@ Connect to Estimote Beacon. Available on Android.
   
 </h3>
 
+
 Disconnect from connected Estimote Beacon. Available on Android.
 
 
@@ -1143,6 +1197,7 @@ Disconnect from connected Estimote Beacon. Available on Android.
   
 </h3>
 
+
 Write proximity UUID to connected Estimote Beacon. Available on Android.
 
 
@@ -1157,6 +1212,7 @@ Write proximity UUID to connected Estimote Beacon. Available on Android.
 <h3><code>writeConnectedMajor()</code>
   
 </h3>
+
 
 Write major to connected Estimote Beacon. Available on Android.
 
@@ -1173,6 +1229,7 @@ Write major to connected Estimote Beacon. Available on Android.
   
 </h3>
 
+
 Write minor to connected Estimote Beacon. Available on Android.
 
 
@@ -1185,6 +1242,16 @@ Write minor to connected Estimote Beacon. Available on Android.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

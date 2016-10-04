@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   App Rate
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -84,11 +78,15 @@ AppRate.promptForRating();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="preferences"></div>
 <h3><code>preferences()</code>
   
 </h3>
+
 
 Configure various settings for the Rating View.
 See table below for options
@@ -106,6 +104,7 @@ See table below for options
 <h3><code>promptForRating(immediately)</code>
   
 </h3>
+
 
 Prompts the user for rating
 
@@ -147,7 +146,9 @@ Prompts the user for rating
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Rating dialog preferences</p>
 <table>
 <thead>
@@ -240,6 +241,14 @@ Prompts the user for rating
 </tbody>
 </table>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

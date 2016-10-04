@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Media Capture
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media-capture.ts#L4">
   Improve this doc
 </a>
-
-
 
 
 
@@ -72,11 +68,15 @@ MediaCapture.captureImage(options)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="supportedImageModes"></div>
 <h3><code>supportedImageModes()</code>
   
 </h3>
+
 
 The audio recording formats supported by the device.
 
@@ -98,6 +98,7 @@ The audio recording formats supported by the device.
   
 </h3>
 
+
 The recording image sizes and formats supported by the device.
 
 
@@ -118,6 +119,7 @@ The recording image sizes and formats supported by the device.
   
 </h3>
 
+
 The recording video resolutions and formats supported by the device.
 
 
@@ -137,6 +139,7 @@ The recording video resolutions and formats supported by the device.
 <h3><code>captureAudio(options)</code>
   
 </h3>
+
 
 
 
@@ -185,6 +188,7 @@ Start the audio recorder application and return information about captured audio
 
 
 
+
 Start the camera application and return information about captured image files.
 
 
@@ -227,6 +231,7 @@ Start the camera application and return information about captured image files.
 <h3><code>captureVideo(options)</code>
   
 </h3>
+
 
 
 
@@ -275,6 +280,7 @@ Start the video recorder application and return information about captured video
 
 
 
+
 is fired if the capture call is successful
 
 
@@ -293,6 +299,7 @@ is fired if the capture call is successful
 
 
 
+
 is fired if the capture call is unsuccessful
 
 
@@ -306,6 +313,16 @@ is fired if the capture call is unsuccessful
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

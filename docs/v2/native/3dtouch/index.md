@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   3DTouch
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/3dtouch.ts#L4">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,7 +53,7 @@ docType: "class"
 
 <ul>
   <li>iOS</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -125,11 +121,15 @@ ThreeDeeTouchForceTouch.onHomeIconPressed().subscribe(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
   
 </h3>
+
 
 You need an iPhone 6S or some future tech to use the features of this plugin, so you can check at runtime if the user's device is supported.
 
@@ -153,6 +153,7 @@ You need an iPhone 6S or some future tech to use the features of this plugin, so
 
 
 
+
 You can get a notification when the user force touches the webview. The plugin defines a Force Touch when at least 75% of the maximum force is applied to the screen. Your app will receive the x and y coordinates, so you have to figure out which UI element was touched.
 
 
@@ -172,6 +173,7 @@ You can get a notification when the user force touches the webview. The plugin d
 <h3><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType)</code>
   
 </h3>
+
 
 
 
@@ -268,7 +270,9 @@ setup the 3D-touch actions, takes an array of objects with the following
 <div id="onHomeIconPressed"></div>
 <h3><code>onHomeIconPressed()</code>
   
-</h3>When a home icon is pressed, your app launches and this JS callback is invoked.
+</h3>
+
+When a home icon is pressed, your app launches and this JS callback is invoked.
 
 
 
@@ -287,6 +291,7 @@ setup the 3D-touch actions, takes an array of objects with the following
 <h3><code>enableLinkPreview()</code>
   
 </h3>
+
 
 
 
@@ -309,6 +314,7 @@ UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fan
 
 
 
+
 Disabled the link preview feature, if enabled.
 
 
@@ -322,6 +328,16 @@ Disabled the link preview feature, if enabled.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

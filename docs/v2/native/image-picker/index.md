@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Image Picker
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L18">
   Improve this doc
 </a>
-
-
 
 
 
@@ -75,11 +71,15 @@ ImagePicker.getPictures(options).then((results) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getPictures"></div>
 <h3><code>getPictures(options)</code>
   
 </h3>
+
 
 
 
@@ -132,6 +132,16 @@ otherwise rejects with an error.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

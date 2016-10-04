@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Device Orientation
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceorientation.ts#L40">
   Improve this doc
 </a>
-
-
 
 
 
@@ -81,11 +77,15 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getCurrentHeading"></div>
 <h3><code>getCurrentHeading()</code>
   
 </h3>
+
 
 Get the current compass heading.
 
@@ -106,6 +106,7 @@ Get the current compass heading.
 <h3><code>watchHeading(options)</code>
   
 </h3>
+
 
 
 
@@ -158,6 +159,16 @@ Stop the watch by unsubscribing from the observable
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

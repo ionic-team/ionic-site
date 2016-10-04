@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Twitter Connect
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/twitter-connect.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -77,11 +73,15 @@ TwitterConnect.logout().then(onLogoutSuccess, onLogoutError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="login"></div>
 <h3><code>login()</code>
   
 </h3>
+
 
 Logs in
 
@@ -103,6 +103,7 @@ Logs in
   
 </h3>
 
+
 Logs out
 
 
@@ -123,6 +124,7 @@ Logs out
   
 </h3>
 
+
 Returns user's profile information
 
 
@@ -140,6 +142,16 @@ Returns user's profile information
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   AdMob
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/admob.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -77,11 +69,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="createBanner"></div>
 <h3><code>createBanner(adIdOrOptions)</code>
   
 </h3>
+
 
 
 
@@ -139,10 +135,12 @@ docType: "class"
 
 
 
+
 <div id="showBanner"></div>
 <h3><code>showBanner(position)</code>
   
 </h3>
+
 
 
 
@@ -188,6 +186,7 @@ docType: "class"
 <h3><code>showBannerAtXY(x,&nbsp;y)</code>
   
 </h3>
+
 
 
 
@@ -263,10 +262,12 @@ docType: "class"
 
 
 
+
 <div id="prepareInterstitial"></div>
 <h3><code>prepareInterstitial(adIdOrOptions)</code>
   
 </h3>
+
 
 
 
@@ -313,6 +314,7 @@ docType: "class"
 
 
 
+
 Show interstitial
 
 
@@ -340,10 +342,12 @@ Show interstitial
 
 
 
+
 <div id="prepareRewardVideoAd"></div>
 <h3><code>prepareRewardVideoAd(adIdOrOptions)</code>
   
 </h3>
+
 
 Prepare a reward video ad
 
@@ -390,6 +394,7 @@ Prepare a reward video ad
 
 
 
+
 Show a reward video ad
 
 
@@ -405,6 +410,7 @@ Show a reward video ad
 <h3><code>setOptions(options)</code>
   
 </h3>
+
 
 Sets the values for configuration and targeting
 
@@ -450,6 +456,7 @@ Sets the values for configuration and targeting
   
 </h3>
 
+
 Get user ad settings
 
 
@@ -482,10 +489,12 @@ Get user ad settings
 
 
 
+
 <div id="onBannerReceive"></div>
 <h3><code>onBannerReceive()</code>
   
 </h3>
+
 
 
 
@@ -516,10 +525,12 @@ Get user ad settings
 
 
 
+
 <div id="onBannerLeaveApp"></div>
 <h3><code>onBannerLeaveApp()</code>
   
 </h3>
+
 
 
 
@@ -550,10 +561,12 @@ Get user ad settings
 
 
 
+
 <div id="onInterstitialFailedToReceive"></div>
 <h3><code>onInterstitialFailedToReceive()</code>
   
 </h3>
+
 
 
 
@@ -584,6 +597,7 @@ Get user ad settings
 
 
 
+
 <div id="onInterstitialPresent"></div>
 <h3><code>onInterstitialPresent()</code>
   
@@ -601,10 +615,12 @@ Get user ad settings
 
 
 
+
 <div id="onInterstitialLeaveApp"></div>
 <h3><code>onInterstitialLeaveApp()</code>
   
 </h3>
+
 
 
 
@@ -636,7 +652,18 @@ Get user ad settings
 
 
 
+
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

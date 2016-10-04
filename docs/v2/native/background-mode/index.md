@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Background Mode
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L2">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,12 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -81,11 +73,15 @@ BackgroundMode.enable();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="enable"></div>
 <h3><code>enable()</code>
   
 </h3>
+
 
 
 
@@ -106,6 +102,7 @@ Once called, prevents the app from being paused while in background.
   
 </h3>
 
+
 Disable the background mode.
 Once the background mode has been disabled, the app will be paused when in background.
 
@@ -122,6 +119,7 @@ Once the background mode has been disabled, the app will be paused when in backg
 <h3><code>isEnabled()</code>
   
 </h3>
+
 
 Checks if background mode is enabled or not.
 
@@ -142,6 +140,7 @@ Checks if background mode is enabled or not.
 <h3><code>isActive()</code>
   
 </h3>
+
 
 Can be used to get the information if the background mode is active.
 
@@ -165,9 +164,10 @@ Can be used to get the information if the background mode is active.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Override the default title, ticker and text.
@@ -217,9 +217,10 @@ Available only for Android platform.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Modify the displayed information.
@@ -267,6 +268,7 @@ Available only for Android platform.
   
 </h3>
 
+
 Called when background mode is activated.
 
 
@@ -282,6 +284,7 @@ Called when background mode is activated.
 <h3><code>ondeactivate()</code>
   
 </h3>
+
 
 Called when background mode is deactivated.
 
@@ -299,6 +302,7 @@ Called when background mode is deactivated.
   
 </h3>
 
+
 Called when background mode fails
 
 
@@ -311,7 +315,9 @@ Called when background mode fails
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Configuration options</p>
 <table>
 <thead>
@@ -350,6 +356,14 @@ Called when background mode fails
 </tbody>
 </table>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

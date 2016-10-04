@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   FileChooser
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file-chooser.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,7 +54,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -78,11 +74,15 @@ FileChooser.open()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="open"></div>
 <h3><code>open()</code>
   
 </h3>
+
 
 Open a file
 
@@ -97,6 +97,16 @@ Open a file
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

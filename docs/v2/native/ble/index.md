@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   BLE
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ble.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -67,10 +63,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -199,11 +193,15 @@ function bytesToString(buffer) {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="scan"></div>
 <h3><code>scan(services,&nbsp;seconds)</code>
   
 </h3>
+
 
 
 
@@ -279,6 +277,7 @@ Scan and discover BLE peripherals for the specified amount of time.
 
 
 
+
 Scan and discover BLE peripherals until `stopScan` is called.
 
 
@@ -331,6 +330,7 @@ Scan and discover BLE peripherals until `stopScan` is called.
 <h3><code>startScanWithOptions(services,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -402,6 +402,7 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
   
 </h3>
 
+
 Stop a scan started by `startScan`.
 
 
@@ -424,6 +425,7 @@ Stop a scan started by `startScan`.
 <h3><code>connect(deviceId)</code>
   
 </h3>
+
 
 
 
@@ -479,6 +481,7 @@ Connect to a peripheral.
   
 </h3>
 
+
 Disconnect from a peripheral.
 
 
@@ -530,6 +533,7 @@ Disconnect from a peripheral.
 <h3><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
   
 </h3>
+
 
 Read the value of a characteristic.
 
@@ -617,6 +621,7 @@ Read the value of a characteristic.
 <h3><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
   
 </h3>
+
 
 Write the value of a characteristic.
 
@@ -720,6 +725,7 @@ Write the value of a characteristic.
 <h3><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
   
 </h3>
+
 
 Write the value of a characteristic without waiting for confirmation from the peripheral.
 
@@ -827,6 +833,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 
 
+
 Register to be notified when the value of a characteristic changes.
 
 
@@ -913,6 +920,7 @@ Register to be notified when the value of a characteristic changes.
 <h3><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
   
 </h3>
+
 
 Stop being notified when the value of a characteristic changes.
 
@@ -1001,6 +1009,7 @@ Stop being notified when the value of a characteristic changes.
   
 </h3>
 
+
 Report the connection status.
 
 
@@ -1054,6 +1063,7 @@ Report the connection status.
   
 </h3>
 
+
 Report if bluetooth is enabled.
 
 
@@ -1076,6 +1086,7 @@ Report if bluetooth is enabled.
 <h3><code>showBluetoothSettings()</code>
   
 </h3>
+
 
 Open System Bluetooth settings (Android only).
 
@@ -1100,6 +1111,7 @@ Open System Bluetooth settings (Android only).
   
 </h3>
 
+
 Enable Bluetooth on the device (Android only).
 
 
@@ -1120,6 +1132,16 @@ Enable Bluetooth on the device (Android only).
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

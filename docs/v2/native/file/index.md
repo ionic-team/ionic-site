@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   File
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L337">
   Improve this doc
 </a>
-
-
 
 
 
@@ -70,11 +66,16 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="cordovaFileError"></div>
 <h3><code>cordovaFileError()</code>
   
 </h3>
+
+
 
 
 
@@ -99,10 +100,13 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 
 
 
+
 <div id="checkDir"></div>
 <h3><code>checkDir(path,&nbsp;dir)</code>
   
-</h3>Check if a directory exists in a certain path, directory.
+</h3>
+
+Check if a directory exists in a certain path, directory.
 
 
 
@@ -168,7 +172,9 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 <div id="createDir"></div>
 <h3><code>createDir(path,&nbsp;dirName,&nbsp;replace)</code>
   
-</h3>Creates a new directory in the specific path.
+</h3>
+
+Creates a new directory in the specific path.
 The replace boolean value determines whether to replace an existing directory with the same name.
 If an existing directory exists and the replace value is false, the promise will fail and return an error.
 
@@ -253,7 +259,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="removeDir"></div>
 <h3><code>removeDir(path,&nbsp;dirName)</code>
   
-</h3>Remove a directory at a given path.
+</h3>
+
+Remove a directory at a given path.
 
 
 
@@ -319,7 +327,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="moveDir"></div>
 <h3><code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
   
-</h3>Move a directory to a given path.
+</h3>
+
+Move a directory to a given path.
 
 
 
@@ -419,7 +429,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="copyDir"></div>
 <h3><code>copyDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
   
-</h3>Copy a directory in various methods. If destination directory exists, will fail to copy.
+</h3>
+
+Copy a directory in various methods. If destination directory exists, will fail to copy.
 
 
 
@@ -519,7 +531,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="listDir"></div>
 <h3><code>listDir(path,&nbsp;dirName)</code>
   
-</h3>List files and directory from a given path.
+</h3>
+
+List files and directory from a given path.
 
 
 
@@ -585,7 +599,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="removeRecursively"></div>
 <h3><code>removeRecursively(path,&nbsp;dirName)</code>
   
-</h3>Removes all files and the directory from a desired location.
+</h3>
+
+Removes all files and the directory from a desired location.
 
 
 
@@ -651,7 +667,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="checkFile"></div>
 <h3><code>checkFile(path,&nbsp;file)</code>
   
-</h3>Check if a file exists in a certain path, directory.
+</h3>
+
+Check if a file exists in a certain path, directory.
 
 
 
@@ -717,7 +735,9 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="createFile"></div>
 <h3><code>createFile(path,&nbsp;fileName,&nbsp;replace)</code>
   
-</h3>Creates a new file in the specific path.
+</h3>
+
+Creates a new file in the specific path.
 The replace boolean value determines whether to replace an existing file with the same name.
 If an existing file exists and the replace value is false, the promise will fail and return an error.
 
@@ -802,7 +822,9 @@ If an existing file exists and the replace value is false, the promise will fail
 <div id="removeFile"></div>
 <h3><code>removeFile(path,&nbsp;fileName)</code>
   
-</h3>Removes a file from a desired location.
+</h3>
+
+Removes a file from a desired location.
 
 
 
@@ -868,7 +890,9 @@ If an existing file exists and the replace value is false, the promise will fail
 <div id="writeFile"></div>
 <h3><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;replaceOrOptions)</code>
   
-</h3>Write a new file to the desired location.
+</h3>
+
+Write a new file to the desired location.
 
 
 
@@ -968,7 +992,9 @@ If an existing file exists and the replace value is false, the promise will fail
 <div id="writeExistingFile"></div>
 <h3><code>writeExistingFile(path,&nbsp;fileName,&nbsp;text)</code>
   
-</h3>Write to an existing file.
+</h3>
+
+Write to an existing file.
 
 
 
@@ -1051,7 +1077,9 @@ If an existing file exists and the replace value is false, the promise will fail
 <div id="readAsText"></div>
 <h3><code>readAsText(path,&nbsp;file)</code>
   
-</h3>Read the contents of a file as text.
+</h3>
+
+Read the contents of a file as text.
 
 
 
@@ -1117,7 +1145,9 @@ If an existing file exists and the replace value is false, the promise will fail
 <div id="readAsDataURL"></div>
 <h3><code>readAsDataURL(path,&nbsp;file)</code>
   
-</h3>Read file and return data as a base64 encoded data url.
+</h3>
+
+Read file and return data as a base64 encoded data url.
 A data url is of the form:
      data:[<mediatype>][;base64],<data>
 
@@ -1185,7 +1215,9 @@ A data url is of the form:
 <div id="readAsBinaryString"></div>
 <h3><code>readAsBinaryString(path,&nbsp;file)</code>
   
-</h3>Read file and return data as a binary data.
+</h3>
+
+Read file and return data as a binary data.
 
 
 
@@ -1251,7 +1283,9 @@ A data url is of the form:
 <div id="readAsArrayBuffer"></div>
 <h3><code>readAsArrayBuffer(path,&nbsp;file)</code>
   
-</h3>Read file and return data as an ArrayBuffer.
+</h3>
+
+Read file and return data as an ArrayBuffer.
 
 
 
@@ -1317,7 +1351,9 @@ A data url is of the form:
 <div id="moveFile"></div>
 <h3><code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
   
-</h3>Move a file to a given path.
+</h3>
+
+Move a file to a given path.
 
 
 
@@ -1417,7 +1453,9 @@ A data url is of the form:
 <div id="copyFile"></div>
 <h3><code>copyFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
   
-</h3>Copy a file in various methods. If file exists, will fail to copy.
+</h3>
+
+Copy a file in various methods. If file exists, will fail to copy.
 
 
 
@@ -1516,6 +1554,16 @@ A data url is of the form:
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

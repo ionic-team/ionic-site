@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Transfer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/filetransfer.ts#L105">
   Improve this doc
 </a>
-
-
 
 
 
@@ -98,11 +94,16 @@ upload(){
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="FileTransferErrorCode"></div>
 <h3><code>FileTransferErrorCode()</code>
   
-</h3>Error code rejected from upload with FileTransferError
+</h3>
+
+Error code rejected from upload with FileTransferError
 Defined in FileTransferError.
      FILE_NOT_FOUND_ERR: 1   Return when file was not found
      INVALID_URL_ERR: 2,     Return when url was invalid
@@ -121,18 +122,13 @@ Defined in FileTransferError.
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="upload"></div>
-
 <h3>
   <code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code>
   
 
 </h3>
-
 Sends a file to a server.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -215,32 +211,19 @@ Sends a file to a server.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
 
 
-</div>
-
-
-
-
-<div id="download"></div>
-
+</div><div id="download"></div>
 <h3>
   <code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code>
   
 
 </h3>
-
 Downloads a file from server.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -323,32 +306,19 @@ Downloads a file from server.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise that resolves to a FileEntry object.
 
 
-</div>
-
-
-
-
-<div id="onProgress"></div>
-
+</div><div id="onProgress"></div>
 <h3>
   <code>onProgress(Listener)</code>
   
 
 </h3>
-
 Registers a listener that gets called whenever a new chunk of data is transferred.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -379,21 +349,12 @@ Registers a listener that gets called whenever a new chunk of data is transferre
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="abort"></div>
-
 <h3>
   <code>abort()</code>
   
 
 </h3>
-
 Aborts an in-progress transfer. The onerror callback is passed a FileTransferError
 object which has an error code of FileTransferError.ABORT_ERR.
 
@@ -404,8 +365,13 @@ object which has an error code of FileTransferError.ABORT_ERR.
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
 
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

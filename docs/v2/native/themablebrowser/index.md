@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   ThemableBrowser
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/themable-browser.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -132,82 +128,52 @@ let browser = new ThemeableBrowser(&#39;https://ionic.io&#39;, &#39;_blank&#39;,
 <!-- @property tags -->
 
 
+
+
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="show"></div>
-
 <h3>
   <code>show()</code>
   
 
 </h3>
-
 Displays an browser window that was opened hidden. Calling this has no effect
 if the browser was already visible.
 
 
 
 
-
-
-
-
-
-
-
 <div id="close"></div>
-
 <h3>
   <code>close()</code>
   
 
 </h3>
-
 Closes the browser window.
 
 
 
 
-
-
-
-
-
-
-
 <div id="reload"></div>
-
 <h3>
   <code>reload()</code>
   
 
 </h3>
-
 Reloads the current page
 
 
 
 
-
-
-
-
-
-
-
 <div id="executeScript"></div>
-
 <h3>
   <code>executeScript(script)</code>
   
 
 </h3>
-
 Injects JavaScript code into the browser window.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -238,24 +204,13 @@ Injects JavaScript code into the browser window.
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="insertCss"></div>
-
 <h3>
   <code>insertCss(css)</code>
   
 
 </h3>
-
 Injects CSS into the browser window.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -286,25 +241,14 @@ Injects CSS into the browser window.
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="on"></div>
-
 <h3>
   <code>on(event)</code>
   
 
 </h3>
-
 A method that allows you to listen to events happening in the browser.
 Available events are: `ThemableBrowserError`, `ThemableBrowserWarning`, `critical`, `loadfail`, `unexpected`, `undefined`
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -335,10 +279,6 @@ Available events are: `ThemableBrowserError`, `ThemableBrowserWarning`, `critica
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -347,6 +287,13 @@ Available events are: `ThemableBrowserError`, `ThemableBrowserWarning`, `critica
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

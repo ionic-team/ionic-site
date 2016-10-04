@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   App Availability
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/appavailability.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -92,11 +86,15 @@ AppAvailability.check(app)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="check"></div>
 <h3><code>check(app)</code>
   
 </h3>
+
 
 Checks if an app is available on device
 
@@ -145,6 +143,16 @@ Checks if an app is available on device
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Device
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/device.ts#L27">
   Improve this doc
 </a>
-
-
 
 
 
@@ -68,11 +64,15 @@ console.log(&#39;Device UUID is: &#39; + Device.device.uuid);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="device"></div>
 <h3><code>device()</code>
   
 </h3>
+
 
 Returns the whole device object.
 
@@ -94,156 +94,90 @@ Returns the whole device object.
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="cordova"></div>
-
 <h3>
   <code>cordova</code>
   
 
 </h3>
-
 Get the version of Cordova running on the device.
 
 
 
 
-
-
-
-
-
-
-
 <div id="model"></div>
-
 <h3>
   <code>model</code>
   
 
 </h3>
-
 The device.model returns the name of the device's model or product. The value is set
 by the device manufacturer and may be different across versions of the same product.
 
 
 
 
-
-
-
-
-
-
-
 <div id="platform"></div>
-
 <h3>
   <code>platform</code>
   
 
 </h3>
-
 Get the device's operating system name.
 
 
 
 
-
-
-
-
-
-
-
 <div id="uuid"></div>
-
 <h3>
   <code>uuid</code>
   
 
 </h3>
-
 Get the device's Universally Unique Identifier (UUID).
 
 
 
 
-
-
-
-
-
-
-
 <div id="version"></div>
-
 <h3>
   <code>version</code>
   
 
 </h3>
-
 Get the operating system version.
 
 
 
 
-
-
-
-
-
-
-
 <div id="manufacturer"></div>
-
 <h3>
   <code>manufacturer</code>
   
 
 </h3>
-
 Get the device's manufacturer.
 
 
 
 
-
-
-
-
-
-
-
 <div id="isVirtual"></div>
-
 <h3>
   <code>isVirtual</code>
   
 
 </h3>
-
 Whether the device is running on a simulator.
 
 
 
 
-
-
-
-
-
-
-
 <div id="serial"></div>
-
 <h3>
   <code>serial</code>
   
 
 </h3>
-
 Get the device hardware serial number.
 
 
@@ -253,8 +187,13 @@ Get the device hardware serial number.
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
 
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

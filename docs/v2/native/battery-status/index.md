@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Battery Status
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/batterystatus.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,24 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Amazon Fire OS</li>
-  
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>BlackBerry 10</li>
-  
-  <li>Windows Phone 7</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows</li>
-  
-  <li>Firefox OS</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -101,11 +81,15 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="onChange"></div>
 <h3><code>onChange()</code>
   
 </h3>
+
 
 
 
@@ -131,6 +115,7 @@ Watch the change in battery level
 
 
 
+
 Watch when the battery level goes low
 
 
@@ -153,6 +138,7 @@ Watch when the battery level goes low
 
 
 
+
 Watch when the battery level goes to critial
 
 
@@ -170,6 +156,16 @@ Watch when the battery level goes to critial
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   FileOpener
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file-opener.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -65,11 +61,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="open"></div>
 <h3><code>open(filePath,&nbsp;fileMIMEType)</code>
   
 </h3>
+
 
 
 
@@ -136,6 +136,7 @@ Open an file
 
 
 
+
 Uninstalls a package
 
 
@@ -182,6 +183,7 @@ Uninstalls a package
 
 
 
+
 Check if an app is already installed
 
 
@@ -223,6 +225,16 @@ Check if an app is already installed
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

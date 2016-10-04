@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Instagram
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/instagram.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -69,11 +65,15 @@ Instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isInstalled"></div>
 <h3><code>isInstalled()</code>
   
 </h3>
+
 
 
 
@@ -97,6 +97,7 @@ Detect if the Instagram application is installed on the device.
 <h3><code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
   
 </h3>
+
 
 
 
@@ -171,6 +172,7 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
 
 
 
+
 Share a library asset or video
 
 
@@ -218,6 +220,16 @@ Share a library asset or video
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

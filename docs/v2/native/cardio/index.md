@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   CardIO
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/card-io.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -56,10 +52,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -90,11 +84,15 @@ CardIO.canScan()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="canScan"></div>
 <h3><code>canScan()</code>
   
 </h3>
+
 
 Check whether card scanning is currently available. (May vary by
 device, OS version, network connectivity, etc.)
@@ -112,6 +110,7 @@ device, OS version, network connectivity, etc.)
 <h3><code>scan(options)</code>
   
 </h3>
+
 
 Scan a credit card with card.io.
 
@@ -157,6 +156,7 @@ Scan a credit card with card.io.
   
 </h3>
 
+
 Retrieve the version of the card.io library. Useful when contacting support.
 
 
@@ -170,6 +170,16 @@ Retrieve the version of the card.io library. Useful when contacting support.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

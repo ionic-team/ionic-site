@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   MusicControls
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/music-controls.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -125,11 +121,15 @@ MusicControls.create({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="create"></div>
 <h3><code>create(options)</code>
   
 </h3>
+
 
 Create the media controls
 
@@ -180,6 +180,7 @@ Create the media controls
   
 </h3>
 
+
 Destroy the media controller
 
 
@@ -199,6 +200,7 @@ Destroy the media controller
 <h3><code>subscribe()</code>
   
 </h3>
+
 
 
 
@@ -224,6 +226,7 @@ Subscribe to the events of the media controller
 
 
 
+
 Start listening for events, this enables the Observable from the subscribe method
 
 
@@ -239,6 +242,7 @@ Start listening for events, this enables the Observable from the subscribe metho
 <h3><code>updateIsPlaying(isPlaying)</code>
   
 </h3>
+
 
 
 
@@ -282,6 +286,16 @@ Toggle play/pause:
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

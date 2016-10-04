@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Barcode Scanner
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,20 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows 10</li>
-  
-  <li>Windows 8</li>
-  
-  <li>BlackBerry 10</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows 10</li><li>Windows 8</li><li>BlackBerry 10</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -94,11 +78,15 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="scan"></div>
 <h3><code>scan(options)</code>
   
 </h3>
+
 
 
 
@@ -153,6 +141,7 @@ Open the barcode scanner.
 <h3><code>encode(type,&nbsp;data)</code>
   
 </h3>
+
 
 Encodes data into a barcode.
 NOTE: not well supported on Android
@@ -213,6 +202,16 @@ NOTE: not well supported on Android
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

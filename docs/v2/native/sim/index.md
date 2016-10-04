@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Sim
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sim.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,12 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -85,11 +77,15 @@ Sim.getSimInfo().then(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getSimInfo"></div>
 <h3><code>getSimInfo()</code>
   
 </h3>
+
 
 Returns info from the SIM card.
 
@@ -108,6 +104,16 @@ Returns info from the SIM card.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Push
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/push.ts#L271">
   Improve this doc
 </a>
-
-
 
 
 
@@ -67,11 +63,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="init"></div>
 <h3><code>init(options)</code>
   
 </h3>
+
 
 
 
@@ -140,6 +140,7 @@ var push = Push.init({
   
 </h3>
 
+
 Check whether the push notification permission has been granted.
 
 
@@ -157,6 +158,16 @@ Check whether the push notification permission has been granted.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

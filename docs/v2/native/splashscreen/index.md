@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Splashscreen
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/splashscreen.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -70,11 +66,15 @@ Splashscreen.hide();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show()</code>
   
 </h3>
+
 
 
 
@@ -96,6 +96,7 @@ Shows the splashscreen
 
 
 
+
 Hides the splashscreen
 
 
@@ -109,6 +110,16 @@ Hides the splashscreen
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

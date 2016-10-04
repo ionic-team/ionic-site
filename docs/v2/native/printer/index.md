@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Printer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/printer.ts#L41">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -88,11 +82,15 @@ Printer.print(content, options).then(onSuccess, onError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
   
 </h3>
+
 
 Checks whether to device is capable of printing.
 
@@ -109,6 +107,7 @@ Checks whether to device is capable of printing.
 <h3><code>print(The,&nbsp;The)</code>
   
 </h3>
+
 
 Sends content to the printer.
 
@@ -168,6 +167,16 @@ Sends content to the printer.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

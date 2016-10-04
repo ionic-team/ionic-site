@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Insomnia
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/insomnia.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -91,11 +83,15 @@ Insomnia.allowSleepAgain()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="keepAwake"></div>
 <h3><code>keepAwake()</code>
   
 </h3>
+
 
 Keeps awake the application
 
@@ -117,6 +113,7 @@ Keeps awake the application
   
 </h3>
 
+
 Allows the application to sleep again
 
 
@@ -134,6 +131,16 @@ Allows the application to sleep again
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

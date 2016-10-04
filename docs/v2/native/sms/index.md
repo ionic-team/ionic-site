@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   SMS
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sms.ts#L24">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -82,11 +74,15 @@ SMS.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="send"></div>
 <h3><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
   
 </h3>
+
 
 Sends sms to a number
 
@@ -169,6 +165,16 @@ Sends sms to a number
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

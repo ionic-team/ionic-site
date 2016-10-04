@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   ImageResizer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imageresizer.ts#L36">
   Improve this doc
 </a>
-
-
 
 
 
@@ -83,7 +79,10 @@ ImageResizer
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="resize"></div>
 <h3><code>resize()</code>
   
@@ -100,7 +99,18 @@ ImageResizer
 
 
 
+
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

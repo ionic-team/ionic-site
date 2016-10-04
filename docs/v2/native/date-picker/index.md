@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Date Picker
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L64">
   Improve this doc
 </a>
-
-
 
 
 
@@ -76,11 +72,15 @@ DatePicker.show({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(options)</code>
   
 </h3>
+
 
 Shows the date and/or time picker dialog(s)
 
@@ -129,6 +129,16 @@ Shows the date and/or time picker dialog(s)
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

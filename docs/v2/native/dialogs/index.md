@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Dialogs
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dialogs.ts#L14">
   Improve this doc
 </a>
-
-
 
 
 
@@ -66,11 +62,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="alert"></div>
 <h3><code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
   
 </h3>
+
 
 
 
@@ -160,6 +160,7 @@ Shows a custom alert or dialog box.
 
 
 
+
 Displays a customizable confirmation dialog box.
 
 
@@ -243,6 +244,7 @@ Displays a customizable confirmation dialog box.
 <h3><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
   
 </h3>
+
 
 
 
@@ -349,6 +351,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
 
 
 
+
 The device plays a beep sound.
 
 
@@ -390,6 +393,16 @@ The device plays a beep sound.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

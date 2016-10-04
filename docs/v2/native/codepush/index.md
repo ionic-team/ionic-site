@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   CodePush
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/code-push.ts#L399">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -84,11 +78,15 @@ CodePush.sync({}, downloadProgress).subscribe((syncStatus) =&gt; console.log(syn
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getCurrentPackage"></div>
 <h3><code>getCurrentPackage(packageSuccess,&nbsp;packageError)</code>
   
 </h3>
+
 
 Get the current package information.
 
@@ -152,6 +150,7 @@ Get the current package information.
   
 </h3>
 
+
 Gets the pending package information, if any. A pending package is one that has been installed but the application still runs the old code.
 This happends only after a package has been installed using ON_NEXT_RESTART or ON_NEXT_RESUME mode, but the application was not restarted/resumed yet.
 
@@ -168,6 +167,7 @@ This happends only after a package has been installed using ON_NEXT_RESTART or O
 <h3><code>checkForUpdate(querySuccess,&nbsp;queryError,&nbsp;deploymentKey)</code>
   
 </h3>
+
 
 
 
@@ -252,6 +252,7 @@ Checks with the CodePush server if an update package is available for download.
   
 </h3>
 
+
 Notifies the plugin that the update operation succeeded and that the application is ready.
 Calling this function is required on the first run after an update. On every subsequent application run, calling this function is a noop.
 If using sync API, calling this function is not required since sync calls it internally.
@@ -316,6 +317,7 @@ If using sync API, calling this function is not required since sync calls it int
   
 </h3>
 
+
 Reloads the application. If there is a pending update package installed using ON_NEXT_RESTART or ON_NEXT_RESUME modes, the update
 will be immediately visible to the user. Otherwise, calling this function will simply reload the current version of the application.
 
@@ -332,6 +334,7 @@ will be immediately visible to the user. Otherwise, calling this function will s
 <h3><code>sync(syncCallback,&nbsp;syncOptions,&nbsp;downloadProgress)</code>
   
 </h3>
+
 
 
 
@@ -423,6 +426,16 @@ The algorithm of this method is the following:
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

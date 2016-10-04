@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Email Composer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/emailcomposer.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -59,10 +55,8 @@ A good alternative to this plugin is the social sharing plugin.</p>
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -103,11 +97,16 @@ EmailComposer.open(email);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable(app)</code>
   
-</h3>Verifies if sending emails is supported on the device.
+</h3>
+
+Verifies if sending emails is supported on the device.
 
 
 
@@ -157,6 +156,7 @@ EmailComposer.open(email);
 <h3><code>addAlias(alias,&nbsp;packageName)</code>
   
 </h3>
+
 
 Adds a new mail app alias.
 
@@ -219,6 +219,7 @@ Adds a new mail app alias.
 <h3><code>open(email,&nbsp;scope)</code>
   
 </h3>
+
 
 
 
@@ -287,6 +288,16 @@ Displays the email composer pre-filled with data.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

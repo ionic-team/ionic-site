@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   BackgroundGeolocation
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L256">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,12 +54,8 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>iOS</li><li>Android</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -112,11 +104,16 @@ BackgroundGeolocation.stop();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="LocationProvider"></div>
 <h3><code>LocationProvider()</code>
   
-</h3>Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
+</h3>
+
+Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
 
 Possible values:
  ANDROID_DISTANCE_FILTER_PROVIDER: 0, 
@@ -133,7 +130,9 @@ Possible values:
 <div id="Accuracy"></div>
 <h3><code>Accuracy()</code>
   
-</h3>Desired accuracy in meters. Possible values [0, 10, 100, 1000]. 
+</h3>
+
+Desired accuracy in meters. Possible values [0, 10, 100, 1000]. 
 The lower the number, the more power devoted to GeoLocation resulting in higher accuracy readings. 
 1000 results in lowest power drain and least accurate readings. 
 
@@ -157,7 +156,9 @@ enum {number}
 <div id="Mode"></div>
 <h3><code>Mode()</code>
   
-</h3>Used in the switchMode function 
+</h3>
+
+Used in the switchMode function 
 
 Possible values:
  BACKGROUND: 0
@@ -175,6 +176,7 @@ Possible values:
 <h3><code>configure(Success,&nbsp;Fail,&nbsp;An)</code>
   
 </h3>
+
 
 
 
@@ -267,6 +269,7 @@ Callback to be executed every time a geolocation is recorded in the background.
   
 </h3>
 
+
 Turn ON the background-geolocation system.
 The user will be tracked whenever they suspend the app.
 
@@ -284,6 +287,7 @@ The user will be tracked whenever they suspend the app.
   
 </h3>
 
+
 Turn OFF background-tracking
 
 
@@ -299,6 +303,7 @@ Turn OFF background-tracking
 <h3><code>finish()</code>
   
 </h3>
+
 
 Inform the native plugin that you're finished, the background-task may be completed
 NOTE: IOS, WP only
@@ -316,6 +321,7 @@ NOTE: IOS, WP only
 <h3><code>changePace()</code>
   
 </h3>
+
 
 Force the plugin to enter "moving" or "stationary" state
 NOTE: IOS, WP only
@@ -336,6 +342,7 @@ NOTE: IOS, WP only
 
 
 
+
 Setup configuration
 
 
@@ -351,6 +358,7 @@ Setup configuration
 <h3><code>getStationaryLocation()</code>
   
 </h3>
+
 
 Returns current stationaryLocation if available. null if not
 NOTE: IOS, WP only
@@ -369,6 +377,7 @@ NOTE: IOS, WP only
   
 </h3>
 
+
 Add a stationary-region listener. Whenever the devices enters "stationary-mode",
 your #success callback will be executed with #location param containing #radius of region
 NOTE: IOS, WP only
@@ -386,6 +395,7 @@ NOTE: IOS, WP only
 <h3><code>isLocationEnabled()</code>
   
 </h3>
+
 
 Check if location is enabled on the device
 
@@ -410,6 +420,7 @@ NOTE: ANDROID only
 
 
 
+
 Display app settings to change permissions
 
 
@@ -428,6 +439,7 @@ Display app settings to change permissions
 
 
 
+
 Display device location settings
 
 
@@ -443,6 +455,7 @@ Display device location settings
 <h3><code>watchLocationMode()</code>
   
 </h3>
+
 
 Method can be used to detect user changes in location services settings.
 If user enable or disable location services then success callback will be executed.
@@ -463,6 +476,7 @@ NOTE: ANDROID only
   
 </h3>
 
+
 Stop watching for location mode changes.
 NOTE: ANDROID only
 
@@ -479,6 +493,7 @@ NOTE: ANDROID only
 <h3><code>getLocations()</code>
   
 </h3>
+
 
 Method will return all stored locations.
 Locations are stored when:
@@ -502,6 +517,7 @@ NOTE: ANDROID only
   
 </h3>
 
+
 Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId.
 
 
@@ -517,6 +533,7 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 <h3><code>deleteLocation()</code>
   
 </h3>
+
 
 Delete stored location by given locationId.
 NOTE: ANDROID only
@@ -535,6 +552,7 @@ NOTE: ANDROID only
   
 </h3>
 
+
 Delete all stored locations.
 NOTE: ANDROID only
 
@@ -551,6 +569,7 @@ NOTE: ANDROID only
 <h3><code>switchMode(See)</code>
   
 </h3>
+
 
 Normally plugin will handle switching between BACKGROUND and FOREGROUND mode itself.
 Calling switchMode you can override plugin behavior and force plugin to switch into other mode.
@@ -606,6 +625,7 @@ NOTE: iOS only
   
 </h3>
 
+
 Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
 @see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
 
@@ -649,6 +669,16 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

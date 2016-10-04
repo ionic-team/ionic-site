@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Geolocation
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L104">
   Improve this doc
 </a>
-
-
 
 
 
@@ -81,11 +77,15 @@ watch.subscribe((data) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getCurrentPosition"></div>
 <h3><code>getCurrentPosition(options)</code>
   
 </h3>
+
 
 
 
@@ -140,7 +140,9 @@ Get the device's current position.
 <div id="watchPosition"></div>
 <h3><code>watchPosition(options)</code>
   
-</h3>Watch the current device's position.  Clear the watch by unsubscribing from
+</h3>
+
+Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
 ```typescript
@@ -202,6 +204,313 @@ subscription.unsubscribe();
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+
+
+<h3><a class="anchor" name="Coordinates" href="#Coordinates"></a>Coordinates</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      latitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>a double representing the position&#39;s latitude in decimal degrees.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      longitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the position&#39;s longitude in decimal degrees.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      accuracy
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the accuracy of the latitude and longitude properties,
+expressed in meters.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      altitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the position&#39;s altitude in metres, relative to sea
+level. This value can be null if the implementation cannot provide the data.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      altitudeAccuracy
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the accuracy of the altitude expressed in meters.
+This value can be null.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      heading
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the direction in which the device is traveling. This
+value, specified in degrees, indicates how far off from heading true north
+the device is. 0 degrees represents true north, and the direction is
+determined clockwise (which means that east is 90 degrees and west is 270
+degrees). If speed is 0, heading is NaN. If the device is unable to provide
+heading information, this value is null.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      speed
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A double representing the velocity of the device in meters per second.
+This value can be null.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h3><a class="anchor" name="Geoposition" href="#Geoposition"></a>Geoposition</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      coords
+      
+    </td>
+    <td>
+      Coordinates
+    </td>
+    <td>
+      <p>A Coordinates object defining the current location</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A timestamp representing the time at which the location was retrieved.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h3><a class="anchor" name="PositionError" href="#PositionError"></a>PositionError</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      code
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A code that indicates the error that occurred</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>A message that can describe the error that occurred</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h3><a class="anchor" name="GeolocationOptions" href="#GeolocationOptions"></a>GeolocationOptions</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      maximumAge
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Is a positive long value indicating the maximum age in milliseconds of a
+possible cached position that is acceptable to return. If set to 0, it
+means that the device cannot use a cached position and must attempt to
+retrieve the real current position. If set to Infinity the device must
+return a cached position regardless of its age. Default: 0.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timeout
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Is a positive long value representing the maximum length of time
+(in milliseconds) the device is allowed to take in order to return a
+position. The default value is Infinity, meaning that getCurrentPosition()
+won&#39;t return until the position is available.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      enableHighAccuracy
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>Indicates the application would like to receive the best possible results.
+If true and if the device is able to provide a more accurate position, it
+will do so. Note that this can result in slower response times or increased
+power consumption (with a GPS chip on a mobile device for example). On the
+other hand, if false, the device can take the liberty to save resources by
+responding more quickly and/or using less power. Default: false.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

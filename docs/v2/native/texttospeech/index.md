@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   TextToSpeech
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/text-to-speech.ts#L9">
   Improve this doc
 </a>
-
-
 
 
 
@@ -69,11 +65,15 @@ TextToSpeech.speak(&#39;Hello World&#39;)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="speak"></div>
 <h3><code>speak(options)</code>
   
 </h3>
+
 
 
 
@@ -124,6 +124,16 @@ This function speaks
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

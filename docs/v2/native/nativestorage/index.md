@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   NativeStorage
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/nativestorage.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -77,11 +73,15 @@ NativeStorage.getItem(&#39;myitem&#39;)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="setItem"></div>
 <h3><code>setItem(reference,&nbsp;value)</code>
   
 </h3>
+
 
 Stores a value
 
@@ -142,6 +142,7 @@ Stores a value
   
 </h3>
 
+
 Gets a stored item
 
 
@@ -184,6 +185,7 @@ Gets a stored item
 <h3><code>remove(reference)</code>
   
 </h3>
+
 
 Removes a single stored item
 
@@ -228,6 +230,7 @@ Removes a single stored item
   
 </h3>
 
+
 Removes all stored values.
 
 
@@ -241,6 +244,16 @@ Removes all stored values.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Crop
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/crop.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -73,11 +69,15 @@ Crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="crop"></div>
 <h3><code>crop(pathToImage,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -143,6 +143,16 @@ Crops an image
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

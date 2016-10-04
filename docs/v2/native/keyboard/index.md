@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Keyboard
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/keyboard.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -64,11 +60,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="hideKeyboardAccessoryBar"></div>
 <h3><code>hideKeyboardAccessoryBar(hide)</code>
   
 </h3>
+
 
 
 
@@ -117,13 +117,14 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>BlackBerry 10</code>&nbsp;
+  
+  <code>Windows</code>&nbsp;
+  </p>
 
-<code>BlackBerry 10</code>&nbsp;
-
-<code>Windows</code>&nbsp;
-</p>
 
 
 Force keyboard to be shown.
@@ -144,15 +145,16 @@ Force keyboard to be shown.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  
+  <code>BlackBerry 10</code>&nbsp;
+  
+  <code>Windows</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-
-<code>BlackBerry 10</code>&nbsp;
-
-<code>Windows</code>&nbsp;
-</p>
 
 
 Close the keyboard if open.
@@ -173,11 +175,12 @@ Close the keyboard if open.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows</code>&nbsp;
+  </p>
 
-<code>Windows</code>&nbsp;
-</p>
 
 
 Prevents the native UIScrollView from moving when an input is focused.
@@ -225,15 +228,16 @@ Prevents the native UIScrollView from moving when an input is focused.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  
+  <code>BlackBerry 10</code>&nbsp;
+  
+  <code>Windows</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-
-<code>BlackBerry 10</code>&nbsp;
-
-<code>Windows</code>&nbsp;
-</p>
 
 
 Creates an observable that notifies you when the keyboard is shown. Unsubscribe to observable to cancel event watch.
@@ -254,15 +258,16 @@ Creates an observable that notifies you when the keyboard is shown. Unsubscribe 
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  
+  <code>BlackBerry 10</code>&nbsp;
+  
+  <code>Windows</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-
-<code>BlackBerry 10</code>&nbsp;
-
-<code>Windows</code>&nbsp;
-</p>
 
 
 Creates an observable that notifies you when the keyboard is hidden. Unsubscribe to observable to cancel event watch.
@@ -278,6 +283,16 @@ Creates an observable that notifies you when the keyboard is hidden. Unsubscribe
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

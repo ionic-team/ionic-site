@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   NFC
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/nfc.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -76,11 +72,15 @@ NFC.share([message]).then(onSuccess).catch(onError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="addNdefListener"></div>
 <h3><code>addNdefListener(onSuccess,&nbsp;onFailure)</code>
   
 </h3>
+
 
 
 
@@ -148,6 +148,7 @@ Registers an event listener for any NDEF tag.
 <h3><code>addTagDiscoveredListener(mimeType,&nbsp;onSuccess,&nbsp;onFailure)</code>
   
 </h3>
+
 
 
 
@@ -234,6 +235,7 @@ Registers an event listener for tags matching any tag type.
 
 
 
+
 Registers an event listener for NDEF tags matching a specified MIME type.
 
 
@@ -298,6 +300,7 @@ Registers an event listener for NDEF tags matching a specified MIME type.
 <h3><code>addNdefFormatableListener(onSuccess,&nbsp;onFailure)</code>
   
 </h3>
+
 
 
 
@@ -366,6 +369,7 @@ Registers an event listener for formatable NDEF tags.
   
 </h3>
 
+
 Qrites an NdefMessage to a NFC tag.
 
 
@@ -415,6 +419,7 @@ Qrites an NdefMessage to a NFC tag.
   
 </h3>
 
+
 Makes a NFC tag read only. **Warning** this is permanent.
 
 
@@ -434,6 +439,7 @@ Makes a NFC tag read only. **Warning** this is permanent.
 <h3><code>share(message)</code>
   
 </h3>
+
 
 Shares an NDEF Message via peer-to-peer.
 
@@ -485,6 +491,7 @@ Shares an NDEF Message via peer-to-peer.
   
 </h3>
 
+
 Stop sharing NDEF data via peer-to-peer.
 
 
@@ -505,6 +512,7 @@ Stop sharing NDEF data via peer-to-peer.
   
 </h3>
 
+
 Erase a NDEF tag
 
 
@@ -520,6 +528,7 @@ Erase a NDEF tag
 <h3><code>handover(uris)</code>
   
 </h3>
+
 
 Send a file to another device via NFC handover.
 
@@ -571,6 +580,7 @@ Send a file to another device via NFC handover.
   
 </h3>
 
+
 Stop sharing NDEF data via NFC handover.
 
 
@@ -590,6 +600,7 @@ Stop sharing NDEF data via NFC handover.
 <h3><code>showSettings()</code>
   
 </h3>
+
 
 Show the NFC settings on the device.
 
@@ -611,6 +622,7 @@ Show the NFC settings on the device.
   
 </h3>
 
+
 Check if NFC is available and enabled on this device.
 
 
@@ -628,6 +640,16 @@ Check if NFC is available and enabled on this device.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

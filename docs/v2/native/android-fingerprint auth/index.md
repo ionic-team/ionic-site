@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Android Fingerprint Auth
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/android-fingerprint-auth.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -86,11 +82,15 @@ AndroidFingerprintAuth.isAvailable()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(params)</code>
   
 </h3>
+
 
 Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
 
@@ -135,6 +135,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
   
 </h3>
 
+
 Check if service is available
 
 
@@ -148,6 +149,16 @@ Check if service is available
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

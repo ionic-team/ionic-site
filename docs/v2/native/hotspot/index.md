@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Hotspot
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/hotspot.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,7 +53,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -78,11 +74,15 @@ Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
   
 </h3>
+
 
 
 
@@ -109,10 +109,12 @@ Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
 
 
 
+
 <div id="createHotspot"></div>
 <h3><code>createHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
   
 </h3>
+
 
 Configures and starts hotspot with SSID and Password
 
@@ -199,6 +201,7 @@ Configures and starts hotspot with SSID and Password
   
 </h3>
 
+
 Turns on Access Point
 
 
@@ -219,6 +222,7 @@ Turns on Access Point
 <h3><code>configureHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
   
 </h3>
+
 
 Configures hotspot with SSID and Password
 
@@ -305,6 +309,7 @@ Configures hotspot with SSID and Password
   
 </h3>
 
+
 Turns off Access Point
 
 
@@ -325,6 +330,7 @@ Turns off Access Point
 <h3><code>isHotspotEnabled()</code>
   
 </h3>
+
 
 Checks if hotspot is enabled
 
@@ -357,10 +363,12 @@ Checks if hotspot is enabled
 
 
 
+
 <div id="connectToWifi"></div>
 <h3><code>connectToWifi(ssid,&nbsp;password)</code>
   
 </h3>
+
 
 Connect to a WiFi network
 
@@ -429,6 +437,7 @@ Connect to a WiFi network
 <h3><code>connectToWifiAuthEncrypt(ssid,&nbsp;password,&nbsp;authentication,&nbsp;encryption)</code>
   
 </h3>
+
 
 Connect to a WiFi network
 
@@ -532,6 +541,7 @@ Connect to a WiFi network
   
 </h3>
 
+
 Add a WiFi network
 
 
@@ -617,6 +627,7 @@ Add a WiFi network
   
 </h3>
 
+
 Remove a WiFi network
 
 
@@ -678,10 +689,12 @@ Remove a WiFi network
 
 
 
+
 <div id="isConnectedToInternetViaWifi"></div>
 <h3><code>isConnectedToInternetViaWifi()</code>
   
 </h3>
+
 
 
 
@@ -708,10 +721,12 @@ Remove a WiFi network
 
 
 
+
 <div id="isWifiSupported"></div>
 <h3><code>isWifiSupported()</code>
   
 </h3>
+
 
 
 
@@ -738,10 +753,12 @@ Remove a WiFi network
 
 
 
+
 <div id="scanWifi"></div>
 <h3><code>scanWifi()</code>
   
 </h3>
+
 
 
 
@@ -768,10 +785,12 @@ Remove a WiFi network
 
 
 
+
 <div id="startWifiPeriodicallyScan"></div>
 <h3><code>startWifiPeriodicallyScan()</code>
   
 </h3>
+
 
 
 
@@ -798,10 +817,12 @@ Remove a WiFi network
 
 
 
+
 <div id="getNetConfig"></div>
 <h3><code>getNetConfig()</code>
   
 </h3>
+
 
 
 
@@ -828,6 +849,7 @@ Remove a WiFi network
 
 
 
+
 <div id="pingHost"></div>
 <h3><code>pingHost()</code>
   
@@ -843,10 +865,12 @@ Remove a WiFi network
 
 
 
+
 <div id="getMacAddressOfHost"></div>
 <h3><code>getMacAddressOfHost(ip)</code>
   
 </h3>
+
 
 Gets MAC Address associated with IP Address from ARP File
 
@@ -899,6 +923,7 @@ Gets MAC Address associated with IP Address from ARP File
   
 </h3>
 
+
 Checks if IP is live using DNS
 
 
@@ -949,6 +974,7 @@ Checks if IP is live using DNS
 <h3><code>isPortLive(ip)</code>
   
 </h3>
+
 
 Checks if IP is live using socket And PORT
 
@@ -1001,6 +1027,7 @@ Checks if IP is live using socket And PORT
   
 </h3>
 
+
 Checks if device is rooted
 
 
@@ -1019,6 +1046,16 @@ Checks if device is rooted
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

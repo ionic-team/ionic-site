@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Status Bar
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/statusbar.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,16 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows 8</li>
-  
-  <li>Windows 10</li>
-  </ul>
+  <li>iOS</li><li>Android</li><li>Windows Phone 8</li><li>Windows 8</li><li>Windows 10</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -88,11 +76,15 @@ StatusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to wh
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="overlaysWebView"></div>
 <h3><code>overlaysWebView(doesOverlay)</code>
   
 </h3>
+
 
 
 
@@ -144,6 +136,7 @@ is true.
 
 
 
+
 Use the default statusbar (dark text, for light backgrounds).
 
 
@@ -159,6 +152,7 @@ Use the default statusbar (dark text, for light backgrounds).
 <h3><code>styleLightContent()</code>
   
 </h3>
+
 
 
 
@@ -180,6 +174,7 @@ Use the lightContent statusbar (light text, for dark backgrounds).
 
 
 
+
 Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 
@@ -198,6 +193,7 @@ Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 
 
+
 Use the blackOpaque statusbar (light text, for dark backgrounds).
 
 
@@ -213,6 +209,7 @@ Use the blackOpaque statusbar (light text, for dark backgrounds).
 <h3><code>backgroundColorByName(colorName)</code>
   
 </h3>
+
 
 
 
@@ -266,6 +263,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
 
 
 
+
 Set the status bar to a specific hex color (CSS shorthand supported!).
 
 iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing.
@@ -315,6 +313,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
 
 
 
+
 Hide the StatusBar
 
 
@@ -330,6 +329,7 @@ Hide the StatusBar
 <h3><code>show()</code>
   
 </h3>
+
 
 
 
@@ -349,6 +349,7 @@ Show the StatusBar
   
 </h3>
 
+
 Whether the StatusBar is currently visible or not.
 
 
@@ -362,6 +363,16 @@ Whether the StatusBar is currently visible or not.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

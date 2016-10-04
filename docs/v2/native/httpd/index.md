@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Httpd
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/httpd.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -86,11 +80,15 @@ Httpd.startServer(options).subscribe((data) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="startServer"></div>
 <h3><code>startServer(options)</code>
   
 </h3>
+
 
 
 
@@ -143,6 +141,7 @@ Starts a web server.
   
 </h3>
 
+
 Gets the URL of the running server
 
 
@@ -163,6 +162,7 @@ Gets the URL of the running server
   
 </h3>
 
+
 Get the local path of the running webserver
 
 
@@ -180,6 +180,16 @@ Get the local path of the running webserver
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

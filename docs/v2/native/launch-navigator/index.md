@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Launch Navigator
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/launchnavigator.ts#L58">
   Improve this doc
 </a>
-
-
 
 
 
@@ -77,11 +73,15 @@ LaunchNavigator.navigate(&#39;Toronto, ON&#39;, options)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="navigate"></div>
 <h3><code>navigate(destination,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -151,6 +151,7 @@ Launches navigator app
   
 </h3>
 
+
 Determines if the given app is installed and available on the current device.
 
 
@@ -194,6 +195,7 @@ Determines if the given app is installed and available on the current device.
   
 </h3>
 
+
 Returns a list indicating which apps are installed and available on the current device.
 
 
@@ -209,6 +211,7 @@ Returns a list indicating which apps are installed and available on the current 
 <h3><code>getAppDisplayName(app)</code>
   
 </h3>
+
 
 
 
@@ -257,6 +260,7 @@ Returns the display name of the specified app.
 
 
 
+
 Returns list of supported apps on a given platform.
 
 
@@ -299,6 +303,7 @@ Returns list of supported apps on a given platform.
 <h3><code>supportsTransportMode(app,&nbsp;platform)</code>
   
 </h3>
+
 
 
 
@@ -364,6 +369,7 @@ Indicates if an app on a given platform supports specification of transport mode
 
 
 
+
 Returns the list of transport modes supported by an app on a given platform.
 
 
@@ -422,6 +428,7 @@ Returns the list of transport modes supported by an app on a given platform.
 <h3><code>supportsLaunchMode(app,&nbsp;platform)</code>
   
 </h3>
+
 
 
 
@@ -484,6 +491,7 @@ Note that currently only Google Maps on Android does.
 <h3><code>supportsStart(app,&nbsp;platform)</code>
   
 </h3>
+
 
 
 
@@ -558,10 +566,12 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+
 <div id="supportsDestName"></div>
 <h3><code>supportsDestName()</code>
   
 </h3>
+
 
 
 
@@ -592,10 +602,13 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+
 <div id="APP"></div>
 <h3><code>APP()</code>
   
 </h3>
+
+
 
 
 
@@ -619,7 +632,19 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+
+
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

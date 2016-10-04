@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Stepcounter
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/stepcounter.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -63,7 +59,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -84,11 +80,15 @@ Stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter-hist
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="start"></div>
 <h3><code>start(startingOffset)</code>
   
 </h3>
+
 
 Start the step counter
 
@@ -141,6 +141,7 @@ Start the step counter
   
 </h3>
 
+
 Stop the step counter
 
 
@@ -160,6 +161,7 @@ Stop the step counter
 <h3><code>getTodayStepCount()</code>
   
 </h3>
+
 
 Get the amount of steps for today (or -1 if it no data given)
 
@@ -181,6 +183,7 @@ Get the amount of steps for today (or -1 if it no data given)
   
 </h3>
 
+
 Get the amount of steps since the start command has been called
 
 
@@ -200,6 +203,7 @@ Get the amount of steps since the start command has been called
 <h3><code>deviceCanCountSteps()</code>
   
 </h3>
+
 
 Returns true/false if Android device is running >API level 19 && has the step counter API available
 
@@ -221,6 +225,7 @@ Returns true/false if Android device is running >API level 19 && has the step co
   
 </h3>
 
+
 Get the step history (JavaScript object)
 
 
@@ -238,6 +243,16 @@ Get the step history (JavaScript object)
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

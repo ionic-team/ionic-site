@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Facebook
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/facebook.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -100,11 +96,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="browserInit"></div>
 <h3><code>browserInit(appId,&nbsp;version)</code>
   
 </h3>
+
 
 Browser wrapper
 
@@ -166,6 +166,7 @@ Browser wrapper
 <h3><code>login(permissions)</code>
   
 </h3>
+
 
 Login to Facebook to authenticate this app.
 
@@ -232,6 +233,7 @@ Login to Facebook to authenticate this app.
   
 </h3>
 
+
 Logout of Facebook.
 
 For more info see the [Facebook docs](https://developers.facebook.com/docs/reference/javascript/FB.logout)
@@ -255,6 +257,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 <h3><code>getLoginStatus()</code>
   
 </h3>
+
 
 Determine if a user is logged in to Facebook and has authenticated your app.  There are three possible states for a user:
 
@@ -300,6 +303,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
   
 </h3>
 
+
 Get a Facebook access token for using Facebook services.
 
 
@@ -322,6 +326,7 @@ Get a Facebook access token for using Facebook services.
 <h3><code>showDialog()</code>
   
 </h3>
+
 
 Show one of various Facebook dialogs. Example of options for a Share dialog:
 
@@ -356,6 +361,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 <h3><code>api(requestPath,&nbsp;permissions)</code>
   
 </h3>
+
 
 Make a call to Facebook Graph API. Can take additional permissions beyond those granted on login.
 
@@ -432,6 +438,7 @@ For more information see:
 <h3><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
   
 </h3>
+
 
 Log an event.  For more information see the Events section above.
 
@@ -518,6 +525,7 @@ Log an event.  For more information see the Events section above.
   
 </h3>
 
+
 Log a purchase. For more information see the Events section above.
 
 
@@ -588,6 +596,7 @@ Log a purchase. For more information see the Events section above.
   
 </h3>
 
+
 Open App Invite dialog. Does not require login.
 
 For more information see:
@@ -646,6 +655,16 @@ For more information see:
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

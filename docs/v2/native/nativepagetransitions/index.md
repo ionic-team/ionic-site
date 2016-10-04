@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   NativePageTransitions
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/native-page-transitions.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>Windows Phone</li>
-  </ul>
+  <li>iOS</li><li>Android</li><li>Windows Phone</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -94,11 +86,15 @@ NativePageTransitions.slide(options)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="slide"></div>
 <h3><code>slide(options)</code>
   
 </h3>
+
 
 Perform a slide animation
 
@@ -143,6 +139,7 @@ Perform a slide animation
 <h3><code>flip(options)</code>
   
 </h3>
+
 
 Perform a flip animation
 
@@ -190,11 +187,12 @@ Perform a flip animation
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Perform a fade animation
@@ -243,11 +241,12 @@ Perform a fade animation
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Perform a slide animation
@@ -296,9 +295,10 @@ Perform a slide animation
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Perform a slide animation
@@ -342,6 +342,16 @@ Perform a slide animation
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

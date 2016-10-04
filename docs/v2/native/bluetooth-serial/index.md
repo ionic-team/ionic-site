@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Bluetooth Serial
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/bluetoothserial.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,14 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -98,7 +88,10 @@ BluetoothSerial.write(data.buffer).then(success, failure);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="connect"></div>
 <h3><code>connect(macAddress_or_uuid)</code>
   
@@ -106,13 +99,14 @@ BluetoothSerial.write(data.buffer).then(success, failure);
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Connect to a Bluetooth device
@@ -167,9 +161,10 @@ Connect to a Bluetooth device
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Connect insecurely to a Bluetooth device
@@ -224,13 +219,14 @@ Connect insecurely to a Bluetooth device
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Writes data to the serial port
@@ -285,13 +281,14 @@ Writes data to the serial port
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Gets the number of bytes of data available
@@ -316,13 +313,14 @@ Gets the number of bytes of data available
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Reads data from the buffer
@@ -347,13 +345,14 @@ Reads data from the buffer
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Reads data from the buffer until it reaches a delimiter
@@ -408,13 +407,14 @@ Reads data from the buffer until it reaches a delimiter
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Subscribe to be notified when data is received
@@ -469,13 +469,14 @@ Subscribe to be notified when data is received
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Subscribe to be notified when data is received
@@ -500,13 +501,14 @@ Subscribe to be notified when data is received
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Clears data in buffer
@@ -531,13 +533,14 @@ Clears data in buffer
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Lists bonded devices
@@ -562,13 +565,14 @@ Lists bonded devices
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Reports if bluetooth is enabled
@@ -593,13 +597,14 @@ Reports if bluetooth is enabled
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Reports the connection status
@@ -624,13 +629,14 @@ Reports the connection status
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Reads the RSSI from the connected peripheral
@@ -655,13 +661,14 @@ Reads the RSSI from the connected peripheral
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Show the Bluetooth settings on the device
@@ -686,13 +693,14 @@ Show the Bluetooth settings on the device
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Enable Bluetooth on the device
@@ -717,13 +725,14 @@ Enable Bluetooth on the device
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Discover unpaired devices
@@ -748,13 +757,14 @@ Discover unpaired devices
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-</p>
 
 
 Subscribe to be notified on Bluetooth device discovery. Discovery process must be initiated with the `discoverUnpaired` function.
@@ -779,9 +789,10 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Sets the human readable device name that is broadcasted to other devices
@@ -830,9 +841,10 @@ Sets the human readable device name that is broadcasted to other devices
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Makes the device discoverable by other devices
@@ -876,6 +888,16 @@ Makes the device discoverable by other devices
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

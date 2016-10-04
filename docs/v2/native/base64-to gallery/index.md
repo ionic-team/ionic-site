@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Base64 To Gallery
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/base64togallery.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -84,11 +76,15 @@ Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="base64ToGallery"></div>
 <h3><code>base64ToGallery(data,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -156,6 +152,16 @@ Converts a base64 string to an image file in the device gallery
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

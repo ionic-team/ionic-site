@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Network
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/network.ts#L4">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,24 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Amazon Fire OS</li>
-  
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>BlackBerry 10</li>
-  
-  <li>Windows Phone 7</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows</li>
-  
-  <li>Firefox OS</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -115,11 +95,15 @@ connectSubscription.unsubscribe();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="connection"></div>
 <h3><code>connection()</code>
   
 </h3>
+
 
 Return the network connection type
 
@@ -136,6 +120,7 @@ Return the network connection type
 <h3><code>onDisconnect()</code>
   
 </h3>
+
 
 
 
@@ -161,6 +146,7 @@ Get notified when the device goes offline
 
 
 
+
 Get notified when the device goes online
 
 
@@ -177,9 +163,19 @@ Get notified when the device goes online
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>The <code>connection</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

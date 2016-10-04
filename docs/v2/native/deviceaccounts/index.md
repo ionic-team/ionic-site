@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   DeviceAccounts
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceaccounts.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,7 +53,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -66,11 +62,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="get"></div>
 <h3><code>get()</code>
   
 </h3>
+
 
 Gets all accounts registered on the Android Device
 
@@ -88,6 +88,7 @@ Gets all accounts registered on the Android Device
   
 </h3>
 
+
 Get all accounts registered on Android device for requested type
 
 
@@ -103,6 +104,7 @@ Get all accounts registered on Android device for requested type
 <h3><code>getEmails()</code>
   
 </h3>
+
 
 Get all emails registered on Android device (accounts with 'com.google' type)
 
@@ -120,6 +122,7 @@ Get all emails registered on Android device (accounts with 'com.google' type)
   
 </h3>
 
+
 Get the first email registered on Android device
 
 
@@ -133,6 +136,16 @@ Get the first email registered on Android device
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

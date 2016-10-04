@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Mixpanel
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/mixpanel.ts#L2">
   Improve this doc
 </a>
-
-
 
 
 
@@ -69,11 +65,15 @@ Mixpanel.init(token)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="alias"></div>
 <h3><code>alias(aliasId,&nbsp;originalId)</code>
   
 </h3>
+
 
 
 
@@ -147,6 +147,7 @@ Mixpanel.init(token)
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -171,10 +172,12 @@ Mixpanel.init(token)
 
 
 
+
 <div id="identify"></div>
 <h3><code>identify(distinctId)</code>
   
 </h3>
+
 
 
 
@@ -228,6 +231,7 @@ Mixpanel.init(token)
 
 
 
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -273,6 +277,7 @@ Mixpanel.init(token)
 <h3><code>registerSuperProperties(superProperties)</code>
   
 </h3>
+
 
 
 
@@ -330,6 +335,7 @@ Mixpanel.init(token)
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -342,6 +348,7 @@ Mixpanel.init(token)
 <h3><code>track(eventName,&nbsp;eventProperties)</code>
   
 </h3>
+
 
 
 
@@ -409,6 +416,7 @@ Mixpanel.init(token)
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -429,6 +437,7 @@ Mixpanel.init(token)
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -439,6 +448,16 @@ Mixpanel.init(token)
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

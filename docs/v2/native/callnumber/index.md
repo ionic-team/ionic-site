@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   CallNumber
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/call-number.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -80,11 +74,15 @@ CallNumber.callNumber(18001010101, true)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="callNumber"></div>
 <h3><code>callNumber(numberToCall,&nbsp;bypassAppChooser)</code>
   
 </h3>
+
 
 
 
@@ -146,6 +144,16 @@ Calls a phone number
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   YoutubeVideoPlayer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/youtube-video-player.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -78,11 +72,15 @@ YouTubeVideoPlayer.openVideo(&#39;myvideoid&#39;);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="openVideo"></div>
 <h3><code>openVideo(videoId)</code>
   
 </h3>
+
 
 
 
@@ -127,6 +125,16 @@ Plays a YouTube video
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Zip
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/zip.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -71,11 +67,15 @@ Zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) =&gt;
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="unzip"></div>
 <h3><code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code>
   
 </h3>
+
 
 
 
@@ -160,6 +160,16 @@ Extracts files from a ZIP archive
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

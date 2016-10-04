@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   NativeAudio
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/native-audio.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -77,11 +73,15 @@ NativeAudio.unload(&#39;uniqueId1&#39;).then(onSuccess,onError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="preloadSimple"></div>
 <h3><code>preloadSimple(id,&nbsp;assetPath)</code>
   
 </h3>
+
 
 Loads an audio file into memory. Optimized for short clips / single shots (up to five seconds). Cannot be stopped / looped.
 
@@ -149,6 +149,7 @@ Loads an audio file into memory. Optimized for short clips / single shots (up to
 <h3><code>preloadComplex(id,&nbsp;assetPath,&nbsp;volume,&nbsp;voices,&nbsp;delay)</code>
   
 </h3>
+
 
 Loads an audio file into memory. Optimized for background music / ambient sound. Uses highlevel native APIs with a larger footprint. (iOS: AVAudioPlayer). Can be stopped / looped and used with multiple voices. Can be faded in and out using the delay parameter.
 
@@ -269,6 +270,7 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
 
 
 
+
 Plays an audio asset
 
 
@@ -330,6 +332,7 @@ Plays an audio asset
   
 </h3>
 
+
 Stops playing an audio
 
 
@@ -373,6 +376,7 @@ Stops playing an audio
 <h3><code>loop(id)</code>
   
 </h3>
+
 
 Loops an audio asset infinitely, this only works for complex assets
 
@@ -424,6 +428,7 @@ Loops an audio asset infinitely, this only works for complex assets
   
 </h3>
 
+
 Unloads an audio file from memory
 
 
@@ -467,6 +472,7 @@ Unloads an audio file from memory
 <h3><code>setVolumeForComplexAsset(id,&nbsp;volume)</code>
   
 </h3>
+
 
 Changes the volume for preloaded complex assets.
 
@@ -526,6 +532,16 @@ Changes the volume for preloaded complex assets.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

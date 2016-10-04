@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   IsDebug
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/is-debug.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -70,11 +66,15 @@ IsDebug.getIsDebug()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getIsDebug"></div>
 <h3><code>getIsDebug()</code>
   
 </h3>
+
 
 Determine if an app was installed via xcode / eclipse / the ionic CLI etc
 
@@ -93,6 +93,16 @@ Determine if an app was installed via xcode / eclipse / the ionic CLI etc
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

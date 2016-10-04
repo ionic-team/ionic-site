@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   PowerManagement
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/power-management.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -70,11 +66,15 @@ PowerManagement.acquire()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="acquire"></div>
 <h3><code>acquire()</code>
   
 </h3>
+
 
 Acquire a wakelock by calling this.
 
@@ -92,6 +92,7 @@ Acquire a wakelock by calling this.
   
 </h3>
 
+
 This acquires a partial wakelock, allowing the screen to be dimmed.
 
 
@@ -108,6 +109,7 @@ This acquires a partial wakelock, allowing the screen to be dimmed.
   
 </h3>
 
+
 Release the wakelock. It's important to do this when you're finished with the wakelock, to avoid unnecessary battery drain.
 
 
@@ -123,6 +125,7 @@ Release the wakelock. It's important to do this when you're finished with the wa
 <h3><code>setReleaseOnPause(set)</code>
   
 </h3>
+
 
 By default, the plugin will automatically release a wakelock when your app is paused (e.g. when the screen is turned off, or the user switches to another app).
 It will reacquire the wakelock upon app resume. If you would prefer to disable this behaviour, you can use this function.
@@ -165,6 +168,16 @@ It will reacquire the wakelock upon app resume. If you would prefer to disable t
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

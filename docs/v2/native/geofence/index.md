@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Geofence
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geofence.ts#L73">
   Improve this doc
 </a>
-
-
 
 
 
@@ -56,14 +52,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows Phone</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows Phone</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -72,11 +62,16 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="TransitionType"></div>
 <h3><code>TransitionType()</code>
   
 </h3>
+
+
 
 
 
@@ -99,10 +94,13 @@ docType: "class"
 
 
 
+
+
 <div id="initialize"></div>
 <h3><code>initialize()</code>
   
 </h3>
+
 
 Initializes the plugin. User will be prompted to allow the app to use location and notifications.
 
@@ -125,6 +123,7 @@ Initializes the plugin. User will be prompted to allow the app to use location a
   
 </h3>
 
+
 Adds a new geofence or array of geofences. For geofence object, see above.
 
 
@@ -145,6 +144,7 @@ Adds a new geofence or array of geofences. For geofence object, see above.
 <h3><code>remove()</code>
   
 </h3>
+
 
 Removes a geofence or array of geofences. `geofenceID` corresponds to one or more IDs specified when the
 geofence was created.
@@ -168,6 +168,7 @@ geofence was created.
   
 </h3>
 
+
 Removes all geofences.
 
 
@@ -189,6 +190,7 @@ Removes all geofences.
   
 </h3>
 
+
 Returns an array of geofences currently being monitored.
 
 
@@ -208,7 +210,9 @@ Returns an array of geofences currently being monitored.
 <div id="onTransitionReceived"></div>
 <h3><code>onTransitionReceived()</code>
   
-</h3>Called when a geofence is crossed in the direction specified by `TransitType`.
+</h3>
+
+Called when a geofence is crossed in the direction specified by `TransitType`.
 
 
 
@@ -227,7 +231,9 @@ Returns an array of geofences currently being monitored.
 <div id="onNotificationClicked"></div>
 <h3><code>onNotificationClicked()</code>
   
-</h3>Called when the user clicks a geofence notification. iOS and Android only.   
+</h3>
+
+Called when the user clicks a geofence notification. iOS and Android only.   
 
 
 
@@ -245,6 +251,16 @@ Returns an array of geofences currently being monitored.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

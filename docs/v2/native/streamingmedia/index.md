@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   StreamingMedia
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/streaming-media.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -84,11 +78,15 @@ StreamingMedia.(&#39;https://path/to/video/stream&#39;, options);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="playVideo"></div>
 <h3><code>playVideo(videoUrl,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -155,6 +153,7 @@ Streams a video
 
 
 
+
 Streams an audio
 
 
@@ -218,6 +217,7 @@ Streams an audio
 
 
 
+
 Stops streaming audio
 
 
@@ -236,9 +236,10 @@ Stops streaming audio
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Pauses streaming audio
@@ -259,9 +260,10 @@ Pauses streaming audio
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Resumes streaming audio
@@ -277,6 +279,16 @@ Resumes streaming audio
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

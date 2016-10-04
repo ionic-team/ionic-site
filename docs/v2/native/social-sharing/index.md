@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Social Sharing
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/socialsharing.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>Windows Phone</li>
-  </ul>
+  <li>iOS</li><li>Android</li><li>Windows Phone</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -92,11 +84,15 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="share"></div>
 <h3><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code>
   
 </h3>
+
 
 Shares using the share sheet
 
@@ -201,11 +197,12 @@ Shares using the share sheet
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares using the share sheet with additional options and returns a result object or an error message (requires plugin version 5.1.0+)
@@ -260,11 +257,12 @@ Shares using the share sheet with additional options and returns a result object
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Checks if you can share via a specific app.
@@ -383,11 +381,12 @@ Checks if you can share via a specific app.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to Twitter
@@ -473,11 +472,12 @@ Shares directly to Twitter
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to Facebook
@@ -563,11 +563,12 @@ Shares directly to Facebook
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to Facebook with a paste message hint
@@ -669,11 +670,12 @@ Shares directly to Facebook with a paste message hint
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to Instagram
@@ -743,11 +745,12 @@ Shares directly to Instagram
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to WhatsApp
@@ -833,11 +836,12 @@ Shares directly to WhatsApp
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Shares directly to a WhatsApp Contact
@@ -943,11 +947,12 @@ Shares directly to a WhatsApp Contact
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Share via SMS
@@ -1019,11 +1024,12 @@ Share via SMS
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Checks if you can share via email
@@ -1048,11 +1054,12 @@ Checks if you can share via email
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Share via Email
@@ -1189,11 +1196,12 @@ Share via Email
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Android</code>&nbsp;
+  </p>
 
-<code>Android</code>&nbsp;
-</p>
 
 
 Share via AppName
@@ -1307,6 +1315,16 @@ Share via AppName
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

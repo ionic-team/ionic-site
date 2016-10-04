@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Photo Viewer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/photo-viewer.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -69,11 +65,15 @@ PhotoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My image t
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(url,&nbsp;title,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -150,6 +150,16 @@ Shows an image in full screen
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

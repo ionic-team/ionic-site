@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Clipboard
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/clipboard.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -59,24 +55,8 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Amazon Fire OS</li>
-  
-  <li>iOS</li>
-  
-  <li>Android</li>
-  
-  <li>BlackBerry 10</li>
-  
-  <li>Windows Phone 7</li>
-  
-  <li>Windows Phone 8</li>
-  
-  <li>Windows</li>
-  
-  <li>Firefox OS</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Amazon Fire OS</li><li>iOS</li><li>Android</li><li>BlackBerry 10</li><li>Windows Phone 7</li><li>Windows Phone 8</li><li>Windows</li><li>Firefox OS</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -105,11 +85,15 @@ Clipboard.paste().then(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="copy"></div>
 <h3><code>copy(text)</code>
   
 </h3>
+
 
 Copies the given text
 
@@ -161,6 +145,7 @@ Copies the given text
   
 </h3>
 
+
 Pastes the text stored in clipboard
 
 
@@ -178,6 +163,16 @@ Pastes the text stored in clipboard
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

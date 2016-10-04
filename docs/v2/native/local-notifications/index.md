@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Local Notifications
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -97,11 +93,15 @@ LocalNotifications.schedule({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="schedule"></div>
 <h3><code>schedule(options)</code>
   
 </h3>
+
 
 
 
@@ -150,6 +150,7 @@ Schedules a single or multiple notifications
 
 
 
+
 Updates a previously scheduled notification. Must include the id in the options parameter.
 
 
@@ -192,6 +193,7 @@ Updates a previously scheduled notification. Must include the id in the options 
 <h3><code>clear(notificationId)</code>
   
 </h3>
+
 
 Clears single or multiple notifications
 
@@ -245,6 +247,7 @@ Clears single or multiple notifications
 
 
 
+
 Clears all notifications
 
 
@@ -264,6 +267,7 @@ Clears all notifications
 <h3><code>cancel(notificationId)</code>
   
 </h3>
+
 
 Cancels single or multiple notifications
 
@@ -317,6 +321,7 @@ Cancels single or multiple notifications
 
 
 
+
 Cancels all notifications
 
 
@@ -336,6 +341,7 @@ Cancels all notifications
 <h3><code>isPresent(notificationId)</code>
   
 </h3>
+
 
 Checks presence of a notification
 
@@ -386,6 +392,7 @@ Checks presence of a notification
   
 </h3>
 
+
 Checks is a notification is scheduled
 
 
@@ -434,6 +441,7 @@ Checks is a notification is scheduled
 <h3><code>isTriggered(notificationId)</code>
   
 </h3>
+
 
 Checks if a notification is triggered
 
@@ -484,6 +492,7 @@ Checks if a notification is triggered
   
 </h3>
 
+
 Get all the notification ids
 
 
@@ -503,6 +512,7 @@ Get all the notification ids
 <h3><code>getTriggeredIds()</code>
   
 </h3>
+
 
 Get the ids of triggered notifications
 
@@ -524,6 +534,7 @@ Get the ids of triggered notifications
   
 </h3>
 
+
 Get the ids of scheduled notifications
 
 
@@ -543,6 +554,7 @@ Get the ids of scheduled notifications
 <h3><code>get(notificationId)</code>
   
 </h3>
+
 
 Get a notification object
 
@@ -594,6 +606,7 @@ Get a notification object
   
 </h3>
 
+
 Get a scheduled notification object
 
 
@@ -643,6 +656,7 @@ Get a scheduled notification object
 <h3><code>getTriggered(notificationId)</code>
   
 </h3>
+
 
 Get a triggered notification object
 
@@ -694,6 +708,7 @@ Get a triggered notification object
   
 </h3>
 
+
 Get all notification objects
 
 
@@ -713,6 +728,7 @@ Get all notification objects
 <h3><code>getAllScheduled()</code>
   
 </h3>
+
 
 Get all scheduled notification objects
 
@@ -734,6 +750,7 @@ Get all scheduled notification objects
   
 </h3>
 
+
 Get all triggered notification objects
 
 
@@ -753,6 +770,7 @@ Get all triggered notification objects
 <h3><code>registerPermission()</code>
   
 </h3>
+
 
 Register permission to show notifications if not already granted.
 
@@ -774,6 +792,7 @@ Register permission to show notifications if not already granted.
   
 </h3>
 
+
 Informs if the app has the permission to show notifications.
 
 
@@ -793,6 +812,7 @@ Informs if the app has the permission to show notifications.
 <h3><code>on(eventName,&nbsp;callback)</code>
   
 </h3>
+
 
 
 
@@ -854,6 +874,16 @@ Sets a callback for a specific event
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

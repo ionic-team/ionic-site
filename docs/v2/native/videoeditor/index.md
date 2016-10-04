@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   VideoEditor
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-editor.ts#L118">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,12 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -86,11 +78,16 @@ VideoEditor.transcodeVideo({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="OptimizeForNetworkUse"></div>
 <h3><code>OptimizeForNetworkUse()</code>
   
 </h3>
+
+
 
 
 
@@ -113,10 +110,13 @@ VideoEditor.transcodeVideo({
 
 
 
+
+
 <div id="transcodeVideo"></div>
 <h3><code>transcodeVideo(options)</code>
   
 </h3>
+
 
 
 
@@ -172,9 +172,10 @@ Transcode a video
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Trim a video
@@ -226,6 +227,7 @@ Trim a video
 <h3><code>createThumbnail(options)</code>
   
 </h3>
+
 
 
 
@@ -281,6 +283,7 @@ Create a JPEG thumbnail from a video
 
 
 
+
 Get info on a video (width, height, orientation, duration, size, & bitrate)
 
 
@@ -328,6 +331,16 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

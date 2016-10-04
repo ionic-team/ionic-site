@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Pin Dialog
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pin-dialog.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -73,11 +69,15 @@ PinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#39;, 
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="prompt"></div>
 <h3><code>prompt(message,&nbsp;title,&nbsp;buttons)</code>
   
 </h3>
+
 
 
 
@@ -156,6 +156,16 @@ Show pin dialog
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

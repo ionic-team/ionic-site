@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Spinner Dialog
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/spinnerdialog.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -56,12 +52,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -82,11 +74,15 @@ SpinnerDialog.hide();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
   
 </h3>
+
 
 
 
@@ -187,6 +183,7 @@ Shows the spinner dialog
 
 
 
+
 Hides the spinner dialog if visible
 
 
@@ -200,6 +197,16 @@ Hides the spinner dialog if visible
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

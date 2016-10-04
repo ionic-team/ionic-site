@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Screenshot
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/screenshot.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -71,11 +67,16 @@ Screenshot.URI(80).then(onSuccess, onError);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="save"></div>
 <h3><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
   
-</h3>Takes screenshot and saves the image
+</h3>
+
+Takes screenshot and saves the image
 
 
 
@@ -154,7 +155,9 @@ On ios, only &#39;jpg&#39; format is supported</p>
 <div id="URI"></div>
 <h3><code>URI(quality.)</code>
   
-</h3>Takes screenshot and returns the image as an URI
+</h3>
+
+Takes screenshot and returns the image as an URI
 
 
 
@@ -197,6 +200,16 @@ On ios, only &#39;jpg&#39; format is supported</p>
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

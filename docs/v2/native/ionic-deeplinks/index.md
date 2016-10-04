@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Ionic Deeplinks
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deeplinks.ts#L21">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ and Universal App Links.</p>
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -77,11 +71,15 @@ and Universal App Links.</p>
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="route"></div>
 <h3><code>route(Define)</code>
   
 </h3>
+
 
 
 
@@ -139,6 +137,7 @@ is rejected if a deeplink comes through that does not match a given path.
 <h3><code>routeWithNavController(Define)</code>
   
 </h3>
+
 
 
 
@@ -200,6 +199,16 @@ is rejected if a deeplink comes through that does not match a given path.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

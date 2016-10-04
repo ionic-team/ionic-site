@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   SQLite
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sqlite.ts#L3">
   Improve this doc
 </a>
-
-
 
 
 
@@ -79,11 +75,15 @@ db.openDatabase({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="echoTest"></div>
 <h3><code>echoTest()</code>
   
 </h3>
+
 
 
 
@@ -111,12 +111,11 @@ db.openDatabase({
 
 
 
+
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="databaseFeatures"></div>
-
 <h3>
   <code>databaseFeatures</code>
   
@@ -126,27 +125,15 @@ db.openDatabase({
 
 
 
-
-
-
-
-
-
-
-
 <div id="openDatabase"></div>
-
 <h3>
   <code>openDatabase(config)</code>
   
 
 </h3>
-
 Open or create a SQLite database file.
 
 See the plugin docs for an explanation of all options: https://github.com/litehelpers/Cordova-sqlite-storage#opening-a-database
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -178,15 +165,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="addTransaction"></div>
-
 <h3>
   <code>addTransaction()</code>
   
@@ -196,16 +175,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="transaction"></div>
-
 <h3>
   <code>transaction()</code>
   
@@ -215,16 +185,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="readTransaction"></div>
-
 <h3>
   <code>readTransaction()</code>
   
@@ -234,16 +195,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="startNextTransaction"></div>
-
 <h3>
   <code>startNextTransaction()</code>
   
@@ -253,16 +205,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="close"></div>
-
 <h3>
   <code>close()</code>
   
@@ -272,16 +215,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="start"></div>
-
 <h3>
   <code>start()</code>
   
@@ -291,36 +225,18 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-
-
-
-
-
-
-
 <div id="executeSql"></div>
-
 <h3>
   <code>executeSql()</code>
   
 
 </h3>
-
 Execute SQL on the opened database. Note, you must call `openDatabase` first, and
 ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
 <div id="addStatement"></div>
-
 <h3>
   <code>addStatement()</code>
   
@@ -330,16 +246,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="sqlBatch"></div>
-
 <h3>
   <code>sqlBatch()</code>
   
@@ -349,16 +256,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="abortallPendingTransactions"></div>
-
 <h3>
   <code>abortallPendingTransactions()</code>
   
@@ -368,16 +266,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="handleStatementSuccess"></div>
-
 <h3>
   <code>handleStatementSuccess()</code>
   
@@ -387,16 +276,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="handleStatementFailure"></div>
-
 <h3>
   <code>handleStatementFailure()</code>
   
@@ -406,16 +286,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="run"></div>
-
 <h3>
   <code>run()</code>
   
@@ -425,16 +296,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="abort"></div>
-
 <h3>
   <code>abort()</code>
   
@@ -444,16 +306,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="finish"></div>
-
 <h3>
   <code>finish()</code>
   
@@ -463,16 +316,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-
-
-
-
-
-
-
-
 <div id="abortFromQ"></div>
-
 <h3>
   <code>abortFromQ()</code>
   
@@ -486,9 +330,13 @@ ensure it resolved and successfully opened the database.
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
 
+<!-- interfaces -->
 
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

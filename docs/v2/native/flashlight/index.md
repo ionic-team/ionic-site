@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Flashlight
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/flashlight.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -66,11 +62,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="available"></div>
 <h3><code>available()</code>
   
 </h3>
+
 
 Checks if the flashlight is available
 
@@ -92,6 +92,7 @@ Checks if the flashlight is available
   
 </h3>
 
+
 Switches the flashlight on
 
 
@@ -112,6 +113,7 @@ Switches the flashlight on
   
 </h3>
 
+
 Switches the flashlight off
 
 
@@ -131,6 +133,7 @@ Switches the flashlight off
 <h3><code>toggle()</code>
   
 </h3>
+
 
 Toggles the flashlight
 
@@ -154,6 +157,7 @@ Toggles the flashlight
 
 
 
+
 Checks if the flashlight is turned on.
 
 
@@ -171,6 +175,16 @@ Checks if the flashlight is turned on.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

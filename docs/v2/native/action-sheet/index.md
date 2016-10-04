@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Action Sheet
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/actionsheet.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,12 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -90,11 +82,15 @@ ActionSheet.show({
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(Options)</code>
   
 </h3>
+
 
 Show a native ActionSheet component. See below for options.
 
@@ -147,6 +143,7 @@ Show a native ActionSheet component. See below for options.
   
 </h3>
 
+
 Progamtically hide the native ActionSheet
 
 
@@ -163,7 +160,9 @@ Progamtically hide the native ActionSheet
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>ActionSheet options</p>
 <table>
 <thead>
@@ -217,6 +216,14 @@ Progamtically hide the native ActionSheet
 </tbody>
 </table>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

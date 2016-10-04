@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   DB Meter
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dbmeter.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -96,11 +90,15 @@ DBMeter.delete().then(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="start"></div>
 <h3><code>start()</code>
   
 </h3>
+
 
 
 
@@ -124,6 +122,7 @@ Starts listening
   
 </h3>
 
+
 Check if the DB Meter is listening
 
 
@@ -144,6 +143,7 @@ Check if the DB Meter is listening
   
 </h3>
 
+
 Delete the DB Meter instance
 
 
@@ -161,6 +161,16 @@ Delete the DB Meter instance
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

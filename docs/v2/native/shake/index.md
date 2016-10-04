@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Shake
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/shake.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -71,11 +67,15 @@ watch.unsubscribe();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="startWatch"></div>
 <h3><code>startWatch(sensitivity)</code>
   
 </h3>
+
 
 
 
@@ -120,6 +120,16 @@ Watch for shake gesture
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Market
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/market.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -67,11 +63,15 @@ Market.open(&#39;your.package.name&#39;);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="open"></div>
 <h3><code>open(appId,&nbsp;callbacks)</code>
   
 </h3>
+
 
 
 
@@ -133,6 +133,16 @@ Opens an app in Google Play / App Store
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

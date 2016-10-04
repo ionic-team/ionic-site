@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   SafariViewController
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/safari-view-controller.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -56,10 +52,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
+  <li>iOS</li><li>Android</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -104,11 +98,15 @@ SafariViewController.isAvailable()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
   
 </h3>
+
 
 Checks if SafariViewController is available
 
@@ -125,6 +123,7 @@ Checks if SafariViewController is available
 <h3><code>show(options)</code>
   
 </h3>
+
 
 Shows Safari View Controller
 
@@ -169,6 +168,7 @@ Shows Safari View Controller
   
 </h3>
 
+
 Hides Safari View Controller
 
 
@@ -184,6 +184,7 @@ Hides Safari View Controller
 <h3><code>connectToService()</code>
   
 </h3>
+
 
 Tries to connect to the  Chrome's custom tabs service. you must call this method before calling any of the other methods listed below.
 
@@ -201,6 +202,7 @@ Tries to connect to the  Chrome's custom tabs service. you must call this method
   
 </h3>
 
+
 Call this method whenever there's a chance the user will open an external url.
 
 
@@ -216,6 +218,7 @@ Call this method whenever there's a chance the user will open an external url.
 <h3><code>mayLaunchUrl(url)</code>
   
 </h3>
+
 
 For even better performance optimization, call this methods if there's more than a 50% chance the user will open a certain URL.
 
@@ -257,6 +260,16 @@ For even better performance optimization, call this methods if there's more than
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

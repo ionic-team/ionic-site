@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Toast
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/toast.ts#L36">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,12 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -86,11 +78,15 @@ Toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscr
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="show"></div>
 <h3><code>show(message,&nbsp;duration,&nbsp;position)</code>
   
 </h3>
+
 
 
 
@@ -179,6 +175,7 @@ Show a native toast for the given duration at the specified position.
   
 </h3>
 
+
 Manually hide any currently visible toast.
 
 
@@ -198,6 +195,7 @@ Manually hide any currently visible toast.
 <h3><code>showWithOptions(options)</code>
   
 </h3>
+
 
 
 
@@ -258,6 +256,7 @@ Show a native toast with the given options.
 
 
 
+
 Shorthand for `show(message, 'short', 'top')`.
 
 
@@ -277,6 +276,7 @@ Shorthand for `show(message, 'short', 'top')`.
 <h3><code>showShortCenter()</code>
   
 </h3>
+
 
 
 
@@ -302,6 +302,7 @@ Shorthand for `show(message, 'short', 'center')`.
 
 
 
+
 Shorthand for `show(message, 'short', 'bottom')`.
 
 
@@ -321,6 +322,7 @@ Shorthand for `show(message, 'short', 'bottom')`.
 <h3><code>showLongTop()</code>
   
 </h3>
+
 
 
 
@@ -346,6 +348,7 @@ Shorthand for `show(message, 'long', 'top')`.
 
 
 
+
 Shorthand for `show(message, 'long', 'center')`.
 
 
@@ -368,6 +371,7 @@ Shorthand for `show(message, 'long', 'center')`.
 
 
 
+
 Shorthand for `show(message, 'long', 'bottom')`.
 
 
@@ -385,6 +389,16 @@ Shorthand for `show(message, 'long', 'bottom')`.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

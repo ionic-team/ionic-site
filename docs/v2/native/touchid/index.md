@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   TouchID
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/touchid.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -59,7 +55,7 @@ docType: "class"
 
 <ul>
   <li>iOS</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -101,11 +97,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
   
 </h3>
+
 
 Checks Whether TouchID is available or not.
 
@@ -127,6 +127,7 @@ Checks Whether TouchID is available or not.
 <h3><code>verifyFingerprint(message)</code>
   
 </h3>
+
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, brings up standard system passcode screen.
 
@@ -179,6 +180,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
   
 </h3>
 
+
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
 
 
@@ -229,6 +231,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 <h3><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code>
   
 </h3>
+
 
 Show TouchID dialog with custom 'Enter Password' message and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
 
@@ -295,6 +298,16 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Vibration
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/vibration.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,16 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows 8.1 Phone</li>
-  
-  <li>Windows 8.1</li>
-  
-  <li>Windows 10</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows 8.1 Phone</li><li>Windows 8.1</li><li>Windows 10</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -97,11 +85,15 @@ Vibration.vibrate(0);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="vibrate"></div>
 <h3><code>vibrate(time)</code>
   
 </h3>
+
 
 
 
@@ -146,6 +138,16 @@ Vibrates the device for given amount of time.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

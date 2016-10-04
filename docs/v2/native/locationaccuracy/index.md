@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   LocationAccuracy
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/location-accuracy.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -77,11 +73,15 @@ LocationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="canRequest"></div>
 <h3><code>canRequest()</code>
   
 </h3>
+
 
 Indicates if you can request accurate location
 
@@ -103,6 +103,7 @@ Indicates if you can request accurate location
   
 </h3>
 
+
 Indicates if a request is currently in progress
 
 
@@ -122,6 +123,7 @@ Indicates if a request is currently in progress
 <h3><code>request()</code>
   
 </h3>
+
 
 
 
@@ -153,10 +155,14 @@ Requests accurate location
 
 
 
+
+
 <div id="REQUEST_PRIORITY_LOW_POWER"></div>
 <h3><code>REQUEST_PRIORITY_LOW_POWER()</code>
   
 </h3>
+
+
 
 
 
@@ -179,10 +185,14 @@ Requests accurate location
 
 
 
+
+
 <div id="REQUEST_PRIORITY_HIGH_ACCURACY"></div>
 <h3><code>REQUEST_PRIORITY_HIGH_ACCURACY()</code>
   
 </h3>
+
+
 
 
 
@@ -205,10 +215,14 @@ Requests accurate location
 
 
 
+
+
 <div id="SUCCESS_USER_AGREED"></div>
 <h3><code>SUCCESS_USER_AGREED()</code>
   
 </h3>
+
+
 
 
 
@@ -231,10 +245,14 @@ Requests accurate location
 
 
 
+
+
 <div id="ERROR_INVALID_ACTION"></div>
 <h3><code>ERROR_INVALID_ACTION()</code>
   
 </h3>
+
+
 
 
 
@@ -257,10 +275,14 @@ Requests accurate location
 
 
 
+
+
 <div id="ERROR_EXCEPTION"></div>
 <h3><code>ERROR_EXCEPTION()</code>
   
 </h3>
+
+
 
 
 
@@ -283,10 +305,14 @@ Requests accurate location
 
 
 
+
+
 <div id="ERROR_USER_DISAGREED"></div>
 <h3><code>ERROR_USER_DISAGREED()</code>
   
 </h3>
+
+
 
 
 
@@ -310,7 +336,19 @@ Requests accurate location
 
 
 
+
+
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   App Version
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/appversion.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -83,11 +77,15 @@ AppVersion.getVersionNumber();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getAppName"></div>
 <h3><code>getAppName()</code>
   
 </h3>
+
 
 Returns the name of the app
 
@@ -109,6 +107,7 @@ Returns the name of the app
   
 </h3>
 
+
 Returns the package name of the app
 
 
@@ -128,6 +127,7 @@ Returns the package name of the app
 <h3><code>getVersionCode()</code>
   
 </h3>
+
 
 Returns the build identifier of the app
 
@@ -149,6 +149,7 @@ Returns the build identifier of the app
   
 </h3>
 
+
 Returns the version of the app
 
 
@@ -166,6 +167,16 @@ Returns the version of the app
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

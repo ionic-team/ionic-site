@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   VideoPlayer
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-player.ts#L16">
   Improve this doc
 </a>
-
-
 
 
 
@@ -59,7 +55,7 @@ docType: "class"
 
 <ul>
   <li>Android</li>
-  </ul>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -83,11 +79,15 @@ VideoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =&gt; 
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="play"></div>
 <h3><code>play(fileUrl,&nbsp;options)</code>
   
 </h3>
+
 
 Plays the video from the passed url.
 
@@ -158,6 +158,7 @@ Plays the video from the passed url.
 
 
 
+
 Stops the video playback immediatly.
 
 
@@ -171,6 +172,16 @@ Stops the video playback immediatly.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

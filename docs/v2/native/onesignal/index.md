@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   OneSignal
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L1">
   Improve this doc
 </a>
-
-
 
 
 
@@ -75,11 +71,15 @@ OneSignal.enableInAppAlertNotification(true);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="init"></div>
 <h3><code>init(Your,&nbsp;The)</code>
   
 </h3>
+
 
 
 
@@ -153,6 +153,7 @@ Only required method you need to call to setup OneSignal to receive push notific
 
 
 
+
 Call this when you would like to prompt an iOS user to accept push notifications with the default system prompt.
 Only use if you passed false to autoRegister when calling init.
 
@@ -169,6 +170,7 @@ Only use if you passed false to autoRegister when calling init.
 <h3><code>sendTag(Key,&nbsp;Value)</code>
   
 </h3>
+
 
 
 
@@ -237,6 +239,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
 
 
 
+
 Tag a user based on an app event of your choosing so later you can create segments on [onesignal.com](https://onesignal.com/) to target these users.
 Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.
 
@@ -283,6 +286,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
   
 </h3>
 
+
 Retrieve a list of tags that have been set on the user from the OneSignal server.
 
 
@@ -303,6 +307,7 @@ Retrieve a list of tags that have been set on the user from the OneSignal server
 <h3><code>deleteTag(Key)</code>
   
 </h3>
+
 
 
 
@@ -353,6 +358,7 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
 
 
 
+
 Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
 
 
@@ -398,6 +404,7 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
   
 </h3>
 
+
 Lets you retrieve the OneSignal user id and device token.
 Your handler is called after the device is successfully registered with OneSignal.
 
@@ -420,6 +427,7 @@ It returns a JSON with `userId`and `pushToken`.
 <h3><code>enableVibrate(false)</code>
   
 </h3>
+
 
 
 
@@ -474,6 +482,7 @@ Passing false means that the device will only vibrate lightly when the device is
 
 
 
+
 Warning:
 Only applies to Android and Amazon. You can call this from your UI from a button press for example to give your user's options for your notifications.
 
@@ -522,6 +531,7 @@ Passing false means that the device will only vibrate unless the device is set t
 <h3><code>enableNotificationsWhenActive(enable)</code>
   
 </h3>
+
 
 
 
@@ -575,6 +585,7 @@ If set to true notifications will always show in the notification area and notif
 
 
 
+
 By default this is false and notifications will not be shown when the user is in your app, instead the notificationOpenedCallback is fired.
 If set to true notifications will be shown as native alert boxes if a notification is received when the user is in your app.
 The notificationOpenedCallback is then fired after the alert box is closed.
@@ -623,6 +634,7 @@ The notificationOpenedCallback is then fired after the alert box is closed.
 
 
 
+
 You can call this method with false to opt users out of receiving all notifications through OneSignal.
 You can pass true later to opt users back into notifications.
 
@@ -667,6 +679,7 @@ You can pass true later to opt users back into notifications.
 <h3><code>postNotification(Parameters)</code>
   
 </h3>
+
 
 
 
@@ -720,6 +733,7 @@ You can pass true later to opt users back into notifications.
 
 
 
+
 Prompts the user for location permission to allow geotagging based on the "Location radius" filter on the OneSignal dashboard.
 
 
@@ -735,6 +749,7 @@ Prompts the user for location permission to allow geotagging based on the "Locat
 <h3><code>setLogLevel(contains)</code>
   
 </h3>
+
 
 
 
@@ -783,6 +798,16 @@ The higher the value the more information is shown.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

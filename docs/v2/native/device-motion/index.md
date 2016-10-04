@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Device Motion
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/devicemotion.ts#L35">
   Improve this doc
 </a>
-
-
 
 
 
@@ -80,11 +76,15 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getCurrentAcceleration"></div>
 <h3><code>getCurrentAcceleration()</code>
   
 </h3>
+
 
 Get the current acceleration along the x, y, and z axes.
 
@@ -105,6 +105,7 @@ Get the current acceleration along the x, y, and z axes.
 <h3><code>watchAcceleration(options)</code>
   
 </h3>
+
 
 
 
@@ -155,6 +156,16 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

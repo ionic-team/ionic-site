@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Screen Orientation
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/screen-orientation.ts#L2">
   Improve this doc
 </a>
-
-
 
 
 
@@ -59,12 +55,8 @@ This plugin is based on an early version of Screen Orientation API so the api do
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -87,11 +79,15 @@ ScreenOrientation.unlockOrientation();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="lockOrientation"></div>
 <h3><code>lockOrientation(The)</code>
   
 </h3>
+
 
 
 
@@ -142,6 +138,7 @@ See below for accepted values
 
 
 
+
 Unlock and allow all orientations.
 
 
@@ -169,7 +166,10 @@ Unlock and allow all orientations.
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Accepted orientation values:</p>
 <table>
 <thead>
@@ -206,6 +206,14 @@ Unlock and allow all orientations.
 </tbody>
 </table>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

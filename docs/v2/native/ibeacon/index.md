@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   IBeacon
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L222">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -109,11 +103,16 @@ IBeacon.startMonitoringForRegion(beaconRegion)
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="Delegate"></div>
 <h3><code>Delegate()</code>
   
-</h3>Instances of this class are delegates between the <a href='LocationManager'>LocationManager</a> and
+</h3>
+
+Instances of this class are delegates between the <a href='LocationManager'>LocationManager</a> and
 the code that consumes the messages generated on in the native layer.
 
 
@@ -133,7 +132,9 @@ the code that consumes the messages generated on in the native layer.
 <div id="BeaconRegion"></div>
 <h3><code>BeaconRegion(identifier,&nbsp;uuid,&nbsp;major,&nbsp;minor,&nbsp;notifyEntryStateOnDisplay)</code>
   
-</h3>Creates a new BeaconRegion
+</h3>
+
+Creates a new BeaconRegion
 
 
 
@@ -261,6 +262,7 @@ This value must not be blank nor invalid as a UUID.</p>
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -275,6 +277,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <h3><code>setDelegate(delegate)</code>
   
 </h3>
+
 
 
 
@@ -330,6 +333,7 @@ This value must not be blank nor invalid as a UUID.</p>
 
 
 
+
 Signals the native layer that the client side is ready to consume messages.
 Readiness here means that it has a {Delegate} set by the consumer javascript
 code.
@@ -370,6 +374,7 @@ native layer acknowledged the request and started to send events.
 
 
 
+
 Determines if bluetooth is switched on, according to the native layer.
 
 
@@ -390,6 +395,7 @@ indicating whether bluetooth is active.
 <h3><code>enableBluetooth()</code>
   
 </h3>
+
 
 
 
@@ -419,6 +425,7 @@ could be enabled. If not, the promise will be rejected with an error.
 
 
 
+
 Disables Bluetooth using the native Layer. (ANDROID ONLY)
 
 
@@ -442,6 +449,7 @@ could be enabled. If not, the promise will be rejected with an error.
 <h3><code>startMonitoringForRegion(region)</code>
   
 </h3>
+
 
 
 
@@ -510,6 +518,7 @@ native layer acknowledged the dispatch of the monitoring request.
 
 
 
+
 Stop monitoring the specified region.  It is valid to call
 stopMonitoringForRegion: for a region that was registered for monitoring
 with a different location manager object, during this or previous
@@ -572,6 +581,7 @@ native layer acknowledged the dispatch of the request to stop monitoring.
 
 
 
+
 Request state the for specified region. When result is ready
 didDetermineStateForRegion is triggered. This can be any region,
 also those which is not currently monitored.
@@ -630,6 +640,7 @@ native layer acknowledged the dispatch of the request to stop monitoring.
 <h3><code>startRangingBeaconsInRegion(region)</code>
   
 </h3>
+
 
 
 
@@ -695,6 +706,7 @@ native layer acknowledged the dispatch of the monitoring request.
 
 
 
+
 Stop ranging the specified region.  It is valid to call
 stopMonitoringForRegion: for a region that was registered for ranging
 with a different location manager object, during this or previous
@@ -757,6 +769,7 @@ native layer acknowledged the dispatch of the request to stop monitoring.
 
 
 
+
 Queries the native layer to determine the current authorization in effect.
 
 
@@ -780,6 +793,7 @@ requested authorization status.
 <h3><code>requestWhenInUseAuthorization()</code>
   
 </h3>
+
 
 
 
@@ -809,6 +823,7 @@ If you are using this plugin on Android devices only, you will never have to use
 <h3><code>requestAlwaysAuthorization()</code>
   
 </h3>
+
 
 
 
@@ -845,6 +860,7 @@ shows the request dialog.
 
 
 
+
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -858,6 +874,7 @@ of {Region} instances that are being monitored by the native layer.
 <h3><code>getRangedRegions()</code>
   
 </h3>
+
 
 
 
@@ -884,6 +901,7 @@ of {Region} instances that are being ranged by the native layer.
 
 
 
+
 Determines if ranging is available or not, according to the native layer.
 
 
@@ -904,6 +922,7 @@ indicating whether ranging is available or not.
 <h3><code>isMonitoringAvailableForClass(region)</code>
   
 </h3>
+
 
 
 
@@ -959,6 +978,7 @@ indicating whether the region type is supported or not.
 <h3><code>startAdvertising(region,&nbsp;measuredPower:)</code>
   
 </h3>
+
 
 
 
@@ -1043,6 +1063,7 @@ native layer acknowledged the dispatch of the advertising request.
 
 
 
+
 Stop advertising as a beacon.
 
 This is done asynchronously and may not be immediately reflected in isAdvertising.
@@ -1071,6 +1092,7 @@ native layer acknowledged the dispatch of the request to stop advertising.
 
 
 
+
 Determines if advertising is available or not, according to the native layer.
 
 
@@ -1094,6 +1116,7 @@ indicating whether advertising is available or not.
 
 
 
+
 Determines if advertising is currently active, according to the native layer.
 
 
@@ -1114,6 +1137,7 @@ indicating whether advertising is active.
 <h3><code>disableDebugLogs()</code>
   
 </h3>
+
 
 
 
@@ -1141,6 +1165,7 @@ native layer has set the logging level accordingly.
 <h3><code>enableDebugNotifications()</code>
   
 </h3>
+
 
 
 
@@ -1172,6 +1197,7 @@ native layer has set the flag to enabled.
 
 
 
+
 Disables the posting of debug notifications in the native layer. Use this method if you want
 to prevent the plugin from posting local notifications.
 
@@ -1199,6 +1225,7 @@ native layer has set the flag to disabled.
 
 
 
+
 Enables debug logging in the native layer. Use this method if you want
 a debug the inner workings of this plugin.
 
@@ -1223,6 +1250,7 @@ native layer has set the logging level accordingly.
 <h3><code>appendToDeviceLog(message)</code>
   
 </h3>
+
 
 
 
@@ -1279,6 +1307,16 @@ is expected to be equivalent to the one provided in the original call.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

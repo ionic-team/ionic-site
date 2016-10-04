@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Secure Storage
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/securestorage.ts#L2">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,14 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Windows Phone</li>
-  
-  <li>Browser</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone</li><li>Browser</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -108,21 +98,18 @@ secureStorage.remove(&#39;myitem&#39;)
 <!-- @property tags -->
 
 
+
+
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="create"></div>
-
 <h3>
   <code>create(store)</code>
   
 
 </h3>
-
 Creates a namespaced storage.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -152,24 +139,13 @@ Creates a namespaced storage.
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="get"></div>
-
 <h3>
   <code>get(reference)</code>
   
 
 </h3>
-
 Gets a stored item
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -199,24 +175,13 @@ Gets a stored item
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="set"></div>
-
 <h3>
   <code>set(reference,&nbsp;value)</code>
   
 
 </h3>
-
 Stores a value
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -262,24 +227,13 @@ Stores a value
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="remove"></div>
-
 <h3>
   <code>remove(reference)</code>
   
 
 </h3>
-
 Removes a single stored item
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -313,8 +267,13 @@ Removes a single stored item
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
 
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

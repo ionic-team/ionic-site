@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Contacts
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L250">
   Improve this doc
 </a>
-
-
 
 
 
@@ -73,11 +69,16 @@ contact.save().then(
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="create"></div>
 <h3><code>create()</code>
   
-</h3>Create a single contact.
+</h3>
+
+Create a single contact.
 
 
 
@@ -98,6 +99,7 @@ contact.save().then(
 <h3><code>find(fields,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -176,6 +178,7 @@ Search for contacts in the Contacts list.
   
 </h3>
 
+
 Select a single Contact.
 
 
@@ -195,6 +198,16 @@ Select a single Contact.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

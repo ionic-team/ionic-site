@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Brightness
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/brightness.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -81,11 +75,15 @@ Brightness.setBrightness(brightnessValue);
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="setBrightness"></div>
 <h3><code>setBrightness(Floating)</code>
   
 </h3>
+
 
 Sets the brightness of the display.
 
@@ -138,6 +136,7 @@ Sets the brightness of the display.
   
 </h3>
 
+
 Reads the current brightness of the device display.
 
 
@@ -160,6 +159,7 @@ brightness value of the device display (floating number between 0 and 1).
   
 </h3>
 
+
 Keeps the screen on. Prevents the device from setting the screen to sleep.
 
 
@@ -173,6 +173,16 @@ Keeps the screen on. Prevents the device from setting the screen to sleep.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

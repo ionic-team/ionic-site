@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   InAppBrowser
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/inappbrowser.ts#L14">
   Improve this doc
 </a>
-
-
 
 
 
@@ -74,7 +70,10 @@ browser.close();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="open"></div>
 <h3><code>open()</code>
   
@@ -89,62 +88,41 @@ browser.close();
 
 
 
+
+
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-
 <div id="show"></div>
-
 <h3>
   <code>show()</code>
   
 
 </h3>
-
 Displays an InAppBrowser window that was opened hidden. Calling this has no effect
 if the InAppBrowser was already visible.
 
 
 
 
-
-
-
-
-
-
-
 <div id="close"></div>
-
 <h3>
   <code>close()</code>
   
 
 </h3>
-
 Closes the InAppBrowser window.
 
 
 
 
-
-
-
-
-
-
-
 <div id="executeScript"></div>
-
 <h3>
   <code>executeScript(script)</code>
   
 
 </h3>
-
 Injects JavaScript code into the InAppBrowser window.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -175,24 +153,13 @@ Injects JavaScript code into the InAppBrowser window.
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="insertCss"></div>
-
 <h3>
   <code>insertCss(css)</code>
   
 
 </h3>
-
 Injects CSS into the InAppBrowser window.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -223,24 +190,13 @@ Injects CSS into the InAppBrowser window.
   </tbody>
 </table>
 
-
-
-
-
-
-
-
 <div id="on"></div>
-
 <h3>
   <code>on(event)</code>
   
 
 </h3>
-
 A method that allows you to listen to events happening in the browser.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -271,10 +227,6 @@ A method that allows you to listen to events happening in the browser.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -283,6 +235,13 @@ A method that allows you to listen to events happening in the browser.
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

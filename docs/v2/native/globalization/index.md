@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Globalization
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/globalization.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -64,11 +60,15 @@ docType: "class"
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getPreferredLanguage"></div>
 <h3><code>getPreferredLanguage()</code>
   
 </h3>
+
 
 Returns the BCP-47 compliant language identifier tag to the successCallback with a properties object as a parameter. That object should have a value property with a String value.
 
@@ -90,6 +90,7 @@ Returns the BCP-47 compliant language identifier tag to the successCallback with
   
 </h3>
 
+
 Returns the BCP 47 compliant locale identifier string to the successCallback with a properties object as a parameter.
 
 
@@ -109,6 +110,7 @@ Returns the BCP 47 compliant locale identifier string to the successCallback wit
 <h3><code>dateToString(date,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -181,6 +183,7 @@ Converts date to string
 
 
 
+
 Parses a date formatted as a string, according to the client's user preferences and calendar using the time zone of the client, and returns the corresponding date object.
 
 
@@ -250,6 +253,7 @@ Parses a date formatted as a string, according to the client's user preferences 
 
 
 
+
 Returns a pattern string to format and parse dates according to the client's user preferences.
 
 
@@ -299,6 +303,7 @@ Returns a pattern string to format and parse dates according to the client's use
 <h3><code>getDateNames(options)</code>
   
 </h3>
+
 
 
 
@@ -352,6 +357,7 @@ Returns an array of the names of the months or days of the week, depending on th
   
 </h3>
 
+
 Indicates whether daylight savings time is in effect for a given date using the client's time zone and calendar.
 
 
@@ -402,6 +408,7 @@ Indicates whether daylight savings time is in effect for a given date using the 
   
 </h3>
 
+
 Returns the first day of the week according to the client's user preferences and calendar.
 
 
@@ -421,6 +428,7 @@ Returns the first day of the week according to the client's user preferences and
 <h3><code>numberToString(options)</code>
   
 </h3>
+
 
 
 
@@ -466,6 +474,7 @@ Returns a number formatted as a string according to the client's user preference
 <h3><code>stringToNumber(stringToConvert,&nbsp;options)</code>
   
 </h3>
+
 
 
 
@@ -538,6 +547,7 @@ Returns a number formatted as a string according to the client's user preference
 
 
 
+
 Returns a pattern string to format and parse numbers according to the client's user preferences.
 
 
@@ -588,6 +598,7 @@ Returns a pattern string to format and parse numbers according to the client's u
   
 </h3>
 
+
 Returns a pattern string to format and parse currency values according to the client's user preferences and ISO 4217 currency code.
 
 
@@ -635,6 +646,16 @@ Returns a pattern string to format and parse currency values according to the cl
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

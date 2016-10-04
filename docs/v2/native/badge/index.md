@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Badge
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/badge.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,18 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  
-  <li>Browser</li>
-  
-  <li>Windows</li>
-  
-  <li>Amazon FireOS</li>
-  
-  <li>Windows Phone 8</li>
-  </ul>
+  <li>Android</li><li>iOS</li><li>Browser</li><li>Windows</li><li>Amazon FireOS</li><li>Windows Phone 8</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -90,11 +76,15 @@ Badge.clear();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="clear"></div>
 <h3><code>clear()</code>
   
 </h3>
+
 
 Clear the badge of the app icon.
 
@@ -111,6 +101,7 @@ Clear the badge of the app icon.
 <h3><code>set(badgeNumber)</code>
   
 </h3>
+
 
 Set the badge of the app icon.
 
@@ -162,6 +153,7 @@ Set the badge of the app icon.
   
 </h3>
 
+
 Get the badge of the app icon.
 
 
@@ -181,6 +173,7 @@ Get the badge of the app icon.
 <h3><code>increase(increaseBy)</code>
   
 </h3>
+
 
 Increase the badge number.
 
@@ -232,6 +225,7 @@ Increase the badge number.
   
 </h3>
 
+
 Decrease the badge number.
 
 
@@ -282,6 +276,7 @@ Decrease the badge number.
   
 </h3>
 
+
 Determine if the app has permission to show badges.
 
 
@@ -297,6 +292,7 @@ Determine if the app has permission to show badges.
 <h3><code>registerPermission()</code>
   
 </h3>
+
 
 Register permission to set badge notifications
 
@@ -315,6 +311,16 @@ Register permission to set badge notifications
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

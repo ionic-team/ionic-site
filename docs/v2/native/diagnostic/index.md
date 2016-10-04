@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   Diagnostic
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/diagnostic.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -82,11 +78,16 @@ Diagnostic.getBluetoothState()
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="permission"></div>
 <h3><code>permission()</code>
   
 </h3>
+
+
 
 
 
@@ -109,10 +110,14 @@ Diagnostic.getBluetoothState()
 
 
 
+
+
 <div id="locationAuthorizationMode"></div>
 <h3><code>locationAuthorizationMode()</code>
   
 </h3>
+
+
 
 
 
@@ -135,10 +140,14 @@ Diagnostic.getBluetoothState()
 
 
 
+
+
 <div id="locationMode"></div>
 <h3><code>locationMode()</code>
   
 </h3>
+
+
 
 
 
@@ -161,10 +170,13 @@ Diagnostic.getBluetoothState()
 
 
 
+
+
 <div id="isLocationAvailable"></div>
 <h3><code>isLocationAvailable()</code>
   
 </h3>
+
 
 Checks if app is able to access device location.
 
@@ -185,6 +197,7 @@ Checks if app is able to access device location.
 <h3><code>isWifiAvailable()</code>
   
 </h3>
+
 
 Checks if Wifi is connected/enabled. On iOS this returns true if the device is connected to a network by WiFi. On Android and Windows 10 Mobile this returns true if the WiFi setting is set to enabled.
 On Android this requires permission. `<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />`
@@ -207,6 +220,7 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+
 Checks if the device has a camera. On Android this returns true if the device has a camera. On iOS this returns true if both the device has a camera AND the application is authorized to use it. On Windows 10 Mobile this returns true if both the device has a rear-facing camera AND the
 application is authorized to use it.
 
@@ -227,6 +241,7 @@ application is authorized to use it.
 <h3><code>isBluetoothAvailable()</code>
   
 </h3>
+
 
 Checks if the device has Bluetooth capabilities and if so that Bluetooth is switched on (same on Android, iOS and Windows 10 Mobile)
 On Android this requires permission <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -251,11 +266,12 @@ On Android this requires permission <uses-permission android:name="android.permi
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Displays the device location settings to allow user to enable location services/change location mode.
@@ -276,11 +292,12 @@ Displays the device location settings to allow user to enable location services/
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Displays mobile settings to allow user to enable mobile data.
@@ -301,11 +318,12 @@ Displays mobile settings to allow user to enable mobile data.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Displays Bluetooth settings to allow user to enable Bluetooth.
@@ -326,11 +344,12 @@ Displays Bluetooth settings to allow user to enable Bluetooth.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Displays WiFi settings to allow user to enable WiFi.
@@ -351,11 +370,12 @@ Displays WiFi settings to allow user to enable WiFi.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Returns true if the WiFi setting is set to enabled, and is the same as `isWifiAvailable()`
@@ -380,11 +400,12 @@ Returns true if the WiFi setting is set to enabled, and is the same as `isWifiAv
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Enables/disables WiFi on the device.
@@ -433,11 +454,12 @@ Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>Windows 10</code>&nbsp;
+  </p>
 
-<code>Windows 10</code>&nbsp;
-</p>
 
 
 Enables/disables Bluetooth on the device.
@@ -486,11 +508,12 @@ Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns true if the device setting for location is on. On Android this returns true if Location Mode is switched on. On iOS this returns true if Location Services is switched on.
@@ -512,6 +535,7 @@ Returns true if the device setting for location is on. On Android this returns t
 <h3><code>isLocationAuthorized()</code>
   
 </h3>
+
 
 Checks if the application is authorized to use location.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
@@ -536,11 +560,12 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the location authorization status for the application.
@@ -565,11 +590,12 @@ Returns the location authorization status for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the location authorization status for the application.
@@ -597,11 +623,12 @@ mode - (iOS-only / optional) location authorization mode: "always" or "when_in_u
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Checks if camera hardware is present on device.
@@ -626,11 +653,12 @@ Checks if camera hardware is present on device.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Checks if the application is authorized to use the camera.
@@ -656,11 +684,12 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the camera authorization status for the application.
@@ -685,11 +714,12 @@ Returns the camera authorization status for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Requests camera authorization for the application.
@@ -714,11 +744,12 @@ Requests camera authorization for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Checks if the application is authorized to use the microphone.
@@ -743,11 +774,12 @@ Checks if the application is authorized to use the microphone.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the microphone authorization status for the application.
@@ -772,11 +804,12 @@ Returns the microphone authorization status for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Requests microphone authorization for the application.
@@ -801,11 +834,12 @@ Requests microphone authorization for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Checks if the application is authorized to use contacts (address book).
@@ -830,11 +864,12 @@ Checks if the application is authorized to use contacts (address book).
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the contacts authorization status for the application.
@@ -859,11 +894,12 @@ Returns the contacts authorization status for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Requests contacts authorization for the application.
@@ -888,11 +924,12 @@ Requests contacts authorization for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Checks if the application is authorized to use the calendar.
@@ -923,11 +960,12 @@ Notes for iOS:
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the calendar authorization status for the application.
@@ -959,11 +997,12 @@ Notes for iOS:
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Requests calendar authorization for the application.
@@ -998,11 +1037,12 @@ Notes for Android:
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Opens settings page for this app.
@@ -1029,11 +1069,12 @@ On iOS, this opens the app settings page in the Settings app. This works only on
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Returns the state of Bluetooth on the device.
@@ -1058,11 +1099,12 @@ Returns the state of Bluetooth on the device.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Registers a function to be called when a change in Bluetooth state occurs.
@@ -1110,11 +1152,12 @@ Registers a function to be called when a change in Bluetooth state occurs.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  
+  <code>iOS</code>&nbsp;
+  </p>
 
-<code>iOS</code>&nbsp;
-</p>
 
 
 Registers a function to be called when a change in Location state occurs.
@@ -1162,9 +1205,10 @@ Registers a function to be called when a change in Location state occurs.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if high-accuracy locations are available to the app from GPS hardware.
@@ -1190,9 +1234,10 @@ Returns true if Location mode is enabled and is set to "Device only" or "High ac
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if location mode is set to return high-accuracy locations from GPS hardware.
@@ -1216,9 +1261,10 @@ Checks if location mode is set to return high-accuracy locations from GPS hardwa
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if low-accuracy locations are available to the app from network triangulation/WiFi access points.
@@ -1244,9 +1290,10 @@ Returns true if Location mode is enabled and is set to "Battery saving" or "High
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if location mode is set to return low-accuracy locations from network triangulation/WiFi access points.
@@ -1274,9 +1321,10 @@ Returns true if Location mode is enabled and is set to either:
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Returns the current location mode setting for the device.
@@ -1301,9 +1349,10 @@ Returns the current location mode setting for the device.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Returns the current authorisation status for a given permission.
@@ -1358,9 +1407,10 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Returns the current authorisation status for multiple permissions.
@@ -1415,9 +1465,10 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Requests app to be granted authorisation for a runtime permission.
@@ -1472,9 +1523,10 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Requests app to be granted authorisation for multiple runtime permissions.
@@ -1529,9 +1581,10 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if the device setting for Bluetooth is switched on.
@@ -1557,9 +1610,10 @@ This requires `BLUETOOTH` permission on Android
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if the device has Bluetooth capabilities.
@@ -1584,9 +1638,10 @@ Checks if the device has Bluetooth capabilities.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if the device has Bluetooth Low Energy (LE) capabilities.
@@ -1611,9 +1666,10 @@ Checks if the device has Bluetooth Low Energy (LE) capabilities.
 
 
 <p>
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
 
 
 Checks if the device supports Bluetooth Low Energy (LE) Peripheral mode.
@@ -1638,9 +1694,10 @@ Checks if the device supports Bluetooth Low Energy (LE) Peripheral mode.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Checks if the application is authorized to use the Camera Roll in Photos app.
@@ -1665,9 +1722,10 @@ Checks if the application is authorized to use the Camera Roll in Photos app.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Returns the authorization status for the application to use the Camera Roll in Photos app.
@@ -1692,9 +1750,10 @@ Returns the authorization status for the application to use the Camera Roll in P
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Requests camera roll authorization for the application.
@@ -1721,9 +1780,10 @@ Calling it when in any other state will have no effect.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Checks if remote (push) notifications are enabled.
@@ -1748,9 +1808,10 @@ Checks if remote (push) notifications are enabled.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Indicates if the app is registered for remote (push) notifications on the device.
@@ -1775,9 +1836,10 @@ Indicates if the app is registered for remote (push) notifications on the device
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Indicates the current setting of notification types for the app in the Settings app.
@@ -1803,9 +1865,10 @@ Note: on iOS 8+, if "Allow Notifications" switch is OFF, all types will be retur
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Checks if the application is authorized to use reminders.
@@ -1830,9 +1893,10 @@ Checks if the application is authorized to use reminders.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Returns the reminders authorization status for the application.
@@ -1857,9 +1921,10 @@ Returns the reminders authorization status for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Requests reminders authorization for the application.
@@ -1884,9 +1949,10 @@ Requests reminders authorization for the application.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Checks if the application is authorized for background refresh.
@@ -1911,9 +1977,10 @@ Checks if the application is authorized for background refresh.
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Returns the background refresh authorization status for the application.
@@ -1933,6 +2000,16 @@ Returns the background refresh authorization status for the application.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

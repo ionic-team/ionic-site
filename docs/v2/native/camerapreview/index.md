@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   CameraPreview
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera-preview.ts#L14">
   Improve this doc
 </a>
-
-
 
 
 
@@ -58,10 +54,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -117,11 +111,15 @@ CameraPreview.stopCamera();
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="startCamera"></div>
 <h3><code>startCamera(position,&nbsp;which,&nbsp;enable,&nbsp;enable,&nbsp;send,&nbsp;alpha)</code>
   
 </h3>
+
 
 
 
@@ -256,6 +254,7 @@ Starts the camera preview instance.
 
 
 
+
 Stops the camera preview instance.
 
 
@@ -271,6 +270,7 @@ Stops the camera preview instance.
 <h3><code>takePicture(optional)</code>
   
 </h3>
+
 
 
 
@@ -320,6 +320,7 @@ Take the picture, the parameter size is optional
 
 
 
+
 Register a callback function that receives the original picture and the image captured from the preview box.
 
 
@@ -335,6 +336,7 @@ Register a callback function that receives the original picture and the image ca
 <h3><code>switchCamera()</code>
   
 </h3>
+
 
 
 
@@ -356,6 +358,7 @@ Switch from the rear camera and front camera, if available.
 
 
 
+
 Show the camera preview box.
 
 
@@ -371,6 +374,7 @@ Show the camera preview box.
 <h3><code>hide()</code>
   
 </h3>
+
 
 
 
@@ -392,6 +396,7 @@ Hide the camera preview box.
 
 
 
+
 Set the default mode for the Flash.
 Set camera color effect.
 
@@ -406,6 +411,16 @@ Set camera color effect.
 
 
 <!-- methods on the class -->
+
+
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

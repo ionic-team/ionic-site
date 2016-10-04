@@ -17,9 +17,7 @@ docType: "class"
 
 
 
-
 <h1 class="api-title">
-
   
   InAppPurchase
   
@@ -33,8 +31,6 @@ docType: "class"
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/inapppurchase.ts#L0">
   Improve this doc
 </a>
-
-
 
 
 
@@ -57,10 +53,8 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li>
-  
-  <li>iOS</li>
-  </ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 <!-- @platforms tag end -->
 
@@ -101,11 +95,15 @@ InAppPurchase
 
 
 <!-- @property tags -->
+
+
 <h2>Static Members</h2>
+
 <div id="getProducts"></div>
 <h3><code>getProducts(productId)</code>
   
 </h3>
+
 
 
 
@@ -161,6 +159,7 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
 
 
 
+
 Buy a product that matches the productId.
 
 
@@ -213,6 +212,7 @@ Buy a product that matches the productId.
 
 
 
+
 Same as buy, but for subscription based products.
 
 
@@ -262,6 +262,7 @@ Same as buy, but for subscription based products.
 <h3><code>consume(productType,&nbsp;receipt,&nbsp;signature)</code>
   
 </h3>
+
 
 
 
@@ -342,6 +343,7 @@ Call this function after purchasing a "consumable" product to mark it as consume
 
 
 
+
 Restore all purchases from the store
 
 
@@ -364,9 +366,10 @@ Restore all purchases from the store
 
 
 <p>
-<b>Platforms:</b>
-<code>iOS</code>&nbsp;
-</p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Get the receipt.
@@ -385,7 +388,9 @@ Get the receipt.
 
 
 
-<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<!-- methods on the class -->
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <pre><code class="lang-ts">// fist buy the product...
 InAppPurchase
   .buy(&#39;com.yourapp.consumable_prod1&#39;)
@@ -394,6 +399,14 @@ InAppPurchase
   .catch( err=&gt; console.log(err))
 </code></pre>
 
+
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->
 

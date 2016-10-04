@@ -65,13 +65,16 @@ docType: "class"
 Geolocation.getCurrentPosition().then((resp) =&gt; {
  // resp.coords.latitude
  // resp.coords.longitude
-})
+}).catch((error) =&gt; {
+  console.log(&#39;Error getting location&#39;, error);
+});
 
 let watch = Geolocation.watchPosition();
 watch.subscribe((data) =&gt; {
+ // data can be a set of coordinates, or an error (if an error occurred).
  // data.coords.latitude
  // data.coords.longitude
-})
+});
 </code></pre>
 
 

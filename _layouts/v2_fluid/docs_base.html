@@ -7,6 +7,10 @@
       <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
     {% elsif page.category == 'native' %}
       <title>Ionic Native: Harness the power of Native APIs</title>
+    {% elsif page.title %}
+      <title>{{page.title}}</title>
+    {% else %}
+      <title>Ionic Framework</title>
     {% endif %}
   </head>
   <body id="docs-page-{{page.id}}"

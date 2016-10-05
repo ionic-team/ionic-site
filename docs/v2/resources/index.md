@@ -132,6 +132,22 @@ title: Ionic Resources
     <h3>How To's</h3>
     <ul>
       <li>
+        <a href="./app-scripts" class="title">App Scripts</a>
+        <p>Learn how to automate tasks in your development process.</p>
+      </li>
+      <li>
+        <a href="./third-party-libs" class="title">Third Party Libs</a>
+        <p>Learn how to incorporate third party libraries in to your Ionic 2 project.</p>
+      </li>
+      <li>
+        <a href="./ng2-translate/">Using NG2-Translate</a>
+        <p>Learn how to manage multiple languages in a single project with NG2-Translate</p>
+      </li>
+      <li>
+        <a target="_blank" href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" class="title">Taking advantage of observables</a>
+        <p>Learn how to use observables in your Ionic 2 app.</p>
+      </li>
+      <li>
         <a target="_blank" href="http://www.joshmorony.com/adding-background-geolocation-to-an-ionic-2-application/" class="title">Background Geolocation</a>
         <p>Learn how to add geolocation that can run in the background of your app.</p>
       </li>

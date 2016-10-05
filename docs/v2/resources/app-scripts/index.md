@@ -140,70 +140,39 @@ If you have an error message that looks something like this, continue on.
 bundle failed:  Module myApp/node_modules/js-extend/extend.js does not export extend (imported by myApp/node_modules/pouchdb/lib/index-browser.es.js)
 ```
 
-The best way to do this is to follow the steps above to create a custom rollup config file, and then copy and paste the file content from `node_modules/@ionic/app-scripts/config/rollup.config.js` into the new `rollup.config.js` file.
-
-Once the new file is created, a few changes are needed. For starters, the first line needs to be updated to reflect the new location of the config file.
+The best way to do this is to follow the steps above to create a custom rollup config file. To get started with that, open the project’s `package.json` file. If it doesn’t already exist, create a node at the root level for `config`, and then add a key for `ionic_rollup` as follows
 
 ```
-var ngTemplate = require('../dist/plugins/ng-template').ngTemplate;
+...
+"config": {
+  "ionic_rollup": "./scripts/rollup.config.js"
+}
 ...
 ```
 
-Should be updated to
+The custom rollup config file will live in a `scripts` folder at the root of the Ionic app. The file will be called `rollup.config.js` in this example.
 
-```
-var ngTemplate = require(‘../node_modules/@ionic/app-scripts/dist/plugins/ng-template’).ngTemplate;
-```
+The easiest way to fill out the Rollup config is to start with the existing Rollup config. Open `node_modules/@ionic/app-scripts/config/rollup.config.js` and copy and paste the file content into `scripts/rollup.config.js`.
+
+
 Now that the config file is in good shape, let’s fix the error from above. In this example, we tried to install the super cool library [pouchdb](https://pouchdb.com/). In our error message, we can see that `pouchdb`’s `lib/index-browser.es.js` file is trying to import `extend` from the library `js-extend`, resulting in an error.
 
 This error basically says that Rollup does not think that `js-extend` exports anything called `extend`. The solution to the problem is we need to tell Rollup that `js-extend` does in fact export `extend`.
 
 Here is the default set of Rollup plugins
+
 ```
-
+…
 plugins: [
-
-
-
-
-   ngTemplate(),
-
-
-   builtins(),
-
-
-   commonjs(),
-
-
-   nodeResolve({
-
-
-     module: true,
-
-
-     jsnext: true,
-
-
-     main: true,
-
-
-     browser: true,
-
-
-     extensions: ['.js']
-
-
-   }),
-
-
-   globals(),
-
-
-   json()
-
-
- ]
-
+  builtins(),
+  commonjs(),
+  nodeResolve({
+      ...
+  }),
+  globals(),
+  json()
+]
+...
 ```
 
 In the Rollup config, we want to look for the `commonjs` plugin, and add an entry to the `namedExports` field.

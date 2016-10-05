@@ -55,7 +55,7 @@ This is the simple approach. In the application’s `src` directory, create a ne
 Inside of the file, create an entry for the library that looks like this:
 
 ```
-declare module ‘theLibraryName’
+declare module 'theLibraryName'
 ```
 
 This is our first short-hand type definition. All this does is tell the Typescript compiler that the module is found, and it is an object of `any` type. This will allow the library to be used freely without the Typescript compiler giving errors.
@@ -63,15 +63,15 @@ This is our first short-hand type definition. All this does is tell the Typescri
 Here’s how the `declarations.d.ts` file would look if I created a short-hand type definition for the popular library `lodash`.
 
 ```
-declare module ‘lodash’
+declare module 'lodash'
 ```
 
 Multiple short-hand type definitions can be included in the `declarations.d.ts` file. It is considered a best practice to keep all of these type definitions in one file when creating them.
 
 ```
-declare module ‘theLibraryName’
-declare module ‘anotherLibraryName’
-declare module ‘someOtherLibraryName’
+declare module 'theLibraryName'
+declare module 'anotherLibraryName'
+declare module 'someOtherLibraryName'
 ```
 
 ## Using third party libraries
@@ -81,14 +81,14 @@ After installing the third party library and its type definition, it must be `im
 Open the `.ts` file where the library is needed. At the top of the file, add an import statement for the library.
 
 ```
-import { myFunction } from ‘theLibraryName’;
+import { myFunction } from 'theLibraryName';
 ```
 
 This pattern is called the `named exports` approach. This is considered the best practice for using third party libraries. It only imports the portion of the library that is needed - `myFunction` in the case above. This pattern is used very frequently in Ionic apps to import Ionic and Angular functionality.
 
 ```
-import { Component } from ‘@angular/core’;
-import { NavController } from ‘ionic-angular’
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 ```
 
 `Component` is one small piece of `@angular/core`, and `NavController` is one small piece of `ionic-angular`. By following this pattern, Ionic apps will include the minimum amount of code needed from the library, resulting in a smaller and faster application.
@@ -98,7 +98,7 @@ There are some cases where importing a specific portion of a library is not poss
 In that case, the library can be used but must be imported using the `default` export approach.
 
 ```
-import myLib from ‘theLibraryName’
+import myLib from 'theLibraryName'
 ```
 
 The default export maps one-to-one with a CommonJS `module.exports` attribute, meaning `myLib` has access to all properties, functions, etc that are exposed.
@@ -106,15 +106,15 @@ The default export maps one-to-one with a CommonJS `module.exports` attribute, m
 To call `myFunction` to follow our example above, the code would look like this:
 
 ```
-import myLib from ‘theLibraryName’
+import myLib from 'theLibraryName'
 myLib.myFunction()
 ```
 
 Here’s an example of calling the `capitalize` method in the popular `lodash` library.
 
 ```
-import lodash from ‘lodash’;
-lodash.capitalize(‘myStringToCapitalize’);
+import lodash from 'lodash';
+lodash.capitalize('myStringToCapitalize');
 ```
 
 From our experience, the best practice is to always try to import libraries using the `named export` approach, and only switching to the `default export` approach if there is an error when building and bundling the Ionic app.

@@ -51,7 +51,7 @@ Note: Developers are free to still use `gulp` if they choose to do so. We think 
 
 [transpile](https://github.com/driftyco/ionic-app-scripts/blob/master/src/transpile.ts) - `transpile` converts `Typescript` code into `javascript` code.
 
-[tsc](https://github.com/driftyco/ionic-app-scripts/blob/master/src/tsc.ts) - `tsc` calls the the `Typescript` compiler.
+[tsc](https://github.com/driftyco/ionic-app-scripts/blob/master/src/tsc.ts) - `tsc` calls the `Typescript` compiler.
 
 [uglifyjs](https://github.com/driftyco/ionic-app-scripts/blob/master/src/uglifyjs.ts) - `uglifyjs` is used to minify `javascript` to it’s smallest and fastest form.
 

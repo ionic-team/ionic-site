@@ -5,119 +5,115 @@ id: third-party-libs
 title: Ionic 2 Resources | Third Party Libraries
 ---
 
-# Third Party libraries in Ionic Apps
 
-Ionic Framework provides a comprehensive solution to take an app from idea to production. However, There are some use cases that are outside of the scope of Ionic. For these use cases, Ionic apps can fall back on the rich ecosystem of libraries published on [Node Package Manager](https://www.npmjs.com), better known as NPM. NPM is a command line tool to managing an application’s dependencies.
+While there are many great built-in features in Ionic, there's some functionality that doesn't make sense for the core framework. For these use cases, apps can fall back on the rich ecosystem of libraries published on [NPM](https://www.npmjs.com). NPM's command line tool makes it easy to add and manage any additional packages.
 
-This article makes the assumption that you’re moderately familiar with NPM and how to use it. If you’re not, please review the [NPM documentation](https://docs.npmjs.com/) before proceeding.
+If you want to read more about NPM and the command line tools, check out [NPM's docs](https://docs.npmjs.com/) before proceeding.
 
 
-## Installing third party libraries
+### Installation
 
-To install a third party library into an Ionic application, open a command line terminal and navigate to the application’s directory. From there, execute the following command:
+To add an additional library to your app, you can run:
 
+```bash
+npm install <theLibraryName> --save
 ```
-npm install theLibraryName --save
-```
 
-For example, here’s how the popular library Lodash would be installed:
+For example, to install Lodash:
 
-```
+```bash
 npm install lodash --save
 ```
 
-The `npm install` command will download a copy of the library from NPM, and save it in the application’s `node_modules` directory. It will also add an entry to the application’s `package.json` dependency list.
+`install` will download a copy of the library from NPM, and save it in your app's `node_modules` directory.  `--save` will tell the NPM CLI to add an entry to your app’s `package.json` dependency list.
 
-If Ionic used pure javascript, the step above would be sufficient for installing the third party library. Since Ionic utilizes [Typescript](https://www.typescriptlang.org/) instead of pure javascript, there is an additional step to the process.
+If this was _just_ JavaScript, the process above would be enough for installing third party libraries. But Ionic uses TypeScript, there is an additional step to the process.
 
-Typescript introduces a concept of optional [static types](https://en.wikipedia.org/wiki/Type_system#STATIC). To install a third party library, that means we must also install or create a `type definition` for the library. Fortunately, Microsoft has created a very large ecosystem for acquiring and downloading community maintained `type definition` files. The best part is it uses `npm` too, so there isn’t a new tool to install or learn.
+Since TypeScript utilizes [static types](https://en.wikipedia.org/wiki/Type_system#STATIC), we need to be able to "describe" code we want to use and import. TypeScript does this through type definitions. The TypeScript team actually maintains a large collection of these, which can be installed through NPM as well.
 
-To install a `type definition` file, enter the following command:
-```
+Similar to our library installation, we can run:
+
+```bash
 npm install @types/theLibraryName --save
 ```
 
-If this command looks and feels very similar to how a library is installed, that’s because it is. We’re executing almost the exact same command, except we’re telling NPM to look into the `@types` namespace for the type definition files.
+For our Lodash example, we can run:
 
-For example, here’s how the popular library lodash’s `type definition` file would be installed
-
-```
+```bash
 npm install @types/lodash --save
 ```
 
-9 times out of 10, NPM does all of the heavy lifting so we can focus on our app. The `@types` ecosystem is mature and typically kept up to date. It is open source and if there is an error in a `type definition` file, it can be corrected via [DefinitelyTyped](http://definitelytyped.org/).
+In the rare case that types don't exist for your library, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a create a complete type definition.
 
-In the rare case that an `@types/theLibraryName` doesn’t exist, that means that no one has created and shared a `type definition` for the library yet. In this case, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a create a complete type definition, but that is outside of the scope of this article.
+### Creating Short-hand Definition
 
-### Creating a Short-hand Type Definition
-This is the simple approach. In the application’s `src` directory, create a new file called `declarations.d.ts`. The file extension must be `.d.ts` in order to be considered a `type definition` file.
+In the app's `src/` directory, make a new file called `declarations.d.ts`. The `.d.ts` denotes that the file is a definition file and not actual code.
 
-Inside of the file, create an entry for the library that looks like this:
+In the file, we can add a line to `declare` our module:
 
-```
-declare module 'theLibraryName'
-```
-
-This is our first short-hand type definition. All this does is tell the Typescript compiler that the module is found, and it is an object of `any` type. This will allow the library to be used freely without the Typescript compiler giving errors.
-
-Here’s how the `declarations.d.ts` file would look if I created a short-hand type definition for the popular library `lodash`.
-
-```
-declare module 'lodash'
+```typescript
+declare module 'theLibraryName';
 ```
 
-Multiple short-hand type definitions can be included in the `declarations.d.ts` file. It is considered a best practice to keep all of these type definitions in one file when creating them.
+All this does is tell the Typescript compiler that the module is found, and it is an object of `any` type. This will allow the library to be used freely without the Typescript compiler giving errors.
 
+Going back to the Lodash example, we can write:
+
+```typescript
+declare module 'lodash';
 ```
-declare module 'theLibraryName'
-declare module 'anotherLibraryName'
-declare module 'someOtherLibraryName'
+
+Now we can declare several definitions in this file, so if you ended up using multiple libraries that do not have types, it's really easy to just drop them into your `declarations.d.ts`.
+
+```typescript
+declare module 'theLibraryName';
+declare module 'anotherLibraryName';
+declare module 'someOtherLibraryName';
 ```
 
-## Using third party libraries
+### Using Libraries
 
-After installing the third party library and its type definition, it must be `imported` into the application to be used.
+After installing the library and its type definition, we can use it by importing the library.
 
-Open the `.ts` file where the library is needed. At the top of the file, add an import statement for the library.
+Import statement follow a simple pattern.
 
-```
+```typescript
 import { myFunction } from 'theLibraryName';
 ```
 
-This pattern is called the `named exports` approach. This is considered the best practice for using third party libraries. It only imports the portion of the library that is needed - `myFunction` in the case above. This pattern is used very frequently in Ionic apps to import Ionic and Angular functionality.
+We first import the named exported function and say were it's from. This pattern is called the `named exports` approach. This is considered the best practice as it only imports the portion of the library that is needed - `myFunction` in the case above. This is exactly what is being done in your app when you import `Component` from Angular or `NavController` for Ionic.
 
-```
+```typescript
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 ```
 
-`Component` is one small piece of `@angular/core`, and `NavController` is one small piece of `ionic-angular`. By following this pattern, Ionic apps will include the minimum amount of code needed from the library, resulting in a smaller and faster application.
-
-There are some cases where importing a specific portion of a library is not possible. Typically, this is the case with older libraries written for the [Node.js](https://nodejs.org/en/) javascript runtime. This sort of library is typically called a [Common JS module](https://nodejs.org/docs/latest/api/modules.html).
+There are some cases where importing a specific portion of a library is not possible. Typically, this is the case with older libraries written for the [Node Environments](https://nodejs.org/en/). These follow the older [CommonJS module](https://nodejs.org/docs/latest/api/modules.html) pattern.
 
 In that case, the library can be used but must be imported using the `default` export approach.
 
-```
-import myLib from 'theLibraryName'
+```typescript
+import myLib from 'theLibraryName';
 ```
 
 The default export maps one-to-one with a CommonJS `module.exports` attribute, meaning `myLib` has access to all properties, functions, etc that are exposed.
 
 To call `myFunction` to follow our example above, the code would look like this:
 
-```
-import myLib from 'theLibraryName'
-myLib.myFunction()
+```typescript
+import myLib from 'theLibraryName';
+myLib.myFunction();
 ```
 
-Here’s an example of calling the `capitalize` method in the popular `lodash` library.
+Here’s an example of calling the `capitalize` method in Lodash.
 
-```
+```typescript
 import lodash from 'lodash';
 lodash.capitalize('myStringToCapitalize');
 ```
 
-From our experience, the best practice is to always try to import libraries using the `named export` approach, and only switching to the `default export` approach if there is an error when building and bundling the Ionic app.
+The best practice is to always try to import libraries using the `named export` approach, and only switching to the `default export` approach if there is an error when building.
 
-## Troubleshooting
-With most third party libraries, everything “just works” out of the box. In some rare cases, some libraries may require modifications to the build configuration to properly build them. See this link for more information about [configuring the build](LINK_NEEDED) process to resolve any issues that may arise.
+### Troubleshooting
+
+With most libraries, everything should "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/driftyco/ionic-app-scripts#custom-config-files).

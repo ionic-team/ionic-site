@@ -3,6 +3,12 @@ layout: v2_fluid/docs_base
 category: resources
 id: third-party-libs
 title: Ionic 2 Resources | Third Party Libraries
+footer_includes: |
+  <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+  <script>
+   anchors.options.placement = 'left';
+    anchors.add('.v2.docs.page-third-party-libs main h2, .v2.docs.page-third-party-libs main h3');
+  </script>
 ---
 
 

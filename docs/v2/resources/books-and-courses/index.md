@@ -46,7 +46,7 @@ header_sub_title: Ionic 2 Developer Preview
 
   <ul>
     <li><a href="http://shop.oreilly.com/product/0636920050353.do">Introducing Ionic 2 (O'Reilly)</a></li>
-    <li><a href="https://www.udemy.com/ionic-2-tutorial/">Ionic 2 Master Course (Udemy)</a></li>
+    <li><a href="https://www.udemy.com/ionic-2-tutorial/?couponCode=IONIC15/">Ionic 2 Master Course (50% Off code - Udemy)</a></li>
     <li><a href="https://www.udemy.com/ionic-2-quickstart/">Ionic 2 Quickstart (Udemy)</a></li>
     <li><a href="https://www.udemy.com/introducing-ionic-2/">Introducing Ionic 2 (Udemy)</a></li>
     <li>Many more Ionic 1 and 2 coures on <a href="https://www.udemy.com/courses/search/?q=ionic+2&src=ukw&lang=en">Udemy</a></li>

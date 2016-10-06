@@ -15,7 +15,7 @@ next_page_link: /docs/v2/theming/sass-variables/
   Improve this doc
 </a>
 
-Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `app/theme/app.variables.scss` file:
+Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `src/theme/variables.scss` file:
 
 ```scss
 $colors: (

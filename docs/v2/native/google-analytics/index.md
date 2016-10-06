@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -117,12 +117,363 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setAllowIDFACollection"></div>
+<h3><code>setAllowIDFACollection(allow)</code>
+  
+</h3>
+
+
+Enabling Advertising Features in Google Analytics allows you to take advantage of Remarketing, Demographics & Interests reports, and more
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      allow
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setUserId"></div>
+<h3><code>setUserId(id)</code>
+  
+</h3>
+
+
+Set a UserId
+https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      id
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>User ID</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setAnonymizeIp"></div>
+<h3><code>setAnonymizeIp(anonymize)</code>
+  
+</h3>
+
+
+Set a anonymize Ip address
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      anonymize
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to anonymize the IP Address</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setAppVersion"></div>
+<h3><code>setAppVersion(appVersion)</code>
+  
+</h3>
+
+
+Sets the app version
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      appVersion
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>App version</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setOptOut"></div>
+<h3><code>setOptOut(optout)</code>
+  
+</h3>
+
+
+Set OptOut
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      optout
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="debugMode"></div>
+<h3><code>debugMode()</code>
+  
+</h3>
+
+
+Enable verbose logging
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="trackMetric"></div>
+<h3><code>trackMetric(key,&nbsp;value)</code>
+  
+</h3>
+
+
+
+
+Track custom metric
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="trackView"></div>
-<h3><code>trackView(title,&nbsp;campaignUrl)</code>
+<h3><code>trackView(title,&nbsp;campaignUrl,&nbsp;newSession)</code>
   
 </h3>
+
+
 
 
 Track a screen
@@ -174,6 +525,23 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
     </td>
   </tr>
   
+  <tr>
+    <td>
+      newSession
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to create a new session</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -181,12 +549,87 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="addCustomDimension"></div>
+<h3><code>addCustomDimension(key,&nbsp;value)</code>
+  
+</h3>
+
+
+Add a Custom Dimension
+https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="trackEvent"></div>
-<h3><code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value)</code>
+<h3><code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value,&nbsp;newSession)</code>
   
 </h3>
+
+
 
 
 Track an event
@@ -267,12 +710,35 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     </td>
   </tr>
   
+  <tr>
+    <td>
+      newSession
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to create a new session</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -333,6 +799,12 @@ Track an exception
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -425,6 +897,12 @@ Track User Timing (App Speed)
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -550,6 +1028,12 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -692,270 +1176,11 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 
 
 
-
-
-<div id="addCustomDimension"></div>
-<h3><code>addCustomDimension(key,&nbsp;value)</code>
-  
-</h3>
-
-
-Add a Custom Dimension
-https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      key
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      value
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-
-
-<div id="setUserId"></div>
-<h3><code>setUserId(id)</code>
-  
-</h3>
-
-
-
-
-Set a UserId
-https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      id
-      
-      
-    </td>
-    <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-
-
-<div id="setAppVersion"></div>
-<h3><code>setAppVersion(appVersion)</code>
-  
-</h3>
-
-
-
-
-Sets the app version
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      appVersion
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-
-
-<div id="setAnonymizeIp"></div>
-<h3><code>setAnonymizeIp(anonymize)</code>
-  
-</h3>
-
-
-
-
-Set a anonymize Ip address
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      anonymize
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-
-
-<div id="setAllowIDFACollection"></div>
-<h3><code>setAllowIDFACollection(allow)</code>
-  
-</h3>
-
-
-
-
-Enabling Advertising Features in Google Analytics allows you to take advantage of Remarketing, Demographics & Interests reports, and more
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      allow
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-
-
-<div id="debugMode"></div>
-<h3><code>debugMode()</code>
-  
-</h3>
-
-
-
-
-Enable verbose logging
-
-
-
-
-
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -1000,6 +1225,12 @@ Enable/disable automatic reporting of uncaught exceptions
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

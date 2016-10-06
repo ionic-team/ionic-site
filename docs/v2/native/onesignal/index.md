@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -105,7 +105,7 @@ Only required method you need to call to setup OneSignal to receive push notific
     </td>
     <td>
       
-<code>appId</code>
+<code>string</code>
     </td>
     <td>
       <p>AppId from your OneSignal app</p>
@@ -197,7 +197,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     </td>
     <td>
       
-<code>key</code>
+<code>string</code>
     </td>
     <td>
       <p>of your choosing to create or update.</p>
@@ -214,7 +214,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     </td>
     <td>
       
-<code>value</code>
+<code>string</code>
     </td>
     <td>
       <p>to set on the key. NOTE: Passing in a blank String deletes the key, you can also call deleteTag.</p>
@@ -263,7 +263,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     </td>
     <td>
       
-<code>json</code>
+<code>string</code>
     </td>
     <td>
       <p>a json object with key/value pairs like: {key: &quot;value&quot;, key2: &quot;value2&quot;}</p>
@@ -333,7 +333,7 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
     </td>
     <td>
       
-<code>key</code>
+<code>string</code>
     </td>
     <td>
       <p>to remove.</p>
@@ -381,7 +381,7 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
     </td>
     <td>
       
-<code>keys</code>
+<code>Array&lt;string&gt;</code>
     </td>
     <td>
       <p>to remove.</p>
@@ -457,7 +457,7 @@ Passing false means that the device will only vibrate lightly when the device is
     </td>
     <td>
       
-<code>enable</code>
+<code>boolean</code>
     </td>
     <td>
       <p>to disable vibrate, true to re-enable it.</p>
@@ -509,7 +509,7 @@ Passing false means that the device will only vibrate unless the device is set t
     </td>
     <td>
       
-<code>enable</code>
+<code>boolean</code>
     </td>
     <td>
       <p>to disable sound, true to re-enable it.</p>
@@ -561,7 +561,7 @@ If set to true notifications will always show in the notification area and notif
     </td>
     <td>
       
-<code>enable</code>
+<code>boolean</code>
     </td>
     <td>
       
@@ -610,7 +610,7 @@ The notificationOpenedCallback is then fired after the alert box is closed.
     </td>
     <td>
       
-<code>enable</code>
+<code>boolean</code>
     </td>
     <td>
       
@@ -658,7 +658,7 @@ You can pass true later to opt users back into notifications.
     </td>
     <td>
       
-<code>enable</code>
+<code>boolean</code>
     </td>
     <td>
       

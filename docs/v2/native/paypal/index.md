@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -73,7 +73,7 @@ PayPal.init({
 <h2>Static Members</h2>
 
 <div id="init"></div>
-<h3><code>init(environment:,&nbsp;configuration:)</code>
+<h3><code>init(environment,&nbsp;configuration)</code>
   
 </h3>
 
@@ -97,7 +97,7 @@ the recommended time to preconnect is on page load.
   
   <tr>
     <td>
-      environment:
+      environment
       
       
     </td>
@@ -114,7 +114,7 @@ the recommended time to preconnect is on page load.
   
   <tr>
     <td>
-      configuration:
+      configuration
       
       
     </td>
@@ -156,7 +156,7 @@ Retreive the version of PayPal iOS SDK Library.
 
 
 <div id="renderSinglePaymentUI"></div>
-<h3><code>renderSinglePaymentUI(payment:)</code>
+<h3><code>renderSinglePaymentUI(payment)</code>
   
 </h3>
 
@@ -179,7 +179,7 @@ for more documentation of the params.
   
   <tr>
     <td>
-      payment:
+      payment
       
       
     </td>
@@ -244,7 +244,7 @@ Please Read Docs on Future Payments at https://github.com/paypal/PayPal-iOS-SDK#
 
 
 <div id="renderProfileSharingUI"></div>
-<h3><code>renderProfileSharingUI(scopes:)</code>
+<h3><code>renderProfileSharingUI(scopes)</code>
   
 </h3>
 
@@ -265,7 +265,7 @@ Please Read Docs on Profile Sharing at https://github.com/paypal/PayPal-iOS-SDK#
   
   <tr>
     <td>
-      scopes:
+      scopes
       
       
     </td>
@@ -509,7 +509,91 @@ for your tracking purposes.</p>
 
 
 
-<h3><a class="anchor" name="PayPAlItem" href="#PayPAlItem"></a>PayPAlItem</h3>
+<h3><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      name
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Name of the item. 127 characters max</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      quantity
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Number of units. 10 characters max.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      price
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Unit price for this item 10 characters max.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      currency
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ISO standard currency code.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      sku
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>The stock keeping unit for this item. 50 characters max (optional)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

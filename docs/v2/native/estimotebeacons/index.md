@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -822,7 +822,7 @@ Start ranging beacons. Available on iOS and Android.
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -876,7 +876,7 @@ Stop ranging beacons. Available on iOS and Android.
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -974,7 +974,7 @@ Start monitoring beacons. Available on iOS and Android.
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -1048,7 +1048,7 @@ Stop monitoring beacons. Available on iOS and Android.
     </td>
     <td>
       
-<code>BeaconRegion</code>
+<code>EstimoteBeaconRegion</code>
     </td>
     <td>
       <p>Dictionary with region properties (mandatory).</p>
@@ -1075,7 +1075,7 @@ Stop monitoring beacons. Available on iOS and Android.
 
 
 <div id="startSecureMonitoringForRegion"></div>
-<h3><code>startSecureMonitoringForRegion()</code>
+<h3><code>startSecureMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
   
 </h3>
 
@@ -1089,6 +1089,52 @@ To use secure beacons set the App ID and App Token using
 <a href='undefined'><code>setupAppIDAndAppToken</code></a>.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>EstimoteBeaconRegion</code>
+    </td>
+    <td>
+      <p>Region</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notifyEntryStateOnDisplay
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -1096,7 +1142,7 @@ To use secure beacons set the App ID and App Token using
 
 
 <div id="stopSecureMonitoringForRegion"></div>
-<h3><code>stopSecureMonitoringForRegion()</code>
+<h3><code>stopSecureMonitoringForRegion(region)</code>
   
 </h3>
 
@@ -1106,7 +1152,35 @@ This function has the same parameters/behaviour as
 <a href='undefined'><code>stopMonitoringForRegion</code></a>.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      region
+      
+      
+    </td>
+    <td>
+      
+<code>EstimoteBeaconRegion</code>
+    </td>
+    <td>
+      <p>Region</p>
 
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

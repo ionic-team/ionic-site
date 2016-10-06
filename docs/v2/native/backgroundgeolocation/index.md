@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -677,6 +677,556 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+
+
+<h3><a class="anchor" name="Location" href="#Location"></a>Location</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      locationId
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>ID of location as stored in DB (or null)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      serviceProvider
+      
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Service provider</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      debug
+      
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>true if location recorded as part of debug</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      time
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>UTC time of this fix, in milliseconds since January 1, 1970.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      latitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>latitude, in degrees.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      longitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>longitude, in degrees.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      accuracy
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>estimated accuracy of this location, in meters.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      speed
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>speed if it is available, in meters/second over ground.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      altitude
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>altitude if available, in meters above the WGS 84 reference ellipsoid.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bearing
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>bearing, in degrees.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      coords
+      
+    </td>
+    <td>
+      Coordinates
+    </td>
+    <td>
+      <p>A Coordinates object defining the current location</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>A timestamp representing the time at which the location was retrieved.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h3><a class="anchor" name="Config" href="#Config"></a>Config</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      desiredAccuracy
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Desired accuracy in meters. Possible values [0, 10, 100, 1000]. The lower
+the number, the more power devoted to GeoLocation resulting in higher
+accuracy readings. 1000 results in lowest power drain and least accurate
+readings. @see Apple docs (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html#//apple_ref/occ/instp/CLLocationManager/desiredAccuracy">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html#//apple_ref/occ/instp/CLLocationManager/desiredAccuracy</a>)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      stationaryRadius
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Stationary radius in meters. When stopped, the minimum distance the device
+must move beyond the stationary location for aggressive background-tracking
+to engage.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      debug
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>When enabled, the plugin will emit sounds for life-cycle events of
+background-geolocation! See debugging sounds table.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      distanceFilter
+      
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>The minimum distance (measured in meters) a device must move horizontally
+before an update event is generated. @see Apple docs. (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/distanceFilter">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/distanceFilter</a>)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      stopOnTerminate
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>IOS, ANDROID ONLY
+Enable this in order to force a stop() when the application terminated
+(e.g. on iOS, double-tap home button, swipe away the app).o</p>
+<p>Defaults to true</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      startOnBoot
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>ANDROID ONLY 
+Start background service on device boot. </p>
+<p>Defaults to false</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      startForeground
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>ANDROID ONLY 
+If false location service will not be started in foreground and no notification will be shown.</p>
+<p>Defaults to true</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      interval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>ANDROID, WP8 ONLY
+The minimum time interval between location updates in seconds.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationTitle
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Custom notification title in the drawer.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationText
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Custom notification text in the drawer.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIconColor
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ANDROID ONLY
+The accent color to use for notification. Eg. #4CAF50.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIconLarge
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ANDROID ONLY 
+The filename of a custom notification icon. See android quirks. 
+NOTE: Only available for API Level &gt;=21.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notificationIconSmall
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>ANDROID ONLY 
+The filename of a custom notification icon. See android quirks. 
+NOTE: Only available for API Level &gt;=21.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locationProvider
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Set location service provider @see wiki (<a href="https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers">https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers</a>)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      activityType
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>IOS ONLY
+[AutomotiveNavigation, OtherNavigation, Fitness, Other] Presumably,
+this affects iOS GPS algorithm. @see Apple docs for more information
+(<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType</a>)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pauseLocationUpdates
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>IOS ONLY 
+Pauses location updates when app is paused </p>
+<p>Defaults to true</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Server url where to send HTTP POST with recorded locations </p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      syncUrl
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Server url where to send fail to post locations </p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      syncThreshold
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Specifies how many previously failed locations will be sent to server at once </p>
+<p>Defaults to 100</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      httpHeaders
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      any
+    </td>
+    <td>
+      <p>Optional HTTP headers sent along in HTTP request</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      saveBatteryOnBackground
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      <p>IOS ONLY 
+Switch to less accurate significant changes and region monitory when in background (default)</p>
+<p>Defaults to 100</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      maxLocations
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Limit maximum number of locations stored into db </p>
+<p>Defaults to 10000</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

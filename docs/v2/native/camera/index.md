@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.1"
+version: "2.1.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -220,8 +220,8 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
     <td>
       <p>Choose the format of the return value.
 Defined in navigator.camera.DestinationType. Default is FILE_URI.
-     DATA_URL : 0,   Return image as base64-encoded string
-     FILE_URI : 1,   Return image file URI
+     DATA_URL : 0,   Return image as base64-encoded string,
+     FILE_URI : 1,   Return image file URI,
      NATIVE_URI : 2  Return image native URI
          (e.g., assets-library:// on iOS or content:// on Android)</p>
 

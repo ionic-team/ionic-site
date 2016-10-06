@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.5"
+version: "2.1.6"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -296,6 +296,324 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
 
 
 <!-- other classes -->
+<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>
+
+
+
+<h3><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h3>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="amount"></div>
+<h3>
+  <code>amount()</code>
+  
+
+</h3>
+The amount of the payment.
+
+
+
+
+<div id="currencyCode"></div>
+<h3>
+  <code>currencyCode()</code>
+  
+
+</h3>
+The ISO 4217 currency for the payment.
+
+
+
+
+<div id="shortDescription"></div>
+<h3>
+  <code>shortDescription()</code>
+  
+
+</h3>
+A short description of the payment.
+
+
+
+
+<div id="intent"></div>
+<h3>
+  <code>intent()</code>
+  
+
+</h3>
+"Sale" for an immediate payment.
+
+
+
+
+<div id="bnCode"></div>
+<h3>
+  <code>bnCode()</code>
+  
+
+</h3>
+Optional Build Notation code ("BN code"), obtained from partnerprogram@paypal.com,
+for your tracking purposes.
+
+
+
+
+<div id="invoiceNumber"></div>
+<h3>
+  <code>invoiceNumber()</code>
+  
+
+</h3>
+Optional invoice number, for your tracking purposes. (up to 256 characters)
+
+
+
+
+<div id="custom"></div>
+<h3>
+  <code>custom()</code>
+  
+
+</h3>
+Optional text, for your tracking purposes. (up to 256 characters)
+
+
+
+
+<div id="softDescriptor"></div>
+<h3>
+  <code>softDescriptor()</code>
+  
+
+</h3>
+Optional text which will appear on the customer's credit card statement. (up to 22 characters)
+
+
+
+
+<div id="items"></div>
+<h3>
+  <code>items()</code>
+  
+
+</h3>
+Optional array of PayPalItem objects.
+
+
+
+
+<div id="shippingAddress"></div>
+<h3>
+  <code>shippingAddress()</code>
+  
+
+</h3>
+Optional customer shipping address, if your app wishes to provide this to the SDK.
+
+
+
+
+
+
+
+
+<h3><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h3>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="name"></div>
+<h3>
+  <code>name()</code>
+  
+
+</h3>
+Name of the item. 127 characters max
+
+
+
+
+<div id="quantity"></div>
+<h3>
+  <code>quantity()</code>
+  
+
+</h3>
+Number of units. 10 characters max.
+
+
+
+
+<div id="price"></div>
+<h3>
+  <code>price()</code>
+  
+
+</h3>
+Unit price for this item 10 characters max.
+
+
+
+
+<div id="currency"></div>
+<h3>
+  <code>currency()</code>
+  
+
+</h3>
+ISO standard currency code.
+
+
+
+
+<div id="sku"></div>
+<h3>
+  <code>sku()</code>
+  
+
+</h3>
+The stock keeping unit for this item. 50 characters max (optional)
+
+
+
+
+
+
+
+
+<h3><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h3>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="subtotal"></div>
+<h3>
+  <code>subtotal()</code>
+  
+
+</h3>
+Sub-total (amount) of items being paid for. 10 characters max with support for 2 decimal places.
+
+
+
+
+<div id="shipping"></div>
+<h3>
+  <code>shipping()</code>
+  
+
+</h3>
+Amount charged for shipping. 10 characters max with support for 2 decimal places.
+
+
+
+
+<div id="tax"></div>
+<h3>
+  <code>tax()</code>
+  
+
+</h3>
+Amount charged for tax. 10 characters max with support for 2 decimal places.
+
+
+
+
+
+
+
+
+<h3><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h3>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="recipientName"></div>
+<h3>
+  <code>recipientName()</code>
+  
+
+</h3>
+Name of the recipient at this address. 50 characters max.
+
+
+
+
+<div id="line1"></div>
+<h3>
+  <code>line1()</code>
+  
+
+</h3>
+Line 1 of the address (e.g., Number, street, etc). 100 characters max.
+
+
+
+
+<div id="line2"></div>
+<h3>
+  <code>line2()</code>
+  
+
+</h3>
+Line 2 of the address (e.g., Suite, apt #, etc). 100 characters max. Optional.
+
+
+
+
+<div id="city"></div>
+<h3>
+  <code>city()</code>
+  
+
+</h3>
+City name. 50 characters max.
+
+
+
+
+<div id="state"></div>
+<h3>
+  <code>state()</code>
+  
+
+</h3>
+2-letter code for US states, and the equivalent for other countries. 100 characters max. Required in certain countries.
+
+
+
+
+<div id="postalCode"></div>
+<h3>
+  <code>postalCode()</code>
+  
+
+</h3>
+ZIP code or equivalent is usually required for countries that have them. 20 characters max. Required in certain countries.
+
+
+
+
+<div id="countryCode"></div>
+<h3>
+  <code>countryCode()</code>
+  
+
+</h3>
+2-letter country code. 2 characters max.
+
+
+
+
+
+
 
 <!-- end other classes -->
 
@@ -340,316 +658,6 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
     </td>
     <td>
       
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-<h3><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h3>
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      amount
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>The amount of the payment.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      currencyCode
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>The ISO 4217 currency for the payment.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      shortDescription
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>A short description of the payment.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      intent
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>&quot;Sale&quot; for an immediate payment.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      bnCode
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional Build Notation code (&quot;BN code&quot;), obtained from partnerprogram@paypal.com,
-for your tracking purposes.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      invoiceNumber
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional invoice number, for your tracking purposes. (up to 256 characters)</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      custom
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional text, for your tracking purposes. (up to 256 characters)</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      softDescriptor
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional text which will appear on the customer&#39;s credit card statement. (up to 22 characters)</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      items
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional array of PayPalItem objects.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      shippingAddress
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Optional customer shipping address, if your app wishes to provide this to the SDK.</p>
-
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-<h3><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h3>
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      name
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Name of the item. 127 characters max</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      quantity
-      
-    </td>
-    <td>
-      number
-    </td>
-    <td>
-      <p>Number of units. 10 characters max.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      price
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Unit price for this item 10 characters max.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      currency
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>ISO standard currency code.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sku
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>The stock keeping unit for this item. 50 characters max (optional)</p>
-
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-<h3><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h3>
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      subtotal
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Sub-total (amount) of items being paid for. 10 characters max with support for 2 decimal places.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      shipping
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Amount charged for shipping. 10 characters max with support for 2 decimal places.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      tax
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Amount charged for tax. 10 characters max with support for 2 decimal places.</p>
-
     </td>
   </tr>
   
@@ -730,7 +738,7 @@ for your tracking purposes.</p>
   
   <tr>
     <td>
-      merchantPrivacyPolicyUrl
+      merchantPrivacyPolicyURL
       <div><em>(optional)</em></div>
     </td>
     <td>
@@ -744,7 +752,7 @@ for your tracking purposes.</p>
   
   <tr>
     <td>
-      merchantUserAgreementUrl
+      merchantUserAgreementURL
       <div><em>(optional)</em></div>
     </td>
     <td>
@@ -909,123 +917,6 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
     </td>
     <td>
       <p>PIN to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>
-
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-<h3><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h3>
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      recipientName
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Name of the recipient at this address. 50 characters max.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      line1
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Line 1 of the address (e.g., Number, street, etc). 100 characters max.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      line2
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>Line 2 of the address (e.g., Suite, apt #, etc). 100 characters max. Optional.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      city
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>City name. 50 characters max.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      state
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>2-letter code for US states, and the equivalent for other countries. 100 characters max. Required in certain countries.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      postalCode
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>ZIP code or equivalent is usually required for countries that have them. 20 characters max. Required in certain countries.</p>
-
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      countryCode
-      
-    </td>
-    <td>
-      string
-    </td>
-    <td>
-      <p>2-letter country code. 2 characters max.</p>
 
     </td>
   </tr>

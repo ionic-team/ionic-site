@@ -109,12 +109,8 @@ title: Ionic Resources
         <p>Check out the best options in editors for your project.</p>
       </li>
       <li>
-        <a target="_blank" href="http://browserify.org/" class="title">Bundling with Browserify</a>
-        <p>Learn about how Browserify bundles your apps code into one single file</p>
-      </li>
-      <li>
-        <a target="_blank" href="https://webpack.github.io/" class="title">Working with Webpack</a>
-        <p>Ever wonder how Webpack really works? Learn about it!</p>
+        <a target="_blank" href="http://rollupjs.org" class="title">RollupJs</a>
+        <p>Learn about Rollup, the next-generation JavaScript module bundler</p>
       </li>
       <li>
         <a target="_blank" href="https://www.visualstudio.com/en-us/features/cordova-vs.aspx" class="title">Visual Studio Tools for Apache Cordova</a>

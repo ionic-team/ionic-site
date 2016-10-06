@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610041717, Default Theme
+ * vE2E-201610060854, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -2696,7 +2696,7 @@ ion-content.js-scroll > .scroll-content {
 
 [ion-fixed] {
   position: absolute;
-  z-index: 100;
+  z-index: 999;
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
 
@@ -3026,7 +3026,7 @@ ion-datetime {
 
 ion-fab {
   position: absolute;
-  z-index: 100; }
+  z-index: 999; }
   ion-fab[center] {
     left: 50%;
     margin-left: -28px; }
@@ -3909,7 +3909,7 @@ ion-item-group {
   display: block; }
 
 ion-item-divider {
-  z-index: 1000;
+  z-index: 100;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -4107,7 +4107,7 @@ ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=le
   width: 100%;
   visibility: visible; }
 
-.button-expandable {
+button[expandable] {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4115,7 +4115,7 @@ ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=le
   transition-property: none;
   transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
 
-ion-item-sliding.active-swipe-right .button-expandable {
+ion-item-sliding.active-swipe-right button[expandable] {
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
@@ -4123,7 +4123,7 @@ ion-item-sliding.active-swipe-right .button-expandable {
   transition-duration: .6s;
   transition-property: padding-left; }
 
-ion-item-sliding.active-swipe-left .button-expandable {
+ion-item-sliding.active-swipe-left button[expandable] {
   -webkit-order: -1;
   -ms-flex-order: -1;
   order: -1;

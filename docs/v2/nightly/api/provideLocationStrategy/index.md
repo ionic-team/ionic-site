@@ -31,7 +31,7 @@ provideLocationStrategy
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L185">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L188">
 Improve this doc
 </a>
 

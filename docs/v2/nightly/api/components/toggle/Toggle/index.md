@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toggle/toggle.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toggle/toggle.ts#L16">
 Improve this doc
 </a>
 

@@ -207,6 +207,33 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-mini-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Width and height of the FAB button mini</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-content-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB Container</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-list-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB List</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   

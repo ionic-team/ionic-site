@@ -86,7 +86,7 @@ as they are already items and their styling will be changed to look like a basic
 <h2 id="detail-arrows">Detail Arrows</h2>
 <p>By default, <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements with the <code>ion-item</code> attribute will display a right arrow icon
 on <code>ios</code> mode. To hide the right arrow icon on either of these elements, add the <code>detail-none</code> attribute
-to the item. To show the right arrow icon on an element that doesn&#39;t display is naturally, add the
+to the item. To show the right arrow icon on an element that doesn&#39;t display it naturally, add the
 <code>detail-push</code> attribute to the item.</p>
 <pre><code class="lang-html">&lt;ion-item detail-push&gt;
   Item with Detail Arrow

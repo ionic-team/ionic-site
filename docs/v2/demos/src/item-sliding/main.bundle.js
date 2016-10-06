@@ -82,13 +82,8 @@ function scheduleMicroTask(fn) {
 // exports the original value of the symbol.
 var _global = globalScope;
 function getTypeNameForDebugging(type) {
-    if (type['name']) {
-        return type['name'];
-    }
-    return typeof type;
+    return type['name'] || typeof type;
 }
-var Math$1 = _global.Math;
-var Date$1 = _global.Date;
 // TODO: remove calls to assert in production environment
 // Note: Can't just export this and import in in other files
 // as `assert` is a reserved keyword in Dart
@@ -132,13 +127,8 @@ function stringify(token) {
     }
     var res = token.toString();
     var newLineIndex = res.indexOf('\n');
-    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
+    return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
-// serialize / deserialize enum exist only for consistency with dart API
-// enums in typescript don't need to be serialized
-
-
-
 var StringWrapper = (function () {
     function StringWrapper() {
     }
@@ -272,7 +262,6 @@ function warn(obj) {
     console.warn(obj);
 }
 // Can't be all uppercase as our transpiler would think it is a special directive...
-
 
 
 var _symbolIterator = null;
@@ -910,17 +899,6 @@ var ChangeDetectorStatus;
      */
     ChangeDetectorStatus[ChangeDetectorStatus["Destroyed"] = 5] = "Destroyed";
 })(ChangeDetectorStatus || (ChangeDetectorStatus = {}));
-/**
- * List of possible {@link ChangeDetectionStrategy} values.
- */
-var CHANGE_DETECTION_STRATEGY_VALUES = [
-    ChangeDetectionStrategy.OnPush,
-    ChangeDetectionStrategy.Default,
-];
-/**
- * List of possible {@link ChangeDetectorStatus} values.
- */
-
 function isDefaultChangeDetectionStrategy(changeDetectionStrategy) {
     return isBlank(changeDetectionStrategy) ||
         changeDetectionStrategy === ChangeDetectionStrategy.Default;
@@ -1162,7 +1140,7 @@ var LIFECYCLE_HOOKS_VALUES = [
  */
 /**
  * Defines a schema that will allow:
- * - any non-angular elements with a `-` in their name,
+ * - any non-Angular elements with a `-` in their name,
  * - any properties on elements with a `-` in their name which is the common rule for custom
  * elements.
  *
@@ -1176,7 +1154,7 @@ var LIFECYCLE_HOOKS_VALUES = [
  */
 
 /**
- * NgModule decorator and metadata
+ * NgModule decorator and metadata.
  *
  * @stable
  * @Annotation
@@ -1228,7 +1206,6 @@ var ViewEncapsulation;
      */
     ViewEncapsulation[ViewEncapsulation["None"] = 2] = "None";
 })(ViewEncapsulation || (ViewEncapsulation = {}));
-var VIEW_ENCAPSULATION_VALUES = [ViewEncapsulation.Emulated, ViewEncapsulation.Native, ViewEncapsulation.None];
 /**
  * Metadata properties available for configuring Views.
  *
@@ -1558,26 +1535,6 @@ var MapWrapper = (function () {
 var StringMapWrapper = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.get = function (map, key) {
-        return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-    StringMapWrapper.values = function (map) {
-        return Object.keys(map).map(function (k) { return map[k]; });
-    };
-    StringMapWrapper.isEmpty = function (map) {
-        for (var prop in map) {
-            return false;
-        }
-        return true;
-    };
-    StringMapWrapper.forEach = function (map, callback) {
-        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-            var k = _a[_i];
-            callback(map[k], k);
-        }
-    };
     StringMapWrapper.merge = function (m1, m2) {
         var m = {};
         for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
@@ -1771,33 +1728,6 @@ function iterateListLike(obj, fn) {
         }
     }
 }
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Set constructor.  We work around that by manually adding the items.
-var createSetFromList = (function () {
-    var test = new Set([1, 2, 3]);
-    if (test.size === 3) {
-        return function createSetFromList(lst) { return new Set(lst); };
-    }
-    else {
-        return function createSetAndPopulateFromList(lst) {
-            var res = new Set(lst);
-            if (res.size !== lst.length) {
-                for (var i = 0; i < lst.length; i++) {
-                    res.add(lst[i]);
-                }
-            }
-            return res;
-        };
-    }
-})();
-var SetWrapper = (function () {
-    function SetWrapper() {
-    }
-    SetWrapper.createFromList = function (lst) { return createSetFromList(lst); };
-    SetWrapper.has = function (s, key) { return s.has(key); };
-    SetWrapper.delete = function (m, k) { m.delete(k); };
-    return SetWrapper;
-}());
 
 /**
  * @license
@@ -2010,7 +1940,7 @@ var NoAnnotationError = (function (_super) {
         var signature = [];
         for (var i = 0, ii = params.length; i < ii; i++) {
             var parameter = params[i];
-            if (isBlank(parameter) || parameter.length == 0) {
+            if (!parameter || parameter.length == 0) {
                 signature.push('?');
             }
             else {
@@ -2097,7 +2027,7 @@ var ReflectiveKey = (function () {
     function ReflectiveKey(token, id) {
         this.token = token;
         this.id = id;
-        if (isBlank(token)) {
+        if (!token) {
             throw new Error('Token must be defined!');
         }
     }
@@ -2410,7 +2340,7 @@ var Reflector = (function (_super) {
             throw new Error('Usage tracking is disabled');
         }
         var allTypes = MapWrapper.keys(this._injectableInfo);
-        return allTypes.filter(function (key) { return !SetWrapper.has(_this._usedKeys, key); });
+        return allTypes.filter(function (key) { return !_this._usedKeys.has(key); });
     };
     Reflector.prototype.registerFunction = function (func, funcInfo) {
         this._injectableInfo.set(func, funcInfo);
@@ -2518,7 +2448,7 @@ var Reflector = (function (_super) {
     return Reflector;
 }(ReflectorReader));
 function _mergeMaps(target, config) {
-    StringMapWrapper.forEach(config, function (v, k) { return target.set(k, v); });
+    Object.keys(config).forEach(function (k) { target.set(k, config[k]); });
 }
 
 /**
@@ -2687,7 +2617,7 @@ function _normalizeProviders(providers, res) {
     return res;
 }
 function constructDependencies(typeOrFunc, dependencies) {
-    if (isBlank(dependencies)) {
+    if (!dependencies) {
         return _dependenciesFor(typeOrFunc);
     }
     else {
@@ -2697,7 +2627,7 @@ function constructDependencies(typeOrFunc, dependencies) {
 }
 function _dependenciesFor(typeOrFunc) {
     var params = reflector.parameters(typeOrFunc);
-    if (isBlank(params))
+    if (!params)
         return [];
     if (params.some(isBlank)) {
         throw new NoAnnotationError(typeOrFunc, params);
@@ -3576,18 +3506,19 @@ function _mapProviders(injector, fn) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * Provides a hook for centralized exception handling.
+ * @whatItDoes Provides a hook for centralized exception handling.
  *
- * The default implementation of `ErrorHandler` prints error messages to the `Console`. To
- * intercept error handling,
- * write a custom exception handler that replaces this default as appropriate for your app.
+ * @description
+ *
+ * The default implementation of `ErrorHandler` prints error messages to the `console`. To
+ * intercept error handling, write a custom exception handler that replaces this default as
+ * appropriate for your app.
  *
  * ### Example
  *
- * ```javascript
- *
+ * ```
  * class MyErrorHandler implements ErrorHandler {
- *   call(error, stackTrace = null, reason = null) {
+ *   handleError(error) {
  *     // do something with the exception
  *   }
  * }
@@ -3597,6 +3528,7 @@ function _mapProviders(injector, fn) {
  * })
  * class MyModule {}
  * ```
+ *
  * @stable
  */
 var ErrorHandler = (function () {
@@ -3639,9 +3571,7 @@ var ErrorHandler = (function () {
             return error.context ? error.context :
                 this._findContext(error.originalError);
         }
-        else {
-            return null;
-        }
+        return null;
     };
     /** @internal */
     ErrorHandler.prototype._findOriginalError = function (error) {
@@ -3767,7 +3697,7 @@ var APP_ID_RANDOM_PROVIDER = {
     deps: [],
 };
 function _randomChar() {
-    return StringWrapper.fromCharCode(97 + Math$1.floor(Math$1.random() * 25));
+    return StringWrapper.fromCharCode(97 + Math.floor(Math.random() * 25));
 }
 /**
  * A function that will be executed when a platform is initialized.
@@ -4586,7 +4516,7 @@ var _DuplicateMap = (function () {
         if (afterIndex === void 0) { afterIndex = null; }
         var key = getMapKey(trackById);
         var recordList = this.map.get(key);
-        return isBlank(recordList) ? null : recordList.get(trackById, afterIndex);
+        return recordList ? recordList.get(trackById, afterIndex) : null;
     };
     /**
      * Removes a {@link CollectionChangeRecord} from the list of duplicates.
@@ -4892,7 +4822,7 @@ var DefaultKeyValueDiffer = (function () {
             obj.forEach(fn);
         }
         else {
-            StringMapWrapper.forEach(obj, fn);
+            Object.keys(obj).forEach(function (k) { return fn(obj[k], k); });
         }
     };
     return DefaultKeyValueDiffer;
@@ -4975,7 +4905,7 @@ var IterableDiffers = (function () {
         return {
             provide: IterableDiffers,
             useFactory: function (parent) {
-                if (isBlank(parent)) {
+                if (!parent) {
                     // Typically would occur when calling IterableDiffers.extend inside of dependencies passed
                     // to
                     // bootstrap(), which would override default pipes instead of extending them.
@@ -5047,7 +4977,7 @@ var KeyValueDiffers = (function () {
         return {
             provide: KeyValueDiffers,
             useFactory: function (parent) {
-                if (isBlank(parent)) {
+                if (!parent) {
                     // Typically would occur when calling KeyValueDiffers.extend inside of dependencies passed
                     // to
                     // bootstrap(), which would override default pipes instead of extending them.
@@ -5762,13 +5692,10 @@ var __extends$6 = (undefined && undefined.__extends) || function (d, b) {
  * ```typescript
  * @Component({
  *   selector: 'parent',
- *   template: `
- *     <child [prop]="parentProp"></child>
- *   `,
- *   directives: [forwardRef(() => Child)]
+ *   template: '<child [prop]="parentProp"></child>',
  * })
  * class Parent {
- *   parentProp = "init";
+ *   parentProp = 'init';
  * }
  *
  * @Directive({selector: 'child', inputs: ['prop']})
@@ -5778,7 +5705,7 @@ var __extends$6 = (undefined && undefined.__extends) || function (d, b) {
  *   set prop(v) {
  *     // this updates the parent property, which is disallowed during change detection
  *     // this will result in ExpressionChangedAfterItHasBeenCheckedError
- *     this.parent.parentProp = "updated";
+ *     this.parent.parentProp = 'updated';
  *   }
  * }
  * ```
@@ -5888,7 +5815,7 @@ function _flattenNestedViewRenderNodes(nodes, renderNodes) {
 var EMPTY_ARR = [];
 function ensureSlotCount(projectableNodes, expectedSlotCount) {
     var res;
-    if (isBlank(projectableNodes)) {
+    if (!projectableNodes) {
         res = EMPTY_ARR;
     }
     else if (projectableNodes.length < expectedSlotCount) {
@@ -6279,7 +6206,7 @@ var ComponentFactory = (function () {
         if (projectableNodes === void 0) { projectableNodes = null; }
         if (rootSelectorOrNode === void 0) { rootSelectorOrNode = null; }
         var vu = injector.get(ViewUtils);
-        if (isBlank(projectableNodes)) {
+        if (!projectableNodes) {
             projectableNodes = [];
         }
         // Note: Host views don't need a declarationAppElement!
@@ -7526,7 +7453,6 @@ var NgZoneImpl = (function () {
  *     <button (click)="processWithinAngularZone()">Process within Angular zone</button>
  *     <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
  *   `,
- *   directives: [NgIf]
  * })
  * export class NgZoneDemo {
  *   progress: number = 0;
@@ -9204,7 +9130,7 @@ var EMPTY_STATE = 'void';
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Math$2 = _global.Math;
+var Math$1 = _global.Math;
 
 /**
  * @license
@@ -9281,7 +9207,7 @@ var AnimationGroupPlayer = (function () {
         var min = 0;
         this._players.forEach(function (player) {
             var p = player.getPosition();
-            min = Math$2.min(p, min);
+            min = Math$1.min(p, min);
         });
         return min;
     };
@@ -9301,22 +9227,6 @@ var AnimationKeyframe = (function () {
         this.styles = styles;
     }
     return AnimationKeyframe;
-}());
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var AnimationOutput = (function () {
-    function AnimationOutput(name, phase, fullPropertyName) {
-        this.name = name;
-        this.phase = phase;
-        this.fullPropertyName = fullPropertyName;
-    }
-    return AnimationOutput;
 }());
 
 /**
@@ -10078,10 +9988,11 @@ var AnimationGroupMetadata = (function (_super) {
 function prepareFinalAnimationStyles(previousStyles, newStyles, nullValue) {
     if (nullValue === void 0) { nullValue = null; }
     var finalStyles = {};
-    StringMapWrapper.forEach(newStyles, function (value, prop) {
+    Object.keys(newStyles).forEach(function (prop) {
+        var value = newStyles[prop];
         finalStyles[prop] = value == AUTO_STYLE ? nullValue : value.toString();
     });
-    StringMapWrapper.forEach(previousStyles, function (value, prop) {
+    Object.keys(previousStyles).forEach(function (prop) {
         if (!isPresent(finalStyles[prop])) {
             finalStyles[prop] = nullValue;
         }
@@ -10095,7 +10006,8 @@ function balanceAnimationKeyframes(collectedStyles, finalStateStyles, keyframes$
     var flatenedFirstKeyframeStyles = flattenStyles(firstKeyframe.styles.styles);
     var extraFirstKeyframeStyles = {};
     var hasExtraFirstStyles = false;
-    StringMapWrapper.forEach(collectedStyles, function (value, prop) {
+    Object.keys(collectedStyles).forEach(function (prop) {
+        var value = collectedStyles[prop];
         // if the style is already defined in the first keyframe then
         // we do not replace it.
         if (!flatenedFirstKeyframeStyles[prop]) {
@@ -10111,7 +10023,7 @@ function balanceAnimationKeyframes(collectedStyles, finalStateStyles, keyframes$
     var flatenedFinalKeyframeStyles = flattenStyles(finalKeyframe.styles.styles);
     var extraFinalKeyframeStyles = {};
     var hasExtraFinalStyles = false;
-    StringMapWrapper.forEach(keyframeCollectedStyles, function (value, prop) {
+    Object.keys(keyframeCollectedStyles).forEach(function (prop) {
         if (!isPresent(flatenedFinalKeyframeStyles[prop])) {
             extraFinalKeyframeStyles[prop] = AUTO_STYLE;
             hasExtraFinalStyles = true;
@@ -10120,7 +10032,7 @@ function balanceAnimationKeyframes(collectedStyles, finalStateStyles, keyframes$
     if (hasExtraFinalStyles) {
         finalKeyframe.styles.styles.push(extraFinalKeyframeStyles);
     }
-    StringMapWrapper.forEach(flatenedFinalKeyframeStyles, function (value, prop) {
+    Object.keys(flatenedFinalKeyframeStyles).forEach(function (prop) {
         if (!isPresent(flatenedFirstKeyframeStyles[prop])) {
             extraFirstKeyframeStyles[prop] = AUTO_STYLE;
             hasExtraFirstStyles = true;
@@ -10133,13 +10045,14 @@ function balanceAnimationKeyframes(collectedStyles, finalStateStyles, keyframes$
 }
 function clearStyles(styles) {
     var finalStyles = {};
-    StringMapWrapper.keys(styles).forEach(function (key) { finalStyles[key] = null; });
+    Object.keys(styles).forEach(function (key) { finalStyles[key] = null; });
     return finalStyles;
 }
 function collectAndResolveStyles(collection, styles) {
     return styles.map(function (entry) {
         var stylesObj = {};
-        StringMapWrapper.forEach(entry, function (value, prop) {
+        Object.keys(entry).forEach(function (prop) {
+            var value = entry[prop];
             if (value == FILL_STYLE_FLAG) {
                 value = collection[prop];
                 if (!isPresent(value)) {
@@ -10153,12 +10066,12 @@ function collectAndResolveStyles(collection, styles) {
     });
 }
 function renderStyles(element, renderer, styles) {
-    StringMapWrapper.forEach(styles, function (value, prop) { renderer.setElementStyle(element, prop, value); });
+    Object.keys(styles).forEach(function (prop) { renderer.setElementStyle(element, prop, styles[prop]); });
 }
 function flattenStyles(styles) {
     var finalStyles = {};
     styles.forEach(function (entry) {
-        StringMapWrapper.forEach(entry, function (value, prop) { finalStyles[prop] = value; });
+        Object.keys(entry).forEach(function (prop) { finalStyles[prop] = entry[prop]; });
     });
     return finalStyles;
 }
@@ -10405,7 +10318,8 @@ var DebugContext = (function () {
             var staticNodeInfo = this._staticNodeInfo;
             if (isPresent(staticNodeInfo)) {
                 var refs = staticNodeInfo.refTokens;
-                StringMapWrapper.forEach(refs, function (refToken, refName) {
+                Object.keys(refs).forEach(function (refName) {
+                    var refToken = refs[refName];
                     var varValue;
                     if (isBlank(refToken)) {
                         varValue = _this._view.allNodes ? _this._view.allNodes[_this._nodeIndex] : null;
@@ -10497,7 +10411,7 @@ var ViewAnimationMap = (function () {
     };
     ViewAnimationMap.prototype.findAllPlayersByElement = function (element) {
         var el = this._map.get(element);
-        return el ? StringMapWrapper.values(el) : [];
+        return el ? Object.keys(el).map(function (k) { return el[k]; }) : [];
     };
     ViewAnimationMap.prototype.set = function (element, animationName, player) {
         var playersByAnimation = this._map.get(element);
@@ -10520,7 +10434,7 @@ var ViewAnimationMap = (function () {
             delete playersByAnimation[animationName];
             var index = this._allPlayers.indexOf(player);
             this._allPlayers.splice(index, 1);
-            if (StringMapWrapper.isEmpty(playersByAnimation)) {
+            if (Object.keys(playersByAnimation).length === 0) {
                 this._map.delete(element);
             }
         }
@@ -10638,20 +10552,19 @@ var AppView = (function () {
                 var listener = listeners[i];
                 // we check for both the name in addition to the phase in the event
                 // that there may be more than one @trigger on the same element
-                if (listener.output.name == animationName && listener.output.phase == phase) {
+                if (listener.eventName === animationName && listener.eventPhase === phase) {
                     listener.handler(event);
                     break;
                 }
             }
         }
     };
-    AppView.prototype.registerAnimationOutput = function (element, outputEvent, eventHandler) {
-        var entry = new _AnimationOutputWithHandler(outputEvent, eventHandler);
+    AppView.prototype.registerAnimationOutput = function (element, eventName, eventPhase, eventHandler) {
         var animations = this._animationListeners.get(element);
         if (!isPresent(animations)) {
             this._animationListeners.set(element, animations = []);
         }
-        animations.push(entry);
+        animations.push(new _AnimationOutputHandler(eventName, eventPhase, eventHandler));
     };
     AppView.prototype.create = function (context, givenProjectableNodes, rootSelectorOrNode) {
         this.context = context;
@@ -10980,12 +10893,13 @@ function _findLastRenderNode(node) {
     }
     return lastNode;
 }
-var _AnimationOutputWithHandler = (function () {
-    function _AnimationOutputWithHandler(output, handler) {
-        this.output = output;
+var _AnimationOutputHandler = (function () {
+    function _AnimationOutputHandler(eventName, eventPhase, handler) {
+        this.eventName = eventName;
+        this.eventPhase = eventPhase;
         this.handler = handler;
     }
-    return _AnimationOutputWithHandler;
+    return _AnimationOutputHandler;
 }());
 
 /**
@@ -10998,7 +10912,6 @@ var _AnimationOutputWithHandler = (function () {
 var __core_private__ = {
     isDefaultChangeDetectionStrategy: isDefaultChangeDetectionStrategy,
     ChangeDetectorStatus: ChangeDetectorStatus,
-    CHANGE_DETECTION_STRATEGY_VALUES: CHANGE_DETECTION_STRATEGY_VALUES,
     constructDependencies: constructDependencies,
     LifecycleHooks: LifecycleHooks,
     LIFECYCLE_HOOKS_VALUES: LIFECYCLE_HOOKS_VALUES,
@@ -11015,7 +10928,6 @@ var __core_private__ = {
     flattenNestedViewRenderNodes: flattenNestedViewRenderNodes,
     interpolate: interpolate,
     ViewUtils: ViewUtils,
-    VIEW_ENCAPSULATION_VALUES: VIEW_ENCAPSULATION_VALUES,
     ViewMetadata: ViewMetadata,
     DebugContext: DebugContext,
     StaticNodeDebugInfo: StaticNodeDebugInfo,
@@ -11055,7 +10967,6 @@ var __core_private__ = {
     renderStyles: renderStyles,
     collectAndResolveStyles: collectAndResolveStyles,
     AnimationStyles: AnimationStyles,
-    AnimationOutput: AnimationOutput,
     ANY_STATE: ANY_STATE,
     DEFAULT_STATE: DEFAULT_STATE,
     EMPTY_STATE: EMPTY_STATE,
@@ -11169,13 +11080,8 @@ else {
 // exports the original value of the symbol.
 var _global$1 = globalScope$1;
 function getTypeNameForDebugging$1(type) {
-    if (type['name']) {
-        return type['name'];
-    }
-    return typeof type;
+    return type['name'] || typeof type;
 }
-
-var Date$2 = _global$1.Date;
 // TODO: remove calls to assert in production environment
 // Note: Can't just export this and import in in other files
 // as `assert` is a reserved keyword in Dart
@@ -11201,7 +11107,7 @@ function isArray$3(obj) {
     return Array.isArray(obj);
 }
 function isDate$1(obj) {
-    return obj instanceof Date$2 && !isNaN(obj.valueOf());
+    return obj instanceof Date && !isNaN(obj.valueOf());
 }
 
 function stringify$1(token) {
@@ -11219,13 +11125,8 @@ function stringify$1(token) {
     }
     var res = token.toString();
     var newLineIndex = res.indexOf('\n');
-    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
+    return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
-// serialize / deserialize enum exist only for consistency with dart API
-// enums in typescript don't need to be serialized
-
-
-
 
 
 var NumberWrapper$1 = (function () {
@@ -11294,7 +11195,6 @@ var Json$1 = (function () {
     };
     return Json;
 }());
-
 
 var _symbolIterator$1 = null;
 function getSymbolIterator$1() {
@@ -12395,27 +12295,6 @@ function isListLikeIterable$1(obj) {
             getSymbolIterator$1() in obj); // JS Iterable have a Symbol.iterator prop
 }
 
-
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Set constructor.  We work around that by manually adding the items.
-var createSetFromList$1 = (function () {
-    var test = new Set([1, 2, 3]);
-    if (test.size === 3) {
-        return function createSetFromList$1(lst) { return new Set(lst); };
-    }
-    else {
-        return function createSetAndPopulateFromList(lst) {
-            var res = new Set(lst);
-            if (res.size !== lst.length) {
-                for (var i = 0; i < lst.length; i++) {
-                    res.add(lst[i]);
-                }
-            }
-            return res;
-        };
-    }
-})();
-
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -13242,7 +13121,7 @@ var NgStyle = (function () {
     };
     NgStyle.prototype._setStyle = function (nameAndUnit, value) {
         var _a = nameAndUnit.split('.'), name = _a[0], unit = _a[1];
-        value = value !== null && value !== void (0) && unit ? "" + value + unit : value;
+        value = value && unit ? "" + value + unit : value;
         this._renderer.setElementStyle(this._ngEl.nativeElement, name, value);
     };
     NgStyle.decorators = [
@@ -14401,7 +14280,6 @@ var CommonModule = (function () {
  */
 
 
-
 var DebugDomRootRenderer$1 = __core_private__.DebugDomRootRenderer;
 
 var NoOpAnimationPlayer$1 = __core_private__.NoOpAnimationPlayer;
@@ -14456,8 +14334,6 @@ else {
 // exports the original value of the symbol.
 var _global$2 = globalScope$2;
 
-
-var Date$3 = _global$2.Date;
 // TODO: remove calls to assert in production environment
 // Note: Can't just export this and import in in other files
 // as `assert` is a reserved keyword in Dart
@@ -14477,9 +14353,7 @@ function isNumber$2(obj) {
 function isString$2(obj) {
     return typeof obj === 'string';
 }
-function isFunction$3(obj) {
-    return typeof obj === 'function';
-}
+
 
 
 
@@ -14503,13 +14377,8 @@ function stringify$2(token) {
     }
     var res = token.toString();
     var newLineIndex = res.indexOf('\n');
-    return (newLineIndex === -1) ? res : res.substring(0, newLineIndex);
+    return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
-// serialize / deserialize enum exist only for consistency with dart API
-// enums in typescript don't need to be serialized
-
-
-
 var StringWrapper$2 = (function () {
     function StringWrapper() {
     }
@@ -14645,25 +14514,6 @@ var Json$2 = (function () {
     };
     return Json;
 }());
-var DateWrapper$2 = (function () {
-    function DateWrapper() {
-    }
-    DateWrapper.create = function (year, month, day, hour, minutes, seconds, milliseconds) {
-        if (month === void 0) { month = 1; }
-        if (day === void 0) { day = 1; }
-        if (hour === void 0) { hour = 0; }
-        if (minutes === void 0) { minutes = 0; }
-        if (seconds === void 0) { seconds = 0; }
-        if (milliseconds === void 0) { milliseconds = 0; }
-        return new Date$3(year, month - 1, day, hour, minutes, seconds, milliseconds);
-    };
-    DateWrapper.fromISOString = function (str) { return new Date$3(str); };
-    DateWrapper.fromMillis = function (ms) { return new Date$3(ms); };
-    DateWrapper.toMillis = function (date) { return date.getTime(); };
-    DateWrapper.now = function () { return new Date$3(); };
-    DateWrapper.toJson = function (date) { return date.toJSON(); };
-    return DateWrapper;
-}());
 function setValueOnPath$2(global, path, value) {
     var parts = path.split('.');
     var obj = global;
@@ -14701,6 +14551,849 @@ function getSymbolIterator$2() {
     }
     return _symbolIterator$2;
 }
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var CAMEL_CASE_REGEXP = /([A-Z])/g;
+var DASH_CASE_REGEXP = /-([a-z])/g;
+function camelCaseToDashCase(input) {
+    return StringWrapper$2.replaceAllMapped(input, CAMEL_CASE_REGEXP, function (m) { return '-' + m[1].toLowerCase(); });
+}
+function dashCaseToCamelCase(input) {
+    return StringWrapper$2.replaceAllMapped(input, DASH_CASE_REGEXP, function (m) { return m[1].toUpperCase(); });
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _DOM = null;
+function getDOM() {
+    return _DOM;
+}
+
+function setRootDomAdapter(adapter) {
+    if (!_DOM) {
+        _DOM = adapter;
+    }
+}
+/* tslint:disable:requireParameterType */
+/**
+ * Provides DOM operations in an environment-agnostic way.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+var DomAdapter = (function () {
+    function DomAdapter() {
+        this.resourceLoaderType = null;
+    }
+    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
+        /**
+         * Maps attribute names to their corresponding property names for cases
+         * where attribute name doesn't match property name.
+         */
+        get: function () { return this._attrToPropMap; },
+        set: function (value) { this._attrToPropMap = value; },
+        enumerable: true,
+        configurable: true
+    });
+    
+    
+    return DomAdapter;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var WebAnimationsPlayer = (function () {
+    function WebAnimationsPlayer(element, keyframes$$1, options) {
+        this.element = element;
+        this.keyframes = keyframes$$1;
+        this.options = options;
+        this._onDoneFns = [];
+        this._onStartFns = [];
+        this._finished = false;
+        this._initialized = false;
+        this._started = false;
+        this.parentPlayer = null;
+        this._duration = options['duration'];
+    }
+    WebAnimationsPlayer.prototype._onFinish = function () {
+        if (!this._finished) {
+            this._finished = true;
+            if (!isPresent$2(this.parentPlayer)) {
+                this.destroy();
+            }
+            this._onDoneFns.forEach(function (fn) { return fn(); });
+            this._onDoneFns = [];
+        }
+    };
+    WebAnimationsPlayer.prototype.init = function () {
+        var _this = this;
+        if (this._initialized)
+            return;
+        this._initialized = true;
+        var keyframes$$1 = this.keyframes.map(function (styles) {
+            var formattedKeyframe = {};
+            Object.keys(styles).forEach(function (prop) {
+                var value = styles[prop];
+                formattedKeyframe[prop] = value == AUTO_STYLE ? _computeStyle(_this.element, prop) : value;
+            });
+            return formattedKeyframe;
+        });
+        this._player = this._triggerWebAnimation(this.element, keyframes$$1, this.options);
+        // this is required so that the player doesn't start to animate right away
+        this.reset();
+        this._player.onfinish = function () { return _this._onFinish(); };
+    };
+    /** @internal */
+    WebAnimationsPlayer.prototype._triggerWebAnimation = function (element, keyframes$$1, options) {
+        return element.animate(keyframes$$1, options);
+    };
+    WebAnimationsPlayer.prototype.onStart = function (fn) { this._onStartFns.push(fn); };
+    WebAnimationsPlayer.prototype.onDone = function (fn) { this._onDoneFns.push(fn); };
+    WebAnimationsPlayer.prototype.play = function () {
+        this.init();
+        if (!this.hasStarted()) {
+            this._onStartFns.forEach(function (fn) { return fn(); });
+            this._onStartFns = [];
+            this._started = true;
+        }
+        this._player.play();
+    };
+    WebAnimationsPlayer.prototype.pause = function () {
+        this.init();
+        this._player.pause();
+    };
+    WebAnimationsPlayer.prototype.finish = function () {
+        this.init();
+        this._onFinish();
+        this._player.finish();
+    };
+    WebAnimationsPlayer.prototype.reset = function () { this._player.cancel(); };
+    WebAnimationsPlayer.prototype.restart = function () {
+        this.reset();
+        this.play();
+    };
+    WebAnimationsPlayer.prototype.hasStarted = function () { return this._started; };
+    WebAnimationsPlayer.prototype.destroy = function () {
+        this.reset();
+        this._onFinish();
+    };
+    Object.defineProperty(WebAnimationsPlayer.prototype, "totalTime", {
+        get: function () { return this._duration; },
+        enumerable: true,
+        configurable: true
+    });
+    WebAnimationsPlayer.prototype.setPosition = function (p) { this._player.currentTime = p * this.totalTime; };
+    WebAnimationsPlayer.prototype.getPosition = function () { return this._player.currentTime / this.totalTime; };
+    return WebAnimationsPlayer;
+}());
+function _computeStyle(element, prop) {
+    return getDOM().getComputedStyle(element)[prop];
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var WebAnimationsDriver = (function () {
+    function WebAnimationsDriver() {
+    }
+    WebAnimationsDriver.prototype.animate = function (element, startingStyles, keyframes$$1, duration, delay, easing) {
+        var formattedSteps = [];
+        var startingStyleLookup = {};
+        if (isPresent$2(startingStyles) && startingStyles.styles.length > 0) {
+            startingStyleLookup = _populateStyles(element, startingStyles, {});
+            startingStyleLookup['offset'] = 0;
+            formattedSteps.push(startingStyleLookup);
+        }
+        keyframes$$1.forEach(function (keyframe) {
+            var data = _populateStyles(element, keyframe.styles, startingStyleLookup);
+            data['offset'] = keyframe.offset;
+            formattedSteps.push(data);
+        });
+        // this is a special case when only styles are applied as an
+        // animation. When this occurs we want to animate from start to
+        // end with the same values. Removing the offset and having only
+        // start/end values is suitable enough for the web-animations API
+        if (formattedSteps.length == 1) {
+            var start = formattedSteps[0];
+            start['offset'] = null;
+            formattedSteps = [start, start];
+        }
+        var playerOptions = {
+            'duration': duration,
+            'delay': delay,
+            'fill': 'both' // we use `both` because it allows for styling at 0% to work with `delay`
+        };
+        // we check for this to avoid having a null|undefined value be present
+        // for the easing (which results in an error for certain browsers #9752)
+        if (easing) {
+            playerOptions['easing'] = easing;
+        }
+        return new WebAnimationsPlayer(element, formattedSteps, playerOptions);
+    };
+    return WebAnimationsDriver;
+}());
+function _populateStyles(element, styles, defaultStyles) {
+    var data = {};
+    styles.styles.forEach(function (entry) {
+        Object.keys(entry).forEach(function (prop) {
+            var val = entry[prop];
+            var formattedProp = dashCaseToCamelCase(prop);
+            data[formattedProp] =
+                val == AUTO_STYLE ? val : val.toString() + _resolveStyleUnit(val, prop, formattedProp);
+        });
+    });
+    Object.keys(defaultStyles).forEach(function (prop) {
+        if (!isPresent$2(data[prop])) {
+            data[prop] = defaultStyles[prop];
+        }
+    });
+    return data;
+}
+function _resolveStyleUnit(val, userProvidedProp, formattedProp) {
+    var unit = '';
+    if (_isPixelDimensionStyle(formattedProp) && val != 0 && val != '0') {
+        if (isNumber$2(val)) {
+            unit = 'px';
+        }
+        else if (_findDimensionalSuffix(val.toString()).length == 0) {
+            throw new Error('Please provide a CSS unit value for ' + userProvidedProp + ':' + val);
+        }
+    }
+    return unit;
+}
+var _$0 = 48;
+var _$9 = 57;
+var _$PERIOD = 46;
+function _findDimensionalSuffix(value) {
+    for (var i = 0; i < value.length; i++) {
+        var c = StringWrapper$2.charCodeAt(value, i);
+        if ((c >= _$0 && c <= _$9) || c == _$PERIOD)
+            continue;
+        return value.substring(i, value.length);
+    }
+    return '';
+}
+function _isPixelDimensionStyle(prop) {
+    switch (prop) {
+        case 'width':
+        case 'height':
+        case 'minWidth':
+        case 'minHeight':
+        case 'maxWidth':
+        case 'maxHeight':
+        case 'left':
+        case 'top':
+        case 'bottom':
+        case 'right':
+        case 'fontSize':
+        case 'outlineWidth':
+        case 'outlineOffset':
+        case 'paddingTop':
+        case 'paddingLeft':
+        case 'paddingBottom':
+        case 'paddingRight':
+        case 'marginTop':
+        case 'marginLeft':
+        case 'marginBottom':
+        case 'marginRight':
+        case 'borderRadius':
+        case 'borderWidth':
+        case 'borderTopWidth':
+        case 'borderLeftWidth':
+        case 'borderRightWidth':
+        case 'borderBottomWidth':
+        case 'textIndent':
+            return true;
+        default:
+            return false;
+    }
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var __extends$27 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+/**
+ * Provides DOM operations in any browser environment.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+var GenericBrowserDomAdapter = (function (_super) {
+    __extends$27(GenericBrowserDomAdapter, _super);
+    function GenericBrowserDomAdapter() {
+        var _this = this;
+        _super.call(this);
+        this._animationPrefix = null;
+        this._transitionEnd = null;
+        try {
+            var element_1 = this.createElement('div', this.defaultDoc());
+            if (isPresent$2(this.getStyle(element_1, 'animationName'))) {
+                this._animationPrefix = '';
+            }
+            else {
+                var domPrefixes = ['Webkit', 'Moz', 'O', 'ms'];
+                for (var i = 0; i < domPrefixes.length; i++) {
+                    if (isPresent$2(this.getStyle(element_1, domPrefixes[i] + 'AnimationName'))) {
+                        this._animationPrefix = '-' + domPrefixes[i].toLowerCase() + '-';
+                        break;
+                    }
+                }
+            }
+            var transEndEventNames_1 = {
+                WebkitTransition: 'webkitTransitionEnd',
+                MozTransition: 'transitionend',
+                OTransition: 'oTransitionEnd otransitionend',
+                transition: 'transitionend'
+            };
+            Object.keys(transEndEventNames_1).forEach(function (key) {
+                if (isPresent$2(_this.getStyle(element_1, key))) {
+                    _this._transitionEnd = transEndEventNames_1[key];
+                }
+            });
+        }
+        catch (e) {
+            this._animationPrefix = null;
+            this._transitionEnd = null;
+        }
+    }
+    GenericBrowserDomAdapter.prototype.getDistributedNodes = function (el) { return el.getDistributedNodes(); };
+    GenericBrowserDomAdapter.prototype.resolveAndSetHref = function (el, baseUrl, href) {
+        el.href = href == null ? baseUrl : baseUrl + '/../' + href;
+    };
+    GenericBrowserDomAdapter.prototype.supportsDOMEvents = function () { return true; };
+    GenericBrowserDomAdapter.prototype.supportsNativeShadowDOM = function () {
+        return typeof this.defaultDoc().body.createShadowRoot === 'function';
+    };
+    GenericBrowserDomAdapter.prototype.getAnimationPrefix = function () { return this._animationPrefix ? this._animationPrefix : ''; };
+    GenericBrowserDomAdapter.prototype.getTransitionEnd = function () { return this._transitionEnd ? this._transitionEnd : ''; };
+    GenericBrowserDomAdapter.prototype.supportsAnimation = function () {
+        return isPresent$2(this._animationPrefix) && isPresent$2(this._transitionEnd);
+    };
+    return GenericBrowserDomAdapter;
+}(DomAdapter));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var __extends$26 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var _attrToPropMap = {
+    'class': 'className',
+    'innerHtml': 'innerHTML',
+    'readonly': 'readOnly',
+    'tabindex': 'tabIndex',
+};
+var DOM_KEY_LOCATION_NUMPAD = 3;
+// Map to convert some key or keyIdentifier values to what will be returned by getEventKey
+var _keyMap = {
+    // The following values are here for cross-browser compatibility and to match the W3C standard
+    // cf http://www.w3.org/TR/DOM-Level-3-Events-key/
+    '\b': 'Backspace',
+    '\t': 'Tab',
+    '\x7F': 'Delete',
+    '\x1B': 'Escape',
+    'Del': 'Delete',
+    'Esc': 'Escape',
+    'Left': 'ArrowLeft',
+    'Right': 'ArrowRight',
+    'Up': 'ArrowUp',
+    'Down': 'ArrowDown',
+    'Menu': 'ContextMenu',
+    'Scroll': 'ScrollLock',
+    'Win': 'OS'
+};
+// There is a bug in Chrome for numeric keypad keys:
+// https://code.google.com/p/chromium/issues/detail?id=155654
+// 1, 2, 3 ... are reported as A, B, C ...
+var _chromeNumKeyPadMap = {
+    'A': '1',
+    'B': '2',
+    'C': '3',
+    'D': '4',
+    'E': '5',
+    'F': '6',
+    'G': '7',
+    'H': '8',
+    'I': '9',
+    'J': '*',
+    'K': '+',
+    'M': '-',
+    'N': '.',
+    'O': '/',
+    '\x60': '0',
+    '\x90': 'NumLock'
+};
+/**
+ * A `DomAdapter` powered by full browser DOM APIs.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+/* tslint:disable:requireParameterType */
+var BrowserDomAdapter = (function (_super) {
+    __extends$26(BrowserDomAdapter, _super);
+    function BrowserDomAdapter() {
+        _super.apply(this, arguments);
+    }
+    BrowserDomAdapter.prototype.parse = function (templateHtml) { throw new Error('parse not implemented'); };
+    BrowserDomAdapter.makeCurrent = function () { setRootDomAdapter(new BrowserDomAdapter()); };
+    BrowserDomAdapter.prototype.hasProperty = function (element, name) { return name in element; };
+    BrowserDomAdapter.prototype.setProperty = function (el, name, value) { el[name] = value; };
+    BrowserDomAdapter.prototype.getProperty = function (el, name) { return el[name]; };
+    BrowserDomAdapter.prototype.invoke = function (el, methodName, args) { (_a = el)[methodName].apply(_a, args); var _a; };
+    // TODO(tbosch): move this into a separate environment class once we have it
+    BrowserDomAdapter.prototype.logError = function (error) { (window.console.error || window.console.log)(error); };
+    BrowserDomAdapter.prototype.log = function (error) { window.console.log(error); };
+    BrowserDomAdapter.prototype.logGroup = function (error) {
+        window.console.group && window.console.group(error);
+        this.logError(error);
+    };
+    BrowserDomAdapter.prototype.logGroupEnd = function () { window.console.groupEnd && window.console.groupEnd(); };
+    Object.defineProperty(BrowserDomAdapter.prototype, "attrToPropMap", {
+        get: function () { return _attrToPropMap; },
+        enumerable: true,
+        configurable: true
+    });
+    BrowserDomAdapter.prototype.query = function (selector) { return document.querySelector(selector); };
+    BrowserDomAdapter.prototype.querySelector = function (el, selector) {
+        return el.querySelector(selector);
+    };
+    BrowserDomAdapter.prototype.querySelectorAll = function (el, selector) { return el.querySelectorAll(selector); };
+    BrowserDomAdapter.prototype.on = function (el, evt, listener) { el.addEventListener(evt, listener, false); };
+    BrowserDomAdapter.prototype.onAndCancel = function (el, evt, listener) {
+        el.addEventListener(evt, listener, false);
+        // Needed to follow Dart's subscription semantic, until fix of
+        // https://code.google.com/p/dart/issues/detail?id=17406
+        return function () { el.removeEventListener(evt, listener, false); };
+    };
+    BrowserDomAdapter.prototype.dispatchEvent = function (el, evt) { el.dispatchEvent(evt); };
+    BrowserDomAdapter.prototype.createMouseEvent = function (eventType) {
+        var evt = document.createEvent('MouseEvent');
+        evt.initEvent(eventType, true, true);
+        return evt;
+    };
+    BrowserDomAdapter.prototype.createEvent = function (eventType) {
+        var evt = document.createEvent('Event');
+        evt.initEvent(eventType, true, true);
+        return evt;
+    };
+    BrowserDomAdapter.prototype.preventDefault = function (evt) {
+        evt.preventDefault();
+        evt.returnValue = false;
+    };
+    BrowserDomAdapter.prototype.isPrevented = function (evt) {
+        return evt.defaultPrevented || isPresent$2(evt.returnValue) && !evt.returnValue;
+    };
+    BrowserDomAdapter.prototype.getInnerHTML = function (el) { return el.innerHTML; };
+    BrowserDomAdapter.prototype.getTemplateContent = function (el) {
+        return 'content' in el && el instanceof HTMLTemplateElement ? el.content : null;
+    };
+    BrowserDomAdapter.prototype.getOuterHTML = function (el) { return el.outerHTML; };
+    BrowserDomAdapter.prototype.nodeName = function (node) { return node.nodeName; };
+    BrowserDomAdapter.prototype.nodeValue = function (node) { return node.nodeValue; };
+    BrowserDomAdapter.prototype.type = function (node) { return node.type; };
+    BrowserDomAdapter.prototype.content = function (node) {
+        if (this.hasProperty(node, 'content')) {
+            return node.content;
+        }
+        else {
+            return node;
+        }
+    };
+    BrowserDomAdapter.prototype.firstChild = function (el) { return el.firstChild; };
+    BrowserDomAdapter.prototype.nextSibling = function (el) { return el.nextSibling; };
+    BrowserDomAdapter.prototype.parentElement = function (el) { return el.parentNode; };
+    BrowserDomAdapter.prototype.childNodes = function (el) { return el.childNodes; };
+    BrowserDomAdapter.prototype.childNodesAsList = function (el) {
+        var childNodes = el.childNodes;
+        var res = new Array(childNodes.length);
+        for (var i = 0; i < childNodes.length; i++) {
+            res[i] = childNodes[i];
+        }
+        return res;
+    };
+    BrowserDomAdapter.prototype.clearNodes = function (el) {
+        while (el.firstChild) {
+            el.removeChild(el.firstChild);
+        }
+    };
+    BrowserDomAdapter.prototype.appendChild = function (el, node) { el.appendChild(node); };
+    BrowserDomAdapter.prototype.removeChild = function (el, node) { el.removeChild(node); };
+    BrowserDomAdapter.prototype.replaceChild = function (el, newChild, oldChild) { el.replaceChild(newChild, oldChild); };
+    BrowserDomAdapter.prototype.remove = function (node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+        return node;
+    };
+    BrowserDomAdapter.prototype.insertBefore = function (el, node) { el.parentNode.insertBefore(node, el); };
+    BrowserDomAdapter.prototype.insertAllBefore = function (el, nodes) {
+        nodes.forEach(function (n) { return el.parentNode.insertBefore(n, el); });
+    };
+    BrowserDomAdapter.prototype.insertAfter = function (el, node) { el.parentNode.insertBefore(node, el.nextSibling); };
+    BrowserDomAdapter.prototype.setInnerHTML = function (el, value) { el.innerHTML = value; };
+    BrowserDomAdapter.prototype.getText = function (el) { return el.textContent; };
+    BrowserDomAdapter.prototype.setText = function (el, value) { el.textContent = value; };
+    BrowserDomAdapter.prototype.getValue = function (el) { return el.value; };
+    BrowserDomAdapter.prototype.setValue = function (el, value) { el.value = value; };
+    BrowserDomAdapter.prototype.getChecked = function (el) { return el.checked; };
+    BrowserDomAdapter.prototype.setChecked = function (el, value) { el.checked = value; };
+    BrowserDomAdapter.prototype.createComment = function (text) { return document.createComment(text); };
+    BrowserDomAdapter.prototype.createTemplate = function (html) {
+        var t = document.createElement('template');
+        t.innerHTML = html;
+        return t;
+    };
+    BrowserDomAdapter.prototype.createElement = function (tagName, doc) {
+        if (doc === void 0) { doc = document; }
+        return doc.createElement(tagName);
+    };
+    BrowserDomAdapter.prototype.createElementNS = function (ns, tagName, doc) {
+        if (doc === void 0) { doc = document; }
+        return doc.createElementNS(ns, tagName);
+    };
+    BrowserDomAdapter.prototype.createTextNode = function (text, doc) {
+        if (doc === void 0) { doc = document; }
+        return doc.createTextNode(text);
+    };
+    BrowserDomAdapter.prototype.createScriptTag = function (attrName, attrValue, doc) {
+        if (doc === void 0) { doc = document; }
+        var el = doc.createElement('SCRIPT');
+        el.setAttribute(attrName, attrValue);
+        return el;
+    };
+    BrowserDomAdapter.prototype.createStyleElement = function (css, doc) {
+        if (doc === void 0) { doc = document; }
+        var style = doc.createElement('style');
+        this.appendChild(style, this.createTextNode(css));
+        return style;
+    };
+    BrowserDomAdapter.prototype.createShadowRoot = function (el) { return el.createShadowRoot(); };
+    BrowserDomAdapter.prototype.getShadowRoot = function (el) { return el.shadowRoot; };
+    BrowserDomAdapter.prototype.getHost = function (el) { return el.host; };
+    BrowserDomAdapter.prototype.clone = function (node) { return node.cloneNode(true); };
+    BrowserDomAdapter.prototype.getElementsByClassName = function (element, name) {
+        return element.getElementsByClassName(name);
+    };
+    BrowserDomAdapter.prototype.getElementsByTagName = function (element, name) {
+        return element.getElementsByTagName(name);
+    };
+    BrowserDomAdapter.prototype.classList = function (element) { return Array.prototype.slice.call(element.classList, 0); };
+    BrowserDomAdapter.prototype.addClass = function (element, className) { element.classList.add(className); };
+    BrowserDomAdapter.prototype.removeClass = function (element, className) { element.classList.remove(className); };
+    BrowserDomAdapter.prototype.hasClass = function (element, className) {
+        return element.classList.contains(className);
+    };
+    BrowserDomAdapter.prototype.setStyle = function (element, styleName, styleValue) {
+        element.style[styleName] = styleValue;
+    };
+    BrowserDomAdapter.prototype.removeStyle = function (element, stylename) {
+        // IE requires '' instead of null
+        // see https://github.com/angular/angular/issues/7916
+        element.style[stylename] = '';
+    };
+    BrowserDomAdapter.prototype.getStyle = function (element, stylename) { return element.style[stylename]; };
+    BrowserDomAdapter.prototype.hasStyle = function (element, styleName, styleValue) {
+        if (styleValue === void 0) { styleValue = null; }
+        var value = this.getStyle(element, styleName) || '';
+        return styleValue ? value == styleValue : value.length > 0;
+    };
+    BrowserDomAdapter.prototype.tagName = function (element) { return element.tagName; };
+    BrowserDomAdapter.prototype.attributeMap = function (element) {
+        var res = new Map();
+        var elAttrs = element.attributes;
+        for (var i = 0; i < elAttrs.length; i++) {
+            var attrib = elAttrs[i];
+            res.set(attrib.name, attrib.value);
+        }
+        return res;
+    };
+    BrowserDomAdapter.prototype.hasAttribute = function (element, attribute) {
+        return element.hasAttribute(attribute);
+    };
+    BrowserDomAdapter.prototype.hasAttributeNS = function (element, ns, attribute) {
+        return element.hasAttributeNS(ns, attribute);
+    };
+    BrowserDomAdapter.prototype.getAttribute = function (element, attribute) {
+        return element.getAttribute(attribute);
+    };
+    BrowserDomAdapter.prototype.getAttributeNS = function (element, ns, name) {
+        return element.getAttributeNS(ns, name);
+    };
+    BrowserDomAdapter.prototype.setAttribute = function (element, name, value) { element.setAttribute(name, value); };
+    BrowserDomAdapter.prototype.setAttributeNS = function (element, ns, name, value) {
+        element.setAttributeNS(ns, name, value);
+    };
+    BrowserDomAdapter.prototype.removeAttribute = function (element, attribute) { element.removeAttribute(attribute); };
+    BrowserDomAdapter.prototype.removeAttributeNS = function (element, ns, name) {
+        element.removeAttributeNS(ns, name);
+    };
+    BrowserDomAdapter.prototype.templateAwareRoot = function (el) { return this.isTemplateElement(el) ? this.content(el) : el; };
+    BrowserDomAdapter.prototype.createHtmlDocument = function () {
+        return document.implementation.createHTMLDocument('fakeTitle');
+    };
+    BrowserDomAdapter.prototype.defaultDoc = function () { return document; };
+    BrowserDomAdapter.prototype.getBoundingClientRect = function (el) {
+        try {
+            return el.getBoundingClientRect();
+        }
+        catch (e) {
+            return { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
+        }
+    };
+    BrowserDomAdapter.prototype.getTitle = function () { return document.title; };
+    BrowserDomAdapter.prototype.setTitle = function (newTitle) { document.title = newTitle || ''; };
+    BrowserDomAdapter.prototype.elementMatches = function (n, selector) {
+        if (n instanceof HTMLElement) {
+            return n.matches && n.matches(selector) ||
+                n.msMatchesSelector && n.msMatchesSelector(selector) ||
+                n.webkitMatchesSelector && n.webkitMatchesSelector(selector);
+        }
+        return false;
+    };
+    BrowserDomAdapter.prototype.isTemplateElement = function (el) {
+        return el instanceof HTMLElement && el.nodeName == 'TEMPLATE';
+    };
+    BrowserDomAdapter.prototype.isTextNode = function (node) { return node.nodeType === Node.TEXT_NODE; };
+    BrowserDomAdapter.prototype.isCommentNode = function (node) { return node.nodeType === Node.COMMENT_NODE; };
+    BrowserDomAdapter.prototype.isElementNode = function (node) { return node.nodeType === Node.ELEMENT_NODE; };
+    BrowserDomAdapter.prototype.hasShadowRoot = function (node) {
+        return isPresent$2(node.shadowRoot) && node instanceof HTMLElement;
+    };
+    BrowserDomAdapter.prototype.isShadowRoot = function (node) { return node instanceof DocumentFragment; };
+    BrowserDomAdapter.prototype.importIntoDoc = function (node) { return document.importNode(this.templateAwareRoot(node), true); };
+    BrowserDomAdapter.prototype.adoptNode = function (node) { return document.adoptNode(node); };
+    BrowserDomAdapter.prototype.getHref = function (el) { return el.href; };
+    BrowserDomAdapter.prototype.getEventKey = function (event) {
+        var key = event.key;
+        if (isBlank$2(key)) {
+            key = event.keyIdentifier;
+            // keyIdentifier is defined in the old draft of DOM Level 3 Events implemented by Chrome and
+            // Safari cf
+            // http://www.w3.org/TR/2007/WD-DOM-Level-3-Events-20071221/events.html#Events-KeyboardEvents-Interfaces
+            if (isBlank$2(key)) {
+                return 'Unidentified';
+            }
+            if (key.startsWith('U+')) {
+                key = String.fromCharCode(parseInt(key.substring(2), 16));
+                if (event.location === DOM_KEY_LOCATION_NUMPAD && _chromeNumKeyPadMap.hasOwnProperty(key)) {
+                    // There is a bug in Chrome for numeric keypad keys:
+                    // https://code.google.com/p/chromium/issues/detail?id=155654
+                    // 1, 2, 3 ... are reported as A, B, C ...
+                    key = _chromeNumKeyPadMap[key];
+                }
+            }
+        }
+        return _keyMap[key] || key;
+    };
+    BrowserDomAdapter.prototype.getGlobalEventTarget = function (target) {
+        if (target === 'window') {
+            return window;
+        }
+        if (target === 'document') {
+            return document;
+        }
+        if (target === 'body') {
+            return document.body;
+        }
+    };
+    BrowserDomAdapter.prototype.getHistory = function () { return window.history; };
+    BrowserDomAdapter.prototype.getLocation = function () { return window.location; };
+    BrowserDomAdapter.prototype.getBaseHref = function () {
+        var href = getBaseElementHref();
+        return isBlank$2(href) ? null : relativePath(href);
+    };
+    BrowserDomAdapter.prototype.resetBaseElement = function () { baseElement = null; };
+    BrowserDomAdapter.prototype.getUserAgent = function () { return window.navigator.userAgent; };
+    BrowserDomAdapter.prototype.setData = function (element, name, value) {
+        this.setAttribute(element, 'data-' + name, value);
+    };
+    BrowserDomAdapter.prototype.getData = function (element, name) {
+        return this.getAttribute(element, 'data-' + name);
+    };
+    BrowserDomAdapter.prototype.getComputedStyle = function (element) { return getComputedStyle(element); };
+    // TODO(tbosch): move this into a separate environment class once we have it
+    BrowserDomAdapter.prototype.setGlobalVar = function (path, value) { setValueOnPath$2(_global$2, path, value); };
+    BrowserDomAdapter.prototype.supportsWebAnimation = function () {
+        return typeof Element.prototype['animate'] === 'function';
+    };
+    BrowserDomAdapter.prototype.performanceNow = function () {
+        // performance.now() is not available in all browsers, see
+        // http://caniuse.com/#search=performance.now
+        return window.performance && window.performance.now ? window.performance.now() :
+            new Date().getTime();
+    };
+    BrowserDomAdapter.prototype.supportsCookies = function () { return true; };
+    BrowserDomAdapter.prototype.getCookie = function (name) { return parseCookieValue(document.cookie, name); };
+    BrowserDomAdapter.prototype.setCookie = function (name, value) {
+        // document.cookie is magical, assigning into it assigns/overrides one cookie value, but does
+        // not clear other cookies.
+        document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    };
+    return BrowserDomAdapter;
+}(GenericBrowserDomAdapter));
+var baseElement = null;
+function getBaseElementHref() {
+    if (!baseElement) {
+        baseElement = document.querySelector('base');
+        if (!baseElement) {
+            return null;
+        }
+    }
+    return baseElement.getAttribute('href');
+}
+// based on urlUtils.js in AngularJS 1
+var urlParsingNode;
+function relativePath(url) {
+    if (!urlParsingNode) {
+        urlParsingNode = document.createElement('a');
+    }
+    urlParsingNode.setAttribute('href', url);
+    return (urlParsingNode.pathname.charAt(0) === '/') ? urlParsingNode.pathname :
+        '/' + urlParsingNode.pathname;
+}
+function parseCookieValue(cookieStr, name) {
+    name = encodeURIComponent(name);
+    for (var _i = 0, _a = cookieStr.split(';'); _i < _a.length; _i++) {
+        var cookie = _a[_i];
+        var eqIndex = cookie.indexOf('=');
+        var _b = eqIndex == -1 ? [cookie, ''] : [cookie.slice(0, eqIndex), cookie.slice(eqIndex + 1)], cookieName = _b[0], cookieValue = _b[1];
+        if (cookieName.trim() === name) {
+            return decodeURIComponent(cookieValue);
+        }
+    }
+    return null;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function supportsState() {
+    return !!window.history.pushState;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var __extends$28 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+/**
+ * `PlatformLocation` encapsulates all of the direct calls to platform APIs.
+ * This class should not be used directly by an application developer. Instead, use
+ * {@link Location}.
+ */
+var BrowserPlatformLocation = (function (_super) {
+    __extends$28(BrowserPlatformLocation, _super);
+    function BrowserPlatformLocation() {
+        _super.call(this);
+        this._init();
+    }
+    // This is moved to its own method so that `MockPlatformLocationStrategy` can overwrite it
+    /** @internal */
+    BrowserPlatformLocation.prototype._init = function () {
+        this._location = getDOM().getLocation();
+        this._history = getDOM().getHistory();
+    };
+    Object.defineProperty(BrowserPlatformLocation.prototype, "location", {
+        get: function () { return this._location; },
+        enumerable: true,
+        configurable: true
+    });
+    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function () { return getDOM().getBaseHref(); };
+    BrowserPlatformLocation.prototype.onPopState = function (fn) {
+        getDOM().getGlobalEventTarget('window').addEventListener('popstate', fn, false);
+    };
+    BrowserPlatformLocation.prototype.onHashChange = function (fn) {
+        getDOM().getGlobalEventTarget('window').addEventListener('hashchange', fn, false);
+    };
+    Object.defineProperty(BrowserPlatformLocation.prototype, "pathname", {
+        get: function () { return this._location.pathname; },
+        set: function (newPath) { this._location.pathname = newPath; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "search", {
+        get: function () { return this._location.search; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "hash", {
+        get: function () { return this._location.hash; },
+        enumerable: true,
+        configurable: true
+    });
+    BrowserPlatformLocation.prototype.pushState = function (state$$1, title, url) {
+        if (supportsState()) {
+            this._history.pushState(state$$1, title, url);
+        }
+        else {
+            this._location.hash = url;
+        }
+    };
+    BrowserPlatformLocation.prototype.replaceState = function (state$$1, title, url) {
+        if (supportsState()) {
+            this._history.replaceState(state$$1, title, url);
+        }
+        else {
+            this._location.hash = url;
+        }
+    };
+    BrowserPlatformLocation.prototype.forward = function () { this._history.forward(); };
+    BrowserPlatformLocation.prototype.back = function () { this._history.back(); };
+    BrowserPlatformLocation.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    BrowserPlatformLocation.ctorParameters = [];
+    return BrowserPlatformLocation;
+}(PlatformLocation));
 
 /**
  * @license
@@ -14786,26 +15479,6 @@ var _arrayFromMap$2 = (function () {
 var StringMapWrapper$2 = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.get = function (map, key) {
-        return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-    StringMapWrapper.values = function (map) {
-        return Object.keys(map).map(function (k) { return map[k]; });
-    };
-    StringMapWrapper.isEmpty = function (map) {
-        for (var prop in map) {
-            return false;
-        }
-        return true;
-    };
-    StringMapWrapper.forEach = function (map, callback) {
-        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-            var k = _a[_i];
-            callback(map[k], k);
-        }
-    };
     StringMapWrapper.merge = function (m1, m2) {
         var m = {};
         for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
@@ -14964,932 +15637,6 @@ function _flattenArray$2(source, target) {
     }
     return target;
 }
-
-
-
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Set constructor.  We work around that by manually adding the items.
-var createSetFromList$2 = (function () {
-    var test = new Set([1, 2, 3]);
-    if (test.size === 3) {
-        return function createSetFromList$2(lst) { return new Set(lst); };
-    }
-    else {
-        return function createSetAndPopulateFromList(lst) {
-            var res = new Set(lst);
-            if (res.size !== lst.length) {
-                for (var i = 0; i < lst.length; i++) {
-                    res.add(lst[i]);
-                }
-            }
-            return res;
-        };
-    }
-})();
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var CAMEL_CASE_REGEXP = /([A-Z])/g;
-var DASH_CASE_REGEXP = /-([a-z])/g;
-function camelCaseToDashCase(input) {
-    return StringWrapper$2.replaceAllMapped(input, CAMEL_CASE_REGEXP, function (m /** TODO #9100 */) { return '-' + m[1].toLowerCase(); });
-}
-function dashCaseToCamelCase(input) {
-    return StringWrapper$2.replaceAllMapped(input, DASH_CASE_REGEXP, function (m /** TODO #9100 */) { return m[1].toUpperCase(); });
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var _DOM = null;
-function getDOM() {
-    return _DOM;
-}
-
-function setRootDomAdapter(adapter) {
-    if (isBlank$2(_DOM)) {
-        _DOM = adapter;
-    }
-}
-/* tslint:disable:requireParameterType */
-/**
- * Provides DOM operations in an environment-agnostic way.
- *
- * @security Tread carefully! Interacting with the DOM directly is dangerous and
- * can introduce XSS risks.
- */
-var DomAdapter = (function () {
-    function DomAdapter() {
-        this.resourceLoaderType = null;
-    }
-    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
-        /**
-         * Maps attribute names to their corresponding property names for cases
-         * where attribute name doesn't match property name.
-         */
-        get: function () { return this._attrToPropMap; },
-        set: function (value) { this._attrToPropMap = value; },
-        enumerable: true,
-        configurable: true
-    });
-    
-    
-    return DomAdapter;
-}());
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var WebAnimationsPlayer = (function () {
-    function WebAnimationsPlayer(element, keyframes$$1, options) {
-        this.element = element;
-        this.keyframes = keyframes$$1;
-        this.options = options;
-        this._onDoneFns = [];
-        this._onStartFns = [];
-        this._finished = false;
-        this._initialized = false;
-        this._started = false;
-        this.parentPlayer = null;
-        this._duration = options['duration'];
-    }
-    WebAnimationsPlayer.prototype._onFinish = function () {
-        if (!this._finished) {
-            this._finished = true;
-            if (!isPresent$2(this.parentPlayer)) {
-                this.destroy();
-            }
-            this._onDoneFns.forEach(function (fn) { return fn(); });
-            this._onDoneFns = [];
-        }
-    };
-    WebAnimationsPlayer.prototype.init = function () {
-        var _this = this;
-        if (this._initialized)
-            return;
-        this._initialized = true;
-        var keyframes$$1 = this.keyframes.map(function (styles) {
-            var formattedKeyframe = {};
-            StringMapWrapper$2.forEach(styles, function (value, prop) {
-                formattedKeyframe[prop] = value == AUTO_STYLE ? _computeStyle(_this.element, prop) : value;
-            });
-            return formattedKeyframe;
-        });
-        this._player = this._triggerWebAnimation(this.element, keyframes$$1, this.options);
-        // this is required so that the player doesn't start to animate right away
-        this.reset();
-        this._player.onfinish = function () { return _this._onFinish(); };
-    };
-    /** @internal */
-    WebAnimationsPlayer.prototype._triggerWebAnimation = function (element, keyframes$$1, options) {
-        return element.animate(keyframes$$1, options);
-    };
-    WebAnimationsPlayer.prototype.onStart = function (fn) { this._onStartFns.push(fn); };
-    WebAnimationsPlayer.prototype.onDone = function (fn) { this._onDoneFns.push(fn); };
-    WebAnimationsPlayer.prototype.play = function () {
-        this.init();
-        if (!this.hasStarted()) {
-            this._onStartFns.forEach(function (fn) { return fn(); });
-            this._onStartFns = [];
-            this._started = true;
-        }
-        this._player.play();
-    };
-    WebAnimationsPlayer.prototype.pause = function () {
-        this.init();
-        this._player.pause();
-    };
-    WebAnimationsPlayer.prototype.finish = function () {
-        this.init();
-        this._onFinish();
-        this._player.finish();
-    };
-    WebAnimationsPlayer.prototype.reset = function () { this._player.cancel(); };
-    WebAnimationsPlayer.prototype.restart = function () {
-        this.reset();
-        this.play();
-    };
-    WebAnimationsPlayer.prototype.hasStarted = function () { return this._started; };
-    WebAnimationsPlayer.prototype.destroy = function () {
-        this.reset();
-        this._onFinish();
-    };
-    Object.defineProperty(WebAnimationsPlayer.prototype, "totalTime", {
-        get: function () { return this._duration; },
-        enumerable: true,
-        configurable: true
-    });
-    WebAnimationsPlayer.prototype.setPosition = function (p) { this._player.currentTime = p * this.totalTime; };
-    WebAnimationsPlayer.prototype.getPosition = function () { return this._player.currentTime / this.totalTime; };
-    return WebAnimationsPlayer;
-}());
-function _computeStyle(element, prop) {
-    return getDOM().getComputedStyle(element)[prop];
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var WebAnimationsDriver = (function () {
-    function WebAnimationsDriver() {
-    }
-    WebAnimationsDriver.prototype.animate = function (element, startingStyles, keyframes$$1, duration, delay, easing) {
-        var formattedSteps = [];
-        var startingStyleLookup = {};
-        if (isPresent$2(startingStyles) && startingStyles.styles.length > 0) {
-            startingStyleLookup = _populateStyles(element, startingStyles, {});
-            startingStyleLookup['offset'] = 0;
-            formattedSteps.push(startingStyleLookup);
-        }
-        keyframes$$1.forEach(function (keyframe) {
-            var data = _populateStyles(element, keyframe.styles, startingStyleLookup);
-            data['offset'] = keyframe.offset;
-            formattedSteps.push(data);
-        });
-        // this is a special case when only styles are applied as an
-        // animation. When this occurs we want to animate from start to
-        // end with the same values. Removing the offset and having only
-        // start/end values is suitable enough for the web-animations API
-        if (formattedSteps.length == 1) {
-            var start = formattedSteps[0];
-            start['offset'] = null;
-            formattedSteps = [start, start];
-        }
-        var playerOptions = {
-            'duration': duration,
-            'delay': delay,
-            'fill': 'both' // we use `both` because it allows for styling at 0% to work with `delay`
-        };
-        // we check for this to avoid having a null|undefined value be present
-        // for the easing (which results in an error for certain browsers #9752)
-        if (easing) {
-            playerOptions['easing'] = easing;
-        }
-        return new WebAnimationsPlayer(element, formattedSteps, playerOptions);
-    };
-    return WebAnimationsDriver;
-}());
-function _populateStyles(element, styles, defaultStyles) {
-    var data = {};
-    styles.styles.forEach(function (entry) {
-        StringMapWrapper$2.forEach(entry, function (val, prop) {
-            var formattedProp = dashCaseToCamelCase(prop);
-            data[formattedProp] =
-                val == AUTO_STYLE ? val : val.toString() + _resolveStyleUnit(val, prop, formattedProp);
-        });
-    });
-    StringMapWrapper$2.forEach(defaultStyles, function (value, prop) {
-        if (!isPresent$2(data[prop])) {
-            data[prop] = value;
-        }
-    });
-    return data;
-}
-function _resolveStyleUnit(val, userProvidedProp, formattedProp) {
-    var unit = '';
-    if (_isPixelDimensionStyle(formattedProp) && val != 0 && val != '0') {
-        if (isNumber$2(val)) {
-            unit = 'px';
-        }
-        else if (_findDimensionalSuffix(val.toString()).length == 0) {
-            throw new Error('Please provide a CSS unit value for ' + userProvidedProp + ':' + val);
-        }
-    }
-    return unit;
-}
-var _$0 = 48;
-var _$9 = 57;
-var _$PERIOD = 46;
-function _findDimensionalSuffix(value) {
-    for (var i = 0; i < value.length; i++) {
-        var c = StringWrapper$2.charCodeAt(value, i);
-        if ((c >= _$0 && c <= _$9) || c == _$PERIOD)
-            continue;
-        return value.substring(i, value.length);
-    }
-    return '';
-}
-function _isPixelDimensionStyle(prop) {
-    switch (prop) {
-        case 'width':
-        case 'height':
-        case 'minWidth':
-        case 'minHeight':
-        case 'maxWidth':
-        case 'maxHeight':
-        case 'left':
-        case 'top':
-        case 'bottom':
-        case 'right':
-        case 'fontSize':
-        case 'outlineWidth':
-        case 'outlineOffset':
-        case 'paddingTop':
-        case 'paddingLeft':
-        case 'paddingBottom':
-        case 'paddingRight':
-        case 'marginTop':
-        case 'marginLeft':
-        case 'marginBottom':
-        case 'marginRight':
-        case 'borderRadius':
-        case 'borderWidth':
-        case 'borderTopWidth':
-        case 'borderLeftWidth':
-        case 'borderRightWidth':
-        case 'borderBottomWidth':
-        case 'textIndent':
-            return true;
-        default:
-            return false;
-    }
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var __extends$27 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-/**
- * Provides DOM operations in any browser environment.
- *
- * @security Tread carefully! Interacting with the DOM directly is dangerous and
- * can introduce XSS risks.
- */
-var GenericBrowserDomAdapter = (function (_super) {
-    __extends$27(GenericBrowserDomAdapter, _super);
-    function GenericBrowserDomAdapter() {
-        var _this = this;
-        _super.call(this);
-        this._animationPrefix = null;
-        this._transitionEnd = null;
-        try {
-            var element = this.createElement('div', this.defaultDoc());
-            if (isPresent$2(this.getStyle(element, 'animationName'))) {
-                this._animationPrefix = '';
-            }
-            else {
-                var domPrefixes = ['Webkit', 'Moz', 'O', 'ms'];
-                for (var i = 0; i < domPrefixes.length; i++) {
-                    if (isPresent$2(this.getStyle(element, domPrefixes[i] + 'AnimationName'))) {
-                        this._animationPrefix = '-' + domPrefixes[i].toLowerCase() + '-';
-                        break;
-                    }
-                }
-            }
-            var transEndEventNames = {
-                WebkitTransition: 'webkitTransitionEnd',
-                MozTransition: 'transitionend',
-                OTransition: 'oTransitionEnd otransitionend',
-                transition: 'transitionend'
-            };
-            StringMapWrapper$2.forEach(transEndEventNames, function (value, key) {
-                if (isPresent$2(_this.getStyle(element, key))) {
-                    _this._transitionEnd = value;
-                }
-            });
-        }
-        catch (e) {
-            this._animationPrefix = null;
-            this._transitionEnd = null;
-        }
-    }
-    GenericBrowserDomAdapter.prototype.getDistributedNodes = function (el) { return el.getDistributedNodes(); };
-    GenericBrowserDomAdapter.prototype.resolveAndSetHref = function (el, baseUrl, href) {
-        el.href = href == null ? baseUrl : baseUrl + '/../' + href;
-    };
-    GenericBrowserDomAdapter.prototype.supportsDOMEvents = function () { return true; };
-    GenericBrowserDomAdapter.prototype.supportsNativeShadowDOM = function () {
-        return isFunction$3(this.defaultDoc().body.createShadowRoot);
-    };
-    GenericBrowserDomAdapter.prototype.getAnimationPrefix = function () {
-        return isPresent$2(this._animationPrefix) ? this._animationPrefix : '';
-    };
-    GenericBrowserDomAdapter.prototype.getTransitionEnd = function () { return isPresent$2(this._transitionEnd) ? this._transitionEnd : ''; };
-    GenericBrowserDomAdapter.prototype.supportsAnimation = function () {
-        return isPresent$2(this._animationPrefix) && isPresent$2(this._transitionEnd);
-    };
-    return GenericBrowserDomAdapter;
-}(DomAdapter));
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var __extends$26 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var _attrToPropMap = {
-    'class': 'className',
-    'innerHtml': 'innerHTML',
-    'readonly': 'readOnly',
-    'tabindex': 'tabIndex'
-};
-var DOM_KEY_LOCATION_NUMPAD = 3;
-// Map to convert some key or keyIdentifier values to what will be returned by getEventKey
-var _keyMap = {
-    // The following values are here for cross-browser compatibility and to match the W3C standard
-    // cf http://www.w3.org/TR/DOM-Level-3-Events-key/
-    '\b': 'Backspace',
-    '\t': 'Tab',
-    '\x7F': 'Delete',
-    '\x1B': 'Escape',
-    'Del': 'Delete',
-    'Esc': 'Escape',
-    'Left': 'ArrowLeft',
-    'Right': 'ArrowRight',
-    'Up': 'ArrowUp',
-    'Down': 'ArrowDown',
-    'Menu': 'ContextMenu',
-    'Scroll': 'ScrollLock',
-    'Win': 'OS'
-};
-// There is a bug in Chrome for numeric keypad keys:
-// https://code.google.com/p/chromium/issues/detail?id=155654
-// 1, 2, 3 ... are reported as A, B, C ...
-var _chromeNumKeyPadMap = {
-    'A': '1',
-    'B': '2',
-    'C': '3',
-    'D': '4',
-    'E': '5',
-    'F': '6',
-    'G': '7',
-    'H': '8',
-    'I': '9',
-    'J': '*',
-    'K': '+',
-    'M': '-',
-    'N': '.',
-    'O': '/',
-    '\x60': '0',
-    '\x90': 'NumLock'
-};
-/**
- * A `DomAdapter` powered by full browser DOM APIs.
- *
- * @security Tread carefully! Interacting with the DOM directly is dangerous and
- * can introduce XSS risks.
- */
-/* tslint:disable:requireParameterType */
-var BrowserDomAdapter = (function (_super) {
-    __extends$26(BrowserDomAdapter, _super);
-    function BrowserDomAdapter() {
-        _super.apply(this, arguments);
-    }
-    BrowserDomAdapter.prototype.parse = function (templateHtml) { throw new Error('parse not implemented'); };
-    BrowserDomAdapter.makeCurrent = function () { setRootDomAdapter(new BrowserDomAdapter()); };
-    BrowserDomAdapter.prototype.hasProperty = function (element /** TODO #9100 */, name) { return name in element; };
-    BrowserDomAdapter.prototype.setProperty = function (el, name, value) { el[name] = value; };
-    BrowserDomAdapter.prototype.getProperty = function (el, name) { return el[name]; };
-    BrowserDomAdapter.prototype.invoke = function (el, methodName, args) {
-        el[methodName].apply(el, args);
-    };
-    // TODO(tbosch): move this into a separate environment class once we have it
-    BrowserDomAdapter.prototype.logError = function (error /** TODO #9100 */) {
-        if (window.console.error) {
-            window.console.error(error);
-        }
-        else {
-            window.console.log(error);
-        }
-    };
-    BrowserDomAdapter.prototype.log = function (error /** TODO #9100 */) { window.console.log(error); };
-    BrowserDomAdapter.prototype.logGroup = function (error /** TODO #9100 */) {
-        if (window.console.group) {
-            window.console.group(error);
-            this.logError(error);
-        }
-        else {
-            window.console.log(error);
-        }
-    };
-    BrowserDomAdapter.prototype.logGroupEnd = function () {
-        if (window.console.groupEnd) {
-            window.console.groupEnd();
-        }
-    };
-    Object.defineProperty(BrowserDomAdapter.prototype, "attrToPropMap", {
-        get: function () { return _attrToPropMap; },
-        enumerable: true,
-        configurable: true
-    });
-    BrowserDomAdapter.prototype.query = function (selector) { return document.querySelector(selector); };
-    BrowserDomAdapter.prototype.querySelector = function (el /** TODO #9100 */, selector) {
-        return el.querySelector(selector);
-    };
-    BrowserDomAdapter.prototype.querySelectorAll = function (el /** TODO #9100 */, selector) {
-        return el.querySelectorAll(selector);
-    };
-    BrowserDomAdapter.prototype.on = function (el /** TODO #9100 */, evt /** TODO #9100 */, listener /** TODO #9100 */) {
-        el.addEventListener(evt, listener, false);
-    };
-    BrowserDomAdapter.prototype.onAndCancel = function (el /** TODO #9100 */, evt /** TODO #9100 */, listener /** TODO #9100 */) {
-        el.addEventListener(evt, listener, false);
-        // Needed to follow Dart's subscription semantic, until fix of
-        // https://code.google.com/p/dart/issues/detail?id=17406
-        return function () { el.removeEventListener(evt, listener, false); };
-    };
-    BrowserDomAdapter.prototype.dispatchEvent = function (el /** TODO #9100 */, evt /** TODO #9100 */) { el.dispatchEvent(evt); };
-    BrowserDomAdapter.prototype.createMouseEvent = function (eventType) {
-        var evt = document.createEvent('MouseEvent');
-        evt.initEvent(eventType, true, true);
-        return evt;
-    };
-    BrowserDomAdapter.prototype.createEvent = function (eventType /** TODO #9100 */) {
-        var evt = document.createEvent('Event');
-        evt.initEvent(eventType, true, true);
-        return evt;
-    };
-    BrowserDomAdapter.prototype.preventDefault = function (evt) {
-        evt.preventDefault();
-        evt.returnValue = false;
-    };
-    BrowserDomAdapter.prototype.isPrevented = function (evt) {
-        return evt.defaultPrevented || isPresent$2(evt.returnValue) && !evt.returnValue;
-    };
-    BrowserDomAdapter.prototype.getInnerHTML = function (el /** TODO #9100 */) { return el.innerHTML; };
-    BrowserDomAdapter.prototype.getTemplateContent = function (el /** TODO #9100 */) {
-        return 'content' in el && el instanceof HTMLTemplateElement ? el.content : null;
-    };
-    BrowserDomAdapter.prototype.getOuterHTML = function (el /** TODO #9100 */) { return el.outerHTML; };
-    BrowserDomAdapter.prototype.nodeName = function (node) { return node.nodeName; };
-    BrowserDomAdapter.prototype.nodeValue = function (node) { return node.nodeValue; };
-    BrowserDomAdapter.prototype.type = function (node) { return node.type; };
-    BrowserDomAdapter.prototype.content = function (node) {
-        if (this.hasProperty(node, 'content')) {
-            return node.content;
-        }
-        else {
-            return node;
-        }
-    };
-    BrowserDomAdapter.prototype.firstChild = function (el /** TODO #9100 */) { return el.firstChild; };
-    BrowserDomAdapter.prototype.nextSibling = function (el /** TODO #9100 */) { return el.nextSibling; };
-    BrowserDomAdapter.prototype.parentElement = function (el /** TODO #9100 */) { return el.parentNode; };
-    BrowserDomAdapter.prototype.childNodes = function (el /** TODO #9100 */) { return el.childNodes; };
-    BrowserDomAdapter.prototype.childNodesAsList = function (el /** TODO #9100 */) {
-        var childNodes = el.childNodes;
-        var res = new Array(childNodes.length);
-        for (var i = 0; i < childNodes.length; i++) {
-            res[i] = childNodes[i];
-        }
-        return res;
-    };
-    BrowserDomAdapter.prototype.clearNodes = function (el /** TODO #9100 */) {
-        while (el.firstChild) {
-            el.removeChild(el.firstChild);
-        }
-    };
-    BrowserDomAdapter.prototype.appendChild = function (el /** TODO #9100 */, node /** TODO #9100 */) { el.appendChild(node); };
-    BrowserDomAdapter.prototype.removeChild = function (el /** TODO #9100 */, node /** TODO #9100 */) { el.removeChild(node); };
-    BrowserDomAdapter.prototype.replaceChild = function (el, newChild /** TODO #9100 */, oldChild /** TODO #9100 */) {
-        el.replaceChild(newChild, oldChild);
-    };
-    BrowserDomAdapter.prototype.remove = function (node /** TODO #9100 */) {
-        if (node.parentNode) {
-            node.parentNode.removeChild(node);
-        }
-        return node;
-    };
-    BrowserDomAdapter.prototype.insertBefore = function (el /** TODO #9100 */, node /** TODO #9100 */) {
-        el.parentNode.insertBefore(node, el);
-    };
-    BrowserDomAdapter.prototype.insertAllBefore = function (el /** TODO #9100 */, nodes /** TODO #9100 */) {
-        nodes.forEach(function (n /** TODO #9100 */) { return el.parentNode.insertBefore(n, el); });
-    };
-    BrowserDomAdapter.prototype.insertAfter = function (el /** TODO #9100 */, node /** TODO #9100 */) {
-        el.parentNode.insertBefore(node, el.nextSibling);
-    };
-    BrowserDomAdapter.prototype.setInnerHTML = function (el /** TODO #9100 */, value /** TODO #9100 */) { el.innerHTML = value; };
-    BrowserDomAdapter.prototype.getText = function (el /** TODO #9100 */) { return el.textContent; };
-    // TODO(vicb): removed Element type because it does not support StyleElement
-    BrowserDomAdapter.prototype.setText = function (el /** TODO #9100 */, value) { el.textContent = value; };
-    BrowserDomAdapter.prototype.getValue = function (el /** TODO #9100 */) { return el.value; };
-    BrowserDomAdapter.prototype.setValue = function (el /** TODO #9100 */, value) { el.value = value; };
-    BrowserDomAdapter.prototype.getChecked = function (el /** TODO #9100 */) { return el.checked; };
-    BrowserDomAdapter.prototype.setChecked = function (el /** TODO #9100 */, value) { el.checked = value; };
-    BrowserDomAdapter.prototype.createComment = function (text) { return document.createComment(text); };
-    BrowserDomAdapter.prototype.createTemplate = function (html /** TODO #9100 */) {
-        var t = document.createElement('template');
-        t.innerHTML = html;
-        return t;
-    };
-    BrowserDomAdapter.prototype.createElement = function (tagName /* TODO #9100 */, doc) {
-        if (doc === void 0) { doc = document; }
-        return doc.createElement(tagName);
-    };
-    BrowserDomAdapter.prototype.createElementNS = function (ns /* TODO #9100 */, tagName /* TODO #9100 */, doc) {
-        if (doc === void 0) { doc = document; }
-        return doc.createElementNS(ns, tagName);
-    };
-    BrowserDomAdapter.prototype.createTextNode = function (text, doc) {
-        if (doc === void 0) { doc = document; }
-        return doc.createTextNode(text);
-    };
-    BrowserDomAdapter.prototype.createScriptTag = function (attrName, attrValue, doc) {
-        if (doc === void 0) { doc = document; }
-        var el = doc.createElement('SCRIPT');
-        el.setAttribute(attrName, attrValue);
-        return el;
-    };
-    BrowserDomAdapter.prototype.createStyleElement = function (css, doc) {
-        if (doc === void 0) { doc = document; }
-        var style = doc.createElement('style');
-        this.appendChild(style, this.createTextNode(css));
-        return style;
-    };
-    BrowserDomAdapter.prototype.createShadowRoot = function (el) { return el.createShadowRoot(); };
-    BrowserDomAdapter.prototype.getShadowRoot = function (el) { return el.shadowRoot; };
-    BrowserDomAdapter.prototype.getHost = function (el) { return el.host; };
-    BrowserDomAdapter.prototype.clone = function (node) { return node.cloneNode(true); };
-    BrowserDomAdapter.prototype.getElementsByClassName = function (element /** TODO #9100 */, name) {
-        return element.getElementsByClassName(name);
-    };
-    BrowserDomAdapter.prototype.getElementsByTagName = function (element /** TODO #9100 */, name) {
-        return element.getElementsByTagName(name);
-    };
-    BrowserDomAdapter.prototype.classList = function (element /** TODO #9100 */) {
-        return Array.prototype.slice.call(element.classList, 0);
-    };
-    BrowserDomAdapter.prototype.addClass = function (element /** TODO #9100 */, className) { element.classList.add(className); };
-    BrowserDomAdapter.prototype.removeClass = function (element /** TODO #9100 */, className) {
-        element.classList.remove(className);
-    };
-    BrowserDomAdapter.prototype.hasClass = function (element /** TODO #9100 */, className) {
-        return element.classList.contains(className);
-    };
-    BrowserDomAdapter.prototype.setStyle = function (element /** TODO #9100 */, styleName, styleValue) {
-        element.style[styleName] = styleValue;
-    };
-    BrowserDomAdapter.prototype.removeStyle = function (element /** TODO #9100 */, stylename) {
-        element.style[stylename] = null;
-    };
-    BrowserDomAdapter.prototype.getStyle = function (element /** TODO #9100 */, stylename) {
-        return element.style[stylename];
-    };
-    BrowserDomAdapter.prototype.hasStyle = function (element /** TODO #9100 */, styleName, styleValue) {
-        if (styleValue === void 0) { styleValue = null; }
-        var value = this.getStyle(element, styleName) || '';
-        return styleValue ? value == styleValue : value.length > 0;
-    };
-    BrowserDomAdapter.prototype.tagName = function (element /** TODO #9100 */) { return element.tagName; };
-    BrowserDomAdapter.prototype.attributeMap = function (element /** TODO #9100 */) {
-        var res = new Map();
-        var elAttrs = element.attributes;
-        for (var i = 0; i < elAttrs.length; i++) {
-            var attrib = elAttrs[i];
-            res.set(attrib.name, attrib.value);
-        }
-        return res;
-    };
-    BrowserDomAdapter.prototype.hasAttribute = function (element /** TODO #9100 */, attribute) {
-        return element.hasAttribute(attribute);
-    };
-    BrowserDomAdapter.prototype.hasAttributeNS = function (element /** TODO #9100 */, ns, attribute) {
-        return element.hasAttributeNS(ns, attribute);
-    };
-    BrowserDomAdapter.prototype.getAttribute = function (element /** TODO #9100 */, attribute) {
-        return element.getAttribute(attribute);
-    };
-    BrowserDomAdapter.prototype.getAttributeNS = function (element /** TODO #9100 */, ns, name) {
-        return element.getAttributeNS(ns, name);
-    };
-    BrowserDomAdapter.prototype.setAttribute = function (element /** TODO #9100 */, name, value) {
-        element.setAttribute(name, value);
-    };
-    BrowserDomAdapter.prototype.setAttributeNS = function (element /** TODO #9100 */, ns, name, value) {
-        element.setAttributeNS(ns, name, value);
-    };
-    BrowserDomAdapter.prototype.removeAttribute = function (element /** TODO #9100 */, attribute) {
-        element.removeAttribute(attribute);
-    };
-    BrowserDomAdapter.prototype.removeAttributeNS = function (element /** TODO #9100 */, ns, name) {
-        element.removeAttributeNS(ns, name);
-    };
-    BrowserDomAdapter.prototype.templateAwareRoot = function (el /** TODO #9100 */) {
-        return this.isTemplateElement(el) ? this.content(el) : el;
-    };
-    BrowserDomAdapter.prototype.createHtmlDocument = function () {
-        return document.implementation.createHTMLDocument('fakeTitle');
-    };
-    BrowserDomAdapter.prototype.defaultDoc = function () { return document; };
-    BrowserDomAdapter.prototype.getBoundingClientRect = function (el /** TODO #9100 */) {
-        try {
-            return el.getBoundingClientRect();
-        }
-        catch (e) {
-            return { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
-        }
-    };
-    BrowserDomAdapter.prototype.getTitle = function () { return document.title; };
-    BrowserDomAdapter.prototype.setTitle = function (newTitle) { document.title = newTitle || ''; };
-    BrowserDomAdapter.prototype.elementMatches = function (n /** TODO #9100 */, selector) {
-        var matches = false;
-        if (n instanceof HTMLElement) {
-            if (n.matches) {
-                matches = n.matches(selector);
-            }
-            else if (n.msMatchesSelector) {
-                matches = n.msMatchesSelector(selector);
-            }
-            else if (n.webkitMatchesSelector) {
-                matches = n.webkitMatchesSelector(selector);
-            }
-        }
-        return matches;
-    };
-    BrowserDomAdapter.prototype.isTemplateElement = function (el) {
-        return el instanceof HTMLElement && el.nodeName == 'TEMPLATE';
-    };
-    BrowserDomAdapter.prototype.isTextNode = function (node) { return node.nodeType === Node.TEXT_NODE; };
-    BrowserDomAdapter.prototype.isCommentNode = function (node) { return node.nodeType === Node.COMMENT_NODE; };
-    BrowserDomAdapter.prototype.isElementNode = function (node) { return node.nodeType === Node.ELEMENT_NODE; };
-    BrowserDomAdapter.prototype.hasShadowRoot = function (node /** TODO #9100 */) {
-        return isPresent$2(node.shadowRoot) && node instanceof HTMLElement;
-    };
-    BrowserDomAdapter.prototype.isShadowRoot = function (node /** TODO #9100 */) { return node instanceof DocumentFragment; };
-    BrowserDomAdapter.prototype.importIntoDoc = function (node) {
-        var toImport = node;
-        if (this.isTemplateElement(node)) {
-            toImport = this.content(node);
-        }
-        return document.importNode(toImport, true);
-    };
-    BrowserDomAdapter.prototype.adoptNode = function (node) { return document.adoptNode(node); };
-    BrowserDomAdapter.prototype.getHref = function (el) { return el.href; };
-    BrowserDomAdapter.prototype.getEventKey = function (event /** TODO #9100 */) {
-        var key = event.key;
-        if (isBlank$2(key)) {
-            key = event.keyIdentifier;
-            // keyIdentifier is defined in the old draft of DOM Level 3 Events implemented by Chrome and
-            // Safari
-            // cf
-            // http://www.w3.org/TR/2007/WD-DOM-Level-3-Events-20071221/events.html#Events-KeyboardEvents-Interfaces
-            if (isBlank$2(key)) {
-                return 'Unidentified';
-            }
-            if (key.startsWith('U+')) {
-                key = String.fromCharCode(parseInt(key.substring(2), 16));
-                if (event.location === DOM_KEY_LOCATION_NUMPAD && _chromeNumKeyPadMap.hasOwnProperty(key)) {
-                    // There is a bug in Chrome for numeric keypad keys:
-                    // https://code.google.com/p/chromium/issues/detail?id=155654
-                    // 1, 2, 3 ... are reported as A, B, C ...
-                    key = _chromeNumKeyPadMap[key];
-                }
-            }
-        }
-        if (_keyMap.hasOwnProperty(key)) {
-            key = _keyMap[key];
-        }
-        return key;
-    };
-    BrowserDomAdapter.prototype.getGlobalEventTarget = function (target) {
-        if (target == 'window') {
-            return window;
-        }
-        else if (target == 'document') {
-            return document;
-        }
-        else if (target == 'body') {
-            return document.body;
-        }
-    };
-    BrowserDomAdapter.prototype.getHistory = function () { return window.history; };
-    BrowserDomAdapter.prototype.getLocation = function () { return window.location; };
-    BrowserDomAdapter.prototype.getBaseHref = function () {
-        var href = getBaseElementHref();
-        if (isBlank$2(href)) {
-            return null;
-        }
-        return relativePath(href);
-    };
-    BrowserDomAdapter.prototype.resetBaseElement = function () { baseElement = null; };
-    BrowserDomAdapter.prototype.getUserAgent = function () { return window.navigator.userAgent; };
-    BrowserDomAdapter.prototype.setData = function (element /** TODO #9100 */, name, value) {
-        this.setAttribute(element, 'data-' + name, value);
-    };
-    BrowserDomAdapter.prototype.getData = function (element /** TODO #9100 */, name) {
-        return this.getAttribute(element, 'data-' + name);
-    };
-    BrowserDomAdapter.prototype.getComputedStyle = function (element /** TODO #9100 */) { return getComputedStyle(element); };
-    // TODO(tbosch): move this into a separate environment class once we have it
-    BrowserDomAdapter.prototype.setGlobalVar = function (path, value) { setValueOnPath$2(_global$2, path, value); };
-    BrowserDomAdapter.prototype.supportsWebAnimation = function () { return isFunction$3(Element.prototype['animate']); };
-    BrowserDomAdapter.prototype.performanceNow = function () {
-        // performance.now() is not available in all browsers, see
-        // http://caniuse.com/#search=performance.now
-        if (isPresent$2(window.performance) && isPresent$2(window.performance.now)) {
-            return window.performance.now();
-        }
-        else {
-            return DateWrapper$2.toMillis(DateWrapper$2.now());
-        }
-    };
-    BrowserDomAdapter.prototype.supportsCookies = function () { return true; };
-    BrowserDomAdapter.prototype.getCookie = function (name) { return parseCookieValue(document.cookie, name); };
-    BrowserDomAdapter.prototype.setCookie = function (name, value) {
-        // document.cookie is magical, assigning into it assigns/overrides one cookie value, but does
-        // not clear other cookies.
-        document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
-    };
-    return BrowserDomAdapter;
-}(GenericBrowserDomAdapter));
-var baseElement = null;
-function getBaseElementHref() {
-    if (isBlank$2(baseElement)) {
-        baseElement = document.querySelector('base');
-        if (isBlank$2(baseElement)) {
-            return null;
-        }
-    }
-    return baseElement.getAttribute('href');
-}
-// based on urlUtils.js in AngularJS 1
-var urlParsingNode = null;
-function relativePath(url /** TODO #9100 */) {
-    if (isBlank$2(urlParsingNode)) {
-        urlParsingNode = document.createElement('a');
-    }
-    urlParsingNode.setAttribute('href', url);
-    return (urlParsingNode.pathname.charAt(0) === '/') ? urlParsingNode.pathname :
-        '/' + urlParsingNode.pathname;
-}
-function parseCookieValue(cookieStr, name) {
-    name = encodeURIComponent(name);
-    for (var _i = 0, _a = cookieStr.split(';'); _i < _a.length; _i++) {
-        var cookie = _a[_i];
-        var eqIndex = cookie.indexOf('=');
-        var _b = eqIndex == -1 ? [cookie, ''] : [cookie.slice(0, eqIndex), cookie.slice(eqIndex + 1)], cookieName = _b[0], cookieValue = _b[1];
-        if (cookieName.trim() === name) {
-            return decodeURIComponent(cookieValue);
-        }
-    }
-    return null;
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-function supportsState() {
-    return !!window.history.pushState;
-}
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-var __extends$28 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-/**
- * `PlatformLocation` encapsulates all of the direct calls to platform APIs.
- * This class should not be used directly by an application developer. Instead, use
- * {@link Location}.
- */
-var BrowserPlatformLocation = (function (_super) {
-    __extends$28(BrowserPlatformLocation, _super);
-    function BrowserPlatformLocation() {
-        _super.call(this);
-        this._init();
-    }
-    // This is moved to its own method so that `MockPlatformLocationStrategy` can overwrite it
-    /** @internal */
-    BrowserPlatformLocation.prototype._init = function () {
-        this._location = getDOM().getLocation();
-        this._history = getDOM().getHistory();
-    };
-    Object.defineProperty(BrowserPlatformLocation.prototype, "location", {
-        get: function () { return this._location; },
-        enumerable: true,
-        configurable: true
-    });
-    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function () { return getDOM().getBaseHref(); };
-    BrowserPlatformLocation.prototype.onPopState = function (fn) {
-        getDOM().getGlobalEventTarget('window').addEventListener('popstate', fn, false);
-    };
-    BrowserPlatformLocation.prototype.onHashChange = function (fn) {
-        getDOM().getGlobalEventTarget('window').addEventListener('hashchange', fn, false);
-    };
-    Object.defineProperty(BrowserPlatformLocation.prototype, "pathname", {
-        get: function () { return this._location.pathname; },
-        set: function (newPath) { this._location.pathname = newPath; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(BrowserPlatformLocation.prototype, "search", {
-        get: function () { return this._location.search; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(BrowserPlatformLocation.prototype, "hash", {
-        get: function () { return this._location.hash; },
-        enumerable: true,
-        configurable: true
-    });
-    BrowserPlatformLocation.prototype.pushState = function (state$$1, title, url) {
-        if (supportsState()) {
-            this._history.pushState(state$$1, title, url);
-        }
-        else {
-            this._location.hash = url;
-        }
-    };
-    BrowserPlatformLocation.prototype.replaceState = function (state$$1, title, url) {
-        if (supportsState()) {
-            this._history.replaceState(state$$1, title, url);
-        }
-        else {
-            this._location.hash = url;
-        }
-    };
-    BrowserPlatformLocation.prototype.forward = function () { this._history.forward(); };
-    BrowserPlatformLocation.prototype.back = function () { this._history.back(); };
-    BrowserPlatformLocation.decorators = [
-        { type: Injectable },
-    ];
-    /** @nocollapse */
-    BrowserPlatformLocation.ctorParameters = [];
-    return BrowserPlatformLocation;
-}(PlatformLocation));
 
 /**
  * @license
@@ -16169,7 +15916,7 @@ var DomRootRenderer = (function () {
     }
     DomRootRenderer.prototype.renderComponent = function (componentProto) {
         var renderer = this.registeredComponents.get(componentProto.id);
-        if (isBlank$2(renderer)) {
+        if (!renderer) {
             renderer = new DomRenderer(this, componentProto, this.animationDriver);
             this.registeredComponents.set(componentProto.id, renderer);
         }
@@ -16691,9 +16438,9 @@ var KeyEventsPlugin = (function (_super) {
     };
     KeyEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
         var parsedEvent = KeyEventsPlugin.parseEventName(eventName);
-        var outsideHandler = KeyEventsPlugin.eventCallback(element, StringMapWrapper$2.get(parsedEvent, 'fullKey'), handler, this.manager.getZone());
+        var outsideHandler = KeyEventsPlugin.eventCallback(element, parsedEvent['fullKey'], handler, this.manager.getZone());
         return this.manager.getZone().runOutsideAngular(function () {
-            return getDOM().onAndCancel(element, StringMapWrapper$2.get(parsedEvent, 'domEventName'), outsideHandler);
+            return getDOM().onAndCancel(element, parsedEvent['domEventName'], outsideHandler);
         });
     };
     KeyEventsPlugin.parseEventName = function (eventName) {
@@ -16718,8 +16465,8 @@ var KeyEventsPlugin = (function (_super) {
             return null;
         }
         var result = {};
-        StringMapWrapper$2.set(result, 'domEventName', domEventName);
-        StringMapWrapper$2.set(result, 'fullKey', fullKey);
+        result['domEventName'] = domEventName;
+        result['fullKey'] = fullKey;
         return result;
     };
     KeyEventsPlugin.getEventFullKey = function (event) {
@@ -16734,7 +16481,7 @@ var KeyEventsPlugin = (function (_super) {
         }
         modifierKeys.forEach(function (modifierName) {
             if (modifierName != key) {
-                var modifierGetter = StringMapWrapper$2.get(modifierKeyGetters, modifierName);
+                var modifierGetter = modifierKeyGetters[modifierName];
                 if (modifierGetter(event)) {
                     fullKey += modifierName + '.';
                 }
@@ -17539,6 +17286,13 @@ var context = _global$2;
  * @experimental All debugging apis are currently experimental.
  */
 
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var __platform_browser_private__ = {
     BrowserPlatformLocation: BrowserPlatformLocation,
     DomAdapter: DomAdapter,
@@ -17605,8 +17359,6 @@ else {
 // exports the original value of the symbol.
 var _global$3 = globalScope$3;
 
-
-var Date$4 = _global$3.Date;
 // TODO: remove calls to assert in production environment
 // Note: Can't just export this and import in in other files
 // as `assert` is a reserved keyword in Dart
@@ -17633,11 +17385,6 @@ function isStringMap$3(obj) {
 function isArray$5(obj) {
     return Array.isArray(obj);
 }
-
-
-
-// serialize / deserialize enum exist only for consistency with dart API
-// enums in typescript don't need to be serialized
 
 
 
@@ -17770,7 +17517,6 @@ function isJsObject$3(o) {
 
 
 // Can't be all uppercase as our transpiler would think it is a special directive...
-
 
 
 var _symbolIterator$3 = null;
@@ -18054,26 +17800,6 @@ var MapWrapper$3 = (function () {
 var StringMapWrapper$3 = (function () {
     function StringMapWrapper() {
     }
-    StringMapWrapper.get = function (map, key) {
-        return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-    StringMapWrapper.values = function (map) {
-        return Object.keys(map).map(function (k) { return map[k]; });
-    };
-    StringMapWrapper.isEmpty = function (map) {
-        for (var prop in map) {
-            return false;
-        }
-        return true;
-    };
-    StringMapWrapper.forEach = function (map, callback) {
-        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-            var k = _a[_i];
-            callback(map[k], k);
-        }
-    };
     StringMapWrapper.merge = function (m1, m2) {
         var m = {};
         for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
@@ -18233,28 +17959,6 @@ function _flattenArray$3(source, target) {
     return target;
 }
 
-
-
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Set constructor.  We work around that by manually adding the items.
-var createSetFromList$3 = (function () {
-    var test = new Set([1, 2, 3]);
-    if (test.size === 3) {
-        return function createSetFromList$3(lst) { return new Set(lst); };
-    }
-    else {
-        return function createSetAndPopulateFromList(lst) {
-            var res = new Set(lst);
-            if (res.size !== lst.length) {
-                for (var i = 0; i < lst.length; i++) {
-                    res.add(lst[i]);
-                }
-            }
-            return res;
-        };
-    }
-})();
-
 var root_1$4 = root;
 /**
  * @param PromiseCtor
@@ -18376,8 +18080,6 @@ var Validators = (function () {
      */
     Validators.pattern = function (pattern) {
         return function (control) {
-            if (isPresent$3(Validators.required(control)))
-                return null;
             var regex = new RegExp("^" + pattern + "$");
             var v = control.value;
             return regex.test(v) ? null :
@@ -18393,7 +18095,7 @@ var Validators = (function () {
      * of the individual error maps.
      */
     Validators.compose = function (validators) {
-        if (isBlank$3(validators))
+        if (!validators)
             return null;
         var presentValidators = validators.filter(isPresent$3);
         if (presentValidators.length == 0)
@@ -18403,7 +18105,7 @@ var Validators = (function () {
         };
     };
     Validators.composeAsync = function (validators) {
-        if (isBlank$3(validators))
+        if (!validators)
             return null;
         var presentValidators = validators.filter(isPresent$3);
         if (presentValidators.length == 0)
@@ -18428,7 +18130,7 @@ function _mergeErrors(arrayOfErrors) {
     var res = arrayOfErrors.reduce(function (res, errors) {
         return isPresent$3(errors) ? StringMapWrapper$3.merge(res, errors) : res;
     }, {});
-    return StringMapWrapper$3.isEmpty(res) ? null : res;
+    return Object.keys(res).length === 0 ? null : res;
 }
 
 /**
@@ -19213,9 +18915,9 @@ function controlPath(name, parent) {
     return p;
 }
 function setUpControl(control, dir) {
-    if (isBlank$3(control))
+    if (!control)
         _throwError$1(dir, 'Cannot find control with');
-    if (isBlank$3(dir.valueAccessor))
+    if (!dir.valueAccessor)
         _throwError$1(dir, 'No value accessor for form control with');
     control.validator = Validators.compose([control.validator, dir.validator]);
     control.asyncValidator = Validators.composeAsync([control.asyncValidator, dir.asyncValidator]);
@@ -19302,7 +19004,7 @@ function isBuiltInAccessor(valueAccessor) {
 }
 // TODO: vsavkin remove it once https://github.com/angular/angular/issues/3011 is implemented
 function selectValueAccessor(dir, valueAccessors) {
-    if (isBlank$3(valueAccessors))
+    if (!valueAccessors)
         return null;
     var defaultAccessor;
     var builtinAccessor;
@@ -20217,7 +19919,7 @@ var AbstractControl = (function () {
         if (path === void 0) { path = null; }
         var control = isPresent$3(path) && !ListWrapper$3.isEmpty(path) ? this.get(path) : this;
         if (isPresent$3(control) && isPresent$3(control._errors)) {
-            return StringMapWrapper$3.get(control._errors, errorCode);
+            return control._errors[errorCode];
         }
         else {
             return null;
@@ -20328,6 +20030,8 @@ var AbstractControl = (function () {
  *
  * You can also initialize the control with a form state object on instantiation,
  * which includes both the value and whether or not the control is disabled.
+ * You can't use the value key without the disabled key; both are required
+ * to use this way of initialization.
  *
  * ```ts
  * const ctrl = new FormControl({value: 'n/a', disabled: true});
@@ -20627,9 +20331,9 @@ var FormGroup = (function (_super) {
         var _this = this;
         var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
         this._checkAllValuesPresent(value);
-        StringMapWrapper$3.forEach(value, function (newValue, name) {
+        Object.keys(value).forEach(function (name) {
             _this._throwIfControlMissing(name);
-            _this.controls[name].setValue(newValue, { onlySelf: true });
+            _this.controls[name].setValue(value[name], { onlySelf: true });
         });
         this.updateValueAndValidity({ onlySelf: onlySelf });
     };
@@ -20657,9 +20361,9 @@ var FormGroup = (function (_super) {
     FormGroup.prototype.patchValue = function (value, _a) {
         var _this = this;
         var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
-        StringMapWrapper$3.forEach(value, function (newValue, name) {
+        Object.keys(value).forEach(function (name) {
             if (_this.controls[name]) {
-                _this.controls[name].patchValue(newValue, { onlySelf: true });
+                _this.controls[name].patchValue(value[name], { onlySelf: true });
             }
         });
         this.updateValueAndValidity({ onlySelf: onlySelf });
@@ -20729,7 +20433,8 @@ var FormGroup = (function (_super) {
     };
     /** @internal */
     FormGroup.prototype._forEachChild = function (cb) {
-        StringMapWrapper$3.forEach(this.controls, cb);
+        var _this = this;
+        Object.keys(this.controls).forEach(function (k) { return cb(_this.controls[k], k); });
     };
     /** @internal */
     FormGroup.prototype._setUpControls = function () {
@@ -21852,7 +21557,7 @@ var FormGroupDirective = (function (_super) {
         this.form.asyncValidator = Validators.composeAsync([this.form.asyncValidator, async]);
     };
     FormGroupDirective.prototype._checkFormPresent = function () {
-        if (isBlank$3(this.form)) {
+        if (!this.form) {
             ReactiveErrors.missingFormException();
         }
     };
@@ -22488,8 +22193,8 @@ var FormBuilder = (function () {
     FormBuilder.prototype.group = function (controlsConfig, extra) {
         if (extra === void 0) { extra = null; }
         var controls = this._reduceControls(controlsConfig);
-        var validator = isPresent$3(extra) ? StringMapWrapper$3.get(extra, 'validator') : null;
-        var asyncValidator = isPresent$3(extra) ? StringMapWrapper$3.get(extra, 'asyncValidator') : null;
+        var validator = isPresent$3(extra) ? extra['validator'] : null;
+        var asyncValidator = isPresent$3(extra) ? extra['asyncValidator'] : null;
         return new FormGroup(controls, validator, asyncValidator);
     };
     /**
@@ -22520,8 +22225,8 @@ var FormBuilder = (function () {
     FormBuilder.prototype._reduceControls = function (controlsConfig) {
         var _this = this;
         var controls = {};
-        StringMapWrapper$3.forEach(controlsConfig, function (controlConfig, controlName) {
-            controls[controlName] = _this._createControl(controlConfig);
+        Object.keys(controlsConfig).forEach(function (controlName) {
+            controls[controlName] = _this._createControl(controlsConfig[controlName]);
         });
         return controls;
     };
@@ -22565,20 +22270,8 @@ var SHARED_FORM_DIRECTIVES = [
 var TEMPLATE_DRIVEN_DIRECTIVES = [NgModel, NgModelGroup, NgForm];
 var REACTIVE_DRIVEN_DIRECTIVES = [FormControlDirective, FormGroupDirective, FormControlName, FormGroupName, FormArrayName];
 /**
+ * A list of all the form directives.
  *
- * A list of all the form directives used as part of a `@Component` annotation.
- *
- *  This is a shorthand for importing them each individually.
- *
- * ### Example
- *
- * ```typescript
- * @Component({
- *   selector: 'my-app',
- *   directives: [FORM_DIRECTIVES]
- * })
- * class MyApp {}
- * ```
  * @stable
  */
 
@@ -22726,8 +22419,6 @@ else {
 // exports the original value of the symbol.
 var _global$4 = globalScope$4;
 
-
-var Date$5 = _global$4.Date;
 // TODO: remove calls to assert in production environment
 // Note: Can't just export this and import in in other files
 // as `assert` is a reserved keyword in Dart
@@ -22752,11 +22443,6 @@ function isString$4(obj) {
 function isArray$6(obj) {
     return Array.isArray(obj);
 }
-
-
-
-// serialize / deserialize enum exist only for consistency with dart API
-// enums in typescript don't need to be serialized
 
 
 
@@ -22895,7 +22581,6 @@ var Json$4 = (function () {
     };
     return Json;
 }());
-
 
 var _symbolIterator$4 = null;
 function getSymbolIterator$4() {
@@ -23094,57 +22779,7 @@ var MapWrapper$4 = (function () {
 /**
  * Wraps Javascript Objects
  */
-var StringMapWrapper$4 = (function () {
-    function StringMapWrapper() {
-    }
-    StringMapWrapper.get = function (map, key) {
-        return map.hasOwnProperty(key) ? map[key] : undefined;
-    };
-    StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-    StringMapWrapper.keys = function (map) { return Object.keys(map); };
-    StringMapWrapper.values = function (map) {
-        return Object.keys(map).map(function (k) { return map[k]; });
-    };
-    StringMapWrapper.isEmpty = function (map) {
-        for (var prop in map) {
-            return false;
-        }
-        return true;
-    };
-    StringMapWrapper.forEach = function (map, callback) {
-        for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-            var k = _a[_i];
-            callback(map[k], k);
-        }
-    };
-    StringMapWrapper.merge = function (m1, m2) {
-        var m = {};
-        for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
-            var k = _a[_i];
-            m[k] = m1[k];
-        }
-        for (var _b = 0, _c = Object.keys(m2); _b < _c.length; _b++) {
-            var k = _c[_b];
-            m[k] = m2[k];
-        }
-        return m;
-    };
-    StringMapWrapper.equals = function (m1, m2) {
-        var k1 = Object.keys(m1);
-        var k2 = Object.keys(m2);
-        if (k1.length != k2.length) {
-            return false;
-        }
-        for (var i = 0; i < k1.length; i++) {
-            var key = k1[i];
-            if (m1[key] !== m2[key]) {
-                return false;
-            }
-        }
-        return true;
-    };
-    return StringMapWrapper;
-}());
+
 var ListWrapper$4 = (function () {
     function ListWrapper() {
     }
@@ -23275,47 +22910,6 @@ function _flattenArray$4(source, target) {
     }
     return target;
 }
-function isListLikeIterable$4(obj) {
-    if (!isJsObject$4(obj))
-        return false;
-    return isArray$6(obj) ||
-        (!(obj instanceof Map) &&
-            getSymbolIterator$4() in obj); // JS Iterable have a Symbol.iterator prop
-}
-
-function iterateListLike$4(obj, fn) {
-    if (isArray$6(obj)) {
-        for (var i = 0; i < obj.length; i++) {
-            fn(obj[i]);
-        }
-    }
-    else {
-        var iterator = obj[getSymbolIterator$4()]();
-        var item;
-        while (!((item = iterator.next()).done)) {
-            fn(item.value);
-        }
-    }
-}
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Set constructor.  We work around that by manually adding the items.
-var createSetFromList$4 = (function () {
-    var test = new Set([1, 2, 3]);
-    if (test.size === 3) {
-        return function createSetFromList$4(lst) { return new Set(lst); };
-    }
-    else {
-        return function createSetAndPopulateFromList(lst) {
-            var res = new Set(lst);
-            if (res.size !== lst.length) {
-                for (var i = 0; i < lst.length; i++) {
-                    res.add(lst[i]);
-                }
-            }
-            return res;
-        };
-    }
-})();
 
 /**
  * @license
@@ -23331,7 +22925,7 @@ var createSetFromList$4 = (function () {
  * The only known difference between this `Headers` implementation and the spec is the
  * lack of an `entries` method.
  *
- * ### Example ([live demo](http://plnkr.co/edit/MTdwT6?p=preview))
+ * ### Example
  *
  * ```
  * import {Headers} from '@angular/http';
@@ -23353,19 +22947,29 @@ var createSetFromList$4 = (function () {
  * @experimental
  */
 var Headers = (function () {
+    // TODO(vicb): any -> string|string[]
     function Headers(headers) {
         var _this = this;
+        /** @internal header names are lower case */
+        this._headers = new Map();
+        /** @internal map lower case names to actual names */
+        this._normalizedNames = new Map();
+        if (!headers) {
+            return;
+        }
         if (headers instanceof Headers) {
-            this._headersMap = new Map(headers._headersMap);
+            headers._headers.forEach(function (value, name) {
+                var lcName = name.toLowerCase();
+                _this._headers.set(lcName, value);
+                _this.mayBeSetNormalizedName(name);
+            });
             return;
         }
-        this._headersMap = new Map();
-        if (isBlank$4(headers)) {
-            return;
-        }
-        // headers instanceof StringMap
-        StringMapWrapper$4.forEach(headers, function (v, k) {
-            _this._headersMap.set(normalize(k), isListLikeIterable$4(v) ? v : [v]);
+        Object.keys(headers).forEach(function (name) {
+            var value = headers[name];
+            var lcName = name.toLowerCase();
+            _this._headers.set(lcName, Array.isArray(value) ? value : [value]);
+            _this.mayBeSetNormalizedName(name);
         });
     }
     /**
@@ -23376,9 +22980,9 @@ var Headers = (function () {
         headersString.split('\n').forEach(function (line) {
             var index = line.indexOf(':');
             if (index > 0) {
-                var key = line.substring(0, index);
-                var value = line.substring(index + 1).trim();
-                headers.set(key, value);
+                var name_1 = line.slice(0, index);
+                var value = line.slice(index + 1).trim();
+                headers.set(name_1, value);
             }
         });
         return headers;
@@ -23387,81 +22991,83 @@ var Headers = (function () {
      * Appends a header to existing list of header values for a given header name.
      */
     Headers.prototype.append = function (name, value) {
-        name = normalize(name);
-        var mapName = this._headersMap.get(name);
-        var list = isListLikeIterable$4(mapName) ? mapName : [];
-        list.push(value);
-        this._headersMap.set(name, list);
+        var values = this.getAll(name);
+        this.set(name, values === null ? [value] : values.concat([value]));
     };
     /**
      * Deletes all header values for the given name.
      */
-    Headers.prototype.delete = function (name) { this._headersMap.delete(normalize(name)); };
+    Headers.prototype.delete = function (name) {
+        var lcName = name.toLowerCase();
+        this._normalizedNames.delete(lcName);
+        this._headers.delete(lcName);
+    };
     Headers.prototype.forEach = function (fn) {
-        this._headersMap.forEach(fn);
+        var _this = this;
+        this._headers.forEach(function (values, lcName) { return fn(values, _this._normalizedNames.get(lcName), _this._headers); });
     };
     /**
      * Returns first header that matches given name.
      */
-    Headers.prototype.get = function (header) { return ListWrapper$4.first(this._headersMap.get(normalize(header))); };
+    Headers.prototype.get = function (name) {
+        var values = this.getAll(name);
+        if (values === null) {
+            return null;
+        }
+        return values.length > 0 ? values[0] : null;
+    };
     /**
-     * Check for existence of header by given name.
+     * Checks for existence of header by given name.
      */
-    Headers.prototype.has = function (header) { return this._headersMap.has(normalize(header)); };
+    Headers.prototype.has = function (name) { return this._headers.has(name.toLowerCase()); };
     /**
-     * Provides names of set headers
+     * Returns the names of the headers
      */
-    Headers.prototype.keys = function () { return MapWrapper$4.keys(this._headersMap); };
+    Headers.prototype.keys = function () { return MapWrapper$4.values(this._normalizedNames); };
     /**
      * Sets or overrides header value for given name.
      */
-    Headers.prototype.set = function (header, value) {
-        var list = [];
-        if (isListLikeIterable$4(value)) {
-            var pushValue = value.join(',');
-            list.push(pushValue);
-        }
-        else {
-            list.push(value);
-        }
-        this._headersMap.set(normalize(header), list);
+    Headers.prototype.set = function (name, value) {
+        var strValue = Array.isArray(value) ? value.join(',') : value;
+        this._headers.set(name.toLowerCase(), [strValue]);
+        this.mayBeSetNormalizedName(name);
     };
     /**
      * Returns values of all headers.
      */
-    Headers.prototype.values = function () { return MapWrapper$4.values(this._headersMap); };
+    Headers.prototype.values = function () { return MapWrapper$4.values(this._headers); };
     /**
      * Returns string of all headers.
      */
+    // TODO(vicb): returns {[name: string]: string[]}
     Headers.prototype.toJSON = function () {
-        var serializableHeaders = {};
-        this._headersMap.forEach(function (values, name) {
-            var list = [];
-            iterateListLike$4(values, function (val /** TODO #9100 */) { return list = ListWrapper$4.concat(list, val.split(',')); });
-            serializableHeaders[normalize(name)] = list;
+        var _this = this;
+        var serialized = {};
+        this._headers.forEach(function (values, name) {
+            var split = [];
+            values.forEach(function (v) { return split.push.apply(split, v.split(',')); });
+            serialized[_this._normalizedNames.get(name)] = split;
         });
-        return serializableHeaders;
+        return serialized;
     };
     /**
      * Returns list of header values for a given name.
      */
-    Headers.prototype.getAll = function (header) {
-        var headers = this._headersMap.get(normalize(header));
-        return isListLikeIterable$4(headers) ? headers : [];
+    Headers.prototype.getAll = function (name) {
+        return this.has(name) ? this._headers.get(name.toLowerCase()) : null;
     };
     /**
      * This method is not implemented.
      */
     Headers.prototype.entries = function () { throw new Error('"entries" method is not implemented on Headers class'); };
+    Headers.prototype.mayBeSetNormalizedName = function (name) {
+        var lcName = name.toLowerCase();
+        if (!this._normalizedNames.has(lcName)) {
+            this._normalizedNames.set(lcName, name);
+        }
+    };
     return Headers;
 }());
-// "HTTP character sets are identified by case-insensitive tokens"
-// Spec at https://tools.ietf.org/html/rfc2616
-// This implementation is same as NodeJS.
-// see https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_message_headers
-function normalize(name) {
-    return name.toLowerCase();
-}
 
 /**
  * @license
@@ -23782,6 +23388,10 @@ var URLSearchParams = (function () {
     };
     URLSearchParams.prototype.getAll = function (param) { return this.paramsMap.get(param) || []; };
     URLSearchParams.prototype.set = function (param, val) {
+        if (val === void 0 || val === null) {
+            this.delete(param);
+            return;
+        }
         var list = this.paramsMap.get(param) || [];
         list.length = 0;
         list.push(val);
@@ -23803,6 +23413,8 @@ var URLSearchParams = (function () {
         });
     };
     URLSearchParams.prototype.append = function (param, val) {
+        if (val === void 0 || val === null)
+            return;
         var list = this.paramsMap.get(param) || [];
         list.push(val);
         this.paramsMap.set(param, list);
@@ -24194,9 +23806,8 @@ var XHRConnection = (function () {
             var onLoad = function () {
                 // responseText is the old-school way of retrieving response (supported by IE8 & 9)
                 // response/responseType properties were introduced in ResourceLoader Level2 spec (supported
-                // by
-                // IE10)
-                var body = isPresent$4(_xhr.response) ? _xhr.response : _xhr.responseText;
+                // by IE10)
+                var body = _xhr.response === undefined ? _xhr.responseText : _xhr.response;
                 // Implicitly strip a potential XSSI prefix.
                 if (isString$4(body))
                     body = body.replace(XSSI_PREFIX, '');

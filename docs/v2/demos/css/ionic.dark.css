@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610061720, Dark Theme
+ * vE2E-201610062020, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -251,14 +251,17 @@ ion-alert input {
   line-height: 20px; }
 
 .alert-tappable {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   margin: 0;
   padding: 0;
   width: 100%;
   font-size: inherit;
   line-height: initial;
   text-align: left;
-  background: transparent;
-  -webkit-appearance: none; }
+  background: transparent; }
 
 .alert-ios .alert-wrapper {
   overflow: hidden;
@@ -294,12 +297,15 @@ ion-alert input {
   padding: 0 0 12px 0; }
 
 .alert-ios .alert-input {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   margin-top: 10px;
   padding: 6px;
   border: 0.55px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
-  -webkit-appearance: none; }
+  background-color: #fff; }
 
 .alert-ios .alert-radio-group,
 .alert-ios .alert-checkbox-group {
@@ -1155,8 +1161,10 @@ ion-badge:empty {
   background-color: #222; }
 
 .button {
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   position: relative;
   z-index: 0;
   display: inline-block;
@@ -2986,8 +2994,10 @@ ion-datetime {
   transform: translate3d(8px, 41px, 0); }
 
 .fab {
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   position: relative;
   z-index: 0;
   display: block;
@@ -3597,6 +3607,10 @@ ion-textarea {
   align-items: stretch; }
 
 .text-input {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   display: inline-block;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -3605,8 +3619,7 @@ ion-textarea {
   width: calc(100% - 10px);
   border: 0;
   border-radius: 0;
-  background: transparent;
-  -webkit-appearance: none; }
+  background: transparent; }
   .text-input::-moz-placeholder {
     color: #999; }
   .text-input:-ms-input-placeholder {
@@ -6783,8 +6796,10 @@ ion-searchbar {
   width: 100%; }
 
 .searchbar-input {
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
   width: 100%;
   border: 0;
@@ -7763,14 +7778,14 @@ ion-select {
   opacity: .2; }
 
 button.swiper-pagination-bullet {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
   -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
-  appearance: none; }
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none; }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: pointer; }
@@ -9288,8 +9303,10 @@ ion-navbar.toolbar {
   transform: translateZ(0); }
 
 .bar-button {
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   position: relative;
   display: inline-block;
   margin: 0;

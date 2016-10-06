@@ -35,7 +35,7 @@ FabList
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L100">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L101">
 Improve this doc
 </a>
 
@@ -74,6 +74,28 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="setElementClass"></div>
+
+<h3>
+<a class="anchor" name="setElementClass" href="#setElementClass"></a>
+<code>setElementClass()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>

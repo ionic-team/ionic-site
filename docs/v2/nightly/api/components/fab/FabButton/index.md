@@ -35,7 +35,7 @@ FabButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L7">
 Improve this doc
 </a>
 

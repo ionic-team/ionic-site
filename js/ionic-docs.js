@@ -37,7 +37,8 @@ ga('send', 'pageview');
 
 var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-  var navItemPos = $('#side-nav > ul > .active').offset().top;
+  var navItemPos = $('#side-nav > ul > .active').length ?
+                    $('#side-nav > ul > .active').offset().top : null;
   $sideNav = $('#side-nav');
   if ($sideNav[0].offsetHeight < navItemPos + 100) {
     $sideNav[0].scrollTop =  navItemPos - 300;
@@ -1795,7 +1796,6 @@ $(document).ready(function() {
   var activeSearchInputPos;
 
   setTimeout(function() {
-    console.log('here')
     // check if there if there is recent search data in local storage
     // try {
     //   var localData = JSON.parse(localStorage.getItem('v2-search-index'));

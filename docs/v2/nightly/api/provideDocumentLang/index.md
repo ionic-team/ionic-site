@@ -31,7 +31,7 @@ provideDocumentLang
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L226">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L230">
 Improve this doc
 </a>
 

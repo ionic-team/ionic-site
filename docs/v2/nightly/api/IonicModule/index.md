@@ -40,11 +40,40 @@ Improve this doc
 
 
 
+<p>IonicModule is a NgModule that helps bootstrap a whole Ionic App. By passing a root component, IonicModule will make sure that all the components and directives from the framework are provided. This includes components such as Tabs, Menus, and Slides, as well as classes like AlertController.</p>
+<p>We&#39;re also able to pass any configuration to our app as a second argument for <code>.forRoot</code>. This is any valid config property from <a href="/docs/v2/api/config/Config/">the Config Class</a>.</p>
+<p>The last functionality that IonicModule allows you to configure is optional routes for DeepLinker. For more information on DeepLinker, please see the <a href="/docs/v2/api/navigation/DeepLinker/">DeepLinker Docs</a></p>
 
 
 
 
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-ts">import { NgModule } from &#39;@angular/core&#39;;
+import { IonicApp, IonicModule } from &#39;ionic-angular&#39;;
+import { MyApp } from &#39;./app.component&#39;;
+import { HomePage } from &#39;../pages/home/home&#39;;
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage
+  ],
+  providers: []
+})
+export class AppModule {}
+</code></pre>
+
+
 
 
 <!-- @property tags -->

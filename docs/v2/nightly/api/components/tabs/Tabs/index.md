@@ -170,6 +170,26 @@ ionViewDidEnter() {
 
 
 
+<div id="ngOnDestroy"></div>
+
+<h3>
+<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
+<code>ngOnDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="select"></div>
 
 <h3>

@@ -31,7 +31,7 @@ setupConfig
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L384">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L383">
 Improve this doc
 </a>
 

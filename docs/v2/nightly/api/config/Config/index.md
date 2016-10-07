@@ -192,11 +192,6 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while a popover is dismissed.</td>
 </tr>
 <tr>
-<td><code>prodMode</code></td>
-<td><code>boolean</code></td>
-<td>Disable development mode, which turns off assertions and other checks within the framework. One important assertion this disables verifies that a change detection pass does not result in additional changes to any bindings (also known as unidirectional data flow).</td>
-</tr>
-<tr>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>

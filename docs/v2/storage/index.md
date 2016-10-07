@@ -95,7 +95,6 @@ Get the value assocated with the given key.
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>Promise that resolves with the value</p>
 
@@ -157,7 +156,6 @@ Set the value for the given key.
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>Promise that resolves when the value is set</p>
 
@@ -202,7 +200,6 @@ Remove any value associated with this key.
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>Promise that resolves when the value is removed</p>
 
@@ -219,7 +216,6 @@ Clear the entire key value store. WARNING: HOT!
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>Promise that resolves when the kv store is cleared</p>
 
@@ -236,7 +232,6 @@ Clear the entire key value store. WARNING: HOT!
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>the number of keys stored.</p>
 
@@ -253,7 +248,6 @@ Clear the entire key value store. WARNING: HOT!
 
 
 <div class="return-value">
-<i class="ion-md-return-right"></i>
 <b>Returns:</b> 
    <p>the keys in the store.</p>
 

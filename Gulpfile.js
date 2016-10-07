@@ -117,6 +117,14 @@ gulp.task('jekyll-build', [], function(done) {
            .on('close', done);
 });
 
+gulp.task('jekyll-build.incremental', [], function(done) {
+  browserSync.notify(messages.jekyllBuild);
+  return cp.spawn('jekyll',
+                  ['build', '-I', '--config', '_config_development.yml'],
+                  {stdio: 'inherit'})
+           .on('close', done);
+});
+
 /**
  * Run Generate linkchecker page
  */
@@ -127,7 +135,7 @@ gulp.task('linkchecker', ['build'],
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
+gulp.task('jekyll-rebuild', ['jekyll-build.incremental'], function() {
   browserSync.reload();
 });
 
@@ -153,7 +161,7 @@ gulp.task('server:stylesv1', ['styles:v1'], function() {
 gulp.task('server:stylesv2', ['styles:v2'], function() {
   browserSync.reload();
 });
-gulp.task('server:jekyll', ['jekyll-build'], function() {
+gulp.task('server:jekyll', ['jekyll-build.incremental'], function() {
   browserSync.reload();
 });
 gulp.task('server:images', ['images'], function() {

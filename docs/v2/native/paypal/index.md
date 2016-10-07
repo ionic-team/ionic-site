@@ -317,9 +317,9 @@ The amount of the payment.
 
 
 
-<div id="currencyCode"></div>
+<div id="currency"></div>
 <h3>
-  <code>currencyCode()</code>
+  <code>currency()</code>
   
 
 </h3>

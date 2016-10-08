@@ -39,7 +39,7 @@ Note: Developers are free to still use gulp if they choose to do so. We think NP
 
 - [lint](https://github.com/driftyco/ionic-app-scripts/blob/master/src/lint.ts) : `lint` runs [TSLint](https://palantir.github.io/tslint/) against the `Typescript` source code. Requires a `tslint.json` file at the project root.
 
-- [minify](https://github.com/driftyco/ionic-app-scripts/blob/master/src/minify.ts) : `minify` calls the minification tasks for `javascript` and `css`.
+- [minify](https://github.com/driftyco/ionic-app-scripts/blob/master/src/minify.ts) : `minify` calls the minification tasks for `javascript` (uglify, or closure if available) and `css` (cleancss).
 
 - [ngc](https://github.com/driftyco/ionic-app-scripts/blob/master/src/ngc.ts) : `ngc` calls the [Angular Ahead-of-time compiler](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) to create extremely fast apps.
 
@@ -115,10 +115,10 @@ Using the same concepts outlined above for providing configuration using the `pa
 An environment variable, `IONIC_ENV` is available in the build process to help determining whether a build is a `development` build, or a `production` build. The environment variable can be accessed like this:
 
 ```javascript
-if (process.env.IONIC_ENV === ‘prod’) {
-  console.log(‘it’s a production build);
+if (process.env.IONIC_ENV === 'prod') {
+  console.log('it’s a production buildp');
 } else {
-  console.log(‘it’s a development build’);
+  console.log('it’s a development build');
 }
 ```
 

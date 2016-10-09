@@ -54,14 +54,47 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {PayPal} from &#39;ionic-native&#39;;
+<pre><code>import {PayPal, PayPalPayment, PayPalConfiguration} from &quot;ionic-native&quot;;
 
 PayPal.init({
-     &quot;PayPalEnvironmentProduction&quot;: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
-       &quot;PayPalEnvironmentSandbox&quot;: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
-       })
-  .then(onSuccess)
-  .catch(onError);
+  &quot;PayPalEnvironmentProduction&quot;: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
+  &quot;PayPalEnvironmentSandbox&quot;: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
+}).then(() =&gt; {
+  // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+  PayPal.prepareToRender(&#39;PayPalEnvironmentSandbox&#39;, new PayPalConfiguration({
+    // Only needed if you get an &quot;Internal Service Error&quot; after PayPal login!
+    //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
+  })).then(() =&gt; {
+    let payment = new PayPalPayment(&#39;3.33&#39;, &#39;USD&#39;, &#39;Description&#39;, &#39;sale&#39;);
+    PayPal.renderSinglePaymentUI(payment).then(() =&gt; {
+      // Successfully paid
+
+      // Example sandbox response
+      //
+      // {
+      //   &quot;client&quot;: {
+      //     &quot;environment&quot;: &quot;sandbox&quot;,
+      //     &quot;product_name&quot;: &quot;PayPal iOS SDK&quot;,
+      //     &quot;paypal_sdk_version&quot;: &quot;2.16.0&quot;,
+      //     &quot;platform&quot;: &quot;iOS&quot;
+      //   },
+      //   &quot;response_type&quot;: &quot;payment&quot;,
+      //   &quot;response&quot;: {
+      //     &quot;id&quot;: &quot;PAY-1AB23456CD789012EF34GHIJ&quot;,
+      //     &quot;state&quot;: &quot;approved&quot;,
+      //     &quot;create_time&quot;: &quot;2016-10-03T13:33:33Z&quot;,
+      //     &quot;intent&quot;: &quot;sale&quot;
+      //   }
+      // }
+    }, () =&gt; {
+      // Error or render dialog closed without being successful
+    });
+  }, () =&gt; {
+    // Error in configuration
+  });
+}, () =&gt; {
+  // Error in initialization, maybe PayPal isn&#39;t supported or something else
+});
 </code></pre>
 
 
@@ -72,8 +105,25 @@ PayPal.init({
 
 <h2>Static Members</h2>
 
+<div id="version"></div>
+<h3><code>version()</code>
+  
+</h3>
+
+
+Retrieve the version of the PayPal iOS SDK library. Useful when contacting support.
+
+
+
+
+
+
+
+
+
+
 <div id="init"></div>
-<h3><code>init(environment,&nbsp;configuration)</code>
+<h3><code>init(clientIdsForEnvironments:)</code>
   
 </h3>
 
@@ -97,7 +147,55 @@ the recommended time to preconnect is on page load.
   
   <tr>
     <td>
-      environment
+      clientIdsForEnvironments:
+      
+      
+    </td>
+    <td>
+      
+<code>PayPalEnvironment</code>
+    </td>
+    <td>
+      <p>set of client ids for environments</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<div id="prepareToRender"></div>
+<h3><code>prepareToRender(environment:,&nbsp;configuration:)</code>
+  
+</h3>
+
+
+You must preconnect to PayPal to prepare the device for processing payments.
+This improves the user experience, by making the presentation of the UI faster.
+The preconnect is valid for a limited time, so the recommended time to preconnect is on page load.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      environment:
       
       
     </td>
@@ -114,7 +212,7 @@ the recommended time to preconnect is on page load.
   
   <tr>
     <td>
-      configuration
+      configuration:
       
       
     </td>
@@ -123,7 +221,7 @@ the recommended time to preconnect is on page load.
 <code>PayPalConfiguration</code>
     </td>
     <td>
-      <p>For Future Payments merchantName, merchantPrivacyPolicyURL and merchantUserAgreementURL must be set be set</p>
+      <p>PayPalConfiguration object, for Future Payments merchantName, merchantPrivacyPolicyURL and merchantUserAgreementURL must be set be set</p>
 
       
     </td>
@@ -131,23 +229,6 @@ the recommended time to preconnect is on page load.
   
   </tbody>
 </table>
-
-
-
-
-
-
-
-<div id="version"></div>
-<h3><code>version()</code>
-  
-</h3>
-
-
-Retreive the version of PayPal iOS SDK Library.
-
-
-
 
 
 

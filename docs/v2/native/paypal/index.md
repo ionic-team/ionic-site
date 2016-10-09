@@ -498,6 +498,17 @@ Optional customer shipping address, if your app wishes to provide this to the SD
 
 
 
+<div id="details"></div>
+<h3>
+  <code>details()</code>
+  
+
+</h3>
+Optional PayPalPaymentDetails object
+
+
+
+
 
 
 

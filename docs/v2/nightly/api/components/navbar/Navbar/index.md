@@ -61,7 +61,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <pre><code class="lang-html">&lt;ion-header&gt;
 
   &lt;ion-navbar&gt;
-    &lt;button ion-button menuToggle&gt;
+    &lt;button ion-button icon-only menuToggle&gt;
       &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
 
@@ -70,7 +70,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
     &lt;/ion-title&gt;
 
     &lt;ion-buttons end&gt;
-      &lt;button ion-button (click)=&quot;openModal()&quot;&gt;
+      &lt;button ion-button icon-only (click)=&quot;openModal()&quot;&gt;
         &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;

@@ -1527,6 +1527,33 @@ Returns the number of views in this nav controller.
 
 
 
+<div id="getViews"></div>
+
+<h3>
+<a class="anchor" name="getViews" href="#getViews"></a>
+<code>getViews()</code>
+  
+
+</h3>
+
+Returns the current stack of views in this nav controller.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Array&lt;ViewController&gt;</code> <p>the stack of view controllers in this nav controller.</p>
+
+
+</div>
+
+
+
+
 <div id="getActiveChildNav"></div>
 
 <h3>

@@ -44,7 +44,7 @@ And the following scripts near the bottom:
 
 Inside of the `app` directory we find our pre-compiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](/docs/v2/resources/what-is/#es2015-es6), but compile down to the older form of Javascript the browser needs.
 
-`app/app.ts` is the entry point for our app.
+`app/app.component.ts` is the entry point for our app.
 
 Near the top of the file, we should see this:
 

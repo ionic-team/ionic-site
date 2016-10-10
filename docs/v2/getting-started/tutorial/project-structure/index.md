@@ -33,10 +33,10 @@ And the following scripts near the bottom:
 
 ```html
 <script src="cordova.js"></script>
-<script src="build/js/app.bundle.js"></script>
+<script src="build/main.js"></script>
 ```
 
-- `build/js/app.bundle.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
+- `build/main.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
 
 - `cordova.js` will 404 during local development, as it gets injected into your project during Cordova's build process.
 

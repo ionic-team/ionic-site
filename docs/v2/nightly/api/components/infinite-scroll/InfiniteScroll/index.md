@@ -131,26 +131,6 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="state"></div>
-
-<h3>
-<a class="anchor" name="state" href="#state"></a>
-<code>state</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="complete"></div>
 
 <h3>

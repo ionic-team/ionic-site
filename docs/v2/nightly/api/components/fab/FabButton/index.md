@@ -94,8 +94,6 @@ FABs as its name suggests are floating over the content in a fixed position. Thi
 
 
 
-
-
 <th>Description</th>
 </tr>
 </thead>
@@ -110,18 +108,6 @@ mini
 
 <td>
 Makes a fab button with a reduced size.
-</td>
-</tr>
-
-<tr>
-<td>
-color
-</td>
-
-
-
-<td>
-Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 
 </td>
 </tr>

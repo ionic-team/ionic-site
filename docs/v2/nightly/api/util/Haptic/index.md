@@ -70,26 +70,6 @@ if you fancy.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="plugin"></div>
-
-<h3>
-<a class="anchor" name="plugin" href="#plugin"></a>
-<code>plugin</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="available"></div>
 
 <h3>
@@ -99,13 +79,20 @@ if you fancy.</p>
 
 </h3>
 
+Check to see if the Haptic Plugin is available
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>Retuns true or false if the plugin is available</p>
 
+
+</div>
 
 
 
@@ -205,7 +192,7 @@ called lest resources are not properly recycled.
 </h3>
 
 Use this to indicate success/failure/warning to the user.
-options should be of the type { type: 'success' } (or 'warning'/'error')
+options should be of the type `{ type: 'success' }` (or `warning`/`error`)
 
 
 
@@ -227,7 +214,7 @@ options should be of the type { type: 'success' } (or 'warning'/'error')
 </h3>
 
 Use this to indicate success/failure/warning to the user.
-options should be of the type { style: 'light' } (or 'medium'/'heavy')
+options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
 
 
 

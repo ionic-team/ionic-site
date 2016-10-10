@@ -69,6 +69,48 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="positionPlaceholder"></div>
+
+<h3>
+<a class="anchor" name="positionPlaceholder" href="#positionPlaceholder"></a>
+<code>positionPlaceholder()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setFocus"></div>
+
+<h3>
+<a class="anchor" name="setFocus" href="#setFocus"></a>
+<code>setFocus()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -148,6 +190,13 @@ Improve this doc
       <td>type</td>
       <td><code>string</code></td>
       <td><p> Set the type of the input. Values: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, <code>&quot;url&quot;</code>. Default <code>&quot;search&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>animated</td>
+      <td><code>string|boolean</code></td>
+      <td><p> Configures if the searchbar is animated or no. By default, animation is disabled.</p>
 </td>
     </tr>
     

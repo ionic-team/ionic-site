@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610101422, Default Theme
+ * vE2E-201610101456, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -6825,8 +6825,7 @@ ion-searchbar {
   width: 14px;
   height: 14px;
   background-repeat: no-repeat;
-  background-size: 13px;
-  transition: all 300ms ease; }
+  background-size: 13px; }
 
 .searchbar-ios .searchbar-input {
   padding: 0 28px;
@@ -6835,8 +6834,7 @@ ion-searchbar {
   font-size: 1.4rem;
   font-weight: 400;
   color: #000;
-  background-color: #fff;
-  transition: all 300ms ease; }
+  background-color: #fff; }
   .searchbar-ios .searchbar-input::-moz-placeholder {
     color: rgba(0, 0, 0, 0.5); }
   .searchbar-ios .searchbar-input:-ms-input-placeholder {
@@ -6861,20 +6859,11 @@ ion-searchbar {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: -100%;
   margin-left: 0;
   padding: 0;
   padding-left: 8px;
   height: 30px;
-  cursor: pointer;
-  opacity: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  transition: all 300ms ease;
-  pointer-events: none; }
-
-.searchbar-ios.searchbar-show-cancel .searchbar-ios-cancel {
-  display: block; }
+  cursor: pointer; }
 
 .searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
   margin-left: 0; }
@@ -6882,9 +6871,8 @@ ion-searchbar {
 .searchbar-ios.searchbar-left-aligned .searchbar-input {
   padding-left: 30px; }
 
-.searchbar-ios.searchbar-has-focus .searchbar-ios-cancel {
-  opacity: 1;
-  pointer-events: auto; }
+.searchbar-ios.searchbar-show-cancel.searchbar-has-focus .searchbar-ios-cancel {
+  display: block; }
 
 .toolbar .searchbar-ios {
   border-bottom-width: 0;
@@ -7031,6 +7019,23 @@ ion-searchbar {
 
 .toolbar-ios-dark .searchbar-ios .searchbar-ios-cancel {
   color: #fff; }
+
+.searchbar-ios.searchbar-animated .searchbar-search-icon,
+.searchbar-ios.searchbar-animated .searchbar-input {
+  transition: all 300ms ease; }
+
+.searchbar-animated.searchbar-has-focus .searchbar-ios-cancel {
+  opacity: 1;
+  pointer-events: auto; }
+
+.searchbar-animated .searchbar-ios-cancel {
+  display: block;
+  margin-right: -100%;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: all 300ms ease;
+  pointer-events: none; }
 
 .searchbar-md {
   padding: 8px;

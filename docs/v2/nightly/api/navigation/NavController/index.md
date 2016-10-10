@@ -259,6 +259,14 @@ class HelloWorld {
 <td><code>ionViewWillUnload</code></td>
 <td>Runs when the page is about to be destroyed and have its elements removed.</td>
 </tr>
+<tr>
+<td><code>ionViewCanEnter</code></td>
+<td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
+</tr>
+<tr>
+<td><code>ionViewCanLeave</code></td>
+<td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
+</tr>
 </tbody>
 </table>
 <h2 id="asynchronous-nav-transitions">Asynchronous Nav Transitions</h2>

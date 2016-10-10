@@ -155,6 +155,13 @@ of <code>background-color</code>.</p>
     </tr>
     
     <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>name</td>
       <td><code>string</code></td>
       <td><p> SVG spinner name.</p>

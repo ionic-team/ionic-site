@@ -47,9 +47,9 @@ Improve this doc
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
 a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
-is a declarative component for a <a href="../../nav/NavController/">NavController</a></p>
+is a declarative component for a <a href="/docs/v2/api/components/modal/ModalController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="/docs/v2/api/components/modal/ModalController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen

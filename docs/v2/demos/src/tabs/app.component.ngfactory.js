@@ -1757,6 +1757,14 @@ var _View_ApiDemoPage0 = (function (_super) {
         }
     };
     _View_ApiDemoPage0.prototype.destroyInternal = function () {
+        this._Tabs_12_4.ngOnDestroy();
+        this._Tabs_22_4.ngOnDestroy();
+        this._Tabs_32_4.ngOnDestroy();
+        this._Tabs_42_4.ngOnDestroy();
+        this._Tabs_52_4.ngOnDestroy();
+        this._Tabs_62_4.ngOnDestroy();
+        this._Tabs_72_4.ngOnDestroy();
+        this._Tabs_82_4.ngOnDestroy();
         this._Content_9_4.ngOnDestroy();
     };
     return _View_ApiDemoPage0;

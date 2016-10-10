@@ -2261,120 +2261,13 @@ class _View_ApiDemoPage3 extends import1.AppView<any> {
   /*private*/ _expr_3:any;
   /*private*/ _expr_4:any;
   /*private*/ _expr_5:any;
+  /*private*/ _expr_6:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_ApiDemoPage3,renderType_ApiDemoPage,import6.ViewType.EMBEDDED,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import2.AppElement {
     this._el_0 = this.renderer.createElement((null as any),'ion-toolbar',(null as any));
     this.renderer.setElementAttribute(this._el_0,'class','toolbar');
-    this.renderer.setElementAttribute(this._el_0,'no-border-top','');
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import31.viewFactory_Toolbar0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Toolbar_0_4 = new import10.Toolbar(this.parent.parentInjector.get(import22.ViewController,(null as any)),this.parent.parentInjector.get(import20.Config),new import21.ElementRef(this._el_0),this.renderer);
-    this._appEl_0.initComponent(this._Toolbar_0_4,[],compView_0);
-    this._text_1 = this.renderer.createText((null as any),'\n    ',(null as any));
-    this._el_2 = this.renderer.createElement((null as any),'ion-searchbar',(null as any));
-    this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
-    var compView_2:any = import41.viewFactory_Searchbar0(this.viewUtils,this.injector(2),this._appEl_2);
-    this._Searchbar_2_4 = new import40.Searchbar(this.parent.parentInjector.get(import20.Config),new import21.ElementRef(this._el_2),this.renderer,this.parent.parentInjector.get(import39.NgControl,(null as any)));
-    this._appEl_2.initComponent(this._Searchbar_2_4,[],compView_2);
-    compView_2.create(this._Searchbar_2_4,[],(null as any));
-    this._text_3 = this.renderer.createText((null as any),'\n  ',(null as any));
-    compView_0.create(this._Toolbar_0_4,[
-      [],
-      [],
-      [],
-      [].concat([
-        this._text_1,
-        this._el_2,
-        this._text_3
-      ]
-      )
-    ]
-    ,(null as any));
-    this._expr_0 = import7.UNINITIALIZED;
-    this._expr_1 = import7.UNINITIALIZED;
-    this._expr_2 = import7.UNINITIALIZED;
-    this._expr_3 = import7.UNINITIALIZED;
-    this._expr_4 = import7.UNINITIALIZED;
-    this._expr_5 = import7.UNINITIALIZED;
-    this.init([].concat([this._el_0]),[
-      this._el_0,
-      this._text_1,
-      this._el_2,
-      this._text_3
-    ]
-    ,[],[]);
-    return (null as any);
-  }
-  injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import40.Searchbar) && (2 === requestNodeIndex))) { return this._Searchbar_2_4; }
-    if (((token === import10.Toolbar) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 3)))) { return this._Toolbar_0_4; }
-    return notFoundResult;
-  }
-  detectChangesInternal(throwOnChange:boolean):void {
-    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._Searchbar_2_4.ngOnInit(); }
-    this.detectContentChildrenChanges(throwOnChange);
-    const currVal_0:any = this._Toolbar_0_4._sbPadding;
-    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this.renderer.setElementClass(this._el_0,'statusbar-padding',currVal_0);
-      this._expr_0 = currVal_0;
-    }
-    const currVal_1:any = this._Searchbar_2_4._value;
-    if (import4.checkBinding(throwOnChange,this._expr_1,currVal_1)) {
-      this.renderer.setElementClass(this._el_2,'searchbar-has-value',currVal_1);
-      this._expr_1 = currVal_1;
-    }
-    const currVal_2:any = this._Searchbar_2_4._isActive;
-    if (import4.checkBinding(throwOnChange,this._expr_2,currVal_2)) {
-      this.renderer.setElementClass(this._el_2,'searchbar-active',currVal_2);
-      this._expr_2 = currVal_2;
-    }
-    const currVal_3:any = this._Searchbar_2_4.showCancelButton;
-    if (import4.checkBinding(throwOnChange,this._expr_3,currVal_3)) {
-      this.renderer.setElementClass(this._el_2,'searchbar-show-cancel',currVal_3);
-      this._expr_3 = currVal_3;
-    }
-    const currVal_4:any = this._Searchbar_2_4.shouldAlignLeft();
-    if (import4.checkBinding(throwOnChange,this._expr_4,currVal_4)) {
-      this.renderer.setElementClass(this._el_2,'searchbar-left-aligned',currVal_4);
-      this._expr_4 = currVal_4;
-    }
-    const currVal_5:any = this._Searchbar_2_4._sbHasFocus;
-    if (import4.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
-      this.renderer.setElementClass(this._el_2,'searchbar-has-focus',currVal_5);
-      this._expr_5 = currVal_5;
-    }
-    this.detectViewChildrenChanges(throwOnChange);
-    if (!throwOnChange) { this._Searchbar_2_4.ngAfterViewChecked(); }
-  }
-}
-function viewFactory_ApiDemoPage3(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  return new _View_ApiDemoPage3(viewUtils,parentInjector,declarationEl);
-}
-class _View_ApiDemoPage4 extends import1.AppView<any> {
-  _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _Toolbar_0_4:import10.Toolbar;
-  _text_1:any;
-  _el_2:any;
-  /*private*/ _appEl_2:import2.AppElement;
-  _Searchbar_2_4:import40.Searchbar;
-  _text_3:any;
-  /*private*/ _expr_0:any;
-  /*private*/ _expr_1:any;
-  /*private*/ _expr_2:any;
-  /*private*/ _expr_3:any;
-  /*private*/ _expr_4:any;
-  /*private*/ _expr_5:any;
-  /*private*/ _expr_6:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
-    super(_View_ApiDemoPage4,renderType_ApiDemoPage,import6.ViewType.EMBEDDED,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
-  }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.renderer.createElement((null as any),'ion-toolbar',(null as any));
-    this.renderer.setElementAttribute(this._el_0,'class','toolbar');
-    this.renderer.setElementAttribute(this._el_0,'color','primary');
     this.renderer.setElementAttribute(this._el_0,'no-border-top','');
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import31.viewFactory_Toolbar0(this.viewUtils,this.injector(0),this._appEl_0);
@@ -2422,20 +2315,17 @@ class _View_ApiDemoPage4 extends import1.AppView<any> {
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    var changed:boolean = true;
-    changed = false;
-    const currVal_0:any = 'primary';
-    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this._Toolbar_0_4.color = currVal_0;
-      changed = true;
-      this._expr_0 = currVal_0;
-    }
-    if (changed) { this._appEl_0.componentView.markAsCheckOnce(); }
     if (((this.numberOfChecks === 0) && !throwOnChange)) { this._Searchbar_2_4.ngOnInit(); }
     this.detectContentChildrenChanges(throwOnChange);
-    const currVal_1:any = this._Toolbar_0_4._sbPadding;
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._Searchbar_2_4.ngAfterContentInit(); } }
+    const currVal_0:any = this._Toolbar_0_4._sbPadding;
+    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
+      this.renderer.setElementClass(this._el_0,'statusbar-padding',currVal_0);
+      this._expr_0 = currVal_0;
+    }
+    const currVal_1:any = this._Searchbar_2_4.animated;
     if (import4.checkBinding(throwOnChange,this._expr_1,currVal_1)) {
-      this.renderer.setElementClass(this._el_0,'statusbar-padding',currVal_1);
+      this.renderer.setElementClass(this._el_2,'searchbar-animated',currVal_1);
       this._expr_1 = currVal_1;
     }
     const currVal_2:any = this._Searchbar_2_4._value;
@@ -2453,7 +2343,7 @@ class _View_ApiDemoPage4 extends import1.AppView<any> {
       this.renderer.setElementClass(this._el_2,'searchbar-show-cancel',currVal_4);
       this._expr_4 = currVal_4;
     }
-    const currVal_5:any = this._Searchbar_2_4.shouldAlignLeft();
+    const currVal_5:any = this._Searchbar_2_4._shouldAlignLeft;
     if (import4.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
       this.renderer.setElementClass(this._el_2,'searchbar-left-aligned',currVal_5);
       this._expr_5 = currVal_5;
@@ -2464,7 +2354,131 @@ class _View_ApiDemoPage4 extends import1.AppView<any> {
       this._expr_6 = currVal_6;
     }
     this.detectViewChildrenChanges(throwOnChange);
-    if (!throwOnChange) { this._Searchbar_2_4.ngAfterViewChecked(); }
+  }
+}
+function viewFactory_ApiDemoPage3(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
+  return new _View_ApiDemoPage3(viewUtils,parentInjector,declarationEl);
+}
+class _View_ApiDemoPage4 extends import1.AppView<any> {
+  _el_0:any;
+  /*private*/ _appEl_0:import2.AppElement;
+  _Toolbar_0_4:import10.Toolbar;
+  _text_1:any;
+  _el_2:any;
+  /*private*/ _appEl_2:import2.AppElement;
+  _Searchbar_2_4:import40.Searchbar;
+  _text_3:any;
+  /*private*/ _expr_0:any;
+  /*private*/ _expr_1:any;
+  /*private*/ _expr_2:any;
+  /*private*/ _expr_3:any;
+  /*private*/ _expr_4:any;
+  /*private*/ _expr_5:any;
+  /*private*/ _expr_6:any;
+  /*private*/ _expr_7:any;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+    super(_View_ApiDemoPage4,renderType_ApiDemoPage,import6.ViewType.EMBEDDED,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
+  }
+  createInternal(rootSelector:string):import2.AppElement {
+    this._el_0 = this.renderer.createElement((null as any),'ion-toolbar',(null as any));
+    this.renderer.setElementAttribute(this._el_0,'class','toolbar');
+    this.renderer.setElementAttribute(this._el_0,'color','primary');
+    this.renderer.setElementAttribute(this._el_0,'no-border-top','');
+    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+    var compView_0:any = import31.viewFactory_Toolbar0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._Toolbar_0_4 = new import10.Toolbar(this.parent.parentInjector.get(import22.ViewController,(null as any)),this.parent.parentInjector.get(import20.Config),new import21.ElementRef(this._el_0),this.renderer);
+    this._appEl_0.initComponent(this._Toolbar_0_4,[],compView_0);
+    this._text_1 = this.renderer.createText((null as any),'\n    ',(null as any));
+    this._el_2 = this.renderer.createElement((null as any),'ion-searchbar',(null as any));
+    this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
+    var compView_2:any = import41.viewFactory_Searchbar0(this.viewUtils,this.injector(2),this._appEl_2);
+    this._Searchbar_2_4 = new import40.Searchbar(this.parent.parentInjector.get(import20.Config),new import21.ElementRef(this._el_2),this.renderer,this.parent.parentInjector.get(import39.NgControl,(null as any)));
+    this._appEl_2.initComponent(this._Searchbar_2_4,[],compView_2);
+    compView_2.create(this._Searchbar_2_4,[],(null as any));
+    this._text_3 = this.renderer.createText((null as any),'\n  ',(null as any));
+    compView_0.create(this._Toolbar_0_4,[
+      [],
+      [],
+      [],
+      [].concat([
+        this._text_1,
+        this._el_2,
+        this._text_3
+      ]
+      )
+    ]
+    ,(null as any));
+    this._expr_0 = import7.UNINITIALIZED;
+    this._expr_1 = import7.UNINITIALIZED;
+    this._expr_2 = import7.UNINITIALIZED;
+    this._expr_3 = import7.UNINITIALIZED;
+    this._expr_4 = import7.UNINITIALIZED;
+    this._expr_5 = import7.UNINITIALIZED;
+    this._expr_6 = import7.UNINITIALIZED;
+    this._expr_7 = import7.UNINITIALIZED;
+    this.init([].concat([this._el_0]),[
+      this._el_0,
+      this._text_1,
+      this._el_2,
+      this._text_3
+    ]
+    ,[],[]);
+    return (null as any);
+  }
+  injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
+    if (((token === import40.Searchbar) && (2 === requestNodeIndex))) { return this._Searchbar_2_4; }
+    if (((token === import10.Toolbar) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 3)))) { return this._Toolbar_0_4; }
+    return notFoundResult;
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    var changed:boolean = true;
+    changed = false;
+    const currVal_0:any = 'primary';
+    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
+      this._Toolbar_0_4.color = currVal_0;
+      changed = true;
+      this._expr_0 = currVal_0;
+    }
+    if (changed) { this._appEl_0.componentView.markAsCheckOnce(); }
+    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._Searchbar_2_4.ngOnInit(); }
+    this.detectContentChildrenChanges(throwOnChange);
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._Searchbar_2_4.ngAfterContentInit(); } }
+    const currVal_1:any = this._Toolbar_0_4._sbPadding;
+    if (import4.checkBinding(throwOnChange,this._expr_1,currVal_1)) {
+      this.renderer.setElementClass(this._el_0,'statusbar-padding',currVal_1);
+      this._expr_1 = currVal_1;
+    }
+    const currVal_2:any = this._Searchbar_2_4.animated;
+    if (import4.checkBinding(throwOnChange,this._expr_2,currVal_2)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-animated',currVal_2);
+      this._expr_2 = currVal_2;
+    }
+    const currVal_3:any = this._Searchbar_2_4._value;
+    if (import4.checkBinding(throwOnChange,this._expr_3,currVal_3)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-has-value',currVal_3);
+      this._expr_3 = currVal_3;
+    }
+    const currVal_4:any = this._Searchbar_2_4._isActive;
+    if (import4.checkBinding(throwOnChange,this._expr_4,currVal_4)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-active',currVal_4);
+      this._expr_4 = currVal_4;
+    }
+    const currVal_5:any = this._Searchbar_2_4.showCancelButton;
+    if (import4.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-show-cancel',currVal_5);
+      this._expr_5 = currVal_5;
+    }
+    const currVal_6:any = this._Searchbar_2_4._shouldAlignLeft;
+    if (import4.checkBinding(throwOnChange,this._expr_6,currVal_6)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-left-aligned',currVal_6);
+      this._expr_6 = currVal_6;
+    }
+    const currVal_7:any = this._Searchbar_2_4._sbHasFocus;
+    if (import4.checkBinding(throwOnChange,this._expr_7,currVal_7)) {
+      this.renderer.setElementClass(this._el_2,'searchbar-has-focus',currVal_7);
+      this._expr_7 = currVal_7;
+    }
+    this.detectViewChildrenChanges(throwOnChange);
   }
 }
 function viewFactory_ApiDemoPage4(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {

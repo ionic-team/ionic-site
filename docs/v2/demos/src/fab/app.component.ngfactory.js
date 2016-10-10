@@ -152,7 +152,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_19.create(this._FabButton_19_4, [[].concat([this._el_20])], null);
         this._text_21 = this.renderer.createText(null, '\n    ', null);
         this._el_22 = this.renderer.createElement(null, 'ion-fab-list', null);
-        this._FabList_22_3 = new import14.FabList();
+        this._FabList_22_3 = new import14.FabList(new import18.ElementRef(this._el_22), this.renderer);
         this._query_FabButton_22_0 = new import15.QueryList();
         this._text_23 = this.renderer.createText(this._el_22, '\n      ', null);
         this._el_24 = this.renderer.createElement(this._el_22, 'button', null);
@@ -245,7 +245,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_42 = this.renderer.createText(null, '\n    ', null);
         this._el_43 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_43, 'side', 'left');
-        this._FabList_43_3 = new import14.FabList();
+        this._FabList_43_3 = new import14.FabList(new import18.ElementRef(this._el_43), this.renderer);
         this._query_FabButton_43_0 = new import15.QueryList();
         this._text_44 = this.renderer.createText(this._el_43, '\n      ', null);
         this._el_45 = this.renderer.createElement(this._el_43, 'button', null);
@@ -338,7 +338,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_63 = this.renderer.createText(null, '\n    ', null);
         this._el_64 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_64, 'side', 'right');
-        this._FabList_64_3 = new import14.FabList();
+        this._FabList_64_3 = new import14.FabList(new import18.ElementRef(this._el_64), this.renderer);
         this._query_FabButton_64_0 = new import15.QueryList();
         this._text_65 = this.renderer.createText(this._el_64, '\n      ', null);
         this._el_66 = this.renderer.createElement(this._el_64, 'button', null);
@@ -431,7 +431,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_84 = this.renderer.createText(null, '\n    ', null);
         this._el_85 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_85, 'side', 'top');
-        this._FabList_85_3 = new import14.FabList();
+        this._FabList_85_3 = new import14.FabList(new import18.ElementRef(this._el_85), this.renderer);
         this._query_FabButton_85_0 = new import15.QueryList();
         this._text_86 = this.renderer.createText(this._el_85, '\n      ', null);
         this._el_87 = this.renderer.createElement(this._el_85, 'button', null);
@@ -524,7 +524,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_105 = this.renderer.createText(null, '\n    ', null);
         this._el_106 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_106, 'side', 'top');
-        this._FabList_106_3 = new import14.FabList();
+        this._FabList_106_3 = new import14.FabList(new import18.ElementRef(this._el_106), this.renderer);
         this._query_FabButton_106_0 = new import15.QueryList();
         this._text_107 = this.renderer.createText(this._el_106, '\n      ', null);
         this._el_108 = this.renderer.createElement(this._el_106, 'button', null);
@@ -543,7 +543,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_111 = this.renderer.createText(null, '\n    ', null);
         this._el_112 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_112, 'side', 'bottom');
-        this._FabList_112_3 = new import14.FabList();
+        this._FabList_112_3 = new import14.FabList(new import18.ElementRef(this._el_112), this.renderer);
         this._query_FabButton_112_0 = new import15.QueryList();
         this._text_113 = this.renderer.createText(this._el_112, '\n      ', null);
         this._el_114 = this.renderer.createElement(this._el_112, 'button', null);
@@ -562,7 +562,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_117 = this.renderer.createText(null, '\n    ', null);
         this._el_118 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_118, 'side', 'left');
-        this._FabList_118_3 = new import14.FabList();
+        this._FabList_118_3 = new import14.FabList(new import18.ElementRef(this._el_118), this.renderer);
         this._query_FabButton_118_0 = new import15.QueryList();
         this._text_119 = this.renderer.createText(this._el_118, '\n      ', null);
         this._el_120 = this.renderer.createElement(this._el_118, 'button', null);
@@ -581,7 +581,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_123 = this.renderer.createText(null, '\n    ', null);
         this._el_124 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_124, 'side', 'right');
-        this._FabList_124_3 = new import14.FabList();
+        this._FabList_124_3 = new import14.FabList(new import18.ElementRef(this._el_124), this.renderer);
         this._query_FabButton_124_0 = new import15.QueryList();
         this._text_125 = this.renderer.createText(this._el_124, '\n      ', null);
         this._el_126 = this.renderer.createElement(this._el_124, 'button', null);
@@ -684,95 +684,87 @@ var _View_ApiDemoPage0 = (function (_super) {
         var disposable_0 = this.renderer.listen(this._el_19, 'click', this.eventHandler(this._handle_click_19_0.bind(this)));
         this._expr_5 = import7.UNINITIALIZED;
         this._expr_6 = import7.UNINITIALIZED;
-        this._expr_7 = import7.UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_24, 'click', this.eventHandler(this._handle_click_24_0.bind(this)));
+        this._expr_8 = import7.UNINITIALIZED;
         this._expr_9 = import7.UNINITIALIZED;
-        this._expr_10 = import7.UNINITIALIZED;
         var disposable_2 = this.renderer.listen(this._el_27, 'click', this.eventHandler(this._handle_click_27_0.bind(this)));
+        this._expr_11 = import7.UNINITIALIZED;
         this._expr_12 = import7.UNINITIALIZED;
-        this._expr_13 = import7.UNINITIALIZED;
         var disposable_3 = this.renderer.listen(this._el_30, 'click', this.eventHandler(this._handle_click_30_0.bind(this)));
+        this._expr_14 = import7.UNINITIALIZED;
         this._expr_15 = import7.UNINITIALIZED;
-        this._expr_16 = import7.UNINITIALIZED;
         var disposable_4 = this.renderer.listen(this._el_33, 'click', this.eventHandler(this._handle_click_33_0.bind(this)));
+        this._expr_17 = import7.UNINITIALIZED;
         this._expr_18 = import7.UNINITIALIZED;
         this._expr_19 = import7.UNINITIALIZED;
         this._expr_20 = import7.UNINITIALIZED;
         this._expr_21 = import7.UNINITIALIZED;
-        this._expr_22 = import7.UNINITIALIZED;
-        this._expr_23 = import7.UNINITIALIZED;
         var disposable_5 = this.renderer.listen(this._el_45, 'click', this.eventHandler(this._handle_click_45_0.bind(this)));
-        this._expr_25 = import7.UNINITIALIZED;
-        this._expr_26 = import7.UNINITIALIZED;
+        this._expr_23 = import7.UNINITIALIZED;
+        this._expr_24 = import7.UNINITIALIZED;
         var disposable_6 = this.renderer.listen(this._el_48, 'click', this.eventHandler(this._handle_click_48_0.bind(this)));
-        this._expr_28 = import7.UNINITIALIZED;
-        this._expr_29 = import7.UNINITIALIZED;
+        this._expr_26 = import7.UNINITIALIZED;
+        this._expr_27 = import7.UNINITIALIZED;
         var disposable_7 = this.renderer.listen(this._el_51, 'click', this.eventHandler(this._handle_click_51_0.bind(this)));
-        this._expr_31 = import7.UNINITIALIZED;
-        this._expr_32 = import7.UNINITIALIZED;
+        this._expr_29 = import7.UNINITIALIZED;
+        this._expr_30 = import7.UNINITIALIZED;
         var disposable_8 = this.renderer.listen(this._el_54, 'click', this.eventHandler(this._handle_click_54_0.bind(this)));
+        this._expr_32 = import7.UNINITIALIZED;
+        this._expr_33 = import7.UNINITIALIZED;
         this._expr_34 = import7.UNINITIALIZED;
         this._expr_35 = import7.UNINITIALIZED;
         this._expr_36 = import7.UNINITIALIZED;
-        this._expr_37 = import7.UNINITIALIZED;
+        var disposable_9 = this.renderer.listen(this._el_66, 'click', this.eventHandler(this._handle_click_66_0.bind(this)));
         this._expr_38 = import7.UNINITIALIZED;
         this._expr_39 = import7.UNINITIALIZED;
-        var disposable_9 = this.renderer.listen(this._el_66, 'click', this.eventHandler(this._handle_click_66_0.bind(this)));
+        var disposable_10 = this.renderer.listen(this._el_69, 'click', this.eventHandler(this._handle_click_69_0.bind(this)));
         this._expr_41 = import7.UNINITIALIZED;
         this._expr_42 = import7.UNINITIALIZED;
-        var disposable_10 = this.renderer.listen(this._el_69, 'click', this.eventHandler(this._handle_click_69_0.bind(this)));
+        var disposable_11 = this.renderer.listen(this._el_72, 'click', this.eventHandler(this._handle_click_72_0.bind(this)));
         this._expr_44 = import7.UNINITIALIZED;
         this._expr_45 = import7.UNINITIALIZED;
-        var disposable_11 = this.renderer.listen(this._el_72, 'click', this.eventHandler(this._handle_click_72_0.bind(this)));
+        var disposable_12 = this.renderer.listen(this._el_75, 'click', this.eventHandler(this._handle_click_75_0.bind(this)));
         this._expr_47 = import7.UNINITIALIZED;
         this._expr_48 = import7.UNINITIALIZED;
-        var disposable_12 = this.renderer.listen(this._el_75, 'click', this.eventHandler(this._handle_click_75_0.bind(this)));
+        this._expr_49 = import7.UNINITIALIZED;
         this._expr_50 = import7.UNINITIALIZED;
         this._expr_51 = import7.UNINITIALIZED;
-        this._expr_52 = import7.UNINITIALIZED;
+        var disposable_13 = this.renderer.listen(this._el_87, 'click', this.eventHandler(this._handle_click_87_0.bind(this)));
         this._expr_53 = import7.UNINITIALIZED;
         this._expr_54 = import7.UNINITIALIZED;
-        this._expr_55 = import7.UNINITIALIZED;
-        var disposable_13 = this.renderer.listen(this._el_87, 'click', this.eventHandler(this._handle_click_87_0.bind(this)));
-        this._expr_57 = import7.UNINITIALIZED;
-        this._expr_58 = import7.UNINITIALIZED;
         var disposable_14 = this.renderer.listen(this._el_90, 'click', this.eventHandler(this._handle_click_90_0.bind(this)));
-        this._expr_60 = import7.UNINITIALIZED;
-        this._expr_61 = import7.UNINITIALIZED;
+        this._expr_56 = import7.UNINITIALIZED;
+        this._expr_57 = import7.UNINITIALIZED;
         var disposable_15 = this.renderer.listen(this._el_93, 'click', this.eventHandler(this._handle_click_93_0.bind(this)));
-        this._expr_63 = import7.UNINITIALIZED;
-        this._expr_64 = import7.UNINITIALIZED;
+        this._expr_59 = import7.UNINITIALIZED;
+        this._expr_60 = import7.UNINITIALIZED;
         var disposable_16 = this.renderer.listen(this._el_96, 'click', this.eventHandler(this._handle_click_96_0.bind(this)));
+        this._expr_62 = import7.UNINITIALIZED;
+        this._expr_63 = import7.UNINITIALIZED;
+        var disposable_17 = this.renderer.listen(this._el_103, 'click', this.eventHandler(this._handle_click_103_0.bind(this)));
+        this._expr_65 = import7.UNINITIALIZED;
         this._expr_66 = import7.UNINITIALIZED;
         this._expr_67 = import7.UNINITIALIZED;
-        var disposable_17 = this.renderer.listen(this._el_103, 'click', this.eventHandler(this._handle_click_103_0.bind(this)));
+        var disposable_18 = this.renderer.listen(this._el_108, 'click', this.eventHandler(this._handle_click_108_0.bind(this)));
         this._expr_69 = import7.UNINITIALIZED;
         this._expr_70 = import7.UNINITIALIZED;
         this._expr_71 = import7.UNINITIALIZED;
-        this._expr_72 = import7.UNINITIALIZED;
-        var disposable_18 = this.renderer.listen(this._el_108, 'click', this.eventHandler(this._handle_click_108_0.bind(this)));
+        var disposable_19 = this.renderer.listen(this._el_114, 'click', this.eventHandler(this._handle_click_114_0.bind(this)));
+        this._expr_73 = import7.UNINITIALIZED;
         this._expr_74 = import7.UNINITIALIZED;
         this._expr_75 = import7.UNINITIALIZED;
-        this._expr_76 = import7.UNINITIALIZED;
+        var disposable_20 = this.renderer.listen(this._el_120, 'click', this.eventHandler(this._handle_click_120_0.bind(this)));
         this._expr_77 = import7.UNINITIALIZED;
-        var disposable_19 = this.renderer.listen(this._el_114, 'click', this.eventHandler(this._handle_click_114_0.bind(this)));
+        this._expr_78 = import7.UNINITIALIZED;
         this._expr_79 = import7.UNINITIALIZED;
-        this._expr_80 = import7.UNINITIALIZED;
+        var disposable_21 = this.renderer.listen(this._el_126, 'click', this.eventHandler(this._handle_click_126_0.bind(this)));
         this._expr_81 = import7.UNINITIALIZED;
         this._expr_82 = import7.UNINITIALIZED;
-        var disposable_20 = this.renderer.listen(this._el_120, 'click', this.eventHandler(this._handle_click_120_0.bind(this)));
-        this._expr_84 = import7.UNINITIALIZED;
+        this._expr_83 = import7.UNINITIALIZED;
+        var disposable_22 = this.renderer.listen(this._el_133, 'click', this.eventHandler(this._handle_click_133_0.bind(this)));
         this._expr_85 = import7.UNINITIALIZED;
         this._expr_86 = import7.UNINITIALIZED;
         this._expr_87 = import7.UNINITIALIZED;
-        var disposable_21 = this.renderer.listen(this._el_126, 'click', this.eventHandler(this._handle_click_126_0.bind(this)));
-        this._expr_89 = import7.UNINITIALIZED;
-        this._expr_90 = import7.UNINITIALIZED;
-        this._expr_91 = import7.UNINITIALIZED;
-        var disposable_22 = this.renderer.listen(this._el_133, 'click', this.eventHandler(this._handle_click_133_0.bind(this)));
-        this._expr_93 = import7.UNINITIALIZED;
-        this._expr_94 = import7.UNINITIALIZED;
-        this._expr_95 = import7.UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -1194,220 +1186,220 @@ var _View_ApiDemoPage0 = (function (_super) {
             this._Icon_20_3.name = currVal_5;
             this._expr_5 = currVal_5;
         }
-        var currVal_9 = 'logo-facebook';
-        if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
-            this._Icon_25_3.name = currVal_9;
-            this._expr_9 = currVal_9;
+        var currVal_8 = 'logo-facebook';
+        if (import4.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
+            this._Icon_25_3.name = currVal_8;
+            this._expr_8 = currVal_8;
         }
-        var currVal_12 = 'logo-twitter';
-        if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Icon_28_3.name = currVal_12;
-            this._expr_12 = currVal_12;
+        var currVal_11 = 'logo-twitter';
+        if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
+            this._Icon_28_3.name = currVal_11;
+            this._expr_11 = currVal_11;
         }
-        var currVal_15 = 'logo-vimeo';
-        if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Icon_31_3.name = currVal_15;
-            this._expr_15 = currVal_15;
+        var currVal_14 = 'logo-vimeo';
+        if (import4.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
+            this._Icon_31_3.name = currVal_14;
+            this._expr_14 = currVal_14;
         }
-        var currVal_18 = 'logo-googleplus';
-        if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this._Icon_34_3.name = currVal_18;
-            this._expr_18 = currVal_18;
+        var currVal_17 = 'logo-googleplus';
+        if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
+            this._Icon_34_3.name = currVal_17;
+            this._expr_17 = currVal_17;
         }
         changed = false;
-        var currVal_20 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._FabButton_40_4.color = currVal_20;
+        var currVal_19 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
+            this._FabButton_40_4.color = currVal_19;
             changed = true;
-            this._expr_20 = currVal_20;
+            this._expr_19 = currVal_19;
         }
         if (changed) {
             this._appEl_40.componentView.markAsCheckOnce();
         }
-        var currVal_21 = 'arrow-dropleft';
-        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Icon_41_3.name = currVal_21;
-            this._expr_21 = currVal_21;
+        var currVal_20 = 'arrow-dropleft';
+        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
+            this._Icon_41_3.name = currVal_20;
+            this._expr_20 = currVal_20;
         }
-        var currVal_25 = 'logo-facebook';
-        if (import4.checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this._Icon_46_3.name = currVal_25;
-            this._expr_25 = currVal_25;
+        var currVal_23 = 'logo-facebook';
+        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this._Icon_46_3.name = currVal_23;
+            this._expr_23 = currVal_23;
         }
-        var currVal_28 = 'logo-twitter';
-        if (import4.checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this._Icon_49_3.name = currVal_28;
-            this._expr_28 = currVal_28;
+        var currVal_26 = 'logo-twitter';
+        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this._Icon_49_3.name = currVal_26;
+            this._expr_26 = currVal_26;
         }
-        var currVal_31 = 'logo-vimeo';
-        if (import4.checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this._Icon_52_3.name = currVal_31;
-            this._expr_31 = currVal_31;
+        var currVal_29 = 'logo-vimeo';
+        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
+            this._Icon_52_3.name = currVal_29;
+            this._expr_29 = currVal_29;
         }
-        var currVal_34 = 'logo-googleplus';
-        if (import4.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Icon_55_3.name = currVal_34;
-            this._expr_34 = currVal_34;
+        var currVal_32 = 'logo-googleplus';
+        if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this._Icon_55_3.name = currVal_32;
+            this._expr_32 = currVal_32;
         }
         changed = false;
-        var currVal_36 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_36, currVal_36)) {
-            this._FabButton_61_4.color = currVal_36;
+        var currVal_34 = 'secondary';
+        if (import4.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
+            this._FabButton_61_4.color = currVal_34;
             changed = true;
-            this._expr_36 = currVal_36;
+            this._expr_34 = currVal_34;
         }
         if (changed) {
             this._appEl_61.componentView.markAsCheckOnce();
         }
-        var currVal_37 = 'arrow-dropright';
-        if (import4.checkBinding(throwOnChange, this._expr_37, currVal_37)) {
-            this._Icon_62_3.name = currVal_37;
-            this._expr_37 = currVal_37;
+        var currVal_35 = 'arrow-dropright';
+        if (import4.checkBinding(throwOnChange, this._expr_35, currVal_35)) {
+            this._Icon_62_3.name = currVal_35;
+            this._expr_35 = currVal_35;
         }
-        var currVal_41 = 'logo-facebook';
+        var currVal_38 = 'logo-facebook';
+        if (import4.checkBinding(throwOnChange, this._expr_38, currVal_38)) {
+            this._Icon_67_3.name = currVal_38;
+            this._expr_38 = currVal_38;
+        }
+        var currVal_41 = 'logo-twitter';
         if (import4.checkBinding(throwOnChange, this._expr_41, currVal_41)) {
-            this._Icon_67_3.name = currVal_41;
+            this._Icon_70_3.name = currVal_41;
             this._expr_41 = currVal_41;
         }
-        var currVal_44 = 'logo-twitter';
+        var currVal_44 = 'logo-vimeo';
         if (import4.checkBinding(throwOnChange, this._expr_44, currVal_44)) {
-            this._Icon_70_3.name = currVal_44;
+            this._Icon_73_3.name = currVal_44;
             this._expr_44 = currVal_44;
         }
-        var currVal_47 = 'logo-vimeo';
+        var currVal_47 = 'logo-googleplus';
         if (import4.checkBinding(throwOnChange, this._expr_47, currVal_47)) {
-            this._Icon_73_3.name = currVal_47;
+            this._Icon_76_3.name = currVal_47;
             this._expr_47 = currVal_47;
         }
-        var currVal_50 = 'logo-googleplus';
-        if (import4.checkBinding(throwOnChange, this._expr_50, currVal_50)) {
-            this._Icon_76_3.name = currVal_50;
-            this._expr_50 = currVal_50;
-        }
         changed = false;
-        var currVal_52 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_52, currVal_52)) {
-            this._FabButton_82_4.color = currVal_52;
+        var currVal_49 = 'dark';
+        if (import4.checkBinding(throwOnChange, this._expr_49, currVal_49)) {
+            this._FabButton_82_4.color = currVal_49;
             changed = true;
-            this._expr_52 = currVal_52;
+            this._expr_49 = currVal_49;
         }
         if (changed) {
             this._appEl_82.componentView.markAsCheckOnce();
         }
-        var currVal_53 = 'arrow-dropup';
+        var currVal_50 = 'arrow-dropup';
+        if (import4.checkBinding(throwOnChange, this._expr_50, currVal_50)) {
+            this._Icon_83_3.name = currVal_50;
+            this._expr_50 = currVal_50;
+        }
+        var currVal_53 = 'logo-facebook';
         if (import4.checkBinding(throwOnChange, this._expr_53, currVal_53)) {
-            this._Icon_83_3.name = currVal_53;
+            this._Icon_88_3.name = currVal_53;
             this._expr_53 = currVal_53;
         }
-        var currVal_57 = 'logo-facebook';
-        if (import4.checkBinding(throwOnChange, this._expr_57, currVal_57)) {
-            this._Icon_88_3.name = currVal_57;
-            this._expr_57 = currVal_57;
+        var currVal_56 = 'logo-twitter';
+        if (import4.checkBinding(throwOnChange, this._expr_56, currVal_56)) {
+            this._Icon_91_3.name = currVal_56;
+            this._expr_56 = currVal_56;
         }
-        var currVal_60 = 'logo-twitter';
-        if (import4.checkBinding(throwOnChange, this._expr_60, currVal_60)) {
-            this._Icon_91_3.name = currVal_60;
-            this._expr_60 = currVal_60;
+        var currVal_59 = 'logo-vimeo';
+        if (import4.checkBinding(throwOnChange, this._expr_59, currVal_59)) {
+            this._Icon_94_3.name = currVal_59;
+            this._expr_59 = currVal_59;
         }
-        var currVal_63 = 'logo-vimeo';
-        if (import4.checkBinding(throwOnChange, this._expr_63, currVal_63)) {
-            this._Icon_94_3.name = currVal_63;
-            this._expr_63 = currVal_63;
-        }
-        var currVal_66 = 'logo-googleplus';
-        if (import4.checkBinding(throwOnChange, this._expr_66, currVal_66)) {
-            this._Icon_97_3.name = currVal_66;
-            this._expr_66 = currVal_66;
+        var currVal_62 = 'logo-googleplus';
+        if (import4.checkBinding(throwOnChange, this._expr_62, currVal_62)) {
+            this._Icon_97_3.name = currVal_62;
+            this._expr_62 = currVal_62;
         }
         changed = false;
-        var currVal_69 = 'danger';
-        if (import4.checkBinding(throwOnChange, this._expr_69, currVal_69)) {
-            this._FabButton_103_4.color = currVal_69;
+        var currVal_65 = 'danger';
+        if (import4.checkBinding(throwOnChange, this._expr_65, currVal_65)) {
+            this._FabButton_103_4.color = currVal_65;
             changed = true;
-            this._expr_69 = currVal_69;
+            this._expr_65 = currVal_65;
         }
         if (changed) {
             this._appEl_103.componentView.markAsCheckOnce();
         }
-        var currVal_70 = 'md-share';
-        if (import4.checkBinding(throwOnChange, this._expr_70, currVal_70)) {
-            this._Icon_104_3.name = currVal_70;
-            this._expr_70 = currVal_70;
+        var currVal_66 = 'md-share';
+        if (import4.checkBinding(throwOnChange, this._expr_66, currVal_66)) {
+            this._Icon_104_3.name = currVal_66;
+            this._expr_66 = currVal_66;
         }
         changed = false;
-        var currVal_74 = 'primary';
-        if (import4.checkBinding(throwOnChange, this._expr_74, currVal_74)) {
-            this._FabButton_108_4.color = currVal_74;
+        var currVal_69 = 'primary';
+        if (import4.checkBinding(throwOnChange, this._expr_69, currVal_69)) {
+            this._FabButton_108_4.color = currVal_69;
             changed = true;
-            this._expr_74 = currVal_74;
+            this._expr_69 = currVal_69;
         }
         if (changed) {
             this._appEl_108.componentView.markAsCheckOnce();
         }
-        var currVal_75 = 'logo-vimeo';
-        if (import4.checkBinding(throwOnChange, this._expr_75, currVal_75)) {
-            this._Icon_109_3.name = currVal_75;
-            this._expr_75 = currVal_75;
+        var currVal_70 = 'logo-vimeo';
+        if (import4.checkBinding(throwOnChange, this._expr_70, currVal_70)) {
+            this._Icon_109_3.name = currVal_70;
+            this._expr_70 = currVal_70;
         }
         changed = false;
-        var currVal_79 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_79, currVal_79)) {
-            this._FabButton_114_4.color = currVal_79;
+        var currVal_73 = 'secondary';
+        if (import4.checkBinding(throwOnChange, this._expr_73, currVal_73)) {
+            this._FabButton_114_4.color = currVal_73;
             changed = true;
-            this._expr_79 = currVal_79;
+            this._expr_73 = currVal_73;
         }
         if (changed) {
             this._appEl_114.componentView.markAsCheckOnce();
         }
-        var currVal_80 = 'logo-facebook';
-        if (import4.checkBinding(throwOnChange, this._expr_80, currVal_80)) {
-            this._Icon_115_3.name = currVal_80;
-            this._expr_80 = currVal_80;
+        var currVal_74 = 'logo-facebook';
+        if (import4.checkBinding(throwOnChange, this._expr_74, currVal_74)) {
+            this._Icon_115_3.name = currVal_74;
+            this._expr_74 = currVal_74;
         }
         changed = false;
-        var currVal_84 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_84, currVal_84)) {
-            this._FabButton_120_4.color = currVal_84;
+        var currVal_77 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_77, currVal_77)) {
+            this._FabButton_120_4.color = currVal_77;
             changed = true;
-            this._expr_84 = currVal_84;
+            this._expr_77 = currVal_77;
         }
         if (changed) {
             this._appEl_120.componentView.markAsCheckOnce();
         }
-        var currVal_85 = 'logo-googleplus';
-        if (import4.checkBinding(throwOnChange, this._expr_85, currVal_85)) {
-            this._Icon_121_3.name = currVal_85;
-            this._expr_85 = currVal_85;
+        var currVal_78 = 'logo-googleplus';
+        if (import4.checkBinding(throwOnChange, this._expr_78, currVal_78)) {
+            this._Icon_121_3.name = currVal_78;
+            this._expr_78 = currVal_78;
         }
         changed = false;
-        var currVal_89 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_89, currVal_89)) {
-            this._FabButton_126_4.color = currVal_89;
+        var currVal_81 = 'dark';
+        if (import4.checkBinding(throwOnChange, this._expr_81, currVal_81)) {
+            this._FabButton_126_4.color = currVal_81;
             changed = true;
-            this._expr_89 = currVal_89;
+            this._expr_81 = currVal_81;
         }
         if (changed) {
             this._appEl_126.componentView.markAsCheckOnce();
         }
-        var currVal_90 = 'logo-twitter';
-        if (import4.checkBinding(throwOnChange, this._expr_90, currVal_90)) {
-            this._Icon_127_3.name = currVal_90;
-            this._expr_90 = currVal_90;
+        var currVal_82 = 'logo-twitter';
+        if (import4.checkBinding(throwOnChange, this._expr_82, currVal_82)) {
+            this._Icon_127_3.name = currVal_82;
+            this._expr_82 = currVal_82;
         }
         changed = false;
-        var currVal_93 = 'danger';
-        if (import4.checkBinding(throwOnChange, this._expr_93, currVal_93)) {
-            this._FabButton_133_4.color = currVal_93;
+        var currVal_85 = 'danger';
+        if (import4.checkBinding(throwOnChange, this._expr_85, currVal_85)) {
+            this._FabButton_133_4.color = currVal_85;
             changed = true;
-            this._expr_93 = currVal_93;
+            this._expr_85 = currVal_85;
         }
         if (changed) {
             this._appEl_133.componentView.markAsCheckOnce();
         }
-        var currVal_94 = 'add';
-        if (import4.checkBinding(throwOnChange, this._expr_94, currVal_94)) {
-            this._Icon_134_3.name = currVal_94;
-            this._expr_94 = currVal_94;
+        var currVal_86 = 'add';
+        if (import4.checkBinding(throwOnChange, this._expr_86, currVal_86)) {
+            this._Icon_134_3.name = currVal_86;
+            this._expr_86 = currVal_86;
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -1540,170 +1532,130 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_20, 'hide', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_7 = this._FabList_22_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this.renderer.setElementClass(this._el_22, 'fab-list-active', currVal_7);
-            this._expr_7 = currVal_7;
+        var currVal_9 = this._Icon_25_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
+            this.renderer.setElementClass(this._el_25, 'hide', currVal_9);
+            this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._Icon_25_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this.renderer.setElementClass(this._el_25, 'hide', currVal_10);
-            this._expr_10 = currVal_10;
+        var currVal_12 = this._Icon_28_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
+            this.renderer.setElementClass(this._el_28, 'hide', currVal_12);
+            this._expr_12 = currVal_12;
         }
-        var currVal_13 = this._Icon_28_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this.renderer.setElementClass(this._el_28, 'hide', currVal_13);
-            this._expr_13 = currVal_13;
+        var currVal_15 = this._Icon_31_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
+            this.renderer.setElementClass(this._el_31, 'hide', currVal_15);
+            this._expr_15 = currVal_15;
         }
-        var currVal_16 = this._Icon_31_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this.renderer.setElementClass(this._el_31, 'hide', currVal_16);
-            this._expr_16 = currVal_16;
+        var currVal_18 = this._Icon_34_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
+            this.renderer.setElementClass(this._el_34, 'hide', currVal_18);
+            this._expr_18 = currVal_18;
         }
-        var currVal_19 = this._Icon_34_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this.renderer.setElementClass(this._el_34, 'hide', currVal_19);
-            this._expr_19 = currVal_19;
+        var currVal_21 = this._Icon_41_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this.renderer.setElementClass(this._el_41, 'hide', currVal_21);
+            this._expr_21 = currVal_21;
         }
-        var currVal_22 = this._Icon_41_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this.renderer.setElementClass(this._el_41, 'hide', currVal_22);
-            this._expr_22 = currVal_22;
+        var currVal_24 = this._Icon_46_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this.renderer.setElementClass(this._el_46, 'hide', currVal_24);
+            this._expr_24 = currVal_24;
         }
-        var currVal_23 = this._FabList_43_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
-            this.renderer.setElementClass(this._el_43, 'fab-list-active', currVal_23);
-            this._expr_23 = currVal_23;
+        var currVal_27 = this._Icon_49_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
+            this.renderer.setElementClass(this._el_49, 'hide', currVal_27);
+            this._expr_27 = currVal_27;
         }
-        var currVal_26 = this._Icon_46_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this.renderer.setElementClass(this._el_46, 'hide', currVal_26);
-            this._expr_26 = currVal_26;
+        var currVal_30 = this._Icon_52_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_30, currVal_30)) {
+            this.renderer.setElementClass(this._el_52, 'hide', currVal_30);
+            this._expr_30 = currVal_30;
         }
-        var currVal_29 = this._Icon_49_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this.renderer.setElementClass(this._el_49, 'hide', currVal_29);
-            this._expr_29 = currVal_29;
+        var currVal_33 = this._Icon_55_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_33, currVal_33)) {
+            this.renderer.setElementClass(this._el_55, 'hide', currVal_33);
+            this._expr_33 = currVal_33;
         }
-        var currVal_32 = this._Icon_52_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this.renderer.setElementClass(this._el_52, 'hide', currVal_32);
-            this._expr_32 = currVal_32;
+        var currVal_36 = this._Icon_62_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_36, currVal_36)) {
+            this.renderer.setElementClass(this._el_62, 'hide', currVal_36);
+            this._expr_36 = currVal_36;
         }
-        var currVal_35 = this._Icon_55_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_35, currVal_35)) {
-            this.renderer.setElementClass(this._el_55, 'hide', currVal_35);
-            this._expr_35 = currVal_35;
-        }
-        var currVal_38 = this._Icon_62_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_38, currVal_38)) {
-            this.renderer.setElementClass(this._el_62, 'hide', currVal_38);
-            this._expr_38 = currVal_38;
-        }
-        var currVal_39 = this._FabList_64_3._visible;
+        var currVal_39 = this._Icon_67_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_39, currVal_39)) {
-            this.renderer.setElementClass(this._el_64, 'fab-list-active', currVal_39);
+            this.renderer.setElementClass(this._el_67, 'hide', currVal_39);
             this._expr_39 = currVal_39;
         }
-        var currVal_42 = this._Icon_67_3._hidden;
+        var currVal_42 = this._Icon_70_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_42, currVal_42)) {
-            this.renderer.setElementClass(this._el_67, 'hide', currVal_42);
+            this.renderer.setElementClass(this._el_70, 'hide', currVal_42);
             this._expr_42 = currVal_42;
         }
-        var currVal_45 = this._Icon_70_3._hidden;
+        var currVal_45 = this._Icon_73_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_45, currVal_45)) {
-            this.renderer.setElementClass(this._el_70, 'hide', currVal_45);
+            this.renderer.setElementClass(this._el_73, 'hide', currVal_45);
             this._expr_45 = currVal_45;
         }
-        var currVal_48 = this._Icon_73_3._hidden;
+        var currVal_48 = this._Icon_76_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_48, currVal_48)) {
-            this.renderer.setElementClass(this._el_73, 'hide', currVal_48);
+            this.renderer.setElementClass(this._el_76, 'hide', currVal_48);
             this._expr_48 = currVal_48;
         }
-        var currVal_51 = this._Icon_76_3._hidden;
+        var currVal_51 = this._Icon_83_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_51, currVal_51)) {
-            this.renderer.setElementClass(this._el_76, 'hide', currVal_51);
+            this.renderer.setElementClass(this._el_83, 'hide', currVal_51);
             this._expr_51 = currVal_51;
         }
-        var currVal_54 = this._Icon_83_3._hidden;
+        var currVal_54 = this._Icon_88_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_54, currVal_54)) {
-            this.renderer.setElementClass(this._el_83, 'hide', currVal_54);
+            this.renderer.setElementClass(this._el_88, 'hide', currVal_54);
             this._expr_54 = currVal_54;
         }
-        var currVal_55 = this._FabList_85_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_55, currVal_55)) {
-            this.renderer.setElementClass(this._el_85, 'fab-list-active', currVal_55);
-            this._expr_55 = currVal_55;
+        var currVal_57 = this._Icon_91_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_57, currVal_57)) {
+            this.renderer.setElementClass(this._el_91, 'hide', currVal_57);
+            this._expr_57 = currVal_57;
         }
-        var currVal_58 = this._Icon_88_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_58, currVal_58)) {
-            this.renderer.setElementClass(this._el_88, 'hide', currVal_58);
-            this._expr_58 = currVal_58;
+        var currVal_60 = this._Icon_94_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_60, currVal_60)) {
+            this.renderer.setElementClass(this._el_94, 'hide', currVal_60);
+            this._expr_60 = currVal_60;
         }
-        var currVal_61 = this._Icon_91_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_61, currVal_61)) {
-            this.renderer.setElementClass(this._el_91, 'hide', currVal_61);
-            this._expr_61 = currVal_61;
+        var currVal_63 = this._Icon_97_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_63, currVal_63)) {
+            this.renderer.setElementClass(this._el_97, 'hide', currVal_63);
+            this._expr_63 = currVal_63;
         }
-        var currVal_64 = this._Icon_94_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_64, currVal_64)) {
-            this.renderer.setElementClass(this._el_94, 'hide', currVal_64);
-            this._expr_64 = currVal_64;
-        }
-        var currVal_67 = this._Icon_97_3._hidden;
+        var currVal_67 = this._Icon_104_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_67, currVal_67)) {
-            this.renderer.setElementClass(this._el_97, 'hide', currVal_67);
+            this.renderer.setElementClass(this._el_104, 'hide', currVal_67);
             this._expr_67 = currVal_67;
         }
-        var currVal_71 = this._Icon_104_3._hidden;
+        var currVal_71 = this._Icon_109_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_71, currVal_71)) {
-            this.renderer.setElementClass(this._el_104, 'hide', currVal_71);
+            this.renderer.setElementClass(this._el_109, 'hide', currVal_71);
             this._expr_71 = currVal_71;
         }
-        var currVal_72 = this._FabList_106_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_72, currVal_72)) {
-            this.renderer.setElementClass(this._el_106, 'fab-list-active', currVal_72);
-            this._expr_72 = currVal_72;
+        var currVal_75 = this._Icon_115_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_75, currVal_75)) {
+            this.renderer.setElementClass(this._el_115, 'hide', currVal_75);
+            this._expr_75 = currVal_75;
         }
-        var currVal_76 = this._Icon_109_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_76, currVal_76)) {
-            this.renderer.setElementClass(this._el_109, 'hide', currVal_76);
-            this._expr_76 = currVal_76;
+        var currVal_79 = this._Icon_121_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_79, currVal_79)) {
+            this.renderer.setElementClass(this._el_121, 'hide', currVal_79);
+            this._expr_79 = currVal_79;
         }
-        var currVal_77 = this._FabList_112_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_77, currVal_77)) {
-            this.renderer.setElementClass(this._el_112, 'fab-list-active', currVal_77);
-            this._expr_77 = currVal_77;
+        var currVal_83 = this._Icon_127_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_83, currVal_83)) {
+            this.renderer.setElementClass(this._el_127, 'hide', currVal_83);
+            this._expr_83 = currVal_83;
         }
-        var currVal_81 = this._Icon_115_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_81, currVal_81)) {
-            this.renderer.setElementClass(this._el_115, 'hide', currVal_81);
-            this._expr_81 = currVal_81;
-        }
-        var currVal_82 = this._FabList_118_3._visible;
-        if (import4.checkBinding(throwOnChange, this._expr_82, currVal_82)) {
-            this.renderer.setElementClass(this._el_118, 'fab-list-active', currVal_82);
-            this._expr_82 = currVal_82;
-        }
-        var currVal_86 = this._Icon_121_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_86, currVal_86)) {
-            this.renderer.setElementClass(this._el_121, 'hide', currVal_86);
-            this._expr_86 = currVal_86;
-        }
-        var currVal_87 = this._FabList_124_3._visible;
+        var currVal_87 = this._Icon_134_3._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_87, currVal_87)) {
-            this.renderer.setElementClass(this._el_124, 'fab-list-active', currVal_87);
+            this.renderer.setElementClass(this._el_134, 'hide', currVal_87);
             this._expr_87 = currVal_87;
-        }
-        var currVal_91 = this._Icon_127_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_91, currVal_91)) {
-            this.renderer.setElementClass(this._el_127, 'hide', currVal_91);
-            this._expr_91 = currVal_91;
-        }
-        var currVal_95 = this._Icon_134_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_95, currVal_95)) {
-            this.renderer.setElementClass(this._el_134, 'hide', currVal_95);
-            this._expr_95 = currVal_95;
         }
         this.detectViewChildrenChanges(throwOnChange);
     };

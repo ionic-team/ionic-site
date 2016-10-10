@@ -45,14 +45,15 @@ import * as import37 from '../../node_modules/ionic-angular/components/item/item
 import * as import38 from 'ionic-angular/util/form';
 import * as import39 from '../../node_modules/ionic-angular/components/button/button.ngfactory';
 import * as import40 from '../../node_modules/ionic-angular/components/toggle/toggle.ngfactory';
-import * as import41 from '../../node_modules/ionic-angular/components/radio/radio-button.ngfactory';
-import * as import42 from '@angular/forms/src/directives/control_value_accessor';
-import * as import43 from 'ionic-angular/components/nav/nav';
-import * as import44 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
-import * as import45 from 'ionic-angular/navigation/nav-controller-base';
-import * as import46 from '@angular/core/src/linker/component_factory_resolver';
-import * as import47 from 'ionic-angular/transitions/transition-controller';
-import * as import48 from 'ionic-angular/navigation/deep-linker';
+import * as import41 from 'ionic-angular/util/haptic';
+import * as import42 from '../../node_modules/ionic-angular/components/radio/radio-button.ngfactory';
+import * as import43 from '@angular/forms/src/directives/control_value_accessor';
+import * as import44 from 'ionic-angular/components/nav/nav';
+import * as import45 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
+import * as import46 from 'ionic-angular/navigation/nav-controller-base';
+import * as import47 from '@angular/core/src/linker/component_factory_resolver';
+import * as import48 from 'ionic-angular/transitions/transition-controller';
+import * as import49 from 'ionic-angular/navigation/deep-linker';
 var renderType_ApiDemoPage_Host:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   _el_0:any;
@@ -571,7 +572,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_30,'color','secondary');
     this._appEl_30 = new import2.AppElement(30,23,this,this._el_30);
     var compView_30:any = import40.viewFactory_Toggle0(this.viewUtils,this.injector(30),this._appEl_30);
-    this._Toggle_30_4 = new import21.Toggle(this.parentInjector.get(import38.Form),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_30),this.renderer,this._Item_23_4);
+    this._Toggle_30_4 = new import21.Toggle(this.parentInjector.get(import38.Form),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_30),this.renderer,this.parentInjector.get(import41.Haptic),this._Item_23_4);
     this._appEl_30.initComponent(this._Toggle_30_4,[],compView_30);
     compView_30.create(this._Toggle_30_4,[],(null as any));
     this._text_31 = this.renderer.createText((null as any),'\n      ',(null as any));
@@ -865,7 +866,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_94,'checked','');
     this.renderer.setElementAttribute(this._el_94,'value','always');
     this._appEl_94 = new import2.AppElement(94,89,this,this._el_94);
-    var compView_94:any = import41.viewFactory_RadioButton0(this.viewUtils,this.injector(94),this._appEl_94);
+    var compView_94:any = import42.viewFactory_RadioButton0(this.viewUtils,this.injector(94),this._appEl_94);
     this._RadioButton_94_4 = new import24.RadioButton(this.parentInjector.get(import38.Form),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_94),this.renderer,this._Item_89_4,this._RadioGroup_82_4);
     this._appEl_94.initComponent(this._RadioButton_94_4,[],compView_94);
     compView_94.create(this._RadioButton_94_4,[],(null as any));
@@ -905,7 +906,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._el_102 = this.renderer.createElement((null as any),'ion-radio',(null as any));
     this.renderer.setElementAttribute(this._el_102,'value','locked');
     this._appEl_102 = new import2.AppElement(102,97,this,this._el_102);
-    var compView_102:any = import41.viewFactory_RadioButton0(this.viewUtils,this.injector(102),this._appEl_102);
+    var compView_102:any = import42.viewFactory_RadioButton0(this.viewUtils,this.injector(102),this._appEl_102);
     this._RadioButton_102_4 = new import24.RadioButton(this.parentInjector.get(import38.Form),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_102),this.renderer,this._Item_97_4,this._RadioGroup_82_4);
     this._appEl_102.initComponent(this._RadioButton_102_4,[],compView_102);
     compView_102.create(this._RadioButton_102_4,[],(null as any));
@@ -1401,7 +1402,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import19.Icon) && (25 === requestNodeIndex))) { return this._Icon_25_3; }
     if (((token === import20.Label) && ((27 <= requestNodeIndex) && (requestNodeIndex <= 28)))) { return this._Label_27_3; }
     if (((token === import21.Toggle) && (30 === requestNodeIndex))) { return this._Toggle_30_4; }
-    if (((token === import42.NG_VALUE_ACCESSOR) && (30 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_30_5; }
+    if (((token === import43.NG_VALUE_ACCESSOR) && (30 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_30_5; }
     if (((token === import15.Item) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 31)))) { return this._Item_23_4; }
     if (((token === import15.ItemContent) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 31)))) { return this._ItemContent_23_5; }
     if (((token === import19.Icon) && (35 === requestNodeIndex))) { return this._Icon_35_3; }
@@ -1440,7 +1441,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import15.ItemContent) && ((97 <= requestNodeIndex) && (requestNodeIndex <= 103)))) { return this._ItemContent_97_5; }
     if (((token === import14.List) && ((82 <= requestNodeIndex) && (requestNodeIndex <= 104)))) { return this._List_82_3; }
     if (((token === import23.RadioGroup) && ((82 <= requestNodeIndex) && (requestNodeIndex <= 104)))) { return this._RadioGroup_82_4; }
-    if (((token === import42.NG_VALUE_ACCESSOR) && ((82 <= requestNodeIndex) && (requestNodeIndex <= 104)))) { return this._NG_VALUE_ACCESSOR_82_5; }
+    if (((token === import43.NG_VALUE_ACCESSOR) && ((82 <= requestNodeIndex) && (requestNodeIndex <= 104)))) { return this._NG_VALUE_ACCESSOR_82_5; }
     if (((token === import15.Item) && ((108 <= requestNodeIndex) && (requestNodeIndex <= 109)))) { return this._Item_108_4; }
     if (((token === import16.ListHeader) && ((108 <= requestNodeIndex) && (requestNodeIndex <= 109)))) { return this._ListHeader_108_5; }
     if (((token === import19.Icon) && (113 === requestNodeIndex))) { return this._Icon_113_3; }
@@ -1993,7 +1994,7 @@ var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
   /*private*/ _appEl_0:import2.AppElement;
-  _Nav_0_4:import43.Nav;
+  _Nav_0_4:import44.Nav;
   /*private*/ _expr_0:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_ApiDemoApp0,renderType_ApiDemoApp,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
@@ -2002,8 +2003,8 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._el_0 = this.renderer.createElement(parentRenderNode,'ion-nav',(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import44.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Nav_0_4 = new import43.Nav(this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import45.NavControllerBase,(null as any)),this.parentInjector.get(import29.App),this.parentInjector.get(import25.Config),this.parentInjector.get(import33.Keyboard),new import26.ElementRef(this._el_0),this.parentInjector.get(import34.NgZone),this.renderer,this.parentInjector.get(import46.ComponentFactoryResolver),this.parentInjector.get(import36.GestureController),this.parentInjector.get(import47.TransitionController),this.parentInjector.get(import48.DeepLinker,(null as any)));
+    var compView_0:any = import45.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._Nav_0_4 = new import44.Nav(this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import46.NavControllerBase,(null as any)),this.parentInjector.get(import29.App),this.parentInjector.get(import25.Config),this.parentInjector.get(import33.Keyboard),new import26.ElementRef(this._el_0),this.parentInjector.get(import34.NgZone),this.renderer,this.parentInjector.get(import47.ComponentFactoryResolver),this.parentInjector.get(import36.GestureController),this.parentInjector.get(import48.TransitionController),this.parentInjector.get(import49.DeepLinker,(null as any)));
     this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
     compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
@@ -2011,7 +2012,7 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import43.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
+    if (((token === import44.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {

@@ -27120,6 +27120,61 @@ var GestureDelegate = (function () {
     return GestureDelegate;
 }());
 
+var Haptic = (function () {
+    function Haptic(platform) {
+        var _this = this;
+        platform.ready().then(function () {
+            _this.plugin = window.TapticEngine;
+        });
+    }
+    Haptic.prototype.available = function () {
+        return !!this.plugin;
+    };
+    Haptic.prototype.selection = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.selection();
+    };
+    Haptic.prototype.gestureSelectionStart = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionStart();
+    };
+    Haptic.prototype.gestureSelectionChanged = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionChanged();
+    };
+    Haptic.prototype.gestureSelectionEnd = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionEnd();
+    };
+    Haptic.prototype.notification = function (options) {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.notification(options);
+    };
+    Haptic.prototype.impact = function (options) {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.impact(options);
+    };
+    Haptic.decorators = [
+        { type: Injectable },
+    ];
+    Haptic.ctorParameters = [
+        { type: Platform, },
+    ];
+    return Haptic;
+}());
+
 var __extends$59 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -27498,7 +27553,7 @@ var UIEventManager = (function () {
     return UIEventManager;
 }());
 function listenEvent(ele, eventName, zoneWrapped, option, callback) {
-    var rawEvent = ('__zone_symbol__addEventListener' in ele && !zoneWrapped);
+    var rawEvent = (!zoneWrapped && '__zone_symbol__addEventListener' in ele);
     if (rawEvent) {
         ele.__zone_symbol__addEventListener(eventName, callback, option);
         return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
@@ -27960,8 +28015,8 @@ var NavControllerBase = (function (_super) {
                 ti.removeCount = (viewsLength - ti.removeStart);
             }
             leavingRequiresTransition = (ti.removeStart + ti.removeCount === viewsLength);
-            for (var i = ti.removeStart; i <= ti.removeCount; i++) {
-                destroyQueue.push(this._views[i]);
+            for (var i = 0; i < ti.removeCount; i++) {
+                destroyQueue.push(this._views[i + ti.removeStart]);
             }
             for (var i = viewsLength - 1; i >= 0; i--) {
                 var view = this._views[i];
@@ -28164,7 +28219,7 @@ var NavControllerBase = (function (_super) {
             _this._zone.run(_this._trnsFinish.bind(_this, trns, opts, resolve));
         });
         var duration = trns.getDuration();
-        this.setTransitioning(true, duration + ACTIVE_TRANSITION_OFFSET);
+        this.setTransitioning(true, duration);
         if (!trns.parent) {
             if (duration > DISABLE_APP_MINIMUM_DURATION) {
                 this._app.setEnabled(false, duration);
@@ -28337,7 +28392,7 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.setTransitioning = function (isTransitioning, durationPadding) {
         if (durationPadding === void 0) { durationPadding = 2000; }
-        this._trnsTm = (isTransitioning ? Date.now() + durationPadding : 0);
+        this._trnsTm = (isTransitioning ? (Date.now() + durationPadding + ACTIVE_TRANSITION_OFFSET) : 0);
     };
     NavControllerBase.prototype.getActive = function () {
         return this._views[this._views.length - 1];
@@ -28365,6 +28420,9 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.length = function () {
         return this._views.length;
+    };
+    NavControllerBase.prototype.getViews = function () {
+        return this._views;
     };
     NavControllerBase.prototype.isSwipeBackEnabled = function () {
         return this._sbEnabled;
@@ -28398,7 +28456,7 @@ var NavControllerBase = (function (_super) {
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
 var ACTIVE_TRANSITION_MAX_TIME = 5000;
-var ACTIVE_TRANSITION_OFFSET = 200;
+var ACTIVE_TRANSITION_OFFSET = 400;
 
 var Animation = (function () {
     function Animation(ele, opts, raf$$1) {
@@ -29050,6 +29108,9 @@ var Tabs = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Tabs.prototype.ngOnDestroy = function () {
+        this.parent.unregisterChildNav(this);
+    };
     Tabs.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._setConfig('tabsPlacement', 'bottom');
@@ -29160,12 +29221,9 @@ var Tabs = (function (_super) {
                 _this._selectHistory.push(selectedTab.id);
             }
             if (alreadyLoaded && selectedPage) {
-                var content_1 = selectedPage.getContent();
-                if (content_1 && content_1 instanceof Content) {
-                    nativeRaf(function () {
-                        content_1.readDimensions();
-                        content_1.writeDimensions();
-                    });
+                var content = selectedPage.getContent();
+                if (content && content instanceof Content) {
+                    content.resize();
                 }
             }
         });
@@ -29461,8 +29519,9 @@ var Content = (function (_super) {
         this._footerHeight = 0;
         this._tabsPlacement = null;
         var ele = this._elementRef.nativeElement;
-        if (!ele)
+        if (!ele) {
             return;
+        }
         var parentEle = ele.parentElement;
         var computedStyle;
         for (var i = 0; i < parentEle.children.length; i++) {
@@ -29657,6 +29716,7 @@ var __extends$67 = (undefined && undefined.__extends) || function (d, b) {
 var DURATION = 500;
 var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 var OPACITY = 'opacity';
+var TRANSFORM = 'transform';
 var TRANSLATEX = 'translateX';
 var OFF_RIGHT = '99.5%';
 var OFF_LEFT = '-33%';
@@ -29755,7 +29815,8 @@ var IOSTransition = (function (_super) {
             else {
                 leavingContent
                     .fromTo(TRANSLATEX, CENTER, OFF_LEFT)
-                    .fromTo(OPACITY, 1, OFF_OPACITY);
+                    .fromTo(OPACITY, 1, OFF_OPACITY)
+                    .afterClearStyles([TRANSFORM, OPACITY]);
             }
             if (leavingHasNavbar) {
                 var leavingNavbarEle = leavingPageEle.querySelector('ion-navbar');
@@ -29778,7 +29839,7 @@ var IOSTransition = (function (_super) {
                     if (enteringHasNavbar) {
                         leavingNavbarBg
                             .beforeClearStyles([TRANSLATEX])
-                            .fromTo('opacity', 0.99, 0);
+                            .fromTo(OPACITY, 0.99, 0);
                     }
                     else {
                         leavingNavbarBg
@@ -29790,7 +29851,12 @@ var IOSTransition = (function (_super) {
                     leavingNavBar.add(leavingBackBtnText);
                 }
                 else {
-                    leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
+                    leavingTitle
+                        .fromTo(TRANSLATEX, CENTER, OFF_LEFT)
+                        .afterClearStyles([TRANSFORM]);
+                    leavingBackButton.afterClearStyles([OPACITY]);
+                    leavingTitle.afterClearStyles([OPACITY]);
+                    leavingNavbarItems.afterClearStyles([OPACITY]);
                 }
             }
         }
@@ -29821,7 +29887,6 @@ var MDTransition = (function (_super) {
         if (enteringView) {
             if (backDirection) {
                 this.duration(isPresent$5(opts.duration) ? opts.duration : 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                this.enteringPage.beforeClearStyles([TRANSLATEY]);
             }
             else {
                 this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0.36,0.66,0.04,1)');
@@ -31258,9 +31323,10 @@ var ModalController = (function () {
 }());
 
 var PickerColumnCmp = (function () {
-    function PickerColumnCmp(config, elementRef, _sanitizer) {
+    function PickerColumnCmp(config, elementRef, _sanitizer, _haptic) {
         this.elementRef = elementRef;
         this._sanitizer = _sanitizer;
+        this._haptic = _haptic;
         this.y = 0;
         this.pos = [];
         this.startY = null;
@@ -31302,6 +31368,7 @@ var PickerColumnCmp = (function () {
         }
         this.minY = (minY * this.optHeight * -1);
         this.maxY = (maxY * this.optHeight * -1);
+        this._haptic.gestureSelectionStart();
         return true;
     };
     PickerColumnCmp.prototype.pointerMove = function (ev) {
@@ -31325,6 +31392,11 @@ var PickerColumnCmp = (function () {
             this.bounceFrom = 0;
         }
         this.update(y, 0, false, false);
+        var currentIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
+        if (currentIndex !== this.lastTempIndex) {
+            this._haptic.gestureSelectionChanged();
+        }
+        this.lastTempIndex = currentIndex;
     };
     PickerColumnCmp.prototype.pointerEnd = function (ev) {
         if (!this.receivingEvents) {
@@ -31368,6 +31440,7 @@ var PickerColumnCmp = (function () {
         cancelRaf(this.rafId);
         if (isNaN(this.y) || !this.optHeight) {
             this.update(y, 0, true, true);
+            this._haptic.gestureSelectionEnd();
         }
         else if (Math.abs(this.velocity) > 0) {
             this.velocity *= DECELERATION_FRICTION$1;
@@ -31381,7 +31454,6 @@ var PickerColumnCmp = (function () {
                 y = this.maxY;
                 this.velocity = 0;
             }
-            console.log("decelerate y: " + y + ", velocity: " + this.velocity + ", optHeight: " + this.optHeight);
             var notLockedIn = (y % this.optHeight !== 0 || Math.abs(this.velocity) > 1);
             this.update(y, 0, true, !notLockedIn);
             if (notLockedIn) {
@@ -31391,8 +31463,14 @@ var PickerColumnCmp = (function () {
         else if (this.y % this.optHeight !== 0) {
             var currentPos = Math.abs(this.y % this.optHeight);
             this.velocity = (currentPos > (this.optHeight / 2) ? 1 : -1);
+            this._haptic.gestureSelectionEnd();
             this.decelerate();
         }
+        var currentIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
+        if (currentIndex !== this.lastTempIndex) {
+            this._haptic.gestureSelectionChanged();
+        }
+        this.lastTempIndex = currentIndex;
     };
     PickerColumnCmp.prototype.optClick = function (ev, index) {
         if (!this.velocity) {
@@ -31488,6 +31566,7 @@ var PickerColumnCmp = (function () {
         { type: Config, },
         { type: ElementRef, },
         { type: DomSanitizer, },
+        { type: Haptic, },
     ];
     PickerColumnCmp.propDecorators = {
         'colEle': [{ type: ViewChild, args: ['colEle',] },],
@@ -32883,9 +32962,10 @@ var Avatar = (function () {
 }());
 
 var Backdrop = (function () {
-    function Backdrop(_gestureCtrl, _elementRef) {
+    function Backdrop(_gestureCtrl, _elementRef, _renderer) {
         this._gestureCtrl = _gestureCtrl;
         this._elementRef = _elementRef;
+        this._renderer = _renderer;
         this._gestureID = null;
         this.disableScroll = true;
     }
@@ -32903,6 +32983,9 @@ var Backdrop = (function () {
     Backdrop.prototype.getNativeElement = function () {
         return this._elementRef.nativeElement;
     };
+    Backdrop.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+    };
     Backdrop.decorators = [
         { type: Directive, args: [{
                     selector: 'ion-backdrop',
@@ -32916,6 +32999,7 @@ var Backdrop = (function () {
     Backdrop.ctorParameters = [
         { type: GestureController, },
         { type: ElementRef, },
+        { type: Renderer, },
     ];
     Backdrop.propDecorators = {
         'disableScroll': [{ type: Input },],
@@ -33276,9 +33360,11 @@ var Icon = (function (_super) {
         },
         set: function (val) {
             if (!(/^md-|^ios-|^logo-/.test(val))) {
-                val = this._iconMode + '-' + val;
+                this._name = this._iconMode + '-' + val;
             }
-            this._name = val;
+            else {
+                this._name = val;
+            }
             this.update();
         },
         enumerable: true,
@@ -33318,28 +33404,41 @@ var Icon = (function (_super) {
         configurable: true
     });
     Icon.prototype.update = function () {
-        var css = 'ion-';
-        this._hidden = (this._name === null);
+        var name;
         if (this._ios && this._iconMode === 'ios') {
-            css += this._ios;
+            name = this._ios;
         }
         else if (this._md && this._iconMode === 'md') {
-            css += this._md;
+            name = this._md;
         }
         else {
-            css += this._name;
+            name = this._name;
         }
-        if (this._iconMode === 'ios' && !this.isActive && css.indexOf('logo') < 0) {
-            css += '-outline';
+        var hidden = this._hidden = (name === null);
+        if (hidden) {
+            return;
         }
-        if (this._css !== css) {
-            if (this._css) {
-                this.setElementClass(this._css, false);
-            }
-            this._css = css;
-            this.setElementClass(css, true);
-            this.setElementAttribute('aria-label', css.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
+        var iconMode = name.split('-', 2)[0];
+        if (iconMode === 'ios' &&
+            !this.isActive &&
+            name.indexOf('logo-') < 0 &&
+            name.indexOf('-outline') < 0) {
+            name += '-outline';
         }
+        var css = 'ion-' + name;
+        if (this._css === css) {
+            return;
+        }
+        if (this._css) {
+            this.setElementClass(this._css, false);
+        }
+        this._css = css;
+        this.setElementClass(css, true);
+        var label = name
+            .replace('ios-', '')
+            .replace('md-', '')
+            .replace('-', ' ');
+        this.setElementAttribute('aria-label', label);
     };
     Icon.decorators = [
         { type: Directive, args: [{
@@ -34602,7 +34701,9 @@ var FabButton = (function (_super) {
     return FabButton;
 }(Ion));
 var FabList = (function () {
-    function FabList() {
+    function FabList(_elementRef, _renderer) {
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
         this._visible = false;
         this._fabs = [];
     }
@@ -34622,28 +34723,32 @@ var FabList = (function () {
         if (visible === this._visible) {
             return;
         }
+        this._visible = visible;
         var fabs = this._fabs;
         var i = 1;
         if (visible) {
             fabs.forEach(function (fab) {
-                setTimeout(function () { return fab.setElementClass('show', true); }, i * 30);
+                nativeTimeout(function () { return fab.setElementClass('show', true); }, i * 30);
                 i++;
             });
         }
         else {
             fabs.forEach(function (fab) { return fab.setElementClass('show', false); });
         }
-        this._visible = visible;
+        this.setElementClass('fab-list-active', visible);
+    };
+    FabList.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
     };
     FabList.decorators = [
         { type: Directive, args: [{
                     selector: 'ion-fab-list',
-                    host: {
-                        '[class.fab-list-active]': '_visible'
-                    }
                 },] },
     ];
-    FabList.ctorParameters = [];
+    FabList.ctorParameters = [
+        { type: ElementRef, },
+        { type: Renderer, },
+    ];
     FabList.propDecorators = {
         '_setbuttons': [{ type: ContentChildren, args: [FabButton,] },],
     };
@@ -34673,17 +34778,17 @@ var FabContainer = (function () {
     FabContainer.prototype.toggleList = function () {
         this.setActiveLists(!this._listsActive);
     };
-    FabContainer.prototype.setActiveLists = function (isActive) {
-        if (isActive === this._listsActive) {
+    FabContainer.prototype.setActiveLists = function (isActive$$1) {
+        if (isActive$$1 === this._listsActive) {
             return;
         }
         var lists = this._fabLists.toArray();
         for (var _i = 0, lists_1 = lists; _i < lists_1.length; _i++) {
             var list = lists_1[_i];
-            list.setVisible(isActive);
+            list.setVisible(isActive$$1);
         }
-        this._mainButton.setActiveClose(isActive);
-        this._listsActive = isActive;
+        this._mainButton.setActiveClose(isActive$$1);
+        this._listsActive = isActive$$1;
     };
     FabContainer.prototype.close = function () {
         this.setActiveLists(false);
@@ -35409,7 +35514,9 @@ var ItemSlidingGesture = (function (_super) {
         this.preSelectedContainer = null;
     };
     ItemSlidingGesture.prototype.notCaptured = function (ev) {
-        this.closeOpened();
+        if (!clickedOptionButton(ev)) {
+            this.closeOpened();
+        }
     };
     ItemSlidingGesture.prototype.closeOpened = function () {
         this.selectedContainer = null;
@@ -35431,11 +35538,15 @@ var ItemSlidingGesture = (function (_super) {
     return ItemSlidingGesture;
 }(PanGesture));
 function getContainer(ev) {
-    var ele = ev.target.closest('ion-item-sliding', true);
+    var ele = ev.target.closest('ion-item-sliding');
     if (ele) {
         return ele['$ionComponent'];
     }
     return null;
+}
+function clickedOptionButton(ev) {
+    var ele = ev.target.closest('ion-item-options>button');
+    return !!ele;
 }
 
 var __extends$96 = (undefined && undefined.__extends) || function (d, b) {
@@ -35930,32 +36041,32 @@ var Menu = (function () {
         configurable: true
     });
     Menu.prototype.ngOnInit = function () {
-        var self = this;
-        self._init = true;
-        var content = self.content;
-        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
-        if (!self._cntEle) {
+        var _this = this;
+        this._init = true;
+        var content = this.content;
+        this._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
+        if (!this._cntEle) {
             return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
         }
-        if (self.side !== 'left' && self.side !== 'right') {
-            self.side = 'left';
+        if (this.side !== 'left' && this.side !== 'right') {
+            this.side = 'left';
         }
-        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'side', self.side);
-        if (!self.type) {
-            self.type = self._config.get('menuType');
+        this.setElementAttribute('side', this.side);
+        if (!this.type) {
+            this.type = this._config.get('menuType');
         }
-        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'type', self.type);
-        self._cntGesture = new MenuContentGesture(self, document.body);
-        var hasEnabledSameSideMenu = self._menuCtrl.getMenus().some(function (m) {
-            return m.side === self.side && m.enabled;
+        this.setElementAttribute('type', this.type);
+        this._cntGesture = new MenuContentGesture(this, document.body);
+        var hasEnabledSameSideMenu = this._menuCtrl.getMenus().some(function (m) {
+            return m.side === _this.side && m.enabled;
         });
         if (hasEnabledSameSideMenu) {
-            self._isEnabled = false;
+            this._isEnabled = false;
         }
-        self._setListeners();
-        self._cntEle.classList.add('menu-content');
-        self._cntEle.classList.add('menu-content-' + self.type);
-        self._menuCtrl.register(self);
+        this._setListeners();
+        this._cntEle.classList.add('menu-content');
+        this._cntEle.classList.add('menu-content-' + this.type);
+        this._menuCtrl.register(this);
     };
     Menu.prototype.onBackdropClick = function (ev) {
         ev.preventDefault();
@@ -36034,17 +36145,18 @@ var Menu = (function () {
         });
     };
     Menu.prototype._before = function () {
-        this.getNativeElement().classList.add('show-menu');
-        this.getBackdropElement().classList.add('show-backdrop');
+        this.menuContent && this.menuContent.resize();
+        this.setElementClass('show-menu', true);
+        this.backdrop.setElementClass('show-backdrop', true);
         this._keyboard.close();
         this._isAnimating = true;
     };
     Menu.prototype._after = function (isOpen) {
         this.isOpen = isOpen;
         this._isAnimating = false;
-        this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
         this._events.unlistenAll();
         if (isOpen) {
+            this._cntEle.classList.add('menu-content-open');
             var callback = this.onBackdropClick.bind(this);
             this._events.pointerEvents({
                 element: this._cntEle,
@@ -36057,8 +36169,9 @@ var Menu = (function () {
             this.ionOpen.emit(true);
         }
         else {
-            this.getNativeElement().classList.remove('show-menu');
-            this.getBackdropElement().classList.remove('show-backdrop');
+            this._cntEle.classList.remove('menu-content-open');
+            this.setElementClass('show-menu', false);
+            this.backdrop.setElementClass('show-menu', false);
             this.ionClose.emit(true);
         }
     };
@@ -36106,6 +36219,12 @@ var Menu = (function () {
     Menu.prototype.getMenuController = function () {
         return this._menuCtrl;
     };
+    Menu.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+    };
+    Menu.prototype.setElementAttribute = function (attributeName, value) {
+        this._renderer.setElementAttribute(this._elementRef.nativeElement, attributeName, value);
+    };
     Menu.prototype.ngOnDestroy = function () {
         this._menuCtrl.unregister(this);
         this._events.unlistenAll();
@@ -36141,6 +36260,7 @@ var Menu = (function () {
     ];
     Menu.propDecorators = {
         'backdrop': [{ type: ViewChild, args: [Backdrop,] },],
+        'menuContent': [{ type: ContentChild, args: [Content,] },],
         'content': [{ type: Input },],
         'id': [{ type: Input },],
         'side': [{ type: Input },],
@@ -37279,9 +37399,10 @@ var RangeKnob = (function () {
 }());
 var Range = (function (_super) {
     __extends$104(Range, _super);
-    function Range(_form, _item, config, elementRef, renderer) {
+    function Range(_form, _haptic, _item, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
+        this._haptic = _haptic;
         this._item = _item;
         this._dual = false;
         this._disabled = false;
@@ -37438,6 +37559,7 @@ var Range = (function (_super) {
         this.updateKnob(this._start, rect);
         this._active.position();
         this._pressed = this._active.pressed = true;
+        this._haptic.gestureSelectionStart();
         return true;
     };
     Range.prototype.pointerMove = function (ev) {
@@ -37454,6 +37576,7 @@ var Range = (function (_super) {
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
         this._active.position();
+        this._haptic.gestureSelectionEnd();
         this._start = this._active = null;
         this._pressed = this._knobs.first.pressed = this._knobs.last.pressed = false;
     };
@@ -37473,6 +37596,9 @@ var Range = (function (_super) {
             this._active.ratio = (current.x - rect.left) / (rect.width);
             var newVal = this._active.value;
             if (oldVal !== newVal) {
+                if (this.snaps) {
+                    this._haptic.gestureSelectionChanged();
+                }
                 if (this._dual) {
                     this.value = {
                         lower: Math.min(this._knobs.first.value, this._knobs.last.value),
@@ -37632,6 +37758,7 @@ var Range = (function (_super) {
     ];
     Range.ctorParameters = [
         { type: Form, },
+        { type: Haptic, },
         { type: Item, decorators: [{ type: Optional },] },
         { type: Config, },
         { type: ElementRef, },
@@ -38042,12 +38169,18 @@ var Searchbar = (function (_super) {
         _super.call(this, config, elementRef, renderer);
         this._value = '';
         this._shouldBlur = true;
+        this._shouldAlignLeft = true;
+        this._isCancelVisible = false;
+        this._spellcheck = false;
+        this._autocomplete = 'off';
+        this._autocorrect = 'off';
         this._isActive = false;
         this._debouncer = new Debouncer(250);
         this.cancelButtonText = 'Cancel';
         this.showCancelButton = false;
         this.placeholder = 'Search';
         this.type = 'search';
+        this.animated = false;
         this.ionInput = new EventEmitter();
         this.ionBlur = new EventEmitter();
         this.ionFocus = new EventEmitter();
@@ -38084,17 +38217,23 @@ var Searchbar = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Searchbar.prototype, "searchbarInput", {
-        set: function (searchbarInput) {
-            this._searchbarInput = searchbarInput;
-            var inputEle = searchbarInput.nativeElement;
-            var autoComplete = (this.autocomplete === '' || this.autocomplete === 'on') ? 'on' : this._config.get('autocomplete', 'off');
-            inputEle.setAttribute('autocomplete', autoComplete);
-            var autoCorrect = (this.autocorrect === '' || this.autocorrect === 'on') ? 'on' : this._config.get('autocorrect', 'off');
-            inputEle.setAttribute('autocorrect', autoCorrect);
-            var spellCheck = (this.spellcheck === '' || this.spellcheck === 'true' || this.spellcheck === true) ? true : this._config.getBoolean('spellcheck', false);
-            inputEle.setAttribute('spellcheck', spellCheck);
-            inputEle.setAttribute('type', this.type);
+    Object.defineProperty(Searchbar.prototype, "autocomplete", {
+        set: function (val) {
+            this._autocomplete = (val === '' || val === 'on') ? 'on' : this._config.get('autocomplete', 'off');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Searchbar.prototype, "autocorrect", {
+        set: function (val) {
+            this._autocorrect = (val === '' || val === 'on') ? 'on' : this._config.get('autocorrect', 'off');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Searchbar.prototype, "spellcheck", {
+        set: function (val) {
+            this._spellcheck = (val === '' || val === 'true' || val === true) ? true : this._config.getBoolean('spellcheck', false);
         },
         enumerable: true,
         configurable: true
@@ -38105,6 +38244,12 @@ var Searchbar = (function (_super) {
         },
         set: function (val) {
             this._value = val;
+            if (this._searchbarInput) {
+                var ele = this._searchbarInput.nativeElement;
+                if (ele) {
+                    ele.value = val;
+                }
+            }
         },
         enumerable: true,
         configurable: true
@@ -38115,21 +38260,31 @@ var Searchbar = (function (_super) {
             this.showCancelButton = (showCancelButton === '' || showCancelButton === 'true');
         }
     };
-    Searchbar.prototype.ngAfterViewChecked = function () {
+    Searchbar.prototype.ngAfterContentInit = function () {
         this.positionElements();
     };
     Searchbar.prototype.positionElements = function () {
-        if (this._config.get('mode') !== 'ios')
+        var isAnimated = isTrueProperty(this.animated);
+        var prevAlignLeft = this._shouldAlignLeft;
+        var shouldAlignLeft = (!isAnimated || (this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
+        this._shouldAlignLeft = shouldAlignLeft;
+        if (this._config.get('mode') !== 'ios') {
             return;
-        if (this._searchbarInput && this._searchbarIcon) {
-            this.positionInputPlaceholder(this._searchbarInput.nativeElement, this._searchbarIcon.nativeElement);
         }
-        if (this._cancelButton && this._cancelButton.nativeElement) {
-            this.positionCancelButton(this._cancelButton.nativeElement);
+        if (prevAlignLeft !== shouldAlignLeft) {
+            this.positionPlaceholder();
+        }
+        if (isAnimated) {
+            this.positionCancelButton();
         }
     };
-    Searchbar.prototype.positionInputPlaceholder = function (inputEle, iconEle) {
-        if (this.shouldAlignLeft()) {
+    Searchbar.prototype.positionPlaceholder = function () {
+        if (!this._searchbarInput || !this._searchbarIcon) {
+            return;
+        }
+        var inputEle = this._searchbarInput.nativeElement;
+        var iconEle = this._searchbarIcon.nativeElement;
+        if (this._shouldAlignLeft) {
             inputEle.removeAttribute('style');
             iconEle.removeAttribute('style');
         }
@@ -38145,24 +38300,30 @@ var Searchbar = (function (_super) {
             iconEle.style.marginLeft = iconLeft;
         }
     };
-    Searchbar.prototype.positionCancelButton = function (cancelButtonEle) {
-        if (cancelButtonEle.offsetWidth > 0) {
-            if (this._sbHasFocus) {
-                cancelButtonEle.style.marginRight = '0';
+    Searchbar.prototype.positionCancelButton = function () {
+        if (!this._cancelButton || !this._cancelButton.nativeElement) {
+            return;
+        }
+        var showShowCancel = this._sbHasFocus;
+        if (showShowCancel !== this._isCancelVisible) {
+            var cancelStyleEle = this._cancelButton.nativeElement;
+            var cancelStyle = cancelStyleEle.style;
+            this._isCancelVisible = showShowCancel;
+            if (showShowCancel) {
+                cancelStyle.marginRight = '0';
             }
             else {
-                cancelButtonEle.style.marginRight = -cancelButtonEle.offsetWidth + 'px';
+                var offset = cancelStyleEle.offsetWidth;
+                if (offset > 0) {
+                    cancelStyle.marginRight = -offset + 'px';
+                }
             }
         }
     };
-    Searchbar.prototype.shouldAlignLeft = function () {
-        return ((this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
-    };
     Searchbar.prototype.inputChanged = function (ev) {
         var _this = this;
-        var value = ev.target.value;
+        this._value = ev.target.value;
         this._debouncer.debounce(function () {
-            _this._value = value;
             _this.onChange(_this._value);
             _this.ionInput.emit(ev);
         });
@@ -38184,12 +38345,16 @@ var Searchbar = (function (_super) {
         this.positionElements();
     };
     Searchbar.prototype.clearInput = function (ev) {
+        var _this = this;
         this.ionClear.emit(ev);
-        if (isPresent$5(this._value) && this._value !== '') {
-            this._value = '';
-            this.onChange(this._value);
-            this.ionInput.emit(ev);
-        }
+        setTimeout(function () {
+            var value = _this._value;
+            if (isPresent$5(value) && value !== '') {
+                _this.value = '';
+                _this.onChange(_this._value);
+                _this.ionInput.emit(ev);
+            }
+        }, 16 * 4);
         this._shouldBlur = false;
     };
     Searchbar.prototype.cancelSearchbar = function (ev) {
@@ -38199,7 +38364,7 @@ var Searchbar = (function (_super) {
         this._isActive = false;
     };
     Searchbar.prototype.writeValue = function (val) {
-        this._value = val;
+        this.value = val;
         this.positionElements();
     };
     Searchbar.prototype.registerOnChange = function (fn) {
@@ -38208,23 +38373,32 @@ var Searchbar = (function (_super) {
     Searchbar.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    Searchbar.prototype.setFocus = function () {
+        this._renderer.invokeElementMethod(this._searchbarInput.nativeElement, 'focus');
+    };
     Searchbar.decorators = [
         { type: Component, args: [{
                     selector: 'ion-searchbar',
                     template: '<div class="searchbar-input-container">' +
-                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel">' +
+                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
                         '<ion-icon name="arrow-back"></ion-icon>' +
                         '</button>' +
                         '<div #searchbarIcon class="searchbar-search-icon"></div>' +
-                        '<input #searchbarInput [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
-                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
+                        '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" ' +
+                        '[attr.placeholder]="placeholder" ' +
+                        '[attr.type]="type" ' +
+                        '[attr.autocomplete]="_autocomplete" ' +
+                        '[attr.autocorrect]="_autocorrect" ' +
+                        '[attr.spellcheck]="_spellcheck">' +
+                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
                         '</div>' +
-                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
+                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
                     host: {
+                        '[class.searchbar-animated]': 'animated',
                         '[class.searchbar-has-value]': '_value',
                         '[class.searchbar-active]': '_isActive',
                         '[class.searchbar-show-cancel]': 'showCancelButton',
-                        '[class.searchbar-left-aligned]': 'shouldAlignLeft()'
+                        '[class.searchbar-left-aligned]': '_shouldAlignLeft'
                     },
                     encapsulation: ViewEncapsulation.None
                 },] },
@@ -38246,13 +38420,14 @@ var Searchbar = (function (_super) {
         'autocorrect': [{ type: Input },],
         'spellcheck': [{ type: Input },],
         'type': [{ type: Input },],
+        'animated': [{ type: Input },],
         'ionInput': [{ type: Output },],
         'ionBlur': [{ type: Output },],
         'ionFocus': [{ type: Output },],
         'ionCancel': [{ type: Output },],
         'ionClear': [{ type: Output },],
         '_sbHasFocus': [{ type: HostBinding, args: ['class.searchbar-has-focus',] },],
-        'searchbarInput': [{ type: ViewChild, args: ['searchbarInput',] },],
+        '_searchbarInput': [{ type: ViewChild, args: ['searchbarInput',] },],
         '_searchbarIcon': [{ type: ViewChild, args: ['searchbarIcon',] },],
         '_cancelButton': [{ type: ViewChild, args: ['cancelButton', { read: ElementRef },] },],
         'value': [{ type: Input },],
@@ -44535,6 +44710,7 @@ var Spinner = (function (_super) {
         _super.call(this, config, elementRef, renderer);
         this._dur = null;
         this.paused = false;
+        this.mode = config.get('mode');
     }
     Object.defineProperty(Spinner.prototype, "color", {
         get: function () {
@@ -44542,6 +44718,13 @@ var Spinner = (function (_super) {
         },
         set: function (value) {
             this._setColor('spinner', value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Spinner.prototype, "mode", {
+        set: function (val) {
+            this._setMode('spinner', val);
         },
         enumerable: true,
         configurable: true
@@ -44623,6 +44806,7 @@ var Spinner = (function (_super) {
     ];
     Spinner.propDecorators = {
         'color': [{ type: Input },],
+        'mode': [{ type: Input },],
         'name': [{ type: Input },],
         'duration': [{ type: Input },],
         'paused': [{ type: Input },],
@@ -45491,9 +45675,10 @@ var TOGGLE_VALUE_ACCESSOR = {
 };
 var Toggle = (function (_super) {
     __extends$115(Toggle, _super);
-    function Toggle(_form, config, elementRef, renderer, _item) {
+    function Toggle(_form, config, elementRef, renderer, _haptic, _item) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
+        this._haptic = _haptic;
         this._item = _item;
         this._checked = false;
         this._init = false;
@@ -45537,12 +45722,14 @@ var Toggle = (function (_super) {
             if (this._checked) {
                 if (currentX + 15 < this._startX) {
                     this.onChange(false);
+                    this._haptic.selection();
                     this._startX = currentX;
                     this._activated = true;
                 }
             }
             else if (currentX - 15 > this._startX) {
                 this.onChange(true);
+                this._haptic.selection();
                 this._startX = currentX;
                 this._activated = (currentX < this._startX + 5);
             }
@@ -45554,10 +45741,12 @@ var Toggle = (function (_super) {
             if (this.checked) {
                 if (this._startX + 4 > endX) {
                     this.onChange(false);
+                    this._haptic.selection();
                 }
             }
             else if (this._startX - 4 < endX) {
                 this.onChange(true);
+                this._haptic.selection();
             }
             this._activated = false;
             this._startX = null;
@@ -45651,6 +45840,7 @@ var Toggle = (function (_super) {
         { type: Config, },
         { type: ElementRef, },
         { type: Renderer, },
+        { type: Haptic, },
         { type: Item, decorators: [{ type: Optional },] },
     ];
     Toggle.propDecorators = {
@@ -46725,6 +46915,7 @@ var IonicModule = (function () {
                 App,
                 Events,
                 Form,
+                Haptic,
                 GestureController,
                 Keyboard,
                 LoadingController,
@@ -47021,7 +47212,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'action-sheet-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47576,7 +47767,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -48826,7 +49017,7 @@ var _View_LoadingCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'loading-wrapper');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
@@ -49048,7 +49239,7 @@ var _View_ModalCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disableScroll', 'false');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'modal-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -49116,7 +49307,7 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer));
+        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
         this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
         compView_0.create(this._PickerColumnCmp_0_4, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
@@ -49484,7 +49675,7 @@ var _View_PickerCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_1, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_1, 'tappable', '');
-        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1));
+        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n    ', null);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'picker-wrapper');
@@ -49745,7 +49936,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer));
+        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
         this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
         compView_0.create(this._PickerColumnCmp_0_4, [], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'ionChange', this.eventHandler(this._handle_ionChange_0_0.bind(this)));
@@ -49874,7 +50065,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'popover-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -52742,152 +52933,162 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_59", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Haptic_59", {
         get: function () {
-            if ((this.__GestureController_59 == null)) {
-                (this.__GestureController_59 = new GestureController(this._App_22));
+            if ((this.__Haptic_59 == null)) {
+                (this.__Haptic_59 = new Haptic(this._Platform_20));
             }
-            return this.__GestureController_59;
+            return this.__Haptic_59;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_60", {
+    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_60", {
         get: function () {
-            if ((this.__Keyboard_60 == null)) {
-                (this.__Keyboard_60 = new Keyboard(this._Config_21, this._Form_58, this.parent.get(NgZone)));
+            if ((this.__GestureController_60 == null)) {
+                (this.__GestureController_60 = new GestureController(this._App_22));
             }
-            return this.__Keyboard_60;
+            return this.__GestureController_60;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_61", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_61", {
         get: function () {
-            if ((this.__LoadingController_61 == null)) {
-                (this.__LoadingController_61 = new LoadingController(this._App_22));
+            if ((this.__Keyboard_61 == null)) {
+                (this.__Keyboard_61 = new Keyboard(this._Config_21, this._Form_58, this.parent.get(NgZone)));
             }
-            return this.__LoadingController_61;
+            return this.__Keyboard_61;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_62", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_62", {
         get: function () {
-            if ((this.__LocationStrategy_62 == null)) {
-                (this.__LocationStrategy_62 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
+            if ((this.__LoadingController_62 == null)) {
+                (this.__LoadingController_62 = new LoadingController(this._App_22));
             }
-            return this.__LocationStrategy_62;
+            return this.__LoadingController_62;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Location_63", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_63", {
         get: function () {
-            if ((this.__Location_63 == null)) {
-                (this.__Location_63 = new Location(this._LocationStrategy_62));
+            if ((this.__LocationStrategy_63 == null)) {
+                (this.__LocationStrategy_63 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
             }
-            return this.__Location_63;
+            return this.__LocationStrategy_63;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_64", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Location_64", {
         get: function () {
-            if ((this.__MenuController_64 == null)) {
-                (this.__MenuController_64 = new MenuController());
+            if ((this.__Location_64 == null)) {
+                (this.__Location_64 = new Location(this._LocationStrategy_63));
             }
-            return this.__MenuController_64;
+            return this.__Location_64;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_65", {
+    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_65", {
         get: function () {
-            if ((this.__ModalController_65 == null)) {
-                (this.__ModalController_65 = new ModalController(this._App_22));
+            if ((this.__MenuController_65 == null)) {
+                (this.__MenuController_65 = new MenuController());
             }
-            return this.__ModalController_65;
+            return this.__MenuController_65;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_66", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_66", {
         get: function () {
-            if ((this.__PickerController_66 == null)) {
-                (this.__PickerController_66 = new PickerController(this._App_22));
+            if ((this.__ModalController_66 == null)) {
+                (this.__ModalController_66 = new ModalController(this._App_22));
             }
-            return this.__PickerController_66;
+            return this.__ModalController_66;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_67", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_67", {
         get: function () {
-            if ((this.__PopoverController_67 == null)) {
-                (this.__PopoverController_67 = new PopoverController(this._App_22));
+            if ((this.__PickerController_67 == null)) {
+                (this.__PickerController_67 = new PickerController(this._App_22));
             }
-            return this.__PopoverController_67;
+            return this.__PickerController_67;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_68", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_68", {
         get: function () {
-            if ((this.__TapClick_68 == null)) {
-                (this.__TapClick_68 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
+            if ((this.__PopoverController_68 == null)) {
+                (this.__PopoverController_68 = new PopoverController(this._App_22));
             }
-            return this.__TapClick_68;
+            return this.__PopoverController_68;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_69", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_69", {
         get: function () {
-            if ((this.__ToastController_69 == null)) {
-                (this.__ToastController_69 = new ToastController(this._App_22));
+            if ((this.__TapClick_69 == null)) {
+                (this.__TapClick_69 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
             }
-            return this.__ToastController_69;
+            return this.__TapClick_69;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Translate_70", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_70", {
         get: function () {
-            if ((this.__Translate_70 == null)) {
-                (this.__Translate_70 = new Translate());
+            if ((this.__ToastController_70 == null)) {
+                (this.__ToastController_70 = new ToastController(this._App_22));
             }
-            return this.__Translate_70;
+            return this.__ToastController_70;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_71", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Translate_71", {
         get: function () {
-            if ((this.__TransitionController_71 == null)) {
-                (this.__TransitionController_71 = new TransitionController(this._Config_21));
+            if ((this.__Translate_71 == null)) {
+                (this.__Translate_71 = new Translate());
             }
-            return this.__TransitionController_71;
+            return this.__Translate_71;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_72", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_72", {
         get: function () {
-            if ((this.__UrlSerializer_72 == null)) {
-                (this.__UrlSerializer_72 = setupUrlSerializer(this._DeepLinkConfigToken_54));
+            if ((this.__TransitionController_72 == null)) {
+                (this.__TransitionController_72 = new TransitionController(this._Config_21));
             }
-            return this.__UrlSerializer_72;
+            return this.__TransitionController_72;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_73", {
+    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_73", {
         get: function () {
-            if ((this.__DeepLinker_73 == null)) {
-                (this.__DeepLinker_73 = setupDeepLinker(this._App_22, this._UrlSerializer_72, this._Location_63));
+            if ((this.__UrlSerializer_73 == null)) {
+                (this.__UrlSerializer_73 = setupUrlSerializer(this._DeepLinkConfigToken_54));
             }
-            return this.__DeepLinker_73;
+            return this.__UrlSerializer_73;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_74", {
+        get: function () {
+            if ((this.__DeepLinker_74 == null)) {
+                (this.__DeepLinker_74 = setupDeepLinker(this._App_22, this._UrlSerializer_73, this._Location_64));
+            }
+            return this.__DeepLinker_74;
         },
         enumerable: true,
         configurable: true
@@ -53103,50 +53304,53 @@ var AppModuleInjector = (function (_super) {
         if ((token === Form)) {
             return this._Form_58;
         }
+        if ((token === Haptic)) {
+            return this._Haptic_59;
+        }
         if ((token === GestureController)) {
-            return this._GestureController_59;
+            return this._GestureController_60;
         }
         if ((token === Keyboard)) {
-            return this._Keyboard_60;
+            return this._Keyboard_61;
         }
         if ((token === LoadingController)) {
-            return this._LoadingController_61;
+            return this._LoadingController_62;
         }
         if ((token === LocationStrategy)) {
-            return this._LocationStrategy_62;
+            return this._LocationStrategy_63;
         }
         if ((token === Location)) {
-            return this._Location_63;
+            return this._Location_64;
         }
         if ((token === MenuController)) {
-            return this._MenuController_64;
+            return this._MenuController_65;
         }
         if ((token === ModalController)) {
-            return this._ModalController_65;
+            return this._ModalController_66;
         }
         if ((token === PickerController)) {
-            return this._PickerController_66;
+            return this._PickerController_67;
         }
         if ((token === PopoverController)) {
-            return this._PopoverController_67;
+            return this._PopoverController_68;
         }
         if ((token === TapClick)) {
-            return this._TapClick_68;
+            return this._TapClick_69;
         }
         if ((token === ToastController)) {
-            return this._ToastController_69;
+            return this._ToastController_70;
         }
         if ((token === Translate)) {
-            return this._Translate_70;
+            return this._Translate_71;
         }
         if ((token === TransitionController)) {
-            return this._TransitionController_71;
+            return this._TransitionController_72;
         }
         if ((token === UrlSerializer)) {
-            return this._UrlSerializer_72;
+            return this._UrlSerializer_73;
         }
         if ((token === DeepLinker)) {
-            return this._DeepLinker_73;
+            return this._DeepLinker_74;
         }
         return notFoundResult;
     };

@@ -289,6 +289,9 @@ class _View_TabPage0 extends import1.AppView<import3.TabPage> {
     this.detectViewChildrenChanges(throwOnChange);
     if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._Tabs_0_4.ngAfterViewInit(); } }
   }
+  destroyInternal():void {
+    this._Tabs_0_4.ngOnDestroy();
+  }
 }
 export function viewFactory_TabPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.TabPage> {
   if ((renderType_TabPage === (null as any))) { (renderType_TabPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/config/tabs.html',0,import8.ViewEncapsulation.None,styles_TabPage,{})); }

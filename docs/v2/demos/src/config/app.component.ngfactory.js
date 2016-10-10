@@ -274,6 +274,9 @@ var _View_TabPage0 = (function (_super) {
             }
         }
     };
+    _View_TabPage0.prototype.destroyInternal = function () {
+        this._Tabs_0_4.ngOnDestroy();
+    };
     return _View_TabPage0;
 }(import1.AppView));
 export function viewFactory_TabPage0(viewUtils, parentInjector, declarationEl) {

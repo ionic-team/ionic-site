@@ -1275,6 +1275,7 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
   /*private*/ _appEl_0:import2.AppElement;
   _Menu_0_4:import45.Menu;
+  _query_Content_0_0:import16.QueryList<any>;
   _text_1:any;
   _el_2:any;
   _Header_2_3:import11.Header;
@@ -1329,6 +1330,7 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import48.viewFactory_Menu0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Menu_0_4 = new import45.Menu(this.parentInjector.get(import33.MenuController),new import27.ElementRef(this._el_0),this.parentInjector.get(import26.Config),this.parentInjector.get(import43.Platform),this.renderer,this.parentInjector.get(import36.Keyboard),this.parentInjector.get(import37.NgZone),this.parentInjector.get(import39.GestureController));
+    this._query_Content_0_0 = new import16.QueryList<any>();
     this._appEl_0.initComponent(this._Menu_0_4,[],compView_0);
     this._text_1 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_2 = this.renderer.createElement((null as any),'ion-header',(null as any));
@@ -1394,6 +1396,8 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     ]
     ,(null as any));
     this._text_17 = this.renderer.createText((null as any),'\n\n',(null as any));
+    this._query_Content_0_0.reset([this._Content_11_4]);
+    this._Menu_0_4.menuContent = this._query_Content_0_0.first;
       compView_0.create(this._Menu_0_4,[[].concat([
         this._text_1,
         this._el_2,

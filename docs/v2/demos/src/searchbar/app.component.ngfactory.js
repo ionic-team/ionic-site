@@ -235,10 +235,10 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_7 = import7.UNINITIALIZED;
         this._expr_8 = import7.UNINITIALIZED;
         this._expr_9 = import7.UNINITIALIZED;
-        var subscription_0 = this._Searchbar_10_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_10_0.bind(this)));
         this._expr_10 = import7.UNINITIALIZED;
+        var subscription_0 = this._Searchbar_10_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_10_0.bind(this)));
+        this._expr_11 = import7.UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_16, 'ionInput', this.eventHandler(this._handle_ionInput_16_0.bind(this)));
-        this._expr_12 = import7.UNINITIALIZED;
         this._expr_13 = import7.UNINITIALIZED;
         this._expr_14 = import7.UNINITIALIZED;
         this._expr_15 = import7.UNINITIALIZED;
@@ -246,17 +246,20 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_17 = import7.UNINITIALIZED;
         this._expr_18 = import7.UNINITIALIZED;
         this._expr_19 = import7.UNINITIALIZED;
-        var subscription_1 = this._Searchbar_16_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_16_0.bind(this)));
         this._expr_20 = import7.UNINITIALIZED;
         this._expr_21 = import7.UNINITIALIZED;
+        var subscription_1 = this._Searchbar_16_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_16_0.bind(this)));
         this._expr_22 = import7.UNINITIALIZED;
-        var disposable_2 = this.renderer.listen(this._el_31, 'ionInput', this.eventHandler(this._handle_ionInput_31_0.bind(this)));
+        this._expr_23 = import7.UNINITIALIZED;
         this._expr_24 = import7.UNINITIALIZED;
-        this._expr_25 = import7.UNINITIALIZED;
+        var disposable_2 = this.renderer.listen(this._el_31, 'ionInput', this.eventHandler(this._handle_ionInput_31_0.bind(this)));
         this._expr_26 = import7.UNINITIALIZED;
         this._expr_27 = import7.UNINITIALIZED;
         this._expr_28 = import7.UNINITIALIZED;
         this._expr_29 = import7.UNINITIALIZED;
+        this._expr_30 = import7.UNINITIALIZED;
+        this._expr_31 = import7.UNINITIALIZED;
+        this._expr_32 = import7.UNINITIALIZED;
         var subscription_2 = this._Searchbar_31_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_31_0.bind(this)));
         this.init([], [
             this._el_0,
@@ -361,33 +364,33 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._Content_14_4.ngOnInit();
         }
-        var currVal_12 = 'danger';
-        if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Searchbar_16_4.color = currVal_12;
-            this._expr_12 = currVal_12;
-        }
-        var currVal_13 = '';
+        var currVal_13 = 'danger';
         if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._Searchbar_16_4.showCancelButton = currVal_13;
+            this._Searchbar_16_4.color = currVal_13;
             this._expr_13 = currVal_13;
         }
-        var currVal_14 = 'Filter Items with Cancel';
+        var currVal_14 = '';
         if (import4.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Searchbar_16_4.placeholder = currVal_14;
+            this._Searchbar_16_4.showCancelButton = currVal_14;
             this._expr_14 = currVal_14;
+        }
+        var currVal_15 = 'Filter Items with Cancel';
+        if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
+            this._Searchbar_16_4.placeholder = currVal_15;
+            this._expr_15 = currVal_15;
         }
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._Searchbar_16_4.ngOnInit();
         }
         changes = null;
-        var currVal_20 = this.context.items;
-        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._NgFor_23_6.ngForOf = currVal_20;
+        var currVal_22 = this.context.items;
+        if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
+            this._NgFor_23_6.ngForOf = currVal_22;
             if ((changes === null)) {
                 (changes = {});
             }
-            changes['ngForOf'] = new import7.SimpleChange(this._expr_20, currVal_20);
-            this._expr_20 = currVal_20;
+            changes['ngForOf'] = new import7.SimpleChange(this._expr_22, currVal_22);
+            this._expr_22 = currVal_22;
         }
         if ((changes !== null)) {
             this._NgFor_23_6.ngOnChanges(changes);
@@ -396,24 +399,35 @@ var _View_ApiDemoPage0 = (function (_super) {
             this._NgFor_23_6.ngDoCheck();
         }
         changed = false;
-        var currVal_21 = 'danger';
-        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Toolbar_29_4.color = currVal_21;
+        var currVal_23 = 'danger';
+        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this._Toolbar_29_4.color = currVal_23;
             changed = true;
-            this._expr_21 = currVal_21;
+            this._expr_23 = currVal_23;
         }
         if (changed) {
             this._appEl_29.componentView.markAsCheckOnce();
         }
-        var currVal_24 = 'Search';
-        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
-            this._Searchbar_31_4.placeholder = currVal_24;
-            this._expr_24 = currVal_24;
+        var currVal_26 = 'Search';
+        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this._Searchbar_31_4.placeholder = currVal_26;
+            this._expr_26 = currVal_26;
         }
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._Searchbar_31_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
+        if (!throwOnChange) {
+            if ((this.numberOfChecks === 0)) {
+                this._Searchbar_10_4.ngAfterContentInit();
+            }
+            if ((this.numberOfChecks === 0)) {
+                this._Searchbar_16_4.ngAfterContentInit();
+            }
+            if ((this.numberOfChecks === 0)) {
+                this._Searchbar_31_4.ngAfterContentInit();
+            }
+        }
         var currVal_0 = this._Navbar_2_4._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementProperty(this._el_2, 'hidden', currVal_0);
@@ -429,99 +443,111 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_8, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_5 = this._Searchbar_10_4._value;
+        var currVal_5 = this._Searchbar_10_4.animated;
         if (import4.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this.renderer.setElementClass(this._el_10, 'searchbar-has-value', currVal_5);
+            this.renderer.setElementClass(this._el_10, 'searchbar-animated', currVal_5);
             this._expr_5 = currVal_5;
         }
-        var currVal_6 = this._Searchbar_10_4._isActive;
+        var currVal_6 = this._Searchbar_10_4._value;
         if (import4.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this.renderer.setElementClass(this._el_10, 'searchbar-active', currVal_6);
+            this.renderer.setElementClass(this._el_10, 'searchbar-has-value', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_7 = this._Searchbar_10_4.showCancelButton;
+        var currVal_7 = this._Searchbar_10_4._isActive;
         if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this.renderer.setElementClass(this._el_10, 'searchbar-show-cancel', currVal_7);
+            this.renderer.setElementClass(this._el_10, 'searchbar-active', currVal_7);
             this._expr_7 = currVal_7;
         }
-        var currVal_8 = this._Searchbar_10_4.shouldAlignLeft();
+        var currVal_8 = this._Searchbar_10_4.showCancelButton;
         if (import4.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
-            this.renderer.setElementClass(this._el_10, 'searchbar-left-aligned', currVal_8);
+            this.renderer.setElementClass(this._el_10, 'searchbar-show-cancel', currVal_8);
             this._expr_8 = currVal_8;
         }
-        var currVal_9 = this._Searchbar_10_4._sbHasFocus;
+        var currVal_9 = this._Searchbar_10_4._shouldAlignLeft;
         if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
-            this.renderer.setElementClass(this._el_10, 'searchbar-has-focus', currVal_9);
+            this.renderer.setElementClass(this._el_10, 'searchbar-left-aligned', currVal_9);
             this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._Content_14_4._sbPadding;
+        var currVal_10 = this._Searchbar_10_4._sbHasFocus;
         if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this.renderer.setElementClass(this._el_14, 'statusbar-padding', currVal_10);
+            this.renderer.setElementClass(this._el_10, 'searchbar-has-focus', currVal_10);
             this._expr_10 = currVal_10;
         }
-        var currVal_15 = this._Searchbar_16_4._value;
-        if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this.renderer.setElementClass(this._el_16, 'searchbar-has-value', currVal_15);
-            this._expr_15 = currVal_15;
+        var currVal_11 = this._Content_14_4._sbPadding;
+        if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
+            this.renderer.setElementClass(this._el_14, 'statusbar-padding', currVal_11);
+            this._expr_11 = currVal_11;
         }
-        var currVal_16 = this._Searchbar_16_4._isActive;
+        var currVal_16 = this._Searchbar_16_4.animated;
         if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this.renderer.setElementClass(this._el_16, 'searchbar-active', currVal_16);
+            this.renderer.setElementClass(this._el_16, 'searchbar-animated', currVal_16);
             this._expr_16 = currVal_16;
         }
-        var currVal_17 = this._Searchbar_16_4.showCancelButton;
+        var currVal_17 = this._Searchbar_16_4._value;
         if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
-            this.renderer.setElementClass(this._el_16, 'searchbar-show-cancel', currVal_17);
+            this.renderer.setElementClass(this._el_16, 'searchbar-has-value', currVal_17);
             this._expr_17 = currVal_17;
         }
-        var currVal_18 = this._Searchbar_16_4.shouldAlignLeft();
+        var currVal_18 = this._Searchbar_16_4._isActive;
         if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this.renderer.setElementClass(this._el_16, 'searchbar-left-aligned', currVal_18);
+            this.renderer.setElementClass(this._el_16, 'searchbar-active', currVal_18);
             this._expr_18 = currVal_18;
         }
-        var currVal_19 = this._Searchbar_16_4._sbHasFocus;
+        var currVal_19 = this._Searchbar_16_4.showCancelButton;
         if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this.renderer.setElementClass(this._el_16, 'searchbar-has-focus', currVal_19);
+            this.renderer.setElementClass(this._el_16, 'searchbar-show-cancel', currVal_19);
             this._expr_19 = currVal_19;
         }
-        var currVal_22 = this._Toolbar_29_4._sbPadding;
-        if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this.renderer.setElementClass(this._el_29, 'statusbar-padding', currVal_22);
-            this._expr_22 = currVal_22;
+        var currVal_20 = this._Searchbar_16_4._shouldAlignLeft;
+        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
+            this.renderer.setElementClass(this._el_16, 'searchbar-left-aligned', currVal_20);
+            this._expr_20 = currVal_20;
         }
-        var currVal_25 = this._Searchbar_31_4._value;
-        if (import4.checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this.renderer.setElementClass(this._el_31, 'searchbar-has-value', currVal_25);
-            this._expr_25 = currVal_25;
+        var currVal_21 = this._Searchbar_16_4._sbHasFocus;
+        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this.renderer.setElementClass(this._el_16, 'searchbar-has-focus', currVal_21);
+            this._expr_21 = currVal_21;
         }
-        var currVal_26 = this._Searchbar_31_4._isActive;
-        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this.renderer.setElementClass(this._el_31, 'searchbar-active', currVal_26);
-            this._expr_26 = currVal_26;
+        var currVal_24 = this._Toolbar_29_4._sbPadding;
+        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this.renderer.setElementClass(this._el_29, 'statusbar-padding', currVal_24);
+            this._expr_24 = currVal_24;
         }
-        var currVal_27 = this._Searchbar_31_4.showCancelButton;
+        var currVal_27 = this._Searchbar_31_4.animated;
         if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
-            this.renderer.setElementClass(this._el_31, 'searchbar-show-cancel', currVal_27);
+            this.renderer.setElementClass(this._el_31, 'searchbar-animated', currVal_27);
             this._expr_27 = currVal_27;
         }
-        var currVal_28 = this._Searchbar_31_4.shouldAlignLeft();
+        var currVal_28 = this._Searchbar_31_4._value;
         if (import4.checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this.renderer.setElementClass(this._el_31, 'searchbar-left-aligned', currVal_28);
+            this.renderer.setElementClass(this._el_31, 'searchbar-has-value', currVal_28);
             this._expr_28 = currVal_28;
         }
-        var currVal_29 = this._Searchbar_31_4._sbHasFocus;
+        var currVal_29 = this._Searchbar_31_4._isActive;
         if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this.renderer.setElementClass(this._el_31, 'searchbar-has-focus', currVal_29);
+            this.renderer.setElementClass(this._el_31, 'searchbar-active', currVal_29);
             this._expr_29 = currVal_29;
+        }
+        var currVal_30 = this._Searchbar_31_4.showCancelButton;
+        if (import4.checkBinding(throwOnChange, this._expr_30, currVal_30)) {
+            this.renderer.setElementClass(this._el_31, 'searchbar-show-cancel', currVal_30);
+            this._expr_30 = currVal_30;
+        }
+        var currVal_31 = this._Searchbar_31_4._shouldAlignLeft;
+        if (import4.checkBinding(throwOnChange, this._expr_31, currVal_31)) {
+            this.renderer.setElementClass(this._el_31, 'searchbar-left-aligned', currVal_31);
+            this._expr_31 = currVal_31;
+        }
+        var currVal_32 = this._Searchbar_31_4._sbHasFocus;
+        if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this.renderer.setElementClass(this._el_31, 'searchbar-has-focus', currVal_32);
+            this._expr_32 = currVal_32;
         }
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
                 this._Navbar_2_4.ngAfterViewInit();
             }
-            this._Searchbar_10_4.ngAfterViewChecked();
-            this._Searchbar_16_4.ngAfterViewChecked();
-            this._Searchbar_31_4.ngAfterViewChecked();
         }
     };
     _View_ApiDemoPage0.prototype.destroyInternal = function () {

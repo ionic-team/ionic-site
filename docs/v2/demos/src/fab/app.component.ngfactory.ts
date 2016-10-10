@@ -344,29 +344,28 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   /*private*/ _expr_3:any;
   /*private*/ _expr_5:any;
   /*private*/ _expr_6:any;
-  /*private*/ _expr_7:any;
+  /*private*/ _expr_8:any;
   /*private*/ _expr_9:any;
-  /*private*/ _expr_10:any;
+  /*private*/ _expr_11:any;
   /*private*/ _expr_12:any;
-  /*private*/ _expr_13:any;
+  /*private*/ _expr_14:any;
   /*private*/ _expr_15:any;
-  /*private*/ _expr_16:any;
+  /*private*/ _expr_17:any;
   /*private*/ _expr_18:any;
   /*private*/ _expr_19:any;
   /*private*/ _expr_20:any;
   /*private*/ _expr_21:any;
-  /*private*/ _expr_22:any;
   /*private*/ _expr_23:any;
-  /*private*/ _expr_25:any;
+  /*private*/ _expr_24:any;
   /*private*/ _expr_26:any;
-  /*private*/ _expr_28:any;
+  /*private*/ _expr_27:any;
   /*private*/ _expr_29:any;
-  /*private*/ _expr_31:any;
+  /*private*/ _expr_30:any;
   /*private*/ _expr_32:any;
+  /*private*/ _expr_33:any;
   /*private*/ _expr_34:any;
   /*private*/ _expr_35:any;
   /*private*/ _expr_36:any;
-  /*private*/ _expr_37:any;
   /*private*/ _expr_38:any;
   /*private*/ _expr_39:any;
   /*private*/ _expr_41:any;
@@ -375,42 +374,35 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   /*private*/ _expr_45:any;
   /*private*/ _expr_47:any;
   /*private*/ _expr_48:any;
+  /*private*/ _expr_49:any;
   /*private*/ _expr_50:any;
   /*private*/ _expr_51:any;
-  /*private*/ _expr_52:any;
   /*private*/ _expr_53:any;
   /*private*/ _expr_54:any;
-  /*private*/ _expr_55:any;
+  /*private*/ _expr_56:any;
   /*private*/ _expr_57:any;
-  /*private*/ _expr_58:any;
+  /*private*/ _expr_59:any;
   /*private*/ _expr_60:any;
-  /*private*/ _expr_61:any;
+  /*private*/ _expr_62:any;
   /*private*/ _expr_63:any;
-  /*private*/ _expr_64:any;
+  /*private*/ _expr_65:any;
   /*private*/ _expr_66:any;
   /*private*/ _expr_67:any;
   /*private*/ _expr_69:any;
   /*private*/ _expr_70:any;
   /*private*/ _expr_71:any;
-  /*private*/ _expr_72:any;
+  /*private*/ _expr_73:any;
   /*private*/ _expr_74:any;
   /*private*/ _expr_75:any;
-  /*private*/ _expr_76:any;
   /*private*/ _expr_77:any;
+  /*private*/ _expr_78:any;
   /*private*/ _expr_79:any;
-  /*private*/ _expr_80:any;
   /*private*/ _expr_81:any;
   /*private*/ _expr_82:any;
-  /*private*/ _expr_84:any;
+  /*private*/ _expr_83:any;
   /*private*/ _expr_85:any;
   /*private*/ _expr_86:any;
   /*private*/ _expr_87:any;
-  /*private*/ _expr_89:any;
-  /*private*/ _expr_90:any;
-  /*private*/ _expr_91:any;
-  /*private*/ _expr_93:any;
-  /*private*/ _expr_94:any;
-  /*private*/ _expr_95:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_ApiDemoPage0,renderType_ApiDemoPage,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
@@ -491,7 +483,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     compView_19.create(this._FabButton_19_4,[[].concat([this._el_20])],(null as any));
     this._text_21 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_22 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
-    this._FabList_22_3 = new import14.FabList();
+    this._FabList_22_3 = new import14.FabList(new import18.ElementRef(this._el_22),this.renderer);
     this._query_FabButton_22_0 = new import15.QueryList<any>();
     this._text_23 = this.renderer.createText(this._el_22,'\n      ',(null as any));
     this._el_24 = this.renderer.createElement(this._el_22,'button',(null as any));
@@ -586,7 +578,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_42 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_43 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_43,'side','left');
-    this._FabList_43_3 = new import14.FabList();
+    this._FabList_43_3 = new import14.FabList(new import18.ElementRef(this._el_43),this.renderer);
     this._query_FabButton_43_0 = new import15.QueryList<any>();
     this._text_44 = this.renderer.createText(this._el_43,'\n      ',(null as any));
     this._el_45 = this.renderer.createElement(this._el_43,'button',(null as any));
@@ -681,7 +673,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_63 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_64 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_64,'side','right');
-    this._FabList_64_3 = new import14.FabList();
+    this._FabList_64_3 = new import14.FabList(new import18.ElementRef(this._el_64),this.renderer);
     this._query_FabButton_64_0 = new import15.QueryList<any>();
     this._text_65 = this.renderer.createText(this._el_64,'\n      ',(null as any));
     this._el_66 = this.renderer.createElement(this._el_64,'button',(null as any));
@@ -776,7 +768,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_84 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_85 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_85,'side','top');
-    this._FabList_85_3 = new import14.FabList();
+    this._FabList_85_3 = new import14.FabList(new import18.ElementRef(this._el_85),this.renderer);
     this._query_FabButton_85_0 = new import15.QueryList<any>();
     this._text_86 = this.renderer.createText(this._el_85,'\n      ',(null as any));
     this._el_87 = this.renderer.createElement(this._el_85,'button',(null as any));
@@ -871,7 +863,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_105 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_106 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_106,'side','top');
-    this._FabList_106_3 = new import14.FabList();
+    this._FabList_106_3 = new import14.FabList(new import18.ElementRef(this._el_106),this.renderer);
     this._query_FabButton_106_0 = new import15.QueryList<any>();
     this._text_107 = this.renderer.createText(this._el_106,'\n      ',(null as any));
     this._el_108 = this.renderer.createElement(this._el_106,'button',(null as any));
@@ -890,7 +882,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_111 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_112 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_112,'side','bottom');
-    this._FabList_112_3 = new import14.FabList();
+    this._FabList_112_3 = new import14.FabList(new import18.ElementRef(this._el_112),this.renderer);
     this._query_FabButton_112_0 = new import15.QueryList<any>();
     this._text_113 = this.renderer.createText(this._el_112,'\n      ',(null as any));
     this._el_114 = this.renderer.createElement(this._el_112,'button',(null as any));
@@ -909,7 +901,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_117 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_118 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_118,'side','left');
-    this._FabList_118_3 = new import14.FabList();
+    this._FabList_118_3 = new import14.FabList(new import18.ElementRef(this._el_118),this.renderer);
     this._query_FabButton_118_0 = new import15.QueryList<any>();
     this._text_119 = this.renderer.createText(this._el_118,'\n      ',(null as any));
     this._el_120 = this.renderer.createElement(this._el_118,'button',(null as any));
@@ -928,7 +920,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_123 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_124 = this.renderer.createElement((null as any),'ion-fab-list',(null as any));
     this.renderer.setElementAttribute(this._el_124,'side','right');
-    this._FabList_124_3 = new import14.FabList();
+    this._FabList_124_3 = new import14.FabList(new import18.ElementRef(this._el_124),this.renderer);
     this._query_FabButton_124_0 = new import15.QueryList<any>();
     this._text_125 = this.renderer.createText(this._el_124,'\n      ',(null as any));
     this._el_126 = this.renderer.createElement(this._el_124,'button',(null as any));
@@ -1037,95 +1029,87 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     var disposable_0:Function = this.renderer.listen(this._el_19,'click',this.eventHandler(this._handle_click_19_0.bind(this)));
     this._expr_5 = import7.UNINITIALIZED;
     this._expr_6 = import7.UNINITIALIZED;
-    this._expr_7 = import7.UNINITIALIZED;
     var disposable_1:Function = this.renderer.listen(this._el_24,'click',this.eventHandler(this._handle_click_24_0.bind(this)));
+    this._expr_8 = import7.UNINITIALIZED;
     this._expr_9 = import7.UNINITIALIZED;
-    this._expr_10 = import7.UNINITIALIZED;
     var disposable_2:Function = this.renderer.listen(this._el_27,'click',this.eventHandler(this._handle_click_27_0.bind(this)));
+    this._expr_11 = import7.UNINITIALIZED;
     this._expr_12 = import7.UNINITIALIZED;
-    this._expr_13 = import7.UNINITIALIZED;
     var disposable_3:Function = this.renderer.listen(this._el_30,'click',this.eventHandler(this._handle_click_30_0.bind(this)));
+    this._expr_14 = import7.UNINITIALIZED;
     this._expr_15 = import7.UNINITIALIZED;
-    this._expr_16 = import7.UNINITIALIZED;
     var disposable_4:Function = this.renderer.listen(this._el_33,'click',this.eventHandler(this._handle_click_33_0.bind(this)));
+    this._expr_17 = import7.UNINITIALIZED;
     this._expr_18 = import7.UNINITIALIZED;
     this._expr_19 = import7.UNINITIALIZED;
     this._expr_20 = import7.UNINITIALIZED;
     this._expr_21 = import7.UNINITIALIZED;
-    this._expr_22 = import7.UNINITIALIZED;
-    this._expr_23 = import7.UNINITIALIZED;
     var disposable_5:Function = this.renderer.listen(this._el_45,'click',this.eventHandler(this._handle_click_45_0.bind(this)));
-    this._expr_25 = import7.UNINITIALIZED;
-    this._expr_26 = import7.UNINITIALIZED;
+    this._expr_23 = import7.UNINITIALIZED;
+    this._expr_24 = import7.UNINITIALIZED;
     var disposable_6:Function = this.renderer.listen(this._el_48,'click',this.eventHandler(this._handle_click_48_0.bind(this)));
-    this._expr_28 = import7.UNINITIALIZED;
-    this._expr_29 = import7.UNINITIALIZED;
+    this._expr_26 = import7.UNINITIALIZED;
+    this._expr_27 = import7.UNINITIALIZED;
     var disposable_7:Function = this.renderer.listen(this._el_51,'click',this.eventHandler(this._handle_click_51_0.bind(this)));
-    this._expr_31 = import7.UNINITIALIZED;
-    this._expr_32 = import7.UNINITIALIZED;
+    this._expr_29 = import7.UNINITIALIZED;
+    this._expr_30 = import7.UNINITIALIZED;
     var disposable_8:Function = this.renderer.listen(this._el_54,'click',this.eventHandler(this._handle_click_54_0.bind(this)));
+    this._expr_32 = import7.UNINITIALIZED;
+    this._expr_33 = import7.UNINITIALIZED;
     this._expr_34 = import7.UNINITIALIZED;
     this._expr_35 = import7.UNINITIALIZED;
     this._expr_36 = import7.UNINITIALIZED;
-    this._expr_37 = import7.UNINITIALIZED;
+    var disposable_9:Function = this.renderer.listen(this._el_66,'click',this.eventHandler(this._handle_click_66_0.bind(this)));
     this._expr_38 = import7.UNINITIALIZED;
     this._expr_39 = import7.UNINITIALIZED;
-    var disposable_9:Function = this.renderer.listen(this._el_66,'click',this.eventHandler(this._handle_click_66_0.bind(this)));
+    var disposable_10:Function = this.renderer.listen(this._el_69,'click',this.eventHandler(this._handle_click_69_0.bind(this)));
     this._expr_41 = import7.UNINITIALIZED;
     this._expr_42 = import7.UNINITIALIZED;
-    var disposable_10:Function = this.renderer.listen(this._el_69,'click',this.eventHandler(this._handle_click_69_0.bind(this)));
+    var disposable_11:Function = this.renderer.listen(this._el_72,'click',this.eventHandler(this._handle_click_72_0.bind(this)));
     this._expr_44 = import7.UNINITIALIZED;
     this._expr_45 = import7.UNINITIALIZED;
-    var disposable_11:Function = this.renderer.listen(this._el_72,'click',this.eventHandler(this._handle_click_72_0.bind(this)));
+    var disposable_12:Function = this.renderer.listen(this._el_75,'click',this.eventHandler(this._handle_click_75_0.bind(this)));
     this._expr_47 = import7.UNINITIALIZED;
     this._expr_48 = import7.UNINITIALIZED;
-    var disposable_12:Function = this.renderer.listen(this._el_75,'click',this.eventHandler(this._handle_click_75_0.bind(this)));
+    this._expr_49 = import7.UNINITIALIZED;
     this._expr_50 = import7.UNINITIALIZED;
     this._expr_51 = import7.UNINITIALIZED;
-    this._expr_52 = import7.UNINITIALIZED;
+    var disposable_13:Function = this.renderer.listen(this._el_87,'click',this.eventHandler(this._handle_click_87_0.bind(this)));
     this._expr_53 = import7.UNINITIALIZED;
     this._expr_54 = import7.UNINITIALIZED;
-    this._expr_55 = import7.UNINITIALIZED;
-    var disposable_13:Function = this.renderer.listen(this._el_87,'click',this.eventHandler(this._handle_click_87_0.bind(this)));
-    this._expr_57 = import7.UNINITIALIZED;
-    this._expr_58 = import7.UNINITIALIZED;
     var disposable_14:Function = this.renderer.listen(this._el_90,'click',this.eventHandler(this._handle_click_90_0.bind(this)));
-    this._expr_60 = import7.UNINITIALIZED;
-    this._expr_61 = import7.UNINITIALIZED;
+    this._expr_56 = import7.UNINITIALIZED;
+    this._expr_57 = import7.UNINITIALIZED;
     var disposable_15:Function = this.renderer.listen(this._el_93,'click',this.eventHandler(this._handle_click_93_0.bind(this)));
-    this._expr_63 = import7.UNINITIALIZED;
-    this._expr_64 = import7.UNINITIALIZED;
+    this._expr_59 = import7.UNINITIALIZED;
+    this._expr_60 = import7.UNINITIALIZED;
     var disposable_16:Function = this.renderer.listen(this._el_96,'click',this.eventHandler(this._handle_click_96_0.bind(this)));
+    this._expr_62 = import7.UNINITIALIZED;
+    this._expr_63 = import7.UNINITIALIZED;
+    var disposable_17:Function = this.renderer.listen(this._el_103,'click',this.eventHandler(this._handle_click_103_0.bind(this)));
+    this._expr_65 = import7.UNINITIALIZED;
     this._expr_66 = import7.UNINITIALIZED;
     this._expr_67 = import7.UNINITIALIZED;
-    var disposable_17:Function = this.renderer.listen(this._el_103,'click',this.eventHandler(this._handle_click_103_0.bind(this)));
+    var disposable_18:Function = this.renderer.listen(this._el_108,'click',this.eventHandler(this._handle_click_108_0.bind(this)));
     this._expr_69 = import7.UNINITIALIZED;
     this._expr_70 = import7.UNINITIALIZED;
     this._expr_71 = import7.UNINITIALIZED;
-    this._expr_72 = import7.UNINITIALIZED;
-    var disposable_18:Function = this.renderer.listen(this._el_108,'click',this.eventHandler(this._handle_click_108_0.bind(this)));
+    var disposable_19:Function = this.renderer.listen(this._el_114,'click',this.eventHandler(this._handle_click_114_0.bind(this)));
+    this._expr_73 = import7.UNINITIALIZED;
     this._expr_74 = import7.UNINITIALIZED;
     this._expr_75 = import7.UNINITIALIZED;
-    this._expr_76 = import7.UNINITIALIZED;
+    var disposable_20:Function = this.renderer.listen(this._el_120,'click',this.eventHandler(this._handle_click_120_0.bind(this)));
     this._expr_77 = import7.UNINITIALIZED;
-    var disposable_19:Function = this.renderer.listen(this._el_114,'click',this.eventHandler(this._handle_click_114_0.bind(this)));
+    this._expr_78 = import7.UNINITIALIZED;
     this._expr_79 = import7.UNINITIALIZED;
-    this._expr_80 = import7.UNINITIALIZED;
+    var disposable_21:Function = this.renderer.listen(this._el_126,'click',this.eventHandler(this._handle_click_126_0.bind(this)));
     this._expr_81 = import7.UNINITIALIZED;
     this._expr_82 = import7.UNINITIALIZED;
-    var disposable_20:Function = this.renderer.listen(this._el_120,'click',this.eventHandler(this._handle_click_120_0.bind(this)));
-    this._expr_84 = import7.UNINITIALIZED;
+    this._expr_83 = import7.UNINITIALIZED;
+    var disposable_22:Function = this.renderer.listen(this._el_133,'click',this.eventHandler(this._handle_click_133_0.bind(this)));
     this._expr_85 = import7.UNINITIALIZED;
     this._expr_86 = import7.UNINITIALIZED;
     this._expr_87 = import7.UNINITIALIZED;
-    var disposable_21:Function = this.renderer.listen(this._el_126,'click',this.eventHandler(this._handle_click_126_0.bind(this)));
-    this._expr_89 = import7.UNINITIALIZED;
-    this._expr_90 = import7.UNINITIALIZED;
-    this._expr_91 = import7.UNINITIALIZED;
-    var disposable_22:Function = this.renderer.listen(this._el_133,'click',this.eventHandler(this._handle_click_133_0.bind(this)));
-    this._expr_93 = import7.UNINITIALIZED;
-    this._expr_94 = import7.UNINITIALIZED;
-    this._expr_95 = import7.UNINITIALIZED;
     this.init([],[
       this._el_0,
       this._text_1,
@@ -1395,202 +1379,202 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       this._Icon_20_3.name = currVal_5;
       this._expr_5 = currVal_5;
     }
-    const currVal_9:any = 'logo-facebook';
-    if (import4.checkBinding(throwOnChange,this._expr_9,currVal_9)) {
-      this._Icon_25_3.name = currVal_9;
-      this._expr_9 = currVal_9;
+    const currVal_8:any = 'logo-facebook';
+    if (import4.checkBinding(throwOnChange,this._expr_8,currVal_8)) {
+      this._Icon_25_3.name = currVal_8;
+      this._expr_8 = currVal_8;
     }
-    const currVal_12:any = 'logo-twitter';
-    if (import4.checkBinding(throwOnChange,this._expr_12,currVal_12)) {
-      this._Icon_28_3.name = currVal_12;
-      this._expr_12 = currVal_12;
+    const currVal_11:any = 'logo-twitter';
+    if (import4.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
+      this._Icon_28_3.name = currVal_11;
+      this._expr_11 = currVal_11;
     }
-    const currVal_15:any = 'logo-vimeo';
-    if (import4.checkBinding(throwOnChange,this._expr_15,currVal_15)) {
-      this._Icon_31_3.name = currVal_15;
-      this._expr_15 = currVal_15;
+    const currVal_14:any = 'logo-vimeo';
+    if (import4.checkBinding(throwOnChange,this._expr_14,currVal_14)) {
+      this._Icon_31_3.name = currVal_14;
+      this._expr_14 = currVal_14;
     }
-    const currVal_18:any = 'logo-googleplus';
-    if (import4.checkBinding(throwOnChange,this._expr_18,currVal_18)) {
-      this._Icon_34_3.name = currVal_18;
-      this._expr_18 = currVal_18;
+    const currVal_17:any = 'logo-googleplus';
+    if (import4.checkBinding(throwOnChange,this._expr_17,currVal_17)) {
+      this._Icon_34_3.name = currVal_17;
+      this._expr_17 = currVal_17;
     }
     changed = false;
-    const currVal_20:any = 'light';
-    if (import4.checkBinding(throwOnChange,this._expr_20,currVal_20)) {
-      this._FabButton_40_4.color = currVal_20;
+    const currVal_19:any = 'light';
+    if (import4.checkBinding(throwOnChange,this._expr_19,currVal_19)) {
+      this._FabButton_40_4.color = currVal_19;
       changed = true;
-      this._expr_20 = currVal_20;
+      this._expr_19 = currVal_19;
     }
     if (changed) { this._appEl_40.componentView.markAsCheckOnce(); }
-    const currVal_21:any = 'arrow-dropleft';
-    if (import4.checkBinding(throwOnChange,this._expr_21,currVal_21)) {
-      this._Icon_41_3.name = currVal_21;
-      this._expr_21 = currVal_21;
+    const currVal_20:any = 'arrow-dropleft';
+    if (import4.checkBinding(throwOnChange,this._expr_20,currVal_20)) {
+      this._Icon_41_3.name = currVal_20;
+      this._expr_20 = currVal_20;
     }
-    const currVal_25:any = 'logo-facebook';
-    if (import4.checkBinding(throwOnChange,this._expr_25,currVal_25)) {
-      this._Icon_46_3.name = currVal_25;
-      this._expr_25 = currVal_25;
+    const currVal_23:any = 'logo-facebook';
+    if (import4.checkBinding(throwOnChange,this._expr_23,currVal_23)) {
+      this._Icon_46_3.name = currVal_23;
+      this._expr_23 = currVal_23;
     }
-    const currVal_28:any = 'logo-twitter';
-    if (import4.checkBinding(throwOnChange,this._expr_28,currVal_28)) {
-      this._Icon_49_3.name = currVal_28;
-      this._expr_28 = currVal_28;
+    const currVal_26:any = 'logo-twitter';
+    if (import4.checkBinding(throwOnChange,this._expr_26,currVal_26)) {
+      this._Icon_49_3.name = currVal_26;
+      this._expr_26 = currVal_26;
     }
-    const currVal_31:any = 'logo-vimeo';
-    if (import4.checkBinding(throwOnChange,this._expr_31,currVal_31)) {
-      this._Icon_52_3.name = currVal_31;
-      this._expr_31 = currVal_31;
+    const currVal_29:any = 'logo-vimeo';
+    if (import4.checkBinding(throwOnChange,this._expr_29,currVal_29)) {
+      this._Icon_52_3.name = currVal_29;
+      this._expr_29 = currVal_29;
     }
-    const currVal_34:any = 'logo-googleplus';
+    const currVal_32:any = 'logo-googleplus';
+    if (import4.checkBinding(throwOnChange,this._expr_32,currVal_32)) {
+      this._Icon_55_3.name = currVal_32;
+      this._expr_32 = currVal_32;
+    }
+    changed = false;
+    const currVal_34:any = 'secondary';
     if (import4.checkBinding(throwOnChange,this._expr_34,currVal_34)) {
-      this._Icon_55_3.name = currVal_34;
+      this._FabButton_61_4.color = currVal_34;
+      changed = true;
       this._expr_34 = currVal_34;
     }
-    changed = false;
-    const currVal_36:any = 'secondary';
-    if (import4.checkBinding(throwOnChange,this._expr_36,currVal_36)) {
-      this._FabButton_61_4.color = currVal_36;
-      changed = true;
-      this._expr_36 = currVal_36;
-    }
     if (changed) { this._appEl_61.componentView.markAsCheckOnce(); }
-    const currVal_37:any = 'arrow-dropright';
-    if (import4.checkBinding(throwOnChange,this._expr_37,currVal_37)) {
-      this._Icon_62_3.name = currVal_37;
-      this._expr_37 = currVal_37;
+    const currVal_35:any = 'arrow-dropright';
+    if (import4.checkBinding(throwOnChange,this._expr_35,currVal_35)) {
+      this._Icon_62_3.name = currVal_35;
+      this._expr_35 = currVal_35;
     }
-    const currVal_41:any = 'logo-facebook';
+    const currVal_38:any = 'logo-facebook';
+    if (import4.checkBinding(throwOnChange,this._expr_38,currVal_38)) {
+      this._Icon_67_3.name = currVal_38;
+      this._expr_38 = currVal_38;
+    }
+    const currVal_41:any = 'logo-twitter';
     if (import4.checkBinding(throwOnChange,this._expr_41,currVal_41)) {
-      this._Icon_67_3.name = currVal_41;
+      this._Icon_70_3.name = currVal_41;
       this._expr_41 = currVal_41;
     }
-    const currVal_44:any = 'logo-twitter';
+    const currVal_44:any = 'logo-vimeo';
     if (import4.checkBinding(throwOnChange,this._expr_44,currVal_44)) {
-      this._Icon_70_3.name = currVal_44;
+      this._Icon_73_3.name = currVal_44;
       this._expr_44 = currVal_44;
     }
-    const currVal_47:any = 'logo-vimeo';
+    const currVal_47:any = 'logo-googleplus';
     if (import4.checkBinding(throwOnChange,this._expr_47,currVal_47)) {
-      this._Icon_73_3.name = currVal_47;
+      this._Icon_76_3.name = currVal_47;
       this._expr_47 = currVal_47;
     }
-    const currVal_50:any = 'logo-googleplus';
-    if (import4.checkBinding(throwOnChange,this._expr_50,currVal_50)) {
-      this._Icon_76_3.name = currVal_50;
-      this._expr_50 = currVal_50;
-    }
     changed = false;
-    const currVal_52:any = 'dark';
-    if (import4.checkBinding(throwOnChange,this._expr_52,currVal_52)) {
-      this._FabButton_82_4.color = currVal_52;
+    const currVal_49:any = 'dark';
+    if (import4.checkBinding(throwOnChange,this._expr_49,currVal_49)) {
+      this._FabButton_82_4.color = currVal_49;
       changed = true;
-      this._expr_52 = currVal_52;
+      this._expr_49 = currVal_49;
     }
     if (changed) { this._appEl_82.componentView.markAsCheckOnce(); }
-    const currVal_53:any = 'arrow-dropup';
+    const currVal_50:any = 'arrow-dropup';
+    if (import4.checkBinding(throwOnChange,this._expr_50,currVal_50)) {
+      this._Icon_83_3.name = currVal_50;
+      this._expr_50 = currVal_50;
+    }
+    const currVal_53:any = 'logo-facebook';
     if (import4.checkBinding(throwOnChange,this._expr_53,currVal_53)) {
-      this._Icon_83_3.name = currVal_53;
+      this._Icon_88_3.name = currVal_53;
       this._expr_53 = currVal_53;
     }
-    const currVal_57:any = 'logo-facebook';
-    if (import4.checkBinding(throwOnChange,this._expr_57,currVal_57)) {
-      this._Icon_88_3.name = currVal_57;
-      this._expr_57 = currVal_57;
+    const currVal_56:any = 'logo-twitter';
+    if (import4.checkBinding(throwOnChange,this._expr_56,currVal_56)) {
+      this._Icon_91_3.name = currVal_56;
+      this._expr_56 = currVal_56;
     }
-    const currVal_60:any = 'logo-twitter';
-    if (import4.checkBinding(throwOnChange,this._expr_60,currVal_60)) {
-      this._Icon_91_3.name = currVal_60;
-      this._expr_60 = currVal_60;
+    const currVal_59:any = 'logo-vimeo';
+    if (import4.checkBinding(throwOnChange,this._expr_59,currVal_59)) {
+      this._Icon_94_3.name = currVal_59;
+      this._expr_59 = currVal_59;
     }
-    const currVal_63:any = 'logo-vimeo';
-    if (import4.checkBinding(throwOnChange,this._expr_63,currVal_63)) {
-      this._Icon_94_3.name = currVal_63;
-      this._expr_63 = currVal_63;
+    const currVal_62:any = 'logo-googleplus';
+    if (import4.checkBinding(throwOnChange,this._expr_62,currVal_62)) {
+      this._Icon_97_3.name = currVal_62;
+      this._expr_62 = currVal_62;
     }
-    const currVal_66:any = 'logo-googleplus';
+    changed = false;
+    const currVal_65:any = 'danger';
+    if (import4.checkBinding(throwOnChange,this._expr_65,currVal_65)) {
+      this._FabButton_103_4.color = currVal_65;
+      changed = true;
+      this._expr_65 = currVal_65;
+    }
+    if (changed) { this._appEl_103.componentView.markAsCheckOnce(); }
+    const currVal_66:any = 'md-share';
     if (import4.checkBinding(throwOnChange,this._expr_66,currVal_66)) {
-      this._Icon_97_3.name = currVal_66;
+      this._Icon_104_3.name = currVal_66;
       this._expr_66 = currVal_66;
     }
     changed = false;
-    const currVal_69:any = 'danger';
+    const currVal_69:any = 'primary';
     if (import4.checkBinding(throwOnChange,this._expr_69,currVal_69)) {
-      this._FabButton_103_4.color = currVal_69;
+      this._FabButton_108_4.color = currVal_69;
       changed = true;
       this._expr_69 = currVal_69;
     }
-    if (changed) { this._appEl_103.componentView.markAsCheckOnce(); }
-    const currVal_70:any = 'md-share';
+    if (changed) { this._appEl_108.componentView.markAsCheckOnce(); }
+    const currVal_70:any = 'logo-vimeo';
     if (import4.checkBinding(throwOnChange,this._expr_70,currVal_70)) {
-      this._Icon_104_3.name = currVal_70;
+      this._Icon_109_3.name = currVal_70;
       this._expr_70 = currVal_70;
     }
     changed = false;
-    const currVal_74:any = 'primary';
-    if (import4.checkBinding(throwOnChange,this._expr_74,currVal_74)) {
-      this._FabButton_108_4.color = currVal_74;
+    const currVal_73:any = 'secondary';
+    if (import4.checkBinding(throwOnChange,this._expr_73,currVal_73)) {
+      this._FabButton_114_4.color = currVal_73;
       changed = true;
-      this._expr_74 = currVal_74;
-    }
-    if (changed) { this._appEl_108.componentView.markAsCheckOnce(); }
-    const currVal_75:any = 'logo-vimeo';
-    if (import4.checkBinding(throwOnChange,this._expr_75,currVal_75)) {
-      this._Icon_109_3.name = currVal_75;
-      this._expr_75 = currVal_75;
-    }
-    changed = false;
-    const currVal_79:any = 'secondary';
-    if (import4.checkBinding(throwOnChange,this._expr_79,currVal_79)) {
-      this._FabButton_114_4.color = currVal_79;
-      changed = true;
-      this._expr_79 = currVal_79;
+      this._expr_73 = currVal_73;
     }
     if (changed) { this._appEl_114.componentView.markAsCheckOnce(); }
-    const currVal_80:any = 'logo-facebook';
-    if (import4.checkBinding(throwOnChange,this._expr_80,currVal_80)) {
-      this._Icon_115_3.name = currVal_80;
-      this._expr_80 = currVal_80;
+    const currVal_74:any = 'logo-facebook';
+    if (import4.checkBinding(throwOnChange,this._expr_74,currVal_74)) {
+      this._Icon_115_3.name = currVal_74;
+      this._expr_74 = currVal_74;
     }
     changed = false;
-    const currVal_84:any = 'light';
-    if (import4.checkBinding(throwOnChange,this._expr_84,currVal_84)) {
-      this._FabButton_120_4.color = currVal_84;
+    const currVal_77:any = 'light';
+    if (import4.checkBinding(throwOnChange,this._expr_77,currVal_77)) {
+      this._FabButton_120_4.color = currVal_77;
       changed = true;
-      this._expr_84 = currVal_84;
+      this._expr_77 = currVal_77;
     }
     if (changed) { this._appEl_120.componentView.markAsCheckOnce(); }
-    const currVal_85:any = 'logo-googleplus';
-    if (import4.checkBinding(throwOnChange,this._expr_85,currVal_85)) {
-      this._Icon_121_3.name = currVal_85;
-      this._expr_85 = currVal_85;
+    const currVal_78:any = 'logo-googleplus';
+    if (import4.checkBinding(throwOnChange,this._expr_78,currVal_78)) {
+      this._Icon_121_3.name = currVal_78;
+      this._expr_78 = currVal_78;
     }
     changed = false;
-    const currVal_89:any = 'dark';
-    if (import4.checkBinding(throwOnChange,this._expr_89,currVal_89)) {
-      this._FabButton_126_4.color = currVal_89;
+    const currVal_81:any = 'dark';
+    if (import4.checkBinding(throwOnChange,this._expr_81,currVal_81)) {
+      this._FabButton_126_4.color = currVal_81;
       changed = true;
-      this._expr_89 = currVal_89;
+      this._expr_81 = currVal_81;
     }
     if (changed) { this._appEl_126.componentView.markAsCheckOnce(); }
-    const currVal_90:any = 'logo-twitter';
-    if (import4.checkBinding(throwOnChange,this._expr_90,currVal_90)) {
-      this._Icon_127_3.name = currVal_90;
-      this._expr_90 = currVal_90;
+    const currVal_82:any = 'logo-twitter';
+    if (import4.checkBinding(throwOnChange,this._expr_82,currVal_82)) {
+      this._Icon_127_3.name = currVal_82;
+      this._expr_82 = currVal_82;
     }
     changed = false;
-    const currVal_93:any = 'danger';
-    if (import4.checkBinding(throwOnChange,this._expr_93,currVal_93)) {
-      this._FabButton_133_4.color = currVal_93;
+    const currVal_85:any = 'danger';
+    if (import4.checkBinding(throwOnChange,this._expr_85,currVal_85)) {
+      this._FabButton_133_4.color = currVal_85;
       changed = true;
-      this._expr_93 = currVal_93;
+      this._expr_85 = currVal_85;
     }
     if (changed) { this._appEl_133.componentView.markAsCheckOnce(); }
-    const currVal_94:any = 'add';
-    if (import4.checkBinding(throwOnChange,this._expr_94,currVal_94)) {
-      this._Icon_134_3.name = currVal_94;
-      this._expr_94 = currVal_94;
+    const currVal_86:any = 'add';
+    if (import4.checkBinding(throwOnChange,this._expr_86,currVal_86)) {
+      this._Icon_134_3.name = currVal_86;
+      this._expr_86 = currVal_86;
     }
     this.detectContentChildrenChanges(throwOnChange);
     if (!throwOnChange) {
@@ -1716,170 +1700,130 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       this.renderer.setElementClass(this._el_20,'hide',currVal_6);
       this._expr_6 = currVal_6;
     }
-    const currVal_7:any = this._FabList_22_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_7,currVal_7)) {
-      this.renderer.setElementClass(this._el_22,'fab-list-active',currVal_7);
-      this._expr_7 = currVal_7;
+    const currVal_9:any = this._Icon_25_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_9,currVal_9)) {
+      this.renderer.setElementClass(this._el_25,'hide',currVal_9);
+      this._expr_9 = currVal_9;
     }
-    const currVal_10:any = this._Icon_25_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_10,currVal_10)) {
-      this.renderer.setElementClass(this._el_25,'hide',currVal_10);
-      this._expr_10 = currVal_10;
+    const currVal_12:any = this._Icon_28_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_12,currVal_12)) {
+      this.renderer.setElementClass(this._el_28,'hide',currVal_12);
+      this._expr_12 = currVal_12;
     }
-    const currVal_13:any = this._Icon_28_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_13,currVal_13)) {
-      this.renderer.setElementClass(this._el_28,'hide',currVal_13);
-      this._expr_13 = currVal_13;
+    const currVal_15:any = this._Icon_31_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_15,currVal_15)) {
+      this.renderer.setElementClass(this._el_31,'hide',currVal_15);
+      this._expr_15 = currVal_15;
     }
-    const currVal_16:any = this._Icon_31_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_16,currVal_16)) {
-      this.renderer.setElementClass(this._el_31,'hide',currVal_16);
-      this._expr_16 = currVal_16;
+    const currVal_18:any = this._Icon_34_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_18,currVal_18)) {
+      this.renderer.setElementClass(this._el_34,'hide',currVal_18);
+      this._expr_18 = currVal_18;
     }
-    const currVal_19:any = this._Icon_34_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_19,currVal_19)) {
-      this.renderer.setElementClass(this._el_34,'hide',currVal_19);
-      this._expr_19 = currVal_19;
+    const currVal_21:any = this._Icon_41_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_21,currVal_21)) {
+      this.renderer.setElementClass(this._el_41,'hide',currVal_21);
+      this._expr_21 = currVal_21;
     }
-    const currVal_22:any = this._Icon_41_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_22,currVal_22)) {
-      this.renderer.setElementClass(this._el_41,'hide',currVal_22);
-      this._expr_22 = currVal_22;
+    const currVal_24:any = this._Icon_46_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_24,currVal_24)) {
+      this.renderer.setElementClass(this._el_46,'hide',currVal_24);
+      this._expr_24 = currVal_24;
     }
-    const currVal_23:any = this._FabList_43_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_23,currVal_23)) {
-      this.renderer.setElementClass(this._el_43,'fab-list-active',currVal_23);
-      this._expr_23 = currVal_23;
+    const currVal_27:any = this._Icon_49_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_27,currVal_27)) {
+      this.renderer.setElementClass(this._el_49,'hide',currVal_27);
+      this._expr_27 = currVal_27;
     }
-    const currVal_26:any = this._Icon_46_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_26,currVal_26)) {
-      this.renderer.setElementClass(this._el_46,'hide',currVal_26);
-      this._expr_26 = currVal_26;
+    const currVal_30:any = this._Icon_52_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_30,currVal_30)) {
+      this.renderer.setElementClass(this._el_52,'hide',currVal_30);
+      this._expr_30 = currVal_30;
     }
-    const currVal_29:any = this._Icon_49_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_29,currVal_29)) {
-      this.renderer.setElementClass(this._el_49,'hide',currVal_29);
-      this._expr_29 = currVal_29;
+    const currVal_33:any = this._Icon_55_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_33,currVal_33)) {
+      this.renderer.setElementClass(this._el_55,'hide',currVal_33);
+      this._expr_33 = currVal_33;
     }
-    const currVal_32:any = this._Icon_52_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_32,currVal_32)) {
-      this.renderer.setElementClass(this._el_52,'hide',currVal_32);
-      this._expr_32 = currVal_32;
+    const currVal_36:any = this._Icon_62_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_36,currVal_36)) {
+      this.renderer.setElementClass(this._el_62,'hide',currVal_36);
+      this._expr_36 = currVal_36;
     }
-    const currVal_35:any = this._Icon_55_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_35,currVal_35)) {
-      this.renderer.setElementClass(this._el_55,'hide',currVal_35);
-      this._expr_35 = currVal_35;
-    }
-    const currVal_38:any = this._Icon_62_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_38,currVal_38)) {
-      this.renderer.setElementClass(this._el_62,'hide',currVal_38);
-      this._expr_38 = currVal_38;
-    }
-    const currVal_39:any = this._FabList_64_3._visible;
+    const currVal_39:any = this._Icon_67_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_39,currVal_39)) {
-      this.renderer.setElementClass(this._el_64,'fab-list-active',currVal_39);
+      this.renderer.setElementClass(this._el_67,'hide',currVal_39);
       this._expr_39 = currVal_39;
     }
-    const currVal_42:any = this._Icon_67_3._hidden;
+    const currVal_42:any = this._Icon_70_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_42,currVal_42)) {
-      this.renderer.setElementClass(this._el_67,'hide',currVal_42);
+      this.renderer.setElementClass(this._el_70,'hide',currVal_42);
       this._expr_42 = currVal_42;
     }
-    const currVal_45:any = this._Icon_70_3._hidden;
+    const currVal_45:any = this._Icon_73_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_45,currVal_45)) {
-      this.renderer.setElementClass(this._el_70,'hide',currVal_45);
+      this.renderer.setElementClass(this._el_73,'hide',currVal_45);
       this._expr_45 = currVal_45;
     }
-    const currVal_48:any = this._Icon_73_3._hidden;
+    const currVal_48:any = this._Icon_76_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_48,currVal_48)) {
-      this.renderer.setElementClass(this._el_73,'hide',currVal_48);
+      this.renderer.setElementClass(this._el_76,'hide',currVal_48);
       this._expr_48 = currVal_48;
     }
-    const currVal_51:any = this._Icon_76_3._hidden;
+    const currVal_51:any = this._Icon_83_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_51,currVal_51)) {
-      this.renderer.setElementClass(this._el_76,'hide',currVal_51);
+      this.renderer.setElementClass(this._el_83,'hide',currVal_51);
       this._expr_51 = currVal_51;
     }
-    const currVal_54:any = this._Icon_83_3._hidden;
+    const currVal_54:any = this._Icon_88_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_54,currVal_54)) {
-      this.renderer.setElementClass(this._el_83,'hide',currVal_54);
+      this.renderer.setElementClass(this._el_88,'hide',currVal_54);
       this._expr_54 = currVal_54;
     }
-    const currVal_55:any = this._FabList_85_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_55,currVal_55)) {
-      this.renderer.setElementClass(this._el_85,'fab-list-active',currVal_55);
-      this._expr_55 = currVal_55;
+    const currVal_57:any = this._Icon_91_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_57,currVal_57)) {
+      this.renderer.setElementClass(this._el_91,'hide',currVal_57);
+      this._expr_57 = currVal_57;
     }
-    const currVal_58:any = this._Icon_88_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_58,currVal_58)) {
-      this.renderer.setElementClass(this._el_88,'hide',currVal_58);
-      this._expr_58 = currVal_58;
+    const currVal_60:any = this._Icon_94_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_60,currVal_60)) {
+      this.renderer.setElementClass(this._el_94,'hide',currVal_60);
+      this._expr_60 = currVal_60;
     }
-    const currVal_61:any = this._Icon_91_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_61,currVal_61)) {
-      this.renderer.setElementClass(this._el_91,'hide',currVal_61);
-      this._expr_61 = currVal_61;
+    const currVal_63:any = this._Icon_97_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_63,currVal_63)) {
+      this.renderer.setElementClass(this._el_97,'hide',currVal_63);
+      this._expr_63 = currVal_63;
     }
-    const currVal_64:any = this._Icon_94_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_64,currVal_64)) {
-      this.renderer.setElementClass(this._el_94,'hide',currVal_64);
-      this._expr_64 = currVal_64;
-    }
-    const currVal_67:any = this._Icon_97_3._hidden;
+    const currVal_67:any = this._Icon_104_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_67,currVal_67)) {
-      this.renderer.setElementClass(this._el_97,'hide',currVal_67);
+      this.renderer.setElementClass(this._el_104,'hide',currVal_67);
       this._expr_67 = currVal_67;
     }
-    const currVal_71:any = this._Icon_104_3._hidden;
+    const currVal_71:any = this._Icon_109_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_71,currVal_71)) {
-      this.renderer.setElementClass(this._el_104,'hide',currVal_71);
+      this.renderer.setElementClass(this._el_109,'hide',currVal_71);
       this._expr_71 = currVal_71;
     }
-    const currVal_72:any = this._FabList_106_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_72,currVal_72)) {
-      this.renderer.setElementClass(this._el_106,'fab-list-active',currVal_72);
-      this._expr_72 = currVal_72;
+    const currVal_75:any = this._Icon_115_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_75,currVal_75)) {
+      this.renderer.setElementClass(this._el_115,'hide',currVal_75);
+      this._expr_75 = currVal_75;
     }
-    const currVal_76:any = this._Icon_109_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_76,currVal_76)) {
-      this.renderer.setElementClass(this._el_109,'hide',currVal_76);
-      this._expr_76 = currVal_76;
+    const currVal_79:any = this._Icon_121_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_79,currVal_79)) {
+      this.renderer.setElementClass(this._el_121,'hide',currVal_79);
+      this._expr_79 = currVal_79;
     }
-    const currVal_77:any = this._FabList_112_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_77,currVal_77)) {
-      this.renderer.setElementClass(this._el_112,'fab-list-active',currVal_77);
-      this._expr_77 = currVal_77;
+    const currVal_83:any = this._Icon_127_3._hidden;
+    if (import4.checkBinding(throwOnChange,this._expr_83,currVal_83)) {
+      this.renderer.setElementClass(this._el_127,'hide',currVal_83);
+      this._expr_83 = currVal_83;
     }
-    const currVal_81:any = this._Icon_115_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_81,currVal_81)) {
-      this.renderer.setElementClass(this._el_115,'hide',currVal_81);
-      this._expr_81 = currVal_81;
-    }
-    const currVal_82:any = this._FabList_118_3._visible;
-    if (import4.checkBinding(throwOnChange,this._expr_82,currVal_82)) {
-      this.renderer.setElementClass(this._el_118,'fab-list-active',currVal_82);
-      this._expr_82 = currVal_82;
-    }
-    const currVal_86:any = this._Icon_121_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_86,currVal_86)) {
-      this.renderer.setElementClass(this._el_121,'hide',currVal_86);
-      this._expr_86 = currVal_86;
-    }
-    const currVal_87:any = this._FabList_124_3._visible;
+    const currVal_87:any = this._Icon_134_3._hidden;
     if (import4.checkBinding(throwOnChange,this._expr_87,currVal_87)) {
-      this.renderer.setElementClass(this._el_124,'fab-list-active',currVal_87);
+      this.renderer.setElementClass(this._el_134,'hide',currVal_87);
       this._expr_87 = currVal_87;
-    }
-    const currVal_91:any = this._Icon_127_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_91,currVal_91)) {
-      this.renderer.setElementClass(this._el_127,'hide',currVal_91);
-      this._expr_91 = currVal_91;
-    }
-    const currVal_95:any = this._Icon_134_3._hidden;
-    if (import4.checkBinding(throwOnChange,this._expr_95,currVal_95)) {
-      this.renderer.setElementClass(this._el_134,'hide',currVal_95);
-      this._expr_95 = currVal_95;
     }
     this.detectViewChildrenChanges(throwOnChange);
   }

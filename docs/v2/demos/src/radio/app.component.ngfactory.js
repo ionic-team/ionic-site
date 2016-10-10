@@ -39,13 +39,14 @@ import * as import34 from '../../node_modules/ionic-angular/components/item/item
 import * as import35 from 'ionic-angular/util/form';
 import * as import36 from '../../node_modules/ionic-angular/components/radio/radio-button.ngfactory';
 import * as import37 from '../../node_modules/ionic-angular/components/toggle/toggle.ngfactory';
-import * as import38 from '@angular/forms/src/directives/control_value_accessor';
-import * as import39 from 'ionic-angular/components/nav/nav';
-import * as import40 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
-import * as import41 from 'ionic-angular/navigation/nav-controller-base';
-import * as import42 from '@angular/core/src/linker/component_factory_resolver';
-import * as import43 from 'ionic-angular/transitions/transition-controller';
-import * as import44 from 'ionic-angular/navigation/deep-linker';
+import * as import38 from 'ionic-angular/util/haptic';
+import * as import39 from '@angular/forms/src/directives/control_value_accessor';
+import * as import40 from 'ionic-angular/components/nav/nav';
+import * as import41 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
+import * as import42 from 'ionic-angular/navigation/nav-controller-base';
+import * as import43 from '@angular/core/src/linker/component_factory_resolver';
+import * as import44 from 'ionic-angular/transitions/transition-controller';
+import * as import45 from 'ionic-angular/navigation/deep-linker';
 var renderType_ApiDemoPage_Host = null;
 var _View_ApiDemoPage_Host0 = (function (_super) {
     __extends(_View_ApiDemoPage_Host0, _super);
@@ -385,7 +386,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._el_59 = this.renderer.createElement(null, 'ion-toggle', null);
         this._appEl_59 = new import2.AppElement(59, 54, this, this._el_59);
         var compView_59 = import37.viewFactory_Toggle0(this.viewUtils, this.injector(59), this._appEl_59);
-        this._Toggle_59_4 = new import21.Toggle(this.parentInjector.get(import35.Form), this.parentInjector.get(import22.Config), new import23.ElementRef(this._el_59), this.renderer, this._Item_54_4);
+        this._Toggle_59_4 = new import21.Toggle(this.parentInjector.get(import35.Form), this.parentInjector.get(import22.Config), new import23.ElementRef(this._el_59), this.renderer, this.parentInjector.get(import38.Haptic), this._Item_54_4);
         this._appEl_59.initComponent(this._Toggle_59_4, [], compView_59);
         compView_59.create(this._Toggle_59_4, [], null);
         this._text_60 = this.renderer.createText(null, '\n    ', null);
@@ -903,7 +904,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import15.RadioGroup) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
             return this._RadioGroup_11_4;
         }
-        if (((token === import38.NG_VALUE_ACCESSOR) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
+        if (((token === import39.NG_VALUE_ACCESSOR) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
             return this._NG_VALUE_ACCESSOR_11_5;
         }
         if (((token === import17.Item) && ((51 <= requestNodeIndex) && (requestNodeIndex <= 52)))) {
@@ -918,7 +919,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import21.Toggle) && (59 === requestNodeIndex))) {
             return this._Toggle_59_4;
         }
-        if (((token === import38.NG_VALUE_ACCESSOR) && (59 === requestNodeIndex))) {
+        if (((token === import39.NG_VALUE_ACCESSOR) && (59 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_59_5;
         }
         if (((token === import17.Item) && ((54 <= requestNodeIndex) && (requestNodeIndex <= 60)))) {
@@ -981,7 +982,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import15.RadioGroup) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 93)))) {
             return this._RadioGroup_49_4;
         }
-        if (((token === import38.NG_VALUE_ACCESSOR) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 93)))) {
+        if (((token === import39.NG_VALUE_ACCESSOR) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 93)))) {
             return this._NG_VALUE_ACCESSOR_49_5;
         }
         if (((token === import17.Item) && ((97 <= requestNodeIndex) && (requestNodeIndex <= 98)))) {
@@ -1020,7 +1021,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import15.RadioGroup) && ((95 <= requestNodeIndex) && (requestNodeIndex <= 115)))) {
             return this._RadioGroup_95_4;
         }
-        if (((token === import38.NG_VALUE_ACCESSOR) && ((95 <= requestNodeIndex) && (requestNodeIndex <= 115)))) {
+        if (((token === import39.NG_VALUE_ACCESSOR) && ((95 <= requestNodeIndex) && (requestNodeIndex <= 115)))) {
             return this._NG_VALUE_ACCESSOR_95_5;
         }
         if (((token === import13.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 116)))) {
@@ -1475,8 +1476,8 @@ var _View_ApiDemoApp0 = (function (_super) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-nav', null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
-        var compView_0 = import40.viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Nav_0_4 = new import39.Nav(this.parentInjector.get(import24.ViewController, null), this.parentInjector.get(import41.NavControllerBase, null), this.parentInjector.get(import26.App), this.parentInjector.get(import22.Config), this.parentInjector.get(import30.Keyboard), new import23.ElementRef(this._el_0), this.parentInjector.get(import31.NgZone), this.renderer, this.parentInjector.get(import42.ComponentFactoryResolver), this.parentInjector.get(import33.GestureController), this.parentInjector.get(import43.TransitionController), this.parentInjector.get(import44.DeepLinker, null));
+        var compView_0 = import41.viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
+        this._Nav_0_4 = new import40.Nav(this.parentInjector.get(import24.ViewController, null), this.parentInjector.get(import42.NavControllerBase, null), this.parentInjector.get(import26.App), this.parentInjector.get(import22.Config), this.parentInjector.get(import30.Keyboard), new import23.ElementRef(this._el_0), this.parentInjector.get(import31.NgZone), this.renderer, this.parentInjector.get(import43.ComponentFactoryResolver), this.parentInjector.get(import33.GestureController), this.parentInjector.get(import44.TransitionController), this.parentInjector.get(import45.DeepLinker, null));
         this._appEl_0.initComponent(this._Nav_0_4, [], compView_0);
         compView_0.create(this._Nav_0_4, [], null);
         this._expr_0 = import7.UNINITIALIZED;
@@ -1484,7 +1485,7 @@ var _View_ApiDemoApp0 = (function (_super) {
         return null;
     };
     _View_ApiDemoApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import39.Nav) && (0 === requestNodeIndex))) {
+        if (((token === import40.Nav) && (0 === requestNodeIndex))) {
             return this._Nav_0_4;
         }
         return notFoundResult;

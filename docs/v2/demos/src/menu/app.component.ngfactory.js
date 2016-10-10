@@ -534,6 +534,7 @@ var _View_ApiDemoApp0 = (function (_super) {
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = import38.viewFactory_Menu0(this.viewUtils, this.injector(0), this._appEl_0);
         this._Menu_0_4 = new import33.Menu(this.parentInjector.get(import8.MenuController), new import22.ElementRef(this._el_0), this.parentInjector.get(import21.Config), this.parentInjector.get(import39.Platform), this.renderer, this.parentInjector.get(import30.Keyboard), this.parentInjector.get(import31.NgZone), this.parentInjector.get(import40.GestureController));
+        this._query_Content_0_0 = new import16.QueryList();
         this._appEl_0.initComponent(this._Menu_0_4, [], compView_0);
         this._text_1 = this.renderer.createText(null, '\n\n  ', null);
         this._el_2 = this.renderer.createElement(null, 'ion-header', null);
@@ -612,6 +613,8 @@ var _View_ApiDemoApp0 = (function (_super) {
             []
         ], null);
         this._text_19 = this.renderer.createText(null, '\n\n', null);
+        this._query_Content_0_0.reset([this._Content_11_4]);
+        this._Menu_0_4.menuContent = this._query_Content_0_0.first;
         compView_0.create(this._Menu_0_4, [[].concat([
                 this._text_1,
                 this._el_2,
@@ -626,6 +629,7 @@ var _View_ApiDemoApp0 = (function (_super) {
         this._appEl_21 = new import2.AppElement(21, null, this, this._el_21);
         var compView_21 = import38.viewFactory_Menu0(this.viewUtils, this.injector(21), this._appEl_21);
         this._Menu_21_4 = new import33.Menu(this.parentInjector.get(import8.MenuController), new import22.ElementRef(this._el_21), this.parentInjector.get(import21.Config), this.parentInjector.get(import39.Platform), this.renderer, this.parentInjector.get(import30.Keyboard), this.parentInjector.get(import31.NgZone), this.parentInjector.get(import40.GestureController));
+        this._query_Content_21_0 = new import16.QueryList();
         this._appEl_21.initComponent(this._Menu_21_4, [], compView_21);
         this._text_22 = this.renderer.createText(null, '\n\n  ', null);
         this._el_23 = this.renderer.createElement(null, 'ion-header', null);
@@ -704,6 +708,8 @@ var _View_ApiDemoApp0 = (function (_super) {
             []
         ], null);
         this._text_40 = this.renderer.createText(null, '\n\n', null);
+        this._query_Content_21_0.reset([this._Content_32_4]);
+        this._Menu_21_4.menuContent = this._query_Content_21_0.first;
         compView_21.create(this._Menu_21_4, [[].concat([
                 this._text_22,
                 this._el_23,

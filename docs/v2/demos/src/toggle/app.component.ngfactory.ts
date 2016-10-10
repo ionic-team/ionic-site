@@ -40,14 +40,15 @@ import * as import32 from 'ionic-angular/gestures/gesture-controller';
 import * as import33 from '../../node_modules/ionic-angular/components/item/item.ngfactory';
 import * as import34 from 'ionic-angular/util/form';
 import * as import35 from '../../node_modules/ionic-angular/components/toggle/toggle.ngfactory';
-import * as import36 from '@angular/forms/src/directives/control_value_accessor';
-import * as import37 from '@angular/forms/src/directives/ng_control';
-import * as import38 from 'ionic-angular/components/nav/nav';
-import * as import39 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
-import * as import40 from 'ionic-angular/navigation/nav-controller-base';
-import * as import41 from '@angular/core/src/linker/component_factory_resolver';
-import * as import42 from 'ionic-angular/transitions/transition-controller';
-import * as import43 from 'ionic-angular/navigation/deep-linker';
+import * as import36 from 'ionic-angular/util/haptic';
+import * as import37 from '@angular/forms/src/directives/control_value_accessor';
+import * as import38 from '@angular/forms/src/directives/ng_control';
+import * as import39 from 'ionic-angular/components/nav/nav';
+import * as import40 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
+import * as import41 from 'ionic-angular/navigation/nav-controller-base';
+import * as import42 from '@angular/core/src/linker/component_factory_resolver';
+import * as import43 from 'ionic-angular/transitions/transition-controller';
+import * as import44 from 'ionic-angular/navigation/deep-linker';
 var renderType_ApiDemoPage_Host:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   _el_0:any;
@@ -498,7 +499,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._el_18 = this.renderer.createElement((null as any),'ion-toggle',(null as any));
     this._appEl_18 = new import2.AppElement(18,13,this,this._el_18);
     var compView_18:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(18),this._appEl_18);
-    this._Toggle_18_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_18),this.renderer,this._Item_13_4);
+    this._Toggle_18_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_18),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_13_4);
     this._NG_VALUE_ACCESSOR_18_5 = [this._Toggle_18_4];
     this._NgModel_18_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_18_5);
     this._NgControl_18_7 = this._NgModel_18_6;
@@ -540,7 +541,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._el_26 = this.renderer.createElement((null as any),'ion-toggle',(null as any));
     this._appEl_26 = new import2.AppElement(26,21,this,this._el_26);
     var compView_26:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(26),this._appEl_26);
-    this._Toggle_26_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_26),this.renderer,this._Item_21_4);
+    this._Toggle_26_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_26),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_21_4);
     this._NG_VALUE_ACCESSOR_26_5 = [this._Toggle_26_4];
     this._NgModel_26_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_26_5);
     this._NgControl_26_7 = this._NgModel_26_6;
@@ -583,7 +584,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_34,'color','danger');
     this._appEl_34 = new import2.AppElement(34,29,this,this._el_34);
     var compView_34:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(34),this._appEl_34);
-    this._Toggle_34_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_34),this.renderer,this._Item_29_4);
+    this._Toggle_34_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_34),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_29_4);
     this._NG_VALUE_ACCESSOR_34_5 = [this._Toggle_34_4];
     this._NgModel_34_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_34_5);
     this._NgControl_34_7 = this._NgModel_34_6;
@@ -626,7 +627,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_42,'disabled','true');
     this._appEl_42 = new import2.AppElement(42,37,this,this._el_42);
     var compView_42:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(42),this._appEl_42);
-    this._Toggle_42_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_42),this.renderer,this._Item_37_4);
+    this._Toggle_42_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_42),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_37_4);
     this._NG_VALUE_ACCESSOR_42_5 = [this._Toggle_42_4];
     this._NgModel_42_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_42_5);
     this._NgControl_42_7 = this._NgModel_42_6;
@@ -669,7 +670,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_50,'color','danger');
     this._appEl_50 = new import2.AppElement(50,45,this,this._el_50);
     var compView_50:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(50),this._appEl_50);
-    this._Toggle_50_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_50),this.renderer,this._Item_45_4);
+    this._Toggle_50_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_50),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_45_4);
     this._NG_VALUE_ACCESSOR_50_5 = [this._Toggle_50_4];
     this._NgModel_50_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_50_5);
     this._NgControl_50_7 = this._NgModel_50_6;
@@ -712,7 +713,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_58,'color','dark');
     this._appEl_58 = new import2.AppElement(58,53,this,this._el_58);
     var compView_58:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(58),this._appEl_58);
-    this._Toggle_58_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_58),this.renderer,this._Item_53_4);
+    this._Toggle_58_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_58),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_53_4);
     this._NG_VALUE_ACCESSOR_58_5 = [this._Toggle_58_4];
     this._NgModel_58_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_58_5);
     this._NgControl_58_7 = this._NgModel_58_6;
@@ -755,7 +756,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_66,'color','secondary');
     this._appEl_66 = new import2.AppElement(66,61,this,this._el_66);
     var compView_66:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(66),this._appEl_66);
-    this._Toggle_66_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_66),this.renderer,this._Item_61_4);
+    this._Toggle_66_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_66),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_61_4);
     this._NG_VALUE_ACCESSOR_66_5 = [this._Toggle_66_4];
     this._NgModel_66_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_66_5);
     this._NgControl_66_7 = this._NgModel_66_6;
@@ -798,7 +799,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_74,'disabled','true');
     this._appEl_74 = new import2.AppElement(74,69,this,this._el_74);
     var compView_74:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(74),this._appEl_74);
-    this._Toggle_74_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_74),this.renderer,this._Item_69_4);
+    this._Toggle_74_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_74),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_69_4);
     this._NG_VALUE_ACCESSOR_74_5 = [this._Toggle_74_4];
     this._NgModel_74_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_74_5);
     this._NgControl_74_7 = this._NgModel_74_6;
@@ -840,7 +841,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._el_82 = this.renderer.createElement((null as any),'ion-toggle',(null as any));
     this._appEl_82 = new import2.AppElement(82,77,this,this._el_82);
     var compView_82:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(82),this._appEl_82);
-    this._Toggle_82_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_82),this.renderer,this._Item_77_4);
+    this._Toggle_82_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_82),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_77_4);
     this._NG_VALUE_ACCESSOR_82_5 = [this._Toggle_82_4];
     this._NgModel_82_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_82_5);
     this._NgControl_82_7 = this._NgModel_82_6;
@@ -883,7 +884,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_90,'color','dark');
     this._appEl_90 = new import2.AppElement(90,85,this,this._el_90);
     var compView_90:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(90),this._appEl_90);
-    this._Toggle_90_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_90),this.renderer,this._Item_85_4);
+    this._Toggle_90_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_90),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_85_4);
     this._NG_VALUE_ACCESSOR_90_5 = [this._Toggle_90_4];
     this._NgModel_90_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_90_5);
     this._NgControl_90_7 = this._NgModel_90_6;
@@ -926,7 +927,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_98,'color','secondary');
     this._appEl_98 = new import2.AppElement(98,93,this,this._el_98);
     var compView_98:any = import35.viewFactory_Toggle0(this.viewUtils,this.injector(98),this._appEl_98);
-    this._Toggle_98_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_98),this.renderer,this._Item_93_4);
+    this._Toggle_98_4 = new import18.Toggle(this.parentInjector.get(import34.Form),this.parentInjector.get(import21.Config),new import22.ElementRef(this._el_98),this.renderer,this.parentInjector.get(import36.Haptic),this._Item_93_4);
     this._NG_VALUE_ACCESSOR_98_5 = [this._Toggle_98_4];
     this._NgModel_98_6 = new import19.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_98_5);
     this._NgControl_98_7 = this._NgModel_98_6;
@@ -1226,89 +1227,89 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import10.Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 7)))) { return this._Header_0_3; }
     if (((token === import17.Label) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 16)))) { return this._Label_15_3; }
     if (((token === import18.Toggle) && (18 === requestNodeIndex))) { return this._Toggle_18_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (18 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_18_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (18 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_18_5; }
     if (((token === import19.NgModel) && (18 === requestNodeIndex))) { return this._NgModel_18_6; }
-    if (((token === import37.NgControl) && (18 === requestNodeIndex))) { return this._NgControl_18_7; }
+    if (((token === import38.NgControl) && (18 === requestNodeIndex))) { return this._NgControl_18_7; }
     if (((token === import20.NgControlStatus) && (18 === requestNodeIndex))) { return this._NgControlStatus_18_8; }
     if (((token === import15.Item) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 19)))) { return this._Item_13_4; }
     if (((token === import15.ItemContent) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 19)))) { return this._ItemContent_13_5; }
     if (((token === import17.Label) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 24)))) { return this._Label_23_3; }
     if (((token === import18.Toggle) && (26 === requestNodeIndex))) { return this._Toggle_26_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (26 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_26_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (26 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_26_5; }
     if (((token === import19.NgModel) && (26 === requestNodeIndex))) { return this._NgModel_26_6; }
-    if (((token === import37.NgControl) && (26 === requestNodeIndex))) { return this._NgControl_26_7; }
+    if (((token === import38.NgControl) && (26 === requestNodeIndex))) { return this._NgControl_26_7; }
     if (((token === import20.NgControlStatus) && (26 === requestNodeIndex))) { return this._NgControlStatus_26_8; }
     if (((token === import15.Item) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 27)))) { return this._Item_21_4; }
     if (((token === import15.ItemContent) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 27)))) { return this._ItemContent_21_5; }
     if (((token === import17.Label) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 32)))) { return this._Label_31_3; }
     if (((token === import18.Toggle) && (34 === requestNodeIndex))) { return this._Toggle_34_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (34 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_34_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (34 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_34_5; }
     if (((token === import19.NgModel) && (34 === requestNodeIndex))) { return this._NgModel_34_6; }
-    if (((token === import37.NgControl) && (34 === requestNodeIndex))) { return this._NgControl_34_7; }
+    if (((token === import38.NgControl) && (34 === requestNodeIndex))) { return this._NgControl_34_7; }
     if (((token === import20.NgControlStatus) && (34 === requestNodeIndex))) { return this._NgControlStatus_34_8; }
     if (((token === import15.Item) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 35)))) { return this._Item_29_4; }
     if (((token === import15.ItemContent) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 35)))) { return this._ItemContent_29_5; }
     if (((token === import17.Label) && ((39 <= requestNodeIndex) && (requestNodeIndex <= 40)))) { return this._Label_39_3; }
     if (((token === import18.Toggle) && (42 === requestNodeIndex))) { return this._Toggle_42_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (42 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_42_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (42 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_42_5; }
     if (((token === import19.NgModel) && (42 === requestNodeIndex))) { return this._NgModel_42_6; }
-    if (((token === import37.NgControl) && (42 === requestNodeIndex))) { return this._NgControl_42_7; }
+    if (((token === import38.NgControl) && (42 === requestNodeIndex))) { return this._NgControl_42_7; }
     if (((token === import20.NgControlStatus) && (42 === requestNodeIndex))) { return this._NgControlStatus_42_8; }
     if (((token === import15.Item) && ((37 <= requestNodeIndex) && (requestNodeIndex <= 43)))) { return this._Item_37_4; }
     if (((token === import15.ItemContent) && ((37 <= requestNodeIndex) && (requestNodeIndex <= 43)))) { return this._ItemContent_37_5; }
     if (((token === import17.Label) && ((47 <= requestNodeIndex) && (requestNodeIndex <= 48)))) { return this._Label_47_3; }
     if (((token === import18.Toggle) && (50 === requestNodeIndex))) { return this._Toggle_50_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (50 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_50_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (50 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_50_5; }
     if (((token === import19.NgModel) && (50 === requestNodeIndex))) { return this._NgModel_50_6; }
-    if (((token === import37.NgControl) && (50 === requestNodeIndex))) { return this._NgControl_50_7; }
+    if (((token === import38.NgControl) && (50 === requestNodeIndex))) { return this._NgControl_50_7; }
     if (((token === import20.NgControlStatus) && (50 === requestNodeIndex))) { return this._NgControlStatus_50_8; }
     if (((token === import15.Item) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 51)))) { return this._Item_45_4; }
     if (((token === import15.ItemContent) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 51)))) { return this._ItemContent_45_5; }
     if (((token === import17.Label) && ((55 <= requestNodeIndex) && (requestNodeIndex <= 56)))) { return this._Label_55_3; }
     if (((token === import18.Toggle) && (58 === requestNodeIndex))) { return this._Toggle_58_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (58 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_58_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (58 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_58_5; }
     if (((token === import19.NgModel) && (58 === requestNodeIndex))) { return this._NgModel_58_6; }
-    if (((token === import37.NgControl) && (58 === requestNodeIndex))) { return this._NgControl_58_7; }
+    if (((token === import38.NgControl) && (58 === requestNodeIndex))) { return this._NgControl_58_7; }
     if (((token === import20.NgControlStatus) && (58 === requestNodeIndex))) { return this._NgControlStatus_58_8; }
     if (((token === import15.Item) && ((53 <= requestNodeIndex) && (requestNodeIndex <= 59)))) { return this._Item_53_4; }
     if (((token === import15.ItemContent) && ((53 <= requestNodeIndex) && (requestNodeIndex <= 59)))) { return this._ItemContent_53_5; }
     if (((token === import17.Label) && ((63 <= requestNodeIndex) && (requestNodeIndex <= 64)))) { return this._Label_63_3; }
     if (((token === import18.Toggle) && (66 === requestNodeIndex))) { return this._Toggle_66_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (66 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_66_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (66 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_66_5; }
     if (((token === import19.NgModel) && (66 === requestNodeIndex))) { return this._NgModel_66_6; }
-    if (((token === import37.NgControl) && (66 === requestNodeIndex))) { return this._NgControl_66_7; }
+    if (((token === import38.NgControl) && (66 === requestNodeIndex))) { return this._NgControl_66_7; }
     if (((token === import20.NgControlStatus) && (66 === requestNodeIndex))) { return this._NgControlStatus_66_8; }
     if (((token === import15.Item) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 67)))) { return this._Item_61_4; }
     if (((token === import15.ItemContent) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 67)))) { return this._ItemContent_61_5; }
     if (((token === import17.Label) && ((71 <= requestNodeIndex) && (requestNodeIndex <= 72)))) { return this._Label_71_3; }
     if (((token === import18.Toggle) && (74 === requestNodeIndex))) { return this._Toggle_74_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (74 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_74_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (74 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_74_5; }
     if (((token === import19.NgModel) && (74 === requestNodeIndex))) { return this._NgModel_74_6; }
-    if (((token === import37.NgControl) && (74 === requestNodeIndex))) { return this._NgControl_74_7; }
+    if (((token === import38.NgControl) && (74 === requestNodeIndex))) { return this._NgControl_74_7; }
     if (((token === import20.NgControlStatus) && (74 === requestNodeIndex))) { return this._NgControlStatus_74_8; }
     if (((token === import15.Item) && ((69 <= requestNodeIndex) && (requestNodeIndex <= 75)))) { return this._Item_69_4; }
     if (((token === import15.ItemContent) && ((69 <= requestNodeIndex) && (requestNodeIndex <= 75)))) { return this._ItemContent_69_5; }
     if (((token === import17.Label) && ((79 <= requestNodeIndex) && (requestNodeIndex <= 80)))) { return this._Label_79_3; }
     if (((token === import18.Toggle) && (82 === requestNodeIndex))) { return this._Toggle_82_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (82 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_82_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (82 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_82_5; }
     if (((token === import19.NgModel) && (82 === requestNodeIndex))) { return this._NgModel_82_6; }
-    if (((token === import37.NgControl) && (82 === requestNodeIndex))) { return this._NgControl_82_7; }
+    if (((token === import38.NgControl) && (82 === requestNodeIndex))) { return this._NgControl_82_7; }
     if (((token === import20.NgControlStatus) && (82 === requestNodeIndex))) { return this._NgControlStatus_82_8; }
     if (((token === import15.Item) && ((77 <= requestNodeIndex) && (requestNodeIndex <= 83)))) { return this._Item_77_4; }
     if (((token === import15.ItemContent) && ((77 <= requestNodeIndex) && (requestNodeIndex <= 83)))) { return this._ItemContent_77_5; }
     if (((token === import17.Label) && ((87 <= requestNodeIndex) && (requestNodeIndex <= 88)))) { return this._Label_87_3; }
     if (((token === import18.Toggle) && (90 === requestNodeIndex))) { return this._Toggle_90_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (90 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_90_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (90 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_90_5; }
     if (((token === import19.NgModel) && (90 === requestNodeIndex))) { return this._NgModel_90_6; }
-    if (((token === import37.NgControl) && (90 === requestNodeIndex))) { return this._NgControl_90_7; }
+    if (((token === import38.NgControl) && (90 === requestNodeIndex))) { return this._NgControl_90_7; }
     if (((token === import20.NgControlStatus) && (90 === requestNodeIndex))) { return this._NgControlStatus_90_8; }
     if (((token === import15.Item) && ((85 <= requestNodeIndex) && (requestNodeIndex <= 91)))) { return this._Item_85_4; }
     if (((token === import15.ItemContent) && ((85 <= requestNodeIndex) && (requestNodeIndex <= 91)))) { return this._ItemContent_85_5; }
     if (((token === import17.Label) && ((95 <= requestNodeIndex) && (requestNodeIndex <= 96)))) { return this._Label_95_3; }
     if (((token === import18.Toggle) && (98 === requestNodeIndex))) { return this._Toggle_98_4; }
-    if (((token === import36.NG_VALUE_ACCESSOR) && (98 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_98_5; }
+    if (((token === import37.NG_VALUE_ACCESSOR) && (98 === requestNodeIndex))) { return this._NG_VALUE_ACCESSOR_98_5; }
     if (((token === import19.NgModel) && (98 === requestNodeIndex))) { return this._NgModel_98_6; }
-    if (((token === import37.NgControl) && (98 === requestNodeIndex))) { return this._NgControl_98_7; }
+    if (((token === import38.NgControl) && (98 === requestNodeIndex))) { return this._NgControl_98_7; }
     if (((token === import20.NgControlStatus) && (98 === requestNodeIndex))) { return this._NgControlStatus_98_8; }
     if (((token === import15.Item) && ((93 <= requestNodeIndex) && (requestNodeIndex <= 99)))) { return this._Item_93_4; }
     if (((token === import15.ItemContent) && ((93 <= requestNodeIndex) && (requestNodeIndex <= 99)))) { return this._ItemContent_93_5; }
@@ -2128,7 +2129,7 @@ var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
   /*private*/ _appEl_0:import2.AppElement;
-  _Nav_0_4:import38.Nav;
+  _Nav_0_4:import39.Nav;
   /*private*/ _expr_0:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_ApiDemoApp0,renderType_ApiDemoApp,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
@@ -2137,8 +2138,8 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._el_0 = this.renderer.createElement(parentRenderNode,'ion-nav',(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import39.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Nav_0_4 = new import38.Nav(this.parentInjector.get(import23.ViewController,(null as any)),this.parentInjector.get(import40.NavControllerBase,(null as any)),this.parentInjector.get(import25.App),this.parentInjector.get(import21.Config),this.parentInjector.get(import29.Keyboard),new import22.ElementRef(this._el_0),this.parentInjector.get(import30.NgZone),this.renderer,this.parentInjector.get(import41.ComponentFactoryResolver),this.parentInjector.get(import32.GestureController),this.parentInjector.get(import42.TransitionController),this.parentInjector.get(import43.DeepLinker,(null as any)));
+    var compView_0:any = import40.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._Nav_0_4 = new import39.Nav(this.parentInjector.get(import23.ViewController,(null as any)),this.parentInjector.get(import41.NavControllerBase,(null as any)),this.parentInjector.get(import25.App),this.parentInjector.get(import21.Config),this.parentInjector.get(import29.Keyboard),new import22.ElementRef(this._el_0),this.parentInjector.get(import30.NgZone),this.renderer,this.parentInjector.get(import42.ComponentFactoryResolver),this.parentInjector.get(import32.GestureController),this.parentInjector.get(import43.TransitionController),this.parentInjector.get(import44.DeepLinker,(null as any)));
     this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
     compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
@@ -2146,7 +2147,7 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import38.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
+    if (((token === import39.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {

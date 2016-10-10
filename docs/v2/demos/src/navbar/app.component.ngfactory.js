@@ -2091,6 +2091,7 @@ var _View_ApiDemoPage3 = (function (_super) {
         this._expr_3 = import7.UNINITIALIZED;
         this._expr_4 = import7.UNINITIALIZED;
         this._expr_5 = import7.UNINITIALIZED;
+        this._expr_6 = import7.UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._text_1,
@@ -2113,40 +2114,47 @@ var _View_ApiDemoPage3 = (function (_super) {
             this._Searchbar_2_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
+        if (!throwOnChange) {
+            if ((this.numberOfChecks === 0)) {
+                this._Searchbar_2_4.ngAfterContentInit();
+            }
+        }
         var currVal_0 = this._Toolbar_0_4._sbPadding;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_0);
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._Searchbar_2_4._value;
+        var currVal_1 = this._Searchbar_2_4.animated;
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-has-value', currVal_1);
+            this.renderer.setElementClass(this._el_2, 'searchbar-animated', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._Searchbar_2_4._isActive;
+        var currVal_2 = this._Searchbar_2_4._value;
         if (import4.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-active', currVal_2);
+            this.renderer.setElementClass(this._el_2, 'searchbar-has-value', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_3 = this._Searchbar_2_4.showCancelButton;
+        var currVal_3 = this._Searchbar_2_4._isActive;
         if (import4.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-show-cancel', currVal_3);
+            this.renderer.setElementClass(this._el_2, 'searchbar-active', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_4 = this._Searchbar_2_4.shouldAlignLeft();
+        var currVal_4 = this._Searchbar_2_4.showCancelButton;
         if (import4.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-left-aligned', currVal_4);
+            this.renderer.setElementClass(this._el_2, 'searchbar-show-cancel', currVal_4);
             this._expr_4 = currVal_4;
         }
-        var currVal_5 = this._Searchbar_2_4._sbHasFocus;
+        var currVal_5 = this._Searchbar_2_4._shouldAlignLeft;
         if (import4.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-has-focus', currVal_5);
+            this.renderer.setElementClass(this._el_2, 'searchbar-left-aligned', currVal_5);
             this._expr_5 = currVal_5;
         }
-        this.detectViewChildrenChanges(throwOnChange);
-        if (!throwOnChange) {
-            this._Searchbar_2_4.ngAfterViewChecked();
+        var currVal_6 = this._Searchbar_2_4._sbHasFocus;
+        if (import4.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
+            this.renderer.setElementClass(this._el_2, 'searchbar-has-focus', currVal_6);
+            this._expr_6 = currVal_6;
         }
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoPage3;
 }(import1.AppView));
@@ -2192,6 +2200,7 @@ var _View_ApiDemoPage4 = (function (_super) {
         this._expr_4 = import7.UNINITIALIZED;
         this._expr_5 = import7.UNINITIALIZED;
         this._expr_6 = import7.UNINITIALIZED;
+        this._expr_7 = import7.UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._text_1,
@@ -2225,40 +2234,47 @@ var _View_ApiDemoPage4 = (function (_super) {
             this._Searchbar_2_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
+        if (!throwOnChange) {
+            if ((this.numberOfChecks === 0)) {
+                this._Searchbar_2_4.ngAfterContentInit();
+            }
+        }
         var currVal_1 = this._Toolbar_0_4._sbPadding;
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._Searchbar_2_4._value;
+        var currVal_2 = this._Searchbar_2_4.animated;
         if (import4.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-has-value', currVal_2);
+            this.renderer.setElementClass(this._el_2, 'searchbar-animated', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_3 = this._Searchbar_2_4._isActive;
+        var currVal_3 = this._Searchbar_2_4._value;
         if (import4.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-active', currVal_3);
+            this.renderer.setElementClass(this._el_2, 'searchbar-has-value', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_4 = this._Searchbar_2_4.showCancelButton;
+        var currVal_4 = this._Searchbar_2_4._isActive;
         if (import4.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-show-cancel', currVal_4);
+            this.renderer.setElementClass(this._el_2, 'searchbar-active', currVal_4);
             this._expr_4 = currVal_4;
         }
-        var currVal_5 = this._Searchbar_2_4.shouldAlignLeft();
+        var currVal_5 = this._Searchbar_2_4.showCancelButton;
         if (import4.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-left-aligned', currVal_5);
+            this.renderer.setElementClass(this._el_2, 'searchbar-show-cancel', currVal_5);
             this._expr_5 = currVal_5;
         }
-        var currVal_6 = this._Searchbar_2_4._sbHasFocus;
+        var currVal_6 = this._Searchbar_2_4._shouldAlignLeft;
         if (import4.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this.renderer.setElementClass(this._el_2, 'searchbar-has-focus', currVal_6);
+            this.renderer.setElementClass(this._el_2, 'searchbar-left-aligned', currVal_6);
             this._expr_6 = currVal_6;
         }
-        this.detectViewChildrenChanges(throwOnChange);
-        if (!throwOnChange) {
-            this._Searchbar_2_4.ngAfterViewChecked();
+        var currVal_7 = this._Searchbar_2_4._sbHasFocus;
+        if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
+            this.renderer.setElementClass(this._el_2, 'searchbar-has-focus', currVal_7);
+            this._expr_7 = currVal_7;
         }
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoPage4;
 }(import1.AppView));

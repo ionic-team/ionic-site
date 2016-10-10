@@ -43,14 +43,15 @@ import * as import35 from 'ionic-angular/gestures/gesture-controller';
 import * as import36 from '../../node_modules/ionic-angular/components/item/item.ngfactory';
 import * as import37 from 'ionic-angular/util/form';
 import * as import38 from '../../node_modules/ionic-angular/components/range/range.ngfactory';
-import * as import39 from '@angular/forms/src/directives/control_value_accessor';
-import * as import40 from '@angular/forms/src/directives/ng_control';
-import * as import41 from 'ionic-angular/components/nav/nav';
-import * as import42 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
-import * as import43 from 'ionic-angular/navigation/nav-controller-base';
-import * as import44 from '@angular/core/src/linker/component_factory_resolver';
-import * as import45 from 'ionic-angular/transitions/transition-controller';
-import * as import46 from 'ionic-angular/navigation/deep-linker';
+import * as import39 from 'ionic-angular/util/haptic';
+import * as import40 from '@angular/forms/src/directives/control_value_accessor';
+import * as import41 from '@angular/forms/src/directives/ng_control';
+import * as import42 from 'ionic-angular/components/nav/nav';
+import * as import43 from '../../node_modules/ionic-angular/components/nav/nav.ngfactory';
+import * as import44 from 'ionic-angular/navigation/nav-controller-base';
+import * as import45 from '@angular/core/src/linker/component_factory_resolver';
+import * as import46 from 'ionic-angular/transitions/transition-controller';
+import * as import47 from 'ionic-angular/navigation/deep-linker';
 var renderType_ApiDemoPage_Host:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   _el_0:any;
@@ -440,7 +441,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._el_21 = this.renderer.createElement((null as any),'ion-range',(null as any));
     this._appEl_21 = new import2.AppElement(21,19,this,this._el_21);
     var compView_21:any = import38.viewFactory_Range0(this.viewUtils,this.injector(21),this._appEl_21);
-    this._Range_21_4 = new import19.Range(this.parentInjector.get(import37.Form),this._Item_19_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_21),this.renderer);
+    this._Range_21_4 = new import19.Range(this.parentInjector.get(import37.Form),this.parentInjector.get(import39.Haptic),this._Item_19_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_21),this.renderer);
     this._NG_VALUE_ACCESSOR_21_5 = [this._Range_21_4];
     this._NgModel_21_6 = new import20.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_21_5);
     this._NgControl_21_7 = this._NgModel_21_6;
@@ -535,7 +536,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_40,'pin','true');
     this._appEl_40 = new import2.AppElement(40,38,this,this._el_40);
     var compView_40:any = import38.viewFactory_Range0(this.viewUtils,this.injector(40),this._appEl_40);
-    this._Range_40_4 = new import19.Range(this.parentInjector.get(import37.Form),this._Item_38_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_40),this.renderer);
+    this._Range_40_4 = new import19.Range(this.parentInjector.get(import37.Form),this.parentInjector.get(import39.Haptic),this._Item_38_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_40),this.renderer);
     this._NG_VALUE_ACCESSOR_40_5 = [this._Range_40_4];
     this._NgModel_40_6 = new import20.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_40_5);
     this._NgControl_40_7 = this._NgModel_40_6;
@@ -632,7 +633,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_61,'step','100');
     this._appEl_61 = new import2.AppElement(61,59,this,this._el_61);
     var compView_61:any = import38.viewFactory_Range0(this.viewUtils,this.injector(61),this._appEl_61);
-    this._Range_61_4 = new import19.Range(this.parentInjector.get(import37.Form),this._Item_59_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_61),this.renderer);
+    this._Range_61_4 = new import19.Range(this.parentInjector.get(import37.Form),this.parentInjector.get(import39.Haptic),this._Item_59_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_61),this.renderer);
     this._NG_VALUE_ACCESSOR_61_5 = [this._Range_61_4];
     this._NgModel_61_6 = new import20.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_61_5);
     this._NgControl_61_7 = this._NgModel_61_6;
@@ -739,7 +740,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.renderer.setElementAttribute(this._el_83,'pin','true');
     this._appEl_83 = new import2.AppElement(83,81,this,this._el_83);
     var compView_83:any = import38.viewFactory_Range0(this.viewUtils,this.injector(83),this._appEl_83);
-    this._Range_83_4 = new import19.Range(this.parentInjector.get(import37.Form),this._Item_81_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_83),this.renderer);
+    this._Range_83_4 = new import19.Range(this.parentInjector.get(import37.Form),this.parentInjector.get(import39.Haptic),this._Item_81_4,this.parentInjector.get(import24.Config),new import25.ElementRef(this._el_83),this.renderer);
     this._NG_VALUE_ACCESSOR_83_5 = [this._Range_83_4];
     this._NgModel_83_6 = new import20.NgModel((null as any),(null as any),(null as any),this._NG_VALUE_ACCESSOR_83_5);
     this._NgControl_83_7 = this._NgModel_83_6;
@@ -1010,9 +1011,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import22.Icon) && (23 === requestNodeIndex))) { return this._Icon_23_3; }
     if (((token === import22.Icon) && (25 === requestNodeIndex))) { return this._Icon_25_3; }
     if (((token === import19.Range) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._Range_21_4; }
-    if (((token === import39.NG_VALUE_ACCESSOR) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NG_VALUE_ACCESSOR_21_5; }
+    if (((token === import40.NG_VALUE_ACCESSOR) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NG_VALUE_ACCESSOR_21_5; }
     if (((token === import20.NgModel) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NgModel_21_6; }
-    if (((token === import40.NgControl) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NgControl_21_7; }
+    if (((token === import41.NgControl) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NgControl_21_7; }
     if (((token === import21.NgControlStatus) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 26)))) { return this._NgControlStatus_21_8; }
     if (((token === import15.Item) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 27)))) { return this._Item_19_4; }
     if (((token === import15.ItemContent) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 27)))) { return this._ItemContent_19_5; }
@@ -1023,9 +1024,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import23.Label) && ((42 <= requestNodeIndex) && (requestNodeIndex <= 43)))) { return this._Label_42_3; }
     if (((token === import23.Label) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 46)))) { return this._Label_45_3; }
     if (((token === import19.Range) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._Range_40_4; }
-    if (((token === import39.NG_VALUE_ACCESSOR) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NG_VALUE_ACCESSOR_40_5; }
+    if (((token === import40.NG_VALUE_ACCESSOR) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NG_VALUE_ACCESSOR_40_5; }
     if (((token === import20.NgModel) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NgModel_40_6; }
-    if (((token === import40.NgControl) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NgControl_40_7; }
+    if (((token === import41.NgControl) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NgControl_40_7; }
     if (((token === import21.NgControlStatus) && ((40 <= requestNodeIndex) && (requestNodeIndex <= 47)))) { return this._NgControlStatus_40_8; }
     if (((token === import15.Item) && ((38 <= requestNodeIndex) && (requestNodeIndex <= 48)))) { return this._Item_38_4; }
     if (((token === import15.ItemContent) && ((38 <= requestNodeIndex) && (requestNodeIndex <= 48)))) { return this._ItemContent_38_5; }
@@ -1036,9 +1037,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import22.Icon) && (63 === requestNodeIndex))) { return this._Icon_63_3; }
     if (((token === import22.Icon) && (65 === requestNodeIndex))) { return this._Icon_65_3; }
     if (((token === import19.Range) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._Range_61_4; }
-    if (((token === import39.NG_VALUE_ACCESSOR) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NG_VALUE_ACCESSOR_61_5; }
+    if (((token === import40.NG_VALUE_ACCESSOR) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NG_VALUE_ACCESSOR_61_5; }
     if (((token === import20.NgModel) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NgModel_61_6; }
-    if (((token === import40.NgControl) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NgControl_61_7; }
+    if (((token === import41.NgControl) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NgControl_61_7; }
     if (((token === import21.NgControlStatus) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 66)))) { return this._NgControlStatus_61_8; }
     if (((token === import15.Item) && ((59 <= requestNodeIndex) && (requestNodeIndex <= 67)))) { return this._Item_59_4; }
     if (((token === import15.ItemContent) && ((59 <= requestNodeIndex) && (requestNodeIndex <= 67)))) { return this._ItemContent_59_5; }
@@ -1050,9 +1051,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     if (((token === import23.Label) && ((85 <= requestNodeIndex) && (requestNodeIndex <= 86)))) { return this._Label_85_3; }
     if (((token === import23.Label) && ((88 <= requestNodeIndex) && (requestNodeIndex <= 89)))) { return this._Label_88_3; }
     if (((token === import19.Range) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._Range_83_4; }
-    if (((token === import39.NG_VALUE_ACCESSOR) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NG_VALUE_ACCESSOR_83_5; }
+    if (((token === import40.NG_VALUE_ACCESSOR) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NG_VALUE_ACCESSOR_83_5; }
     if (((token === import20.NgModel) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NgModel_83_6; }
-    if (((token === import40.NgControl) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NgControl_83_7; }
+    if (((token === import41.NgControl) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NgControl_83_7; }
     if (((token === import21.NgControlStatus) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 90)))) { return this._NgControlStatus_83_8; }
     if (((token === import15.Item) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 91)))) { return this._Item_81_4; }
     if (((token === import15.ItemContent) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 91)))) { return this._ItemContent_81_5; }
@@ -1627,7 +1628,7 @@ var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
   /*private*/ _appEl_0:import2.AppElement;
-  _Nav_0_4:import41.Nav;
+  _Nav_0_4:import42.Nav;
   /*private*/ _expr_0:any;
   constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
     super(_View_ApiDemoApp0,renderType_ApiDemoApp,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
@@ -1636,8 +1637,8 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._el_0 = this.renderer.createElement(parentRenderNode,'ion-nav',(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import42.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Nav_0_4 = new import41.Nav(this.parentInjector.get(import26.ViewController,(null as any)),this.parentInjector.get(import43.NavControllerBase,(null as any)),this.parentInjector.get(import28.App),this.parentInjector.get(import24.Config),this.parentInjector.get(import32.Keyboard),new import25.ElementRef(this._el_0),this.parentInjector.get(import33.NgZone),this.renderer,this.parentInjector.get(import44.ComponentFactoryResolver),this.parentInjector.get(import35.GestureController),this.parentInjector.get(import45.TransitionController),this.parentInjector.get(import46.DeepLinker,(null as any)));
+    var compView_0:any = import43.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._Nav_0_4 = new import42.Nav(this.parentInjector.get(import26.ViewController,(null as any)),this.parentInjector.get(import44.NavControllerBase,(null as any)),this.parentInjector.get(import28.App),this.parentInjector.get(import24.Config),this.parentInjector.get(import32.Keyboard),new import25.ElementRef(this._el_0),this.parentInjector.get(import33.NgZone),this.renderer,this.parentInjector.get(import45.ComponentFactoryResolver),this.parentInjector.get(import35.GestureController),this.parentInjector.get(import46.TransitionController),this.parentInjector.get(import47.DeepLinker,(null as any)));
     this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
     compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
@@ -1645,7 +1646,7 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import41.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
+    if (((token === import42.Nav) && (0 === requestNodeIndex))) { return this._Nav_0_4; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {

@@ -27120,6 +27120,61 @@ var GestureDelegate = (function () {
     return GestureDelegate;
 }());
 
+var Haptic = (function () {
+    function Haptic(platform) {
+        var _this = this;
+        platform.ready().then(function () {
+            _this.plugin = window.TapticEngine;
+        });
+    }
+    Haptic.prototype.available = function () {
+        return !!this.plugin;
+    };
+    Haptic.prototype.selection = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.selection();
+    };
+    Haptic.prototype.gestureSelectionStart = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionStart();
+    };
+    Haptic.prototype.gestureSelectionChanged = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionChanged();
+    };
+    Haptic.prototype.gestureSelectionEnd = function () {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.gestureSelectionEnd();
+    };
+    Haptic.prototype.notification = function (options) {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.notification(options);
+    };
+    Haptic.prototype.impact = function (options) {
+        if (!this.plugin) {
+            return;
+        }
+        this.plugin.impact(options);
+    };
+    Haptic.decorators = [
+        { type: Injectable },
+    ];
+    Haptic.ctorParameters = [
+        { type: Platform, },
+    ];
+    return Haptic;
+}());
+
 var __extends$59 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -27498,7 +27553,7 @@ var UIEventManager = (function () {
     return UIEventManager;
 }());
 function listenEvent(ele, eventName, zoneWrapped, option, callback) {
-    var rawEvent = ('__zone_symbol__addEventListener' in ele && !zoneWrapped);
+    var rawEvent = (!zoneWrapped && '__zone_symbol__addEventListener' in ele);
     if (rawEvent) {
         ele.__zone_symbol__addEventListener(eventName, callback, option);
         return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
@@ -27960,8 +28015,8 @@ var NavControllerBase = (function (_super) {
                 ti.removeCount = (viewsLength - ti.removeStart);
             }
             leavingRequiresTransition = (ti.removeStart + ti.removeCount === viewsLength);
-            for (var i = ti.removeStart; i <= ti.removeCount; i++) {
-                destroyQueue.push(this._views[i]);
+            for (var i = 0; i < ti.removeCount; i++) {
+                destroyQueue.push(this._views[i + ti.removeStart]);
             }
             for (var i = viewsLength - 1; i >= 0; i--) {
                 var view = this._views[i];
@@ -28164,7 +28219,7 @@ var NavControllerBase = (function (_super) {
             _this._zone.run(_this._trnsFinish.bind(_this, trns, opts, resolve));
         });
         var duration = trns.getDuration();
-        this.setTransitioning(true, duration + ACTIVE_TRANSITION_OFFSET);
+        this.setTransitioning(true, duration);
         if (!trns.parent) {
             if (duration > DISABLE_APP_MINIMUM_DURATION) {
                 this._app.setEnabled(false, duration);
@@ -28337,7 +28392,7 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.setTransitioning = function (isTransitioning, durationPadding) {
         if (durationPadding === void 0) { durationPadding = 2000; }
-        this._trnsTm = (isTransitioning ? Date.now() + durationPadding : 0);
+        this._trnsTm = (isTransitioning ? (Date.now() + durationPadding + ACTIVE_TRANSITION_OFFSET) : 0);
     };
     NavControllerBase.prototype.getActive = function () {
         return this._views[this._views.length - 1];
@@ -28365,6 +28420,9 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.length = function () {
         return this._views.length;
+    };
+    NavControllerBase.prototype.getViews = function () {
+        return this._views;
     };
     NavControllerBase.prototype.isSwipeBackEnabled = function () {
         return this._sbEnabled;
@@ -28398,7 +28456,7 @@ var NavControllerBase = (function (_super) {
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
 var ACTIVE_TRANSITION_MAX_TIME = 5000;
-var ACTIVE_TRANSITION_OFFSET = 200;
+var ACTIVE_TRANSITION_OFFSET = 400;
 
 var Animation = (function () {
     function Animation(ele, opts, raf$$1) {
@@ -29050,6 +29108,9 @@ var Tabs = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Tabs.prototype.ngOnDestroy = function () {
+        this.parent.unregisterChildNav(this);
+    };
     Tabs.prototype.ngAfterViewInit = function () {
         var _this = this;
         this._setConfig('tabsPlacement', 'bottom');
@@ -29160,12 +29221,9 @@ var Tabs = (function (_super) {
                 _this._selectHistory.push(selectedTab.id);
             }
             if (alreadyLoaded && selectedPage) {
-                var content_1 = selectedPage.getContent();
-                if (content_1 && content_1 instanceof Content) {
-                    nativeRaf(function () {
-                        content_1.readDimensions();
-                        content_1.writeDimensions();
-                    });
+                var content = selectedPage.getContent();
+                if (content && content instanceof Content) {
+                    content.resize();
                 }
             }
         });
@@ -29461,8 +29519,9 @@ var Content = (function (_super) {
         this._footerHeight = 0;
         this._tabsPlacement = null;
         var ele = this._elementRef.nativeElement;
-        if (!ele)
+        if (!ele) {
             return;
+        }
         var parentEle = ele.parentElement;
         var computedStyle;
         for (var i = 0; i < parentEle.children.length; i++) {
@@ -29657,6 +29716,7 @@ var __extends$67 = (undefined && undefined.__extends) || function (d, b) {
 var DURATION = 500;
 var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 var OPACITY = 'opacity';
+var TRANSFORM = 'transform';
 var TRANSLATEX = 'translateX';
 var OFF_RIGHT = '99.5%';
 var OFF_LEFT = '-33%';
@@ -29755,7 +29815,8 @@ var IOSTransition = (function (_super) {
             else {
                 leavingContent
                     .fromTo(TRANSLATEX, CENTER, OFF_LEFT)
-                    .fromTo(OPACITY, 1, OFF_OPACITY);
+                    .fromTo(OPACITY, 1, OFF_OPACITY)
+                    .afterClearStyles([TRANSFORM, OPACITY]);
             }
             if (leavingHasNavbar) {
                 var leavingNavbarEle = leavingPageEle.querySelector('ion-navbar');
@@ -29778,7 +29839,7 @@ var IOSTransition = (function (_super) {
                     if (enteringHasNavbar) {
                         leavingNavbarBg
                             .beforeClearStyles([TRANSLATEX])
-                            .fromTo('opacity', 0.99, 0);
+                            .fromTo(OPACITY, 0.99, 0);
                     }
                     else {
                         leavingNavbarBg
@@ -29790,7 +29851,12 @@ var IOSTransition = (function (_super) {
                     leavingNavBar.add(leavingBackBtnText);
                 }
                 else {
-                    leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
+                    leavingTitle
+                        .fromTo(TRANSLATEX, CENTER, OFF_LEFT)
+                        .afterClearStyles([TRANSFORM]);
+                    leavingBackButton.afterClearStyles([OPACITY]);
+                    leavingTitle.afterClearStyles([OPACITY]);
+                    leavingNavbarItems.afterClearStyles([OPACITY]);
                 }
             }
         }
@@ -29821,7 +29887,6 @@ var MDTransition = (function (_super) {
         if (enteringView) {
             if (backDirection) {
                 this.duration(isPresent$5(opts.duration) ? opts.duration : 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-                this.enteringPage.beforeClearStyles([TRANSLATEY]);
             }
             else {
                 this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0.36,0.66,0.04,1)');
@@ -31258,9 +31323,10 @@ var ModalController = (function () {
 }());
 
 var PickerColumnCmp = (function () {
-    function PickerColumnCmp(config, elementRef, _sanitizer) {
+    function PickerColumnCmp(config, elementRef, _sanitizer, _haptic) {
         this.elementRef = elementRef;
         this._sanitizer = _sanitizer;
+        this._haptic = _haptic;
         this.y = 0;
         this.pos = [];
         this.startY = null;
@@ -31302,6 +31368,7 @@ var PickerColumnCmp = (function () {
         }
         this.minY = (minY * this.optHeight * -1);
         this.maxY = (maxY * this.optHeight * -1);
+        this._haptic.gestureSelectionStart();
         return true;
     };
     PickerColumnCmp.prototype.pointerMove = function (ev) {
@@ -31325,6 +31392,11 @@ var PickerColumnCmp = (function () {
             this.bounceFrom = 0;
         }
         this.update(y, 0, false, false);
+        var currentIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
+        if (currentIndex !== this.lastTempIndex) {
+            this._haptic.gestureSelectionChanged();
+        }
+        this.lastTempIndex = currentIndex;
     };
     PickerColumnCmp.prototype.pointerEnd = function (ev) {
         if (!this.receivingEvents) {
@@ -31368,6 +31440,7 @@ var PickerColumnCmp = (function () {
         cancelRaf(this.rafId);
         if (isNaN(this.y) || !this.optHeight) {
             this.update(y, 0, true, true);
+            this._haptic.gestureSelectionEnd();
         }
         else if (Math.abs(this.velocity) > 0) {
             this.velocity *= DECELERATION_FRICTION$1;
@@ -31381,7 +31454,6 @@ var PickerColumnCmp = (function () {
                 y = this.maxY;
                 this.velocity = 0;
             }
-            console.log("decelerate y: " + y + ", velocity: " + this.velocity + ", optHeight: " + this.optHeight);
             var notLockedIn = (y % this.optHeight !== 0 || Math.abs(this.velocity) > 1);
             this.update(y, 0, true, !notLockedIn);
             if (notLockedIn) {
@@ -31391,8 +31463,14 @@ var PickerColumnCmp = (function () {
         else if (this.y % this.optHeight !== 0) {
             var currentPos = Math.abs(this.y % this.optHeight);
             this.velocity = (currentPos > (this.optHeight / 2) ? 1 : -1);
+            this._haptic.gestureSelectionEnd();
             this.decelerate();
         }
+        var currentIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
+        if (currentIndex !== this.lastTempIndex) {
+            this._haptic.gestureSelectionChanged();
+        }
+        this.lastTempIndex = currentIndex;
     };
     PickerColumnCmp.prototype.optClick = function (ev, index) {
         if (!this.velocity) {
@@ -31488,6 +31566,7 @@ var PickerColumnCmp = (function () {
         { type: Config, },
         { type: ElementRef, },
         { type: DomSanitizer, },
+        { type: Haptic, },
     ];
     PickerColumnCmp.propDecorators = {
         'colEle': [{ type: ViewChild, args: ['colEle',] },],
@@ -32883,9 +32962,10 @@ var Avatar = (function () {
 }());
 
 var Backdrop = (function () {
-    function Backdrop(_gestureCtrl, _elementRef) {
+    function Backdrop(_gestureCtrl, _elementRef, _renderer) {
         this._gestureCtrl = _gestureCtrl;
         this._elementRef = _elementRef;
+        this._renderer = _renderer;
         this._gestureID = null;
         this.disableScroll = true;
     }
@@ -32903,6 +32983,9 @@ var Backdrop = (function () {
     Backdrop.prototype.getNativeElement = function () {
         return this._elementRef.nativeElement;
     };
+    Backdrop.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+    };
     Backdrop.decorators = [
         { type: Directive, args: [{
                     selector: 'ion-backdrop',
@@ -32916,6 +32999,7 @@ var Backdrop = (function () {
     Backdrop.ctorParameters = [
         { type: GestureController, },
         { type: ElementRef, },
+        { type: Renderer, },
     ];
     Backdrop.propDecorators = {
         'disableScroll': [{ type: Input },],
@@ -33276,9 +33360,11 @@ var Icon = (function (_super) {
         },
         set: function (val) {
             if (!(/^md-|^ios-|^logo-/.test(val))) {
-                val = this._iconMode + '-' + val;
+                this._name = this._iconMode + '-' + val;
             }
-            this._name = val;
+            else {
+                this._name = val;
+            }
             this.update();
         },
         enumerable: true,
@@ -33318,28 +33404,41 @@ var Icon = (function (_super) {
         configurable: true
     });
     Icon.prototype.update = function () {
-        var css = 'ion-';
-        this._hidden = (this._name === null);
+        var name;
         if (this._ios && this._iconMode === 'ios') {
-            css += this._ios;
+            name = this._ios;
         }
         else if (this._md && this._iconMode === 'md') {
-            css += this._md;
+            name = this._md;
         }
         else {
-            css += this._name;
+            name = this._name;
         }
-        if (this._iconMode === 'ios' && !this.isActive && css.indexOf('logo') < 0) {
-            css += '-outline';
+        var hidden = this._hidden = (name === null);
+        if (hidden) {
+            return;
         }
-        if (this._css !== css) {
-            if (this._css) {
-                this.setElementClass(this._css, false);
-            }
-            this._css = css;
-            this.setElementClass(css, true);
-            this.setElementAttribute('aria-label', css.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
+        var iconMode = name.split('-', 2)[0];
+        if (iconMode === 'ios' &&
+            !this.isActive &&
+            name.indexOf('logo-') < 0 &&
+            name.indexOf('-outline') < 0) {
+            name += '-outline';
         }
+        var css = 'ion-' + name;
+        if (this._css === css) {
+            return;
+        }
+        if (this._css) {
+            this.setElementClass(this._css, false);
+        }
+        this._css = css;
+        this.setElementClass(css, true);
+        var label = name
+            .replace('ios-', '')
+            .replace('md-', '')
+            .replace('-', ' ');
+        this.setElementAttribute('aria-label', label);
     };
     Icon.decorators = [
         { type: Directive, args: [{
@@ -34602,7 +34701,9 @@ var FabButton = (function (_super) {
     return FabButton;
 }(Ion));
 var FabList = (function () {
-    function FabList() {
+    function FabList(_elementRef, _renderer) {
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
         this._visible = false;
         this._fabs = [];
     }
@@ -34622,28 +34723,32 @@ var FabList = (function () {
         if (visible === this._visible) {
             return;
         }
+        this._visible = visible;
         var fabs = this._fabs;
         var i = 1;
         if (visible) {
             fabs.forEach(function (fab) {
-                setTimeout(function () { return fab.setElementClass('show', true); }, i * 30);
+                nativeTimeout(function () { return fab.setElementClass('show', true); }, i * 30);
                 i++;
             });
         }
         else {
             fabs.forEach(function (fab) { return fab.setElementClass('show', false); });
         }
-        this._visible = visible;
+        this.setElementClass('fab-list-active', visible);
+    };
+    FabList.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
     };
     FabList.decorators = [
         { type: Directive, args: [{
                     selector: 'ion-fab-list',
-                    host: {
-                        '[class.fab-list-active]': '_visible'
-                    }
                 },] },
     ];
-    FabList.ctorParameters = [];
+    FabList.ctorParameters = [
+        { type: ElementRef, },
+        { type: Renderer, },
+    ];
     FabList.propDecorators = {
         '_setbuttons': [{ type: ContentChildren, args: [FabButton,] },],
     };
@@ -34673,17 +34778,17 @@ var FabContainer = (function () {
     FabContainer.prototype.toggleList = function () {
         this.setActiveLists(!this._listsActive);
     };
-    FabContainer.prototype.setActiveLists = function (isActive) {
-        if (isActive === this._listsActive) {
+    FabContainer.prototype.setActiveLists = function (isActive$$1) {
+        if (isActive$$1 === this._listsActive) {
             return;
         }
         var lists = this._fabLists.toArray();
         for (var _i = 0, lists_1 = lists; _i < lists_1.length; _i++) {
             var list = lists_1[_i];
-            list.setVisible(isActive);
+            list.setVisible(isActive$$1);
         }
-        this._mainButton.setActiveClose(isActive);
-        this._listsActive = isActive;
+        this._mainButton.setActiveClose(isActive$$1);
+        this._listsActive = isActive$$1;
     };
     FabContainer.prototype.close = function () {
         this.setActiveLists(false);
@@ -35409,7 +35514,9 @@ var ItemSlidingGesture = (function (_super) {
         this.preSelectedContainer = null;
     };
     ItemSlidingGesture.prototype.notCaptured = function (ev) {
-        this.closeOpened();
+        if (!clickedOptionButton(ev)) {
+            this.closeOpened();
+        }
     };
     ItemSlidingGesture.prototype.closeOpened = function () {
         this.selectedContainer = null;
@@ -35431,11 +35538,15 @@ var ItemSlidingGesture = (function (_super) {
     return ItemSlidingGesture;
 }(PanGesture));
 function getContainer(ev) {
-    var ele = ev.target.closest('ion-item-sliding', true);
+    var ele = ev.target.closest('ion-item-sliding');
     if (ele) {
         return ele['$ionComponent'];
     }
     return null;
+}
+function clickedOptionButton(ev) {
+    var ele = ev.target.closest('ion-item-options>button');
+    return !!ele;
 }
 
 var __extends$96 = (undefined && undefined.__extends) || function (d, b) {
@@ -35930,32 +36041,32 @@ var Menu = (function () {
         configurable: true
     });
     Menu.prototype.ngOnInit = function () {
-        var self = this;
-        self._init = true;
-        var content = self.content;
-        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
-        if (!self._cntEle) {
+        var _this = this;
+        this._init = true;
+        var content = this.content;
+        this._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
+        if (!this._cntEle) {
             return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
         }
-        if (self.side !== 'left' && self.side !== 'right') {
-            self.side = 'left';
+        if (this.side !== 'left' && this.side !== 'right') {
+            this.side = 'left';
         }
-        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'side', self.side);
-        if (!self.type) {
-            self.type = self._config.get('menuType');
+        this.setElementAttribute('side', this.side);
+        if (!this.type) {
+            this.type = this._config.get('menuType');
         }
-        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'type', self.type);
-        self._cntGesture = new MenuContentGesture(self, document.body);
-        var hasEnabledSameSideMenu = self._menuCtrl.getMenus().some(function (m) {
-            return m.side === self.side && m.enabled;
+        this.setElementAttribute('type', this.type);
+        this._cntGesture = new MenuContentGesture(this, document.body);
+        var hasEnabledSameSideMenu = this._menuCtrl.getMenus().some(function (m) {
+            return m.side === _this.side && m.enabled;
         });
         if (hasEnabledSameSideMenu) {
-            self._isEnabled = false;
+            this._isEnabled = false;
         }
-        self._setListeners();
-        self._cntEle.classList.add('menu-content');
-        self._cntEle.classList.add('menu-content-' + self.type);
-        self._menuCtrl.register(self);
+        this._setListeners();
+        this._cntEle.classList.add('menu-content');
+        this._cntEle.classList.add('menu-content-' + this.type);
+        this._menuCtrl.register(this);
     };
     Menu.prototype.onBackdropClick = function (ev) {
         ev.preventDefault();
@@ -36034,17 +36145,18 @@ var Menu = (function () {
         });
     };
     Menu.prototype._before = function () {
-        this.getNativeElement().classList.add('show-menu');
-        this.getBackdropElement().classList.add('show-backdrop');
+        this.menuContent && this.menuContent.resize();
+        this.setElementClass('show-menu', true);
+        this.backdrop.setElementClass('show-backdrop', true);
         this._keyboard.close();
         this._isAnimating = true;
     };
     Menu.prototype._after = function (isOpen) {
         this.isOpen = isOpen;
         this._isAnimating = false;
-        this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
         this._events.unlistenAll();
         if (isOpen) {
+            this._cntEle.classList.add('menu-content-open');
             var callback = this.onBackdropClick.bind(this);
             this._events.pointerEvents({
                 element: this._cntEle,
@@ -36057,8 +36169,9 @@ var Menu = (function () {
             this.ionOpen.emit(true);
         }
         else {
-            this.getNativeElement().classList.remove('show-menu');
-            this.getBackdropElement().classList.remove('show-backdrop');
+            this._cntEle.classList.remove('menu-content-open');
+            this.setElementClass('show-menu', false);
+            this.backdrop.setElementClass('show-menu', false);
             this.ionClose.emit(true);
         }
     };
@@ -36106,6 +36219,12 @@ var Menu = (function () {
     Menu.prototype.getMenuController = function () {
         return this._menuCtrl;
     };
+    Menu.prototype.setElementClass = function (className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+    };
+    Menu.prototype.setElementAttribute = function (attributeName, value) {
+        this._renderer.setElementAttribute(this._elementRef.nativeElement, attributeName, value);
+    };
     Menu.prototype.ngOnDestroy = function () {
         this._menuCtrl.unregister(this);
         this._events.unlistenAll();
@@ -36141,6 +36260,7 @@ var Menu = (function () {
     ];
     Menu.propDecorators = {
         'backdrop': [{ type: ViewChild, args: [Backdrop,] },],
+        'menuContent': [{ type: ContentChild, args: [Content,] },],
         'content': [{ type: Input },],
         'id': [{ type: Input },],
         'side': [{ type: Input },],
@@ -37279,9 +37399,10 @@ var RangeKnob = (function () {
 }());
 var Range = (function (_super) {
     __extends$104(Range, _super);
-    function Range(_form, _item, config, elementRef, renderer) {
+    function Range(_form, _haptic, _item, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
+        this._haptic = _haptic;
         this._item = _item;
         this._dual = false;
         this._disabled = false;
@@ -37438,6 +37559,7 @@ var Range = (function (_super) {
         this.updateKnob(this._start, rect);
         this._active.position();
         this._pressed = this._active.pressed = true;
+        this._haptic.gestureSelectionStart();
         return true;
     };
     Range.prototype.pointerMove = function (ev) {
@@ -37454,6 +37576,7 @@ var Range = (function (_super) {
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
         this._active.position();
+        this._haptic.gestureSelectionEnd();
         this._start = this._active = null;
         this._pressed = this._knobs.first.pressed = this._knobs.last.pressed = false;
     };
@@ -37473,6 +37596,9 @@ var Range = (function (_super) {
             this._active.ratio = (current.x - rect.left) / (rect.width);
             var newVal = this._active.value;
             if (oldVal !== newVal) {
+                if (this.snaps) {
+                    this._haptic.gestureSelectionChanged();
+                }
                 if (this._dual) {
                     this.value = {
                         lower: Math.min(this._knobs.first.value, this._knobs.last.value),
@@ -37632,6 +37758,7 @@ var Range = (function (_super) {
     ];
     Range.ctorParameters = [
         { type: Form, },
+        { type: Haptic, },
         { type: Item, decorators: [{ type: Optional },] },
         { type: Config, },
         { type: ElementRef, },
@@ -38042,12 +38169,18 @@ var Searchbar = (function (_super) {
         _super.call(this, config, elementRef, renderer);
         this._value = '';
         this._shouldBlur = true;
+        this._shouldAlignLeft = true;
+        this._isCancelVisible = false;
+        this._spellcheck = false;
+        this._autocomplete = 'off';
+        this._autocorrect = 'off';
         this._isActive = false;
         this._debouncer = new Debouncer(250);
         this.cancelButtonText = 'Cancel';
         this.showCancelButton = false;
         this.placeholder = 'Search';
         this.type = 'search';
+        this.animated = false;
         this.ionInput = new EventEmitter();
         this.ionBlur = new EventEmitter();
         this.ionFocus = new EventEmitter();
@@ -38084,17 +38217,23 @@ var Searchbar = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Searchbar.prototype, "searchbarInput", {
-        set: function (searchbarInput) {
-            this._searchbarInput = searchbarInput;
-            var inputEle = searchbarInput.nativeElement;
-            var autoComplete = (this.autocomplete === '' || this.autocomplete === 'on') ? 'on' : this._config.get('autocomplete', 'off');
-            inputEle.setAttribute('autocomplete', autoComplete);
-            var autoCorrect = (this.autocorrect === '' || this.autocorrect === 'on') ? 'on' : this._config.get('autocorrect', 'off');
-            inputEle.setAttribute('autocorrect', autoCorrect);
-            var spellCheck = (this.spellcheck === '' || this.spellcheck === 'true' || this.spellcheck === true) ? true : this._config.getBoolean('spellcheck', false);
-            inputEle.setAttribute('spellcheck', spellCheck);
-            inputEle.setAttribute('type', this.type);
+    Object.defineProperty(Searchbar.prototype, "autocomplete", {
+        set: function (val) {
+            this._autocomplete = (val === '' || val === 'on') ? 'on' : this._config.get('autocomplete', 'off');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Searchbar.prototype, "autocorrect", {
+        set: function (val) {
+            this._autocorrect = (val === '' || val === 'on') ? 'on' : this._config.get('autocorrect', 'off');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Searchbar.prototype, "spellcheck", {
+        set: function (val) {
+            this._spellcheck = (val === '' || val === 'true' || val === true) ? true : this._config.getBoolean('spellcheck', false);
         },
         enumerable: true,
         configurable: true
@@ -38105,6 +38244,12 @@ var Searchbar = (function (_super) {
         },
         set: function (val) {
             this._value = val;
+            if (this._searchbarInput) {
+                var ele = this._searchbarInput.nativeElement;
+                if (ele) {
+                    ele.value = val;
+                }
+            }
         },
         enumerable: true,
         configurable: true
@@ -38115,21 +38260,31 @@ var Searchbar = (function (_super) {
             this.showCancelButton = (showCancelButton === '' || showCancelButton === 'true');
         }
     };
-    Searchbar.prototype.ngAfterViewChecked = function () {
+    Searchbar.prototype.ngAfterContentInit = function () {
         this.positionElements();
     };
     Searchbar.prototype.positionElements = function () {
-        if (this._config.get('mode') !== 'ios')
+        var isAnimated = isTrueProperty(this.animated);
+        var prevAlignLeft = this._shouldAlignLeft;
+        var shouldAlignLeft = (!isAnimated || (this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
+        this._shouldAlignLeft = shouldAlignLeft;
+        if (this._config.get('mode') !== 'ios') {
             return;
-        if (this._searchbarInput && this._searchbarIcon) {
-            this.positionInputPlaceholder(this._searchbarInput.nativeElement, this._searchbarIcon.nativeElement);
         }
-        if (this._cancelButton && this._cancelButton.nativeElement) {
-            this.positionCancelButton(this._cancelButton.nativeElement);
+        if (prevAlignLeft !== shouldAlignLeft) {
+            this.positionPlaceholder();
+        }
+        if (isAnimated) {
+            this.positionCancelButton();
         }
     };
-    Searchbar.prototype.positionInputPlaceholder = function (inputEle, iconEle) {
-        if (this.shouldAlignLeft()) {
+    Searchbar.prototype.positionPlaceholder = function () {
+        if (!this._searchbarInput || !this._searchbarIcon) {
+            return;
+        }
+        var inputEle = this._searchbarInput.nativeElement;
+        var iconEle = this._searchbarIcon.nativeElement;
+        if (this._shouldAlignLeft) {
             inputEle.removeAttribute('style');
             iconEle.removeAttribute('style');
         }
@@ -38145,24 +38300,30 @@ var Searchbar = (function (_super) {
             iconEle.style.marginLeft = iconLeft;
         }
     };
-    Searchbar.prototype.positionCancelButton = function (cancelButtonEle) {
-        if (cancelButtonEle.offsetWidth > 0) {
-            if (this._sbHasFocus) {
-                cancelButtonEle.style.marginRight = '0';
+    Searchbar.prototype.positionCancelButton = function () {
+        if (!this._cancelButton || !this._cancelButton.nativeElement) {
+            return;
+        }
+        var showShowCancel = this._sbHasFocus;
+        if (showShowCancel !== this._isCancelVisible) {
+            var cancelStyleEle = this._cancelButton.nativeElement;
+            var cancelStyle = cancelStyleEle.style;
+            this._isCancelVisible = showShowCancel;
+            if (showShowCancel) {
+                cancelStyle.marginRight = '0';
             }
             else {
-                cancelButtonEle.style.marginRight = -cancelButtonEle.offsetWidth + 'px';
+                var offset = cancelStyleEle.offsetWidth;
+                if (offset > 0) {
+                    cancelStyle.marginRight = -offset + 'px';
+                }
             }
         }
     };
-    Searchbar.prototype.shouldAlignLeft = function () {
-        return ((this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
-    };
     Searchbar.prototype.inputChanged = function (ev) {
         var _this = this;
-        var value = ev.target.value;
+        this._value = ev.target.value;
         this._debouncer.debounce(function () {
-            _this._value = value;
             _this.onChange(_this._value);
             _this.ionInput.emit(ev);
         });
@@ -38184,12 +38345,16 @@ var Searchbar = (function (_super) {
         this.positionElements();
     };
     Searchbar.prototype.clearInput = function (ev) {
+        var _this = this;
         this.ionClear.emit(ev);
-        if (isPresent$5(this._value) && this._value !== '') {
-            this._value = '';
-            this.onChange(this._value);
-            this.ionInput.emit(ev);
-        }
+        setTimeout(function () {
+            var value = _this._value;
+            if (isPresent$5(value) && value !== '') {
+                _this.value = '';
+                _this.onChange(_this._value);
+                _this.ionInput.emit(ev);
+            }
+        }, 16 * 4);
         this._shouldBlur = false;
     };
     Searchbar.prototype.cancelSearchbar = function (ev) {
@@ -38199,7 +38364,7 @@ var Searchbar = (function (_super) {
         this._isActive = false;
     };
     Searchbar.prototype.writeValue = function (val) {
-        this._value = val;
+        this.value = val;
         this.positionElements();
     };
     Searchbar.prototype.registerOnChange = function (fn) {
@@ -38208,23 +38373,32 @@ var Searchbar = (function (_super) {
     Searchbar.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    Searchbar.prototype.setFocus = function () {
+        this._renderer.invokeElementMethod(this._searchbarInput.nativeElement, 'focus');
+    };
     Searchbar.decorators = [
         { type: Component, args: [{
                     selector: 'ion-searchbar',
                     template: '<div class="searchbar-input-container">' +
-                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel">' +
+                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
                         '<ion-icon name="arrow-back"></ion-icon>' +
                         '</button>' +
                         '<div #searchbarIcon class="searchbar-search-icon"></div>' +
-                        '<input #searchbarInput [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
-                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
+                        '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" ' +
+                        '[attr.placeholder]="placeholder" ' +
+                        '[attr.type]="type" ' +
+                        '[attr.autocomplete]="_autocomplete" ' +
+                        '[attr.autocorrect]="_autocorrect" ' +
+                        '[attr.spellcheck]="_spellcheck">' +
+                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
                         '</div>' +
-                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
+                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
                     host: {
+                        '[class.searchbar-animated]': 'animated',
                         '[class.searchbar-has-value]': '_value',
                         '[class.searchbar-active]': '_isActive',
                         '[class.searchbar-show-cancel]': 'showCancelButton',
-                        '[class.searchbar-left-aligned]': 'shouldAlignLeft()'
+                        '[class.searchbar-left-aligned]': '_shouldAlignLeft'
                     },
                     encapsulation: ViewEncapsulation.None
                 },] },
@@ -38246,13 +38420,14 @@ var Searchbar = (function (_super) {
         'autocorrect': [{ type: Input },],
         'spellcheck': [{ type: Input },],
         'type': [{ type: Input },],
+        'animated': [{ type: Input },],
         'ionInput': [{ type: Output },],
         'ionBlur': [{ type: Output },],
         'ionFocus': [{ type: Output },],
         'ionCancel': [{ type: Output },],
         'ionClear': [{ type: Output },],
         '_sbHasFocus': [{ type: HostBinding, args: ['class.searchbar-has-focus',] },],
-        'searchbarInput': [{ type: ViewChild, args: ['searchbarInput',] },],
+        '_searchbarInput': [{ type: ViewChild, args: ['searchbarInput',] },],
         '_searchbarIcon': [{ type: ViewChild, args: ['searchbarIcon',] },],
         '_cancelButton': [{ type: ViewChild, args: ['cancelButton', { read: ElementRef },] },],
         'value': [{ type: Input },],
@@ -44535,6 +44710,7 @@ var Spinner = (function (_super) {
         _super.call(this, config, elementRef, renderer);
         this._dur = null;
         this.paused = false;
+        this.mode = config.get('mode');
     }
     Object.defineProperty(Spinner.prototype, "color", {
         get: function () {
@@ -44542,6 +44718,13 @@ var Spinner = (function (_super) {
         },
         set: function (value) {
             this._setColor('spinner', value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Spinner.prototype, "mode", {
+        set: function (val) {
+            this._setMode('spinner', val);
         },
         enumerable: true,
         configurable: true
@@ -44623,6 +44806,7 @@ var Spinner = (function (_super) {
     ];
     Spinner.propDecorators = {
         'color': [{ type: Input },],
+        'mode': [{ type: Input },],
         'name': [{ type: Input },],
         'duration': [{ type: Input },],
         'paused': [{ type: Input },],
@@ -45491,9 +45675,10 @@ var TOGGLE_VALUE_ACCESSOR = {
 };
 var Toggle = (function (_super) {
     __extends$115(Toggle, _super);
-    function Toggle(_form, config, elementRef, renderer, _item) {
+    function Toggle(_form, config, elementRef, renderer, _haptic, _item) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
+        this._haptic = _haptic;
         this._item = _item;
         this._checked = false;
         this._init = false;
@@ -45537,12 +45722,14 @@ var Toggle = (function (_super) {
             if (this._checked) {
                 if (currentX + 15 < this._startX) {
                     this.onChange(false);
+                    this._haptic.selection();
                     this._startX = currentX;
                     this._activated = true;
                 }
             }
             else if (currentX - 15 > this._startX) {
                 this.onChange(true);
+                this._haptic.selection();
                 this._startX = currentX;
                 this._activated = (currentX < this._startX + 5);
             }
@@ -45554,10 +45741,12 @@ var Toggle = (function (_super) {
             if (this.checked) {
                 if (this._startX + 4 > endX) {
                     this.onChange(false);
+                    this._haptic.selection();
                 }
             }
             else if (this._startX - 4 < endX) {
                 this.onChange(true);
+                this._haptic.selection();
             }
             this._activated = false;
             this._startX = null;
@@ -45651,6 +45840,7 @@ var Toggle = (function (_super) {
         { type: Config, },
         { type: ElementRef, },
         { type: Renderer, },
+        { type: Haptic, },
         { type: Item, decorators: [{ type: Optional },] },
     ];
     Toggle.propDecorators = {
@@ -46725,6 +46915,7 @@ var IonicModule = (function () {
                 App,
                 Events,
                 Form,
+                Haptic,
                 GestureController,
                 Keyboard,
                 LoadingController,
@@ -47032,7 +47223,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'action-sheet-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47587,7 +47778,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -48837,7 +49028,7 @@ var _View_LoadingCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'loading-wrapper');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
@@ -49059,7 +49250,7 @@ var _View_ModalCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disableScroll', 'false');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'modal-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -49127,7 +49318,7 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer));
+        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
         this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
         compView_0.create(this._PickerColumnCmp_0_4, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
@@ -49495,7 +49686,7 @@ var _View_PickerCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_1, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_1, 'tappable', '');
-        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1));
+        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n    ', null);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'picker-wrapper');
@@ -49756,7 +49947,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer));
+        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
         this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
         compView_0.create(this._PickerColumnCmp_0_4, [], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'ionChange', this.eventHandler(this._handle_ionChange_0_0.bind(this)));
@@ -49885,7 +50076,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0));
+        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'popover-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -50861,7 +51052,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_19.create(this._FabButton_19_4, [[].concat([this._el_20])], null);
         this._text_21 = this.renderer.createText(null, '\n    ', null);
         this._el_22 = this.renderer.createElement(null, 'ion-fab-list', null);
-        this._FabList_22_3 = new FabList();
+        this._FabList_22_3 = new FabList(new ElementRef(this._el_22), this.renderer);
         this._query_FabButton_22_0 = new QueryList();
         this._text_23 = this.renderer.createText(this._el_22, '\n      ', null);
         this._el_24 = this.renderer.createElement(this._el_22, 'button', null);
@@ -50954,7 +51145,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_42 = this.renderer.createText(null, '\n    ', null);
         this._el_43 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_43, 'side', 'left');
-        this._FabList_43_3 = new FabList();
+        this._FabList_43_3 = new FabList(new ElementRef(this._el_43), this.renderer);
         this._query_FabButton_43_0 = new QueryList();
         this._text_44 = this.renderer.createText(this._el_43, '\n      ', null);
         this._el_45 = this.renderer.createElement(this._el_43, 'button', null);
@@ -51047,7 +51238,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_63 = this.renderer.createText(null, '\n    ', null);
         this._el_64 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_64, 'side', 'right');
-        this._FabList_64_3 = new FabList();
+        this._FabList_64_3 = new FabList(new ElementRef(this._el_64), this.renderer);
         this._query_FabButton_64_0 = new QueryList();
         this._text_65 = this.renderer.createText(this._el_64, '\n      ', null);
         this._el_66 = this.renderer.createElement(this._el_64, 'button', null);
@@ -51140,7 +51331,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_84 = this.renderer.createText(null, '\n    ', null);
         this._el_85 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_85, 'side', 'top');
-        this._FabList_85_3 = new FabList();
+        this._FabList_85_3 = new FabList(new ElementRef(this._el_85), this.renderer);
         this._query_FabButton_85_0 = new QueryList();
         this._text_86 = this.renderer.createText(this._el_85, '\n      ', null);
         this._el_87 = this.renderer.createElement(this._el_85, 'button', null);
@@ -51233,7 +51424,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_105 = this.renderer.createText(null, '\n    ', null);
         this._el_106 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_106, 'side', 'top');
-        this._FabList_106_3 = new FabList();
+        this._FabList_106_3 = new FabList(new ElementRef(this._el_106), this.renderer);
         this._query_FabButton_106_0 = new QueryList();
         this._text_107 = this.renderer.createText(this._el_106, '\n      ', null);
         this._el_108 = this.renderer.createElement(this._el_106, 'button', null);
@@ -51252,7 +51443,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_111 = this.renderer.createText(null, '\n    ', null);
         this._el_112 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_112, 'side', 'bottom');
-        this._FabList_112_3 = new FabList();
+        this._FabList_112_3 = new FabList(new ElementRef(this._el_112), this.renderer);
         this._query_FabButton_112_0 = new QueryList();
         this._text_113 = this.renderer.createText(this._el_112, '\n      ', null);
         this._el_114 = this.renderer.createElement(this._el_112, 'button', null);
@@ -51271,7 +51462,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_117 = this.renderer.createText(null, '\n    ', null);
         this._el_118 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_118, 'side', 'left');
-        this._FabList_118_3 = new FabList();
+        this._FabList_118_3 = new FabList(new ElementRef(this._el_118), this.renderer);
         this._query_FabButton_118_0 = new QueryList();
         this._text_119 = this.renderer.createText(this._el_118, '\n      ', null);
         this._el_120 = this.renderer.createElement(this._el_118, 'button', null);
@@ -51290,7 +51481,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_123 = this.renderer.createText(null, '\n    ', null);
         this._el_124 = this.renderer.createElement(null, 'ion-fab-list', null);
         this.renderer.setElementAttribute(this._el_124, 'side', 'right');
-        this._FabList_124_3 = new FabList();
+        this._FabList_124_3 = new FabList(new ElementRef(this._el_124), this.renderer);
         this._query_FabButton_124_0 = new QueryList();
         this._text_125 = this.renderer.createText(this._el_124, '\n      ', null);
         this._el_126 = this.renderer.createElement(this._el_124, 'button', null);
@@ -51393,95 +51584,87 @@ var _View_ApiDemoPage0 = (function (_super) {
         var disposable_0 = this.renderer.listen(this._el_19, 'click', this.eventHandler(this._handle_click_19_0.bind(this)));
         this._expr_5 = UNINITIALIZED;
         this._expr_6 = UNINITIALIZED;
-        this._expr_7 = UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_24, 'click', this.eventHandler(this._handle_click_24_0.bind(this)));
+        this._expr_8 = UNINITIALIZED;
         this._expr_9 = UNINITIALIZED;
-        this._expr_10 = UNINITIALIZED;
         var disposable_2 = this.renderer.listen(this._el_27, 'click', this.eventHandler(this._handle_click_27_0.bind(this)));
+        this._expr_11 = UNINITIALIZED;
         this._expr_12 = UNINITIALIZED;
-        this._expr_13 = UNINITIALIZED;
         var disposable_3 = this.renderer.listen(this._el_30, 'click', this.eventHandler(this._handle_click_30_0.bind(this)));
+        this._expr_14 = UNINITIALIZED;
         this._expr_15 = UNINITIALIZED;
-        this._expr_16 = UNINITIALIZED;
         var disposable_4 = this.renderer.listen(this._el_33, 'click', this.eventHandler(this._handle_click_33_0.bind(this)));
+        this._expr_17 = UNINITIALIZED;
         this._expr_18 = UNINITIALIZED;
         this._expr_19 = UNINITIALIZED;
         this._expr_20 = UNINITIALIZED;
         this._expr_21 = UNINITIALIZED;
-        this._expr_22 = UNINITIALIZED;
-        this._expr_23 = UNINITIALIZED;
         var disposable_5 = this.renderer.listen(this._el_45, 'click', this.eventHandler(this._handle_click_45_0.bind(this)));
-        this._expr_25 = UNINITIALIZED;
-        this._expr_26 = UNINITIALIZED;
+        this._expr_23 = UNINITIALIZED;
+        this._expr_24 = UNINITIALIZED;
         var disposable_6 = this.renderer.listen(this._el_48, 'click', this.eventHandler(this._handle_click_48_0.bind(this)));
-        this._expr_28 = UNINITIALIZED;
-        this._expr_29 = UNINITIALIZED;
+        this._expr_26 = UNINITIALIZED;
+        this._expr_27 = UNINITIALIZED;
         var disposable_7 = this.renderer.listen(this._el_51, 'click', this.eventHandler(this._handle_click_51_0.bind(this)));
-        this._expr_31 = UNINITIALIZED;
-        this._expr_32 = UNINITIALIZED;
+        this._expr_29 = UNINITIALIZED;
+        this._expr_30 = UNINITIALIZED;
         var disposable_8 = this.renderer.listen(this._el_54, 'click', this.eventHandler(this._handle_click_54_0.bind(this)));
+        this._expr_32 = UNINITIALIZED;
+        this._expr_33 = UNINITIALIZED;
         this._expr_34 = UNINITIALIZED;
         this._expr_35 = UNINITIALIZED;
         this._expr_36 = UNINITIALIZED;
-        this._expr_37 = UNINITIALIZED;
+        var disposable_9 = this.renderer.listen(this._el_66, 'click', this.eventHandler(this._handle_click_66_0.bind(this)));
         this._expr_38 = UNINITIALIZED;
         this._expr_39 = UNINITIALIZED;
-        var disposable_9 = this.renderer.listen(this._el_66, 'click', this.eventHandler(this._handle_click_66_0.bind(this)));
+        var disposable_10 = this.renderer.listen(this._el_69, 'click', this.eventHandler(this._handle_click_69_0.bind(this)));
         this._expr_41 = UNINITIALIZED;
         this._expr_42 = UNINITIALIZED;
-        var disposable_10 = this.renderer.listen(this._el_69, 'click', this.eventHandler(this._handle_click_69_0.bind(this)));
+        var disposable_11 = this.renderer.listen(this._el_72, 'click', this.eventHandler(this._handle_click_72_0.bind(this)));
         this._expr_44 = UNINITIALIZED;
         this._expr_45 = UNINITIALIZED;
-        var disposable_11 = this.renderer.listen(this._el_72, 'click', this.eventHandler(this._handle_click_72_0.bind(this)));
+        var disposable_12 = this.renderer.listen(this._el_75, 'click', this.eventHandler(this._handle_click_75_0.bind(this)));
         this._expr_47 = UNINITIALIZED;
         this._expr_48 = UNINITIALIZED;
-        var disposable_12 = this.renderer.listen(this._el_75, 'click', this.eventHandler(this._handle_click_75_0.bind(this)));
+        this._expr_49 = UNINITIALIZED;
         this._expr_50 = UNINITIALIZED;
         this._expr_51 = UNINITIALIZED;
-        this._expr_52 = UNINITIALIZED;
+        var disposable_13 = this.renderer.listen(this._el_87, 'click', this.eventHandler(this._handle_click_87_0.bind(this)));
         this._expr_53 = UNINITIALIZED;
         this._expr_54 = UNINITIALIZED;
-        this._expr_55 = UNINITIALIZED;
-        var disposable_13 = this.renderer.listen(this._el_87, 'click', this.eventHandler(this._handle_click_87_0.bind(this)));
-        this._expr_57 = UNINITIALIZED;
-        this._expr_58 = UNINITIALIZED;
         var disposable_14 = this.renderer.listen(this._el_90, 'click', this.eventHandler(this._handle_click_90_0.bind(this)));
-        this._expr_60 = UNINITIALIZED;
-        this._expr_61 = UNINITIALIZED;
+        this._expr_56 = UNINITIALIZED;
+        this._expr_57 = UNINITIALIZED;
         var disposable_15 = this.renderer.listen(this._el_93, 'click', this.eventHandler(this._handle_click_93_0.bind(this)));
-        this._expr_63 = UNINITIALIZED;
-        this._expr_64 = UNINITIALIZED;
+        this._expr_59 = UNINITIALIZED;
+        this._expr_60 = UNINITIALIZED;
         var disposable_16 = this.renderer.listen(this._el_96, 'click', this.eventHandler(this._handle_click_96_0.bind(this)));
+        this._expr_62 = UNINITIALIZED;
+        this._expr_63 = UNINITIALIZED;
+        var disposable_17 = this.renderer.listen(this._el_103, 'click', this.eventHandler(this._handle_click_103_0.bind(this)));
+        this._expr_65 = UNINITIALIZED;
         this._expr_66 = UNINITIALIZED;
         this._expr_67 = UNINITIALIZED;
-        var disposable_17 = this.renderer.listen(this._el_103, 'click', this.eventHandler(this._handle_click_103_0.bind(this)));
+        var disposable_18 = this.renderer.listen(this._el_108, 'click', this.eventHandler(this._handle_click_108_0.bind(this)));
         this._expr_69 = UNINITIALIZED;
         this._expr_70 = UNINITIALIZED;
         this._expr_71 = UNINITIALIZED;
-        this._expr_72 = UNINITIALIZED;
-        var disposable_18 = this.renderer.listen(this._el_108, 'click', this.eventHandler(this._handle_click_108_0.bind(this)));
+        var disposable_19 = this.renderer.listen(this._el_114, 'click', this.eventHandler(this._handle_click_114_0.bind(this)));
+        this._expr_73 = UNINITIALIZED;
         this._expr_74 = UNINITIALIZED;
         this._expr_75 = UNINITIALIZED;
-        this._expr_76 = UNINITIALIZED;
+        var disposable_20 = this.renderer.listen(this._el_120, 'click', this.eventHandler(this._handle_click_120_0.bind(this)));
         this._expr_77 = UNINITIALIZED;
-        var disposable_19 = this.renderer.listen(this._el_114, 'click', this.eventHandler(this._handle_click_114_0.bind(this)));
+        this._expr_78 = UNINITIALIZED;
         this._expr_79 = UNINITIALIZED;
-        this._expr_80 = UNINITIALIZED;
+        var disposable_21 = this.renderer.listen(this._el_126, 'click', this.eventHandler(this._handle_click_126_0.bind(this)));
         this._expr_81 = UNINITIALIZED;
         this._expr_82 = UNINITIALIZED;
-        var disposable_20 = this.renderer.listen(this._el_120, 'click', this.eventHandler(this._handle_click_120_0.bind(this)));
-        this._expr_84 = UNINITIALIZED;
+        this._expr_83 = UNINITIALIZED;
+        var disposable_22 = this.renderer.listen(this._el_133, 'click', this.eventHandler(this._handle_click_133_0.bind(this)));
         this._expr_85 = UNINITIALIZED;
         this._expr_86 = UNINITIALIZED;
         this._expr_87 = UNINITIALIZED;
-        var disposable_21 = this.renderer.listen(this._el_126, 'click', this.eventHandler(this._handle_click_126_0.bind(this)));
-        this._expr_89 = UNINITIALIZED;
-        this._expr_90 = UNINITIALIZED;
-        this._expr_91 = UNINITIALIZED;
-        var disposable_22 = this.renderer.listen(this._el_133, 'click', this.eventHandler(this._handle_click_133_0.bind(this)));
-        this._expr_93 = UNINITIALIZED;
-        this._expr_94 = UNINITIALIZED;
-        this._expr_95 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -51903,220 +52086,220 @@ var _View_ApiDemoPage0 = (function (_super) {
             this._Icon_20_3.name = currVal_5;
             this._expr_5 = currVal_5;
         }
-        var currVal_9 = 'logo-facebook';
-        if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
-            this._Icon_25_3.name = currVal_9;
-            this._expr_9 = currVal_9;
+        var currVal_8 = 'logo-facebook';
+        if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
+            this._Icon_25_3.name = currVal_8;
+            this._expr_8 = currVal_8;
         }
-        var currVal_12 = 'logo-twitter';
-        if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Icon_28_3.name = currVal_12;
-            this._expr_12 = currVal_12;
+        var currVal_11 = 'logo-twitter';
+        if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
+            this._Icon_28_3.name = currVal_11;
+            this._expr_11 = currVal_11;
         }
-        var currVal_15 = 'logo-vimeo';
-        if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Icon_31_3.name = currVal_15;
-            this._expr_15 = currVal_15;
+        var currVal_14 = 'logo-vimeo';
+        if (checkBinding(throwOnChange, this._expr_14, currVal_14)) {
+            this._Icon_31_3.name = currVal_14;
+            this._expr_14 = currVal_14;
         }
-        var currVal_18 = 'logo-googleplus';
-        if (checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this._Icon_34_3.name = currVal_18;
-            this._expr_18 = currVal_18;
+        var currVal_17 = 'logo-googleplus';
+        if (checkBinding(throwOnChange, this._expr_17, currVal_17)) {
+            this._Icon_34_3.name = currVal_17;
+            this._expr_17 = currVal_17;
         }
         changed = false;
-        var currVal_20 = 'light';
-        if (checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._FabButton_40_4.color = currVal_20;
+        var currVal_19 = 'light';
+        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
+            this._FabButton_40_4.color = currVal_19;
             changed = true;
-            this._expr_20 = currVal_20;
+            this._expr_19 = currVal_19;
         }
         if (changed) {
             this._appEl_40.componentView.markAsCheckOnce();
         }
-        var currVal_21 = 'arrow-dropleft';
-        if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Icon_41_3.name = currVal_21;
-            this._expr_21 = currVal_21;
+        var currVal_20 = 'arrow-dropleft';
+        if (checkBinding(throwOnChange, this._expr_20, currVal_20)) {
+            this._Icon_41_3.name = currVal_20;
+            this._expr_20 = currVal_20;
         }
-        var currVal_25 = 'logo-facebook';
-        if (checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this._Icon_46_3.name = currVal_25;
-            this._expr_25 = currVal_25;
+        var currVal_23 = 'logo-facebook';
+        if (checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this._Icon_46_3.name = currVal_23;
+            this._expr_23 = currVal_23;
         }
-        var currVal_28 = 'logo-twitter';
-        if (checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this._Icon_49_3.name = currVal_28;
-            this._expr_28 = currVal_28;
+        var currVal_26 = 'logo-twitter';
+        if (checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this._Icon_49_3.name = currVal_26;
+            this._expr_26 = currVal_26;
         }
-        var currVal_31 = 'logo-vimeo';
-        if (checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this._Icon_52_3.name = currVal_31;
-            this._expr_31 = currVal_31;
+        var currVal_29 = 'logo-vimeo';
+        if (checkBinding(throwOnChange, this._expr_29, currVal_29)) {
+            this._Icon_52_3.name = currVal_29;
+            this._expr_29 = currVal_29;
         }
-        var currVal_34 = 'logo-googleplus';
-        if (checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Icon_55_3.name = currVal_34;
-            this._expr_34 = currVal_34;
+        var currVal_32 = 'logo-googleplus';
+        if (checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this._Icon_55_3.name = currVal_32;
+            this._expr_32 = currVal_32;
         }
         changed = false;
-        var currVal_36 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_36, currVal_36)) {
-            this._FabButton_61_4.color = currVal_36;
+        var currVal_34 = 'secondary';
+        if (checkBinding(throwOnChange, this._expr_34, currVal_34)) {
+            this._FabButton_61_4.color = currVal_34;
             changed = true;
-            this._expr_36 = currVal_36;
+            this._expr_34 = currVal_34;
         }
         if (changed) {
             this._appEl_61.componentView.markAsCheckOnce();
         }
-        var currVal_37 = 'arrow-dropright';
-        if (checkBinding(throwOnChange, this._expr_37, currVal_37)) {
-            this._Icon_62_3.name = currVal_37;
-            this._expr_37 = currVal_37;
+        var currVal_35 = 'arrow-dropright';
+        if (checkBinding(throwOnChange, this._expr_35, currVal_35)) {
+            this._Icon_62_3.name = currVal_35;
+            this._expr_35 = currVal_35;
         }
-        var currVal_41 = 'logo-facebook';
+        var currVal_38 = 'logo-facebook';
+        if (checkBinding(throwOnChange, this._expr_38, currVal_38)) {
+            this._Icon_67_3.name = currVal_38;
+            this._expr_38 = currVal_38;
+        }
+        var currVal_41 = 'logo-twitter';
         if (checkBinding(throwOnChange, this._expr_41, currVal_41)) {
-            this._Icon_67_3.name = currVal_41;
+            this._Icon_70_3.name = currVal_41;
             this._expr_41 = currVal_41;
         }
-        var currVal_44 = 'logo-twitter';
+        var currVal_44 = 'logo-vimeo';
         if (checkBinding(throwOnChange, this._expr_44, currVal_44)) {
-            this._Icon_70_3.name = currVal_44;
+            this._Icon_73_3.name = currVal_44;
             this._expr_44 = currVal_44;
         }
-        var currVal_47 = 'logo-vimeo';
+        var currVal_47 = 'logo-googleplus';
         if (checkBinding(throwOnChange, this._expr_47, currVal_47)) {
-            this._Icon_73_3.name = currVal_47;
+            this._Icon_76_3.name = currVal_47;
             this._expr_47 = currVal_47;
         }
-        var currVal_50 = 'logo-googleplus';
-        if (checkBinding(throwOnChange, this._expr_50, currVal_50)) {
-            this._Icon_76_3.name = currVal_50;
-            this._expr_50 = currVal_50;
-        }
         changed = false;
-        var currVal_52 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_52, currVal_52)) {
-            this._FabButton_82_4.color = currVal_52;
+        var currVal_49 = 'dark';
+        if (checkBinding(throwOnChange, this._expr_49, currVal_49)) {
+            this._FabButton_82_4.color = currVal_49;
             changed = true;
-            this._expr_52 = currVal_52;
+            this._expr_49 = currVal_49;
         }
         if (changed) {
             this._appEl_82.componentView.markAsCheckOnce();
         }
-        var currVal_53 = 'arrow-dropup';
+        var currVal_50 = 'arrow-dropup';
+        if (checkBinding(throwOnChange, this._expr_50, currVal_50)) {
+            this._Icon_83_3.name = currVal_50;
+            this._expr_50 = currVal_50;
+        }
+        var currVal_53 = 'logo-facebook';
         if (checkBinding(throwOnChange, this._expr_53, currVal_53)) {
-            this._Icon_83_3.name = currVal_53;
+            this._Icon_88_3.name = currVal_53;
             this._expr_53 = currVal_53;
         }
-        var currVal_57 = 'logo-facebook';
-        if (checkBinding(throwOnChange, this._expr_57, currVal_57)) {
-            this._Icon_88_3.name = currVal_57;
-            this._expr_57 = currVal_57;
+        var currVal_56 = 'logo-twitter';
+        if (checkBinding(throwOnChange, this._expr_56, currVal_56)) {
+            this._Icon_91_3.name = currVal_56;
+            this._expr_56 = currVal_56;
         }
-        var currVal_60 = 'logo-twitter';
-        if (checkBinding(throwOnChange, this._expr_60, currVal_60)) {
-            this._Icon_91_3.name = currVal_60;
-            this._expr_60 = currVal_60;
+        var currVal_59 = 'logo-vimeo';
+        if (checkBinding(throwOnChange, this._expr_59, currVal_59)) {
+            this._Icon_94_3.name = currVal_59;
+            this._expr_59 = currVal_59;
         }
-        var currVal_63 = 'logo-vimeo';
-        if (checkBinding(throwOnChange, this._expr_63, currVal_63)) {
-            this._Icon_94_3.name = currVal_63;
-            this._expr_63 = currVal_63;
-        }
-        var currVal_66 = 'logo-googleplus';
-        if (checkBinding(throwOnChange, this._expr_66, currVal_66)) {
-            this._Icon_97_3.name = currVal_66;
-            this._expr_66 = currVal_66;
+        var currVal_62 = 'logo-googleplus';
+        if (checkBinding(throwOnChange, this._expr_62, currVal_62)) {
+            this._Icon_97_3.name = currVal_62;
+            this._expr_62 = currVal_62;
         }
         changed = false;
-        var currVal_69 = 'danger';
-        if (checkBinding(throwOnChange, this._expr_69, currVal_69)) {
-            this._FabButton_103_4.color = currVal_69;
+        var currVal_65 = 'danger';
+        if (checkBinding(throwOnChange, this._expr_65, currVal_65)) {
+            this._FabButton_103_4.color = currVal_65;
             changed = true;
-            this._expr_69 = currVal_69;
+            this._expr_65 = currVal_65;
         }
         if (changed) {
             this._appEl_103.componentView.markAsCheckOnce();
         }
-        var currVal_70 = 'md-share';
-        if (checkBinding(throwOnChange, this._expr_70, currVal_70)) {
-            this._Icon_104_3.name = currVal_70;
-            this._expr_70 = currVal_70;
+        var currVal_66 = 'md-share';
+        if (checkBinding(throwOnChange, this._expr_66, currVal_66)) {
+            this._Icon_104_3.name = currVal_66;
+            this._expr_66 = currVal_66;
         }
         changed = false;
-        var currVal_74 = 'primary';
-        if (checkBinding(throwOnChange, this._expr_74, currVal_74)) {
-            this._FabButton_108_4.color = currVal_74;
+        var currVal_69 = 'primary';
+        if (checkBinding(throwOnChange, this._expr_69, currVal_69)) {
+            this._FabButton_108_4.color = currVal_69;
             changed = true;
-            this._expr_74 = currVal_74;
+            this._expr_69 = currVal_69;
         }
         if (changed) {
             this._appEl_108.componentView.markAsCheckOnce();
         }
-        var currVal_75 = 'logo-vimeo';
-        if (checkBinding(throwOnChange, this._expr_75, currVal_75)) {
-            this._Icon_109_3.name = currVal_75;
-            this._expr_75 = currVal_75;
+        var currVal_70 = 'logo-vimeo';
+        if (checkBinding(throwOnChange, this._expr_70, currVal_70)) {
+            this._Icon_109_3.name = currVal_70;
+            this._expr_70 = currVal_70;
         }
         changed = false;
-        var currVal_79 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_79, currVal_79)) {
-            this._FabButton_114_4.color = currVal_79;
+        var currVal_73 = 'secondary';
+        if (checkBinding(throwOnChange, this._expr_73, currVal_73)) {
+            this._FabButton_114_4.color = currVal_73;
             changed = true;
-            this._expr_79 = currVal_79;
+            this._expr_73 = currVal_73;
         }
         if (changed) {
             this._appEl_114.componentView.markAsCheckOnce();
         }
-        var currVal_80 = 'logo-facebook';
-        if (checkBinding(throwOnChange, this._expr_80, currVal_80)) {
-            this._Icon_115_3.name = currVal_80;
-            this._expr_80 = currVal_80;
+        var currVal_74 = 'logo-facebook';
+        if (checkBinding(throwOnChange, this._expr_74, currVal_74)) {
+            this._Icon_115_3.name = currVal_74;
+            this._expr_74 = currVal_74;
         }
         changed = false;
-        var currVal_84 = 'light';
-        if (checkBinding(throwOnChange, this._expr_84, currVal_84)) {
-            this._FabButton_120_4.color = currVal_84;
+        var currVal_77 = 'light';
+        if (checkBinding(throwOnChange, this._expr_77, currVal_77)) {
+            this._FabButton_120_4.color = currVal_77;
             changed = true;
-            this._expr_84 = currVal_84;
+            this._expr_77 = currVal_77;
         }
         if (changed) {
             this._appEl_120.componentView.markAsCheckOnce();
         }
-        var currVal_85 = 'logo-googleplus';
-        if (checkBinding(throwOnChange, this._expr_85, currVal_85)) {
-            this._Icon_121_3.name = currVal_85;
-            this._expr_85 = currVal_85;
+        var currVal_78 = 'logo-googleplus';
+        if (checkBinding(throwOnChange, this._expr_78, currVal_78)) {
+            this._Icon_121_3.name = currVal_78;
+            this._expr_78 = currVal_78;
         }
         changed = false;
-        var currVal_89 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_89, currVal_89)) {
-            this._FabButton_126_4.color = currVal_89;
+        var currVal_81 = 'dark';
+        if (checkBinding(throwOnChange, this._expr_81, currVal_81)) {
+            this._FabButton_126_4.color = currVal_81;
             changed = true;
-            this._expr_89 = currVal_89;
+            this._expr_81 = currVal_81;
         }
         if (changed) {
             this._appEl_126.componentView.markAsCheckOnce();
         }
-        var currVal_90 = 'logo-twitter';
-        if (checkBinding(throwOnChange, this._expr_90, currVal_90)) {
-            this._Icon_127_3.name = currVal_90;
-            this._expr_90 = currVal_90;
+        var currVal_82 = 'logo-twitter';
+        if (checkBinding(throwOnChange, this._expr_82, currVal_82)) {
+            this._Icon_127_3.name = currVal_82;
+            this._expr_82 = currVal_82;
         }
         changed = false;
-        var currVal_93 = 'danger';
-        if (checkBinding(throwOnChange, this._expr_93, currVal_93)) {
-            this._FabButton_133_4.color = currVal_93;
+        var currVal_85 = 'danger';
+        if (checkBinding(throwOnChange, this._expr_85, currVal_85)) {
+            this._FabButton_133_4.color = currVal_85;
             changed = true;
-            this._expr_93 = currVal_93;
+            this._expr_85 = currVal_85;
         }
         if (changed) {
             this._appEl_133.componentView.markAsCheckOnce();
         }
-        var currVal_94 = 'add';
-        if (checkBinding(throwOnChange, this._expr_94, currVal_94)) {
-            this._Icon_134_3.name = currVal_94;
-            this._expr_94 = currVal_94;
+        var currVal_86 = 'add';
+        if (checkBinding(throwOnChange, this._expr_86, currVal_86)) {
+            this._Icon_134_3.name = currVal_86;
+            this._expr_86 = currVal_86;
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -52249,170 +52432,130 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_20, 'hide', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_7 = this._FabList_22_3._visible;
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this.renderer.setElementClass(this._el_22, 'fab-list-active', currVal_7);
-            this._expr_7 = currVal_7;
+        var currVal_9 = this._Icon_25_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
+            this.renderer.setElementClass(this._el_25, 'hide', currVal_9);
+            this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._Icon_25_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this.renderer.setElementClass(this._el_25, 'hide', currVal_10);
-            this._expr_10 = currVal_10;
+        var currVal_12 = this._Icon_28_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
+            this.renderer.setElementClass(this._el_28, 'hide', currVal_12);
+            this._expr_12 = currVal_12;
         }
-        var currVal_13 = this._Icon_28_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this.renderer.setElementClass(this._el_28, 'hide', currVal_13);
-            this._expr_13 = currVal_13;
+        var currVal_15 = this._Icon_31_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
+            this.renderer.setElementClass(this._el_31, 'hide', currVal_15);
+            this._expr_15 = currVal_15;
         }
-        var currVal_16 = this._Icon_31_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this.renderer.setElementClass(this._el_31, 'hide', currVal_16);
-            this._expr_16 = currVal_16;
+        var currVal_18 = this._Icon_34_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_18, currVal_18)) {
+            this.renderer.setElementClass(this._el_34, 'hide', currVal_18);
+            this._expr_18 = currVal_18;
         }
-        var currVal_19 = this._Icon_34_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this.renderer.setElementClass(this._el_34, 'hide', currVal_19);
-            this._expr_19 = currVal_19;
+        var currVal_21 = this._Icon_41_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this.renderer.setElementClass(this._el_41, 'hide', currVal_21);
+            this._expr_21 = currVal_21;
         }
-        var currVal_22 = this._Icon_41_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this.renderer.setElementClass(this._el_41, 'hide', currVal_22);
-            this._expr_22 = currVal_22;
+        var currVal_24 = this._Icon_46_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this.renderer.setElementClass(this._el_46, 'hide', currVal_24);
+            this._expr_24 = currVal_24;
         }
-        var currVal_23 = this._FabList_43_3._visible;
-        if (checkBinding(throwOnChange, this._expr_23, currVal_23)) {
-            this.renderer.setElementClass(this._el_43, 'fab-list-active', currVal_23);
-            this._expr_23 = currVal_23;
+        var currVal_27 = this._Icon_49_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_27, currVal_27)) {
+            this.renderer.setElementClass(this._el_49, 'hide', currVal_27);
+            this._expr_27 = currVal_27;
         }
-        var currVal_26 = this._Icon_46_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this.renderer.setElementClass(this._el_46, 'hide', currVal_26);
-            this._expr_26 = currVal_26;
+        var currVal_30 = this._Icon_52_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_30, currVal_30)) {
+            this.renderer.setElementClass(this._el_52, 'hide', currVal_30);
+            this._expr_30 = currVal_30;
         }
-        var currVal_29 = this._Icon_49_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this.renderer.setElementClass(this._el_49, 'hide', currVal_29);
-            this._expr_29 = currVal_29;
+        var currVal_33 = this._Icon_55_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_33, currVal_33)) {
+            this.renderer.setElementClass(this._el_55, 'hide', currVal_33);
+            this._expr_33 = currVal_33;
         }
-        var currVal_32 = this._Icon_52_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this.renderer.setElementClass(this._el_52, 'hide', currVal_32);
-            this._expr_32 = currVal_32;
+        var currVal_36 = this._Icon_62_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_36, currVal_36)) {
+            this.renderer.setElementClass(this._el_62, 'hide', currVal_36);
+            this._expr_36 = currVal_36;
         }
-        var currVal_35 = this._Icon_55_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_35, currVal_35)) {
-            this.renderer.setElementClass(this._el_55, 'hide', currVal_35);
-            this._expr_35 = currVal_35;
-        }
-        var currVal_38 = this._Icon_62_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_38, currVal_38)) {
-            this.renderer.setElementClass(this._el_62, 'hide', currVal_38);
-            this._expr_38 = currVal_38;
-        }
-        var currVal_39 = this._FabList_64_3._visible;
+        var currVal_39 = this._Icon_67_3._hidden;
         if (checkBinding(throwOnChange, this._expr_39, currVal_39)) {
-            this.renderer.setElementClass(this._el_64, 'fab-list-active', currVal_39);
+            this.renderer.setElementClass(this._el_67, 'hide', currVal_39);
             this._expr_39 = currVal_39;
         }
-        var currVal_42 = this._Icon_67_3._hidden;
+        var currVal_42 = this._Icon_70_3._hidden;
         if (checkBinding(throwOnChange, this._expr_42, currVal_42)) {
-            this.renderer.setElementClass(this._el_67, 'hide', currVal_42);
+            this.renderer.setElementClass(this._el_70, 'hide', currVal_42);
             this._expr_42 = currVal_42;
         }
-        var currVal_45 = this._Icon_70_3._hidden;
+        var currVal_45 = this._Icon_73_3._hidden;
         if (checkBinding(throwOnChange, this._expr_45, currVal_45)) {
-            this.renderer.setElementClass(this._el_70, 'hide', currVal_45);
+            this.renderer.setElementClass(this._el_73, 'hide', currVal_45);
             this._expr_45 = currVal_45;
         }
-        var currVal_48 = this._Icon_73_3._hidden;
+        var currVal_48 = this._Icon_76_3._hidden;
         if (checkBinding(throwOnChange, this._expr_48, currVal_48)) {
-            this.renderer.setElementClass(this._el_73, 'hide', currVal_48);
+            this.renderer.setElementClass(this._el_76, 'hide', currVal_48);
             this._expr_48 = currVal_48;
         }
-        var currVal_51 = this._Icon_76_3._hidden;
+        var currVal_51 = this._Icon_83_3._hidden;
         if (checkBinding(throwOnChange, this._expr_51, currVal_51)) {
-            this.renderer.setElementClass(this._el_76, 'hide', currVal_51);
+            this.renderer.setElementClass(this._el_83, 'hide', currVal_51);
             this._expr_51 = currVal_51;
         }
-        var currVal_54 = this._Icon_83_3._hidden;
+        var currVal_54 = this._Icon_88_3._hidden;
         if (checkBinding(throwOnChange, this._expr_54, currVal_54)) {
-            this.renderer.setElementClass(this._el_83, 'hide', currVal_54);
+            this.renderer.setElementClass(this._el_88, 'hide', currVal_54);
             this._expr_54 = currVal_54;
         }
-        var currVal_55 = this._FabList_85_3._visible;
-        if (checkBinding(throwOnChange, this._expr_55, currVal_55)) {
-            this.renderer.setElementClass(this._el_85, 'fab-list-active', currVal_55);
-            this._expr_55 = currVal_55;
+        var currVal_57 = this._Icon_91_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_57, currVal_57)) {
+            this.renderer.setElementClass(this._el_91, 'hide', currVal_57);
+            this._expr_57 = currVal_57;
         }
-        var currVal_58 = this._Icon_88_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_58, currVal_58)) {
-            this.renderer.setElementClass(this._el_88, 'hide', currVal_58);
-            this._expr_58 = currVal_58;
+        var currVal_60 = this._Icon_94_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_60, currVal_60)) {
+            this.renderer.setElementClass(this._el_94, 'hide', currVal_60);
+            this._expr_60 = currVal_60;
         }
-        var currVal_61 = this._Icon_91_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_61, currVal_61)) {
-            this.renderer.setElementClass(this._el_91, 'hide', currVal_61);
-            this._expr_61 = currVal_61;
+        var currVal_63 = this._Icon_97_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_63, currVal_63)) {
+            this.renderer.setElementClass(this._el_97, 'hide', currVal_63);
+            this._expr_63 = currVal_63;
         }
-        var currVal_64 = this._Icon_94_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_64, currVal_64)) {
-            this.renderer.setElementClass(this._el_94, 'hide', currVal_64);
-            this._expr_64 = currVal_64;
-        }
-        var currVal_67 = this._Icon_97_3._hidden;
+        var currVal_67 = this._Icon_104_3._hidden;
         if (checkBinding(throwOnChange, this._expr_67, currVal_67)) {
-            this.renderer.setElementClass(this._el_97, 'hide', currVal_67);
+            this.renderer.setElementClass(this._el_104, 'hide', currVal_67);
             this._expr_67 = currVal_67;
         }
-        var currVal_71 = this._Icon_104_3._hidden;
+        var currVal_71 = this._Icon_109_3._hidden;
         if (checkBinding(throwOnChange, this._expr_71, currVal_71)) {
-            this.renderer.setElementClass(this._el_104, 'hide', currVal_71);
+            this.renderer.setElementClass(this._el_109, 'hide', currVal_71);
             this._expr_71 = currVal_71;
         }
-        var currVal_72 = this._FabList_106_3._visible;
-        if (checkBinding(throwOnChange, this._expr_72, currVal_72)) {
-            this.renderer.setElementClass(this._el_106, 'fab-list-active', currVal_72);
-            this._expr_72 = currVal_72;
+        var currVal_75 = this._Icon_115_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_75, currVal_75)) {
+            this.renderer.setElementClass(this._el_115, 'hide', currVal_75);
+            this._expr_75 = currVal_75;
         }
-        var currVal_76 = this._Icon_109_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_76, currVal_76)) {
-            this.renderer.setElementClass(this._el_109, 'hide', currVal_76);
-            this._expr_76 = currVal_76;
+        var currVal_79 = this._Icon_121_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_79, currVal_79)) {
+            this.renderer.setElementClass(this._el_121, 'hide', currVal_79);
+            this._expr_79 = currVal_79;
         }
-        var currVal_77 = this._FabList_112_3._visible;
-        if (checkBinding(throwOnChange, this._expr_77, currVal_77)) {
-            this.renderer.setElementClass(this._el_112, 'fab-list-active', currVal_77);
-            this._expr_77 = currVal_77;
+        var currVal_83 = this._Icon_127_3._hidden;
+        if (checkBinding(throwOnChange, this._expr_83, currVal_83)) {
+            this.renderer.setElementClass(this._el_127, 'hide', currVal_83);
+            this._expr_83 = currVal_83;
         }
-        var currVal_81 = this._Icon_115_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_81, currVal_81)) {
-            this.renderer.setElementClass(this._el_115, 'hide', currVal_81);
-            this._expr_81 = currVal_81;
-        }
-        var currVal_82 = this._FabList_118_3._visible;
-        if (checkBinding(throwOnChange, this._expr_82, currVal_82)) {
-            this.renderer.setElementClass(this._el_118, 'fab-list-active', currVal_82);
-            this._expr_82 = currVal_82;
-        }
-        var currVal_86 = this._Icon_121_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_86, currVal_86)) {
-            this.renderer.setElementClass(this._el_121, 'hide', currVal_86);
-            this._expr_86 = currVal_86;
-        }
-        var currVal_87 = this._FabList_124_3._visible;
+        var currVal_87 = this._Icon_134_3._hidden;
         if (checkBinding(throwOnChange, this._expr_87, currVal_87)) {
-            this.renderer.setElementClass(this._el_124, 'fab-list-active', currVal_87);
+            this.renderer.setElementClass(this._el_134, 'hide', currVal_87);
             this._expr_87 = currVal_87;
-        }
-        var currVal_91 = this._Icon_127_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_91, currVal_91)) {
-            this.renderer.setElementClass(this._el_127, 'hide', currVal_91);
-            this._expr_91 = currVal_91;
-        }
-        var currVal_95 = this._Icon_134_3._hidden;
-        if (checkBinding(throwOnChange, this._expr_95, currVal_95)) {
-            this.renderer.setElementClass(this._el_134, 'hide', currVal_95);
-            this._expr_95 = currVal_95;
         }
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -53035,152 +53178,162 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_59", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Haptic_59", {
         get: function () {
-            if ((this.__GestureController_59 == null)) {
-                (this.__GestureController_59 = new GestureController(this._App_22));
+            if ((this.__Haptic_59 == null)) {
+                (this.__Haptic_59 = new Haptic(this._Platform_20));
             }
-            return this.__GestureController_59;
+            return this.__Haptic_59;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_60", {
+    Object.defineProperty(AppModuleInjector.prototype, "_GestureController_60", {
         get: function () {
-            if ((this.__Keyboard_60 == null)) {
-                (this.__Keyboard_60 = new Keyboard(this._Config_21, this._Form_58, this.parent.get(NgZone)));
+            if ((this.__GestureController_60 == null)) {
+                (this.__GestureController_60 = new GestureController(this._App_22));
             }
-            return this.__Keyboard_60;
+            return this.__GestureController_60;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_61", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_61", {
         get: function () {
-            if ((this.__LoadingController_61 == null)) {
-                (this.__LoadingController_61 = new LoadingController(this._App_22));
+            if ((this.__Keyboard_61 == null)) {
+                (this.__Keyboard_61 = new Keyboard(this._Config_21, this._Form_58, this.parent.get(NgZone)));
             }
-            return this.__LoadingController_61;
+            return this.__Keyboard_61;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_62", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_62", {
         get: function () {
-            if ((this.__LocationStrategy_62 == null)) {
-                (this.__LocationStrategy_62 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
+            if ((this.__LoadingController_62 == null)) {
+                (this.__LoadingController_62 = new LoadingController(this._App_22));
             }
-            return this.__LocationStrategy_62;
+            return this.__LoadingController_62;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Location_63", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_63", {
         get: function () {
-            if ((this.__Location_63 == null)) {
-                (this.__Location_63 = new Location(this._LocationStrategy_62));
+            if ((this.__LocationStrategy_63 == null)) {
+                (this.__LocationStrategy_63 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
             }
-            return this.__Location_63;
+            return this.__LocationStrategy_63;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_64", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Location_64", {
         get: function () {
-            if ((this.__MenuController_64 == null)) {
-                (this.__MenuController_64 = new MenuController());
+            if ((this.__Location_64 == null)) {
+                (this.__Location_64 = new Location(this._LocationStrategy_63));
             }
-            return this.__MenuController_64;
+            return this.__Location_64;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_65", {
+    Object.defineProperty(AppModuleInjector.prototype, "_MenuController_65", {
         get: function () {
-            if ((this.__ModalController_65 == null)) {
-                (this.__ModalController_65 = new ModalController(this._App_22));
+            if ((this.__MenuController_65 == null)) {
+                (this.__MenuController_65 = new MenuController());
             }
-            return this.__ModalController_65;
+            return this.__MenuController_65;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_66", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_66", {
         get: function () {
-            if ((this.__PickerController_66 == null)) {
-                (this.__PickerController_66 = new PickerController(this._App_22));
+            if ((this.__ModalController_66 == null)) {
+                (this.__ModalController_66 = new ModalController(this._App_22));
             }
-            return this.__PickerController_66;
+            return this.__ModalController_66;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_67", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_67", {
         get: function () {
-            if ((this.__PopoverController_67 == null)) {
-                (this.__PopoverController_67 = new PopoverController(this._App_22));
+            if ((this.__PickerController_67 == null)) {
+                (this.__PickerController_67 = new PickerController(this._App_22));
             }
-            return this.__PopoverController_67;
+            return this.__PickerController_67;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_68", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_68", {
         get: function () {
-            if ((this.__TapClick_68 == null)) {
-                (this.__TapClick_68 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
+            if ((this.__PopoverController_68 == null)) {
+                (this.__PopoverController_68 = new PopoverController(this._App_22));
             }
-            return this.__TapClick_68;
+            return this.__PopoverController_68;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_69", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_69", {
         get: function () {
-            if ((this.__ToastController_69 == null)) {
-                (this.__ToastController_69 = new ToastController(this._App_22));
+            if ((this.__TapClick_69 == null)) {
+                (this.__TapClick_69 = new TapClick(this._Config_21, this._App_22, this.parent.get(NgZone)));
             }
-            return this.__ToastController_69;
+            return this.__TapClick_69;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Translate_70", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_70", {
         get: function () {
-            if ((this.__Translate_70 == null)) {
-                (this.__Translate_70 = new Translate());
+            if ((this.__ToastController_70 == null)) {
+                (this.__ToastController_70 = new ToastController(this._App_22));
             }
-            return this.__Translate_70;
+            return this.__ToastController_70;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_71", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Translate_71", {
         get: function () {
-            if ((this.__TransitionController_71 == null)) {
-                (this.__TransitionController_71 = new TransitionController(this._Config_21));
+            if ((this.__Translate_71 == null)) {
+                (this.__Translate_71 = new Translate());
             }
-            return this.__TransitionController_71;
+            return this.__Translate_71;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_72", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_72", {
         get: function () {
-            if ((this.__UrlSerializer_72 == null)) {
-                (this.__UrlSerializer_72 = setupUrlSerializer(this._DeepLinkConfigToken_54));
+            if ((this.__TransitionController_72 == null)) {
+                (this.__TransitionController_72 = new TransitionController(this._Config_21));
             }
-            return this.__UrlSerializer_72;
+            return this.__TransitionController_72;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_73", {
+    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_73", {
         get: function () {
-            if ((this.__DeepLinker_73 == null)) {
-                (this.__DeepLinker_73 = setupDeepLinker(this._App_22, this._UrlSerializer_72, this._Location_63));
+            if ((this.__UrlSerializer_73 == null)) {
+                (this.__UrlSerializer_73 = setupUrlSerializer(this._DeepLinkConfigToken_54));
             }
-            return this.__DeepLinker_73;
+            return this.__UrlSerializer_73;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_74", {
+        get: function () {
+            if ((this.__DeepLinker_74 == null)) {
+                (this.__DeepLinker_74 = setupDeepLinker(this._App_22, this._UrlSerializer_73, this._Location_64));
+            }
+            return this.__DeepLinker_74;
         },
         enumerable: true,
         configurable: true
@@ -53396,50 +53549,53 @@ var AppModuleInjector = (function (_super) {
         if ((token === Form)) {
             return this._Form_58;
         }
+        if ((token === Haptic)) {
+            return this._Haptic_59;
+        }
         if ((token === GestureController)) {
-            return this._GestureController_59;
+            return this._GestureController_60;
         }
         if ((token === Keyboard)) {
-            return this._Keyboard_60;
+            return this._Keyboard_61;
         }
         if ((token === LoadingController)) {
-            return this._LoadingController_61;
+            return this._LoadingController_62;
         }
         if ((token === LocationStrategy)) {
-            return this._LocationStrategy_62;
+            return this._LocationStrategy_63;
         }
         if ((token === Location)) {
-            return this._Location_63;
+            return this._Location_64;
         }
         if ((token === MenuController)) {
-            return this._MenuController_64;
+            return this._MenuController_65;
         }
         if ((token === ModalController)) {
-            return this._ModalController_65;
+            return this._ModalController_66;
         }
         if ((token === PickerController)) {
-            return this._PickerController_66;
+            return this._PickerController_67;
         }
         if ((token === PopoverController)) {
-            return this._PopoverController_67;
+            return this._PopoverController_68;
         }
         if ((token === TapClick)) {
-            return this._TapClick_68;
+            return this._TapClick_69;
         }
         if ((token === ToastController)) {
-            return this._ToastController_69;
+            return this._ToastController_70;
         }
         if ((token === Translate)) {
-            return this._Translate_70;
+            return this._Translate_71;
         }
         if ((token === TransitionController)) {
-            return this._TransitionController_71;
+            return this._TransitionController_72;
         }
         if ((token === UrlSerializer)) {
-            return this._UrlSerializer_72;
+            return this._UrlSerializer_73;
         }
         if ((token === DeepLinker)) {
-            return this._DeepLinker_73;
+            return this._DeepLinker_74;
         }
         return notFoundResult;
     };

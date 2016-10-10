@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L12">
 Improve this doc
 </a>
 
@@ -216,6 +216,26 @@ and usage information.</p>
 <h3>
 <a class="anchor" name="width" href="#width"></a>
 <code>width()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setElementAttribute"></div>
+
+<h3>
+<a class="anchor" name="setElementAttribute" href="#setElementAttribute"></a>
+<code>setElementAttribute()</code>
   
 
 </h3>

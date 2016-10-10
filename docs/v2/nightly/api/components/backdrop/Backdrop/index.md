@@ -116,6 +116,26 @@ Improve this doc
 
 
 
+
+<div id="setElementClass"></div>
+
+<h3>
+<a class="anchor" name="setElementClass" href="#setElementClass"></a>
+<code>setElementClass()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

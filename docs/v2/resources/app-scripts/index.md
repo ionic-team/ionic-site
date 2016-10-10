@@ -116,9 +116,9 @@ An environment variable, `IONIC_ENV` is available in the build process to help d
 
 ```javascript
 if (process.env.IONIC_ENV === 'prod') {
-  console.log('it’s a production buildp');
+  console.log('we got a production buildp');
 } else {
-  console.log('it’s a development build');
+  console.log('we got a development build');
 }
 ```
 

@@ -6288,18 +6288,16 @@ function createCommonjsModule(fn, module) {
 
 var root = createCommonjsModule(function (module, exports) {
 "use strict";
-var objectTypes = {
-    'boolean': false,
-    'function': true,
-    'object': true,
-    'number': false,
-    'string': false,
-    'undefined': false
-};
-exports.root = (objectTypes[typeof self] && self) || (objectTypes[typeof window] && window);
-var freeGlobal = objectTypes[typeof commonjsGlobal] && commonjsGlobal;
-if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
-    exports.root = freeGlobal;
+/**
+ * window: browser in DOM main thread
+ * self: browser in WebWorker
+ * global: Node.js/other
+ */
+exports.root = (typeof window == 'object' && window.window === window && window
+    || typeof self == 'object' && self.self === self && self
+    || typeof commonjsGlobal == 'object' && commonjsGlobal.global === commonjsGlobal && commonjsGlobal);
+if (!exports.root) {
+    throw new Error('RxJS could not find any global context (window, self, global)');
 }
 });
 
@@ -6567,7 +6565,7 @@ var __extends$10 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, 
 };
 var isFunction_1 = isFunction_1$1;
 var Subscription_1$1 = Subscription_1$2;
-var Observer_1 = Observer;
+var Observer_1$1 = Observer;
 var rxSubscriber_1$2 = rxSubscriber;
 /**
  * Implements the {@link Observer} interface and extends the
@@ -6597,11 +6595,11 @@ var Subscriber = (function (_super) {
         this.isStopped = false;
         switch (arguments.length) {
             case 0:
-                this.destination = Observer_1.empty;
+                this.destination = Observer_1$1.empty;
                 break;
             case 1:
                 if (!destinationOrNext) {
-                    this.destination = Observer_1.empty;
+                    this.destination = Observer_1$1.empty;
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
@@ -6814,6 +6812,7 @@ var Subscriber_1$2 = {
 
 var Subscriber_1$1 = Subscriber_1$2;
 var rxSubscriber_1$1 = rxSubscriber;
+var Observer_1 = Observer;
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1$1.Subscriber) {
@@ -6824,7 +6823,7 @@ function toSubscriber(nextOrObserver, error, complete) {
         }
     }
     if (!nextOrObserver && !error && !complete) {
-        return new Subscriber_1$1.Subscriber();
+        return new Subscriber_1$1.Subscriber(Observer_1.empty);
     }
     return new Subscriber_1$1.Subscriber(nextOrObserver, error, complete);
 }
@@ -6896,17 +6895,6 @@ var Observable = (function () {
         observable$$1.operator = operator;
         return observable$$1;
     };
-    /**
-     * Registers handlers for handling emitted values, error and completions from the observable, and
-     *  executes the observable's subscriber function, which will take action to set up the underlying data stream
-     * @method subscribe
-     * @param {PartialObserver|Function} observerOrNext (optional) either an observer defining all functions to be called,
-     *  or the first of three possible handlers, which is the handler for each value emitted from the observable.
-     * @param {Function} error (optional) a handler for a terminal event resulting from an error. If no error handler is provided,
-     *  the error will be thrown as unhandled
-     * @param {Function} complete (optional) a handler for a terminal event resulting from successful completion.
-     * @return {ISubscription} a subscription reference to the registered handlers
-     */
     Observable.prototype.subscribe = function (observerOrNext, error, complete) {
         var operator = this.operator;
         var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
@@ -17960,12 +17948,7 @@ function _flattenArray$3(source, target) {
 }
 
 var root_1$4 = root;
-/**
- * @param PromiseCtor
- * @return {Promise<T>}
- * @method toPromise
- * @owner Observable
- */
+/* tslint:disable:max-line-length */
 function toPromise(PromiseCtor) {
     var _this = this;
     if (!PromiseCtor) {

@@ -857,8 +857,8 @@ Checks if the application is authorized to use contacts (address book).
 
 
 
-<div id="getContactsAuthroizationStatus"></div>
-<h3><code>getContactsAuthroizationStatus()</code>
+<div id="getContactsAuthorizationStatus"></div>
+<h3><code>getContactsAuthorizationStatus()</code>
   
 </h3>
 

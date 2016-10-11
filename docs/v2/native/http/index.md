@@ -54,6 +54,15 @@ docType: "class"
 </ul>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 
@@ -612,7 +621,7 @@ Make a POST request
 
 
 <div id="uploadFile"></div>
-<h3><code>uploadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath,&nbsp;fileParameter)</code>
+<h3><code>uploadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath,&nbsp;name)</code>
   
 </h3>
 
@@ -700,7 +709,7 @@ Make a POST request
   
   <tr>
     <td>
-      fileParameter
+      name
       
       
     </td>

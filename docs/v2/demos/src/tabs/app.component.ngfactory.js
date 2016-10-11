@@ -44,7 +44,7 @@ var _View_TabPage_Host0 = (function (_super) {
         _super.call(this, _View_TabPage_Host0, renderType_TabPage_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
     _View_TabPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('tab-page', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_TabPage0(this.viewUtils, this.injector(0), this._appEl_0);
         this._TabPage_0_4 = new import3.TabPage();
@@ -67,7 +67,7 @@ function viewFactory_TabPage_Host0(viewUtils, parentInjector, declarationEl) {
     }
     return new _View_TabPage_Host0(viewUtils, parentInjector, declarationEl);
 }
-export var TabPageNgFactory = new import9.ComponentFactory('ng-component', viewFactory_TabPage_Host0, import3.TabPage);
+export var TabPageNgFactory = new import9.ComponentFactory('tab-page', viewFactory_TabPage_Host0, import3.TabPage);
 var styles_TabPage = [];
 var renderType_TabPage = null;
 var _View_TabPage0 = (function (_super) {
@@ -100,7 +100,7 @@ var _View_ApiDemoPage_Host0 = (function (_super) {
         _super.call(this, _View_ApiDemoPage_Host0, renderType_ApiDemoPage_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
     _View_ApiDemoPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('api-demo-page', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoPage0(this.viewUtils, this.injector(0), this._appEl_0);
         this._ApiDemoPage_0_4 = new import3.ApiDemoPage();
@@ -123,8 +123,11 @@ function viewFactory_ApiDemoPage_Host0(viewUtils, parentInjector, declarationEl)
     }
     return new _View_ApiDemoPage_Host0(viewUtils, parentInjector, declarationEl);
 }
-export var ApiDemoPageNgFactory = new import9.ComponentFactory('ng-component', viewFactory_ApiDemoPage_Host0, import3.ApiDemoPage);
-var styles_ApiDemoPage = [];
+export var ApiDemoPageNgFactory = new import9.ComponentFactory('api-demo-page', viewFactory_ApiDemoPage_Host0, import3.ApiDemoPage);
+var styles_ApiDemoPage = [
+    '\n      ion-tabs {\n        margin-bottom: 20px;\n      }\n    ',
+    '\n      ion-tabs,\n      ion-tabs .tabbar {\n        position: relative;\n        top: auto;\n        height: auto;\n        visibility: visible;\n        opacity: 1;\n      }\n    '
+];
 var renderType_ApiDemoPage = null;
 var _View_ApiDemoPage0 = (function (_super) {
     __extends(_View_ApiDemoPage0, _super);
@@ -1782,7 +1785,7 @@ var _View_ApiDemoApp_Host0 = (function (_super) {
         _super.call(this, _View_ApiDemoApp_Host0, renderType_ApiDemoApp_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
     _View_ApiDemoApp_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('api-demo-app', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoApp0(this.viewUtils, this.injector(0), this._appEl_0);
         this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
@@ -1805,7 +1808,7 @@ function viewFactory_ApiDemoApp_Host0(viewUtils, parentInjector, declarationEl) 
     }
     return new _View_ApiDemoApp_Host0(viewUtils, parentInjector, declarationEl);
 }
-export var ApiDemoAppNgFactory = new import9.ComponentFactory('ng-component', viewFactory_ApiDemoApp_Host0, import3.ApiDemoApp);
+export var ApiDemoAppNgFactory = new import9.ComponentFactory('api-demo-app', viewFactory_ApiDemoApp_Host0, import3.ApiDemoApp);
 var styles_ApiDemoApp = [];
 var renderType_ApiDemoApp = null;
 var _View_ApiDemoApp0 = (function (_super) {

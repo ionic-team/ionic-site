@@ -47008,6 +47008,7 @@ var TabPage = (function () {
     TabPage.decorators = [
         { type: Component, args: [{
                     template: '<div>johnny utah</div>',
+                    selector: 'tab-page'
                 },] },
     ];
     TabPage.ctorParameters = [];
@@ -47019,7 +47020,13 @@ var ApiDemoPage = (function () {
     }
     ApiDemoPage.decorators = [
         { type: Component, args: [{
-                    templateUrl: 'page.html'
+                    templateUrl: 'page.html',
+                    selector: 'api-demo-page',
+                    encapsulation: ViewEncapsulation.None,
+                    styles: [
+                        "\n      ion-tabs {\n        margin-bottom: 20px;\n      }\n    ",
+                        "\n      ion-tabs,\n      ion-tabs .tabbar {\n        position: relative;\n        top: auto;\n        height: auto;\n        visibility: visible;\n        opacity: 1;\n      }\n    "
+                    ]
                 },] },
     ];
     ApiDemoPage.ctorParameters = [];
@@ -47031,7 +47038,8 @@ var ApiDemoApp = (function () {
     }
     ApiDemoApp.decorators = [
         { type: Component, args: [{
-                    template: '<ion-nav [root]="root"></ion-nav>'
+                    template: '<ion-nav [root]="root"></ion-nav>',
+                    selector: 'api-demo-app'
                 },] },
     ];
     ApiDemoApp.ctorParameters = [];
@@ -51420,7 +51428,7 @@ var _View_TabPage_Host0 = (function (_super) {
         _super.call(this, _View_TabPage_Host0, renderType_TabPage_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     _View_TabPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('tab-page', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_TabPage0(this.viewUtils, this.injector(0), this._appEl_0);
         this._TabPage_0_4 = new TabPage();
@@ -51443,7 +51451,7 @@ function viewFactory_TabPage_Host0(viewUtils, parentInjector, declarationEl) {
     }
     return new _View_TabPage_Host0(viewUtils, parentInjector, declarationEl);
 }
-var TabPageNgFactory = new ComponentFactory('ng-component', viewFactory_TabPage_Host0, TabPage);
+var TabPageNgFactory = new ComponentFactory('tab-page', viewFactory_TabPage_Host0, TabPage);
 var styles_TabPage = [];
 var renderType_TabPage = null;
 var _View_TabPage0 = (function (_super) {
@@ -51476,7 +51484,7 @@ var _View_ApiDemoPage_Host0 = (function (_super) {
         _super.call(this, _View_ApiDemoPage_Host0, renderType_ApiDemoPage_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     _View_ApiDemoPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('api-demo-page', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoPage0(this.viewUtils, this.injector(0), this._appEl_0);
         this._ApiDemoPage_0_4 = new ApiDemoPage();
@@ -51499,8 +51507,11 @@ function viewFactory_ApiDemoPage_Host0(viewUtils, parentInjector, declarationEl)
     }
     return new _View_ApiDemoPage_Host0(viewUtils, parentInjector, declarationEl);
 }
-var ApiDemoPageNgFactory = new ComponentFactory('ng-component', viewFactory_ApiDemoPage_Host0, ApiDemoPage);
-var styles_ApiDemoPage = [];
+var ApiDemoPageNgFactory = new ComponentFactory('api-demo-page', viewFactory_ApiDemoPage_Host0, ApiDemoPage);
+var styles_ApiDemoPage = [
+    '\n      ion-tabs {\n        margin-bottom: 20px;\n      }\n    ',
+    '\n      ion-tabs,\n      ion-tabs .tabbar {\n        position: relative;\n        top: auto;\n        height: auto;\n        visibility: visible;\n        opacity: 1;\n      }\n    '
+];
 var renderType_ApiDemoPage = null;
 var _View_ApiDemoPage0 = (function (_super) {
     __extends$130(_View_ApiDemoPage0, _super);
@@ -53158,7 +53169,7 @@ var _View_ApiDemoApp_Host0 = (function (_super) {
         _super.call(this, _View_ApiDemoApp_Host0, renderType_ApiDemoApp_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     _View_ApiDemoApp_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('api-demo-app', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoApp0(this.viewUtils, this.injector(0), this._appEl_0);
         this._ApiDemoApp_0_4 = new ApiDemoApp();
@@ -53181,7 +53192,7 @@ function viewFactory_ApiDemoApp_Host0(viewUtils, parentInjector, declarationEl) 
     }
     return new _View_ApiDemoApp_Host0(viewUtils, parentInjector, declarationEl);
 }
-var ApiDemoAppNgFactory = new ComponentFactory('ng-component', viewFactory_ApiDemoApp_Host0, ApiDemoApp);
+var ApiDemoAppNgFactory = new ComponentFactory('api-demo-app', viewFactory_ApiDemoApp_Host0, ApiDemoApp);
 var styles_ApiDemoApp = [];
 var renderType_ApiDemoApp = null;
 var _View_ApiDemoApp0 = (function (_super) {

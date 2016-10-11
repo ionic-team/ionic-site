@@ -49,7 +49,7 @@ class _View_TabPage_Host0 extends import1.AppView<any> {
     super(_View_TabPage_Host0,renderType_TabPage_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('ng-component',rootSelector,(null as any));
+    this._el_0 = this.selectOrCreateHostElement('tab-page',rootSelector,(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_TabPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._TabPage_0_4 = new import3.TabPage();
@@ -67,7 +67,7 @@ function viewFactory_TabPage_Host0(viewUtils:import4.ViewUtils,parentInjector:im
   if ((renderType_TabPage_Host === (null as any))) { (renderType_TabPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_TabPage_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const TabPageNgFactory:import9.ComponentFactory<import3.TabPage> = new import9.ComponentFactory<import3.TabPage>('ng-component',viewFactory_TabPage_Host0,import3.TabPage);
+export const TabPageNgFactory:import9.ComponentFactory<import3.TabPage> = new import9.ComponentFactory<import3.TabPage>('tab-page',viewFactory_TabPage_Host0,import3.TabPage);
 const styles_TabPage:any[] = [];
 var renderType_TabPage:import0.RenderComponentType = (null as any);
 class _View_TabPage0 extends import1.AppView<import3.TabPage> {
@@ -101,7 +101,7 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     super(_View_ApiDemoPage_Host0,renderType_ApiDemoPage_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('ng-component',rootSelector,(null as any));
+    this._el_0 = this.selectOrCreateHostElement('api-demo-page',rootSelector,(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage();
@@ -119,8 +119,12 @@ function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjecto
   if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const ApiDemoPageNgFactory:import9.ComponentFactory<import3.ApiDemoPage> = new import9.ComponentFactory<import3.ApiDemoPage>('ng-component',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
-const styles_ApiDemoPage:any[] = [];
+export const ApiDemoPageNgFactory:import9.ComponentFactory<import3.ApiDemoPage> = new import9.ComponentFactory<import3.ApiDemoPage>('api-demo-page',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
+const styles_ApiDemoPage:any[] = [
+  '\n      ion-tabs {\n        margin-bottom: 20px;\n      }\n    ',
+  '\n      ion-tabs,\n      ion-tabs .tabbar {\n        position: relative;\n        top: auto;\n        height: auto;\n        visibility: visible;\n        opacity: 1;\n      }\n    '
+]
+;
 var renderType_ApiDemoPage:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   _el_0:any;
@@ -1953,7 +1957,7 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     super(_View_ApiDemoApp_Host0,renderType_ApiDemoApp_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('ng-component',rootSelector,(null as any));
+    this._el_0 = this.selectOrCreateHostElement('api-demo-app',rootSelector,(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
@@ -1971,7 +1975,7 @@ function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector
   if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const ApiDemoAppNgFactory:import9.ComponentFactory<import3.ApiDemoApp> = new import9.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
+export const ApiDemoAppNgFactory:import9.ComponentFactory<import3.ApiDemoApp> = new import9.ComponentFactory<import3.ApiDemoApp>('api-demo-app',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
 const styles_ApiDemoApp:any[] = [];
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {

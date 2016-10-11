@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 export var TabPage = (function () {
     function TabPage() {
     }
     TabPage.decorators = [
         { type: Component, args: [{
                     template: '<div>johnny utah</div>',
+                    selector: 'tab-page'
                 },] },
     ];
     TabPage.ctorParameters = [];
@@ -16,7 +17,13 @@ export var ApiDemoPage = (function () {
     }
     ApiDemoPage.decorators = [
         { type: Component, args: [{
-                    templateUrl: 'page.html'
+                    templateUrl: 'page.html',
+                    selector: 'api-demo-page',
+                    encapsulation: ViewEncapsulation.None,
+                    styles: [
+                        "\n      ion-tabs {\n        margin-bottom: 20px;\n      }\n    ",
+                        "\n      ion-tabs,\n      ion-tabs .tabbar {\n        position: relative;\n        top: auto;\n        height: auto;\n        visibility: visible;\n        opacity: 1;\n      }\n    "
+                    ]
                 },] },
     ];
     ApiDemoPage.ctorParameters = [];
@@ -28,7 +35,8 @@ export var ApiDemoApp = (function () {
     }
     ApiDemoApp.decorators = [
         { type: Component, args: [{
-                    template: '<ion-nav [root]="root"></ion-nav>'
+                    template: '<ion-nav [root]="root"></ion-nav>',
+                    selector: 'api-demo-app'
                 },] },
     ];
     ApiDemoApp.ctorParameters = [];

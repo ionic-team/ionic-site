@@ -39,15 +39,15 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-camera-preview</code></pre>
 <p>Repo:
-  <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">
-    https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview
+  <a href="https://github.com/westonganger/cordova-plugin-camera-preview">
+    https://github.com/westonganger/cordova-plugin-camera-preview
   </a>
 </p>
 
 <!-- description -->
 
 <p>Showing camera preview in HTML</p>
-<p>For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
+<p>For more info, please see the <a href="https://github.com/westonganger/cordova-plugin-camera-preview&#39;">Cordova Camera Preview Plugin Docs</a>.</p>
 
 
 <!-- @platforms tag -->
@@ -397,7 +397,6 @@ Hide the camera preview box.
 
 
 
-Set the default mode for the Flash.
 Set camera color effect.
 
 

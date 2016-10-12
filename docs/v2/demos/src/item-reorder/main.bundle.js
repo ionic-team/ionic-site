@@ -24957,7 +24957,7 @@ var ViewController = (function () {
         if (!this._nav) {
             return Promise.resolve(false);
         }
-        var options = merge$1({}, this._leavingOpts, navOptions);
+        var options = assign({}, this._leavingOpts, navOptions);
         this._onWillDismiss && this._onWillDismiss(data, role);
         return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
             _this._onDidDismiss && _this._onDidDismiss(data, role);
@@ -25457,6 +25457,7 @@ var CSS = {};
     CSS.transitionDelay = (isWebkit ? '-webkit-' : '') + 'transition-delay';
     CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
     CSS.transformOrigin = (isWebkit ? '-webkit-' : '') + 'transform-origin';
+    CSS.animationDelay = (isWebkit ? 'webkitAnimationDelay' : 'animationDelay');
 })();
 function transitionEnd(el, callback) {
     if (el) {
@@ -26423,20 +26424,20 @@ var AlertController = (function () {
 }());
 
 var DeepLinker = (function () {
-    function DeepLinker(app, serializer, location) {
-        this.app = app;
-        this.serializer = serializer;
-        this.location = location;
+    function DeepLinker(_app, _serializer, _location) {
+        this._app = _app;
+        this._serializer = _serializer;
+        this._location = _location;
         this.segments = [];
         this.history = [];
     }
     DeepLinker.prototype.init = function () {
         var _this = this;
-        var browserUrl = normalizeUrl(this.location.path());
+        var browserUrl = normalizeUrl(this._location.path());
         // console.debug("DeepLinker, init load: " + browserUrl);
-        this.segments = this.serializer.parse(browserUrl);
+        this.segments = this._serializer.parse(browserUrl);
         this.historyPush(browserUrl);
-        this.location.subscribe(function (locationChg) {
+        this._location.subscribe(function (locationChg) {
             _this.urlChange(normalizeUrl(locationChg.url));
         });
     };
@@ -26450,7 +26451,7 @@ var DeepLinker = (function () {
                 // console.debug("DeepLinker, browser urlChange, forward to: " + browserUrl);
                 this.historyPush(browserUrl);
             }
-            var appRootNav = this.app.getRootNav();
+            var appRootNav = this._app.getRootNav();
             if (appRootNav) {
                 if (browserUrl === '/') {
                     if (isPresent$5(this.indexAliasUrl)) {
@@ -26464,17 +26465,17 @@ var DeepLinker = (function () {
                         return;
                     }
                 }
-                this.segments = this.serializer.parse(browserUrl);
+                this.segments = this._serializer.parse(browserUrl);
                 this.loadNavFromPath(appRootNav);
             }
         }
     };
     DeepLinker.prototype.navChange = function (direction) {
         if (direction) {
-            var activeNav = this.app.getActiveNav();
+            var activeNav = this._app.getActiveNav();
             if (activeNav) {
                 this.segments = this.pathFromNavs(activeNav);
-                var browserUrl = this.serializer.serialize(this.segments);
+                var browserUrl = this._serializer.serialize(this.segments);
                 this.updateLocation(browserUrl, direction);
             }
         }
@@ -26486,16 +26487,16 @@ var DeepLinker = (function () {
         if (direction === DIRECTION_BACK && this.isBackUrl(browserUrl)) {
             // console.debug("DeepLinker, location.back(), url: '" + browserUrl + "'");
             this.historyPop();
-            this.location.back();
+            this._location.back();
         }
         else if (!this.isCurrentUrl(browserUrl)) {
             // console.debug("DeepLinker, location.go('" + browserUrl + "')");
             this.historyPush(browserUrl);
-            this.location.go(browserUrl);
+            this._location.go(browserUrl);
         }
     };
     DeepLinker.prototype.getComponentFromName = function (componentName) {
-        var segment = this.serializer.createSegmentFromName(componentName);
+        var segment = this._serializer.createSegmentFromName(componentName);
         if (segment && segment.component) {
             return segment.component;
         }
@@ -26503,11 +26504,11 @@ var DeepLinker = (function () {
     };
     DeepLinker.prototype.createUrl = function (nav, nameOrComponent, data, prepareExternalUrl) {
         if (prepareExternalUrl === void 0) { prepareExternalUrl = true; }
-        var segment = this.serializer.createSegmentFromName(nameOrComponent);
+        var segment = this._serializer.createSegmentFromName(nameOrComponent);
         if (segment) {
             var path = this.pathFromNavs(nav, segment.component, data);
-            var url = this.serializer.serialize(path);
-            return prepareExternalUrl ? this.location.prepareExternalUrl(url) : url;
+            var url = this._serializer.serialize(path);
+            return prepareExternalUrl ? this._location.prepareExternalUrl(url) : url;
         }
         return '';
     };
@@ -26524,7 +26525,7 @@ var DeepLinker = (function () {
                     data = view.data;
                 }
             }
-            segment = this.serializer.serializeComponent(component, data);
+            segment = this._serializer.serializeComponent(component, data);
             component = data = null;
             if (!segment) {
                 break;
@@ -26551,7 +26552,7 @@ var DeepLinker = (function () {
             return tab.tabUrlPath;
         }
         if (isPresent$5(tab.tabTitle)) {
-            return this.serializer.formatUrlPart(tab.tabTitle);
+            return this._serializer.formatUrlPart(tab.tabTitle);
         }
         return "tab-" + tab.index;
     };
@@ -26564,7 +26565,7 @@ var DeepLinker = (function () {
         }
         var tab = tabsNav._tabs.find(function (t) {
             return (isPresent$5(t.tabUrlPath) && t.tabUrlPath === pathName) ||
-                (isPresent$5(t.tabTitle) && _this.serializer.formatUrlPart(t.tabTitle) === pathName);
+                (isPresent$5(t.tabTitle) && _this._serializer.formatUrlPart(t.tabTitle) === pathName);
         });
         return isPresent$5(tab) ? tab.index : fallbackIndex;
     };
@@ -26661,7 +26662,7 @@ var DeepLinker = (function () {
     DeepLinker.prototype.historyPop = function () {
         this.history.pop();
         if (!this.history.length) {
-            this.historyPush(this.location.path());
+            this.historyPush(this._location.path());
         }
     };
     return DeepLinker;
@@ -27820,7 +27821,9 @@ var NavControllerBase = (function (_super) {
     __extends$63(NavControllerBase, _super);
     function NavControllerBase(parent, _app, config, _keyboard, elementRef, _zone, renderer, _cfr, _gestureCtrl, _trnsCtrl, _linker) {
         _super.call(this, config, elementRef, renderer);
+        this.parent = parent;
         this._app = _app;
+        this.config = config;
         this._keyboard = _keyboard;
         this._zone = _zone;
         this._cfr = _cfr;
@@ -27834,17 +27837,15 @@ var NavControllerBase = (function (_super) {
         this._trnsId = null;
         this._trnsTm = 0;
         this._views = [];
-        this.parent = parent;
-        this.config = config;
-        this._sbEnabled = config.getBoolean('swipeBackEnabled');
-        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
-        this.id = 'n' + (++ctrlIds);
         this.viewDidLoad = new EventEmitter();
         this.viewWillEnter = new EventEmitter();
         this.viewDidEnter = new EventEmitter();
         this.viewWillLeave = new EventEmitter();
         this.viewDidLeave = new EventEmitter();
         this.viewWillUnload = new EventEmitter();
+        this._sbEnabled = config.getBoolean('swipeBackEnabled');
+        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
+        this.id = 'n' + (++ctrlIds);
     }
     NavControllerBase.prototype.push = function (page, params, opts, done) {
         return this._queueTrns({
@@ -27996,7 +27997,8 @@ var NavControllerBase = (function (_super) {
             return this._viewTest(enteringView, leavingView, ti);
         }
         else {
-            return this._postViewInit(enteringView, leavingView, ti, ti.resolve);
+            this._postViewInit(enteringView, leavingView, ti, ti.resolve);
+            return true;
         }
     };
     NavControllerBase.prototype._nextTI = function () {
@@ -28100,7 +28102,6 @@ var NavControllerBase = (function (_super) {
         else {
             resolve(true, false);
         }
-        return true;
     };
     NavControllerBase.prototype._viewInit = function (enteringView) {
         var componentProviders = ReflectiveInjector.resolve([
@@ -28112,6 +28113,7 @@ var NavControllerBase = (function (_super) {
         var childInjector = ReflectiveInjector.fromResolvedProviders(componentProviders, this._viewport.parentInjector);
         enteringView.init(componentFactory.create(childInjector, []));
         enteringView._state = ViewState.INITIALIZED;
+        this._willLoad(enteringView);
     };
     NavControllerBase.prototype._viewTest = function (enteringView, leavingView, ti) {
         var _this = this;
@@ -28145,10 +28147,8 @@ var NavControllerBase = (function (_super) {
         if (promises.length) {
             Promise.all(promises).then(function () {
                 _this._postViewInit(enteringView, leavingView, ti, resolve);
-            }).catch(function (rejectReason) {
-                reject(rejectReason);
-            });
-            return false;
+            }).catch(reject);
+            return true;
         }
         this._postViewInit(enteringView, leavingView, ti, resolve);
         return true;
@@ -28191,7 +28191,6 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype._viewInsert = function (view, componentRef, viewport) {
-        this._willLoad(view);
         this._didLoad(view);
         viewport.insert(componentRef.hostView, viewport.length);
         view._state = ViewState.PRE_RENDERED;
@@ -30984,6 +30983,9 @@ var IonicApp = (function (_super) {
         if (portal === AppPortal.TOAST) {
             return this._toastPortal;
         }
+        if (portal === AppPortal.MODAL) {
+            return this._modalPortal;
+        }
         return this._overlayPortal;
     };
     IonicApp.prototype._disableScroll = function (shouldDisableScroll) {
@@ -30993,6 +30995,7 @@ var IonicApp = (function (_super) {
         { type: Component, args: [{
                     selector: 'ion-app',
                     template: '<div #viewport app-viewport></div>' +
+                        '<div #modalPortal overlay-portal></div>' +
                         '<div #overlayPortal overlay-portal></div>' +
                         '<div #loadingPortal class="loading-portal" overlay-portal></div>' +
                         '<div #toastPortal class="toast-portal" overlay-portal></div>' +
@@ -31010,6 +31013,7 @@ var IonicApp = (function (_super) {
     ];
     IonicApp.propDecorators = {
         '_viewport': [{ type: ViewChild, args: ['viewport', { read: ViewContainerRef },] },],
+        '_modalPortal': [{ type: ViewChild, args: ['modalPortal', { read: OverlayPortal },] },],
         '_overlayPortal': [{ type: ViewChild, args: ['overlayPortal', { read: OverlayPortal },] },],
         '_loadingPortal': [{ type: ViewChild, args: ['loadingPortal', { read: OverlayPortal },] },],
         '_toastPortal': [{ type: ViewChild, args: ['toastPortal', { read: OverlayPortal },] },],
@@ -31019,8 +31023,9 @@ var IonicApp = (function (_super) {
 var AppPortal;
 (function (AppPortal) {
     AppPortal[AppPortal["DEFAULT"] = 0] = "DEFAULT";
-    AppPortal[AppPortal["LOADING"] = 1] = "LOADING";
-    AppPortal[AppPortal["TOAST"] = 2] = "TOAST";
+    AppPortal[AppPortal["MODAL"] = 1] = "MODAL";
+    AppPortal[AppPortal["LOADING"] = 2] = "LOADING";
+    AppPortal[AppPortal["TOAST"] = 3] = "TOAST";
 })(AppPortal || (AppPortal = {}));
 
 var LoadingCmp = (function () {
@@ -31321,7 +31326,7 @@ var Modal = (function (_super) {
     };
     Modal.prototype.present = function (navOptions) {
         if (navOptions === void 0) { navOptions = {}; }
-        return this._app.present(this, navOptions);
+        return this._app.present(this, navOptions, AppPortal.MODAL);
     };
     Modal.create = function (cmp, opt) {
         console.warn('Modal.create(..) has been deprecated. Please inject ModalController instead');
@@ -34081,7 +34086,7 @@ function updateDate(existingData, newData) {
                 return;
             }
         }
-        else if ((isPresent$5(newData.year) || isPresent$5(newData.hour))) {
+        else if ((isPresent$5(newData.year) || isPresent$5(newData.hour) || isPresent$5(newData.month) || isPresent$5(newData.day) || isPresent$5(newData.minute) || isPresent$5(newData.second))) {
             if (isPresent$5(newData.ampm) && isPresent$5(newData.hour)) {
                 if (newData.ampm.value === 'pm') {
                     newData.hour.value = (newData.hour.value === 12 ? 12 : newData.hour.value + 12);
@@ -44853,11 +44858,13 @@ var SPINNERS = {
             return {
                 y1: 17,
                 y2: 29,
-                style: {
-                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-                }
+                style: (_a = {},
+                    _a[CSS.transform] = 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+                    _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
+                    _a
+                )
             };
+            var _a;
         }
     },
     'ios-small': {
@@ -44867,11 +44874,13 @@ var SPINNERS = {
             return {
                 y1: 12,
                 y2: 20,
-                style: {
-                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-                }
+                style: (_a = {},
+                    _a[CSS.transform] = 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+                    _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
+                    _a
+                )
             };
+            var _a;
         }
     },
     bubbles: {
@@ -44880,12 +44889,15 @@ var SPINNERS = {
         fn: function (dur, index, total) {
             return {
                 r: 5,
-                style: {
-                    top: 9 * Math.sin(2 * Math.PI * index / total),
-                    left: 9 * Math.cos(2 * Math.PI * index / total),
-                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-                }
+                style: (_a = {
+                        top: 9 * Math.sin(2 * Math.PI * index / total),
+                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                    },
+                    _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
+                    _a
+                )
             };
+            var _a;
         }
     },
     circles: {
@@ -44894,12 +44906,15 @@ var SPINNERS = {
         fn: function (dur, index, total) {
             return {
                 r: 5,
-                style: {
-                    top: 9 * Math.sin(2 * Math.PI * index / total),
-                    left: 9 * Math.cos(2 * Math.PI * index / total),
-                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-                }
+                style: (_a = {
+                        top: 9 * Math.sin(2 * Math.PI * index / total),
+                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                    },
+                    _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
+                    _a
+                )
             };
+            var _a;
         }
     },
     crescent: {
@@ -44918,11 +44933,14 @@ var SPINNERS = {
         fn: function (dur, index, total) {
             return {
                 r: 6,
-                style: {
-                    left: (9 - (9 * index)),
-                    animationDelay: -(110 * index) + 'ms'
-                }
+                style: (_a = {
+                        left: (9 - (9 * index))
+                    },
+                    _a[CSS.animationDelay] = -(110 * index) + 'ms',
+                    _a
+                )
             };
+            var _a;
         }
     }
 };
@@ -48761,9 +48779,10 @@ var _View_IonicApp0 = (function (_super) {
     _View_IonicApp0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._viewQuery_viewport_0 = new QueryList();
-        this._viewQuery_overlayPortal_1 = new QueryList();
-        this._viewQuery_loadingPortal_2 = new QueryList();
-        this._viewQuery_toastPortal_3 = new QueryList();
+        this._viewQuery_modalPortal_1 = new QueryList();
+        this._viewQuery_overlayPortal_2 = new QueryList();
+        this._viewQuery_loadingPortal_3 = new QueryList();
+        this._viewQuery_toastPortal_4 = new QueryList();
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'app-viewport', '');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
@@ -48772,31 +48791,38 @@ var _View_IonicApp0 = (function (_super) {
         this._appEl_1 = new AppElement(1, null, this, this._el_1);
         this._OverlayPortal_1_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_1), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_1.vcRef);
         this._el_2 = this.renderer.createElement(parentRenderNode, 'div', null);
-        this.renderer.setElementAttribute(this._el_2, 'class', 'loading-portal');
         this.renderer.setElementAttribute(this._el_2, 'overlay-portal', '');
         this._appEl_2 = new AppElement(2, null, this, this._el_2);
         this._OverlayPortal_2_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_2), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_2.vcRef);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
-        this.renderer.setElementAttribute(this._el_3, 'class', 'toast-portal');
+        this.renderer.setElementAttribute(this._el_3, 'class', 'loading-portal');
         this.renderer.setElementAttribute(this._el_3, 'overlay-portal', '');
         this._appEl_3 = new AppElement(3, null, this, this._el_3);
         this._OverlayPortal_3_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_3), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_3.vcRef);
         this._el_4 = this.renderer.createElement(parentRenderNode, 'div', null);
-        this.renderer.setElementAttribute(this._el_4, 'class', 'click-block');
+        this.renderer.setElementAttribute(this._el_4, 'class', 'toast-portal');
+        this.renderer.setElementAttribute(this._el_4, 'overlay-portal', '');
+        this._appEl_4 = new AppElement(4, null, this, this._el_4);
+        this._OverlayPortal_4_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_4), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_4.vcRef);
+        this._el_5 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_5, 'class', 'click-block');
         this._viewQuery_viewport_0.reset([this._appEl_0.vcRef]);
         this.context._viewport = this._viewQuery_viewport_0.first;
-        this._viewQuery_overlayPortal_1.reset([this._OverlayPortal_1_5]);
-        this.context._overlayPortal = this._viewQuery_overlayPortal_1.first;
-        this._viewQuery_loadingPortal_2.reset([this._OverlayPortal_2_5]);
-        this.context._loadingPortal = this._viewQuery_loadingPortal_2.first;
-        this._viewQuery_toastPortal_3.reset([this._OverlayPortal_3_5]);
-        this.context._toastPortal = this._viewQuery_toastPortal_3.first;
+        this._viewQuery_modalPortal_1.reset([this._OverlayPortal_1_5]);
+        this.context._modalPortal = this._viewQuery_modalPortal_1.first;
+        this._viewQuery_overlayPortal_2.reset([this._OverlayPortal_2_5]);
+        this.context._overlayPortal = this._viewQuery_overlayPortal_2.first;
+        this._viewQuery_loadingPortal_3.reset([this._OverlayPortal_3_5]);
+        this.context._loadingPortal = this._viewQuery_loadingPortal_3.first;
+        this._viewQuery_toastPortal_4.reset([this._OverlayPortal_4_5]);
+        this.context._toastPortal = this._viewQuery_toastPortal_4.first;
         this.init([], [
             this._el_0,
             this._el_1,
             this._el_2,
             this._el_3,
-            this._el_4
+            this._el_4,
+            this._el_5
         ], [], []);
         return null;
     };
@@ -48809,6 +48835,9 @@ var _View_IonicApp0 = (function (_super) {
         }
         if (((token === OverlayPortal) && (3 === requestNodeIndex))) {
             return this._OverlayPortal_3_5;
+        }
+        if (((token === OverlayPortal) && (4 === requestNodeIndex))) {
+            return this._OverlayPortal_4_5;
         }
         return notFoundResult;
     };

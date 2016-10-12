@@ -171,6 +171,11 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while a modal is dismiss.</td>
 </tr>
 <tr>
+<td><code>mode</code></td>
+<td><code>string</code></td>
+<td>The mode to use throughout the application.</td>
+</tr>
+<tr>
 <td><code>pageTransition</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while changing pages.</td>

@@ -56,7 +56,8 @@ You can set the tab placement, icon mode, animations, and more here.</p>
       modalLeave: &#39;modal-slide-out&#39;,
       tabsPlacement: &#39;bottom&#39;,
       pageTransition: &#39;ios&#39;
-    }, {}],
+    }, {}
+  )],
   bootstrap: [IonicApp],
   entryComponents: [ MyApp ],
   providers: []
@@ -65,16 +66,21 @@ You can set the tab placement, icon mode, animations, and more here.</p>
 <p>Config can be overwritten at multiple levels allowing for more granular configuration.
 Below is an example where an app can override any setting we want based on a platform.</p>
 <pre><code class="lang-ts">import { IonicModule } from &#39;ionic-angular&#39;;
-...
- IonicModule.forRoot(MyApp, {
-  tabsPlacement: &#39;bottom&#39;,
-  platforms: {
-   ios: {
-     tabsPlacement: &#39;top&#39;,
-   }
-  }
- }
- ...
+
+@NgModule({
+  ...
+  imports: [
+    IonicModule.forRoot(MyApp, {
+      tabsPlacement: &#39;bottom&#39;,
+      platforms: {
+        ios: {
+          tabsPlacement: &#39;top&#39;,
+        }
+      }
+    }, {}
+  )],
+  ...
+})
 </code></pre>
 <p>We could also configure these values at a component level. Take <code>tabsPlacement</code>,
 we can configure this as a property on our <code>ion-tabs</code>.</p>

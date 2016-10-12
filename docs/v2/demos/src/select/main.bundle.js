@@ -25127,17 +25127,18 @@ var ViewController = (function () {
         this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._hdrDir = this._ftrDir = this._nb = this._onWillDismiss = null;
     };
     ViewController.prototype._lifecycleTest = function (lifecycle) {
-        var result = true;
-        if (this.instance && this.instance['ionViewCan' + lifecycle]) {
+        var instance = this.instance;
+        var methodName = 'ionViewCan' + lifecycle;
+        if (instance && instance[methodName]) {
             try {
-                result = this.instance['ionViewCan' + lifecycle]();
+                return instance[methodName]();
             }
             catch (e) {
                 console.error(this.name + " ionViewCan" + lifecycle + " error: " + e);
-                result = false;
+                return false;
             }
         }
-        return result;
+        return true;
     };
     ViewController.propDecorators = {
         '_emitter': [{ type: Output },],
@@ -27972,24 +27973,29 @@ var NavControllerBase = (function (_super) {
         if (this.isTransitioning()) {
             return false;
         }
-        var ti = this._queue.shift();
+        var ti = this._nextTI();
         if (!ti) {
-            this.setTransitioning(false);
             return false;
         }
-        this.setTransitioning(true, ACTIVE_TRANSITION_MAX_TIME);
+        var leavingView = this.getActive();
+        var enteringView = this._getEnteringView(ti, leavingView);
+        if (enteringView && isBlank$5(enteringView._state)) {
+            this._viewInit(enteringView);
+        }
+        var requiresTransition = (ti.enteringRequiresTransition || ti.leavingRequiresTransition) && enteringView !== leavingView;
+        if (requiresTransition) {
+            return this._viewTest(enteringView, leavingView, ti);
+        }
+        else {
+            return this._postViewInit(enteringView, leavingView, ti, ti.resolve);
+        }
+    };
+    NavControllerBase.prototype._nextTI = function () {
+        var ti = this._queue.shift();
+        if (!ti) {
+            return null;
+        }
         var viewsLength = this._views.length;
-        var activeView = this.getActive();
-        var enteringView;
-        var leavingView = activeView;
-        var destroyQueue = [];
-        var opts = ti.opts || {};
-        var resolve = ti.resolve;
-        var reject = ti.reject;
-        var insertViews = ti.insertViews;
-        ti.resolve = ti.reject = ti.opts = ti.insertViews = null;
-        var enteringRequiresTransition = false;
-        var leavingRequiresTransition = false;
         if (isPresent$5(ti.removeStart)) {
             if (ti.removeStart < 0) {
                 ti.removeStart = (viewsLength - 1);
@@ -27997,25 +28003,46 @@ var NavControllerBase = (function (_super) {
             if (ti.removeCount < 0) {
                 ti.removeCount = (viewsLength - ti.removeStart);
             }
-            leavingRequiresTransition = (ti.removeStart + ti.removeCount === viewsLength);
-            for (var i = 0; i < ti.removeCount; i++) {
-                destroyQueue.push(this._views[i + ti.removeStart]);
+            ti.leavingRequiresTransition = ((ti.removeStart + ti.removeCount) === viewsLength);
+        }
+        if (ti.insertViews) {
+            if (ti.insertStart < 0 || ti.insertStart > viewsLength) {
+                ti.insertStart = viewsLength;
             }
-            for (var i = viewsLength - 1; i >= 0; i--) {
-                var view = this._views[i];
-                if (destroyQueue.indexOf(view) < 0 && view !== leavingView) {
-                    enteringView = view;
-                    break;
+            ti.enteringRequiresTransition = (ti.insertStart === viewsLength);
+        }
+        return ti;
+    };
+    NavControllerBase.prototype._getEnteringView = function (ti, leavingView) {
+        var insertViews = ti.insertViews;
+        if (insertViews) {
+            return insertViews[insertViews.length - 1];
+        }
+        var removeStart = ti.removeStart;
+        if (isPresent$5(removeStart)) {
+            var views = this._views;
+            var removeEnd = removeStart + ti.removeCount;
+            for (var i = views.length - 1; i >= 0; i--) {
+                var view = views[i];
+                if ((i < removeStart || i >= removeEnd) && view !== leavingView) {
+                    return view;
                 }
+            }
+        }
+        return null;
+    };
+    NavControllerBase.prototype._postViewInit = function (enteringView, leavingView, ti, resolve) {
+        var opts = ti.opts || {};
+        var insertViews = ti.insertViews;
+        var removeStart = ti.removeStart;
+        var destroyQueue = [];
+        if (isPresent$5(removeStart)) {
+            for (var i = 0; i < ti.removeCount; i++) {
+                destroyQueue.push(this._views[i + removeStart]);
             }
             opts.direction = opts.direction || DIRECTION_BACK;
         }
         if (insertViews) {
-            if (ti.insertStart < 0 || ti.insertStart > viewsLength) {
-                ti.insertStart = viewsLength;
-            }
-            enteringRequiresTransition = (ti.insertStart === viewsLength);
-            enteringView = insertViews[insertViews.length - 1];
             if (isPresent$5(opts.id)) {
                 enteringView.id = opts.id;
             }
@@ -28031,7 +28058,7 @@ var NavControllerBase = (function (_super) {
                     this._views.splice(ti.insertStart + i, 0, view);
                 }
             }
-            if (enteringRequiresTransition) {
+            if (ti.enteringRequiresTransition) {
                 opts.direction = opts.direction || DIRECTION_FORWARD;
             }
         }
@@ -28056,7 +28083,7 @@ var NavControllerBase = (function (_super) {
             }
         }
         destroyQueue.length = 0;
-        if (enteringRequiresTransition || leavingRequiresTransition && enteringView !== leavingView) {
+        if (ti.enteringRequiresTransition || ti.leavingRequiresTransition && enteringView !== leavingView) {
             if (!opts.animation) {
                 if (isPresent$5(ti.removeStart)) {
                     opts.animation = (leavingView || enteringView).getTransitionName(opts.direction);
@@ -28065,14 +28092,65 @@ var NavControllerBase = (function (_super) {
                     opts.animation = (enteringView || leavingView).getTransitionName(opts.direction);
                 }
             }
-            this._transition(enteringView, leavingView, opts, resolve, reject);
+            this._transition(enteringView, leavingView, opts, resolve);
         }
         else {
             resolve(true, false);
         }
         return true;
     };
-    NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, resolve, reject) {
+    NavControllerBase.prototype._viewInit = function (enteringView) {
+        var componentProviders = ReflectiveInjector.resolve([
+            { provide: NavController, useValue: this },
+            { provide: ViewController, useValue: enteringView },
+            { provide: NavParams, useValue: enteringView.getNavParams() }
+        ]);
+        var componentFactory = this._cfr.resolveComponentFactory(enteringView.component);
+        var childInjector = ReflectiveInjector.fromResolvedProviders(componentProviders, this._viewport.parentInjector);
+        enteringView.init(componentFactory.create(childInjector, []));
+        enteringView._state = ViewState.INITIALIZED;
+    };
+    NavControllerBase.prototype._viewTest = function (enteringView, leavingView, ti) {
+        var _this = this;
+        var promises = [];
+        var reject = ti.reject;
+        var resolve = ti.resolve;
+        if (leavingView) {
+            var leavingTestResult = leavingView._lifecycleTest('Leave');
+            if (isPresent$5(leavingTestResult) && leavingTestResult !== true) {
+                if (leavingTestResult instanceof Promise) {
+                    promises.push(leavingTestResult);
+                }
+                else {
+                    reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"));
+                    return false;
+                }
+            }
+        }
+        if (enteringView) {
+            var enteringTestResult = enteringView._lifecycleTest('Enter');
+            if (isPresent$5(enteringTestResult) && enteringTestResult !== true) {
+                if (enteringTestResult instanceof Promise) {
+                    promises.push(enteringTestResult);
+                }
+                else {
+                    reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"));
+                    return false;
+                }
+            }
+        }
+        if (promises.length) {
+            Promise.all(promises).then(function () {
+                _this._postViewInit(enteringView, leavingView, ti, resolve);
+            }).catch(function (rejectReason) {
+                reject(rejectReason);
+            });
+            return false;
+        }
+        this._postViewInit(enteringView, leavingView, ti, resolve);
+        return true;
+    };
+    NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, resolve) {
         var _this = this;
         this._trnsId = this._trnsCtrl.getRootTrnsId(this);
         if (this._trnsId === null) {
@@ -28102,65 +28180,6 @@ var NavControllerBase = (function (_super) {
                 trns.parent.start();
             }
         });
-        if (enteringView && isBlank$5(enteringView._state)) {
-            this._viewInit(trns, enteringView, opts);
-        }
-        var shouldContinue = this._viewTest(trns, enteringView, leavingView, opts, resolve, reject);
-        if (shouldContinue) {
-            this._postViewInit(trns, enteringView, leavingView, opts, resolve);
-        }
-    };
-    NavControllerBase.prototype._viewInit = function (trns, enteringView, opts) {
-        var componentProviders = ReflectiveInjector.resolve([
-            { provide: NavController, useValue: this },
-            { provide: ViewController, useValue: enteringView },
-            { provide: NavParams, useValue: enteringView.getNavParams() }
-        ]);
-        var componentFactory = this._cfr.resolveComponentFactory(enteringView.component);
-        var childInjector = ReflectiveInjector.fromResolvedProviders(componentProviders, this._viewport.parentInjector);
-        enteringView.init(componentFactory.create(childInjector, []));
-        enteringView._state = ViewState.INITIALIZED;
-    };
-    NavControllerBase.prototype._viewTest = function (trns, enteringView, leavingView, opts, resolve, reject) {
-        var _this = this;
-        var promises = [];
-        if (leavingView) {
-            var leavingTestResult = leavingView._lifecycleTest('Leave');
-            if (isPresent$5(leavingTestResult) && leavingTestResult !== true) {
-                if (leavingTestResult instanceof Promise) {
-                    promises.push(leavingTestResult);
-                }
-                else {
-                    reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"), trns);
-                    return false;
-                }
-            }
-        }
-        if (enteringView) {
-            var enteringTestResult = enteringView._lifecycleTest('Enter');
-            if (isPresent$5(enteringTestResult) && enteringTestResult !== true) {
-                if (enteringTestResult instanceof Promise) {
-                    promises.push(enteringTestResult);
-                }
-                else {
-                    reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"), trns);
-                    return false;
-                }
-            }
-        }
-        if (promises.length) {
-            Promise.all(promises).then(function () {
-                _this._postViewInit(trns, enteringView, leavingView, opts, resolve);
-            }, function (rejectReason) {
-                reject(rejectReason, trns);
-            }).catch(function (rejectReason) {
-                reject(rejectReason, trns);
-            });
-            return false;
-        }
-        return true;
-    };
-    NavControllerBase.prototype._postViewInit = function (trns, enteringView, leavingView, opts, resolve) {
         if (enteringView && enteringView._state === ViewState.INITIALIZED) {
             this._viewInsert(enteringView, enteringView._cmp, this._viewport);
         }
@@ -29277,7 +29296,7 @@ var Tabs = (function (_super) {
                         '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
                         '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
                         '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
-                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
+                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [color]="t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
                         '<div class="button-effect"></div>' +
                         '</a>' +
                         '<div class="tab-highlight"></div>' +
@@ -29638,6 +29657,7 @@ var Transition = (function (_super) {
         _super.call(this, null, opts, raf);
         this.enteringView = enteringView;
         this.leavingView = leavingView;
+        this.hasChildTrns = false;
     }
     Transition.prototype.init = function () { };
     Transition.prototype.registerStart = function (trnsStart) {

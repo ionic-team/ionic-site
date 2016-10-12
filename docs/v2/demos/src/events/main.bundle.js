@@ -25060,6 +25060,9 @@ var ViewController = (function () {
             this._nb.hideBackButton = !shouldShow;
         }
     };
+    ViewController.prototype._willLoad = function () {
+        ctrlFn(this, 'WillLoad');
+    };
     ViewController.prototype._didLoad = function () {
         if (this.instance && this.instance.ionViewLoaded) {
             try {
@@ -27930,13 +27933,14 @@ var NavControllerBase = (function (_super) {
             });
         }
         ti.resolve = function (hasCompleted, isAsync, enteringName, leavingName, direction) {
+            _this.setTransitioning(false);
             _this._trnsId = null;
             resolve && resolve(hasCompleted, isAsync, enteringName, leavingName, direction);
             _this._sbCheck();
-            _this.setTransitioning(false);
             _this._nextTrns();
         };
         ti.reject = function (rejectReason, trns) {
+            _this.setTransitioning(false);
             _this._trnsId = null;
             _this._queue.length = 0;
             while (trns) {
@@ -27951,7 +27955,6 @@ var NavControllerBase = (function (_super) {
             }
             _this._sbCheck();
             reject && reject(false, false, rejectReason);
-            _this.setTransitioning(false);
             _this._nextTrns();
         };
         if (ti.insertViews) {
@@ -28065,15 +28068,9 @@ var NavControllerBase = (function (_super) {
         for (var i = 0; i < destroyQueue.length; i++) {
             var view = destroyQueue[i];
             if (view && view !== enteringView && view !== leavingView) {
-                view._willLeave();
-                this.viewWillLeave.emit(view);
-                this._app.viewWillLeave.emit(view);
-                view._didLeave();
-                this.viewDidLeave.emit(view);
-                this._app.viewDidLeave.emit(view);
-                view._willUnload();
-                this.viewWillUnload.emit(view);
-                this._app.viewWillUnload.emit(view);
+                this._willLeave(view);
+                this._didLeave(view);
+                this._willUnload(view);
             }
         }
         for (var i = 0; i < destroyQueue.length; i++) {
@@ -28188,13 +28185,12 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype._viewInsert = function (view, componentRef, viewport) {
-        view._didLoad();
-        this.viewDidLoad.emit(view);
-        this._app.viewDidLoad.emit(view);
+        this._willLoad(view);
+        this._didLoad(view);
         viewport.insert(componentRef.hostView, viewport.length);
         view._state = ViewState.PRE_RENDERED;
-        var pageElement = componentRef.location.nativeElement;
         if (view._cssClass) {
+            var pageElement = componentRef.location.nativeElement;
             this._renderer.setElementClass(pageElement, view._cssClass, true);
         }
         componentRef.changeDetectorRef.detectChanges();
@@ -28235,16 +28231,8 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype._viewsWillLifecycles = function (enteringView, leavingView) {
-        if (enteringView) {
-            enteringView._willEnter();
-            this.viewWillEnter.emit(enteringView);
-            this._app.viewWillEnter.emit(enteringView);
-        }
-        if (leavingView) {
-            leavingView._willLeave();
-            this.viewWillLeave.emit(leavingView);
-            this._app.viewWillLeave.emit(leavingView);
-        }
+        enteringView && this._willEnter(enteringView);
+        leavingView && this._willLeave(leavingView);
     };
     NavControllerBase.prototype._trnsFinish = function (trns, opts, resolve) {
         var hasCompleted = trns.hasCompleted;
@@ -28253,15 +28241,11 @@ var NavControllerBase = (function (_super) {
         if (hasCompleted) {
             if (trns.enteringView) {
                 enteringName = trns.enteringView.name;
-                trns.enteringView._didEnter();
-                this.viewDidEnter.emit(trns.enteringView);
-                this._app.viewDidEnter.emit(trns.enteringView);
+                this._didEnter(trns.enteringView);
             }
             if (trns.leavingView) {
                 leavingName = trns.leavingView.name;
-                trns.leavingView._didLeave();
-                this.viewDidLeave.emit(trns.leavingView);
-                this._app.viewDidLeave.emit(trns.leavingView);
+                this._didLeave(trns.leavingView);
             }
             this._cleanup(trns.enteringView);
         }
@@ -28284,9 +28268,7 @@ var NavControllerBase = (function (_super) {
         for (var i = this._views.length - 1; i >= 0; i--) {
             var view = this._views[i];
             if (i > activeViewIndex) {
-                view._willUnload();
-                this.viewWillUnload.emit(view);
-                this._app.viewWillUnload.emit(view);
+                this._willUnload(view);
                 view._destroy(this._renderer);
             }
             else if (i < activeViewIndex && !this._isPortal) {
@@ -28303,6 +28285,39 @@ var NavControllerBase = (function (_super) {
                 });
             }
         }
+    };
+    NavControllerBase.prototype._willLoad = function (view) {
+        view._willLoad();
+    };
+    NavControllerBase.prototype._didLoad = function (view) {
+        view._didLoad();
+        this.viewDidLoad.emit(view);
+        this._app.viewDidLoad.emit(view);
+    };
+    NavControllerBase.prototype._willEnter = function (view) {
+        view._willEnter();
+        this.viewWillEnter.emit(view);
+        this._app.viewWillEnter.emit(view);
+    };
+    NavControllerBase.prototype._didEnter = function (view) {
+        view._didEnter();
+        this.viewDidEnter.emit(view);
+        this._app.viewDidEnter.emit(view);
+    };
+    NavControllerBase.prototype._willLeave = function (view) {
+        view._willLeave();
+        this.viewWillLeave.emit(view);
+        this._app.viewWillLeave.emit(view);
+    };
+    NavControllerBase.prototype._didLeave = function (view) {
+        view._didLeave();
+        this.viewDidLeave.emit(view);
+        this._app.viewDidLeave.emit(view);
+    };
+    NavControllerBase.prototype._willUnload = function (view) {
+        view._willUnload();
+        this.viewWillUnload.emit(view);
+        this._app.viewWillUnload.emit(view);
     };
     NavControllerBase.prototype.getActiveChildNav = function () {
         return this._children[this._children.length - 1];
@@ -28458,7 +28473,7 @@ var NavControllerBase = (function (_super) {
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
 var ACTIVE_TRANSITION_MAX_TIME = 5000;
-var ACTIVE_TRANSITION_OFFSET = 400;
+var ACTIVE_TRANSITION_OFFSET = 2000;
 
 var Animation = (function () {
     function Animation(ele, opts, raf$$1) {
@@ -31228,7 +31243,7 @@ var ModalCmp = (function () {
         this._viewCtrl = _viewCtrl;
         this._bdDismiss = _navParams.data.opts.enableBackdropDismiss;
     }
-    ModalCmp.prototype.ngAfterViewInit = function () {
+    ModalCmp.prototype.ionViewWillLoad = function () {
         this._load(this._navParams.data.component);
     };
     ModalCmp.prototype._load = function (component) {
@@ -31976,7 +31991,7 @@ var PopoverCmp = (function () {
         }
         this.id = (++popoverIds);
     }
-    PopoverCmp.prototype.ngAfterViewInit = function () {
+    PopoverCmp.prototype.ionViewWillLoad = function () {
         var activeElement = document.activeElement;
         if (document.activeElement) {
             activeElement.blur();
@@ -35032,6 +35047,13 @@ var InfiniteScroll = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(InfiniteScroll.prototype, "enabled", {
+        set: function (shouldEnable) {
+            this.enable(shouldEnable);
+        },
+        enumerable: true,
+        configurable: true
+    });
     InfiniteScroll.prototype._onScroll = function () {
         var _this = this;
         if (this.state === STATE_LOADING || this.state === STATE_DISABLED) {
@@ -35108,6 +35130,7 @@ var InfiniteScroll = (function () {
     ];
     InfiniteScroll.propDecorators = {
         'threshold': [{ type: Input },],
+        'enabled': [{ type: Input },],
         'ionInfinite': [{ type: Output },],
     };
     return InfiniteScroll;
@@ -49259,15 +49282,6 @@ var _View_ModalCmp_Host0 = (function (_super) {
         }
         return notFoundResult;
     };
-    _View_ModalCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        this.detectContentChildrenChanges(throwOnChange);
-        this.detectViewChildrenChanges(throwOnChange);
-        if (!throwOnChange) {
-            if ((this.numberOfChecks === 0)) {
-                this._ModalCmp_0_4.ngAfterViewInit();
-            }
-        }
-    };
     _View_ModalCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
         var pd_0 = (this._ModalCmp_0_4._keyUp($event) !== false);
@@ -50085,15 +50099,6 @@ var _View_PopoverCmp_Host0 = (function (_super) {
             return this._PopoverCmp_0_4;
         }
         return notFoundResult;
-    };
-    _View_PopoverCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        this.detectContentChildrenChanges(throwOnChange);
-        this.detectViewChildrenChanges(throwOnChange);
-        if (!throwOnChange) {
-            if ((this.numberOfChecks === 0)) {
-                this._PopoverCmp_0_4.ngAfterViewInit();
-            }
-        }
     };
     _View_PopoverCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();

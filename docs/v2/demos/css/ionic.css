@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610121928, Default Theme
+ * vE2E-201610121942, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3693,7 +3693,7 @@ input.text-input:-webkit-autofill {
 .text-input-ios {
   margin: 12px 8px 13px 0;
   padding: 0;
-  width: calc(100% - 8px - 0); }
+  width: calc(100% - 8px); }
 
 .input-ios .inset-input {
   margin: 6px 16px 6.5px 0;

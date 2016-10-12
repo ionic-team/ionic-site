@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610121854, Default Theme
+ * vE2E-201610121904, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -5865,11 +5865,11 @@ ion-popover {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
-.popover-ios .popover-bottom .popover-arrow {
+.popover-ios.popover-bottom .popover-arrow {
   top: auto;
   bottom: -10px; }
 
-.popover-ios .popover-bottom .popover-arrow::after {
+.popover-ios.popover-bottom .popover-arrow::after {
   top: -6px; }
 
 .popover-md .popover-content {

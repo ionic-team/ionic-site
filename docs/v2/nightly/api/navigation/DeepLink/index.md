@@ -31,7 +31,7 @@ DeepLink
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-util.ts#L111">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-util.ts#L114">
 Improve this doc
 </a>
 

@@ -40,10 +40,25 @@ Improve this doc
 
 
 
-<p>DeepLinker handles registering and displaying specific views based on URLs. It&#39;s used
+<p>Deep Linking Scenarios:
+1) Initialize all NavControllers using the initial browser URL
+2) User clicks browser back button
+3) User clicks browser forward button
+4) User changes browser URL
+5) User clicks link href
+6) App uses NavController push/pop/setRoot/insert/remove</p>
+<p>Terms:</p>
+<ul>
+<li>URL: The string value found in the browser&#39;s URL bar</li>
+<li>Segment: Deep linker&#39;s data about each section between / in the URL</li>
+<li>Path: Deep linker&#39;s array of segments</li>
+<li>History: Deep linker&#39;s string array of internal URL history</li>
+<li>Location: Angular&#39;s Location provider, which abstracts Hash/Path Location Strategies
+DeepLinker handles registering and displaying specific views based on URLs. It&#39;s used
 underneath NavController so you&#39;ll never have to interact with it directly. When a new
 view is push&#39;ed with NavController, the URL is updated to match the path back to this
-page.</p>
+page.</li>
+</ul>
 <p>Unlike traditional web apps, URLs don&#39;t dictate navigation in Ionic apps.
 Instead, URLs help us link to specific pieces of content as a breadcrumb.
 We keep the current URL updated as we navigate, but we use the NavController&#39;s
@@ -59,65 +74,134 @@ over the world.</p>
 
 <!-- @usage tag -->
 
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<p>DeepLinker can be used in the <code>IonicModule.forRoot</code> method, as the third parameter</p>
-<pre><code class="lang-ts">imports: [
-   IonicModule.forRoot(MyApp, {}, {
-     links: []
-  })
- ]
-</code></pre>
-<p>DeepLinker implements <code>DeepLinkerConfig</code>, which is an object with an array of links.
-So for basic example based on the blank starer, a link setup like so:</p>
-<pre><code class="lang-ts">imports: [
-   IonicModule.forRoot(MyApp, {}, {
-     links: [
-      { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
-    ]
-  })
- ]
-</code></pre>
-<p>This Feels pretty familiar to how Angular sets up routes, but has some fundamental differences.
-Since components could be loaded anywhere in the app, DeepLinker lets you define their URL segment.
-So at any point, when a Component becomes the active view, we just append the URL segment.</p>
-<h3 id="dynamic-links">Dynamic Links</h3>
-<p>Since passing data around is common practice in an app, we can reflect that in our app&#39;s URL in a similar manner to Angular&#39;s router.</p>
-<pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39; }
-]
-</code></pre>
-<p>This approach of using <code>:param</code> has been around in previous routing solutions.
-All this means is that when we push a new component on to the stack, in the navParams, there should be a property of <code>user</code>.
-The property needs to be something that can be serialized by the DeepLinker. 
-So setting its value to be that of a string or number is suggested.</p>
-<p>So in a typical <code>navCtrl.push()</code> scenario, we&#39;d do something like this:</p>
-<pre><code class="lang-ts">pushPage(userInfo) {
-  this.navCtrl.push(DetailPage, {
-  &#39;user&#39;: userInfo
-  })
-}
-</code></pre>
-<h3 id="default-history">Default History</h3>
-<p> In some cases when a page loads, you might be sent to a component that has it&#39;s own information, but not back view.
- This situation is common when loading a page from a Push Notification.
- If you want a component to have a default history when none is present, you can use the <code>defaultHistory</code> property</p>
-<p>The <code>defaultHistory</code> property takes an array of components to create the history stack if none exist.</p>
-<pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39;, defaultHistory: [HomePage] }
-]
-</code></pre>
-
-
-
 
 <!-- @property tags -->
 
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="segments"></div>
+
+<h3>
+<a class="anchor" name="segments" href="#segments"></a>
+<code>segments</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="history"></div>
+
+<h3>
+<a class="anchor" name="history" href="#history"></a>
+<code>history</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="indexAliasUrl"></div>
+
+<h3>
+<a class="anchor" name="indexAliasUrl" href="#indexAliasUrl"></a>
+<code>indexAliasUrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="app"></div>
+
+<h3>
+<a class="anchor" name="app" href="#app"></a>
+<code>app</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="serializer"></div>
+
+<h3>
+<a class="anchor" name="serializer" href="#serializer"></a>
+<code>serializer</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="location"></div>
+
+<h3>
+<a class="anchor" name="location" href="#location"></a>
+<code>location</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

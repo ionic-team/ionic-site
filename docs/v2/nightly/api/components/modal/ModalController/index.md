@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L53">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L54">
 Improve this doc
 </a>
 

@@ -1,0 +1,11 @@
+{
+  "/docs/v2/resources/resources/what-is": "/docs/v2/cli/",
+  "/docs/v2/api/components/config/Config": "/docs/v2/api/config/Config",
+  "/docs/v2/api/components/Tabs/Tab": "/docs/v2/api/components/tabs/Tab",
+  "/docs/v2/api/components/nav/NavController": "/docs/v2/api/navigation/NavController/",
+  "/docs/v2/api/tab/Tab": "/docs/v2/api/components/tabs/Tab/",
+  "/docs/v2/api/menu/Menu": "/docs/v2/api/components/menu/Menu",
+  "/docs/v2/api/components/nav/NavBar": "/docs/v2/api/components/navbar/NavBar",
+  "/docs/v2/native/ibeacon/LocationManager": "/docs/v2/native/ibeacon/",
+  "/docs/v2/native/estimotebeacons/undefined": "/docs/v2/native/estimotebeacons"
+}

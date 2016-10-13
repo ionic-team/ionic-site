@@ -1,9 +1,9 @@
 //
 // Ionic v2
 //
-// SCSS styles for the Ionic v2 docs.
-// While currently part of the v1 site, this css is meant to be completely
-// independent of the rest of the site. ./scss is for v1 ./_scss if for v2
+// SCSS styles for Ionicframework.com.
+// Some parts of the site still use styles in ./scss rather than this ./_scss
+// These former pages are depreciated and being phased out for the styles here.
 //
 //
 @import url('https://fonts.googleapis.com/css?family=Nunito:300');
@@ -68,9 +68,10 @@
 @import 'pygments/ionic';
 @import 'hljs';
 
-@import 'docs/main';
-@import 'docs/home';
-@import 'docs/search';
-@import 'docs/ionicons-resource';
+@import 'general';
+@import 'pages/docs/home';
+@import 'pages/docs/search';
+@import 'pages/docs/ionicons-resource';
+@import 'pages/home';
 @import 'pages/404';
 @import 'pages/resources';

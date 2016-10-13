@@ -1,5 +1,5 @@
 ---
-layout: full
+layout: v2_fluid/default
 title: "Build Amazing Native Apps and Progressive Web Apps with Ionic Framework and Angular"
 body_css: "home"
 ---
@@ -63,37 +63,14 @@ http://usecreator.com/?utm_source=ionichome&utm_medium=slider&utm_campaign=Creat
       </div>
     </div>
   </div>
-  <div class="slide slide-windows">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 fadeIn">
-          <h2>
-            Ionic
-            <img src="/img/homepage/ionic-loves-windows-heart.png" class="heart" /> Windows
-          </h2>
-          <h3>
-            Official <strong>Windows Universal Platform App</strong> support is
-            now live in <strong>Ionic 2</strong>, complete with a total UI
-            look-and-feel and component set!
-          </h3>
-          <p class="btn-row">
-            <a id="repo-download" class="btn btn-primary btn-download" href="http://blog.ionic.io/announcing-windows-support-in-ionic-2/" target="_blank">Read the blog post</a>
-            <a class="btn btn-primary btn-get-started" href="http://ionicframework.com/docs/v2/components/" target="_blank">Component docs</a>
-          </p>
-        </div>
-        <div class="col-sm-6 feature-img  img-loaded">
-          <div class="lab-preview"></div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="slide slide-market">
     <div class="container">
       <div class="row">
         <div class="col-sm-6 fadeIn">
           <h1><strong>The Market</strong> is alive</h1>
           <h3>
-            Discover and share all the best community-made starter apps, plugins, themes and more to jumpstart your Ionic app development.
+            Discover and share all the best community-made starter apps,
+            plugins, themes and more to jumpstart your Ionic app development.
           </h3>
           <p class="btn-row">
             <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="http://market.ionic.io/" target="_blank">Explore the Market</a>
@@ -123,40 +100,6 @@ http://usecreator.com/?utm_source=ionichome&utm_medium=slider&utm_campaign=Creat
     </div>
   </div>
 </div>
-
-<!-- <div class="creator-bar">
-  <iframe style='max-width: 100%;' src='https://blab.im/ionic-ionic-2-beta-chat' frameborder='0' height='480' scrolling='none' width='640'></iframe>
-</div> -->
-
-<script>
-
-  function digits(n){
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  $.ajax({
-    dataType: "jsonp",
-    url: "https://api.github.com/repos/driftyco/ionic",
-    success: function(data){
-      if(data) {
-        if(data.data.watchers){
-          $("#gh-stargazers").html(digits(data.data.watchers));
-        }
-        if(data.data.forks){
-          $("#gh-forks").html(digits(data.data.forks));
-        }
-      }
-    }
-  });
-  $.ajax({
-    dataType: "jsonp",
-    url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=ionicframework",
-    success: function(data){
-      if(data && data.length && data[0].formatted_followers_count){
-        $("#tw-followers").html(digits(data[0].formatted_followers_count));
-      }
-    }
-  });
-</script>
 
 <div id="learn-more">
 
@@ -397,12 +340,36 @@ http://usecreator.com/?utm_source=ionichome&utm_medium=slider&utm_campaign=Creat
 
 </div>
 
-<style>
- .navbar {
- }
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="/js/slick.js"></script>
 <script>
+function digits(n){
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+$.ajax({
+  dataType: "jsonp",
+  url: "https://api.github.com/repos/driftyco/ionic",
+  success: function(data){
+    if(data) {
+      if(data.data.watchers){
+        $("#gh-stargazers").html(digits(data.data.watchers));
+      }
+      if(data.data.forks){
+        $("#gh-forks").html(digits(data.data.forks));
+      }
+    }
+  }
+});
+$.ajax({
+  dataType: "jsonp",
+  url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=ionicframework",
+  success: function(data){
+    if(data && data.length && data[0].formatted_followers_count){
+      $("#tw-followers").html(digits(data[0].formatted_followers_count));
+    }
+  }
+});
+
 $('#slider').slick({
   dots: true,
   infinite: true,
@@ -424,24 +391,4 @@ $('#slider').slick({
     $slide.removeClass('slick-fade-out')
   }, 300) // match speed in slick config object above
 })
-
-/*
-  $.fn.snapBar = function(options) {
-    return this.each(function() {
-      var $this = $(this);
-      var settings = $.extend({
-        delay: 0,
-        height: 50,
-        animationDuration: 500,
-        activeClass: 'active'
-      });
-
-      setTimeout(function() {
-        $this.addClass(settings.activeClass);
-      }, settings.delay);
-    });
-  };
-
-  $('#creator-bar').snapBar();
-  */
 </script>

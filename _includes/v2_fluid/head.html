@@ -5,5 +5,15 @@
 <meta name="author" content="Drifty">
 <meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-<link href="/css/v2.css?v=e2697d7e58278787662d689c0b2115bf" rel="stylesheet">
+<link href="/css/styles.css?v=b9cfeeac55f9ea51157237ea4d51d5eb" rel="stylesheet">
 {% if page.header_includes %}{{ page.header_includes }}{% endif %}
+
+{% if page.category == 'api' %}
+  <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
+{% elsif page.category == 'native' %}
+  <title>Ionic Native: Harness the power of Native APIs</title>
+{% elsif page.title %}
+  <title>{{page.title}}</title>
+{% else %}
+  <title>Ionic Framework</title>
+{% endif %}

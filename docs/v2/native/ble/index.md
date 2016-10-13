@@ -1075,9 +1075,7 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
 </div>
 
 

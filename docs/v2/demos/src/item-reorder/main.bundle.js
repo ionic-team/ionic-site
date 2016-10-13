@@ -24613,10 +24613,6 @@ var ViewController = (function () {
     ViewController.prototype.emit = function (data) {
         this._emitter.emit(data);
     };
-    ViewController.prototype.onDismiss = function (callback) {
-        console.warn('onDismiss(..) has been deprecated. Please use onDidDismiss(..) instead');
-        this.onDidDismiss(callback);
-    };
     ViewController.prototype.onDidDismiss = function (callback) {
         this._onDidDismiss = callback;
     };
@@ -24739,19 +24735,10 @@ var ViewController = (function () {
         }
     };
     ViewController.prototype._willLoad = function () {
-        ctrlFn(this, 'WillLoad');
+        this._lifecycle('WillLoad');
     };
     ViewController.prototype._didLoad = function () {
-        if (this.instance && this.instance.ionViewLoaded) {
-            try {
-                console.warn('ionViewLoaded() has been deprecated. Please rename to ionViewDidLoad()');
-                this.instance.ionViewLoaded();
-            }
-            catch (e) {
-                console.error(this.name + ' iionViewLoaded: ' + e.message);
-            }
-        }
-        ctrlFn(this, 'DidLoad');
+        this._lifecycle('DidLoad');
     };
     ViewController.prototype._willEnter = function () {
         if (this._detached && this._cmp) {
@@ -24759,20 +24746,20 @@ var ViewController = (function () {
             this._detached = false;
         }
         this.willEnter.emit(null);
-        ctrlFn(this, 'WillEnter');
+        this._lifecycle('WillEnter');
     };
     ViewController.prototype._didEnter = function () {
         this._nb && this._nb.didEnter();
         this.didEnter.emit(null);
-        ctrlFn(this, 'DidEnter');
+        this._lifecycle('DidEnter');
     };
     ViewController.prototype._willLeave = function () {
         this.willLeave.emit(null);
-        ctrlFn(this, 'WillLeave');
+        this._lifecycle('WillLeave');
     };
     ViewController.prototype._didLeave = function () {
         this.didLeave.emit(null);
-        ctrlFn(this, 'DidLeave');
+        this._lifecycle('DidLeave');
         if (!this._detached && this._cmp) {
             this._cmp.changeDetectorRef.detach();
             this._detached = true;
@@ -24780,22 +24767,14 @@ var ViewController = (function () {
     };
     ViewController.prototype._willUnload = function () {
         this.willUnload.emit(null);
-        ctrlFn(this, 'WillUnload');
-        if (this.instance && this.instance.ionViewDidUnload) {
-            console.warn('ionViewDidUnload() has been deprecated. Please use ionViewWillUnload() instead');
-            try {
-                this.instance.ionViewDidUnload();
-            }
-            catch (e) {
-                console.error(this.name + ' ionViewDidUnload: ' + e.message);
-            }
-        }
+        this._lifecycle('WillUnload');
     };
     ViewController.prototype._destroy = function (renderer) {
         if (this._cmp) {
             if (renderer) {
-                renderer.setElementAttribute(this._cmp.location.nativeElement, 'class', null);
-                renderer.setElementAttribute(this._cmp.location.nativeElement, 'style', null);
+                var cmpEle = this._cmp.location.nativeElement;
+                renderer.setElementAttribute(cmpEle, 'class', null);
+                renderer.setElementAttribute(cmpEle, 'style', null);
             }
             this._cmp.destroy();
         }
@@ -24815,29 +24794,29 @@ var ViewController = (function () {
                 return instance[methodName]();
             }
             catch (e) {
-                console.error(this.name + " ionViewCan" + lifecycle + " error: " + e);
+                console.error(this.name + " " + methodName + " error: " + e.message);
                 return false;
             }
         }
         return true;
+    };
+    ViewController.prototype._lifecycle = function (lifecycle) {
+        var instance = this.instance;
+        var methodName = 'ionView' + lifecycle;
+        if (instance && instance[methodName]) {
+            try {
+                instance[methodName]();
+            }
+            catch (e) {
+                console.error(this.name + " " + methodName + " error: " + e.message);
+            }
+        }
     };
     ViewController.propDecorators = {
         '_emitter': [{ type: Output },],
     };
     return ViewController;
 }());
-function ctrlFn(viewCtrl, fnName) {
-    if (viewCtrl.instance) {
-        if (viewCtrl.instance['ionView' + fnName]) {
-            try {
-                viewCtrl.instance['ionView' + fnName]();
-            }
-            catch (e) {
-                console.error(viewCtrl.name + ' ionView' + fnName + ': ' + e.message);
-            }
-        }
-    }
-}
 function isViewController(viewCtrl) {
     return !!(viewCtrl && viewCtrl._didLoad && viewCtrl._willUnload);
 }
@@ -25790,9 +25769,6 @@ var ActionSheet = (function (_super) {
         if (navOptions === void 0) { navOptions = {}; }
         return this._app.present(this, navOptions);
     };
-    ActionSheet.create = function (opt) {
-        console.warn('ActionSheet.create(..) has been deprecated. Please inject ActionSheetController instead');
-    };
     return ActionSheet;
 }(ViewController));
 var ActionSheetController = (function () {
@@ -26072,9 +26048,6 @@ var Alert = (function (_super) {
     Alert.prototype.present = function (navOptions) {
         if (navOptions === void 0) { navOptions = {}; }
         return this._app.present(this, navOptions);
-    };
-    Alert.create = function (opt) {
-        console.warn('Alert.create(..) has been deprecated. Please inject AlertController instead');
     };
     return Alert;
 }(ViewController));
@@ -28082,6 +28055,9 @@ var NavControllerBase = (function (_super) {
         return !!(activeView && activeView.enableBack()) || false;
     };
     NavControllerBase.prototype.isTransitioning = function () {
+        if (this._trnsTm === 0) {
+            return false;
+        }
         return (this._trnsTm > Date.now());
     };
     NavControllerBase.prototype.setTransitioning = function (isTransitioning, durationPadding) {
@@ -28131,19 +28107,6 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.setViewport = function (val) {
         this._viewport = val;
-    };
-    Object.defineProperty(NavControllerBase.prototype, "rootNav", {
-        get: function () {
-            console.warn('nav.rootNav() has been deprecated, please use app.getRootNav() instead');
-            return this._app.getRootNav();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    NavControllerBase.prototype.present = function () {
-        console.warn('nav.present() has been deprecated.\n' +
-            'Please inject the overlay\'s controller and use the present method on the instance instead.');
-        return Promise.resolve();
     };
     return NavControllerBase;
 }(Ion));
@@ -28765,14 +28728,6 @@ var Tabs = (function (_super) {
         this._sbPadding = config.getBoolean('statusbarPadding');
         this._subPages = config.getBoolean('tabsHideOnSubPages');
         this.tabsHighlight = config.getBoolean('tabsHighlight');
-        if (config.get('tabSubPages') !== null) {
-            console.warn('Config option "tabSubPages" has been deprecated. Please use "tabsHideOnSubPages" instead.');
-            this._subPages = config.getBoolean('tabSubPages');
-        }
-        if (config.get('tabbarHighlight') !== null) {
-            console.warn('Config option "tabbarHighlight" has been deprecated. Please use "tabsHighlight" instead.');
-            this.tabsHighlight = config.getBoolean('tabbarHighlight');
-        }
         if (this.parent) {
             this.parent.registerChildNav(this);
         }
@@ -28810,26 +28765,6 @@ var Tabs = (function (_super) {
         this._setConfig('tabsPlacement', 'bottom');
         this._setConfig('tabsLayout', 'icon-top');
         this._setConfig('tabsHighlight', this.tabsHighlight);
-        this._setConfig('tabbarPlacement', 'bottom');
-        this._setConfig('tabbarLayout', 'icon-top');
-        if (this.tabbarPlacement !== undefined) {
-            console.warn('Input "tabbarPlacement" has been deprecated. Please use "tabsPlacement" instead.');
-            this.setElementAttribute('tabsPlacement', this.tabbarPlacement);
-            this.tabsPlacement = this.tabbarPlacement;
-        }
-        if (this._config.get('tabbarPlacement') !== null) {
-            console.warn('Config option "tabbarPlacement" has been deprecated. Please use "tabsPlacement" instead.');
-            this.setElementAttribute('tabsPlacement', this._config.get('tabbarPlacement'));
-        }
-        if (this.tabbarLayout !== undefined) {
-            console.warn('Input "tabbarLayout" has been deprecated. Please use "tabsLayout" instead.');
-            this.setElementAttribute('tabsLayout', this.tabbarLayout);
-            this.tabsLayout = this.tabbarLayout;
-        }
-        if (this._config.get('tabbarLayout') !== null) {
-            console.warn('Config option "tabbarLayout" has been deprecated. Please use "tabsLayout" instead.');
-            this.setElementAttribute('tabsLayout', this._config.get('tabsLayout'));
-        }
         if (this.tabsHighlight) {
             this._platform.onResize(function () {
                 _this._highlight.select(_this.getSelected());
@@ -29012,9 +28947,7 @@ var Tabs = (function (_super) {
         'color': [{ type: Input },],
         'mode': [{ type: Input },],
         'selectedIndex': [{ type: Input },],
-        'tabbarLayout': [{ type: Input },],
         'tabsLayout': [{ type: Input },],
-        'tabbarPlacement': [{ type: Input },],
         'tabsPlacement': [{ type: Input },],
         'tabsHighlight': [{ type: Input },],
         'ionChange': [{ type: Output },],
@@ -29473,16 +29406,9 @@ var IOSTransition = (function (_super) {
                 }
                 else {
                     enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
-                    if (leavingHasNavbar) {
-                        enteringNavbarBg
-                            .beforeClearStyles([TRANSLATEX])
-                            .fromTo(OPACITY, 0.01, 1, true);
-                    }
-                    else {
-                        enteringNavbarBg
-                            .beforeClearStyles([OPACITY])
-                            .fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
-                    }
+                    enteringNavbarBg
+                        .beforeClearStyles([OPACITY])
+                        .fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
                     if (enteringView.enableBack()) {
                         enteringBackButton
                             .beforeAddClass(SHOW_BACK_BTN_CSS)
@@ -29531,16 +29457,9 @@ var IOSTransition = (function (_super) {
                 leavingNavbarItems.fromTo(OPACITY, 0.99, 0);
                 if (backDirection) {
                     leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
-                    if (enteringHasNavbar) {
-                        leavingNavbarBg
-                            .beforeClearStyles([TRANSLATEX])
-                            .fromTo(OPACITY, 0.99, 0);
-                    }
-                    else {
-                        leavingNavbarBg
-                            .beforeClearStyles([OPACITY])
-                            .fromTo(TRANSLATEX, CENTER, '100%');
-                    }
+                    leavingNavbarBg
+                        .beforeClearStyles([OPACITY])
+                        .fromTo(TRANSLATEX, CENTER, '100%');
                     var leavingBackBtnText = new Animation(leavingNavbarEle.querySelector('.back-button-text'));
                     leavingBackBtnText.fromTo(TRANSLATEX, CENTER, (300) + 'px');
                     leavingNavBar.add(leavingBackBtnText);
@@ -30795,9 +30714,6 @@ var Loading = (function (_super) {
     Loading.prototype.dismissAll = function () {
         this._nav && this._nav.popAll();
     };
-    Loading.create = function (opt) {
-        console.warn('Loading.create(..) has been deprecated. Please inject LoadingController instead');
-    };
     return Loading;
 }(ViewController));
 var LoadingController = (function () {
@@ -30999,9 +30915,6 @@ var Modal = (function (_super) {
     Modal.prototype.present = function (navOptions) {
         if (navOptions === void 0) { navOptions = {}; }
         return this._app.present(this, navOptions, AppPortal.MODAL);
-    };
-    Modal.create = function (cmp, opt) {
-        console.warn('Modal.create(..) has been deprecated. Please inject ModalController instead');
     };
     return Modal;
 }(ViewController));
@@ -31471,9 +31384,6 @@ var Picker = (function (_super) {
         if (navOptions === void 0) { navOptions = {}; }
         return this._app.present(this, navOptions);
     };
-    Picker.create = function (opt) {
-        console.warn('Picker.create(..) has been deprecated. Please inject PickerController instead');
-    };
     Picker.propDecorators = {
         'ionChange': [{ type: Output },],
     };
@@ -31757,11 +31667,6 @@ var Popover = (function (_super) {
     Popover.prototype.present = function (navOptions) {
         if (navOptions === void 0) { navOptions = {}; }
         return this._app.present(this, navOptions);
-    };
-    Popover.create = function (component, data, opts) {
-        if (data === void 0) { data = {}; }
-        if (opts === void 0) { opts = {}; }
-        console.warn('Popover.create(..) has been deprecated. Please inject PopoverController instead');
     };
     return Popover;
 }(ViewController));
@@ -32263,9 +32168,6 @@ var Toast = (function (_super) {
     };
     Toast.prototype.dismissAll = function () {
         this._nav && this._nav.popAll();
-    };
-    Toast.create = function (opt) {
-        console.warn('Toast.create(..) has been deprecated. Please inject ToastController instead');
     };
     return Toast;
 }(ViewController));
@@ -35664,7 +35566,7 @@ var MenuContentGesture = (function (_super) {
             && (velocity > 0.2 || slide.delta > z);
         var shouldCompleteLeft = (velocity <= 0)
             && (velocity < -0.2 || slide.delta < -z);
-        // console.debug('menu gesture, onSlide', this.menu.side);
+        // console.debug('menu gesture, onSlideEnd', this.menu.side);
         // console.debug('distance', slide.distance);
         // console.debug('delta', slide.delta);
         // console.debug('velocity', velocity);
@@ -44779,9 +44681,6 @@ var TabButton = (function (_super) {
         this.ionSelect = new EventEmitter();
         this.disHover = (config.get('hoverCSS') === false);
         this.layout = config.get('tabsLayout');
-        if (config.get('tabbarLayout') !== undefined) {
-            this.layout = config.get('tabbarLayout');
-        }
     }
     TabButton.prototype.ngOnInit = function () {
         this.tab.btn = this;
@@ -46230,15 +46129,15 @@ var VirtualScroll = (function () {
                 throw 'virtualItem required within virtualScroll';
             }
             this._init = true;
+            if (!this.approxItemHeight) {
+                this.approxItemHeight = '40px';
+                console.warn('Virtual Scroll: Please provide an "approxItemHeight" input to ensure proper virtual scroll rendering');
+            }
             this.update(true);
             this._platform.onResize(function () {
                 // console.debug('VirtualScroll, onResize');
                 _this.update(false);
             });
-            if (!this.approxItemHeight) {
-                this.approxItemHeight = '40px';
-                console.warn('Virtual Scroll: Please provide an "approxItemHeight" input to ensure proper virtual scroll rendering');
-            }
         }
     };
     VirtualScroll.prototype.update = function (checkChanges) {

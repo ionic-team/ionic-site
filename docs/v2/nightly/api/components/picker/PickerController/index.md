@@ -31,7 +31,7 @@ PickerController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker.ts#L85">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker.ts#L76">
 Improve this doc
 </a>
 

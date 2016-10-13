@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -24,7 +24,7 @@ docType: "class"
 <a class="anchor" name="typography" href="#typography"></a>
 
 Typography
-<h3><code>h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color], p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]</code></h3>
+<h3><code>h1[color], h2[color], h3[color], h4[color], h5[color], h6[color], a[color]:not([ion-button]), p[color], span[color], b[color], i[color], strong[color], em[color], small[color], sub[color], sup[color]</code></h3>
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Reorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L306">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L309">
 Improve this doc
 </a>
 
@@ -102,6 +102,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="getReorderNode" href="#getReorderNode"></a>
 <code>getReorderNode()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onClick"></div>
+
+<h3>
+<a class="anchor" name="onClick" href="#onClick"></a>
+<code>onClick()</code>
   
 
 </h3>

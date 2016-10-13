@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -102,53 +102,6 @@ interactivity.</p>
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-type
-</td>
-
-
-
-<td>
-The HTML input type (text, password, email, number, search, tel, or url)
-</td>
-</tr>
-
-<tr>
-<td>
-clearInput
-</td>
-
-
-
-<td>
-A clear icon will appear in the input when there is a value. Clicking it clears the input.
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
@@ -165,9 +118,55 @@ A clear icon will appear in the input when there is a value. Clicking it clears 
   <tbody>
     
     <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> The placeholder for the input</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>clearInput</td>
+      <td><code>bool</code></td>
+      <td><p> A clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>type</td>
+      <td><code>string</code></td>
+      <td><p> The HTML input type (text, password, email, number, search, tel, or url)</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>blur</td>
+      <td><p> Expression to call when the input no longer has focus</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>focus</td>
+      <td><p> Expression to call when the input has focus</p>
 </td>
     </tr>
     

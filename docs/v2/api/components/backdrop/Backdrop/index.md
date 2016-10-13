@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -102,6 +102,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="getNativeElement" href="#getNativeElement"></a>
 <code>getNativeElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setElementClass"></div>
+
+<h3>
+<a class="anchor" name="setElementClass" href="#setElementClass"></a>
+<code>setElementClass()</code>
   
 
 </h3>

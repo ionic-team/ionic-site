@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -246,7 +246,8 @@ Boolean if the app is actively scrolling or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> 
+  <code>boolean</code> <p>returns true or false</p>
+
 
 </div>
 
@@ -262,7 +263,6 @@ Boolean if the app is actively scrolling or not.
 
 </h3>
 
-retuns the root NavController
 
 
 
@@ -270,6 +270,13 @@ retuns the root NavController
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController</code> <p>Retuns the root NavController</p>
+
+
+</div>
 
 
 

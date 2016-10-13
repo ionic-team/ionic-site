@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L14">
 Improve this doc
 </a>
 
@@ -47,9 +47,9 @@ Improve this doc
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
 a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
-is a declarative component for a <a href="../../nav/NavController/">NavController</a></p>
+is a declarative component for a <a href="../../../navigation/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
@@ -155,6 +155,26 @@ ionViewDidEnter() {
 <h3>
 <a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
 <code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngOnDestroy"></div>
+
+<h3>
+<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
+<code>ngOnDestroy()</code>
   
 
 </h3>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -51,7 +51,7 @@ arbitrary locations in history.</p>
 think of it that way.  <a href="#push">Pushing</a> a new page onto the top of the
 navigation stack causes the new page to be animated in, while <a href="#pop">popping</a>
 the current page will navigate to the previous page in the stack.</p>
-<p>Unless you are using a directive like <a href="../NavPush/">NavPush</a>, or need a
+<p>Unless you are using a directive like <a href="../../components/nav/NavPush/">NavPush</a>, or need a
 specific NavController, most times you will inject and use a reference to the
 nearest NavController to manipulate the navigation stack.</p>
 <h2 id="basic-usage">Basic usage</h2>
@@ -259,29 +259,71 @@ class HelloWorld {
 <td><code>ionViewWillUnload</code></td>
 <td>Runs when the page is about to be destroyed and have its elements removed.</td>
 </tr>
+<tr>
+<td><code>ionViewCanEnter</code></td>
+<td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
+</tr>
+<tr>
+<td><code>ionViewCanLeave</code></td>
+<td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
+</tr>
 </tbody>
 </table>
-<h2 id="asynchronous-nav-transitions">Asynchronous Nav Transitions</h2>
-<p>Navigation transitions are asynchronous operations. When a transition is started,
-the <code>push</code> or <code>pop</code> method will return immediately, before the transition is complete.</p>
-<p>Generally, the developer does not need to be concerned about this. In the event
-multiple transitions need to be synchronized or transition timing is critical,
-the best practice is to chain the transitions together using the return value
-from the <code>push</code> and <code>pop</code> methods.</p>
-<p>The <code>push</code> and <code>pop</code> methods return a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>.
-Promises are a way to represent and chain together multiple asynchronous
-operations in order. Navigation actions can be chained together very easily using promises.</p>
-<pre><code class="lang-typescript">let navTransitionPromise = this.navCtrl.push(Page2);
-navTransitionPromise.then(() =&gt; {
-  // the transition has completed, so I can push another page now
-  return this.navCtrl.push(Page3);
-}).then(() =&gt; {
-  // the second transition has completed, so I can push yet another page
-    return this.navCtrl.push(Page4);
-}).then(() =&gt; {
-  console.log(&#39;The transitions are complete!&#39;);
-})
+<h2 id="nav-guards">Nav Guards</h2>
+<p>In some cases, a developer should be able to control views leaving and entering. To allow for this, NavController has the <code>ionViewCanEnter</code> and <code>ionViewCanLeave</code> methods.
+Similar to Angular 2 route guards, but are more integrated with NavController. For example, if you wanted to prevent a user from leaving a view:</p>
+<pre><code class="lang-ts">export class MyClass{
+ constructor(
+   public navCtrl: NavController
+  ){}
+
+  pushPage(){
+    this.navCtrl.push(DetailPage)
+     .catch(()=&gt; console.log(&#39;should I stay or should I go now&#39;))
+  }
+
+  ionCanViewLeave(): boolean{
+   // here we can either return true or false
+   // depending on if we want to leave this view
+   if(isValid(randomValue)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 </code></pre>
+<p>We need to make sure that or <code>navCtrl.push</code> has a catch in order to catch the and handle the error.
+If you need to prevent a view from entering, you can do the same thing</p>
+<pre><code class="lang-ts">export class MyClass{
+ constructor(
+   public navCtrl: NavController
+  ){}
+
+  pushPage(){
+    this.navCtrl.push(DetailPage)
+     .catch(()=&gt; console.log(&#39;should I stay or should I go now&#39;))
+  }
+
+}
+
+export class DetailPage(){
+  constructor(
+    public navCtrl: NavController
+  ){}
+  ionCanViewEnter(): boolean{
+   // here we can either return true or false
+   // depending on if we want to leave this view
+   if(isValid(randomValue)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+</code></pre>
+<p>Similar to <code>ionViewCanLeave</code> we still need a catch on the original <code>navCtrl.push</code> in order to handle it properly.
+When handling the back button in the <code>ion-navbar</code>, the catch is already taken care of for you by the framework.</p>
 <h2 id="navoptions">NavOptions</h2>
 <p>Some methods on <code>NavController</code> allow for customizing the current transition.
 To do this, we can pass an object with the modified properites.</p>
@@ -1520,6 +1562,33 @@ Returns the number of views in this nav controller.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> <p>The number of views in this stack, including the current view.</p>
+
+
+</div>
+
+
+
+
+<div id="getViews"></div>
+
+<h3>
+<a class="anchor" name="getViews" href="#getViews"></a>
+<code>getViews()</code>
+  
+
+</h3>
+
+Returns the current stack of views in this nav controller.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Array&lt;ViewController&gt;</code> <p>the stack of view controllers in this nav controller.</p>
 
 
 </div>

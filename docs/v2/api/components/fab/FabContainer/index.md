@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ FabContainer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L166">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L173">
 Improve this doc
 </a>
 
@@ -73,7 +73,7 @@ that shows a list of related actions when clicked.</p>
 <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code>. For example, if you want to have a list of button that are
 on the top of the main button, you should use <code>side=&quot;top&quot;</code> and so on. By default, if side is ommited, <code>side=&quot;bottom&quot;</code>.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
- &lt;!-- this fab is placed at top right --&gt;
+ &lt;!-- this fab is placed at bottom right --&gt;
  &lt;ion-fab bottom right &gt;
    &lt;button ion-fab&gt;Share&lt;/button&gt;
    &lt;ion-fab-list side=&quot;top&quot;&gt;
@@ -296,6 +296,33 @@ Close an active FAB list container
           <td><code>56px</code></td>
         
         <td><p>Width and height of the FAB button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-mini-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Width and height of the FAB button mini</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-content-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB Container</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-list-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB List</p>
 </td>
       </tr>
       

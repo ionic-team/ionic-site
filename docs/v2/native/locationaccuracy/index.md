@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -120,7 +120,7 @@ Indicates if a request is currently in progress
 
 
 <div id="request"></div>
-<h3><code>request()</code>
+<h3><code>request(accuracy)</code>
   
 </h3>
 
@@ -129,6 +129,36 @@ Indicates if a request is currently in progress
 
 Requests accurate location
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      accuracy
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST<em>PRIORITY</em></p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

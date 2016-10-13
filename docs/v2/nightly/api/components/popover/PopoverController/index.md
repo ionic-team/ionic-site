@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L45">
 Improve this doc
 </a>
 
@@ -62,10 +62,11 @@ view. See the <a href="#usage">usage</a> section for an example of passing this 
 <p>To dismiss the popover after creation, call the <code>dismiss()</code> method on the
 <code>Popover</code> instance. The popover can also be dismissed from within the popover&#39;s
 view by calling the <code>dismiss()</code> method on the <a href="../../nav/ViewController">ViewController</a>.
-The <code>onDidDismiss</code> function can be called to perform an action after the popover
-is dismissed. The popover will dismiss when the backdrop is clicked, but this
-can be disabled by setting <code>enableBackdropDismiss</code> to <code>false</code> in the popover
-options.</p>
+The <code>dismiss()</code> call accepts an optional parameter that will be passed to the callback described
+as follows. The <code>onDidDismiss(&lt;func&gt;)</code> function can be called to set up a callback action that will
+be performed after the popover is dismissed, receiving the parameter passed to <code>dismiss()</code>.
+The popover will dismiss when the backdrop is clicked by implicitly performing <code>dismiss(null)</code>,
+but this can be disabled by setting <code>enableBackdropDismiss</code> to <code>false</code> in the popover options.</p>
 <blockquote>
 <p>Note that after the component is dismissed, it will not be usable anymore and
 another one must be created. This can be avoided by wrapping the creation and

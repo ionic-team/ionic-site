@@ -77,11 +77,11 @@ Improve this doc
 
 
 
-<div id="ngAfterViewInit"></div>
+<div id="ionViewWillLoad"></div>
 
 <h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
+<a class="anchor" name="ionViewWillLoad" href="#ionViewWillLoad"></a>
+<code>ionViewWillLoad()</code>
   
 
 </h3>

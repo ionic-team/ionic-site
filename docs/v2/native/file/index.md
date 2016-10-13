@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L337">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L343">
   Improve this doc
 </a>
 
@@ -37,10 +37,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-file</code></pre>
+<pre><code>$ ionic plugin add </code></pre>
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-file">
-    https://github.com/apache/cordova-plugin-file
+  <a href="">
+    
   </a>
 </p>
 
@@ -90,14 +90,18 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
   
 </h3>
 
+Get free disk space
 
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space
+</div>
 
 
 
@@ -888,7 +892,7 @@ Removes a file from a desired location.
 
 
 <div id="writeFile"></div>
-<h3><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;replaceOrOptions)</code>
+<h3><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code>
   
 </h3>
 
@@ -959,13 +963,13 @@ Write a new file to the desired location.
   
   <tr>
     <td>
-      replaceOrOptions
+      options
       
       
     </td>
     <td>
       
-<code>boolean</code>|<code>WriteOptions</code>
+<code>WriteOptions</code>
     </td>
     <td>
       <p>replace file if set to true. See WriteOptions for more information.</p>
@@ -1548,6 +1552,274 @@ Copy a file in various methods. If file exists, will fail to copy.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Entry|FileError&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
+</div>
+
+
+
+<div id="resolveLocalFilesystemUrl"></div>
+<h3><code>resolveLocalFilesystemUrl(fileUrl)</code>
+  
+</h3>
+
+Resolves a local file system URL
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      fileUrl
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>file system url</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry&gt;</code> 
+</div>
+
+
+
+<div id="resolveDirectoryUrl"></div>
+<h3><code>resolveDirectoryUrl(directoryUrl)</code>
+  
+</h3>
+
+Resolves a local directory url
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      directoryUrl
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>directory system url</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry&gt;</code> 
+</div>
+
+
+
+<div id="getDirectory"></div>
+<h3><code>getDirectory(directoryEntry,&nbsp;directoryName,&nbsp;flags)</code>
+  
+</h3>
+
+Get a directory
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      directoryEntry
+      
+      
+    </td>
+    <td>
+      
+<code>DirectoryEntry</code>
+    </td>
+    <td>
+      <p>Directory entry, obtained by resolveDirectoryUrl method</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      directoryName
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Directory name</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      flags
+      
+      
+    </td>
+    <td>
+      
+<code>Flags</code>
+    </td>
+    <td>
+      <p>Options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry&gt;</code> 
+</div>
+
+
+
+<div id="getFile"></div>
+<h3><code>getFile(directoryEntry,&nbsp;fileName,&nbsp;flags)</code>
+  
+</h3>
+
+Get a file
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      directoryEntry
+      
+      
+    </td>
+    <td>
+      
+<code>DirectoryEntry</code>
+    </td>
+    <td>
+      <p>Directory entry, obtained by resolveDirectoryUrl method</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>File name</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      flags
+      
+      
+    </td>
+    <td>
+      
+<code>Flags</code>
+    </td>
+    <td>
+      <p>Options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;FileEntry&gt;</code> 
 </div>
 
 

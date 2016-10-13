@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -60,7 +60,7 @@ OneSignal is a simple implementation for delivering push notifications.</p>
 
 OneSignal.startInit(&#39;b2f7f966-d8cc-11e4-bed1-df8f05be55ba&#39;, &#39;703322744261&#39;);
 
-OneSignal.enableInAppAlertNotification(true);
+OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
 
 OneSignal.handleNotificationReceived().subscribe(() =&gt; {
  // do something when notification is received
@@ -80,6 +80,22 @@ OneSignal.endInit();
 
 
 <h2>Static Members</h2>
+
+<div id="OSInFocusDisplayOption"></div>
+<h3><code>OSInFocusDisplayOption()</code>
+  
+</h3>
+
+constants to use in inFocusDisplaying()
+
+
+
+
+
+
+
+
+
 
 <div id="startInit"></div>
 <h3><code>startInit(appId,&nbsp;googleProjectNumber)</code>
@@ -637,19 +653,15 @@ Passing false means that the device will only vibrate unless the device is set t
 
 
 
-<div id="enableNotificationsWhenActive"></div>
-<h3><code>enableNotificationsWhenActive(enable)</code>
+<div id="inFocusDisplaying"></div>
+<h3><code>inFocusDisplaying(displayOption)</code>
   
 </h3>
 
 
 
 
-Warning:
-Only applies to Android and Amazon devices.
-
-By default this is false and notifications will not be shown when the user is in your app, instead the notificationOpenedCallback is fired.
-If set to true notifications will always show in the notification area and notificationOpenedCallback will not fire until the user taps on the notification.
+Setting to control how OneSignal notifications will be shown when one is received while your app is in focus. By default this is set to inAppAlert, which can be helpful during development.
 
 
 
@@ -665,16 +677,17 @@ If set to true notifications will always show in the notification area and notif
   
   <tr>
     <td>
-      enable
+      displayOption
       
       
     </td>
     <td>
       
-<code>boolean</code>
+<code>number</code>
     </td>
     <td>
-      
+      <p>Options are 0 = None, 1 = InAppAlert, and 2 = Notification.</p>
+
       
     </td>
   </tr>

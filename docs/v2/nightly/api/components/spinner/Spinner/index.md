@@ -33,7 +33,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L4">
 Improve this doc
 </a>
 
@@ -119,7 +119,7 @@ use, no matter what the platform is.</p>
 is that some of the CSS properties on an SVG element have different names. For
 example, SVG uses the term <code>stroke</code> instead of <code>border</code>, and <code>fill</code> instead
 of <code>background-color</code>.</p>
-<pre><code class="lang-css">ion-spinner svg {
+<pre><code class="lang-css">ion-spinner * {
   width: 28px;
   height: 28px;
   stroke: #444;

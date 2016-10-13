@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -857,8 +857,8 @@ Checks if the application is authorized to use contacts (address book).
 
 
 
-<div id="getContactsAuthroizationStatus"></div>
-<h3><code>getContactsAuthroizationStatus()</code>
+<div id="getContactsAuthorizationStatus"></div>
+<h3><code>getContactsAuthorizationStatus()</code>
   
 </h3>
 

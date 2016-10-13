@@ -198,167 +198,143 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_39 = this.renderer.createText(null, 'Round Button', null);
         compView_38.create(this._Button_38_4, [[].concat([this._text_39])], null);
         this._text_40 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_41 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_41, 'fab', '');
-        this.renderer.setElementAttribute(this._el_41, 'ion-button', '');
-        this.renderer.setElementAttribute(this._el_41, 'style', 'position: relative;');
-        this._appEl_41 = new import2.AppElement(41, 9, this, this._el_41);
-        var compView_41 = import27.viewFactory_Button0(this.viewUtils, this.injector(41), this._appEl_41);
-        this._Button_41_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_41), this.renderer);
-        this._appEl_41.initComponent(this._Button_41_4, [], compView_41);
-        this._text_42 = this.renderer.createText(null, 'FAB', null);
-        compView_41.create(this._Button_41_4, [[].concat([this._text_42])], null);
+        this._el_41 = this.renderer.createElement(null, 'h4', null);
+        this._text_42 = this.renderer.createText(this._el_41, 'Outlines', null);
         this._text_43 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_44 = this.renderer.createElement(null, 'h4', null);
-        this._text_45 = this.renderer.createText(this._el_44, 'Outlines', null);
+        this._el_44 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_44, 'color', 'secondary');
+        this.renderer.setElementAttribute(this._el_44, 'full', '');
+        this.renderer.setElementAttribute(this._el_44, 'ion-button', '');
+        this.renderer.setElementAttribute(this._el_44, 'outline', '');
+        this._appEl_44 = new import2.AppElement(44, 9, this, this._el_44);
+        var compView_44 = import27.viewFactory_Button0(this.viewUtils, this.injector(44), this._appEl_44);
+        this._Button_44_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_44), this.renderer);
+        this._appEl_44.initComponent(this._Button_44_4, [], compView_44);
+        this._text_45 = this.renderer.createText(null, 'Outline + Full', null);
+        compView_44.create(this._Button_44_4, [[].concat([this._text_45])], null);
         this._text_46 = this.renderer.createText(null, '\n\n  ', null);
         this._el_47 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_47, 'block', '');
         this.renderer.setElementAttribute(this._el_47, 'color', 'secondary');
-        this.renderer.setElementAttribute(this._el_47, 'full', '');
         this.renderer.setElementAttribute(this._el_47, 'ion-button', '');
         this.renderer.setElementAttribute(this._el_47, 'outline', '');
         this._appEl_47 = new import2.AppElement(47, 9, this, this._el_47);
         var compView_47 = import27.viewFactory_Button0(this.viewUtils, this.injector(47), this._appEl_47);
         this._Button_47_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_47), this.renderer);
         this._appEl_47.initComponent(this._Button_47_4, [], compView_47);
-        this._text_48 = this.renderer.createText(null, 'Outline + Full', null);
+        this._text_48 = this.renderer.createText(null, 'Outline + Block', null);
         compView_47.create(this._Button_47_4, [[].concat([this._text_48])], null);
         this._text_49 = this.renderer.createText(null, '\n\n  ', null);
         this._el_50 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_50, 'block', '');
         this.renderer.setElementAttribute(this._el_50, 'color', 'secondary');
         this.renderer.setElementAttribute(this._el_50, 'ion-button', '');
         this.renderer.setElementAttribute(this._el_50, 'outline', '');
+        this.renderer.setElementAttribute(this._el_50, 'round', '');
         this._appEl_50 = new import2.AppElement(50, 9, this, this._el_50);
         var compView_50 = import27.viewFactory_Button0(this.viewUtils, this.injector(50), this._appEl_50);
         this._Button_50_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_50), this.renderer);
         this._appEl_50.initComponent(this._Button_50_4, [], compView_50);
-        this._text_51 = this.renderer.createText(null, 'Outline + Block', null);
+        this._text_51 = this.renderer.createText(null, 'Outline + Round', null);
         compView_50.create(this._Button_50_4, [[].concat([this._text_51])], null);
         this._text_52 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_53 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_53, 'color', 'secondary');
-        this.renderer.setElementAttribute(this._el_53, 'ion-button', '');
-        this.renderer.setElementAttribute(this._el_53, 'outline', '');
-        this.renderer.setElementAttribute(this._el_53, 'round', '');
-        this._appEl_53 = new import2.AppElement(53, 9, this, this._el_53);
-        var compView_53 = import27.viewFactory_Button0(this.viewUtils, this.injector(53), this._appEl_53);
-        this._Button_53_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_53), this.renderer);
-        this._appEl_53.initComponent(this._Button_53_4, [], compView_53);
-        this._text_54 = this.renderer.createText(null, 'Outline + Round', null);
-        compView_53.create(this._Button_53_4, [[].concat([this._text_54])], null);
+        this._el_53 = this.renderer.createElement(null, 'h4', null);
+        this._text_54 = this.renderer.createText(this._el_53, 'Icons', null);
         this._text_55 = this.renderer.createText(null, '\n\n  ', null);
         this._el_56 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_56, 'color', 'secondary');
-        this.renderer.setElementAttribute(this._el_56, 'fab', '');
+        this.renderer.setElementAttribute(this._el_56, 'color', 'dark');
+        this.renderer.setElementAttribute(this._el_56, 'icon-left', '');
         this.renderer.setElementAttribute(this._el_56, 'ion-button', '');
-        this.renderer.setElementAttribute(this._el_56, 'outline', '');
-        this.renderer.setElementAttribute(this._el_56, 'style', 'position: relative;');
         this._appEl_56 = new import2.AppElement(56, 9, this, this._el_56);
         var compView_56 = import27.viewFactory_Button0(this.viewUtils, this.injector(56), this._appEl_56);
         this._Button_56_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_56), this.renderer);
         this._appEl_56.initComponent(this._Button_56_4, [], compView_56);
-        this._text_57 = this.renderer.createText(null, 'FAB', null);
-        compView_56.create(this._Button_56_4, [[].concat([this._text_57])], null);
-        this._text_58 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_59 = this.renderer.createElement(null, 'h4', null);
-        this._text_60 = this.renderer.createText(this._el_59, 'Icons', null);
-        this._text_61 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_62 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_62, 'color', 'dark');
-        this.renderer.setElementAttribute(this._el_62, 'icon-left', '');
-        this.renderer.setElementAttribute(this._el_62, 'ion-button', '');
-        this._appEl_62 = new import2.AppElement(62, 9, this, this._el_62);
-        var compView_62 = import27.viewFactory_Button0(this.viewUtils, this.injector(62), this._appEl_62);
-        this._Button_62_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_62), this.renderer);
-        this._appEl_62.initComponent(this._Button_62_4, [], compView_62);
-        this._text_63 = this.renderer.createText(null, '\n    ', null);
-        this._el_64 = this.renderer.createElement(null, 'ion-icon', null);
-        this.renderer.setElementAttribute(this._el_64, 'name', 'star');
-        this.renderer.setElementAttribute(this._el_64, 'role', 'img');
-        this._Icon_64_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_64), this.renderer);
-        this._text_65 = this.renderer.createText(null, '\n    Left Icon\n  ', null);
-        compView_62.create(this._Button_62_4, [[].concat([
-                this._text_63,
-                this._el_64,
-                this._text_65
+        this._text_57 = this.renderer.createText(null, '\n    ', null);
+        this._el_58 = this.renderer.createElement(null, 'ion-icon', null);
+        this.renderer.setElementAttribute(this._el_58, 'name', 'star');
+        this.renderer.setElementAttribute(this._el_58, 'role', 'img');
+        this._Icon_58_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_58), this.renderer);
+        this._text_59 = this.renderer.createText(null, '\n    Left Icon\n  ', null);
+        compView_56.create(this._Button_56_4, [[].concat([
+                this._text_57,
+                this._el_58,
+                this._text_59
             ])], null);
-        this._text_66 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_67 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_67, 'color', 'dark');
-        this.renderer.setElementAttribute(this._el_67, 'icon-right', '');
-        this.renderer.setElementAttribute(this._el_67, 'ion-button', '');
-        this._appEl_67 = new import2.AppElement(67, 9, this, this._el_67);
-        var compView_67 = import27.viewFactory_Button0(this.viewUtils, this.injector(67), this._appEl_67);
-        this._Button_67_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_67), this.renderer);
-        this._appEl_67.initComponent(this._Button_67_4, [], compView_67);
-        this._text_68 = this.renderer.createText(null, '\n    Right Icon\n    ', null);
-        this._el_69 = this.renderer.createElement(null, 'ion-icon', null);
-        this.renderer.setElementAttribute(this._el_69, 'name', 'star');
-        this.renderer.setElementAttribute(this._el_69, 'role', 'img');
-        this._Icon_69_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_69), this.renderer);
-        this._text_70 = this.renderer.createText(null, '\n  ', null);
-        compView_67.create(this._Button_67_4, [[].concat([
-                this._text_68,
-                this._el_69,
-                this._text_70
+        this._text_60 = this.renderer.createText(null, '\n\n  ', null);
+        this._el_61 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_61, 'color', 'dark');
+        this.renderer.setElementAttribute(this._el_61, 'icon-right', '');
+        this.renderer.setElementAttribute(this._el_61, 'ion-button', '');
+        this._appEl_61 = new import2.AppElement(61, 9, this, this._el_61);
+        var compView_61 = import27.viewFactory_Button0(this.viewUtils, this.injector(61), this._appEl_61);
+        this._Button_61_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_61), this.renderer);
+        this._appEl_61.initComponent(this._Button_61_4, [], compView_61);
+        this._text_62 = this.renderer.createText(null, '\n    Right Icon\n    ', null);
+        this._el_63 = this.renderer.createElement(null, 'ion-icon', null);
+        this.renderer.setElementAttribute(this._el_63, 'name', 'star');
+        this.renderer.setElementAttribute(this._el_63, 'role', 'img');
+        this._Icon_63_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_63), this.renderer);
+        this._text_64 = this.renderer.createText(null, '\n  ', null);
+        compView_61.create(this._Button_61_4, [[].concat([
+                this._text_62,
+                this._el_63,
+                this._text_64
             ])], null);
-        this._text_71 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_72 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_72, 'color', 'dark');
-        this.renderer.setElementAttribute(this._el_72, 'icon-only', '');
-        this.renderer.setElementAttribute(this._el_72, 'ion-button', '');
-        this._appEl_72 = new import2.AppElement(72, 9, this, this._el_72);
-        var compView_72 = import27.viewFactory_Button0(this.viewUtils, this.injector(72), this._appEl_72);
-        this._Button_72_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_72), this.renderer);
-        this._appEl_72.initComponent(this._Button_72_4, [], compView_72);
-        this._text_73 = this.renderer.createText(null, '\n    ', null);
-        this._el_74 = this.renderer.createElement(null, 'ion-icon', null);
-        this.renderer.setElementAttribute(this._el_74, 'name', 'star');
-        this.renderer.setElementAttribute(this._el_74, 'role', 'img');
-        this._Icon_74_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_74), this.renderer);
-        this._text_75 = this.renderer.createText(null, '\n  ', null);
-        compView_72.create(this._Button_72_4, [[].concat([
-                this._text_73,
-                this._el_74,
-                this._text_75
+        this._text_65 = this.renderer.createText(null, '\n\n  ', null);
+        this._el_66 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_66, 'color', 'dark');
+        this.renderer.setElementAttribute(this._el_66, 'icon-only', '');
+        this.renderer.setElementAttribute(this._el_66, 'ion-button', '');
+        this._appEl_66 = new import2.AppElement(66, 9, this, this._el_66);
+        var compView_66 = import27.viewFactory_Button0(this.viewUtils, this.injector(66), this._appEl_66);
+        this._Button_66_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_66), this.renderer);
+        this._appEl_66.initComponent(this._Button_66_4, [], compView_66);
+        this._text_67 = this.renderer.createText(null, '\n    ', null);
+        this._el_68 = this.renderer.createElement(null, 'ion-icon', null);
+        this.renderer.setElementAttribute(this._el_68, 'name', 'star');
+        this.renderer.setElementAttribute(this._el_68, 'role', 'img');
+        this._Icon_68_3 = new import15.Icon(this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_68), this.renderer);
+        this._text_69 = this.renderer.createText(null, '\n  ', null);
+        compView_66.create(this._Button_66_4, [[].concat([
+                this._text_67,
+                this._el_68,
+                this._text_69
             ])], null);
+        this._text_70 = this.renderer.createText(null, '\n\n  ', null);
+        this._el_71 = this.renderer.createElement(null, 'h4', null);
+        this._text_72 = this.renderer.createText(this._el_71, 'Sizes', null);
+        this._text_73 = this.renderer.createText(null, '\n\n  ', null);
+        this._el_74 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_74, 'color', 'light');
+        this.renderer.setElementAttribute(this._el_74, 'ion-button', '');
+        this.renderer.setElementAttribute(this._el_74, 'large', '');
+        this._appEl_74 = new import2.AppElement(74, 9, this, this._el_74);
+        var compView_74 = import27.viewFactory_Button0(this.viewUtils, this.injector(74), this._appEl_74);
+        this._Button_74_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_74), this.renderer);
+        this._appEl_74.initComponent(this._Button_74_4, [], compView_74);
+        this._text_75 = this.renderer.createText(null, 'Large', null);
+        compView_74.create(this._Button_74_4, [[].concat([this._text_75])], null);
         this._text_76 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_77 = this.renderer.createElement(null, 'h4', null);
-        this._text_78 = this.renderer.createText(this._el_77, 'Sizes', null);
+        this._el_77 = this.renderer.createElement(null, 'button', null);
+        this.renderer.setElementAttribute(this._el_77, 'color', 'light');
+        this.renderer.setElementAttribute(this._el_77, 'ion-button', '');
+        this._appEl_77 = new import2.AppElement(77, 9, this, this._el_77);
+        var compView_77 = import27.viewFactory_Button0(this.viewUtils, this.injector(77), this._appEl_77);
+        this._Button_77_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_77), this.renderer);
+        this._appEl_77.initComponent(this._Button_77_4, [], compView_77);
+        this._text_78 = this.renderer.createText(null, 'Default', null);
+        compView_77.create(this._Button_77_4, [[].concat([this._text_78])], null);
         this._text_79 = this.renderer.createText(null, '\n\n  ', null);
         this._el_80 = this.renderer.createElement(null, 'button', null);
         this.renderer.setElementAttribute(this._el_80, 'color', 'light');
         this.renderer.setElementAttribute(this._el_80, 'ion-button', '');
-        this.renderer.setElementAttribute(this._el_80, 'large', '');
+        this.renderer.setElementAttribute(this._el_80, 'small', '');
         this._appEl_80 = new import2.AppElement(80, 9, this, this._el_80);
         var compView_80 = import27.viewFactory_Button0(this.viewUtils, this.injector(80), this._appEl_80);
         this._Button_80_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_80), this.renderer);
         this._appEl_80.initComponent(this._Button_80_4, [], compView_80);
-        this._text_81 = this.renderer.createText(null, 'Large', null);
+        this._text_81 = this.renderer.createText(null, 'Small', null);
         compView_80.create(this._Button_80_4, [[].concat([this._text_81])], null);
-        this._text_82 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_83 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_83, 'color', 'light');
-        this.renderer.setElementAttribute(this._el_83, 'ion-button', '');
-        this._appEl_83 = new import2.AppElement(83, 9, this, this._el_83);
-        var compView_83 = import27.viewFactory_Button0(this.viewUtils, this.injector(83), this._appEl_83);
-        this._Button_83_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_83), this.renderer);
-        this._appEl_83.initComponent(this._Button_83_4, [], compView_83);
-        this._text_84 = this.renderer.createText(null, 'Default', null);
-        compView_83.create(this._Button_83_4, [[].concat([this._text_84])], null);
-        this._text_85 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_86 = this.renderer.createElement(null, 'button', null);
-        this.renderer.setElementAttribute(this._el_86, 'color', 'light');
-        this.renderer.setElementAttribute(this._el_86, 'ion-button', '');
-        this.renderer.setElementAttribute(this._el_86, 'small', '');
-        this._appEl_86 = new import2.AppElement(86, 9, this, this._el_86);
-        var compView_86 = import27.viewFactory_Button0(this.viewUtils, this.injector(86), this._appEl_86);
-        this._Button_86_4 = new import14.Button(null, '', this.parentInjector.get(import16.Config), new import17.ElementRef(this._el_86), this.renderer);
-        this._appEl_86.initComponent(this._Button_86_4, [], compView_86);
-        this._text_87 = this.renderer.createText(null, 'Small', null);
-        compView_86.create(this._Button_86_4, [[].concat([this._text_87])], null);
-        this._text_88 = this.renderer.createText(null, '\n\n', null);
+        this._text_82 = this.renderer.createText(null, '\n\n', null);
         compView_9.create(this._Content_9_4, [
             [],
             [].concat([
@@ -394,27 +370,23 @@ var _View_ApiDemoPage0 = (function (_super) {
                 this._el_53,
                 this._text_55,
                 this._el_56,
-                this._text_58,
-                this._el_59,
-                this._text_61,
-                this._el_62,
-                this._text_66,
-                this._el_67,
-                this._text_71,
-                this._el_72,
+                this._text_60,
+                this._el_61,
+                this._text_65,
+                this._el_66,
+                this._text_70,
+                this._el_71,
+                this._text_73,
+                this._el_74,
                 this._text_76,
                 this._el_77,
                 this._text_79,
                 this._el_80,
-                this._text_82,
-                this._el_83,
-                this._text_85,
-                this._el_86,
-                this._text_88
+                this._text_82
             ]),
             []
         ], null);
-        this._text_89 = this.renderer.createText(parentRenderNode, '\n', null);
+        this._text_83 = this.renderer.createText(parentRenderNode, '\n', null);
         this._expr_0 = import7.UNINITIALIZED;
         this._expr_1 = import7.UNINITIALIZED;
         this._expr_2 = import7.UNINITIALIZED;
@@ -448,8 +420,6 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_30 = import7.UNINITIALIZED;
         this._expr_31 = import7.UNINITIALIZED;
         this._expr_32 = import7.UNINITIALIZED;
-        this._expr_33 = import7.UNINITIALIZED;
-        this._expr_34 = import7.UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -509,21 +479,21 @@ var _View_ApiDemoPage0 = (function (_super) {
             this._text_55,
             this._el_56,
             this._text_57,
-            this._text_58,
-            this._el_59,
+            this._el_58,
+            this._text_59,
             this._text_60,
-            this._text_61,
-            this._el_62,
-            this._text_63,
-            this._el_64,
+            this._el_61,
+            this._text_62,
+            this._el_63,
+            this._text_64,
             this._text_65,
-            this._text_66,
-            this._el_67,
-            this._text_68,
-            this._el_69,
+            this._el_66,
+            this._text_67,
+            this._el_68,
+            this._text_69,
             this._text_70,
-            this._text_71,
-            this._el_72,
+            this._el_71,
+            this._text_72,
             this._text_73,
             this._el_74,
             this._text_75,
@@ -534,13 +504,7 @@ var _View_ApiDemoPage0 = (function (_super) {
             this._el_80,
             this._text_81,
             this._text_82,
-            this._el_83,
-            this._text_84,
-            this._text_85,
-            this._el_86,
-            this._text_87,
-            this._text_88,
-            this._text_89
+            this._text_83
         ], [], []);
         return null;
     };
@@ -578,8 +542,8 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import14.Button) && ((38 <= requestNodeIndex) && (requestNodeIndex <= 39)))) {
             return this._Button_38_4;
         }
-        if (((token === import14.Button) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 42)))) {
-            return this._Button_41_4;
+        if (((token === import14.Button) && ((44 <= requestNodeIndex) && (requestNodeIndex <= 45)))) {
+            return this._Button_44_4;
         }
         if (((token === import14.Button) && ((47 <= requestNodeIndex) && (requestNodeIndex <= 48)))) {
             return this._Button_47_4;
@@ -587,40 +551,34 @@ var _View_ApiDemoPage0 = (function (_super) {
         if (((token === import14.Button) && ((50 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
             return this._Button_50_4;
         }
-        if (((token === import14.Button) && ((53 <= requestNodeIndex) && (requestNodeIndex <= 54)))) {
-            return this._Button_53_4;
+        if (((token === import15.Icon) && (58 === requestNodeIndex))) {
+            return this._Icon_58_3;
         }
-        if (((token === import14.Button) && ((56 <= requestNodeIndex) && (requestNodeIndex <= 57)))) {
+        if (((token === import14.Button) && ((56 <= requestNodeIndex) && (requestNodeIndex <= 59)))) {
             return this._Button_56_4;
         }
-        if (((token === import15.Icon) && (64 === requestNodeIndex))) {
-            return this._Icon_64_3;
+        if (((token === import15.Icon) && (63 === requestNodeIndex))) {
+            return this._Icon_63_3;
         }
-        if (((token === import14.Button) && ((62 <= requestNodeIndex) && (requestNodeIndex <= 65)))) {
-            return this._Button_62_4;
+        if (((token === import14.Button) && ((61 <= requestNodeIndex) && (requestNodeIndex <= 64)))) {
+            return this._Button_61_4;
         }
-        if (((token === import15.Icon) && (69 === requestNodeIndex))) {
-            return this._Icon_69_3;
+        if (((token === import15.Icon) && (68 === requestNodeIndex))) {
+            return this._Icon_68_3;
         }
-        if (((token === import14.Button) && ((67 <= requestNodeIndex) && (requestNodeIndex <= 70)))) {
-            return this._Button_67_4;
+        if (((token === import14.Button) && ((66 <= requestNodeIndex) && (requestNodeIndex <= 69)))) {
+            return this._Button_66_4;
         }
-        if (((token === import15.Icon) && (74 === requestNodeIndex))) {
-            return this._Icon_74_3;
+        if (((token === import14.Button) && ((74 <= requestNodeIndex) && (requestNodeIndex <= 75)))) {
+            return this._Button_74_4;
         }
-        if (((token === import14.Button) && ((72 <= requestNodeIndex) && (requestNodeIndex <= 75)))) {
-            return this._Button_72_4;
+        if (((token === import14.Button) && ((77 <= requestNodeIndex) && (requestNodeIndex <= 78)))) {
+            return this._Button_77_4;
         }
         if (((token === import14.Button) && ((80 <= requestNodeIndex) && (requestNodeIndex <= 81)))) {
             return this._Button_80_4;
         }
-        if (((token === import14.Button) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 84)))) {
-            return this._Button_83_4;
-        }
-        if (((token === import14.Button) && ((86 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
-            return this._Button_86_4;
-        }
-        if (((token === import13.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 88)))) {
+        if (((token === import13.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 82)))) {
             return this._Content_9_4;
         }
         return notFoundResult;
@@ -703,171 +661,155 @@ var _View_ApiDemoPage0 = (function (_super) {
         changed = false;
         var currVal_10 = '';
         if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._Button_47_4.outline = currVal_10;
+            this._Button_44_4.outline = currVal_10;
             changed = true;
             this._expr_10 = currVal_10;
         }
         var currVal_11 = '';
         if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._Button_47_4.full = currVal_11;
+            this._Button_44_4.full = currVal_11;
             changed = true;
             this._expr_11 = currVal_11;
         }
         var currVal_12 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._Button_47_4.color = currVal_12;
+            this._Button_44_4.color = currVal_12;
             changed = true;
             this._expr_12 = currVal_12;
         }
         if (changed) {
-            this._appEl_47.componentView.markAsCheckOnce();
+            this._appEl_44.componentView.markAsCheckOnce();
         }
         changed = false;
         var currVal_13 = '';
         if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._Button_50_4.outline = currVal_13;
+            this._Button_47_4.outline = currVal_13;
             changed = true;
             this._expr_13 = currVal_13;
         }
         var currVal_14 = '';
         if (import4.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Button_50_4.block = currVal_14;
+            this._Button_47_4.block = currVal_14;
             changed = true;
             this._expr_14 = currVal_14;
         }
         var currVal_15 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Button_50_4.color = currVal_15;
+            this._Button_47_4.color = currVal_15;
             changed = true;
             this._expr_15 = currVal_15;
         }
         if (changed) {
-            this._appEl_50.componentView.markAsCheckOnce();
+            this._appEl_47.componentView.markAsCheckOnce();
         }
         changed = false;
         var currVal_16 = '';
         if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
-            this._Button_53_4.outline = currVal_16;
+            this._Button_50_4.outline = currVal_16;
             changed = true;
             this._expr_16 = currVal_16;
         }
         var currVal_17 = '';
         if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
-            this._Button_53_4.round = currVal_17;
+            this._Button_50_4.round = currVal_17;
             changed = true;
             this._expr_17 = currVal_17;
         }
         var currVal_18 = 'secondary';
         if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
-            this._Button_53_4.color = currVal_18;
+            this._Button_50_4.color = currVal_18;
             changed = true;
             this._expr_18 = currVal_18;
         }
         if (changed) {
-            this._appEl_53.componentView.markAsCheckOnce();
+            this._appEl_50.componentView.markAsCheckOnce();
         }
         changed = false;
-        var currVal_19 = '';
+        var currVal_19 = 'dark';
         if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this._Button_56_4.outline = currVal_19;
+            this._Button_56_4.color = currVal_19;
             changed = true;
             this._expr_19 = currVal_19;
-        }
-        var currVal_20 = 'secondary';
-        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._Button_56_4.color = currVal_20;
-            changed = true;
-            this._expr_20 = currVal_20;
         }
         if (changed) {
             this._appEl_56.componentView.markAsCheckOnce();
         }
+        var currVal_20 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
+            this._Icon_58_3.name = currVal_20;
+            this._expr_20 = currVal_20;
+        }
         changed = false;
-        var currVal_21 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
-            this._Button_62_4.color = currVal_21;
-            changed = true;
-            this._expr_21 = currVal_21;
-        }
-        if (changed) {
-            this._appEl_62.componentView.markAsCheckOnce();
-        }
-        var currVal_22 = 'star';
+        var currVal_22 = 'dark';
         if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this._Icon_64_3.name = currVal_22;
+            this._Button_61_4.color = currVal_22;
+            changed = true;
             this._expr_22 = currVal_22;
         }
-        changed = false;
-        var currVal_24 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
-            this._Button_67_4.color = currVal_24;
-            changed = true;
-            this._expr_24 = currVal_24;
-        }
         if (changed) {
-            this._appEl_67.componentView.markAsCheckOnce();
+            this._appEl_61.componentView.markAsCheckOnce();
         }
-        var currVal_25 = 'star';
+        var currVal_23 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
+            this._Icon_63_3.name = currVal_23;
+            this._expr_23 = currVal_23;
+        }
+        changed = false;
+        var currVal_25 = 'dark';
         if (import4.checkBinding(throwOnChange, this._expr_25, currVal_25)) {
-            this._Icon_69_3.name = currVal_25;
+            this._Button_66_4.color = currVal_25;
+            changed = true;
             this._expr_25 = currVal_25;
         }
-        changed = false;
-        var currVal_27 = 'dark';
-        if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
-            this._Button_72_4.color = currVal_27;
-            changed = true;
-            this._expr_27 = currVal_27;
-        }
         if (changed) {
-            this._appEl_72.componentView.markAsCheckOnce();
+            this._appEl_66.componentView.markAsCheckOnce();
         }
-        var currVal_28 = 'star';
+        var currVal_26 = 'star';
+        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
+            this._Icon_68_3.name = currVal_26;
+            this._expr_26 = currVal_26;
+        }
+        changed = false;
+        var currVal_28 = '';
         if (import4.checkBinding(throwOnChange, this._expr_28, currVal_28)) {
-            this._Icon_74_3.name = currVal_28;
+            this._Button_74_4.large = currVal_28;
+            changed = true;
             this._expr_28 = currVal_28;
         }
+        var currVal_29 = 'light';
+        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
+            this._Button_74_4.color = currVal_29;
+            changed = true;
+            this._expr_29 = currVal_29;
+        }
+        if (changed) {
+            this._appEl_74.componentView.markAsCheckOnce();
+        }
         changed = false;
-        var currVal_30 = '';
+        var currVal_30 = 'light';
         if (import4.checkBinding(throwOnChange, this._expr_30, currVal_30)) {
-            this._Button_80_4.large = currVal_30;
+            this._Button_77_4.color = currVal_30;
             changed = true;
             this._expr_30 = currVal_30;
         }
-        var currVal_31 = 'light';
+        if (changed) {
+            this._appEl_77.componentView.markAsCheckOnce();
+        }
+        changed = false;
+        var currVal_31 = '';
         if (import4.checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this._Button_80_4.color = currVal_31;
+            this._Button_80_4.small = currVal_31;
             changed = true;
             this._expr_31 = currVal_31;
         }
-        if (changed) {
-            this._appEl_80.componentView.markAsCheckOnce();
-        }
-        changed = false;
         var currVal_32 = 'light';
         if (import4.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this._Button_83_4.color = currVal_32;
+            this._Button_80_4.color = currVal_32;
             changed = true;
             this._expr_32 = currVal_32;
         }
         if (changed) {
-            this._appEl_83.componentView.markAsCheckOnce();
-        }
-        changed = false;
-        var currVal_33 = '';
-        if (import4.checkBinding(throwOnChange, this._expr_33, currVal_33)) {
-            this._Button_86_4.small = currVal_33;
-            changed = true;
-            this._expr_33 = currVal_33;
-        }
-        var currVal_34 = 'light';
-        if (import4.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Button_86_4.color = currVal_34;
-            changed = true;
-            this._expr_34 = currVal_34;
-        }
-        if (changed) {
-            this._appEl_86.componentView.markAsCheckOnce();
+            this._appEl_80.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -896,7 +838,7 @@ var _View_ApiDemoPage0 = (function (_super) {
                 this._Button_38_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_41_4.ngAfterContentInit();
+                this._Button_44_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
                 this._Button_47_4.ngAfterContentInit();
@@ -905,28 +847,22 @@ var _View_ApiDemoPage0 = (function (_super) {
                 this._Button_50_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_53_4.ngAfterContentInit();
-            }
-            if ((this.numberOfChecks === 0)) {
                 this._Button_56_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_62_4.ngAfterContentInit();
+                this._Button_61_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_67_4.ngAfterContentInit();
+                this._Button_66_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_72_4.ngAfterContentInit();
+                this._Button_74_4.ngAfterContentInit();
+            }
+            if ((this.numberOfChecks === 0)) {
+                this._Button_77_4.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
                 this._Button_80_4.ngAfterContentInit();
-            }
-            if ((this.numberOfChecks === 0)) {
-                this._Button_83_4.ngAfterContentInit();
-            }
-            if ((this.numberOfChecks === 0)) {
-                this._Button_86_4.ngAfterContentInit();
             }
         }
         var currVal_0 = this._Navbar_2_4._hidden;
@@ -944,20 +880,20 @@ var _View_ApiDemoPage0 = (function (_super) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_23 = this._Icon_64_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
-            this.renderer.setElementClass(this._el_64, 'hide', currVal_23);
-            this._expr_23 = currVal_23;
+        var currVal_21 = this._Icon_58_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
+            this.renderer.setElementClass(this._el_58, 'hide', currVal_21);
+            this._expr_21 = currVal_21;
         }
-        var currVal_26 = this._Icon_69_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_26, currVal_26)) {
-            this.renderer.setElementClass(this._el_69, 'hide', currVal_26);
-            this._expr_26 = currVal_26;
+        var currVal_24 = this._Icon_63_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_24, currVal_24)) {
+            this.renderer.setElementClass(this._el_63, 'hide', currVal_24);
+            this._expr_24 = currVal_24;
         }
-        var currVal_29 = this._Icon_74_3._hidden;
-        if (import4.checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this.renderer.setElementClass(this._el_74, 'hide', currVal_29);
-            this._expr_29 = currVal_29;
+        var currVal_27 = this._Icon_68_3._hidden;
+        if (import4.checkBinding(throwOnChange, this._expr_27, currVal_27)) {
+            this.renderer.setElementClass(this._el_68, 'hide', currVal_27);
+            this._expr_27 = currVal_27;
         }
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -967,9 +903,9 @@ var _View_ApiDemoPage0 = (function (_super) {
         }
     };
     _View_ApiDemoPage0.prototype.destroyInternal = function () {
-        this._Icon_64_3.ngOnDestroy();
-        this._Icon_69_3.ngOnDestroy();
-        this._Icon_74_3.ngOnDestroy();
+        this._Icon_58_3.ngOnDestroy();
+        this._Icon_63_3.ngOnDestroy();
+        this._Icon_68_3.ngOnDestroy();
         this._Content_9_4.ngOnDestroy();
     };
     return _View_ApiDemoPage0;

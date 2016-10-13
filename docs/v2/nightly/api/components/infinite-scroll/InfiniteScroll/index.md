@@ -238,6 +238,15 @@ Default is <code>15%</code>.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the infinite scroll should be
+enabled or not. Setting to <code>false</code> will remove scroll event listeners
+and hide the display.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

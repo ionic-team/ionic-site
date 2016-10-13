@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610111734, Dark Theme
+ * vE2E-201610131659, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3072,7 +3072,7 @@ ion-fab-list {
   min-height: 56px; }
 
 ion-fab-list .fab-in-list {
-  margin: 8px;
+  margin: 8px 0;
   width: 40px;
   height: 40px;
   opacity: 0;
@@ -3090,6 +3090,10 @@ ion-fab-list .fab-in-list.show {
   visibility: visible;
   -webkit-transform: scale(1);
   transform: scale(1); }
+
+ion-fab-list[side=left] .fab-in-list,
+ion-fab-list[side=right] .fab-in-list {
+  margin: 0 8px; }
 
 ion-fab-list[side=top] {
   top: initial;
@@ -3693,7 +3697,7 @@ input.text-input:-webkit-autofill {
 .text-input-ios {
   margin: 12px 8px 13px 0;
   padding: 0;
-  width: calc(100% - 8px - 0); }
+  width: calc(100% - 8px); }
 
 .input-ios .inset-input {
   margin: 6px 16px 6.5px 0;
@@ -5865,11 +5869,11 @@ ion-popover {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
-.popover-ios .popover-bottom .popover-arrow {
+.popover-ios.popover-bottom .popover-arrow {
   top: auto;
   bottom: -10px; }
 
-.popover-ios .popover-bottom .popover-arrow::after {
+.popover-ios.popover-bottom .popover-arrow::after {
   top: -6px; }
 
 .popover-md .popover-content {

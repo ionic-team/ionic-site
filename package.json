@@ -4,7 +4,7 @@
   "description": "Ionic main site",
   "main": "Gulpfile.js",
   "engines": {
-    "node": "0.12.0"
+    "node": "6.7.0"
   },
   "directories": {
     "doc": "docs",

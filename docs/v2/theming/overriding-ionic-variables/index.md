@@ -27,7 +27,7 @@ $colors(
 
 <table id="search-sass-results" class="table">
   <tr>
-    <th>Variable Name</th>
+    <th>Variable Name :</th>
     <th>Default Value</th>
     <th>Declared In</th>
   </tr>

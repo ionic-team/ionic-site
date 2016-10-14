@@ -47,7 +47,7 @@ docType: "class"
 <!-- description -->
 
 <p>Showing camera preview in HTML</p>
-<p>For more info, please see the <a href="https://github.com/westonganger/cordova-plugin-camera-preview&#39;">Cordova Camera Preview Plugin Docs</a>.</p>
+<p>For more info, please see the <a href="https://github.com/westonganger/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
 
 
 <!-- @platforms tag -->

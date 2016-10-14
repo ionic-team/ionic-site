@@ -398,6 +398,120 @@ Shorthand for `show(message, 'long', 'bottom')`.
 
 <!-- interfaces -->
 
+<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+
+
+<h3><a class="anchor" name="ToastOptions" href="#ToastOptions"></a>ToastOptions</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Message to display</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      duration
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Duration in ms to show</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      position
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      <p>Position</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      addPixelsY
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Add negative value to move it up a bit</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      data
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      any
+    </td>
+    <td>
+      <p>Pass JSON object to be sent back in success callback</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      styling
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      {
+    opacity?: number;
+    backgroundColor?: string;
+    textColor?: string;
+    cornerRadius?: number;
+    horizontalPadding?: number;
+    verticalPadding?: number;
+  }
+    </td>
+    <td>
+      <p>Styling</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
 <!-- end interfaces -->
 
 <!-- related link --><!-- end content block -->

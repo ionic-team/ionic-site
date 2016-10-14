@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L22">
   Improve this doc
 </a>
 
@@ -140,6 +140,85 @@ otherwise rejects with an error.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+
+
+<h3><a class="anchor" name="ImagePickerOptions" href="#ImagePickerOptions"></a>ImagePickerOptions</h3>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      maximumImagesCount
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      width
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Max width to allow images to be</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      height
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Max height to allow images to be</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      quality
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      number
+    </td>
+    <td>
+      <p>Quality of images, defaults to 100</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
         <ion-label>Description</ion-label>
         <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
       </ion-item>
-      <button type="submit" block>Add Todo</button>
+      <button ion-button type="submit" block>Add Todo</button>
     </form>
   `,
 })
@@ -87,7 +87,7 @@ import {Validators, FormBuilder } from '@angular/forms';
         <ion-label>Description</ion-label>
         <ion-textarea formControlName="description"></ion-textarea>
       </ion-item>
-      <button type="submit" [disabled]="!todo.valid">Submit</button>
+      <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
     </form>
   `
 })
@@ -129,7 +129,7 @@ import { Component } from '@angular/core';
         <ion-label>Description</ion-label>
         <ion-textarea [(ngModel)]="todo.description" ngControl="description"></ion-textarea>
       </ion-item>
-      <button type="submit" block>Add Todo</button>
+      <button ion-button type="submit" block>Add Todo</button>
     </form>
   `,
 })
@@ -150,4 +150,3 @@ This is very similar to how you can use forms with just ngModel, but instead of 
 ### Parting words
 
 While all methods of creating forms work with Ionic 2 and it's components, we strongly recomned using the FormBuilder API as it allows for a much similar method, and is easily testable with unit tests.
-

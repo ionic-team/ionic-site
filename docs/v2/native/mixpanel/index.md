@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/mixpanel.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/mixpanel.ts#L2">
   Improve this doc
 </a>
 
@@ -37,10 +37,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add </code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-mixpanel</code></pre>
 <p>Repo:
-  <a href="">
-    
+  <a href="https://github.com/samzilverberg/cordova-mixpanel-plugin">
+    https://github.com/samzilverberg/cordova-mixpanel-plugin
   </a>
 </p>
 
@@ -429,6 +429,7 @@ Mixpanel.init(token)
 <h3><code>people()</code>
   
 </h3>
+
 
 
 

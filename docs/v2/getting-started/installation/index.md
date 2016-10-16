@@ -18,7 +18,7 @@ Ionic 2 apps are created and developed primarily through the Ionic command line 
 
 ### Ionic CLI and Cordova
 
-To create Ionic 2 projects, you'll need to install the latest version of the CLI and Cordova. Before you do that, you'll need a recent version of Node.js. [Download the installer](https://nodejs.org/en/) for Node.js 6 or greater and then proceed to install the Ionic CLI and Cordova for native app development:
+To create Ionic 2 projects, you'll need to install the latest version of the CLI and Cordova. Before you do that, you'll need a recent version of Node.js. [Download the installer](https://nodejs.org/) for Node.js 6 or greater and then proceed to install the Ionic CLI and Cordova for native app development:
 
 ```bash
 $ npm install -g ionic cordova

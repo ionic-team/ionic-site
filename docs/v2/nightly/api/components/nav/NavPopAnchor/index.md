@@ -117,26 +117,6 @@ Improve this doc
 
 
 
-<div id="href"></div>
-
-<h3>
-<a class="anchor" name="href" href="#href"></a>
-<code>href</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="updateHref"></div>
 
 <h3>
@@ -157,31 +137,11 @@ Improve this doc
 
 
 
-<div id="ngOnChanges"></div>
+<div id="ngAfterContentInit"></div>
 
 <h3>
-<a class="anchor" name="ngOnChanges" href="#ngOnChanges"></a>
-<code>ngOnChanges()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngAfterViewInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
+<code>ngAfterContentInit()</code>
   
 
 </h3>

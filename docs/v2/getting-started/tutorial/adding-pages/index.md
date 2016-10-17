@@ -27,7 +27,7 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
 
-In `app/app.ts`, the `MyApp` component specifies this in its constructor:
+In `app/app.component.ts`, the `MyApp` component specifies this in its constructor:
 
 ```ts
 ...

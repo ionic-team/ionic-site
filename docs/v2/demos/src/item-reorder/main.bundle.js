@@ -24540,7 +24540,7 @@ var Form = (function () {
         if (index > -1 && (index + 1) < this._inputs.length) {
             var nextInput = this._inputs[index + 1];
             if (nextInput !== this._focused) {
-                // console.debug('tabFocus, next');
+                (void 0);
                 return nextInput.initFocus();
             }
         }
@@ -24548,7 +24548,7 @@ var Form = (function () {
         if (index > 0) {
             var previousInput = this._inputs[index - 1];
             if (previousInput) {
-                // console.debug('tabFocus, previous');
+                (void 0);
                 previousInput.initFocus();
             }
         }
@@ -24705,6 +24705,20 @@ var ViewController = (function () {
     ViewController.prototype.contentRef = function () {
         return this._cntRef;
     };
+    ViewController.prototype._setIONContent = function (content) {
+        this._setContent(content);
+        this._ionCntDir = content;
+    };
+    ViewController.prototype.getIONContent = function () {
+        return this._ionCntDir;
+    };
+    ViewController.prototype._setIONContentRef = function (elementRef) {
+        this._setContentRef(elementRef);
+        this._ionCntRef = elementRef;
+    };
+    ViewController.prototype.getIONContentRef = function () {
+        return this._ionCntRef;
+    };
     ViewController.prototype._setHeader = function (directive) {
         this._hdrDir = directive;
     };
@@ -24778,12 +24792,6 @@ var ViewController = (function () {
             }
             this._cmp.destroy();
         }
-        if (this._nav) {
-            var index = this._nav.indexOf(this);
-            if (index > -1) {
-                this._nav._views.splice(index, 1);
-            }
-        }
         this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._hdrDir = this._ftrDir = this._nb = this._onWillDismiss = null;
     };
     ViewController.prototype._lifecycleTest = function (lifecycle) {
@@ -24791,7 +24799,16 @@ var ViewController = (function () {
         var methodName = 'ionViewCan' + lifecycle;
         if (instance && instance[methodName]) {
             try {
-                return instance[methodName]();
+                var result = instance[methodName]();
+                if (result === false) {
+                    return false;
+                }
+                else if (result instanceof Promise) {
+                    return result;
+                }
+                else {
+                    return true;
+                }
             }
             catch (e) {
                 console.error(this.name + " " + methodName + " error: " + e.message);
@@ -24881,7 +24898,7 @@ var ActionSheetCmp = (function () {
     ActionSheetCmp.prototype.keyUp = function (ev) {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('actionsheet, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -25263,7 +25280,7 @@ var Platform = (function () {
         this.resume = new EventEmitter();
         this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
         this.backButton.subscribe(function () {
-            // console.debug('hardware back button');
+            (void 0);
             _this.runBackButtonAction();
         });
     }
@@ -25697,13 +25714,13 @@ var App = (function () {
                 if (isTabs(nav)) {
                     var prevTab = nav.previousTab(true);
                     if (prevTab) {
-                        // console.debug('app, goBack previous tab');
+                        (void 0);
                         nav.select(prevTab);
                         return Promise.resolve();
                     }
                 }
                 else if (isNav(nav) && nav.length() > 1) {
-                    // console.debug('app, goBack pop nav');
+                    (void 0);
                     return nav.pop();
                 }
                 return navPop(nav.parent);
@@ -25713,13 +25730,13 @@ var App = (function () {
         if (this._rootNav && this.isEnabled()) {
             var portal = this._appRoot._getPortal();
             if (portal.length() > 0) {
-                // console.debug('app, goBack pop overlay');
+                (void 0);
                 return portal.pop();
             }
             var navPromise = navPop(this.getActiveNav());
             if (navPromise === null) {
                 if (this._config.getBoolean('navExitApp', true)) {
-                    // console.debug('app, goBack exitApp');
+                    (void 0);
                     this._platform.exitApp();
                 }
             }
@@ -25859,13 +25876,13 @@ var AlertCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    // console.debug('alert, enter button');
+                    (void 0);
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('alert, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -26079,7 +26096,7 @@ var DeepLinker = (function () {
     DeepLinker.prototype.init = function () {
         var _this = this;
         var browserUrl = normalizeUrl(this._location.path());
-        // console.debug("DeepLinker, init load: " + browserUrl);
+        (void 0);
         this.segments = this._serializer.parse(browserUrl);
         this.historyPush(browserUrl);
         this._location.subscribe(function (locationChg) {
@@ -26089,11 +26106,11 @@ var DeepLinker = (function () {
     DeepLinker.prototype.urlChange = function (browserUrl) {
         if (!this.isCurrentUrl(browserUrl)) {
             if (this.isBackUrl(browserUrl)) {
-                // console.debug("DeepLinker, browser urlChange, back to: " + browserUrl);
+                (void 0);
                 this.historyPop();
             }
             else {
-                // console.debug("DeepLinker, browser urlChange, forward to: " + browserUrl);
+                (void 0);
                 this.historyPush(browserUrl);
             }
             var appRootNav = this._app.getRootNav();
@@ -26130,12 +26147,12 @@ var DeepLinker = (function () {
             browserUrl = '/';
         }
         if (direction === DIRECTION_BACK && this.isBackUrl(browserUrl)) {
-            // console.debug("DeepLinker, location.back(), url: '" + browserUrl + "'");
+            (void 0);
             this.historyPop();
             this._location.back();
         }
         else if (!this.isCurrentUrl(browserUrl)) {
-            // console.debug("DeepLinker, location.go('" + browserUrl + "')");
+            (void 0);
             this.historyPush(browserUrl);
             this._location.go(browserUrl);
         }
@@ -26625,7 +26642,7 @@ var GestureController = (function () {
             return true;
         }
         delete requestedStart[id];
-        // console.debug(gestureName + " can not start because it is has lower priority");
+        (void 0);
         return false;
     };
     GestureController.prototype.release = function (id) {
@@ -26652,7 +26669,7 @@ var GestureController = (function () {
         var isEnabled = !this.isScrollDisabled();
         this.disabledScroll.add(id);
         if (this._app && isEnabled && this.isScrollDisabled()) {
-            // console.debug('GestureController: Disabling scrolling');
+            (void 0);
             this._app.setScrollDisabled(true);
         }
     };
@@ -26660,7 +26677,7 @@ var GestureController = (function () {
         var isDisabled = this.isScrollDisabled();
         this.disabledScroll.delete(id);
         if (this._app && isDisabled && !this.isScrollDisabled()) {
-            // console.debug('GestureController: Enabling scrolling');
+            (void 0);
             this._app.setScrollDisabled(false);
         }
     };
@@ -26853,7 +26870,7 @@ var Keyboard = (function () {
     Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
         if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
         if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
-        // console.debug('keyboard onClose');
+        (void 0);
         var self = this;
         var checks = 0;
         var promise = null;
@@ -26861,10 +26878,10 @@ var Keyboard = (function () {
             promise = new Promise(function (resolve) { callback = resolve; });
         }
         function checkKeyboard() {
-            // console.debug('keyboard isOpen', self.isOpen());
+            (void 0);
             if (!self.isOpen() || checks > pollingChecksMax) {
                 zoneRafFrames(30, function () {
-                    // console.debug('keyboard closed');
+                    (void 0);
                     callback();
                 });
             }
@@ -26878,7 +26895,7 @@ var Keyboard = (function () {
     };
     Keyboard.prototype.close = function () {
         var _this = this;
-        // console.debug('keyboard close()');
+        (void 0);
         nativeRaf(function () {
             if (hasFocusedTextInput()) {
                 _this._form.focusOut();
@@ -27096,7 +27113,7 @@ var PointerEvents = (function () {
     };
     PointerEvents.prototype.handleMouseDown = function (ev) {
         if (this.lastTouchEvent > Date.now()) {
-            // console.debug('mousedown event dropped because of previous touch');
+            (void 0);
             return;
         }
         if (!this.pointerDown(ev)) {
@@ -27440,18 +27457,18 @@ var SwipeBackGesture = (function (_super) {
             _super.prototype.canStart.call(this, ev));
     };
     SwipeBackGesture.prototype.onSlideBeforeStart = function (ev) {
-        // console.debug('swipeBack, onSlideBeforeStart', ev.type);
+        (void 0);
         this._nav.swipeBackStart();
     };
     SwipeBackGesture.prototype.onSlide = function (slide) {
         var stepValue = (slide.distance / slide.max);
-        // console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
+        (void 0);
         this._nav.swipeBackProgress(stepValue);
     };
     SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
         var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
         var currentStepValue = (slide.distance / slide.max);
-        // console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+        (void 0);
         this._nav.swipeBackEnd(shouldComplete, currentStepValue);
     };
     return SwipeBackGesture;
@@ -27585,33 +27602,34 @@ var NavControllerBase = (function (_super) {
             });
         }
         ti.resolve = function (hasCompleted, isAsync, enteringName, leavingName, direction) {
-            _this.setTransitioning(false);
             _this._trnsId = null;
             resolve && resolve(hasCompleted, isAsync, enteringName, leavingName, direction);
             _this._sbCheck();
+            _this.setTransitioning(false);
             _this._nextTrns();
         };
         ti.reject = function (rejectReason, trns) {
-            _this.setTransitioning(false);
             _this._trnsId = null;
             _this._queue.length = 0;
             while (trns) {
                 if (trns.enteringView && (trns.enteringView._state !== ViewState.LOADED)) {
-                    trns.enteringView._destroy(_this._renderer);
+                    _this._destroyView(trns.enteringView);
                 }
-                if (!trns.parent)
+                if (!trns.parent) {
                     break;
+                }
             }
             if (trns) {
                 _this._trnsCtrl.destroy(trns.trnsId);
             }
             _this._sbCheck();
             reject && reject(false, false, rejectReason);
+            _this.setTransitioning(false);
             _this._nextTrns();
         };
         if (ti.insertViews) {
             ti.insertViews = ti.insertViews.filter(function (v) { return v !== null; });
-            if (!ti.insertViews.length) {
+            if (ti.insertViews.length === 0) {
                 ti.reject('invalid views to insert');
                 return;
             }
@@ -27632,8 +27650,10 @@ var NavControllerBase = (function (_super) {
         if (!ti) {
             return false;
         }
+        this.setTransitioning(true);
         var leavingView = this.getActive();
         var enteringView = this._getEnteringView(ti, leavingView);
+        (void 0);
         if (enteringView && isBlank$5(enteringView._state)) {
             this._viewInit(enteringView);
         }
@@ -27691,10 +27711,16 @@ var NavControllerBase = (function (_super) {
         var opts = ti.opts || {};
         var insertViews = ti.insertViews;
         var removeStart = ti.removeStart;
+        var view;
         var destroyQueue = [];
         if (isPresent$5(removeStart)) {
+            (void 0);
+            (void 0);
             for (var i = 0; i < ti.removeCount; i++) {
-                destroyQueue.push(this._views[i + removeStart]);
+                view = this._views[i + removeStart];
+                if (view && view !== enteringView && view !== leavingView) {
+                    destroyQueue.push(view);
+                }
             }
             opts.direction = opts.direction || DIRECTION_BACK;
         }
@@ -27703,36 +27729,23 @@ var NavControllerBase = (function (_super) {
                 enteringView.id = opts.id;
             }
             for (var i = 0; i < insertViews.length; i++) {
-                var view = insertViews[i];
-                var existingIndex = this._views.indexOf(view);
-                if (existingIndex > -1) {
-                    this._views.splice(ti.insertStart + i, 0, this._views.splice(existingIndex, 1)[0]);
-                }
-                else {
-                    view._setNav(this);
-                    view.id = this.id + '-' + (++this._ids);
-                    this._views.splice(ti.insertStart + i, 0, view);
-                }
+                view = insertViews[i];
+                this._insertViewAt(view, ti.insertStart + i);
             }
             if (ti.enteringRequiresTransition) {
                 opts.direction = opts.direction || DIRECTION_FORWARD;
             }
         }
-        for (var i = 0; i < destroyQueue.length; i++) {
-            var view = destroyQueue[i];
-            if (view && view !== enteringView && view !== leavingView) {
-                this._willLeave(view);
-                this._didLeave(view);
-                this._willUnload(view);
-            }
+        for (var _i = 0, destroyQueue_1 = destroyQueue; _i < destroyQueue_1.length; _i++) {
+            view = destroyQueue_1[_i];
+            this._willLeave(view);
+            this._didLeave(view);
+            this._willUnload(view);
         }
-        for (var i = 0; i < destroyQueue.length; i++) {
-            var view = destroyQueue[i];
-            if (view && view !== enteringView && view !== leavingView) {
-                view._destroy(this._renderer);
-            }
+        for (var _a = 0, destroyQueue_2 = destroyQueue; _a < destroyQueue_2.length; _a++) {
+            view = destroyQueue_2[_a];
+            this._destroyView(view);
         }
-        destroyQueue.length = 0;
         if (ti.enteringRequiresTransition || ti.leavingRequiresTransition && enteringView !== leavingView) {
             if (!opts.animation) {
                 if (isPresent$5(ti.removeStart)) {
@@ -27760,6 +27773,17 @@ var NavControllerBase = (function (_super) {
         enteringView._state = ViewState.INITIALIZED;
         this._willLoad(enteringView);
     };
+    NavControllerBase.prototype._viewAttachToDOM = function (view, componentRef, viewport) {
+        (void 0);
+        this._didLoad(view);
+        viewport.insert(componentRef.hostView, viewport.length);
+        view._state = ViewState.PRE_RENDERED;
+        if (view._cssClass) {
+            var pageElement = componentRef.location.nativeElement;
+            this._renderer.setElementClass(pageElement, view._cssClass, true);
+        }
+        componentRef.changeDetectorRef.detectChanges();
+    };
     NavControllerBase.prototype._viewTest = function (enteringView, leavingView, ti) {
         var _this = this;
         var promises = [];
@@ -27767,35 +27791,32 @@ var NavControllerBase = (function (_super) {
         var resolve = ti.resolve;
         if (leavingView) {
             var leavingTestResult = leavingView._lifecycleTest('Leave');
-            if (isPresent$5(leavingTestResult) && leavingTestResult !== true) {
-                if (leavingTestResult instanceof Promise) {
-                    promises.push(leavingTestResult);
-                }
-                else {
-                    reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"));
-                    return false;
-                }
+            if (leavingTestResult === false) {
+                reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"));
+                return false;
+            }
+            else if (leavingTestResult instanceof Promise) {
+                promises.push(leavingTestResult);
             }
         }
         if (enteringView) {
             var enteringTestResult = enteringView._lifecycleTest('Enter');
-            if (isPresent$5(enteringTestResult) && enteringTestResult !== true) {
-                if (enteringTestResult instanceof Promise) {
-                    promises.push(enteringTestResult);
-                }
-                else {
-                    reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"));
-                    return false;
-                }
+            if (enteringTestResult === false) {
+                reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"));
+                return false;
+            }
+            else if (enteringTestResult instanceof Promise) {
+                promises.push(enteringTestResult);
             }
         }
         if (promises.length) {
-            Promise.all(promises).then(function () {
-                _this._postViewInit(enteringView, leavingView, ti, resolve);
-            }).catch(reject);
-            return true;
+            Promise.all(promises)
+                .then(function () { return _this._postViewInit(enteringView, leavingView, ti, resolve); })
+                .catch(reject);
         }
-        this._postViewInit(enteringView, leavingView, ti, resolve);
+        else {
+            this._postViewInit(enteringView, leavingView, ti, resolve);
+        }
         return true;
     };
     NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, resolve) {
@@ -27812,104 +27833,122 @@ var NavControllerBase = (function (_super) {
             isRTL: this.config.platform.isRTL(),
             ev: opts.ev,
         };
-        var trns = this._trnsCtrl.get(this._trnsId, enteringView, leavingView, animationOpts);
+        var transition$$1 = this._trnsCtrl.get(this._trnsId, enteringView, leavingView, animationOpts);
         this._sbTrns && this._sbTrns.destroy();
-        if (trns.parent) {
-            trns.parent.hasChildTrns = true;
+        this._sbTrns = null;
+        if (transition$$1.isRoot() && opts.progressAnimation) {
+            this._sbTrns = transition$$1;
+        }
+        if (enteringView && enteringView._state === ViewState.INITIALIZED) {
+            this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
         }
         else {
-            if (opts.progressAnimation) {
-                this._sbTrns = trns;
-            }
+            (void 0);
         }
-        trns.registerStart(function () {
-            _this._trnsStart(trns, enteringView, leavingView, opts, resolve);
-            if (trns.parent) {
-                trns.parent.start();
+        transition$$1.registerStart(function () {
+            _this._trnsStart(transition$$1, enteringView, leavingView, opts, resolve);
+            if (transition$$1.parent) {
+                transition$$1.parent.start();
             }
         });
-        if (enteringView && enteringView._state === ViewState.INITIALIZED) {
-            this._viewInsert(enteringView, enteringView._cmp, this._viewport);
-        }
-        if (!trns.hasChildTrns) {
-            trns.start();
+        if (!transition$$1.hasChildren) {
+            transition$$1.start();
         }
     };
-    NavControllerBase.prototype._viewInsert = function (view, componentRef, viewport) {
-        this._didLoad(view);
-        viewport.insert(componentRef.hostView, viewport.length);
-        view._state = ViewState.PRE_RENDERED;
-        if (view._cssClass) {
-            var pageElement = componentRef.location.nativeElement;
-            this._renderer.setElementClass(pageElement, view._cssClass, true);
-        }
-        componentRef.changeDetectorRef.detectChanges();
-    };
-    NavControllerBase.prototype._trnsStart = function (trns, enteringView, leavingView, opts, resolve) {
+    NavControllerBase.prototype._trnsStart = function (transition$$1, enteringView, leavingView, opts, resolve) {
         var _this = this;
         this._trnsId = null;
         setZIndex(this, enteringView, leavingView, opts.direction, this._renderer);
         enteringView && enteringView._domShow(true, this._renderer);
-        if (leavingView) {
-            leavingView._domShow(true, this._renderer);
-        }
-        trns.init();
-        if ((!this._init && this._views.length === 1 && !this._isPortal) || this.config.get('animate') === false) {
+        leavingView && leavingView._domShow(true, this._renderer);
+        transition$$1.init();
+        var isFirstPage = !this._init && this._views.length === 1;
+        var shouldNotAnimate = isFirstPage && !this._isPortal;
+        var canNotAnimate = this.config.get('animate') === false;
+        if (shouldNotAnimate || canNotAnimate) {
             opts.animate = false;
         }
         if (opts.animate === false) {
-            trns.duration(0);
+            transition$$1.duration(0);
         }
-        trns.beforeAddRead(function () {
-            _this._zone.run(_this._viewsWillLifecycles.bind(_this, enteringView, leavingView));
+        transition$$1.beforeAddRead(this._viewsWillLifecycles.bind(this, enteringView, leavingView));
+        transition$$1.onFinish(function () {
+            _this._zone.run(_this._trnsFinish.bind(_this, transition$$1, opts, resolve));
         });
-        trns.onFinish(function () {
-            _this._zone.run(_this._trnsFinish.bind(_this, trns, opts, resolve));
-        });
-        var duration = trns.getDuration();
+        var duration = transition$$1.getDuration();
         this.setTransitioning(true, duration);
-        if (!trns.parent) {
+        if (transition$$1.isRoot()) {
             if (duration > DISABLE_APP_MINIMUM_DURATION) {
-                this._app.setEnabled(false, duration);
-            }
-            if (opts.progressAnimation) {
-                trns.progressStart();
+                this._app.setEnabled(false, duration + ACTIVE_TRANSITION_OFFSET);
             }
             else {
-                trns.play();
+                (void 0);
+            }
+            if (opts.progressAnimation) {
+                transition$$1.progressStart();
+            }
+            else {
+                transition$$1.play();
             }
         }
     };
     NavControllerBase.prototype._viewsWillLifecycles = function (enteringView, leavingView) {
-        enteringView && this._willEnter(enteringView);
-        leavingView && this._willLeave(leavingView);
+        var _this = this;
+        if (enteringView || leavingView) {
+            this._zone.run(function () {
+                enteringView && _this._willEnter(enteringView);
+                leavingView && _this._willLeave(leavingView);
+            });
+        }
     };
-    NavControllerBase.prototype._trnsFinish = function (trns, opts, resolve) {
-        var hasCompleted = trns.hasCompleted;
+    NavControllerBase.prototype._trnsFinish = function (transition$$1, opts, resolve) {
         var enteringName;
         var leavingName;
-        if (hasCompleted) {
-            if (trns.enteringView) {
-                enteringName = trns.enteringView.name;
-                this._didEnter(trns.enteringView);
+        if (transition$$1.hasCompleted) {
+            if (transition$$1.enteringView) {
+                enteringName = transition$$1.enteringView.name;
+                this._didEnter(transition$$1.enteringView);
             }
-            if (trns.leavingView) {
-                leavingName = trns.leavingView.name;
-                this._didLeave(trns.leavingView);
+            if (transition$$1.leavingView) {
+                leavingName = transition$$1.leavingView.name;
+                this._didLeave(transition$$1.leavingView);
             }
-            this._cleanup(trns.enteringView);
+            this._cleanup(transition$$1.enteringView);
         }
-        if (!trns.parent) {
-            this._trnsCtrl.destroy(trns.trnsId);
+        if (transition$$1.isRoot()) {
+            this._trnsCtrl.destroy(transition$$1.trnsId);
             this._app.setEnabled(true);
             if (opts.updateUrl !== false) {
                 this._linker.navChange(opts.direction);
             }
-            if (opts.keyboardClose !== false && this._keyboard.isOpen()) {
+            if (opts.keyboardClose !== false) {
                 this._keyboard.close();
             }
         }
-        resolve(hasCompleted, true, enteringName, leavingName, opts.direction);
+        resolve(transition$$1.hasCompleted, true, enteringName, leavingName, opts.direction);
+    };
+    NavControllerBase.prototype._insertViewAt = function (view, index) {
+        var existingIndex = this._views.indexOf(view);
+        if (existingIndex > -1) {
+            this._views.splice(index, 0, this._views.splice(existingIndex, 1)[0]);
+        }
+        else {
+            view._setNav(this);
+            view.id = this.id + '-' + (++this._ids);
+            this._views.splice(index, 0, view);
+        }
+    };
+    NavControllerBase.prototype._removeView = function (view) {
+        var views = this._views;
+        var index = views.indexOf(view);
+        (void 0);
+        if (index > -1) {
+            views.splice(index, 1);
+        }
+    };
+    NavControllerBase.prototype._destroyView = function (view) {
+        view._destroy(this._renderer);
+        this._removeView(view);
     };
     NavControllerBase.prototype._cleanup = function (activeView) {
         var _this = this;
@@ -27919,7 +27958,7 @@ var NavControllerBase = (function (_super) {
             var view = this._views[i];
             if (i > activeViewIndex) {
                 this._willUnload(view);
-                view._destroy(this._renderer);
+                this._destroyView(view);
             }
             else if (i < activeViewIndex && !this._isPortal) {
                 view._domShow(false, this._renderer);
@@ -27937,34 +27976,41 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype._willLoad = function (view) {
+        (void 0);
         view._willLoad();
     };
     NavControllerBase.prototype._didLoad = function (view) {
+        (void 0);
         view._didLoad();
         this.viewDidLoad.emit(view);
         this._app.viewDidLoad.emit(view);
     };
     NavControllerBase.prototype._willEnter = function (view) {
+        (void 0);
         view._willEnter();
         this.viewWillEnter.emit(view);
         this._app.viewWillEnter.emit(view);
     };
     NavControllerBase.prototype._didEnter = function (view) {
+        (void 0);
         view._didEnter();
         this.viewDidEnter.emit(view);
         this._app.viewDidEnter.emit(view);
     };
     NavControllerBase.prototype._willLeave = function (view) {
+        (void 0);
         view._willLeave();
         this.viewWillLeave.emit(view);
         this._app.viewWillLeave.emit(view);
     };
     NavControllerBase.prototype._didLeave = function (view) {
+        (void 0);
         view._didLeave();
         this.viewDidLeave.emit(view);
         this._app.viewDidLeave.emit(view);
     };
     NavControllerBase.prototype._willUnload = function (view) {
+        (void 0);
         view._willUnload();
         this.viewWillUnload.emit(view);
         this._app.viewWillUnload.emit(view);
@@ -27982,9 +28028,11 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype.destroy = function () {
-        for (var i = this._views.length - 1; i >= 0; i--) {
-            this._views[i]._willUnload();
-            this._views[i]._destroy(this._renderer);
+        var view;
+        for (var _i = 0, _a = this._views; _i < _a.length; _i++) {
+            view = _a[_i];
+            view._willUnload();
+            view._destroy(this._renderer);
         }
         this._views.length = 0;
         this._sbGesture && this._sbGesture.destroy();
@@ -27995,8 +28043,9 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype.swipeBackStart = function () {
-        if (this.isTransitioning() || this._queue.length > 0)
+        if (this.isTransitioning() || this._queue.length > 0) {
             return;
+        }
         var opts = {
             direction: DIRECTION_BACK,
             progressAnimation: true
@@ -28009,8 +28058,8 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.swipeBackProgress = function (stepValue) {
         if (this._sbTrns && this._sbGesture) {
-            this._app.setEnabled(false, ACTIVE_TRANSITION_MAX_TIME);
-            this.setTransitioning(true, ACTIVE_TRANSITION_MAX_TIME);
+            this._app.setEnabled(false, ACTIVE_TRANSITION_DEFAULT);
+            this.setTransitioning(true, ACTIVE_TRANSITION_DEFAULT);
             this._sbTrns.progressStep(stepValue);
         }
     };
@@ -28032,13 +28081,13 @@ var NavControllerBase = (function (_super) {
             if (this.canSwipeBack()) {
                 if (!this._sbGesture.isListening) {
                     this._zone.runOutsideAngular(function () {
-                        // console.debug('swipeBack gesture, listen');
+                        (void 0);
                         _this._sbGesture.listen();
                     });
                 }
             }
             else if (this._sbGesture.isListening) {
-                // console.debug('swipeBack gesture, unlisten');
+                (void 0);
                 this._sbGesture.unlisten();
             }
         }
@@ -28061,7 +28110,7 @@ var NavControllerBase = (function (_super) {
         return (this._trnsTm > Date.now());
     };
     NavControllerBase.prototype.setTransitioning = function (isTransitioning, durationPadding) {
-        if (durationPadding === void 0) { durationPadding = 2000; }
+        if (durationPadding === void 0) { durationPadding = ACTIVE_TRANSITION_DEFAULT; }
         this._trnsTm = (isTransitioning ? (Date.now() + durationPadding + ACTIVE_TRANSITION_OFFSET) : 0);
     };
     NavControllerBase.prototype.getActive = function () {
@@ -28098,8 +28147,8 @@ var NavControllerBase = (function (_super) {
         return this._sbEnabled;
     };
     NavControllerBase.prototype.dismissPageChangeViews = function () {
-        for (var i = 0; i < this._views.length; i++) {
-            var view = this._views[i];
+        for (var _i = 0, _a = this._views; _i < _a.length; _i++) {
+            var view = _a[_i];
             if (view.data && view.data.dismissOnPageChange) {
                 view.dismiss();
             }
@@ -28112,7 +28161,7 @@ var NavControllerBase = (function (_super) {
 }(Ion));
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
-var ACTIVE_TRANSITION_MAX_TIME = 5000;
+var ACTIVE_TRANSITION_DEFAULT = 5000;
 var ACTIVE_TRANSITION_OFFSET = 2000;
 
 var Animation = (function () {
@@ -28120,6 +28169,7 @@ var Animation = (function () {
         this._dur = null;
         this._es = null;
         this._upd = 0;
+        this.hasChildren = false;
         this.isPlaying = false;
         this.hasCompleted = false;
         this.element(ele).opts = opts;
@@ -28154,11 +28204,21 @@ var Animation = (function () {
     };
     Animation.prototype.add = function (childAnimation) {
         childAnimation.parent = this;
+        this.hasChildren = true;
         this._cL = (this._c = this._c || []).push(childAnimation);
         return this;
     };
     Animation.prototype.getDuration = function (opts) {
-        return (opts && isDefined(opts.duration) ? opts.duration : this._dur !== null ? this._dur : (this.parent && this.parent.getDuration()) || 0);
+        if (opts && isDefined(opts.duration)) {
+            return opts.duration;
+        }
+        else if (this._dur !== null) {
+            return this._dur;
+        }
+        else if (this.parent) {
+            return this.parent.getDuration();
+        }
+        return 0;
     };
     Animation.prototype.duration = function (milliseconds) {
         this._dur = milliseconds;
@@ -28322,7 +28382,7 @@ var Animation = (function () {
             self._didFinishAll(shouldComplete, true, false);
         }
         function onTransitionFallback() {
-            // console.debug('Animation onTransitionFallback, CSS onTransitionEnd did not fire!');
+            (void 0);
             self._tm = 0;
             self._clearAsync();
             self._playEnd(1);
@@ -28566,7 +28626,7 @@ var Animation = (function () {
         }
     };
     Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
-        // console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+        (void 0);
         this._isAsync = (currentStepValue > 0.05 && currentStepValue < 0.95);
         var dur = 64;
         var stepValue = shouldComplete ? 1 : 0;
@@ -28676,617 +28736,24 @@ var CSS_VALUE_REGEX = /(^-?\d*\.?\d*)(.*)/;
 var ANIMATION_DURATION_MIN = 32;
 var TRANSITION_END_FALLBACK_PADDING_MS = 400;
 
-var TabHighlight = (function () {
-    function TabHighlight(_elementRef) {
-        this._elementRef = _elementRef;
-    }
-    TabHighlight.prototype.select = function (tab) {
-        var _this = this;
-        rafFrames(3, function () {
-            var d = tab.btn.getDimensions();
-            var ele = _this._elementRef.nativeElement;
-            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-            if (!_this._init) {
-                _this._init = true;
-                rafFrames(6, function () {
-                    ele.classList.add('animate');
-                });
-            }
-        });
-    };
-    TabHighlight.decorators = [
-        { type: Directive, args: [{
-                    selector: '.tab-highlight'
-                },] },
-    ];
-    TabHighlight.ctorParameters = [
-        { type: ElementRef, },
-    ];
-    return TabHighlight;
-}());
-
-var __extends$70 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var Tabs = (function (_super) {
-    __extends$70(Tabs, _super);
-    function Tabs(parent, viewCtrl, _app, config, elementRef, _platform, renderer, _linker) {
-        _super.call(this, config, elementRef, renderer);
-        this.viewCtrl = viewCtrl;
-        this._app = _app;
-        this._platform = _platform;
-        this._linker = _linker;
-        this._ids = -1;
-        this._tabs = [];
-        this._selectHistory = [];
-        this.ionChange = new EventEmitter();
-        this.mode = config.get('mode');
-        this.parent = parent;
-        this.id = 't' + (++tabIds);
-        this._sbPadding = config.getBoolean('statusbarPadding');
-        this._subPages = config.getBoolean('tabsHideOnSubPages');
-        this.tabsHighlight = config.getBoolean('tabsHighlight');
-        if (this.parent) {
-            this.parent.registerChildNav(this);
-        }
-        else if (viewCtrl && viewCtrl.getNav()) {
-            this.parent = viewCtrl.getNav();
-            this.parent.registerChildNav(this);
-        }
-        else if (this._app) {
-            this._app._setRootNav(this);
-        }
-        if (viewCtrl) {
-            viewCtrl._setContent(this);
-            viewCtrl._setContentRef(elementRef);
-        }
-    }
-    Object.defineProperty(Tabs.prototype, "color", {
-        set: function (value) {
-            this._setColor('tabs', value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Tabs.prototype, "mode", {
-        set: function (val) {
-            this._setMode('tabs', val);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Tabs.prototype.ngOnDestroy = function () {
-        this.parent.unregisterChildNav(this);
-    };
-    Tabs.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        this._setConfig('tabsPlacement', 'bottom');
-        this._setConfig('tabsLayout', 'icon-top');
-        this._setConfig('tabsHighlight', this.tabsHighlight);
-        if (this.tabsHighlight) {
-            this._platform.onResize(function () {
-                _this._highlight.select(_this.getSelected());
-            });
-        }
-        this.initTabs();
-    };
-    Tabs.prototype.initTabs = function () {
-        var selectedIndex = (isBlank$5(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
-        var tabsSegment = this._linker.initNav(this);
-        if (tabsSegment && isBlank$5(tabsSegment.component)) {
-            selectedIndex = this._linker.getSelectedTabIndex(this, tabsSegment.name, selectedIndex);
-        }
-        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
-        if (!selectedTab) {
-            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
-        }
-        if (selectedTab) {
-            var pageId = null;
-            if (tabsSegment) {
-                var selectedTabSegment = this._linker.initNav(selectedTab);
-                if (selectedTabSegment && selectedTabSegment.component) {
-                    selectedTab.root = selectedTabSegment.component;
-                    selectedTab.rootParams = selectedTabSegment.data;
-                    pageId = selectedTabSegment.id;
-                }
-            }
-            this.select(selectedTab, {
-                id: pageId
-            });
-        }
-        this._tabs.forEach(function (t) {
-            t.updateHref(t.root, t.rootParams);
-        });
-    };
-    Tabs.prototype._setConfig = function (attrKey, fallback) {
-        var val = this[attrKey];
-        if (isBlank$5(val)) {
-            val = this._config.get(attrKey, fallback);
-        }
-        this.setElementAttribute(attrKey, val);
-    };
-    Tabs.prototype.add = function (tab) {
-        this._tabs.push(tab);
-        return this.id + '-' + (++this._ids);
-    };
-    Tabs.prototype.select = function (tabOrIndex, opts) {
-        var _this = this;
-        if (opts === void 0) { opts = {}; }
-        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
-        if (isBlank$5(selectedTab)) {
-            return;
-        }
-        var deselectedTab = this.getSelected();
-        if (selectedTab === deselectedTab) {
-            return this._touchActive(selectedTab);
-        }
-        var deselectedPage;
-        if (deselectedTab) {
-            deselectedPage = deselectedTab.getActive();
-            deselectedPage && deselectedPage._willLeave();
-        }
-        opts.animate = false;
-        var selectedPage = selectedTab.getActive();
-        selectedPage && selectedPage._willEnter();
-        selectedTab.load(opts, function (alreadyLoaded) {
-            selectedTab.ionSelect.emit(selectedTab);
-            _this.ionChange.emit(selectedTab);
-            if (selectedTab.root) {
-                _this._tabs.forEach(function (tab) {
-                    tab.setSelected(tab === selectedTab);
-                });
-                if (_this.tabsHighlight) {
-                    _this._highlight.select(selectedTab);
-                }
-                if (opts.updateUrl !== false) {
-                    _this._linker.navChange(DIRECTION_SWITCH);
-                }
-            }
-            selectedPage && selectedPage._didEnter();
-            deselectedPage && deselectedPage._didLeave();
-            if (_this._selectHistory[_this._selectHistory.length - 1] !== selectedTab.id) {
-                _this._selectHistory.push(selectedTab.id);
-            }
-            if (alreadyLoaded && selectedPage) {
-                var content = selectedPage.getContent();
-                if (content && content instanceof Content) {
-                    content.resize();
-                }
-            }
-        });
-    };
-    Tabs.prototype.previousTab = function (trimHistory) {
-        var _this = this;
-        if (trimHistory === void 0) { trimHistory = true; }
-        // console.debug('run previousTab', this._selectHistory);
-        for (var i = this._selectHistory.length - 2; i >= 0; i--) {
-            var tab = this._tabs.find(function (t) { return t.id === _this._selectHistory[i]; });
-            if (tab && tab.enabled && tab.show) {
-                if (trimHistory) {
-                    this._selectHistory.splice(i + 1);
-                }
-                return tab;
-            }
-        }
-        return null;
-    };
-    Tabs.prototype.getByIndex = function (index) {
-        return this._tabs[index];
-    };
-    Tabs.prototype.getSelected = function () {
-        for (var i = 0; i < this._tabs.length; i++) {
-            if (this._tabs[i].isSelected) {
-                return this._tabs[i];
-            }
-        }
-        return null;
-    };
-    Tabs.prototype.getActiveChildNav = function () {
-        return this.getSelected();
-    };
-    Tabs.prototype.getIndex = function (tab) {
-        return this._tabs.indexOf(tab);
-    };
-    Tabs.prototype.length = function () {
-        return this._tabs.length;
-    };
-    Tabs.prototype._touchActive = function (tab) {
-        var active = tab.getActive();
-        if (active) {
-            if (active._cmp && active._cmp.instance.ionSelected) {
-                active._cmp.instance.ionSelected();
-            }
-            else if (tab.length() > 1) {
-                tab.popToRoot(null, null);
-            }
-            else if (tab.root !== active.component) {
-                tab.setRoot(tab.root);
-            }
-        }
-    };
-    Tabs.prototype.setTabbarPosition = function (top, bottom) {
-        if (this._top !== top || this._bottom !== bottom) {
-            var tabbarEle = this._tabbar.nativeElement;
-            tabbarEle.style.top = (top > -1 ? top + 'px' : '');
-            tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '');
-            tabbarEle.classList.add('show-tabbar');
-            this._top = top;
-            this._bottom = bottom;
-        }
-    };
-    Tabs.decorators = [
-        { type: Component, args: [{
-                    selector: 'ion-tabs',
-                    template: '<div class="tabbar" role="tablist" #tabbar>' +
-                        '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
-                        '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
-                        '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
-                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [color]="t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
-                        '<div class="button-effect"></div>' +
-                        '</a>' +
-                        '<div class="tab-highlight"></div>' +
-                        '</div>' +
-                        '<ng-content></ng-content>' +
-                        '<div #portal tab-portal></div>',
-                    encapsulation: ViewEncapsulation.None,
-                },] },
-    ];
-    Tabs.ctorParameters = [
-        { type: NavController, decorators: [{ type: Optional },] },
-        { type: ViewController, decorators: [{ type: Optional },] },
-        { type: App, },
-        { type: Config, },
-        { type: ElementRef, },
-        { type: Platform, },
-        { type: Renderer, },
-        { type: DeepLinker, },
-    ];
-    Tabs.propDecorators = {
-        'color': [{ type: Input },],
-        'mode': [{ type: Input },],
-        'selectedIndex': [{ type: Input },],
-        'tabsLayout': [{ type: Input },],
-        'tabsPlacement': [{ type: Input },],
-        'tabsHighlight': [{ type: Input },],
-        'ionChange': [{ type: Output },],
-        '_highlight': [{ type: ViewChild, args: [TabHighlight,] },],
-        '_tabbar': [{ type: ViewChild, args: ['tabbar',] },],
-        'portal': [{ type: ViewChild, args: ['portal', { read: ViewContainerRef },] },],
-    };
-    return Tabs;
-}(Ion));
-var tabIds = -1;
-
 var __extends$69 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Content = (function (_super) {
-    __extends$69(Content, _super);
-    function Content(config, elementRef, renderer, _app, _keyboard, _zone, viewCtrl, _tabs) {
-        _super.call(this, config, elementRef, renderer);
-        this._app = _app;
-        this._keyboard = _keyboard;
-        this._zone = _zone;
-        this._tabs = _tabs;
-        this._inputPolling = false;
-        this._mode = config.get('mode');
-        this._setMode('content', this._mode);
-        this._sbPadding = config.getBoolean('statusbarPadding', false);
-        if (viewCtrl) {
-            viewCtrl._setContent(this);
-            viewCtrl._setContentRef(elementRef);
-        }
-    }
-    Content.prototype.ngOnInit = function () {
-        var _this = this;
-        this._fixedEle = this._elementRef.nativeElement.children[0];
-        this._scrollEle = this._elementRef.nativeElement.children[1];
-        this._zone.runOutsideAngular(function () {
-            _this._scroll = new ScrollView(_this._scrollEle);
-            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
-        });
-    };
-    Content.prototype.ngOnDestroy = function () {
-        this._scLsn && this._scLsn();
-        this._scroll && this._scroll.destroy();
-        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
-    };
-    Content.prototype.addScrollListener = function (handler) {
-        return this._addListener('scroll', handler);
-    };
-    Content.prototype.addTouchStartListener = function (handler) {
-        return this._addListener('touchstart', handler);
-    };
-    Content.prototype.addTouchMoveListener = function (handler) {
-        return this._addListener('touchmove', handler);
-    };
-    Content.prototype.addTouchEndListener = function (handler) {
-        return this._addListener('touchend', handler);
-    };
-    Content.prototype.addMouseDownListener = function (handler) {
-        return this._addListener('mousedown', handler);
-    };
-    Content.prototype.addMouseUpListener = function (handler) {
-        return this._addListener('mouseup', handler);
-    };
-    Content.prototype.addMouseMoveListener = function (handler) {
-        return this._addListener('mousemove', handler);
-    };
-    Content.prototype._addListener = function (type, handler) {
-        var _this = this;
-        if (!this._scrollEle) {
-            return;
-        }
-        this._scrollEle.removeEventListener(type, handler);
-        this._scrollEle.addEventListener(type, handler);
-        return function () {
-            if (_this._scrollEle) {
-                _this._scrollEle.removeEventListener(type, handler);
-            }
-        };
-    };
-    Content.prototype.getScrollElement = function () {
-        return this._scrollEle;
-    };
-    Content.prototype.onScrollEnd = function (callback) {
-        var lastScrollTop = null;
-        var framesUnchanged = 0;
-        var _scrollEle = this._scrollEle;
-        function next() {
-            var currentScrollTop = _scrollEle.scrollTop;
-            if (lastScrollTop !== null) {
-                if (Math.round(lastScrollTop) === Math.round(currentScrollTop)) {
-                    framesUnchanged++;
-                }
-                else {
-                    framesUnchanged = 0;
-                }
-                if (framesUnchanged > 9) {
-                    return callback();
-                }
-            }
-            lastScrollTop = currentScrollTop;
-            nativeRaf(function () {
-                nativeRaf(next);
-            });
-        }
-        nativeTimeout(next, 100);
-    };
-    Content.prototype.onScrollElementTransitionEnd = function (callback) {
-        transitionEnd(this._scrollEle, callback);
-    };
-    Content.prototype.scrollTo = function (x, y, duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollTo(x, y, duration);
-    };
-    Content.prototype.scrollToTop = function (duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollToTop(duration);
-    };
-    Content.prototype.getScrollTop = function () {
-        return this._scroll.getTop();
-    };
-    Content.prototype.setScrollTop = function (top) {
-        this._scroll.setTop(top);
-    };
-    Content.prototype.scrollToBottom = function (duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollToBottom(duration);
-    };
-    Content.prototype.jsScroll = function (onScrollCallback) {
-        return this._scroll.jsScroll(onScrollCallback);
-    };
-    Object.defineProperty(Content.prototype, "fullscreen", {
-        get: function () {
-            return !!this._fullscreen;
-        },
-        set: function (val) {
-            this._fullscreen = isTrueProperty(val);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Content.prototype.setScrollElementStyle = function (prop, val) {
-        this._scrollEle.style[prop] = val;
-    };
-    Content.prototype.getContentDimensions = function () {
-        var _scrollEle = this._scrollEle;
-        var parentElement = _scrollEle.parentElement;
-        return {
-            contentHeight: parentElement.offsetHeight,
-            contentTop: parentElement.offsetTop,
-            contentBottom: parentElement.offsetTop + parentElement.offsetHeight,
-            contentWidth: parentElement.offsetWidth,
-            contentLeft: parentElement.offsetLeft,
-            contentRight: parentElement.offsetLeft + parentElement.offsetWidth,
-            scrollHeight: _scrollEle.scrollHeight,
-            scrollTop: _scrollEle.scrollTop,
-            scrollBottom: _scrollEle.scrollTop + _scrollEle.scrollHeight,
-            scrollWidth: _scrollEle.scrollWidth,
-            scrollLeft: _scrollEle.scrollLeft,
-            scrollRight: _scrollEle.scrollLeft + _scrollEle.scrollWidth,
-        };
-    };
-    Content.prototype.addScrollPadding = function (newPadding) {
-        if (newPadding > this._scrollPadding) {
-            // console.debug('content addScrollPadding', newPadding);
-            this._scrollPadding = newPadding;
-            this._scrollEle.style.paddingBottom = newPadding + 'px';
-        }
-    };
-    Content.prototype.clearScrollPaddingFocusOut = function () {
-        var _this = this;
-        if (!this._inputPolling) {
-            this._inputPolling = true;
-            this._keyboard.onClose(function () {
-                _this._scrollPadding = 0;
-                _this._scrollEle.style.paddingBottom = (_this._paddingBottom > 0 ? _this._paddingBottom + 'px' : '');
-                _this._inputPolling = false;
-                _this.addScrollPadding(0);
-            }, 200, Infinity);
-        }
-    };
-    Content.prototype.resize = function () {
-        var _this = this;
-        nativeRaf(function () {
-            _this.readDimensions();
-            _this.writeDimensions();
-        });
-    };
-    Content.prototype.readDimensions = function () {
-        this._paddingTop = 0;
-        this._paddingRight = 0;
-        this._paddingBottom = 0;
-        this._paddingLeft = 0;
-        this._headerHeight = 0;
-        this._footerHeight = 0;
-        this._tabsPlacement = null;
-        var ele = this._elementRef.nativeElement;
-        if (!ele) {
-            return;
-        }
-        var parentEle = ele.parentElement;
-        var computedStyle;
-        for (var i = 0; i < parentEle.children.length; i++) {
-            ele = parentEle.children[i];
-            if (ele.tagName === 'ION-CONTENT') {
-                if (this._fullscreen) {
-                    computedStyle = getComputedStyle(ele);
-                    this._paddingTop = parsePxUnit(computedStyle.paddingTop);
-                    this._paddingBottom = parsePxUnit(computedStyle.paddingBottom);
-                    this._paddingRight = parsePxUnit(computedStyle.paddingRight);
-                    this._paddingLeft = parsePxUnit(computedStyle.paddingLeft);
-                }
-            }
-            else if (ele.tagName === 'ION-HEADER') {
-                this._headerHeight = ele.clientHeight;
-            }
-            else if (ele.tagName === 'ION-FOOTER') {
-                this._footerHeight = ele.clientHeight;
-                this._footerEle = ele;
-            }
-        }
-        ele = parentEle;
-        var tabbarEle;
-        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
-            if (ele.tagName === 'ION-TABS') {
-                tabbarEle = ele.firstElementChild;
-                this._tabbarHeight = tabbarEle.clientHeight;
-                if (this._tabsPlacement === null) {
-                    this._tabsPlacement = ele.getAttribute('tabsplacement');
-                }
-            }
-            ele = ele.parentElement;
-        }
-    };
-    Content.prototype.writeDimensions = function () {
-        var scrollEle = this._scrollEle;
-        if (!scrollEle) {
-            return;
-        }
-        var fixedEle = this._fixedEle;
-        if (!fixedEle) {
-            return;
-        }
-        var contentTop = this._headerHeight;
-        var contentBottom = this._footerHeight;
-        if (this._tabsPlacement === 'top') {
-            contentTop += this._tabbarHeight;
-        }
-        else if (this._tabsPlacement === 'bottom') {
-            contentBottom += this._tabbarHeight;
-            if (contentBottom > 0 && this._footerEle) {
-                this._footerEle.style.bottom = cssFormat(contentBottom - this._footerHeight);
-            }
-        }
-        var topProperty = 'marginTop';
-        var bottomProperty = 'marginBottom';
-        var fixedTop = contentTop;
-        var fixedBottom = contentBottom;
-        if (this._fullscreen) {
-            contentTop += this._paddingTop;
-            contentBottom += this._paddingBottom;
-            topProperty = 'paddingTop';
-            bottomProperty = 'paddingBottom';
-        }
-        if (contentTop !== this.contentTop) {
-            scrollEle.style[topProperty] = cssFormat(contentTop);
-            fixedEle.style.marginTop = cssFormat(fixedTop);
-            this.contentTop = contentTop;
-        }
-        if (contentBottom !== this.contentBottom) {
-            scrollEle.style[bottomProperty] = cssFormat(contentBottom);
-            fixedEle.style.marginBottom = cssFormat(fixedBottom);
-            this.contentBottom = contentBottom;
-        }
-        if (this._tabsPlacement !== null && this._tabs) {
-            if (this._tabsPlacement === 'top') {
-                this._tabs.setTabbarPosition(this._headerHeight, -1);
-            }
-            else {
-                this._tabs.setTabbarPosition(-1, 0);
-            }
-        }
-    };
-    Content.decorators = [
-        { type: Component, args: [{
-                    selector: 'ion-content',
-                    template: '<div class="fixed-content">' +
-                        '<ng-content select="[ion-fixed],ion-fab"></ng-content>' +
-                        '</div>' +
-                        '<div class="scroll-content">' +
-                        '<ng-content></ng-content>' +
-                        '</div>' +
-                        '<ng-content select="ion-refresher"></ng-content>',
-                    host: {
-                        '[class.statusbar-padding]': '_sbPadding'
-                    },
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    encapsulation: ViewEncapsulation.None
-                },] },
-    ];
-    Content.ctorParameters = [
-        { type: Config, },
-        { type: ElementRef, },
-        { type: Renderer, },
-        { type: App, },
-        { type: Keyboard, },
-        { type: NgZone, },
-        { type: ViewController, decorators: [{ type: Optional },] },
-        { type: Tabs, decorators: [{ type: Optional },] },
-    ];
-    Content.propDecorators = {
-        'fullscreen': [{ type: Input },],
-    };
-    return Content;
-}(Ion));
-function parsePxUnit(val) {
-    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
-}
-function cssFormat(val) {
-    return (val > 0 ? val + 'px' : '');
-}
-
-var __extends$71 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var Transition = (function (_super) {
-    __extends$71(Transition, _super);
+    __extends$69(Transition, _super);
     function Transition(enteringView, leavingView, opts, raf) {
         _super.call(this, null, opts, raf);
         this.enteringView = enteringView;
         this.leavingView = leavingView;
-        this.hasChildTrns = false;
     }
     Transition.prototype.init = function () { };
     Transition.prototype.registerStart = function (trnsStart) {
         this._trnsStart = trnsStart;
+    };
+    Transition.prototype.isRoot = function () {
+        return !this.parent;
     };
     Transition.prototype.start = function () {
         this._trnsStart && this._trnsStart();
@@ -29318,14 +28785,14 @@ var PageTransition = (function (_super) {
         }
     };
     PageTransition.prototype.readDimensions = function () {
-        var content = this.enteringView.getContent();
-        if (content && content instanceof Content) {
+        var content = this.enteringView.getIONContent();
+        if (content) {
             content.readDimensions();
         }
     };
     PageTransition.prototype.writeDimensions = function () {
-        var content = this.enteringView.getContent();
-        if (content && content instanceof Content) {
+        var content = this.enteringView.getIONContent();
+        if (content) {
             content.writeDimensions();
         }
     };
@@ -29478,7 +28945,7 @@ var IOSTransition = (function (_super) {
     return IOSTransition;
 }(PageTransition));
 
-var __extends$72 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$70 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -29488,7 +28955,7 @@ var OFF_BOTTOM = '40px';
 var CENTER$1 = '0px';
 var SHOW_BACK_BTN_CSS$1 = 'show-back-button';
 var MDTransition = (function (_super) {
-    __extends$72(MDTransition, _super);
+    __extends$70(MDTransition, _super);
     function MDTransition() {
         _super.apply(this, arguments);
     }
@@ -29532,7 +28999,7 @@ var MDTransition = (function (_super) {
     return MDTransition;
 }(PageTransition));
 
-var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$71 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -29540,7 +29007,7 @@ var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
 var SHOW_BACK_BTN_CSS$2 = 'show-back-button';
 var SCALE_SMALL = .95;
 var WPTransition = (function (_super) {
-    __extends$73(WPTransition, _super);
+    __extends$71(WPTransition, _super);
     function WPTransition() {
         _super.apply(this, arguments);
     }
@@ -29585,13 +29052,13 @@ var WPTransition = (function (_super) {
     return WPTransition;
 }(PageTransition));
 
-var __extends$74 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$72 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ActionSheetSlideIn = (function (_super) {
-    __extends$74(ActionSheetSlideIn, _super);
+    __extends$72(ActionSheetSlideIn, _super);
     function ActionSheetSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29606,7 +29073,7 @@ var ActionSheetSlideIn = (function (_super) {
     return ActionSheetSlideIn;
 }(Transition));
 var ActionSheetSlideOut = (function (_super) {
-    __extends$74(ActionSheetSlideOut, _super);
+    __extends$72(ActionSheetSlideOut, _super);
     function ActionSheetSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29621,7 +29088,7 @@ var ActionSheetSlideOut = (function (_super) {
     return ActionSheetSlideOut;
 }(Transition));
 var ActionSheetMdSlideIn = (function (_super) {
-    __extends$74(ActionSheetMdSlideIn, _super);
+    __extends$72(ActionSheetMdSlideIn, _super);
     function ActionSheetMdSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29636,7 +29103,7 @@ var ActionSheetMdSlideIn = (function (_super) {
     return ActionSheetMdSlideIn;
 }(Transition));
 var ActionSheetMdSlideOut = (function (_super) {
-    __extends$74(ActionSheetMdSlideOut, _super);
+    __extends$72(ActionSheetMdSlideOut, _super);
     function ActionSheetMdSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29651,7 +29118,7 @@ var ActionSheetMdSlideOut = (function (_super) {
     return ActionSheetMdSlideOut;
 }(Transition));
 var ActionSheetWpSlideIn = (function (_super) {
-    __extends$74(ActionSheetWpSlideIn, _super);
+    __extends$72(ActionSheetWpSlideIn, _super);
     function ActionSheetWpSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29666,7 +29133,7 @@ var ActionSheetWpSlideIn = (function (_super) {
     return ActionSheetWpSlideIn;
 }(Transition));
 var ActionSheetWpSlideOut = (function (_super) {
-    __extends$74(ActionSheetWpSlideOut, _super);
+    __extends$72(ActionSheetWpSlideOut, _super);
     function ActionSheetWpSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29681,13 +29148,13 @@ var ActionSheetWpSlideOut = (function (_super) {
     return ActionSheetWpSlideOut;
 }(Transition));
 
-var __extends$75 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AlertPopIn = (function (_super) {
-    __extends$75(AlertPopIn, _super);
+    __extends$73(AlertPopIn, _super);
     function AlertPopIn() {
         _super.apply(this, arguments);
     }
@@ -29706,7 +29173,7 @@ var AlertPopIn = (function (_super) {
     return AlertPopIn;
 }(Transition));
 var AlertPopOut = (function (_super) {
-    __extends$75(AlertPopOut, _super);
+    __extends$73(AlertPopOut, _super);
     function AlertPopOut() {
         _super.apply(this, arguments);
     }
@@ -29725,7 +29192,7 @@ var AlertPopOut = (function (_super) {
     return AlertPopOut;
 }(Transition));
 var AlertMdPopIn = (function (_super) {
-    __extends$75(AlertMdPopIn, _super);
+    __extends$73(AlertMdPopIn, _super);
     function AlertMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -29744,7 +29211,7 @@ var AlertMdPopIn = (function (_super) {
     return AlertMdPopIn;
 }(Transition));
 var AlertMdPopOut = (function (_super) {
-    __extends$75(AlertMdPopOut, _super);
+    __extends$73(AlertMdPopOut, _super);
     function AlertMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -29763,7 +29230,7 @@ var AlertMdPopOut = (function (_super) {
     return AlertMdPopOut;
 }(Transition));
 var AlertWpPopIn = (function (_super) {
-    __extends$75(AlertWpPopIn, _super);
+    __extends$73(AlertWpPopIn, _super);
     function AlertWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -29782,7 +29249,7 @@ var AlertWpPopIn = (function (_super) {
     return AlertWpPopIn;
 }(Transition));
 var AlertWpPopOut = (function (_super) {
-    __extends$75(AlertWpPopOut, _super);
+    __extends$73(AlertWpPopOut, _super);
     function AlertWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -29801,13 +29268,13 @@ var AlertWpPopOut = (function (_super) {
     return AlertWpPopOut;
 }(Transition));
 
-var __extends$76 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$74 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var LoadingPopIn = (function (_super) {
-    __extends$76(LoadingPopIn, _super);
+    __extends$74(LoadingPopIn, _super);
     function LoadingPopIn() {
         _super.apply(this, arguments);
     }
@@ -29826,7 +29293,7 @@ var LoadingPopIn = (function (_super) {
     return LoadingPopIn;
 }(Transition));
 var LoadingPopOut = (function (_super) {
-    __extends$76(LoadingPopOut, _super);
+    __extends$74(LoadingPopOut, _super);
     function LoadingPopOut() {
         _super.apply(this, arguments);
     }
@@ -29845,7 +29312,7 @@ var LoadingPopOut = (function (_super) {
     return LoadingPopOut;
 }(Transition));
 var LoadingMdPopIn = (function (_super) {
-    __extends$76(LoadingMdPopIn, _super);
+    __extends$74(LoadingMdPopIn, _super);
     function LoadingMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -29864,7 +29331,7 @@ var LoadingMdPopIn = (function (_super) {
     return LoadingMdPopIn;
 }(Transition));
 var LoadingMdPopOut = (function (_super) {
-    __extends$76(LoadingMdPopOut, _super);
+    __extends$74(LoadingMdPopOut, _super);
     function LoadingMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -29883,7 +29350,7 @@ var LoadingMdPopOut = (function (_super) {
     return LoadingMdPopOut;
 }(Transition));
 var LoadingWpPopIn = (function (_super) {
-    __extends$76(LoadingWpPopIn, _super);
+    __extends$74(LoadingWpPopIn, _super);
     function LoadingWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -29902,7 +29369,7 @@ var LoadingWpPopIn = (function (_super) {
     return LoadingWpPopIn;
 }(Transition));
 var LoadingWpPopOut = (function (_super) {
-    __extends$76(LoadingWpPopOut, _super);
+    __extends$74(LoadingWpPopOut, _super);
     function LoadingWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -29921,13 +29388,13 @@ var LoadingWpPopOut = (function (_super) {
     return LoadingWpPopOut;
 }(Transition));
 
-var __extends$77 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$75 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ModalSlideIn = (function (_super) {
-    __extends$77(ModalSlideIn, _super);
+    __extends$75(ModalSlideIn, _super);
     function ModalSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29949,7 +29416,7 @@ var ModalSlideIn = (function (_super) {
     return ModalSlideIn;
 }(PageTransition));
 var ModalSlideOut = (function (_super) {
-    __extends$77(ModalSlideOut, _super);
+    __extends$75(ModalSlideOut, _super);
     function ModalSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29973,7 +29440,7 @@ var ModalSlideOut = (function (_super) {
     return ModalSlideOut;
 }(PageTransition));
 var ModalMDSlideIn = (function (_super) {
-    __extends$77(ModalMDSlideIn, _super);
+    __extends$75(ModalMDSlideIn, _super);
     function ModalMDSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29994,7 +29461,7 @@ var ModalMDSlideIn = (function (_super) {
     return ModalMDSlideIn;
 }(PageTransition));
 var ModalMDSlideOut = (function (_super) {
-    __extends$77(ModalMDSlideOut, _super);
+    __extends$75(ModalMDSlideOut, _super);
     function ModalMDSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30016,13 +29483,13 @@ var ModalMDSlideOut = (function (_super) {
     return ModalMDSlideOut;
 }(PageTransition));
 
-var __extends$78 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$76 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var PickerSlideIn = (function (_super) {
-    __extends$78(PickerSlideIn, _super);
+    __extends$76(PickerSlideIn, _super);
     function PickerSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30037,7 +29504,7 @@ var PickerSlideIn = (function (_super) {
     return PickerSlideIn;
 }(Transition));
 var PickerSlideOut = (function (_super) {
-    __extends$78(PickerSlideOut, _super);
+    __extends$76(PickerSlideOut, _super);
     function PickerSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30052,13 +29519,13 @@ var PickerSlideOut = (function (_super) {
     return PickerSlideOut;
 }(Transition));
 
-var __extends$79 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$77 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var PopoverTransition = (function (_super) {
-    __extends$79(PopoverTransition, _super);
+    __extends$77(PopoverTransition, _super);
     function PopoverTransition() {
         _super.apply(this, arguments);
     }
@@ -30156,7 +29623,7 @@ var PopoverTransition = (function (_super) {
     return PopoverTransition;
 }(PageTransition));
 var PopoverPopIn = (function (_super) {
-    __extends$79(PopoverPopIn, _super);
+    __extends$77(PopoverPopIn, _super);
     function PopoverPopIn() {
         _super.apply(this, arguments);
     }
@@ -30182,7 +29649,7 @@ var PopoverPopIn = (function (_super) {
     return PopoverPopIn;
 }(PopoverTransition));
 var PopoverPopOut = (function (_super) {
-    __extends$79(PopoverPopOut, _super);
+    __extends$77(PopoverPopOut, _super);
     function PopoverPopOut() {
         _super.apply(this, arguments);
     }
@@ -30201,7 +29668,7 @@ var PopoverPopOut = (function (_super) {
     return PopoverPopOut;
 }(PopoverTransition));
 var PopoverMdPopIn = (function (_super) {
-    __extends$79(PopoverMdPopIn, _super);
+    __extends$77(PopoverMdPopIn, _super);
     function PopoverMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -30227,7 +29694,7 @@ var PopoverMdPopIn = (function (_super) {
     return PopoverMdPopIn;
 }(PopoverTransition));
 var PopoverMdPopOut = (function (_super) {
-    __extends$79(PopoverMdPopOut, _super);
+    __extends$77(PopoverMdPopOut, _super);
     function PopoverMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -30246,13 +29713,13 @@ var PopoverMdPopOut = (function (_super) {
 var POPOVER_IOS_BODY_PADDING = 2;
 var POPOVER_MD_BODY_PADDING = 12;
 
-var __extends$80 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$78 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ToastSlideIn = (function (_super) {
-    __extends$80(ToastSlideIn, _super);
+    __extends$78(ToastSlideIn, _super);
     function ToastSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30276,7 +29743,7 @@ var ToastSlideIn = (function (_super) {
     return ToastSlideIn;
 }(Transition));
 var ToastSlideOut = (function (_super) {
-    __extends$80(ToastSlideOut, _super);
+    __extends$78(ToastSlideOut, _super);
     function ToastSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30298,7 +29765,7 @@ var ToastSlideOut = (function (_super) {
     return ToastSlideOut;
 }(Transition));
 var ToastMdSlideIn = (function (_super) {
-    __extends$80(ToastMdSlideIn, _super);
+    __extends$78(ToastMdSlideIn, _super);
     function ToastMdSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30322,7 +29789,7 @@ var ToastMdSlideIn = (function (_super) {
     return ToastMdSlideIn;
 }(Transition));
 var ToastMdSlideOut = (function (_super) {
-    __extends$80(ToastMdSlideOut, _super);
+    __extends$78(ToastMdSlideOut, _super);
     function ToastMdSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30344,7 +29811,7 @@ var ToastMdSlideOut = (function (_super) {
     return ToastMdSlideOut;
 }(Transition));
 var ToastWpPopIn = (function (_super) {
-    __extends$80(ToastWpPopIn, _super);
+    __extends$78(ToastWpPopIn, _super);
     function ToastWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -30371,7 +29838,7 @@ var ToastWpPopIn = (function (_super) {
     return ToastWpPopIn;
 }(Transition));
 var ToastWpPopOut = (function (_super) {
-    __extends$80(ToastWpPopOut, _super);
+    __extends$78(ToastWpPopOut, _super);
     function ToastWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -30890,13 +30357,13 @@ var ModalCmp = (function () {
     return ModalCmp;
 }());
 
-var __extends$81 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$79 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Modal = (function (_super) {
-    __extends$81(Modal, _super);
+    __extends$79(Modal, _super);
     function Modal(app, component, data, opts) {
         if (data === void 0) { data = {}; }
         if (opts === void 0) { opts = {}; }
@@ -30965,7 +30432,7 @@ var PickerColumnCmp = (function () {
         this.events.unlistenAll();
     };
     PickerColumnCmp.prototype.pointerStart = function (ev) {
-        // console.debug('picker, pointerStart', ev.type, this.startY);
+        (void 0);
         cancelRaf(this.rafId);
         this.startY = pointerCoord(ev).y;
         this.receivingEvents = true;
@@ -31026,7 +30493,7 @@ var PickerColumnCmp = (function () {
         }
         else if (this.startY !== null) {
             var endY = pointerCoord(ev).y;
-            // console.debug('picker, pointerEnd', ev.type, endY);
+            (void 0);
             this.pos.push(endY, Date.now());
             var endPos = (this.pos.length - 1);
             var startPos = endPos;
@@ -31257,13 +30724,13 @@ var PickerCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    // console.debug('picker, enter button');
+                    (void 0);
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('picker, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -31344,13 +30811,13 @@ var pickerIds = -1;
 var DECELERATION_FRICTION$1 = 0.97;
 var FRAME_MS$1 = (1000 / 60);
 
-var __extends$82 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$80 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Picker = (function (_super) {
-    __extends$82(Picker, _super);
+    __extends$80(Picker, _super);
     function Picker(app, opts) {
         if (opts === void 0) { opts = {}; }
         opts.columns = opts.columns || [];
@@ -31642,13 +31109,13 @@ var PopoverCmp = (function () {
 }());
 var popoverIds = -1;
 
-var __extends$83 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$81 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Popover = (function (_super) {
-    __extends$83(Popover, _super);
+    __extends$81(Popover, _super);
     function Popover(app, component, data, opts) {
         if (data === void 0) { data = {}; }
         if (opts === void 0) { opts = {}; }
@@ -31788,13 +31255,13 @@ var Activator = (function () {
 }());
 var CLEAR_STATE_DEFERS = 5;
 
-var __extends$84 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$82 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var RippleActivator = (function (_super) {
-    __extends$84(RippleActivator, _super);
+    __extends$82(RippleActivator, _super);
     function RippleActivator(app, config) {
         _super.call(this, app, config);
     }
@@ -31921,10 +31388,10 @@ var TapClick = (function () {
             if (!hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
                 this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
                 if (this.app.isScrolling()) {
-                    // console.debug('click from touch prevented by scrolling ' + Date.now());
+                    (void 0);
                 }
                 else {
-                    // console.debug('create click from touch ' + Date.now());
+                    (void 0);
                     var clickEvent = document.createEvent('MouseEvents');
                     clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
                     clickEvent.isIonicTap = true;
@@ -31936,7 +31403,7 @@ var TapClick = (function () {
     };
     TapClick.prototype.mouseDown = function (ev) {
         if (this.isDisabledNativeClick()) {
-            // console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
+            (void 0);
             ev.stopPropagation();
         }
         else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
@@ -31945,7 +31412,7 @@ var TapClick = (function () {
     };
     TapClick.prototype.mouseUp = function (ev) {
         if (this.isDisabledNativeClick()) {
-            // console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
+            (void 0);
             ev.preventDefault();
             ev.stopPropagation();
         }
@@ -31978,7 +31445,7 @@ var TapClick = (function () {
         this.moveListeners(false);
     };
     TapClick.prototype.pointerCancel = function (ev) {
-        // console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
+        (void 0);
         this.activator && this.activator.clearState();
         this.moveListeners(false);
     };
@@ -31997,7 +31464,7 @@ var TapClick = (function () {
             preventReason = 'nativeClick';
         }
         if (preventReason !== null) {
-            // console.debug('click prevent ' + preventReason + ' ' + Date.now());
+            (void 0);
             ev.preventDefault();
             ev.stopPropagation();
         }
@@ -32135,13 +31602,13 @@ var ToastCmp = (function () {
 }());
 var toastIds = -1;
 
-var __extends$85 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$83 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Toast = (function (_super) {
-    __extends$85(Toast, _super);
+    __extends$83(Toast, _super);
     function Toast(app, opts) {
         if (opts === void 0) { opts = {}; }
         opts.dismissOnPageChange = isPresent$5(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
@@ -32610,13 +32077,13 @@ var Backdrop = (function () {
     return Backdrop;
 }());
 
-var __extends$86 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$84 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Badge = (function (_super) {
-    __extends$86(Badge, _super);
+    __extends$84(Badge, _super);
     function Badge(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -32652,13 +32119,13 @@ var Badge = (function (_super) {
     return Badge;
 }(Ion));
 
-var __extends$87 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$85 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Button = (function (_super) {
-    __extends$87(Button, _super);
+    __extends$85(Button, _super);
     function Button(menuToggle, ionButton, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._role = 'button';
@@ -32843,13 +32310,13 @@ var Button = (function (_super) {
     return Button;
 }(Ion));
 
-var __extends$88 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$86 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Card = (function (_super) {
-    __extends$88(Card, _super);
+    __extends$86(Card, _super);
     function Card(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -32918,13 +32385,13 @@ var CardTitle = (function () {
     return CardTitle;
 }());
 
-var __extends$91 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$89 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Icon = (function (_super) {
-    __extends$91(Icon, _super);
+    __extends$89(Icon, _super);
     function Icon(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._name = '';
@@ -33068,13 +32535,13 @@ var Icon = (function (_super) {
     return Icon;
 }(Ion));
 
-var __extends$92 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$90 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Label = (function (_super) {
-    __extends$92(Label, _super);
+    __extends$90(Label, _super);
     function Label(config, elementRef, renderer, isFloating, isStacked, isFixed, isInset) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -33136,13 +32603,13 @@ var Label = (function (_super) {
     return Label;
 }(Ion));
 
-var __extends$90 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$88 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Item = (function (_super) {
-    __extends$90(Item, _super);
+    __extends$88(Item, _super);
     function Item(form, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._ids = -1;
@@ -33294,7 +32761,7 @@ var ItemGroup = (function () {
     return ItemGroup;
 }());
 
-var __extends$89 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$87 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -33305,7 +32772,7 @@ var CHECKBOX_VALUE_ACCESSOR$1 = {
     multi: true
 };
 var Checkbox = (function (_super) {
-    __extends$89(Checkbox, _super);
+    __extends$87(Checkbox, _super);
     function Checkbox(config, _form, _item, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -33336,7 +32803,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype._click = function (ev) {
-        // console.debug('checkbox, checked');
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.onChange(!this._checked);
@@ -33368,7 +32835,7 @@ var Checkbox = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (isChecked) {
-            // console.debug('checkbox, onChange', isChecked);
+            (void 0);
             fn(isChecked);
             _this._setChecked(isChecked);
             _this.onTouched();
@@ -33387,7 +32854,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype.onChange = function (isChecked) {
-        // console.debug('checkbox, onChange (no ngModel)', isChecked);
+        (void 0);
         this._setChecked(isChecked);
         this.onTouched();
     };
@@ -33438,13 +32905,13 @@ var Checkbox = (function (_super) {
     return Checkbox;
 }(Ion));
 
-var __extends$93 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$91 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Chip = (function (_super) {
-    __extends$93(Chip, _super);
+    __extends$91(Chip, _super);
     function Chip(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -33479,6 +32946,608 @@ var Chip = (function (_super) {
     };
     return Chip;
 }(Ion));
+
+var TabHighlight = (function () {
+    function TabHighlight(_elementRef) {
+        this._elementRef = _elementRef;
+    }
+    TabHighlight.prototype.select = function (tab) {
+        var _this = this;
+        rafFrames(3, function () {
+            var d = tab.btn.getDimensions();
+            var ele = _this._elementRef.nativeElement;
+            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+            if (!_this._init) {
+                _this._init = true;
+                rafFrames(6, function () {
+                    ele.classList.add('animate');
+                });
+            }
+        });
+    };
+    TabHighlight.decorators = [
+        { type: Directive, args: [{
+                    selector: '.tab-highlight'
+                },] },
+    ];
+    TabHighlight.ctorParameters = [
+        { type: ElementRef, },
+    ];
+    return TabHighlight;
+}());
+
+var __extends$93 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Tabs = (function (_super) {
+    __extends$93(Tabs, _super);
+    function Tabs(parent, viewCtrl, _app, config, elementRef, _platform, renderer, _linker) {
+        _super.call(this, config, elementRef, renderer);
+        this.viewCtrl = viewCtrl;
+        this._app = _app;
+        this._platform = _platform;
+        this._linker = _linker;
+        this._ids = -1;
+        this._tabs = [];
+        this._selectHistory = [];
+        this.ionChange = new EventEmitter();
+        this.mode = config.get('mode');
+        this.parent = parent;
+        this.id = 't' + (++tabIds);
+        this._sbPadding = config.getBoolean('statusbarPadding');
+        this._subPages = config.getBoolean('tabsHideOnSubPages');
+        this.tabsHighlight = config.getBoolean('tabsHighlight');
+        if (this.parent) {
+            this.parent.registerChildNav(this);
+        }
+        else if (viewCtrl && viewCtrl.getNav()) {
+            this.parent = viewCtrl.getNav();
+            this.parent.registerChildNav(this);
+        }
+        else if (this._app) {
+            this._app._setRootNav(this);
+        }
+        if (viewCtrl) {
+            viewCtrl._setContent(this);
+            viewCtrl._setContentRef(elementRef);
+        }
+    }
+    Object.defineProperty(Tabs.prototype, "color", {
+        set: function (value) {
+            this._setColor('tabs', value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Tabs.prototype, "mode", {
+        set: function (val) {
+            this._setMode('tabs', val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Tabs.prototype.ngOnDestroy = function () {
+        this.parent.unregisterChildNav(this);
+    };
+    Tabs.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._setConfig('tabsPlacement', 'bottom');
+        this._setConfig('tabsLayout', 'icon-top');
+        this._setConfig('tabsHighlight', this.tabsHighlight);
+        if (this.tabsHighlight) {
+            this._platform.onResize(function () {
+                _this._highlight.select(_this.getSelected());
+            });
+        }
+        this.initTabs();
+    };
+    Tabs.prototype.initTabs = function () {
+        var selectedIndex = (isBlank$5(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
+        var tabsSegment = this._linker.initNav(this);
+        if (tabsSegment && isBlank$5(tabsSegment.component)) {
+            selectedIndex = this._linker.getSelectedTabIndex(this, tabsSegment.name, selectedIndex);
+        }
+        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
+        if (!selectedTab) {
+            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
+        }
+        if (selectedTab) {
+            var pageId = null;
+            if (tabsSegment) {
+                var selectedTabSegment = this._linker.initNav(selectedTab);
+                if (selectedTabSegment && selectedTabSegment.component) {
+                    selectedTab.root = selectedTabSegment.component;
+                    selectedTab.rootParams = selectedTabSegment.data;
+                    pageId = selectedTabSegment.id;
+                }
+            }
+            this.select(selectedTab, {
+                id: pageId
+            });
+        }
+        this._tabs.forEach(function (t) {
+            t.updateHref(t.root, t.rootParams);
+        });
+    };
+    Tabs.prototype._setConfig = function (attrKey, fallback) {
+        var val = this[attrKey];
+        if (isBlank$5(val)) {
+            val = this._config.get(attrKey, fallback);
+        }
+        this.setElementAttribute(attrKey, val);
+    };
+    Tabs.prototype.add = function (tab) {
+        this._tabs.push(tab);
+        return this.id + '-' + (++this._ids);
+    };
+    Tabs.prototype.select = function (tabOrIndex, opts) {
+        var _this = this;
+        if (opts === void 0) { opts = {}; }
+        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
+        if (isBlank$5(selectedTab)) {
+            return;
+        }
+        var deselectedTab = this.getSelected();
+        if (selectedTab === deselectedTab) {
+            return this._touchActive(selectedTab);
+        }
+        var deselectedPage;
+        if (deselectedTab) {
+            deselectedPage = deselectedTab.getActive();
+            deselectedPage && deselectedPage._willLeave();
+        }
+        opts.animate = false;
+        var selectedPage = selectedTab.getActive();
+        selectedPage && selectedPage._willEnter();
+        selectedTab.load(opts, function (alreadyLoaded) {
+            selectedTab.ionSelect.emit(selectedTab);
+            _this.ionChange.emit(selectedTab);
+            if (selectedTab.root) {
+                _this._tabs.forEach(function (tab) {
+                    tab.setSelected(tab === selectedTab);
+                });
+                if (_this.tabsHighlight) {
+                    _this._highlight.select(selectedTab);
+                }
+                if (opts.updateUrl !== false) {
+                    _this._linker.navChange(DIRECTION_SWITCH);
+                }
+            }
+            selectedPage && selectedPage._didEnter();
+            deselectedPage && deselectedPage._didLeave();
+            if (_this._selectHistory[_this._selectHistory.length - 1] !== selectedTab.id) {
+                _this._selectHistory.push(selectedTab.id);
+            }
+            if (alreadyLoaded && selectedPage) {
+                var content = selectedPage.getIONContent();
+                if (content) {
+                    content.resize();
+                }
+            }
+        });
+    };
+    Tabs.prototype.previousTab = function (trimHistory) {
+        var _this = this;
+        if (trimHistory === void 0) { trimHistory = true; }
+        (void 0);
+        for (var i = this._selectHistory.length - 2; i >= 0; i--) {
+            var tab = this._tabs.find(function (t) { return t.id === _this._selectHistory[i]; });
+            if (tab && tab.enabled && tab.show) {
+                if (trimHistory) {
+                    this._selectHistory.splice(i + 1);
+                }
+                return tab;
+            }
+        }
+        return null;
+    };
+    Tabs.prototype.getByIndex = function (index) {
+        return this._tabs[index];
+    };
+    Tabs.prototype.getSelected = function () {
+        for (var i = 0; i < this._tabs.length; i++) {
+            if (this._tabs[i].isSelected) {
+                return this._tabs[i];
+            }
+        }
+        return null;
+    };
+    Tabs.prototype.getActiveChildNav = function () {
+        return this.getSelected();
+    };
+    Tabs.prototype.getIndex = function (tab) {
+        return this._tabs.indexOf(tab);
+    };
+    Tabs.prototype.length = function () {
+        return this._tabs.length;
+    };
+    Tabs.prototype._touchActive = function (tab) {
+        var active = tab.getActive();
+        if (active) {
+            if (active._cmp && active._cmp.instance.ionSelected) {
+                active._cmp.instance.ionSelected();
+            }
+            else if (tab.length() > 1) {
+                tab.popToRoot(null, null);
+            }
+            else if (tab.root !== active.component) {
+                tab.setRoot(tab.root);
+            }
+        }
+    };
+    Tabs.prototype.setTabbarPosition = function (top, bottom) {
+        if (this._top !== top || this._bottom !== bottom) {
+            var tabbarEle = this._tabbar.nativeElement;
+            tabbarEle.style.top = (top > -1 ? top + 'px' : '');
+            tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '');
+            tabbarEle.classList.add('show-tabbar');
+            this._top = top;
+            this._bottom = bottom;
+        }
+    };
+    Tabs.decorators = [
+        { type: Component, args: [{
+                    selector: 'ion-tabs',
+                    template: '<div class="tabbar" role="tablist" #tabbar>' +
+                        '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
+                        '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
+                        '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
+                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [color]="t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
+                        '<div class="button-effect"></div>' +
+                        '</a>' +
+                        '<div class="tab-highlight"></div>' +
+                        '</div>' +
+                        '<ng-content></ng-content>' +
+                        '<div #portal tab-portal></div>',
+                    encapsulation: ViewEncapsulation.None,
+                },] },
+    ];
+    Tabs.ctorParameters = [
+        { type: NavController, decorators: [{ type: Optional },] },
+        { type: ViewController, decorators: [{ type: Optional },] },
+        { type: App, },
+        { type: Config, },
+        { type: ElementRef, },
+        { type: Platform, },
+        { type: Renderer, },
+        { type: DeepLinker, },
+    ];
+    Tabs.propDecorators = {
+        'color': [{ type: Input },],
+        'mode': [{ type: Input },],
+        'selectedIndex': [{ type: Input },],
+        'tabsLayout': [{ type: Input },],
+        'tabsPlacement': [{ type: Input },],
+        'tabsHighlight': [{ type: Input },],
+        'ionChange': [{ type: Output },],
+        '_highlight': [{ type: ViewChild, args: [TabHighlight,] },],
+        '_tabbar': [{ type: ViewChild, args: ['tabbar',] },],
+        'portal': [{ type: ViewChild, args: ['portal', { read: ViewContainerRef },] },],
+    };
+    return Tabs;
+}(Ion));
+var tabIds = -1;
+
+var __extends$92 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Content = (function (_super) {
+    __extends$92(Content, _super);
+    function Content(config, elementRef, renderer, _app, _keyboard, _zone, viewCtrl, _tabs) {
+        _super.call(this, config, elementRef, renderer);
+        this._app = _app;
+        this._keyboard = _keyboard;
+        this._zone = _zone;
+        this._tabs = _tabs;
+        this._inputPolling = false;
+        this._mode = config.get('mode');
+        this._setMode('content', this._mode);
+        this._sbPadding = config.getBoolean('statusbarPadding', false);
+        if (viewCtrl) {
+            viewCtrl._setIONContent(this);
+            viewCtrl._setIONContentRef(elementRef);
+        }
+    }
+    Content.prototype.ngOnInit = function () {
+        var _this = this;
+        var children = this._elementRef.nativeElement.children;
+        (void 0);
+        this._fixedEle = children[0];
+        this._scrollEle = children[1];
+        this._zone.runOutsideAngular(function () {
+            _this._scroll = new ScrollView(_this._scrollEle);
+            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
+        });
+    };
+    Content.prototype.ngOnDestroy = function () {
+        this._scLsn && this._scLsn();
+        this._scroll && this._scroll.destroy();
+        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
+    };
+    Content.prototype.addScrollListener = function (handler) {
+        return this._addListener('scroll', handler);
+    };
+    Content.prototype.addTouchStartListener = function (handler) {
+        return this._addListener('touchstart', handler);
+    };
+    Content.prototype.addTouchMoveListener = function (handler) {
+        return this._addListener('touchmove', handler);
+    };
+    Content.prototype.addTouchEndListener = function (handler) {
+        return this._addListener('touchend', handler);
+    };
+    Content.prototype.addMouseDownListener = function (handler) {
+        return this._addListener('mousedown', handler);
+    };
+    Content.prototype.addMouseUpListener = function (handler) {
+        return this._addListener('mouseup', handler);
+    };
+    Content.prototype.addMouseMoveListener = function (handler) {
+        return this._addListener('mousemove', handler);
+    };
+    Content.prototype._addListener = function (type, handler) {
+        var _this = this;
+        (void 0);
+        (void 0);
+        this._scrollEle.removeEventListener(type, handler);
+        this._scrollEle.addEventListener(type, handler);
+        return function () {
+            if (_this._scrollEle) {
+                _this._scrollEle.removeEventListener(type, handler);
+            }
+        };
+    };
+    Content.prototype.getScrollElement = function () {
+        return this._scrollEle;
+    };
+    Content.prototype.onScrollEnd = function (callback) {
+        var lastScrollTop = null;
+        var framesUnchanged = 0;
+        var _scrollEle = this._scrollEle;
+        function next() {
+            var currentScrollTop = _scrollEle.scrollTop;
+            if (lastScrollTop !== null) {
+                if (Math.round(lastScrollTop) === Math.round(currentScrollTop)) {
+                    framesUnchanged++;
+                }
+                else {
+                    framesUnchanged = 0;
+                }
+                if (framesUnchanged > 9) {
+                    return callback();
+                }
+            }
+            lastScrollTop = currentScrollTop;
+            nativeRaf(function () {
+                nativeRaf(next);
+            });
+        }
+        nativeTimeout(next, 100);
+    };
+    Content.prototype.onScrollElementTransitionEnd = function (callback) {
+        transitionEnd(this._scrollEle, callback);
+    };
+    Content.prototype.scrollTo = function (x, y, duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollTo(x, y, duration);
+    };
+    Content.prototype.scrollToTop = function (duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollToTop(duration);
+    };
+    Content.prototype.getScrollTop = function () {
+        return this._scroll.getTop();
+    };
+    Content.prototype.setScrollTop = function (top) {
+        this._scroll.setTop(top);
+    };
+    Content.prototype.scrollToBottom = function (duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollToBottom(duration);
+    };
+    Content.prototype.jsScroll = function (onScrollCallback) {
+        return this._scroll.jsScroll(onScrollCallback);
+    };
+    Object.defineProperty(Content.prototype, "fullscreen", {
+        get: function () {
+            return !!this._fullscreen;
+        },
+        set: function (val) {
+            this._fullscreen = isTrueProperty(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Content.prototype.setScrollElementStyle = function (prop, val) {
+        this._scrollEle.style[prop] = val;
+    };
+    Content.prototype.getContentDimensions = function () {
+        var _scrollEle = this._scrollEle;
+        var parentElement = _scrollEle.parentElement;
+        return {
+            contentHeight: parentElement.offsetHeight,
+            contentTop: parentElement.offsetTop,
+            contentBottom: parentElement.offsetTop + parentElement.offsetHeight,
+            contentWidth: parentElement.offsetWidth,
+            contentLeft: parentElement.offsetLeft,
+            contentRight: parentElement.offsetLeft + parentElement.offsetWidth,
+            scrollHeight: _scrollEle.scrollHeight,
+            scrollTop: _scrollEle.scrollTop,
+            scrollBottom: _scrollEle.scrollTop + _scrollEle.scrollHeight,
+            scrollWidth: _scrollEle.scrollWidth,
+            scrollLeft: _scrollEle.scrollLeft,
+            scrollRight: _scrollEle.scrollLeft + _scrollEle.scrollWidth,
+        };
+    };
+    Content.prototype.addScrollPadding = function (newPadding) {
+        if (newPadding > this._scrollPadding) {
+            (void 0);
+            this._scrollPadding = newPadding;
+            this._scrollEle.style.paddingBottom = newPadding + 'px';
+        }
+    };
+    Content.prototype.clearScrollPaddingFocusOut = function () {
+        var _this = this;
+        if (!this._inputPolling) {
+            this._inputPolling = true;
+            this._keyboard.onClose(function () {
+                _this._scrollPadding = 0;
+                _this._scrollEle.style.paddingBottom = (_this._paddingBottom > 0 ? _this._paddingBottom + 'px' : '');
+                _this._inputPolling = false;
+                _this.addScrollPadding(0);
+            }, 200, Infinity);
+        }
+    };
+    Content.prototype.resize = function () {
+        var _this = this;
+        nativeRaf(function () {
+            _this.readDimensions();
+            _this.writeDimensions();
+        });
+    };
+    Content.prototype.readDimensions = function () {
+        this._paddingTop = 0;
+        this._paddingRight = 0;
+        this._paddingBottom = 0;
+        this._paddingLeft = 0;
+        this._headerHeight = 0;
+        this._footerHeight = 0;
+        this._tabsPlacement = null;
+        var ele = this._elementRef.nativeElement;
+        if (!ele) {
+            (void 0);
+            return;
+        }
+        var computedStyle;
+        var tagName;
+        var parentEle = ele.parentElement;
+        var children = parentEle.children;
+        for (var i = children.length - 1; i >= 0; i--) {
+            ele = children[i];
+            tagName = ele.tagName;
+            if (tagName === 'ION-CONTENT') {
+                if (this._fullscreen) {
+                    computedStyle = getComputedStyle(ele);
+                    this._paddingTop = parsePxUnit(computedStyle.paddingTop);
+                    this._paddingBottom = parsePxUnit(computedStyle.paddingBottom);
+                    this._paddingRight = parsePxUnit(computedStyle.paddingRight);
+                    this._paddingLeft = parsePxUnit(computedStyle.paddingLeft);
+                }
+            }
+            else if (tagName === 'ION-HEADER') {
+                this._headerHeight = ele.clientHeight;
+            }
+            else if (tagName === 'ION-FOOTER') {
+                this._footerHeight = ele.clientHeight;
+                this._footerEle = ele;
+            }
+        }
+        ele = parentEle;
+        var tabbarEle;
+        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
+            if (ele.tagName === 'ION-TABS') {
+                tabbarEle = ele.firstElementChild;
+                this._tabbarHeight = tabbarEle.clientHeight;
+                if (this._tabsPlacement === null) {
+                    this._tabsPlacement = ele.getAttribute('tabsplacement');
+                }
+            }
+            ele = ele.parentElement;
+        }
+    };
+    Content.prototype.writeDimensions = function () {
+        var scrollEle = this._scrollEle;
+        if (!scrollEle) {
+            (void 0);
+            return;
+        }
+        var fixedEle = this._fixedEle;
+        if (!fixedEle) {
+            (void 0);
+            return;
+        }
+        var contentTop = this._headerHeight;
+        var contentBottom = this._footerHeight;
+        if (this._tabsPlacement === 'top') {
+            contentTop += this._tabbarHeight;
+        }
+        else if (this._tabsPlacement === 'bottom') {
+            contentBottom += this._tabbarHeight;
+            if (contentBottom > 0 && this._footerEle) {
+                this._footerEle.style.bottom = cssFormat(contentBottom - this._footerHeight);
+            }
+        }
+        var topProperty = 'marginTop';
+        var bottomProperty = 'marginBottom';
+        var fixedTop = contentTop;
+        var fixedBottom = contentBottom;
+        if (this._fullscreen) {
+            contentTop += this._paddingTop;
+            contentBottom += this._paddingBottom;
+            topProperty = 'paddingTop';
+            bottomProperty = 'paddingBottom';
+        }
+        if (contentTop !== this.contentTop) {
+            scrollEle.style[topProperty] = cssFormat(contentTop);
+            fixedEle.style.marginTop = cssFormat(fixedTop);
+            this.contentTop = contentTop;
+        }
+        if (contentBottom !== this.contentBottom) {
+            scrollEle.style[bottomProperty] = cssFormat(contentBottom);
+            fixedEle.style.marginBottom = cssFormat(fixedBottom);
+            this.contentBottom = contentBottom;
+        }
+        if (this._tabsPlacement !== null && this._tabs) {
+            if (this._tabsPlacement === 'top') {
+                this._tabs.setTabbarPosition(this._headerHeight, -1);
+            }
+            else {
+                this._tabs.setTabbarPosition(-1, 0);
+            }
+        }
+    };
+    Content.decorators = [
+        { type: Component, args: [{
+                    selector: 'ion-content',
+                    template: '<div class="fixed-content">' +
+                        '<ng-content select="[ion-fixed],ion-fab"></ng-content>' +
+                        '</div>' +
+                        '<div class="scroll-content">' +
+                        '<ng-content></ng-content>' +
+                        '</div>' +
+                        '<ng-content select="ion-refresher"></ng-content>',
+                    host: {
+                        '[class.statusbar-padding]': '_sbPadding'
+                    },
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    encapsulation: ViewEncapsulation.None
+                },] },
+    ];
+    Content.ctorParameters = [
+        { type: Config, },
+        { type: ElementRef, },
+        { type: Renderer, },
+        { type: App, },
+        { type: Keyboard, },
+        { type: NgZone, },
+        { type: ViewController, decorators: [{ type: Optional },] },
+        { type: Tabs, decorators: [{ type: Optional },] },
+    ];
+    Content.propDecorators = {
+        'fullscreen': [{ type: Input },],
+    };
+    return Content;
+}(Ion));
+function parsePxUnit(val) {
+    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
+}
+function cssFormat(val) {
+    return (val > 0 ? val + 'px' : '');
+}
 
 function renderDateTime(template, value, locale) {
     if (isBlank$5(value)) {
@@ -33918,7 +33987,7 @@ var DateTime = (function (_super) {
         if (this._disabled) {
             return;
         }
-        // console.debug('datetime, open picker');
+        (void 0);
         var pickerOptions = merge$1({}, this.pickerOptions);
         var picker = this._pickerCtrl.create(pickerOptions);
         pickerOptions.buttons = [
@@ -33932,7 +34001,7 @@ var DateTime = (function (_super) {
             {
                 text: this.doneText,
                 handler: function (data) {
-                    console.log('datetime, done', data);
+                    (void 0);
                     _this.onChange(data);
                     _this.ionChange.emit(data);
                 }
@@ -34124,7 +34193,7 @@ var DateTime = (function (_super) {
         configurable: true
     });
     DateTime.prototype.writeValue = function (val) {
-        // console.debug('datetime, writeValue', val);
+        (void 0);
         this.setValue(val);
         this.updateText();
         this.checkHasValue(val);
@@ -34140,7 +34209,7 @@ var DateTime = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('datetime, onChange', val);
+            (void 0);
             _this.setValue(val);
             _this.updateText();
             _this.checkHasValue(val);
@@ -34150,7 +34219,7 @@ var DateTime = (function (_super) {
     };
     DateTime.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     DateTime.prototype.onChange = function (val) {
-        // console.debug('datetime, onChange w/out formControlName', val);
+        (void 0);
         this.setValue(val);
         this.updateText();
         this.onTouched();
@@ -34915,7 +34984,7 @@ var ItemReorder = (function () {
                 setTimeout(function () { return _this._enableReorder = false; }, 400);
             }
             else if (enabled && !this._reorderGesture) {
-                // console.debug('enableReorderItems');
+                (void 0);
                 this._reorderGesture = new ItemReorderGesture(this);
                 this._enableReorder = true;
                 zoneRafFrames(2, function () { return _this._visibleReorder = true; });
@@ -35203,7 +35272,7 @@ var List = (function (_super) {
             this._slidingGesture = null;
         }
         else if (!this._slidingGesture) {
-            // console.debug('enableSlidingItems');
+            (void 0);
             this._slidingGesture = new ItemSlidingGesture(this);
             this._slidingGesture.listen();
         }
@@ -35344,7 +35413,9 @@ var ItemSliding = (function () {
                 openAmount = Math.min(0, openAmount);
                 break;
             case 3: break;
-            default: return;
+            default:
+                (void 0);
+                break;
         }
         if (openAmount > this._optsWidthRightSide) {
             var optsWidth = this._optsWidthRightSide;
@@ -35389,10 +35460,12 @@ var ItemSliding = (function () {
             _this._optsWidthRightSide = 0;
             if (_this._rightOptions) {
                 _this._optsWidthRightSide = _this._rightOptions.width();
+                (void 0);
             }
             _this._optsWidthLeftSide = 0;
             if (_this._leftOptions) {
                 _this._optsWidthLeftSide = _this._leftOptions.width();
+                (void 0);
             }
             _this._optsDirty = false;
         });
@@ -35547,13 +35620,13 @@ var MenuContentGesture = (function (_super) {
         return _super.prototype.canStart.call(this, ev);
     };
     MenuContentGesture.prototype.onSlideBeforeStart = function (ev) {
-        // console.debug('menu gesture, onSlideBeforeStart', this.menu.side);
+        (void 0);
         this.menu.swipeStart();
     };
     MenuContentGesture.prototype.onSlide = function (slide, ev) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var stepValue = (slide.distance / z);
-        // console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
+        (void 0);
         ev.preventDefault();
         this.menu.swipeProgress(stepValue);
     };
@@ -35566,15 +35639,7 @@ var MenuContentGesture = (function (_super) {
             && (velocity > 0.2 || slide.delta > z);
         var shouldCompleteLeft = (velocity <= 0)
             && (velocity < -0.2 || slide.delta < -z);
-        // console.debug('menu gesture, onSlideEnd', this.menu.side);
-        // console.debug('distance', slide.distance);
-        // console.debug('delta', slide.delta);
-        // console.debug('velocity', velocity);
-        // console.debug('min', slide.min);
-        // console.debug('max', slide.max);
-        // console.debug('shouldCompleteLeft', shouldCompleteLeft);
-        // console.debug('shouldCompleteRight', shouldCompleteRight);
-        // console.debug('currentStepValue', currentStepValue);
+        (void 0);
         this.menu.swipeEnd(shouldCompleteLeft, shouldCompleteRight, currentStepValue);
     };
     MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
@@ -35690,11 +35755,11 @@ var Menu = (function () {
             return;
         }
         if (this._isEnabled && this._isSwipeEnabled && !this._cntGesture.isListening) {
-            // console.debug('menu, gesture listen', this.side);
+            (void 0);
             this._cntGesture.listen();
         }
         else if (this._cntGesture.isListening && (!this._isEnabled || !this._isSwipeEnabled)) {
-            // console.debug('menu, gesture unlisten', this.side);
+            (void 0);
             this._cntGesture.unlisten();
         }
     };
@@ -35751,7 +35816,7 @@ var Menu = (function () {
             shouldComplete = (this.side === 'right') ? shouldCompleteRight : shouldCompleteLeft;
         }
         this._getType().setProgressEnd(shouldComplete, stepValue, function (isOpen) {
-            // console.debug('menu, swipeEnd', _this.side);
+            (void 0);
             _this._after(isOpen);
         });
     };
@@ -36197,10 +36262,10 @@ var NativeInput = (function () {
             }
         }
         if (self._blurring) {
-            // console.debug('input blurring enabled');
+            (void 0);
             document.addEventListener('touchend', docTouchEnd, true);
             self._unrefBlur = function () {
-                // console.debug('input blurring disabled');
+                (void 0);
                 document.removeEventListener('touchend', docTouchEnd, true);
             };
         }
@@ -36250,7 +36315,7 @@ var NativeInput = (function () {
     };
     NativeInput.prototype.hideFocus = function (shouldHideFocus) {
         var focusedInputEle = this.element();
-        // console.debug("native input hideFocus, shouldHideFocus: " + shouldHideFocus + ", input value: " + focusedInputEle.value);
+        (void 0);
         if (shouldHideFocus) {
             var clonedInputEle = cloneInput(focusedInputEle, 'cloned-move');
             focusedInputEle.classList.add('cloned-active');
@@ -36319,7 +36384,7 @@ var NextInput = (function () {
         this.focused = new EventEmitter();
     }
     NextInput.prototype.receivedFocus = function () {
-        // console.debug('native-input, next-input received focus');
+        (void 0);
         this.focused.emit(true);
     };
     NextInput.decorators = [
@@ -36474,21 +36539,21 @@ var NavPopAnchor = (function () {
     NavPopAnchor.prototype.updateHref = function () {
         if (this.host && this.viewCtrl) {
             var previousView = this.host._nav.getPrevious(this.viewCtrl);
-            this.href = (previousView && this.linker.createUrl(this.host._nav, this.viewCtrl.component, this.viewCtrl.data)) || '#';
+            this._href = (previousView && this.linker.createUrl(this.host._nav, this.viewCtrl.component, this.viewCtrl.data)) || '#';
         }
         else {
-            this.href = '#';
+            this._href = '#';
         }
     };
-    NavPopAnchor.prototype.ngOnChanges = function () {
-        this.updateHref();
-    };
-    NavPopAnchor.prototype.ngAfterViewInit = function () {
+    NavPopAnchor.prototype.ngAfterContentInit = function () {
         this.updateHref();
     };
     NavPopAnchor.decorators = [
         { type: Directive, args: [{
-                    selector: 'a[navPop]'
+                    selector: 'a[navPop]',
+                    host: {
+                        '[attr.href]': '_href'
+                    }
                 },] },
     ];
     NavPopAnchor.ctorParameters = [
@@ -36496,9 +36561,6 @@ var NavPopAnchor = (function () {
         { type: DeepLinker, },
         { type: ViewController, decorators: [{ type: Optional },] },
     ];
-    NavPopAnchor.propDecorators = {
-        'href': [{ type: HostBinding },],
-    };
     return NavPopAnchor;
 }());
 
@@ -36538,30 +36600,27 @@ var NavPushAnchor = (function () {
     }
     NavPushAnchor.prototype.updateHref = function () {
         if (this.host && this.linker) {
-            this.href = this.linker.createUrl(this.host._nav, this.host.navPush, this.host.navParams) || '#';
+            this._href = this.linker.createUrl(this.host._nav, this.host.navPush, this.host.navParams) || '#';
         }
         else {
-            this.href = '#';
+            this._href = '#';
         }
     };
-    NavPushAnchor.prototype.ngOnChanges = function () {
-        this.updateHref();
-    };
-    NavPushAnchor.prototype.ngAfterViewInit = function () {
+    NavPushAnchor.prototype.ngAfterContentInit = function () {
         this.updateHref();
     };
     NavPushAnchor.decorators = [
         { type: Directive, args: [{
-                    selector: 'a[navPush]'
+                    selector: 'a[navPush]',
+                    host: {
+                        '[attr.href]': '_href'
+                    }
                 },] },
     ];
     NavPushAnchor.ctorParameters = [
         { type: NavPush, decorators: [{ type: Host },] },
         { type: DeepLinker, decorators: [{ type: Optional },] },
     ];
-    NavPushAnchor.propDecorators = {
-        'href': [{ type: HostBinding },],
-    };
     return NavPushAnchor;
 }());
 
@@ -36663,7 +36722,7 @@ var RadioGroup = (function () {
         }
     };
     RadioGroup.prototype.writeValue = function (val) {
-        // console.debug('radio group, writeValue', val);
+        (void 0);
         this.value = val;
         if (this._init) {
             this._update();
@@ -36676,7 +36735,7 @@ var RadioGroup = (function () {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('radio group, onChange', val);
+            (void 0);
             fn(val);
             _this.value = val;
             _this._update();
@@ -36729,7 +36788,7 @@ var RadioGroup = (function () {
         configurable: true
     });
     RadioGroup.prototype.onChange = function (val) {
-        // console.debug('radio group, onChange w/out formControlName', val);
+        (void 0);
         this.value = val;
         this._update();
         this.onTouched();
@@ -36836,7 +36895,7 @@ var RadioButton = (function (_super) {
         configurable: true
     });
     RadioButton.prototype._click = function (ev) {
-        // console.debug('radio, select', this.id);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.checked = true;
@@ -37152,7 +37211,7 @@ var Range = (function (_super) {
         if (this._disabled) {
             return false;
         }
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this._start = pointerCoord(ev);
@@ -37174,7 +37233,7 @@ var Range = (function (_super) {
         return true;
     };
     Range.prototype.pointerMove = function (ev) {
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -37182,7 +37241,7 @@ var Range = (function (_super) {
         this._pressed = this._active.pressed = true;
     };
     Range.prototype.pointerUp = function (ev) {
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -37446,7 +37505,7 @@ var Refresher = (function () {
             return false;
         }
         var coord = pointerCoord(ev);
-        // console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
+        (void 0);
         if (this._content.contentTop > 0) {
             var newTop = this._content.contentTop + 'px';
             if (this._top !== newTop) {
@@ -38073,7 +38132,7 @@ var SegmentButton = (function () {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
     };
     SegmentButton.prototype.onClick = function () {
-        // console.debug('SegmentButton, select', this.value);
+        (void 0);
         this.ionSelect.emit(this);
     };
     SegmentButton.prototype.ngOnInit = function () {
@@ -38270,7 +38329,7 @@ var Select = (function (_super) {
         if (this._disabled) {
             return;
         }
-        // console.debug('select, open alert');
+        (void 0);
         var selectOptions = merge$1({}, this.selectOptions);
         selectOptions.buttons = [{
                 text: this.cancelText,
@@ -38398,7 +38457,7 @@ var Select = (function (_super) {
         configurable: true
     });
     Select.prototype.writeValue = function (val) {
-        // console.debug('select, writeValue', val);
+        (void 0);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
     };
@@ -38409,7 +38468,7 @@ var Select = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('select, onChange', val);
+            (void 0);
             fn(val);
             _this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
             _this._updOpts();
@@ -38418,7 +38477,7 @@ var Select = (function (_super) {
     };
     Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     Select.prototype.onChange = function (val) {
-        // console.debug('select, onChange w/out formControlName', val);
+        (void 0);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
         this.onTouched();
@@ -41005,7 +41064,7 @@ function Swiper(container, params) {
 
       // Attach/detach events
       s.initEvents = function (detach) {
-          // console.debug('swiper initEvents', detach ? 'detach' : 'attach');
+          console.debug('swiper initEvents', detach ? 'detach' : 'attach');
           var actionDom = detach ? 'off' : 'on';
           var action = detach ? 'removeEventListener' : 'addEventListener';
           var touchEventsTarget = s.params.touchEventsTarget === 'container' ? s.container[0] : s.wrapper[0];
@@ -44080,11 +44139,11 @@ var Slides = (function (_super) {
         });
         this.zoomGesture.on('pinchstart', function (e) {
             lastScale = _this.scale;
-            // console.debug('Last scale', e.scale);
+            (void 0);
         });
         this.zoomGesture.on('pinch', function (e) {
             _this.scale = Math.max(1, Math.min(lastScale * e.scale, 10));
-            // console.debug('Scaling', _this.scale);
+            (void 0);
             _this.zoomElement.style[CSS.transform] = 'scale(' + _this.scale + ')';
             zoomRect = _this.zoomElement.getBoundingClientRect();
         });
@@ -44110,11 +44169,11 @@ var Slides = (function (_super) {
         this.zoomLastPosY = 0;
     };
     Slides.prototype.toggleZoom = function (swiper, e) {
-        // console.debug('Try toggle zoom');
+        (void 0);
         if (!this.enableZoom) {
             return;
         }
-        // console.debug('Toggling zoom', e);
+        (void 0);
         var zi = new Animation(this.touch.target.children[0])
             .duration(this.zoomDuration)
             .easing('linear');
@@ -44138,7 +44197,7 @@ var Slides = (function (_super) {
     Slides.prototype.onTransitionEnd = function (swiper, e) {
     };
     Slides.prototype.onTouchStart = function (e) {
-        // console.debug('Touch start', e);
+        (void 0);
         var target = e.target.closest('.slide').children[0].children[0];
         this.touch = {
             x: null,
@@ -44154,7 +44213,7 @@ var Slides = (function (_super) {
             zoomableWidth: target.offsetWidth,
             zoomableHeight: target.offsetHeight
         };
-        // console.debug('Target', this.touch.target);
+        (void 0);
     };
     Slides.prototype.onTouchMove = function (e) {
         this.touch.deltaX = e.touches[0].clientX - this.touch.startX;
@@ -44165,25 +44224,25 @@ var Slides = (function (_super) {
         var x2 = -x1;
         var y1 = Math.min((this.viewportHeight / 2) - zoomableScaledHeight / 2, 0);
         var y2 = -y1;
-        // console.debug('BOUNDS', x1, x2, y1, y2);
+        (void 0);
         if (this.scale <= 1) {
             return;
         }
-        // console.debug('PAN', e);
+        (void 0);
         this.touch.x = this.touch.deltaX + this.touch.lastX;
         this.touch.y = this.touch.deltaY + this.touch.lastY;
         if (this.touch.x < x1) {
-            // console.debug('OUT ON LEFT');
+            (void 0);
         }
         if (this.touch.x > x2) {
-            // console.debug('OUT ON RIGHT');
+            (void 0);
         }
         if (this.touch.x > this.viewportWidth) {
         }
         else if (-this.touch.x > this.viewportWidth) {
         }
         else {
-            // console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
+            (void 0);
             this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
             e.preventDefault();
             e.stopPropagation();
@@ -44191,11 +44250,11 @@ var Slides = (function (_super) {
         }
     };
     Slides.prototype.onTouchEnd = function (e) {
-        // console.debug('PANEND', e);
+        (void 0);
         if (this.scale > 1) {
             if (Math.abs(this.touch.x) > this.viewportWidth) {
                 var posX = posX > 0 ? this.viewportWidth - 1 : -(this.viewportWidth - 1);
-                // console.debug('Setting on posx', this.touch.x);
+                (void 0);
             }
             this.touch.lastX = this.touch.x;
             this.touch.lastY = this.touch.y;
@@ -44586,12 +44645,12 @@ var Tab = (function (_super) {
             done(true);
         }
     };
-    Tab.prototype._viewInsert = function (viewCtrl, componentRef, viewport) {
+    Tab.prototype._viewAttachToDOM = function (viewCtrl, componentRef, viewport) {
         var isTabSubPage = (this.parent._subPages && viewCtrl.index > 0);
         if (isTabSubPage) {
             viewport = this.parent.portal;
         }
-        _super.prototype._viewInsert.call(this, viewCtrl, componentRef, viewport);
+        _super.prototype._viewAttachToDOM.call(this, viewCtrl, componentRef, viewport);
         if (isTabSubPage) {
             var pageEleRef = viewCtrl.pageRef();
             if (pageEleRef) {
@@ -44886,7 +44945,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerStart = function (ev) {
-        // console.debug('scroll assist pointerStart', ev.type);
+        (void 0);
         if (ev.type === 'touchstart') {
             this._isTouch = true;
         }
@@ -44895,7 +44954,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerEnd = function (ev) {
-        // console.debug('scroll assist pointerEnd', ev.type);
+        (void 0);
         if ((this._isTouch && ev.type === 'mouseup') || !this._app.isEnabled()) {
             ev.preventDefault();
             ev.stopPropagation();
@@ -44905,7 +44964,7 @@ var InputBase = (function (_super) {
             if (!hasPointerMoved(8, this._coord, endCoord) && !this.hasFocus()) {
                 ev.preventDefault();
                 ev.stopPropagation();
-                // console.debug('initFocus', ev.type);
+                (void 0);
                 this.initFocus();
             }
         }
@@ -44948,7 +45007,7 @@ var InputBase = (function (_super) {
     };
     InputBase.prototype.setFocus = function () {
         this._form.setAsFocused(this);
-        // console.debug("input-base, setFocus " + this._native.element().value);
+        (void 0);
         this._native.setFocus();
         document.body.scrollTop = 0;
     };
@@ -45117,7 +45176,7 @@ var TextInput = (function (_super) {
         this._form.deregister(this);
     };
     TextInput.prototype.clearTextInput = function () {
-        // console.debug('Should clear input');
+        (void 0);
         this._value = '';
         this.onChange(this._value);
         this.writeValue(this._value);
@@ -45339,7 +45398,7 @@ var Toggle = (function (_super) {
     Toggle.prototype.pointerMove = function (ev) {
         if (this._startX) {
             var currentX = pointerCoord(ev).x;
-            // console.debug('toggle, pointerMove', ev.type, currentX);
+            (void 0);
             if (this._checked) {
                 if (currentX + 15 < this._startX) {
                     this.onChange(false);
@@ -45414,7 +45473,7 @@ var Toggle = (function (_super) {
         configurable: true
     });
     Toggle.prototype.onChange = function (isChecked) {
-        // console.debug('toggle, onChange', isChecked);
+        (void 0);
         this._fn && this._fn(isChecked);
         this._setChecked(isChecked);
         this.onTouched();
@@ -46135,7 +46194,7 @@ var VirtualScroll = (function () {
             }
             this.update(true);
             this._platform.onResize(function () {
-                // console.debug('VirtualScroll, onResize');
+                (void 0);
                 _this.update(false);
             });
         }
@@ -46151,7 +46210,7 @@ var VirtualScroll = (function () {
                     return;
             }
         }
-        // console.debug('VirtualScroll, update, records:', self._records.length);
+        (void 0);
         self._cells.length = 0;
         self._nodes.length = 0;
         self._itmTmp.viewContainer.clear();
@@ -46239,7 +46298,7 @@ var VirtualScroll = (function () {
         if (newVirtualHeight !== this._vHeight) {
             this._renderer.setElementStyle(this._elementRef.nativeElement, 'height', newVirtualHeight > 0 ? newVirtualHeight + 'px' : '');
             this._vHeight = newVirtualHeight;
-            // console.debug('VirtualScroll, height', newVirtualHeight);
+            (void 0);
         }
     };
     VirtualScroll.prototype.addScrollListener = function () {

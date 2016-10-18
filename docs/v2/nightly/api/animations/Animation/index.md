@@ -95,6 +95,26 @@ Improve this doc
 
 
 
+<div id="hasChildren"></div>
+
+<h3>
+<a class="anchor" name="hasChildren" href="#hasChildren"></a>
+<code>hasChildren</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="isPlaying"></div>
 
 <h3>

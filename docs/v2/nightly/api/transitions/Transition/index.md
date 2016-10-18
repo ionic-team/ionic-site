@@ -75,26 +75,6 @@ Improve this doc
 
 
 
-<div id="hasChildTrns"></div>
-
-<h3>
-<a class="anchor" name="hasChildTrns" href="#hasChildTrns"></a>
-<code>hasChildTrns</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="trnsId"></div>
 
 <h3>
@@ -180,6 +160,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="registerStart" href="#registerStart"></a>
 <code>registerStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isRoot"></div>
+
+<h3>
+<a class="anchor" name="isRoot" href="#isRoot"></a>
+<code>isRoot()</code>
   
 
 </h3>

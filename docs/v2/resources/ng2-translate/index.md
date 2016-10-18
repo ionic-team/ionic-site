@@ -10,26 +10,43 @@ header_sub_title: Ionic Resources
 
 ### Installing
 
-For the latest version of Ionic 2, which runs on Angular 2 RC4, let’s install the release of NG2-Translate that’s built for Angular 2 RC4. To install the correct version, run `npm install ng2-translate@2.2.2 --save --save-exact`.
+To install NG2-Translate run `npm install ng2-translate --save`.
 
 ### Bootstrapping
 
-To use NG2-Translate, it must first be imported and added it to the `ionicBootstrap` in the application. Here’s an example of how to do this:
+To use NG2-Translate, it must first be imported and added to the imports array in the NgModule of the application. Here’s an example of how to do this:
 
 ```typescript
-import { TranslateService, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslateModule } from 'ng2-translate/ng2-translate';
 
-ionicBootstrap(MyApp, [
-  { 
-    provide: TranslateLoader,
-    useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
-    deps: [Http]
-  },
-  TranslateService
-]);
+@NgModule({
+  imports: [
+    TranslateModule.forRoot()
+  ]
+})
 ```
 
-This loads the `TranslateService`, sets the default loader, and also bootstraps the Angular 2 HTTP module, which NG2-Translate requires. Normally, we’d also have to import the Angular 2 HTTP module, but because Ionic 2 already provides it , there’s no need to import and bootstrap it again. The most important part here is the `TranslateStaticLoader` constructor. The first argument is injecting the Angular 2 HTTP module, which it uses to fetch each translation file. The second argument is the path to the app’s translation assets, and the third argument is the type of file that the translation assets are in (usually json).
+By default this will look for your translation json files in `i18n/`, if you would like to customize this path you can create a function that returns a new
+TranslateLoader:
+
+```typescript
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
+```
+and then change your `@NgModule` to look like the following example:
+
+```typescript
+@NgModule({
+  imports: [
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    })
+  ]
+})
+```
 
 ### Usage
 
@@ -42,7 +59,7 @@ es.json
 }
 ```
 
-en.json 
+en.json
 ```json
   {
       “HELLO”: “hello”

@@ -35,16 +35,16 @@
 
   &.primary,
   &.btn-primary {
-    background: $blue;
+    background: $light-blue;
 
     &:hover,
     &:focus {
-      background: darken($blue, 10);
+      background: darken($lightblue, 10);
     }
 
     &.outline {
       background: transparent;
-      color: $blue;
+      color: $lightblue;
     }
   }
 

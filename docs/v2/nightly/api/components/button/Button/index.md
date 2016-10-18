@@ -124,63 +124,63 @@ and be enhanced by a wide range of attributes.</p>
     
     <tr>
       <td>large</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Large button.</p>
 </td>
     </tr>
     
     <tr>
       <td>small</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Small button.</p>
 </td>
     </tr>
     
     <tr>
       <td>default</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Default button.</p>
 </td>
     </tr>
     
     <tr>
       <td>outline</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button with a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>clear</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button without a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>solid</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Force a solid button. Useful for buttons within an item.</p>
 </td>
     </tr>
     
     <tr>
       <td>round</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button with rounded corners.</p>
 </td>
     </tr>
     
     <tr>
       <td>block</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container with a border-radius.</p>
 </td>
     </tr>
     
     <tr>
       <td>full</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
 </td>
     </tr>

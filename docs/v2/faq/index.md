@@ -80,7 +80,7 @@ There are different reasons this can happen. If you are unable to find a solutio
 
 There are a few things you can check. Make sure:
 
-- You include it in the `directives` array of the `@Component` you want to use it in.
+- You include it in the `directives` array of the `@Component` you want to use it in (only if your ionic-angular version is below RC0).
 - Your selector doesn't have any misspellings.
 - You're using the selector correctly as an attribute, element or class.
 - Your selector has the [proper syntax](http://learnangular2.com/components/):
@@ -109,7 +109,7 @@ class MyDir {
   // and if you were attaching by class the template would be:
   // template: `<div class="my-dir">Hello World</div>`
 
-  directives: [MyDir] // <-- Don't forget me!
+  directives: [MyDir] // <-- Don't forget me! (only if your ionic-angular version is below RC0)
 })
 class MyPage {}
 ```

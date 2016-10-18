@@ -61,9 +61,9 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage();
-    this._appEl_0.initComponent(this._ApiDemoPage_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._ApiDemoPage_0_4,([] as any[]),compView_0);
     compView_0.create(this._ApiDemoPage_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -77,11 +77,11 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
+  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoPageNgFactory:import9.ComponentFactory<import3.ApiDemoPage> = new import9.ComponentFactory<import3.ApiDemoPage>('ng-component',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
-const styles_ApiDemoPage:any[] = [];
+const styles_ApiDemoPage:any[] = ([] as any[]);
 var renderType_ApiDemoPage:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   _el_0:any;
@@ -185,21 +185,21 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import20.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import11.Navbar(this.parentInjector.get(import21.App),this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import22.NavController,(null as any)),this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_4 = new import2.AppElement(4,2,this,this._el_4);
     var compView_4:any = import23.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import12.ToolbarTitle(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import10.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_4.initComponent(this._ToolbarTitle_4_4,[],compView_4);
+    this._appEl_4.initComponent(this._ToolbarTitle_4_4,([] as any[]),compView_4);
     this._text_5 = this.renderer.createText((null as any),'Searchbar',(null as any));
-    compView_4.create(this._ToolbarTitle_4_4,[[].concat([this._text_5])],(null as any));
+    compView_4.create(this._ToolbarTitle_4_4,[([] as any[]).concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      [],
-      [],
-      [],
-      [].concat([
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([
         this._text_3,
         this._el_4,
         this._text_6
@@ -214,21 +214,21 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_8 = new import2.AppElement(8,0,this,this._el_8);
     var compView_8:any = import24.viewFactory_Toolbar0(this.viewUtils,this.injector(8),this._appEl_8);
     this._Toolbar_8_4 = new import10.Toolbar(this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_8),this.renderer);
-    this._appEl_8.initComponent(this._Toolbar_8_4,[],compView_8);
+    this._appEl_8.initComponent(this._Toolbar_8_4,([] as any[]),compView_8);
     this._text_9 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_10 = this.renderer.createElement((null as any),'ion-searchbar',(null as any));
     this.renderer.setElementAttribute(this._el_10,'placeholder','Filter Items');
     this._appEl_10 = new import2.AppElement(10,8,this,this._el_10);
     var compView_10:any = import25.viewFactory_Searchbar0(this.viewUtils,this.injector(10),this._appEl_10);
     this._Searchbar_10_4 = new import13.Searchbar(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_10),this.renderer,this.parentInjector.get(import26.NgControl,(null as any)));
-    this._appEl_10.initComponent(this._Searchbar_10_4,[],compView_10);
-    compView_10.create(this._Searchbar_10_4,[],(null as any));
+    this._appEl_10.initComponent(this._Searchbar_10_4,([] as any[]),compView_10);
+    compView_10.create(this._Searchbar_10_4,([] as any[]),(null as any));
     this._text_11 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_8.create(this._Toolbar_8_4,[
-      [],
-      [],
-      [],
-      [].concat([
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([
         this._text_9,
         this._el_10,
         this._text_11
@@ -242,7 +242,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_14 = new import2.AppElement(14,(null as any),this,this._el_14);
     var compView_14:any = import27.viewFactory_Content0(this.viewUtils,this.injector(14),this._appEl_14);
     this._Content_14_4 = new import14.Content(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_14),this.renderer,this.parentInjector.get(import21.App),this.parentInjector.get(import28.Keyboard),this.parentInjector.get(import29.NgZone),this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import30.Tabs,(null as any)));
-    this._appEl_14.initComponent(this._Content_14_4,[],compView_14);
+    this._appEl_14.initComponent(this._Content_14_4,([] as any[]),compView_14);
     this._text_15 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_16 = this.renderer.createElement((null as any),'ion-searchbar',(null as any));
     this.renderer.setElementAttribute(this._el_16,'color','danger');
@@ -251,8 +251,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_16 = new import2.AppElement(16,14,this,this._el_16);
     var compView_16:any = import25.viewFactory_Searchbar0(this.viewUtils,this.injector(16),this._appEl_16);
     this._Searchbar_16_4 = new import13.Searchbar(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_16),this.renderer,this.parentInjector.get(import26.NgControl,(null as any)));
-    this._appEl_16.initComponent(this._Searchbar_16_4,[],compView_16);
-    compView_16.create(this._Searchbar_16_4,[],(null as any));
+    this._appEl_16.initComponent(this._Searchbar_16_4,([] as any[]),compView_16);
+    compView_16.create(this._Searchbar_16_4,([] as any[]),(null as any));
     this._text_17 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_18 = this.renderer.createElement((null as any),'p',(null as any));
     this.renderer.setElementAttribute(this._el_18,'padding-left','');
@@ -269,8 +269,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_24 = this.renderer.createText(this._el_21,'\n  ',(null as any));
     this._text_25 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_14.create(this._Content_14_4,[
-      [],
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([
         this._text_15,
         this._el_16,
         this._text_17,
@@ -280,7 +280,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
         this._text_25
       ]
       ),
-      []
+      ([] as any[])
     ]
     ,(null as any));
     this._text_26 = this.renderer.createText(parentRenderNode,'\n\n\n',(null as any));
@@ -293,21 +293,21 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_29 = new import2.AppElement(29,27,this,this._el_29);
     var compView_29:any = import24.viewFactory_Toolbar0(this.viewUtils,this.injector(29),this._appEl_29);
     this._Toolbar_29_4 = new import10.Toolbar(this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_29),this.renderer);
-    this._appEl_29.initComponent(this._Toolbar_29_4,[],compView_29);
+    this._appEl_29.initComponent(this._Toolbar_29_4,([] as any[]),compView_29);
     this._text_30 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_31 = this.renderer.createElement((null as any),'ion-searchbar',(null as any));
     this.renderer.setElementAttribute(this._el_31,'placeholder','Search');
     this._appEl_31 = new import2.AppElement(31,29,this,this._el_31);
     var compView_31:any = import25.viewFactory_Searchbar0(this.viewUtils,this.injector(31),this._appEl_31);
     this._Searchbar_31_4 = new import13.Searchbar(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_31),this.renderer,this.parentInjector.get(import26.NgControl,(null as any)));
-    this._appEl_31.initComponent(this._Searchbar_31_4,[],compView_31);
-    compView_31.create(this._Searchbar_31_4,[],(null as any));
+    this._appEl_31.initComponent(this._Searchbar_31_4,([] as any[]),compView_31);
+    compView_31.create(this._Searchbar_31_4,([] as any[]),(null as any));
     this._text_32 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_29.create(this._Toolbar_29_4,[
-      [],
-      [],
-      [],
-      [].concat([
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([
         this._text_30,
         this._el_31,
         this._text_32
@@ -353,7 +353,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._expr_31 = import7.UNINITIALIZED;
     this._expr_32 = import7.UNINITIALIZED;
     const subscription_2:any = this._Searchbar_31_4.ionInput.subscribe(this.eventHandler(this._handle_ionInput_31_0.bind(this)));
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -613,7 +613,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   }
 }
 export function viewFactory_ApiDemoPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoPage> {
-  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/searchbar/page.html',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
+  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
   return new _View_ApiDemoPage0(viewUtils,parentInjector,declarationEl);
 }
 class _View_ApiDemoPage1 extends import1.AppView<any> {
@@ -639,24 +639,24 @@ class _View_ApiDemoPage1 extends import1.AppView<any> {
     this._query_Label_0_0 = new import35.QueryList<any>();
     this._query_Button_0_1 = new import35.QueryList<any>();
     this._query_Icon_0_2 = new import35.QueryList<any>();
-    this._appEl_0.initComponent(this._Item_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._Item_0_4,([] as any[]),compView_0);
     this._text_1 = this.renderer.createText((null as any),'',(null as any));
-    this._query_Label_0_0.reset([]);
+    this._query_Label_0_0.reset(([] as any[]));
     this._Item_0_4.contentLabel = this._query_Label_0_0.first;
     compView_0.create(this._Item_0_4,[
-      [],
-      [],
-      [].concat([this._text_1]),
-      [],
-      []
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([this._text_1]),
+      ([] as any[]),
+      ([] as any[])
     ]
     ,(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init([].concat([this._el_0]),[
+    this.init(([] as any[]).concat([this._el_0]),[
       this._el_0,
       this._text_1
     ]
-    ,[],[]);
+    ,([] as any[]),([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -668,12 +668,12 @@ class _View_ApiDemoPage1 extends import1.AppView<any> {
     this.detectContentChildrenChanges(throwOnChange);
     if (!throwOnChange) {
       if (this._query_Button_0_1.dirty) {
-        this._query_Button_0_1.reset([]);
+        this._query_Button_0_1.reset(([] as any[]));
         this._Item_0_4._buttons = this._query_Button_0_1;
         this._query_Button_0_1.notifyOnChanges();
       }
       if (this._query_Icon_0_2.dirty) {
-        this._query_Icon_0_2.reset([]);
+        this._query_Icon_0_2.reset(([] as any[]));
         this._Item_0_4._icons = this._query_Icon_0_2;
         this._query_Icon_0_2.notifyOnChanges();
       }
@@ -703,9 +703,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -714,11 +714,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import9.ComponentFactory<import3.ApiDemoApp> = new import9.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = [];
+const styles_ApiDemoApp:any[] = ([] as any[]);
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -734,10 +734,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import39.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import38.Nav(this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import40.NavControllerBase,(null as any)),this.parentInjector.get(import21.App),this.parentInjector.get(import17.Config),this.parentInjector.get(import28.Keyboard),new import18.ElementRef(this._el_0),this.parentInjector.get(import29.NgZone),this.renderer,this.parentInjector.get(import41.ComponentFactoryResolver),this.parentInjector.get(import31.GestureController),this.parentInjector.get(import42.TransitionController),this.parentInjector.get(import43.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
-    compView_0.create(this._Nav_0_4,[],(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
+    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init([],[this._el_0],[],[]);
+    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -756,6 +756,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/searchbar/app.component.ts class ApiDemoApp - inline template',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

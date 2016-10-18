@@ -69,9 +69,9 @@ class _View_PopoverRadioPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_PopoverRadioPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._PopoverRadioPage_0_4 = new import3.PopoverRadioPage(this.parentInjector.get(import8.NavParams));
-    this._appEl_0.initComponent(this._PopoverRadioPage_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._PopoverRadioPage_0_4,([] as any[]),compView_0);
     compView_0.create(this._PopoverRadioPage_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -85,11 +85,11 @@ class _View_PopoverRadioPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_PopoverRadioPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_PopoverRadioPage_Host === (null as any))) { (renderType_PopoverRadioPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
+  if ((renderType_PopoverRadioPage_Host === (null as any))) { (renderType_PopoverRadioPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_PopoverRadioPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const PopoverRadioPageNgFactory:import10.ComponentFactory<import3.PopoverRadioPage> = new import10.ComponentFactory<import3.PopoverRadioPage>('ng-component',viewFactory_PopoverRadioPage_Host0,import3.PopoverRadioPage);
-const styles_PopoverRadioPage:any[] = [];
+const styles_PopoverRadioPage:any[] = ([] as any[]);
 var renderType_PopoverRadioPage:import0.RenderComponentType = (null as any);
 class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> {
   _text_0:any;
@@ -347,16 +347,16 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_7_0 = new import15.QueryList<any>();
     this._query_Button_7_1 = new import15.QueryList<any>();
     this._query_Icon_7_2 = new import15.QueryList<any>();
-    this._appEl_7.initComponent(this._Item_7_4,[],compView_7);
+    this._appEl_7.initComponent(this._Item_7_4,([] as any[]),compView_7);
     this._text_8 = this.renderer.createText((null as any),'A',(null as any));
-    this._query_Label_7_0.reset([]);
+    this._query_Label_7_0.reset(([] as any[]));
     this._Item_7_4.contentLabel = this._query_Label_7_0.first;
     compView_7.create(this._Item_7_4,[
-      [],
-      [],
-      [].concat([this._text_8]),
-      [],
-      []
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([this._text_8]),
+      ([] as any[]),
+      ([] as any[])
     ]
     ,(null as any));
     this._text_9 = this.renderer.createText(this._el_5,'\n        ',(null as any));
@@ -375,16 +375,16 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_13_0 = new import15.QueryList<any>();
     this._query_Button_13_1 = new import15.QueryList<any>();
     this._query_Icon_13_2 = new import15.QueryList<any>();
-    this._appEl_13.initComponent(this._Item_13_4,[],compView_13);
+    this._appEl_13.initComponent(this._Item_13_4,([] as any[]),compView_13);
     this._text_14 = this.renderer.createText((null as any),'A',(null as any));
-    this._query_Label_13_0.reset([]);
+    this._query_Label_13_0.reset(([] as any[]));
     this._Item_13_4.contentLabel = this._query_Label_13_0.first;
     compView_13.create(this._Item_13_4,[
-      [],
-      [],
-      [].concat([this._text_14]),
-      [],
-      []
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([this._text_14]),
+      ([] as any[]),
+      ([] as any[])
     ]
     ,(null as any));
     this._text_15 = this.renderer.createText(this._el_11,'\n        ',(null as any));
@@ -403,8 +403,8 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_22 = new import2.AppElement(22,20,this,this._el_22);
     var compView_22:any = import26.viewFactory_Button0(this.viewUtils,this.injector(22),this._appEl_22);
     this._Button_22_4 = new import18.Button((null as any),'dot',this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_22),this.renderer);
-    this._appEl_22.initComponent(this._Button_22_4,[],compView_22);
-    compView_22.create(this._Button_22_4,[[]],(null as any));
+    this._appEl_22.initComponent(this._Button_22_4,([] as any[]),compView_22);
+    compView_22.create(this._Button_22_4,[([] as any[])],(null as any));
     this._text_23 = this.renderer.createText(this._el_20,'\n        ',(null as any));
     this._text_24 = this.renderer.createText(this._el_18,'\n        ',(null as any));
     this._el_25 = this.renderer.createElement(this._el_18,'ion-col',(null as any));
@@ -416,8 +416,8 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_27 = new import2.AppElement(27,25,this,this._el_27);
     var compView_27:any = import26.viewFactory_Button0(this.viewUtils,this.injector(27),this._appEl_27);
     this._Button_27_4 = new import18.Button((null as any),'dot',this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_27),this.renderer);
-    this._appEl_27.initComponent(this._Button_27_4,[],compView_27);
-    compView_27.create(this._Button_27_4,[[]],(null as any));
+    this._appEl_27.initComponent(this._Button_27_4,([] as any[]),compView_27);
+    compView_27.create(this._Button_27_4,[([] as any[])],(null as any));
     this._text_28 = this.renderer.createText(this._el_25,'\n        ',(null as any));
     this._text_29 = this.renderer.createText(this._el_18,'\n        ',(null as any));
     this._el_30 = this.renderer.createElement(this._el_18,'ion-col',(null as any));
@@ -429,8 +429,8 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_32 = new import2.AppElement(32,30,this,this._el_32);
     var compView_32:any = import26.viewFactory_Button0(this.viewUtils,this.injector(32),this._appEl_32);
     this._Button_32_4 = new import18.Button((null as any),'dot',this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_32),this.renderer);
-    this._appEl_32.initComponent(this._Button_32_4,[],compView_32);
-    compView_32.create(this._Button_32_4,[[]],(null as any));
+    this._appEl_32.initComponent(this._Button_32_4,([] as any[]),compView_32);
+    compView_32.create(this._Button_32_4,[([] as any[])],(null as any));
     this._text_33 = this.renderer.createText(this._el_30,'\n        ',(null as any));
     this._text_34 = this.renderer.createText(this._el_18,'\n        ',(null as any));
     this._el_35 = this.renderer.createElement(this._el_18,'ion-col',(null as any));
@@ -442,8 +442,8 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_37 = new import2.AppElement(37,35,this,this._el_37);
     var compView_37:any = import26.viewFactory_Button0(this.viewUtils,this.injector(37),this._appEl_37);
     this._Button_37_4 = new import18.Button((null as any),'dot',this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_37),this.renderer);
-    this._appEl_37.initComponent(this._Button_37_4,[],compView_37);
-    compView_37.create(this._Button_37_4,[[]],(null as any));
+    this._appEl_37.initComponent(this._Button_37_4,([] as any[]),compView_37);
+    compView_37.create(this._Button_37_4,[([] as any[])],(null as any));
     this._text_38 = this.renderer.createText(this._el_35,'\n        ',(null as any));
     this._text_39 = this.renderer.createText(this._el_18,'\n      ',(null as any));
     this._text_40 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -456,7 +456,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_41_0 = new import15.QueryList<any>();
     this._query_Button_41_1 = new import15.QueryList<any>();
     this._query_Icon_41_2 = new import15.QueryList<any>();
-    this._appEl_41.initComponent(this._Item_41_4,[],compView_41);
+    this._appEl_41.initComponent(this._Item_41_4,([] as any[]),compView_41);
     this._text_42 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_43 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_43_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_43),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -467,22 +467,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_46 = new import2.AppElement(46,41,this,this._el_46);
     var compView_46:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(46),this._appEl_46);
     this._RadioButton_46_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_46),this.renderer,this._Item_41_4,this._RadioGroup_1_3);
-    this._appEl_46.initComponent(this._RadioButton_46_4,[],compView_46);
-    compView_46.create(this._RadioButton_46_4,[],(null as any));
+    this._appEl_46.initComponent(this._RadioButton_46_4,([] as any[]),compView_46);
+    compView_46.create(this._RadioButton_46_4,([] as any[]),(null as any));
     this._text_47 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_41_0.reset([this._Label_43_3]);
     this._Item_41_4.contentLabel = this._query_Label_41_0.first;
     compView_41.create(this._Item_41_4,[
-      [],
-      [].concat([this._el_43]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_43]),
+      ([] as any[]).concat([
         this._text_42,
         this._text_45,
         this._text_47
       ]
       ),
-      [],
-      [].concat([this._el_46])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_46])
     ]
     ,(null as any));
     this._text_48 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -495,7 +495,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_49_0 = new import15.QueryList<any>();
     this._query_Button_49_1 = new import15.QueryList<any>();
     this._query_Icon_49_2 = new import15.QueryList<any>();
-    this._appEl_49.initComponent(this._Item_49_4,[],compView_49);
+    this._appEl_49.initComponent(this._Item_49_4,([] as any[]),compView_49);
     this._text_50 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_51 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_51_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_51),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -506,22 +506,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_54 = new import2.AppElement(54,49,this,this._el_54);
     var compView_54:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(54),this._appEl_54);
     this._RadioButton_54_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_54),this.renderer,this._Item_49_4,this._RadioGroup_1_3);
-    this._appEl_54.initComponent(this._RadioButton_54_4,[],compView_54);
-    compView_54.create(this._RadioButton_54_4,[],(null as any));
+    this._appEl_54.initComponent(this._RadioButton_54_4,([] as any[]),compView_54);
+    compView_54.create(this._RadioButton_54_4,([] as any[]),(null as any));
     this._text_55 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_49_0.reset([this._Label_51_3]);
     this._Item_49_4.contentLabel = this._query_Label_49_0.first;
     compView_49.create(this._Item_49_4,[
-      [],
-      [].concat([this._el_51]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_51]),
+      ([] as any[]).concat([
         this._text_50,
         this._text_53,
         this._text_55
       ]
       ),
-      [],
-      [].concat([this._el_54])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_54])
     ]
     ,(null as any));
     this._text_56 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -534,7 +534,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_57_0 = new import15.QueryList<any>();
     this._query_Button_57_1 = new import15.QueryList<any>();
     this._query_Icon_57_2 = new import15.QueryList<any>();
-    this._appEl_57.initComponent(this._Item_57_4,[],compView_57);
+    this._appEl_57.initComponent(this._Item_57_4,([] as any[]),compView_57);
     this._text_58 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_59 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_59_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_59),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -545,22 +545,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_62 = new import2.AppElement(62,57,this,this._el_62);
     var compView_62:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(62),this._appEl_62);
     this._RadioButton_62_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_62),this.renderer,this._Item_57_4,this._RadioGroup_1_3);
-    this._appEl_62.initComponent(this._RadioButton_62_4,[],compView_62);
-    compView_62.create(this._RadioButton_62_4,[],(null as any));
+    this._appEl_62.initComponent(this._RadioButton_62_4,([] as any[]),compView_62);
+    compView_62.create(this._RadioButton_62_4,([] as any[]),(null as any));
     this._text_63 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_57_0.reset([this._Label_59_3]);
     this._Item_57_4.contentLabel = this._query_Label_57_0.first;
     compView_57.create(this._Item_57_4,[
-      [],
-      [].concat([this._el_59]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_59]),
+      ([] as any[]).concat([
         this._text_58,
         this._text_61,
         this._text_63
       ]
       ),
-      [],
-      [].concat([this._el_62])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_62])
     ]
     ,(null as any));
     this._text_64 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -573,7 +573,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_65_0 = new import15.QueryList<any>();
     this._query_Button_65_1 = new import15.QueryList<any>();
     this._query_Icon_65_2 = new import15.QueryList<any>();
-    this._appEl_65.initComponent(this._Item_65_4,[],compView_65);
+    this._appEl_65.initComponent(this._Item_65_4,([] as any[]),compView_65);
     this._text_66 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_67 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_67_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_67),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -584,22 +584,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_70 = new import2.AppElement(70,65,this,this._el_70);
     var compView_70:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(70),this._appEl_70);
     this._RadioButton_70_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_70),this.renderer,this._Item_65_4,this._RadioGroup_1_3);
-    this._appEl_70.initComponent(this._RadioButton_70_4,[],compView_70);
-    compView_70.create(this._RadioButton_70_4,[],(null as any));
+    this._appEl_70.initComponent(this._RadioButton_70_4,([] as any[]),compView_70);
+    compView_70.create(this._RadioButton_70_4,([] as any[]),(null as any));
     this._text_71 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_65_0.reset([this._Label_67_3]);
     this._Item_65_4.contentLabel = this._query_Label_65_0.first;
     compView_65.create(this._Item_65_4,[
-      [],
-      [].concat([this._el_67]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_67]),
+      ([] as any[]).concat([
         this._text_66,
         this._text_69,
         this._text_71
       ]
       ),
-      [],
-      [].concat([this._el_70])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_70])
     ]
     ,(null as any));
     this._text_72 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -612,7 +612,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_73_0 = new import15.QueryList<any>();
     this._query_Button_73_1 = new import15.QueryList<any>();
     this._query_Icon_73_2 = new import15.QueryList<any>();
-    this._appEl_73.initComponent(this._Item_73_4,[],compView_73);
+    this._appEl_73.initComponent(this._Item_73_4,([] as any[]),compView_73);
     this._text_74 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_75 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_75_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_75),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -623,22 +623,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_78 = new import2.AppElement(78,73,this,this._el_78);
     var compView_78:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(78),this._appEl_78);
     this._RadioButton_78_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_78),this.renderer,this._Item_73_4,this._RadioGroup_1_3);
-    this._appEl_78.initComponent(this._RadioButton_78_4,[],compView_78);
-    compView_78.create(this._RadioButton_78_4,[],(null as any));
+    this._appEl_78.initComponent(this._RadioButton_78_4,([] as any[]),compView_78);
+    compView_78.create(this._RadioButton_78_4,([] as any[]),(null as any));
     this._text_79 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_73_0.reset([this._Label_75_3]);
     this._Item_73_4.contentLabel = this._query_Label_73_0.first;
     compView_73.create(this._Item_73_4,[
-      [],
-      [].concat([this._el_75]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_75]),
+      ([] as any[]).concat([
         this._text_74,
         this._text_77,
         this._text_79
       ]
       ),
-      [],
-      [].concat([this._el_78])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_78])
     ]
     ,(null as any));
     this._text_80 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -651,7 +651,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_81_0 = new import15.QueryList<any>();
     this._query_Button_81_1 = new import15.QueryList<any>();
     this._query_Icon_81_2 = new import15.QueryList<any>();
-    this._appEl_81.initComponent(this._Item_81_4,[],compView_81);
+    this._appEl_81.initComponent(this._Item_81_4,([] as any[]),compView_81);
     this._text_82 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_83 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_83_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_83),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -662,22 +662,22 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_86 = new import2.AppElement(86,81,this,this._el_86);
     var compView_86:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(86),this._appEl_86);
     this._RadioButton_86_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_86),this.renderer,this._Item_81_4,this._RadioGroup_1_3);
-    this._appEl_86.initComponent(this._RadioButton_86_4,[],compView_86);
-    compView_86.create(this._RadioButton_86_4,[],(null as any));
+    this._appEl_86.initComponent(this._RadioButton_86_4,([] as any[]),compView_86);
+    compView_86.create(this._RadioButton_86_4,([] as any[]),(null as any));
     this._text_87 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_81_0.reset([this._Label_83_3]);
     this._Item_81_4.contentLabel = this._query_Label_81_0.first;
     compView_81.create(this._Item_81_4,[
-      [],
-      [].concat([this._el_83]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_83]),
+      ([] as any[]).concat([
         this._text_82,
         this._text_85,
         this._text_87
       ]
       ),
-      [],
-      [].concat([this._el_86])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_86])
     ]
     ,(null as any));
     this._text_88 = this.renderer.createText(this._el_1,'\n      ',(null as any));
@@ -690,7 +690,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._query_Label_89_0 = new import15.QueryList<any>();
     this._query_Button_89_1 = new import15.QueryList<any>();
     this._query_Icon_89_2 = new import15.QueryList<any>();
-    this._appEl_89.initComponent(this._Item_89_4,[],compView_89);
+    this._appEl_89.initComponent(this._Item_89_4,([] as any[]),compView_89);
     this._text_90 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_91 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_91_3 = new import19.Label(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_91),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -701,26 +701,26 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this._appEl_94 = new import2.AppElement(94,89,this,this._el_94);
     var compView_94:any = import27.viewFactory_RadioButton0(this.viewUtils,this.injector(94),this._appEl_94);
     this._RadioButton_94_4 = new import20.RadioButton(this.parentInjector.get(import25.Form),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_94),this.renderer,this._Item_89_4,this._RadioGroup_1_3);
-    this._appEl_94.initComponent(this._RadioButton_94_4,[],compView_94);
-    compView_94.create(this._RadioButton_94_4,[],(null as any));
+    this._appEl_94.initComponent(this._RadioButton_94_4,([] as any[]),compView_94);
+    compView_94.create(this._RadioButton_94_4,([] as any[]),(null as any));
     this._text_95 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._query_Label_89_0.reset([this._Label_91_3]);
     this._Item_89_4.contentLabel = this._query_Label_89_0.first;
     compView_89.create(this._Item_89_4,[
-      [],
-      [].concat([this._el_91]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([this._el_91]),
+      ([] as any[]).concat([
         this._text_90,
         this._text_93,
         this._text_95
       ]
       ),
-      [],
-      [].concat([this._el_94])
+      ([] as any[]),
+      ([] as any[]).concat([this._el_94])
     ]
     ,(null as any));
     this._text_96 = this.renderer.createText(this._el_1,'\n    ',(null as any));
-    this._query_ListHeader_1_0.reset([]);
+    this._query_ListHeader_1_0.reset(([] as any[]));
     this._RadioGroup_1_3._header = this._query_ListHeader_1_0.first;
     this._text_97 = this.renderer.createText(parentRenderNode,'\n  ',(null as any));
     var disposable_0:Function = this.renderer.listen(this._el_1,'ngModelChange',this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
@@ -765,7 +765,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     var disposable_14:Function = this.renderer.listen(this._el_94,'click',this.eventHandler(this._handle_click_94_0.bind(this)));
     this._expr_38 = import7.UNINITIALIZED;
     this._expr_39 = import7.UNINITIALIZED;
-    this.init([],[
+    this.init(([] as any[]),[
       this._text_0,
       this._el_1,
       this._text_2,
@@ -998,92 +998,92 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
     this.detectContentChildrenChanges(throwOnChange);
     if (!throwOnChange) {
       if (this._query_Button_7_1.dirty) {
-        this._query_Button_7_1.reset([]);
+        this._query_Button_7_1.reset(([] as any[]));
         this._Item_7_4._buttons = this._query_Button_7_1;
         this._query_Button_7_1.notifyOnChanges();
       }
       if (this._query_Icon_7_2.dirty) {
-        this._query_Icon_7_2.reset([]);
+        this._query_Icon_7_2.reset(([] as any[]));
         this._Item_7_4._icons = this._query_Icon_7_2;
         this._query_Icon_7_2.notifyOnChanges();
       }
       if (this._query_Button_13_1.dirty) {
-        this._query_Button_13_1.reset([]);
+        this._query_Button_13_1.reset(([] as any[]));
         this._Item_13_4._buttons = this._query_Button_13_1;
         this._query_Button_13_1.notifyOnChanges();
       }
       if (this._query_Icon_13_2.dirty) {
-        this._query_Icon_13_2.reset([]);
+        this._query_Icon_13_2.reset(([] as any[]));
         this._Item_13_4._icons = this._query_Icon_13_2;
         this._query_Icon_13_2.notifyOnChanges();
       }
       if (this._query_Button_41_1.dirty) {
-        this._query_Button_41_1.reset([]);
+        this._query_Button_41_1.reset(([] as any[]));
         this._Item_41_4._buttons = this._query_Button_41_1;
         this._query_Button_41_1.notifyOnChanges();
       }
       if (this._query_Icon_41_2.dirty) {
-        this._query_Icon_41_2.reset([]);
+        this._query_Icon_41_2.reset(([] as any[]));
         this._Item_41_4._icons = this._query_Icon_41_2;
         this._query_Icon_41_2.notifyOnChanges();
       }
       if (this._query_Button_49_1.dirty) {
-        this._query_Button_49_1.reset([]);
+        this._query_Button_49_1.reset(([] as any[]));
         this._Item_49_4._buttons = this._query_Button_49_1;
         this._query_Button_49_1.notifyOnChanges();
       }
       if (this._query_Icon_49_2.dirty) {
-        this._query_Icon_49_2.reset([]);
+        this._query_Icon_49_2.reset(([] as any[]));
         this._Item_49_4._icons = this._query_Icon_49_2;
         this._query_Icon_49_2.notifyOnChanges();
       }
       if (this._query_Button_57_1.dirty) {
-        this._query_Button_57_1.reset([]);
+        this._query_Button_57_1.reset(([] as any[]));
         this._Item_57_4._buttons = this._query_Button_57_1;
         this._query_Button_57_1.notifyOnChanges();
       }
       if (this._query_Icon_57_2.dirty) {
-        this._query_Icon_57_2.reset([]);
+        this._query_Icon_57_2.reset(([] as any[]));
         this._Item_57_4._icons = this._query_Icon_57_2;
         this._query_Icon_57_2.notifyOnChanges();
       }
       if (this._query_Button_65_1.dirty) {
-        this._query_Button_65_1.reset([]);
+        this._query_Button_65_1.reset(([] as any[]));
         this._Item_65_4._buttons = this._query_Button_65_1;
         this._query_Button_65_1.notifyOnChanges();
       }
       if (this._query_Icon_65_2.dirty) {
-        this._query_Icon_65_2.reset([]);
+        this._query_Icon_65_2.reset(([] as any[]));
         this._Item_65_4._icons = this._query_Icon_65_2;
         this._query_Icon_65_2.notifyOnChanges();
       }
       if (this._query_Button_73_1.dirty) {
-        this._query_Button_73_1.reset([]);
+        this._query_Button_73_1.reset(([] as any[]));
         this._Item_73_4._buttons = this._query_Button_73_1;
         this._query_Button_73_1.notifyOnChanges();
       }
       if (this._query_Icon_73_2.dirty) {
-        this._query_Icon_73_2.reset([]);
+        this._query_Icon_73_2.reset(([] as any[]));
         this._Item_73_4._icons = this._query_Icon_73_2;
         this._query_Icon_73_2.notifyOnChanges();
       }
       if (this._query_Button_81_1.dirty) {
-        this._query_Button_81_1.reset([]);
+        this._query_Button_81_1.reset(([] as any[]));
         this._Item_81_4._buttons = this._query_Button_81_1;
         this._query_Button_81_1.notifyOnChanges();
       }
       if (this._query_Icon_81_2.dirty) {
-        this._query_Icon_81_2.reset([]);
+        this._query_Icon_81_2.reset(([] as any[]));
         this._Item_81_4._icons = this._query_Icon_81_2;
         this._query_Icon_81_2.notifyOnChanges();
       }
       if (this._query_Button_89_1.dirty) {
-        this._query_Button_89_1.reset([]);
+        this._query_Button_89_1.reset(([] as any[]));
         this._Item_89_4._buttons = this._query_Button_89_1;
         this._query_Button_89_1.notifyOnChanges();
       }
       if (this._query_Icon_89_2.dirty) {
-        this._query_Icon_89_2.reset([]);
+        this._query_Icon_89_2.reset(([] as any[]));
         this._Item_89_4._icons = this._query_Icon_89_2;
         this._query_Icon_89_2.notifyOnChanges();
       }
@@ -1276,7 +1276,7 @@ class _View_PopoverRadioPage0 extends import1.AppView<import3.PopoverRadioPage> 
   }
 }
 export function viewFactory_PopoverRadioPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.PopoverRadioPage> {
-  if ((renderType_PopoverRadioPage === (null as any))) { (renderType_PopoverRadioPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/popover/app.component.ts class PopoverRadioPage - inline template',0,import9.ViewEncapsulation.None,styles_PopoverRadioPage,{})); }
+  if ((renderType_PopoverRadioPage === (null as any))) { (renderType_PopoverRadioPage = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_PopoverRadioPage,{})); }
   return new _View_PopoverRadioPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoPage_Host:import0.RenderComponentType = (null as any);
@@ -1292,9 +1292,9 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage(this.parentInjector.get(import30.PopoverController));
-    this._appEl_0.initComponent(this._ApiDemoPage_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._ApiDemoPage_0_4,([] as any[]),compView_0);
     compView_0.create(this._ApiDemoPage_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1303,11 +1303,11 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
+  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoPageNgFactory:import10.ComponentFactory<import3.ApiDemoPage> = new import10.ComponentFactory<import3.ApiDemoPage>('ng-component',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
-const styles_ApiDemoPage:any[] = [];
+const styles_ApiDemoPage:any[] = ([] as any[]);
 var renderType_ApiDemoPage:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   _viewQuery_popoverContent_0:import15.QueryList<any>;
@@ -1384,15 +1384,15 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import38.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import32.Navbar(this.parentInjector.get(import39.App),this.parentInjector.get(import37.ViewController,(null as any)),this.parentInjector.get(import40.NavController,(null as any)),this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_4 = new import2.AppElement(4,2,this,this._el_4);
     var compView_4:any = import41.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import33.ToolbarTitle(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import31.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_4.initComponent(this._ToolbarTitle_4_4,[],compView_4);
+    this._appEl_4.initComponent(this._ToolbarTitle_4_4,([] as any[]),compView_4);
     this._text_5 = this.renderer.createText((null as any),'Popover',(null as any));
-    compView_4.create(this._ToolbarTitle_4_4,[[].concat([this._text_5])],(null as any));
+    compView_4.create(this._ToolbarTitle_4_4,[([] as any[]).concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_7 = this.renderer.createElement((null as any),'ion-buttons',(null as any));
     this.renderer.setElementAttribute(this._el_7,'end','');
@@ -1404,14 +1404,14 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_9 = new import2.AppElement(9,7,this,this._el_9);
     var compView_9:any = import26.viewFactory_Button0(this.viewUtils,this.injector(9),this._appEl_9);
     this._Button_9_4 = new import18.Button((null as any),'',this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_9),this.renderer);
-    this._appEl_9.initComponent(this._Button_9_4,[],compView_9);
+    this._appEl_9.initComponent(this._Button_9_4,([] as any[]),compView_9);
     this._text_10 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_11 = this.renderer.createElement((null as any),'ion-icon',(null as any));
     this.renderer.setElementAttribute(this._el_11,'name','more');
     this.renderer.setElementAttribute(this._el_11,'role','img');
     this._Icon_11_3 = new import35.Icon(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_11),this.renderer);
     this._text_12 = this.renderer.createText((null as any),'\n      ',(null as any));
-      compView_9.create(this._Button_9_4,[[].concat([
+      compView_9.create(this._Button_9_4,[([] as any[]).concat([
         this._text_10,
         this._el_11,
         this._text_12
@@ -1420,10 +1420,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_13 = this.renderer.createText(this._el_7,'\n    ',(null as any));
     this._text_14 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      [],
-      [],
-      [].concat([this._el_7]),
-      [].concat([
+      ([] as any[]),
+      ([] as any[]),
+      ([] as any[]).concat([this._el_7]),
+      ([] as any[]).concat([
         this._text_3,
         this._el_4,
         this._text_6,
@@ -1439,7 +1439,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_17 = new import2.AppElement(17,(null as any),this,this._el_17);
     var compView_17:any = import42.viewFactory_Content0(this.viewUtils,this.injector(17),this._appEl_17);
     this._Content_17_4 = new import36.Content(this.parentInjector.get(import22.Config),new import21.ElementRef(this._el_17),this.renderer,this.parentInjector.get(import39.App),this.parentInjector.get(import43.Keyboard),this.parentInjector.get(import44.NgZone),this.parentInjector.get(import37.ViewController,(null as any)),this.parentInjector.get(import45.Tabs,(null as any)));
-    this._appEl_17.initComponent(this._Content_17_4,[],compView_17);
+    this._appEl_17.initComponent(this._Content_17_4,([] as any[]),compView_17);
     this._text_18 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_19 = this.renderer.createElement((null as any),'div',(null as any));
     this.renderer.setElementAttribute(this._el_19,'class','text-to-change');
@@ -1461,14 +1461,14 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._text_35 = this.renderer.createText(this._el_19,'\n  ',(null as any));
     this._text_36 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_17.create(this._Content_17_4,[
-      [],
-      [].concat([
+      ([] as any[]),
+      ([] as any[]).concat([
         this._text_18,
         this._el_19,
         this._text_36
       ]
       ),
-      []
+      ([] as any[])
     ]
     ,(null as any));
     this._text_37 = this.renderer.createText(parentRenderNode,'\n',(null as any));
@@ -1483,7 +1483,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this.context.content = this._viewQuery_popoverContent_0.first;
     this._viewQuery_popoverText_1.reset([new import21.ElementRef(this._el_19)]);
     this.context.text = this._viewQuery_popoverText_1.first;
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -1523,7 +1523,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       this._text_36,
       this._text_37
     ]
-    ,[disposable_0],[]);
+    ,[disposable_0],([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1591,7 +1591,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   }
 }
 export function viewFactory_ApiDemoPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoPage> {
-  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/popover/page.html',0,import9.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
+  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
   return new _View_ApiDemoPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoApp_Host:import0.RenderComponentType = (null as any);
@@ -1607,9 +1607,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1618,11 +1618,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import10.ComponentFactory<import3.ApiDemoApp> = new import10.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = [];
+const styles_ApiDemoApp:any[] = ([] as any[]);
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -1638,10 +1638,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import47.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import46.Nav(this.parentInjector.get(import37.ViewController,(null as any)),this.parentInjector.get(import48.NavControllerBase,(null as any)),this.parentInjector.get(import39.App),this.parentInjector.get(import22.Config),this.parentInjector.get(import43.Keyboard),new import21.ElementRef(this._el_0),this.parentInjector.get(import44.NgZone),this.renderer,this.parentInjector.get(import49.ComponentFactoryResolver),this.parentInjector.get(import23.GestureController),this.parentInjector.get(import50.TransitionController),this.parentInjector.get(import51.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
-    compView_0.create(this._Nav_0_4,[],(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
+    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init([],[this._el_0],[],[]);
+    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1660,6 +1660,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/popover/app.component.ts class ApiDemoApp - inline template',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

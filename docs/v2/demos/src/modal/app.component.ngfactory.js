@@ -657,7 +657,7 @@ var _View_ModalFirstPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ModalFirstPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalFirstPage === null)) {
-        (renderType_ModalFirstPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/page.html', 0, import9.ViewEncapsulation.None, styles_ModalFirstPage, {}));
+        (renderType_ModalFirstPage = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_ModalFirstPage, {}));
     }
     return new _View_ModalFirstPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -961,7 +961,7 @@ var _View_ModalContentPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ModalContentPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalContentPage === null)) {
-        (renderType_ModalContentPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/modal-content.html', 0, import9.ViewEncapsulation.None, styles_ModalContentPage, {}));
+        (renderType_ModalContentPage = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_ModalContentPage, {}));
     }
     return new _View_ModalContentPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1039,7 +1039,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/app.component.ts class ApiDemoApp - inline template', 0, import9.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

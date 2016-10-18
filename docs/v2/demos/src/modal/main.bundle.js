@@ -46842,7 +46842,7 @@ var _View_Button0 = (function (_super) {
 }(AppView));
 function viewFactory_Button0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Button === null)) {
-        (renderType_Button = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/button/button.d.ts class Button - inline template', 1, ViewEncapsulation.None, styles_Button, {}));
+        (renderType_Button = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_Button, {}));
     }
     return new _View_Button0(viewUtils, parentInjector, declarationEl);
 }
@@ -47040,7 +47040,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ActionSheetCmp === null)) {
-        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/action-sheet/action-sheet-component.d.ts class ActionSheetCmp - inline template', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
+        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
     }
     return new _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47632,7 +47632,7 @@ var _View_AlertCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_AlertCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AlertCmp === null)) {
-        (renderType_AlertCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/alert/alert-component.d.ts class AlertCmp - inline template', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
+        (renderType_AlertCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
     }
     return new _View_AlertCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48438,7 +48438,7 @@ var _View_IonicApp0 = (function (_super) {
 }(AppView));
 function viewFactory_IonicApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_IonicApp === null)) {
-        (renderType_IonicApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/app/app-root.d.ts class IonicApp - inline template', 0, ViewEncapsulation.None, styles_IonicApp, {}));
+        (renderType_IonicApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_IonicApp, {}));
     }
     return new _View_IonicApp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48573,7 +48573,7 @@ var _View_Spinner0 = (function (_super) {
 }(AppView));
 function viewFactory_Spinner0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spinner === null)) {
-        (renderType_Spinner = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/spinner/spinner.d.ts class Spinner - inline template', 0, ViewEncapsulation.None, styles_Spinner, {}));
+        (renderType_Spinner = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Spinner, {}));
     }
     return new _View_Spinner0(viewUtils, parentInjector, declarationEl);
 }
@@ -48804,7 +48804,7 @@ var _View_LoadingCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LoadingCmp === null)) {
-        (renderType_LoadingCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/loading/loading-component.d.ts class LoadingCmp - inline template', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
+        (renderType_LoadingCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
     }
     return new _View_LoadingCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48995,7 +48995,7 @@ var _View_ModalCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalCmp === null)) {
-        (renderType_ModalCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/modal/modal-component.d.ts class ModalCmp - inline template', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
+        (renderType_ModalCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
     }
     return new _View_ModalCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49166,7 +49166,7 @@ var _View_PickerColumnCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerColumnCmp === null)) {
-        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerColumnCmp - inline template', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
+        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
     }
     return new _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49520,7 +49520,7 @@ var _View_PickerCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerCmp === null)) {
-        (renderType_PickerCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerCmp - inline template', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
+        (renderType_PickerCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
     }
     return new _View_PickerCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49821,7 +49821,7 @@ var _View_PopoverCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PopoverCmp === null)) {
-        (renderType_PopoverCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/popover/popover-component.d.ts class PopoverCmp - inline template', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
+        (renderType_PopoverCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
     }
     return new _View_PopoverCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49976,7 +49976,7 @@ var _View_ToastCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ToastCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToastCmp === null)) {
-        (renderType_ToastCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toast/toast-component.d.ts class ToastCmp - inline template', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
+        (renderType_ToastCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
     }
     return new _View_ToastCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -50331,7 +50331,7 @@ var _View_Navbar0 = (function (_super) {
 }(AppView));
 function viewFactory_Navbar0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Navbar === null)) {
-        (renderType_Navbar = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/navbar/navbar.d.ts class Navbar - inline template', 4, ViewEncapsulation.None, styles_Navbar, {}));
+        (renderType_Navbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Navbar, {}));
     }
     return new _View_Navbar0(viewUtils, parentInjector, declarationEl);
 }
@@ -50417,7 +50417,7 @@ var _View_ToolbarTitle0 = (function (_super) {
 }(AppView));
 function viewFactory_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToolbarTitle === null)) {
-        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toolbar/toolbar-title.d.ts class ToolbarTitle - inline template', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
+        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
     }
     return new _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl);
 }
@@ -50500,7 +50500,7 @@ var _View_Content0 = (function (_super) {
 }(AppView));
 function viewFactory_Content0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Content === null)) {
-        (renderType_Content = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/content/content.d.ts class Content - inline template', 3, ViewEncapsulation.None, styles_Content, {}));
+        (renderType_Content = viewUtils.createRenderComponentType('', 3, ViewEncapsulation.None, styles_Content, {}));
     }
     return new _View_Content0(viewUtils, parentInjector, declarationEl);
 }
@@ -50592,7 +50592,7 @@ var _View_Reorder0 = (function (_super) {
 }(AppView));
 function viewFactory_Reorder0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Reorder === null)) {
-        (renderType_Reorder = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item-reorder.d.ts class Reorder - inline template', 0, ViewEncapsulation.None, styles_Reorder, {}));
+        (renderType_Reorder = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Reorder, {}));
     }
     return new _View_Reorder0(viewUtils, parentInjector, declarationEl);
 }
@@ -50737,7 +50737,7 @@ var _View_Item0 = (function (_super) {
 }(AppView));
 function viewFactory_Item0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Item === null)) {
-        (renderType_Item = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item.d.ts class Item - inline template', 5, ViewEncapsulation.None, styles_Item, {}));
+        (renderType_Item = viewUtils.createRenderComponentType('', 5, ViewEncapsulation.None, styles_Item, {}));
     }
     return new _View_Item0(viewUtils, parentInjector, declarationEl);
 }
@@ -50956,7 +50956,7 @@ var _View_Select0 = (function (_super) {
 }(AppView));
 function viewFactory_Select0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Select === null)) {
-        (renderType_Select = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/select/select.d.ts class Select - inline template', 0, ViewEncapsulation.None, styles_Select, {}));
+        (renderType_Select = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Select, {}));
     }
     return new _View_Select0(viewUtils, parentInjector, declarationEl);
 }
@@ -51093,7 +51093,7 @@ var _View_Nav0 = (function (_super) {
 }(AppView));
 function viewFactory_Nav0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Nav === null)) {
-        (renderType_Nav = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/nav/nav.d.ts class Nav - inline template', 0, ViewEncapsulation.None, styles_Nav, {}));
+        (renderType_Nav = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Nav, {}));
     }
     return new _View_Nav0(viewUtils, parentInjector, declarationEl);
 }
@@ -51708,7 +51708,7 @@ var _View_ModalFirstPage0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalFirstPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalFirstPage === null)) {
-        (renderType_ModalFirstPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/page.html', 0, ViewEncapsulation.None, styles_ModalFirstPage, {}));
+        (renderType_ModalFirstPage = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalFirstPage, {}));
     }
     return new _View_ModalFirstPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -52012,7 +52012,7 @@ var _View_ModalContentPage0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalContentPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalContentPage === null)) {
-        (renderType_ModalContentPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/modal-content.html', 0, ViewEncapsulation.None, styles_ModalContentPage, {}));
+        (renderType_ModalContentPage = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalContentPage, {}));
     }
     return new _View_ModalContentPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -52090,7 +52090,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(AppView));
 function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/app.component.ts class ApiDemoApp - inline template', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

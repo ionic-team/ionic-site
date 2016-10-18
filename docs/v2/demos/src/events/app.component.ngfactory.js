@@ -790,7 +790,7 @@ var _View_Login0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_Login0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Login === null)) {
-        (renderType_Login = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/events/login.html', 0, import9.ViewEncapsulation.None, styles_Login, {}));
+        (renderType_Login = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_Login, {}));
     }
     return new _View_Login0(viewUtils, parentInjector, declarationEl);
 }
@@ -1166,7 +1166,7 @@ var _View_Logout0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_Logout0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Logout === null)) {
-        (renderType_Logout = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/events/logout.html', 0, import9.ViewEncapsulation.None, styles_Logout, {}));
+        (renderType_Logout = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_Logout, {}));
     }
     return new _View_Logout0(viewUtils, parentInjector, declarationEl);
 }
@@ -1439,7 +1439,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/events/app.html', 0, import9.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

@@ -6,7 +6,7 @@
 // These former pages are depreciated and being phased out for the styles here.
 //
 //
-@import url('https://fonts.googleapis.com/css?family=Nunito:300');
+// @import url('https://fonts.googleapis.com/css?family=Nunito:300');
 @import '../node_modules/ionicons/dist/css/ionicons';
 
 @import 'vars';
@@ -67,6 +67,10 @@
 
 @import 'pygments/ionic';
 @import 'hljs';
+
+@import 'components/header';
+@import 'components/utils';
+@import 'components/buttons';
 
 @import 'general';
 @import 'pages/docs/home';

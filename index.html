@@ -20,10 +20,10 @@ body_css: "home"
             Ionic is the beautiful, open source mobile SDK<br>for developing native and progressive web apps.
           </h3>
           <p class="btn-row">
-            <a id="repo-download" class="btn btn-primary btn-download desktop-btn" href="/getting-started/">Get Started</a>
-            <a class="btn btn-primary btn-get-started desktop-btn" href="/docs/" alt="Docs for v{{ site.latest_version }}">Docs &amp; Help</a>
+            <a id="repo-download" class="btn btn-download desktop-btn" href="/getting-started/">Get Started</a>
+            <a class="btn ionic btn-get-started hide-sm" href="/docs/" alt="Docs for v{{ site.latest_version }}">Explore the docs</a>
 
-            <a class="btn btn-primary btn-download mobile-btn" href="/docs/">View Docs</a>
+            <a class="btn btn-primary btn-download show-sm" href="/docs/">View Docs</a>
           </p>
           <p class="version-text">
             v{{ site.latest_version }} &#183; {{ site.latest_release_date }} &#183; MIT Licensed
@@ -269,11 +269,6 @@ http://usecreator.com/?utm_source=ionichome&utm_medium=slider&utm_campaign=Creat
   </hgroup>
 </div>
 
-<div>
-  {% include testimonials.html %}
-</div>
-
-
 <div class="pre-footer">
 
   <div class="row ionic">
@@ -380,7 +375,7 @@ $('#slider').slick({
   cssEase: 'ease-in-out',
   draggable: false,
   autoplay: true,
-  autoplaySpeed: 8000,
+  autoplaySpeed: 80000,
   focusOnSelect: false,
   // https://github.com/kenwheeler/slick/issues/1537
   accessibility: false

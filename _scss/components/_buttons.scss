@@ -1,0 +1,140 @@
+.btn,
+.navbar .btn {
+  font-weight: 400;
+  border-radius: 4px;
+  letter-spacing: -0.5px;
+  line-height: 1.4em;
+  padding: 14px 33px 14px;
+  margin-right: 10px;
+  transition: all .2s linear;
+  font-size: 17px;
+  border: 0px solid transparent;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+  background: white;
+  border-color: white;
+  color: $blue;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    color: lighten($blue, 5);
+  }
+
+  &:active {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1);
+  }
+
+  &.ionic,
+  &.btn-primary,
+  &.red {
+    color: white;
+  }
+
+  &.primary,
+  &.btn-primary {
+    background: $blue;
+
+    &:hover,
+    &:focus {
+      background: darken($blue, 10);
+    }
+
+    &.outline {
+      background: transparent;
+      color: $blue;
+    }
+  }
+
+  &.ionic {
+    background: $blue;
+
+    &:hover,
+    &:focus {
+      background: darken($blue, 10);
+    }
+
+    &.outline {
+      background: transparent;
+      color: $blue;
+    }
+  }
+
+  &.btn-primary {
+    background: $light-blue;
+
+    &:hover,
+    &:focus {
+      background: darken($light-blue, 10);
+    }
+
+    &.outline {
+      background: transparent;
+      color: $light-blue;
+    }
+  }
+
+  &.red {
+    background: $red;
+
+    &:hover,
+    &:focus {
+      background: #FF6177;
+    }
+  }
+
+  &.white {
+    background: white;
+
+    &:hover,
+    &:focus {
+      background: rgba(white, .9);
+      color: $blue;
+    }
+  }
+
+  &.grey {
+    background: $grey;
+
+    &:hover,
+    &:focus {
+      background: $grey;
+    }
+
+    &.outline {
+      color: $grey;
+      background: transparent;
+
+      &:hover,
+      &:focus {
+        color: darken($grey, 10);
+        background: transparent;
+      }
+    }
+  }
+
+  &.sm {
+    font-weight: 600;
+    border-radius: 2px;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 12px 19px 10px;
+  }
+
+  &.rounded {
+    border-radius: 2.5em;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 19px 25px 18px;
+    line-height: 1em;
+
+    &.sm {
+      padding: 12px 22px 10px;
+      font-size: 14px;
+    }
+  }
+}

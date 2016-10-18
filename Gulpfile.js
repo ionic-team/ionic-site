@@ -65,11 +65,11 @@ function bustCache() {
 
 function bustCacheAndReload(done) {
 
-  return bustCache().on('end', function() {
+  bustCache().on('end', function() {
     browserSync.reload();
     done();
     // apply the template change in the background
-    gulp.start('jekyll-build');
+    // gulp.start('jekyll-build.incremental');
   });
 }
 
@@ -148,7 +148,6 @@ gulp.task('jekyll-build', [], function(done) {
                   ['build', '--config', '_config_development.yml'],
                   {stdio: 'inherit'})
            .on('close', function(){
-             console.log('gets here')
              done()
            });
 });
@@ -190,21 +189,18 @@ gulp.task('server', ['build'], function() {
 gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
-gulp.task('server:jekyll', ['jekyll-build.incremental'], bustCacheAndReload);
-gulp.task('server:images', ['images'], bustCacheAndReload);
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss', '_scss/pages/*.scss'],
-             ['server:stylesv2']);
-  gulp.watch(['_img/*', '_img/*/*'], ['server:images']);
+  gulp.watch(['_scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['_img/*', '_img/*/*'], ['images']);
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', 'getting-started/*.html',
     '_layouts/*', '_layouts/*/*', '_posts/*', '_includes/**/*',
     'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*',
     'dist/preview-app/www/**/*'
-  ], ['server:jekyll']);
+  ], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {

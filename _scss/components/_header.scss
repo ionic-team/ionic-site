@@ -1,0 +1,222 @@
+.navbar-default {
+  background: linear-gradient(to right, #3071da, #4888f1);
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+
+  @media (max-width: $screen-xs-max) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    padding: 22px 0 0 20px;
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 8px;
+    }
+
+    img {
+      width: 128px;
+    }
+  }
+
+  #ionic-io-logo {
+    background: url('/img/ionic-logo.png') no-repeat 0 bottom;
+    background-size: 90px;
+    height: 32px;
+    width: 90px;
+    display: block;
+  }
+
+  .navbar-nav > li {
+    > a {
+      padding: 27px 30px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: .2s color;
+      border-top: 3px solid transparent;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 15px;
+        border: 0;
+      }
+    }
+
+    &.active > a {
+      border-top-color: white;
+    }
+  }
+
+  // mobile width animation & default styles
+  .dropdown {
+    .dropdown-menu {
+      display: block;
+      visibility: 0;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .3s ease, opacity .3s;
+    }
+
+    &.open .dropdown-menu {
+      visibility: 1;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  // desktop width animation
+  @media (min-width: $screen-sm-min) {
+    .dropdown {
+      .dropdown-menu {
+        display: block;
+        position: absolute;
+        visibility: 0;
+        top: -500px;
+        opacity: 0;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        padding: 8px 0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        transform: translate3d(0, -10px, 0);
+        transform-origin: top;
+        transition: opacity .4s,
+                    transform .4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+
+        a {
+          padding: 10px 20px;
+        }
+      }
+
+      &.open .dropdown-menu {
+        visibility: 1;
+        top: 64px;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  .navbar-form {
+    margin: 22px 0 0 110px;
+
+    .form-group {
+      position: relative;
+      padding-left: 0;
+
+      input {
+        background: lighten($blue, 2);
+        box-shadow: none;
+        border: 0;
+        color: white;
+        font-size: 14px;
+        border-radius: 800px;
+        padding-left: 38px;
+        width: 150px;
+        transition: all .3s cubic-bezier(0.2, 0.85, 0.2, 1.1);
+
+        &:focus {
+          width: 270px;
+          background: lighten($blue, 5);
+        }
+
+        &::-webkit-input-placeholder {
+          color: lighten($blue, 20);
+        }
+
+        &:-ms-input-placeholder {
+          color: lighten($blue, 20);
+        }
+      }
+
+      &::before {
+        font-family: 'Ionicons';
+        -webkit-font-smoothing: antialiased;
+        content: '\f4a5';
+        font-size: 18px;
+        font-weight: 800;
+        color: lighten($blue, 15);
+        position: absolute;
+        top: 4px;
+        left: 14px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-left: 25px;
+
+      .form-group input:focus {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: -1px;
+      margin-left: 0;
+
+      .form-group input,
+      .form-group input:focus {
+        width: 100%;
+      }
+    }
+  }
+
+  .navbar-toggle,
+  .sidebar-toggle {
+    border: 0;
+    position: relative;
+    background: transparent;
+
+    i {
+      position: absolute;
+      font-size: 27px;
+      top: -3px;
+      color: $navbar-default-link-color;
+      transition: color .3s, transform .3s, opacity .3s;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+      outline: none;
+
+      i {
+        color: white;
+        transform: scale(1.05);
+      }
+    }
+
+    .ion-md-close {
+      opacity: 0;
+    }
+
+    &.active {
+      i {
+        transform: rotate(90deg);
+      }
+
+      i:not(.ion-md-close) {
+        opacity: 0;
+      }
+
+      .ion-md-close {
+        transform: rotate(90deg);
+        opacity: 1;
+      }
+    }
+  }
+
+  .sidebar-toggle {
+    float: left;
+    margin: 8px 10px 0;
+    display: none;
+
+    @media (max-width: $screen-xs-max) {
+      display: block;
+    }
+  }
+}

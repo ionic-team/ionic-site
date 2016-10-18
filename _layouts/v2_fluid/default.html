@@ -10,11 +10,9 @@
         data-target="#components-index"
         ng-app="IonicDocs">
 
-    {% if page.layout == 'v2_fluid/docs_base.html' or page.layout == 'v2_fluid/docs_cli_base.html' %}
-      {% assign page.fluid = true %}
+    {% if page.layout == 'v2_fluid/docs_base' or page.layout == 'v2_fluid/docs_cli_base' %}
       {% include v2_fluid/docs_header.html %}
     {% else %}
-      {% assign page.fluid = false %}
       {% include v2_fluid/header.html %}
     {% endif %}
 

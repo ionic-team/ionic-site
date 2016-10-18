@@ -36,56 +36,6 @@
 
   .btn-row {
     padding: 0;
-
-    .btn {
-      margin-top: 20px;
-      padding: 15px 32px;
-      width: 280px;
-      border: 0;
-      font-size: 22px;
-      // font-family: $font-family-regular;
-      opacity: 1;
-    }
-    .btn-download {
-      border: none;
-      background: #fff;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-      color: $brand-primary;
-      opacity: 0.95;
-      -webkit-transition: 0.1s linear;
-      -moz-transition: 0.1s linear;
-      transition: 0.1s linear;
-
-      &:hover {
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-        opacity: 1;
-      }
-
-      &:active {
-        box-shadow: inset 0px 0px 5px rgba(33, 85, 170, 0.4);
-        opacity: .7;
-      }
-    }
-    .btn-get-started {
-      margin: 20px 0 0 0;
-      border: none;
-      background: transparent;
-      box-shadow: inset 0px 0px 0px 2px #A8C7FF;
-      color: #A8C7FF;
-      -webkit-transition: 0.1s linear;
-      -moz-transition: 0.1s linear;
-      transition: 0.1s linear;
-
-      &:hover {
-        box-shadow: inset 0px 0px 0px 2px #fff;
-        color: #fff;
-      }
-
-      &:active {
-        box-shadow: inset 0px 0px 0px 2px #A8C7FF;
-        color: #A8C7FF;
-      }
-    }
   }
 
   .version-text {

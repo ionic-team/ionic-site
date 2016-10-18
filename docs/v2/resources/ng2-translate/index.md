@@ -34,7 +34,7 @@ export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
 ```
-and then change your `@NgModule` to look like the following example:
+and then add the following to your to your NgModules imports array:
 
 ```typescript
 @NgModule({

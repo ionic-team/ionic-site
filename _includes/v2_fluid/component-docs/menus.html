@@ -17,9 +17,11 @@ _For more information, Check out the [API docs](../api/components/menu/Menu)._
 
 ```html
 <ion-menu [content]="content">
-  <ion-toolbar>
-    <ion-title>Pages</ion-title>
-  </ion-toolbar>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
   <ion-content>
     <ion-list>
       <button ion-item (click)="openPage(loginPage)">

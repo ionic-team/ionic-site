@@ -73,7 +73,7 @@ import {Component} from '@angular/core';
 export class HelloIonicPage {}
 ```
 
-All pages have both a class, and an associated template that's being compiled as well. Let's check out `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template that's being compiled as well. Let's check out `src/pages/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -105,7 +105,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 

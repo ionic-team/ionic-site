@@ -72,10 +72,12 @@ Here's the main template for the app in `src/app/app.html`:
 ```html
 <ion-menu [content]="content">
 
-  <ion-toolbar>
-    <ion-title>Pages</ion-title>
-  </ion-toolbar>
-
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">

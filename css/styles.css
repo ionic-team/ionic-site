@@ -7628,6 +7628,8 @@ pre {
         padding-top: 8px; } }
     .navbar-default .navbar-brand img {
       width: 128px; }
+  .navbar-default.transparent {
+    background: transparent; }
   .navbar-default #ionic-io-logo {
     background: url("/img/ionic-logo.png") no-repeat 0 bottom;
     background-size: 90px;
@@ -7931,7 +7933,6 @@ pre {
 body {
   font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
-  background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%);
   overflow-x: hidden; }
   @media (max-width: 767px) {
     body {
@@ -7939,6 +7940,8 @@ body {
       min-width: 100%;
       background: #fff;
       padding-top: 50px; } }
+  body .docs {
+    background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%); }
 
 #components-index ul.nav > li > a {
   background-color: #F9FAFB; }
@@ -8985,8 +8988,7 @@ ul.docs-example {
     color: #A8C7FF;
     font-size: 16px;
     line-height: 28px;
-    font-weight: bold;
-    font-family: "AvenirNextLTPro-Ultlt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
     cursor: default;
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
@@ -9065,7 +9067,6 @@ ul.docs-example {
     text-decoration: underline;
     font-weight: 300;
     font-size: 11px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     text-decoration: none;
     text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2); }
 
@@ -9752,6 +9753,10 @@ ul.docs-example {
       background-position: center center; }
   .home .utility-bar {
     margin-top: -628px; } }
+
+.slide-home {
+  background: #298fff;
+  background: linear-gradient(to right, #347eff 0%, #1ea3ff 100%); }
 
 .slide-creator {
   background: #2090d2;

@@ -24,6 +24,10 @@
     }
   }
 
+  &.transparent {
+    background: transparent;
+  }
+
   #ionic-io-logo {
     background: url('/img/ionic-logo.png') no-repeat 0 bottom;
     background-size: 90px;

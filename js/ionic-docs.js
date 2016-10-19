@@ -35,7 +35,7 @@ ga('linker:autoLink', ['ionic.io','blog.ionic.io','apps.ionic.io',
    'creator.ionic.io','ideas.ionic.io','showcase.ionic.io','market.ionic.io']);
 ga('send', 'pageview');
 
-var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;
@@ -322,7 +322,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 
 }]);
 
-IonicDocsModule
+IonicSiteModule
 // .directive('delayedPre', [function() {
 //   return {
 //     restrict: 'EA',

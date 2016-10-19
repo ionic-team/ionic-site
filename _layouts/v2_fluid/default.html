@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% if page.layout == 'v2_fluid/docs_base' or page.layout == 'v2_fluid/docs_cli_base' %}
+      {% assign isDocs = true %}
+    {% else %}
+      {% assign isDocs = false %}
+    {% endif %}
     {% include v2_fluid/head.html %}
   </head>
-  <body id="docs-page-{{page.id}}"
-        class="v2 docs page-{{page.id}}"
+  <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
+        class="{% if isDocs %}v2 docs {% endif %}page-{{page.id}}"
         data-spy="scroll"
         data-offset="100"
-        data-target="#components-index"
-        ng-app="IonicDocs">
+        {% if isDocs %}data-target="#components-index"{% endif %}
+        ng-app="IonicSite">
 
     {% if page.layout == 'v2_fluid/docs_base' or page.layout == 'v2_fluid/docs_cli_base' %}
       {% include v2_fluid/docs_header.html %}

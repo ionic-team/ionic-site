@@ -1,4 +1,4 @@
-IonicDocsModule
+IonicSiteModule
 // .directive('delayedPre', [function() {
 //   return {
 //     restrict: 'EA',

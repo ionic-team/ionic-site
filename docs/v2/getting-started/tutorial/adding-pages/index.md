@@ -31,10 +31,10 @@ In `app/app.component.ts`, the `MyApp` component specifies this in its construct
 
 ```ts
 ...
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
 ...
 
-class MyApp {
+export class MyApp {
   ...
   
   // make HelloIonicPage the root (or first) page

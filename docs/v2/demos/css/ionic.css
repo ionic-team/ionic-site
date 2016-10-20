@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610200845, Default Theme
+ * vE2E-201610201959, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -2691,8 +2691,7 @@ ion-content.js-scroll > .scroll-content {
   will-change: initial; }
 
 .disable-scroll .ion-page .scroll-content {
-  overflow-y: hidden;
-  overflow-x: hidden; }
+  pointer-events: none; }
 
 .fixed-content {
   position: absolute;

@@ -24357,6 +24357,8 @@ var isCheckedProperty = function (a, b) {
     return (a == b);
 };
 
+var ASSERT_ENABLED = true;
+
 var Config = (function () {
     function Config() {
         this._c = {};
@@ -27833,18 +27835,18 @@ var NavControllerBase = (function (_super) {
         if (transition$$1.isRoot() && opts.progressAnimation) {
             this._sbTrns = transition$$1;
         }
-        if (enteringView && enteringView._state === ViewState.INITIALIZED) {
-            this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
-        }
-        else {
-            (void 0);
-        }
         transition$$1.registerStart(function () {
             _this._trnsStart(transition$$1, enteringView, leavingView, opts, resolve);
             if (transition$$1.parent) {
                 transition$$1.parent.start();
             }
         });
+        if (enteringView && enteringView._state === ViewState.INITIALIZED) {
+            this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
+        }
+        else {
+            (void 0);
+        }
         if (!transition$$1.hasChildren) {
             transition$$1.start();
         }
@@ -27898,7 +27900,8 @@ var NavControllerBase = (function (_super) {
     NavControllerBase.prototype._trnsFinish = function (transition$$1, opts, resolve) {
         var enteringName;
         var leavingName;
-        if (transition$$1.hasCompleted) {
+        var hasCompleted = transition$$1.hasCompleted;
+        if (hasCompleted) {
             if (transition$$1.enteringView) {
                 enteringName = transition$$1.enteringView.name;
                 this._didEnter(transition$$1.enteringView);
@@ -27919,7 +27922,7 @@ var NavControllerBase = (function (_super) {
                 this._keyboard.close();
             }
         }
-        resolve(transition$$1.hasCompleted, true, enteringName, leavingName, opts.direction);
+        resolve(hasCompleted, true, enteringName, leavingName, opts.direction);
     };
     NavControllerBase.prototype._insertViewAt = function (view, index) {
         var existingIndex = this._views.indexOf(view);

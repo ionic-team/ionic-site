@@ -112,16 +112,18 @@ to the <code>side</code> property:</p>
 </code></pre>
 <p>It can also be set in the app&#39;s config. The below will set the menu type to
 <code>push</code> for all modes, and then set the type to <code>overlay</code> for the <code>ios</code> mode.</p>
-<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">// in NgModules
 
-ionicBootstrap(MyApp, customProviders, {
-  menuType: &#39;push&#39;,
-  platforms: {
-    ios: {
-      menuType: &#39;overlay&#39;,
+imports: [
+  IonicModule.forRoot(MyApp,{
+    menuType: &#39;push&#39;,
+    platforms: {
+      ios: {
+        menuType: &#39;overlay&#39;,
+      }
     }
-  }
-});
+  })
+],
 </code></pre>
 <h3 id="displaying-the-menu">Displaying the Menu</h3>
 <p>To toggle a menu from the template, add a button with the <code>menuToggle</code>
@@ -176,66 +178,6 @@ and usage information.</p>
 <h3>
 <a class="anchor" name="gestureCtrl" href="#gestureCtrl"></a>
 <code>gestureCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNativeElement"></div>
-
-<h3>
-<a class="anchor" name="getNativeElement" href="#getNativeElement"></a>
-<code>getNativeElement()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="width"></div>
-
-<h3>
-<a class="anchor" name="width" href="#width"></a>
-<code>width()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setElementAttribute"></div>
-
-<h3>
-<a class="anchor" name="setElementAttribute" href="#setElementAttribute"></a>
-<code>setElementAttribute()</code>
   
 
 </h3>

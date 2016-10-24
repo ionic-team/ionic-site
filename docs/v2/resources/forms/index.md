@@ -46,7 +46,7 @@ export class FormsPage {
 
 This is very similar to how forms were made in Angular 1/Ionic 1 and will be the most familiar with other developers.
 
->Note: If you use ngModel within a form tag, you have to provide a `name` property. If you do not, you must set `standalone` to try in ngModelOptions.
+>Note: If you use ngModel within a form tag, you have to provide a `name` property. If you do not, you must set `standalone` to true in ngModelOptions.
 
 ```html
 <!-- with name set -->

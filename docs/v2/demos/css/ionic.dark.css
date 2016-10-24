@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610242157, Dark Theme
+ * vE2E-201610242210, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3695,7 +3695,7 @@ input.text-input:-webkit-autofill {
   display: none; }
 
 .text-input-ios {
-  margin: 12px 8px 13px 0px;
+  margin: 12px 8px 13px 0;
   padding: 0;
   width: calc(100% - 8px); }
 

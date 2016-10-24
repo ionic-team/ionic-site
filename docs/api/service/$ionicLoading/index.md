@@ -52,7 +52,8 @@ angular.module('LoadingApp', ['ionic'])
 .controller('LoadingCtrl', function($scope, $ionicLoading) {
   $scope.show = function() {
     $ionicLoading.show({
-      template: 'Loading...'
+      template: 'Loading...',
+      duration: 3000
     }).then(function(){
        console.log("The loading indicator is now displayed");
     });

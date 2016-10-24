@@ -281,7 +281,7 @@ var _View_TabPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_TabPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_TabPage === null)) {
-        (renderType_TabPage = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_TabPage, {}));
+        (renderType_TabPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/config/tabs.html', 0, import8.ViewEncapsulation.None, styles_TabPage, {}));
     }
     return new _View_TabPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1282,7 +1282,7 @@ var _View_ApiDemoPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.Emulated, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/config/page.html', 0, import8.ViewEncapsulation.Emulated, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1486,7 +1486,7 @@ var _View_PushPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_PushPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PushPage === null)) {
-        (renderType_PushPage = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_PushPage, {}));
+        (renderType_PushPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/config/push-page.html', 0, import8.ViewEncapsulation.None, styles_PushPage, {}));
     }
     return new _View_PushPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1564,7 +1564,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/config/app.component.ts class ApiDemoApp - inline template', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

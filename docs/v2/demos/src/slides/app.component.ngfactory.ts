@@ -46,9 +46,9 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage();
-    this._appEl_0.initComponent(this._ApiDemoPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoPage_0_4,[],compView_0);
     compView_0.create(this._ApiDemoPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -57,11 +57,11 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoPageNgFactory:import9.ComponentFactory<import3.ApiDemoPage> = new import9.ComponentFactory<import3.ApiDemoPage>('ng-component',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
-const styles_ApiDemoPage:any[] = ([] as any[]);
+const styles_ApiDemoPage:any[] = [];
 var renderType_ApiDemoPage:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   _el_0:any;
@@ -87,14 +87,14 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import12.viewFactory_Slides0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Slides_0_4 = new import10.Slides(this.parentInjector.get(import13.Config),new import14.ElementRef(this._el_0),this.renderer);
-    this._appEl_0.initComponent(this._Slides_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._Slides_0_4,[],compView_0);
     this._text_1 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._anchor_2 = this.renderer.createTemplateAnchor((null as any),(null as any));
     this._appEl_2 = new import2.AppElement(2,0,this,this._anchor_2);
     this._TemplateRef_2_5 = new import15.TemplateRef_(this._appEl_2,viewFactory_ApiDemoPage1);
     this._NgFor_2_6 = new import11.NgFor(this._appEl_2.vcRef,this._TemplateRef_2_5,this.parentInjector.get(import16.IterableDiffers),this.ref);
     this._text_3 = this.renderer.createText((null as any),'\n',(null as any));
-      compView_0.create(this._Slides_0_4,[([] as any[]).concat([
+      compView_0.create(this._Slides_0_4,[[].concat([
         this._text_1,
         this._appEl_2,
         this._text_3
@@ -112,14 +112,14 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       ;
     });
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1,
       this._anchor_2,
       this._text_3,
       this._text_4
     ]
-    ,([] as any[]),([] as any[]));
+    ,[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -146,7 +146,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   }
 }
 export function viewFactory_ApiDemoPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoPage> {
-  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
+  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/slides/page.html',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
   return new _View_ApiDemoPage0(viewUtils,parentInjector,declarationEl);
 }
 class _View_ApiDemoPage1 extends import1.AppView<any> {
@@ -165,24 +165,24 @@ class _View_ApiDemoPage1 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import12.viewFactory_Slide0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Slide_0_4 = new import10.Slide(new import14.ElementRef(this._el_0),(<_View_ApiDemoPage0>this.parent)._Slides_0_4);
-    this._appEl_0.initComponent(this._Slide_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._Slide_0_4,[],compView_0);
     this._text_1 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_2 = this.renderer.createElement((null as any),'img',(null as any));
     this._text_3 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_0.create(this._Slide_0_4,[([] as any[]).concat([
+      compView_0.create(this._Slide_0_4,[[].concat([
         this._text_1,
         this._el_2,
         this._text_3
       ]
     )],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]).concat([this._el_0]),[
+    this.init([].concat([this._el_0]),[
       this._el_0,
       this._text_1,
       this._el_2,
       this._text_3
     ]
-    ,([] as any[]),([] as any[]));
+    ,[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -218,9 +218,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -229,11 +229,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import9.ComponentFactory<import3.ApiDemoApp> = new import9.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = ([] as any[]);
+const styles_ApiDemoApp:any[] = [];
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -249,10 +249,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import19.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import18.Nav(this.parentInjector.get(import20.ViewController,(null as any)),this.parentInjector.get(import21.NavControllerBase,(null as any)),this.parentInjector.get(import22.App),this.parentInjector.get(import13.Config),this.parentInjector.get(import23.Keyboard),new import14.ElementRef(this._el_0),this.parentInjector.get(import24.NgZone),this.renderer,this.parentInjector.get(import25.ComponentFactoryResolver),this.parentInjector.get(import26.GestureController),this.parentInjector.get(import27.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
-    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
+    compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([],[this._el_0],[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -271,6 +271,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/slides/app.component.ts class ApiDemoApp - inline template',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

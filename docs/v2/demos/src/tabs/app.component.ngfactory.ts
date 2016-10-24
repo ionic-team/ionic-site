@@ -53,9 +53,9 @@ class _View_TabPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_TabPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._TabPage_0_4 = new import3.TabPage();
-    this._appEl_0.initComponent(this._TabPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._TabPage_0_4,[],compView_0);
     compView_0.create(this._TabPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -64,11 +64,11 @@ class _View_TabPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_TabPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_TabPage_Host === (null as any))) { (renderType_TabPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_TabPage_Host === (null as any))) { (renderType_TabPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_TabPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const TabPageNgFactory:import9.ComponentFactory<import3.TabPage> = new import9.ComponentFactory<import3.TabPage>('tab-page',viewFactory_TabPage_Host0,import3.TabPage);
-const styles_TabPage:any[] = ([] as any[]);
+const styles_TabPage:any[] = [];
 var renderType_TabPage:import0.RenderComponentType = (null as any);
 class _View_TabPage0 extends import1.AppView<import3.TabPage> {
   _el_0:any;
@@ -80,16 +80,16 @@ class _View_TabPage0 extends import1.AppView<import3.TabPage> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._el_0 = this.renderer.createElement(parentRenderNode,'div',(null as any));
     this._text_1 = this.renderer.createText(this._el_0,'johnny utah',(null as any));
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1
     ]
-    ,([] as any[]),([] as any[]));
+    ,[],[]);
     return (null as any);
   }
 }
 export function viewFactory_TabPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.TabPage> {
-  if ((renderType_TabPage === (null as any))) { (renderType_TabPage = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_TabPage,{})); }
+  if ((renderType_TabPage === (null as any))) { (renderType_TabPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/tabs/app.component.ts class TabPage - inline template',0,import8.ViewEncapsulation.None,styles_TabPage,{})); }
   return new _View_TabPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoPage_Host:import0.RenderComponentType = (null as any);
@@ -105,9 +105,9 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage();
-    this._appEl_0.initComponent(this._ApiDemoPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoPage_0_4,[],compView_0);
     compView_0.create(this._ApiDemoPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -116,7 +116,7 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoPageNgFactory:import9.ComponentFactory<import3.ApiDemoPage> = new import9.ComponentFactory<import3.ApiDemoPage>('api-demo-page',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
@@ -444,21 +444,21 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import19.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import11.Navbar(this.parentInjector.get(import20.App),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_4 = new import2.AppElement(4,2,this,this._el_4);
     var compView_4:any = import22.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import12.ToolbarTitle(this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import10.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_4.initComponent(this._ToolbarTitle_4_4,([] as any[]),compView_4);
+    this._appEl_4.initComponent(this._ToolbarTitle_4_4,[],compView_4);
     this._text_5 = this.renderer.createText((null as any),'Tabs',(null as any));
-    compView_4.create(this._ToolbarTitle_4_4,[([] as any[]).concat([this._text_5])],(null as any));
+    compView_4.create(this._ToolbarTitle_4_4,[[].concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [],
+      [],
+      [].concat([
         this._text_3,
         this._el_4,
         this._text_6
@@ -472,14 +472,14 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_9 = new import2.AppElement(9,(null as any),this,this._el_9);
     var compView_9:any = import23.viewFactory_Content0(this.viewUtils,this.injector(9),this._appEl_9);
     this._Content_9_4 = new import13.Content(this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_9),this.renderer,this.parentInjector.get(import20.App),this.parentInjector.get(import24.Keyboard),this.parentInjector.get(import25.NgZone),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import14.Tabs,(null as any)));
-    this._appEl_9.initComponent(this._Content_9_4,([] as any[]),compView_9);
+    this._appEl_9.initComponent(this._Content_9_4,[],compView_9);
     this._text_10 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._text_11 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_12 = this.renderer.createElement((null as any),'ion-tabs',(null as any));
     this._appEl_12 = new import2.AppElement(12,9,this,this._el_12);
     var compView_12:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(12),this._appEl_12);
     this._Tabs_12_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_12),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_12.initComponent(this._Tabs_12_4,([] as any[]),compView_12);
+    this._appEl_12.initComponent(this._Tabs_12_4,[],compView_12);
     this._text_13 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_14 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_14,'role','tabpanel');
@@ -487,8 +487,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_14 = new import2.AppElement(14,12,this,this._el_14);
     var compView_14:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(14),this._appEl_14);
     this._Tab_14_4 = new import15.Tab(this._Tabs_12_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_14),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_14.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_14.initComponent(this._Tab_14_4,([] as any[]),compView_14);
-    compView_14.create(this._Tab_14_4,([] as any[]),(null as any));
+    this._appEl_14.initComponent(this._Tab_14_4,[],compView_14);
+    compView_14.create(this._Tab_14_4,[],(null as any));
     this._text_15 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_16 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_16,'role','tabpanel');
@@ -497,8 +497,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_16 = new import2.AppElement(16,12,this,this._el_16);
     var compView_16:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(16),this._appEl_16);
     this._Tab_16_4 = new import15.Tab(this._Tabs_12_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_16),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_16.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_16.initComponent(this._Tab_16_4,([] as any[]),compView_16);
-    compView_16.create(this._Tab_16_4,([] as any[]),(null as any));
+    this._appEl_16.initComponent(this._Tab_16_4,[],compView_16);
+    compView_16.create(this._Tab_16_4,[],(null as any));
     this._text_17 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_18 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_18,'role','tabpanel');
@@ -506,10 +506,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_18 = new import2.AppElement(18,12,this,this._el_18);
     var compView_18:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(18),this._appEl_18);
     this._Tab_18_4 = new import15.Tab(this._Tabs_12_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_18),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_18.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_18.initComponent(this._Tab_18_4,([] as any[]),compView_18);
-    compView_18.create(this._Tab_18_4,([] as any[]),(null as any));
+    this._appEl_18.initComponent(this._Tab_18_4,[],compView_18);
+    compView_18.create(this._Tab_18_4,[],(null as any));
     this._text_19 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_12.create(this._Tabs_12_4,[([] as any[]).concat([
+      compView_12.create(this._Tabs_12_4,[[].concat([
         this._text_13,
         this._el_14,
         this._text_15,
@@ -527,7 +527,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_22 = new import2.AppElement(22,9,this,this._el_22);
     var compView_22:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(22),this._appEl_22);
     this._Tabs_22_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_22),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_22.initComponent(this._Tabs_22_4,([] as any[]),compView_22);
+    this._appEl_22.initComponent(this._Tabs_22_4,[],compView_22);
     this._text_23 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_24 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_24,'role','tabpanel');
@@ -535,8 +535,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_24 = new import2.AppElement(24,22,this,this._el_24);
     var compView_24:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(24),this._appEl_24);
     this._Tab_24_4 = new import15.Tab(this._Tabs_22_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_24),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_24.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_24.initComponent(this._Tab_24_4,([] as any[]),compView_24);
-    compView_24.create(this._Tab_24_4,([] as any[]),(null as any));
+    this._appEl_24.initComponent(this._Tab_24_4,[],compView_24);
+    compView_24.create(this._Tab_24_4,[],(null as any));
     this._text_25 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_26 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_26,'role','tabpanel');
@@ -544,8 +544,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_26 = new import2.AppElement(26,22,this,this._el_26);
     var compView_26:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(26),this._appEl_26);
     this._Tab_26_4 = new import15.Tab(this._Tabs_22_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_26),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_26.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_26.initComponent(this._Tab_26_4,([] as any[]),compView_26);
-    compView_26.create(this._Tab_26_4,([] as any[]),(null as any));
+    this._appEl_26.initComponent(this._Tab_26_4,[],compView_26);
+    compView_26.create(this._Tab_26_4,[],(null as any));
     this._text_27 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_28 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_28,'role','tabpanel');
@@ -555,10 +555,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_28 = new import2.AppElement(28,22,this,this._el_28);
     var compView_28:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(28),this._appEl_28);
     this._Tab_28_4 = new import15.Tab(this._Tabs_22_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_28),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_28.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_28.initComponent(this._Tab_28_4,([] as any[]),compView_28);
-    compView_28.create(this._Tab_28_4,([] as any[]),(null as any));
+    this._appEl_28.initComponent(this._Tab_28_4,[],compView_28);
+    compView_28.create(this._Tab_28_4,[],(null as any));
     this._text_29 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_22.create(this._Tabs_22_4,[([] as any[]).concat([
+      compView_22.create(this._Tabs_22_4,[[].concat([
         this._text_23,
         this._el_24,
         this._text_25,
@@ -576,7 +576,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_32 = new import2.AppElement(32,9,this,this._el_32);
     var compView_32:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(32),this._appEl_32);
     this._Tabs_32_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_32),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_32.initComponent(this._Tabs_32_4,([] as any[]),compView_32);
+    this._appEl_32.initComponent(this._Tabs_32_4,[],compView_32);
     this._text_33 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_34 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_34,'role','tabpanel');
@@ -585,8 +585,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_34 = new import2.AppElement(34,32,this,this._el_34);
     var compView_34:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(34),this._appEl_34);
     this._Tab_34_4 = new import15.Tab(this._Tabs_32_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_34),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_34.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_34.initComponent(this._Tab_34_4,([] as any[]),compView_34);
-    compView_34.create(this._Tab_34_4,([] as any[]),(null as any));
+    this._appEl_34.initComponent(this._Tab_34_4,[],compView_34);
+    compView_34.create(this._Tab_34_4,[],(null as any));
     this._text_35 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_36 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_36,'role','tabpanel');
@@ -597,8 +597,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_36 = new import2.AppElement(36,32,this,this._el_36);
     var compView_36:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(36),this._appEl_36);
     this._Tab_36_4 = new import15.Tab(this._Tabs_32_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_36),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_36.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_36.initComponent(this._Tab_36_4,([] as any[]),compView_36);
-    compView_36.create(this._Tab_36_4,([] as any[]),(null as any));
+    this._appEl_36.initComponent(this._Tab_36_4,[],compView_36);
+    compView_36.create(this._Tab_36_4,[],(null as any));
     this._text_37 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_38 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_38,'role','tabpanel');
@@ -607,10 +607,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_38 = new import2.AppElement(38,32,this,this._el_38);
     var compView_38:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(38),this._appEl_38);
     this._Tab_38_4 = new import15.Tab(this._Tabs_32_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_38),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_38.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_38.initComponent(this._Tab_38_4,([] as any[]),compView_38);
-    compView_38.create(this._Tab_38_4,([] as any[]),(null as any));
+    this._appEl_38.initComponent(this._Tab_38_4,[],compView_38);
+    compView_38.create(this._Tab_38_4,[],(null as any));
     this._text_39 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_32.create(this._Tabs_32_4,[([] as any[]).concat([
+      compView_32.create(this._Tabs_32_4,[[].concat([
         this._text_33,
         this._el_34,
         this._text_35,
@@ -629,7 +629,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_42 = new import2.AppElement(42,9,this,this._el_42);
     var compView_42:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(42),this._appEl_42);
     this._Tabs_42_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_42),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_42.initComponent(this._Tabs_42_4,([] as any[]),compView_42);
+    this._appEl_42.initComponent(this._Tabs_42_4,[],compView_42);
     this._text_43 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_44 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_44,'role','tabpanel');
@@ -640,8 +640,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_44 = new import2.AppElement(44,42,this,this._el_44);
     var compView_44:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(44),this._appEl_44);
     this._Tab_44_4 = new import15.Tab(this._Tabs_42_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_44),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_44.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_44.initComponent(this._Tab_44_4,([] as any[]),compView_44);
-    compView_44.create(this._Tab_44_4,([] as any[]),(null as any));
+    this._appEl_44.initComponent(this._Tab_44_4,[],compView_44);
+    compView_44.create(this._Tab_44_4,[],(null as any));
     this._text_45 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_46 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_46,'role','tabpanel');
@@ -650,8 +650,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_46 = new import2.AppElement(46,42,this,this._el_46);
     var compView_46:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(46),this._appEl_46);
     this._Tab_46_4 = new import15.Tab(this._Tabs_42_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_46),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_46.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_46.initComponent(this._Tab_46_4,([] as any[]),compView_46);
-    compView_46.create(this._Tab_46_4,([] as any[]),(null as any));
+    this._appEl_46.initComponent(this._Tab_46_4,[],compView_46);
+    compView_46.create(this._Tab_46_4,[],(null as any));
     this._text_47 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_48 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_48,'role','tabpanel');
@@ -660,10 +660,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_48 = new import2.AppElement(48,42,this,this._el_48);
     var compView_48:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(48),this._appEl_48);
     this._Tab_48_4 = new import15.Tab(this._Tabs_42_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_48),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_48.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_48.initComponent(this._Tab_48_4,([] as any[]),compView_48);
-    compView_48.create(this._Tab_48_4,([] as any[]),(null as any));
+    this._appEl_48.initComponent(this._Tab_48_4,[],compView_48);
+    compView_48.create(this._Tab_48_4,[],(null as any));
     this._text_49 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_42.create(this._Tabs_42_4,[([] as any[]).concat([
+      compView_42.create(this._Tabs_42_4,[[].concat([
         this._text_43,
         this._el_44,
         this._text_45,
@@ -682,7 +682,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_52 = new import2.AppElement(52,9,this,this._el_52);
     var compView_52:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(52),this._appEl_52);
     this._Tabs_52_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_52),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_52.initComponent(this._Tabs_52_4,([] as any[]),compView_52);
+    this._appEl_52.initComponent(this._Tabs_52_4,[],compView_52);
     this._text_53 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_54 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_54,'role','tabpanel');
@@ -691,8 +691,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_54 = new import2.AppElement(54,52,this,this._el_54);
     var compView_54:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(54),this._appEl_54);
     this._Tab_54_4 = new import15.Tab(this._Tabs_52_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_54),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_54.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_54.initComponent(this._Tab_54_4,([] as any[]),compView_54);
-    compView_54.create(this._Tab_54_4,([] as any[]),(null as any));
+    this._appEl_54.initComponent(this._Tab_54_4,[],compView_54);
+    compView_54.create(this._Tab_54_4,[],(null as any));
     this._text_55 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_56 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_56,'role','tabpanel');
@@ -701,8 +701,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_56 = new import2.AppElement(56,52,this,this._el_56);
     var compView_56:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(56),this._appEl_56);
     this._Tab_56_4 = new import15.Tab(this._Tabs_52_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_56),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_56.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_56.initComponent(this._Tab_56_4,([] as any[]),compView_56);
-    compView_56.create(this._Tab_56_4,([] as any[]),(null as any));
+    this._appEl_56.initComponent(this._Tab_56_4,[],compView_56);
+    compView_56.create(this._Tab_56_4,[],(null as any));
     this._text_57 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_58 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_58,'role','tabpanel');
@@ -713,10 +713,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_58 = new import2.AppElement(58,52,this,this._el_58);
     var compView_58:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(58),this._appEl_58);
     this._Tab_58_4 = new import15.Tab(this._Tabs_52_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_58),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_58.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_58.initComponent(this._Tab_58_4,([] as any[]),compView_58);
-    compView_58.create(this._Tab_58_4,([] as any[]),(null as any));
+    this._appEl_58.initComponent(this._Tab_58_4,[],compView_58);
+    compView_58.create(this._Tab_58_4,[],(null as any));
     this._text_59 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_52.create(this._Tabs_52_4,[([] as any[]).concat([
+      compView_52.create(this._Tabs_52_4,[[].concat([
         this._text_53,
         this._el_54,
         this._text_55,
@@ -734,7 +734,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_62 = new import2.AppElement(62,9,this,this._el_62);
     var compView_62:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(62),this._appEl_62);
     this._Tabs_62_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_62),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_62.initComponent(this._Tabs_62_4,([] as any[]),compView_62);
+    this._appEl_62.initComponent(this._Tabs_62_4,[],compView_62);
     this._text_63 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_64 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_64,'role','tabpanel');
@@ -745,8 +745,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_64 = new import2.AppElement(64,62,this,this._el_64);
     var compView_64:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(64),this._appEl_64);
     this._Tab_64_4 = new import15.Tab(this._Tabs_62_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_64),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_64.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_64.initComponent(this._Tab_64_4,([] as any[]),compView_64);
-    compView_64.create(this._Tab_64_4,([] as any[]),(null as any));
+    this._appEl_64.initComponent(this._Tab_64_4,[],compView_64);
+    compView_64.create(this._Tab_64_4,[],(null as any));
     this._text_65 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_66 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_66,'role','tabpanel');
@@ -755,8 +755,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_66 = new import2.AppElement(66,62,this,this._el_66);
     var compView_66:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(66),this._appEl_66);
     this._Tab_66_4 = new import15.Tab(this._Tabs_62_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_66),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_66.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_66.initComponent(this._Tab_66_4,([] as any[]),compView_66);
-    compView_66.create(this._Tab_66_4,([] as any[]),(null as any));
+    this._appEl_66.initComponent(this._Tab_66_4,[],compView_66);
+    compView_66.create(this._Tab_66_4,[],(null as any));
     this._text_67 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_68 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_68,'role','tabpanel');
@@ -765,10 +765,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_68 = new import2.AppElement(68,62,this,this._el_68);
     var compView_68:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(68),this._appEl_68);
     this._Tab_68_4 = new import15.Tab(this._Tabs_62_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_68),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_68.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_68.initComponent(this._Tab_68_4,([] as any[]),compView_68);
-    compView_68.create(this._Tab_68_4,([] as any[]),(null as any));
+    this._appEl_68.initComponent(this._Tab_68_4,[],compView_68);
+    compView_68.create(this._Tab_68_4,[],(null as any));
     this._text_69 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_62.create(this._Tabs_62_4,[([] as any[]).concat([
+      compView_62.create(this._Tabs_62_4,[[].concat([
         this._text_63,
         this._el_64,
         this._text_65,
@@ -785,7 +785,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_72 = new import2.AppElement(72,9,this,this._el_72);
     var compView_72:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(72),this._appEl_72);
     this._Tabs_72_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_72),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_72.initComponent(this._Tabs_72_4,([] as any[]),compView_72);
+    this._appEl_72.initComponent(this._Tabs_72_4,[],compView_72);
     this._text_73 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_74 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_74,'role','tabpanel');
@@ -794,8 +794,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_74 = new import2.AppElement(74,72,this,this._el_74);
     var compView_74:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(74),this._appEl_74);
     this._Tab_74_4 = new import15.Tab(this._Tabs_72_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_74),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_74.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_74.initComponent(this._Tab_74_4,([] as any[]),compView_74);
-    compView_74.create(this._Tab_74_4,([] as any[]),(null as any));
+    this._appEl_74.initComponent(this._Tab_74_4,[],compView_74);
+    compView_74.create(this._Tab_74_4,[],(null as any));
     this._text_75 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_76 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_76,'role','tabpanel');
@@ -806,8 +806,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_76 = new import2.AppElement(76,72,this,this._el_76);
     var compView_76:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(76),this._appEl_76);
     this._Tab_76_4 = new import15.Tab(this._Tabs_72_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_76),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_76.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_76.initComponent(this._Tab_76_4,([] as any[]),compView_76);
-    compView_76.create(this._Tab_76_4,([] as any[]),(null as any));
+    this._appEl_76.initComponent(this._Tab_76_4,[],compView_76);
+    compView_76.create(this._Tab_76_4,[],(null as any));
     this._text_77 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_78 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_78,'role','tabpanel');
@@ -816,10 +816,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_78 = new import2.AppElement(78,72,this,this._el_78);
     var compView_78:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(78),this._appEl_78);
     this._Tab_78_4 = new import15.Tab(this._Tabs_72_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_78),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_78.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_78.initComponent(this._Tab_78_4,([] as any[]),compView_78);
-    compView_78.create(this._Tab_78_4,([] as any[]),(null as any));
+    this._appEl_78.initComponent(this._Tab_78_4,[],compView_78);
+    compView_78.create(this._Tab_78_4,[],(null as any));
     this._text_79 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_72.create(this._Tabs_72_4,[([] as any[]).concat([
+      compView_72.create(this._Tabs_72_4,[[].concat([
         this._text_73,
         this._el_74,
         this._text_75,
@@ -836,7 +836,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_82 = new import2.AppElement(82,9,this,this._el_82);
     var compView_82:any = import26.viewFactory_Tabs0(this.viewUtils,this.injector(82),this._appEl_82);
     this._Tabs_82_4 = new import14.Tabs(this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_82),this.parentInjector.get(import27.Platform),this.renderer,this.parentInjector.get(import28.DeepLinker));
-    this._appEl_82.initComponent(this._Tabs_82_4,([] as any[]),compView_82);
+    this._appEl_82.initComponent(this._Tabs_82_4,[],compView_82);
     this._text_83 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_84 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_84,'role','tabpanel');
@@ -844,8 +844,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_84 = new import2.AppElement(84,82,this,this._el_84);
     var compView_84:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(84),this._appEl_84);
     this._Tab_84_4 = new import15.Tab(this._Tabs_82_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_84),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_84.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_84.initComponent(this._Tab_84_4,([] as any[]),compView_84);
-    compView_84.create(this._Tab_84_4,([] as any[]),(null as any));
+    this._appEl_84.initComponent(this._Tab_84_4,[],compView_84);
+    compView_84.create(this._Tab_84_4,[],(null as any));
     this._text_85 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_86 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_86,'role','tabpanel');
@@ -853,8 +853,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_86 = new import2.AppElement(86,82,this,this._el_86);
     var compView_86:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(86),this._appEl_86);
     this._Tab_86_4 = new import15.Tab(this._Tabs_82_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_86),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_86.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_86.initComponent(this._Tab_86_4,([] as any[]),compView_86);
-    compView_86.create(this._Tab_86_4,([] as any[]),(null as any));
+    this._appEl_86.initComponent(this._Tab_86_4,[],compView_86);
+    compView_86.create(this._Tab_86_4,[],(null as any));
     this._text_87 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_88 = this.renderer.createElement((null as any),'ion-tab',(null as any));
     this.renderer.setElementAttribute(this._el_88,'role','tabpanel');
@@ -862,10 +862,10 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_88 = new import2.AppElement(88,82,this,this._el_88);
     var compView_88:any = import29.viewFactory_Tab0(this.viewUtils,this.injector(88),this._appEl_88);
     this._Tab_88_4 = new import15.Tab(this._Tabs_82_4,this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_88),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),compView_88.ref,this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_88.initComponent(this._Tab_88_4,([] as any[]),compView_88);
-    compView_88.create(this._Tab_88_4,([] as any[]),(null as any));
+    this._appEl_88.initComponent(this._Tab_88_4,[],compView_88);
+    compView_88.create(this._Tab_88_4,[],(null as any));
     this._text_89 = this.renderer.createText((null as any),'\n  ',(null as any));
-      compView_82.create(this._Tabs_82_4,[([] as any[]).concat([
+      compView_82.create(this._Tabs_82_4,[[].concat([
         this._text_83,
         this._el_84,
         this._text_85,
@@ -877,8 +877,8 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     )],(null as any));
     this._text_90 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_9.create(this._Content_9_4,[
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [].concat([
         this._text_10,
         this._text_11,
         this._el_12,
@@ -906,7 +906,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
         this._text_90
       ]
       ),
-      ([] as any[])
+      []
     ]
     ,(null as any));
     this._text_91 = this.renderer.createText(parentRenderNode,'\n',(null as any));
@@ -1051,7 +1051,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._expr_138 = import7.UNINITIALIZED;
     this._expr_139 = import7.UNINITIALIZED;
     this._expr_140 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -1145,7 +1145,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       this._text_90,
       this._text_91
     ]
-    ,([] as any[]),([] as any[]));
+    ,[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1945,7 +1945,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   }
 }
 export function viewFactory_ApiDemoPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoPage> {
-  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
+  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/tabs/page.html',0,import8.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
   return new _View_ApiDemoPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoApp_Host:import0.RenderComponentType = (null as any);
@@ -1961,9 +1961,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1972,11 +1972,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import9.ComponentFactory<import3.ApiDemoApp> = new import9.ComponentFactory<import3.ApiDemoApp>('api-demo-app',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = ([] as any[]);
+const styles_ApiDemoApp:any[] = [];
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -1992,10 +1992,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import34.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import33.Nav(this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import35.NavControllerBase,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_0),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import30.ComponentFactoryResolver),this.parentInjector.get(import31.GestureController),this.parentInjector.get(import32.TransitionController),this.parentInjector.get(import28.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
-    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
+    compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([],[this._el_0],[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -2014,6 +2014,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/tabs/app.component.ts class ApiDemoApp - inline template',0,import8.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

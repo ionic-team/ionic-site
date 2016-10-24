@@ -68,9 +68,9 @@ class _View_ModalFirstPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ModalFirstPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ModalFirstPage_0_4 = new import3.ModalFirstPage(this.parentInjector.get(import8.ModalController));
-    this._appEl_0.initComponent(this._ModalFirstPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ModalFirstPage_0_4,[],compView_0);
     compView_0.create(this._ModalFirstPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -79,11 +79,11 @@ class _View_ModalFirstPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ModalFirstPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ModalFirstPage_Host === (null as any))) { (renderType_ModalFirstPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ModalFirstPage_Host === (null as any))) { (renderType_ModalFirstPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
   return new _View_ModalFirstPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ModalFirstPageNgFactory:import10.ComponentFactory<import3.ModalFirstPage> = new import10.ComponentFactory<import3.ModalFirstPage>('ng-component',viewFactory_ModalFirstPage_Host0,import3.ModalFirstPage);
-const styles_ModalFirstPage:any[] = ([] as any[]);
+const styles_ModalFirstPage:any[] = [];
 var renderType_ModalFirstPage:import0.RenderComponentType = (null as any);
 class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
   _el_0:any;
@@ -215,21 +215,21 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import28.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import12.Navbar(this.parentInjector.get(import29.App),this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import30.NavController,(null as any)),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_4 = new import2.AppElement(4,2,this,this._el_4);
     var compView_4:any = import31.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import13.ToolbarTitle(this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import11.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_4.initComponent(this._ToolbarTitle_4_4,([] as any[]),compView_4);
+    this._appEl_4.initComponent(this._ToolbarTitle_4_4,[],compView_4);
     this._text_5 = this.renderer.createText((null as any),'Modals',(null as any));
-    compView_4.create(this._ToolbarTitle_4_4,[([] as any[]).concat([this._text_5])],(null as any));
+    compView_4.create(this._ToolbarTitle_4_4,[[].concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [],
+      [],
+      [].concat([
         this._text_3,
         this._el_4,
         this._text_6
@@ -243,7 +243,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._appEl_9 = new import2.AppElement(9,(null as any),this,this._el_9);
     var compView_9:any = import32.viewFactory_Content0(this.viewUtils,this.injector(9),this._appEl_9);
     this._Content_9_4 = new import14.Content(this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_9),this.renderer,this.parentInjector.get(import29.App),this.parentInjector.get(import33.Keyboard),this.parentInjector.get(import34.NgZone),this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import35.Tabs,(null as any)));
-    this._appEl_9.initComponent(this._Content_9_4,([] as any[]),compView_9);
+    this._appEl_9.initComponent(this._Content_9_4,[],compView_9);
     this._text_10 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_11 = this.renderer.createElement((null as any),'div',(null as any));
     this.renderer.setElementAttribute(this._el_11,'padding','');
@@ -254,9 +254,9 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._appEl_13 = new import2.AppElement(13,11,this,this._el_13);
     var compView_13:any = import36.viewFactory_Button0(this.viewUtils,this.injector(13),this._appEl_13);
     this._Button_13_4 = new import15.Button((null as any),'',this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_13),this.renderer);
-    this._appEl_13.initComponent(this._Button_13_4,([] as any[]),compView_13);
+    this._appEl_13.initComponent(this._Button_13_4,[],compView_13);
     this._text_14 = this.renderer.createText((null as any),'Open Basic Modal',(null as any));
-    compView_13.create(this._Button_13_4,[([] as any[]).concat([this._text_14])],(null as any));
+    compView_13.create(this._Button_13_4,[[].concat([this._text_14])],(null as any));
     this._text_15 = this.renderer.createText(this._el_11,'\n  ',(null as any));
     this._text_16 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_17 = this.renderer.createElement((null as any),'ion-list',(null as any));
@@ -272,16 +272,16 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._query_Label_19_0 = new import19.QueryList<any>();
     this._query_Button_19_1 = new import19.QueryList<any>();
     this._query_Icon_19_2 = new import19.QueryList<any>();
-    this._appEl_19.initComponent(this._Item_19_4,([] as any[]),compView_19);
+    this._appEl_19.initComponent(this._Item_19_4,[],compView_19);
     this._text_20 = this.renderer.createText((null as any),'\n      Enter Parameters to Pass to the Modal\n    ',(null as any));
-    this._query_Label_19_0.reset(([] as any[]));
+    this._query_Label_19_0.reset([]);
     this._Item_19_4.contentLabel = this._query_Label_19_0.first;
     compView_19.create(this._Item_19_4,[
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]).concat([this._text_20]),
-      ([] as any[]),
-      ([] as any[])
+      [],
+      [],
+      [].concat([this._text_20]),
+      [],
+      []
     ]
     ,(null as any));
     this._text_21 = this.renderer.createText(this._el_17,'\n    ',(null as any));
@@ -294,7 +294,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._query_Label_22_0 = new import19.QueryList<any>();
     this._query_Button_22_1 = new import19.QueryList<any>();
     this._query_Icon_22_2 = new import19.QueryList<any>();
-    this._appEl_22.initComponent(this._Item_22_4,([] as any[]),compView_22);
+    this._appEl_22.initComponent(this._Item_22_4,[],compView_22);
     this._text_23 = this.renderer.createText((null as any),'\n      ',(null as any));
     this._el_24 = this.renderer.createElement((null as any),'ion-label',(null as any));
     this._Label_24_3 = new import20.Label(this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_24),this.renderer,(null as any),(null as any),(null as any),(null as any));
@@ -310,7 +310,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._NgControl_27_7 = this._NgModel_27_6;
     this._NgControlStatus_27_8 = new import23.NgControlStatus(this._NgControl_27_7);
     this._query_Option_27_0 = new import19.QueryList<any>();
-    this._appEl_27.initComponent(this._Select_27_4,([] as any[]),compView_27);
+    this._appEl_27.initComponent(this._Select_27_4,[],compView_27);
     this._text_28 = this.renderer.createText((null as any),'\n        ',(null as any));
     this._el_29 = this.renderer.createElement((null as any),'ion-option',(null as any));
     this.renderer.setElementAttribute(this._el_29,'value','nes');
@@ -342,21 +342,21 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._Option_44_3 = new import24.Option(new import26.ElementRef(this._el_44));
     this._text_45 = this.renderer.createText(this._el_44,'SNES',(null as any));
     this._text_46 = this.renderer.createText((null as any),'\n      ',(null as any));
-    compView_27.create(this._Select_27_4,([] as any[]),(null as any));
+    compView_27.create(this._Select_27_4,[],(null as any));
     this._text_47 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._query_Label_22_0.reset([this._Label_24_3]);
     this._Item_22_4.contentLabel = this._query_Label_22_0.first;
     compView_22.create(this._Item_22_4,[
-      ([] as any[]),
-      ([] as any[]).concat([this._el_24]),
-      ([] as any[]).concat([
+      [],
+      [].concat([this._el_24]),
+      [].concat([
         this._text_23,
         this._text_26,
         this._text_47
       ]
       ),
-      ([] as any[]).concat([this._el_27]),
-      ([] as any[])
+      [].concat([this._el_27]),
+      []
     ]
     ,(null as any));
     this._text_48 = this.renderer.createText(this._el_17,'\n  ',(null as any));
@@ -371,14 +371,14 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this._appEl_52 = new import2.AppElement(52,50,this,this._el_52);
     var compView_52:any = import36.viewFactory_Button0(this.viewUtils,this.injector(52),this._appEl_52);
     this._Button_52_4 = new import15.Button((null as any),'',this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_52),this.renderer);
-    this._appEl_52.initComponent(this._Button_52_4,([] as any[]),compView_52);
+    this._appEl_52.initComponent(this._Button_52_4,[],compView_52);
     this._text_53 = this.renderer.createText((null as any),'Open with Parameters',(null as any));
-    compView_52.create(this._Button_52_4,[([] as any[]).concat([this._text_53])],(null as any));
+    compView_52.create(this._Button_52_4,[[].concat([this._text_53])],(null as any));
     this._text_54 = this.renderer.createText(this._el_50,'\n  ',(null as any));
     this._text_55 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_9.create(this._Content_9_4,[
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [].concat([
         this._text_10,
         this._el_11,
         this._text_16,
@@ -388,7 +388,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
         this._text_55
       ]
       ),
-      ([] as any[])
+      []
     ]
     ,(null as any));
     this._text_56 = this.renderer.createText(parentRenderNode,'\n',(null as any));
@@ -419,7 +419,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     var disposable_4:Function = this.renderer.listen(this._el_52,'click',this.eventHandler(this._handle_click_52_0.bind(this)));
     this._expr_24 = import7.UNINITIALIZED;
     this._expr_25 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -587,12 +587,12 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
     this.detectContentChildrenChanges(throwOnChange);
     if (!throwOnChange) {
       if (this._query_Button_19_1.dirty) {
-        this._query_Button_19_1.reset(([] as any[]));
+        this._query_Button_19_1.reset([]);
         this._Item_19_4._buttons = this._query_Button_19_1;
         this._query_Button_19_1.notifyOnChanges();
       }
       if (this._query_Icon_19_2.dirty) {
-        this._query_Icon_19_2.reset(([] as any[]));
+        this._query_Icon_19_2.reset([]);
         this._Item_19_4._icons = this._query_Icon_19_2;
         this._query_Icon_19_2.notifyOnChanges();
       }
@@ -610,12 +610,12 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
         this._query_Option_27_0.notifyOnChanges();
       }
       if (this._query_Button_22_1.dirty) {
-        this._query_Button_22_1.reset(([] as any[]));
+        this._query_Button_22_1.reset([]);
         this._Item_22_4._buttons = this._query_Button_22_1;
         this._query_Button_22_1.notifyOnChanges();
       }
       if (this._query_Icon_22_2.dirty) {
-        this._query_Icon_22_2.reset(([] as any[]));
+        this._query_Icon_22_2.reset([]);
         this._Item_22_4._icons = this._query_Icon_22_2;
         this._query_Icon_22_2.notifyOnChanges();
       }
@@ -710,7 +710,7 @@ class _View_ModalFirstPage0 extends import1.AppView<import3.ModalFirstPage> {
   }
 }
 export function viewFactory_ModalFirstPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ModalFirstPage> {
-  if ((renderType_ModalFirstPage === (null as any))) { (renderType_ModalFirstPage = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ModalFirstPage,{})); }
+  if ((renderType_ModalFirstPage === (null as any))) { (renderType_ModalFirstPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/page.html',0,import9.ViewEncapsulation.None,styles_ModalFirstPage,{})); }
   return new _View_ModalFirstPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ModalContentPage_Host:import0.RenderComponentType = (null as any);
@@ -726,9 +726,9 @@ class _View_ModalContentPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ModalContentPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ModalContentPage_0_4 = new import3.ModalContentPage(this.parentInjector.get(import27.ViewController),this.parentInjector.get(import43.NavParams));
-    this._appEl_0.initComponent(this._ModalContentPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ModalContentPage_0_4,[],compView_0);
     compView_0.create(this._ModalContentPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -737,11 +737,11 @@ class _View_ModalContentPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ModalContentPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ModalContentPage_Host === (null as any))) { (renderType_ModalContentPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ModalContentPage_Host === (null as any))) { (renderType_ModalContentPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
   return new _View_ModalContentPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ModalContentPageNgFactory:import10.ComponentFactory<import3.ModalContentPage> = new import10.ComponentFactory<import3.ModalContentPage>('ng-component',viewFactory_ModalContentPage_Host0,import3.ModalContentPage);
-const styles_ModalContentPage:any[] = ([] as any[]);
+const styles_ModalContentPage:any[] = [];
 var renderType_ModalContentPage:import0.RenderComponentType = (null as any);
 class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> {
   _el_0:any;
@@ -814,7 +814,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import28.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import12.Navbar(this.parentInjector.get(import29.App),this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import30.NavController,(null as any)),this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-buttons',(null as any));
     this.renderer.setElementAttribute(this._el_4,'start','');
@@ -826,24 +826,24 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
     this._appEl_6 = new import2.AppElement(6,4,this,this._el_6);
     var compView_6:any = import36.viewFactory_Button0(this.viewUtils,this.injector(6),this._appEl_6);
     this._Button_6_4 = new import15.Button((null as any),'',this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_6),this.renderer);
-    this._appEl_6.initComponent(this._Button_6_4,([] as any[]),compView_6);
+    this._appEl_6.initComponent(this._Button_6_4,[],compView_6);
     this._text_7 = this.renderer.createText((null as any),'Close',(null as any));
-    compView_6.create(this._Button_6_4,[([] as any[]).concat([this._text_7])],(null as any));
+    compView_6.create(this._Button_6_4,[[].concat([this._text_7])],(null as any));
     this._text_8 = this.renderer.createText(this._el_4,'\n    ',(null as any));
     this._text_9 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_10 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_10 = new import2.AppElement(10,2,this,this._el_10);
     var compView_10:any = import31.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(10),this._appEl_10);
     this._ToolbarTitle_10_4 = new import13.ToolbarTitle(this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_10),this.renderer,this.parentInjector.get(import11.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_10.initComponent(this._ToolbarTitle_10_4,([] as any[]),compView_10);
+    this._appEl_10.initComponent(this._ToolbarTitle_10_4,[],compView_10);
     this._text_11 = this.renderer.createText((null as any),'Modals',(null as any));
-    compView_10.create(this._ToolbarTitle_10_4,[([] as any[]).concat([this._text_11])],(null as any));
+    compView_10.create(this._ToolbarTitle_10_4,[[].concat([this._text_11])],(null as any));
     this._text_12 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      ([] as any[]),
-      ([] as any[]).concat([this._el_4]),
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [].concat([this._el_4]),
+      [],
+      [].concat([
         this._text_3,
         this._text_9,
         this._el_10,
@@ -859,7 +859,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
     this._appEl_15 = new import2.AppElement(15,(null as any),this,this._el_15);
     var compView_15:any = import32.viewFactory_Content0(this.viewUtils,this.injector(15),this._appEl_15);
     this._Content_15_4 = new import14.Content(this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_15),this.renderer,this.parentInjector.get(import29.App),this.parentInjector.get(import33.Keyboard),this.parentInjector.get(import34.NgZone),this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import35.Tabs,(null as any)));
-    this._appEl_15.initComponent(this._Content_15_4,([] as any[]),compView_15);
+    this._appEl_15.initComponent(this._Content_15_4,[],compView_15);
     this._text_16 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_17 = this.renderer.createElement((null as any),'div',(null as any));
     this._text_18 = this.renderer.createText(this._el_17,'\n    ',(null as any));
@@ -884,13 +884,13 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
     this._appEl_32 = new import2.AppElement(32,15,this,this._el_32);
     var compView_32:any = import36.viewFactory_Button0(this.viewUtils,this.injector(32),this._appEl_32);
     this._Button_32_4 = new import15.Button((null as any),'',this.parentInjector.get(import25.Config),new import26.ElementRef(this._el_32),this.renderer);
-    this._appEl_32.initComponent(this._Button_32_4,([] as any[]),compView_32);
+    this._appEl_32.initComponent(this._Button_32_4,[],compView_32);
     this._text_33 = this.renderer.createText((null as any),'Close Modal',(null as any));
-    compView_32.create(this._Button_32_4,[([] as any[]).concat([this._text_33])],(null as any));
+    compView_32.create(this._Button_32_4,[[].concat([this._text_33])],(null as any));
     this._text_34 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_15.create(this._Content_15_4,[
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [].concat([
         this._text_16,
         this._el_17,
         this._text_25,
@@ -900,7 +900,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
         this._text_34
       ]
       ),
-      ([] as any[])
+      []
     ]
     ,(null as any));
     this._text_35 = this.renderer.createText(parentRenderNode,'\n',(null as any));
@@ -914,7 +914,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
     var disposable_1:Function = this.renderer.listen(this._el_32,'click',this.eventHandler(this._handle_click_32_0.bind(this)));
     this._expr_8 = import7.UNINITIALIZED;
     this._expr_9 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -956,7 +956,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
       disposable_0,
       disposable_1
     ]
-    ,([] as any[]));
+    ,[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1044,7 +1044,7 @@ class _View_ModalContentPage0 extends import1.AppView<import3.ModalContentPage> 
   }
 }
 export function viewFactory_ModalContentPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ModalContentPage> {
-  if ((renderType_ModalContentPage === (null as any))) { (renderType_ModalContentPage = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ModalContentPage,{})); }
+  if ((renderType_ModalContentPage === (null as any))) { (renderType_ModalContentPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/modal-content.html',0,import9.ViewEncapsulation.None,styles_ModalContentPage,{})); }
   return new _View_ModalContentPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoApp_Host:import0.RenderComponentType = (null as any);
@@ -1060,9 +1060,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1071,11 +1071,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import10.ComponentFactory<import3.ApiDemoApp> = new import10.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = ([] as any[]);
+const styles_ApiDemoApp:any[] = [];
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -1091,10 +1091,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import46.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import45.Nav(this.parentInjector.get(import27.ViewController,(null as any)),this.parentInjector.get(import47.NavControllerBase,(null as any)),this.parentInjector.get(import29.App),this.parentInjector.get(import25.Config),this.parentInjector.get(import33.Keyboard),new import26.ElementRef(this._el_0),this.parentInjector.get(import34.NgZone),this.renderer,this.parentInjector.get(import48.ComponentFactoryResolver),this.parentInjector.get(import37.GestureController),this.parentInjector.get(import49.TransitionController),this.parentInjector.get(import50.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
-    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
+    compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([],[this._el_0],[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -1113,6 +1113,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/modal/app.component.ts class ApiDemoApp - inline template',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

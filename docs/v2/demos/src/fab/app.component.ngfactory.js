@@ -204,13 +204,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_33.create(this._FabButton_33_4, [[].concat([this._el_34])], null);
         this._text_35 = this.renderer.createText(this._el_22, '\n    ', null);
         this._text_36 = this.renderer.createText(null, '\n  ', null);
-        this._query_FabButton_17_0.reset([
-            this._FabButton_19_4,
-            this._FabButton_24_4,
-            this._FabButton_27_4,
-            this._FabButton_30_4,
-            this._FabButton_33_4
-        ]);
+        this._query_FabButton_17_0.reset([this._FabButton_19_4]);
         this._FabContainer_17_4._mainButton = this._query_FabButton_17_0.first;
         compView_17.create(this._FabContainer_17_4, [[].concat([
                 this._text_18,
@@ -297,13 +291,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_54.create(this._FabButton_54_4, [[].concat([this._el_55])], null);
         this._text_56 = this.renderer.createText(this._el_43, '\n    ', null);
         this._text_57 = this.renderer.createText(null, '\n  ', null);
-        this._query_FabButton_38_0.reset([
-            this._FabButton_40_4,
-            this._FabButton_45_4,
-            this._FabButton_48_4,
-            this._FabButton_51_4,
-            this._FabButton_54_4
-        ]);
+        this._query_FabButton_38_0.reset([this._FabButton_40_4]);
         this._FabContainer_38_4._mainButton = this._query_FabButton_38_0.first;
         compView_38.create(this._FabContainer_38_4, [[].concat([
                 this._text_39,
@@ -390,13 +378,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_75.create(this._FabButton_75_4, [[].concat([this._el_76])], null);
         this._text_77 = this.renderer.createText(this._el_64, '\n    ', null);
         this._text_78 = this.renderer.createText(null, '\n  ', null);
-        this._query_FabButton_59_0.reset([
-            this._FabButton_61_4,
-            this._FabButton_66_4,
-            this._FabButton_69_4,
-            this._FabButton_72_4,
-            this._FabButton_75_4
-        ]);
+        this._query_FabButton_59_0.reset([this._FabButton_61_4]);
         this._FabContainer_59_4._mainButton = this._query_FabButton_59_0.first;
         compView_59.create(this._FabContainer_59_4, [[].concat([
                 this._text_60,
@@ -483,13 +465,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_96.create(this._FabButton_96_4, [[].concat([this._el_97])], null);
         this._text_98 = this.renderer.createText(this._el_85, '\n    ', null);
         this._text_99 = this.renderer.createText(null, '\n  ', null);
-        this._query_FabButton_80_0.reset([
-            this._FabButton_82_4,
-            this._FabButton_87_4,
-            this._FabButton_90_4,
-            this._FabButton_93_4,
-            this._FabButton_96_4
-        ]);
+        this._query_FabButton_80_0.reset([this._FabButton_82_4]);
         this._FabContainer_80_4._mainButton = this._query_FabButton_80_0.first;
         compView_80.create(this._FabContainer_80_4, [[].concat([
                 this._text_81,
@@ -598,13 +574,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         compView_126.create(this._FabButton_126_4, [[].concat([this._el_127])], null);
         this._text_128 = this.renderer.createText(this._el_124, '\n    ', null);
         this._text_129 = this.renderer.createText(null, '\n  ', null);
-        this._query_FabButton_101_0.reset([
-            this._FabButton_103_4,
-            this._FabButton_108_4,
-            this._FabButton_114_4,
-            this._FabButton_120_4,
-            this._FabButton_126_4
-        ]);
+        this._query_FabButton_101_0.reset([this._FabButton_103_4]);
         this._FabContainer_101_4._mainButton = this._query_FabButton_101_0.first;
         compView_101.create(this._FabContainer_101_4, [[].concat([
                 this._text_102,
@@ -1813,7 +1783,7 @@ var _View_ApiDemoPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/fab/page.html', 0, import8.ViewEncapsulation.None, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1907,7 +1877,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/fab/app.component.ts class ApiDemoApp - inline template', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

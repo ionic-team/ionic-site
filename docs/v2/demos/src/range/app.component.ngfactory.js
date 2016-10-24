@@ -284,10 +284,7 @@ var _View_ApiDemoPage0 = (function (_super) {
             [].concat([this._el_45])
         ], null);
         this._text_48 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_38_0.reset([
-            this._Label_42_3,
-            this._Label_45_3
-        ]);
+        this._query_Label_38_0.reset([]);
         this._Item_38_4.contentLabel = this._query_Label_38_0.first;
         compView_38.create(this._Item_38_4, [
             [],
@@ -476,10 +473,7 @@ var _View_ApiDemoPage0 = (function (_super) {
             [].concat([this._el_88])
         ], null);
         this._text_91 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_81_0.reset([
-            this._Label_85_3,
-            this._Label_88_3
-        ]);
+        this._query_Label_81_0.reset([]);
         this._Item_81_4.contentLabel = this._query_Label_81_0.first;
         compView_81.create(this._Item_81_4, [
             [],
@@ -1457,7 +1451,7 @@ var _View_ApiDemoPage0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.Emulated, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/range/page.html', 0, import8.ViewEncapsulation.Emulated, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -1535,7 +1529,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/range/app.component.ts class ApiDemoApp - inline template', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

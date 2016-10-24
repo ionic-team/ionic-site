@@ -52,9 +52,9 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoPage0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoPage_0_4 = new import3.ApiDemoPage(this.parentInjector.get(import8.ToastController));
-    this._appEl_0.initComponent(this._ApiDemoPage_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoPage_0_4,[],compView_0);
     compView_0.create(this._ApiDemoPage_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -63,11 +63,11 @@ class _View_ApiDemoPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoPage_Host === (null as any))) { (renderType_ApiDemoPage_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoPage_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoPageNgFactory:import10.ComponentFactory<import3.ApiDemoPage> = new import10.ComponentFactory<import3.ApiDemoPage>('ng-component',viewFactory_ApiDemoPage_Host0,import3.ApiDemoPage);
-const styles_ApiDemoPage:any[] = ([] as any[]);
+const styles_ApiDemoPage:any[] = [];
 var renderType_ApiDemoPage:import0.RenderComponentType = (null as any);
 class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   _el_0:any;
@@ -141,21 +141,21 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_2 = new import2.AppElement(2,0,this,this._el_2);
     var compView_2:any = import19.viewFactory_Navbar0(this.viewUtils,this.injector(2),this._appEl_2);
     this._Navbar_2_4 = new import12.Navbar(this.parentInjector.get(import20.App),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import21.NavController,(null as any)),this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_2),this.renderer);
-    this._appEl_2.initComponent(this._Navbar_2_4,([] as any[]),compView_2);
+    this._appEl_2.initComponent(this._Navbar_2_4,[],compView_2);
     this._text_3 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_4 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_4 = new import2.AppElement(4,2,this,this._el_4);
     var compView_4:any = import22.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import13.ToolbarTitle(this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import11.Toolbar,(null as any)),this._Navbar_2_4);
-    this._appEl_4.initComponent(this._ToolbarTitle_4_4,([] as any[]),compView_4);
+    this._appEl_4.initComponent(this._ToolbarTitle_4_4,[],compView_4);
     this._text_5 = this.renderer.createText((null as any),'Toast',(null as any));
-    compView_4.create(this._ToolbarTitle_4_4,[([] as any[]).concat([this._text_5])],(null as any));
+    compView_4.create(this._ToolbarTitle_4_4,[[].concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4,[
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [],
+      [],
+      [].concat([
         this._text_3,
         this._el_4,
         this._text_6
@@ -170,7 +170,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_9 = new import2.AppElement(9,(null as any),this,this._el_9);
     var compView_9:any = import23.viewFactory_Content0(this.viewUtils,this.injector(9),this._appEl_9);
     this._Content_9_4 = new import14.Content(this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_9),this.renderer,this.parentInjector.get(import20.App),this.parentInjector.get(import24.Keyboard),this.parentInjector.get(import25.NgZone),this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import26.Tabs,(null as any)));
-    this._appEl_9.initComponent(this._Content_9_4,([] as any[]),compView_9);
+    this._appEl_9.initComponent(this._Content_9_4,[],compView_9);
     this._text_10 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_11 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_11,'block','');
@@ -178,9 +178,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_11 = new import2.AppElement(11,9,this,this._el_11);
     var compView_11:any = import27.viewFactory_Button0(this.viewUtils,this.injector(11),this._appEl_11);
     this._Button_11_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_11),this.renderer);
-    this._appEl_11.initComponent(this._Button_11_4,([] as any[]),compView_11);
+    this._appEl_11.initComponent(this._Button_11_4,[],compView_11);
     this._text_12 = this.renderer.createText((null as any),'Show Toast Bottom Position',(null as any));
-    compView_11.create(this._Button_11_4,[([] as any[]).concat([this._text_12])],(null as any));
+    compView_11.create(this._Button_11_4,[[].concat([this._text_12])],(null as any));
     this._text_13 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_14 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_14,'block','');
@@ -188,9 +188,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_14 = new import2.AppElement(14,9,this,this._el_14);
     var compView_14:any = import27.viewFactory_Button0(this.viewUtils,this.injector(14),this._appEl_14);
     this._Button_14_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_14),this.renderer);
-    this._appEl_14.initComponent(this._Button_14_4,([] as any[]),compView_14);
+    this._appEl_14.initComponent(this._Button_14_4,[],compView_14);
     this._text_15 = this.renderer.createText((null as any),'Show Toast Top Position',(null as any));
-    compView_14.create(this._Button_14_4,[([] as any[]).concat([this._text_15])],(null as any));
+    compView_14.create(this._Button_14_4,[[].concat([this._text_15])],(null as any));
     this._text_16 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_17 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_17,'block','');
@@ -198,9 +198,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_17 = new import2.AppElement(17,9,this,this._el_17);
     var compView_17:any = import27.viewFactory_Button0(this.viewUtils,this.injector(17),this._appEl_17);
     this._Button_17_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_17),this.renderer);
-    this._appEl_17.initComponent(this._Button_17_4,([] as any[]),compView_17);
+    this._appEl_17.initComponent(this._Button_17_4,[],compView_17);
     this._text_18 = this.renderer.createText((null as any),'Show Toast Middle Position',(null as any));
-    compView_17.create(this._Button_17_4,[([] as any[]).concat([this._text_18])],(null as any));
+    compView_17.create(this._Button_17_4,[[].concat([this._text_18])],(null as any));
     this._text_19 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_20 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_20,'block','');
@@ -209,9 +209,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_20 = new import2.AppElement(20,9,this,this._el_20);
     var compView_20:any = import27.viewFactory_Button0(this.viewUtils,this.injector(20),this._appEl_20);
     this._Button_20_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_20),this.renderer);
-    this._appEl_20.initComponent(this._Button_20_4,([] as any[]),compView_20);
+    this._appEl_20.initComponent(this._Button_20_4,[],compView_20);
     this._text_21 = this.renderer.createText((null as any),'Show Long Toast',(null as any));
-    compView_20.create(this._Button_20_4,[([] as any[]).concat([this._text_21])],(null as any));
+    compView_20.create(this._Button_20_4,[[].concat([this._text_21])],(null as any));
     this._text_22 = this.renderer.createText((null as any),'\n\n  ',(null as any));
     this._el_23 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_23,'block','');
@@ -219,9 +219,9 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_23 = new import2.AppElement(23,9,this,this._el_23);
     var compView_23:any = import27.viewFactory_Button0(this.viewUtils,this.injector(23),this._appEl_23);
     this._Button_23_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_23),this.renderer);
-    this._appEl_23.initComponent(this._Button_23_4,([] as any[]),compView_23);
+    this._appEl_23.initComponent(this._Button_23_4,[],compView_23);
     this._text_24 = this.renderer.createText((null as any),'Show Custom Duration Toast',(null as any));
-    compView_23.create(this._Button_23_4,[([] as any[]).concat([this._text_24])],(null as any));
+    compView_23.create(this._Button_23_4,[[].concat([this._text_24])],(null as any));
     this._text_25 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._el_26 = this.renderer.createElement((null as any),'button',(null as any));
     this.renderer.setElementAttribute(this._el_26,'block','');
@@ -229,13 +229,13 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._appEl_26 = new import2.AppElement(26,9,this,this._el_26);
     var compView_26:any = import27.viewFactory_Button0(this.viewUtils,this.injector(26),this._appEl_26);
     this._Button_26_4 = new import15.Button((null as any),'',this.parentInjector.get(import16.Config),new import17.ElementRef(this._el_26),this.renderer);
-    this._appEl_26.initComponent(this._Button_26_4,([] as any[]),compView_26);
+    this._appEl_26.initComponent(this._Button_26_4,[],compView_26);
     this._text_27 = this.renderer.createText((null as any),'Show Close Button Toast',(null as any));
-    compView_26.create(this._Button_26_4,[([] as any[]).concat([this._text_27])],(null as any));
+    compView_26.create(this._Button_26_4,[[].concat([this._text_27])],(null as any));
     this._text_28 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_9.create(this._Content_9_4,[
-      ([] as any[]),
-      ([] as any[]).concat([
+      [],
+      [].concat([
         this._text_10,
         this._el_11,
         this._text_13,
@@ -251,7 +251,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
         this._text_28
       ]
       ),
-      ([] as any[])
+      []
     ]
     ,(null as any));
     this._text_29 = this.renderer.createText(parentRenderNode,'\n',(null as any));
@@ -270,7 +270,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
     this._expr_12 = import7.UNINITIALIZED;
     var disposable_5:Function = this.renderer.listen(this._el_26,'click',this.eventHandler(this._handle_click_26_0.bind(this)));
     this._expr_14 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[
+    this.init([],[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -310,7 +310,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
       disposable_4,
       disposable_5
     ]
-    ,([] as any[]));
+    ,[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -439,7 +439,7 @@ class _View_ApiDemoPage0 extends import1.AppView<import3.ApiDemoPage> {
   }
 }
 export function viewFactory_ApiDemoPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoPage> {
-  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
+  if ((renderType_ApiDemoPage === (null as any))) { (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/toast/page.html',0,import9.ViewEncapsulation.None,styles_ApiDemoPage,{})); }
   return new _View_ApiDemoPage0(viewUtils,parentInjector,declarationEl);
 }
 var renderType_ApiDemoApp_Host:import0.RenderComponentType = (null as any);
@@ -455,9 +455,9 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_ApiDemoApp0(this.viewUtils,this.injector(0),this._appEl_0);
     this._ApiDemoApp_0_4 = new import3.ApiDemoApp();
-    this._appEl_0.initComponent(this._ApiDemoApp_0_4,([] as any[]),compView_0);
+    this._appEl_0.initComponent(this._ApiDemoApp_0_4,[],compView_0);
     compView_0.create(this._ApiDemoApp_0_4,this.projectableNodes,(null as any));
-    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([].concat([this._el_0]),[this._el_0],[],[]);
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -466,11 +466,11 @@ class _View_ApiDemoApp_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_ApiDemoApp_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_ApiDemoApp_Host === (null as any))) { (renderType_ApiDemoApp_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
   return new _View_ApiDemoApp_Host0(viewUtils,parentInjector,declarationEl);
 }
 export const ApiDemoAppNgFactory:import10.ComponentFactory<import3.ApiDemoApp> = new import10.ComponentFactory<import3.ApiDemoApp>('ng-component',viewFactory_ApiDemoApp_Host0,import3.ApiDemoApp);
-const styles_ApiDemoApp:any[] = ([] as any[]);
+const styles_ApiDemoApp:any[] = [];
 var renderType_ApiDemoApp:import0.RenderComponentType = (null as any);
 class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   _el_0:any;
@@ -486,10 +486,10 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = import29.viewFactory_Nav0(this.viewUtils,this.injector(0),this._appEl_0);
     this._Nav_0_4 = new import28.Nav(this.parentInjector.get(import18.ViewController,(null as any)),this.parentInjector.get(import30.NavControllerBase,(null as any)),this.parentInjector.get(import20.App),this.parentInjector.get(import16.Config),this.parentInjector.get(import24.Keyboard),new import17.ElementRef(this._el_0),this.parentInjector.get(import25.NgZone),this.renderer,this.parentInjector.get(import31.ComponentFactoryResolver),this.parentInjector.get(import32.GestureController),this.parentInjector.get(import33.TransitionController),this.parentInjector.get(import34.DeepLinker,(null as any)));
-    this._appEl_0.initComponent(this._Nav_0_4,([] as any[]),compView_0);
-    compView_0.create(this._Nav_0_4,([] as any[]),(null as any));
+    this._appEl_0.initComponent(this._Nav_0_4,[],compView_0);
+    compView_0.create(this._Nav_0_4,[],(null as any));
     this._expr_0 = import7.UNINITIALIZED;
-    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
+    this.init([],[this._el_0],[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
@@ -508,6 +508,6 @@ class _View_ApiDemoApp0 extends import1.AppView<import3.ApiDemoApp> {
   }
 }
 export function viewFactory_ApiDemoApp0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.ApiDemoApp> {
-  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
+  if ((renderType_ApiDemoApp === (null as any))) { (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/toast/app.component.ts class ApiDemoApp - inline template',0,import9.ViewEncapsulation.None,styles_ApiDemoApp,{})); }
   return new _View_ApiDemoApp0(viewUtils,parentInjector,declarationEl);
 }

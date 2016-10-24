@@ -23743,6 +23743,7 @@ var ASSERT_ENABLED = true;
 var Config = (function () {
     function Config() {
         this._c = {};
+        this._s = {};
         this._modes = {};
         this._trns = {};
     }
@@ -25015,6 +25016,7 @@ var App = (function () {
         this.viewDidLeave = new EventEmitter();
         this.viewWillUnload = new EventEmitter();
         _platform.registerBackButtonAction(this.navPop.bind(this));
+        this._canDisableScroll = _config.get('canDisableScroll', true);
     }
     App.prototype.setTitle = function (val) {
         if (val !== this._title) {
@@ -25038,7 +25040,7 @@ var App = (function () {
         }
     };
     App.prototype.setScrollDisabled = function (disableScroll) {
-        if (this._config.get('canDisableScroll', true)) {
+        if (this._canDisableScroll) {
             this._appRoot._disableScroll(disableScroll);
         }
     };
@@ -25049,7 +25051,7 @@ var App = (function () {
         this._scrollTime = Date.now();
     };
     App.prototype.isScrolling = function () {
-        return (this._scrollTime + 48 > Date.now());
+        return ((this._scrollTime + ACTIVE_SCROLLING_TIME) > Date.now());
     };
     App.prototype.getActiveNav = function () {
         var nav = this._rootNav || null;
@@ -25130,6 +25132,7 @@ var App = (function () {
     ];
     return App;
 }());
+var ACTIVE_SCROLLING_TIME = 100;
 var CLICK_BLOCK_BUFFER_IN_MILLIS = 64;
 
 var __extends$57 = (undefined && undefined.__extends) || function (d, b) {
@@ -25231,7 +25234,8 @@ var AlertCmp = (function () {
                 label: input.label,
                 checked: !!input.checked,
                 disabled: !!input.disabled,
-                id: 'alert-input-' + _this.id + '-' + index
+                id: 'alert-input-' + _this.id + '-' + index,
+                handler: isPresent$5(input.handler) ? input.handler : null,
             };
         });
         var inputTypes = [];
@@ -25299,11 +25303,17 @@ var AlertCmp = (function () {
                 input.checked = (checkedInput === input);
             });
             this.activeId = checkedInput.id;
+            if (checkedInput.handler) {
+                checkedInput.handler(checkedInput);
+            }
         }
     };
     AlertCmp.prototype.cbClick = function (checkedInput) {
         if (this.enabled) {
             checkedInput.checked = !checkedInput.checked;
+            if (checkedInput.handler) {
+                checkedInput.handler(checkedInput);
+            }
         }
     };
     AlertCmp.prototype.bdClick = function () {
@@ -26156,9 +26166,11 @@ var GestureDelegate = (function () {
 var Haptic = (function () {
     function Haptic(platform) {
         var _this = this;
-        platform.ready().then(function () {
-            _this.plugin = window.TapticEngine;
-        });
+        if (platform) {
+            platform.ready().then(function () {
+                _this.plugin = window.TapticEngine;
+            });
+        }
     }
     Haptic.prototype.available = function () {
         return !!this.plugin;
@@ -26451,6 +26463,16 @@ var PanRecognizer = (function () {
     return PanRecognizer;
 }());
 
+var supportsPassive = false;
+try {
+    var opts = Object.defineProperty({}, 'passive', {
+        get: function () {
+            supportsPassive = true;
+        }
+    });
+    window.addEventListener('test', null, opts);
+}
+catch (e) { }
 var PointerEvents = (function () {
     function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
         this.ele = ele;
@@ -26468,14 +26490,20 @@ var PointerEvents = (function () {
         this.rmMouseUp = null;
         this.lastTouchEvent = 0;
         this.mouseWait = 2 * 1000;
+        this.lastEventType = 0;
+        (void 0);
+        (void 0);
         this.bindTouchEnd = this.handleTouchEnd.bind(this);
         this.bindMouseUp = this.handleMouseUp.bind(this);
         this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, this.handleTouchStart.bind(this));
         this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, this.handleMouseDown.bind(this));
     }
     PointerEvents.prototype.handleTouchStart = function (ev) {
+        (void 0);
+        (void 0);
         this.lastTouchEvent = Date.now() + this.mouseWait;
-        if (!this.pointerDown(ev)) {
+        this.lastEventType = 2;
+        if (!this.pointerDown(ev, 2)) {
             return;
         }
         if (!this.rmTouchMove && this.pointerMove) {
@@ -26489,11 +26517,14 @@ var PointerEvents = (function () {
         }
     };
     PointerEvents.prototype.handleMouseDown = function (ev) {
+        (void 0);
+        (void 0);
         if (this.lastTouchEvent > Date.now()) {
             (void 0);
             return;
         }
-        if (!this.pointerDown(ev)) {
+        this.lastEventType = 1;
+        if (!this.pointerDown(ev, 1)) {
             return;
         }
         if (!this.rmMouseMove && this.pointerMove) {
@@ -26505,11 +26536,11 @@ var PointerEvents = (function () {
     };
     PointerEvents.prototype.handleTouchEnd = function (ev) {
         this.stopTouch();
-        this.pointerUp && this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev, 2);
     };
     PointerEvents.prototype.handleMouseUp = function (ev) {
         this.stopMouse();
-        this.pointerUp && this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev, 1);
     };
     PointerEvents.prototype.stopTouch = function () {
         this.rmTouchMove && this.rmTouchMove();
@@ -26548,9 +26579,6 @@ var UIEventManager = (function () {
         this.zoneWrapped = zoneWrapped;
         this.events = [];
     }
-    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
-        return this.listen(ref.nativeElement, eventName, callback, option);
-    };
     UIEventManager.prototype.pointerEvents = function (config) {
         var element = config.element;
         if (!element) {
@@ -26561,11 +26589,31 @@ var UIEventManager = (function () {
             return;
         }
         var zone = config.zone || this.zoneWrapped;
-        var options = config.nativeOptions || false;
-        var submanager = new PointerEvents(element, config.pointerDown, config.pointerMove, config.pointerUp, zone, options);
-        var removeFunc = function () { return submanager.destroy(); };
+        var opts;
+        if (supportsPassive) {
+            opts = {};
+            if (config.passive === true) {
+                opts['passive'] = true;
+            }
+            if (config.capture === true) {
+                opts['capture'] = true;
+            }
+        }
+        else {
+            if (config.passive === true) {
+                (void 0);
+            }
+            if (config.capture === true) {
+                opts = true;
+            }
+        }
+        var pointerEvents = new PointerEvents(element, config.pointerDown, config.pointerMove, config.pointerUp, zone, opts);
+        var removeFunc = function () { return pointerEvents.destroy(); };
         this.events.push(removeFunc);
-        return submanager;
+        return pointerEvents;
+    };
+    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
+        return this.listen(ref.nativeElement, eventName, callback, option);
     };
     UIEventManager.prototype.listen = function (element, eventName, callback, option) {
         if (option === void 0) { option = false; }
@@ -26589,11 +26637,12 @@ function listenEvent(ele, eventName, zoneWrapped, option, callback) {
     var rawEvent = (!zoneWrapped && '__zone_symbol__addEventListener' in ele);
     if (rawEvent) {
         ele.__zone_symbol__addEventListener(eventName, callback, option);
-        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
+        (void 0);
+        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback, option); };
     }
     else {
         ele.addEventListener(eventName, callback, option);
-        return function () { return ele.removeEventListener(eventName, callback); };
+        return function () { return ele.removeEventListener(eventName, callback, option); };
     }
 }
 
@@ -27312,7 +27361,10 @@ var NavControllerBase = (function (_super) {
         }
         else {
             view._setNav(this);
-            view.id = this.id + '-' + (++this._ids);
+            this._ids++;
+            if (!view.id) {
+                view.id = this.id + "-" + this._ids;
+            }
             this._views.splice(index, 0, view);
         }
     };
@@ -30325,7 +30377,7 @@ var PLATFORM_CONFIGS = {
             swipeBackThreshold: 40,
             tapPolyfill: isIOSDevice,
             virtualScrollEventAssist: !(window.indexedDB),
-            canDisableScroll: !!(window.indexedDB),
+            canDisableScroll: isIOSDevice,
         },
         isMatch: function (p) {
             return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
@@ -30574,7 +30626,7 @@ var Activator = (function () {
             return;
         }
         this._queue.push(activatableEle);
-        rafFrames(2, function () {
+        rafFrames(6, function () {
             var activatableEle;
             for (var i = 0; i < _this._queue.length; i++) {
                 activatableEle = _this._queue[i];
@@ -30583,7 +30635,7 @@ var Activator = (function () {
                     activatableEle.classList.add(_this._css);
                 }
             }
-            _this._queue = [];
+            _this._queue.length = 0;
         });
     };
     Activator.prototype.upAction = function (ev, activatableEle, startCoord) {
@@ -30605,7 +30657,7 @@ var Activator = (function () {
     };
     Activator.prototype.deactivate = function () {
         var _this = this;
-        this._queue = [];
+        this._queue.length = 0;
         rafFrames(2, function () {
             for (var i = 0; i < _this._active.length; i++) {
                 _this._active[i].classList.remove(_this._css);
@@ -30729,109 +30781,67 @@ var TOUCH_DOWN_ACCEL = 300;
 
 var TapClick = (function () {
     function TapClick(config, app, zone) {
-        var _this = this;
         this.app = app;
-        this.lastTouch = 0;
         this.disableClick = 0;
-        this.lastActivated = 0;
-        if (config.get('activator') === 'ripple') {
+        this.events = new UIEventManager(false);
+        var activator = config.get('activator');
+        if (activator === 'ripple') {
             this.activator = new RippleActivator(app, config);
         }
-        else if (config.get('activator') === 'highlight') {
+        else if (activator === 'highlight') {
             this.activator = new Activator(app, config);
         }
         this.usePolyfill = (config.get('tapPolyfill') === true);
-        zone.runOutsideAngular(function () {
-            addListener('click', _this.click.bind(_this), true);
-            addListener('touchstart', _this.touchStart.bind(_this));
-            addListener('touchend', _this.touchEnd.bind(_this));
-            addListener('touchcancel', _this.pointerCancel.bind(_this));
-            addListener('mousedown', _this.mouseDown.bind(_this), true);
-            addListener('mouseup', _this.mouseUp.bind(_this), true);
+        this.events.listen(document, 'click', this.click.bind(this), true);
+        this.pointerEvents = this.events.pointerEvents({
+            element: document,
+            pointerDown: this.pointerStart.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerEnd.bind(this),
+            passive: true
         });
-        this.pointerMove = function (ev) {
-            if (!_this.startCoord || hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, _this.startCoord, pointerCoord(ev))) {
-                _this.pointerCancel(ev);
-            }
-        };
+        this.pointerEvents.mouseWait = DISABLE_NATIVE_CLICK_AMOUNT;
     }
-    TapClick.prototype.touchStart = function (ev) {
-        this.lastTouch = Date.now();
-        this.pointerStart(ev);
-    };
-    TapClick.prototype.touchEnd = function (ev) {
-        this.lastTouch = Date.now();
-        if (this.usePolyfill && this.startCoord && this.app.isEnabled()) {
-            var endCoord = pointerCoord(ev);
-            if (!hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
-                this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
-                if (this.app.isScrolling()) {
-                    (void 0);
-                }
-                else {
-                    (void 0);
-                    var clickEvent = document.createEvent('MouseEvents');
-                    clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
-                    clickEvent.isIonicTap = true;
-                    ev.target.dispatchEvent(clickEvent);
-                }
-            }
-        }
-        this.pointerEnd(ev);
-    };
-    TapClick.prototype.mouseDown = function (ev) {
-        if (this.isDisabledNativeClick()) {
-            (void 0);
-            ev.stopPropagation();
-        }
-        else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-            this.pointerStart(ev);
-        }
-    };
-    TapClick.prototype.mouseUp = function (ev) {
-        if (this.isDisabledNativeClick()) {
-            (void 0);
-            ev.preventDefault();
-            ev.stopPropagation();
-        }
-        if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-            this.pointerEnd(ev);
-        }
-    };
     TapClick.prototype.pointerStart = function (ev) {
-        var activatableEle = getActivatableTarget(ev.target);
-        if (activatableEle) {
-            this.startCoord = pointerCoord(ev);
-            var now = Date.now();
-            if (this.lastActivated + 150 < now && !this.app.isScrolling()) {
-                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
-                this.lastActivated = now;
-            }
-            this.moveListeners(true);
+        if (this.startCoord) {
+            return false;
         }
-        else {
+        var activatableEle = getActivatableTarget(ev.target);
+        if (!activatableEle) {
             this.startCoord = null;
+            return false;
+        }
+        this.startCoord = pointerCoord(ev);
+        this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
+        return true;
+    };
+    TapClick.prototype.pointerMove = function (ev) {
+        if (!this.startCoord ||
+            hasPointerMoved(POINTER_TOLERANCE, this.startCoord, pointerCoord(ev)) ||
+            this.app.isScrolling()) {
+            this.pointerCancel(ev);
         }
     };
-    TapClick.prototype.pointerEnd = function (ev) {
-        if (this.startCoord && this.activator) {
+    TapClick.prototype.pointerEnd = function (ev, type) {
+        if (!this.startCoord) {
+            return;
+        }
+        if (type === 2 && this.usePolyfill && this.app.isEnabled()) {
+            this.handleTapPolyfill(ev);
+        }
+        if (this.activator) {
             var activatableEle = getActivatableTarget(ev.target);
             if (activatableEle) {
                 this.activator.upAction(ev, activatableEle, this.startCoord);
             }
         }
-        this.moveListeners(false);
+        this.startCoord = null;
     };
     TapClick.prototype.pointerCancel = function (ev) {
         (void 0);
+        this.startCoord = null;
         this.activator && this.activator.clearState();
-        this.moveListeners(false);
-    };
-    TapClick.prototype.moveListeners = function (shouldAdd) {
-        removeListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-        if (shouldAdd) {
-            addListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-        }
+        this.pointerEvents.stop();
     };
     TapClick.prototype.click = function (ev) {
         var preventReason = null;
@@ -30845,6 +30855,24 @@ var TapClick = (function () {
             (void 0);
             ev.preventDefault();
             ev.stopPropagation();
+        }
+    };
+    TapClick.prototype.handleTapPolyfill = function (ev) {
+        var endCoord = pointerCoord(ev);
+        if (hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
+            (void 0);
+            return;
+        }
+        this.disableClick = Date.now() + DISABLE_NATIVE_CLICK_AMOUNT;
+        if (this.app.isScrolling()) {
+            (void 0);
+        }
+        else {
+            (void 0);
+            var clickEvent = document.createEvent('MouseEvents');
+            clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+            clickEvent.isIonicTap = true;
+            ev.target.dispatchEvent(clickEvent);
         }
     };
     TapClick.prototype.isDisabledNativeClick = function () {
@@ -30872,27 +30900,20 @@ function getActivatableTarget(ele) {
     return null;
 }
 var isActivatable = function (ele) {
-    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
+    if (ACTIVATABLE_ELEMENTS.indexOf(ele.tagName) > -1) {
         return true;
     }
     var attributes = ele.attributes;
     for (var i = 0, l = attributes.length; i < l; i++) {
-        if (ACTIVATABLE_ATTRIBUTES.test(attributes[i].name)) {
+        if (ACTIVATABLE_ATTRIBUTES.indexOf(attributes[i].name) > -1) {
             return true;
         }
     }
     return false;
 };
-function addListener(type, listener, useCapture) {
-    document.addEventListener(type, listener, useCapture);
-}
-function removeListener(type, listener) {
-    document.removeEventListener(type, listener);
-}
-var ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
-var ACTIVATABLE_ATTRIBUTES = /tappable|button/i;
-var POINTER_TOLERANCE = 4;
-var POINTER_MOVE_UNTIL_CANCEL = 10;
+var ACTIVATABLE_ELEMENTS = ['A', 'BUTTON'];
+var ACTIVATABLE_ATTRIBUTES = ['tappable', 'button'];
+var POINTER_TOLERANCE = 60;
 var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 function setupTapClick(config, app, zone) {
     return function () {
@@ -32622,8 +32643,7 @@ var Content = (function (_super) {
         this._zone = _zone;
         this._tabs = _tabs;
         this._inputPolling = false;
-        this._mode = config.get('mode');
-        this._setMode('content', this._mode);
+        this._setMode('content', config.get('mode'));
         this._sbPadding = config.getBoolean('statusbarPadding', false);
         if (viewCtrl) {
             viewCtrl._setIONContent(this);
@@ -32638,7 +32658,7 @@ var Content = (function (_super) {
         this._scrollEle = children[1];
         this._zone.runOutsideAngular(function () {
             _this._scroll = new ScrollView(_this._scrollEle);
-            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
+            _this._scLsn = _this.addScrollListener(_this._app.setScrolling.bind(_this._app));
         });
     };
     Content.prototype.ngOnDestroy = function () {
@@ -32884,6 +32904,7 @@ var Content = (function (_super) {
                 this._tabs.setTabbarPosition(this._headerHeight, -1);
             }
             else {
+                (void 0);
                 this._tabs.setTabbarPosition(-1, 0);
             }
         }
@@ -34970,7 +34991,7 @@ var __extends$99 = (undefined && undefined.__extends) || function (d, b) {
 };
 var MenuContentGesture = (function (_super) {
     __extends$99(MenuContentGesture, _super);
-    function MenuContentGesture(menu, contentEle, options) {
+    function MenuContentGesture(menu, gestureCtrl, contentEle, options) {
         if (options === void 0) { options = {}; }
         _super.call(this, contentEle, assign({
             direction: 'x',
@@ -34978,7 +34999,7 @@ var MenuContentGesture = (function (_super) {
             threshold: 0,
             maxEdgeStart: menu.maxEdgeStart || 50,
             maxAngle: 40,
-            gesture: menu.gestureCtrl.create('menu-swipe', {
+            gesture: gestureCtrl.create('menu-swipe', {
                 priority: 10,
             })
         }, options));
@@ -35042,7 +35063,7 @@ var MenuContentGesture = (function (_super) {
 }(SlideEdgeGesture));
 
 var Menu = (function () {
-    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, gestureCtrl) {
+    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, _gestureCtrl) {
         this._menuCtrl = _menuCtrl;
         this._elementRef = _elementRef;
         this._config = _config;
@@ -35050,7 +35071,7 @@ var Menu = (function () {
         this._renderer = _renderer;
         this._keyboard = _keyboard;
         this._zone = _zone;
-        this.gestureCtrl = gestureCtrl;
+        this._gestureCtrl = _gestureCtrl;
         this._isEnabled = true;
         this._isSwipeEnabled = true;
         this._isAnimating = false;
@@ -35110,7 +35131,7 @@ var Menu = (function () {
             this.type = this._config.get('menuType');
         }
         this.setElementAttribute('type', this.type);
-        this._cntGesture = new MenuContentGesture(this, document.body);
+        this._cntGesture = new MenuContentGesture(this, this._gestureCtrl, document.body);
         var hasEnabledSameSideMenu = this._menuCtrl.getMenus().some(function (m) {
             return m.side === _this.side && m.enabled;
         });
@@ -36710,12 +36731,14 @@ var Range = (function (_super) {
         }
     };
     Range.prototype.ratioToValue = function (ratio) {
-        ratio = Math.round(((this._max - this._min) * ratio) + this._min);
-        return Math.round(ratio / this._step) * this._step;
+        ratio = Math.round(((this._max - this._min) * ratio));
+        ratio = Math.round(ratio / this._step) * this._step + this._min;
+        return clamp(this._min, ratio, this._max);
     };
     Range.prototype.valueToRatio = function (value) {
-        value = Math.round(clamp(this._min, value, this._max) / this._step) * this._step;
-        return (value - this._min) / (this._max - this._min);
+        value = Math.round((value - this._min) / this._step) * this._step;
+        value = value / (this._max - this._min);
+        return clamp(0, value, 1);
     };
     Range.prototype.writeValue = function (val) {
         if (isPresent$5(val)) {
@@ -37316,7 +37339,7 @@ var Searchbar = (function (_super) {
         var prevAlignLeft = this._shouldAlignLeft;
         var shouldAlignLeft = (!isAnimated || (this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
         this._shouldAlignLeft = shouldAlignLeft;
-        if (this._config.get('mode') !== 'ios') {
+        if (this._mode !== 'ios') {
             return;
         }
         if (prevAlignLeft !== shouldAlignLeft) {
@@ -37428,8 +37451,8 @@ var Searchbar = (function (_super) {
         { type: Component, args: [{
                     selector: 'ion-searchbar',
                     template: '<div class="searchbar-input-container">' +
-                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
-                        '<ion-icon name="arrow-back"></ion-icon>' +
+                        '<button ion-button mode="md" (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
+                        '<ion-icon name="md-arrow-back"></ion-icon>' +
                         '</button>' +
                         '<div #searchbarIcon class="searchbar-search-icon"></div>' +
                         '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" ' +
@@ -37438,9 +37461,9 @@ var Searchbar = (function (_super) {
                         '[attr.autocomplete]="_autocomplete" ' +
                         '[attr.autocorrect]="_autocorrect" ' +
                         '[attr.spellcheck]="_spellcheck">' +
-                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
+                        '<button ion-button clear class="searchbar-clear-icon" [mode]="_mode" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
                         '</div>' +
-                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
+                        '<button ion-button #cancelButton mode="ios" [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
                     host: {
                         '[class.searchbar-animated]': 'animated',
                         '[class.searchbar-has-value]': '_value',
@@ -37737,6 +37760,7 @@ var Select = (function (_super) {
                     handler: function () {
                         _this.onChange(input.value);
                         _this.ionChange.emit(input.value);
+                        input.ionSelect.emit(input.value);
                     }
                 };
             }));
@@ -37753,7 +37777,12 @@ var Select = (function (_super) {
                     label: input.text,
                     value: input.value,
                     checked: input.selected,
-                    disabled: input.disabled
+                    disabled: input.disabled,
+                    handler: function (selectedOption) {
+                        if (selectedOption.checked) {
+                            input.ionSelect.emit(input.value);
+                        }
+                    }
                 };
             });
             var selectCssClass = 'select-alert';
@@ -43901,8 +43930,8 @@ var SPINNERS = {
             return {
                 r: 5,
                 style: (_a = {
-                        top: 9 * Math.sin(2 * Math.PI * index / total),
-                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                        top: (9 * Math.sin(2 * Math.PI * index / total)) + 'px',
+                        left: (9 * Math.cos(2 * Math.PI * index / total)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
                     _a
@@ -43918,8 +43947,8 @@ var SPINNERS = {
             return {
                 r: 5,
                 style: (_a = {
-                        top: 9 * Math.sin(2 * Math.PI * index / total),
-                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                        top: (9 * Math.sin(2 * Math.PI * index / total)) + 'px',
+                        left: (9 * Math.cos(2 * Math.PI * index / total)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
                     _a
@@ -43945,7 +43974,7 @@ var SPINNERS = {
             return {
                 r: 6,
                 style: (_a = {
-                        left: (9 - (9 * index))
+                        left: (9 - (9 * index)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(110 * index) + 'ms',
                     _a
@@ -46193,7 +46222,7 @@ var _View_Button0 = (function (_super) {
 }(AppView));
 function viewFactory_Button0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Button === null)) {
-        (renderType_Button = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_Button, {}));
+        (renderType_Button = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/button/button.d.ts class Button - inline template', 1, ViewEncapsulation.None, styles_Button, {}));
     }
     return new _View_Button0(viewUtils, parentInjector, declarationEl);
 }
@@ -46391,7 +46420,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ActionSheetCmp === null)) {
-        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
+        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/action-sheet/action-sheet-component.d.ts class ActionSheetCmp - inline template', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
     }
     return new _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -46983,7 +47012,7 @@ var _View_AlertCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_AlertCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AlertCmp === null)) {
-        (renderType_AlertCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
+        (renderType_AlertCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/alert/alert-component.d.ts class AlertCmp - inline template', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
     }
     return new _View_AlertCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47789,7 +47818,7 @@ var _View_IonicApp0 = (function (_super) {
 }(AppView));
 function viewFactory_IonicApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_IonicApp === null)) {
-        (renderType_IonicApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_IonicApp, {}));
+        (renderType_IonicApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/app/app-root.d.ts class IonicApp - inline template', 0, ViewEncapsulation.None, styles_IonicApp, {}));
     }
     return new _View_IonicApp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47924,7 +47953,7 @@ var _View_Spinner0 = (function (_super) {
 }(AppView));
 function viewFactory_Spinner0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spinner === null)) {
-        (renderType_Spinner = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Spinner, {}));
+        (renderType_Spinner = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/spinner/spinner.d.ts class Spinner - inline template', 0, ViewEncapsulation.None, styles_Spinner, {}));
     }
     return new _View_Spinner0(viewUtils, parentInjector, declarationEl);
 }
@@ -48155,7 +48184,7 @@ var _View_LoadingCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LoadingCmp === null)) {
-        (renderType_LoadingCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
+        (renderType_LoadingCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/loading/loading-component.d.ts class LoadingCmp - inline template', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
     }
     return new _View_LoadingCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48346,7 +48375,7 @@ var _View_ModalCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalCmp === null)) {
-        (renderType_ModalCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
+        (renderType_ModalCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/modal/modal-component.d.ts class ModalCmp - inline template', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
     }
     return new _View_ModalCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48517,7 +48546,7 @@ var _View_PickerColumnCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerColumnCmp === null)) {
-        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
+        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerColumnCmp - inline template', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
     }
     return new _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48871,7 +48900,7 @@ var _View_PickerCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerCmp === null)) {
-        (renderType_PickerCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
+        (renderType_PickerCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerCmp - inline template', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
     }
     return new _View_PickerCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49172,7 +49201,7 @@ var _View_PopoverCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PopoverCmp === null)) {
-        (renderType_PopoverCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
+        (renderType_PopoverCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/popover/popover-component.d.ts class PopoverCmp - inline template', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
     }
     return new _View_PopoverCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49327,7 +49356,7 @@ var _View_ToastCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ToastCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToastCmp === null)) {
-        (renderType_ToastCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
+        (renderType_ToastCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toast/toast-component.d.ts class ToastCmp - inline template', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
     }
     return new _View_ToastCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49682,7 +49711,7 @@ var _View_Navbar0 = (function (_super) {
 }(AppView));
 function viewFactory_Navbar0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Navbar === null)) {
-        (renderType_Navbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Navbar, {}));
+        (renderType_Navbar = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/navbar/navbar.d.ts class Navbar - inline template', 4, ViewEncapsulation.None, styles_Navbar, {}));
     }
     return new _View_Navbar0(viewUtils, parentInjector, declarationEl);
 }
@@ -49768,7 +49797,7 @@ var _View_ToolbarTitle0 = (function (_super) {
 }(AppView));
 function viewFactory_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToolbarTitle === null)) {
-        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
+        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toolbar/toolbar-title.d.ts class ToolbarTitle - inline template', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
     }
     return new _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl);
 }
@@ -49851,7 +49880,7 @@ var _View_Content0 = (function (_super) {
 }(AppView));
 function viewFactory_Content0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Content === null)) {
-        (renderType_Content = viewUtils.createRenderComponentType('', 3, ViewEncapsulation.None, styles_Content, {}));
+        (renderType_Content = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/content/content.d.ts class Content - inline template', 3, ViewEncapsulation.None, styles_Content, {}));
     }
     return new _View_Content0(viewUtils, parentInjector, declarationEl);
 }
@@ -49928,7 +49957,7 @@ var _View_Nav0 = (function (_super) {
 }(AppView));
 function viewFactory_Nav0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Nav === null)) {
-        (renderType_Nav = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Nav, {}));
+        (renderType_Nav = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/nav/nav.d.ts class Nav - inline template', 0, ViewEncapsulation.None, styles_Nav, {}));
     }
     return new _View_Nav0(viewUtils, parentInjector, declarationEl);
 }
@@ -50814,7 +50843,7 @@ var _View_ApiDemoPage0 = (function (_super) {
 }(AppView));
 function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/button/page.html', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -50892,7 +50921,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(AppView));
 function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/button/app.component.ts class ApiDemoApp - inline template', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }
@@ -50922,7 +50951,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_9", {
         get: function () {
             if ((this.__LOCALE_ID_9 == null)) {
-                (this.__LOCALE_ID_9 = 'en-US');
+                (this.__LOCALE_ID_9 = null);
             }
             return this.__LOCALE_ID_9;
         },
@@ -51423,6 +51452,16 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(AppModuleInjector.prototype, "_TRANSLATIONS_FORMAT_75", {
+        get: function () {
+            if ((this.__TRANSLATIONS_FORMAT_75 == null)) {
+                (this.__TRANSLATIONS_FORMAT_75 = null);
+            }
+            return this.__TRANSLATIONS_FORMAT_75;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppModuleInjector.prototype.createInternal = function () {
         this._CommonModule_0 = new CommonModule();
         this._ApplicationModule_1 = new ApplicationModule();
@@ -51681,6 +51720,9 @@ var AppModuleInjector = (function (_super) {
         }
         if ((token === DeepLinker)) {
             return this._DeepLinker_74;
+        }
+        if ((token === TRANSLATIONS_FORMAT)) {
+            return this._TRANSLATIONS_FORMAT_75;
         }
         return notFoundResult;
     };

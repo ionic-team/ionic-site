@@ -306,7 +306,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(import1.AppView));
 export function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/infinite-scroll/page.html', 0, import8.ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

@@ -1574,6 +1574,79 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
 
 
+<div id="isRequestingPermission"></div>
+<h3><code>isRequestingPermission()</code>
+  
+</h3>
+
+
+
+
+Indicates if the plugin is currently requesting a runtime permission via the native API.
+Note that only one request can be made concurrently because the native API cannot handle concurrent requests,
+so the plugin will invoke the error callback if attempting to make more than one simultaneous request.
+Multiple permission requests should be grouped into a single call since the native API is setup to handle batch requests of multiple permission groups.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
+
+
+
+<div id="registerPermissionRequestCompleteHandler"></div>
+<h3><code>registerPermissionRequestCompleteHandler(handler)</code>
+  
+</h3>
+
+
+
+
+Registers a function to be called when a runtime permission request has completed.
+Pass in a falsey value to de-register the currently registered function.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      handler
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <div id="isBluetoothEnabled"></div>
 <h3><code>isBluetoothEnabled()</code>
   

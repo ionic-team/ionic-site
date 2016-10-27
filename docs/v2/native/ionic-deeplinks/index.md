@@ -64,8 +64,31 @@ and Universal App Links.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { IonicDeeplinks } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Deeplinks } from &#39;ionic-native&#39;;
+
+Deeplinks.route({
+      &#39;/about-us&#39;: AboutPage,
+      &#39;/universal-links-test&#39;: AboutPage,
+      &#39;/products/:productId&#39;: ProductPage
+    }).subscribe((match) =&gt; {
+      // match.$route - the route we matched, which is the matched entry from the arguments to route()
+      // match.$args - the args passed in the link
+      // match.$link - the full link data
+      console.log(&#39;Successfully matched route&#39;, match);
+    }, (nomatch) =&gt; {
+      // nomatch.$link - the full link data
+      console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
+    });
 </code></pre>
+<p>Alternatively, if you&#39;re using Ionic 2, there&#39;s a convenience method that takes a reference to a <code>NavController</code> and handles
+the actual navigation for you:</p>
+<pre><code class="lang-typescript">Deeplinks.routeWithNavController(this.navController, {
+  &#39;/about-us&#39;: AboutPage,
+  &#39;/products/:productId&#39;: ProductPage
+});
+</code></pre>
+<p>See the <a href="https://github.com/driftyco/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
+retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 
@@ -127,8 +150,8 @@ promise result which you can then use to navigate in the app as you see fit.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when a deeplink comes through, and
-is rejected if a deeplink comes through that does not match a given path.
+<code>Observable</code> Returns an Observable that is called each time a deeplink comes through, and
+errors if a deeplink comes through that does not match a given path.
 </div>
 
 
@@ -191,8 +214,8 @@ promise result which you can then use to navigate in the app as you see fit.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when a deeplink comes through, and
-is rejected if a deeplink comes through that does not match a given path.
+<code>Observable</code> Returns an Observable that resolves each time a deeplink comes through, and
+errors if a deeplink comes through that does not match a given path.
 </div>
 
 

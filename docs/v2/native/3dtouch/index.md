@@ -107,7 +107,7 @@ let actions: Array&lt;ThreeDeeTouchQuickAction&gt; = [
 ];
 ThreeDeeTouch.configureQuickActions(actions);
 
-ThreeDeeTouchForceTouch.onHomeIconPressed().subscribe(
+ThreeDeeTouch.onHomeIconPressed().subscribe(
  (payload) =&gt; {
    // returns an object that is the button you presed
    console.log(&#39;Pressed the ${payload.title} button&#39;)
@@ -170,7 +170,7 @@ You can get a notification when the user force touches the webview. The plugin d
 
 
 <div id="configureQuickActions"></div>
-<h3><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType)</code>
+<h3><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType,&nbsp;iconTemplate)</code>
   
 </h3>
 
@@ -253,6 +253,23 @@ setup the 3D-touch actions, takes an array of objects with the following
     </td>
     <td>
       <p>(optional) Choose between Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      iconTemplate
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>(optional) Can be used to provide your own icon</p>
 
       
     </td>

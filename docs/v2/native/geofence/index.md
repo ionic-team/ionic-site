@@ -233,7 +233,7 @@ Called when a geofence is crossed in the direction specified by `TransitType`.
   
 </h3>
 
-Called when the user clicks a geofence notification. iOS and Android only.   
+Called when the user clicks a geofence notification. iOS and Android only.
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.4"
+version: "2.2.5"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -159,6 +159,34 @@ Sends sms to a number
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
+</div>
+
+
+
+<div id="hasPermission"></div>
+<h3><code>hasPermission()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+This function lets you know if the app has permission to send SMS
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if we have permission
 </div>
 
 

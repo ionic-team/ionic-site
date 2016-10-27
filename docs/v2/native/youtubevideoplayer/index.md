@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.4"
+version: "2.2.5"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -65,7 +65,7 @@ docType: "class"
 
 <pre><code>import {YoutubeVideoPlayer} from &#39;ionic-native&#39;;
 
-YouTubeVideoPlayer.openVideo(&#39;myvideoid&#39;);
+YoutubeVideoPlayer.openVideo(&#39;myvideoid&#39;);
 </code></pre>
 
 

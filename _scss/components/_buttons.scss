@@ -62,19 +62,19 @@
 
   &.white {
     background: white;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
     color: $blue;
 
     &:hover,
     &:focus,
     &:active {
       color: $blue;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
       color: lighten($blue, 5);
     }
 
     &:active {
-      box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1);
+      // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
     }
   }
 

@@ -1,5 +1,5 @@
 
-.home {
+.page-home {
 
   .primary-row {
     padding: 0 10px;
@@ -95,25 +95,16 @@
       right: 44px;
       bottom: 68px;
     }
-    a{
+    a {
       opacity: 1;
-      img{
+      img {
         opacity:.9;
-        -webkit-transition:opacity .1s linear;
-        -moz-transition:opacity .1s linear;
-        transition:opacity .1s linear;
         transition: opacity 0.1s linear;
-        -webkit-animation-delay: .5s;
-        -moz-animation-delay: .5s;
         animation-delay: .5s;
       }
-      span{
-        opacity: .4;
-        -webkit-transition:opacity .1s linear;
-        -moz-transition:opacity .1s linear;
+      span {
+        opacity: .7;
         transition:opacity .1s linear;
-        -webkit-animation-delay: .5s;
-        -moz-animation-delay: .5s;
         animation-delay: .5s;
       }
       &:hover img,
@@ -124,13 +115,13 @@
 
     .demo-link {
       position: absolute;
-      right: 62px;
+      right: 57px;
       bottom: 50px;
       display: none;
       color: white;
       text-decoration: underline;
-      font-weight: 300;
-      font-size: 11px;
+      font-weight: 400;
+      font-size: 12px;
       text-decoration: none;
       text-shadow: 0px 1px 6px rgba(0,0,0,0.2);
     }
@@ -248,17 +239,11 @@
   }
 
   .utility-bar {
-    margin-top: -1px;
+    margin-top: -165px;
     position: relative;
     padding: 17px;
     width: 100%;
-    background: #2155aa;
-    background: -moz-linear-gradient(left,  #2155aa 0%, #3e72c6 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2155aa), color-stop(100%,#3e72c6));
-    background: -webkit-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-    background: -o-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-    background: -ms-linear-gradient(left,  #2155aa 0%,#3e72c6 100%);
-    background: linear-gradient(to right,  #2155aa 0%,#3e72c6 100%);
+    background: rgba(0, 0, 0, .3);
 
     .container {
       overflow: hidden;
@@ -268,19 +253,18 @@
     }
 
     input {
-      border: 1px solid #7597d4;
-      background: #7597d4;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .2);
       font-size: 13px;
       color: white;
       box-shadow: none;
       font-weight: normal;
-      font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      transition: .2s background;
 
       &:focus {
-        -webkit-box-shadow: none;
         box-shadow: none;
-        border: 1px solid #84A6E2;
-        background: #84A6E2;
+        border: 1px solid rgba(255, 255, 255, .1);
+        background: rgba(255, 255, 255, .1);
       }
 
       &::-webkit-input-placeholder {
@@ -293,12 +277,10 @@
     }
 
     button {
-      padding-right: 15px;
-      padding-left: 15px;
-      border: 1px solid #4e8ef7;
-      background: #4e8ef7;
       box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
-      color: white;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 8px 15px 7px;
 
       &:hover {
         background: #5998FF;
@@ -770,7 +752,7 @@
       content: ' ';
       display: block;
       position: relative;
-      background: no-repeat url(/img/slider-arrow-left.png);
+      background: no-repeat url('/img/slider-arrow-left.png');
       background-size: 19px;
       width: 19px;
       height: 42px;
@@ -786,7 +768,7 @@
     left:auto;
     right:10px;
     &:before{
-      background: no-repeat url(/img/slider-arrow-right.png);
+      background: no-repeat url('/img/slider-arrow-right.png');
       background-size: 19px;
     }
   }
@@ -821,15 +803,14 @@
   h1 {
     margin: 112px 0 0 0;
     font-size: 48px;
-    font-family: "AvenirNextLTPro-UltLt", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-    font-weight: bold;
+    font-weight: 300;
+    color: white;
     letter-spacing: -0.02em;
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     cursor: default;
 
     strong{
-      font-family:"AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 600;
     }
   }
@@ -841,7 +822,6 @@
     color: #B2CEFF;
     font-size: 20px;
     font-weight: 400;
-    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 4px 0px 32px;
     line-height: 1.4;
     letter-spacing: -0.01em;
@@ -854,8 +834,8 @@
     margin-left: 4px;
   }
 
-  .slide-home {
-
+  .version-text {
+    color: rgba(255, 255, 255, .3);
   }
 
   .slide-creator {
@@ -887,7 +867,6 @@
     h2 {
       margin: 20px 0;
       font-weight: 500;
-      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
       letter-spacing: -0.02em;
     }
   }
@@ -897,7 +876,6 @@
     h2 {
       margin: 150px 0 20px;
       font-weight: 500;
-      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
       letter-spacing: -0.02em;
     }
 

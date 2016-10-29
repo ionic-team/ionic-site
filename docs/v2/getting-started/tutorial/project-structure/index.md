@@ -49,12 +49,23 @@ Inside of the `src` directory we find our raw, uncompiled code. This is where mo
 Near the top of the file, we should see this:
 
 ```ts
-
 @NgModule({
-  declarations: [MyApp,HelloIonicPage, ItemDetailsPage, ListPage],
-  imports: [IonicModule.forRoot(MyApp)],
+  declarations: [
+    MyApp,
+    HelloIonicPage,
+    ItemDetailsPage,
+    ListPage
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp)
+  ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp,HelloIonicPage,ItemDetailsPage,ListPage],
+  entryComponents: [
+    MyApp,
+    HelloIonicPage,
+    ItemDetailsPage,
+    ListPage
+  ],
   providers: []
 })
 export class AppModule {}
@@ -62,7 +73,7 @@ export class AppModule {}
 
 Every app has a *root module* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. This is also where we bootstrap our app using `ionicBootstrap`.
 
-In this module, we're setting the root component to MyApp, in `src/app/app.component.ts`. This is the first component that gets loaded in our app, and it typically is a empty shell for other components to loaded into. In `app.component.ts`, we're setting out template to `src/app/app.html`, so let's look in there.
+In this module, we're setting the root component to MyApp, in `src/app/app.component.ts`. This is the first component that gets loaded in our app, and it is typically an empty shell for other components to be loaded into. In `app.component.ts`, we're setting our template to `src/app/app.html`, so let's look in there.
 
 <h3 class="file-title">./src/app/app.html</h3>
 

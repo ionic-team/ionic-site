@@ -16,7 +16,7 @@ header_sub_title: Ionic Resources
 
  <section id="android-sdk">
     <h3><a href="#android-sdk">Android SDK</a></h3>
-    <p>The <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is a software development kit that for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android apps.</p>
+    <p>The <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is a software development kit for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android applications.</p>
   </section>
 
   <section id="annotations">
@@ -32,27 +32,27 @@ header_sub_title: Ionic Resources
 
   <section id="babel">
     <h3><a href="#babel">Babel</a></h3>
-    <p><a href="http://babeljs.io">Babel</a> is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
+    <p><a href="http://babeljs.io">Babel</a> is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code into <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
   </section>
 
   <section id="browserify">
     <h3><a href="#browserify">Browserify</a></h3>
-    <p><a href="http://browserify.org/">Browserify</a> is a code bundler, similar to <a href="#webpack">webpack</a>, that analyzes all the code in an project, and bundle it into single file.</p>
+    <p><a href="http://browserify.org/">Browserify</a> is a code bundler, similar to <a href="#webpack">webpack</a>, that analyzes all the code in a project, and bundles it into a single file.</p>
   </section>
 
   <section id="bundling">
     <h3><a href="#bundling">Bundling</a></h3>
-    <p>Bundling is the process of taking an app dependencies (code you've written plus any npm modules installed) and compiling/transpiling them down to one single file.</p>
+    <p>Bundling is the process of taking an app's dependencies (code you've written plus any npm modules installed) and compiling/transpiling them down into one single file.</p>
   </section>
 
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
-    <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
+    <p>A CLI, or command-line interface, is a text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
   </section>
 
   <section id="commonjs">
     <h3><a href="#commonjs">CommonJS</a></h3>
-    <p>CommonJS is a group that defines standard formats for JavaScript API's. They have defined standards for JavaScript modules and packages.</p>
+    <p>CommonJS is a group that defines standard formats for JavaScript APIs. They have defined standards for JavaScript modules and packages.</p>
     <p><a href="https://webpack.github.io/docs/commonjs.html">CommonJS</a></p>
   </section>
 
@@ -63,13 +63,13 @@ header_sub_title: Ionic Resources
 
   <section id="decorators">
     <h3><a href="#decorators">Decorators</a></h3>
-    <p>Decorators are expressions that return a function. They basically allow you to take an existing function, and extend its behavior. With TypeScript, you can also decorate <i>classes</i> and <i>parameters</i>. When you decorate a <strong>class</strong>, you are wrapping and extending the behavior of its constructor. In other words, the decorator will add some functionality when the constructor is called, and will then return the original constructor. When you decorate a <strong>parameter</strong>, you are wrapping the argument that gets passed in for that parameter. In other words, the decorator will add functionality when an argument is passed to the method, and then return the original argument.
+    <p>Decorators are expressions that return a function. They allow you to take an existing function and extend its behavior. With TypeScript, you can also decorate <i>classes</i> and <i>parameters</i>. When you decorate a <strong>class</strong>, you are wrapping and extending the behavior of its constructor. In other words, the decorator will add some functionality when the constructor is called, and will then return the original constructor. When you decorate a <strong>parameter</strong>, you are wrapping the argument that gets passed in for that parameter. In other words, the decorator will add functionality when an argument is passed to the method, and then return the original argument.
     </p>
   </section>
 
   <section id="es5">
     <h3><a href="#es5">ES5</a></h3>
-    <p>ES5 refers to EcmaScript 5th Edition. A simple way to put it is that ES5 is the version of JavaScript which developers are most familiar with today.</p>
+    <p>ES5 refers to EcmaScript 5th Edition. ES5 is the version of JavaScript that is included with all major web browsers and which developers are most familiar with today.</p>
   </section>
 
   <section id="es2015-es6">
@@ -89,17 +89,17 @@ header_sub_title: Ionic Resources
 
   <section id="git">
     <h3><a href="#git">Git</a></h3>
-    <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
+    <p><a href="https://git-scm.com/">Git</a> is a distributed version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
   </section>
 
   <section id="gulp">
     <h3><a href="#gulp">Gulp</a></h3>
-    <p><a href="http://gulpjs.com/">Gulp</a> is a tool for running tasks which can be used to build your application. Common build tasks include transpiling <a href="#es2015-es6">ES6</a> to <a href="#es5">ES5</a>, turning <a href="#sass">Sass</a> in to CSS, minifying code, and concatenating files.</p>
+    <p><a href="http://gulpjs.com/">Gulp</a> is a tool for running tasks which can be used to build your application. Common build tasks include transpiling <a href="#es2015-es6">ES6</a> to <a href="#es5">ES5</a>, turning <a href="#sass">Sass</a> into CSS, minifying code, and concatenating files.</p>
   </section>
 
   <section id="imports">
     <h3><a href="#imports">Imports</a></h3>
-    <p>ES6 brings the concept of modules to javascript. With modules, things are no longer on the global scope and have to imported into be used. This makes it much easier to understand where your code is coming from.</p>
+    <p>ES6 brings the concept of modules to javascript. With modules, classes and variables are no longer in the global scope and have to be explicitly imported into your project to be used. This makes it much easier to understand where your code is coming from and increases modularity and compartmentalization of functionality.</p>
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Imports</a></p>
   </section>
 
@@ -110,17 +110,17 @@ header_sub_title: Ionic Resources
 
   <section id="karma">
     <h3><a href="#karma">Karma</a></h3>
-    <p><a href="https://karma-runner.github.io/0.13/index.html">Karma</a> is a test runner that will run your app's test inside a real browser. It's takes your test, written in any testing framework, and just runs them in browser. Orginially written for Angular 1.</p>
+    <p><a href="https://karma-runner.github.io/0.13/index.html">Karma</a> is a test runner that will run your app's test inside a real browser. It executes your test cases, written in any testing framework, in a real browser. Karma was originally written for use with Angular 1.</p>
   </section>
 
   <section id="module">
-    <h3><a href="#module">Module</a></h3>
-    <p>Modules in JavaScript are small, independent, and reusable pieces or code that are isolated from one another and the Global scope</p>
+    <h3><a href="#module">Modules</a></h3>
+    <p>Modules in JavaScript are small, independent, and reusable pieces or code that are isolated from one another and the Global scope.</p>
   </section>
 
   <section id="livereload">
     <h3><a href="#livereload">Live Reload</a></h3>
-    <p>Live Reload is a tool that automatically reloads your browser when it detects changes. It watches a specific path and anytime a file or directory is updated, it will trigger a full browser reload. In cases where css is changed, livereload will inject the changed css instead of reloading the entire page</p>
+    <p>Live Reload is a tool that automatically reloads your browser when it detects changes. It watches a specific path and any time a file or directory is updated, it will trigger a full browser reload. In cases where CSS is changed, livereload will inject the changed CSS instead of reloading the entire page.</p>
   </section>
 
   <section id="node">
@@ -142,13 +142,13 @@ header_sub_title: Ionic Resources
 
 <section id="polyfill">
     <h3><a href="#polyfill">Polyfill</a></h3>
-    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
+    <p>A polyfill is a bit of code that adds functionality to the browser and normalizes browser differences. A polyfill is a specific type of shim that allows usage of methods supported by some, but not all, browsers.  Polyfills are used to provide a consistent baseline implementation of JavaScript (or other languages) across several browsers.</p>
     <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</a></p>
   </section>
 
 <section id="protractor">
     <h3><a href="#protractor">Protractor</a></h3>
-    <p><a href="https://angular.github.io/protractor/#/">Protractor</a> is testing framework written for and by the Angular team. Protractor can be used with test runners, like Karma, for end-to-end testing. Basically figuring out if your app behaves the way you expect it too.</p>
+    <p><a href="https://angular.github.io/protractor/#/">Protractor</a> is a testing framework written for and by the Angular team. Protractor can be used with test runners, like Karma, for end-to-end testing. Test runners allow you to quickly and programmatically verify code quality.</p>
   </section>
 
   <section id="sass">
@@ -158,7 +158,7 @@ header_sub_title: Ionic Resources
 
 <section id="shim">
     <h3><a href="#shim">Shim</a></h3>
-    <p>A shim is a piece of code that normailizes difference APIs across browsers. A shim would often has it's own API that would handle the cross browser differences.</p>
+    <p>A shim is a piece of code that normalizes an API across browsers. A shim can optionally contain its own generic API that hides the implementation differences of each internal API.  It can also normalize several different APIs toward a single unified API based on an existing API.</p>
   </section>
 
 
@@ -170,7 +170,7 @@ header_sub_title: Ionic Resources
   <section id="transpiler">
     <h3><a href="#transpiler">Transpiler</a></h3>
     <p>
-    Transpile means to convert code from one language, to another language. Typically a transpiler will convert a high-level language to another high-level language. Often times the Ionic community will talk about <em>transpiling</em> <a href="#es2015-es6">ES2015/ES6</a> or <a href="#typescript">TypeScript</a> to <a href="#es5">ES5</a>.
+    Transpilation is the process of converting code from one language to another language prior to execution. Typically, a transpiler will convert a high-level language to another high-level language. The most common type of <em>transpilation</em> in the Ionic framework is converting <a href="#es2015-es6">ES2015/ES6</a> (<a href="#typescript">TypeScript</a>) to <a href="#es5">ES5</a> (traditional JavaScript).
     </p>
   </section>
 
@@ -188,7 +188,7 @@ header_sub_title: Ionic Resources
 
   <section id="webpack">
     <h3><a href="#webpack">Webpack</a></h3><p>
-    <a href="https://webpack.github.io/">Webpack</a> bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
+    <a href="https://webpack.github.io/">Webpack</a> bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Webpack will take multiple files and dependencies and bundle them into one or multiple output files depending upon the configuration.</p>
   </section>
 
   <section id="xcode">

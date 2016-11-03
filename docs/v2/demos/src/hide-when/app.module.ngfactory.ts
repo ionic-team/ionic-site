@@ -88,7 +88,6 @@ import * as import80 from '@angular/core/src/change_detection/differs/keyvalue_d
 import * as import81 from '@angular/http/src/interfaces';
 import * as import82 from '@angular/http/src/http';
 import * as import83 from 'ionic-angular/components/app/app-root';
-import * as import84 from '@angular/core/src/i18n/tokens';
 class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
   _CommonModule_0:import2.CommonModule;
   _ApplicationModule_1:import3.ApplicationModule;
@@ -165,7 +164,6 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
   __TransitionController_72:import44.TransitionController;
   __UrlSerializer_73:any;
   __DeepLinker_74:any;
-  __TRANSLATIONS_FORMAT_75:any;
   constructor(parent:import45.Injector) {
     super(parent,[
       import46.ActionSheetCmpNgFactory,
@@ -183,7 +181,7 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
     ,[import48.IonicAppNgFactory]);
   }
   get _LOCALE_ID_9():any {
-    if ((this.__LOCALE_ID_9 == (null as any))) { (this.__LOCALE_ID_9 = (null as any)); }
+    if ((this.__LOCALE_ID_9 == (null as any))) { (this.__LOCALE_ID_9 = 'en-US'); }
     return this.__LOCALE_ID_9;
   }
   get _NgLocalization_10():import9.NgLocaleLocalization {
@@ -387,10 +385,6 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
     if ((this.__DeepLinker_74 == (null as any))) { (this.__DeepLinker_74 = import65.setupDeepLinker(this._App_22,this._UrlSerializer_73,this._Location_64)); }
     return this.__DeepLinker_74;
   }
-  get _TRANSLATIONS_FORMAT_75():any {
-    if ((this.__TRANSLATIONS_FORMAT_75 == (null as any))) { (this.__TRANSLATIONS_FORMAT_75 = (null as any)); }
-    return this.__TRANSLATIONS_FORMAT_75;
-  }
   createInternal():import1.AppModule {
     this._CommonModule_0 = new import2.CommonModule();
     this._ApplicationModule_1 = new import3.ApplicationModule();
@@ -501,7 +495,6 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
     if ((token === import44.TransitionController)) { return this._TransitionController_72; }
     if ((token === import64.UrlSerializer)) { return this._UrlSerializer_73; }
     if ((token === import65.DeepLinker)) { return this._DeepLinker_74; }
-    if ((token === import84.TRANSLATIONS_FORMAT)) { return this._TRANSLATIONS_FORMAT_75; }
     return notFoundResult;
   }
   destroyInternal():void {

@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 category: api
-id: "popovercmp"
-title: "PopoverCmp"
+id: "toolbaritem"
+title: "ToolbarItem"
 header_sub_title: "Ionic API Documentation"
-doc: "PopoverCmp"
+doc: "ToolbarItem"
 docType: "class"
 
 ---
@@ -21,10 +21,10 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a class="anchor" name="popover-cmp" href="#popover-cmp"></a>
+<a class="anchor" name="toolbar-item" href="#toolbar-item"></a>
 
-PopoverCmp
-<h3><code>ion-popover</code></h3>
+ToolbarItem
+<h3><code>ion-buttons,[menuToggle]</code></h3>
 
 
 
@@ -33,7 +33,7 @@ PopoverCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover-component.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar-item.ts#L6">
 Improve this doc
 </a>
 
@@ -57,31 +57,11 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="d"></div>
+<div id="inToolbar"></div>
 
 <h3>
-<a class="anchor" name="d" href="#d"></a>
-<code>d</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ionViewPreLoad"></div>
-
-<h3>
-<a class="anchor" name="ionViewPreLoad" href="#ionViewPreLoad"></a>
-<code>ionViewPreLoad()</code>
+<a class="anchor" name="inToolbar" href="#inToolbar"></a>
+<code>inToolbar</code>
   
 
 </h3>

@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610270215, Dark Theme
+ * vE2E-201611031845, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -85,8 +85,12 @@ ion-action-sheet {
   font-weight: 600;
   background: #fff; }
 
+.action-sheet-md .action-sheet-container {
+  padding: .8rem 0;
+  background: #fafafa; }
+
 .action-sheet-md .action-sheet-title {
-  padding: 19px 16px 17px;
+  padding: 11px 16px 17px;
   font-size: 1.6rem;
   text-align: left;
   color: #757575; }
@@ -105,18 +109,15 @@ ion-action-sheet {
   background: #f1f1f1; }
 
 .action-sheet-md .action-sheet-icon {
-  margin: 0 28px 0 0;
-  min-width: 24px;
+  margin: 0 32px 0 0;
+  padding: 0;
+  width: 2.3rem;
   font-size: 2.4rem;
   text-align: center;
   vertical-align: middle; }
 
 .action-sheet-md .action-sheet-group {
-  overflow: hidden;
-  background: #fafafa; }
-
-.action-sheet-md .action-sheet-group:last-child .action-sheet-button {
-  margin-bottom: 8px; }
+  overflow: hidden; }
 
 .action-sheet-md .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;
@@ -130,7 +131,7 @@ ion-action-sheet {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2); }
 
 .action-sheet-wp .action-sheet-title {
-  padding: 19px 16px 17px;
+  padding: 11px 16px 17px;
   font-size: 2rem;
   text-align: left;
   color: #4d4d4d; }
@@ -147,17 +148,16 @@ ion-action-sheet {
   background: #aaa; }
 
 .action-sheet-wp .action-sheet-icon {
-  margin: 0 16px 0 0;
-  min-width: 24px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  width: 2.3rem;
   font-size: 2.4rem;
   text-align: center;
   vertical-align: middle; }
 
-.action-sheet-wp .action-sheet-group {
+.action-sheet-wp .action-sheet-container {
+  padding: .8rem 0;
   background: #fff; }
-
-.action-sheet-wp .action-sheet-group:last-child .action-sheet-button {
-  margin-bottom: 8px; }
 
 .action-sheet-wp .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;
@@ -6178,7 +6178,8 @@ ion-popover {
   border-color: #222; }
 
 .item-range .item-inner {
-  overflow: visible; }
+  overflow: visible;
+  width: 100%; }
 
 .item-range .input-wrapper {
   overflow: visible;

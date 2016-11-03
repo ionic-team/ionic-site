@@ -6006,16 +6006,18 @@ function createCommonjsModule(fn, module) {
 
 var root = createCommonjsModule(function (module, exports) {
 "use strict";
-/**
- * window: browser in DOM main thread
- * self: browser in WebWorker
- * global: Node.js/other
- */
-exports.root = (typeof window == 'object' && window.window === window && window
-    || typeof self == 'object' && self.self === self && self
-    || typeof commonjsGlobal == 'object' && commonjsGlobal.global === commonjsGlobal && commonjsGlobal);
-if (!exports.root) {
-    throw new Error('RxJS could not find any global context (window, self, global)');
+var objectTypes = {
+    'boolean': false,
+    'function': true,
+    'object': true,
+    'number': false,
+    'string': false,
+    'undefined': false
+};
+exports.root = (objectTypes[typeof self] && self) || (objectTypes[typeof window] && window);
+var freeGlobal = objectTypes[typeof commonjsGlobal] && commonjsGlobal;
+if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+    exports.root = freeGlobal;
 }
 });
 
@@ -6283,7 +6285,7 @@ var __extends$10 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, 
 };
 var isFunction_1 = isFunction_1$1;
 var Subscription_1$1 = Subscription_1$2;
-var Observer_1$1 = Observer;
+var Observer_1 = Observer;
 var rxSubscriber_1$2 = rxSubscriber;
 /**
  * Implements the {@link Observer} interface and extends the
@@ -6313,11 +6315,11 @@ var Subscriber = (function (_super) {
         this.isStopped = false;
         switch (arguments.length) {
             case 0:
-                this.destination = Observer_1$1.empty;
+                this.destination = Observer_1.empty;
                 break;
             case 1:
                 if (!destinationOrNext) {
-                    this.destination = Observer_1$1.empty;
+                    this.destination = Observer_1.empty;
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
@@ -6530,7 +6532,6 @@ var Subscriber_1$2 = {
 
 var Subscriber_1$1 = Subscriber_1$2;
 var rxSubscriber_1$1 = rxSubscriber;
-var Observer_1 = Observer;
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1$1.Subscriber) {
@@ -6541,7 +6542,7 @@ function toSubscriber(nextOrObserver, error, complete) {
         }
     }
     if (!nextOrObserver && !error && !complete) {
-        return new Subscriber_1$1.Subscriber(Observer_1.empty);
+        return new Subscriber_1$1.Subscriber();
     }
     return new Subscriber_1$1.Subscriber(nextOrObserver, error, complete);
 }
@@ -6613,6 +6614,17 @@ var Observable = (function () {
         observable$$1.operator = operator;
         return observable$$1;
     };
+    /**
+     * Registers handlers for handling emitted values, error and completions from the observable, and
+     *  executes the observable's subscriber function, which will take action to set up the underlying data stream
+     * @method subscribe
+     * @param {PartialObserver|Function} observerOrNext (optional) either an observer defining all functions to be called,
+     *  or the first of three possible handlers, which is the handler for each value emitted from the observable.
+     * @param {Function} error (optional) a handler for a terminal event resulting from an error. If no error handler is provided,
+     *  the error will be thrown as unhandled
+     * @param {Function} complete (optional) a handler for a terminal event resulting from successful completion.
+     * @return {ISubscription} a subscription reference to the registered handlers
+     */
     Observable.prototype.subscribe = function (observerOrNext, error, complete) {
         var operator = this.operator;
         var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
@@ -16962,7 +16974,12 @@ var ControlContainer = (function (_super) {
 }(AbstractControlDirective));
 
 var root_1$4 = root;
-/* tslint:disable:max-line-length */
+/**
+ * @param PromiseCtor
+ * @return {Promise<T>}
+ * @method toPromise
+ * @owner Observable
+ */
 function toPromise(PromiseCtor) {
     var _this = this;
     if (!PromiseCtor) {
@@ -23738,6 +23755,10 @@ var isCheckedProperty = function (a, b) {
     return (a == b);
 };
 
+function swipeShouldReset(isResetDirection, isMovingFast, isOnResetZone) {
+    var shouldClose = (!isMovingFast && isOnResetZone) || (isResetDirection && isMovingFast);
+    return shouldClose;
+}
 var ASSERT_ENABLED = true;
 
 var Config = (function () {
@@ -24125,6 +24146,9 @@ var ViewController = (function () {
         if (this._nb) {
             this._nb.hideBackButton = !shouldShow;
         }
+    };
+    ViewController.prototype._preLoad = function () {
+        this._lifecycle('PreLoad');
     };
     ViewController.prototype._willLoad = function () {
         this._lifecycle('WillLoad');
@@ -25016,7 +25040,7 @@ var App = (function () {
         this.viewDidLeave = new EventEmitter();
         this.viewWillUnload = new EventEmitter();
         _platform.registerBackButtonAction(this.navPop.bind(this));
-        this._canDisableScroll = _config.get('canDisableScroll', true);
+        this._canDisableScroll = _config.get('canDisableScroll', false);
     }
     App.prototype.setTitle = function (val) {
         if (val !== this._title) {
@@ -25973,7 +25997,23 @@ function setupEvents(platform) {
             var content = el.closest('.scroll-content');
             if (content) {
                 var scroll = new ScrollView(content);
-                scroll.scrollTo(0, 0, 300);
+                content.style['WebkitBackfaceVisibility'] = 'hidden';
+                content.style['WebkitTransform'] = 'translate3d(0,0,0)';
+                nativeRaf(function () {
+                    content.style.overflow = 'hidden';
+                    function finish() {
+                        content.style.overflow = '';
+                        content.style['WebkitBackfaceVisibility'] = '';
+                        content.style['WebkitTransform'] = '';
+                    }
+                    var didScrollTimeout = setTimeout(function () {
+                        finish();
+                    }, 400);
+                    scroll.scrollTo(0, 0, 300).then(function () {
+                        clearTimeout(didScrollTimeout);
+                        finish();
+                    });
+                });
             }
         });
         window.addEventListener('resize', function () {
@@ -26646,6 +26686,68 @@ function listenEvent(ele, eventName, zoneWrapped, option, callback) {
     }
 }
 
+var FakeDebouncer = (function () {
+    function FakeDebouncer() {
+    }
+    FakeDebouncer.prototype.debounce = function (callback) {
+        callback();
+    };
+    FakeDebouncer.prototype.cancel = function () { };
+    return FakeDebouncer;
+}());
+var TimeoutDebouncer = (function () {
+    function TimeoutDebouncer(wait) {
+        this.wait = wait;
+        this.timer = null;
+    }
+    TimeoutDebouncer.prototype.debounce = function (callback) {
+        this.callback = callback;
+        this.schedule();
+    };
+    TimeoutDebouncer.prototype.schedule = function () {
+        this.cancel();
+        if (this.wait <= 0) {
+            this.callback();
+        }
+        else {
+            this.timer = setTimeout(this.callback, this.wait);
+        }
+    };
+    TimeoutDebouncer.prototype.cancel = function () {
+        if (this.timer) {
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
+    };
+    return TimeoutDebouncer;
+}());
+var NativeRafDebouncer = (function () {
+    function NativeRafDebouncer() {
+        this.callback = null;
+        this.ptr = null;
+        this.fireFunc = this.fire.bind(this);
+    }
+    NativeRafDebouncer.prototype.debounce = function (callback) {
+        if (this.callback === null) {
+            this.callback = callback;
+            this.ptr = nativeRaf(this.fireFunc);
+        }
+    };
+    NativeRafDebouncer.prototype.fire = function () {
+        this.callback();
+        this.callback = null;
+        this.ptr = null;
+    };
+    NativeRafDebouncer.prototype.cancel = function () {
+        if (this.ptr !== null) {
+            cancelAnimationFrame(this.ptr);
+            this.ptr = null;
+            this.callback = null;
+        }
+    };
+    return NativeRafDebouncer;
+}());
+
 var PanGesture = (function () {
     function PanGesture(element, opts) {
         if (opts === void 0) { opts = {}; }
@@ -26657,30 +26759,43 @@ var PanGesture = (function () {
         defaults(opts, {
             threshold: 20,
             maxAngle: 40,
-            direction: 'x'
+            direction: 'x',
+            zone: true,
+            capture: false,
         });
+        this.debouncer = (opts.debouncer)
+            ? opts.debouncer
+            : new FakeDebouncer();
         this.gestute = opts.gesture;
         this.direction = opts.direction;
+        this.eventsConfig = {
+            element: this.element,
+            pointerDown: this.pointerDown.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerUp.bind(this),
+            zone: opts.zone,
+            capture: opts.capture
+        };
         this.detector = new PanRecognizer(opts.direction, opts.threshold, opts.maxAngle);
     }
     PanGesture.prototype.listen = function () {
-        if (!this.isListening) {
-            this.pointerEvents = this.events.pointerEvents({
-                element: this.element,
-                pointerDown: this.pointerDown.bind(this),
-                pointerMove: this.pointerMove.bind(this),
-                pointerUp: this.pointerUp.bind(this),
-            });
-            this.isListening = true;
+        if (this.isListening) {
+            return;
         }
+        this.pointerEvents = this.events.pointerEvents(this.eventsConfig);
+        this.isListening = true;
     };
     PanGesture.prototype.unlisten = function () {
+        if (!this.isListening) {
+            return;
+        }
         this.gestute && this.gestute.release();
         this.events.unlistenAll();
         this.isListening = false;
     };
     PanGesture.prototype.destroy = function () {
         this.gestute && this.gestute.destroy();
+        this.gestute = null;
         this.unlisten();
         this.element = null;
     };
@@ -26704,28 +26819,32 @@ var PanGesture = (function () {
         return true;
     };
     PanGesture.prototype.pointerMove = function (ev) {
-        if (!this.started) {
-            return;
-        }
-        if (this.captured) {
-            this.onDragMove(ev);
-            return;
-        }
-        var coord = pointerCoord(ev);
-        if (this.detector.detect(coord)) {
-            if (this.detector.pan() !== 0 && this.canCapture(ev) &&
-                (!this.gestute || this.gestute.capture())) {
-                this.onDragStart(ev);
-                this.captured = true;
+        var _this = this;
+        this.debouncer.debounce(function () {
+            if (!_this.started) {
                 return;
             }
-            this.started = false;
-            this.captured = false;
-            this.pointerEvents.stop();
-            this.notCaptured(ev);
-        }
+            if (_this.captured) {
+                _this.onDragMove(ev);
+                return;
+            }
+            var coord = pointerCoord(ev);
+            if (_this.detector.detect(coord)) {
+                if (_this.detector.pan() !== 0 && _this.canCapture(ev) &&
+                    (!_this.gestute || _this.gestute.capture())) {
+                    _this.onDragStart(ev);
+                    _this.captured = true;
+                    return;
+                }
+                _this.started = false;
+                _this.captured = false;
+                _this.pointerEvents.stop();
+                _this.notCaptured(ev);
+            }
+        });
     };
     PanGesture.prototype.pointerUp = function (ev) {
+        this.debouncer.cancel();
         if (!this.started) {
             return;
         }
@@ -26868,12 +26987,17 @@ var __extends$64 = (undefined && undefined.__extends) || function (d, b) {
 };
 var SwipeBackGesture = (function (_super) {
     __extends$64(SwipeBackGesture, _super);
-    function SwipeBackGesture(element, options, _nav, gestureCtlr) {
+    function SwipeBackGesture(_nav, element, gestureCtlr, options) {
         _super.call(this, element, assign({
             direction: 'x',
             maxEdgeStart: 75,
+            zone: false,
+            threshold: 0,
+            maxAngle: 40,
+            debouncer: new NativeRafDebouncer(),
             gesture: gestureCtlr.create('goback-swipe', {
                 priority: 20,
+                disableScroll: 1
             })
         }, options));
         this._nav = _nav;
@@ -26883,18 +27007,20 @@ var SwipeBackGesture = (function (_super) {
             _super.prototype.canStart.call(this, ev));
     };
     SwipeBackGesture.prototype.onSlideBeforeStart = function (ev) {
-        (void 0);
         this._nav.swipeBackStart();
     };
-    SwipeBackGesture.prototype.onSlide = function (slide) {
+    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
         var stepValue = (slide.distance / slide.max);
-        (void 0);
         this._nav.swipeBackProgress(stepValue);
     };
     SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
-        var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
         var currentStepValue = (slide.distance / slide.max);
-        (void 0);
+        var isResetDirecction = slide.velocity < 0;
+        var isMovingFast = Math.abs(slide.velocity) > 0.4;
+        var isInResetZone = Math.abs(slide.delta) < Math.abs(slide.max) * 0.5;
+        var shouldComplete = !swipeShouldReset(isResetDirecction, isMovingFast, isInResetZone);
         this._nav.swipeBackEnd(shouldComplete, currentStepValue);
     };
     return SwipeBackGesture;
@@ -27030,8 +27156,8 @@ var NavControllerBase = (function (_super) {
         ti.resolve = function (hasCompleted, isAsync, enteringName, leavingName, direction) {
             _this._trnsId = null;
             resolve && resolve(hasCompleted, isAsync, enteringName, leavingName, direction);
-            _this._sbCheck();
             _this.setTransitioning(false);
+            _this._sbCheck();
             _this._nextTrns();
         };
         ti.reject = function (rejectReason, trns) {
@@ -27048,9 +27174,9 @@ var NavControllerBase = (function (_super) {
             if (trns) {
                 _this._trnsCtrl.destroy(trns.trnsId);
             }
-            _this._sbCheck();
             reject && reject(false, false, rejectReason);
             _this.setTransitioning(false);
+            _this._sbCheck();
             _this._nextTrns();
         };
         if (ti.insertViews) {
@@ -27134,6 +27260,7 @@ var NavControllerBase = (function (_super) {
         return null;
     };
     NavControllerBase.prototype._postViewInit = function (enteringView, leavingView, ti, resolve) {
+        var _this = this;
         var opts = ti.opts || {};
         var insertViews = ti.insertViews;
         var removeStart = ti.removeStart;
@@ -27162,14 +27289,16 @@ var NavControllerBase = (function (_super) {
                 opts.direction = opts.direction || DIRECTION_FORWARD;
             }
         }
-        for (var _i = 0, destroyQueue_1 = destroyQueue; _i < destroyQueue_1.length; _i++) {
-            view = destroyQueue_1[_i];
-            this._willLeave(view);
-            this._didLeave(view);
-            this._willUnload(view);
-        }
-        for (var _a = 0, destroyQueue_2 = destroyQueue; _a < destroyQueue_2.length; _a++) {
-            view = destroyQueue_2[_a];
+        this._zone.run(function () {
+            for (var _i = 0, destroyQueue_1 = destroyQueue; _i < destroyQueue_1.length; _i++) {
+                view = destroyQueue_1[_i];
+                _this._willLeave(view);
+                _this._didLeave(view);
+                _this._willUnload(view);
+            }
+        });
+        for (var _i = 0, destroyQueue_2 = destroyQueue; _i < destroyQueue_2.length; _i++) {
+            view = destroyQueue_2[_i];
             this._destroyView(view);
         }
         if (ti.enteringRequiresTransition || ti.leavingRequiresTransition && enteringView !== leavingView) {
@@ -27197,11 +27326,11 @@ var NavControllerBase = (function (_super) {
         var childInjector = ReflectiveInjector.fromResolvedProviders(componentProviders, this._viewport.parentInjector);
         enteringView.init(componentFactory.create(childInjector, []));
         enteringView._state = ViewState.INITIALIZED;
-        this._willLoad(enteringView);
+        this._preLoad(enteringView);
     };
     NavControllerBase.prototype._viewAttachToDOM = function (view, componentRef, viewport) {
         (void 0);
-        this._didLoad(view);
+        this._willLoad(view);
         viewport.insert(componentRef.hostView, viewport.length);
         view._state = ViewState.PRE_RENDERED;
         if (view._cssClass) {
@@ -27209,6 +27338,7 @@ var NavControllerBase = (function (_super) {
             this._renderer.setElementClass(pageElement, view._cssClass, true);
         }
         componentRef.changeDetectorRef.detectChanges();
+        this._zone.run(this._didLoad.bind(this, view));
     };
     NavControllerBase.prototype._viewTest = function (enteringView, leavingView, ti) {
         var _this = this;
@@ -27342,6 +27472,9 @@ var NavControllerBase = (function (_super) {
             }
             this._cleanup(transition$$1.enteringView);
         }
+        else {
+            this._cleanup(transition$$1.leavingView);
+        }
         if (transition$$1.isRoot()) {
             this._trnsCtrl.destroy(transition$$1.trnsId);
             this._app.setEnabled(true);
@@ -27405,11 +27538,16 @@ var NavControllerBase = (function (_super) {
             }
         }
     };
+    NavControllerBase.prototype._preLoad = function (view) {
+        (void 0);
+        view._preLoad();
+    };
     NavControllerBase.prototype._willLoad = function (view) {
         (void 0);
         view._willLoad();
     };
     NavControllerBase.prototype._didLoad = function (view) {
+        (void 0);
         (void 0);
         view._didLoad();
         this.viewDidLoad.emit(view);
@@ -27417,11 +27555,13 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype._willEnter = function (view) {
         (void 0);
+        (void 0);
         view._willEnter();
         this.viewWillEnter.emit(view);
         this._app.viewWillEnter.emit(view);
     };
     NavControllerBase.prototype._didEnter = function (view) {
+        (void 0);
         (void 0);
         view._didEnter();
         this.viewDidEnter.emit(view);
@@ -27429,17 +27569,20 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype._willLeave = function (view) {
         (void 0);
+        (void 0);
         view._willLeave();
         this.viewWillLeave.emit(view);
         this._app.viewWillLeave.emit(view);
     };
     NavControllerBase.prototype._didLeave = function (view) {
         (void 0);
+        (void 0);
         view._didLeave();
         this.viewDidLeave.emit(view);
         this._app.viewDidLeave.emit(view);
     };
     NavControllerBase.prototype._willUnload = function (view) {
+        (void 0);
         (void 0);
         view._willUnload();
         this.viewWillUnload.emit(view);
@@ -27458,9 +27601,8 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype.destroy = function () {
-        var view;
         for (var _i = 0, _a = this._views; _i < _a.length; _i++) {
-            view = _a[_i];
+            var view = _a[_i];
             view._willUnload();
             view._destroy(this._renderer);
         }
@@ -27495,31 +27637,25 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
         if (this._sbTrns && this._sbGesture) {
-            this._sbTrns.progressEnd(shouldComplete, currentStepValue);
+            this._sbTrns.progressEnd(shouldComplete, currentStepValue, 300);
         }
     };
     NavControllerBase.prototype._sbCheck = function () {
-        var _this = this;
-        if (this._sbEnabled && !this._isPortal) {
-            if (!this._sbGesture) {
-                var opts = {
-                    edge: 'left',
-                    threshold: this._sbThreshold
-                };
-                this._sbGesture = new SwipeBackGesture(this.getNativeElement(), opts, this, this._gestureCtrl);
-            }
-            if (this.canSwipeBack()) {
-                if (!this._sbGesture.isListening) {
-                    this._zone.runOutsideAngular(function () {
-                        (void 0);
-                        _this._sbGesture.listen();
-                    });
-                }
-            }
-            else if (this._sbGesture.isListening) {
-                (void 0);
-                this._sbGesture.unlisten();
-            }
+        if (!this._sbEnabled && this._isPortal) {
+            return;
+        }
+        if (!this._sbGesture) {
+            var opts = {
+                edge: 'left',
+                threshold: this._sbThreshold
+            };
+            this._sbGesture = new SwipeBackGesture(this, document.body, this._gestureCtrl, opts);
+        }
+        if (this.canSwipeBack()) {
+            this._sbGesture.listen();
+        }
+        else {
+            this._sbGesture.unlisten();
         }
     };
     NavControllerBase.prototype.canSwipeBack = function () {
@@ -28034,8 +28170,14 @@ var Animation = (function () {
         }
     };
     Animation.prototype.progressStart = function () {
+        this._clearAsync();
+        this._beforeReadFn();
+        this._beforeWriteFn();
+        this._progressStart();
+    };
+    Animation.prototype._progressStart = function () {
         for (var i = 0; i < this._cL; i++) {
-            this._c[i].progressStart();
+            this._c[i]._progressStart();
         }
         this._before();
         this._setTrans(0, true);
@@ -28055,14 +28197,16 @@ var Animation = (function () {
             this._progress(stepValue);
         }
     };
-    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
+    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue, maxDelta) {
+        if (maxDelta === void 0) { maxDelta = 0; }
         (void 0);
         this._isAsync = (currentStepValue > 0.05 && currentStepValue < 0.95);
-        var dur = 64;
         var stepValue = shouldComplete ? 1 : 0;
+        var factor = Math.max(Math.abs(currentStepValue - stepValue), 0.5) * 2;
+        var dur = 64 + factor * maxDelta;
         this._progressEnd(shouldComplete, stepValue, dur, this._isAsync);
         if (this._isAsync) {
-            this._asyncEnd(dur, true);
+            this._asyncEnd(dur, shouldComplete);
             this._raf && this._raf(this._playToStep.bind(this, stepValue));
         }
     };
@@ -28423,7 +28567,7 @@ var MDTransition = (function (_super) {
         if (leavingView && backDirection) {
             this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
             var leavingPage = new Animation(leavingView.pageRef());
-            this.add(leavingPage.fromTo(TRANSLATEY, CENTER$1, OFF_BOTTOM).fromTo('opacity', 0.99, 0));
+            this.add(leavingPage.fromTo(TRANSLATEY, CENTER$1, OFF_BOTTOM).fromTo('opacity', 1, 0));
         }
     };
     return MDTransition;
@@ -28453,7 +28597,7 @@ var WPTransition = (function (_super) {
                 this.enteringPage.beforeClearStyles(['scale']);
             }
             else {
-                this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0,0 0.05,1)');
+                this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0,0,0.05,1)');
                 this.enteringPage
                     .fromTo('scale', SCALE_SMALL, 1, true)
                     .fromTo('opacity', 0.01, 1, true);
@@ -28671,7 +28815,7 @@ var AlertWpPopIn = (function (_super) {
         wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
         backdrop.fromTo('opacity', 0.01, 0.5);
         this
-            .easing('cubic-bezier(0,0 0.05,1)')
+            .easing('cubic-bezier(0,0,0.05,1)')
             .duration(200)
             .add(backdrop)
             .add(wrapper);
@@ -28791,7 +28935,7 @@ var LoadingWpPopIn = (function (_super) {
         wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
         backdrop.fromTo('opacity', 0.01, 0.16);
         this
-            .easing('cubic-bezier(0,0 0.05,1)')
+            .easing('cubic-bezier(0,0,0.05,1)')
             .duration(200)
             .add(backdrop)
             .add(wrapper);
@@ -29263,7 +29407,7 @@ var ToastWpPopIn = (function (_super) {
             wrapper.fromTo('opacity', 0.01, 1);
             wrapper.fromTo('scale', 1.3, 1);
         }
-        this.easing('cubic-bezier(0,0 0.05,1)').duration(200).add(wrapper);
+        this.easing('cubic-bezier(0,0,0.05,1)').duration(200).add(wrapper);
     };
     return ToastWpPopIn;
 }(Transition));
@@ -29739,7 +29883,7 @@ var ModalCmp = (function () {
         this._viewCtrl = _viewCtrl;
         this._bdDismiss = _navParams.data.opts.enableBackdropDismiss;
     }
-    ModalCmp.prototype.ionViewWillLoad = function () {
+    ModalCmp.prototype.ionViewPreLoad = function () {
         this._load(this._navParams.data.component);
     };
     ModalCmp.prototype._load = function (component) {
@@ -30102,7 +30246,7 @@ var PickerCmp = (function () {
         this.id = (++pickerIds);
         this.lastClick = 0;
     }
-    PickerCmp.prototype.ionViewDidLoad = function () {
+    PickerCmp.prototype.ionViewWillLoad = function () {
         var data = this.d;
         data.buttons = data.buttons.map(function (button) {
             if (isString(button)) {
@@ -30377,7 +30521,6 @@ var PLATFORM_CONFIGS = {
             swipeBackThreshold: 40,
             tapPolyfill: isIOSDevice,
             virtualScrollEventAssist: !(window.indexedDB),
-            canDisableScroll: isIOSDevice,
         },
         isMatch: function (p) {
             return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
@@ -30481,7 +30624,7 @@ var PopoverCmp = (function () {
         }
         this.id = (++popoverIds);
     }
-    PopoverCmp.prototype.ionViewWillLoad = function () {
+    PopoverCmp.prototype.ionViewPreLoad = function () {
         var activeElement = document.activeElement;
         if (document.activeElement) {
             activeElement.blur();
@@ -31793,6 +31936,7 @@ var Icon = (function (_super) {
     __extends$89(Icon, _super);
     function Icon(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
+        this._isActive = true;
         this._name = '';
         this._ios = '';
         this._md = '';
@@ -31863,10 +32007,10 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "isActive", {
         get: function () {
-            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
+            return this._isActive;
         },
         set: function (val) {
-            this._isActive = val;
+            this._isActive = isTrueProperty(val);
             this.update();
         },
         enumerable: true,
@@ -31889,7 +32033,7 @@ var Icon = (function (_super) {
         }
         var iconMode = name.split('-', 2)[0];
         if (iconMode === 'ios' &&
-            !this.isActive &&
+            !this._isActive &&
             name.indexOf('logo-') < 0 &&
             name.indexOf('-outline') < 0) {
             name += '-outline';
@@ -32396,7 +32540,6 @@ var Tabs = (function (_super) {
         this.parent = parent;
         this.id = 't' + (++tabIds);
         this._sbPadding = config.getBoolean('statusbarPadding');
-        this._subPages = config.getBoolean('tabsHideOnSubPages');
         this.tabsHighlight = config.getBoolean('tabsHighlight');
         if (this.parent) {
             this.parent.registerChildNav(this);
@@ -32642,6 +32785,7 @@ var Content = (function (_super) {
         this._keyboard = _keyboard;
         this._zone = _zone;
         this._tabs = _tabs;
+        this._scrollPadding = 0;
         this._inputPolling = false;
         this._setMode('content', config.get('mode'));
         this._sbPadding = config.getBoolean('statusbarPadding', false);
@@ -32782,10 +32926,11 @@ var Content = (function (_super) {
         };
     };
     Content.prototype.addScrollPadding = function (newPadding) {
+        (void 0);
         if (newPadding > this._scrollPadding) {
             (void 0);
             this._scrollPadding = newPadding;
-            this._scrollEle.style.paddingBottom = newPadding + 'px';
+            this._scrollEle.style.paddingBottom = (newPadding > 0) ? newPadding + 'px' : '';
         }
     };
     Content.prototype.clearScrollPaddingFocusOut = function () {
@@ -32793,9 +32938,8 @@ var Content = (function (_super) {
         if (!this._inputPolling) {
             this._inputPolling = true;
             this._keyboard.onClose(function () {
-                _this._scrollPadding = 0;
-                _this._scrollEle.style.paddingBottom = (_this._paddingBottom > 0 ? _this._paddingBottom + 'px' : '');
                 _this._inputPolling = false;
+                _this._scrollPadding = -1;
                 _this.addScrollPadding(0);
             }, 200, Infinity);
         }
@@ -32871,12 +33015,16 @@ var Content = (function (_super) {
         var contentTop = this._headerHeight;
         var contentBottom = this._footerHeight;
         if (this._tabsPlacement === 'top') {
+            (void 0);
             contentTop += this._tabbarHeight;
         }
         else if (this._tabsPlacement === 'bottom') {
+            (void 0);
             contentBottom += this._tabbarHeight;
             if (contentBottom > 0 && this._footerEle) {
-                this._footerEle.style.bottom = cssFormat(contentBottom - this._footerHeight);
+                var footerPos = contentBottom - this._footerHeight;
+                (void 0);
+                this._footerEle.style.bottom = cssFormat(footerPos);
             }
         }
         var topProperty = 'marginTop';
@@ -32884,17 +33032,23 @@ var Content = (function (_super) {
         var fixedTop = contentTop;
         var fixedBottom = contentBottom;
         if (this._fullscreen) {
+            (void 0);
+            (void 0);
             contentTop += this._paddingTop;
             contentBottom += this._paddingBottom;
             topProperty = 'paddingTop';
             bottomProperty = 'paddingBottom';
         }
         if (contentTop !== this.contentTop) {
+            (void 0);
+            (void 0);
             scrollEle.style[topProperty] = cssFormat(contentTop);
             fixedEle.style.marginTop = cssFormat(fixedTop);
             this.contentTop = contentTop;
         }
         if (contentBottom !== this.contentBottom) {
+            (void 0);
+            (void 0);
             scrollEle.style[bottomProperty] = cssFormat(contentBottom);
             fixedEle.style.marginBottom = cssFormat(fixedBottom);
             this.contentBottom = contentBottom;
@@ -34831,10 +34985,10 @@ var ItemSliding = (function () {
         var restingPoint = (this._openAmount > 0)
             ? this._optsWidthRightSide
             : -this._optsWidthLeftSide;
-        var isCloseDirection = (this._openAmount > 0) === !(velocity < 0);
+        var isResetDirection = (this._openAmount > 0) === !(velocity < 0);
         var isMovingFast = Math.abs(velocity) > 0.3;
         var isOnCloseZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
-        if (shouldClose(isCloseDirection, isMovingFast, isOnCloseZone)) {
+        if (swipeShouldReset(isResetDirection, isMovingFast, isOnCloseZone)) {
             restingPoint = 0;
         }
         this._setOpenAmount(restingPoint, true);
@@ -34942,10 +35096,6 @@ var ItemSliding = (function () {
     };
     return ItemSliding;
 }());
-function shouldClose(isCloseDirection, isMovingFast, isOnCloseZone) {
-    var shouldClose = (!isMovingFast && isOnCloseZone) || (isCloseDirection && isMovingFast);
-    return shouldClose;
-}
 
 var __extends$98 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -34991,7 +35141,7 @@ var __extends$99 = (undefined && undefined.__extends) || function (d, b) {
 };
 var MenuContentGesture = (function (_super) {
     __extends$99(MenuContentGesture, _super);
-    function MenuContentGesture(menu, gestureCtrl, contentEle, options) {
+    function MenuContentGesture(menu, contentEle, gestureCtrl, options) {
         if (options === void 0) { options = {}; }
         _super.call(this, contentEle, assign({
             direction: 'x',
@@ -34999,6 +35149,7 @@ var MenuContentGesture = (function (_super) {
             threshold: 0,
             maxEdgeStart: menu.maxEdgeStart || 50,
             maxAngle: 40,
+            debouncer: new NativeRafDebouncer(),
             gesture: gestureCtrl.create('menu-swipe', {
                 priority: 10,
             })
@@ -35078,10 +35229,14 @@ var Menu = (function () {
         this._isPers = false;
         this._init = false;
         this._events = new UIEventManager();
+        this._gestureID = 0;
         this.isOpen = false;
         this.ionDrag = new EventEmitter();
         this.ionOpen = new EventEmitter();
         this.ionClose = new EventEmitter();
+        if (_gestureCtrl) {
+            this._gestureID = _gestureCtrl.newID();
+        }
     }
     Object.defineProperty(Menu.prototype, "enabled", {
         get: function () {
@@ -35131,7 +35286,7 @@ var Menu = (function () {
             this.type = this._config.get('menuType');
         }
         this.setElementAttribute('type', this.type);
-        this._cntGesture = new MenuContentGesture(this, this._gestureCtrl, document.body);
+        this._cntGesture = new MenuContentGesture(this, document.body, this._gestureCtrl);
         var hasEnabledSameSideMenu = this._menuCtrl.getMenus().some(function (m) {
             return m.side === _this.side && m.enabled;
         });
@@ -35220,6 +35375,7 @@ var Menu = (function () {
         });
     };
     Menu.prototype._before = function () {
+        (void 0);
         this.menuContent && this.menuContent.resize();
         this.setElementClass('show-menu', true);
         this.backdrop.setElementClass('show-backdrop', true);
@@ -35227,10 +35383,12 @@ var Menu = (function () {
         this._isAnimating = true;
     };
     Menu.prototype._after = function (isOpen) {
+        (void 0);
         this.isOpen = isOpen;
         this._isAnimating = false;
         this._events.unlistenAll();
         if (isOpen) {
+            this._gestureCtrl.disableGesture('goback-swipe', this._gestureID);
             this._cntEle.classList.add('menu-content-open');
             var callback = this.onBackdropClick.bind(this);
             this._events.pointerEvents({
@@ -35244,6 +35402,7 @@ var Menu = (function () {
             this.ionOpen.emit(true);
         }
         else {
+            this._gestureCtrl.enableGesture('goback-swipe', this._gestureID);
             this._cntEle.classList.remove('menu-content-open');
             this.setElementClass('show-menu', false);
             this.backdrop.setElementClass('show-menu', false);
@@ -35305,11 +35464,9 @@ var Menu = (function () {
         this._events.unlistenAll();
         this._cntGesture && this._cntGesture.destroy();
         this._type && this._type.destroy();
-        this._resizeUnreg && this._resizeUnreg();
         this._cntGesture = null;
         this._type = null;
         this._cntEle = null;
-        this._resizeUnreg = null;
     };
     Menu.decorators = [
         { type: Component, args: [{
@@ -36350,30 +36507,6 @@ var RadioButton = (function (_super) {
     return RadioButton;
 }(Ion));
 
-var Debouncer = (function () {
-    function Debouncer(wait) {
-        this.wait = wait;
-        this.timer = null;
-    }
-    Debouncer.prototype.debounce = function (callback) {
-        this.callback = callback;
-        this.schedule();
-    };
-    Debouncer.prototype.schedule = function () {
-        if (this.timer) {
-            clearTimeout(this.timer);
-            this.timer = null;
-        }
-        if (this.wait <= 0) {
-            this.callback();
-        }
-        else {
-            this.timer = setTimeout(this.callback, this.wait);
-        }
-    };
-    return Debouncer;
-}());
-
 var __extends$104 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -36480,7 +36613,7 @@ var Range = (function (_super) {
         this._max = 100;
         this._step = 1;
         this._snaps = false;
-        this._debouncer = new Debouncer(0);
+        this._debouncer = new TimeoutDebouncer(0);
         this._events = new UIEventManager();
         this.ionChange = new EventEmitter();
         this.mode = config.get('mode');
@@ -37246,7 +37379,7 @@ var Searchbar = (function (_super) {
         this._autocomplete = 'off';
         this._autocorrect = 'off';
         this._isActive = false;
-        this._debouncer = new Debouncer(250);
+        this._debouncer = new TimeoutDebouncer(250);
         this.cancelButtonText = 'Cancel';
         this.showCancelButton = false;
         this.placeholder = 'Search';
@@ -44000,6 +44133,7 @@ var Tab = (function (_super) {
         this._isShown = true;
         this.ionSelect = new EventEmitter();
         this.id = parent.add(this);
+        this._tabsHideOnSubPages = config.getBoolean('tabsHideOnSubPages');
         this._tabId = 'tabpanel-' + this.id;
         this._btnId = 'tab-' + this.id;
     }
@@ -44033,6 +44167,16 @@ var Tab = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Tab.prototype, "tabsHideOnSubPages", {
+        get: function () {
+            return this._tabsHideOnSubPages;
+        },
+        set: function (val) {
+            this._tabsHideOnSubPages = isTrueProperty(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Tab.prototype, "_vp", {
         set: function (val) {
             this.setViewport(val);
@@ -44053,7 +44197,7 @@ var Tab = (function (_super) {
         }
     };
     Tab.prototype._viewAttachToDOM = function (viewCtrl, componentRef, viewport) {
-        var isTabSubPage = (this.parent._subPages && viewCtrl.index > 0);
+        var isTabSubPage = (this._tabsHideOnSubPages && viewCtrl.index > 0);
         if (isTabSubPage) {
             viewport = this.parent.portal;
         }
@@ -44129,6 +44273,7 @@ var Tab = (function (_super) {
         'enabled': [{ type: Input },],
         'show': [{ type: Input },],
         'swipeBackEnabled': [{ type: Input },],
+        'tabsHideOnSubPages': [{ type: Input },],
         'ionSelect': [{ type: Output },],
         '_vp': [{ type: ViewChild, args: ['viewport', { read: ViewContainerRef },] },],
     };
@@ -46220,11 +46365,238 @@ var AppModule = (function () {
     return AppModule;
 }());
 
+var Wrapper_Backdrop = (function () {
+    function Wrapper_Backdrop(p0, p1, p2) {
+        this.changed = false;
+        this._disableScroll = UNINITIALIZED;
+        this.context = new Backdrop(p0, p1, p2);
+    }
+    Wrapper_Backdrop.prototype.check_disableScroll = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._disableScroll, currValue))) {
+            this.changed = true;
+            this.context.disableScroll = currValue;
+            this._disableScroll = currValue;
+        }
+    };
+    Wrapper_Backdrop.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Backdrop;
+}());
+
+var Wrapper_NgIf = (function () {
+    function Wrapper_NgIf(p0, p1) {
+        this.changed = false;
+        this._ngIf = UNINITIALIZED;
+        this.context = new NgIf(p0, p1);
+    }
+    Wrapper_NgIf.prototype.check_ngIf = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngIf, currValue))) {
+            this.changed = true;
+            this.context.ngIf = currValue;
+            this._ngIf = currValue;
+        }
+    };
+    Wrapper_NgIf.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgIf;
+}());
+
+var Wrapper_NgFor = (function () {
+    function Wrapper_NgFor(p0, p1, p2, p3) {
+        this.changed = false;
+        this.changes = {};
+        this._ngForOf = UNINITIALIZED;
+        this._ngForTrackBy = UNINITIALIZED;
+        this._ngForTemplate = UNINITIALIZED;
+        this.context = new NgFor(p0, p1, p2, p3);
+    }
+    Wrapper_NgFor.prototype.check_ngForOf = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForOf, currValue))) {
+            this.changed = true;
+            this.context.ngForOf = currValue;
+            this.changes['ngForOf'] = new SimpleChange(this._ngForOf, currValue);
+            this._ngForOf = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.check_ngForTrackBy = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForTrackBy, currValue))) {
+            this.changed = true;
+            this.context.ngForTrackBy = currValue;
+            this.changes['ngForTrackBy'] = new SimpleChange(this._ngForTrackBy, currValue);
+            this._ngForTrackBy = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.check_ngForTemplate = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForTemplate, currValue))) {
+            this.changed = true;
+            this.context.ngForTemplate = currValue;
+            this.changes['ngForTemplate'] = new SimpleChange(this._ngForTemplate, currValue);
+            this._ngForTemplate = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if (changed) {
+                this.context.ngOnChanges(this.changes);
+                this.changes = {};
+            }
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgFor;
+}());
+
+var Wrapper_NgClass = (function () {
+    function Wrapper_NgClass(p0, p1, p2, p3) {
+        this.changed = false;
+        this._klass = UNINITIALIZED;
+        this._ngClass = UNINITIALIZED;
+        this.context = new NgClass(p0, p1, p2, p3);
+    }
+    Wrapper_NgClass.prototype.check_klass = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._klass, currValue))) {
+            this.changed = true;
+            this.context.klass = currValue;
+            this._klass = currValue;
+        }
+    };
+    Wrapper_NgClass.prototype.check_ngClass = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngClass, currValue))) {
+            this.changed = true;
+            this.context.ngClass = currValue;
+            this._ngClass = currValue;
+        }
+    };
+    Wrapper_NgClass.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgClass;
+}());
+
 var __extends$121 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Button = (function () {
+    function Wrapper_Button(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this._large = UNINITIALIZED;
+        this._small = UNINITIALIZED;
+        this._default = UNINITIALIZED;
+        this._outline = UNINITIALIZED;
+        this._clear = UNINITIALIZED;
+        this._solid = UNINITIALIZED;
+        this._round = UNINITIALIZED;
+        this._block = UNINITIALIZED;
+        this._full = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._color = UNINITIALIZED;
+        this.context = new Button(p0, p1, p2, p3, p4);
+    }
+    Wrapper_Button.prototype.check_large = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._large, currValue))) {
+            this.changed = true;
+            this.context.large = currValue;
+            this._large = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_small = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._small, currValue))) {
+            this.changed = true;
+            this.context.small = currValue;
+            this._small = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_default = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._default, currValue))) {
+            this.changed = true;
+            this.context.default = currValue;
+            this._default = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_outline = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._outline, currValue))) {
+            this.changed = true;
+            this.context.outline = currValue;
+            this._outline = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_clear = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._clear, currValue))) {
+            this.changed = true;
+            this.context.clear = currValue;
+            this._clear = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_solid = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._solid, currValue))) {
+            this.changed = true;
+            this.context.solid = currValue;
+            this._solid = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_round = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._round, currValue))) {
+            this.changed = true;
+            this.context.round = currValue;
+            this._round = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_block = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._block, currValue))) {
+            this.changed = true;
+            this.context.block = currValue;
+            this._block = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_full = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._full, currValue))) {
+            this.changed = true;
+            this.context.full = currValue;
+            this._full = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Button.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Button;
+}());
 var renderType_Button_Host = null;
 var _View_Button_Host0 = (function (_super) {
     __extends$121(_View_Button_Host0, _super);
@@ -46236,23 +46608,26 @@ var _View_Button_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', '');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, '', this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
-        compView_0.create(this._Button_0_4, this.projectableNodes, null);
+        this._Button_0_4 = new Wrapper_Button(null, '', this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
+        compView_0.create(this._Button_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Button_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && (0 === requestNodeIndex))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_Button_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -46290,16 +46665,89 @@ var _View_Button0 = (function (_super) {
 }(AppView));
 function viewFactory_Button0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Button === null)) {
-        (renderType_Button = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/button/button.d.ts class Button - inline template', 1, ViewEncapsulation.None, styles_Button, {}));
+        (renderType_Button = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_Button, {}));
     }
     return new _View_Button0(viewUtils, parentInjector, declarationEl);
 }
+
+var Wrapper_Icon = (function () {
+    function Wrapper_Icon(p0, p1, p2) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._name = UNINITIALIZED;
+        this._ios = UNINITIALIZED;
+        this._md = UNINITIALIZED;
+        this._isActive = UNINITIALIZED;
+        this.context = new Icon(p0, p1, p2);
+    }
+    Wrapper_Icon.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this._name = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_ios = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ios, currValue))) {
+            this.changed = true;
+            this.context.ios = currValue;
+            this._ios = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_md = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._md, currValue))) {
+            this.changed = true;
+            this.context.md = currValue;
+            this._md = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_isActive = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._isActive, currValue))) {
+            this.changed = true;
+            this.context.isActive = currValue;
+            this._isActive = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Icon;
+}());
 
 var __extends$120 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ActionSheetCmp = (function () {
+    function Wrapper_ActionSheetCmp(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this.context = new ActionSheetCmp(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_ActionSheetCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ActionSheetCmp;
+}());
 var renderType_ActionSheetCmp_Host = null;
 var _View_ActionSheetCmp_Host0 = (function (_super) {
     __extends$120(_View_ActionSheetCmp_Host0, _super);
@@ -46311,9 +46759,9 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ActionSheetCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ActionSheetCmp_0_4 = new ActionSheetCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(Form), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._ActionSheetCmp_0_4, [], compView_0);
-        compView_0.create(this._ActionSheetCmp_0_4, this.projectableNodes, null);
+        this._ActionSheetCmp_0_4 = new Wrapper_ActionSheetCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(Form), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._ActionSheetCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ActionSheetCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -46322,18 +46770,19 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
     };
     _View_ActionSheetCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ActionSheetCmp) && (0 === requestNodeIndex))) {
-            return this._ActionSheetCmp_0_4;
+            return this._ActionSheetCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ActionSheetCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._ActionSheetCmp_0_4.hdrId;
+        var currVal_1 = this._ActionSheetCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._ActionSheetCmp_0_4.descId;
+        var currVal_2 = this._ActionSheetCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_2 == null) ? null : currVal_2.toString()));
             this._expr_2 = currVal_2;
@@ -46342,7 +46791,7 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
     };
     _View_ActionSheetCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._ActionSheetCmp_0_4.keyUp($event) !== false);
+        var pd_0 = (this._ActionSheetCmp_0_4.context.keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_ActionSheetCmp_Host0;
@@ -46367,7 +46816,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'action-sheet-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -46377,24 +46826,20 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_4 = new AppElement(4, 3, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_ActionSheetCmp1);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._anchor_5 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_5 = new AppElement(5, 3, this, this._anchor_5);
         this._TemplateRef_5_5 = new TemplateRef_(this._appEl_5, viewFactory_ActionSheetCmp2);
-        this._NgIf_5_6 = new NgIf(this._appEl_5.vcRef, this._TemplateRef_5_5);
+        this._NgIf_5_6 = new Wrapper_NgIf(this._appEl_5.vcRef, this._TemplateRef_5_5);
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_6 = new AppElement(6, 3, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_ActionSheetCmp3);
-        this._NgFor_6_6 = new NgFor(this._appEl_6.vcRef, this._TemplateRef_6_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_6_6 = new Wrapper_NgFor(this._appEl_6.vcRef, this._TemplateRef_6_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_7 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_7 = new AppElement(7, 2, this, this._anchor_7);
         this._TemplateRef_7_5 = new TemplateRef_(this._appEl_7, viewFactory_ActionSheetCmp5);
-        this._NgIf_7_6 = new NgIf(this._appEl_7.vcRef, this._TemplateRef_7_5);
+        this._NgIf_7_6 = new Wrapper_NgIf(this._appEl_7.vcRef, this._TemplateRef_7_5);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -46409,75 +46854,53 @@ var _View_ActionSheetCmp0 = (function (_super) {
     };
     _View_ActionSheetCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (4 === requestNodeIndex))) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (5 === requestNodeIndex))) {
             return this._TemplateRef_5_5;
         }
         if (((token === NgIf) && (5 === requestNodeIndex))) {
-            return this._NgIf_5_6;
+            return this._NgIf_5_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgFor) && (6 === requestNodeIndex))) {
-            return this._NgFor_6_6;
+            return this._NgFor_6_6.context;
         }
         if (((token === TemplateRef) && (7 === requestNodeIndex))) {
             return this._TemplateRef_7_5;
         }
         if (((token === NgIf) && (7 === requestNodeIndex))) {
-            return this._NgIf_7_6;
+            return this._NgIf_7_6.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.d.title;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_4_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_2 = this.context.d.subTitle;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_5_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
-        changes = null;
+        this._NgIf_5_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_5_6.detectChangesInternal(this, this._anchor_5, throwOnChange);
         var currVal_3 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgFor_6_6.ngForOf = currVal_3;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_3, currVal_3);
-            this._expr_3 = currVal_3;
-        }
-        if ((changes !== null)) {
-            this._NgFor_6_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_6_6.ngDoCheck();
-        }
+        this._NgFor_6_6.check_ngForOf(currVal_3, throwOnChange, false);
+        this._NgFor_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         var currVal_4 = this.context.d.cancelButton;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_7_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_7_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_7_6.detectChangesInternal(this, this._anchor_7, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_ActionSheetCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -46488,7 +46911,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ActionSheetCmp === null)) {
-        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/action-sheet/action-sheet-component.d.ts class ActionSheetCmp - inline template', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
+        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
     }
     return new _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -46575,23 +46998,20 @@ var _View_ActionSheetCmp3 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', 'action-sheet-button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._NgClass_0_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
-        this._Button_0_5 = new Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_5, [], compView_0);
+        this._NgClass_0_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._Button_0_5 = new Wrapper_Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_5.context, [], compView_0);
         this._anchor_1 = this.renderer.createTemplateAnchor(null, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_ActionSheetCmp4);
-        this._NgIf_1_6 = new NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
+        this._NgIf_1_6 = new Wrapper_NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
         this._text_2 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_5, [[].concat([
+        compView_0.create(this._Button_0_5.context, [[].concat([
                 this._appEl_1,
                 this._text_2
             ])], null);
         this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -46605,39 +47025,32 @@ var _View_ActionSheetCmp3 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgIf) && (1 === requestNodeIndex))) {
-            return this._NgIf_1_6;
+            return this._NgIf_1_6.context;
         }
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 2)))) {
-            return this._NgClass_0_4;
+            return this._NgClass_0_4.context;
         }
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 2)))) {
-            return this._Button_0_5;
+            return this._Button_0_5.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp3.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_2 = 'disable-hover';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_0_4.klass = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgClass_0_4.check_klass(currVal_2, throwOnChange, false);
         var currVal_3 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_0_4.ngClass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_4.ngDoCheck();
+        this._NgClass_0_4.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        if (this._Button_0_5.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         var currVal_4 = this.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_1_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_1_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_5.ngAfterContentInit();
+                this._Button_0_5.context.ngAfterContentInit();
             }
         }
         var currVal_1 = (this.context.$implicit.icon ? '' : null);
@@ -46671,26 +47084,23 @@ var _View_ActionSheetCmp4 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'action-sheet-icon');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_ActionSheetCmp4.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp4.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -46698,7 +47108,7 @@ var _View_ActionSheetCmp4 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp4.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_ActionSheetCmp4;
 }(AppView));
@@ -46718,23 +47128,20 @@ var _View_ActionSheetCmp5 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'ion-button', 'action-sheet-button');
         this._appEl_1 = new AppElement(1, 0, this, this._el_1);
         var compView_1 = viewFactory_Button0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._NgClass_1_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
-        this._Button_1_5 = new Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Button_1_5, [], compView_1);
+        this._NgClass_1_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this._Button_1_5 = new Wrapper_Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Button_1_5.context, [], compView_1);
         this._anchor_2 = this.renderer.createTemplateAnchor(null, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_ActionSheetCmp6);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this._text_3 = this.renderer.createText(null, '', null);
-        compView_1.create(this._Button_1_5, [[].concat([
+        compView_1.create(this._Button_1_5.context, [[].concat([
                 this._appEl_2,
                 this._text_3
             ])], null);
         this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -46749,39 +47156,32 @@ var _View_ActionSheetCmp5 = (function (_super) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === NgClass) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgClass_1_4;
+            return this._NgClass_1_4.context;
         }
         if (((token === Button) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._Button_1_5;
+            return this._Button_1_5.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp5.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_2 = 'action-sheet-cancel disable-hover';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_1_4.klass = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgClass_1_4.check_klass(currVal_2, throwOnChange, false);
         var currVal_3 = this.parent.context.d.cancelButton.cssClass;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_1_4.ngClass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
-        if (!throwOnChange) {
-            this._NgClass_1_4.ngDoCheck();
+        this._NgClass_1_4.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_1_4.detectChangesInternal(this, this._el_1, throwOnChange);
+        if (this._Button_1_5.detectChangesInternal(this, this._el_1, throwOnChange)) {
+            this._appEl_1.componentView.markAsCheckOnce();
         }
         var currVal_4 = this.parent.context.d.cancelButton.icon;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_2_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_1_5.ngAfterContentInit();
+                this._Button_1_5.context.ngAfterContentInit();
             }
         }
         var currVal_1 = (this.parent.context.d.cancelButton.icon ? '' : null);
@@ -46815,26 +47215,23 @@ var _View_ActionSheetCmp6 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'action-sheet-icon');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_ActionSheetCmp6.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp6.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.parent.context.d.cancelButton.icon;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -46842,7 +47239,7 @@ var _View_ActionSheetCmp6 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp6.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_ActionSheetCmp6;
 }(AppView));
@@ -46850,11 +47247,158 @@ function viewFactory_ActionSheetCmp6(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp6(viewUtils, parentInjector, declarationEl);
 }
 
+var Wrapper_NgSwitch = (function () {
+    function Wrapper_NgSwitch() {
+        this.changed = false;
+        this._ngSwitch = UNINITIALIZED;
+        this.context = new NgSwitch();
+    }
+    Wrapper_NgSwitch.prototype.check_ngSwitch = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngSwitch, currValue))) {
+            this.changed = true;
+            this.context.ngSwitch = currValue;
+            this._ngSwitch = currValue;
+        }
+    };
+    Wrapper_NgSwitch.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitch;
+}());
+var Wrapper_NgSwitchCase = (function () {
+    function Wrapper_NgSwitchCase(p0, p1, p2) {
+        this.changed = false;
+        this._ngSwitchCase = UNINITIALIZED;
+        this.context = new NgSwitchCase(p0, p1, p2);
+    }
+    Wrapper_NgSwitchCase.prototype.check_ngSwitchCase = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngSwitchCase, currValue))) {
+            this.changed = true;
+            this.context.ngSwitchCase = currValue;
+            this._ngSwitchCase = currValue;
+        }
+    };
+    Wrapper_NgSwitchCase.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitchCase;
+}());
+var Wrapper_NgSwitchDefault = (function () {
+    function Wrapper_NgSwitchDefault(p0, p1, p2) {
+        this.changed = false;
+        this.context = new NgSwitchDefault(p0, p1, p2);
+    }
+    Wrapper_NgSwitchDefault.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitchDefault;
+}());
+
+var Wrapper_DefaultValueAccessor = (function () {
+    function Wrapper_DefaultValueAccessor(p0, p1) {
+        this.changed = false;
+        this.context = new DefaultValueAccessor(p0, p1);
+    }
+    Wrapper_DefaultValueAccessor.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_DefaultValueAccessor;
+}());
+
+var Wrapper_NgModel = (function () {
+    function Wrapper_NgModel(p0, p1, p2, p3) {
+        this.changed = false;
+        this.changes = {};
+        this._name = UNINITIALIZED;
+        this._isDisabled = UNINITIALIZED;
+        this._model = UNINITIALIZED;
+        this._options = UNINITIALIZED;
+        this.context = new NgModel(p0, p1, p2, p3);
+    }
+    Wrapper_NgModel.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this.changes['name'] = new SimpleChange(this._name, currValue);
+            this._name = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_isDisabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._isDisabled, currValue))) {
+            this.changed = true;
+            this.context.isDisabled = currValue;
+            this.changes['isDisabled'] = new SimpleChange(this._isDisabled, currValue);
+            this._isDisabled = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_model = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._model, currValue))) {
+            this.changed = true;
+            this.context.model = currValue;
+            this.changes['model'] = new SimpleChange(this._model, currValue);
+            this._model = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_options = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._options, currValue))) {
+            this.changed = true;
+            this.context.options = currValue;
+            this.changes['options'] = new SimpleChange(this._options, currValue);
+            this._options = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if (changed) {
+                this.context.ngOnChanges(this.changes);
+                this.changes = {};
+            }
+        }
+        return changed;
+    };
+    return Wrapper_NgModel;
+}());
+
+var Wrapper_NgControlStatus = (function () {
+    function Wrapper_NgControlStatus(p0) {
+        this.changed = false;
+        this.context = new NgControlStatus(p0);
+    }
+    Wrapper_NgControlStatus.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgControlStatus;
+}());
+
 var __extends$122 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_AlertCmp = (function () {
+    function Wrapper_AlertCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new AlertCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_AlertCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_AlertCmp;
+}());
 var renderType_AlertCmp_Host = null;
 var _View_AlertCmp_Host0 = (function (_super) {
     __extends$122(_View_AlertCmp_Host0, _super);
@@ -46866,9 +47410,9 @@ var _View_AlertCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_AlertCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._AlertCmp_0_4 = new AlertCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._AlertCmp_0_4, [], compView_0);
-        compView_0.create(this._AlertCmp_0_4, this.projectableNodes, null);
+        this._AlertCmp_0_4 = new Wrapper_AlertCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._AlertCmp_0_4.context, [], compView_0);
+        compView_0.create(this._AlertCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -46877,18 +47421,19 @@ var _View_AlertCmp_Host0 = (function (_super) {
     };
     _View_AlertCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === AlertCmp) && (0 === requestNodeIndex))) {
-            return this._AlertCmp_0_4;
+            return this._AlertCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._AlertCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._AlertCmp_0_4.hdrId;
+        var currVal_1 = this._AlertCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._AlertCmp_0_4.descId;
+        var currVal_2 = this._AlertCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_2 == null) ? null : currVal_2.toString()));
             this._expr_2 = currVal_2;
@@ -46897,7 +47442,7 @@ var _View_AlertCmp_Host0 = (function (_super) {
     };
     _View_AlertCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._AlertCmp_0_4.keyUp($event) !== false);
+        var pd_0 = (this._AlertCmp_0_4.context.keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_AlertCmp_Host0;
@@ -46922,7 +47467,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -46930,36 +47475,30 @@ var _View_AlertCmp0 = (function (_super) {
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_3 = new AppElement(3, 2, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_AlertCmp1);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_4 = new AppElement(4, 2, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_AlertCmp2);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._el_5 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'alert-message');
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_6 = new AppElement(6, 1, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_AlertCmp3);
-        this._NgIf_6_6 = new NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
+        this._NgIf_6_6 = new Wrapper_NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
         this._el_7 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_7, 'class', 'alert-button-group');
-        this._NgClass_7_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_7), this.renderer);
+        this._NgClass_7_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_7), this.renderer);
         this._anchor_8 = this.renderer.createTemplateAnchor(this._el_7, null);
         this._appEl_8 = new AppElement(8, 7, this, this._anchor_8);
         this._TemplateRef_8_5 = new TemplateRef_(this._appEl_8, viewFactory_AlertCmp10);
-        this._NgFor_8_6 = new NgFor(this._appEl_8.vcRef, this._TemplateRef_8_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_8_6 = new Wrapper_NgFor(this._appEl_8.vcRef, this._TemplateRef_8_5, this.parentInjector.get(IterableDiffers), this.ref);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
         this._map_0 = pureProxy1(function (p0) {
             return { 'alert-button-group-vertical': p0 };
         });
-        this._expr_7 = UNINITIALIZED;
-        this._expr_8 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -46975,86 +47514,56 @@ var _View_AlertCmp0 = (function (_super) {
     };
     _View_AlertCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         if (((token === TemplateRef) && (4 === requestNodeIndex))) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgIf) && (6 === requestNodeIndex))) {
-            return this._NgIf_6_6;
+            return this._NgIf_6_6.context;
         }
         if (((token === TemplateRef) && (8 === requestNodeIndex))) {
             return this._TemplateRef_8_5;
         }
         if (((token === NgFor) && (8 === requestNodeIndex))) {
-            return this._NgFor_8_6;
+            return this._NgFor_8_6.context;
         }
         if (((token === NgClass) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
-            return this._NgClass_7_3;
+            return this._NgClass_7_3.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.d.title;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_3_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         var currVal_2 = this.context.d.subTitle;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_4_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_5 = this.context.d.inputs.length;
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgIf_6_6.ngIf = currVal_5;
-            this._expr_5 = currVal_5;
-        }
+        this._NgIf_6_6.check_ngIf(currVal_5, throwOnChange, false);
+        this._NgIf_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         var currVal_6 = 'alert-button-group';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._NgClass_7_3.klass = currVal_6;
-            this._expr_6 = currVal_6;
-        }
+        this._NgClass_7_3.check_klass(currVal_6, throwOnChange, false);
         var currVal_7 = this._map_0((this.context.d.buttons.length > 2));
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this._NgClass_7_3.ngClass = currVal_7;
-            this._expr_7 = currVal_7;
-        }
-        if (!throwOnChange) {
-            this._NgClass_7_3.ngDoCheck();
-        }
-        changes = null;
+        this._NgClass_7_3.check_ngClass(currVal_7, throwOnChange, false);
+        this._NgClass_7_3.detectChangesInternal(this, this._el_7, throwOnChange);
         var currVal_8 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
-            this._NgFor_8_6.ngForOf = currVal_8;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_8, currVal_8);
-            this._expr_8 = currVal_8;
-        }
-        if ((changes !== null)) {
-            this._NgFor_8_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_8_6.ngDoCheck();
-        }
+        this._NgFor_8_6.check_ngForOf(currVal_8, throwOnChange, false);
+        this._NgFor_8_6.detectChangesInternal(this, this._anchor_8, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_3 = interpolate(1, '', this.context.msgId, '');
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
@@ -47069,7 +47578,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_AlertCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_AlertCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -47080,7 +47589,7 @@ var _View_AlertCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_AlertCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AlertCmp === null)) {
-        (renderType_AlertCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/alert/alert-component.d.ts class AlertCmp - inline template', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
+        (renderType_AlertCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
     }
     return new _View_AlertCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47155,22 +47664,19 @@ var _View_AlertCmp3 = (function (_super) {
     }
     _View_AlertCmp3.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
-        this._NgSwitch_0_3 = new NgSwitch();
+        this._NgSwitch_0_3 = new Wrapper_NgSwitch();
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp4);
-        this._NgSwitchCase_1_6 = new NgSwitchCase(this._appEl_1.vcRef, this._TemplateRef_1_5, this._NgSwitch_0_3);
+        this._NgSwitchCase_1_6 = new Wrapper_NgSwitchCase(this._appEl_1.vcRef, this._TemplateRef_1_5, this._NgSwitch_0_3.context);
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_2 = new AppElement(2, 0, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_AlertCmp6);
-        this._NgSwitchCase_2_6 = new NgSwitchCase(this._appEl_2.vcRef, this._TemplateRef_2_5, this._NgSwitch_0_3);
+        this._NgSwitchCase_2_6 = new Wrapper_NgSwitchCase(this._appEl_2.vcRef, this._TemplateRef_2_5, this._NgSwitch_0_3.context);
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_3 = new AppElement(3, 0, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_AlertCmp8);
-        this._NgSwitchDefault_3_6 = new NgSwitchDefault(this._appEl_3.vcRef, this._TemplateRef_3_5, this._NgSwitch_0_3);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
+        this._NgSwitchDefault_3_6 = new Wrapper_NgSwitchDefault(this._appEl_3.vcRef, this._TemplateRef_3_5, this._NgSwitch_0_3.context);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1,
@@ -47184,41 +47690,36 @@ var _View_AlertCmp3 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgSwitchCase) && (1 === requestNodeIndex))) {
-            return this._NgSwitchCase_1_6;
+            return this._NgSwitchCase_1_6.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgSwitchCase) && (2 === requestNodeIndex))) {
-            return this._NgSwitchCase_2_6;
+            return this._NgSwitchCase_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgSwitchDefault) && (3 === requestNodeIndex))) {
-            return this._NgSwitchDefault_3_6;
+            return this._NgSwitchDefault_3_6.context;
         }
         if (((token === NgSwitch) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgSwitch_0_3;
+            return this._NgSwitch_0_3.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp3.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.context.inputType;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgSwitch_0_3.ngSwitch = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgSwitch_0_3.check_ngSwitch(currVal_0, throwOnChange, false);
+        this._NgSwitch_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = 'radio';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgSwitchCase_1_6.ngSwitchCase = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgSwitchCase_1_6.check_ngSwitchCase(currVal_1, throwOnChange, false);
+        this._NgSwitchCase_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         var currVal_2 = 'checkbox';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgSwitchCase_2_6.ngSwitchCase = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgSwitchCase_2_6.check_ngSwitchCase(currVal_2, throwOnChange, false);
+        this._NgSwitchCase_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
+        this._NgSwitchDefault_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47239,10 +47740,9 @@ var _View_AlertCmp4 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp5);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -47254,28 +47754,14 @@ var _View_AlertCmp4 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp4.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_2 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_1_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = this.parent.parent.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -47306,8 +47792,8 @@ var _View_AlertCmp5 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'radio');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'alert-radio-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'alert-radio-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._el_1 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-radio-icon');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47315,7 +47801,7 @@ var _View_AlertCmp5 = (function (_super) {
         this._el_3 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'alert-radio-label');
         this._text_4 = this.renderer.createText(this._el_3, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([
+        compView_0.create(this._Button_0_4.context, [[].concat([
                 this._el_1,
                 this._el_3
             ])], null);
@@ -47335,15 +47821,18 @@ var _View_AlertCmp5 = (function (_super) {
     };
     _View_AlertCmp5.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp5.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit.checked;
@@ -47389,8 +47878,7 @@ var _View_AlertCmp6 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp7);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
-        this._expr_0 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -47402,28 +47890,14 @@ var _View_AlertCmp6 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp6.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_1_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47444,8 +47918,8 @@ var _View_AlertCmp7 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'checkbox');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'alert-checkbox-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'alert-checkbox-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._el_1 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-checkbox-icon');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47453,7 +47927,7 @@ var _View_AlertCmp7 = (function (_super) {
         this._el_3 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'alert-checkbox-label');
         this._text_4 = this.renderer.createText(this._el_3, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([
+        compView_0.create(this._Button_0_4.context, [[].concat([
                 this._el_1,
                 this._el_3
             ])], null);
@@ -47472,15 +47946,18 @@ var _View_AlertCmp7 = (function (_super) {
     };
     _View_AlertCmp7.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp7.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit.checked;
@@ -47521,8 +47998,7 @@ var _View_AlertCmp8 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp9);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
-        this._expr_0 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -47534,28 +48010,14 @@ var _View_AlertCmp8 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp8.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_1_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47574,18 +48036,17 @@ var _View_AlertCmp9 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'alert-input-wrapper');
         this._el_1 = this.renderer.createElement(this._el_0, 'input', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-input');
-        this._DefaultValueAccessor_1_3 = new DefaultValueAccessor(this.renderer, new ElementRef(this._el_1));
-        this._NG_VALUE_ACCESSOR_1_4 = [this._DefaultValueAccessor_1_3];
-        this._NgModel_1_5 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
-        this._NgControl_1_6 = this._NgModel_1_5;
-        this._NgControlStatus_1_7 = new NgControlStatus(this._NgControl_1_6);
+        this._DefaultValueAccessor_1_3 = new Wrapper_DefaultValueAccessor(this.renderer, new ElementRef(this._el_1));
+        this._NG_VALUE_ACCESSOR_1_4 = [this._DefaultValueAccessor_1_3.context];
+        this._NgModel_1_5 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
+        this._NgControl_1_6 = this._NgModel_1_5.context;
+        this._NgControlStatus_1_7 = new Wrapper_NgControlStatus(this._NgControl_1_6);
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
         var disposable_1 = this.renderer.listen(this._el_1, 'input', this.eventHandler(this._handle_input_1_1.bind(this)));
         var disposable_2 = this.renderer.listen(this._el_1, 'blur', this.eventHandler(this._handle_blur_1_2.bind(this)));
-        this._expr_5 = UNINITIALIZED;
-        var subscription_0 = this._NgModel_1_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
+        var subscription_0 = this._NgModel_1_5.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
         this._expr_6 = UNINITIALIZED;
         this._expr_7 = UNINITIALIZED;
         this._expr_8 = UNINITIALIZED;
@@ -47604,37 +48065,28 @@ var _View_AlertCmp9 = (function (_super) {
     };
     _View_AlertCmp9.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === DefaultValueAccessor) && (1 === requestNodeIndex))) {
-            return this._DefaultValueAccessor_1_3;
+            return this._DefaultValueAccessor_1_3.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && (1 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_1_4;
         }
         if (((token === NgModel) && (1 === requestNodeIndex))) {
-            return this._NgModel_1_5;
+            return this._NgModel_1_5.context;
         }
         if (((token === NgControl) && (1 === requestNodeIndex))) {
             return this._NgControl_1_6;
         }
         if (((token === NgControlStatus) && (1 === requestNodeIndex))) {
-            return this._NgControlStatus_1_7;
+            return this._NgControlStatus_1_7.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp9.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
+        this._DefaultValueAccessor_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
         var currVal_5 = this.context.$implicit.value;
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgModel_1_5.model = currVal_5;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_5, currVal_5);
-            this._expr_5 = currVal_5;
-        }
-        if ((changes !== null)) {
-            this._NgModel_1_5.ngOnChanges(changes);
-        }
+        this._NgModel_1_5.check_model(currVal_5, throwOnChange, false);
+        this._NgModel_1_5.detectChangesInternal(this, this._el_1, throwOnChange);
+        this._NgControlStatus_1_7.detectChangesInternal(this, this._el_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_3 = this.context.$implicit.placeholder;
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
@@ -47646,32 +48098,32 @@ var _View_AlertCmp9 = (function (_super) {
             this.renderer.setElementProperty(this._el_1, 'type', currVal_4);
             this._expr_4 = currVal_4;
         }
-        var currVal_6 = this._NgControlStatus_1_7.ngClassUntouched;
+        var currVal_6 = this._NgControlStatus_1_7.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this.renderer.setElementClass(this._el_1, 'ng-untouched', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_7 = this._NgControlStatus_1_7.ngClassTouched;
+        var currVal_7 = this._NgControlStatus_1_7.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_1, 'ng-touched', currVal_7);
             this._expr_7 = currVal_7;
         }
-        var currVal_8 = this._NgControlStatus_1_7.ngClassPristine;
+        var currVal_8 = this._NgControlStatus_1_7.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementClass(this._el_1, 'ng-pristine', currVal_8);
             this._expr_8 = currVal_8;
         }
-        var currVal_9 = this._NgControlStatus_1_7.ngClassDirty;
+        var currVal_9 = this._NgControlStatus_1_7.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_1, 'ng-dirty', currVal_9);
             this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._NgControlStatus_1_7.ngClassValid;
+        var currVal_10 = this._NgControlStatus_1_7.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this.renderer.setElementClass(this._el_1, 'ng-valid', currVal_10);
             this._expr_10 = currVal_10;
         }
-        var currVal_11 = this._NgControlStatus_1_7.ngClassInvalid;
+        var currVal_11 = this._NgControlStatus_1_7.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this.renderer.setElementClass(this._el_1, 'ng-invalid', currVal_11);
             this._expr_11 = currVal_11;
@@ -47679,7 +48131,7 @@ var _View_AlertCmp9 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_AlertCmp9.prototype.destroyInternal = function () {
-        this._NgModel_1_5.ngOnDestroy();
+        this._NgModel_1_5.context.ngOnDestroy();
     };
     _View_AlertCmp9.prototype._handle_ngModelChange_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -47688,12 +48140,12 @@ var _View_AlertCmp9 = (function (_super) {
     };
     _View_AlertCmp9.prototype._handle_input_1_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this._DefaultValueAccessor_1_3.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_1_3.context.onChange($event.target.value) !== false);
         return (true && pd_0);
     };
     _View_AlertCmp9.prototype._handle_blur_1_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this._DefaultValueAccessor_1_3.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_1_3.context.onTouched() !== false);
         return (true && pd_0);
     };
     return _View_AlertCmp9;
@@ -47711,13 +48163,12 @@ var _View_AlertCmp10 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', 'alert-button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._NgClass_0_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
-        this._Button_0_5 = new Button(null, 'alert-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_5, [], compView_0);
+        this._NgClass_0_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._Button_0_5 = new Wrapper_Button(null, 'alert-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_5.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_5, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_5.context, [[].concat([this._text_1])], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -47727,26 +48178,24 @@ var _View_AlertCmp10 = (function (_super) {
     };
     _View_AlertCmp10.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgClass_0_4;
+            return this._NgClass_0_4.context;
         }
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_5;
+            return this._Button_0_5.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp10.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_4.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_4.ngDoCheck();
+        this._NgClass_0_4.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        if (this._Button_0_5.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_5.ngAfterContentInit();
+                this._Button_0_5.context.ngAfterContentInit();
             }
         }
         var currVal_2 = interpolate(1, '', this.context.$implicit.text, '');
@@ -47767,11 +48216,41 @@ function viewFactory_AlertCmp10(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp10(viewUtils, parentInjector, declarationEl);
 }
 
+var Wrapper_OverlayPortal = (function () {
+    function Wrapper_OverlayPortal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+        this.changed = false;
+        this.context = new OverlayPortal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+    Wrapper_OverlayPortal.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_OverlayPortal;
+}());
+
 var __extends$123 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_IonicApp = (function () {
+    function Wrapper_IonicApp(p0, p1, p2, p3, p4, p5, p6) {
+        this.changed = false;
+        this.context = new IonicApp(p0, p1, p2, p3, p4, p5, p6);
+    }
+    Wrapper_IonicApp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_IonicApp;
+}());
 var renderType_IonicApp_Host = null;
 var _View_IonicApp_Host0 = (function (_super) {
     __extends$123(_View_IonicApp_Host0, _super);
@@ -47782,22 +48261,20 @@ var _View_IonicApp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-app', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_IonicApp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._IonicApp_0_4 = new IonicApp(this.parentInjector.get(AppRootToken), this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(Platform), this.parentInjector.get(App));
-        this._appEl_0.initComponent(this._IonicApp_0_4, [], compView_0);
-        compView_0.create(this._IonicApp_0_4, this.projectableNodes, null);
+        this._IonicApp_0_4 = new Wrapper_IonicApp(this.parentInjector.get(AppRootToken), this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(Platform), this.parentInjector.get(App));
+        this._appEl_0.initComponent(this._IonicApp_0_4.context, [], compView_0);
+        compView_0.create(this._IonicApp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_IonicApp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === IonicApp) && (0 === requestNodeIndex))) {
-            return this._IonicApp_0_4;
+            return this._IonicApp_0_4.context;
         }
         return notFoundResult;
     };
     _View_IonicApp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._IonicApp_0_4.ngOnInit();
-        }
+        this._IonicApp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47830,32 +48307,32 @@ var _View_IonicApp0 = (function (_super) {
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'overlay-portal', '');
         this._appEl_1 = new AppElement(1, null, this, this._el_1);
-        this._OverlayPortal_1_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_1), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_1.vcRef);
+        this._OverlayPortal_1_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_1), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_1.vcRef);
         this._el_2 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_2, 'overlay-portal', '');
         this._appEl_2 = new AppElement(2, null, this, this._el_2);
-        this._OverlayPortal_2_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_2), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_2.vcRef);
+        this._OverlayPortal_2_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_2), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_2.vcRef);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'loading-portal');
         this.renderer.setElementAttribute(this._el_3, 'overlay-portal', '');
         this._appEl_3 = new AppElement(3, null, this, this._el_3);
-        this._OverlayPortal_3_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_3), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_3.vcRef);
+        this._OverlayPortal_3_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_3), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_3.vcRef);
         this._el_4 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'toast-portal');
         this.renderer.setElementAttribute(this._el_4, 'overlay-portal', '');
         this._appEl_4 = new AppElement(4, null, this, this._el_4);
-        this._OverlayPortal_4_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_4), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_4.vcRef);
+        this._OverlayPortal_4_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_4), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_4.vcRef);
         this._el_5 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'click-block');
         this._viewQuery_viewport_0.reset([this._appEl_0.vcRef]);
         this.context._viewport = this._viewQuery_viewport_0.first;
-        this._viewQuery_modalPortal_1.reset([this._OverlayPortal_1_5]);
+        this._viewQuery_modalPortal_1.reset([this._OverlayPortal_1_5.context]);
         this.context._modalPortal = this._viewQuery_modalPortal_1.first;
-        this._viewQuery_overlayPortal_2.reset([this._OverlayPortal_2_5]);
+        this._viewQuery_overlayPortal_2.reset([this._OverlayPortal_2_5.context]);
         this.context._overlayPortal = this._viewQuery_overlayPortal_2.first;
-        this._viewQuery_loadingPortal_3.reset([this._OverlayPortal_3_5]);
+        this._viewQuery_loadingPortal_3.reset([this._OverlayPortal_3_5.context]);
         this.context._loadingPortal = this._viewQuery_loadingPortal_3.first;
-        this._viewQuery_toastPortal_4.reset([this._OverlayPortal_4_5]);
+        this._viewQuery_toastPortal_4.reset([this._OverlayPortal_4_5.context]);
         this.context._toastPortal = this._viewQuery_toastPortal_4.first;
         this.init([], [
             this._el_0,
@@ -47869,33 +48346,122 @@ var _View_IonicApp0 = (function (_super) {
     };
     _View_IonicApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === OverlayPortal) && (1 === requestNodeIndex))) {
-            return this._OverlayPortal_1_5;
+            return this._OverlayPortal_1_5.context;
         }
         if (((token === OverlayPortal) && (2 === requestNodeIndex))) {
-            return this._OverlayPortal_2_5;
+            return this._OverlayPortal_2_5.context;
         }
         if (((token === OverlayPortal) && (3 === requestNodeIndex))) {
-            return this._OverlayPortal_3_5;
+            return this._OverlayPortal_3_5.context;
         }
         if (((token === OverlayPortal) && (4 === requestNodeIndex))) {
-            return this._OverlayPortal_4_5;
+            return this._OverlayPortal_4_5.context;
         }
         return notFoundResult;
+    };
+    _View_IonicApp0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._OverlayPortal_1_5.detectChangesInternal(this, this._el_1, throwOnChange);
+        this._OverlayPortal_2_5.detectChangesInternal(this, this._el_2, throwOnChange);
+        this._OverlayPortal_3_5.detectChangesInternal(this, this._el_3, throwOnChange);
+        this._OverlayPortal_4_5.detectChangesInternal(this, this._el_4, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_IonicApp0;
 }(AppView));
 function viewFactory_IonicApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_IonicApp === null)) {
-        (renderType_IonicApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/app/app-root.d.ts class IonicApp - inline template', 0, ViewEncapsulation.None, styles_IonicApp, {}));
+        (renderType_IonicApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_IonicApp, {}));
     }
     return new _View_IonicApp0(viewUtils, parentInjector, declarationEl);
 }
+
+var Wrapper_NgStyle = (function () {
+    function Wrapper_NgStyle(p0, p1, p2) {
+        this.changed = false;
+        this._ngStyle = UNINITIALIZED;
+        this.context = new NgStyle(p0, p1, p2);
+    }
+    Wrapper_NgStyle.prototype.check_ngStyle = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngStyle, currValue))) {
+            this.changed = true;
+            this.context.ngStyle = currValue;
+            this._ngStyle = currValue;
+        }
+    };
+    Wrapper_NgStyle.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgStyle;
+}());
 
 var __extends$125 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Spinner = (function () {
+    function Wrapper_Spinner(p0, p1, p2) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._name = UNINITIALIZED;
+        this._duration = UNINITIALIZED;
+        this._paused = UNINITIALIZED;
+        this.context = new Spinner(p0, p1, p2);
+    }
+    Wrapper_Spinner.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this._name = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_duration = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._duration, currValue))) {
+            this.changed = true;
+            this.context.duration = currValue;
+            this._duration = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_paused = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._paused, currValue))) {
+            this.changed = true;
+            this.context.paused = currValue;
+            this._paused = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Spinner;
+}());
 var renderType_Spinner_Host = null;
 var _View_Spinner_Host0 = (function (_super) {
     __extends$125(_View_Spinner_Host0, _super);
@@ -47906,25 +48472,25 @@ var _View_Spinner_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-spinner', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Spinner0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Spinner_0_4 = new Spinner(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Spinner_0_4, [], compView_0);
-        compView_0.create(this._Spinner_0_4, this.projectableNodes, null);
+        this._Spinner_0_4 = new Wrapper_Spinner(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Spinner_0_4.context, [], compView_0);
+        compView_0.create(this._Spinner_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Spinner_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Spinner) && (0 === requestNodeIndex))) {
-            return this._Spinner_0_4;
+            return this._Spinner_0_4.context;
         }
         return notFoundResult;
     };
     _View_Spinner_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_0_4.ngOnInit();
+        if (this._Spinner_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Spinner_0_4.paused;
+        var currVal_0 = this._Spinner_0_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_0, 'spinner-paused', currVal_0);
             this._expr_0 = currVal_0;
@@ -47952,13 +48518,11 @@ var _View_Spinner0 = (function (_super) {
         this._anchor_0 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_0 = new AppElement(0, null, this, this._anchor_0);
         this._TemplateRef_0_5 = new TemplateRef_(this._appEl_0, viewFactory_Spinner1);
-        this._NgFor_0_6 = new NgFor(this._appEl_0.vcRef, this._TemplateRef_0_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_0_6 = new Wrapper_NgFor(this._appEl_0.vcRef, this._TemplateRef_0_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_1 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_1 = new AppElement(1, null, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_Spinner2);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parentInjector.get(IterableDiffers), this.ref);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parentInjector.get(IterableDiffers), this.ref);
         this.init([], [
             this._anchor_0,
             this._anchor_1
@@ -47970,50 +48534,23 @@ var _View_Spinner0 = (function (_super) {
             return this._TemplateRef_0_5;
         }
         if (((token === NgFor) && (0 === requestNodeIndex))) {
-            return this._NgFor_0_6;
+            return this._NgFor_0_6.context;
         }
         if (((token === TemplateRef) && (1 === requestNodeIndex))) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_Spinner0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.context._c;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_0_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_0_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_0_6.ngDoCheck();
-        }
-        changes = null;
+        this._NgFor_0_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_0_6.detectChangesInternal(this, this._anchor_0, throwOnChange);
         var currVal_1 = this.context._l;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgFor_1_6.ngForOf = currVal_1;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_1, currVal_1);
-            this._expr_1 = currVal_1;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_1, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48021,7 +48558,7 @@ var _View_Spinner0 = (function (_super) {
 }(AppView));
 function viewFactory_Spinner0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spinner === null)) {
-        (renderType_Spinner = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/spinner/spinner.d.ts class Spinner - inline template', 0, ViewEncapsulation.None, styles_Spinner, {}));
+        (renderType_Spinner = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Spinner, {}));
     }
     return new _View_Spinner0(viewUtils, parentInjector, declarationEl);
 }
@@ -48033,10 +48570,9 @@ var _View_Spinner1 = (function (_super) {
     _View_Spinner1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, ':svg:svg', null);
         this.renderer.setElementAttribute(this._el_0, 'viewBox', '0 0 64 64');
-        this._NgStyle_0_3 = new NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgStyle_0_3 = new Wrapper_NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(this._el_0, ':svg:circle', null);
         this.renderer.setElementAttribute(this._el_1, 'transform', 'translate(32,32)');
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -48046,19 +48582,14 @@ var _View_Spinner1 = (function (_super) {
     };
     _View_Spinner1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgStyle) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgStyle_0_3;
+            return this._NgStyle_0_3.context;
         }
         return notFoundResult;
     };
     _View_Spinner1.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.$implicit.style;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgStyle_0_3.ngStyle = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        if (!throwOnChange) {
-            this._NgStyle_0_3.ngDoCheck();
-        }
+        this._NgStyle_0_3.check_ngStyle(currVal_0, throwOnChange, false);
+        this._NgStyle_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.$implicit.r;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -48080,10 +48611,9 @@ var _View_Spinner2 = (function (_super) {
     _View_Spinner2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, ':svg:svg', null);
         this.renderer.setElementAttribute(this._el_0, 'viewBox', '0 0 64 64');
-        this._NgStyle_0_3 = new NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgStyle_0_3 = new Wrapper_NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(this._el_0, ':svg:line', null);
         this.renderer.setElementAttribute(this._el_1, 'transform', 'translate(32,32)');
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
@@ -48094,19 +48624,14 @@ var _View_Spinner2 = (function (_super) {
     };
     _View_Spinner2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgStyle) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgStyle_0_3;
+            return this._NgStyle_0_3.context;
         }
         return notFoundResult;
     };
     _View_Spinner2.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.$implicit.style;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgStyle_0_3.ngStyle = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        if (!throwOnChange) {
-            this._NgStyle_0_3.ngDoCheck();
-        }
+        this._NgStyle_0_3.check_ngStyle(currVal_0, throwOnChange, false);
+        this._NgStyle_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.$implicit.y1;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -48131,6 +48656,23 @@ var __extends$124 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_LoadingCmp = (function () {
+    function Wrapper_LoadingCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new LoadingCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_LoadingCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_LoadingCmp;
+}());
 var renderType_LoadingCmp_Host = null;
 var _View_LoadingCmp_Host0 = (function (_super) {
     __extends$124(_View_LoadingCmp_Host0, _super);
@@ -48142,22 +48684,20 @@ var _View_LoadingCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_LoadingCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._LoadingCmp_0_4 = new LoadingCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._LoadingCmp_0_4, [], compView_0);
-        compView_0.create(this._LoadingCmp_0_4, this.projectableNodes, null);
+        this._LoadingCmp_0_4 = new Wrapper_LoadingCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._LoadingCmp_0_4.context, [], compView_0);
+        compView_0.create(this._LoadingCmp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_LoadingCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === LoadingCmp) && (0 === requestNodeIndex))) {
-            return this._LoadingCmp_0_4;
+            return this._LoadingCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._LoadingCmp_0_4.ngOnInit();
-        }
+        this._LoadingCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48183,20 +48723,18 @@ var _View_LoadingCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'loading-wrapper');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_LoadingCmp1);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_3 = new AppElement(3, 1, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_LoadingCmp2);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -48207,36 +48745,30 @@ var _View_LoadingCmp0 = (function (_super) {
     };
     _View_LoadingCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.showSpinner;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_2_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         var currVal_2 = this.context.d.content;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_3_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = !this.context.d.showBackdrop;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -48246,13 +48778,13 @@ var _View_LoadingCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_LoadingCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     return _View_LoadingCmp0;
 }(AppView));
 function viewFactory_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LoadingCmp === null)) {
-        (renderType_LoadingCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/loading/loading-component.d.ts class LoadingCmp - inline template', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
+        (renderType_LoadingCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
     }
     return new _View_LoadingCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48267,10 +48799,9 @@ var _View_LoadingCmp1 = (function (_super) {
         this._el_1 = this.renderer.createElement(this._el_0, 'ion-spinner', null);
         this._appEl_1 = new AppElement(1, 0, this, this._el_1);
         var compView_1 = viewFactory_Spinner0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._Spinner_1_4 = new Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Spinner_1_4, [], compView_1);
-        compView_1.create(this._Spinner_1_4, [], null);
-        this._expr_0 = UNINITIALIZED;
+        this._Spinner_1_4 = new Wrapper_Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Spinner_1_4.context, [], compView_1);
+        compView_1.create(this._Spinner_1_4.context, [], null);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -48280,27 +48811,18 @@ var _View_LoadingCmp1 = (function (_super) {
     };
     _View_LoadingCmp1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Spinner) && (1 === requestNodeIndex))) {
-            return this._Spinner_1_4;
+            return this._Spinner_1_4.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp1.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
-        changed = false;
         var currVal_0 = this.parent.context.d.spinner;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Spinner_1_4.name = currVal_0;
-            changed = true;
-            this._expr_0 = currVal_0;
-        }
-        if (changed) {
+        this._Spinner_1_4.check_name(currVal_0, throwOnChange, false);
+        if (this._Spinner_1_4.detectChangesInternal(this, this._el_1, throwOnChange)) {
             this._appEl_1.componentView.markAsCheckOnce();
         }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_1_4.ngOnInit();
-        }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Spinner_1_4.paused;
+        var currVal_1 = this._Spinner_1_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_1, 'spinner-paused', currVal_1);
             this._expr_1 = currVal_1;
@@ -48344,6 +48866,18 @@ var __extends$126 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ModalCmp = (function () {
+    function Wrapper_ModalCmp(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new ModalCmp(p0, p1, p2, p3);
+    }
+    Wrapper_ModalCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ModalCmp;
+}());
 var renderType_ModalCmp_Host = null;
 var _View_ModalCmp_Host0 = (function (_super) {
     __extends$126(_View_ModalCmp_Host0, _super);
@@ -48354,22 +48888,27 @@ var _View_ModalCmp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-modal', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ModalCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ModalCmp_0_4 = new ModalCmp(this.parentInjector.get(ComponentFactoryResolver), this.renderer, this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
-        this._appEl_0.initComponent(this._ModalCmp_0_4, [], compView_0);
-        compView_0.create(this._ModalCmp_0_4, this.projectableNodes, null);
+        this._ModalCmp_0_4 = new Wrapper_ModalCmp(this.parentInjector.get(ComponentFactoryResolver), this.renderer, this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
+        this._appEl_0.initComponent(this._ModalCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ModalCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_ModalCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ModalCmp) && (0 === requestNodeIndex))) {
-            return this._ModalCmp_0_4;
+            return this._ModalCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_ModalCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ModalCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_ModalCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._ModalCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._ModalCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_ModalCmp_Host0;
@@ -48396,14 +48935,13 @@ var _View_ModalCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disableScroll', 'false');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'modal-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_2, 'nav-viewport', '');
         this._appEl_2 = new AppElement(2, 1, this, this._el_2);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._viewQuery_viewport_0.reset([this._appEl_2.vcRef]);
         this.context._viewport = this._viewQuery_viewport_0.first;
         this.init([], [
@@ -48415,24 +48953,19 @@ var _View_ModalCmp0 = (function (_super) {
     };
     _View_ModalCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         return notFoundResult;
     };
     _View_ModalCmp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = 'false';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._Backdrop_0_3.disableScroll = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.check_disableScroll(currVal_1, throwOnChange, false);
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ModalCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_ModalCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -48443,7 +48976,7 @@ var _View_ModalCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalCmp === null)) {
-        (renderType_ModalCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/modal/modal-component.d.ts class ModalCmp - inline template', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
+        (renderType_ModalCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
     }
     return new _View_ModalCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48453,6 +48986,38 @@ var __extends$127 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_PickerColumnCmp = (function () {
+    function Wrapper_PickerColumnCmp(p0, p1, p2, p3) {
+        this.changed = false;
+        this._col = UNINITIALIZED;
+        this.context = new PickerColumnCmp(p0, p1, p2, p3);
+    }
+    Wrapper_PickerColumnCmp.prototype.check_col = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._col, currValue))) {
+            this.changed = true;
+            this.context.col = currValue;
+            this._col = currValue;
+        }
+    };
+    Wrapper_PickerColumnCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PickerColumnCmp;
+}());
+var Wrapper_PickerCmp = (function () {
+    function Wrapper_PickerCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new PickerCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_PickerCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PickerCmp;
+}());
 var renderType_PickerColumnCmp_Host = null;
 var _View_PickerColumnCmp_Host0 = (function (_super) {
     __extends$127(_View_PickerColumnCmp_Host0, _super);
@@ -48464,9 +49029,9 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
-        this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerColumnCmp_0_4, this.projectableNodes, null);
+        this._PickerColumnCmp_0_4 = new Wrapper_PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
+        this._appEl_0.initComponent(this._PickerColumnCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerColumnCmp_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -48475,23 +49040,24 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
     };
     _View_PickerColumnCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerColumnCmp) && (0 === requestNodeIndex))) {
-            return this._PickerColumnCmp_0_4;
+            return this._PickerColumnCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PickerColumnCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._PickerColumnCmp_0_4.col.columnWidth;
+        var currVal_0 = this._PickerColumnCmp_0_4.context.col.columnWidth;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementStyle(this._el_0, 'min-width', ((this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_0) == null) ? null : this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_0).toString()));
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = (this._PickerColumnCmp_0_4.col.align == 'left');
+        var currVal_1 = (this._PickerColumnCmp_0_4.context.col.align == 'left');
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-left', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = (this._PickerColumnCmp_0_4.col.align == 'right');
+        var currVal_2 = (this._PickerColumnCmp_0_4.context.col.align == 'right');
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-right', currVal_2);
             this._expr_2 = currVal_2;
@@ -48499,12 +49065,12 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._PickerColumnCmp_0_4.ngAfterViewInit();
+                this._PickerColumnCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
     _View_PickerColumnCmp_Host0.prototype.destroyInternal = function () {
-        this._PickerColumnCmp_0_4.ngOnDestroy();
+        this._PickerColumnCmp_0_4.context.ngOnDestroy();
     };
     return _View_PickerColumnCmp_Host0;
 }(AppView));
@@ -48528,21 +49094,18 @@ var _View_PickerColumnCmp0 = (function (_super) {
         this._anchor_0 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_0 = new AppElement(0, null, this, this._anchor_0);
         this._TemplateRef_0_5 = new TemplateRef_(this._appEl_0, viewFactory_PickerColumnCmp1);
-        this._NgIf_0_6 = new NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
+        this._NgIf_0_6 = new Wrapper_NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'picker-opts');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_PickerColumnCmp2);
-        this._NgFor_2_6 = new NgFor(this._appEl_2.vcRef, this._TemplateRef_2_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_2_6 = new Wrapper_NgFor(this._appEl_2.vcRef, this._TemplateRef_2_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_3 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_3 = new AppElement(3, null, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_PickerColumnCmp3);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
-        this._expr_0 = UNINITIALIZED;
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
         this._viewQuery_colEle_0.reset([new ElementRef(this._el_1)]);
         this.context.colEle = this._viewQuery_colEle_0.first;
         this.init([], [
@@ -48558,50 +49121,32 @@ var _View_PickerColumnCmp0 = (function (_super) {
             return this._TemplateRef_0_5;
         }
         if (((token === NgIf) && (0 === requestNodeIndex))) {
-            return this._NgIf_0_6;
+            return this._NgIf_0_6.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgFor) && (2 === requestNodeIndex))) {
-            return this._NgFor_2_6;
+            return this._NgFor_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
         var currVal_0 = this.context.col.prefix;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgIf_0_6.ngIf = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        changes = null;
+        this._NgIf_0_6.check_ngIf(currVal_0, throwOnChange, false);
+        this._NgIf_0_6.detectChangesInternal(this, this._anchor_0, throwOnChange);
         var currVal_2 = this.context.col.options;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_2_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_2_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_2_6.ngDoCheck();
-        }
+        this._NgFor_2_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         var currVal_3 = this.context.col.suffix;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_3_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_3, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.col.optionsWidth;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -48614,7 +49159,7 @@ var _View_PickerColumnCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerColumnCmp === null)) {
-        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerColumnCmp - inline template', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
+        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
     }
     return new _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48665,10 +49210,10 @@ var _View_PickerColumnCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'type', 'button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'picker-opt', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'picker-opt', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_4.context, [[].concat([this._text_1])], null);
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
@@ -48685,15 +49230,18 @@ var _View_PickerColumnCmp2 = (function (_super) {
     };
     _View_PickerColumnCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp2.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit._trans;
@@ -48790,22 +49338,27 @@ var _View_PickerCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerCmp_0_4 = new PickerCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._PickerCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerCmp_0_4, this.projectableNodes, null);
+        this._PickerCmp_0_4 = new Wrapper_PickerCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._PickerCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_PickerCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerCmp) && (0 === requestNodeIndex))) {
-            return this._PickerCmp_0_4;
+            return this._PickerCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_PickerCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PickerCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_PickerCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._PickerCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._PickerCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_PickerCmp_Host0;
@@ -48832,7 +49385,7 @@ var _View_PickerCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_1, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_1, 'tappable', '');
-        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
+        this._Backdrop_1_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n    ', null);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'picker-wrapper');
@@ -48843,7 +49396,7 @@ var _View_PickerCmp0 = (function (_super) {
         this._anchor_7 = this.renderer.createTemplateAnchor(this._el_5, null);
         this._appEl_7 = new AppElement(7, 5, this, this._anchor_7);
         this._TemplateRef_7_5 = new TemplateRef_(this._appEl_7, viewFactory_PickerCmp1);
-        this._NgFor_7_6 = new NgFor(this._appEl_7.vcRef, this._TemplateRef_7_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_7_6 = new Wrapper_NgFor(this._appEl_7.vcRef, this._TemplateRef_7_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_8 = this.renderer.createText(this._el_5, '\n      ', null);
         this._text_9 = this.renderer.createText(this._el_3, '\n      ', null);
         this._el_10 = this.renderer.createElement(this._el_3, 'div', null);
@@ -48855,7 +49408,7 @@ var _View_PickerCmp0 = (function (_super) {
         this._anchor_14 = this.renderer.createTemplateAnchor(this._el_10, null);
         this._appEl_14 = new AppElement(14, 10, this, this._anchor_14);
         this._TemplateRef_14_5 = new TemplateRef_(this._appEl_14, viewFactory_PickerCmp2);
-        this._NgFor_14_6 = new NgFor(this._appEl_14.vcRef, this._TemplateRef_14_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_14_6 = new Wrapper_NgFor(this._appEl_14.vcRef, this._TemplateRef_14_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_15 = this.renderer.createText(this._el_10, '\n        ', null);
         this._el_16 = this.renderer.createElement(this._el_10, 'div', null);
         this.renderer.setElementAttribute(this._el_16, 'class', 'picker-below-highlight');
@@ -48863,8 +49416,6 @@ var _View_PickerCmp0 = (function (_super) {
         this._text_18 = this.renderer.createText(this._el_3, '\n    ', null);
         this._text_19 = this.renderer.createText(parentRenderNode, '\n  ', null);
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([], [
             this._text_0,
             this._el_1,
@@ -48891,65 +49442,36 @@ var _View_PickerCmp0 = (function (_super) {
     };
     _View_PickerCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (1 === requestNodeIndex))) {
-            return this._Backdrop_1_3;
+            return this._Backdrop_1_3.context;
         }
         if (((token === TemplateRef) && (7 === requestNodeIndex))) {
             return this._TemplateRef_7_5;
         }
         if (((token === NgFor) && (7 === requestNodeIndex))) {
-            return this._NgFor_7_6;
+            return this._NgFor_7_6.context;
         }
         if (((token === TemplateRef) && (14 === requestNodeIndex))) {
             return this._TemplateRef_14_5;
         }
         if (((token === NgFor) && (14 === requestNodeIndex))) {
-            return this._NgFor_14_6;
+            return this._NgFor_14_6.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_1_3.ngOnInit();
-        }
-        changes = null;
+        this._Backdrop_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
         var currVal_1 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgFor_7_6.ngForOf = currVal_1;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_1, currVal_1);
-            this._expr_1 = currVal_1;
-        }
-        if ((changes !== null)) {
-            this._NgFor_7_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_7_6.ngDoCheck();
-        }
-        changes = null;
+        this._NgFor_7_6.check_ngForOf(currVal_1, throwOnChange, false);
+        this._NgFor_7_6.detectChangesInternal(this, this._anchor_7, throwOnChange);
         var currVal_2 = this.context.d.columns;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_14_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_14_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_14_6.ngDoCheck();
-        }
+        this._NgFor_14_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_14_6.detectChangesInternal(this, this._anchor_14, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._viewQuery_PickerColumnCmp_0.dirty) {
                 this._viewQuery_PickerColumnCmp_0.reset([this._appEl_14.mapNestedViews(_View_PickerCmp2, function (nestedView) {
-                        return [nestedView._PickerColumnCmp_0_4];
+                        return [nestedView._PickerColumnCmp_0_4.context];
                     })]);
                 this.context._cols = this._viewQuery_PickerColumnCmp_0;
                 this._viewQuery_PickerColumnCmp_0.notifyOnChanges();
@@ -48957,7 +49479,7 @@ var _View_PickerCmp0 = (function (_super) {
         }
     };
     _View_PickerCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_1_3.ngOnDestroy();
+        this._Backdrop_1_3.context.ngOnDestroy();
     };
     _View_PickerCmp0.prototype._handle_click_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -48968,7 +49490,7 @@ var _View_PickerCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerCmp === null)) {
-        (renderType_PickerCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerCmp - inline template', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
+        (renderType_PickerCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
     }
     return new _View_PickerCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48980,7 +49502,7 @@ var _View_PickerCmp1 = (function (_super) {
     _View_PickerCmp1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-toolbar-button');
-        this._NgClass_0_3 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._text_1 = this.renderer.createText(this._el_0, '\n          ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'button', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'picker-button');
@@ -48988,18 +49510,13 @@ var _View_PickerCmp1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_2, 'ion-button', '');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Button0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._NgClass_2_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_2), this.renderer);
-        this._Button_2_5 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._appEl_2.initComponent(this._Button_2_5, [], compView_2);
+        this._NgClass_2_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_2), this.renderer);
+        this._Button_2_5 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._appEl_2.initComponent(this._Button_2_5.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '', null);
-        compView_2.create(this._Button_2_5, [[].concat([this._text_3])], null);
+        compView_2.create(this._Button_2_5.context, [[].concat([this._text_3])], null);
         this._text_4 = this.renderer.createText(this._el_0, '\n        ', null);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_2, 'click', this.eventHandler(this._handle_click_2_0.bind(this)));
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
         this._expr_6 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -49012,58 +49529,36 @@ var _View_PickerCmp1 = (function (_super) {
     };
     _View_PickerCmp1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgClass_2_4;
+            return this._NgClass_2_4.context;
         }
         if (((token === Button) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._Button_2_5;
+            return this._Button_2_5.context;
         }
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp1.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
         var currVal_0 = 'picker-toolbar-button';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = this.context.$implicit.cssRole;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_3 = 'picker-button';
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_2_4.klass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgClass_2_4.check_klass(currVal_3, throwOnChange, false);
         var currVal_4 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgClass_2_4.ngClass = currVal_4;
-            this._expr_4 = currVal_4;
-        }
-        if (!throwOnChange) {
-            this._NgClass_2_4.ngDoCheck();
-        }
-        changed = false;
+        this._NgClass_2_4.check_ngClass(currVal_4, throwOnChange, false);
+        this._NgClass_2_4.detectChangesInternal(this, this._el_2, throwOnChange);
         var currVal_5 = '';
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._Button_2_5.clear = currVal_5;
-            changed = true;
-            this._expr_5 = currVal_5;
-        }
-        if (changed) {
+        this._Button_2_5.check_clear(currVal_5, throwOnChange, false);
+        if (this._Button_2_5.detectChangesInternal(this, this._el_2, throwOnChange)) {
             this._appEl_2.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_2_5.ngAfterContentInit();
+                this._Button_2_5.context.ngAfterContentInit();
             }
         }
         var currVal_6 = interpolate(1, '\n            ', this.context.$implicit.text, '\n          ');
@@ -49093,42 +49588,39 @@ var _View_PickerCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
-        this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerColumnCmp_0_4, [], null);
+        this._PickerColumnCmp_0_4 = new Wrapper_PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
+        this._appEl_0.initComponent(this._PickerColumnCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerColumnCmp_0_4.context, [], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'ionChange', this.eventHandler(this._handle_ionChange_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
-        var subscription_0 = this._PickerColumnCmp_0_4.ionChange.subscribe(this.eventHandler(this._handle_ionChange_0_0.bind(this)));
+        var subscription_0 = this._PickerColumnCmp_0_4.context.ionChange.subscribe(this.eventHandler(this._handle_ionChange_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], [subscription_0]);
         return null;
     };
     _View_PickerCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerColumnCmp) && (0 === requestNodeIndex))) {
-            return this._PickerColumnCmp_0_4;
+            return this._PickerColumnCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp2.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = this.context.$implicit;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._PickerColumnCmp_0_4.col = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._PickerColumnCmp_0_4.check_col(currVal_1, throwOnChange, false);
+        this._PickerColumnCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_2 = this._PickerColumnCmp_0_4.col.columnWidth;
+        var currVal_2 = this._PickerColumnCmp_0_4.context.col.columnWidth;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementStyle(this._el_0, 'min-width', ((this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_2) == null) ? null : this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_2).toString()));
             this._expr_2 = currVal_2;
         }
-        var currVal_3 = (this._PickerColumnCmp_0_4.col.align == 'left');
+        var currVal_3 = (this._PickerColumnCmp_0_4.context.col.align == 'left');
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-left', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_4 = (this._PickerColumnCmp_0_4.col.align == 'right');
+        var currVal_4 = (this._PickerColumnCmp_0_4.context.col.align == 'right');
         if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-right', currVal_4);
             this._expr_4 = currVal_4;
@@ -49136,7 +49628,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._PickerColumnCmp_0_4.ngAfterViewInit();
+                this._PickerColumnCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -49144,7 +49636,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.parent._viewQuery_PickerColumnCmp_0.setDirty();
     };
     _View_PickerCmp2.prototype.destroyInternal = function () {
-        this._PickerColumnCmp_0_4.ngOnDestroy();
+        this._PickerColumnCmp_0_4.context.ngOnDestroy();
     };
     _View_PickerCmp2.prototype._handle_ionChange_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49162,6 +49654,18 @@ var __extends$128 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_PopoverCmp = (function () {
+    function Wrapper_PopoverCmp(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this.context = new PopoverCmp(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_PopoverCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PopoverCmp;
+}());
 var renderType_PopoverCmp_Host = null;
 var _View_PopoverCmp_Host0 = (function (_super) {
     __extends$128(_View_PopoverCmp_Host0, _super);
@@ -49172,22 +49676,27 @@ var _View_PopoverCmp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-popover', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PopoverCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PopoverCmp_0_4 = new PopoverCmp(this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
-        this._appEl_0.initComponent(this._PopoverCmp_0_4, [], compView_0);
-        compView_0.create(this._PopoverCmp_0_4, this.projectableNodes, null);
+        this._PopoverCmp_0_4 = new Wrapper_PopoverCmp(this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
+        this._appEl_0.initComponent(this._PopoverCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PopoverCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_PopoverCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PopoverCmp) && (0 === requestNodeIndex))) {
-            return this._PopoverCmp_0_4;
+            return this._PopoverCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_PopoverCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PopoverCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_PopoverCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._PopoverCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._PopoverCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_PopoverCmp_Host0;
@@ -49213,7 +49722,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'popover-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -49241,14 +49750,12 @@ var _View_PopoverCmp0 = (function (_super) {
     };
     _View_PopoverCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         return notFoundResult;
     };
     _View_PopoverCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = !this.context.d.showBackdrop;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -49258,7 +49765,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_PopoverCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_PopoverCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49269,7 +49776,7 @@ var _View_PopoverCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PopoverCmp === null)) {
-        (renderType_PopoverCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/popover/popover-component.d.ts class PopoverCmp - inline template', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
+        (renderType_PopoverCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
     }
     return new _View_PopoverCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49279,6 +49786,18 @@ var __extends$129 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ToastCmp = (function () {
+    function Wrapper_ToastCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new ToastCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_ToastCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ToastCmp;
+}());
 var renderType_ToastCmp_Host = null;
 var _View_ToastCmp_Host0 = (function (_super) {
     __extends$129(_View_ToastCmp_Host0, _super);
@@ -49290,9 +49809,9 @@ var _View_ToastCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ToastCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ToastCmp_0_4 = new ToastCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._ToastCmp_0_4, [], compView_0);
-        compView_0.create(this._ToastCmp_0_4, this.projectableNodes, null);
+        this._ToastCmp_0_4 = new Wrapper_ToastCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._ToastCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ToastCmp_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
@@ -49300,18 +49819,19 @@ var _View_ToastCmp_Host0 = (function (_super) {
     };
     _View_ToastCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToastCmp) && (0 === requestNodeIndex))) {
-            return this._ToastCmp_0_4;
+            return this._ToastCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ToastCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._ToastCmp_0_4.hdrId;
+        var currVal_0 = this._ToastCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_0 == null) ? null : currVal_0.toString()));
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._ToastCmp_0_4.descId;
+        var currVal_1 = this._ToastCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
@@ -49319,7 +49839,7 @@ var _View_ToastCmp_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._ToastCmp_0_4.ngAfterViewInit();
+                this._ToastCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -49350,19 +49870,17 @@ var _View_ToastCmp0 = (function (_super) {
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_4 = new AppElement(4, 2, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_ToastCmp1);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._text_5 = this.renderer.createText(this._el_2, ' ', null);
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_6 = new AppElement(6, 2, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_ToastCmp2);
-        this._NgIf_6_6 = new NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
+        this._NgIf_6_6 = new Wrapper_NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
         this._text_7 = this.renderer.createText(this._el_2, ' ', null);
         this._text_8 = this.renderer.createText(this._el_0, ' ', null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -49381,27 +49899,23 @@ var _View_ToastCmp0 = (function (_super) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgIf) && (6 === requestNodeIndex))) {
-            return this._NgIf_6_6;
+            return this._NgIf_6_6.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_3 = this.context.d.message;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_4_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_3, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_4 = this.context.d.showCloseButton;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_6_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_6_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = (this.context.d.position === 'bottom');
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -49424,7 +49938,7 @@ var _View_ToastCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ToastCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToastCmp === null)) {
-        (renderType_ToastCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toast/toast-component.d.ts class ToastCmp - inline template', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
+        (renderType_ToastCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
     }
     return new _View_ToastCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49476,12 +49990,11 @@ var _View_ToastCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', '');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_4.context, [[].concat([this._text_1])], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -49491,26 +50004,20 @@ var _View_ToastCmp2 = (function (_super) {
     };
     _View_ToastCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp2.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
-        changed = false;
         var currVal_1 = '';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._Button_0_4.clear = currVal_1;
-            changed = true;
-            this._expr_1 = currVal_1;
-        }
-        if (changed) {
+        this._Button_0_4.check_clear(currVal_1, throwOnChange, false);
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
             this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_2 = interpolate(1, ' ', (this.parent.context.d.closeButtonText || 'Close'), ' ');
@@ -49536,9 +50043,193 @@ var __extends$131 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Header = (function () {
+    function Wrapper_Header(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new Header(p0, p1, p2, p3);
+    }
+    Wrapper_Header.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Header;
+}());
+
+var Wrapper_Toolbar = (function () {
+    function Wrapper_Toolbar(p0, p1, p2, p3) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this.context = new Toolbar(p0, p1, p2, p3);
+    }
+    Wrapper_Toolbar.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Toolbar.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Toolbar.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Toolbar;
+}());
+var renderType_Toolbar_Host = null;
+var _View_Toolbar_Host0 = (function (_super) {
+    __extends$131(_View_Toolbar_Host0, _super);
+    function _View_Toolbar_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Toolbar_Host0, renderType_Toolbar_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
+    }
+    _View_Toolbar_Host0.prototype.createInternal = function (rootSelector) {
+        this._el_0 = this.selectOrCreateHostElement('ion-toolbar', rootSelector, null);
+        this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar');
+        this._appEl_0 = new AppElement(0, null, this, this._el_0);
+        var compView_0 = viewFactory_Toolbar0(this.viewUtils, this.injector(0), this._appEl_0);
+        this._Toolbar_0_4 = new Wrapper_Toolbar(this.parentInjector.get(ViewController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Toolbar_0_4.context, [], compView_0);
+        compView_0.create(this._Toolbar_0_4.context, this.projectableNodes, null);
+        this._expr_0 = UNINITIALIZED;
+        this.init([].concat([this._el_0]), [this._el_0], [], []);
+        return this._appEl_0;
+    };
+    _View_Toolbar_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+        if (((token === Toolbar) && (0 === requestNodeIndex))) {
+            return this._Toolbar_0_4.context;
+        }
+        return notFoundResult;
+    };
+    _View_Toolbar_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Toolbar_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
+        this.detectContentChildrenChanges(throwOnChange);
+        var currVal_0 = this._Toolbar_0_4.context._sbPadding;
+        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
+            this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_0);
+            this._expr_0 = currVal_0;
+        }
+        this.detectViewChildrenChanges(throwOnChange);
+    };
+    return _View_Toolbar_Host0;
+}(AppView));
+function viewFactory_Toolbar_Host0(viewUtils, parentInjector, declarationEl) {
+    if ((renderType_Toolbar_Host === null)) {
+        (renderType_Toolbar_Host = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, [], {}));
+    }
+    return new _View_Toolbar_Host0(viewUtils, parentInjector, declarationEl);
+}
+var ToolbarNgFactory = new ComponentFactory('ion-toolbar', viewFactory_Toolbar_Host0, Toolbar);
+var styles_Toolbar = [];
+var renderType_Toolbar = null;
+var _View_Toolbar0 = (function (_super) {
+    __extends$131(_View_Toolbar0, _super);
+    function _View_Toolbar0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Toolbar0, renderType_Toolbar, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
+    }
+    _View_Toolbar0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+        this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-background');
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[0]));
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[1]));
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[2]));
+        this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_1, 'class', 'toolbar-content');
+        this._NgClass_1_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this.renderer.projectNodes(this._el_1, flattenNestedViewRenderNodes(this.projectableNodes[3]));
+        this.init([], [
+            this._el_0,
+            this._el_1
+        ], [], []);
+        return null;
+    };
+    _View_Toolbar0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+        if (((token === NgClass) && (0 === requestNodeIndex))) {
+            return this._NgClass_0_3.context;
+        }
+        if (((token === NgClass) && (1 === requestNodeIndex))) {
+            return this._NgClass_1_3.context;
+        }
+        return notFoundResult;
+    };
+    _View_Toolbar0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = 'toolbar-background';
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
+        var currVal_1 = ('toolbar-background-' + this.context._mode);
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        var currVal_2 = 'toolbar-content';
+        this._NgClass_1_3.check_klass(currVal_2, throwOnChange, false);
+        var currVal_3 = ('toolbar-content-' + this.context._mode);
+        this._NgClass_1_3.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
+    return _View_Toolbar0;
+}(AppView));
+function viewFactory_Toolbar0(viewUtils, parentInjector, declarationEl) {
+    if ((renderType_Toolbar === null)) {
+        (renderType_Toolbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Toolbar, {}));
+    }
+    return new _View_Toolbar0(viewUtils, parentInjector, declarationEl);
+}
+
+var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Wrapper_Navbar = (function () {
+    function Wrapper_Navbar(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._hideBackButton = UNINITIALIZED;
+        this.context = new Navbar(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_Navbar.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.check_hideBackButton = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._hideBackButton, currValue))) {
+            this.changed = true;
+            this.context.hideBackButton = currValue;
+            this._hideBackButton = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Navbar;
+}());
 var renderType_Navbar_Host = null;
 var _View_Navbar_Host0 = (function (_super) {
-    __extends$131(_View_Navbar_Host0, _super);
+    __extends$132(_View_Navbar_Host0, _super);
     function _View_Navbar_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar_Host0, renderType_Navbar_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49547,9 +50238,9 @@ var _View_Navbar_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Navbar0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Navbar_0_4 = new Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Navbar_0_4, [], compView_0);
-        compView_0.create(this._Navbar_0_4, this.projectableNodes, null);
+        this._Navbar_0_4 = new Wrapper_Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Navbar_0_4.context, [], compView_0);
+        compView_0.create(this._Navbar_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
@@ -49557,18 +50248,19 @@ var _View_Navbar_Host0 = (function (_super) {
     };
     _View_Navbar_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Navbar) && (0 === requestNodeIndex))) {
-            return this._Navbar_0_4;
+            return this._Navbar_0_4.context;
         }
         return notFoundResult;
     };
     _View_Navbar_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Navbar_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Navbar_0_4._hidden;
+        var currVal_0 = this._Navbar_0_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementProperty(this._el_0, 'hidden', currVal_0);
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._Navbar_0_4._sbPadding;
+        var currVal_1 = this._Navbar_0_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_1);
             this._expr_1 = currVal_1;
@@ -49576,7 +50268,7 @@ var _View_Navbar_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Navbar_0_4.ngAfterViewInit();
+                this._Navbar_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -49592,7 +50284,7 @@ var NavbarNgFactory = new ComponentFactory('ion-navbar', viewFactory_Navbar_Host
 var styles_Navbar = [];
 var renderType_Navbar = null;
 var _View_Navbar0 = (function (_super) {
-    __extends$131(_View_Navbar0, _super);
+    __extends$132(_View_Navbar0, _super);
     function _View_Navbar0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar0, renderType_Navbar, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49601,47 +50293,36 @@ var _View_Navbar0 = (function (_super) {
         this._viewQuery_bbTxt_0 = new QueryList();
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-background');
-        this._NgClass_0_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'button', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'back-button');
         this.renderer.setElementAttribute(this._el_1, 'ion-button', 'bar-button');
         this._appEl_1 = new AppElement(1, null, this, this._el_1);
         var compView_1 = viewFactory_Button0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._NgClass_1_4 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
-        this._Button_1_5 = new Button(null, 'bar-button', this.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Button_1_5, [], compView_1);
+        this._NgClass_1_4 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this._Button_1_5 = new Wrapper_Button(null, 'bar-button', this.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Button_1_5.context, [], compView_1);
         this._el_2 = this.renderer.createElement(null, 'span', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'button-inner');
         this._el_3 = this.renderer.createElement(this._el_2, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'back-button-icon');
         this.renderer.setElementAttribute(this._el_3, 'role', 'img');
-        this._NgClass_3_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_3), this.renderer);
-        this._Icon_3_4 = new Icon(this.parentInjector.get(Config), new ElementRef(this._el_3), this.renderer);
+        this._NgClass_3_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_3), this.renderer);
+        this._Icon_3_4 = new Wrapper_Icon(this.parentInjector.get(Config), new ElementRef(this._el_3), this.renderer);
         this._el_4 = this.renderer.createElement(this._el_2, 'span', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'back-button-text');
-        this._NgClass_4_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_4), this.renderer);
-        compView_1.create(this._Button_1_5, [[].concat([this._el_2])], null);
+        this._NgClass_4_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_4), this.renderer);
+        compView_1.create(this._Button_1_5.context, [[].concat([this._el_2])], null);
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[0]));
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[1]));
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[2]));
         this._el_5 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'toolbar-content');
-        this._NgClass_5_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_5), this.renderer);
+        this._NgClass_5_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_5), this.renderer);
         this.renderer.projectNodes(this._el_5, flattenNestedViewRenderNodes(this.projectableNodes[3]));
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
-        this._expr_7 = UNINITIALIZED;
-        this._expr_8 = UNINITIALIZED;
         this._expr_9 = UNINITIALIZED;
-        this._expr_10 = UNINITIALIZED;
-        this._expr_11 = UNINITIALIZED;
-        this._expr_12 = UNINITIALIZED;
-        this._expr_13 = UNINITIALIZED;
         this._viewQuery_bbTxt_0.reset([new ElementRef(this._el_4)]);
         this.context._bbTxt = this._viewQuery_bbTxt_0.first;
         this.init([], [
@@ -49656,103 +50337,64 @@ var _View_Navbar0 = (function (_super) {
     };
     _View_Navbar0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && (0 === requestNodeIndex))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         if (((token === NgClass) && (3 === requestNodeIndex))) {
-            return this._NgClass_3_3;
+            return this._NgClass_3_3.context;
         }
         if (((token === Icon) && (3 === requestNodeIndex))) {
-            return this._Icon_3_4;
+            return this._Icon_3_4.context;
         }
         if (((token === NgClass) && (4 === requestNodeIndex))) {
-            return this._NgClass_4_3;
+            return this._NgClass_4_3.context;
         }
         if (((token === NgClass) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._NgClass_1_4;
+            return this._NgClass_1_4.context;
         }
         if (((token === Button) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_1_5;
+            return this._Button_1_5.context;
         }
         if (((token === NgClass) && (5 === requestNodeIndex))) {
-            return this._NgClass_5_3;
+            return this._NgClass_5_3.context;
         }
         return notFoundResult;
     };
     _View_Navbar0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'toolbar-background';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = ('toolbar-background-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_4 = 'back-button';
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgClass_1_4.klass = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgClass_1_4.check_klass(currVal_4, throwOnChange, false);
         var currVal_5 = ('back-button-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgClass_1_4.ngClass = currVal_5;
-            this._expr_5 = currVal_5;
-        }
-        if (!throwOnChange) {
-            this._NgClass_1_4.ngDoCheck();
+        this._NgClass_1_4.check_ngClass(currVal_5, throwOnChange, false);
+        this._NgClass_1_4.detectChangesInternal(this, this._el_1, throwOnChange);
+        if (this._Button_1_5.detectChangesInternal(this, this._el_1, throwOnChange)) {
+            this._appEl_1.componentView.markAsCheckOnce();
         }
         var currVal_6 = 'back-button-icon';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._NgClass_3_3.klass = currVal_6;
-            this._expr_6 = currVal_6;
-        }
+        this._NgClass_3_3.check_klass(currVal_6, throwOnChange, false);
         var currVal_7 = ('back-button-icon-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this._NgClass_3_3.ngClass = currVal_7;
-            this._expr_7 = currVal_7;
-        }
-        if (!throwOnChange) {
-            this._NgClass_3_3.ngDoCheck();
-        }
+        this._NgClass_3_3.check_ngClass(currVal_7, throwOnChange, false);
+        this._NgClass_3_3.detectChangesInternal(this, this._el_3, throwOnChange);
         var currVal_8 = this.context._bbIcon;
-        if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
-            this._Icon_3_4.name = currVal_8;
-            this._expr_8 = currVal_8;
-        }
+        this._Icon_3_4.check_name(currVal_8, throwOnChange, false);
+        this._Icon_3_4.detectChangesInternal(this, this._el_3, throwOnChange);
         var currVal_10 = 'back-button-text';
-        if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._NgClass_4_3.klass = currVal_10;
-            this._expr_10 = currVal_10;
-        }
+        this._NgClass_4_3.check_klass(currVal_10, throwOnChange, false);
         var currVal_11 = ('back-button-text-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._NgClass_4_3.ngClass = currVal_11;
-            this._expr_11 = currVal_11;
-        }
-        if (!throwOnChange) {
-            this._NgClass_4_3.ngDoCheck();
-        }
+        this._NgClass_4_3.check_ngClass(currVal_11, throwOnChange, false);
+        this._NgClass_4_3.detectChangesInternal(this, this._el_4, throwOnChange);
         var currVal_12 = 'toolbar-content';
-        if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._NgClass_5_3.klass = currVal_12;
-            this._expr_12 = currVal_12;
-        }
+        this._NgClass_5_3.check_klass(currVal_12, throwOnChange, false);
         var currVal_13 = ('toolbar-content-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._NgClass_5_3.ngClass = currVal_13;
-            this._expr_13 = currVal_13;
-        }
-        if (!throwOnChange) {
-            this._NgClass_5_3.ngDoCheck();
-        }
+        this._NgClass_5_3.check_ngClass(currVal_13, throwOnChange, false);
+        this._NgClass_5_3.detectChangesInternal(this, this._el_5, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_1_5.ngAfterContentInit();
+                this._Button_1_5.context.ngAfterContentInit();
             }
         }
         var currVal_3 = this.context._hideBb;
@@ -49760,7 +50402,7 @@ var _View_Navbar0 = (function (_super) {
             this.renderer.setElementProperty(this._el_1, 'hidden', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_9 = this._Icon_3_4._hidden;
+        var currVal_9 = this._Icon_3_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_3, 'hide', currVal_9);
             this._expr_9 = currVal_9;
@@ -49768,7 +50410,7 @@ var _View_Navbar0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Navbar0.prototype.destroyInternal = function () {
-        this._Icon_3_4.ngOnDestroy();
+        this._Icon_3_4.context.ngOnDestroy();
     };
     _View_Navbar0.prototype._handle_click_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49779,19 +50421,31 @@ var _View_Navbar0 = (function (_super) {
 }(AppView));
 function viewFactory_Navbar0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Navbar === null)) {
-        (renderType_Navbar = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/navbar/navbar.d.ts class Navbar - inline template', 4, ViewEncapsulation.None, styles_Navbar, {}));
+        (renderType_Navbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Navbar, {}));
     }
     return new _View_Navbar0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ToolbarTitle = (function () {
+    function Wrapper_ToolbarTitle(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new ToolbarTitle(p0, p1, p2, p3, p4);
+    }
+    Wrapper_ToolbarTitle.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ToolbarTitle;
+}());
 var renderType_ToolbarTitle_Host = null;
 var _View_ToolbarTitle_Host0 = (function (_super) {
-    __extends$132(_View_ToolbarTitle_Host0, _super);
+    __extends$133(_View_ToolbarTitle_Host0, _super);
     function _View_ToolbarTitle_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle_Host0, renderType_ToolbarTitle_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49799,17 +50453,24 @@ var _View_ToolbarTitle_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-title', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ToolbarTitle0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ToolbarTitle_0_4 = new ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Toolbar, null), this.parentInjector.get(Navbar, null));
-        this._appEl_0.initComponent(this._ToolbarTitle_0_4, [], compView_0);
-        compView_0.create(this._ToolbarTitle_0_4, this.projectableNodes, null);
+        this._ToolbarTitle_0_4 = new Wrapper_ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Toolbar, null), this.parentInjector.get(Navbar, null));
+        this._appEl_0.initComponent(this._ToolbarTitle_0_4.context, [], compView_0);
+        compView_0.create(this._ToolbarTitle_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ToolbarTitle_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToolbarTitle) && (0 === requestNodeIndex))) {
-            return this._ToolbarTitle_0_4;
+            return this._ToolbarTitle_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ToolbarTitle_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._ToolbarTitle_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ToolbarTitle_Host0;
 }(AppView));
@@ -49823,7 +50484,7 @@ var ToolbarTitleNgFactory = new ComponentFactory('ion-title', viewFactory_Toolba
 var styles_ToolbarTitle = [];
 var renderType_ToolbarTitle = null;
 var _View_ToolbarTitle0 = (function (_super) {
-    __extends$132(_View_ToolbarTitle0, _super);
+    __extends$133(_View_ToolbarTitle0, _super);
     function _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle0, renderType_ToolbarTitle, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -49831,33 +50492,23 @@ var _View_ToolbarTitle0 = (function (_super) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-title');
-        this._NgClass_0_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[0]));
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_ToolbarTitle0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && (0 === requestNodeIndex))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         return notFoundResult;
     };
     _View_ToolbarTitle0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'toolbar-title';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = ('toolbar-title-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -49865,19 +50516,44 @@ var _View_ToolbarTitle0 = (function (_super) {
 }(AppView));
 function viewFactory_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToolbarTitle === null)) {
-        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toolbar/toolbar-title.d.ts class ToolbarTitle - inline template', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
+        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
     }
     return new _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Content = (function () {
+    function Wrapper_Content(p0, p1, p2, p3, p4, p5, p6, p7) {
+        this.changed = false;
+        this._fullscreen = UNINITIALIZED;
+        this.context = new Content(p0, p1, p2, p3, p4, p5, p6, p7);
+    }
+    Wrapper_Content.prototype.check_fullscreen = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._fullscreen, currValue))) {
+            this.changed = true;
+            this.context.fullscreen = currValue;
+            this._fullscreen = currValue;
+        }
+    };
+    Wrapper_Content.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Content;
+}());
 var renderType_Content_Host = null;
 var _View_Content_Host0 = (function (_super) {
-    __extends$133(_View_Content_Host0, _super);
+    __extends$134(_View_Content_Host0, _super);
     function _View_Content_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content_Host0, renderType_Content_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49885,25 +50561,25 @@ var _View_Content_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-content', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Content0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Content_0_4 = new Content(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
-        this._appEl_0.initComponent(this._Content_0_4, [], compView_0);
-        compView_0.create(this._Content_0_4, this.projectableNodes, null);
+        this._Content_0_4 = new Wrapper_Content(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
+        this._appEl_0.initComponent(this._Content_0_4.context, [], compView_0);
+        compView_0.create(this._Content_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Content_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Content) && (0 === requestNodeIndex))) {
-            return this._Content_0_4;
+            return this._Content_0_4.context;
         }
         return notFoundResult;
     };
     _View_Content_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Content_0_4.ngOnInit();
+        if (this._Content_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Content_0_4._sbPadding;
+        var currVal_0 = this._Content_0_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_0);
             this._expr_0 = currVal_0;
@@ -49911,7 +50587,7 @@ var _View_Content_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Content_Host0.prototype.destroyInternal = function () {
-        this._Content_0_4.ngOnDestroy();
+        this._Content_0_4.context.ngOnDestroy();
     };
     return _View_Content_Host0;
 }(AppView));
@@ -49925,7 +50601,7 @@ var ContentNgFactory = new ComponentFactory('ion-content', viewFactory_Content_H
 var styles_Content = [];
 var renderType_Content = null;
 var _View_Content0 = (function (_super) {
-    __extends$133(_View_Content0, _super);
+    __extends$134(_View_Content0, _super);
     function _View_Content0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content0, renderType_Content, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -49948,19 +50624,61 @@ var _View_Content0 = (function (_super) {
 }(AppView));
 function viewFactory_Content0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Content === null)) {
-        (renderType_Content = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/content/content.d.ts class Content - inline template', 3, ViewEncapsulation.None, styles_Content, {}));
+        (renderType_Content = viewUtils.createRenderComponentType('', 3, ViewEncapsulation.None, styles_Content, {}));
     }
     return new _View_Content0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_List = (function () {
+    function Wrapper_List(p0, p1, p2, p3) {
+        this.changed = false;
+        this._mode = UNINITIALIZED;
+        this._sliding = UNINITIALIZED;
+        this.context = new List(p0, p1, p2, p3);
+    }
+    Wrapper_List.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_List.prototype.check_sliding = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._sliding, currValue))) {
+            this.changed = true;
+            this.context.sliding = currValue;
+            this._sliding = currValue;
+        }
+    };
+    Wrapper_List.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_List;
+}());
+
+var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+
+var Wrapper_Reorder = (function () {
+    function Wrapper_Reorder(p0, p1) {
+        this.changed = false;
+        this.context = new Reorder(p0, p1);
+    }
+    Wrapper_Reorder.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Reorder;
+}());
 var renderType_Reorder_Host = null;
 var _View_Reorder_Host0 = (function (_super) {
-    __extends$135(_View_Reorder_Host0, _super);
+    __extends$136(_View_Reorder_Host0, _super);
     function _View_Reorder_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder_Host0, renderType_Reorder_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -49968,22 +50686,27 @@ var _View_Reorder_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-reorder', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Reorder0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Reorder_0_4 = new Reorder(this.parentInjector.get(Item), new ElementRef(this._el_0));
-        this._appEl_0.initComponent(this._Reorder_0_4, [], compView_0);
-        compView_0.create(this._Reorder_0_4, this.projectableNodes, null);
+        this._Reorder_0_4 = new Wrapper_Reorder(this.parentInjector.get(Item), new ElementRef(this._el_0));
+        this._appEl_0.initComponent(this._Reorder_0_4.context, [], compView_0);
+        compView_0.create(this._Reorder_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_Reorder_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Reorder) && (0 === requestNodeIndex))) {
-            return this._Reorder_0_4;
+            return this._Reorder_0_4.context;
         }
         return notFoundResult;
     };
+    _View_Reorder_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Reorder_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_Reorder_Host0.prototype._handle_click_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Reorder_0_4.onClick($event) !== false);
+        var pd_0 = (this._Reorder_0_4.context.onClick($event) !== false);
         return (true && pd_0);
     };
     return _View_Reorder_Host0;
@@ -49998,7 +50721,7 @@ var ReorderNgFactory = new ComponentFactory('ion-reorder', viewFactory_Reorder_H
 var styles_Reorder = [];
 var renderType_Reorder = null;
 var _View_Reorder0 = (function (_super) {
-    __extends$135(_View_Reorder0, _super);
+    __extends$136(_View_Reorder0, _super);
     function _View_Reorder0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder0, renderType_Reorder, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50007,26 +50730,23 @@ var _View_Reorder0 = (function (_super) {
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'name', 'reorder');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_Reorder0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_Reorder0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'reorder';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -50034,25 +50754,103 @@ var _View_Reorder0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Reorder0.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_Reorder0;
 }(AppView));
 function viewFactory_Reorder0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Reorder === null)) {
-        (renderType_Reorder = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item-reorder.d.ts class Reorder - inline template', 0, ViewEncapsulation.None, styles_Reorder, {}));
+        (renderType_Reorder = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Reorder, {}));
     }
     return new _View_Reorder0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_Label = (function () {
+    function Wrapper_Label(p0, p1, p2, p3, p4, p5, p6) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._id = UNINITIALIZED;
+        this.context = new Label(p0, p1, p2, p3, p4, p5, p6);
+    }
+    Wrapper_Label.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Label.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Label.prototype.check_id = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._id, currValue))) {
+            this.changed = true;
+            this.context.id = currValue;
+            this._id = currValue;
+        }
+    };
+    Wrapper_Label.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Label;
+}());
+
+var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Item = (function () {
+    function Wrapper_Item(p0, p1, p2, p3) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this.context = new Item(p0, p1, p2, p3);
+    }
+    Wrapper_Item.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Item.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Item.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Item;
+}());
+var Wrapper_ItemContent = (function () {
+    function Wrapper_ItemContent() {
+        this.changed = false;
+        this.context = new ItemContent();
+    }
+    Wrapper_ItemContent.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ItemContent;
+}());
+
 var renderType_Item_Host = null;
 var _View_Item_Host0 = (function (_super) {
-    __extends$134(_View_Item_Host0, _super);
+    __extends$135(_View_Item_Host0, _super);
     function _View_Item_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item_Host0, renderType_Item_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50061,38 +50859,41 @@ var _View_Item_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'item');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Item0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Item_0_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._Item_0_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._query_Label_0_0 = new QueryList();
         this._query_Button_0_1 = new QueryList();
         this._query_Icon_0_2 = new QueryList();
-        this._appEl_0.initComponent(this._Item_0_4, [], compView_0);
+        this._appEl_0.initComponent(this._Item_0_4.context, [], compView_0);
         this._query_Label_0_0.reset([]);
-        this._Item_0_4.contentLabel = this._query_Label_0_0.first;
-        compView_0.create(this._Item_0_4, this.projectableNodes, null);
+        this._Item_0_4.context.contentLabel = this._query_Label_0_0.first;
+        compView_0.create(this._Item_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Item_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Item) && (0 === requestNodeIndex))) {
-            return this._Item_0_4;
+            return this._Item_0_4.context;
         }
         return notFoundResult;
     };
     _View_Item_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Item_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_0_1.dirty) {
                 this._query_Button_0_1.reset([]);
-                this._Item_0_4._buttons = this._query_Button_0_1;
+                this._Item_0_4.context._buttons = this._query_Button_0_1;
                 this._query_Button_0_1.notifyOnChanges();
             }
             if (this._query_Icon_0_2.dirty) {
                 this._query_Icon_0_2.reset([]);
-                this._Item_0_4._icons = this._query_Icon_0_2;
+                this._Item_0_4.context._icons = this._query_Icon_0_2;
                 this._query_Icon_0_2.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_0_4.ngAfterContentInit();
+                this._Item_0_4.context.ngAfterContentInit();
             }
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -50109,7 +50910,7 @@ var ItemNgFactory = new ComponentFactory('ion-list-header,ion-item,[ion-item],io
 var styles_Item = [];
 var renderType_Item = null;
 var _View_Item0 = (function (_super) {
-    __extends$134(_View_Item0, _super);
+    __extends$135(_View_Item0, _super);
     function _View_Item0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item0, renderType_Item, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -50125,18 +50926,17 @@ var _View_Item0 = (function (_super) {
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_Item1);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this.renderer.projectNodes(this._el_1, flattenNestedViewRenderNodes(this.projectableNodes[3]));
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[4]));
         this._el_3 = this.renderer.createElement(this._el_0, 'ion-reorder', null);
         this._appEl_3 = new AppElement(3, 0, this, this._el_3);
         var compView_3 = viewFactory_Reorder0(this.viewUtils, this.injector(3), this._appEl_3);
-        this._Reorder_3_4 = new Reorder(this.parentInjector.get(Item), new ElementRef(this._el_3));
-        this._appEl_3.initComponent(this._Reorder_3_4, [], compView_3);
-        compView_3.create(this._Reorder_3_4, [], null);
+        this._Reorder_3_4 = new Wrapper_Reorder(this.parentInjector.get(Item), new ElementRef(this._el_3));
+        this._appEl_3.initComponent(this._Reorder_3_4.context, [], compView_3);
+        compView_3.create(this._Reorder_3_4.context, [], null);
         this._el_4 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'button-effect');
-        this._expr_0 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_3, 'click', this.eventHandler(this._handle_click_3_0.bind(this)));
         this.init([], [
             this._el_0,
@@ -50152,25 +50952,24 @@ var _View_Item0 = (function (_super) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === Reorder) && (3 === requestNodeIndex))) {
-            return this._Reorder_3_4;
+            return this._Reorder_3_4.context;
         }
         return notFoundResult;
     };
     _View_Item0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context._viewLabel;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgIf_2_6.ngIf = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_0, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
+        this._Reorder_3_4.detectChangesInternal(this, this._el_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._viewQuery_Label_0.dirty) {
                 this._viewQuery_Label_0.reset([this._appEl_2.mapNestedViews(_View_Item1, function (nestedView) {
-                        return [nestedView._Label_0_3];
+                        return [nestedView._Label_0_3.context];
                     })]);
                 this.context.viewLabel = this._viewQuery_Label_0.first;
             }
@@ -50178,34 +50977,39 @@ var _View_Item0 = (function (_super) {
     };
     _View_Item0.prototype._handle_click_3_0 = function ($event) {
         this._appEl_3.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Reorder_3_4.onClick($event) !== false);
+        var pd_0 = (this._Reorder_3_4.context.onClick($event) !== false);
         return (true && pd_0);
     };
     return _View_Item0;
 }(AppView));
 function viewFactory_Item0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Item === null)) {
-        (renderType_Item = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item.d.ts class Item - inline template', 5, ViewEncapsulation.None, styles_Item, {}));
+        (renderType_Item = viewUtils.createRenderComponentType('', 5, ViewEncapsulation.None, styles_Item, {}));
     }
     return new _View_Item0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Item1 = (function (_super) {
-    __extends$134(_View_Item1, _super);
+    __extends$135(_View_Item1, _super);
     function _View_Item1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item1, renderType_Item, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     _View_Item1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_0_3 = new Label(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, null, null, null, null);
+        this._Label_0_3 = new Wrapper_Label(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, null, null, null, null);
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[2]));
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_Item1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Label) && (0 === requestNodeIndex))) {
-            return this._Label_0_3;
+            return this._Label_0_3.context;
         }
         return notFoundResult;
+    };
+    _View_Item1.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Label_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Item1.prototype.dirtyParentQueriesInternal = function () {
         this.parent._viewQuery_Label_0.setDirty();
@@ -50216,14 +51020,59 @@ function viewFactory_Item1(viewUtils, parentInjector, declarationEl) {
     return new _View_Item1(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_ListHeader = (function () {
+    function Wrapper_ListHeader(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new ListHeader(p0, p1, p2, p3);
+    }
+    Wrapper_ListHeader.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ListHeader;
+}());
+
+var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ItemOptions = (function () {
+    function Wrapper_ItemOptions(p0, p1) {
+        this.changed = false;
+        this._side = UNINITIALIZED;
+        this.context = new ItemOptions(p0, p1);
+    }
+    Wrapper_ItemOptions.prototype.check_side = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._side, currValue))) {
+            this.changed = true;
+            this.context.side = currValue;
+            this._side = currValue;
+        }
+    };
+    Wrapper_ItemOptions.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ItemOptions;
+}());
+var Wrapper_ItemSliding = (function () {
+    function Wrapper_ItemSliding(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new ItemSliding(p0, p1, p2, p3);
+    }
+    Wrapper_ItemSliding.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ItemSliding;
+}());
 var renderType_ItemSliding_Host = null;
 var _View_ItemSliding_Host0 = (function (_super) {
-    __extends$136(_View_ItemSliding_Host0, _super);
+    __extends$137(_View_ItemSliding_Host0, _super);
     function _View_ItemSliding_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ItemSliding_Host0, renderType_ItemSliding_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50231,28 +51080,31 @@ var _View_ItemSliding_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-item-sliding', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ItemSliding0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ItemSliding_0_4 = new ItemSliding(this.parentInjector.get(List, null), this.renderer, new ElementRef(this._el_0), this.parentInjector.get(NgZone));
+        this._ItemSliding_0_4 = new Wrapper_ItemSliding(this.parentInjector.get(List, null), this.renderer, new ElementRef(this._el_0), this.parentInjector.get(NgZone));
         this._query_Item_0_0 = new QueryList();
         this._query_ItemOptions_0_1 = new QueryList();
-        this._appEl_0.initComponent(this._ItemSliding_0_4, [], compView_0);
+        this._appEl_0.initComponent(this._ItemSliding_0_4.context, [], compView_0);
         this._query_Item_0_0.reset([]);
-        this._ItemSliding_0_4.item = this._query_Item_0_0.first;
-        compView_0.create(this._ItemSliding_0_4, this.projectableNodes, null);
+        this._ItemSliding_0_4.context.item = this._query_Item_0_0.first;
+        compView_0.create(this._ItemSliding_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ItemSliding_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ItemSliding) && (0 === requestNodeIndex))) {
-            return this._ItemSliding_0_4;
+            return this._ItemSliding_0_4.context;
         }
         return notFoundResult;
     };
     _View_ItemSliding_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._ItemSliding_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_ItemOptions_0_1.dirty) {
                 this._query_ItemOptions_0_1.reset([]);
-                this._ItemSliding_0_4._itemOptions = this._query_ItemOptions_0_1;
+                this._ItemSliding_0_4.context._itemOptions = this._query_ItemOptions_0_1;
                 this._query_ItemOptions_0_1.notifyOnChanges();
             }
         }
@@ -50270,7 +51122,7 @@ var ItemSlidingNgFactory = new ComponentFactory('ion-item-sliding', viewFactory_
 var styles_ItemSliding = [];
 var renderType_ItemSliding = null;
 var _View_ItemSliding0 = (function (_super) {
-    __extends$136(_View_ItemSliding0, _super);
+    __extends$137(_View_ItemSliding0, _super);
     function _View_ItemSliding0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ItemSliding0, renderType_ItemSliding, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -50292,19 +51144,81 @@ var _View_ItemSliding0 = (function (_super) {
 }(AppView));
 function viewFactory_ItemSliding0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ItemSliding === null)) {
-        (renderType_ItemSliding = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item-sliding.d.ts class ItemSliding - inline template', 2, ViewEncapsulation.None, styles_ItemSliding, {}));
+        (renderType_ItemSliding = viewUtils.createRenderComponentType('', 2, ViewEncapsulation.None, styles_ItemSliding, {}));
     }
     return new _View_ItemSliding0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_Avatar = (function () {
+    function Wrapper_Avatar() {
+        this.changed = false;
+        this.context = new Avatar();
+    }
+    Wrapper_Avatar.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Avatar;
+}());
+
+var Wrapper_Note = (function () {
+    function Wrapper_Note() {
+        this.changed = false;
+        this.context = new Note();
+    }
+    Wrapper_Note.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Note;
+}());
+
+var __extends$138 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Nav = (function () {
+    function Wrapper_Nav(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) {
+        this.changed = false;
+        this._root = UNINITIALIZED;
+        this._rootParams = UNINITIALIZED;
+        this._swipeBackEnabled = UNINITIALIZED;
+        this.context = new Nav(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    }
+    Wrapper_Nav.prototype.check_root = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._root, currValue))) {
+            this.changed = true;
+            this.context.root = currValue;
+            this._root = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.check_rootParams = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._rootParams, currValue))) {
+            this.changed = true;
+            this.context.rootParams = currValue;
+            this._rootParams = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.check_swipeBackEnabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._swipeBackEnabled, currValue))) {
+            this.changed = true;
+            this.context.swipeBackEnabled = currValue;
+            this._swipeBackEnabled = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Nav;
+}());
 var renderType_Nav_Host = null;
 var _View_Nav_Host0 = (function (_super) {
-    __extends$137(_View_Nav_Host0, _super);
+    __extends$138(_View_Nav_Host0, _super);
     function _View_Nav_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav_Host0, renderType_Nav_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50312,24 +51226,25 @@ var _View_Nav_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-nav', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Nav_0_4 = new Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
-        this._appEl_0.initComponent(this._Nav_0_4, [], compView_0);
-        compView_0.create(this._Nav_0_4, this.projectableNodes, null);
+        this._Nav_0_4 = new Wrapper_Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
+        this._appEl_0.initComponent(this._Nav_0_4.context, [], compView_0);
+        compView_0.create(this._Nav_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Nav_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Nav) && (0 === requestNodeIndex))) {
-            return this._Nav_0_4;
+            return this._Nav_0_4.context;
         }
         return notFoundResult;
     };
     _View_Nav_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Nav_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Nav_0_4.ngAfterViewInit();
+                this._Nav_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -50345,7 +51260,7 @@ var NavNgFactory = new ComponentFactory('ion-nav', viewFactory_Nav_Host0, Nav);
 var styles_Nav = [];
 var renderType_Nav = null;
 var _View_Nav0 = (function (_super) {
-    __extends$137(_View_Nav0, _super);
+    __extends$138(_View_Nav0, _super);
     function _View_Nav0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav0, renderType_Nav, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50369,7 +51284,7 @@ var _View_Nav0 = (function (_super) {
 }(AppView));
 function viewFactory_Nav0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Nav === null)) {
-        (renderType_Nav = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/nav/nav.d.ts class Nav - inline template', 0, ViewEncapsulation.None, styles_Nav, {}));
+        (renderType_Nav = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Nav, {}));
     }
     return new _View_Nav0(viewUtils, parentInjector, declarationEl);
 }
@@ -50379,6 +51294,30 @@ var __extends$130 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ApiDemoPage = (function () {
+    function Wrapper_ApiDemoPage(p0) {
+        this.changed = false;
+        this.context = new ApiDemoPage(p0);
+    }
+    Wrapper_ApiDemoPage.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ApiDemoPage;
+}());
+var Wrapper_ApiDemoApp = (function () {
+    function Wrapper_ApiDemoApp() {
+        this.changed = false;
+        this.context = new ApiDemoApp();
+    }
+    Wrapper_ApiDemoApp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ApiDemoApp;
+}());
 var renderType_ApiDemoPage_Host = null;
 var _View_ApiDemoPage_Host0 = (function (_super) {
     __extends$130(_View_ApiDemoPage_Host0, _super);
@@ -50389,17 +51328,22 @@ var _View_ApiDemoPage_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoPage0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ApiDemoPage_0_4 = new ApiDemoPage(this.parentInjector.get(ToastController));
-        this._appEl_0.initComponent(this._ApiDemoPage_0_4, [], compView_0);
-        compView_0.create(this._ApiDemoPage_0_4, this.projectableNodes, null);
+        this._ApiDemoPage_0_4 = new Wrapper_ApiDemoPage(this.parentInjector.get(ToastController));
+        this._appEl_0.initComponent(this._ApiDemoPage_0_4.context, [], compView_0);
+        compView_0.create(this._ApiDemoPage_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ApiDemoPage_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ApiDemoPage) && (0 === requestNodeIndex))) {
-            return this._ApiDemoPage_0_4;
+            return this._ApiDemoPage_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ApiDemoPage_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ApiDemoPage_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoPage_Host0;
 }(AppView));
@@ -50420,24 +51364,24 @@ var _View_ApiDemoPage0 = (function (_super) {
     _View_ApiDemoPage0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-header', null);
-        this._Header_0_3 = new Header(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(ViewController, null));
+        this._Header_0_3 = new Wrapper_Header(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(ViewController, null));
         this._text_1 = this.renderer.createText(this._el_0, '\n\n  ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'ion-navbar', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'toolbar');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Navbar0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._Navbar_2_4 = new Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._appEl_2.initComponent(this._Navbar_2_4, [], compView_2);
+        this._Navbar_2_4 = new Wrapper_Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._appEl_2.initComponent(this._Navbar_2_4.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '\n    ', null);
         this._el_4 = this.renderer.createElement(null, 'ion-title', null);
         this._appEl_4 = new AppElement(4, 2, this, this._el_4);
         var compView_4 = viewFactory_ToolbarTitle0(this.viewUtils, this.injector(4), this._appEl_4);
-        this._ToolbarTitle_4_4 = new ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer, this.parentInjector.get(Toolbar, null), this._Navbar_2_4);
-        this._appEl_4.initComponent(this._ToolbarTitle_4_4, [], compView_4);
+        this._ToolbarTitle_4_4 = new Wrapper_ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer, this.parentInjector.get(Toolbar, null), this._Navbar_2_4.context);
+        this._appEl_4.initComponent(this._ToolbarTitle_4_4.context, [], compView_4);
         this._text_5 = this.renderer.createText(null, 'Item Sliding', null);
-        compView_4.create(this._ToolbarTitle_4_4, [[].concat([this._text_5])], null);
+        compView_4.create(this._ToolbarTitle_4_4.context, [[].concat([this._text_5])], null);
         this._text_6 = this.renderer.createText(null, '\n  ', null);
-        compView_2.create(this._Navbar_2_4, [
+        compView_2.create(this._Navbar_2_4.context, [
             [],
             [],
             [],
@@ -50453,27 +51397,27 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_9, 'class', 'outer-content');
         this._appEl_9 = new AppElement(9, null, this, this._el_9);
         var compView_9 = viewFactory_Content0(this.viewUtils, this.injector(9), this._appEl_9);
-        this._Content_9_4 = new Content(this.parentInjector.get(Config), new ElementRef(this._el_9), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
-        this._appEl_9.initComponent(this._Content_9_4, [], compView_9);
+        this._Content_9_4 = new Wrapper_Content(this.parentInjector.get(Config), new ElementRef(this._el_9), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
+        this._appEl_9.initComponent(this._Content_9_4.context, [], compView_9);
         this._text_10 = this.renderer.createText(null, '\n\n  ', null);
         this._el_11 = this.renderer.createElement(null, 'ion-list', null);
         this.renderer.setElementAttribute(this._el_11, 'class', 'chat-sliding-demo');
-        this._List_11_3 = new List(this.parentInjector.get(Config), new ElementRef(this._el_11), this.renderer, this.parentInjector.get(GestureController));
+        this._List_11_3 = new Wrapper_List(this.parentInjector.get(Config), new ElementRef(this._el_11), this.renderer, this.parentInjector.get(GestureController));
         this._text_12 = this.renderer.createText(this._el_11, '\n    ', null);
         this._el_13 = this.renderer.createElement(this._el_11, 'ion-list-header', null);
         this.renderer.setElementAttribute(this._el_13, 'class', 'item');
         this._appEl_13 = new AppElement(13, 11, this, this._el_13);
         var compView_13 = viewFactory_Item0(this.viewUtils, this.injector(13), this._appEl_13);
-        this._Item_13_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_13), this.renderer);
-        this._ListHeader_13_5 = new ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_13), null);
+        this._Item_13_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_13), this.renderer);
+        this._ListHeader_13_5 = new Wrapper_ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_13), null);
         this._query_Label_13_0 = new QueryList();
         this._query_Button_13_1 = new QueryList();
         this._query_Icon_13_2 = new QueryList();
-        this._appEl_13.initComponent(this._Item_13_4, [], compView_13);
+        this._appEl_13.initComponent(this._Item_13_4.context, [], compView_13);
         this._text_14 = this.renderer.createText(null, '\n      Chats\n    ', null);
         this._query_Label_13_0.reset([]);
-        this._Item_13_4.contentLabel = this._query_Label_13_0.first;
-        compView_13.create(this._Item_13_4, [
+        this._Item_13_4.context.contentLabel = this._query_Label_13_0.first;
+        compView_13.create(this._Item_13_4.context, [
             [],
             [],
             [].concat([this._text_14]),
@@ -50484,27 +51428,27 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._anchor_16 = this.renderer.createTemplateAnchor(this._el_11, null);
         this._appEl_16 = new AppElement(16, 11, this, this._anchor_16);
         this._TemplateRef_16_5 = new TemplateRef_(this._appEl_16, viewFactory_ApiDemoPage1);
-        this._NgFor_16_6 = new NgFor(this._appEl_16.vcRef, this._TemplateRef_16_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_16_6 = new Wrapper_NgFor(this._appEl_16.vcRef, this._TemplateRef_16_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_17 = this.renderer.createText(this._el_11, '\n  ', null);
         this._text_18 = this.renderer.createText(null, '\n\n  ', null);
         this._el_19 = this.renderer.createElement(null, 'ion-list', null);
         this.renderer.setElementAttribute(this._el_19, 'class', 'login-sliding-demo');
-        this._List_19_3 = new List(this.parentInjector.get(Config), new ElementRef(this._el_19), this.renderer, this.parentInjector.get(GestureController));
+        this._List_19_3 = new Wrapper_List(this.parentInjector.get(Config), new ElementRef(this._el_19), this.renderer, this.parentInjector.get(GestureController));
         this._text_20 = this.renderer.createText(this._el_19, '\n    ', null);
         this._el_21 = this.renderer.createElement(this._el_19, 'ion-list-header', null);
         this.renderer.setElementAttribute(this._el_21, 'class', 'item');
         this._appEl_21 = new AppElement(21, 19, this, this._el_21);
         var compView_21 = viewFactory_Item0(this.viewUtils, this.injector(21), this._appEl_21);
-        this._Item_21_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer);
-        this._ListHeader_21_5 = new ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_21), null);
+        this._Item_21_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer);
+        this._ListHeader_21_5 = new Wrapper_ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_21), null);
         this._query_Label_21_0 = new QueryList();
         this._query_Button_21_1 = new QueryList();
         this._query_Icon_21_2 = new QueryList();
-        this._appEl_21.initComponent(this._Item_21_4, [], compView_21);
+        this._appEl_21.initComponent(this._Item_21_4.context, [], compView_21);
         this._text_22 = this.renderer.createText(null, '\n      Logins\n    ', null);
         this._query_Label_21_0.reset([]);
-        this._Item_21_4.contentLabel = this._query_Label_21_0.first;
-        compView_21.create(this._Item_21_4, [
+        this._Item_21_4.context.contentLabel = this._query_Label_21_0.first;
+        compView_21.create(this._Item_21_4.context, [
             [],
             [],
             [].concat([this._text_22]),
@@ -50515,10 +51459,10 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._anchor_24 = this.renderer.createTemplateAnchor(this._el_19, null);
         this._appEl_24 = new AppElement(24, 19, this, this._anchor_24);
         this._TemplateRef_24_5 = new TemplateRef_(this._appEl_24, viewFactory_ApiDemoPage2);
-        this._NgFor_24_6 = new NgFor(this._appEl_24.vcRef, this._TemplateRef_24_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_24_6 = new Wrapper_NgFor(this._appEl_24.vcRef, this._TemplateRef_24_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_25 = this.renderer.createText(this._el_19, '\n\n  ', null);
         this._text_26 = this.renderer.createText(null, '\n\n', null);
-        compView_9.create(this._Content_9_4, [
+        compView_9.create(this._Content_9_4.context, [
             [],
             [].concat([
                 this._text_10,
@@ -50534,8 +51478,6 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -50571,126 +51513,114 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
-            return this._ToolbarTitle_4_4;
+            return this._ToolbarTitle_4_4.context;
         }
         if (((token === Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 6)))) {
-            return this._Navbar_2_4;
+            return this._Navbar_2_4.context;
         }
         if (((token === Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
-            return this._Header_0_3;
+            return this._Header_0_3.context;
         }
         if (((token === Item) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
-            return this._Item_13_4;
+            return this._Item_13_4.context;
         }
         if (((token === ListHeader) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
-            return this._ListHeader_13_5;
+            return this._ListHeader_13_5.context;
         }
         if (((token === TemplateRef) && (16 === requestNodeIndex))) {
             return this._TemplateRef_16_5;
         }
         if (((token === NgFor) && (16 === requestNodeIndex))) {
-            return this._NgFor_16_6;
+            return this._NgFor_16_6.context;
         }
         if (((token === List) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 17)))) {
-            return this._List_11_3;
+            return this._List_11_3.context;
         }
         if (((token === Item) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 22)))) {
-            return this._Item_21_4;
+            return this._Item_21_4.context;
         }
         if (((token === ListHeader) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 22)))) {
-            return this._ListHeader_21_5;
+            return this._ListHeader_21_5.context;
         }
         if (((token === TemplateRef) && (24 === requestNodeIndex))) {
             return this._TemplateRef_24_5;
         }
         if (((token === NgFor) && (24 === requestNodeIndex))) {
-            return this._NgFor_24_6;
+            return this._NgFor_24_6.context;
         }
         if (((token === List) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 25)))) {
-            return this._List_19_3;
+            return this._List_19_3.context;
         }
         if (((token === Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 26)))) {
-            return this._Content_9_4;
+            return this._Content_9_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoPage0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Content_9_4.ngOnInit();
+        this._Header_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        this._Navbar_2_4.detectChangesInternal(this, this._el_2, throwOnChange);
+        if (this._ToolbarTitle_4_4.detectChangesInternal(this, this._el_4, throwOnChange)) {
+            this._appEl_4.componentView.markAsCheckOnce();
         }
-        changes = null;
+        if (this._Content_9_4.detectChangesInternal(this, this._el_9, throwOnChange)) {
+            this._appEl_9.componentView.markAsCheckOnce();
+        }
+        this._List_11_3.detectChangesInternal(this, this._el_11, throwOnChange);
+        if (this._Item_13_4.detectChangesInternal(this, this._el_13, throwOnChange)) {
+            this._appEl_13.componentView.markAsCheckOnce();
+        }
+        this._ListHeader_13_5.detectChangesInternal(this, this._el_13, throwOnChange);
         var currVal_3 = this.context.chats;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgFor_16_6.ngForOf = currVal_3;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_3, currVal_3);
-            this._expr_3 = currVal_3;
+        this._NgFor_16_6.check_ngForOf(currVal_3, throwOnChange, false);
+        this._NgFor_16_6.detectChangesInternal(this, this._anchor_16, throwOnChange);
+        this._List_19_3.detectChangesInternal(this, this._el_19, throwOnChange);
+        if (this._Item_21_4.detectChangesInternal(this, this._el_21, throwOnChange)) {
+            this._appEl_21.componentView.markAsCheckOnce();
         }
-        if ((changes !== null)) {
-            this._NgFor_16_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_16_6.ngDoCheck();
-        }
-        changes = null;
+        this._ListHeader_21_5.detectChangesInternal(this, this._el_21, throwOnChange);
         var currVal_4 = this.context.logins;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgFor_24_6.ngForOf = currVal_4;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_4, currVal_4);
-            this._expr_4 = currVal_4;
-        }
-        if ((changes !== null)) {
-            this._NgFor_24_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_24_6.ngDoCheck();
-        }
+        this._NgFor_24_6.check_ngForOf(currVal_4, throwOnChange, false);
+        this._NgFor_24_6.detectChangesInternal(this, this._anchor_24, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_13_1.dirty) {
                 this._query_Button_13_1.reset([]);
-                this._Item_13_4._buttons = this._query_Button_13_1;
+                this._Item_13_4.context._buttons = this._query_Button_13_1;
                 this._query_Button_13_1.notifyOnChanges();
             }
             if (this._query_Icon_13_2.dirty) {
                 this._query_Icon_13_2.reset([]);
-                this._Item_13_4._icons = this._query_Icon_13_2;
+                this._Item_13_4.context._icons = this._query_Icon_13_2;
                 this._query_Icon_13_2.notifyOnChanges();
             }
             if (this._query_Button_21_1.dirty) {
                 this._query_Button_21_1.reset([]);
-                this._Item_21_4._buttons = this._query_Button_21_1;
+                this._Item_21_4.context._buttons = this._query_Button_21_1;
                 this._query_Button_21_1.notifyOnChanges();
             }
             if (this._query_Icon_21_2.dirty) {
                 this._query_Icon_21_2.reset([]);
-                this._Item_21_4._icons = this._query_Icon_21_2;
+                this._Item_21_4.context._icons = this._query_Icon_21_2;
                 this._query_Icon_21_2.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_13_4.ngAfterContentInit();
+                this._Item_13_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_21_4.ngAfterContentInit();
+                this._Item_21_4.context.ngAfterContentInit();
             }
         }
-        var currVal_0 = this._Navbar_2_4._hidden;
+        var currVal_0 = this._Navbar_2_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementProperty(this._el_2, 'hidden', currVal_0);
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._Navbar_2_4._sbPadding;
+        var currVal_1 = this._Navbar_2_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_2, 'statusbar-padding', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._Content_9_4._sbPadding;
+        var currVal_2 = this._Content_9_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
@@ -50698,18 +51628,18 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Navbar_2_4.ngAfterViewInit();
+                this._Navbar_2_4.context.ngAfterViewInit();
             }
         }
     };
     _View_ApiDemoPage0.prototype.destroyInternal = function () {
-        this._Content_9_4.ngOnDestroy();
+        this._Content_9_4.context.ngOnDestroy();
     };
     return _View_ApiDemoPage0;
 }(AppView));
 function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/item-sliding/page.html', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -50722,25 +51652,25 @@ var _View_ApiDemoPage1 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-item-sliding', null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ItemSliding0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ItemSliding_0_4 = new ItemSliding(this.parent._List_11_3, this.renderer, new ElementRef(this._el_0), this.parent.parentInjector.get(NgZone));
+        this._ItemSliding_0_4 = new Wrapper_ItemSliding(this.parent._List_11_3.context, this.renderer, new ElementRef(this._el_0), this.parent.parentInjector.get(NgZone));
         this._query_Item_0_0 = new QueryList();
         this._query_ItemOptions_0_1 = new QueryList();
-        this._appEl_0.initComponent(this._ItemSliding_0_4, [], compView_0);
+        this._appEl_0.initComponent(this._ItemSliding_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '\n      ', null);
         this._el_2 = this.renderer.createElement(null, 'ion-item', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'item item-block');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Item0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._Item_2_4 = new Item(this.parent.parentInjector.get(Form), this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._ItemContent_2_5 = new ItemContent();
+        this._Item_2_4 = new Wrapper_Item(this.parent.parentInjector.get(Form), this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._ItemContent_2_5 = new Wrapper_ItemContent();
         this._query_Label_2_0 = new QueryList();
         this._query_Button_2_1 = new QueryList();
         this._query_Icon_2_2 = new QueryList();
-        this._appEl_2.initComponent(this._Item_2_4, [], compView_2);
+        this._appEl_2.initComponent(this._Item_2_4.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '\n        ', null);
         this._el_4 = this.renderer.createElement(null, 'ion-avatar', null);
         this.renderer.setElementAttribute(this._el_4, 'item-left', '');
-        this._Avatar_4_3 = new Avatar();
+        this._Avatar_4_3 = new Wrapper_Avatar();
         this._text_5 = this.renderer.createText(this._el_4, '\n          ', null);
         this._el_6 = this.renderer.createElement(this._el_4, 'img', null);
         this._text_7 = this.renderer.createText(this._el_4, '\n        ', null);
@@ -50753,12 +51683,12 @@ var _View_ApiDemoPage1 = (function (_super) {
         this._text_14 = this.renderer.createText(null, '\n        ', null);
         this._el_15 = this.renderer.createElement(null, 'ion-note', null);
         this.renderer.setElementAttribute(this._el_15, 'item-right', '');
-        this._Note_15_3 = new Note();
+        this._Note_15_3 = new Wrapper_Note();
         this._text_16 = this.renderer.createText(this._el_15, '', null);
         this._text_17 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_2_0.reset([]);
-        this._Item_2_4.contentLabel = this._query_Label_2_0.first;
-        compView_2.create(this._Item_2_4, [
+        this._Item_2_4.context.contentLabel = this._query_Label_2_0.first;
+        compView_2.create(this._Item_2_4.context, [
             [].concat([this._el_4]),
             [],
             [].concat([
@@ -50775,22 +51705,22 @@ var _View_ApiDemoPage1 = (function (_super) {
         ], null);
         this._text_18 = this.renderer.createText(null, '\n\n      ', null);
         this._el_19 = this.renderer.createElement(null, 'ion-item-options', null);
-        this._ItemOptions_19_3 = new ItemOptions(new ElementRef(this._el_19), this.renderer);
+        this._ItemOptions_19_3 = new Wrapper_ItemOptions(new ElementRef(this._el_19), this.renderer);
         this._text_20 = this.renderer.createText(this._el_19, '\n        ', null);
         this._el_21 = this.renderer.createElement(this._el_19, 'button', null);
         this.renderer.setElementAttribute(this._el_21, 'color', 'secondary');
         this.renderer.setElementAttribute(this._el_21, 'ion-button', '');
         this._appEl_21 = new AppElement(21, 19, this, this._el_21);
         var compView_21 = viewFactory_Button0(this.viewUtils, this.injector(21), this._appEl_21);
-        this._Button_21_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer);
-        this._appEl_21.initComponent(this._Button_21_4, [], compView_21);
+        this._Button_21_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer);
+        this._appEl_21.initComponent(this._Button_21_4.context, [], compView_21);
         this._text_22 = this.renderer.createText(null, '\n          ', null);
         this._el_23 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_23, 'name', 'menu');
         this.renderer.setElementAttribute(this._el_23, 'role', 'img');
-        this._Icon_23_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_23), this.renderer);
+        this._Icon_23_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_23), this.renderer);
         this._text_24 = this.renderer.createText(null, '\n          More\n        ', null);
-        compView_21.create(this._Button_21_4, [[].concat([
+        compView_21.create(this._Button_21_4.context, [[].concat([
                 this._text_22,
                 this._el_23,
                 this._text_24
@@ -50801,15 +51731,15 @@ var _View_ApiDemoPage1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_26, 'ion-button', '');
         this._appEl_26 = new AppElement(26, 19, this, this._el_26);
         var compView_26 = viewFactory_Button0(this.viewUtils, this.injector(26), this._appEl_26);
-        this._Button_26_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_26), this.renderer);
-        this._appEl_26.initComponent(this._Button_26_4, [], compView_26);
+        this._Button_26_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_26), this.renderer);
+        this._appEl_26.initComponent(this._Button_26_4.context, [], compView_26);
         this._text_27 = this.renderer.createText(null, '\n          ', null);
         this._el_28 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_28, 'name', 'volume-off');
         this.renderer.setElementAttribute(this._el_28, 'role', 'img');
-        this._Icon_28_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_28), this.renderer);
+        this._Icon_28_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_28), this.renderer);
         this._text_29 = this.renderer.createText(null, '\n          Mute\n        ', null);
-        compView_26.create(this._Button_26_4, [[].concat([
+        compView_26.create(this._Button_26_4.context, [[].concat([
                 this._text_27,
                 this._el_28,
                 this._text_29
@@ -50820,15 +51750,15 @@ var _View_ApiDemoPage1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_31, 'ion-button', '');
         this._appEl_31 = new AppElement(31, 19, this, this._el_31);
         var compView_31 = viewFactory_Button0(this.viewUtils, this.injector(31), this._appEl_31);
-        this._Button_31_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_31), this.renderer);
-        this._appEl_31.initComponent(this._Button_31_4, [], compView_31);
+        this._Button_31_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_31), this.renderer);
+        this._appEl_31.initComponent(this._Button_31_4.context, [], compView_31);
         this._text_32 = this.renderer.createText(null, '\n          ', null);
         this._el_33 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_33, 'name', 'trash');
         this.renderer.setElementAttribute(this._el_33, 'role', 'img');
-        this._Icon_33_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_33), this.renderer);
+        this._Icon_33_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_33), this.renderer);
         this._text_34 = this.renderer.createText(null, '\n          Delete\n        ', null);
-        compView_31.create(this._Button_31_4, [[].concat([
+        compView_31.create(this._Button_31_4.context, [[].concat([
                 this._text_32,
                 this._el_33,
                 this._text_34
@@ -50837,7 +51767,7 @@ var _View_ApiDemoPage1 = (function (_super) {
         this._text_36 = this.renderer.createText(null, '\n\n      ', null);
         this._el_37 = this.renderer.createElement(null, 'ion-item-options', null);
         this.renderer.setElementAttribute(this._el_37, 'side', 'left');
-        this._ItemOptions_37_3 = new ItemOptions(new ElementRef(this._el_37), this.renderer);
+        this._ItemOptions_37_3 = new Wrapper_ItemOptions(new ElementRef(this._el_37), this.renderer);
         this._text_38 = this.renderer.createText(this._el_37, '\n        ', null);
         this._el_39 = this.renderer.createElement(this._el_37, 'button', null);
         this.renderer.setElementAttribute(this._el_39, 'color', 'primary');
@@ -50845,14 +51775,14 @@ var _View_ApiDemoPage1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_39, 'ion-button', '');
         this._appEl_39 = new AppElement(39, 37, this, this._el_39);
         var compView_39 = viewFactory_Button0(this.viewUtils, this.injector(39), this._appEl_39);
-        this._Button_39_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_39), this.renderer);
-        this._appEl_39.initComponent(this._Button_39_4, [], compView_39);
+        this._Button_39_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_39), this.renderer);
+        this._appEl_39.initComponent(this._Button_39_4.context, [], compView_39);
         this._text_40 = this.renderer.createText(null, '\n          ', null);
         this._el_41 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_41, 'class', 'expand-hide');
         this.renderer.setElementAttribute(this._el_41, 'name', 'archive');
         this.renderer.setElementAttribute(this._el_41, 'role', 'img');
-        this._Icon_41_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_41), this.renderer);
+        this._Icon_41_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_41), this.renderer);
         this._text_42 = this.renderer.createText(null, '\n          ', null);
         this._el_43 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_43, 'class', 'expand-hide');
@@ -50862,11 +51792,11 @@ var _View_ApiDemoPage1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_46, 'id', 'archive-spinner');
         this._appEl_46 = new AppElement(46, 39, this, this._el_46);
         var compView_46 = viewFactory_Spinner0(this.viewUtils, this.injector(46), this._appEl_46);
-        this._Spinner_46_4 = new Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_46), this.renderer);
-        this._appEl_46.initComponent(this._Spinner_46_4, [], compView_46);
-        compView_46.create(this._Spinner_46_4, [], null);
+        this._Spinner_46_4 = new Wrapper_Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_46), this.renderer);
+        this._appEl_46.initComponent(this._Spinner_46_4.context, [], compView_46);
+        compView_46.create(this._Spinner_46_4.context, [], null);
         this._text_47 = this.renderer.createText(null, '\n        ', null);
-        compView_39.create(this._Button_39_4, [[].concat([
+        compView_39.create(this._Button_39_4.context, [[].concat([
                 this._text_40,
                 this._el_41,
                 this._text_42,
@@ -50877,9 +51807,9 @@ var _View_ApiDemoPage1 = (function (_super) {
             ])], null);
         this._text_48 = this.renderer.createText(this._el_37, '\n      ', null);
         this._text_49 = this.renderer.createText(null, '\n    ', null);
-        this._query_Item_0_0.reset([this._Item_2_4]);
-        this._ItemSliding_0_4.item = this._query_Item_0_0.first;
-        compView_0.create(this._ItemSliding_0_4, [
+        this._query_Item_0_0.reset([this._Item_2_4.context]);
+        this._ItemSliding_0_4.context.item = this._query_Item_0_0.first;
+        compView_0.create(this._ItemSliding_0_4.context, [
             [].concat([this._el_2]),
             [].concat([
                 this._el_19,
@@ -50891,23 +51821,14 @@ var _View_ApiDemoPage1 = (function (_super) {
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_21, 'click', this.eventHandler(this._handle_click_21_0.bind(this)));
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
         this._expr_7 = UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_26, 'click', this.eventHandler(this._handle_click_26_0.bind(this)));
-        this._expr_9 = UNINITIALIZED;
-        this._expr_10 = UNINITIALIZED;
         this._expr_11 = UNINITIALIZED;
         var disposable_2 = this.renderer.listen(this._el_31, 'click', this.eventHandler(this._handle_click_31_0.bind(this)));
-        this._expr_13 = UNINITIALIZED;
-        this._expr_14 = UNINITIALIZED;
         this._expr_15 = UNINITIALIZED;
         var disposable_3 = this.renderer.listen(this._el_37, 'ionSwipe', this.eventHandler(this._handle_ionSwipe_37_0.bind(this)));
-        this._expr_17 = UNINITIALIZED;
-        var subscription_0 = this._ItemOptions_37_3.ionSwipe.subscribe(this.eventHandler(this._handle_ionSwipe_37_0.bind(this)));
+        var subscription_0 = this._ItemOptions_37_3.context.ionSwipe.subscribe(this.eventHandler(this._handle_ionSwipe_37_0.bind(this)));
         var disposable_4 = this.renderer.listen(this._el_39, 'click', this.eventHandler(this._handle_click_39_0.bind(this)));
-        this._expr_19 = UNINITIALIZED;
-        this._expr_20 = UNINITIALIZED;
         this._expr_21 = UNINITIALIZED;
         this._expr_22 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
@@ -50972,159 +51893,138 @@ var _View_ApiDemoPage1 = (function (_super) {
     };
     _View_ApiDemoPage1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Avatar) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
-            return this._Avatar_4_3;
+            return this._Avatar_4_3.context;
         }
         if (((token === Note) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 16)))) {
-            return this._Note_15_3;
+            return this._Note_15_3.context;
         }
         if (((token === Item) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 17)))) {
-            return this._Item_2_4;
+            return this._Item_2_4.context;
         }
         if (((token === ItemContent) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 17)))) {
-            return this._ItemContent_2_5;
+            return this._ItemContent_2_5.context;
         }
         if (((token === Icon) && (23 === requestNodeIndex))) {
-            return this._Icon_23_3;
+            return this._Icon_23_3.context;
         }
         if (((token === Button) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 24)))) {
-            return this._Button_21_4;
+            return this._Button_21_4.context;
         }
         if (((token === Icon) && (28 === requestNodeIndex))) {
-            return this._Icon_28_3;
+            return this._Icon_28_3.context;
         }
         if (((token === Button) && ((26 <= requestNodeIndex) && (requestNodeIndex <= 29)))) {
-            return this._Button_26_4;
+            return this._Button_26_4.context;
         }
         if (((token === Icon) && (33 === requestNodeIndex))) {
-            return this._Icon_33_3;
+            return this._Icon_33_3.context;
         }
         if (((token === Button) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 34)))) {
-            return this._Button_31_4;
+            return this._Button_31_4.context;
         }
         if (((token === ItemOptions) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
-            return this._ItemOptions_19_3;
+            return this._ItemOptions_19_3.context;
         }
         if (((token === Icon) && (41 === requestNodeIndex))) {
-            return this._Icon_41_3;
+            return this._Icon_41_3.context;
         }
         if (((token === Spinner) && (46 === requestNodeIndex))) {
-            return this._Spinner_46_4;
+            return this._Spinner_46_4.context;
         }
         if (((token === Button) && ((39 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
-            return this._Button_39_4;
+            return this._Button_39_4.context;
         }
         if (((token === ItemOptions) && ((37 <= requestNodeIndex) && (requestNodeIndex <= 48)))) {
-            return this._ItemOptions_37_3;
+            return this._ItemOptions_37_3.context;
         }
         if (((token === ItemSliding) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 49)))) {
-            return this._ItemSliding_0_4;
+            return this._ItemSliding_0_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoPage1.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
-        changed = false;
-        var currVal_5 = 'secondary';
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._Button_21_4.color = currVal_5;
-            changed = true;
-            this._expr_5 = currVal_5;
+        if (this._ItemSliding_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
-        if (changed) {
+        if (this._Item_2_4.detectChangesInternal(this, this._el_2, throwOnChange)) {
+            this._appEl_2.componentView.markAsCheckOnce();
+        }
+        this._ItemContent_2_5.detectChangesInternal(this, this._el_2, throwOnChange);
+        this._Avatar_4_3.detectChangesInternal(this, this._el_4, throwOnChange);
+        this._Note_15_3.detectChangesInternal(this, this._el_15, throwOnChange);
+        this._ItemOptions_19_3.detectChangesInternal(this, this._el_19, throwOnChange);
+        var currVal_5 = 'secondary';
+        this._Button_21_4.check_color(currVal_5, throwOnChange, false);
+        if (this._Button_21_4.detectChangesInternal(this, this._el_21, throwOnChange)) {
             this._appEl_21.componentView.markAsCheckOnce();
         }
         var currVal_6 = 'menu';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._Icon_23_3.name = currVal_6;
-            this._expr_6 = currVal_6;
-        }
-        changed = false;
+        this._Icon_23_3.check_name(currVal_6, throwOnChange, false);
+        this._Icon_23_3.detectChangesInternal(this, this._el_23, throwOnChange);
         var currVal_9 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
-            this._Button_26_4.color = currVal_9;
-            changed = true;
-            this._expr_9 = currVal_9;
-        }
-        if (changed) {
+        this._Button_26_4.check_color(currVal_9, throwOnChange, false);
+        if (this._Button_26_4.detectChangesInternal(this, this._el_26, throwOnChange)) {
             this._appEl_26.componentView.markAsCheckOnce();
         }
         var currVal_10 = 'volume-off';
-        if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._Icon_28_3.name = currVal_10;
-            this._expr_10 = currVal_10;
-        }
-        changed = false;
+        this._Icon_28_3.check_name(currVal_10, throwOnChange, false);
+        this._Icon_28_3.detectChangesInternal(this, this._el_28, throwOnChange);
         var currVal_13 = 'danger';
-        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._Button_31_4.color = currVal_13;
-            changed = true;
-            this._expr_13 = currVal_13;
-        }
-        if (changed) {
+        this._Button_31_4.check_color(currVal_13, throwOnChange, false);
+        if (this._Button_31_4.detectChangesInternal(this, this._el_31, throwOnChange)) {
             this._appEl_31.componentView.markAsCheckOnce();
         }
         var currVal_14 = 'trash';
-        if (checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Icon_33_3.name = currVal_14;
-            this._expr_14 = currVal_14;
-        }
+        this._Icon_33_3.check_name(currVal_14, throwOnChange, false);
+        this._Icon_33_3.detectChangesInternal(this, this._el_33, throwOnChange);
         var currVal_17 = 'left';
-        if (checkBinding(throwOnChange, this._expr_17, currVal_17)) {
-            this._ItemOptions_37_3.side = currVal_17;
-            this._expr_17 = currVal_17;
-        }
-        changed = false;
+        this._ItemOptions_37_3.check_side(currVal_17, throwOnChange, false);
+        this._ItemOptions_37_3.detectChangesInternal(this, this._el_37, throwOnChange);
         var currVal_19 = 'primary';
-        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this._Button_39_4.color = currVal_19;
-            changed = true;
-            this._expr_19 = currVal_19;
-        }
-        if (changed) {
+        this._Button_39_4.check_color(currVal_19, throwOnChange, false);
+        if (this._Button_39_4.detectChangesInternal(this, this._el_39, throwOnChange)) {
             this._appEl_39.componentView.markAsCheckOnce();
         }
         var currVal_20 = 'archive';
-        if (checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._Icon_41_3.name = currVal_20;
-            this._expr_20 = currVal_20;
-        }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_46_4.ngOnInit();
+        this._Icon_41_3.check_name(currVal_20, throwOnChange, false);
+        this._Icon_41_3.detectChangesInternal(this, this._el_41, throwOnChange);
+        if (this._Spinner_46_4.detectChangesInternal(this, this._el_46, throwOnChange)) {
+            this._appEl_46.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_2_1.dirty) {
                 this._query_Button_2_1.reset([]);
-                this._Item_2_4._buttons = this._query_Button_2_1;
+                this._Item_2_4.context._buttons = this._query_Button_2_1;
                 this._query_Button_2_1.notifyOnChanges();
             }
             if (this._query_Icon_2_2.dirty) {
                 this._query_Icon_2_2.reset([]);
-                this._Item_2_4._icons = this._query_Icon_2_2;
+                this._Item_2_4.context._icons = this._query_Icon_2_2;
                 this._query_Icon_2_2.notifyOnChanges();
             }
             if (this._query_ItemOptions_0_1.dirty) {
                 this._query_ItemOptions_0_1.reset([
-                    this._ItemOptions_19_3,
-                    this._ItemOptions_37_3
+                    this._ItemOptions_19_3.context,
+                    this._ItemOptions_37_3.context
                 ]);
-                this._ItemSliding_0_4._itemOptions = this._query_ItemOptions_0_1;
+                this._ItemSliding_0_4.context._itemOptions = this._query_ItemOptions_0_1;
                 this._query_ItemOptions_0_1.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_2_4.ngAfterContentInit();
+                this._Item_2_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_21_4.ngAfterContentInit();
+                this._Button_21_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_26_4.ngAfterContentInit();
+                this._Button_26_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_31_4.ngAfterContentInit();
+                this._Button_31_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_39_4.ngAfterContentInit();
+                this._Button_39_4.context.ngAfterContentInit();
             }
         }
         var currVal_0 = this.context.$implicit.img;
@@ -51147,27 +52047,27 @@ var _View_ApiDemoPage1 = (function (_super) {
             this.renderer.setText(this._text_16, currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_7 = this._Icon_23_3._hidden;
+        var currVal_7 = this._Icon_23_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_23, 'hide', currVal_7);
             this._expr_7 = currVal_7;
         }
-        var currVal_11 = this._Icon_28_3._hidden;
+        var currVal_11 = this._Icon_28_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this.renderer.setElementClass(this._el_28, 'hide', currVal_11);
             this._expr_11 = currVal_11;
         }
-        var currVal_15 = this._Icon_33_3._hidden;
+        var currVal_15 = this._Icon_33_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
             this.renderer.setElementClass(this._el_33, 'hide', currVal_15);
             this._expr_15 = currVal_15;
         }
-        var currVal_21 = this._Icon_41_3._hidden;
+        var currVal_21 = this._Icon_41_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
             this.renderer.setElementClass(this._el_41, 'hide', currVal_21);
             this._expr_21 = currVal_21;
         }
-        var currVal_22 = this._Spinner_46_4.paused;
+        var currVal_22 = this._Spinner_46_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_22, currVal_22)) {
             this.renderer.setElementClass(this._el_46, 'spinner-paused', currVal_22);
             this._expr_22 = currVal_22;
@@ -51175,34 +52075,34 @@ var _View_ApiDemoPage1 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ApiDemoPage1.prototype.destroyInternal = function () {
-        this._Icon_23_3.ngOnDestroy();
-        this._Icon_28_3.ngOnDestroy();
-        this._Icon_33_3.ngOnDestroy();
-        this._Icon_41_3.ngOnDestroy();
+        this._Icon_23_3.context.ngOnDestroy();
+        this._Icon_28_3.context.ngOnDestroy();
+        this._Icon_33_3.context.ngOnDestroy();
+        this._Icon_41_3.context.ngOnDestroy();
     };
     _View_ApiDemoPage1.prototype._handle_click_21_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.more(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.more(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage1.prototype._handle_click_26_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.mute(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.mute(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage1.prototype._handle_click_31_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.delete(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.delete(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage1.prototype._handle_ionSwipe_37_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.archive(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.archive(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage1.prototype._handle_click_39_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.archive(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.archive(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     return _View_ApiDemoPage1;
@@ -51219,26 +52119,26 @@ var _View_ApiDemoPage2 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-item-sliding', null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ItemSliding0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ItemSliding_0_4 = new ItemSliding(this.parent._List_19_3, this.renderer, new ElementRef(this._el_0), this.parent.parentInjector.get(NgZone));
+        this._ItemSliding_0_4 = new Wrapper_ItemSliding(this.parent._List_19_3.context, this.renderer, new ElementRef(this._el_0), this.parent.parentInjector.get(NgZone));
         this._query_Item_0_0 = new QueryList();
         this._query_ItemOptions_0_1 = new QueryList();
-        this._appEl_0.initComponent(this._ItemSliding_0_4, [], compView_0);
+        this._appEl_0.initComponent(this._ItemSliding_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '\n      ', null);
         this._el_2 = this.renderer.createElement(null, 'ion-item', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'item item-block');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Item0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._Item_2_4 = new Item(this.parent.parentInjector.get(Form), this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._ItemContent_2_5 = new ItemContent();
+        this._Item_2_4 = new Wrapper_Item(this.parent.parentInjector.get(Form), this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._ItemContent_2_5 = new Wrapper_ItemContent();
         this._query_Label_2_0 = new QueryList();
         this._query_Button_2_1 = new QueryList();
         this._query_Icon_2_2 = new QueryList();
-        this._appEl_2.initComponent(this._Item_2_4, [], compView_2);
+        this._appEl_2.initComponent(this._Item_2_4.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '\n        ', null);
         this._el_4 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_4, 'item-left', '');
         this.renderer.setElementAttribute(this._el_4, 'role', 'img');
-        this._Icon_4_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer);
+        this._Icon_4_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer);
         this._text_5 = this.renderer.createText(null, '\n        ', null);
         this._el_6 = this.renderer.createElement(null, 'h2', null);
         this._text_7 = this.renderer.createText(this._el_6, '', null);
@@ -51247,8 +52147,8 @@ var _View_ApiDemoPage2 = (function (_super) {
         this._text_10 = this.renderer.createText(this._el_9, '', null);
         this._text_11 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_2_0.reset([]);
-        this._Item_2_4.contentLabel = this._query_Label_2_0.first;
-        compView_2.create(this._Item_2_4, [
+        this._Item_2_4.context.contentLabel = this._query_Label_2_0.first;
+        compView_2.create(this._Item_2_4.context, [
             [].concat([this._el_4]),
             [],
             [].concat([
@@ -51265,22 +52165,22 @@ var _View_ApiDemoPage2 = (function (_super) {
         this._text_12 = this.renderer.createText(null, '\n      ', null);
         this._el_13 = this.renderer.createElement(null, 'ion-item-options', null);
         this.renderer.setElementAttribute(this._el_13, 'side', 'left');
-        this._ItemOptions_13_3 = new ItemOptions(new ElementRef(this._el_13), this.renderer);
+        this._ItemOptions_13_3 = new Wrapper_ItemOptions(new ElementRef(this._el_13), this.renderer);
         this._text_14 = this.renderer.createText(this._el_13, '\n        ', null);
         this._el_15 = this.renderer.createElement(this._el_13, 'button', null);
         this.renderer.setElementAttribute(this._el_15, 'color', 'danger');
         this.renderer.setElementAttribute(this._el_15, 'ion-button', '');
         this._appEl_15 = new AppElement(15, 13, this, this._el_15);
         var compView_15 = viewFactory_Button0(this.viewUtils, this.injector(15), this._appEl_15);
-        this._Button_15_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_15), this.renderer);
-        this._appEl_15.initComponent(this._Button_15_4, [], compView_15);
+        this._Button_15_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_15), this.renderer);
+        this._appEl_15.initComponent(this._Button_15_4.context, [], compView_15);
         this._text_16 = this.renderer.createText(null, '\n          ', null);
         this._el_17 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_17, 'name', 'trash');
         this.renderer.setElementAttribute(this._el_17, 'role', 'img');
-        this._Icon_17_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_17), this.renderer);
+        this._Icon_17_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_17), this.renderer);
         this._text_18 = this.renderer.createText(null, '\n        ', null);
-        compView_15.create(this._Button_15_4, [[].concat([
+        compView_15.create(this._Button_15_4.context, [[].concat([
                 this._text_16,
                 this._el_17,
                 this._text_18
@@ -51289,22 +52189,22 @@ var _View_ApiDemoPage2 = (function (_super) {
         this._text_20 = this.renderer.createText(null, '\n      ', null);
         this._el_21 = this.renderer.createElement(null, 'ion-item-options', null);
         this.renderer.setElementAttribute(this._el_21, 'icon-left', '');
-        this._ItemOptions_21_3 = new ItemOptions(new ElementRef(this._el_21), this.renderer);
+        this._ItemOptions_21_3 = new Wrapper_ItemOptions(new ElementRef(this._el_21), this.renderer);
         this._text_22 = this.renderer.createText(this._el_21, '\n        ', null);
         this._el_23 = this.renderer.createElement(this._el_21, 'button', null);
         this.renderer.setElementAttribute(this._el_23, 'color', 'dark');
         this.renderer.setElementAttribute(this._el_23, 'ion-button', '');
         this._appEl_23 = new AppElement(23, 21, this, this._el_23);
         var compView_23 = viewFactory_Button0(this.viewUtils, this.injector(23), this._appEl_23);
-        this._Button_23_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_23), this.renderer);
-        this._appEl_23.initComponent(this._Button_23_4, [], compView_23);
+        this._Button_23_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_23), this.renderer);
+        this._appEl_23.initComponent(this._Button_23_4.context, [], compView_23);
         this._text_24 = this.renderer.createText(null, '\n          ', null);
         this._el_25 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_25, 'name', 'volume-off');
         this.renderer.setElementAttribute(this._el_25, 'role', 'img');
-        this._Icon_25_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_25), this.renderer);
+        this._Icon_25_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_25), this.renderer);
         this._text_26 = this.renderer.createText(null, '\n          Mute\n        ', null);
-        compView_23.create(this._Button_23_4, [[].concat([
+        compView_23.create(this._Button_23_4.context, [[].concat([
                 this._text_24,
                 this._el_25,
                 this._text_26
@@ -51316,14 +52216,14 @@ var _View_ApiDemoPage2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_28, 'ion-button', '');
         this._appEl_28 = new AppElement(28, 21, this, this._el_28);
         var compView_28 = viewFactory_Button0(this.viewUtils, this.injector(28), this._appEl_28);
-        this._Button_28_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_28), this.renderer);
-        this._appEl_28.initComponent(this._Button_28_4, [], compView_28);
+        this._Button_28_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_28), this.renderer);
+        this._appEl_28.initComponent(this._Button_28_4.context, [], compView_28);
         this._text_29 = this.renderer.createText(null, '\n          ', null);
         this._el_30 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_30, 'class', 'expand-hide');
         this.renderer.setElementAttribute(this._el_30, 'name', 'download');
         this.renderer.setElementAttribute(this._el_30, 'role', 'img');
-        this._Icon_30_3 = new Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_30), this.renderer);
+        this._Icon_30_3 = new Wrapper_Icon(this.parent.parentInjector.get(Config), new ElementRef(this._el_30), this.renderer);
         this._text_31 = this.renderer.createText(null, '\n          ', null);
         this._el_32 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_32, 'class', 'expand-hide');
@@ -51333,11 +52233,11 @@ var _View_ApiDemoPage2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_35, 'id', 'download-spinner');
         this._appEl_35 = new AppElement(35, 28, this, this._el_35);
         var compView_35 = viewFactory_Spinner0(this.viewUtils, this.injector(35), this._appEl_35);
-        this._Spinner_35_4 = new Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_35), this.renderer);
-        this._appEl_35.initComponent(this._Spinner_35_4, [], compView_35);
-        compView_35.create(this._Spinner_35_4, [], null);
+        this._Spinner_35_4 = new Wrapper_Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_35), this.renderer);
+        this._appEl_35.initComponent(this._Spinner_35_4.context, [], compView_35);
+        compView_35.create(this._Spinner_35_4.context, [], null);
         this._text_36 = this.renderer.createText(null, '\n        ', null);
-        compView_28.create(this._Button_28_4, [[].concat([
+        compView_28.create(this._Button_28_4.context, [[].concat([
                 this._text_29,
                 this._el_30,
                 this._text_31,
@@ -51348,32 +52248,24 @@ var _View_ApiDemoPage2 = (function (_super) {
             ])], null);
         this._text_37 = this.renderer.createText(this._el_21, '\n      ', null);
         this._text_38 = this.renderer.createText(null, '\n    ', null);
-        this._query_Item_0_0.reset([this._Item_2_4]);
-        this._ItemSliding_0_4.item = this._query_Item_0_0.first;
-        compView_0.create(this._ItemSliding_0_4, [
+        this._query_Item_0_0.reset([this._Item_2_4.context]);
+        this._ItemSliding_0_4.context.item = this._query_Item_0_0.first;
+        compView_0.create(this._ItemSliding_0_4.context, [
             [].concat([this._el_2]),
             [].concat([
                 this._el_13,
                 this._el_21
             ])
         ], null);
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
         this._expr_7 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_21, 'ionSwipe', this.eventHandler(this._handle_ionSwipe_21_0.bind(this)));
-        var subscription_0 = this._ItemOptions_21_3.ionSwipe.subscribe(this.eventHandler(this._handle_ionSwipe_21_0.bind(this)));
+        var subscription_0 = this._ItemOptions_21_3.context.ionSwipe.subscribe(this.eventHandler(this._handle_ionSwipe_21_0.bind(this)));
         var disposable_1 = this.renderer.listen(this._el_23, 'click', this.eventHandler(this._handle_click_23_0.bind(this)));
-        this._expr_10 = UNINITIALIZED;
-        this._expr_11 = UNINITIALIZED;
         this._expr_12 = UNINITIALIZED;
         var disposable_2 = this.renderer.listen(this._el_28, 'click', this.eventHandler(this._handle_click_28_0.bind(this)));
-        this._expr_14 = UNINITIALIZED;
-        this._expr_15 = UNINITIALIZED;
         this._expr_16 = UNINITIALIZED;
         this._expr_17 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
@@ -51425,140 +52317,122 @@ var _View_ApiDemoPage2 = (function (_super) {
     };
     _View_ApiDemoPage2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (4 === requestNodeIndex))) {
-            return this._Icon_4_3;
+            return this._Icon_4_3.context;
         }
         if (((token === Item) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
-            return this._Item_2_4;
+            return this._Item_2_4.context;
         }
         if (((token === ItemContent) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
-            return this._ItemContent_2_5;
+            return this._ItemContent_2_5.context;
         }
         if (((token === Icon) && (17 === requestNodeIndex))) {
-            return this._Icon_17_3;
+            return this._Icon_17_3.context;
         }
         if (((token === Button) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 18)))) {
-            return this._Button_15_4;
+            return this._Button_15_4.context;
         }
         if (((token === ItemOptions) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 19)))) {
-            return this._ItemOptions_13_3;
+            return this._ItemOptions_13_3.context;
         }
         if (((token === Icon) && (25 === requestNodeIndex))) {
-            return this._Icon_25_3;
+            return this._Icon_25_3.context;
         }
         if (((token === Button) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 26)))) {
-            return this._Button_23_4;
+            return this._Button_23_4.context;
         }
         if (((token === Icon) && (30 === requestNodeIndex))) {
-            return this._Icon_30_3;
+            return this._Icon_30_3.context;
         }
         if (((token === Spinner) && (35 === requestNodeIndex))) {
-            return this._Spinner_35_4;
+            return this._Spinner_35_4.context;
         }
         if (((token === Button) && ((28 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
-            return this._Button_28_4;
+            return this._Button_28_4.context;
         }
         if (((token === ItemOptions) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 37)))) {
-            return this._ItemOptions_21_3;
+            return this._ItemOptions_21_3.context;
         }
         if (((token === ItemSliding) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 38)))) {
-            return this._ItemSliding_0_4;
+            return this._ItemSliding_0_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoPage2.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
+        if (this._ItemSliding_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
+        if (this._Item_2_4.detectChangesInternal(this, this._el_2, throwOnChange)) {
+            this._appEl_2.componentView.markAsCheckOnce();
+        }
+        this._ItemContent_2_5.detectChangesInternal(this, this._el_2, throwOnChange);
         var currVal_0 = this.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_4_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_4_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_4_3.detectChangesInternal(this, this._el_4, throwOnChange);
         var currVal_4 = 'left';
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._ItemOptions_13_3.side = currVal_4;
-            this._expr_4 = currVal_4;
-        }
-        changed = false;
+        this._ItemOptions_13_3.check_side(currVal_4, throwOnChange, false);
+        this._ItemOptions_13_3.detectChangesInternal(this, this._el_13, throwOnChange);
         var currVal_5 = 'danger';
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._Button_15_4.color = currVal_5;
-            changed = true;
-            this._expr_5 = currVal_5;
-        }
-        if (changed) {
+        this._Button_15_4.check_color(currVal_5, throwOnChange, false);
+        if (this._Button_15_4.detectChangesInternal(this, this._el_15, throwOnChange)) {
             this._appEl_15.componentView.markAsCheckOnce();
         }
         var currVal_6 = 'trash';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._Icon_17_3.name = currVal_6;
-            this._expr_6 = currVal_6;
-        }
-        changed = false;
+        this._Icon_17_3.check_name(currVal_6, throwOnChange, false);
+        this._Icon_17_3.detectChangesInternal(this, this._el_17, throwOnChange);
+        this._ItemOptions_21_3.detectChangesInternal(this, this._el_21, throwOnChange);
         var currVal_10 = 'dark';
-        if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._Button_23_4.color = currVal_10;
-            changed = true;
-            this._expr_10 = currVal_10;
-        }
-        if (changed) {
+        this._Button_23_4.check_color(currVal_10, throwOnChange, false);
+        if (this._Button_23_4.detectChangesInternal(this, this._el_23, throwOnChange)) {
             this._appEl_23.componentView.markAsCheckOnce();
         }
         var currVal_11 = 'volume-off';
-        if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._Icon_25_3.name = currVal_11;
-            this._expr_11 = currVal_11;
-        }
-        changed = false;
+        this._Icon_25_3.check_name(currVal_11, throwOnChange, false);
+        this._Icon_25_3.detectChangesInternal(this, this._el_25, throwOnChange);
         var currVal_14 = 'light';
-        if (checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Button_28_4.color = currVal_14;
-            changed = true;
-            this._expr_14 = currVal_14;
-        }
-        if (changed) {
+        this._Button_28_4.check_color(currVal_14, throwOnChange, false);
+        if (this._Button_28_4.detectChangesInternal(this, this._el_28, throwOnChange)) {
             this._appEl_28.componentView.markAsCheckOnce();
         }
         var currVal_15 = 'download';
-        if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Icon_30_3.name = currVal_15;
-            this._expr_15 = currVal_15;
-        }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_35_4.ngOnInit();
+        this._Icon_30_3.check_name(currVal_15, throwOnChange, false);
+        this._Icon_30_3.detectChangesInternal(this, this._el_30, throwOnChange);
+        if (this._Spinner_35_4.detectChangesInternal(this, this._el_35, throwOnChange)) {
+            this._appEl_35.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_2_1.dirty) {
                 this._query_Button_2_1.reset([]);
-                this._Item_2_4._buttons = this._query_Button_2_1;
+                this._Item_2_4.context._buttons = this._query_Button_2_1;
                 this._query_Button_2_1.notifyOnChanges();
             }
             if (this._query_Icon_2_2.dirty) {
-                this._query_Icon_2_2.reset([this._Icon_4_3]);
-                this._Item_2_4._icons = this._query_Icon_2_2;
+                this._query_Icon_2_2.reset([this._Icon_4_3.context]);
+                this._Item_2_4.context._icons = this._query_Icon_2_2;
                 this._query_Icon_2_2.notifyOnChanges();
             }
             if (this._query_ItemOptions_0_1.dirty) {
                 this._query_ItemOptions_0_1.reset([
-                    this._ItemOptions_13_3,
-                    this._ItemOptions_21_3
+                    this._ItemOptions_13_3.context,
+                    this._ItemOptions_21_3.context
                 ]);
-                this._ItemSliding_0_4._itemOptions = this._query_ItemOptions_0_1;
+                this._ItemSliding_0_4.context._itemOptions = this._query_ItemOptions_0_1;
                 this._query_ItemOptions_0_1.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_2_4.ngAfterContentInit();
+                this._Item_2_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_15_4.ngAfterContentInit();
+                this._Button_15_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_23_4.ngAfterContentInit();
+                this._Button_23_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Button_28_4.ngAfterContentInit();
+                this._Button_28_4.context.ngAfterContentInit();
             }
         }
-        var currVal_1 = this._Icon_4_3._hidden;
+        var currVal_1 = this._Icon_4_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_4, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -51573,22 +52447,22 @@ var _View_ApiDemoPage2 = (function (_super) {
             this.renderer.setText(this._text_10, currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_7 = this._Icon_17_3._hidden;
+        var currVal_7 = this._Icon_17_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_17, 'hide', currVal_7);
             this._expr_7 = currVal_7;
         }
-        var currVal_12 = this._Icon_25_3._hidden;
+        var currVal_12 = this._Icon_25_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
             this.renderer.setElementClass(this._el_25, 'hide', currVal_12);
             this._expr_12 = currVal_12;
         }
-        var currVal_16 = this._Icon_30_3._hidden;
+        var currVal_16 = this._Icon_30_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_16, currVal_16)) {
             this.renderer.setElementClass(this._el_30, 'hide', currVal_16);
             this._expr_16 = currVal_16;
         }
-        var currVal_17 = this._Spinner_35_4.paused;
+        var currVal_17 = this._Spinner_35_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_17, currVal_17)) {
             this.renderer.setElementClass(this._el_35, 'spinner-paused', currVal_17);
             this._expr_17 = currVal_17;
@@ -51596,24 +52470,24 @@ var _View_ApiDemoPage2 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ApiDemoPage2.prototype.destroyInternal = function () {
-        this._Icon_4_3.ngOnDestroy();
-        this._Icon_17_3.ngOnDestroy();
-        this._Icon_25_3.ngOnDestroy();
-        this._Icon_30_3.ngOnDestroy();
+        this._Icon_4_3.context.ngOnDestroy();
+        this._Icon_17_3.context.ngOnDestroy();
+        this._Icon_25_3.context.ngOnDestroy();
+        this._Icon_30_3.context.ngOnDestroy();
     };
     _View_ApiDemoPage2.prototype._handle_ionSwipe_21_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.download(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.download(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage2.prototype._handle_click_23_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.more(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.more(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage2.prototype._handle_click_28_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this.parent.context.download(this._ItemSliding_0_4) !== false);
+        var pd_0 = (this.parent.context.download(this._ItemSliding_0_4.context) !== false);
         return (true && pd_0);
     };
     return _View_ApiDemoPage2;
@@ -51631,17 +52505,22 @@ var _View_ApiDemoApp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoApp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ApiDemoApp_0_4 = new ApiDemoApp();
-        this._appEl_0.initComponent(this._ApiDemoApp_0_4, [], compView_0);
-        compView_0.create(this._ApiDemoApp_0_4, this.projectableNodes, null);
+        this._ApiDemoApp_0_4 = new Wrapper_ApiDemoApp();
+        this._appEl_0.initComponent(this._ApiDemoApp_0_4.context, [], compView_0);
+        compView_0.create(this._ApiDemoApp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ApiDemoApp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ApiDemoApp) && (0 === requestNodeIndex))) {
-            return this._ApiDemoApp_0_4;
+            return this._ApiDemoApp_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ApiDemoApp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ApiDemoApp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoApp_Host0;
 }(AppView));
@@ -51664,30 +52543,27 @@ var _View_ApiDemoApp0 = (function (_super) {
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-nav', null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Nav_0_4 = new Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
-        this._appEl_0.initComponent(this._Nav_0_4, [], compView_0);
-        compView_0.create(this._Nav_0_4, [], null);
-        this._expr_0 = UNINITIALIZED;
+        this._Nav_0_4 = new Wrapper_Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
+        this._appEl_0.initComponent(this._Nav_0_4.context, [], compView_0);
+        compView_0.create(this._Nav_0_4.context, [], null);
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_ApiDemoApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Nav) && (0 === requestNodeIndex))) {
-            return this._Nav_0_4;
+            return this._Nav_0_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoApp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.root;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Nav_0_4.root = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Nav_0_4.check_root(currVal_0, throwOnChange, false);
+        this._Nav_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Nav_0_4.ngAfterViewInit();
+                this._Nav_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -51695,7 +52571,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(AppView));
 function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/item-sliding/app.component.ts class ApiDemoApp - inline template', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }
@@ -51725,7 +52601,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_9", {
         get: function () {
             if ((this.__LOCALE_ID_9 == null)) {
-                (this.__LOCALE_ID_9 = null);
+                (this.__LOCALE_ID_9 = 'en-US');
             }
             return this.__LOCALE_ID_9;
         },
@@ -52226,16 +53102,6 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TRANSLATIONS_FORMAT_75", {
-        get: function () {
-            if ((this.__TRANSLATIONS_FORMAT_75 == null)) {
-                (this.__TRANSLATIONS_FORMAT_75 = null);
-            }
-            return this.__TRANSLATIONS_FORMAT_75;
-        },
-        enumerable: true,
-        configurable: true
-    });
     AppModuleInjector.prototype.createInternal = function () {
         this._CommonModule_0 = new CommonModule();
         this._ApplicationModule_1 = new ApplicationModule();
@@ -52494,9 +53360,6 @@ var AppModuleInjector = (function (_super) {
         }
         if ((token === DeepLinker)) {
             return this._DeepLinker_74;
-        }
-        if ((token === TRANSLATIONS_FORMAT)) {
-            return this._TRANSLATIONS_FORMAT_75;
         }
         return notFoundResult;
     };

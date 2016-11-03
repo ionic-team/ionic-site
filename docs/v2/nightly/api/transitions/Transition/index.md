@@ -31,7 +31,7 @@ Transition
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/transitions/transition.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/transitions/transition.ts#L1">
 Improve this doc
 </a>
 

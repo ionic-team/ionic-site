@@ -31,7 +31,7 @@ provideUserAgent
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/module.ts#L202">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L202">
 Improve this doc
 </a>
 

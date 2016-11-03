@@ -31,7 +31,7 @@ UrlToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/platform/query-params.ts#L34">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/query-params.ts#L34">
 Improve this doc
 </a>
 

@@ -31,7 +31,7 @@ isActivatable
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/tap-click/tap-click.ts#L157">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tap-click/tap-click.ts#L157">
 Improve this doc
 </a>
 

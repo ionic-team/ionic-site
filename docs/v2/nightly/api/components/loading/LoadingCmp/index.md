@@ -33,7 +33,7 @@ LoadingCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/loading/loading-component.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading-component.ts#L6">
 Improve this doc
 </a>
 

@@ -31,7 +31,7 @@ DeepLinker
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/navigation/deep-linker.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/deep-linker.ts#L10">
 Improve this doc
 </a>
 

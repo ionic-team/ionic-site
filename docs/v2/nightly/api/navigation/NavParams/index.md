@@ -33,7 +33,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/navigation/nav-params.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-params.ts#L0">
 Improve this doc
 </a>
 

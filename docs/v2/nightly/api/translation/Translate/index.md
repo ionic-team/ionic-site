@@ -31,7 +31,7 @@ Translate
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/translation/translate.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/translation/translate.ts#L0">
 Improve this doc
 </a>
 

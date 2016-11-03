@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/infinite-scroll/infinite-scroll.ts#L2">
 Improve this doc
 </a>
 

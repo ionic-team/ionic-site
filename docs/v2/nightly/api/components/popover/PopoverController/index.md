@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L45">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/popover/popover.ts#L45">
 Improve this doc
 </a>
 

@@ -31,7 +31,7 @@ setupEvents
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/events.ts#L106">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/util/events.ts#L106">
 Improve this doc
 </a>
 

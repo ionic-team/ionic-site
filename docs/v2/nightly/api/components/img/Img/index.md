@@ -33,7 +33,7 @@ Img
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/img/img.ts#L4">
 Improve this doc
 </a>
 

@@ -33,7 +33,7 @@ PickerColumnCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker-component.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/picker/picker-component.ts#L12">
 Improve this doc
 </a>
 

@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/item/item-sliding.ts#L15">
 Improve this doc
 </a>
 

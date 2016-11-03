@@ -33,7 +33,7 @@ NavPushAnchor
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-push.ts#L80">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/nav/nav-push.ts#L80">
 Improve this doc
 </a>
 

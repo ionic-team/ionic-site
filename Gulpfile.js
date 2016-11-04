@@ -19,6 +19,8 @@ var sass        = require('gulp-sass');
 var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
 
+var bustingCache = false;
+
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
@@ -65,8 +67,9 @@ function bustCache() {
 
 function bustCacheAndReload(done) {
 
+
   bustCache().on('end', function() {
-    browserSync.reload();
+    // browserSync.reload();
     done();
     // apply the template change in the background
     // gulp.start('jekyll-build.incremental');
@@ -198,8 +201,8 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', 'getting-started/*.html',
     '_layouts/*', '_layouts/*/*', '_posts/*', '_includes/**/*',
-    'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*',
-    'dist/preview-app/www/**/*'
+    'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*', '!docs/nightly',
+    '!docs/api', 'dist/preview-app/www/**/*'
   ], ['jekyll-rebuild']);
 });
 

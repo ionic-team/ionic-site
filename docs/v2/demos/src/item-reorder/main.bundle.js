@@ -34704,6 +34704,8 @@ var ItemSlidingGesture = (function (_super) {
         _super.call(this, list.getNativeElement(), {
             maxAngle: MAX_ATTACK_ANGLE,
             threshold: DRAG_THRESHOLD,
+            zone: false,
+            debouncer: new NativeRafDebouncer(),
             gesture: list._gestureCtrl.create('item-sliding', {
                 priority: -10,
             })
@@ -35061,7 +35063,10 @@ var ItemSliding = (function () {
             return;
         }
         this.item.setElementStyle(CSS.transform, "translate3d(" + -openAmount + "px,0,0)");
-        this._zone.run(function () { return _this.ionDrag.emit(_this); });
+        var ionDrag = this.ionDrag;
+        if (ionDrag.observers.length > 0) {
+            this._zone.run(ionDrag.emit.bind(ionDrag, this));
+        }
     };
     ItemSliding.prototype._setState = function (state$$1) {
         if (state$$1 === this._state) {
@@ -35154,6 +35159,7 @@ var MenuContentGesture = (function (_super) {
             threshold: 0,
             maxEdgeStart: menu.maxEdgeStart || 50,
             maxAngle: 40,
+            zone: false,
             debouncer: new NativeRafDebouncer(),
             gesture: gestureCtrl.create('menu-swipe', {
                 priority: 10,
@@ -35182,7 +35188,6 @@ var MenuContentGesture = (function (_super) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var stepValue = (slide.distance / z);
         (void 0);
-        ev.preventDefault();
         this.menu.swipeProgress(stepValue);
     };
     MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
@@ -35359,7 +35364,10 @@ var Menu = (function () {
             return;
         }
         this._getType().setProgessStep(stepValue);
-        this.ionDrag.emit(stepValue);
+        var ionDrag = this.ionDrag;
+        if (ionDrag.observers.length > 0) {
+            this._zone.run(ionDrag.emit.bind(ionDrag, stepValue));
+        }
     };
     Menu.prototype.swipeEnd = function (shouldCompleteLeft, shouldCompleteRight, stepValue) {
         var _this = this;

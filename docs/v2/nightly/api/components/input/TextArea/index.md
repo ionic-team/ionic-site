@@ -120,7 +120,11 @@ textarea&#39;s inner content.</p>
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -135,6 +139,37 @@ textarea&#39;s inner content.</p>
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-valid</code></td>
+        
+          <td><code>#32db64</code></td>
+        
+        <td><p>Color of the input highlight when valid</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-invalid</code></td>
+        
+          <td><code>#f53d3d</code></td>
+        
+        <td><p>Color of the input highlight when invalid</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
@@ -266,7 +301,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-valid</code></td>
         
-          <td><code>color($colors-ios, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -275,7 +310,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-ios, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -414,7 +449,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-valid</code></td>
         
-          <td><code>color($colors-md, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -423,7 +458,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-md, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -607,7 +642,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-valid</code></td>
         
-          <td><code>color($colors-wp, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -616,7 +651,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-wp, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>

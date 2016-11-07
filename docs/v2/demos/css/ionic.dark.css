@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201611041945, Dark Theme
+ * vE2E-201611071643, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3762,12 +3762,12 @@ input.text-input:-webkit-autofill {
     box-shadow: none; }
 
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
-  border-bottom-color: #d91e18;
-  box-shadow: inset 0 -1px 0 0 #d91e18; }
+  border-bottom-color: #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d; }
 
 .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
-  border-bottom-color: #d91e18;
-  box-shadow: inset 0 -1px 0 0 #d91e18; }
+  border-bottom-color: #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d; }
   .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
     box-shadow: none; }
 
@@ -3820,7 +3820,7 @@ input.text-input:-webkit-autofill {
   border-color: #32db64; }
 
 .item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input {
-  border-color: #d91e18; }
+  border-color: #f53d3d; }
 
 .item-label-stacked .text-input-wp,
 .item-label-floating .text-input-wp,

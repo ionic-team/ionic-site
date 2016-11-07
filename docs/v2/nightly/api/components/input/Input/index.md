@@ -132,9 +132,23 @@ interactivity.</p>
     </tr>
     
     <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The text value of the input</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The HTML input type (text, password, email, number, search, tel, or url)</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>bool</code></td>
+      <td><p> If the input should be disabled or not</p>
 </td>
     </tr>
     

@@ -104,9 +104,55 @@ textarea&#39;s inner content.</p>
   <tbody>
     
     <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> The placeholder for the textarea</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The value of the textarea</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>bool</code></td>
+      <td><p> Wheather the textara should be disabled or not</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>blur</td>
+      <td><p> Expression to call when the textarea no longer has focus</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>focus</td>
+      <td><p> Expression to call when the textarea has focus</p>
 </td>
     </tr>
     

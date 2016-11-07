@@ -363,43 +363,13 @@ Dismiss the current viewController
 
 <h3>
 <a class="anchor" name="enableBack" href="#enableBack"></a>
-<code>enableBack(Check)</code>
+<code>enableBack()</code>
   
 
 </h3>
 
 Check to see if you can go back in the navigation stack.
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        Check
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>whether or not you can go back from this page</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

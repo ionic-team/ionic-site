@@ -1071,6 +1071,81 @@ Removes a page from the nav stack at the specified index.
 
 
 
+<div id="removeView"></div>
+
+<h3>
+<a class="anchor" name="removeView" href="#removeView"></a>
+<code>removeView(viewController,&nbsp;opts)</code>
+  
+
+</h3>
+
+Removes the specified view controller from the nav stack.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        viewController
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The viewcontroller to remove.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
 <div id="setRoot"></div>
 
 <h3>

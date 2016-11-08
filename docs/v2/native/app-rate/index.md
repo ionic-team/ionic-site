@@ -71,7 +71,7 @@ docType: "class"
    android: &#39;market://details?id=&lt;package_name&gt;&#39;,
  };
 
-AppRate.promptForRating();
+AppRate.promptForRating(false);
 </code></pre>
 
 

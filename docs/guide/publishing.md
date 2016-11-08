@@ -109,7 +109,7 @@ On the next screen, shown on the image below, select the `Identifiers` option un
 
 ![](http://i.imgur.com/tmRoIlg.png)
 
-One the next screen, shown on the image below, select the plus (+) button in order to add a new iOS App ID.
+On the next screen, shown on the image below, select the plus (+) button in order to add a new iOS App ID.
 
 ![](http://i.imgur.com/BbK4KHq.png)
 

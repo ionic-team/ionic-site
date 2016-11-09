@@ -72,22 +72,6 @@ browser.close();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="open"></div>
-<h3><code>open()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- methods on the class -->

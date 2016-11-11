@@ -51,6 +51,14 @@ The following are a list of editors and IDEs that we think will give you the mos
 </section>
 
 
+<section id="angularide">
+  <h3><a href="#angularide">Angular IDE by Webclipse</a></h3>
+
+<p>Angular IDE is a freemium IDE built for Angular 2 and TypeScript development providing integrated terminal support helping with node and npm management. Out of the box, Angular IDE includes code completion and validation for ES6, TypeScript, and Angular 2 HTML templates.</p>
+<p><a href="https://www.genuitec.com/products/angular-ide/">Angular IDE official website</a></p>
+</section>
+
+
 <script>
 $(document).ready(function() {
   $(function () {

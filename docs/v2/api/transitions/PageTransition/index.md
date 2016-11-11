@@ -31,7 +31,7 @@ PageTransition
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/transitions/page-transition.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/transitions/page-transition.ts#L2">
 Improve this doc
 </a>
 

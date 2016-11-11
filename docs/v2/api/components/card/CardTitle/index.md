@@ -33,7 +33,7 @@ CardTitle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/card/card.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/card/card.ts#L54">
 Improve this doc
 </a>
 

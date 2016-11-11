@@ -33,7 +33,7 @@ NativeInput
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/input/native-input.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/input/native-input.ts#L4">
 Improve this doc
 </a>
 

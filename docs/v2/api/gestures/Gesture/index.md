@@ -31,7 +31,7 @@ Gesture
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/gestures/gesture.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/gestures/gesture.ts#L1">
 Improve this doc
 </a>
 

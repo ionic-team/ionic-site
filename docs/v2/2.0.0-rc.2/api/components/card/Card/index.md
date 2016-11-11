@@ -33,7 +33,7 @@ Card
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/card/card.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/card/card.ts#L3">
 Improve this doc
 </a>
 

@@ -33,7 +33,7 @@ Reorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/item/item-reorder.ts#L309">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-reorder.ts#L309">
 Improve this doc
 </a>
 

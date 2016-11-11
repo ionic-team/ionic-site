@@ -33,7 +33,7 @@ OverlayPortal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/nav/overlay-portal.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/overlay-portal.ts#L8">
 Improve this doc
 </a>
 

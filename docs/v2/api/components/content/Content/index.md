@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/content/content.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/content/content.ts#L10">
 Improve this doc
 </a>
 

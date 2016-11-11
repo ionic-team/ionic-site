@@ -31,7 +31,7 @@ TapClick
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/tap-click/tap-click.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tap-click/tap-click.ts#L7">
 Improve this doc
 </a>
 

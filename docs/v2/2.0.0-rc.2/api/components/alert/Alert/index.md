@@ -31,7 +31,7 @@ Alert
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/alert/alert.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/alert/alert.ts#L7">
 Improve this doc
 </a>
 

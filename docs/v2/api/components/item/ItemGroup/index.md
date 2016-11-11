@@ -33,7 +33,7 @@ ItemGroup
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/item/item.ts#L425">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item.ts#L425">
 Improve this doc
 </a>
 

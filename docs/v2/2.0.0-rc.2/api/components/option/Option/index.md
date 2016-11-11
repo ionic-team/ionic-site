@@ -35,7 +35,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//Users/briandennis/Ionic/ionic/src/components/option/option.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/option/option.ts#L2">
 Improve this doc
 </a>
 

@@ -569,6 +569,15 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
+        <td><code>$item-md-divider-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-md-divider-background</code></td>
         
           <td><code>#fff</code></td>
@@ -578,11 +587,20 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
-        <td><code>$item-md-divider-color</code></td>
+        <td><code>$item-md-divider-font-size</code></td>
         
-          <td><code>#222</code></td>
+          <td><code>$item-md-body-text-font-size</code></td>
         
-        <td><p>Color for the divider</p>
+        <td><p>Font size for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-border-bottom</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border bottom for the divider</p>
 </td>
       </tr>
       
@@ -726,6 +744,15 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
+        <td><code>$item-wp-divider-color</code></td>
+        
+          <td><code>$list-wp-text-color</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-wp-divider-background</code></td>
         
           <td><code>#fff</code></td>
@@ -735,11 +762,20 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
-        <td><code>$item-wp-divider-color</code></td>
+        <td><code>$item-wp-divider-border-bottom</code></td>
         
-          <td><code>#222</code></td>
+          <td><code>1px solid $list-wp-border-color</code></td>
         
-        <td><p>Color for the divider</p>
+        <td><p>Bodrer bottom for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size for the divider</p>
 </td>
       </tr>
       

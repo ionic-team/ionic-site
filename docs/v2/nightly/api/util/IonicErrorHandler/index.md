@@ -40,10 +40,34 @@ Improve this doc
 
 
 
-<p>This class is an internal error handler for Ionic. We can often add
-some nice goodies to the dev/debugging process by reporting to our
-dev server. To use this class, call <code>IonicErrorHandler.handleError(err)</code> from
-inside a custom <code>ErrorHandler</code> as described here: <a href="https://angular.io/docs/ts/latest/api/core/index/ErrorHandler-class.html">https://angular.io/docs/ts/latest/api/core/index/ErrorHandler-class.html</a></p>
+<p>The <code>IonicErrorHandler</code> intercepts the default <code>Console</code> error handling
+and displays runtime errors as an overlay when using Ionic&#39;s Dev Build Server.
+We can often add some nice goodies to the dev/debugging process by reporting
+to our dev server and improving the error&#39;s readability.</p>
+<h3 id="ionicerrorhandler-example">IonicErrorHandler Example</h3>
+<pre><code class="lang-typescript">import { NgModule, ErrorHandler } from &#39;@angular/core&#39;;
+import { IonicErrorHandler } from &#39;ionic-angular&#39;;
+
+@NgModule({
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+})
+class AppModule {}
+</code></pre>
+<h3 id="custom-error-handlers">Custom Error Handlers</h3>
+<p>Custom error handlers can be built to replace the default, or extend Ionic&#39;s
+error handler.</p>
+<pre><code class="lang-typescript">class MyErrorHandler implements ErrorHandler {
+  handleError(err: any): void {
+    // do something with the error
+  }
+}
+
+@NgModule({
+  providers: [{ provide: ErrorHandler, useClass: MyErrorHandler }]
+})
+class AppModule {}
+</code></pre>
+<p>More information about Angular&#39;s <a href="https://angular.io/docs/ts/latest/api/core/index/ErrorHandler-class.html"><code>ErrorHandler</code></a>.</p>
 
 
 
@@ -52,10 +76,20 @@ inside a custom <code>ErrorHandler</code> as described here: <a href="https://an
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
+
+
+
+<!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
 <div id="handleError"></div>
-<h3><a class="anchor" name="handleError" href="#handleError"></a><code>handleError()</code>
+
+<h3>
+<a class="anchor" name="handleError" href="#handleError"></a>
+<code>handleError()</code>
   
+
 </h3>
 
 
@@ -68,9 +102,6 @@ inside a custom <code>ErrorHandler</code> as described here: <a href="https://an
 
 
 
-
-
-<!-- instance methods on the class -->
 
 
 

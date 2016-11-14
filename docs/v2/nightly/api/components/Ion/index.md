@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 category: api
-id: "column"
-title: "Column"
+id: "ion"
+title: "Ion"
 header_sub_title: "Ionic API Documentation"
-doc: "Column"
+doc: "Ion"
 docType: "class"
 
 ---
@@ -21,11 +21,9 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a class="anchor" name="column" href="#column"></a>
+<a class="anchor" name="ion" href="#ion"></a>
 
-Column
-<h3><code>ion-col</code></h3>
-
+Ion
 
 
 
@@ -33,7 +31,7 @@ Column
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/grid/grid.ts#L26">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/ion.ts#L3">
 Improve this doc
 </a>
 
@@ -42,6 +40,9 @@ Improve this doc
 
 
 
+<p>Base class for all Ionic components. Exposes some common functionality
+that all Ionic components need, such as accessing underlying native elements and
+sending/receiving app-level events.</p>
 
 
 

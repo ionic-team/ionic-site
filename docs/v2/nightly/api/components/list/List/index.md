@@ -256,6 +256,15 @@ export class MyClass {
       </tr>
       
       <tr>
+        <td><code>$list-ios-header-border-bottom</code></td>
+        
+          <td><code>$hairlines-width solid $list-ios-border-color</code></td>
+        
+        <td><p>Border bottom of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$list-ios-header-font-size</code></td>
         
           <td><code>1.2rem</code></td>
@@ -279,6 +288,15 @@ export class MyClass {
           <td><code>.1rem</code></td>
         
         <td><p>Letter spacing of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-ios-header-text-transform</code></td>
+        
+          <td><code>uppercase</code></td>
+        
+        <td><p>Text transform of the header in a list</p>
 </td>
       </tr>
       
@@ -404,6 +422,15 @@ export class MyClass {
       </tr>
       
       <tr>
+        <td><code>$list-md-header-border-bottom</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border bottom of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$list-md-header-font-size</code></td>
         
           <td><code>1.4rem</code></td>
@@ -521,6 +548,15 @@ export class MyClass {
           <td><code>$item-wp-padding-left</code></td>
         
         <td><p>Padding left of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-wp-header-border-bottom</code></td>
+        
+          <td><code>1px solid $list-wp-border-color</code></td>
+        
+        <td><p>Border bottom of the header in a list</p>
 </td>
       </tr>
       

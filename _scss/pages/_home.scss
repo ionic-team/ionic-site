@@ -567,6 +567,7 @@
     background: #09172e;
     background: linear-gradient(to right, #050f23 0%, #13233f 100%);
     color: #909ebb;
+    padding-bottom: 50px;
 
     .container {
       position: relative;
@@ -581,7 +582,7 @@
       position: absolute;
       right: 0;
       top: -20px;
-      padding: 55px 85px 75px;
+      padding: 55px 85px 60px;
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
 
@@ -627,7 +628,7 @@
 
       ul {
         list-style: none;
-        padding: 0;
+        padding: 25px 0 0;
       }
 
       li {
@@ -662,6 +663,231 @@
 
         &.so::before {
           background-position: 0 -192px;
+        }
+      }
+    }
+
+    hgroup {
+      padding-top: 100px;
+      margin-right: 420px;
+      padding-bottom: 62px;
+
+      h2 {
+        color: white;
+        font-weight: 400;
+        margin-bottom: 16px;
+        font-size: 27px;
+      }
+
+      h4 {
+        font-weight: 300;
+        font-size: 19px;
+      }
+    }
+
+    .features {
+      list-style: none;
+      margin-right: 420px;
+      padding: 0;
+
+      li {
+        padding: 0 64px 70px 78px;
+        display: inline-block;
+        position: relative;
+        width: 49%;
+
+        &::before {
+          background: url('/img/home/icons-md.png') no-repeat 0 0;
+          background-size: 80px;
+          height: 80px;
+          width: 80px;
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: -5px;
+        }
+
+        &.so::before {
+          background-position: 0 -80px;
+        }
+
+        &.slack::before {
+          background-position: 0 -160px;
+        }
+
+        &.forum::before {
+          background-position: 0 -240px;
+        }
+      }
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  .loved-by {
+    text-align: center;
+
+    h2 {
+      margin-top: 128px;
+      padding-top: 58px;
+      background: url('/img/home/heart-icon.png') no-repeat center top;
+      background-size: 48px;
+      margin-bottom: 77px;
+      font-size: 22px;
+      font-weight: 400;
+      color: #4a566b;
+
+      strong {
+        font-weight: 500;
+        color: #272a2f;
+      }
+    }
+
+    h3 {
+      font-family: 'Georgia', sans-serif;
+      font-size: 22px;
+      margin: 0 auto;
+      display: inline-block;
+      max-width: 900px;
+      color: #727a87;
+      line-height: 2.2em;
+      position: relative;
+      font-weight: 300;
+
+      &::before {
+        background: url('/img/quote.png') no-repeat;
+        background-size: 50px 50px;
+        height: 50px;
+        width: 50px;
+        content: '';
+        position: absolute;
+        left: -50px;
+        top: -5px;
+        opacity: .7;
+      }
+    }
+
+    .quotees {
+      list-style: none;
+      padding: 30px 0;
+
+      li {
+        list-style: none;
+        text-align: left;
+        display: inline-block;
+        position: relative;
+        padding-left: 90px;
+        padding-right: 10px;
+        vertical-align: top;
+        min-width: 20%;
+        padding-right: 4%;
+        min-height: 80px;
+        margin-bottom: 20px;
+        opacity: .5;
+        transition: .3s opacity;
+
+        &.active {
+          opacity: 1;
+        }
+
+        img {
+          position: absolute;
+          left: 0;
+          width: 88px;
+          height: 80px;
+        }
+
+        strong {
+          display: block;
+          font-weight: 500;
+          font-size: 16px;
+          margin-top: 22px;
+        }
+
+        span {
+          color: #727a87;
+          font-size: 14px;
+
+          a {
+            color: $blue;
+
+            &:hover {
+              color: darken($blue, 5);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .companies {
+      width: 100%;
+      max-width: 960px;
+      margin: 10px auto 123px;
+    }
+  }
+
+  .continue {
+    background: #f6f7fa;
+    color: #727a87;
+    padding-top: 80px;
+    padding-bottom: 72px;
+
+    ul {
+      list-style: none;
+
+      &::after {
+        content: '';
+        clear: both;
+      }
+
+      li {
+        float: left;
+        width: 45%;
+        padding-left: 110px;
+        position: relative;
+
+        &::before {
+          background: url('/img/home/icons-lg.png') no-repeat 0 -372px;
+          background-size: 93px;
+          height: 93px;
+          width: 93px;
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &::after {
+          border-right: 1px solid #dde1ea;
+          content: '';
+          position: absolute;
+          right: -10%;
+          top: 15px;
+          bottom: 15px;
+          display: block;
+        }
+
+        &:last-child {
+          float: right;
+
+          &::before {
+            background-position: 0 -279px;
+          }
+        }
+
+        a {
+          font-size: 22px;
+          margin-bottom: 13px;
+        }
+
+        p {
+          font-size: 15px;
+          line-height: 1.8em;
         }
       }
     }

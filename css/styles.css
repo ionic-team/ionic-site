@@ -7852,6 +7852,43 @@ pre {
       .navbar-default .sidebar-toggle {
         display: block; } }
 
+footer {
+  padding-top: 75px;
+  padding-bottom: 50px; }
+  footer .logo {
+    background: url("/img/ionic-logo.png") no-repeat 0 0;
+    background-size: 90px;
+    height: 32px;
+    width: 90px;
+    display: block; }
+  footer .logo,
+  footer ul {
+    width: 16%;
+    display: inline-block;
+    vertical-align: top; }
+  footer ul {
+    list-style: none; }
+    footer ul strong {
+      color: #545a64;
+      font-weight: 500;
+      font-size: 16px;
+      padding-bottom: 5px; }
+    footer ul a {
+      color: #a1a9b6;
+      font-size: 14px;
+      padding: 5px 0;
+      display: inline-block; }
+  footer .signup hgroup {
+    background: url("/img/home/footer-ionitron-logo.png") no-repeat 0 0;
+    background-size: 47px;
+    padding-left: 65px;
+    min-height: 50px; }
+    footer .signup hgroup h3 {
+      font-size: 16px; }
+    footer .signup hgroup p {
+      font-size: 14px;
+      color: #a1a9b6; }
+
 @media (max-width: 767px) {
   .hide-xs {
     display: none; }
@@ -8244,6 +8281,10 @@ html {
 body {
   min-height: 100%;
   margin: 0 0 -130px; }
+
+a {
+  color: #4a8bfc;
+  transition: .3s color; }
 
 .footer-links {
   position: absolute;
@@ -9429,7 +9470,8 @@ ul.docs-example {
 .page-home .about-community {
   background: #09172e;
   background: linear-gradient(to right, #050f23 0%, #13233f 100%);
-  color: #909ebb; }
+  color: #909ebb;
+  padding-bottom: 50px; }
   .page-home .about-community .container {
     position: relative; }
   .page-home .about-community .stats {
@@ -9441,7 +9483,7 @@ ul.docs-example {
     position: absolute;
     right: 0;
     top: -20px;
-    padding: 55px 85px 75px;
+    padding: 55px 85px 60px;
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
     .page-home .about-community .stats h5 {
@@ -9475,7 +9517,7 @@ ul.docs-example {
       letter-spacing: 3px; }
     .page-home .about-community .stats ul {
       list-style: none;
-      padding: 0; }
+      padding: 25px 0 0; }
     .page-home .about-community .stats li {
       font-weight: 600;
       text-align: left;
@@ -9499,6 +9541,165 @@ ul.docs-example {
         background-position: 0 -168px; }
       .page-home .about-community .stats li.so::before {
         background-position: 0 -192px; }
+  .page-home .about-community hgroup {
+    padding-top: 100px;
+    margin-right: 420px;
+    padding-bottom: 62px; }
+    .page-home .about-community hgroup h2 {
+      color: white;
+      font-weight: 400;
+      margin-bottom: 16px;
+      font-size: 27px; }
+    .page-home .about-community hgroup h4 {
+      font-weight: 300;
+      font-size: 19px; }
+  .page-home .about-community .features {
+    list-style: none;
+    margin-right: 420px;
+    padding: 0; }
+    .page-home .about-community .features li {
+      padding: 0 64px 70px 78px;
+      display: inline-block;
+      position: relative;
+      width: 49%; }
+      .page-home .about-community .features li::before {
+        background: url("/img/home/icons-md.png") no-repeat 0 0;
+        background-size: 80px;
+        height: 80px;
+        width: 80px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: -5px; }
+      .page-home .about-community .features li.so::before {
+        background-position: 0 -80px; }
+      .page-home .about-community .features li.slack::before {
+        background-position: 0 -160px; }
+      .page-home .about-community .features li.forum::before {
+        background-position: 0 -240px; }
+  .page-home .about-community a {
+    color: white; }
+
+.page-home .loved-by {
+  text-align: center; }
+  .page-home .loved-by h2 {
+    margin-top: 128px;
+    padding-top: 58px;
+    background: url("/img/home/heart-icon.png") no-repeat center top;
+    background-size: 48px;
+    margin-bottom: 77px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #4a566b; }
+    .page-home .loved-by h2 strong {
+      font-weight: 500;
+      color: #272a2f; }
+  .page-home .loved-by h3 {
+    font-family: 'Georgia', sans-serif;
+    font-size: 22px;
+    margin: 0 auto;
+    display: inline-block;
+    max-width: 900px;
+    color: #727a87;
+    line-height: 2.2em;
+    position: relative;
+    font-weight: 300; }
+    .page-home .loved-by h3::before {
+      background: url("/img/quote.png") no-repeat;
+      background-size: 50px 50px;
+      height: 50px;
+      width: 50px;
+      content: '';
+      position: absolute;
+      left: -50px;
+      top: -5px;
+      opacity: .7; }
+  .page-home .loved-by .quotees {
+    list-style: none;
+    padding: 30px 0; }
+    .page-home .loved-by .quotees li {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+      position: relative;
+      padding-left: 90px;
+      padding-right: 10px;
+      vertical-align: top;
+      min-width: 20%;
+      padding-right: 4%;
+      min-height: 80px;
+      margin-bottom: 20px;
+      opacity: .5;
+      transition: .3s opacity; }
+      .page-home .loved-by .quotees li.active {
+        opacity: 1; }
+      .page-home .loved-by .quotees li img {
+        position: absolute;
+        left: 0;
+        width: 88px;
+        height: 80px; }
+      .page-home .loved-by .quotees li strong {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 22px; }
+      .page-home .loved-by .quotees li span {
+        color: #727a87;
+        font-size: 14px; }
+        .page-home .loved-by .quotees li span a {
+          color: #4a8bfc; }
+          .page-home .loved-by .quotees li span a:hover {
+            color: #317bfc;
+            text-decoration: none; }
+  .page-home .loved-by .companies {
+    width: 100%;
+    max-width: 960px;
+    margin: 10px auto 123px; }
+
+.page-home .continue {
+  background: #f6f7fa;
+  color: #727a87;
+  padding-top: 80px;
+  padding-bottom: 72px; }
+  .page-home .continue ul {
+    list-style: none; }
+    .page-home .continue ul::after {
+      content: '';
+      clear: both; }
+    .page-home .continue ul li {
+      float: left;
+      width: 45%;
+      padding-left: 110px;
+      position: relative; }
+      .page-home .continue ul li::before {
+        background: url("/img/home/icons-lg.png") no-repeat 0 -372px;
+        background-size: 93px;
+        height: 93px;
+        width: 93px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0; }
+      .page-home .continue ul li::after {
+        border-right: 1px solid #dde1ea;
+        content: '';
+        position: absolute;
+        right: -10%;
+        top: 15px;
+        bottom: 15px;
+        display: block; }
+      .page-home .continue ul li:last-child {
+        float: right; }
+        .page-home .continue ul li:last-child::before {
+          background-position: 0 -279px; }
+      .page-home .continue ul li a {
+        font-size: 22px;
+        margin-bottom: 13px; }
+      .page-home .continue ul li p {
+        font-size: 15px;
+        line-height: 1.8em; }
 
 .fadeInDown {
   -webkit-animation-name: fadeInDown;

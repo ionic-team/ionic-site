@@ -327,6 +327,11 @@ body {
   margin: 0 0 -130px; // bottom = footer height
 }
 
+a {
+  color: $blue;
+  transition: .3s color;
+}
+
 .footer-links {
   position: absolute;
   left: $sidenav-width + 40px;

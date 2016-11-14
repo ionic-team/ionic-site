@@ -1,0 +1,59 @@
+footer {
+  padding-top: 75px;
+  padding-bottom: 50px;
+
+  .logo {
+   background: url('/img/ionic-logo.png') no-repeat 0 0;
+   background-size: 90px;
+   height: 32px;
+   width: 90px;
+   display: block;
+  }
+
+  .logo,
+  ul {
+    width: 16%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  ul {
+    list-style: none;
+
+    strong {
+      color: #545a64;
+      font-weight: 500;
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+
+    a {
+      color: #a1a9b6;
+      font-size: 14px;
+      padding: 5px 0;
+      display: inline-block;
+    }
+  }
+
+  .signup {
+    form {
+      
+    }
+
+    hgroup {
+      background: url('/img/home/footer-ionitron-logo.png') no-repeat 0 0;
+      background-size: 47px;
+      padding-left: 65px;
+      min-height: 50px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #a1a9b6;
+      }
+    }
+  }
+}

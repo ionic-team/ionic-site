@@ -1,6 +1,6 @@
 footer {
   padding-top: 75px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 
   .logo {
    background: url('/img/ionic-logo.png') no-repeat 0 0;
@@ -32,12 +32,52 @@ footer {
       font-size: 14px;
       padding: 5px 0;
       display: inline-block;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
   .signup {
+    margin-top: 40px;
+
     form {
-      
+      float: right;
+      width: 40%;
+      display: flex;
+
+      .form-control,
+      .btn {
+        height: 44px;
+        font-size: 14px;
+        display: inline-block;
+        padding: 12px 20px 11px;
+      }
+
+      .form-control {
+        flex: 1 0 150px;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        box-shadow: 0 1px 4px rgba(#222f45, .2);
+        transition: .2s box-shadow;
+
+        &::placeholder {
+          color: rgba(#a1a9b6, .6);
+          font-size: 14px;
+        }
+
+        &:focus {
+          box-shadow: 0 1px 4px rgba(#222f45, .4);
+        }
+      }
+
+      .btn {
+        width: 110px;
+        font-weight: 400;
+        text-align: center;
+        border-radius: 0 3px 3px 0;
+      }
     }
 
     hgroup {
@@ -45,15 +85,48 @@ footer {
       background-size: 47px;
       padding-left: 65px;
       min-height: 50px;
+      width: 50%;
 
       h3 {
         font-size: 16px;
+        margin-top: 0;
       }
 
       p {
         font-size: 14px;
         color: #a1a9b6;
       }
+    }
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: rgba(#bac2cf, .7);
+    border-top: 1px solid #eff1f5;
+    margin-top: 40px;
+    padding-top: 20px;
+
+    a {
+      color: rgba($blue, .7);
+
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+
+    &::after {
+      clear: both;
+    }
+
+    .left {
+      float: left;
+      max-width: 50%;
+    }
+
+    .right {
+      float: right;
+      max-width: 50%;
     }
   }
 }

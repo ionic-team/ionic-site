@@ -48,40 +48,50 @@
     background-size: 320px 299px;
     background-repeat: no-repeat;
 
-    &.two {
-      .demo-link {
-        visibility: visible;
-      }
-      .app-icon {
-        visibility: visible;
-      }
-      background-image: url('/img/homepage/phones-frontpage@2x.png');
-      animation: fadeInDown 1s both;
-      animation-delay: 1s;
-    }
-    &.one {
-      .demo-link {
-        visibility: visible;
-      }
-
-      .app-icon {
-        visibility: visible;
-      }
-
-      background-image: url('/img/homepage/phones-viewapp_2x.png');
-      animation: fadeInDown 1s both;
-      animation-delay: 1s;
-    }
-
-    .app-icon.two {
-      background-image: url('/img/homepage/frontpage-icon@2x.png');
-    }
-
-    .app-icon.one {
-      background-image: url('/img/homepage/ionicview-icon_2x.png');
+    .demo-link {
+      visibility: visible;
     }
 
     .app-icon {
+      visibility: visible;
+    }
+
+    .device {
+      &.iphone {
+        width: 517px;
+        position: relative;
+      }
+
+      &.pixel {
+        width: 406px;
+        position: absolute;
+        top: 25px;
+        right: 155px;
+      }
+    }
+
+    .one,
+    .two,
+    .three {
+      opacity: 0;
+      animation: fadeInDown .7s;
+      animation-fill-mode: forwards;
+    }
+
+    .one  {
+      animation-delay: .5s;
+    }
+
+    .two  {
+      animation-delay: 1s;
+    }
+
+    .three  {
+      animation-delay: 1.5s;
+    }
+
+    .app-icon {
+      background-image: url('/img/homepage/ionicview-icon_2x.png');
       background-size: 84px 84px;
       background-repeat: no-repeat;
       display: none;
@@ -335,6 +345,7 @@
       header {
         padding: 32px 37px 33px;
         position: relative;
+        z-index: 5;
 
         &::after {
           position: absolute;
@@ -384,10 +395,6 @@
             }
           }
         }
-      }
-
-      .stage {
-        height: 345px;
       }
     }
 
@@ -729,16 +736,29 @@
 
   .loved-by {
     text-align: center;
+    position: relative;
 
     h2 {
       margin-top: 128px;
       padding-top: 58px;
-      background: url('/img/home/heart-icon.png') no-repeat center top;
-      background-size: 48px;
       margin-bottom: 77px;
       font-size: 22px;
       font-weight: 400;
       color: #4a566b;
+      position: relative;
+
+      &::before {
+        background: url('/img/home/heart-icon.png') no-repeat center top;
+        background-size: 48px;
+        height: 43px;
+        width: 48px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 24px);
+        animation: pulse 3.5s infinite;
+      }
 
       strong {
         font-weight: 500;
@@ -756,18 +776,29 @@
       line-height: 2.2em;
       position: relative;
       font-weight: 300;
+      position: absolute;
+      left: 0;
+      right: 0;
+      opacity: 0;
 
-      &::before {
-        background: url('/img/quote.png') no-repeat;
-        background-size: 50px 50px;
-        height: 50px;
-        width: 50px;
-        content: '';
-        position: absolute;
-        left: -50px;
-        top: -5px;
-        opacity: .7;
+      &.active {
+        position: relative;
+        opacity: 1;
+
+        &::before {
+          background: url('/img/quote.png') no-repeat;
+          background-size: 50px 50px;
+          height: 50px;
+          width: 50px;
+          content: '';
+          position: absolute;
+          left: -50px;
+          top: -5px;
+          opacity: .7;
+        }
       }
+
+
     }
 
     .quotees {

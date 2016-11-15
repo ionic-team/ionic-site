@@ -33,8 +33,10 @@ id: home
         </p>
       </div>
       <div class="col-sm-6 feature-img one">
+        <img class="device pixel two" src="/img/home/cta-pixel.png">
+        <img class="device iphone one" src="/img/home/cta-iphone.png">
         <a href="http://view.ionic.io/" target="_blank">
-          <img class="app-icon one" src="/img/homepage/ionicview-icon_2x.png">
+          <img class="app-icon three" src="/img/homepage/ionicview-icon_2x.png">
           <span class="demo-link">Ionic View App</span>
         </a>
       </div>
@@ -138,8 +140,28 @@ id: home
         <li class="electron"></li>
       </ul>
     </header>
-    <div class="stage">
-
+    <div class="draggable stage">
+      <div class="code">
+<pre><code class="lang-html">
+<span class="line">&lt;ion-list&gt;</span>
+<span class="line"></span>
+<span class="line">  &lt;ion-item&gt;</span>
+<span class="line">    &lt;ion-icon name="leaf" item-left&gt;&lt;/ion-icon&gt;</span>
+<span class="line">    Astronomy</span>
+<span class="line">  &lt;/ion-item&gt;</span>
+<span class="line"></span>
+<span class="line">  &lt;ion-item&gt;</span>
+<span class="line">    &lt;ion-icon name="leaf" item-left&gt;&lt;/ion-icon&gt;</span>
+<span class="line">    Muggle Studies</span>
+<span class="line">  &lt;/ion-item&gt;</span>
+<span class="line"></span>
+<span class="line">&lt;/ion-list&gt;</span>
+</code></pre>
+      </div>
+      <div class="app">
+        {% include v2_fluid/sample_app.html %}
+      </div>
+      <div class="toggle"></div>
     </div>
   </aside>
   <hgroup>
@@ -268,34 +290,51 @@ id: home
   </div>
 </section>
 
-<section class="loved-by container">
+<section class="loved-by container" id="testimonials">
   <h2>
     <strong>Loved</strong> by some of the best people and companies on earth
   </h2>
-  <h3 class="quote">
+  <h3 class="quote catlin active">
+    Ionic is the framework that I use for all of my projects, and I'm not sure I
+    can give a bigger compliment than that. The innate sense of style and
+    sophistication built into Ionic is awesome and makes building
+    professional-level mobile applications a snap.
+  </h3>
+  <h3 class="quote tamplin">
+    Ionic will dramatically change the way mobile apps are built. Their choice
+    of AngularJS means building functionality is now a breeze and it feels
+    near-native. Your developers and your users will thank you.
+  </h3>
+  <h3 class="quote schinsky">
+    I was so inspired when I found Ionic. It fills a gap that’s missing when
+    building for mobile and solves many complexities that otherwise require
+    multiple libraries, keeping your code cleaner. Overall, it just makes mobile
+    development fun and fast, so you can build more!
+  </h3>
+  <h3 class="quote hevery">
     Ionic is a shining example of a high-quality framework that takes advantage
     of Angular's power and flexibility, enabling developers to build
     production-ready mobile apps and Progressive Web Apps, in a fraction of the
     time.
   </h3>
   <ul class="quotees">
-    <li>
+    <li data-speaker="catlin" class="active">
       <img src="/img/home/testimonial-hampton.png" alt="Hampton Catlin" />
       <strong>Hampton Catlin</strong>
       <span>Creator of <a href="http://sassdoc.com">Sass</a></span>
     </li>
-    <li>
+    <li data-speaker="tamplin">
       <img src="/img/home/testimonial-james.png" alt="James Tamplin" />
       <strong>James Tamplin</strong>
       <span>Co-Founder &amp; CEO, <a href="https://firebase.google.com">Firebase
       </a></span>
     </li>
-    <li>
+    <li data-speaker="schinsky">
       <img src="/img/home/testimonial-holly.png" alt="Holly Schinsky" />
       <strong>Holly Schinsky</strong>
       <span>Dev Advocate, <a href="http://www.adobe.com">Adobe</a></span>
     </li>
-    <li>
+    <li data-speaker="hevery">
       <img src="/img/home/testimonial-misko.png" alt="Misko Hevery" />
       <strong>Misko Hevery</strong>
       <span>Creator of <a href="https://angular.io">Angular</a></span>
@@ -330,6 +369,7 @@ id: home
 
 window.onload = function() {
 
+// Grab fresh social data from GH and Twitter
 function digits(n){
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -359,6 +399,38 @@ $.ajax({
     }
   }
 });
+
+var $appEl = $('.draggable .app');
+var draggableWidth = $('.draggable').width();
+$('.draggable .toggle').draggable({
+  axis: 'x',
+  containment: 'parent',
+  drag: function(ev, ui) {
+    $appEl.css('right', draggableWidth - ui.position.left + 'px');
+  }
+});
+
+// Testimonials rotation
+var $testimonials = $('#testimonials');
+
+function nextQuote() {
+  $active = $testimonials.find('.quotees .active');
+
+  if ($active.is(':last-child')) {
+    $active.removeClass('active');
+    $active = $testimonials.find('.quotees li:first-child').addClass('active');
+  } else {
+    $active = $active.removeClass('active').next().addClass('active');
+  }
+
+  $testimonials.find('h3.active')
+               .removeClass('active')
+               .siblings('.' + $active.data('speaker'))
+               .addClass('active');
+}
+
+setInterval(nextQuote, 5000);
+
 
 // $('#slider').slick({
 //   dots: true,

@@ -41,6 +41,25 @@ footer {
     }
   }
 
+  @media (max-width: $screen-sm-max) {
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo,
+    ul {
+      flex: 0 0 160px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 0;
+      padding-right: 40px;
+    }
+  }
+
   .signup {
     margin-top: 40px;
 
@@ -48,6 +67,12 @@ footer {
       float: right;
       width: 40%;
       display: flex;
+
+      @media (max-width: $screen-xs-max) {
+        float: none;
+        width: 100%;
+        padding-bottom: 40px;
+      }
 
       .form-control,
       .btn {
@@ -89,6 +114,10 @@ footer {
       min-height: 50px;
       width: 50%;
 
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+      }
+
       h3 {
         font-size: 16px;
         margin-top: 0;
@@ -124,12 +153,10 @@ footer {
 
     .left {
       float: left;
-      max-width: 50%;
     }
 
     .right {
       float: right;
-      max-width: 50%;
     }
   }
 }

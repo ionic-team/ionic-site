@@ -23,9 +23,16 @@
       width: 128px;
     }
   }
+  @media (min-width: $screen-sm-min) {
+    &.transparent {
+      background: transparent;
+    }
+  }
 
-  &.transparent {
-    background: transparent;
+  @media (max-width: $screen-xs-max) {
+    .navbar-collapse {
+      box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    }
   }
 
   #ionic-io-logo {

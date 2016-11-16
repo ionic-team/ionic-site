@@ -44,9 +44,10 @@
 
   .feature-img {
     height: 175px;
-    background-position: center 15px;
-    background-size: 320px 299px;
-    background-repeat: no-repeat;
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
 
     .demo-link {
       visibility: visible;
@@ -69,6 +70,10 @@
         position: absolute;
         top: 64px;
         right: 110px;
+
+        @media (max-width: $screen-sm-max) {
+          right: 0;
+        }
       }
     }
 
@@ -104,6 +109,10 @@
       position: absolute;
       right: 0;
       bottom: 0;
+
+      @media (max-width: $screen-sm-max) {
+        bottom: -60px;
+      }
     }
 
     a {
@@ -138,7 +147,13 @@
       font-size: 10px;
       text-decoration: none;
       text-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+
+      @media (max-width: $screen-sm-max) {
+        bottom: -75px;
+      }
     }
+
+
   }
 
   @media (min-width: 768px) {
@@ -180,11 +195,19 @@
 
 
   .utility-bar {
-    margin-top: -158px;
+    margin-top: -160px;
     position: relative;
     padding: 20px 0 22px;
     width: 100%;
     background: rgba(0, 0, 0, .15);
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: -216px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: -528px;
+    }
 
     .container {
       overflow: hidden;
@@ -196,6 +219,16 @@
     form {
       max-width: 458px;
       float: right;
+
+      @media (max-width: $screen-sm-max) {
+        max-width: calc(100% - 340px);
+      }
+
+      @media (max-width: $screen-xs-max) {
+        float: none;
+        max-width: 100%;
+        margin-top: 15px;
+      }
     }
 
     input {
@@ -248,13 +281,30 @@
     background: #f6f7fa;
     padding-bottom: 100px;
 
+    @media (max-width: $screen-sm-max) {
+      padding-bottom: 40px;
+    }
+
     hgroup {
       position: relative;
       padding-top: 103px;
 
+      @media (max-width: $screen-sm-max) {
+        padding-top: 280px
+      }
+
+      @media (max-width: $screen-xs-max) {
+        padding-top: 153px;
+      }
+
       h2,
       h4 {
         width: 48%;
+
+        @media (max-width: $screen-sm-max) {
+          width: 100%;
+          text-align: center;
+        }
       }
 
       h2 {
@@ -276,7 +326,23 @@
       position: absolute;
       right: 0;
       top: 123px;
-      width: 50.5%;
+      width: 600px;
+
+      @media (max-width: $screen-sm-max) {
+        top: 50px;
+        left: 0;
+        margin: 0 auto;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        transform: scale(.5, .5);
+        top: 50px;
+        width: 600px;
+      }
+
+      @media (max-width: 600px) {
+        margin-left: calc(50% - 300px);
+      }
 
       li {
         background: url('/img/home/web-icons.png') no-repeat 0 0;
@@ -317,6 +383,12 @@
     .features {
       margin-top: 75px;
 
+      @media (max-width: $screen-sm-max) {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 45px;
+      }
+
       li {
         width: calc(25% + 2px);
         display: inline-block;
@@ -325,6 +397,12 @@
         vertical-align: top;
         background: url('/img/home/checkmark-icon.png') no-repeat 0 0;
         background-size: 24px;
+
+        @media (max-width: $screen-sm-max) {
+          width: auto;
+          flex: 1 0 320px;
+          margin-bottom: 15px;
+        }
 
         h3 {
           font-size: 17px;
@@ -359,6 +437,10 @@
       position: absolute;
       top: -20px;
       background: white;
+
+      @media (max-width: 626px) {
+        display: none;
+      }
 
       header {
         padding: 24px 38px 28px;
@@ -420,6 +502,18 @@
       min-height: 469px;
       margin-left: 625px;
 
+      @media (max-width: $screen-sm-max) {
+        margin-left: 0;
+        margin-top: 400px;
+        text-align: center;
+        min-height: 0;
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 626px) {
+        margin-top: 0;
+      }
+
       h2 {
         padding-top: 72px;
         font-size: 27px;
@@ -446,6 +540,10 @@
       list-style: none;
       padding: 0 0 109px;
 
+      @media (max-width: $screen-sm-max) {
+        padding-bottom: 50px;
+      }
+
       li {
         display: inline-block;
         padding-top: 93px;
@@ -454,6 +552,13 @@
         vertical-align: top;
         padding-right: 5%;
         box-sizing: content-box;
+
+        @media (max-width: $screen-sm-max) {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 40px;
+          padding-right: 0;
+        }
 
         &::before {
           background: url('/img/home/icons-lg.png') no-repeat 0 0;
@@ -464,6 +569,10 @@
           top: 0;
           left: -7px;
           position: absolute;
+
+          @media (max-width: $screen-sm-max) {
+            left: calc(50% - 47px);
+          }
         }
 
         &.beautiful::before {
@@ -533,6 +642,11 @@
       list-style: none;
       padding: 0;
 
+      @media (max-width: $screen-md-max) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
       li {
         width: calc(33% + 22px);
         display: inline-block;
@@ -548,6 +662,16 @@
         &:nth-child(3),
         &:last-child {
           width: calc(33% - 40px);
+        }
+
+        @media (max-width: $screen-md-max) {
+          width: auto;
+          flex: 1 0 350px;
+
+          &:nth-child(3),
+          &:last-child {
+            width: auto;
+          }
         }
 
         &::before {
@@ -615,6 +739,17 @@
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
 
+      @media (max-width: $screen-xs-max) {
+        position: relative;
+        right: 0;
+        width: 100%;
+      }
+
+      @media (max-width: 420px) {
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
       h5 {
         background: white;
         color: #b8c1cf;
@@ -660,6 +795,11 @@
       ul {
         list-style: none;
         padding: 33px 0 0;
+
+        @media (max-width: $screen-xs-max) {
+          max-width: 250px;
+          margin: 0 auto;
+        }
       }
 
       li {
@@ -701,8 +841,18 @@
 
     hgroup {
       padding-top: 108px;
-      margin-right: 420px;
+      margin-right: 425px;
       padding-bottom: 76px;
+
+      @media (max-width: $screen-sm-max) {
+        padding-top: 20px;
+        padding-bottom: 46px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        margin-right: 0;
+        text-align: center;
+      }
 
       h2 {
         color: white;
@@ -723,11 +873,21 @@
       margin-right: 420px;
       padding: 0;
 
+      @media (max-width: $screen-xs-max) {
+        margin-right: 0;
+      }
+
       li {
         padding: 0 64px 83px 78px;
         display: inline-block;
         position: relative;
         width: 49%;
+
+        @media (max-width: $screen-sm-max) {
+          width: 100%;
+          padding-right: 5px;
+          padding-bottom: 50px;
+        }
 
         &::before {
           background: url('/img/home/icons-md.png') no-repeat 0 0;
@@ -832,6 +992,12 @@
       list-style: none;
       padding: 36px 0 44px;
 
+      @media (max-width: $screen-sm-max) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
       li {
         list-style: none;
         text-align: left;
@@ -847,6 +1013,11 @@
         opacity: .5;
         transition: .3s opacity;
         cursor: pointer;
+
+        @media (max-width: $screen-sm-max) {
+          flex: 0 0 240px;
+          padding-right: 20px;
+        }
 
         &.active {
           opacity: 1;
@@ -937,6 +1108,10 @@
           &::before {
             background-position: 0 -279px;
           }
+
+          &::after {
+            display: none;
+          }
         }
 
         a {
@@ -949,6 +1124,20 @@
           font-size: 15px;
           line-height: 1.8em;
           margin-top: 6px;
+        }
+
+
+        @media (max-width: $screen-xs-max) {
+          float: none;
+          width: 100%;
+
+          &:first-child {
+            margin-bottom: 40px;
+          }
+
+          &::after {
+            display: none;
+          }
         }
       }
     }
@@ -1031,6 +1220,10 @@
   .col-sm-6:first-child {
     padding-left: 0;
     min-height: 604px;
+
+    @media (max-width: $screen-xs-max) {
+      min-height: 304px;
+    }
   }
 
   h1 {
@@ -1087,14 +1280,13 @@ $ieEightAndNine: '\0/';
   }
 }
 
+@media (max-width: $screen-sm-max) {
 
-
-@media (max-width: 991px) {
   #slider {
     top: -134px;
 
     .slide {
-      padding: 125px 0 190px;
+      padding: 125px 0 50px;
     }
 
     .slick-dots {
@@ -1107,7 +1299,8 @@ $ieEightAndNine: '\0/';
 
     h1 {
       font-size: 32px;
-      margin-top:30px;
+      line-height: 48px;
+      margin-top: 84px;
     }
 
     h3 {
@@ -1116,7 +1309,7 @@ $ieEightAndNine: '\0/';
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: $screen-xs-max) {
   #slider {
     top: -392px;
 
@@ -1166,29 +1359,33 @@ $ieEightAndNine: '\0/';
 }
 
 .social-row {
-  @media (min-width: 992px) {
-    margin: 12px 0 0 0;
-    font-weight: 500;
-    padding-left: 0;
-  }
+  margin: 12px 0 0 0;
+  font-weight: 500;
+  padding-left: 0;
 
   li {
     display: inline-block;
     height: 27px;
     margin-right: 22px;
-    font-size: 12px;
+    font-size: 14px;
 
     i {
       padding-right: 2px;
       display: inline;
     }
 
-    @media (min-width: 568px) {
+    @media (max-width: $screen-sm-max) {
       font-size: 14px;
-      margin-right: 35px;
+      margin-right: 15px;
 
       i {
         padding-right: 4px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      &:nth-child(2) {
+        display: none
       }
     }
   }

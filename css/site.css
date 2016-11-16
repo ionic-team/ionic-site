@@ -5462,6 +5462,38 @@ pre {
     background: url("/img/getting-started/ionitron-avatar@2x.png") no-repeat transparent;
     background-size: 156px 156px; } }
 
+.alert,
+.docs-container main .alert {
+  background: #ffa82c;
+  border-radius: 3px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 20px 30px 20px 65px;
+  position: relative;
+  width: 100%;
+  font-weight: 500;
+  margin: 0 0 20px; }
+  .alert::before,
+  .docs-container main .alert::before {
+    content: '\f137';
+    font-family: 'Ionicons';
+    position: absolute;
+    left: 25px;
+    top: 10px;
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9); }
+  .alert a,
+  .alert a:not(.btn),
+  .docs-container main .alert a,
+  .docs-container main .alert a:not(.btn) {
+    color: white; }
+    .alert a:hover,
+    .alert a:not(.btn):hover,
+    .docs-container main .alert a:hover,
+    .docs-container main .alert a:not(.btn):hover {
+      color: #fff; }
+
 #vs-start-box {
   margin-top: 25px;
   border-radius: 1px;

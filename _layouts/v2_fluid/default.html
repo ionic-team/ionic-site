@@ -37,7 +37,9 @@
       </div>
     {% endif %}
 
-    {% include v2_fluid/footer.html %}
+    {% if isDocs == false %}
+      {% include v2_fluid/footer.html %}
+    {% endif %}
 
     <div id="search-results">
       <div id="results-api">

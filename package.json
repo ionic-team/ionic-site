@@ -1,14 +1,10 @@
 {
   "name": "ionic-site",
   "version": "1.0.0",
-  "description": "Ionic main site",
+  "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
   "engines": {
     "node": "6.7.0"
-  },
-  "directories": {
-    "doc": "docs",
-    "example": "examples"
   },
   "repository": {
     "type": "git",
@@ -49,6 +45,7 @@
     "lunr": "^0.5.12",
     "mkdirp": "^0.5.1",
     "psi": "^1.0.4",
+    "run-sequence": "^1.2.2",
     "tiny-lr": "0.0.5"
   },
   "dependencies": {

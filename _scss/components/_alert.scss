@@ -1,0 +1,32 @@
+.alert,
+.docs-container main .alert {
+  background: #ffa82c;
+  border-radius: 3px;
+  display: inline-block;
+  color: rgba(255,255,255,.8);
+  padding: 20px 30px 20px 65px;
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  margin: 0 0 20px;
+
+  &::before {
+    content: '\f137';
+    font-family: 'Ionicons';
+    position: absolute;
+    left: 25px;
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255,255,255,.9);
+  }
+
+  a,
+  a:not(.btn) {
+    color: rgba(255,255,255, 1);
+    opacity: 1;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

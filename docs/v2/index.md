@@ -5,6 +5,12 @@ id: home
 title: Ionic Documentation
 hide_header_search: true
 ---
+
+<p class="alert">
+  Welcome to the Ionic v2 docs! Looking for our v1 docs? Head <a href="/docs">
+  over here</a>.
+</p>
+
 <div class="docs-home text-center">
   <img src="/img/ionic-docs-logo-lg.png" class="docs-home-logo">
   <form class="form-group search" role="search">

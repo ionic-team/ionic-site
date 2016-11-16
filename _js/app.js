@@ -1,4 +1,4 @@
-var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;

@@ -1,8 +1,11 @@
 // sidebar toggle for mobile views
-document.getElementById('sidebar-toggle').onclick = function() {
-  document.getElementById('side-nav').classList.toggle('shown');
-  this.classList.toggle('active');
-};
+var sidebarToggleEl = document.getElementById('sidebar-toggle');
+if (sidebarToggleEl) {
+  sidebarToggleEl.onclick = function() {
+    document.getElementById('side-nav').classList.toggle('shown');
+    this.classList.toggle('active');
+  };
+}
 
 $(document).ready(function() {
   $('.dropdown-toggle').dropdown();

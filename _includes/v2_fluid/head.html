@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
+
+<link href="/css/styles.css?v=b9cfeeac55f9ea51157237ea4d51d5eb" rel="stylesheet">
+{% if page.header_includes %}{{ page.header_includes }}{% endif %}
+
+{% if page.category == 'api' %}
+  <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
+{% elsif page.category == 'native' %}
+  <title>Ionic Native: Harness the power of Native APIs</title>
+{% elsif page.title %}
+  <title>{{page.title}}</title>
+{% else %}
+  <title>Ionic Framework</title>
+{% endif %}

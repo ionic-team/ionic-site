@@ -1,9 +1,17 @@
 
-$font-family-avenir: 'Avenir Next', 'Nunito', 'Helvetica Neue', Helvetica, sans-serif;
+$font-family-avenir: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+
+$font-family-monospace: 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
 
 $font-family-default: $font-family-avenir;
 
-$blue:          #4f8ff7;
+$blue:          #4a8bfc;
+$light-blue:    #529eff;
+$green:         #1ed176;
+$orange:        #fcb52c;
+$purple:        #8b7df1;
+$red:           #f8556c;
+
 $whiteish:      #f9fafb;
 $lighter-grey:  #ebeef2;
 $light-grey:    #e6e9ee;
@@ -20,8 +28,8 @@ $platform-preview-width: 467px;
 // bootstrap overrides
 $navbar-default-bg:     $blue;
 $navbar-default-border: $blue;
-$navbar-default-brand-color: #b2c8f7;
-$navbar-default-link-color:  #b2c8f7;
+$navbar-default-brand-color: rgba(white, .8);
+$navbar-default-link-color:  rgba(white, .8);
 $navbar-default-brand-hover-color: #fff;
 $navbar-default-link-hover-color:  #fff;
 $navbar-default-link-active-color: #fff;

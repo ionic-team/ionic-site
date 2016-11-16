@@ -1,0 +1,244 @@
+.draggable {
+  height: 345px;
+  position: relative;
+
+  .code,
+  .app {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+  }
+
+  .app {
+    right: 65%;
+    position: absolute;
+    overflow: hidden;
+    padding: 9px 0 0 9px;
+
+    ion-list {
+      display: block;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      margin: -1px 0 16px 0;
+    }
+
+    .item-block {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      width: calc(100% - 16px);
+      min-height: 4.4rem;
+      border: 0;
+      font-weight: normal;
+      line-height: normal;
+      text-align: initial;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .item-md {
+      position: relative;
+      padding-right: 0;
+      margin-left: 16px;
+      font-size: 1.6rem;
+      font-weight: normal;
+      text-transform: none;
+      color: #000;
+      background-color: #fff;
+      box-shadow: none;
+      transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+    ion-icon {
+      display: inline-block;
+      font-size: 1.2em;
+    }
+    .item > ion-icon, .item-inner > ion-icon {
+      min-height: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+    .item-md [item-left], .item-md [item-right] {
+      margin: 9px 8px 9px 0;
+    }
+    .item > ion-icon:first-child, .item-inner > ion-icon:first-child {
+      min-width: 24px;
+      text-align: center;
+    }
+    .item-md ion-icon[item-left], .item-md ion-icon[item-right] {
+      margin-top: 11px;
+      margin-bottom: 7px;
+      margin-left: 0;
+    }
+    .item-inner {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -webkit-flex-direction: inherit;
+      -ms-flex-direction: inherit;
+      flex-direction: inherit;
+      -webkit-align-items: inherit;
+      -ms-flex-align: inherit;
+      align-items: inherit;
+      -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+      align-self: stretch;
+      margin: 0;
+      padding: 0;
+      min-height: inherit;
+      border: 0;
+    }
+    .item-md.item-block .item-inner {
+      padding-right: 8px;
+      border-bottom: 1px solid #dedede;
+    }
+    .list-md .item-block .item-inner {
+      border-bottom: 1px solid #dedede;
+    }
+
+    .list-md .item-block:last-child .item-inner {
+      border-bottom: 0;
+    }
+
+    .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input {
+      margin-left: 24px;
+    }
+    .input-wrapper {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -webkit-flex-direction: inherit;
+      -ms-flex-direction: inherit;
+      flex-direction: inherit;
+      -webkit-align-items: inherit;
+      -ms-flex-align: inherit;
+      align-items: inherit;
+      -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+      align-self: stretch;
+      text-overflow: ellipsis;
+    }
+    ion-label {
+      display: block;
+      overflow: hidden;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      margin: 0;
+      font-size: inherit;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .label-md {
+      margin: 13px 8px 10px 0;
+    }
+  }
+
+  .code {
+    code {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: transparent;
+      padding-top: 15px;
+    }
+
+    pre {
+      font-family: monospace;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      line-height: 0em;
+      counter-reset: line;
+      white-space: pre-wrap;
+      padding: 0;
+      border: 0;
+      margin: 0;
+
+      &::before {
+        background: #f3f7ff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        content: '';
+        display: block;
+      }
+
+      span.line {
+        display: block;
+        padding: 12px 0 12px 55px;
+        position: relative;
+
+        &:before {
+          counter-increment: line;
+          content: counter(line);
+          display: block;
+          color: #79a5f1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 40px;
+          text-align: right;
+          padding-top: 12px;
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+
+  .toggle {
+    width: 4px;
+    top: 0 !important;
+    bottom: 0;
+    right: 65%;
+    position: absolute;
+    box-shadow: 0 0 18px rgba(black, .2);
+    background: white;
+    z-index: 3;
+    cursor: grab;
+
+    &::after {
+      background: url('/img/home/drag-button.png') no-repeat 0 0;
+      background-size: 64px;
+      width: 64px;
+      height: 64px;
+      display: block;
+      content: '';
+      top: calc(50% - 40px);
+      left: -28px;
+      position: absolute;
+    }
+  }
+}

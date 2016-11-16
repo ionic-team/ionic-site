@@ -14,9 +14,12 @@ var pagespeed   = require('psi');
 var pkg         = require('./package.json');
 var prefix      = require('gulp-autoprefixer');
 var rename      = require('gulp-rename');
+var runSequence = require('run-sequence');
 var sass        = require('gulp-sass');
 var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
+
+var bustingCache = false;
 
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -42,7 +45,7 @@ var closureStart =
 var closureEnd = '\n})();\n';
 var version = pkg.version;
 
-function bustCacheAndReload(done) {
+function bustCache() {
 
   function cacheBust(path, fileName) {
     return gulp.src(path + fileName)
@@ -59,17 +62,23 @@ function bustCacheAndReload(done) {
     ]
   }
 
-  es.concat(bustArray()).on('end', function() {
-    browserSync.reload();
+  return es.concat(bustArray());
+}
+
+function bustCacheAndReload(done) {
+
+
+  bustCache().on('end', function() {
+    // browserSync.reload();
     done();
     // apply the template change in the background
-    gulp.start('jekyll-build');
+    // gulp.start('jekyll-build.incremental');
   });
 }
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src('_scss/v2.scss')
+  return gulp.src('_scss/styles.scss')
     // .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
@@ -141,7 +150,9 @@ gulp.task('jekyll-build', [], function(done) {
   return cp.spawn('jekyll',
                   ['build', '--config', '_config_development.yml'],
                   {stdio: 'inherit'})
-           .on('close', done);
+           .on('close', function(){
+             done()
+           });
 });
 
 gulp.task('jekyll-build.incremental', [], function(done) {
@@ -169,9 +180,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build.incremental'], function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['server:ionicons','server:stylesv1', 'server:stylesv2', 'images',
-  'jekyll-build'
-], function() {
+gulp.task('server', ['build'], function() {
   browserSync({
     server: {
       baseDir: '_site'
@@ -179,24 +188,22 @@ gulp.task('server', ['server:ionicons','server:stylesv1', 'server:stylesv2', 'im
   });
 });
 
+
 gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);
 gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
-gulp.task('server:jekyll', ['jekyll-build.incremental'], bustCacheAndReload);
-gulp.task('server:images', ['images'], bustCacheAndReload);
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss', '_scss/pages/*.scss'],
-             ['server:stylesv2']);
-  gulp.watch(['_img/*', '_img/*/*'], ['server:images']);
+  gulp.watch(['_scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['_img/*', '_img/*/*'], ['images']);
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', 'getting-started/*.html',
     '_layouts/*', '_layouts/*/*', '_posts/*', '_includes/**/*',
-    'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*',
-    'dist/preview-app/www/**/*'
-  ], ['server:jekyll']);
+    'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*', '!docs/nightly',
+    '!docs/api', 'dist/preview-app/www/**/*'
+  ], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {
@@ -357,12 +364,6 @@ gulp.task('docs.index', function() {
 });
 
 gulp.task('ionicons', function() {
-  gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
-    .pipe(gulp.dest('./css/v2-demos/ionicons/'));
-
-  gulp.src('node_modules/ionicons/dist/fonts/*{eot,svg,ttf,woff}')
-    .pipe(gulp.dest('./css/v2-demos/fonts/'));
-
   gulp.src('node_modules/ionicons/dist/data/ionicons.json')
     .pipe(rename('site_data.json'))
     .pipe(gulp.dest('./docs/v2/resources/ionicons/'));
@@ -373,7 +374,19 @@ gulp.task('ionicons', function() {
   gulp.src('node_modules/ionicons/dist/data/logo-icons.json')
     .pipe(rename('generic-icons.json'))
     .pipe(gulp.dest('./docs/v2/resources/ionicons/data/'));
+
+  gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
+    .pipe(gulp.dest('./css/v2-demos/ionicons/'));
+
+  return gulp.src('node_modules/ionicons/dist/fonts/*{eot,svg,ttf,woff}')
+    .pipe(gulp.dest('./css/v2-demos/fonts/'));
 });
 
-gulp.task('build', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js'], bustCacheAndReload);
+gulp.task('build', ['build-prep'], function(done) {
+  runSequence('jekyll-build', function() {
+    done();
+  })
+});
+gulp.task('build-prep', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'images', 'js'], bustCache);
+
 gulp.task('default', ['build']);

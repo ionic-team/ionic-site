@@ -9160,7 +9160,8 @@ a.ui-button:active,
   .alert a:not(.btn),
   .docs-container main .alert a,
   .docs-container main .alert a:not(.btn) {
-    color: white; }
+    color: white;
+    opacity: 1; }
     .alert a:hover,
     .alert a:not(.btn):hover,
     .docs-container main .alert a:hover,

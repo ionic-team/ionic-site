@@ -48,7 +48,7 @@ navigation controller is an array of pages representing a particular history
 an app by pushing and popping pages or inserting and removing them at
 arbitrary locations in history.</p>
 <p>The current page is the last one in the array, or the top of the stack if we
-think of it that way.  <a href="#push">Pushing</a> a new page onto the top of the
+think of it that way. <a href="#push">Pushing</a> a new page onto the top of the
 navigation stack causes the new page to be animated in, while <a href="#pop">popping</a>
 the current page will navigate to the previous page in the stack.</p>
 <p>Unless you are using a directive like <a href="../../components/nav/NavPush/">NavPush</a>, or need a
@@ -59,7 +59,6 @@ nearest NavController to manipulate the navigation stack.</p>
 nav controller using the <code>&lt;ion-nav&gt;</code> component.  <code>ion-nav</code> extends the <code>NavController</code>
 class.</p>
 <pre><code class="lang-typescript">import { Component } from `@angular/core`;
-import { ionicBootstrap } from &#39;ionic-angular&#39;;
 import { StartPage } from &#39;./start-page&#39;;
 
 @Component(
@@ -67,13 +66,11 @@ import { StartPage } from &#39;./start-page&#39;;
 })
 class MyApp {
   // set the rootPage to the first page we want displayed
-  private rootPage: any = StartPage;
+  public rootPage: any = StartPage;
 
   constructor(){
   }
 }
-
-ionicBootstrap(MyApp);
 </code></pre>
 <h3 id="injecting-navcontroller">Injecting NavController</h3>
 <p>Injecting NavController will always get you an instance of the nearest
@@ -101,23 +98,50 @@ to be injected.</p>
 <p>By adding a reference variable to the <code>ion-nav</code>, you can use <code>@ViewChild</code> to
 get an instance of the <code>Nav</code> component, which is a navigation controller
 (it extends <code>NavController</code>):</p>
-<pre><code class="lang-typescript">import { App, ViewChild } from &#39;@angular/core&#39;;
+<pre><code class="lang-typescript">import { Component, ViewChild } from &#39;@angular/core&#39;;
 import { NavController } from &#39;ionic-angular&#39;;
 
-@App({
+@Component({
    template: &#39;&lt;ion-nav #myNav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;&#39;
 })
 export class MyApp {
    @ViewChild(&#39;myNav&#39;) nav: NavController
-   private rootPage = TabsPage;
+   public rootPage = TabsPage;
 
    // Wait for the components in MyApp&#39;s template to be initialized
-   // In this case, we are waiting for the Nav with id=&quot;my-nav&quot;
-   ngAfterViewInit() {
+   // In this case, we are waiting for the Nav with reference variable of &quot;#myNav&quot;
+   ngOnInit() {
       // Let&#39;s navigate from TabsPage to Page1
       this.nav.push(Page1);
    }
 }
+</code></pre>
+<h3 id="navigating-from-an-overlay-component">Navigating from an Overlay Component</h3>
+<p>What if you wanted to navigate from an overlay component (popover, modal, alert, etc)?
+In this example, we&#39;ve displayed a popover in our app. From the popover, we&#39;ll get a
+reference of the root <code>NavController</code> in our app, using the <code>getRootNav()</code> method.</p>
+<pre><code class="lang-typescript">import { Component } from &#39;@angular/core&#39;;
+import { App, ViewController } from &#39;ionic-angular&#39;;
+
+@Component({
+    template: `
+    &lt;ion-content&gt;
+      &lt;h1&gt;My PopoverPage&lt;/h1&gt;
+      &lt;button ion-button (click)=&quot;pushPage()&quot;&gt;Call pushPage&lt;/button&gt;
+     &lt;/ion-content&gt;
+    `
+  })
+  class PopoverPage {
+    constructor(
+      public viewCtrl: ViewController
+      public appCtrl: App
+    ) {}
+
+    pushPage() {
+      this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(SecondPage);
+    }
+  }
 </code></pre>
 <h2 id="view-creation">View creation</h2>
 <p>Views are created when they are added to the navigation stack.  For methods
@@ -202,7 +226,7 @@ import { NavController } from &#39;ionic-angular&#39;;
   &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
 })
 class OtherPage {
-   constructor(private navCtrl: NavController ){
+   constructor(public navCtrl: NavController ){
    }
 
    popView(){

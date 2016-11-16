@@ -1,23 +1,25 @@
 footer {
-  padding-top: 75px;
+  padding-top: 70px;
   padding-bottom: 20px;
 
   .logo {
-   background: url('/img/ionic-logo.png') no-repeat 0 0;
-   background-size: 90px;
-   height: 32px;
-   width: 90px;
-   display: block;
+    background: url('/img/ionic-logo.png') no-repeat 0 0;
+    background-size: 90px;
+    height: 32px;
+    width: 90px;
+    display: block;
+    width: 13.5%;
+    margin-top: 5px;
   }
 
   .logo,
   ul {
-    width: 16%;
     display: inline-block;
     vertical-align: top;
   }
 
   ul {
+    width: 16.3%;
     list-style: none;
 
     strong {
@@ -30,7 +32,7 @@ footer {
     a {
       color: #a1a9b6;
       font-size: 14px;
-      padding: 5px 0;
+      padding: 7px 0;
       display: inline-block;
 
       &:hover {
@@ -90,6 +92,7 @@ footer {
       h3 {
         font-size: 16px;
         margin-top: 0;
+        margin-bottom: 15px;
       }
 
       p {
@@ -104,7 +107,7 @@ footer {
     color: rgba(#bac2cf, .7);
     border-top: 1px solid #eff1f5;
     margin-top: 40px;
-    padding-top: 20px;
+    padding-top: 27px;
 
     a {
       color: rgba($blue, .7);

@@ -20,12 +20,12 @@ id: home
         <p class="btn-row">
           <a id="repo-download"
              class="btn white btn-download desktop-btn"
-             href="/getting-started/">Get Started</a>
+             href="/getting-started/">Get started</a>
           <a class="btn btn-primary btn-get-started hide-sm"
              href="/docs/"
              alt="Docs for v{{ site.latest_version }}">Explore the docs</a>
           <a class="btn btn-primary btn-download show-sm" href="/docs/">
-            View Docs</a>
+            View docs</a>
         </p>
         <p class="version-text">
           v{{ site.latest_version }} / {{ site.latest_release_date }}
@@ -46,6 +46,18 @@ id: home
 
 <div class="utility-bar">
   <div class="container">
+    <form action="http://codiqa.createsend.com/t/t/s/jytylh/"
+          method="post"
+          class="input-group col-md-5">
+      <input name="cm-jytylh-jytylh"
+        class="form-control"
+        type="email"
+        placeholder="Get the latest ionic framework news and updates"
+        required />
+      <span class="input-group-btn">
+        <button class="btn white sm" type="submit">Email me!</button>
+      </span>
+    </form>
     <ul class="social-row ionic col-md-7">
       <li>
         <a href="https://github.com/driftyco/ionic" target="_blank">
@@ -64,18 +76,6 @@ id: home
         </a>
       </li>
     </ul>
-    <form action="http://codiqa.createsend.com/t/t/s/jytylh/"
-          method="post"
-          class="input-group col-md-5">
-      <input name="cm-jytylh-jytylh"
-             class="form-control"
-             type="email"
-             placeholder="Get the latest ionic framework news and updates"
-             required />
-      <span class="input-group-btn">
-        <button class="btn white sm" type="submit">Email me!</button>
-      </span>
-    </form>
   </div>
 </div>
 
@@ -235,7 +235,7 @@ id: home
         <a href="">Live Reload</a> to create, build, test, and deploy your Ionic
         apps onto any platform. It’s like magic, but not.
       </li>
-      <li class="ionicons">
+      <li class="zionicons">
         <a href="">Ionicons</a> icon pack, test, and deploy your Ionic apps onto
         any platform. It’s like magic, but not.
       </li>
@@ -255,10 +255,8 @@ id: home
   <div class="container">
     <aside class="stats">
       <h5>At a glance</h5>
-      <group>
-        <h1>2.8 M</h1>
-        <h4>IONIC APPS BUILT</h4>
-      </group>
+      <h1>2.8 M</h1>
+      <h4>IONIC APPS BUILT</h4>
       <ul>
         <li class="devs">5 Million developers</li>
         <li class="meetups">100+ Meetup Groups</li>
@@ -277,11 +275,11 @@ id: home
       <li class="slack">
         <a href="">World Wide Slack</a> is always filled with tons of ionic devs.
       </li>
-      <li class="so">
-        <a href="">StackOverflow</a> is filled with help to common questions.
-      </li>
       <li class="forum">
         <a href="">Community Forum</a> is great for sharing and getting help.
+      </li>
+      <li class="so">
+        <a href="">StackOverflow</a> is filled with help to common questions.
       </li>
       <li class="github">
         <a href="">GitHub</a> is the best place to file issues and contribute.
@@ -412,6 +410,8 @@ $('.draggable .toggle').draggable({
 
 // Testimonials rotation
 var $testimonials = $('#testimonials');
+var testimonialIntervalID = null;
+var queued = false;
 
 function nextQuote() {
   $active = $testimonials.find('.quotees .active');
@@ -429,8 +429,27 @@ function nextQuote() {
                .addClass('active');
 }
 
-setInterval(nextQuote, 5000);
+function startTestimonialRotation() {
+  queued = false;
+  testimonialIntervalID = setInterval(nextQuote, 8000);
+}
 
+// what happens if a speaker is clicked
+$('.quotees li').click(function(ev) {
+  $testimonials.find('.active').removeClass('active');
+  $target = $(ev.delegateTarget);
+  $target.addClass('active');
+  $testimonials.find('.' + $target.data('speaker')).addClass('active');
+  // stop the rotation for a bit
+  clearInterval(testimonialIntervalID);
+  if (! queued) {
+    queued = true;
+    setTimeout(startTestimonialRotation, 13000);
+  }
+})
+
+// kick things off
+startTestimonialRotation();
 
 // $('#slider').slick({
 //   dots: true,

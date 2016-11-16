@@ -60,19 +60,20 @@
       &.iphone {
         width: 517px;
         position: relative;
+        left: 46px;
+        top: 36px;
       }
 
       &.pixel {
         width: 406px;
         position: absolute;
-        top: 25px;
-        right: 155px;
+        top: 64px;
+        right: 110px;
       }
     }
 
     .one,
-    .two,
-    .three {
+    .two {
       opacity: 0;
       animation: fadeInDown .7s;
       animation-fill-mode: forwards;
@@ -83,11 +84,14 @@
     }
 
     .two  {
-      animation-delay: 1s;
+      animation-delay: .7s;
     }
 
     .three  {
-      animation-delay: 1.5s;
+      opacity: 0;
+      animation: fadeIn .7s;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
     }
 
     .app-icon {
@@ -98,8 +102,8 @@
       height: 84px;
       width: 84px;
       position: absolute;
-      right: 44px;
-      bottom: 68px;
+      right: 0;
+      bottom: 0;
     }
 
     a {
@@ -125,8 +129,8 @@
 
     .demo-link {
       position: absolute;
-      right: 51px;
-      bottom: 50px;
+      right: 6px;
+      bottom: -20px;
       display: none;
       color: white;
       text-decoration: underline;
@@ -176,9 +180,9 @@
 
 
   .utility-bar {
-    margin-top: -146px;
+    margin-top: -158px;
     position: relative;
-    padding: 17px;
+    padding: 20px 0 22px;
     width: 100%;
     background: rgba(0, 0, 0, .15);
 
@@ -189,6 +193,11 @@
       white-space: nowrap;
     }
 
+    form {
+      max-width: 458px;
+      float: right;
+    }
+
     input {
       border: 1px solid rgba(255, 255, 255, 0);
       background: rgba(255, 255, 255, .2);
@@ -196,6 +205,8 @@
       color: white;
       box-shadow: none;
       font-weight: normal;
+      height: 40px;
+      padding: 1px 16px 0px;
       transition: .2s background;
 
       &:focus {
@@ -217,7 +228,7 @@
       box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
       font-weight: 500;
       font-size: 14px;
-      padding: 8px 15px 7px;
+      padding: 11px 13px 10px;
 
       &:hover {
         background: #5998FF;
@@ -235,11 +246,11 @@
 
   .built-with {
     background: #f6f7fa;
-    padding-bottom: 110px;
+    padding-bottom: 100px;
 
     hgroup {
       position: relative;
-      padding-top: 105px;
+      padding-top: 103px;
 
       h2,
       h4 {
@@ -255,7 +266,8 @@
         font-size: 19px;
         font-weight: 400;
         color: #4a566b;
-        line-height: 1.8em;
+        line-height: 1.9em;
+        margin-top: 20px;
       }
     }
 
@@ -263,8 +275,8 @@
       list-style: none;
       position: absolute;
       right: 0;
-      top: 131px;
-      width: 50%;
+      top: 123px;
+      width: 50.5%;
 
       li {
         background: url('/img/home/web-icons.png') no-repeat 0 0;
@@ -278,25 +290,25 @@
 
         &.angular {
           right: 64.5%;
-          animation-delay: .4s;
+          animation-delay: 1.4s;
         }
 
         &.js {
           right: 43%;
           background-position: 0 -200px;
-          animation-delay: .8s;
+          animation-delay: 1.6s;
         }
 
         &.ts {
           right: 21.5%;
           background-position: 0 -400px;
-          animation-delay: 1.2s;
+          animation-delay: 1.8s;
         }
 
         &.html {
           right: 0%;
           background-position: 0 -600px;
-          animation-delay: 1.6s;
+          animation-delay: 2s;
         }
       }
 
@@ -306,9 +318,9 @@
       margin-top: 75px;
 
       li {
-        width: 24.5%;
+        width: calc(25% + 2px);
         display: inline-block;
-        padding-left: 38px;
+        padding-left: 37px;
         padding-right: 15px;
         vertical-align: top;
         background: url('/img/home/checkmark-icon.png') no-repeat 0 0;
@@ -318,13 +330,19 @@
           font-size: 17px;
           font-weight: 500;
           margin-top: 4px;
+          margin-bottom: 5px;
         }
 
         p {
           font-size: 15px;
-          font-weight: 300;
+          font-weight: 500;
           color: #5c6a81;
-          line-height: 1.8em;
+          line-height: 1.75em;
+        }
+
+        &:last-child {
+          padding-right: 0;
+          width: calc(25% - 19px);
         }
       }
     }
@@ -343,7 +361,7 @@
       background: white;
 
       header {
-        padding: 32px 37px 33px;
+        padding: 24px 38px 28px;
         position: relative;
         z-index: 5;
 
@@ -362,7 +380,7 @@
         h3 {
           font-weight: 700;
           font-size: 11px;
-          letter-spacing: .15em;
+          letter-spacing: .2em;
           text-transform: uppercase;
           display: inline-block;
         }
@@ -370,8 +388,8 @@
         .platforms {
           list-style: none;
           position: absolute;
-          right: 37px;
-          top: 44px;
+          right: 26px;
+          top: 37px;
 
           li {
             background: url('/img/home/icons-sm.png') no-repeat 0 0;
@@ -379,7 +397,7 @@
             height: 24px;
             width: 24px;
             display: inline-block;
-            margin-right: 12px;
+            margin-right: 9px;
 
             &.android {
               background-position: 0 -24px;
@@ -399,21 +417,22 @@
     }
 
     hgroup {
-      min-height: 475px;
+      min-height: 469px;
       margin-left: 625px;
 
       h2 {
-        padding-top: 90px;
+        padding-top: 72px;
         font-size: 27px;
         line-height: 1.6em;
         font-weight: 400;
+        letter-spacing: -.02em;
       }
 
       h4 {
         color: #4a566b;
         font-size: 19px;
         font-weight: 400;
-        line-height: 1.8em;
+        line-height: 1.9em;
         margin-top: 15px;
 
         strong {
@@ -425,13 +444,13 @@
 
     .features {
       list-style: none;
-      padding: 0 0 120px;
+      padding: 0 0 109px;
 
       li {
         display: inline-block;
-        padding-top: 90px;
+        padding-top: 93px;
         position: relative;
-        width: 29%;
+        width: 29.7%;
         vertical-align: top;
         padding-right: 5%;
         box-sizing: content-box;
@@ -469,7 +488,7 @@
         a {
           font-size: 15px;
           color: #727a87;
-          line-height: 1.8em;
+          line-height: 2.15em;
         }
 
         a {
@@ -487,24 +506,26 @@
   .about-toolkit {
     background: #09224d;
     background: linear-gradient(to right, #051d46 0%, #1d3f6f 100%);
-    padding-top: 100px;
-    padding-bottom: 33px;
+    padding-top: 109px;
+    padding-bottom: 36px;
     color: #9fb0cb;
 
     hgroup {
       text-align: center;
-      margin-bottom: 90px;
+      margin-bottom: 96px;
 
       h2 {
         color: white;
         font-size: 27px;
-        font-weight: 400;
-        margin-bottom: 20px;
+        font-weight: 500;
+        margin-bottom: 27px;
+        letter-spacing: -.01em;
       }
 
       h4 {
-        font-weight: 400;
+        font-weight: 500;
         font-size: 20px;
+        letter-spacing: -.02em;
       }
     }
 
@@ -513,19 +534,20 @@
       padding: 0;
 
       li {
-        width: 30%;
+        width: calc(33% + 22px);
         display: inline-block;
-        margin-right: 4%;
         padding-left: 83px;
-        margin-bottom: 87px;
+        margin-bottom: 54px;
         font-weight: 400;
         font-size: 16px;
+        padding-right: 55px;
         line-height: 1.8em;
+        vertical-align: top;
         position: relative;
 
         &:nth-child(3),
         &:last-child {
-          margin-right: 0;
+          width: calc(33% - 40px);
         }
 
         &::before {
@@ -551,7 +573,7 @@
           background-position: 0 -480px;
         }
 
-        &.ionicons::before {
+        &.zionicons::before {
           background-position: 0 -560px;
         }
 
@@ -574,7 +596,7 @@
     background: #09172e;
     background: linear-gradient(to right, #050f23 0%, #13233f 100%);
     color: #909ebb;
-    padding-bottom: 50px;
+    padding-bottom: 44px;
 
     .container {
       position: relative;
@@ -584,12 +606,12 @@
       background: white;
       border-radius: 4px;
       color: $light-blue;
-      width: 410px;
+      width: 412px;
       text-transform: uppercase;
       position: absolute;
-      right: 0;
-      top: -20px;
-      padding: 55px 85px 60px;
+      right: 15px;
+      top: -19px;
+      padding: 55px 85px 52px;
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
 
@@ -600,20 +622,21 @@
         position: relative;
         padding: 0 10px;
         font-weight: 600;
+        letter-spacing: .2em;
 
         &::before,
         &::after {
           content: '';
           left: 0;
-          right: 69%;
+          right: 73%;
           border-bottom: 1px solid #d0d6e0;
           display: block;
-          top: 3px;
+          top: 4px;
           position: absolute;
         }
 
         &::after {
-          left: 69%;
+          left: 73%;
           right: 0;
         }
       }
@@ -621,28 +644,30 @@
       h1 {
         font-weight: 600;
         font-size: 78px;
-        letter-spacing: -5px;
+        letter-spacing: -3px;
         margin-bottom: 0;
+        margin-top: 36px;
       }
 
       h4 {
-        margin-top: -5px;
+        margin-top: -3px;
         font-size: 15px;
         color: #272a2f;
         font-weight: 600;
-        letter-spacing: 3px;
+        letter-spacing: 4px;
       }
 
       ul {
         list-style: none;
-        padding: 25px 0 0;
+        padding: 33px 0 0;
       }
 
       li {
         font-weight: 600;
         text-align: left;
         position: relative;
-        padding: 12px 0 12px 37px;
+        letter-spacing: .15em;
+        padding: 12px 0 16px 37px;
 
         &::before {
           background: url('/img/home/icons-sm.png') no-repeat 0 0;
@@ -652,8 +677,8 @@
           content: '';
           display: block;
           position: absolute;
-          left: 0;
-          right: -5px;
+          left: -4px;
+          top: 10px;
         }
 
         &.devs::before {
@@ -675,15 +700,16 @@
     }
 
     hgroup {
-      padding-top: 100px;
+      padding-top: 108px;
       margin-right: 420px;
-      padding-bottom: 62px;
+      padding-bottom: 76px;
 
       h2 {
         color: white;
         font-weight: 400;
         margin-bottom: 16px;
         font-size: 27px;
+        margin-bottom: 28px;
       }
 
       h4 {
@@ -698,7 +724,7 @@
       padding: 0;
 
       li {
-        padding: 0 64px 70px 78px;
+        padding: 0 64px 83px 78px;
         display: inline-block;
         position: relative;
         width: 49%;
@@ -711,8 +737,8 @@
           content: '';
           display: block;
           position: absolute;
-          left: 0;
-          top: -5px;
+          left: -11px;
+          top: -11px;
         }
 
         &.so::before {
@@ -739,13 +765,14 @@
     position: relative;
 
     h2 {
-      margin-top: 128px;
+      margin-top: 125px;
       padding-top: 58px;
-      margin-bottom: 77px;
+      margin-bottom: 67px;
       font-size: 22px;
       font-weight: 400;
       color: #4a566b;
       position: relative;
+      letter-spacing: -.03em;
 
       &::before {
         background: url('/img/home/heart-icon.png') no-repeat center top;
@@ -803,7 +830,7 @@
 
     .quotees {
       list-style: none;
-      padding: 30px 0;
+      padding: 36px 0 44px;
 
       li {
         list-style: none;
@@ -813,12 +840,13 @@
         padding-left: 90px;
         padding-right: 10px;
         vertical-align: top;
-        min-width: 20%;
-        padding-right: 4%;
+        min-width: 23%;
+        padding-right: 4.5%;
         min-height: 80px;
         margin-bottom: 20px;
         opacity: .5;
         transition: .3s opacity;
+        cursor: pointer;
 
         &.active {
           opacity: 1;
@@ -835,7 +863,7 @@
           display: block;
           font-weight: 500;
           font-size: 16px;
-          margin-top: 22px;
+          margin-top: 27px;
         }
 
         span {
@@ -878,7 +906,7 @@
       li {
         float: left;
         width: 45%;
-        padding-left: 110px;
+        padding-left: 108px;
         position: relative;
 
         &::before {
@@ -889,8 +917,8 @@
           content: '';
           display: block;
           position: absolute;
-          left: 0;
-          top: 0;
+          left: -9px;
+          top: 4px;
         }
 
         &::after {
@@ -914,11 +942,13 @@
         a {
           font-size: 22px;
           margin-bottom: 13px;
+          letter-spacing: -.03em;
         }
 
         p {
           font-size: 15px;
           line-height: 1.8em;
+          margin-top: 6px;
         }
       }
     }
@@ -975,41 +1005,44 @@
   }
 
   .slide {
-    padding:125px 0 101px;
+    padding:125px 0 113px;
     width:100%;
     outline: none;
   }
 
   .feature-img {
-    min-height: 535px;
-
+    min-height: 502px;
   }
 
   .slick-dots {
     bottom: 97px;
 
-    li button:before{
+    li button:before {
       color:white;
       font-size:22px;
       transition: transform .2s, opacity .2s;
     }
 
-    li.slick-active button:before{
-      -ms-transform: scale(1.3);
-      -webkit-transform: scale(1.3);
+    li.slick-active button:before {
       transform: scale(1.3);
     }
   }
 
+  .col-sm-6:first-child {
+    padding-left: 0;
+    min-height: 604px;
+  }
+
   h1 {
-    margin: 82px 0 0 0;
+    margin: 63px 0 0 0;
     font-size: 48px;
     font-weight: 400;
     color: white;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     cursor: default;
+    line-height: 64px;
 
     strong {
       font-weight: 600;
@@ -1026,12 +1059,13 @@
     font-size: 18px;
     font-weight: 400;
     margin: 20px 0px 32px;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+    max-width: 500px;
   }
 
   .btn-row {
-    margin-top: 56px;
+    margin-top: 66px;
   }
 
   .ion-chevron-right {
@@ -1133,8 +1167,9 @@ $ieEightAndNine: '\0/';
 
 .social-row {
   @media (min-width: 992px) {
-    margin: 7px 0 0 0;
+    margin: 12px 0 0 0;
     font-weight: 500;
+    padding-left: 0;
   }
 
   li {
@@ -1150,16 +1185,19 @@ $ieEightAndNine: '\0/';
 
     @media (min-width: 568px) {
       font-size: 14px;
-      margin-right: 34px;
+      margin-right: 35px;
+
       i {
         padding-right: 4px;
       }
     }
   }
+
   a {
     text-decoration: none;
     opacity: .6;
     color: white;
+    letter-spacing: -.02em;
 
     &:hover {
       opacity: 1;

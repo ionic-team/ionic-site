@@ -13,7 +13,7 @@
   }
 
   .navbar-brand {
-    padding: 22px 0 0 20px;
+    padding: 22px 0 0 13px;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -38,9 +38,9 @@
 
   .navbar-nav > li {
     > a {
-      padding: 27px 30px;
       font-size: 15px;
       font-weight: 500;
+      padding: 27px 33px;
       transition: .2s color;
       border-top: 3px solid transparent;
 
@@ -48,6 +48,10 @@
         padding: 15px;
         border: 0;
       }
+    }
+
+    &:last-child > a {
+      padding-right: 0;
     }
 
     &.active > a {

@@ -123,7 +123,7 @@ import {ItemDetailsPage} from '../item-details/item-details';
 
 
 @Component({
-  templateUrl: 'build/pages/list/list.html'
+  templateUrl: 'list.html'
 })
 export class ListPage {
   selectedItem: any;

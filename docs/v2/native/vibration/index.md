@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.2"
+version: "2.2.6"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -67,7 +67,7 @@ docType: "class"
 
 
 // Vibrate the device for a second
-// Duration is ignored on iOS. 
+// Duration is ignored on iOS.
 Vibration.vibrate(1000);
 
 // Vibrate 2 seconds

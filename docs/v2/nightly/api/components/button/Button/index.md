@@ -124,63 +124,63 @@ and be enhanced by a wide range of attributes.</p>
     
     <tr>
       <td>large</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Large button.</p>
 </td>
     </tr>
     
     <tr>
       <td>small</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Small button.</p>
 </td>
     </tr>
     
     <tr>
       <td>default</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Default button.</p>
 </td>
     </tr>
     
     <tr>
       <td>outline</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button with a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>clear</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button without a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>solid</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Force a solid button. Useful for buttons within an item.</p>
 </td>
     </tr>
     
     <tr>
       <td>round</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button with rounded corners.</p>
 </td>
     </tr>
     
     <tr>
       <td>block</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container with a border-radius.</p>
 </td>
     </tr>
     
     <tr>
       <td>full</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
 </td>
     </tr>
@@ -195,12 +195,46 @@ and be enhanced by a wide range of attributes.</p>
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).</p>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
 </td>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<pre><code class="lang-html">&lt;!-- Bind the color and outline inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;isDanger ? &#39;danger&#39; : &#39;primary&#39;&quot; [outline]=&quot;isOutline&quot;&gt;
+  Danger (Solid)
+&lt;/button&gt;
+
+&lt;!-- Bind the color and round inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;myColor&quot; [round]=&quot;isRound&quot;&gt;
+  Secondary (Round)
+&lt;/button&gt;
+
+&lt;!-- Bind the color and clear inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;isSecondary ? &#39;secondary&#39; : &#39;primary&#39;&quot;  [clear]=&quot;isClear&quot;&gt;
+  Primary (Clear)
+&lt;/button&gt;
+
+&lt;!-- Bind the color, outline and round inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;myColor2&quot; [outline]=&quot;isOutline&quot; [round]=&quot;isRound&quot;&gt;
+  Dark (Solid + Round)
+&lt;/button&gt;
+</code></pre>
+<pre><code class="lang-ts">@Component({
+  templateUrl: &#39;main.html&#39;
+})
+class E2EPage {
+  isDanger: boolean = true;
+  isSecondary: boolean = false;
+  isRound: boolean = true;
+  isOutline: boolean = false;
+  isClear: boolean = true;
+  myColor: string = &#39;secondary&#39;;
+  myColor2: string = &#39;dark&#39;;
+}
+</code></pre>
+
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>

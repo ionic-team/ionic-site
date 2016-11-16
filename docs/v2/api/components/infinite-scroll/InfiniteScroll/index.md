@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/infinite-scroll/infinite-scroll.ts#L2">
 Improve this doc
 </a>
 
@@ -130,26 +130,6 @@ You could replace our default content with custom SVG or CSS animations.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="state"></div>
-
-<h3>
-<a class="anchor" name="state" href="#state"></a>
-<code>state</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="complete"></div>
 
@@ -255,6 +235,15 @@ output event to get called when the user has scrolled 10%
 from the bottom of the page. Use the value <code>100px</code> when the
 scroll is within 100 pixels from the bottom of the page.
 Default is <code>15%</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the infinite scroll should be
+enabled or not. Setting to <code>false</code> will remove scroll event listeners
+and hide the display.</p>
 </td>
     </tr>
     

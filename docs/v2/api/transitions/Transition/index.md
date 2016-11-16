@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ Transition
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/transitions/transition.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/transitions/transition.ts#L1">
 Improve this doc
 </a>
 
@@ -60,26 +60,6 @@ Improve this doc
 <h3>
 <a class="anchor" name="parent" href="#parent"></a>
 <code>parent</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="hasChildTrns"></div>
-
-<h3>
-<a class="anchor" name="hasChildTrns" href="#hasChildTrns"></a>
-<code>hasChildTrns</code>
   
 
 </h3>
@@ -180,6 +160,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="registerStart" href="#registerStart"></a>
 <code>registerStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isRoot"></div>
+
+<h3>
+<a class="anchor" name="isRoot" href="#isRoot"></a>
+<code>isRoot()</code>
   
 
 </h3>

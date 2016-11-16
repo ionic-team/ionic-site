@@ -77,11 +77,11 @@ Improve this doc
 
 
 
-<div id="ionViewWillLoad"></div>
+<div id="ionViewPreLoad"></div>
 
 <h3>
-<a class="anchor" name="ionViewWillLoad" href="#ionViewWillLoad"></a>
-<code>ionViewWillLoad()</code>
+<a class="anchor" name="ionViewPreLoad" href="#ionViewPreLoad"></a>
+<code>ionViewPreLoad()</code>
   
 
 </h3>

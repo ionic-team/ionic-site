@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.2"
+version: "2.2.6"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L343">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L337">
   Improve this doc
 </a>
 
@@ -37,10 +37,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add </code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-file</code></pre>
 <p>Repo:
-  <a href="">
-    
+  <a href="https://github.com/apache/cordova-plugin-file">
+    https://github.com/apache/cordova-plugin-file
   </a>
 </p>
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.2"
+version: "2.2.6"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -79,7 +79,7 @@ upload(){
      fileKey: &#39;file&#39;,
      fileName: &#39;name.jpg&#39;,
      headers: {}
-     ..... 
+     .....
   }
   fileTransfer.upload(&quot;&lt;file path&gt;&quot;, &quot;&lt;api endpoint&gt;&quot;, options)
    .then((data) =&gt; {
@@ -88,6 +88,25 @@ upload(){
      // error
    })
 }
+
+// Cordova
+declare var cordova: any;
+
+download() {
+  const fileTransfer = new Transfer();
+  let url = &#39;http://www.example.com/file.pdf&#39;;
+  fileTransfer.download(url, cordova.file.dataDirectory + &#39;file.pdf&#39;).then((entry) =&gt; {
+    console.log(&#39;download complete: &#39; + entry.toURL());
+  }, (error) =&gt; {
+    // handle error
+  });
+}
+</code></pre>
+<p>Note: You will not see your documents using a file explorer on your device. Use adb:</p>
+<pre><code>adb shell
+run-as com.your.app
+cd files
+ls
 </code></pre>
 
 

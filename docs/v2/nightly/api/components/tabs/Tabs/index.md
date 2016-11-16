@@ -138,6 +138,14 @@ ionViewDidEnter() {
 
 }
 </code></pre>
+<p>You can also switch tabs from a child component by calling <code>select()</code> on the
+parent view using the <code>NavController</code> instance. For example, assuming you have
+a <code>TabsPage</code> component, you could call the following from any of the child
+components to switch to <code>TabsRoot3</code>:</p>
+<pre><code class="lang-ts">switchTabs() {
+  this.navCtrl.parent.switch(2);
+}
+</code></pre>
 
 
 
@@ -692,7 +700,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

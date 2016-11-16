@@ -65,7 +65,7 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-header&gt;
 
   &lt;ion-navbar&gt;
-    &lt;ion-title&gt;Main Heder&lt;/ion-title&gt;
+    &lt;ion-title&gt;Main Header&lt;/ion-title&gt;
   &lt;/ion-navbar&gt;
 
   &lt;ion-toolbar&gt;

@@ -533,7 +533,7 @@ Improve this doc
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

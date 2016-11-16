@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -11,7 +11,7 @@ doc: "FabList"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/src/fab/"
-angular_controller: APIDemoCtrl
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -35,7 +35,7 @@ FabList
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L100">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab.ts#L100">
 Improve this doc
 </a>
 
@@ -79,29 +79,29 @@ Improve this doc
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">
   <div class="sass-platform-toggle">
-
-
-
+    
+      
+      
       <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
-
-
-
+      
+      
+      
       <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
-
-
-
+      
+      
+      
       <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
-
-
-
+      
+      
+      
       <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
-
-
-
+      
+      
+    
   </div>
 
 
-
+  
   <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -111,19 +111,46 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-
+      
       <tr>
         <td><code>$fab-size</code></td>
-
+        
           <td><code>56px</code></td>
-
+        
         <td><p>Width and height of the FAB button</p>
 </td>
       </tr>
-
+      
+      <tr>
+        <td><code>$fab-mini-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Width and height of the FAB button mini</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-content-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB Container</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-list-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB List</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
-
+  
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -133,64 +160,64 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-
+      
       <tr>
         <td><code>$fab-ios-background-color</code></td>
-
+        
           <td><code>color($colors-ios, primary)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-ios-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-ios, $fab-ios-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-ios-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-ios-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-ios-in-list-background-color</code></td>
-
+        
           <td><code>color($colors-ios, light)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-ios-in-list-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-ios, $fab-ios-in-list-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-ios-in-list-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-ios-in-list-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
     </tbody>
   </table>
-
+  
   <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -200,82 +227,82 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-
+      
       <tr>
         <td><code>$fab-md-box-shadow</code></td>
-
+        
           <td><code>0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1)</code></td>
-
+        
         <td><p>Box shadow of the FAB button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-box-shadow-activated</code></td>
-
+        
           <td><code>0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1)</code></td>
-
+        
         <td><p>Box shadow of the activated FAB button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-background-color</code></td>
-
+        
           <td><code>color($colors-md, primary)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-md, $fab-md-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-md-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-in-list-background-color</code></td>
-
+        
           <td><code>color($colors-md, light)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-in-list-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-md, $fab-md-in-list-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-md-in-list-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-md-in-list-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
     </tbody>
   </table>
-
+  
   <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
     <thead>
       <tr>
@@ -285,64 +312,64 @@ Improve this doc
       </tr>
     </thead>
     <tbody>
-
+      
       <tr>
         <td><code>$fab-wp-background-color</code></td>
-
+        
           <td><code>color($colors-wp, primary)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-wp-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-wp, $fab-wp-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-wp-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-wp-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-wp-in-list-background-color</code></td>
-
+        
           <td><code>color($colors-wp, light)</code></td>
-
+        
         <td><p>Background color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-wp-in-list-text-color</code></td>
-
+        
           <td><code>color-contrast($colors-wp, $fab-wp-in-list-background-color)</code></td>
-
+        
         <td><p>Text color of the button</p>
 </td>
       </tr>
-
+      
       <tr>
         <td><code>$fab-wp-in-list-background-color-activated</code></td>
-
+        
           <td><code>color-shade($fab-wp-in-list-background-color)</code></td>
-
+        
         <td><p>Background color of the activated button</p>
 </td>
       </tr>
-
+      
     </tbody>
   </table>
-
+  
 </div>
 
 

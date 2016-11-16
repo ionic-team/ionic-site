@@ -4,7 +4,7 @@
   "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
   "engines": {
-    "node": "4.1.0"
+    "node": "6.7.0"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ NavPopAnchor
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L52">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav-pop.ts#L52">
 Improve this doc
 </a>
 
@@ -117,26 +117,6 @@ Improve this doc
 
 
 
-<div id="href"></div>
-
-<h3>
-<a class="anchor" name="href" href="#href"></a>
-<code>href</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="updateHref"></div>
 
 <h3>
@@ -157,31 +137,11 @@ Improve this doc
 
 
 
-<div id="ngOnChanges"></div>
+<div id="ngAfterContentInit"></div>
 
 <h3>
-<a class="anchor" name="ngOnChanges" href="#ngOnChanges"></a>
-<code>ngOnChanges()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngAfterViewInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
+<code>ngAfterContentInit()</code>
   
 
 </h3>

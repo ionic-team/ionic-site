@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L13">
 Improve this doc
 </a>
 
@@ -46,9 +46,9 @@ Improve this doc
 
 <p>The Tab component, written <code>&lt;ion-tab&gt;</code>, is styled based on the mode and should
 be used in conjunction with the <a href="../Tabs/">Tabs</a> component.</p>
-<p>Each <code>ion-tab</code> is a declarative component for a <a href="../NavController/">NavController</a>.
+<p>Each <code>ion-tab</code> is a declarative component for a <a href="../../../navigation/NavController/">NavController</a>.
 Basically, each tab is a <code>NavController</code>. For more information on using
-navigation controllers take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+navigation controllers take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API Docs</a> for more details on configuring Tabs.</p>
 
 
@@ -236,6 +236,13 @@ tabbar or not. Defaults to <code>true</code>.</p>
     
     <tr>
       <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabsHideOnSubPages</td>
       <td><code>boolean</code></td>
       <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
 </td>
@@ -501,7 +508,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

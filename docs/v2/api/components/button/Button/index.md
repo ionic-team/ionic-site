@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/button/button.ts#L4">
 Improve this doc
 </a>
 
@@ -72,16 +72,12 @@ and be enhanced by a wide range of attributes.</p>
 
 &lt;button ion-button round&gt;Round Button&lt;/button&gt;
 
-&lt;button ion-button fab&gt;FAB&lt;/button&gt;
-
 &lt;!-- Outline --&gt;
 &lt;button ion-button full outline&gt;Outline + Full&lt;/button&gt;
 
 &lt;button ion-button block outline&gt;Outline + Block&lt;/button&gt;
 
 &lt;button ion-button round outline&gt;Outline + Round&lt;/button&gt;
-
-&lt;button ion-button fab outline&gt;FAB&lt;/button&gt;
 
 &lt;!-- Icons --&gt;
 &lt;button ion-button icon-left&gt;
@@ -111,249 +107,6 @@ and be enhanced by a wide range of attributes.</p>
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-outline
-</td>
-
-
-
-<td>
-A transparent button with a border.
-</td>
-</tr>
-
-<tr>
-<td>
-clear
-</td>
-
-
-
-<td>
-A transparent button without a border.
-</td>
-</tr>
-
-<tr>
-<td>
-round
-</td>
-
-
-
-<td>
-A button with rounded corners.
-</td>
-</tr>
-
-<tr>
-<td>
-block
-</td>
-
-
-
-<td>
-A button that fills its parent container with a border-radius.
-</td>
-</tr>
-
-<tr>
-<td>
-full
-</td>
-
-
-
-<td>
-A button that fills its parent container without a border-radius or borders on the left/right.
-</td>
-</tr>
-
-<tr>
-<td>
-small
-</td>
-
-
-
-<td>
-A button with size small.
-</td>
-</tr>
-
-<tr>
-<td>
-large
-</td>
-
-
-
-<td>
-A button with size large.
-</td>
-</tr>
-
-<tr>
-<td>
-disabled
-</td>
-
-
-
-<td>
-A disabled button.
-</td>
-</tr>
-
-<tr>
-<td>
-fab
-</td>
-
-
-
-<td>
-A floating action button.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-left
-</td>
-
-
-
-<td>
-Position a fab button to the left.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-right
-</td>
-
-
-
-<td>
-Position a fab button to the right.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-center
-</td>
-
-
-
-<td>
-Position a fab button towards the center.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-top
-</td>
-
-
-
-<td>
-Position a fab button towards the top.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-bottom
-</td>
-
-
-
-<td>
-Position a fab button towards the bottom.
-</td>
-</tr>
-
-<tr>
-<td>
-fab-fixed
-</td>
-
-
-
-<td>
-Makes a fab button have a fixed position.
-</td>
-</tr>
-
-<tr>
-<td>
-color
-</td>
-
-
-
-<td>
-Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
@@ -371,70 +124,63 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     
     <tr>
       <td>large</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Large button.</p>
 </td>
     </tr>
     
     <tr>
       <td>small</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Small button.</p>
 </td>
     </tr>
     
     <tr>
       <td>default</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Default button.</p>
 </td>
     </tr>
     
     <tr>
       <td>outline</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button with a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>clear</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A transparent button without a border.</p>
 </td>
     </tr>
     
     <tr>
       <td>solid</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> Force a solid button. Useful for buttons within an item.</p>
 </td>
     </tr>
     
     <tr>
       <td>round</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button with rounded corners.</p>
 </td>
     </tr>
     
     <tr>
-      <td>fab</td>
-      <td><code>string</code></td>
-      <td><p> A floating action button.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>block</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container with a border-radius.</p>
 </td>
     </tr>
     
     <tr>
       <td>full</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
 </td>
     </tr>
@@ -442,19 +188,53 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
+      <td><p> The mode to apply to this component.</p>
 </td>
     </tr>
     
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).</p>
+      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
 </td>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<pre><code class="lang-html">&lt;!-- Bind the color and outline inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;isDanger ? &#39;danger&#39; : &#39;primary&#39;&quot; [outline]=&quot;isOutline&quot;&gt;
+  Danger (Solid)
+&lt;/button&gt;
+
+&lt;!-- Bind the color and round inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;myColor&quot; [round]=&quot;isRound&quot;&gt;
+  Secondary (Round)
+&lt;/button&gt;
+
+&lt;!-- Bind the color and clear inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;isSecondary ? &#39;secondary&#39; : &#39;primary&#39;&quot;  [clear]=&quot;isClear&quot;&gt;
+  Primary (Clear)
+&lt;/button&gt;
+
+&lt;!-- Bind the color, outline and round inputs to an expression --&gt;
+&lt;button ion-button [color]=&quot;myColor2&quot; [outline]=&quot;isOutline&quot; [round]=&quot;isRound&quot;&gt;
+  Dark (Solid + Round)
+&lt;/button&gt;
+</code></pre>
+<pre><code class="lang-ts">@Component({
+  templateUrl: &#39;main.html&#39;
+})
+class E2EPage {
+  isDanger: boolean = true;
+  isSecondary: boolean = false;
+  isRound: boolean = true;
+  isOutline: boolean = false;
+  isClear: boolean = true;
+  myColor: string = &#39;secondary&#39;;
+  myColor2: string = &#39;dark&#39;;
+}
+</code></pre>
+
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
@@ -827,15 +607,6 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
           <td><code>$button-round-border-radius</code></td>
         
         <td><p>Border radius of the round button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$button-ios-fab-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the FAB button</p>
 </td>
       </tr>
       
@@ -1266,33 +1037,6 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 </td>
       </tr>
       
-      <tr>
-        <td><code>$button-md-fab-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$button-md-fab-box-shadow</code></td>
-        
-          <td><code>0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1)</code></td>
-        
-        <td><p>Box shadow of the FAB button</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$button-md-fab-box-shadow-activated</code></td>
-        
-          <td><code>0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1)</code></td>
-        
-        <td><p>Box shadow of the activated FAB button</p>
-</td>
-      </tr>
-      
     </tbody>
   </table>
   
@@ -1585,15 +1329,6 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 </td>
       </tr>
       
-      <tr>
-        <td><code>$button-wp-fab-border-radius</code></td>
-        
-          <td><code>50%</code></td>
-        
-        <td><p>Border radius of the FAB button</p>
-</td>
-      </tr>
-      
     </tbody>
   </table>
   
@@ -1605,7 +1340,10 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#buttons'>Button Component Docs</a>,
+<a href='/docs/v2/components#fabs'>FabButton Docs</a>,
+<a href='../../fab/FabButton'>FabButton API Docs</a>,
+<a href='../../fab/FabContainer'>FabContainer API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

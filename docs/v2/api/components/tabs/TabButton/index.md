@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ TabButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab-button.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab-button.ts#L4">
 Improve this doc
 </a>
 
@@ -533,7 +533,7 @@ Improve this doc
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

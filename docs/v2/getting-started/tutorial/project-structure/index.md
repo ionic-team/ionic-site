@@ -19,9 +19,9 @@ next_page_link: /docs/v2/getting-started/tutorial/adding-pages
 
 Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files.
 
-<h3 class="file-title">./www/index.html</h3>
+<h3 class="file-title">./src/index.html</h3>
 
-`www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and bootstrap, or start running, our app. We won't spend much of our time in this file.
+`src/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and bootstrap, or start running, our app. We won't spend much of our time in this file.
 
 For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In this example we have:
 
@@ -33,49 +33,51 @@ And the following scripts near the bottom:
 
 ```html
 <script src="cordova.js"></script>
-<script src="build/js/app.bundle.js"></script>
+<script src="build/main.js"></script>
 ```
 
-- `build/js/app.bundle.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
+- `build/main.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
 
 - `cordova.js` will 404 during local development, as it gets injected into your project during Cordova's build process.
 
-<h3 class="file-title">./app/app.ts</h3>
+<h3 class="file-title">./src/</h3>
 
-Inside of the `app` directory we find our pre-compiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](/docs/v2/resources/what-is/#es2015-es6), but compile down to the older form of Javascript the browser needs.
+Inside of the `src` directory we find our raw, uncompiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `src/` is [transpiled](/docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript, but compile down to the older form of Javascript the browser needs.
 
-`app/app.ts` is the entry point for our app.
+`src/app/app.module.ts` is the entry point for our app.
 
 Near the top of the file, we should see this:
 
 ```ts
-@Component({
-  templateUrl: 'build/app.html'
-})
-class MyApp {
-  constructor() {
-  }
-}
 
-ionicBootstrap(MyApp)
+@NgModule({
+  declarations: [MyApp,HelloIonicPage, ItemDetailsPage, ListPage],
+  imports: [IonicModule.forRoot(MyApp)],
+  bootstrap: [IonicApp],
+  entryComponents: [MyApp,HelloIonicPage,ItemDetailsPage,ListPage],
+  providers: []
+})
+export class AppModule {}
 ```
 
-Every app has a *root component* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. This is also where we bootstrap our app using `ionicBootstrap`.
+Every app has a *root module* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. This is also where we bootstrap our app using `ionicBootstrap`.
 
-In this component, we set the template to be the file at `build/app.html`, which is a compiled version of `app/app.html`, let's take a look!
+In this module, we're setting the root component to MyApp, in `src/app/app.component.ts`. This is the first component that gets loaded in our app, and it typically is a empty shell for other components to loaded into. In `app.component.ts`, we're setting out template to `src/app/app.html`, so let's look in there.
 
-<h3 class="file-title">./app/app.html</h3>
+<h3 class="file-title">./src/app/app.html</h3>
 
 
-Here's the main template for the app in `app/app.html`:
+Here's the main template for the app in `src/app/app.html`:
 
 ```html
 <ion-menu [content]="content">
 
-  <ion-toolbar>
-    <ion-title>Pages</ion-title>
-  </ion-toolbar>
-
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">

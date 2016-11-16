@@ -282,7 +282,7 @@ Similar to Angular 2 route guards, but are more integrated with NavController. F
      .catch(()=&gt; console.log(&#39;should I stay or should I go now&#39;))
   }
 
-  ionCanViewLeave(): boolean{
+  ionViewCanLeave(): boolean{
    // here we can either return true or false
    // depending on if we want to leave this view
    if(isValid(randomValue)){
@@ -311,7 +311,7 @@ export class DetailPage(){
   constructor(
     public navCtrl: NavController
   ){}
-  ionCanViewEnter(): boolean{
+  ionViewCanEnter(): boolean{
    // here we can either return true or false
    // depending on if we want to leave this view
    if(isValid(randomValue)){
@@ -1031,6 +1031,81 @@ Removes a page from the nav stack at the specified index.
       </td>
       <td>
         <p>The number of pages to remove, defaults to remove <code>1</code>.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="removeView"></div>
+
+<h3>
+<a class="anchor" name="removeView" href="#removeView"></a>
+<code>removeView(viewController,&nbsp;opts)</code>
+  
+
+</h3>
+
+Removes the specified view controller from the nav stack.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        viewController
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The viewcontroller to remove.<strong class="tag">Optional</strong></p>
 
         
       </td>

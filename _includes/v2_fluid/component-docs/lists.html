@@ -76,13 +76,11 @@ To divide groups of items, use `<ion-item-group>` instead of `<ion-list>`. Use `
 
 ```html
 <ion-content>
-    <ion-item-group>
-
-      <ion-item-divider light>A</ion-item-divider>
-      <ion-item>Angola</ion-item>
-      <ion-item>Argentina</ion-item>
-
-    </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">A</ion-item-divider>
+    <ion-item>Angola</ion-item>
+    <ion-item>Argentina</ion-item>
+  </ion-item-group>
 </ion-content>
 ```
 
@@ -181,17 +179,17 @@ For more information, Check out the [API docs](../api/components/item/ItemSlidin
       <h2>Slimer</h2>
     </ion-item>
     <ion-item-options side="left">
-      <button primary>
+      <button ion-button color="primary">
         <ion-icon name="text"></ion-icon>
         Text
       </button>
-      <button secondary>
+      <button ion-button color="secondary">
         <ion-icon name="call"></ion-icon>
         Call
       </button>
     </ion-item-options>
     <ion-item-options side="right">
-      <button primary>
+      <button ion-button color="primary">
         <ion-icon name="mail"></ion-icon>
         Email
       </button>

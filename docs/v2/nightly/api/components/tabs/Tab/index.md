@@ -241,6 +241,13 @@ tabbar or not. Defaults to <code>true</code>.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>tabsHideOnSubPages</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -501,7 +508,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

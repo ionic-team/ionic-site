@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav.ts#L11">
 Improve this doc
 </a>
 
@@ -44,9 +44,9 @@ Improve this doc
 
 
 
-<p><code>ion-nav</code> is the declarative component for a <a href="../NavController/">NavController</a>.</p>
+<p><code>ion-nav</code> is the declarative component for a <a href="../../../navigation/NavController/">NavController</a>.</p>
 <p>For more information on using nav controllers like Nav or <a href="../../Tabs/Tab/">Tab</a>,
-take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
 
 
 

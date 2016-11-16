@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ PickerCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker-component.ts#L344">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/picker/picker-component.ts#L366">
 Improve this doc
 </a>
 
@@ -157,11 +157,11 @@ Improve this doc
 
 
 
-<div id="ionViewDidLoad"></div>
+<div id="ionViewWillLoad"></div>
 
 <h3>
-<a class="anchor" name="ionViewDidLoad" href="#ionViewDidLoad"></a>
-<code>ionViewDidLoad()</code>
+<a class="anchor" name="ionViewWillLoad" href="#ionViewWillLoad"></a>
+<code>ionViewWillLoad()</code>
   
 
 </h3>

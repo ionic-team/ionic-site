@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/datetime/datetime.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/datetime/datetime.ts#L16">
 Improve this doc
 </a>
 
@@ -582,6 +582,204 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$datetime-ios-padding-top</code></td>
+        
+          <td><code>$item-ios-padding-top</code></td>
+        
+        <td><p>Padding top of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-ios-padding-right</code></td>
+        
+          <td><code>($item-ios-padding-right / 2)</code></td>
+        
+        <td><p>Padding right of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-ios-padding-bottom</code></td>
+        
+          <td><code>$item-ios-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-ios-padding-left</code></td>
+        
+          <td><code>$item-ios-padding-left</code></td>
+        
+        <td><p>Padding left of the DateTime component</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$datetime-md-padding-top</code></td>
+        
+          <td><code>$item-md-padding-top</code></td>
+        
+        <td><p>Padding top of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-md-padding-right</code></td>
+        
+          <td><code>($item-md-padding-right / 2)</code></td>
+        
+        <td><p>Padding right of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-md-padding-bottom</code></td>
+        
+          <td><code>$item-md-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-md-padding-left</code></td>
+        
+          <td><code>$item-md-padding-left</code></td>
+        
+        <td><p>Padding left of the DateTime component</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$datetime-wp-min-width</code></td>
+        
+          <td><code>45%</code></td>
+        
+        <td><p>Min width of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-padding-top</code></td>
+        
+          <td><code>$item-wp-padding-top</code></td>
+        
+        <td><p>Padding top of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-padding-right</code></td>
+        
+          <td><code>($item-wp-padding-right / 2)</code></td>
+        
+        <td><p>Padding right of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-padding-bottom</code></td>
+        
+          <td><code>$item-wp-padding-bottom</code></td>
+        
+        <td><p>Padding bottom of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-padding-left</code></td>
+        
+          <td><code>$item-wp-padding-left</code></td>
+        
+        <td><p>Padding left of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-border-width</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Border width of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-border-color</code></td>
+        
+          <td><code>$input-wp-border-color</code></td>
+        
+        <td><p>Border color of the DateTime component</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

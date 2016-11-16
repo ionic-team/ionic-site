@@ -98,19 +98,6 @@ function isBlank(obj) {
 }
 
 
-function isString(obj) {
-    return typeof obj === 'string';
-}
-function isFunction(obj) {
-    return typeof obj === 'function';
-}
-
-
-
-function isArray(obj) {
-    return Array.isArray(obj);
-}
-
 
 function stringify(token) {
     if (typeof token === 'string') {
@@ -130,57 +117,9 @@ function stringify(token) {
     return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
 
-var NumberWrapper = (function () {
-    function NumberWrapper() {
-    }
-    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-    NumberWrapper.equal = function (a, b) { return a === b; };
-    NumberWrapper.parseIntAutoRadix = function (text) {
-        var result = parseInt(text);
-        if (isNaN(result)) {
-            throw new Error('Invalid integer literal when parsing ' + text);
-        }
-        return result;
-    };
-    NumberWrapper.parseInt = function (text, radix) {
-        if (radix == 10) {
-            if (/^(\-|\+)?[0-9]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else if (radix == 16) {
-            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else {
-            var result = parseInt(text, radix);
-            if (!isNaN(result)) {
-                return result;
-            }
-        }
-        throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-    };
-    Object.defineProperty(NumberWrapper, "NaN", {
-        get: function () { return NaN; },
-        enumerable: true,
-        configurable: true
-    });
-    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-    return NumberWrapper;
-}());
-
-
 // JS has NaN !== NaN
 function looseIdentical(a, b) {
     return a === b || typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b);
-}
-// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-function getMapKey(value) {
-    return value;
 }
 
 
@@ -193,8 +132,6 @@ function print(obj) {
 function warn(obj) {
     console.warn(obj);
 }
-// Can't be all uppercase as our transpiler would think it is a special directive...
-
 
 var _symbolIterator = null;
 function getSymbolIterator() {
@@ -216,7 +153,6 @@ function getSymbolIterator() {
     }
     return _symbolIterator;
 }
-
 function isPrimitive(obj) {
     return !isJsObject(obj);
 }
@@ -419,7 +355,7 @@ function makeDecorator(name, props, parentClass, chainFn) {
     return DecoratorFactory;
 }
 function makeMetadataCtor(props) {
-    function ctor() {
+    return function ctor() {
         var _this = this;
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -429,17 +365,16 @@ function makeMetadataCtor(props) {
             var argVal = args[i];
             if (Array.isArray(prop)) {
                 // plain parameter
-                _this[prop[0]] = !argVal || argVal === undefined ? prop[1] : argVal;
+                _this[prop[0]] = argVal === undefined ? prop[1] : argVal;
             }
             else {
                 for (var propName in prop) {
                     _this[propName] =
-                        !argVal || argVal[propName] === undefined ? prop[propName] : argVal[propName];
+                        argVal && argVal.hasOwnProperty(propName) ? argVal[propName] : prop[propName];
                 }
             }
         });
-    }
-    return ctor;
+    };
 }
 function makeParamDecorator(name, props, parentClass) {
     var metaCtor = makeMetadataCtor(props);
@@ -490,7 +425,7 @@ function makePropDecorator(name, props, parentClass) {
         var decoratorInstance = new ((_a = PropDecoratorFactory).bind.apply(_a, [void 0].concat(args)))();
         return function PropDecorator(target, name) {
             var meta = Reflect.getOwnMetadata('propMetadata', target.constructor) || {};
-            meta[name] = meta[name] || [];
+            meta[name] = meta.hasOwnProperty(name) && meta[name] || [];
             meta[name].unshift(decoratorInstance);
             Reflect.defineMetadata('propMetadata', meta, target.constructor);
         };
@@ -1223,7 +1158,7 @@ function forwardRef(forwardRefFn) {
  * @experimental
  */
 function resolveForwardRef(type) {
-    if (isFunction(type) && type.hasOwnProperty('__forward_ref__') &&
+    if (typeof type === 'function' && type.hasOwnProperty('__forward_ref__') &&
         type.__forward_ref__ === forwardRef) {
         return type();
     }
@@ -1362,55 +1297,6 @@ var Injector = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Map constructor.  We work around that by manually adding the items.
-var createMapFromPairs = (function () {
-    try {
-        if (new Map([[1, 2]]).size === 1) {
-            return function createMapFromPairs(pairs) { return new Map(pairs); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map();
-        for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i];
-            map.set(pair[0], pair[1]);
-        }
-        return map;
-    };
-})();
-var createMapFromMap = (function () {
-    try {
-        if (new Map(new Map())) {
-            return function createMapFromMap(m) { return new Map(m); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromMap(m) {
-        var map = new Map();
-        m.forEach(function (v, k) { map.set(k, v); });
-        return map;
-    };
-})();
-var _clearValues = (function () {
-    if ((new Map()).keys().next) {
-        return function _clearValues(m) {
-            var keyIterator = m.keys();
-            var k;
-            while (!((k = keyIterator.next()).done)) {
-                m.set(k.value, null);
-            }
-        };
-    }
-    else {
-        return function _clearValuesWithForeEach(m) {
-            m.forEach(function (v, k) { m.set(k, null); });
-        };
-    }
-})();
 // Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap = (function () {
@@ -1442,13 +1328,6 @@ var MapWrapper = (function () {
         }
         return result;
     };
-    MapWrapper.toStringMap = function (m) {
-        var r = {};
-        m.forEach(function (v, k) { return r[k] = v; });
-        return r;
-    };
-    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs(pairs); };
-    MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap(m, true); };
     return MapWrapper;
@@ -1607,7 +1486,7 @@ function _flattenArray(source, target) {
     if (isPresent(source)) {
         for (var i = 0; i < source.length; i++) {
             var item = source[i];
-            if (isArray(item)) {
+            if (Array.isArray(item)) {
                 _flattenArray(item, target);
             }
             else {
@@ -1620,7 +1499,7 @@ function _flattenArray(source, target) {
 function isListLikeIterable(obj) {
     if (!isJsObject(obj))
         return false;
-    return isArray(obj) ||
+    return Array.isArray(obj) ||
         (!(obj instanceof Map) &&
             getSymbolIterator() in obj); // JS Iterable have a Symbol.iterator prop
 }
@@ -1639,14 +1518,14 @@ function areIterablesEqual(a, b, comparator) {
     }
 }
 function iterateListLike(obj, fn) {
-    if (isArray(obj)) {
+    if (Array.isArray(obj)) {
         for (var i = 0; i < obj.length; i++) {
             fn(obj[i]);
         }
     }
     else {
         var iterator = obj[getSymbolIterator()]();
-        var item;
+        var item = void 0;
         while (!((item = iterator.next()).done)) {
             fn(item.value);
         }
@@ -2100,7 +1979,7 @@ var ReflectionCapabilities = (function () {
         // Prefer the direct API.
         if (typeOrFunc.annotations) {
             var annotations = typeOrFunc.annotations;
-            if (isFunction(annotations) && annotations.annotations) {
+            if (typeof annotations === 'function' && annotations.annotations) {
                 annotations = annotations.annotations;
             }
             return annotations;
@@ -2121,7 +2000,7 @@ var ReflectionCapabilities = (function () {
         // Prefer the direct API.
         if (typeOrFunc.propMetadata) {
             var propMetadata = typeOrFunc.propMetadata;
-            if (isFunction(propMetadata) && propMetadata.propMetadata) {
+            if (typeof propMetadata === 'function' && propMetadata.propMetadata) {
                 propMetadata = propMetadata.propMetadata;
             }
             return propMetadata;
@@ -2143,15 +2022,8 @@ var ReflectionCapabilities = (function () {
         }
         return {};
     };
-    // Note: JavaScript does not support to query for interfaces during runtime.
-    // However, we can't throw here as the reflector will always call this method
-    // when asked for a lifecycle interface as this is what we check in Dart.
-    ReflectionCapabilities.prototype.interfaces = function (type) { return []; };
-    ReflectionCapabilities.prototype.hasLifecycleHook = function (type, lcInterface, lcProperty) {
-        if (!(type instanceof Type))
-            return false;
-        var proto = type.prototype;
-        return !!proto[lcProperty];
+    ReflectionCapabilities.prototype.hasLifecycleHook = function (type, lcProperty) {
+        return type instanceof Type && lcProperty in type.prototype;
     };
     ReflectionCapabilities.prototype.getter = function (name) { return new Function('o', 'return o.' + name + ';'); };
     ReflectionCapabilities.prototype.setter = function (name) {
@@ -2216,10 +2088,6 @@ var __extends$2 = (undefined && undefined.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * Reflective information about a symbol, including annotations, interfaces, and other metadata.
- */
-
-/**
  * Provides access to reflection data about symbols. Used internally by Angular
  * to power dependency injection and compilation.
  */
@@ -2228,103 +2096,24 @@ var Reflector = (function (_super) {
     function Reflector(reflectionCapabilities) {
         _super.call(this);
         this.reflectionCapabilities = reflectionCapabilities;
-        /** @internal */
-        this._injectableInfo = new Map();
-        /** @internal */
-        this._getters = new Map();
-        /** @internal */
-        this._setters = new Map();
-        /** @internal */
-        this._methods = new Map();
-        /** @internal */
-        this._usedKeys = null;
     }
     Reflector.prototype.updateCapabilities = function (caps) { this.reflectionCapabilities = caps; };
-    Reflector.prototype.isReflectionEnabled = function () { return this.reflectionCapabilities.isReflectionEnabled(); };
-    /**
-     * Causes `this` reflector to track keys used to access
-     * {@link ReflectionInfo} objects.
-     */
-    Reflector.prototype.trackUsage = function () { this._usedKeys = new Set(); };
-    /**
-     * Lists types for which reflection information was not requested since
-     * {@link #trackUsage} was called. This list could later be audited as
-     * potential dead code.
-     */
-    Reflector.prototype.listUnusedKeys = function () {
-        var _this = this;
-        if (!this._usedKeys) {
-            throw new Error('Usage tracking is disabled');
-        }
-        var allTypes = MapWrapper.keys(this._injectableInfo);
-        return allTypes.filter(function (key) { return !_this._usedKeys.has(key); });
-    };
-    Reflector.prototype.registerFunction = function (func, funcInfo) {
-        this._injectableInfo.set(func, funcInfo);
-    };
-    Reflector.prototype.registerType = function (type, typeInfo) {
-        this._injectableInfo.set(type, typeInfo);
-    };
-    Reflector.prototype.registerGetters = function (getters) { _mergeMaps(this._getters, getters); };
-    Reflector.prototype.registerSetters = function (setters) { _mergeMaps(this._setters, setters); };
-    Reflector.prototype.registerMethods = function (methods) { _mergeMaps(this._methods, methods); };
-    Reflector.prototype.factory = function (type) {
-        if (this._containsReflectionInfo(type)) {
-            return this._getReflectionInfo(type).factory || null;
-        }
-        return this.reflectionCapabilities.factory(type);
-    };
+    Reflector.prototype.factory = function (type) { return this.reflectionCapabilities.factory(type); };
     Reflector.prototype.parameters = function (typeOrFunc) {
-        if (this._injectableInfo.has(typeOrFunc)) {
-            return this._getReflectionInfo(typeOrFunc).parameters || [];
-        }
         return this.reflectionCapabilities.parameters(typeOrFunc);
     };
     Reflector.prototype.annotations = function (typeOrFunc) {
-        if (this._injectableInfo.has(typeOrFunc)) {
-            return this._getReflectionInfo(typeOrFunc).annotations || [];
-        }
         return this.reflectionCapabilities.annotations(typeOrFunc);
     };
     Reflector.prototype.propMetadata = function (typeOrFunc) {
-        if (this._injectableInfo.has(typeOrFunc)) {
-            return this._getReflectionInfo(typeOrFunc).propMetadata || {};
-        }
         return this.reflectionCapabilities.propMetadata(typeOrFunc);
     };
-    Reflector.prototype.interfaces = function (type) {
-        if (this._injectableInfo.has(type)) {
-            return this._getReflectionInfo(type).interfaces || [];
-        }
-        return this.reflectionCapabilities.interfaces(type);
+    Reflector.prototype.hasLifecycleHook = function (type, lcProperty) {
+        return this.reflectionCapabilities.hasLifecycleHook(type, lcProperty);
     };
-    Reflector.prototype.hasLifecycleHook = function (type, lcInterface, lcProperty) {
-        if (this.interfaces(type).indexOf(lcInterface) !== -1) {
-            return true;
-        }
-        return this.reflectionCapabilities.hasLifecycleHook(type, lcInterface, lcProperty);
-    };
-    Reflector.prototype.getter = function (name) {
-        return this._getters.has(name) ? this._getters.get(name) :
-            this.reflectionCapabilities.getter(name);
-    };
-    Reflector.prototype.setter = function (name) {
-        return this._setters.has(name) ? this._setters.get(name) :
-            this.reflectionCapabilities.setter(name);
-    };
-    Reflector.prototype.method = function (name) {
-        return this._methods.has(name) ? this._methods.get(name) :
-            this.reflectionCapabilities.method(name);
-    };
-    /** @internal */
-    Reflector.prototype._getReflectionInfo = function (typeOrFunc) {
-        if (this._usedKeys) {
-            this._usedKeys.add(typeOrFunc);
-        }
-        return this._injectableInfo.get(typeOrFunc);
-    };
-    /** @internal */
-    Reflector.prototype._containsReflectionInfo = function (typeOrFunc) { return this._injectableInfo.has(typeOrFunc); };
+    Reflector.prototype.getter = function (name) { return this.reflectionCapabilities.getter(name); };
+    Reflector.prototype.setter = function (name) { return this.reflectionCapabilities.setter(name); };
+    Reflector.prototype.method = function (name) { return this.reflectionCapabilities.method(name); };
     Reflector.prototype.importUri = function (type) { return this.reflectionCapabilities.importUri(type); };
     Reflector.prototype.resolveIdentifier = function (name, moduleUrl, runtime) {
         return this.reflectionCapabilities.resolveIdentifier(name, moduleUrl, runtime);
@@ -2334,9 +2123,6 @@ var Reflector = (function (_super) {
     };
     return Reflector;
 }(ReflectorReader));
-function _mergeMaps(target, config) {
-    Object.keys(config).forEach(function (k) { target.set(k, config[k]); });
-}
 
 /**
  * @license
@@ -2525,7 +2311,7 @@ function _extractToken(typeOrFunc /** TODO #9100 */, metadata /** TODO #9100 */ 
     var depProps = [];
     var token = null;
     var optional = false;
-    if (!isArray(metadata)) {
+    if (!Array.isArray(metadata)) {
         if (metadata instanceof Inject) {
             return _createDependency(metadata.token, optional, null, null, depProps);
         }
@@ -3884,20 +3670,20 @@ var DefaultIterableDiffer = (function () {
         var index;
         var item;
         var itemTrackBy;
-        if (isArray(collection)) {
+        if (Array.isArray(collection)) {
             var list = collection;
             this._length = collection.length;
-            for (index = 0; index < this._length; index++) {
-                item = list[index];
-                itemTrackBy = this._trackByFn(index, item);
+            for (var index_1 = 0; index_1 < this._length; index_1++) {
+                item = list[index_1];
+                itemTrackBy = this._trackByFn(index_1, item);
                 if (record === null || !looseIdentical(record.trackById, itemTrackBy)) {
-                    record = this._mismatch(record, item, itemTrackBy, index);
+                    record = this._mismatch(record, item, itemTrackBy, index_1);
                     mayBeDirty = true;
                 }
                 else {
                     if (mayBeDirty) {
                         // TODO(misko): can we limit this to duplicates only?
-                        record = this._verifyReinsertion(record, item, itemTrackBy, index);
+                        record = this._verifyReinsertion(record, item, itemTrackBy, index_1);
                     }
                     if (!looseIdentical(record.item, item))
                         this._addIdentityChange(record, item);
@@ -4383,10 +4169,9 @@ var _DuplicateMap = (function () {
         this.map = new Map();
     }
     _DuplicateMap.prototype.put = function (record) {
-        // todo(vicb) handle corner cases
-        var key = getMapKey(record.trackById);
+        var key = record.trackById;
         var duplicates = this.map.get(key);
-        if (!isPresent(duplicates)) {
+        if (!duplicates) {
             duplicates = new _DuplicateItemRecordList();
             this.map.set(key, duplicates);
         }
@@ -4401,7 +4186,7 @@ var _DuplicateMap = (function () {
      */
     _DuplicateMap.prototype.get = function (trackById, afterIndex) {
         if (afterIndex === void 0) { afterIndex = null; }
-        var key = getMapKey(trackById);
+        var key = trackById;
         var recordList = this.map.get(key);
         return recordList ? recordList.get(trackById, afterIndex) : null;
     };
@@ -4411,9 +4196,7 @@ var _DuplicateMap = (function () {
      * The list of duplicates also is removed from the map if it gets empty.
      */
     _DuplicateMap.prototype.remove = function (record) {
-        var key = getMapKey(record.trackById);
-        // todo(vicb)
-        // assert(this.map.containsKey(key));
+        var key = record.trackById;
         var recordList = this.map.get(key);
         // Remove the list of duplicates when it gets empty
         if (recordList.remove(record)) {
@@ -5948,6 +5731,54 @@ function pureProxy10(fn) {
         return result;
     };
 }
+function setBindingDebugInfoForChanges(renderer, el, changes) {
+    Object.keys(changes).forEach(function (propName) {
+        setBindingDebugInfo(renderer, el, propName, changes[propName].currentValue);
+    });
+}
+function setBindingDebugInfo(renderer, el, propName, value) {
+    try {
+        renderer.setBindingDebugInfo(el, "ng-reflect-" + camelCaseToDashCase(propName), value ? value.toString() : null);
+    }
+    catch (e) {
+        renderer.setBindingDebugInfo(el, "ng-reflect-" + camelCaseToDashCase(propName), '[ERROR] Exception while trying to serialize the value');
+    }
+}
+var CAMEL_CASE_REGEXP = /([A-Z])/g;
+function camelCaseToDashCase(input) {
+    return input.replace(CAMEL_CASE_REGEXP, function () {
+        var m = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            m[_i - 0] = arguments[_i];
+        }
+        return '-' + m[1].toLowerCase();
+    });
+}
+
+
+var view_utils = Object.freeze({
+	ViewUtils: ViewUtils,
+	flattenNestedViewRenderNodes: flattenNestedViewRenderNodes,
+	ensureSlotCount: ensureSlotCount,
+	MAX_INTERPOLATION_VALUES: MAX_INTERPOLATION_VALUES,
+	interpolate: interpolate,
+	checkBinding: checkBinding,
+	castByValue: castByValue,
+	EMPTY_ARRAY: EMPTY_ARRAY,
+	EMPTY_MAP: EMPTY_MAP,
+	pureProxy1: pureProxy1,
+	pureProxy2: pureProxy2,
+	pureProxy3: pureProxy3,
+	pureProxy4: pureProxy4,
+	pureProxy5: pureProxy5,
+	pureProxy6: pureProxy6,
+	pureProxy7: pureProxy7,
+	pureProxy8: pureProxy8,
+	pureProxy9: pureProxy9,
+	pureProxy10: pureProxy10,
+	setBindingDebugInfoForChanges: setBindingDebugInfoForChanges,
+	setBindingDebugInfo: setBindingDebugInfo
+});
 
 /**
  * @license
@@ -6175,23 +6006,25 @@ function createCommonjsModule(fn, module) {
 
 var root = createCommonjsModule(function (module, exports) {
 "use strict";
-/**
- * window: browser in DOM main thread
- * self: browser in WebWorker
- * global: Node.js/other
- */
-exports.root = (typeof window == 'object' && window.window === window && window
-    || typeof self == 'object' && self.self === self && self
-    || typeof commonjsGlobal == 'object' && commonjsGlobal.global === commonjsGlobal && commonjsGlobal);
-if (!exports.root) {
-    throw new Error('RxJS could not find any global context (window, self, global)');
+var objectTypes = {
+    'boolean': false,
+    'function': true,
+    'object': true,
+    'number': false,
+    'string': false,
+    'undefined': false
+};
+exports.root = (objectTypes[typeof self] && self) || (objectTypes[typeof window] && window);
+var freeGlobal = objectTypes[typeof commonjsGlobal] && commonjsGlobal;
+if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+    exports.root = freeGlobal;
 }
 });
 
-function isFunction$1(x) {
+function isFunction(x) {
     return typeof x === 'function';
 }
-var isFunction_2 = isFunction$1;
+var isFunction_2 = isFunction;
 
 var isFunction_1$1 = {
 	isFunction: isFunction_2
@@ -6199,7 +6032,7 @@ var isFunction_1$1 = {
 
 var isArray_1$1 = Array.isArray || (function (x) { return x && typeof x.length === 'number'; });
 
-var isArray$1 = {
+var isArray = {
 	isArray: isArray_1$1
 };
 
@@ -6269,7 +6102,7 @@ var UnsubscriptionError_1$1 = {
 	UnsubscriptionError: UnsubscriptionError_2
 };
 
-var isArray_1 = isArray$1;
+var isArray_1 = isArray;
 var isObject_1 = isObject_1$1;
 var isFunction_1$3 = isFunction_1$1;
 var tryCatch_1 = tryCatch_1$1;
@@ -6452,7 +6285,7 @@ var __extends$10 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, 
 };
 var isFunction_1 = isFunction_1$1;
 var Subscription_1$1 = Subscription_1$2;
-var Observer_1$1 = Observer;
+var Observer_1 = Observer;
 var rxSubscriber_1$2 = rxSubscriber;
 /**
  * Implements the {@link Observer} interface and extends the
@@ -6482,11 +6315,11 @@ var Subscriber = (function (_super) {
         this.isStopped = false;
         switch (arguments.length) {
             case 0:
-                this.destination = Observer_1$1.empty;
+                this.destination = Observer_1.empty;
                 break;
             case 1:
                 if (!destinationOrNext) {
-                    this.destination = Observer_1$1.empty;
+                    this.destination = Observer_1.empty;
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
@@ -6699,7 +6532,6 @@ var Subscriber_1$2 = {
 
 var Subscriber_1$1 = Subscriber_1$2;
 var rxSubscriber_1$1 = rxSubscriber;
-var Observer_1 = Observer;
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1$1.Subscriber) {
@@ -6710,7 +6542,7 @@ function toSubscriber(nextOrObserver, error, complete) {
         }
     }
     if (!nextOrObserver && !error && !complete) {
-        return new Subscriber_1$1.Subscriber(Observer_1.empty);
+        return new Subscriber_1$1.Subscriber();
     }
     return new Subscriber_1$1.Subscriber(nextOrObserver, error, complete);
 }
@@ -6782,6 +6614,17 @@ var Observable = (function () {
         observable$$1.operator = operator;
         return observable$$1;
     };
+    /**
+     * Registers handlers for handling emitted values, error and completions from the observable, and
+     *  executes the observable's subscriber function, which will take action to set up the underlying data stream
+     * @method subscribe
+     * @param {PartialObserver|Function} observerOrNext (optional) either an observer defining all functions to be called,
+     *  or the first of three possible handlers, which is the handler for each value emitted from the observable.
+     * @param {Function} error (optional) a handler for a terminal event resulting from an error. If no error handler is provided,
+     *  the error will be thrown as unhandled
+     * @param {Function} complete (optional) a handler for a terminal event resulting from successful completion.
+     * @return {ISubscription} a subscription reference to the registered handlers
+     */
     Observable.prototype.subscribe = function (observerOrNext, error, complete) {
         var operator = this.operator;
         var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
@@ -8957,15 +8800,6 @@ var EMPTY_STATE = 'void';
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Math$1 = _global.Math;
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 var AnimationGroupPlayer = (function () {
     function AnimationGroupPlayer(_players) {
         var _this = this;
@@ -9034,7 +8868,7 @@ var AnimationGroupPlayer = (function () {
         var min = 0;
         this._players.forEach(function (player) {
             var p = player.getPosition();
-            min = Math$1.min(p, min);
+            min = Math.min(p, min);
         });
         return min;
     };
@@ -9940,6 +9774,81 @@ var AnimationStyles = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * An instance of this class is returned as an event parameter when an animation
+ * callback is captured for an animation either during the start or done phase.
+ *
+ * ```typescript
+ * @Component({
+ *   host: {
+ *     '[@myAnimationTrigger]': 'someExpression',
+ *     '(@myAnimationTrigger.start)': 'captureStartEvent($event)',
+ *     '(@myAnimationTrigger.done)': 'captureDoneEvent($event)',
+ *   },
+ *   animations: [
+ *     trigger("myAnimationTrigger", [
+ *        // ...
+ *     ])
+ *   ]
+ * })
+ * class MyComponent {
+ *   someExpression: any = false;
+ *   captureStartEvent(event: AnimationTransitionEvent) {
+ *     // the toState, fromState and totalTime data is accessible from the event variable
+ *   }
+ *
+ *   captureDoneEvent(event: AnimationTransitionEvent) {
+ *     // the toState, fromState and totalTime data is accessible from the event variable
+ *   }
+ * }
+ * ```
+ *
+ * @experimental Animation support is experimental.
+ */
+var AnimationTransitionEvent = (function () {
+    function AnimationTransitionEvent(_a) {
+        var fromState = _a.fromState, toState = _a.toState, totalTime = _a.totalTime, phaseName = _a.phaseName;
+        this.fromState = fromState;
+        this.toState = toState;
+        this.totalTime = totalTime;
+        this.phaseName = phaseName;
+    }
+    return AnimationTransitionEvent;
+}());
+
+var AnimationTransition = (function () {
+    function AnimationTransition(_player, _fromState, _toState, _totalTime) {
+        this._player = _player;
+        this._fromState = _fromState;
+        this._toState = _toState;
+        this._totalTime = _totalTime;
+    }
+    AnimationTransition.prototype._createEvent = function (phaseName) {
+        return new AnimationTransitionEvent({
+            fromState: this._fromState,
+            toState: this._toState,
+            totalTime: this._totalTime,
+            phaseName: phaseName
+        });
+    };
+    AnimationTransition.prototype.onStart = function (callback) {
+        var event = this._createEvent('start');
+        this._player.onStart(function () { return callback(event); });
+    };
+    AnimationTransition.prototype.onDone = function (callback) {
+        var event = this._createEvent('done');
+        this._player.onDone(function () { return callback(event); });
+    };
+    return AnimationTransition;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var DebugDomRootRenderer = (function () {
     function DebugDomRootRenderer(_delegate) {
         this._delegate = _delegate;
@@ -10188,64 +10097,11 @@ var DebugContext = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/**
- * An instance of this class is returned as an event parameter when an animation
- * callback is captured for an animation either during the start or done phase.
- *
- * ```typescript
- * @Component({
- *   host: {
- *     '[@myAnimationTrigger]': 'someExpression',
- *     '(@myAnimationTrigger.start)': 'captureStartEvent($event)',
- *     '(@myAnimationTrigger.done)': 'captureDoneEvent($event)',
- *   },
- *   animations: [
- *     trigger("myAnimationTrigger", [
- *        // ...
- *     ])
- *   ]
- * })
- * class MyComponent {
- *   someExpression: any = false;
- *   captureStartEvent(event: AnimationTransitionEvent) {
- *     // the toState, fromState and totalTime data is accessible from the event variable
- *   }
- *
- *   captureDoneEvent(event: AnimationTransitionEvent) {
- *     // the toState, fromState and totalTime data is accessible from the event variable
- *   }
- * }
- * ```
- *
- * @experimental Animation support is experimental.
- */
-var AnimationTransitionEvent = (function () {
-    function AnimationTransitionEvent(_a) {
-        var fromState = _a.fromState, toState = _a.toState, totalTime = _a.totalTime;
-        this.fromState = fromState;
-        this.toState = toState;
-        this.totalTime = totalTime;
-    }
-    return AnimationTransitionEvent;
-}());
-
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 var ViewAnimationMap = (function () {
     function ViewAnimationMap() {
         this._map = new Map();
         this._allPlayers = [];
     }
-    Object.defineProperty(ViewAnimationMap.prototype, "length", {
-        get: function () { return this.getAllPlayers().length; },
-        enumerable: true,
-        configurable: true
-    });
     ViewAnimationMap.prototype.find = function (element, animationName) {
         var playersByAnimation = this._map.get(element);
         if (isPresent(playersByAnimation)) {
@@ -10283,6 +10139,40 @@ var ViewAnimationMap = (function () {
         }
     };
     return ViewAnimationMap;
+}());
+
+var AnimationViewContext = (function () {
+    function AnimationViewContext() {
+        this._players = new ViewAnimationMap();
+    }
+    AnimationViewContext.prototype.onAllActiveAnimationsDone = function (callback) {
+        var activeAnimationPlayers = this._players.getAllPlayers();
+        // we check for the length to avoid having GroupAnimationPlayer
+        // issue an unnecessary microtask when zero players are passed in
+        if (activeAnimationPlayers.length) {
+            new AnimationGroupPlayer(activeAnimationPlayers).onDone(function () { return callback(); });
+        }
+        else {
+            callback();
+        }
+    };
+    AnimationViewContext.prototype.queueAnimation = function (element, animationName, player) {
+        queueAnimation(player);
+        this._players.set(element, animationName, player);
+    };
+    AnimationViewContext.prototype.cancelActiveAnimation = function (element, animationName, removeAllAnimations) {
+        if (removeAllAnimations === void 0) { removeAllAnimations = false; }
+        if (removeAllAnimations) {
+            this._players.findAllPlayersByElement(element).forEach(function (player) { return player.destroy(); });
+        }
+        else {
+            var player = this._players.find(element, animationName);
+            if (player) {
+                player.destroy();
+            }
+        }
+    };
+    return AnimationViewContext;
 }());
 
 /**
@@ -10349,8 +10239,6 @@ var AppView = (function () {
         this.viewChildren = [];
         this.viewContainerElement = null;
         this.numberOfChecks = 0;
-        this.animationPlayers = new ViewAnimationMap();
-        this._animationListeners = new Map();
         this.ref = new ViewRef_(this);
         if (type === ViewType.COMPONENT || type === ViewType.HOST) {
             this.renderer = viewUtils.renderComponent(componentType);
@@ -10359,56 +10247,21 @@ var AppView = (function () {
             this.renderer = declarationAppElement.parentView.renderer;
         }
     }
+    Object.defineProperty(AppView.prototype, "animationContext", {
+        get: function () {
+            if (!this._animationContext) {
+                this._animationContext = new AnimationViewContext();
+            }
+            return this._animationContext;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(AppView.prototype, "destroyed", {
         get: function () { return this.cdMode === ChangeDetectorStatus.Destroyed; },
         enumerable: true,
         configurable: true
     });
-    AppView.prototype.cancelActiveAnimation = function (element, animationName, removeAllAnimations) {
-        if (removeAllAnimations === void 0) { removeAllAnimations = false; }
-        if (removeAllAnimations) {
-            this.animationPlayers.findAllPlayersByElement(element).forEach(function (player) { return player.destroy(); });
-        }
-        else {
-            var player = this.animationPlayers.find(element, animationName);
-            if (isPresent(player)) {
-                player.destroy();
-            }
-        }
-    };
-    AppView.prototype.queueAnimation = function (element, animationName, player, totalTime, fromState, toState) {
-        var _this = this;
-        queueAnimation(player);
-        var event = new AnimationTransitionEvent({ 'fromState': fromState, 'toState': toState, 'totalTime': totalTime });
-        this.animationPlayers.set(element, animationName, player);
-        player.onDone(function () {
-            // TODO: make this into a datastructure for done|start
-            _this.triggerAnimationOutput(element, animationName, 'done', event);
-            _this.animationPlayers.remove(element, animationName);
-        });
-        player.onStart(function () { _this.triggerAnimationOutput(element, animationName, 'start', event); });
-    };
-    AppView.prototype.triggerAnimationOutput = function (element, animationName, phase, event) {
-        var listeners = this._animationListeners.get(element);
-        if (isPresent(listeners) && listeners.length) {
-            for (var i = 0; i < listeners.length; i++) {
-                var listener = listeners[i];
-                // we check for both the name in addition to the phase in the event
-                // that there may be more than one @trigger on the same element
-                if (listener.eventName === animationName && listener.eventPhase === phase) {
-                    listener.handler(event);
-                    break;
-                }
-            }
-        }
-    };
-    AppView.prototype.registerAnimationOutput = function (element, eventName, eventPhase, eventHandler) {
-        var animations = this._animationListeners.get(element);
-        if (!isPresent(animations)) {
-            this._animationListeners.set(element, animations = []);
-        }
-        animations.push(new _AnimationOutputHandler(eventName, eventPhase, eventHandler));
-    };
     AppView.prototype.create = function (context, givenProjectableNodes, rootSelectorOrNode) {
         this.context = context;
         var projectableNodes;
@@ -10508,12 +10361,11 @@ var AppView = (function () {
         }
         this.destroyInternal();
         this.dirtyParentQueriesInternal();
-        if (this.animationPlayers.length == 0) {
-            this.renderer.destroyView(hostElement, this.allNodes);
+        if (this._animationContext) {
+            this._animationContext.onAllActiveAnimationsDone(function () { return _this.renderer.destroyView(hostElement, _this.allNodes); });
         }
         else {
-            var player = new AnimationGroupPlayer(this.animationPlayers.getAllPlayers());
-            player.onDone(function () { _this.renderer.destroyView(hostElement, _this.allNodes); });
+            this.renderer.destroyView(hostElement, this.allNodes);
         }
     };
     /**
@@ -10527,12 +10379,11 @@ var AppView = (function () {
     AppView.prototype.detach = function () {
         var _this = this;
         this.detachInternal();
-        if (this.animationPlayers.length == 0) {
-            this.renderer.detachView(this.flatRootNodes);
+        if (this._animationContext) {
+            this._animationContext.onAllActiveAnimationsDone(function () { return _this.renderer.detachView(_this.flatRootNodes); });
         }
         else {
-            var player = new AnimationGroupPlayer(this.animationPlayers.getAllPlayers());
-            player.onDone(function () { _this.renderer.detachView(_this.flatRootNodes); });
+            this.renderer.detachView(this.flatRootNodes);
         }
     };
     Object.defineProperty(AppView.prototype, "changeDetectorRef", {
@@ -10736,14 +10587,6 @@ function _findLastRenderNode(node) {
     }
     return lastNode;
 }
-var _AnimationOutputHandler = (function () {
-    function _AnimationOutputHandler(eventName, eventPhase, handler) {
-        this.eventName = eventName;
-        this.eventPhase = eventPhase;
-        this.handler = handler;
-    }
-    return _AnimationOutputHandler;
-}());
 
 /**
  * @license
@@ -10766,11 +10609,7 @@ var __core_private__ = {
     NgModuleInjector: NgModuleInjector,
     registerModuleFactory: registerModuleFactory,
     ViewType: ViewType,
-    MAX_INTERPOLATION_VALUES: MAX_INTERPOLATION_VALUES,
-    checkBinding: checkBinding,
-    flattenNestedViewRenderNodes: flattenNestedViewRenderNodes,
-    interpolate: interpolate,
-    ViewUtils: ViewUtils,
+    view_utils: view_utils,
     ViewMetadata: ViewMetadata,
     DebugContext: DebugContext,
     StaticNodeDebugInfo: StaticNodeDebugInfo,
@@ -10782,19 +10621,6 @@ var __core_private__ = {
     ReflectionCapabilities: ReflectionCapabilities,
     makeDecorator: makeDecorator,
     DebugDomRootRenderer: DebugDomRootRenderer,
-    EMPTY_ARRAY: EMPTY_ARRAY,
-    EMPTY_MAP: EMPTY_MAP,
-    pureProxy1: pureProxy1,
-    pureProxy2: pureProxy2,
-    pureProxy3: pureProxy3,
-    pureProxy4: pureProxy4,
-    pureProxy5: pureProxy5,
-    pureProxy6: pureProxy6,
-    pureProxy7: pureProxy7,
-    pureProxy8: pureProxy8,
-    pureProxy9: pureProxy9,
-    pureProxy10: pureProxy10,
-    castByValue: castByValue,
     Console: Console,
     reflector: reflector,
     Reflector: Reflector,
@@ -10815,7 +10641,8 @@ var __core_private__ = {
     EMPTY_STATE: EMPTY_STATE,
     FILL_STYLE_FLAG: FILL_STYLE_FLAG,
     ComponentStillLoadingError: ComponentStillLoadingError,
-    isPromise: isPromise
+    isPromise: isPromise,
+    AnimationTransition: AnimationTransition
 };
 
 /**
@@ -10938,17 +10765,6 @@ function isBlank$1(obj) {
     return obj === undefined || obj === null;
 }
 
-
-
-
-
-function isStringMap$1(obj) {
-    return typeof obj === 'object' && obj !== null;
-}
-
-function isArray$3(obj) {
-    return Array.isArray(obj);
-}
 function isDate$1(obj) {
     return obj instanceof Date && !isNaN(obj.valueOf());
 }
@@ -10970,12 +10786,9 @@ function stringify$1(token) {
     var newLineIndex = res.indexOf('\n');
     return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
-
 var NumberWrapper$1 = (function () {
     function NumberWrapper() {
     }
-    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-    NumberWrapper.equal = function (a, b) { return a === b; };
     NumberWrapper.parseIntAutoRadix = function (text) {
         var result = parseInt(text);
         if (isNaN(result)) {
@@ -11002,22 +10815,10 @@ var NumberWrapper$1 = (function () {
         }
         throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
     };
-    Object.defineProperty(NumberWrapper, "NaN", {
-        get: function () { return NaN; },
-        enumerable: true,
-        configurable: true
-    });
     NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
     return NumberWrapper;
 }());
-
-
 // JS has NaN !== NaN
-
-// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 
 
@@ -11026,17 +10827,6 @@ function isJsObject$1(o) {
 }
 
 
-// Can't be all uppercase as our transpiler would think it is a special directive...
-var Json$1 = (function () {
-    function Json() {
-    }
-    Json.parse = function (s) { return _global$1.JSON.parse(s); };
-    Json.stringify = function (data) {
-        // Dart doesn't take 3 arguments
-        return _global$1.JSON.stringify(data, null, 2);
-    };
-    return Json;
-}());
 
 var _symbolIterator$1 = null;
 function getSymbolIterator$1() {
@@ -11924,55 +11714,6 @@ function getPluralCase(locale, nLike) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Map constructor.  We work around that by manually adding the items.
-var createMapFromPairs$1 = (function () {
-    try {
-        if (new Map([[1, 2]]).size === 1) {
-            return function createMapFromPairs$1(pairs) { return new Map(pairs); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map();
-        for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i];
-            map.set(pair[0], pair[1]);
-        }
-        return map;
-    };
-})();
-var createMapFromMap$1 = (function () {
-    try {
-        if (new Map(new Map())) {
-            return function createMapFromMap$1(m) { return new Map(m); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromMap(m) {
-        var map = new Map();
-        m.forEach(function (v, k) { map.set(k, v); });
-        return map;
-    };
-})();
-var _clearValues$1 = (function () {
-    if ((new Map()).keys().next) {
-        return function _clearValues$1(m) {
-            var keyIterator = m.keys();
-            var k;
-            while (!((k = keyIterator.next()).done)) {
-                m.set(k.value, null);
-            }
-        };
-    }
-    else {
-        return function _clearValuesWithForeEach(m) {
-            m.forEach(function (v, k) { m.set(k, null); });
-        };
-    }
-})();
 // Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$1 = (function () {
@@ -12119,7 +11860,7 @@ function _flattenArray$1(source, target) {
     if (isPresent$1(source)) {
         for (var i = 0; i < source.length; i++) {
             var item = source[i];
-            if (isArray$3(item)) {
+            if (Array.isArray(item)) {
                 _flattenArray$1(item, target);
             }
             else {
@@ -12132,7 +11873,7 @@ function _flattenArray$1(source, target) {
 function isListLikeIterable$1(obj) {
     if (!isJsObject$1(obj))
         return false;
-    return isArray$3(obj) ||
+    return Array.isArray(obj) ||
         (!(obj instanceof Map) &&
             getSymbolIterator$1() in obj); // JS Iterable have a Symbol.iterator prop
 }
@@ -12488,14 +12229,14 @@ var RecordViewTuple = (function () {
 /**
  * Removes or recreates a portion of the DOM tree based on an {expression}.
  *
- * If the expression assigned to `ngIf` evaluates to a false value then the element
+ * If the expression assigned to `ngIf` evaluates to a falsy value then the element
  * is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.
  *
  * ### Example ([live demo](http://plnkr.co/edit/fe0kgemFBtmQOY31b4tw?p=preview)):
  *
  * ```
  * <div *ngIf="errorCount > 0" class="error">
- *   <!-- Error message displayed when the errorCount property on the current context is greater
+ *   <!-- Error message displayed when the errorCount property in the current context is greater
  * than 0. -->
  *   {{errorCount}} errors detected
  * </div>
@@ -12550,7 +12291,7 @@ var NgIf = (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var _CASE_DEFAULT = new Object();
+var _CASE_DEFAULT = {};
 var SwitchView = (function () {
     function SwitchView(_viewContainerRef, _templateRef) {
         this._viewContainerRef = _viewContainerRef;
@@ -12577,7 +12318,7 @@ var SwitchView = (function () {
  *         <inner-element></inner-element>
  *         <inner-other-element></inner-other-element>
  *       </ng-container>
- *       <some-element *ngSwitchDefault>...</p>
+ *       <some-element *ngSwitchDefault>...</some-element>
  *     </container-element>
  * ```
  * @description
@@ -12592,8 +12333,7 @@ var SwitchView = (function () {
  * root elements.
  *
  * Elements within `NgSwitch` but outside of a `NgSwitchCase` or `NgSwitchDefault` directives will
- * be
- * preserved at the location.
+ * be preserved at the location.
  *
  * The `ngSwitchCase` directive informs the parent `NgSwitch` of which view to display when the
  * expression is evaluated.
@@ -12610,15 +12350,21 @@ var NgSwitch = (function () {
     }
     Object.defineProperty(NgSwitch.prototype, "ngSwitch", {
         set: function (value) {
-            // Empty the currently active ViewContainers
-            this._emptyAllActiveViews();
-            // Add the ViewContainers matching the value (with a fallback to default)
-            this._useDefault = false;
+            // Set of views to display for this value
             var views = this._valueViews.get(value);
-            if (!views) {
-                this._useDefault = true;
-                views = this._valueViews.get(_CASE_DEFAULT) || null;
+            if (views) {
+                this._useDefault = false;
             }
+            else {
+                // No view to display for the current value -> default case
+                // Nothing to do if the default case was already active
+                if (this._useDefault) {
+                    return;
+                }
+                this._useDefault = true;
+                views = this._valueViews.get(_CASE_DEFAULT);
+            }
+            this._emptyAllActiveViews();
             this._activateViews(views);
             this._switchValue = value;
         },
@@ -13629,7 +13375,7 @@ var I18nPluralPipe = (function () {
     I18nPluralPipe.prototype.transform = function (value, pluralMap) {
         if (isBlank$1(value))
             return '';
-        if (!isStringMap$1(pluralMap)) {
+        if (typeof pluralMap !== 'object' || pluralMap === null) {
             throw new InvalidPipeArgumentError(I18nPluralPipe, pluralMap);
         }
         var key = getPluralCategory(value, Object.keys(pluralMap), this._localization);
@@ -13674,10 +13420,10 @@ var I18nSelectPipe = (function () {
     I18nSelectPipe.prototype.transform = function (value, mapping) {
         if (isBlank$1(value))
             return '';
-        if (!isStringMap$1(mapping)) {
+        if (typeof mapping !== 'object' || mapping === null) {
             throw new InvalidPipeArgumentError(I18nSelectPipe, mapping);
         }
-        return mapping.hasOwnProperty(value) ? mapping[value] : '';
+        return mapping[value] || '';
     };
     I18nSelectPipe.decorators = [
         { type: Pipe, args: [{ name: 'i18nSelect', pure: true },] },
@@ -13710,7 +13456,7 @@ var I18nSelectPipe = (function () {
 var JsonPipe = (function () {
     function JsonPipe() {
     }
-    JsonPipe.prototype.transform = function (value) { return Json$1.stringify(value); };
+    JsonPipe.prototype.transform = function (value) { return JSON.stringify(value, null, 2); };
     JsonPipe.decorators = [
         { type: Pipe, args: [{ name: 'json', pure: false },] },
     ];
@@ -14189,19 +13935,6 @@ function isBlank$2(obj) {
     return obj === undefined || obj === null;
 }
 
-function isNumber$2(obj) {
-    return typeof obj === 'number';
-}
-function isString$2(obj) {
-    return typeof obj === 'string';
-}
-
-
-
-
-function isArray$4(obj) {
-    return Array.isArray(obj);
-}
 
 
 function stringify$2(token) {
@@ -14222,53 +13955,7 @@ function stringify$2(token) {
     return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
 
-var NumberWrapper$2 = (function () {
-    function NumberWrapper() {
-    }
-    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-    NumberWrapper.equal = function (a, b) { return a === b; };
-    NumberWrapper.parseIntAutoRadix = function (text) {
-        var result = parseInt(text);
-        if (isNaN(result)) {
-            throw new Error('Invalid integer literal when parsing ' + text);
-        }
-        return result;
-    };
-    NumberWrapper.parseInt = function (text, radix) {
-        if (radix == 10) {
-            if (/^(\-|\+)?[0-9]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else if (radix == 16) {
-            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else {
-            var result = parseInt(text, radix);
-            if (!isNaN(result)) {
-                return result;
-            }
-        }
-        throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-    };
-    Object.defineProperty(NumberWrapper, "NaN", {
-        get: function () { return NaN; },
-        enumerable: true,
-        configurable: true
-    });
-    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-    return NumberWrapper;
-}());
-
-
 // JS has NaN !== NaN
-
-// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 
 
@@ -14277,17 +13964,6 @@ function isJsObject$2(o) {
 }
 
 
-// Can't be all uppercase as our transpiler would think it is a special directive...
-var Json$2 = (function () {
-    function Json() {
-    }
-    Json.parse = function (s) { return _global$2.JSON.parse(s); };
-    Json.stringify = function (data) {
-        // Dart doesn't take 3 arguments
-        return _global$2.JSON.stringify(data, null, 2);
-    };
-    return Json;
-}());
 function setValueOnPath$2(global, path, value) {
     var parts = path.split('.');
     var obj = global;
@@ -14333,10 +14009,10 @@ function getSymbolIterator$2() {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var CAMEL_CASE_REGEXP = /([A-Z])/g;
+var CAMEL_CASE_REGEXP$1 = /([A-Z])/g;
 var DASH_CASE_REGEXP = /-([a-z])/g;
-function camelCaseToDashCase(input) {
-    return input.replace(CAMEL_CASE_REGEXP, function () {
+function camelCaseToDashCase$1(input) {
+    return input.replace(CAMEL_CASE_REGEXP$1, function () {
         var m = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             m[_i - 0] = arguments[_i];
@@ -14558,7 +14234,7 @@ function _populateStyles(element, styles, defaultStyles) {
 function _resolveStyleUnit(val, userProvidedProp, formattedProp) {
     var unit = '';
     if (_isPixelDimensionStyle(formattedProp) && val != 0 && val != '0') {
-        if (isNumber$2(val)) {
+        if (typeof val === 'number') {
             unit = 'px';
         }
         else if (_findDimensionalSuffix(val.toString()).length == 0) {
@@ -15188,55 +14864,6 @@ var BrowserPlatformLocation = (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Map constructor.  We work around that by manually adding the items.
-var createMapFromPairs$2 = (function () {
-    try {
-        if (new Map([[1, 2]]).size === 1) {
-            return function createMapFromPairs$2(pairs) { return new Map(pairs); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map();
-        for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i];
-            map.set(pair[0], pair[1]);
-        }
-        return map;
-    };
-})();
-var createMapFromMap$2 = (function () {
-    try {
-        if (new Map(new Map())) {
-            return function createMapFromMap$2(m) { return new Map(m); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromMap(m) {
-        var map = new Map();
-        m.forEach(function (v, k) { map.set(k, v); });
-        return map;
-    };
-})();
-var _clearValues$2 = (function () {
-    if ((new Map()).keys().next) {
-        return function _clearValues$2(m) {
-            var keyIterator = m.keys();
-            var k;
-            while (!((k = keyIterator.next()).done)) {
-                m.set(k.value, null);
-            }
-        };
-    }
-    else {
-        return function _clearValuesWithForeEach(m) {
-            m.forEach(function (v, k) { m.set(k, null); });
-        };
-    }
-})();
 // Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$2 = (function () {
@@ -15413,7 +15040,7 @@ function _flattenArray$2(source, target) {
     if (isPresent$2(source)) {
         for (var i = 0; i < source.length; i++) {
             var item = source[i];
-            if (isArray$4(item)) {
+            if (Array.isArray(item)) {
                 _flattenArray$2(item, target);
             }
             else {
@@ -15747,7 +15374,7 @@ var DomRenderer = (function () {
     }
     DomRenderer.prototype.selectRootElement = function (selectorOrNode, debugInfo) {
         var el;
-        if (isString$2(selectorOrNode)) {
+        if (typeof selectorOrNode === 'string') {
             el = getDOM().querySelector(this._rootRenderer.document, selectorOrNode);
             if (isBlank$2(el)) {
                 throw new Error("The selector \"" + selectorOrNode + "\" did not match any elements");
@@ -15853,12 +15480,12 @@ var DomRenderer = (function () {
         }
     };
     DomRenderer.prototype.setBindingDebugInfo = function (renderElement, propertyName, propertyValue) {
-        var dashCasedPropertyName = camelCaseToDashCase(propertyName);
+        var dashCasedPropertyName = camelCaseToDashCase$1(propertyName);
         if (getDOM().isCommentNode(renderElement)) {
             var existingBindings = getDOM().getText(renderElement).replace(/\n/g, '').match(TEMPLATE_BINDINGS_EXP);
-            var parsedBindings = Json$2.parse(existingBindings[1]);
+            var parsedBindings = JSON.parse(existingBindings[1]);
             parsedBindings[dashCasedPropertyName] = propertyValue;
-            getDOM().setText(renderElement, TEMPLATE_COMMENT_TEXT.replace('{}', Json$2.stringify(parsedBindings)));
+            getDOM().setText(renderElement, TEMPLATE_COMMENT_TEXT.replace('{}', JSON.stringify(parsedBindings, null, 2)));
         }
         else {
             this.setElementAttribute(renderElement, propertyName, propertyValue);
@@ -15932,7 +15559,7 @@ function _shimHostAttribute(componentShortId) {
 function _flattenStyles(compId, styles, target) {
     for (var i = 0; i < styles.length; i++) {
         var style$$1 = styles[i];
-        if (isArray$4(style$$1)) {
+        if (Array.isArray(style$$1)) {
             _flattenStyles(compId, style$$1, target);
         }
         else {
@@ -16999,7 +16626,7 @@ var AngularProfiler = (function () {
      * ```
      */
     AngularProfiler.prototype.timeChangeDetection = function (config) {
-        var record = isPresent$2(config) && config['record'];
+        var record = config && config['record'];
         var profileName = 'Change Detection';
         // Profiler is not available in Android browsers, nor in IE 9 without dev tools opened
         var isProfilerAvailable = isPresent$2(win.console.profile);
@@ -17022,7 +16649,7 @@ var AngularProfiler = (function () {
         }
         var msPerTick = (end - start) / numTicks;
         win.console.log("ran " + numTicks + " change detection cycles");
-        win.console.log(NumberWrapper$2.toFixed(msPerTick, 2) + " ms per check");
+        win.console.log(msPerTick.toFixed(2) + " ms per check");
         return new ChangeDetectionPerfRecord(msPerTick, numTicks);
     };
     return AngularProfiler;
@@ -17156,72 +16783,13 @@ function isBlank$3(obj) {
 }
 
 
-function isString$3(obj) {
-    return typeof obj === 'string';
-}
 
-
-function isStringMap$3(obj) {
-    return typeof obj === 'object' && obj !== null;
-}
-
-function isArray$5(obj) {
-    return Array.isArray(obj);
-}
-
-
-
-
-var NumberWrapper$3 = (function () {
-    function NumberWrapper() {
-    }
-    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-    NumberWrapper.equal = function (a, b) { return a === b; };
-    NumberWrapper.parseIntAutoRadix = function (text) {
-        var result = parseInt(text);
-        if (isNaN(result)) {
-            throw new Error('Invalid integer literal when parsing ' + text);
-        }
-        return result;
-    };
-    NumberWrapper.parseInt = function (text, radix) {
-        if (radix == 10) {
-            if (/^(\-|\+)?[0-9]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else if (radix == 16) {
-            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else {
-            var result = parseInt(text, radix);
-            if (!isNaN(result)) {
-                return result;
-            }
-        }
-        throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-    };
-    Object.defineProperty(NumberWrapper, "NaN", {
-        get: function () { return NaN; },
-        enumerable: true,
-        configurable: true
-    });
-    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-    return NumberWrapper;
-}());
 
 
 // JS has NaN !== NaN
 function looseIdentical$3(a, b) {
     return a === b || typeof a === 'number' && typeof b === 'number' && isNaN(a) && isNaN(b);
 }
-// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-
 
 function normalizeBool$3(obj) {
     return isBlank$3(obj) ? false : obj;
@@ -17230,8 +16798,6 @@ function isJsObject$3(o) {
     return o !== null && (typeof o === 'function' || typeof o === 'object');
 }
 
-
-// Can't be all uppercase as our transpiler would think it is a special directive...
 
 
 var _symbolIterator$3 = null;
@@ -17254,12 +16820,8 @@ function getSymbolIterator$3() {
     }
     return _symbolIterator$3;
 }
-
 function isPrimitive$3(obj) {
     return !isJsObject$3(obj);
-}
-function hasConstructor$3(value, type) {
-    return value.constructor === type;
 }
 
 /**
@@ -17411,6 +16973,33 @@ var ControlContainer = (function (_super) {
     return ControlContainer;
 }(AbstractControlDirective));
 
+var root_1$4 = root;
+/**
+ * @param PromiseCtor
+ * @return {Promise<T>}
+ * @method toPromise
+ * @owner Observable
+ */
+function toPromise(PromiseCtor) {
+    var _this = this;
+    if (!PromiseCtor) {
+        if (root_1$4.root.Rx && root_1$4.root.Rx.config && root_1$4.root.Rx.config.Promise) {
+            PromiseCtor = root_1$4.root.Rx.config.Promise;
+        }
+        else if (root_1$4.root.Promise) {
+            PromiseCtor = root_1$4.root.Promise;
+        }
+    }
+    if (!PromiseCtor) {
+        throw new Error('no Promise impl found');
+    }
+    return new PromiseCtor(function (resolve, reject) {
+        var value;
+        _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
+    });
+}
+var toPromise_2 = toPromise;
+
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -17418,55 +17007,6 @@ var ControlContainer = (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Map constructor.  We work around that by manually adding the items.
-var createMapFromPairs$3 = (function () {
-    try {
-        if (new Map([[1, 2]]).size === 1) {
-            return function createMapFromPairs$3(pairs) { return new Map(pairs); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map();
-        for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i];
-            map.set(pair[0], pair[1]);
-        }
-        return map;
-    };
-})();
-var createMapFromMap$3 = (function () {
-    try {
-        if (new Map(new Map())) {
-            return function createMapFromMap$3(m) { return new Map(m); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromMap(m) {
-        var map = new Map();
-        m.forEach(function (v, k) { map.set(k, v); });
-        return map;
-    };
-})();
-var _clearValues$3 = (function () {
-    if ((new Map()).keys().next) {
-        return function _clearValues$3(m) {
-            var keyIterator = m.keys();
-            var k;
-            while (!((k = keyIterator.next()).done)) {
-                m.set(k.value, null);
-            }
-        };
-    }
-    else {
-        return function _clearValuesWithForeEach(m) {
-            m.forEach(function (v, k) { m.set(k, null); });
-        };
-    }
-})();
 // Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$3 = (function () {
@@ -17498,13 +17038,6 @@ var MapWrapper$3 = (function () {
         }
         return result;
     };
-    MapWrapper.toStringMap = function (m) {
-        var r = {};
-        m.forEach(function (v, k) { return r[k] = v; });
-        return r;
-    };
-    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs$3(pairs); };
-    MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap$3(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap$3(m, true); };
     return MapWrapper;
@@ -17663,7 +17196,7 @@ function _flattenArray$3(source, target) {
     if (isPresent$3(source)) {
         for (var i = 0; i < source.length; i++) {
             var item = source[i];
-            if (isArray$5(item)) {
+            if (Array.isArray(item)) {
                 _flattenArray$3(item, target);
             }
             else {
@@ -17673,28 +17206,6 @@ function _flattenArray$3(source, target) {
     }
     return target;
 }
-
-var root_1$4 = root;
-/* tslint:disable:max-line-length */
-function toPromise(PromiseCtor) {
-    var _this = this;
-    if (!PromiseCtor) {
-        if (root_1$4.root.Rx && root_1$4.root.Rx.config && root_1$4.root.Rx.config.Promise) {
-            PromiseCtor = root_1$4.root.Rx.config.Promise;
-        }
-        else if (root_1$4.root.Promise) {
-            PromiseCtor = root_1$4.root.Promise;
-        }
-    }
-    if (!PromiseCtor) {
-        throw new Error('no Promise impl found');
-    }
-    return new PromiseCtor(function (resolve, reject) {
-        var value;
-        _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
-    });
-}
-var toPromise_2 = toPromise;
 
 /**
  * @license
@@ -18443,7 +17954,7 @@ var SELECT_MULTIPLE_VALUE_ACCESSOR = {
 function _buildValueString$1(id, value) {
     if (isBlank$3(id))
         return "" + value;
-    if (isString$3(value))
+    if (typeof value === 'string')
         value = "'" + value + "'";
     if (!isPrimitive$3(value))
         value = 'Object';
@@ -18624,9 +18135,7 @@ var NgSelectMultipleOption = (function () {
  * found in the LICENSE file at https://angular.io/license
  */
 function controlPath(name, parent) {
-    var p = ListWrapper$3.clone(parent.path);
-    p.push(name);
-    return p;
+    return parent.path.concat([name]);
 }
 function setUpControl(control, dir) {
     if (!control)
@@ -18709,12 +18218,15 @@ function isPropertyUpdated(changes, viewModel) {
         return true;
     return !looseIdentical$3(viewModel, change.currentValue);
 }
+var BUILTIN_ACCESSORS = [
+    CheckboxControlValueAccessor,
+    NumberValueAccessor,
+    SelectControlValueAccessor,
+    SelectMultipleControlValueAccessor,
+    RadioControlValueAccessor,
+];
 function isBuiltInAccessor(valueAccessor) {
-    return (hasConstructor$3(valueAccessor, CheckboxControlValueAccessor) ||
-        hasConstructor$3(valueAccessor, NumberValueAccessor) ||
-        hasConstructor$3(valueAccessor, SelectControlValueAccessor) ||
-        hasConstructor$3(valueAccessor, SelectMultipleControlValueAccessor) ||
-        hasConstructor$3(valueAccessor, RadioControlValueAccessor));
+    return BUILTIN_ACCESSORS.some(function (a) { return valueAccessor.constructor === a; });
 }
 // TODO: vsavkin remove it once https://github.com/angular/angular/issues/3011 is implemented
 function selectValueAccessor(dir, valueAccessors) {
@@ -18724,25 +18236,25 @@ function selectValueAccessor(dir, valueAccessors) {
     var builtinAccessor;
     var customAccessor;
     valueAccessors.forEach(function (v) {
-        if (hasConstructor$3(v, DefaultValueAccessor)) {
+        if (v.constructor === DefaultValueAccessor) {
             defaultAccessor = v;
         }
         else if (isBuiltInAccessor(v)) {
-            if (isPresent$3(builtinAccessor))
+            if (builtinAccessor)
                 _throwError$1(dir, 'More than one built-in value accessor matches form control with');
             builtinAccessor = v;
         }
         else {
-            if (isPresent$3(customAccessor))
+            if (customAccessor)
                 _throwError$1(dir, 'More than one custom value accessor matches form control with');
             customAccessor = v;
         }
     });
-    if (isPresent$3(customAccessor))
+    if (customAccessor)
         return customAccessor;
-    if (isPresent$3(builtinAccessor))
+    if (builtinAccessor)
         return builtinAccessor;
-    if (isPresent$3(defaultAccessor))
+    if (defaultAccessor)
         return defaultAccessor;
     _throwError$1(dir, 'No valid value accessor for form control with');
     return null;
@@ -19199,7 +18711,7 @@ function _find(control, path, delimiter) {
     if (!(path instanceof Array)) {
         path = path.split(delimiter);
     }
-    if (path instanceof Array && ListWrapper$3.isEmpty(path))
+    if (path instanceof Array && (path.length === 0))
         return null;
     return path.reduce(function (v, name) {
         if (v instanceof FormGroup) {
@@ -19627,7 +19139,7 @@ var AbstractControl = (function () {
      */
     AbstractControl.prototype.getError = function (errorCode, path) {
         if (path === void 0) { path = null; }
-        var control = isPresent$3(path) && !ListWrapper$3.isEmpty(path) ? this.get(path) : this;
+        var control = isPresent$3(path) && (path.length > 0) ? this.get(path) : this;
         if (isPresent$3(control) && isPresent$3(control._errors)) {
             return control._errors[errorCode];
         }
@@ -19687,7 +19199,7 @@ var AbstractControl = (function () {
     };
     /** @internal */
     AbstractControl.prototype._anyControlsHaveStatus = function (status) {
-        return this._anyControls(function (control) { return control.status == status; });
+        return this._anyControls(function (control) { return control.status === status; });
     };
     /** @internal */
     AbstractControl.prototype._anyControlsDirty = function () {
@@ -19715,8 +19227,8 @@ var AbstractControl = (function () {
     };
     /** @internal */
     AbstractControl.prototype._isBoxedValue = function (formState) {
-        return isStringMap$3(formState) && Object.keys(formState).length === 2 && 'value' in formState &&
-            'disabled' in formState;
+        return typeof formState === 'object' && formState !== null &&
+            Object.keys(formState).length === 2 && 'value' in formState && 'disabled' in formState;
     };
     /** @internal */
     AbstractControl.prototype._registerOnCollectionChange = function (fn) { this._onCollectionChange = fn; };
@@ -20273,7 +19785,7 @@ var FormArray = (function (_super) {
      * Insert a new {@link AbstractControl} at the given `index` in the array.
      */
     FormArray.prototype.insert = function (index, control) {
-        ListWrapper$3.insert(this.controls, index, control);
+        this.controls.splice(index, 0, control);
         this._registerControl(control);
         this.updateValueAndValidity();
         this._onCollectionChange();
@@ -20284,7 +19796,7 @@ var FormArray = (function (_super) {
     FormArray.prototype.removeAt = function (index) {
         if (this.controls[index])
             this.controls[index]._registerOnCollectionChange(function () { });
-        ListWrapper$3.removeAt(this.controls, index);
+        this.controls.splice(index, 1);
         this.updateValueAndValidity();
         this._onCollectionChange();
     };
@@ -20294,9 +19806,9 @@ var FormArray = (function (_super) {
     FormArray.prototype.setControl = function (index, control) {
         if (this.controls[index])
             this.controls[index]._registerOnCollectionChange(function () { });
-        ListWrapper$3.removeAt(this.controls, index);
+        this.controls.splice(index, 1);
         if (control) {
-            ListWrapper$3.insert(this.controls, index, control);
+            this.controls.splice(index, 0, control);
             this._registerControl(control);
         }
         this.updateValueAndValidity();
@@ -21951,7 +21463,7 @@ var FormBuilder = (function () {
             controlConfig instanceof FormArray) {
             return controlConfig;
         }
-        else if (isArray$5(controlConfig)) {
+        else if (Array.isArray(controlConfig)) {
             var value = controlConfig[0];
             var validator = controlConfig.length > 1 ? controlConfig[1] : null;
             var asyncValidator = controlConfig.length > 2 ? controlConfig[2] : null;
@@ -22148,67 +21660,10 @@ function isBlank$4(obj) {
 }
 
 
-function isString$4(obj) {
-    return typeof obj === 'string';
-}
 
-
-
-
-function isArray$6(obj) {
-    return Array.isArray(obj);
-}
-
-
-
-
-var NumberWrapper$4 = (function () {
-    function NumberWrapper() {
-    }
-    NumberWrapper.toFixed = function (n, fractionDigits) { return n.toFixed(fractionDigits); };
-    NumberWrapper.equal = function (a, b) { return a === b; };
-    NumberWrapper.parseIntAutoRadix = function (text) {
-        var result = parseInt(text);
-        if (isNaN(result)) {
-            throw new Error('Invalid integer literal when parsing ' + text);
-        }
-        return result;
-    };
-    NumberWrapper.parseInt = function (text, radix) {
-        if (radix == 10) {
-            if (/^(\-|\+)?[0-9]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else if (radix == 16) {
-            if (/^(\-|\+)?[0-9ABCDEFabcdef]+$/.test(text)) {
-                return parseInt(text, radix);
-            }
-        }
-        else {
-            var result = parseInt(text, radix);
-            if (!isNaN(result)) {
-                return result;
-            }
-        }
-        throw new Error('Invalid integer literal when parsing ' + text + ' in base ' + radix);
-    };
-    Object.defineProperty(NumberWrapper, "NaN", {
-        get: function () { return NaN; },
-        enumerable: true,
-        configurable: true
-    });
-    NumberWrapper.isNumeric = function (value) { return !isNaN(value - parseFloat(value)); };
-    NumberWrapper.isNaN = function (value) { return isNaN(value); };
-    NumberWrapper.isInteger = function (value) { return Number.isInteger(value); };
-    return NumberWrapper;
-}());
 
 
 // JS has NaN !== NaN
-
-// JS considers NaN is the same as NaN for map Key (while NaN !== NaN otherwise)
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 
 
@@ -22217,17 +21672,6 @@ function isJsObject$4(o) {
 }
 
 
-// Can't be all uppercase as our transpiler would think it is a special directive...
-var Json$4 = (function () {
-    function Json() {
-    }
-    Json.parse = function (s) { return _global$4.JSON.parse(s); };
-    Json.stringify = function (data) {
-        // Dart doesn't take 3 arguments
-        return _global$4.JSON.stringify(data, null, 2);
-    };
-    return Json;
-}());
 
 var _symbolIterator$4 = null;
 function getSymbolIterator$4() {
@@ -22332,55 +21776,6 @@ var ResponseContentType;
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Safari and Internet Explorer do not support the iterable parameter to the
-// Map constructor.  We work around that by manually adding the items.
-var createMapFromPairs$4 = (function () {
-    try {
-        if (new Map([[1, 2]]).size === 1) {
-            return function createMapFromPairs$4(pairs) { return new Map(pairs); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromPairs(pairs) {
-        var map = new Map();
-        for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i];
-            map.set(pair[0], pair[1]);
-        }
-        return map;
-    };
-})();
-var createMapFromMap$4 = (function () {
-    try {
-        if (new Map(new Map())) {
-            return function createMapFromMap$4(m) { return new Map(m); };
-        }
-    }
-    catch (e) {
-    }
-    return function createMapAndPopulateFromMap(m) {
-        var map = new Map();
-        m.forEach(function (v, k) { map.set(k, v); });
-        return map;
-    };
-})();
-var _clearValues$4 = (function () {
-    if ((new Map()).keys().next) {
-        return function _clearValues$4(m) {
-            var keyIterator = m.keys();
-            var k;
-            while (!((k = keyIterator.next()).done)) {
-                m.set(k.value, null);
-            }
-        };
-    }
-    else {
-        return function _clearValuesWithForeEach(m) {
-            m.forEach(function (v, k) { m.set(k, null); });
-        };
-    }
-})();
 // Safari doesn't implement MapIterator.next(), which is used is Traceur's polyfill of Array.from
 // TODO(mlaval): remove the work around once we have a working polyfill of Array.from
 var _arrayFromMap$4 = (function () {
@@ -22412,13 +21807,6 @@ var MapWrapper$4 = (function () {
         }
         return result;
     };
-    MapWrapper.toStringMap = function (m) {
-        var r = {};
-        m.forEach(function (v, k) { return r[k] = v; });
-        return r;
-    };
-    MapWrapper.createFromPairs = function (pairs) { return createMapFromPairs$4(pairs); };
-    MapWrapper.iterable = function (m) { return m; };
     MapWrapper.keys = function (m) { return _arrayFromMap$4(m, false); };
     MapWrapper.values = function (m) { return _arrayFromMap$4(m, true); };
     return MapWrapper;
@@ -22547,7 +21935,7 @@ function _flattenArray$4(source, target) {
     if (isPresent$4(source)) {
         for (var i = 0; i < source.length; i++) {
             var item = source[i];
-            if (isArray$6(item)) {
+            if (Array.isArray(item)) {
                 _flattenArray$4(item, target);
             }
             else {
@@ -22916,15 +22304,25 @@ var XSRFStrategy = (function () {
  * found in the LICENSE file at https://angular.io/license
  */
 function normalizeMethodName(method) {
-    if (isString$4(method)) {
-        var originalMethod = method;
-        method = method
-            .replace(/(\w)(\w*)/g, function (g0, g1, g2) { return g1.toUpperCase() + g2.toLowerCase(); });
-        method = RequestMethod[method];
-        if (typeof method !== 'number')
-            throw new Error("Invalid request method. The method \"" + originalMethod + "\" is not supported.");
+    if (typeof method !== 'string')
+        return method;
+    switch (method.toUpperCase()) {
+        case 'GET':
+            return RequestMethod.Get;
+        case 'POST':
+            return RequestMethod.Post;
+        case 'PUT':
+            return RequestMethod.Put;
+        case 'DELETE':
+            return RequestMethod.Delete;
+        case 'OPTIONS':
+            return RequestMethod.Options;
+        case 'HEAD':
+            return RequestMethod.Head;
+        case 'PATCH':
+            return RequestMethod.Patch;
     }
-    return method;
+    throw new Error("Invalid request method. The method \"" + method + "\" is not supported.");
 }
 var isSuccess = function (status) { return (status >= 200 && status < 300); };
 function getResponseURL(xhr) {
@@ -23139,11 +22537,11 @@ var Body = (function () {
      * Attempts to return body as parsed `JSON` object, or raises an exception.
      */
     Body.prototype.json = function () {
-        if (isString$4(this._body)) {
-            return Json$4.parse(this._body);
+        if (typeof this._body === 'string') {
+            return JSON.parse(this._body);
         }
         if (this._body instanceof ArrayBuffer) {
-            return Json$4.parse(this.text());
+            return JSON.parse(this.text());
         }
         return this._body;
     };
@@ -23161,7 +22559,7 @@ var Body = (function () {
             return '';
         }
         if (isJsObject$4(this._body)) {
-            return Json$4.stringify(this._body);
+            return JSON.stringify(this._body, null, 2);
         }
         return this._body.toString();
     };
@@ -23464,7 +22862,7 @@ var XHRConnection = (function () {
                 // by IE10)
                 var body = _xhr.response === undefined ? _xhr.responseText : _xhr.response;
                 // Implicitly strip a potential XSSI prefix.
-                if (isString$4(body))
+                if (typeof body === 'string')
                     body = body.replace(XSSI_PREFIX, '');
                 var headers = Headers.fromResponseHeaderString(_xhr.getAllResponseHeaders());
                 var url = getResponseURL(_xhr);
@@ -23685,7 +23083,8 @@ var RequestOptions = (function () {
         this.body = isPresent$4(body) ? body : null;
         this.url = isPresent$4(url) ? url : null;
         this.search = isPresent$4(search) ?
-            (isString$4(search) ? new URLSearchParams((search)) : (search)) :
+            (typeof search === 'string' ? new URLSearchParams((search)) :
+                (search)) :
             null;
         this.withCredentials = isPresent$4(withCredentials) ? withCredentials : null;
         this.responseType = isPresent$4(responseType) ? responseType : null;
@@ -23717,18 +23116,17 @@ var RequestOptions = (function () {
      */
     RequestOptions.prototype.merge = function (options) {
         return new RequestOptions({
-            method: isPresent$4(options) && isPresent$4(options.method) ? options.method : this.method,
-            headers: isPresent$4(options) && isPresent$4(options.headers) ? options.headers : this.headers,
-            body: isPresent$4(options) && isPresent$4(options.body) ? options.body : this.body,
-            url: isPresent$4(options) && isPresent$4(options.url) ? options.url : this.url,
-            search: isPresent$4(options) && isPresent$4(options.search) ?
-                (isString$4(options.search) ? new URLSearchParams((options.search)) :
+            method: options && isPresent$4(options.method) ? options.method : this.method,
+            headers: options && isPresent$4(options.headers) ? options.headers : this.headers,
+            body: options && isPresent$4(options.body) ? options.body : this.body,
+            url: options && isPresent$4(options.url) ? options.url : this.url,
+            search: options && isPresent$4(options.search) ?
+                (typeof options.search === 'string' ? new URLSearchParams(options.search) :
                     (options.search).clone()) :
                 this.search,
-            withCredentials: isPresent$4(options) && isPresent$4(options.withCredentials) ?
-                options.withCredentials :
+            withCredentials: options && isPresent$4(options.withCredentials) ? options.withCredentials :
                 this.withCredentials,
-            responseType: isPresent$4(options) && isPresent$4(options.responseType) ? options.responseType :
+            responseType: options && isPresent$4(options.responseType) ? options.responseType :
                 this.responseType
         });
     };
@@ -24058,7 +23456,7 @@ var Http = (function () {
      */
     Http.prototype.request = function (url, options) {
         var responseObservable;
-        if (isString$4(url)) {
+        if (typeof url === 'string') {
             responseObservable = httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url)));
         }
         else if (url instanceof Request) {
@@ -24073,43 +23471,43 @@ var Http = (function () {
      * Performs a request with `get` http method.
      */
     Http.prototype.get = function (url, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url)));
     };
     /**
      * Performs a request with `post` http method.
      */
     Http.prototype.post = function (url, body, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Post, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Post, url)));
     };
     /**
      * Performs a request with `put` http method.
      */
     Http.prototype.put = function (url, body, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Put, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Put, url)));
     };
     /**
      * Performs a request with `delete` http method.
      */
     Http.prototype.delete = function (url, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Delete, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Delete, url)));
     };
     /**
      * Performs a request with `patch` http method.
      */
     Http.prototype.patch = function (url, body, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Patch, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Patch, url)));
     };
     /**
      * Performs a request with `head` http method.
      */
     Http.prototype.head = function (url, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Head, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Head, url)));
     };
     /**
      * Performs a request with `options` http method.
      */
     Http.prototype.options = function (url, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Options, url)));
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Options, url)));
     };
     Http.decorators = [
         { type: Injectable },
@@ -24145,7 +23543,7 @@ var Jsonp = (function (_super) {
      */
     Jsonp.prototype.request = function (url, options) {
         var responseObservable;
-        if (isString$4(url)) {
+        if (typeof url === 'string') {
             url =
                 new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url));
         }
@@ -24261,7 +23659,7 @@ function merge$1(dst) {
 function _baseExtend(dst, objs, deep) {
     for (var i = 0, ii = objs.length; i < ii; ++i) {
         var obj = objs[i];
-        if (!obj || !isObject$1(obj) && !isFunction$6(obj))
+        if (!obj || !isObject$1(obj) && !isFunction$1(obj))
             continue;
         var keys = Object.keys(obj);
         for (var j = 0, jj = keys.length; j < jj; j++) {
@@ -24269,7 +23667,7 @@ function _baseExtend(dst, objs, deep) {
             var src = obj[key];
             if (deep && isObject$1(src)) {
                 if (!isObject$1(dst[key]))
-                    dst[key] = isArray$7(src) ? [] : {};
+                    dst[key] = isArray$2(src) ? [] : {};
                 _baseExtend(dst[key], [src], true);
             }
             else {
@@ -24324,15 +23722,15 @@ function defaults(dest) {
     return dest;
 }
 
-var isString$5 = function (val) { return typeof val === 'string'; };
-var isNumber$5 = function (val) { return typeof val === 'number'; };
-var isFunction$6 = function (val) { return typeof val === 'function'; };
+var isString = function (val) { return typeof val === 'string'; };
+var isNumber = function (val) { return typeof val === 'number'; };
+var isFunction$1 = function (val) { return typeof val === 'function'; };
 var isDefined = function (val) { return typeof val !== 'undefined'; };
 var isUndefined = function (val) { return typeof val === 'undefined'; };
 var isPresent$5 = function (val) { return val !== undefined && val !== null; };
 var isBlank$5 = function (val) { return val === undefined || val === null; };
 var isObject$1 = function (val) { return typeof val === 'object'; };
-var isArray$7 = Array.isArray;
+var isArray$2 = Array.isArray;
 
 var isTrueProperty = function (val) {
     if (typeof val === 'string') {
@@ -24357,14 +23755,21 @@ var isCheckedProperty = function (a, b) {
     return (a == b);
 };
 
+function swipeShouldReset(isResetDirection, isMovingFast, isOnResetZone) {
+    var shouldClose = (!isMovingFast && isOnResetZone) || (isResetDirection && isMovingFast);
+    return shouldClose;
+}
+var ASSERT_ENABLED = true;
+
 var Config = (function () {
     function Config() {
         this._c = {};
+        this._s = {};
         this._modes = {};
         this._trns = {};
     }
     Config.prototype.init = function (config, queryParams, platform) {
-        this._s = config && isObject$1(config) && !isArray$7(config) ? config : {};
+        this._s = config && isObject$1(config) && !isArray$2(config) ? config : {};
         this._qp = queryParams;
         this.platform = platform;
     };
@@ -24425,7 +23830,7 @@ var Config = (function () {
                                     null;
         }
         var rtnVal = this._c[key];
-        if (isFunction$6(rtnVal)) {
+        if (isFunction$1(rtnVal)) {
             rtnVal = rtnVal(this.platform);
         }
         return (rtnVal !== null ? rtnVal : fallbackValue);
@@ -24534,7 +23939,7 @@ var Form = (function () {
         if (index > -1 && (index + 1) < this._inputs.length) {
             var nextInput = this._inputs[index + 1];
             if (nextInput !== this._focused) {
-                // console.debug('tabFocus, next');
+                (void 0);
                 return nextInput.initFocus();
             }
         }
@@ -24542,7 +23947,7 @@ var Form = (function () {
         if (index > 0) {
             var previousInput = this._inputs[index - 1];
             if (previousInput) {
-                // console.debug('tabFocus, previous');
+                (void 0);
                 previousInput.initFocus();
             }
         }
@@ -24699,6 +24104,20 @@ var ViewController = (function () {
     ViewController.prototype.contentRef = function () {
         return this._cntRef;
     };
+    ViewController.prototype._setIONContent = function (content) {
+        this._setContent(content);
+        this._ionCntDir = content;
+    };
+    ViewController.prototype.getIONContent = function () {
+        return this._ionCntDir;
+    };
+    ViewController.prototype._setIONContentRef = function (elementRef) {
+        this._setContentRef(elementRef);
+        this._ionCntRef = elementRef;
+    };
+    ViewController.prototype.getIONContentRef = function () {
+        return this._ionCntRef;
+    };
     ViewController.prototype._setHeader = function (directive) {
         this._hdrDir = directive;
     };
@@ -24727,6 +24146,9 @@ var ViewController = (function () {
         if (this._nb) {
             this._nb.hideBackButton = !shouldShow;
         }
+    };
+    ViewController.prototype._preLoad = function () {
+        this._lifecycle('PreLoad');
     };
     ViewController.prototype._willLoad = function () {
         this._lifecycle('WillLoad');
@@ -24772,12 +24194,6 @@ var ViewController = (function () {
             }
             this._cmp.destroy();
         }
-        if (this._nav) {
-            var index = this._nav.indexOf(this);
-            if (index > -1) {
-                this._nav._views.splice(index, 1);
-            }
-        }
         this._nav = this._cmp = this.instance = this._cntDir = this._cntRef = this._hdrDir = this._ftrDir = this._nb = this._onWillDismiss = null;
     };
     ViewController.prototype._lifecycleTest = function (lifecycle) {
@@ -24785,7 +24201,16 @@ var ViewController = (function () {
         var methodName = 'ionViewCan' + lifecycle;
         if (instance && instance[methodName]) {
             try {
-                return instance[methodName]();
+                var result = instance[methodName]();
+                if (result === false) {
+                    return false;
+                }
+                else if (result instanceof Promise) {
+                    return result;
+                }
+                else {
+                    return true;
+                }
             }
             catch (e) {
                 console.error(this.name + " " + methodName + " error: " + e.message);
@@ -24875,7 +24300,7 @@ var ActionSheetCmp = (function () {
     ActionSheetCmp.prototype.keyUp = function (ev) {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('actionsheet, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -24975,7 +24400,7 @@ function convertToView(linker, nameOrPageOrView, params) {
 }
 function convertToViews(linker, pages) {
     var views = [];
-    if (isArray$7(pages)) {
+    if (isArray$2(pages)) {
         for (var i = 0; i < pages.length; i++) {
             var page = pages[i];
             if (page) {
@@ -25257,7 +24682,7 @@ var Platform = (function () {
         this.resume = new EventEmitter();
         this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
         this.backButton.subscribe(function () {
-            // console.debug('hardware back button');
+            (void 0);
             _this.runBackButtonAction();
         });
     }
@@ -25615,6 +25040,7 @@ var App = (function () {
         this.viewDidLeave = new EventEmitter();
         this.viewWillUnload = new EventEmitter();
         _platform.registerBackButtonAction(this.navPop.bind(this));
+        this._canDisableScroll = _config.get('canDisableScroll', false);
     }
     App.prototype.setTitle = function (val) {
         if (val !== this._title) {
@@ -25638,7 +25064,7 @@ var App = (function () {
         }
     };
     App.prototype.setScrollDisabled = function (disableScroll) {
-        if (this._config.get('canDisableScroll', true)) {
+        if (this._canDisableScroll) {
             this._appRoot._disableScroll(disableScroll);
         }
     };
@@ -25649,7 +25075,7 @@ var App = (function () {
         this._scrollTime = Date.now();
     };
     App.prototype.isScrolling = function () {
-        return (this._scrollTime + 48 > Date.now());
+        return ((this._scrollTime + ACTIVE_SCROLLING_TIME) > Date.now());
     };
     App.prototype.getActiveNav = function () {
         var nav = this._rootNav || null;
@@ -25691,13 +25117,13 @@ var App = (function () {
                 if (isTabs(nav)) {
                     var prevTab = nav.previousTab(true);
                     if (prevTab) {
-                        // console.debug('app, goBack previous tab');
+                        (void 0);
                         nav.select(prevTab);
                         return Promise.resolve();
                     }
                 }
                 else if (isNav(nav) && nav.length() > 1) {
-                    // console.debug('app, goBack pop nav');
+                    (void 0);
                     return nav.pop();
                 }
                 return navPop(nav.parent);
@@ -25707,13 +25133,13 @@ var App = (function () {
         if (this._rootNav && this.isEnabled()) {
             var portal = this._appRoot._getPortal();
             if (portal.length() > 0) {
-                // console.debug('app, goBack pop overlay');
+                (void 0);
                 return portal.pop();
             }
             var navPromise = navPop(this.getActiveNav());
             if (navPromise === null) {
                 if (this._config.getBoolean('navExitApp', true)) {
-                    // console.debug('app, goBack exitApp');
+                    (void 0);
                     this._platform.exitApp();
                 }
             }
@@ -25730,6 +25156,7 @@ var App = (function () {
     ];
     return App;
 }());
+var ACTIVE_SCROLLING_TIME = 100;
 var CLICK_BLOCK_BUFFER_IN_MILLIS = 64;
 
 var __extends$57 = (undefined && undefined.__extends) || function (d, b) {
@@ -25831,7 +25258,8 @@ var AlertCmp = (function () {
                 label: input.label,
                 checked: !!input.checked,
                 disabled: !!input.disabled,
-                id: 'alert-input-' + _this.id + '-' + index
+                id: 'alert-input-' + _this.id + '-' + index,
+                handler: isPresent$5(input.handler) ? input.handler : null,
             };
         });
         var inputTypes = [];
@@ -25853,13 +25281,13 @@ var AlertCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    // console.debug('alert, enter button');
+                    (void 0);
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('alert, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -25899,11 +25327,17 @@ var AlertCmp = (function () {
                 input.checked = (checkedInput === input);
             });
             this.activeId = checkedInput.id;
+            if (checkedInput.handler) {
+                checkedInput.handler(checkedInput);
+            }
         }
     };
     AlertCmp.prototype.cbClick = function (checkedInput) {
         if (this.enabled) {
             checkedInput.checked = !checkedInput.checked;
+            if (checkedInput.handler) {
+                checkedInput.handler(checkedInput);
+            }
         }
     };
     AlertCmp.prototype.bdClick = function () {
@@ -26073,7 +25507,7 @@ var DeepLinker = (function () {
     DeepLinker.prototype.init = function () {
         var _this = this;
         var browserUrl = normalizeUrl(this._location.path());
-        // console.debug("DeepLinker, init load: " + browserUrl);
+        (void 0);
         this.segments = this._serializer.parse(browserUrl);
         this.historyPush(browserUrl);
         this._location.subscribe(function (locationChg) {
@@ -26083,11 +25517,11 @@ var DeepLinker = (function () {
     DeepLinker.prototype.urlChange = function (browserUrl) {
         if (!this.isCurrentUrl(browserUrl)) {
             if (this.isBackUrl(browserUrl)) {
-                // console.debug("DeepLinker, browser urlChange, back to: " + browserUrl);
+                (void 0);
                 this.historyPop();
             }
             else {
-                // console.debug("DeepLinker, browser urlChange, forward to: " + browserUrl);
+                (void 0);
                 this.historyPush(browserUrl);
             }
             var appRootNav = this._app.getRootNav();
@@ -26124,12 +25558,12 @@ var DeepLinker = (function () {
             browserUrl = '/';
         }
         if (direction === DIRECTION_BACK && this.isBackUrl(browserUrl)) {
-            // console.debug("DeepLinker, location.back(), url: '" + browserUrl + "'");
+            (void 0);
             this.historyPop();
             this._location.back();
         }
         else if (!this.isCurrentUrl(browserUrl)) {
-            // console.debug("DeepLinker, location.go('" + browserUrl + "')");
+            (void 0);
             this.historyPush(browserUrl);
             this._location.go(browserUrl);
         }
@@ -26226,7 +25660,7 @@ var DeepLinker = (function () {
     };
     DeepLinker.prototype.initViews = function (segment) {
         var views;
-        if (isArray$7(segment.defaultHistory)) {
+        if (isArray$2(segment.defaultHistory)) {
             views = convertToViews(this, segment.defaultHistory);
         }
         else {
@@ -26563,7 +25997,23 @@ function setupEvents(platform) {
             var content = el.closest('.scroll-content');
             if (content) {
                 var scroll = new ScrollView(content);
-                scroll.scrollTo(0, 0, 300);
+                content.style['WebkitBackfaceVisibility'] = 'hidden';
+                content.style['WebkitTransform'] = 'translate3d(0,0,0)';
+                nativeRaf(function () {
+                    content.style.overflow = 'hidden';
+                    function finish() {
+                        content.style.overflow = '';
+                        content.style['WebkitBackfaceVisibility'] = '';
+                        content.style['WebkitTransform'] = '';
+                    }
+                    var didScrollTimeout = setTimeout(function () {
+                        finish();
+                    }, 400);
+                    scroll.scrollTo(0, 0, 300).then(function () {
+                        clearTimeout(didScrollTimeout);
+                        finish();
+                    });
+                });
             }
         });
         window.addEventListener('resize', function () {
@@ -26619,7 +26069,7 @@ var GestureController = (function () {
             return true;
         }
         delete requestedStart[id];
-        // console.debug(gestureName + " can not start because it is has lower priority");
+        (void 0);
         return false;
     };
     GestureController.prototype.release = function (id) {
@@ -26646,7 +26096,7 @@ var GestureController = (function () {
         var isEnabled = !this.isScrollDisabled();
         this.disabledScroll.add(id);
         if (this._app && isEnabled && this.isScrollDisabled()) {
-            // console.debug('GestureController: Disabling scrolling');
+            (void 0);
             this._app.setScrollDisabled(true);
         }
     };
@@ -26654,7 +26104,7 @@ var GestureController = (function () {
         var isDisabled = this.isScrollDisabled();
         this.disabledScroll.delete(id);
         if (this._app && isDisabled && !this.isScrollDisabled()) {
-            // console.debug('GestureController: Enabling scrolling');
+            (void 0);
             this._app.setScrollDisabled(false);
         }
     };
@@ -26756,9 +26206,11 @@ var GestureDelegate = (function () {
 var Haptic = (function () {
     function Haptic(platform) {
         var _this = this;
-        platform.ready().then(function () {
-            _this.plugin = window.TapticEngine;
-        });
+        if (platform) {
+            platform.ready().then(function () {
+                _this.plugin = window.TapticEngine;
+            });
+        }
     }
     Haptic.prototype.available = function () {
         return !!this.plugin;
@@ -26847,7 +26299,7 @@ var Keyboard = (function () {
     Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
         if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
         if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
-        // console.debug('keyboard onClose');
+        (void 0);
         var self = this;
         var checks = 0;
         var promise = null;
@@ -26855,10 +26307,10 @@ var Keyboard = (function () {
             promise = new Promise(function (resolve) { callback = resolve; });
         }
         function checkKeyboard() {
-            // console.debug('keyboard isOpen', self.isOpen());
+            (void 0);
             if (!self.isOpen() || checks > pollingChecksMax) {
                 zoneRafFrames(30, function () {
-                    // console.debug('keyboard closed');
+                    (void 0);
                     callback();
                 });
             }
@@ -26872,7 +26324,7 @@ var Keyboard = (function () {
     };
     Keyboard.prototype.close = function () {
         var _this = this;
-        // console.debug('keyboard close()');
+        (void 0);
         nativeRaf(function () {
             if (hasFocusedTextInput()) {
                 _this._form.focusOut();
@@ -27051,6 +26503,16 @@ var PanRecognizer = (function () {
     return PanRecognizer;
 }());
 
+var supportsPassive = false;
+try {
+    var opts = Object.defineProperty({}, 'passive', {
+        get: function () {
+            supportsPassive = true;
+        }
+    });
+    window.addEventListener('test', null, opts);
+}
+catch (e) { }
 var PointerEvents = (function () {
     function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
         this.ele = ele;
@@ -27068,14 +26530,20 @@ var PointerEvents = (function () {
         this.rmMouseUp = null;
         this.lastTouchEvent = 0;
         this.mouseWait = 2 * 1000;
+        this.lastEventType = 0;
+        (void 0);
+        (void 0);
         this.bindTouchEnd = this.handleTouchEnd.bind(this);
         this.bindMouseUp = this.handleMouseUp.bind(this);
         this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, this.handleTouchStart.bind(this));
         this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, this.handleMouseDown.bind(this));
     }
     PointerEvents.prototype.handleTouchStart = function (ev) {
+        (void 0);
+        (void 0);
         this.lastTouchEvent = Date.now() + this.mouseWait;
-        if (!this.pointerDown(ev)) {
+        this.lastEventType = 2;
+        if (!this.pointerDown(ev, 2)) {
             return;
         }
         if (!this.rmTouchMove && this.pointerMove) {
@@ -27089,11 +26557,14 @@ var PointerEvents = (function () {
         }
     };
     PointerEvents.prototype.handleMouseDown = function (ev) {
+        (void 0);
+        (void 0);
         if (this.lastTouchEvent > Date.now()) {
-            // console.debug('mousedown event dropped because of previous touch');
+            (void 0);
             return;
         }
-        if (!this.pointerDown(ev)) {
+        this.lastEventType = 1;
+        if (!this.pointerDown(ev, 1)) {
             return;
         }
         if (!this.rmMouseMove && this.pointerMove) {
@@ -27105,11 +26576,11 @@ var PointerEvents = (function () {
     };
     PointerEvents.prototype.handleTouchEnd = function (ev) {
         this.stopTouch();
-        this.pointerUp && this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev, 2);
     };
     PointerEvents.prototype.handleMouseUp = function (ev) {
         this.stopMouse();
-        this.pointerUp && this.pointerUp(ev);
+        this.pointerUp && this.pointerUp(ev, 1);
     };
     PointerEvents.prototype.stopTouch = function () {
         this.rmTouchMove && this.rmTouchMove();
@@ -27148,9 +26619,6 @@ var UIEventManager = (function () {
         this.zoneWrapped = zoneWrapped;
         this.events = [];
     }
-    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
-        return this.listen(ref.nativeElement, eventName, callback, option);
-    };
     UIEventManager.prototype.pointerEvents = function (config) {
         var element = config.element;
         if (!element) {
@@ -27161,11 +26629,31 @@ var UIEventManager = (function () {
             return;
         }
         var zone = config.zone || this.zoneWrapped;
-        var options = config.nativeOptions || false;
-        var submanager = new PointerEvents(element, config.pointerDown, config.pointerMove, config.pointerUp, zone, options);
-        var removeFunc = function () { return submanager.destroy(); };
+        var opts;
+        if (supportsPassive) {
+            opts = {};
+            if (config.passive === true) {
+                opts['passive'] = true;
+            }
+            if (config.capture === true) {
+                opts['capture'] = true;
+            }
+        }
+        else {
+            if (config.passive === true) {
+                (void 0);
+            }
+            if (config.capture === true) {
+                opts = true;
+            }
+        }
+        var pointerEvents = new PointerEvents(element, config.pointerDown, config.pointerMove, config.pointerUp, zone, opts);
+        var removeFunc = function () { return pointerEvents.destroy(); };
         this.events.push(removeFunc);
-        return submanager;
+        return pointerEvents;
+    };
+    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
+        return this.listen(ref.nativeElement, eventName, callback, option);
     };
     UIEventManager.prototype.listen = function (element, eventName, callback, option) {
         if (option === void 0) { option = false; }
@@ -27189,13 +26677,76 @@ function listenEvent(ele, eventName, zoneWrapped, option, callback) {
     var rawEvent = (!zoneWrapped && '__zone_symbol__addEventListener' in ele);
     if (rawEvent) {
         ele.__zone_symbol__addEventListener(eventName, callback, option);
-        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
+        (void 0);
+        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback, option); };
     }
     else {
         ele.addEventListener(eventName, callback, option);
-        return function () { return ele.removeEventListener(eventName, callback); };
+        return function () { return ele.removeEventListener(eventName, callback, option); };
     }
 }
+
+var FakeDebouncer = (function () {
+    function FakeDebouncer() {
+    }
+    FakeDebouncer.prototype.debounce = function (callback) {
+        callback();
+    };
+    FakeDebouncer.prototype.cancel = function () { };
+    return FakeDebouncer;
+}());
+var TimeoutDebouncer = (function () {
+    function TimeoutDebouncer(wait) {
+        this.wait = wait;
+        this.timer = null;
+    }
+    TimeoutDebouncer.prototype.debounce = function (callback) {
+        this.callback = callback;
+        this.schedule();
+    };
+    TimeoutDebouncer.prototype.schedule = function () {
+        this.cancel();
+        if (this.wait <= 0) {
+            this.callback();
+        }
+        else {
+            this.timer = setTimeout(this.callback, this.wait);
+        }
+    };
+    TimeoutDebouncer.prototype.cancel = function () {
+        if (this.timer) {
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
+    };
+    return TimeoutDebouncer;
+}());
+var NativeRafDebouncer = (function () {
+    function NativeRafDebouncer() {
+        this.callback = null;
+        this.ptr = null;
+        this.fireFunc = this.fire.bind(this);
+    }
+    NativeRafDebouncer.prototype.debounce = function (callback) {
+        if (this.callback === null) {
+            this.callback = callback;
+            this.ptr = nativeRaf(this.fireFunc);
+        }
+    };
+    NativeRafDebouncer.prototype.fire = function () {
+        this.callback();
+        this.callback = null;
+        this.ptr = null;
+    };
+    NativeRafDebouncer.prototype.cancel = function () {
+        if (this.ptr !== null) {
+            cancelAnimationFrame(this.ptr);
+            this.ptr = null;
+            this.callback = null;
+        }
+    };
+    return NativeRafDebouncer;
+}());
 
 var PanGesture = (function () {
     function PanGesture(element, opts) {
@@ -27208,30 +26759,43 @@ var PanGesture = (function () {
         defaults(opts, {
             threshold: 20,
             maxAngle: 40,
-            direction: 'x'
+            direction: 'x',
+            zone: true,
+            capture: false,
         });
+        this.debouncer = (opts.debouncer)
+            ? opts.debouncer
+            : new FakeDebouncer();
         this.gestute = opts.gesture;
         this.direction = opts.direction;
+        this.eventsConfig = {
+            element: this.element,
+            pointerDown: this.pointerDown.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerUp.bind(this),
+            zone: opts.zone,
+            capture: opts.capture
+        };
         this.detector = new PanRecognizer(opts.direction, opts.threshold, opts.maxAngle);
     }
     PanGesture.prototype.listen = function () {
-        if (!this.isListening) {
-            this.pointerEvents = this.events.pointerEvents({
-                element: this.element,
-                pointerDown: this.pointerDown.bind(this),
-                pointerMove: this.pointerMove.bind(this),
-                pointerUp: this.pointerUp.bind(this),
-            });
-            this.isListening = true;
+        if (this.isListening) {
+            return;
         }
+        this.pointerEvents = this.events.pointerEvents(this.eventsConfig);
+        this.isListening = true;
     };
     PanGesture.prototype.unlisten = function () {
+        if (!this.isListening) {
+            return;
+        }
         this.gestute && this.gestute.release();
         this.events.unlistenAll();
         this.isListening = false;
     };
     PanGesture.prototype.destroy = function () {
         this.gestute && this.gestute.destroy();
+        this.gestute = null;
         this.unlisten();
         this.element = null;
     };
@@ -27255,28 +26819,32 @@ var PanGesture = (function () {
         return true;
     };
     PanGesture.prototype.pointerMove = function (ev) {
-        if (!this.started) {
-            return;
-        }
-        if (this.captured) {
-            this.onDragMove(ev);
-            return;
-        }
-        var coord = pointerCoord(ev);
-        if (this.detector.detect(coord)) {
-            if (this.detector.pan() !== 0 && this.canCapture(ev) &&
-                (!this.gestute || this.gestute.capture())) {
-                this.onDragStart(ev);
-                this.captured = true;
+        var _this = this;
+        this.debouncer.debounce(function () {
+            if (!_this.started) {
                 return;
             }
-            this.started = false;
-            this.captured = false;
-            this.pointerEvents.stop();
-            this.notCaptured(ev);
-        }
+            if (_this.captured) {
+                _this.onDragMove(ev);
+                return;
+            }
+            var coord = pointerCoord(ev);
+            if (_this.detector.detect(coord)) {
+                if (_this.detector.pan() !== 0 && _this.canCapture(ev) &&
+                    (!_this.gestute || _this.gestute.capture())) {
+                    _this.onDragStart(ev);
+                    _this.captured = true;
+                    return;
+                }
+                _this.started = false;
+                _this.captured = false;
+                _this.pointerEvents.stop();
+                _this.notCaptured(ev);
+            }
+        });
     };
     PanGesture.prototype.pointerUp = function (ev) {
+        this.debouncer.cancel();
         if (!this.started) {
             return;
         }
@@ -27419,12 +26987,17 @@ var __extends$64 = (undefined && undefined.__extends) || function (d, b) {
 };
 var SwipeBackGesture = (function (_super) {
     __extends$64(SwipeBackGesture, _super);
-    function SwipeBackGesture(element, options, _nav, gestureCtlr) {
+    function SwipeBackGesture(_nav, element, gestureCtlr, options) {
         _super.call(this, element, assign({
             direction: 'x',
             maxEdgeStart: 75,
+            zone: false,
+            threshold: 0,
+            maxAngle: 40,
+            debouncer: new NativeRafDebouncer(),
             gesture: gestureCtlr.create('goback-swipe', {
                 priority: 20,
+                disableScroll: 1
             })
         }, options));
         this._nav = _nav;
@@ -27434,18 +27007,20 @@ var SwipeBackGesture = (function (_super) {
             _super.prototype.canStart.call(this, ev));
     };
     SwipeBackGesture.prototype.onSlideBeforeStart = function (ev) {
-        // console.debug('swipeBack, onSlideBeforeStart', ev.type);
         this._nav.swipeBackStart();
     };
-    SwipeBackGesture.prototype.onSlide = function (slide) {
+    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
         var stepValue = (slide.distance / slide.max);
-        // console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
         this._nav.swipeBackProgress(stepValue);
     };
     SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
-        var shouldComplete = (Math.abs(slide.velocity) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
         var currentStepValue = (slide.distance / slide.max);
-        // console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+        var isResetDirecction = slide.velocity < 0;
+        var isMovingFast = Math.abs(slide.velocity) > 0.4;
+        var isInResetZone = Math.abs(slide.delta) < Math.abs(slide.max) * 0.5;
+        var shouldComplete = !swipeShouldReset(isResetDirecction, isMovingFast, isInResetZone);
         this._nav.swipeBackEnd(shouldComplete, currentStepValue);
     };
     return SwipeBackGesture;
@@ -27515,7 +27090,7 @@ var NavControllerBase = (function (_super) {
         }, done);
     };
     NavControllerBase.prototype.popTo = function (indexOrViewCtrl, opts, done) {
-        var startIndex = isViewController(indexOrViewCtrl) ? this.indexOf(indexOrViewCtrl) : isNumber$5(indexOrViewCtrl) ? indexOrViewCtrl : -1;
+        var startIndex = isViewController(indexOrViewCtrl) ? this.indexOf(indexOrViewCtrl) : isNumber(indexOrViewCtrl) ? indexOrViewCtrl : -1;
         return this._queueTrns({
             removeStart: startIndex + 1,
             removeCount: -1,
@@ -27579,33 +27154,34 @@ var NavControllerBase = (function (_super) {
             });
         }
         ti.resolve = function (hasCompleted, isAsync, enteringName, leavingName, direction) {
-            _this.setTransitioning(false);
             _this._trnsId = null;
             resolve && resolve(hasCompleted, isAsync, enteringName, leavingName, direction);
+            _this.setTransitioning(false);
             _this._sbCheck();
             _this._nextTrns();
         };
         ti.reject = function (rejectReason, trns) {
-            _this.setTransitioning(false);
             _this._trnsId = null;
             _this._queue.length = 0;
             while (trns) {
                 if (trns.enteringView && (trns.enteringView._state !== ViewState.LOADED)) {
-                    trns.enteringView._destroy(_this._renderer);
+                    _this._destroyView(trns.enteringView);
                 }
-                if (!trns.parent)
+                if (!trns.parent) {
                     break;
+                }
             }
             if (trns) {
                 _this._trnsCtrl.destroy(trns.trnsId);
             }
-            _this._sbCheck();
             reject && reject(false, false, rejectReason);
+            _this.setTransitioning(false);
+            _this._sbCheck();
             _this._nextTrns();
         };
         if (ti.insertViews) {
             ti.insertViews = ti.insertViews.filter(function (v) { return v !== null; });
-            if (!ti.insertViews.length) {
+            if (ti.insertViews.length === 0) {
                 ti.reject('invalid views to insert');
                 return;
             }
@@ -27626,8 +27202,10 @@ var NavControllerBase = (function (_super) {
         if (!ti) {
             return false;
         }
+        this.setTransitioning(true);
         var leavingView = this.getActive();
         var enteringView = this._getEnteringView(ti, leavingView);
+        (void 0);
         if (enteringView && isBlank$5(enteringView._state)) {
             this._viewInit(enteringView);
         }
@@ -27682,13 +27260,20 @@ var NavControllerBase = (function (_super) {
         return null;
     };
     NavControllerBase.prototype._postViewInit = function (enteringView, leavingView, ti, resolve) {
+        var _this = this;
         var opts = ti.opts || {};
         var insertViews = ti.insertViews;
         var removeStart = ti.removeStart;
+        var view;
         var destroyQueue = [];
         if (isPresent$5(removeStart)) {
+            (void 0);
+            (void 0);
             for (var i = 0; i < ti.removeCount; i++) {
-                destroyQueue.push(this._views[i + removeStart]);
+                view = this._views[i + removeStart];
+                if (view && view !== enteringView && view !== leavingView) {
+                    destroyQueue.push(view);
+                }
             }
             opts.direction = opts.direction || DIRECTION_BACK;
         }
@@ -27697,36 +27282,25 @@ var NavControllerBase = (function (_super) {
                 enteringView.id = opts.id;
             }
             for (var i = 0; i < insertViews.length; i++) {
-                var view = insertViews[i];
-                var existingIndex = this._views.indexOf(view);
-                if (existingIndex > -1) {
-                    this._views.splice(ti.insertStart + i, 0, this._views.splice(existingIndex, 1)[0]);
-                }
-                else {
-                    view._setNav(this);
-                    view.id = this.id + '-' + (++this._ids);
-                    this._views.splice(ti.insertStart + i, 0, view);
-                }
+                view = insertViews[i];
+                this._insertViewAt(view, ti.insertStart + i);
             }
             if (ti.enteringRequiresTransition) {
                 opts.direction = opts.direction || DIRECTION_FORWARD;
             }
         }
-        for (var i = 0; i < destroyQueue.length; i++) {
-            var view = destroyQueue[i];
-            if (view && view !== enteringView && view !== leavingView) {
-                this._willLeave(view);
-                this._didLeave(view);
-                this._willUnload(view);
+        this._zone.run(function () {
+            for (var _i = 0, destroyQueue_1 = destroyQueue; _i < destroyQueue_1.length; _i++) {
+                view = destroyQueue_1[_i];
+                _this._willLeave(view);
+                _this._didLeave(view);
+                _this._willUnload(view);
             }
+        });
+        for (var _i = 0, destroyQueue_2 = destroyQueue; _i < destroyQueue_2.length; _i++) {
+            view = destroyQueue_2[_i];
+            this._destroyView(view);
         }
-        for (var i = 0; i < destroyQueue.length; i++) {
-            var view = destroyQueue[i];
-            if (view && view !== enteringView && view !== leavingView) {
-                view._destroy(this._renderer);
-            }
-        }
-        destroyQueue.length = 0;
         if (ti.enteringRequiresTransition || ti.leavingRequiresTransition && enteringView !== leavingView) {
             if (!opts.animation) {
                 if (isPresent$5(ti.removeStart)) {
@@ -27752,7 +27326,19 @@ var NavControllerBase = (function (_super) {
         var childInjector = ReflectiveInjector.fromResolvedProviders(componentProviders, this._viewport.parentInjector);
         enteringView.init(componentFactory.create(childInjector, []));
         enteringView._state = ViewState.INITIALIZED;
-        this._willLoad(enteringView);
+        this._preLoad(enteringView);
+    };
+    NavControllerBase.prototype._viewAttachToDOM = function (view, componentRef, viewport) {
+        (void 0);
+        this._willLoad(view);
+        viewport.insert(componentRef.hostView, viewport.length);
+        view._state = ViewState.PRE_RENDERED;
+        if (view._cssClass) {
+            var pageElement = componentRef.location.nativeElement;
+            this._renderer.setElementClass(pageElement, view._cssClass, true);
+        }
+        componentRef.changeDetectorRef.detectChanges();
+        this._zone.run(this._didLoad.bind(this, view));
     };
     NavControllerBase.prototype._viewTest = function (enteringView, leavingView, ti) {
         var _this = this;
@@ -27761,35 +27347,32 @@ var NavControllerBase = (function (_super) {
         var resolve = ti.resolve;
         if (leavingView) {
             var leavingTestResult = leavingView._lifecycleTest('Leave');
-            if (isPresent$5(leavingTestResult) && leavingTestResult !== true) {
-                if (leavingTestResult instanceof Promise) {
-                    promises.push(leavingTestResult);
-                }
-                else {
-                    reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"));
-                    return false;
-                }
+            if (leavingTestResult === false) {
+                reject((leavingTestResult !== false ? leavingTestResult : "ionViewCanLeave rejected"));
+                return false;
+            }
+            else if (leavingTestResult instanceof Promise) {
+                promises.push(leavingTestResult);
             }
         }
         if (enteringView) {
             var enteringTestResult = enteringView._lifecycleTest('Enter');
-            if (isPresent$5(enteringTestResult) && enteringTestResult !== true) {
-                if (enteringTestResult instanceof Promise) {
-                    promises.push(enteringTestResult);
-                }
-                else {
-                    reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"));
-                    return false;
-                }
+            if (enteringTestResult === false) {
+                reject((enteringTestResult !== false ? enteringTestResult : "ionViewCanEnter rejected"));
+                return false;
+            }
+            else if (enteringTestResult instanceof Promise) {
+                promises.push(enteringTestResult);
             }
         }
         if (promises.length) {
-            Promise.all(promises).then(function () {
-                _this._postViewInit(enteringView, leavingView, ti, resolve);
-            }).catch(reject);
-            return true;
+            Promise.all(promises)
+                .then(function () { return _this._postViewInit(enteringView, leavingView, ti, resolve); })
+                .catch(reject);
         }
-        this._postViewInit(enteringView, leavingView, ti, resolve);
+        else {
+            this._postViewInit(enteringView, leavingView, ti, resolve);
+        }
         return true;
     };
     NavControllerBase.prototype._transition = function (enteringView, leavingView, opts, resolve) {
@@ -27806,104 +27389,129 @@ var NavControllerBase = (function (_super) {
             isRTL: this.config.platform.isRTL(),
             ev: opts.ev,
         };
-        var trns = this._trnsCtrl.get(this._trnsId, enteringView, leavingView, animationOpts);
+        var transition$$1 = this._trnsCtrl.get(this._trnsId, enteringView, leavingView, animationOpts);
         this._sbTrns && this._sbTrns.destroy();
-        if (trns.parent) {
-            trns.parent.hasChildTrns = true;
+        this._sbTrns = null;
+        if (transition$$1.isRoot() && opts.progressAnimation) {
+            this._sbTrns = transition$$1;
         }
-        else {
-            if (opts.progressAnimation) {
-                this._sbTrns = trns;
-            }
-        }
-        trns.registerStart(function () {
-            _this._trnsStart(trns, enteringView, leavingView, opts, resolve);
-            if (trns.parent) {
-                trns.parent.start();
+        transition$$1.registerStart(function () {
+            _this._trnsStart(transition$$1, enteringView, leavingView, opts, resolve);
+            if (transition$$1.parent) {
+                transition$$1.parent.start();
             }
         });
         if (enteringView && enteringView._state === ViewState.INITIALIZED) {
-            this._viewInsert(enteringView, enteringView._cmp, this._viewport);
+            this._viewAttachToDOM(enteringView, enteringView._cmp, this._viewport);
         }
-        if (!trns.hasChildTrns) {
-            trns.start();
+        else {
+            (void 0);
+        }
+        if (!transition$$1.hasChildren) {
+            transition$$1.start();
         }
     };
-    NavControllerBase.prototype._viewInsert = function (view, componentRef, viewport) {
-        this._didLoad(view);
-        viewport.insert(componentRef.hostView, viewport.length);
-        view._state = ViewState.PRE_RENDERED;
-        if (view._cssClass) {
-            var pageElement = componentRef.location.nativeElement;
-            this._renderer.setElementClass(pageElement, view._cssClass, true);
-        }
-        componentRef.changeDetectorRef.detectChanges();
-    };
-    NavControllerBase.prototype._trnsStart = function (trns, enteringView, leavingView, opts, resolve) {
+    NavControllerBase.prototype._trnsStart = function (transition$$1, enteringView, leavingView, opts, resolve) {
         var _this = this;
         this._trnsId = null;
         setZIndex(this, enteringView, leavingView, opts.direction, this._renderer);
         enteringView && enteringView._domShow(true, this._renderer);
-        if (leavingView) {
-            leavingView._domShow(true, this._renderer);
-        }
-        trns.init();
-        if ((!this._init && this._views.length === 1 && !this._isPortal) || this.config.get('animate') === false) {
+        leavingView && leavingView._domShow(true, this._renderer);
+        transition$$1.init();
+        var isFirstPage = !this._init && this._views.length === 1;
+        var shouldNotAnimate = isFirstPage && !this._isPortal;
+        var canNotAnimate = this.config.get('animate') === false;
+        if (shouldNotAnimate || canNotAnimate) {
             opts.animate = false;
         }
         if (opts.animate === false) {
-            trns.duration(0);
+            transition$$1.duration(0);
         }
-        trns.beforeAddRead(function () {
-            _this._zone.run(_this._viewsWillLifecycles.bind(_this, enteringView, leavingView));
+        transition$$1.beforeAddRead(this._viewsWillLifecycles.bind(this, enteringView, leavingView));
+        transition$$1.onFinish(function () {
+            _this._zone.run(_this._trnsFinish.bind(_this, transition$$1, opts, resolve));
         });
-        trns.onFinish(function () {
-            _this._zone.run(_this._trnsFinish.bind(_this, trns, opts, resolve));
-        });
-        var duration = trns.getDuration();
+        var duration = transition$$1.getDuration();
         this.setTransitioning(true, duration);
-        if (!trns.parent) {
+        if (transition$$1.isRoot()) {
             if (duration > DISABLE_APP_MINIMUM_DURATION) {
-                this._app.setEnabled(false, duration);
-            }
-            if (opts.progressAnimation) {
-                trns.progressStart();
+                this._app.setEnabled(false, duration + ACTIVE_TRANSITION_OFFSET);
             }
             else {
-                trns.play();
+                (void 0);
+            }
+            if (opts.progressAnimation) {
+                transition$$1.progressStart();
+            }
+            else {
+                transition$$1.play();
             }
         }
     };
     NavControllerBase.prototype._viewsWillLifecycles = function (enteringView, leavingView) {
-        enteringView && this._willEnter(enteringView);
-        leavingView && this._willLeave(leavingView);
+        var _this = this;
+        if (enteringView || leavingView) {
+            this._zone.run(function () {
+                enteringView && _this._willEnter(enteringView);
+                leavingView && _this._willLeave(leavingView);
+            });
+        }
     };
-    NavControllerBase.prototype._trnsFinish = function (trns, opts, resolve) {
-        var hasCompleted = trns.hasCompleted;
+    NavControllerBase.prototype._trnsFinish = function (transition$$1, opts, resolve) {
         var enteringName;
         var leavingName;
+        var hasCompleted = transition$$1.hasCompleted;
         if (hasCompleted) {
-            if (trns.enteringView) {
-                enteringName = trns.enteringView.name;
-                this._didEnter(trns.enteringView);
+            if (transition$$1.enteringView) {
+                enteringName = transition$$1.enteringView.name;
+                this._didEnter(transition$$1.enteringView);
             }
-            if (trns.leavingView) {
-                leavingName = trns.leavingView.name;
-                this._didLeave(trns.leavingView);
+            if (transition$$1.leavingView) {
+                leavingName = transition$$1.leavingView.name;
+                this._didLeave(transition$$1.leavingView);
             }
-            this._cleanup(trns.enteringView);
+            this._cleanup(transition$$1.enteringView);
         }
-        if (!trns.parent) {
-            this._trnsCtrl.destroy(trns.trnsId);
+        else {
+            this._cleanup(transition$$1.leavingView);
+        }
+        if (transition$$1.isRoot()) {
+            this._trnsCtrl.destroy(transition$$1.trnsId);
             this._app.setEnabled(true);
             if (opts.updateUrl !== false) {
                 this._linker.navChange(opts.direction);
             }
-            if (opts.keyboardClose !== false && this._keyboard.isOpen()) {
+            if (opts.keyboardClose !== false) {
                 this._keyboard.close();
             }
         }
         resolve(hasCompleted, true, enteringName, leavingName, opts.direction);
+    };
+    NavControllerBase.prototype._insertViewAt = function (view, index) {
+        var existingIndex = this._views.indexOf(view);
+        if (existingIndex > -1) {
+            this._views.splice(index, 0, this._views.splice(existingIndex, 1)[0]);
+        }
+        else {
+            view._setNav(this);
+            this._ids++;
+            if (!view.id) {
+                view.id = this.id + "-" + this._ids;
+            }
+            this._views.splice(index, 0, view);
+        }
+    };
+    NavControllerBase.prototype._removeView = function (view) {
+        var views = this._views;
+        var index = views.indexOf(view);
+        (void 0);
+        if (index > -1) {
+            views.splice(index, 1);
+        }
+    };
+    NavControllerBase.prototype._destroyView = function (view) {
+        view._destroy(this._renderer);
+        this._removeView(view);
     };
     NavControllerBase.prototype._cleanup = function (activeView) {
         var _this = this;
@@ -27913,7 +27521,7 @@ var NavControllerBase = (function (_super) {
             var view = this._views[i];
             if (i > activeViewIndex) {
                 this._willUnload(view);
-                view._destroy(this._renderer);
+                this._destroyView(view);
             }
             else if (i < activeViewIndex && !this._isPortal) {
                 view._domShow(false, this._renderer);
@@ -27930,35 +27538,52 @@ var NavControllerBase = (function (_super) {
             }
         }
     };
+    NavControllerBase.prototype._preLoad = function (view) {
+        (void 0);
+        view._preLoad();
+    };
     NavControllerBase.prototype._willLoad = function (view) {
+        (void 0);
         view._willLoad();
     };
     NavControllerBase.prototype._didLoad = function (view) {
+        (void 0);
+        (void 0);
         view._didLoad();
         this.viewDidLoad.emit(view);
         this._app.viewDidLoad.emit(view);
     };
     NavControllerBase.prototype._willEnter = function (view) {
+        (void 0);
+        (void 0);
         view._willEnter();
         this.viewWillEnter.emit(view);
         this._app.viewWillEnter.emit(view);
     };
     NavControllerBase.prototype._didEnter = function (view) {
+        (void 0);
+        (void 0);
         view._didEnter();
         this.viewDidEnter.emit(view);
         this._app.viewDidEnter.emit(view);
     };
     NavControllerBase.prototype._willLeave = function (view) {
+        (void 0);
+        (void 0);
         view._willLeave();
         this.viewWillLeave.emit(view);
         this._app.viewWillLeave.emit(view);
     };
     NavControllerBase.prototype._didLeave = function (view) {
+        (void 0);
+        (void 0);
         view._didLeave();
         this.viewDidLeave.emit(view);
         this._app.viewDidLeave.emit(view);
     };
     NavControllerBase.prototype._willUnload = function (view) {
+        (void 0);
+        (void 0);
         view._willUnload();
         this.viewWillUnload.emit(view);
         this._app.viewWillUnload.emit(view);
@@ -27976,9 +27601,10 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype.destroy = function () {
-        for (var i = this._views.length - 1; i >= 0; i--) {
-            this._views[i]._willUnload();
-            this._views[i]._destroy(this._renderer);
+        for (var _i = 0, _a = this._views; _i < _a.length; _i++) {
+            var view = _a[_i];
+            view._willUnload();
+            view._destroy(this._renderer);
         }
         this._views.length = 0;
         this._sbGesture && this._sbGesture.destroy();
@@ -27989,8 +27615,9 @@ var NavControllerBase = (function (_super) {
         }
     };
     NavControllerBase.prototype.swipeBackStart = function () {
-        if (this.isTransitioning() || this._queue.length > 0)
+        if (this.isTransitioning() || this._queue.length > 0) {
             return;
+        }
         var opts = {
             direction: DIRECTION_BACK,
             progressAnimation: true
@@ -28003,38 +27630,32 @@ var NavControllerBase = (function (_super) {
     };
     NavControllerBase.prototype.swipeBackProgress = function (stepValue) {
         if (this._sbTrns && this._sbGesture) {
-            this._app.setEnabled(false, ACTIVE_TRANSITION_MAX_TIME);
-            this.setTransitioning(true, ACTIVE_TRANSITION_MAX_TIME);
+            this._app.setEnabled(false, ACTIVE_TRANSITION_DEFAULT);
+            this.setTransitioning(true, ACTIVE_TRANSITION_DEFAULT);
             this._sbTrns.progressStep(stepValue);
         }
     };
     NavControllerBase.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
         if (this._sbTrns && this._sbGesture) {
-            this._sbTrns.progressEnd(shouldComplete, currentStepValue);
+            this._sbTrns.progressEnd(shouldComplete, currentStepValue, 300);
         }
     };
     NavControllerBase.prototype._sbCheck = function () {
-        var _this = this;
-        if (this._sbEnabled && !this._isPortal) {
-            if (!this._sbGesture) {
-                var opts = {
-                    edge: 'left',
-                    threshold: this._sbThreshold
-                };
-                this._sbGesture = new SwipeBackGesture(this.getNativeElement(), opts, this, this._gestureCtrl);
-            }
-            if (this.canSwipeBack()) {
-                if (!this._sbGesture.isListening) {
-                    this._zone.runOutsideAngular(function () {
-                        // console.debug('swipeBack gesture, listen');
-                        _this._sbGesture.listen();
-                    });
-                }
-            }
-            else if (this._sbGesture.isListening) {
-                // console.debug('swipeBack gesture, unlisten');
-                this._sbGesture.unlisten();
-            }
+        if (!this._sbEnabled && this._isPortal) {
+            return;
+        }
+        if (!this._sbGesture) {
+            var opts = {
+                edge: 'left',
+                threshold: this._sbThreshold
+            };
+            this._sbGesture = new SwipeBackGesture(this, document.body, this._gestureCtrl, opts);
+        }
+        if (this.canSwipeBack()) {
+            this._sbGesture.listen();
+        }
+        else {
+            this._sbGesture.unlisten();
         }
     };
     NavControllerBase.prototype.canSwipeBack = function () {
@@ -28055,7 +27676,7 @@ var NavControllerBase = (function (_super) {
         return (this._trnsTm > Date.now());
     };
     NavControllerBase.prototype.setTransitioning = function (isTransitioning, durationPadding) {
-        if (durationPadding === void 0) { durationPadding = 2000; }
+        if (durationPadding === void 0) { durationPadding = ACTIVE_TRANSITION_DEFAULT; }
         this._trnsTm = (isTransitioning ? (Date.now() + durationPadding + ACTIVE_TRANSITION_OFFSET) : 0);
     };
     NavControllerBase.prototype.getActive = function () {
@@ -28092,8 +27713,8 @@ var NavControllerBase = (function (_super) {
         return this._sbEnabled;
     };
     NavControllerBase.prototype.dismissPageChangeViews = function () {
-        for (var i = 0; i < this._views.length; i++) {
-            var view = this._views[i];
+        for (var _i = 0, _a = this._views; _i < _a.length; _i++) {
+            var view = _a[_i];
             if (view.data && view.data.dismissOnPageChange) {
                 view.dismiss();
             }
@@ -28106,7 +27727,7 @@ var NavControllerBase = (function (_super) {
 }(Ion));
 var ctrlIds = -1;
 var DISABLE_APP_MINIMUM_DURATION = 64;
-var ACTIVE_TRANSITION_MAX_TIME = 5000;
+var ACTIVE_TRANSITION_DEFAULT = 5000;
 var ACTIVE_TRANSITION_OFFSET = 2000;
 
 var Animation = (function () {
@@ -28114,6 +27735,7 @@ var Animation = (function () {
         this._dur = null;
         this._es = null;
         this._upd = 0;
+        this.hasChildren = false;
         this.isPlaying = false;
         this.hasCompleted = false;
         this.element(ele).opts = opts;
@@ -28148,11 +27770,21 @@ var Animation = (function () {
     };
     Animation.prototype.add = function (childAnimation) {
         childAnimation.parent = this;
+        this.hasChildren = true;
         this._cL = (this._c = this._c || []).push(childAnimation);
         return this;
     };
     Animation.prototype.getDuration = function (opts) {
-        return (opts && isDefined(opts.duration) ? opts.duration : this._dur !== null ? this._dur : (this.parent && this.parent.getDuration()) || 0);
+        if (opts && isDefined(opts.duration)) {
+            return opts.duration;
+        }
+        else if (this._dur !== null) {
+            return this._dur;
+        }
+        else if (this.parent) {
+            return this.parent.getDuration();
+        }
+        return 0;
     };
     Animation.prototype.duration = function (milliseconds) {
         this._dur = milliseconds;
@@ -28316,7 +27948,7 @@ var Animation = (function () {
             self._didFinishAll(shouldComplete, true, false);
         }
         function onTransitionFallback() {
-            // console.debug('Animation onTransitionFallback, CSS onTransitionEnd did not fire!');
+            (void 0);
             self._tm = 0;
             self._clearAsync();
             self._playEnd(1);
@@ -28538,8 +28170,14 @@ var Animation = (function () {
         }
     };
     Animation.prototype.progressStart = function () {
+        this._clearAsync();
+        this._beforeReadFn();
+        this._beforeWriteFn();
+        this._progressStart();
+    };
+    Animation.prototype._progressStart = function () {
         for (var i = 0; i < this._cL; i++) {
-            this._c[i].progressStart();
+            this._c[i]._progressStart();
         }
         this._before();
         this._setTrans(0, true);
@@ -28559,14 +28197,16 @@ var Animation = (function () {
             this._progress(stepValue);
         }
     };
-    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
-        // console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue, maxDelta) {
+        if (maxDelta === void 0) { maxDelta = 0; }
+        (void 0);
         this._isAsync = (currentStepValue > 0.05 && currentStepValue < 0.95);
-        var dur = 64;
         var stepValue = shouldComplete ? 1 : 0;
+        var factor = Math.max(Math.abs(currentStepValue - stepValue), 0.5) * 2;
+        var dur = 64 + factor * maxDelta;
         this._progressEnd(shouldComplete, stepValue, dur, this._isAsync);
         if (this._isAsync) {
-            this._asyncEnd(dur, true);
+            this._asyncEnd(dur, shouldComplete);
             this._raf && this._raf(this._playToStep.bind(this, stepValue));
         }
     };
@@ -28670,617 +28310,24 @@ var CSS_VALUE_REGEX = /(^-?\d*\.?\d*)(.*)/;
 var ANIMATION_DURATION_MIN = 32;
 var TRANSITION_END_FALLBACK_PADDING_MS = 400;
 
-var TabHighlight = (function () {
-    function TabHighlight(_elementRef) {
-        this._elementRef = _elementRef;
-    }
-    TabHighlight.prototype.select = function (tab) {
-        var _this = this;
-        rafFrames(3, function () {
-            var d = tab.btn.getDimensions();
-            var ele = _this._elementRef.nativeElement;
-            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-            if (!_this._init) {
-                _this._init = true;
-                rafFrames(6, function () {
-                    ele.classList.add('animate');
-                });
-            }
-        });
-    };
-    TabHighlight.decorators = [
-        { type: Directive, args: [{
-                    selector: '.tab-highlight'
-                },] },
-    ];
-    TabHighlight.ctorParameters = [
-        { type: ElementRef, },
-    ];
-    return TabHighlight;
-}());
-
-var __extends$70 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var Tabs = (function (_super) {
-    __extends$70(Tabs, _super);
-    function Tabs(parent, viewCtrl, _app, config, elementRef, _platform, renderer, _linker) {
-        _super.call(this, config, elementRef, renderer);
-        this.viewCtrl = viewCtrl;
-        this._app = _app;
-        this._platform = _platform;
-        this._linker = _linker;
-        this._ids = -1;
-        this._tabs = [];
-        this._selectHistory = [];
-        this.ionChange = new EventEmitter();
-        this.mode = config.get('mode');
-        this.parent = parent;
-        this.id = 't' + (++tabIds);
-        this._sbPadding = config.getBoolean('statusbarPadding');
-        this._subPages = config.getBoolean('tabsHideOnSubPages');
-        this.tabsHighlight = config.getBoolean('tabsHighlight');
-        if (this.parent) {
-            this.parent.registerChildNav(this);
-        }
-        else if (viewCtrl && viewCtrl.getNav()) {
-            this.parent = viewCtrl.getNav();
-            this.parent.registerChildNav(this);
-        }
-        else if (this._app) {
-            this._app._setRootNav(this);
-        }
-        if (viewCtrl) {
-            viewCtrl._setContent(this);
-            viewCtrl._setContentRef(elementRef);
-        }
-    }
-    Object.defineProperty(Tabs.prototype, "color", {
-        set: function (value) {
-            this._setColor('tabs', value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Tabs.prototype, "mode", {
-        set: function (val) {
-            this._setMode('tabs', val);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Tabs.prototype.ngOnDestroy = function () {
-        this.parent.unregisterChildNav(this);
-    };
-    Tabs.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        this._setConfig('tabsPlacement', 'bottom');
-        this._setConfig('tabsLayout', 'icon-top');
-        this._setConfig('tabsHighlight', this.tabsHighlight);
-        if (this.tabsHighlight) {
-            this._platform.onResize(function () {
-                _this._highlight.select(_this.getSelected());
-            });
-        }
-        this.initTabs();
-    };
-    Tabs.prototype.initTabs = function () {
-        var selectedIndex = (isBlank$5(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
-        var tabsSegment = this._linker.initNav(this);
-        if (tabsSegment && isBlank$5(tabsSegment.component)) {
-            selectedIndex = this._linker.getSelectedTabIndex(this, tabsSegment.name, selectedIndex);
-        }
-        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
-        if (!selectedTab) {
-            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
-        }
-        if (selectedTab) {
-            var pageId = null;
-            if (tabsSegment) {
-                var selectedTabSegment = this._linker.initNav(selectedTab);
-                if (selectedTabSegment && selectedTabSegment.component) {
-                    selectedTab.root = selectedTabSegment.component;
-                    selectedTab.rootParams = selectedTabSegment.data;
-                    pageId = selectedTabSegment.id;
-                }
-            }
-            this.select(selectedTab, {
-                id: pageId
-            });
-        }
-        this._tabs.forEach(function (t) {
-            t.updateHref(t.root, t.rootParams);
-        });
-    };
-    Tabs.prototype._setConfig = function (attrKey, fallback) {
-        var val = this[attrKey];
-        if (isBlank$5(val)) {
-            val = this._config.get(attrKey, fallback);
-        }
-        this.setElementAttribute(attrKey, val);
-    };
-    Tabs.prototype.add = function (tab) {
-        this._tabs.push(tab);
-        return this.id + '-' + (++this._ids);
-    };
-    Tabs.prototype.select = function (tabOrIndex, opts) {
-        var _this = this;
-        if (opts === void 0) { opts = {}; }
-        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
-        if (isBlank$5(selectedTab)) {
-            return;
-        }
-        var deselectedTab = this.getSelected();
-        if (selectedTab === deselectedTab) {
-            return this._touchActive(selectedTab);
-        }
-        var deselectedPage;
-        if (deselectedTab) {
-            deselectedPage = deselectedTab.getActive();
-            deselectedPage && deselectedPage._willLeave();
-        }
-        opts.animate = false;
-        var selectedPage = selectedTab.getActive();
-        selectedPage && selectedPage._willEnter();
-        selectedTab.load(opts, function (alreadyLoaded) {
-            selectedTab.ionSelect.emit(selectedTab);
-            _this.ionChange.emit(selectedTab);
-            if (selectedTab.root) {
-                _this._tabs.forEach(function (tab) {
-                    tab.setSelected(tab === selectedTab);
-                });
-                if (_this.tabsHighlight) {
-                    _this._highlight.select(selectedTab);
-                }
-                if (opts.updateUrl !== false) {
-                    _this._linker.navChange(DIRECTION_SWITCH);
-                }
-            }
-            selectedPage && selectedPage._didEnter();
-            deselectedPage && deselectedPage._didLeave();
-            if (_this._selectHistory[_this._selectHistory.length - 1] !== selectedTab.id) {
-                _this._selectHistory.push(selectedTab.id);
-            }
-            if (alreadyLoaded && selectedPage) {
-                var content = selectedPage.getContent();
-                if (content && content instanceof Content) {
-                    content.resize();
-                }
-            }
-        });
-    };
-    Tabs.prototype.previousTab = function (trimHistory) {
-        var _this = this;
-        if (trimHistory === void 0) { trimHistory = true; }
-        // console.debug('run previousTab', this._selectHistory);
-        for (var i = this._selectHistory.length - 2; i >= 0; i--) {
-            var tab = this._tabs.find(function (t) { return t.id === _this._selectHistory[i]; });
-            if (tab && tab.enabled && tab.show) {
-                if (trimHistory) {
-                    this._selectHistory.splice(i + 1);
-                }
-                return tab;
-            }
-        }
-        return null;
-    };
-    Tabs.prototype.getByIndex = function (index) {
-        return this._tabs[index];
-    };
-    Tabs.prototype.getSelected = function () {
-        for (var i = 0; i < this._tabs.length; i++) {
-            if (this._tabs[i].isSelected) {
-                return this._tabs[i];
-            }
-        }
-        return null;
-    };
-    Tabs.prototype.getActiveChildNav = function () {
-        return this.getSelected();
-    };
-    Tabs.prototype.getIndex = function (tab) {
-        return this._tabs.indexOf(tab);
-    };
-    Tabs.prototype.length = function () {
-        return this._tabs.length;
-    };
-    Tabs.prototype._touchActive = function (tab) {
-        var active = tab.getActive();
-        if (active) {
-            if (active._cmp && active._cmp.instance.ionSelected) {
-                active._cmp.instance.ionSelected();
-            }
-            else if (tab.length() > 1) {
-                tab.popToRoot(null, null);
-            }
-            else if (tab.root !== active.component) {
-                tab.setRoot(tab.root);
-            }
-        }
-    };
-    Tabs.prototype.setTabbarPosition = function (top, bottom) {
-        if (this._top !== top || this._bottom !== bottom) {
-            var tabbarEle = this._tabbar.nativeElement;
-            tabbarEle.style.top = (top > -1 ? top + 'px' : '');
-            tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '');
-            tabbarEle.classList.add('show-tabbar');
-            this._top = top;
-            this._bottom = bottom;
-        }
-    };
-    Tabs.decorators = [
-        { type: Component, args: [{
-                    selector: 'ion-tabs',
-                    template: '<div class="tabbar" role="tablist" #tabbar>' +
-                        '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
-                        '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
-                        '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
-                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [color]="t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
-                        '<div class="button-effect"></div>' +
-                        '</a>' +
-                        '<div class="tab-highlight"></div>' +
-                        '</div>' +
-                        '<ng-content></ng-content>' +
-                        '<div #portal tab-portal></div>',
-                    encapsulation: ViewEncapsulation.None,
-                },] },
-    ];
-    Tabs.ctorParameters = [
-        { type: NavController, decorators: [{ type: Optional },] },
-        { type: ViewController, decorators: [{ type: Optional },] },
-        { type: App, },
-        { type: Config, },
-        { type: ElementRef, },
-        { type: Platform, },
-        { type: Renderer, },
-        { type: DeepLinker, },
-    ];
-    Tabs.propDecorators = {
-        'color': [{ type: Input },],
-        'mode': [{ type: Input },],
-        'selectedIndex': [{ type: Input },],
-        'tabsLayout': [{ type: Input },],
-        'tabsPlacement': [{ type: Input },],
-        'tabsHighlight': [{ type: Input },],
-        'ionChange': [{ type: Output },],
-        '_highlight': [{ type: ViewChild, args: [TabHighlight,] },],
-        '_tabbar': [{ type: ViewChild, args: ['tabbar',] },],
-        'portal': [{ type: ViewChild, args: ['portal', { read: ViewContainerRef },] },],
-    };
-    return Tabs;
-}(Ion));
-var tabIds = -1;
-
 var __extends$69 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Content = (function (_super) {
-    __extends$69(Content, _super);
-    function Content(config, elementRef, renderer, _app, _keyboard, _zone, viewCtrl, _tabs) {
-        _super.call(this, config, elementRef, renderer);
-        this._app = _app;
-        this._keyboard = _keyboard;
-        this._zone = _zone;
-        this._tabs = _tabs;
-        this._inputPolling = false;
-        this._mode = config.get('mode');
-        this._setMode('content', this._mode);
-        this._sbPadding = config.getBoolean('statusbarPadding', false);
-        if (viewCtrl) {
-            viewCtrl._setContent(this);
-            viewCtrl._setContentRef(elementRef);
-        }
-    }
-    Content.prototype.ngOnInit = function () {
-        var _this = this;
-        this._fixedEle = this._elementRef.nativeElement.children[0];
-        this._scrollEle = this._elementRef.nativeElement.children[1];
-        this._zone.runOutsideAngular(function () {
-            _this._scroll = new ScrollView(_this._scrollEle);
-            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
-        });
-    };
-    Content.prototype.ngOnDestroy = function () {
-        this._scLsn && this._scLsn();
-        this._scroll && this._scroll.destroy();
-        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
-    };
-    Content.prototype.addScrollListener = function (handler) {
-        return this._addListener('scroll', handler);
-    };
-    Content.prototype.addTouchStartListener = function (handler) {
-        return this._addListener('touchstart', handler);
-    };
-    Content.prototype.addTouchMoveListener = function (handler) {
-        return this._addListener('touchmove', handler);
-    };
-    Content.prototype.addTouchEndListener = function (handler) {
-        return this._addListener('touchend', handler);
-    };
-    Content.prototype.addMouseDownListener = function (handler) {
-        return this._addListener('mousedown', handler);
-    };
-    Content.prototype.addMouseUpListener = function (handler) {
-        return this._addListener('mouseup', handler);
-    };
-    Content.prototype.addMouseMoveListener = function (handler) {
-        return this._addListener('mousemove', handler);
-    };
-    Content.prototype._addListener = function (type, handler) {
-        var _this = this;
-        if (!this._scrollEle) {
-            return;
-        }
-        this._scrollEle.removeEventListener(type, handler);
-        this._scrollEle.addEventListener(type, handler);
-        return function () {
-            if (_this._scrollEle) {
-                _this._scrollEle.removeEventListener(type, handler);
-            }
-        };
-    };
-    Content.prototype.getScrollElement = function () {
-        return this._scrollEle;
-    };
-    Content.prototype.onScrollEnd = function (callback) {
-        var lastScrollTop = null;
-        var framesUnchanged = 0;
-        var _scrollEle = this._scrollEle;
-        function next() {
-            var currentScrollTop = _scrollEle.scrollTop;
-            if (lastScrollTop !== null) {
-                if (Math.round(lastScrollTop) === Math.round(currentScrollTop)) {
-                    framesUnchanged++;
-                }
-                else {
-                    framesUnchanged = 0;
-                }
-                if (framesUnchanged > 9) {
-                    return callback();
-                }
-            }
-            lastScrollTop = currentScrollTop;
-            nativeRaf(function () {
-                nativeRaf(next);
-            });
-        }
-        nativeTimeout(next, 100);
-    };
-    Content.prototype.onScrollElementTransitionEnd = function (callback) {
-        transitionEnd(this._scrollEle, callback);
-    };
-    Content.prototype.scrollTo = function (x, y, duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollTo(x, y, duration);
-    };
-    Content.prototype.scrollToTop = function (duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollToTop(duration);
-    };
-    Content.prototype.getScrollTop = function () {
-        return this._scroll.getTop();
-    };
-    Content.prototype.setScrollTop = function (top) {
-        this._scroll.setTop(top);
-    };
-    Content.prototype.scrollToBottom = function (duration) {
-        if (duration === void 0) { duration = 300; }
-        return this._scroll.scrollToBottom(duration);
-    };
-    Content.prototype.jsScroll = function (onScrollCallback) {
-        return this._scroll.jsScroll(onScrollCallback);
-    };
-    Object.defineProperty(Content.prototype, "fullscreen", {
-        get: function () {
-            return !!this._fullscreen;
-        },
-        set: function (val) {
-            this._fullscreen = isTrueProperty(val);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Content.prototype.setScrollElementStyle = function (prop, val) {
-        this._scrollEle.style[prop] = val;
-    };
-    Content.prototype.getContentDimensions = function () {
-        var _scrollEle = this._scrollEle;
-        var parentElement = _scrollEle.parentElement;
-        return {
-            contentHeight: parentElement.offsetHeight,
-            contentTop: parentElement.offsetTop,
-            contentBottom: parentElement.offsetTop + parentElement.offsetHeight,
-            contentWidth: parentElement.offsetWidth,
-            contentLeft: parentElement.offsetLeft,
-            contentRight: parentElement.offsetLeft + parentElement.offsetWidth,
-            scrollHeight: _scrollEle.scrollHeight,
-            scrollTop: _scrollEle.scrollTop,
-            scrollBottom: _scrollEle.scrollTop + _scrollEle.scrollHeight,
-            scrollWidth: _scrollEle.scrollWidth,
-            scrollLeft: _scrollEle.scrollLeft,
-            scrollRight: _scrollEle.scrollLeft + _scrollEle.scrollWidth,
-        };
-    };
-    Content.prototype.addScrollPadding = function (newPadding) {
-        if (newPadding > this._scrollPadding) {
-            // console.debug('content addScrollPadding', newPadding);
-            this._scrollPadding = newPadding;
-            this._scrollEle.style.paddingBottom = newPadding + 'px';
-        }
-    };
-    Content.prototype.clearScrollPaddingFocusOut = function () {
-        var _this = this;
-        if (!this._inputPolling) {
-            this._inputPolling = true;
-            this._keyboard.onClose(function () {
-                _this._scrollPadding = 0;
-                _this._scrollEle.style.paddingBottom = (_this._paddingBottom > 0 ? _this._paddingBottom + 'px' : '');
-                _this._inputPolling = false;
-                _this.addScrollPadding(0);
-            }, 200, Infinity);
-        }
-    };
-    Content.prototype.resize = function () {
-        var _this = this;
-        nativeRaf(function () {
-            _this.readDimensions();
-            _this.writeDimensions();
-        });
-    };
-    Content.prototype.readDimensions = function () {
-        this._paddingTop = 0;
-        this._paddingRight = 0;
-        this._paddingBottom = 0;
-        this._paddingLeft = 0;
-        this._headerHeight = 0;
-        this._footerHeight = 0;
-        this._tabsPlacement = null;
-        var ele = this._elementRef.nativeElement;
-        if (!ele) {
-            return;
-        }
-        var parentEle = ele.parentElement;
-        var computedStyle;
-        for (var i = 0; i < parentEle.children.length; i++) {
-            ele = parentEle.children[i];
-            if (ele.tagName === 'ION-CONTENT') {
-                if (this._fullscreen) {
-                    computedStyle = getComputedStyle(ele);
-                    this._paddingTop = parsePxUnit(computedStyle.paddingTop);
-                    this._paddingBottom = parsePxUnit(computedStyle.paddingBottom);
-                    this._paddingRight = parsePxUnit(computedStyle.paddingRight);
-                    this._paddingLeft = parsePxUnit(computedStyle.paddingLeft);
-                }
-            }
-            else if (ele.tagName === 'ION-HEADER') {
-                this._headerHeight = ele.clientHeight;
-            }
-            else if (ele.tagName === 'ION-FOOTER') {
-                this._footerHeight = ele.clientHeight;
-                this._footerEle = ele;
-            }
-        }
-        ele = parentEle;
-        var tabbarEle;
-        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
-            if (ele.tagName === 'ION-TABS') {
-                tabbarEle = ele.firstElementChild;
-                this._tabbarHeight = tabbarEle.clientHeight;
-                if (this._tabsPlacement === null) {
-                    this._tabsPlacement = ele.getAttribute('tabsplacement');
-                }
-            }
-            ele = ele.parentElement;
-        }
-    };
-    Content.prototype.writeDimensions = function () {
-        var scrollEle = this._scrollEle;
-        if (!scrollEle) {
-            return;
-        }
-        var fixedEle = this._fixedEle;
-        if (!fixedEle) {
-            return;
-        }
-        var contentTop = this._headerHeight;
-        var contentBottom = this._footerHeight;
-        if (this._tabsPlacement === 'top') {
-            contentTop += this._tabbarHeight;
-        }
-        else if (this._tabsPlacement === 'bottom') {
-            contentBottom += this._tabbarHeight;
-            if (contentBottom > 0 && this._footerEle) {
-                this._footerEle.style.bottom = cssFormat(contentBottom - this._footerHeight);
-            }
-        }
-        var topProperty = 'marginTop';
-        var bottomProperty = 'marginBottom';
-        var fixedTop = contentTop;
-        var fixedBottom = contentBottom;
-        if (this._fullscreen) {
-            contentTop += this._paddingTop;
-            contentBottom += this._paddingBottom;
-            topProperty = 'paddingTop';
-            bottomProperty = 'paddingBottom';
-        }
-        if (contentTop !== this.contentTop) {
-            scrollEle.style[topProperty] = cssFormat(contentTop);
-            fixedEle.style.marginTop = cssFormat(fixedTop);
-            this.contentTop = contentTop;
-        }
-        if (contentBottom !== this.contentBottom) {
-            scrollEle.style[bottomProperty] = cssFormat(contentBottom);
-            fixedEle.style.marginBottom = cssFormat(fixedBottom);
-            this.contentBottom = contentBottom;
-        }
-        if (this._tabsPlacement !== null && this._tabs) {
-            if (this._tabsPlacement === 'top') {
-                this._tabs.setTabbarPosition(this._headerHeight, -1);
-            }
-            else {
-                this._tabs.setTabbarPosition(-1, 0);
-            }
-        }
-    };
-    Content.decorators = [
-        { type: Component, args: [{
-                    selector: 'ion-content',
-                    template: '<div class="fixed-content">' +
-                        '<ng-content select="[ion-fixed],ion-fab"></ng-content>' +
-                        '</div>' +
-                        '<div class="scroll-content">' +
-                        '<ng-content></ng-content>' +
-                        '</div>' +
-                        '<ng-content select="ion-refresher"></ng-content>',
-                    host: {
-                        '[class.statusbar-padding]': '_sbPadding'
-                    },
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    encapsulation: ViewEncapsulation.None
-                },] },
-    ];
-    Content.ctorParameters = [
-        { type: Config, },
-        { type: ElementRef, },
-        { type: Renderer, },
-        { type: App, },
-        { type: Keyboard, },
-        { type: NgZone, },
-        { type: ViewController, decorators: [{ type: Optional },] },
-        { type: Tabs, decorators: [{ type: Optional },] },
-    ];
-    Content.propDecorators = {
-        'fullscreen': [{ type: Input },],
-    };
-    return Content;
-}(Ion));
-function parsePxUnit(val) {
-    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
-}
-function cssFormat(val) {
-    return (val > 0 ? val + 'px' : '');
-}
-
-var __extends$71 = (undefined && undefined.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var Transition = (function (_super) {
-    __extends$71(Transition, _super);
+    __extends$69(Transition, _super);
     function Transition(enteringView, leavingView, opts, raf) {
         _super.call(this, null, opts, raf);
         this.enteringView = enteringView;
         this.leavingView = leavingView;
-        this.hasChildTrns = false;
     }
     Transition.prototype.init = function () { };
     Transition.prototype.registerStart = function (trnsStart) {
         this._trnsStart = trnsStart;
+    };
+    Transition.prototype.isRoot = function () {
+        return !this.parent;
     };
     Transition.prototype.start = function () {
         this._trnsStart && this._trnsStart();
@@ -29312,14 +28359,14 @@ var PageTransition = (function (_super) {
         }
     };
     PageTransition.prototype.readDimensions = function () {
-        var content = this.enteringView.getContent();
-        if (content && content instanceof Content) {
+        var content = this.enteringView.getIONContent();
+        if (content) {
             content.readDimensions();
         }
     };
     PageTransition.prototype.writeDimensions = function () {
-        var content = this.enteringView.getContent();
-        if (content && content instanceof Content) {
+        var content = this.enteringView.getIONContent();
+        if (content) {
             content.writeDimensions();
         }
     };
@@ -29472,7 +28519,7 @@ var IOSTransition = (function (_super) {
     return IOSTransition;
 }(PageTransition));
 
-var __extends$72 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$70 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -29482,7 +28529,7 @@ var OFF_BOTTOM = '40px';
 var CENTER$1 = '0px';
 var SHOW_BACK_BTN_CSS$1 = 'show-back-button';
 var MDTransition = (function (_super) {
-    __extends$72(MDTransition, _super);
+    __extends$70(MDTransition, _super);
     function MDTransition() {
         _super.apply(this, arguments);
     }
@@ -29520,13 +28567,13 @@ var MDTransition = (function (_super) {
         if (leavingView && backDirection) {
             this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
             var leavingPage = new Animation(leavingView.pageRef());
-            this.add(leavingPage.fromTo(TRANSLATEY, CENTER$1, OFF_BOTTOM).fromTo('opacity', 0.99, 0));
+            this.add(leavingPage.fromTo(TRANSLATEY, CENTER$1, OFF_BOTTOM).fromTo('opacity', 1, 0));
         }
     };
     return MDTransition;
 }(PageTransition));
 
-var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$71 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -29534,7 +28581,7 @@ var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
 var SHOW_BACK_BTN_CSS$2 = 'show-back-button';
 var SCALE_SMALL = .95;
 var WPTransition = (function (_super) {
-    __extends$73(WPTransition, _super);
+    __extends$71(WPTransition, _super);
     function WPTransition() {
         _super.apply(this, arguments);
     }
@@ -29550,7 +28597,7 @@ var WPTransition = (function (_super) {
                 this.enteringPage.beforeClearStyles(['scale']);
             }
             else {
-                this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0,0 0.05,1)');
+                this.duration(isPresent$5(opts.duration) ? opts.duration : 280).easing('cubic-bezier(0,0,0.05,1)');
                 this.enteringPage
                     .fromTo('scale', SCALE_SMALL, 1, true)
                     .fromTo('opacity', 0.01, 1, true);
@@ -29579,13 +28626,13 @@ var WPTransition = (function (_super) {
     return WPTransition;
 }(PageTransition));
 
-var __extends$74 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$72 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ActionSheetSlideIn = (function (_super) {
-    __extends$74(ActionSheetSlideIn, _super);
+    __extends$72(ActionSheetSlideIn, _super);
     function ActionSheetSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29600,7 +28647,7 @@ var ActionSheetSlideIn = (function (_super) {
     return ActionSheetSlideIn;
 }(Transition));
 var ActionSheetSlideOut = (function (_super) {
-    __extends$74(ActionSheetSlideOut, _super);
+    __extends$72(ActionSheetSlideOut, _super);
     function ActionSheetSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29615,7 +28662,7 @@ var ActionSheetSlideOut = (function (_super) {
     return ActionSheetSlideOut;
 }(Transition));
 var ActionSheetMdSlideIn = (function (_super) {
-    __extends$74(ActionSheetMdSlideIn, _super);
+    __extends$72(ActionSheetMdSlideIn, _super);
     function ActionSheetMdSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29630,7 +28677,7 @@ var ActionSheetMdSlideIn = (function (_super) {
     return ActionSheetMdSlideIn;
 }(Transition));
 var ActionSheetMdSlideOut = (function (_super) {
-    __extends$74(ActionSheetMdSlideOut, _super);
+    __extends$72(ActionSheetMdSlideOut, _super);
     function ActionSheetMdSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29645,7 +28692,7 @@ var ActionSheetMdSlideOut = (function (_super) {
     return ActionSheetMdSlideOut;
 }(Transition));
 var ActionSheetWpSlideIn = (function (_super) {
-    __extends$74(ActionSheetWpSlideIn, _super);
+    __extends$72(ActionSheetWpSlideIn, _super);
     function ActionSheetWpSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29660,7 +28707,7 @@ var ActionSheetWpSlideIn = (function (_super) {
     return ActionSheetWpSlideIn;
 }(Transition));
 var ActionSheetWpSlideOut = (function (_super) {
-    __extends$74(ActionSheetWpSlideOut, _super);
+    __extends$72(ActionSheetWpSlideOut, _super);
     function ActionSheetWpSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29675,13 +28722,13 @@ var ActionSheetWpSlideOut = (function (_super) {
     return ActionSheetWpSlideOut;
 }(Transition));
 
-var __extends$75 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$73 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AlertPopIn = (function (_super) {
-    __extends$75(AlertPopIn, _super);
+    __extends$73(AlertPopIn, _super);
     function AlertPopIn() {
         _super.apply(this, arguments);
     }
@@ -29700,7 +28747,7 @@ var AlertPopIn = (function (_super) {
     return AlertPopIn;
 }(Transition));
 var AlertPopOut = (function (_super) {
-    __extends$75(AlertPopOut, _super);
+    __extends$73(AlertPopOut, _super);
     function AlertPopOut() {
         _super.apply(this, arguments);
     }
@@ -29719,7 +28766,7 @@ var AlertPopOut = (function (_super) {
     return AlertPopOut;
 }(Transition));
 var AlertMdPopIn = (function (_super) {
-    __extends$75(AlertMdPopIn, _super);
+    __extends$73(AlertMdPopIn, _super);
     function AlertMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -29738,7 +28785,7 @@ var AlertMdPopIn = (function (_super) {
     return AlertMdPopIn;
 }(Transition));
 var AlertMdPopOut = (function (_super) {
-    __extends$75(AlertMdPopOut, _super);
+    __extends$73(AlertMdPopOut, _super);
     function AlertMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -29757,7 +28804,7 @@ var AlertMdPopOut = (function (_super) {
     return AlertMdPopOut;
 }(Transition));
 var AlertWpPopIn = (function (_super) {
-    __extends$75(AlertWpPopIn, _super);
+    __extends$73(AlertWpPopIn, _super);
     function AlertWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -29768,7 +28815,7 @@ var AlertWpPopIn = (function (_super) {
         wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
         backdrop.fromTo('opacity', 0.01, 0.5);
         this
-            .easing('cubic-bezier(0,0 0.05,1)')
+            .easing('cubic-bezier(0,0,0.05,1)')
             .duration(200)
             .add(backdrop)
             .add(wrapper);
@@ -29776,7 +28823,7 @@ var AlertWpPopIn = (function (_super) {
     return AlertWpPopIn;
 }(Transition));
 var AlertWpPopOut = (function (_super) {
-    __extends$75(AlertWpPopOut, _super);
+    __extends$73(AlertWpPopOut, _super);
     function AlertWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -29795,13 +28842,13 @@ var AlertWpPopOut = (function (_super) {
     return AlertWpPopOut;
 }(Transition));
 
-var __extends$76 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$74 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var LoadingPopIn = (function (_super) {
-    __extends$76(LoadingPopIn, _super);
+    __extends$74(LoadingPopIn, _super);
     function LoadingPopIn() {
         _super.apply(this, arguments);
     }
@@ -29820,7 +28867,7 @@ var LoadingPopIn = (function (_super) {
     return LoadingPopIn;
 }(Transition));
 var LoadingPopOut = (function (_super) {
-    __extends$76(LoadingPopOut, _super);
+    __extends$74(LoadingPopOut, _super);
     function LoadingPopOut() {
         _super.apply(this, arguments);
     }
@@ -29839,7 +28886,7 @@ var LoadingPopOut = (function (_super) {
     return LoadingPopOut;
 }(Transition));
 var LoadingMdPopIn = (function (_super) {
-    __extends$76(LoadingMdPopIn, _super);
+    __extends$74(LoadingMdPopIn, _super);
     function LoadingMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -29858,7 +28905,7 @@ var LoadingMdPopIn = (function (_super) {
     return LoadingMdPopIn;
 }(Transition));
 var LoadingMdPopOut = (function (_super) {
-    __extends$76(LoadingMdPopOut, _super);
+    __extends$74(LoadingMdPopOut, _super);
     function LoadingMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -29877,7 +28924,7 @@ var LoadingMdPopOut = (function (_super) {
     return LoadingMdPopOut;
 }(Transition));
 var LoadingWpPopIn = (function (_super) {
-    __extends$76(LoadingWpPopIn, _super);
+    __extends$74(LoadingWpPopIn, _super);
     function LoadingWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -29888,7 +28935,7 @@ var LoadingWpPopIn = (function (_super) {
         wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
         backdrop.fromTo('opacity', 0.01, 0.16);
         this
-            .easing('cubic-bezier(0,0 0.05,1)')
+            .easing('cubic-bezier(0,0,0.05,1)')
             .duration(200)
             .add(backdrop)
             .add(wrapper);
@@ -29896,7 +28943,7 @@ var LoadingWpPopIn = (function (_super) {
     return LoadingWpPopIn;
 }(Transition));
 var LoadingWpPopOut = (function (_super) {
-    __extends$76(LoadingWpPopOut, _super);
+    __extends$74(LoadingWpPopOut, _super);
     function LoadingWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -29915,13 +28962,13 @@ var LoadingWpPopOut = (function (_super) {
     return LoadingWpPopOut;
 }(Transition));
 
-var __extends$77 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$75 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ModalSlideIn = (function (_super) {
-    __extends$77(ModalSlideIn, _super);
+    __extends$75(ModalSlideIn, _super);
     function ModalSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29943,7 +28990,7 @@ var ModalSlideIn = (function (_super) {
     return ModalSlideIn;
 }(PageTransition));
 var ModalSlideOut = (function (_super) {
-    __extends$77(ModalSlideOut, _super);
+    __extends$75(ModalSlideOut, _super);
     function ModalSlideOut() {
         _super.apply(this, arguments);
     }
@@ -29967,7 +29014,7 @@ var ModalSlideOut = (function (_super) {
     return ModalSlideOut;
 }(PageTransition));
 var ModalMDSlideIn = (function (_super) {
-    __extends$77(ModalMDSlideIn, _super);
+    __extends$75(ModalMDSlideIn, _super);
     function ModalMDSlideIn() {
         _super.apply(this, arguments);
     }
@@ -29988,7 +29035,7 @@ var ModalMDSlideIn = (function (_super) {
     return ModalMDSlideIn;
 }(PageTransition));
 var ModalMDSlideOut = (function (_super) {
-    __extends$77(ModalMDSlideOut, _super);
+    __extends$75(ModalMDSlideOut, _super);
     function ModalMDSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30010,13 +29057,13 @@ var ModalMDSlideOut = (function (_super) {
     return ModalMDSlideOut;
 }(PageTransition));
 
-var __extends$78 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$76 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var PickerSlideIn = (function (_super) {
-    __extends$78(PickerSlideIn, _super);
+    __extends$76(PickerSlideIn, _super);
     function PickerSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30031,7 +29078,7 @@ var PickerSlideIn = (function (_super) {
     return PickerSlideIn;
 }(Transition));
 var PickerSlideOut = (function (_super) {
-    __extends$78(PickerSlideOut, _super);
+    __extends$76(PickerSlideOut, _super);
     function PickerSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30046,13 +29093,13 @@ var PickerSlideOut = (function (_super) {
     return PickerSlideOut;
 }(Transition));
 
-var __extends$79 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$77 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var PopoverTransition = (function (_super) {
-    __extends$79(PopoverTransition, _super);
+    __extends$77(PopoverTransition, _super);
     function PopoverTransition() {
         _super.apply(this, arguments);
     }
@@ -30150,7 +29197,7 @@ var PopoverTransition = (function (_super) {
     return PopoverTransition;
 }(PageTransition));
 var PopoverPopIn = (function (_super) {
-    __extends$79(PopoverPopIn, _super);
+    __extends$77(PopoverPopIn, _super);
     function PopoverPopIn() {
         _super.apply(this, arguments);
     }
@@ -30176,7 +29223,7 @@ var PopoverPopIn = (function (_super) {
     return PopoverPopIn;
 }(PopoverTransition));
 var PopoverPopOut = (function (_super) {
-    __extends$79(PopoverPopOut, _super);
+    __extends$77(PopoverPopOut, _super);
     function PopoverPopOut() {
         _super.apply(this, arguments);
     }
@@ -30195,7 +29242,7 @@ var PopoverPopOut = (function (_super) {
     return PopoverPopOut;
 }(PopoverTransition));
 var PopoverMdPopIn = (function (_super) {
-    __extends$79(PopoverMdPopIn, _super);
+    __extends$77(PopoverMdPopIn, _super);
     function PopoverMdPopIn() {
         _super.apply(this, arguments);
     }
@@ -30221,7 +29268,7 @@ var PopoverMdPopIn = (function (_super) {
     return PopoverMdPopIn;
 }(PopoverTransition));
 var PopoverMdPopOut = (function (_super) {
-    __extends$79(PopoverMdPopOut, _super);
+    __extends$77(PopoverMdPopOut, _super);
     function PopoverMdPopOut() {
         _super.apply(this, arguments);
     }
@@ -30240,13 +29287,13 @@ var PopoverMdPopOut = (function (_super) {
 var POPOVER_IOS_BODY_PADDING = 2;
 var POPOVER_MD_BODY_PADDING = 12;
 
-var __extends$80 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$78 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var ToastSlideIn = (function (_super) {
-    __extends$80(ToastSlideIn, _super);
+    __extends$78(ToastSlideIn, _super);
     function ToastSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30270,7 +29317,7 @@ var ToastSlideIn = (function (_super) {
     return ToastSlideIn;
 }(Transition));
 var ToastSlideOut = (function (_super) {
-    __extends$80(ToastSlideOut, _super);
+    __extends$78(ToastSlideOut, _super);
     function ToastSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30292,7 +29339,7 @@ var ToastSlideOut = (function (_super) {
     return ToastSlideOut;
 }(Transition));
 var ToastMdSlideIn = (function (_super) {
-    __extends$80(ToastMdSlideIn, _super);
+    __extends$78(ToastMdSlideIn, _super);
     function ToastMdSlideIn() {
         _super.apply(this, arguments);
     }
@@ -30316,7 +29363,7 @@ var ToastMdSlideIn = (function (_super) {
     return ToastMdSlideIn;
 }(Transition));
 var ToastMdSlideOut = (function (_super) {
-    __extends$80(ToastMdSlideOut, _super);
+    __extends$78(ToastMdSlideOut, _super);
     function ToastMdSlideOut() {
         _super.apply(this, arguments);
     }
@@ -30338,7 +29385,7 @@ var ToastMdSlideOut = (function (_super) {
     return ToastMdSlideOut;
 }(Transition));
 var ToastWpPopIn = (function (_super) {
-    __extends$80(ToastWpPopIn, _super);
+    __extends$78(ToastWpPopIn, _super);
     function ToastWpPopIn() {
         _super.apply(this, arguments);
     }
@@ -30360,12 +29407,12 @@ var ToastWpPopIn = (function (_super) {
             wrapper.fromTo('opacity', 0.01, 1);
             wrapper.fromTo('scale', 1.3, 1);
         }
-        this.easing('cubic-bezier(0,0 0.05,1)').duration(200).add(wrapper);
+        this.easing('cubic-bezier(0,0,0.05,1)').duration(200).add(wrapper);
     };
     return ToastWpPopIn;
 }(Transition));
 var ToastWpPopOut = (function (_super) {
-    __extends$80(ToastWpPopOut, _super);
+    __extends$78(ToastWpPopOut, _super);
     function ToastWpPopOut() {
         _super.apply(this, arguments);
     }
@@ -30836,7 +29883,7 @@ var ModalCmp = (function () {
         this._viewCtrl = _viewCtrl;
         this._bdDismiss = _navParams.data.opts.enableBackdropDismiss;
     }
-    ModalCmp.prototype.ionViewWillLoad = function () {
+    ModalCmp.prototype.ionViewPreLoad = function () {
         this._load(this._navParams.data.component);
     };
     ModalCmp.prototype._load = function (component) {
@@ -30884,13 +29931,13 @@ var ModalCmp = (function () {
     return ModalCmp;
 }());
 
-var __extends$81 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$79 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Modal = (function (_super) {
-    __extends$81(Modal, _super);
+    __extends$79(Modal, _super);
     function Modal(app, component, data, opts) {
         if (data === void 0) { data = {}; }
         if (opts === void 0) { opts = {}; }
@@ -30959,7 +30006,7 @@ var PickerColumnCmp = (function () {
         this.events.unlistenAll();
     };
     PickerColumnCmp.prototype.pointerStart = function (ev) {
-        // console.debug('picker, pointerStart', ev.type, this.startY);
+        (void 0);
         cancelRaf(this.rafId);
         this.startY = pointerCoord(ev).y;
         this.receivingEvents = true;
@@ -31020,7 +30067,7 @@ var PickerColumnCmp = (function () {
         }
         else if (this.startY !== null) {
             var endY = pointerCoord(ev).y;
-            // console.debug('picker, pointerEnd', ev.type, endY);
+            (void 0);
             this.pos.push(endY, Date.now());
             var endPos = (this.pos.length - 1);
             var startPos = endPos;
@@ -31199,10 +30246,10 @@ var PickerCmp = (function () {
         this.id = (++pickerIds);
         this.lastClick = 0;
     }
-    PickerCmp.prototype.ionViewDidLoad = function () {
+    PickerCmp.prototype.ionViewWillLoad = function () {
         var data = this.d;
         data.buttons = data.buttons.map(function (button) {
-            if (isString$5(button)) {
+            if (isString(button)) {
                 return { text: button };
             }
             if (button.role) {
@@ -31224,7 +30271,7 @@ var PickerCmp = (function () {
                     disabled: inputOpt.disabled,
                 };
                 if (isPresent$5(inputOpt)) {
-                    if (isString$5(inputOpt) || isNumber$5(inputOpt)) {
+                    if (isString(inputOpt) || isNumber(inputOpt)) {
                         opt.text = inputOpt.toString();
                         opt.value = inputOpt;
                     }
@@ -31251,13 +30298,13 @@ var PickerCmp = (function () {
         if (this.enabled && this._viewCtrl.isLast()) {
             if (ev.keyCode === Key.ENTER) {
                 if (this.lastClick + 1000 < Date.now()) {
-                    // console.debug('picker, enter button');
+                    (void 0);
                     var button = this.d.buttons[this.d.buttons.length - 1];
                     this.btnClick(button);
                 }
             }
             else if (ev.keyCode === Key.ESCAPE) {
-                // console.debug('picker, escape button');
+                (void 0);
                 this.bdClick();
             }
         }
@@ -31338,13 +30385,13 @@ var pickerIds = -1;
 var DECELERATION_FRICTION$1 = 0.97;
 var FRAME_MS$1 = (1000 / 60);
 
-var __extends$82 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$80 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Picker = (function (_super) {
-    __extends$82(Picker, _super);
+    __extends$80(Picker, _super);
     function Picker(app, opts) {
         if (opts === void 0) { opts = {}; }
         opts.columns = opts.columns || [];
@@ -31474,7 +30521,6 @@ var PLATFORM_CONFIGS = {
             swipeBackThreshold: 40,
             tapPolyfill: isIOSDevice,
             virtualScrollEventAssist: !(window.indexedDB),
-            canDisableScroll: !!(window.indexedDB),
         },
         isMatch: function (p) {
             return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
@@ -31578,7 +30624,7 @@ var PopoverCmp = (function () {
         }
         this.id = (++popoverIds);
     }
-    PopoverCmp.prototype.ionViewWillLoad = function () {
+    PopoverCmp.prototype.ionViewPreLoad = function () {
         var activeElement = document.activeElement;
         if (document.activeElement) {
             activeElement.blur();
@@ -31636,13 +30682,13 @@ var PopoverCmp = (function () {
 }());
 var popoverIds = -1;
 
-var __extends$83 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$81 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Popover = (function (_super) {
-    __extends$83(Popover, _super);
+    __extends$81(Popover, _super);
     function Popover(app, component, data, opts) {
         if (data === void 0) { data = {}; }
         if (opts === void 0) { opts = {}; }
@@ -31723,7 +30769,7 @@ var Activator = (function () {
             return;
         }
         this._queue.push(activatableEle);
-        rafFrames(2, function () {
+        rafFrames(6, function () {
             var activatableEle;
             for (var i = 0; i < _this._queue.length; i++) {
                 activatableEle = _this._queue[i];
@@ -31732,7 +30778,7 @@ var Activator = (function () {
                     activatableEle.classList.add(_this._css);
                 }
             }
-            _this._queue = [];
+            _this._queue.length = 0;
         });
     };
     Activator.prototype.upAction = function (ev, activatableEle, startCoord) {
@@ -31754,7 +30800,7 @@ var Activator = (function () {
     };
     Activator.prototype.deactivate = function () {
         var _this = this;
-        this._queue = [];
+        this._queue.length = 0;
         rafFrames(2, function () {
             for (var i = 0; i < _this._active.length; i++) {
                 _this._active[i].classList.remove(_this._css);
@@ -31782,13 +30828,13 @@ var Activator = (function () {
 }());
 var CLEAR_STATE_DEFERS = 5;
 
-var __extends$84 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$82 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var RippleActivator = (function (_super) {
-    __extends$84(RippleActivator, _super);
+    __extends$82(RippleActivator, _super);
     function RippleActivator(app, config) {
         _super.call(this, app, config);
     }
@@ -31878,109 +30924,67 @@ var TOUCH_DOWN_ACCEL = 300;
 
 var TapClick = (function () {
     function TapClick(config, app, zone) {
-        var _this = this;
         this.app = app;
-        this.lastTouch = 0;
         this.disableClick = 0;
-        this.lastActivated = 0;
-        if (config.get('activator') === 'ripple') {
+        this.events = new UIEventManager(false);
+        var activator = config.get('activator');
+        if (activator === 'ripple') {
             this.activator = new RippleActivator(app, config);
         }
-        else if (config.get('activator') === 'highlight') {
+        else if (activator === 'highlight') {
             this.activator = new Activator(app, config);
         }
         this.usePolyfill = (config.get('tapPolyfill') === true);
-        zone.runOutsideAngular(function () {
-            addListener('click', _this.click.bind(_this), true);
-            addListener('touchstart', _this.touchStart.bind(_this));
-            addListener('touchend', _this.touchEnd.bind(_this));
-            addListener('touchcancel', _this.pointerCancel.bind(_this));
-            addListener('mousedown', _this.mouseDown.bind(_this), true);
-            addListener('mouseup', _this.mouseUp.bind(_this), true);
+        this.events.listen(document, 'click', this.click.bind(this), true);
+        this.pointerEvents = this.events.pointerEvents({
+            element: document,
+            pointerDown: this.pointerStart.bind(this),
+            pointerMove: this.pointerMove.bind(this),
+            pointerUp: this.pointerEnd.bind(this),
+            passive: true
         });
-        this.pointerMove = function (ev) {
-            if (!_this.startCoord || hasPointerMoved(POINTER_MOVE_UNTIL_CANCEL, _this.startCoord, pointerCoord(ev))) {
-                _this.pointerCancel(ev);
-            }
-        };
+        this.pointerEvents.mouseWait = DISABLE_NATIVE_CLICK_AMOUNT;
     }
-    TapClick.prototype.touchStart = function (ev) {
-        this.lastTouch = Date.now();
-        this.pointerStart(ev);
-    };
-    TapClick.prototype.touchEnd = function (ev) {
-        this.lastTouch = Date.now();
-        if (this.usePolyfill && this.startCoord && this.app.isEnabled()) {
-            var endCoord = pointerCoord(ev);
-            if (!hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
-                this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
-                if (this.app.isScrolling()) {
-                    // console.debug('click from touch prevented by scrolling ' + Date.now());
-                }
-                else {
-                    // console.debug('create click from touch ' + Date.now());
-                    var clickEvent = document.createEvent('MouseEvents');
-                    clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
-                    clickEvent.isIonicTap = true;
-                    ev.target.dispatchEvent(clickEvent);
-                }
-            }
-        }
-        this.pointerEnd(ev);
-    };
-    TapClick.prototype.mouseDown = function (ev) {
-        if (this.isDisabledNativeClick()) {
-            // console.debug('mouseDown prevent ' + ev.target.tagName + ' ' + Date.now());
-            ev.stopPropagation();
-        }
-        else if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-            this.pointerStart(ev);
-        }
-    };
-    TapClick.prototype.mouseUp = function (ev) {
-        if (this.isDisabledNativeClick()) {
-            // console.debug('mouseUp prevent ' + ev.target.tagName + ' ' + Date.now());
-            ev.preventDefault();
-            ev.stopPropagation();
-        }
-        if (this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT < Date.now()) {
-            this.pointerEnd(ev);
-        }
-    };
     TapClick.prototype.pointerStart = function (ev) {
-        var activatableEle = getActivatableTarget(ev.target);
-        if (activatableEle) {
-            this.startCoord = pointerCoord(ev);
-            var now = Date.now();
-            if (this.lastActivated + 150 < now && !this.app.isScrolling()) {
-                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
-                this.lastActivated = now;
-            }
-            this.moveListeners(true);
+        if (this.startCoord) {
+            return false;
         }
-        else {
+        var activatableEle = getActivatableTarget(ev.target);
+        if (!activatableEle) {
             this.startCoord = null;
+            return false;
+        }
+        this.startCoord = pointerCoord(ev);
+        this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
+        return true;
+    };
+    TapClick.prototype.pointerMove = function (ev) {
+        if (!this.startCoord ||
+            hasPointerMoved(POINTER_TOLERANCE, this.startCoord, pointerCoord(ev)) ||
+            this.app.isScrolling()) {
+            this.pointerCancel(ev);
         }
     };
-    TapClick.prototype.pointerEnd = function (ev) {
-        if (this.startCoord && this.activator) {
+    TapClick.prototype.pointerEnd = function (ev, type) {
+        if (!this.startCoord) {
+            return;
+        }
+        if (type === 2 && this.usePolyfill && this.app.isEnabled()) {
+            this.handleTapPolyfill(ev);
+        }
+        if (this.activator) {
             var activatableEle = getActivatableTarget(ev.target);
             if (activatableEle) {
                 this.activator.upAction(ev, activatableEle, this.startCoord);
             }
         }
-        this.moveListeners(false);
+        this.startCoord = null;
     };
     TapClick.prototype.pointerCancel = function (ev) {
-        // console.debug('pointerCancel from ' + ev.type + ' ' + Date.now());
+        (void 0);
+        this.startCoord = null;
         this.activator && this.activator.clearState();
-        this.moveListeners(false);
-    };
-    TapClick.prototype.moveListeners = function (shouldAdd) {
-        removeListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-        if (shouldAdd) {
-            addListener(this.usePolyfill ? 'touchmove' : 'mousemove', this.pointerMove);
-        }
+        this.pointerEvents.stop();
     };
     TapClick.prototype.click = function (ev) {
         var preventReason = null;
@@ -31991,9 +30995,27 @@ var TapClick = (function () {
             preventReason = 'nativeClick';
         }
         if (preventReason !== null) {
-            // console.debug('click prevent ' + preventReason + ' ' + Date.now());
+            (void 0);
             ev.preventDefault();
             ev.stopPropagation();
+        }
+    };
+    TapClick.prototype.handleTapPolyfill = function (ev) {
+        var endCoord = pointerCoord(ev);
+        if (hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
+            (void 0);
+            return;
+        }
+        this.disableClick = Date.now() + DISABLE_NATIVE_CLICK_AMOUNT;
+        if (this.app.isScrolling()) {
+            (void 0);
+        }
+        else {
+            (void 0);
+            var clickEvent = document.createEvent('MouseEvents');
+            clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+            clickEvent.isIonicTap = true;
+            ev.target.dispatchEvent(clickEvent);
         }
     };
     TapClick.prototype.isDisabledNativeClick = function () {
@@ -32021,27 +31043,20 @@ function getActivatableTarget(ele) {
     return null;
 }
 var isActivatable = function (ele) {
-    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
+    if (ACTIVATABLE_ELEMENTS.indexOf(ele.tagName) > -1) {
         return true;
     }
     var attributes = ele.attributes;
     for (var i = 0, l = attributes.length; i < l; i++) {
-        if (ACTIVATABLE_ATTRIBUTES.test(attributes[i].name)) {
+        if (ACTIVATABLE_ATTRIBUTES.indexOf(attributes[i].name) > -1) {
             return true;
         }
     }
     return false;
 };
-function addListener(type, listener, useCapture) {
-    document.addEventListener(type, listener, useCapture);
-}
-function removeListener(type, listener) {
-    document.removeEventListener(type, listener);
-}
-var ACTIVATABLE_ELEMENTS = /^(A|BUTTON)$/;
-var ACTIVATABLE_ATTRIBUTES = /tappable|button/i;
-var POINTER_TOLERANCE = 4;
-var POINTER_MOVE_UNTIL_CANCEL = 10;
+var ACTIVATABLE_ELEMENTS = ['A', 'BUTTON'];
+var ACTIVATABLE_ATTRIBUTES = ['tappable', 'button'];
+var POINTER_TOLERANCE = 60;
 var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 function setupTapClick(config, app, zone) {
     return function () {
@@ -32129,13 +31144,13 @@ var ToastCmp = (function () {
 }());
 var toastIds = -1;
 
-var __extends$85 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$83 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Toast = (function (_super) {
-    __extends$85(Toast, _super);
+    __extends$83(Toast, _super);
     function Toast(app, opts) {
         if (opts === void 0) { opts = {}; }
         opts.dismissOnPageChange = isPresent$5(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
@@ -32312,7 +31327,7 @@ function registerModeConfigs(config) {
 
 var UrlSerializer = (function () {
     function UrlSerializer(config) {
-        if (config && isArray$7(config.links)) {
+        if (config && isArray$2(config.links)) {
             this.links = normalizeLinks(config.links);
         }
         else {
@@ -32604,13 +31619,13 @@ var Backdrop = (function () {
     return Backdrop;
 }());
 
-var __extends$86 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$84 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Badge = (function (_super) {
-    __extends$86(Badge, _super);
+    __extends$84(Badge, _super);
     function Badge(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -32646,13 +31661,13 @@ var Badge = (function (_super) {
     return Badge;
 }(Ion));
 
-var __extends$87 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$85 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Button = (function (_super) {
-    __extends$87(Button, _super);
+    __extends$85(Button, _super);
     function Button(menuToggle, ionButton, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._role = 'button';
@@ -32837,13 +31852,13 @@ var Button = (function (_super) {
     return Button;
 }(Ion));
 
-var __extends$88 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$86 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Card = (function (_super) {
-    __extends$88(Card, _super);
+    __extends$86(Card, _super);
     function Card(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -32912,15 +31927,16 @@ var CardTitle = (function () {
     return CardTitle;
 }());
 
-var __extends$91 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$89 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Icon = (function (_super) {
-    __extends$91(Icon, _super);
+    __extends$89(Icon, _super);
     function Icon(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
+        this._isActive = true;
         this._name = '';
         this._ios = '';
         this._md = '';
@@ -32991,10 +32007,10 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "isActive", {
         get: function () {
-            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
+            return this._isActive;
         },
         set: function (val) {
-            this._isActive = val;
+            this._isActive = isTrueProperty(val);
             this.update();
         },
         enumerable: true,
@@ -33017,7 +32033,7 @@ var Icon = (function (_super) {
         }
         var iconMode = name.split('-', 2)[0];
         if (iconMode === 'ios' &&
-            !this.isActive &&
+            !this._isActive &&
             name.indexOf('logo-') < 0 &&
             name.indexOf('-outline') < 0) {
             name += '-outline';
@@ -33062,13 +32078,13 @@ var Icon = (function (_super) {
     return Icon;
 }(Ion));
 
-var __extends$92 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$90 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Label = (function (_super) {
-    __extends$92(Label, _super);
+    __extends$90(Label, _super);
     function Label(config, elementRef, renderer, isFloating, isStacked, isFixed, isInset) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -33130,13 +32146,13 @@ var Label = (function (_super) {
     return Label;
 }(Ion));
 
-var __extends$90 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$88 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Item = (function (_super) {
-    __extends$90(Item, _super);
+    __extends$88(Item, _super);
     function Item(form, config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._ids = -1;
@@ -33288,7 +32304,7 @@ var ItemGroup = (function () {
     return ItemGroup;
 }());
 
-var __extends$89 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$87 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -33299,7 +32315,7 @@ var CHECKBOX_VALUE_ACCESSOR$1 = {
     multi: true
 };
 var Checkbox = (function (_super) {
-    __extends$89(Checkbox, _super);
+    __extends$87(Checkbox, _super);
     function Checkbox(config, _form, _item, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this._form = _form;
@@ -33330,7 +32346,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype._click = function (ev) {
-        // console.debug('checkbox, checked');
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.onChange(!this._checked);
@@ -33362,7 +32378,7 @@ var Checkbox = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (isChecked) {
-            // console.debug('checkbox, onChange', isChecked);
+            (void 0);
             fn(isChecked);
             _this._setChecked(isChecked);
             _this.onTouched();
@@ -33381,7 +32397,7 @@ var Checkbox = (function (_super) {
         configurable: true
     });
     Checkbox.prototype.onChange = function (isChecked) {
-        // console.debug('checkbox, onChange (no ngModel)', isChecked);
+        (void 0);
         this._setChecked(isChecked);
         this.onTouched();
     };
@@ -33432,13 +32448,13 @@ var Checkbox = (function (_super) {
     return Checkbox;
 }(Ion));
 
-var __extends$93 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$91 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Chip = (function (_super) {
-    __extends$93(Chip, _super);
+    __extends$91(Chip, _super);
     function Chip(config, elementRef, renderer) {
         _super.call(this, config, elementRef, renderer);
         this.mode = config.get('mode');
@@ -33473,6 +32489,618 @@ var Chip = (function (_super) {
     };
     return Chip;
 }(Ion));
+
+var TabHighlight = (function () {
+    function TabHighlight(_elementRef) {
+        this._elementRef = _elementRef;
+    }
+    TabHighlight.prototype.select = function (tab) {
+        var _this = this;
+        rafFrames(3, function () {
+            var d = tab.btn.getDimensions();
+            var ele = _this._elementRef.nativeElement;
+            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+            if (!_this._init) {
+                _this._init = true;
+                rafFrames(6, function () {
+                    ele.classList.add('animate');
+                });
+            }
+        });
+    };
+    TabHighlight.decorators = [
+        { type: Directive, args: [{
+                    selector: '.tab-highlight'
+                },] },
+    ];
+    TabHighlight.ctorParameters = [
+        { type: ElementRef, },
+    ];
+    return TabHighlight;
+}());
+
+var __extends$93 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Tabs = (function (_super) {
+    __extends$93(Tabs, _super);
+    function Tabs(parent, viewCtrl, _app, config, elementRef, _platform, renderer, _linker) {
+        _super.call(this, config, elementRef, renderer);
+        this.viewCtrl = viewCtrl;
+        this._app = _app;
+        this._platform = _platform;
+        this._linker = _linker;
+        this._ids = -1;
+        this._tabs = [];
+        this._selectHistory = [];
+        this.ionChange = new EventEmitter();
+        this.mode = config.get('mode');
+        this.parent = parent;
+        this.id = 't' + (++tabIds);
+        this._sbPadding = config.getBoolean('statusbarPadding');
+        this.tabsHighlight = config.getBoolean('tabsHighlight');
+        if (this.parent) {
+            this.parent.registerChildNav(this);
+        }
+        else if (viewCtrl && viewCtrl.getNav()) {
+            this.parent = viewCtrl.getNav();
+            this.parent.registerChildNav(this);
+        }
+        else if (this._app) {
+            this._app._setRootNav(this);
+        }
+        if (viewCtrl) {
+            viewCtrl._setContent(this);
+            viewCtrl._setContentRef(elementRef);
+        }
+    }
+    Object.defineProperty(Tabs.prototype, "color", {
+        set: function (value) {
+            this._setColor('tabs', value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Tabs.prototype, "mode", {
+        set: function (val) {
+            this._setMode('tabs', val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Tabs.prototype.ngOnDestroy = function () {
+        this.parent.unregisterChildNav(this);
+    };
+    Tabs.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._setConfig('tabsPlacement', 'bottom');
+        this._setConfig('tabsLayout', 'icon-top');
+        this._setConfig('tabsHighlight', this.tabsHighlight);
+        if (this.tabsHighlight) {
+            this._platform.onResize(function () {
+                _this._highlight.select(_this.getSelected());
+            });
+        }
+        this.initTabs();
+    };
+    Tabs.prototype.initTabs = function () {
+        var selectedIndex = (isBlank$5(this.selectedIndex) ? 0 : parseInt(this.selectedIndex, 10));
+        var tabsSegment = this._linker.initNav(this);
+        if (tabsSegment && isBlank$5(tabsSegment.component)) {
+            selectedIndex = this._linker.getSelectedTabIndex(this, tabsSegment.name, selectedIndex);
+        }
+        var selectedTab = this._tabs.find(function (t, i) { return i === selectedIndex && t.enabled && t.show; });
+        if (!selectedTab) {
+            selectedTab = this._tabs.find(function (t) { return t.enabled && t.show; });
+        }
+        if (selectedTab) {
+            var pageId = null;
+            if (tabsSegment) {
+                var selectedTabSegment = this._linker.initNav(selectedTab);
+                if (selectedTabSegment && selectedTabSegment.component) {
+                    selectedTab.root = selectedTabSegment.component;
+                    selectedTab.rootParams = selectedTabSegment.data;
+                    pageId = selectedTabSegment.id;
+                }
+            }
+            this.select(selectedTab, {
+                id: pageId
+            });
+        }
+        this._tabs.forEach(function (t) {
+            t.updateHref(t.root, t.rootParams);
+        });
+    };
+    Tabs.prototype._setConfig = function (attrKey, fallback) {
+        var val = this[attrKey];
+        if (isBlank$5(val)) {
+            val = this._config.get(attrKey, fallback);
+        }
+        this.setElementAttribute(attrKey, val);
+    };
+    Tabs.prototype.add = function (tab) {
+        this._tabs.push(tab);
+        return this.id + '-' + (++this._ids);
+    };
+    Tabs.prototype.select = function (tabOrIndex, opts) {
+        var _this = this;
+        if (opts === void 0) { opts = {}; }
+        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
+        if (isBlank$5(selectedTab)) {
+            return;
+        }
+        var deselectedTab = this.getSelected();
+        if (selectedTab === deselectedTab) {
+            return this._touchActive(selectedTab);
+        }
+        var deselectedPage;
+        if (deselectedTab) {
+            deselectedPage = deselectedTab.getActive();
+            deselectedPage && deselectedPage._willLeave();
+        }
+        opts.animate = false;
+        var selectedPage = selectedTab.getActive();
+        selectedPage && selectedPage._willEnter();
+        selectedTab.load(opts, function (alreadyLoaded) {
+            selectedTab.ionSelect.emit(selectedTab);
+            _this.ionChange.emit(selectedTab);
+            if (selectedTab.root) {
+                _this._tabs.forEach(function (tab) {
+                    tab.setSelected(tab === selectedTab);
+                });
+                if (_this.tabsHighlight) {
+                    _this._highlight.select(selectedTab);
+                }
+                if (opts.updateUrl !== false) {
+                    _this._linker.navChange(DIRECTION_SWITCH);
+                }
+            }
+            selectedPage && selectedPage._didEnter();
+            deselectedPage && deselectedPage._didLeave();
+            if (_this._selectHistory[_this._selectHistory.length - 1] !== selectedTab.id) {
+                _this._selectHistory.push(selectedTab.id);
+            }
+            if (alreadyLoaded && selectedPage) {
+                var content = selectedPage.getIONContent();
+                if (content) {
+                    content.resize();
+                }
+            }
+        });
+    };
+    Tabs.prototype.previousTab = function (trimHistory) {
+        var _this = this;
+        if (trimHistory === void 0) { trimHistory = true; }
+        (void 0);
+        for (var i = this._selectHistory.length - 2; i >= 0; i--) {
+            var tab = this._tabs.find(function (t) { return t.id === _this._selectHistory[i]; });
+            if (tab && tab.enabled && tab.show) {
+                if (trimHistory) {
+                    this._selectHistory.splice(i + 1);
+                }
+                return tab;
+            }
+        }
+        return null;
+    };
+    Tabs.prototype.getByIndex = function (index) {
+        return this._tabs[index];
+    };
+    Tabs.prototype.getSelected = function () {
+        for (var i = 0; i < this._tabs.length; i++) {
+            if (this._tabs[i].isSelected) {
+                return this._tabs[i];
+            }
+        }
+        return null;
+    };
+    Tabs.prototype.getActiveChildNav = function () {
+        return this.getSelected();
+    };
+    Tabs.prototype.getIndex = function (tab) {
+        return this._tabs.indexOf(tab);
+    };
+    Tabs.prototype.length = function () {
+        return this._tabs.length;
+    };
+    Tabs.prototype._touchActive = function (tab) {
+        var active = tab.getActive();
+        if (active) {
+            if (active._cmp && active._cmp.instance.ionSelected) {
+                active._cmp.instance.ionSelected();
+            }
+            else if (tab.length() > 1) {
+                tab.popToRoot(null, null);
+            }
+            else if (tab.root !== active.component) {
+                tab.setRoot(tab.root);
+            }
+        }
+    };
+    Tabs.prototype.setTabbarPosition = function (top, bottom) {
+        if (this._top !== top || this._bottom !== bottom) {
+            var tabbarEle = this._tabbar.nativeElement;
+            tabbarEle.style.top = (top > -1 ? top + 'px' : '');
+            tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '');
+            tabbarEle.classList.add('show-tabbar');
+            this._top = top;
+            this._bottom = bottom;
+        }
+    };
+    Tabs.decorators = [
+        { type: Component, args: [{
+                    selector: 'ion-tabs',
+                    template: '<div class="tabbar" role="tablist" #tabbar>' +
+                        '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
+                        '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
+                        '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
+                        '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [color]="t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
+                        '<div class="button-effect"></div>' +
+                        '</a>' +
+                        '<div class="tab-highlight"></div>' +
+                        '</div>' +
+                        '<ng-content></ng-content>' +
+                        '<div #portal tab-portal></div>',
+                    encapsulation: ViewEncapsulation.None,
+                },] },
+    ];
+    Tabs.ctorParameters = [
+        { type: NavController, decorators: [{ type: Optional },] },
+        { type: ViewController, decorators: [{ type: Optional },] },
+        { type: App, },
+        { type: Config, },
+        { type: ElementRef, },
+        { type: Platform, },
+        { type: Renderer, },
+        { type: DeepLinker, },
+    ];
+    Tabs.propDecorators = {
+        'color': [{ type: Input },],
+        'mode': [{ type: Input },],
+        'selectedIndex': [{ type: Input },],
+        'tabsLayout': [{ type: Input },],
+        'tabsPlacement': [{ type: Input },],
+        'tabsHighlight': [{ type: Input },],
+        'ionChange': [{ type: Output },],
+        '_highlight': [{ type: ViewChild, args: [TabHighlight,] },],
+        '_tabbar': [{ type: ViewChild, args: ['tabbar',] },],
+        'portal': [{ type: ViewChild, args: ['portal', { read: ViewContainerRef },] },],
+    };
+    return Tabs;
+}(Ion));
+var tabIds = -1;
+
+var __extends$92 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Content = (function (_super) {
+    __extends$92(Content, _super);
+    function Content(config, elementRef, renderer, _app, _keyboard, _zone, viewCtrl, _tabs) {
+        _super.call(this, config, elementRef, renderer);
+        this._app = _app;
+        this._keyboard = _keyboard;
+        this._zone = _zone;
+        this._tabs = _tabs;
+        this._scrollPadding = 0;
+        this._inputPolling = false;
+        this._setMode('content', config.get('mode'));
+        this._sbPadding = config.getBoolean('statusbarPadding', false);
+        if (viewCtrl) {
+            viewCtrl._setIONContent(this);
+            viewCtrl._setIONContentRef(elementRef);
+        }
+    }
+    Content.prototype.ngOnInit = function () {
+        var _this = this;
+        var children = this._elementRef.nativeElement.children;
+        (void 0);
+        this._fixedEle = children[0];
+        this._scrollEle = children[1];
+        this._zone.runOutsideAngular(function () {
+            _this._scroll = new ScrollView(_this._scrollEle);
+            _this._scLsn = _this.addScrollListener(_this._app.setScrolling.bind(_this._app));
+        });
+    };
+    Content.prototype.ngOnDestroy = function () {
+        this._scLsn && this._scLsn();
+        this._scroll && this._scroll.destroy();
+        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
+    };
+    Content.prototype.addScrollListener = function (handler) {
+        return this._addListener('scroll', handler);
+    };
+    Content.prototype.addTouchStartListener = function (handler) {
+        return this._addListener('touchstart', handler);
+    };
+    Content.prototype.addTouchMoveListener = function (handler) {
+        return this._addListener('touchmove', handler);
+    };
+    Content.prototype.addTouchEndListener = function (handler) {
+        return this._addListener('touchend', handler);
+    };
+    Content.prototype.addMouseDownListener = function (handler) {
+        return this._addListener('mousedown', handler);
+    };
+    Content.prototype.addMouseUpListener = function (handler) {
+        return this._addListener('mouseup', handler);
+    };
+    Content.prototype.addMouseMoveListener = function (handler) {
+        return this._addListener('mousemove', handler);
+    };
+    Content.prototype._addListener = function (type, handler) {
+        var _this = this;
+        (void 0);
+        (void 0);
+        this._scrollEle.removeEventListener(type, handler);
+        this._scrollEle.addEventListener(type, handler);
+        return function () {
+            if (_this._scrollEle) {
+                _this._scrollEle.removeEventListener(type, handler);
+            }
+        };
+    };
+    Content.prototype.getScrollElement = function () {
+        return this._scrollEle;
+    };
+    Content.prototype.onScrollEnd = function (callback) {
+        var lastScrollTop = null;
+        var framesUnchanged = 0;
+        var _scrollEle = this._scrollEle;
+        function next() {
+            var currentScrollTop = _scrollEle.scrollTop;
+            if (lastScrollTop !== null) {
+                if (Math.round(lastScrollTop) === Math.round(currentScrollTop)) {
+                    framesUnchanged++;
+                }
+                else {
+                    framesUnchanged = 0;
+                }
+                if (framesUnchanged > 9) {
+                    return callback();
+                }
+            }
+            lastScrollTop = currentScrollTop;
+            nativeRaf(function () {
+                nativeRaf(next);
+            });
+        }
+        nativeTimeout(next, 100);
+    };
+    Content.prototype.onScrollElementTransitionEnd = function (callback) {
+        transitionEnd(this._scrollEle, callback);
+    };
+    Content.prototype.scrollTo = function (x, y, duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollTo(x, y, duration);
+    };
+    Content.prototype.scrollToTop = function (duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollToTop(duration);
+    };
+    Content.prototype.getScrollTop = function () {
+        return this._scroll.getTop();
+    };
+    Content.prototype.setScrollTop = function (top) {
+        this._scroll.setTop(top);
+    };
+    Content.prototype.scrollToBottom = function (duration) {
+        if (duration === void 0) { duration = 300; }
+        return this._scroll.scrollToBottom(duration);
+    };
+    Content.prototype.jsScroll = function (onScrollCallback) {
+        return this._scroll.jsScroll(onScrollCallback);
+    };
+    Object.defineProperty(Content.prototype, "fullscreen", {
+        get: function () {
+            return !!this._fullscreen;
+        },
+        set: function (val) {
+            this._fullscreen = isTrueProperty(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Content.prototype.setScrollElementStyle = function (prop, val) {
+        this._scrollEle.style[prop] = val;
+    };
+    Content.prototype.getContentDimensions = function () {
+        var _scrollEle = this._scrollEle;
+        var parentElement = _scrollEle.parentElement;
+        return {
+            contentHeight: parentElement.offsetHeight,
+            contentTop: parentElement.offsetTop,
+            contentBottom: parentElement.offsetTop + parentElement.offsetHeight,
+            contentWidth: parentElement.offsetWidth,
+            contentLeft: parentElement.offsetLeft,
+            contentRight: parentElement.offsetLeft + parentElement.offsetWidth,
+            scrollHeight: _scrollEle.scrollHeight,
+            scrollTop: _scrollEle.scrollTop,
+            scrollBottom: _scrollEle.scrollTop + _scrollEle.scrollHeight,
+            scrollWidth: _scrollEle.scrollWidth,
+            scrollLeft: _scrollEle.scrollLeft,
+            scrollRight: _scrollEle.scrollLeft + _scrollEle.scrollWidth,
+        };
+    };
+    Content.prototype.addScrollPadding = function (newPadding) {
+        (void 0);
+        if (newPadding > this._scrollPadding) {
+            (void 0);
+            this._scrollPadding = newPadding;
+            this._scrollEle.style.paddingBottom = (newPadding > 0) ? newPadding + 'px' : '';
+        }
+    };
+    Content.prototype.clearScrollPaddingFocusOut = function () {
+        var _this = this;
+        if (!this._inputPolling) {
+            this._inputPolling = true;
+            this._keyboard.onClose(function () {
+                _this._inputPolling = false;
+                _this._scrollPadding = -1;
+                _this.addScrollPadding(0);
+            }, 200, Infinity);
+        }
+    };
+    Content.prototype.resize = function () {
+        var _this = this;
+        nativeRaf(function () {
+            _this.readDimensions();
+            _this.writeDimensions();
+        });
+    };
+    Content.prototype.readDimensions = function () {
+        this._paddingTop = 0;
+        this._paddingRight = 0;
+        this._paddingBottom = 0;
+        this._paddingLeft = 0;
+        this._headerHeight = 0;
+        this._footerHeight = 0;
+        this._tabsPlacement = null;
+        var ele = this._elementRef.nativeElement;
+        if (!ele) {
+            (void 0);
+            return;
+        }
+        var computedStyle;
+        var tagName;
+        var parentEle = ele.parentElement;
+        var children = parentEle.children;
+        for (var i = children.length - 1; i >= 0; i--) {
+            ele = children[i];
+            tagName = ele.tagName;
+            if (tagName === 'ION-CONTENT') {
+                if (this._fullscreen) {
+                    computedStyle = getComputedStyle(ele);
+                    this._paddingTop = parsePxUnit(computedStyle.paddingTop);
+                    this._paddingBottom = parsePxUnit(computedStyle.paddingBottom);
+                    this._paddingRight = parsePxUnit(computedStyle.paddingRight);
+                    this._paddingLeft = parsePxUnit(computedStyle.paddingLeft);
+                }
+            }
+            else if (tagName === 'ION-HEADER') {
+                this._headerHeight = ele.clientHeight;
+            }
+            else if (tagName === 'ION-FOOTER') {
+                this._footerHeight = ele.clientHeight;
+                this._footerEle = ele;
+            }
+        }
+        ele = parentEle;
+        var tabbarEle;
+        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
+            if (ele.tagName === 'ION-TABS') {
+                tabbarEle = ele.firstElementChild;
+                this._tabbarHeight = tabbarEle.clientHeight;
+                if (this._tabsPlacement === null) {
+                    this._tabsPlacement = ele.getAttribute('tabsplacement');
+                }
+            }
+            ele = ele.parentElement;
+        }
+    };
+    Content.prototype.writeDimensions = function () {
+        var scrollEle = this._scrollEle;
+        if (!scrollEle) {
+            (void 0);
+            return;
+        }
+        var fixedEle = this._fixedEle;
+        if (!fixedEle) {
+            (void 0);
+            return;
+        }
+        var contentTop = this._headerHeight;
+        var contentBottom = this._footerHeight;
+        if (this._tabsPlacement === 'top') {
+            (void 0);
+            contentTop += this._tabbarHeight;
+        }
+        else if (this._tabsPlacement === 'bottom') {
+            (void 0);
+            contentBottom += this._tabbarHeight;
+            if (contentBottom > 0 && this._footerEle) {
+                var footerPos = contentBottom - this._footerHeight;
+                (void 0);
+                this._footerEle.style.bottom = cssFormat(footerPos);
+            }
+        }
+        var topProperty = 'marginTop';
+        var bottomProperty = 'marginBottom';
+        var fixedTop = contentTop;
+        var fixedBottom = contentBottom;
+        if (this._fullscreen) {
+            (void 0);
+            (void 0);
+            contentTop += this._paddingTop;
+            contentBottom += this._paddingBottom;
+            topProperty = 'paddingTop';
+            bottomProperty = 'paddingBottom';
+        }
+        if (contentTop !== this.contentTop) {
+            (void 0);
+            (void 0);
+            scrollEle.style[topProperty] = cssFormat(contentTop);
+            fixedEle.style.marginTop = cssFormat(fixedTop);
+            this.contentTop = contentTop;
+        }
+        if (contentBottom !== this.contentBottom) {
+            (void 0);
+            (void 0);
+            scrollEle.style[bottomProperty] = cssFormat(contentBottom);
+            fixedEle.style.marginBottom = cssFormat(fixedBottom);
+            this.contentBottom = contentBottom;
+        }
+        if (this._tabsPlacement !== null && this._tabs) {
+            if (this._tabsPlacement === 'top') {
+                this._tabs.setTabbarPosition(this._headerHeight, -1);
+            }
+            else {
+                (void 0);
+                this._tabs.setTabbarPosition(-1, 0);
+            }
+        }
+    };
+    Content.decorators = [
+        { type: Component, args: [{
+                    selector: 'ion-content',
+                    template: '<div class="fixed-content">' +
+                        '<ng-content select="[ion-fixed],ion-fab"></ng-content>' +
+                        '</div>' +
+                        '<div class="scroll-content">' +
+                        '<ng-content></ng-content>' +
+                        '</div>' +
+                        '<ng-content select="ion-refresher"></ng-content>',
+                    host: {
+                        '[class.statusbar-padding]': '_sbPadding'
+                    },
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    encapsulation: ViewEncapsulation.None
+                },] },
+    ];
+    Content.ctorParameters = [
+        { type: Config, },
+        { type: ElementRef, },
+        { type: Renderer, },
+        { type: App, },
+        { type: Keyboard, },
+        { type: NgZone, },
+        { type: ViewController, decorators: [{ type: Optional },] },
+        { type: Tabs, decorators: [{ type: Optional },] },
+    ];
+    Content.propDecorators = {
+        'fullscreen': [{ type: Input },],
+    };
+    return Content;
+}(Ion));
+function parsePxUnit(val) {
+    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
+}
+function cssFormat(val) {
+    return (val > 0 ? val + 'px' : '');
+}
 
 function renderDateTime(template, value, locale) {
     if (isBlank$5(value)) {
@@ -33647,7 +33275,7 @@ function parseDate(val) {
 }
 function updateDate(existingData, newData) {
     if (isPresent$5(newData) && newData !== '') {
-        if (isString$5(newData)) {
+        if (isString(newData)) {
             newData = parseDate(newData);
             if (newData) {
                 assign(existingData, newData);
@@ -33912,7 +33540,7 @@ var DateTime = (function (_super) {
         if (this._disabled) {
             return;
         }
-        // console.debug('datetime, open picker');
+        (void 0);
         var pickerOptions = merge$1({}, this.pickerOptions);
         var picker = this._pickerCtrl.create(pickerOptions);
         pickerOptions.buttons = [
@@ -33926,7 +33554,7 @@ var DateTime = (function (_super) {
             {
                 text: this.doneText,
                 handler: function (data) {
-                    console.log('datetime, done', data);
+                    (void 0);
                     _this.onChange(data);
                     _this.ionChange.emit(data);
                 }
@@ -34118,7 +33746,7 @@ var DateTime = (function (_super) {
         configurable: true
     });
     DateTime.prototype.writeValue = function (val) {
-        // console.debug('datetime, writeValue', val);
+        (void 0);
         this.setValue(val);
         this.updateText();
         this.checkHasValue(val);
@@ -34134,7 +33762,7 @@ var DateTime = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('datetime, onChange', val);
+            (void 0);
             _this.setValue(val);
             _this.updateText();
             _this.checkHasValue(val);
@@ -34144,7 +33772,7 @@ var DateTime = (function (_super) {
     };
     DateTime.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     DateTime.prototype.onChange = function (val) {
-        // console.debug('datetime, onChange w/out formControlName', val);
+        (void 0);
         this.setValue(val);
         this.updateText();
         this.onTouched();
@@ -34208,10 +33836,10 @@ var DateTime = (function (_super) {
 }(Ion));
 function convertToArrayOfNumbers(input, type) {
     var values = [];
-    if (isString$5(input)) {
+    if (isString(input)) {
         input = input.replace(/\[|\]|\s/g, '').split(',');
     }
-    if (isArray$7(input)) {
+    if (isArray$2(input)) {
         input.forEach(function (num) {
             num = parseInt(num, 10);
             if (!isNaN(num)) {
@@ -34227,10 +33855,10 @@ function convertToArrayOfNumbers(input, type) {
 function convertToArrayOfStrings(input, type) {
     if (isPresent$5(input)) {
         var values = [];
-        if (isString$5(input)) {
+        if (isString(input)) {
             input = input.replace(/\[|\]/g, '').split(',');
         }
-        if (isArray$7(input)) {
+        if (isArray$2(input)) {
             input.forEach(function (val) {
                 val = val.trim();
                 if (val) {
@@ -34909,7 +34537,7 @@ var ItemReorder = (function () {
                 setTimeout(function () { return _this._enableReorder = false; }, 400);
             }
             else if (enabled && !this._reorderGesture) {
-                // console.debug('enableReorderItems');
+                (void 0);
                 this._reorderGesture = new ItemReorderGesture(this);
                 this._enableReorder = true;
                 zoneRafFrames(2, function () { return _this._visibleReorder = true; });
@@ -35071,6 +34699,8 @@ var ItemSlidingGesture = (function (_super) {
         _super.call(this, list.getNativeElement(), {
             maxAngle: MAX_ATTACK_ANGLE,
             threshold: DRAG_THRESHOLD,
+            zone: false,
+            debouncer: new NativeRafDebouncer(),
             gesture: list._gestureCtrl.create('item-sliding', {
                 priority: -10,
             })
@@ -35197,7 +34827,7 @@ var List = (function (_super) {
             this._slidingGesture = null;
         }
         else if (!this._slidingGesture) {
-            // console.debug('enableSlidingItems');
+            (void 0);
             this._slidingGesture = new ItemSlidingGesture(this);
             this._slidingGesture.listen();
         }
@@ -35338,7 +34968,9 @@ var ItemSliding = (function () {
                 openAmount = Math.min(0, openAmount);
                 break;
             case 3: break;
-            default: return;
+            default:
+                (void 0);
+                break;
         }
         if (openAmount > this._optsWidthRightSide) {
             var optsWidth = this._optsWidthRightSide;
@@ -35355,10 +34987,10 @@ var ItemSliding = (function () {
         var restingPoint = (this._openAmount > 0)
             ? this._optsWidthRightSide
             : -this._optsWidthLeftSide;
-        var isCloseDirection = (this._openAmount > 0) === !(velocity < 0);
+        var isResetDirection = (this._openAmount > 0) === !(velocity < 0);
         var isMovingFast = Math.abs(velocity) > 0.3;
         var isOnCloseZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
-        if (shouldClose(isCloseDirection, isMovingFast, isOnCloseZone)) {
+        if (swipeShouldReset(isResetDirection, isMovingFast, isOnCloseZone)) {
             restingPoint = 0;
         }
         this._setOpenAmount(restingPoint, true);
@@ -35383,10 +35015,12 @@ var ItemSliding = (function () {
             _this._optsWidthRightSide = 0;
             if (_this._rightOptions) {
                 _this._optsWidthRightSide = _this._rightOptions.width();
+                (void 0);
             }
             _this._optsWidthLeftSide = 0;
             if (_this._leftOptions) {
                 _this._optsWidthLeftSide = _this._leftOptions.width();
+                (void 0);
             }
             _this._optsDirty = false;
         });
@@ -35424,7 +35058,10 @@ var ItemSliding = (function () {
             return;
         }
         this.item.setElementStyle(CSS.transform, "translate3d(" + -openAmount + "px,0,0)");
-        this._zone.run(function () { return _this.ionDrag.emit(_this); });
+        var ionDrag = this.ionDrag;
+        if (ionDrag.observers.length > 0) {
+            this._zone.run(ionDrag.emit.bind(ionDrag, this));
+        }
     };
     ItemSliding.prototype._setState = function (state$$1) {
         if (state$$1 === this._state) {
@@ -35464,10 +35101,6 @@ var ItemSliding = (function () {
     };
     return ItemSliding;
 }());
-function shouldClose(isCloseDirection, isMovingFast, isOnCloseZone) {
-    var shouldClose = (!isMovingFast && isOnCloseZone) || (isCloseDirection && isMovingFast);
-    return shouldClose;
-}
 
 var __extends$98 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -35513,7 +35146,7 @@ var __extends$99 = (undefined && undefined.__extends) || function (d, b) {
 };
 var MenuContentGesture = (function (_super) {
     __extends$99(MenuContentGesture, _super);
-    function MenuContentGesture(menu, contentEle, options) {
+    function MenuContentGesture(menu, contentEle, gestureCtrl, options) {
         if (options === void 0) { options = {}; }
         _super.call(this, contentEle, assign({
             direction: 'x',
@@ -35521,7 +35154,9 @@ var MenuContentGesture = (function (_super) {
             threshold: 0,
             maxEdgeStart: menu.maxEdgeStart || 50,
             maxAngle: 40,
-            gesture: menu.gestureCtrl.create('menu-swipe', {
+            zone: false,
+            debouncer: new NativeRafDebouncer(),
+            gesture: gestureCtrl.create('menu-swipe', {
                 priority: 10,
             })
         }, options));
@@ -35541,14 +35176,13 @@ var MenuContentGesture = (function (_super) {
         return _super.prototype.canStart.call(this, ev);
     };
     MenuContentGesture.prototype.onSlideBeforeStart = function (ev) {
-        // console.debug('menu gesture, onSlideBeforeStart', this.menu.side);
+        (void 0);
         this.menu.swipeStart();
     };
     MenuContentGesture.prototype.onSlide = function (slide, ev) {
         var z = (this.menu.side === 'right' ? slide.min : slide.max);
         var stepValue = (slide.distance / z);
-        // console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
-        ev.preventDefault();
+        (void 0);
         this.menu.swipeProgress(stepValue);
     };
     MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
@@ -35560,15 +35194,7 @@ var MenuContentGesture = (function (_super) {
             && (velocity > 0.2 || slide.delta > z);
         var shouldCompleteLeft = (velocity <= 0)
             && (velocity < -0.2 || slide.delta < -z);
-        // console.debug('menu gesture, onSlideEnd', this.menu.side);
-        // console.debug('distance', slide.distance);
-        // console.debug('delta', slide.delta);
-        // console.debug('velocity', velocity);
-        // console.debug('min', slide.min);
-        // console.debug('max', slide.max);
-        // console.debug('shouldCompleteLeft', shouldCompleteLeft);
-        // console.debug('shouldCompleteRight', shouldCompleteRight);
-        // console.debug('currentStepValue', currentStepValue);
+        (void 0);
         this.menu.swipeEnd(shouldCompleteLeft, shouldCompleteRight, currentStepValue);
     };
     MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
@@ -35593,7 +35219,7 @@ var MenuContentGesture = (function (_super) {
 }(SlideEdgeGesture));
 
 var Menu = (function () {
-    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, gestureCtrl) {
+    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone, _gestureCtrl) {
         this._menuCtrl = _menuCtrl;
         this._elementRef = _elementRef;
         this._config = _config;
@@ -35601,17 +35227,21 @@ var Menu = (function () {
         this._renderer = _renderer;
         this._keyboard = _keyboard;
         this._zone = _zone;
-        this.gestureCtrl = gestureCtrl;
+        this._gestureCtrl = _gestureCtrl;
         this._isEnabled = true;
         this._isSwipeEnabled = true;
         this._isAnimating = false;
         this._isPers = false;
         this._init = false;
         this._events = new UIEventManager();
+        this._gestureID = 0;
         this.isOpen = false;
         this.ionDrag = new EventEmitter();
         this.ionOpen = new EventEmitter();
         this.ionClose = new EventEmitter();
+        if (_gestureCtrl) {
+            this._gestureID = _gestureCtrl.newID();
+        }
     }
     Object.defineProperty(Menu.prototype, "enabled", {
         get: function () {
@@ -35661,7 +35291,7 @@ var Menu = (function () {
             this.type = this._config.get('menuType');
         }
         this.setElementAttribute('type', this.type);
-        this._cntGesture = new MenuContentGesture(this, document.body);
+        this._cntGesture = new MenuContentGesture(this, document.body, this._gestureCtrl);
         var hasEnabledSameSideMenu = this._menuCtrl.getMenus().some(function (m) {
             return m.side === _this.side && m.enabled;
         });
@@ -35684,11 +35314,11 @@ var Menu = (function () {
             return;
         }
         if (this._isEnabled && this._isSwipeEnabled && !this._cntGesture.isListening) {
-            // console.debug('menu, gesture listen', this.side);
+            (void 0);
             this._cntGesture.listen();
         }
         else if (this._cntGesture.isListening && (!this._isEnabled || !this._isSwipeEnabled)) {
-            // console.debug('menu, gesture unlisten', this.side);
+            (void 0);
             this._cntGesture.unlisten();
         }
     };
@@ -35729,7 +35359,10 @@ var Menu = (function () {
             return;
         }
         this._getType().setProgessStep(stepValue);
-        this.ionDrag.emit(stepValue);
+        var ionDrag = this.ionDrag;
+        if (ionDrag.observers.length > 0) {
+            this._zone.run(ionDrag.emit.bind(ionDrag, stepValue));
+        }
     };
     Menu.prototype.swipeEnd = function (shouldCompleteLeft, shouldCompleteRight, stepValue) {
         var _this = this;
@@ -35745,11 +35378,12 @@ var Menu = (function () {
             shouldComplete = (this.side === 'right') ? shouldCompleteRight : shouldCompleteLeft;
         }
         this._getType().setProgressEnd(shouldComplete, stepValue, function (isOpen) {
-            // console.debug('menu, swipeEnd', _this.side);
+            (void 0);
             _this._after(isOpen);
         });
     };
     Menu.prototype._before = function () {
+        (void 0);
         this.menuContent && this.menuContent.resize();
         this.setElementClass('show-menu', true);
         this.backdrop.setElementClass('show-backdrop', true);
@@ -35757,10 +35391,12 @@ var Menu = (function () {
         this._isAnimating = true;
     };
     Menu.prototype._after = function (isOpen) {
+        (void 0);
         this.isOpen = isOpen;
         this._isAnimating = false;
         this._events.unlistenAll();
         if (isOpen) {
+            this._gestureCtrl.disableGesture('goback-swipe', this._gestureID);
             this._cntEle.classList.add('menu-content-open');
             var callback = this.onBackdropClick.bind(this);
             this._events.pointerEvents({
@@ -35774,6 +35410,7 @@ var Menu = (function () {
             this.ionOpen.emit(true);
         }
         else {
+            this._gestureCtrl.enableGesture('goback-swipe', this._gestureID);
             this._cntEle.classList.remove('menu-content-open');
             this.setElementClass('show-menu', false);
             this.backdrop.setElementClass('show-menu', false);
@@ -35835,11 +35472,9 @@ var Menu = (function () {
         this._events.unlistenAll();
         this._cntGesture && this._cntGesture.destroy();
         this._type && this._type.destroy();
-        this._resizeUnreg && this._resizeUnreg();
         this._cntGesture = null;
         this._type = null;
         this._cntEle = null;
-        this._resizeUnreg = null;
     };
     Menu.decorators = [
         { type: Component, args: [{
@@ -36191,10 +35826,10 @@ var NativeInput = (function () {
             }
         }
         if (self._blurring) {
-            // console.debug('input blurring enabled');
+            (void 0);
             document.addEventListener('touchend', docTouchEnd, true);
             self._unrefBlur = function () {
-                // console.debug('input blurring disabled');
+                (void 0);
                 document.removeEventListener('touchend', docTouchEnd, true);
             };
         }
@@ -36244,7 +35879,7 @@ var NativeInput = (function () {
     };
     NativeInput.prototype.hideFocus = function (shouldHideFocus) {
         var focusedInputEle = this.element();
-        // console.debug("native input hideFocus, shouldHideFocus: " + shouldHideFocus + ", input value: " + focusedInputEle.value);
+        (void 0);
         if (shouldHideFocus) {
             var clonedInputEle = cloneInput(focusedInputEle, 'cloned-move');
             focusedInputEle.classList.add('cloned-active');
@@ -36313,7 +35948,7 @@ var NextInput = (function () {
         this.focused = new EventEmitter();
     }
     NextInput.prototype.receivedFocus = function () {
-        // console.debug('native-input, next-input received focus');
+        (void 0);
         this.focused.emit(true);
     };
     NextInput.decorators = [
@@ -36468,21 +36103,21 @@ var NavPopAnchor = (function () {
     NavPopAnchor.prototype.updateHref = function () {
         if (this.host && this.viewCtrl) {
             var previousView = this.host._nav.getPrevious(this.viewCtrl);
-            this.href = (previousView && this.linker.createUrl(this.host._nav, this.viewCtrl.component, this.viewCtrl.data)) || '#';
+            this._href = (previousView && this.linker.createUrl(this.host._nav, this.viewCtrl.component, this.viewCtrl.data)) || '#';
         }
         else {
-            this.href = '#';
+            this._href = '#';
         }
     };
-    NavPopAnchor.prototype.ngOnChanges = function () {
-        this.updateHref();
-    };
-    NavPopAnchor.prototype.ngAfterViewInit = function () {
+    NavPopAnchor.prototype.ngAfterContentInit = function () {
         this.updateHref();
     };
     NavPopAnchor.decorators = [
         { type: Directive, args: [{
-                    selector: 'a[navPop]'
+                    selector: 'a[navPop]',
+                    host: {
+                        '[attr.href]': '_href'
+                    }
                 },] },
     ];
     NavPopAnchor.ctorParameters = [
@@ -36490,9 +36125,6 @@ var NavPopAnchor = (function () {
         { type: DeepLinker, },
         { type: ViewController, decorators: [{ type: Optional },] },
     ];
-    NavPopAnchor.propDecorators = {
-        'href': [{ type: HostBinding },],
-    };
     return NavPopAnchor;
 }());
 
@@ -36532,30 +36164,27 @@ var NavPushAnchor = (function () {
     }
     NavPushAnchor.prototype.updateHref = function () {
         if (this.host && this.linker) {
-            this.href = this.linker.createUrl(this.host._nav, this.host.navPush, this.host.navParams) || '#';
+            this._href = this.linker.createUrl(this.host._nav, this.host.navPush, this.host.navParams) || '#';
         }
         else {
-            this.href = '#';
+            this._href = '#';
         }
     };
-    NavPushAnchor.prototype.ngOnChanges = function () {
-        this.updateHref();
-    };
-    NavPushAnchor.prototype.ngAfterViewInit = function () {
+    NavPushAnchor.prototype.ngAfterContentInit = function () {
         this.updateHref();
     };
     NavPushAnchor.decorators = [
         { type: Directive, args: [{
-                    selector: 'a[navPush]'
+                    selector: 'a[navPush]',
+                    host: {
+                        '[attr.href]': '_href'
+                    }
                 },] },
     ];
     NavPushAnchor.ctorParameters = [
         { type: NavPush, decorators: [{ type: Host },] },
         { type: DeepLinker, decorators: [{ type: Optional },] },
     ];
-    NavPushAnchor.propDecorators = {
-        'href': [{ type: HostBinding },],
-    };
     return NavPushAnchor;
 }());
 
@@ -36657,7 +36286,7 @@ var RadioGroup = (function () {
         }
     };
     RadioGroup.prototype.writeValue = function (val) {
-        // console.debug('radio group, writeValue', val);
+        (void 0);
         this.value = val;
         if (this._init) {
             this._update();
@@ -36670,7 +36299,7 @@ var RadioGroup = (function () {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('radio group, onChange', val);
+            (void 0);
             fn(val);
             _this.value = val;
             _this._update();
@@ -36723,7 +36352,7 @@ var RadioGroup = (function () {
         configurable: true
     });
     RadioGroup.prototype.onChange = function (val) {
-        // console.debug('radio group, onChange w/out formControlName', val);
+        (void 0);
         this.value = val;
         this._update();
         this.onTouched();
@@ -36830,7 +36459,7 @@ var RadioButton = (function (_super) {
         configurable: true
     });
     RadioButton.prototype._click = function (ev) {
-        // console.debug('radio, select', this.id);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.checked = true;
@@ -36886,30 +36515,6 @@ var RadioButton = (function (_super) {
     return RadioButton;
 }(Ion));
 
-var Debouncer = (function () {
-    function Debouncer(wait) {
-        this.wait = wait;
-        this.timer = null;
-    }
-    Debouncer.prototype.debounce = function (callback) {
-        this.callback = callback;
-        this.schedule();
-    };
-    Debouncer.prototype.schedule = function () {
-        if (this.timer) {
-            clearTimeout(this.timer);
-            this.timer = null;
-        }
-        if (this.wait <= 0) {
-            this.callback();
-        }
-        else {
-            this.timer = setTimeout(this.callback, this.wait);
-        }
-    };
-    return Debouncer;
-}());
-
 var __extends$104 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -36943,10 +36548,10 @@ var RangeKnob = (function () {
             return this._val;
         },
         set: function (val) {
-            if (isString$5(val)) {
+            if (isString(val)) {
                 val = Math.round(val);
             }
-            if (isNumber$5(val) && !isNaN(val)) {
+            if (isNumber(val) && !isNaN(val)) {
                 this._ratio = this.range.valueToRatio(val);
                 this._val = this.range.ratioToValue(this._ratio);
             }
@@ -37016,7 +36621,7 @@ var Range = (function (_super) {
         this._max = 100;
         this._step = 1;
         this._snaps = false;
-        this._debouncer = new Debouncer(0);
+        this._debouncer = new TimeoutDebouncer(0);
         this._events = new UIEventManager();
         this.ionChange = new EventEmitter();
         this.mode = config.get('mode');
@@ -37146,7 +36751,7 @@ var Range = (function (_super) {
         if (this._disabled) {
             return false;
         }
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this._start = pointerCoord(ev);
@@ -37168,7 +36773,7 @@ var Range = (function (_super) {
         return true;
     };
     Range.prototype.pointerMove = function (ev) {
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -37176,7 +36781,7 @@ var Range = (function (_super) {
         this._pressed = this._active.pressed = true;
     };
     Range.prototype.pointerUp = function (ev) {
-        // console.debug("range, " + ev.type);
+        (void 0);
         ev.preventDefault();
         ev.stopPropagation();
         this.updateKnob(pointerCoord(ev), this._rect);
@@ -37267,12 +36872,14 @@ var Range = (function (_super) {
         }
     };
     Range.prototype.ratioToValue = function (ratio) {
-        ratio = Math.round(((this._max - this._min) * ratio) + this._min);
-        return Math.round(ratio / this._step) * this._step;
+        ratio = Math.round(((this._max - this._min) * ratio));
+        ratio = Math.round(ratio / this._step) * this._step + this._min;
+        return clamp(this._min, ratio, this._max);
     };
     Range.prototype.valueToRatio = function (value) {
-        value = Math.round(clamp(this._min, value, this._max) / this._step) * this._step;
-        return (value - this._min) / (this._max - this._min);
+        value = Math.round((value - this._min) / this._step) * this._step;
+        value = value / (this._max - this._min);
+        return clamp(0, value, 1);
     };
     Range.prototype.writeValue = function (val) {
         if (isPresent$5(val)) {
@@ -37440,7 +37047,7 @@ var Refresher = (function () {
             return false;
         }
         var coord = pointerCoord(ev);
-        // console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
+        (void 0);
         if (this._content.contentTop > 0) {
             var newTop = this._content.contentTop + 'px';
             if (this._top !== newTop) {
@@ -37780,7 +37387,7 @@ var Searchbar = (function (_super) {
         this._autocomplete = 'off';
         this._autocorrect = 'off';
         this._isActive = false;
-        this._debouncer = new Debouncer(250);
+        this._debouncer = new TimeoutDebouncer(250);
         this.cancelButtonText = 'Cancel';
         this.showCancelButton = false;
         this.placeholder = 'Search';
@@ -37873,7 +37480,7 @@ var Searchbar = (function (_super) {
         var prevAlignLeft = this._shouldAlignLeft;
         var shouldAlignLeft = (!isAnimated || (this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
         this._shouldAlignLeft = shouldAlignLeft;
-        if (this._config.get('mode') !== 'ios') {
+        if (this._mode !== 'ios') {
             return;
         }
         if (prevAlignLeft !== shouldAlignLeft) {
@@ -37985,8 +37592,8 @@ var Searchbar = (function (_super) {
         { type: Component, args: [{
                     selector: 'ion-searchbar',
                     template: '<div class="searchbar-input-container">' +
-                        '<button ion-button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
-                        '<ion-icon name="arrow-back"></ion-icon>' +
+                        '<button ion-button mode="md" (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" type="button">' +
+                        '<ion-icon name="md-arrow-back"></ion-icon>' +
                         '</button>' +
                         '<div #searchbarIcon class="searchbar-search-icon"></div>' +
                         '<input #searchbarInput class="searchbar-input" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" ' +
@@ -37995,9 +37602,9 @@ var Searchbar = (function (_super) {
                         '[attr.autocomplete]="_autocomplete" ' +
                         '[attr.autocorrect]="_autocorrect" ' +
                         '[attr.spellcheck]="_spellcheck">' +
-                        '<button ion-button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
+                        '<button ion-button clear class="searchbar-clear-icon" [mode]="_mode" (click)="clearInput($event)" (mousedown)="clearInput($event)" type="button"></button>' +
                         '</div>' +
-                        '<button ion-button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
+                        '<button ion-button #cancelButton mode="ios" [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel" type="button">{{cancelButtonText}}</button>',
                     host: {
                         '[class.searchbar-animated]': 'animated',
                         '[class.searchbar-has-value]': '_value',
@@ -38067,7 +37674,7 @@ var SegmentButton = (function () {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
     };
     SegmentButton.prototype.onClick = function () {
-        // console.debug('SegmentButton, select', this.value);
+        (void 0);
         this.ionSelect.emit(this);
     };
     SegmentButton.prototype.ngOnInit = function () {
@@ -38264,7 +37871,7 @@ var Select = (function (_super) {
         if (this._disabled) {
             return;
         }
-        // console.debug('select, open alert');
+        (void 0);
         var selectOptions = merge$1({}, this.selectOptions);
         selectOptions.buttons = [{
                 text: this.cancelText,
@@ -38294,6 +37901,7 @@ var Select = (function (_super) {
                     handler: function () {
                         _this.onChange(input.value);
                         _this.ionChange.emit(input.value);
+                        input.ionSelect.emit(input.value);
                     }
                 };
             }));
@@ -38310,7 +37918,12 @@ var Select = (function (_super) {
                     label: input.text,
                     value: input.value,
                     checked: input.selected,
-                    disabled: input.disabled
+                    disabled: input.disabled,
+                    handler: function (selectedOption) {
+                        if (selectedOption.checked) {
+                            input.ionSelect.emit(input.value);
+                        }
+                    }
                 };
             });
             var selectCssClass = 'select-alert';
@@ -38392,7 +38005,7 @@ var Select = (function (_super) {
         configurable: true
     });
     Select.prototype.writeValue = function (val) {
-        // console.debug('select, writeValue', val);
+        (void 0);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
     };
@@ -38403,7 +38016,7 @@ var Select = (function (_super) {
         var _this = this;
         this._fn = fn;
         this.onChange = function (val) {
-            // console.debug('select, onChange', val);
+            (void 0);
             fn(val);
             _this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
             _this._updOpts();
@@ -38412,7 +38025,7 @@ var Select = (function (_super) {
     };
     Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     Select.prototype.onChange = function (val) {
-        // console.debug('select, onChange w/out formControlName', val);
+        (void 0);
         this._values = (Array.isArray(val) ? val : isBlank$5(val) ? [] : [val]);
         this._updOpts();
         this.onTouched();
@@ -40999,7 +40612,7 @@ function Swiper(container, params) {
 
       // Attach/detach events
       s.initEvents = function (detach) {
-          // console.debug('swiper initEvents', detach ? 'detach' : 'attach');
+          console.debug('swiper initEvents', detach ? 'detach' : 'attach');
           var actionDom = detach ? 'off' : 'on';
           var action = detach ? 'removeEventListener' : 'addEventListener';
           var touchEventsTarget = s.params.touchEventsTarget === 'container' ? s.container[0] : s.wrapper[0];
@@ -44074,11 +43687,11 @@ var Slides = (function (_super) {
         });
         this.zoomGesture.on('pinchstart', function (e) {
             lastScale = _this.scale;
-            // console.debug('Last scale', e.scale);
+            (void 0);
         });
         this.zoomGesture.on('pinch', function (e) {
             _this.scale = Math.max(1, Math.min(lastScale * e.scale, 10));
-            // console.debug('Scaling', _this.scale);
+            (void 0);
             _this.zoomElement.style[CSS.transform] = 'scale(' + _this.scale + ')';
             zoomRect = _this.zoomElement.getBoundingClientRect();
         });
@@ -44104,11 +43717,11 @@ var Slides = (function (_super) {
         this.zoomLastPosY = 0;
     };
     Slides.prototype.toggleZoom = function (swiper, e) {
-        // console.debug('Try toggle zoom');
+        (void 0);
         if (!this.enableZoom) {
             return;
         }
-        // console.debug('Toggling zoom', e);
+        (void 0);
         var zi = new Animation(this.touch.target.children[0])
             .duration(this.zoomDuration)
             .easing('linear');
@@ -44132,7 +43745,7 @@ var Slides = (function (_super) {
     Slides.prototype.onTransitionEnd = function (swiper, e) {
     };
     Slides.prototype.onTouchStart = function (e) {
-        // console.debug('Touch start', e);
+        (void 0);
         var target = e.target.closest('.slide').children[0].children[0];
         this.touch = {
             x: null,
@@ -44148,7 +43761,7 @@ var Slides = (function (_super) {
             zoomableWidth: target.offsetWidth,
             zoomableHeight: target.offsetHeight
         };
-        // console.debug('Target', this.touch.target);
+        (void 0);
     };
     Slides.prototype.onTouchMove = function (e) {
         this.touch.deltaX = e.touches[0].clientX - this.touch.startX;
@@ -44159,25 +43772,25 @@ var Slides = (function (_super) {
         var x2 = -x1;
         var y1 = Math.min((this.viewportHeight / 2) - zoomableScaledHeight / 2, 0);
         var y2 = -y1;
-        // console.debug('BOUNDS', x1, x2, y1, y2);
+        (void 0);
         if (this.scale <= 1) {
             return;
         }
-        // console.debug('PAN', e);
+        (void 0);
         this.touch.x = this.touch.deltaX + this.touch.lastX;
         this.touch.y = this.touch.deltaY + this.touch.lastY;
         if (this.touch.x < x1) {
-            // console.debug('OUT ON LEFT');
+            (void 0);
         }
         if (this.touch.x > x2) {
-            // console.debug('OUT ON RIGHT');
+            (void 0);
         }
         if (this.touch.x > this.viewportWidth) {
         }
         else if (-this.touch.x > this.viewportWidth) {
         }
         else {
-            // console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
+            (void 0);
             this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
             e.preventDefault();
             e.stopPropagation();
@@ -44185,11 +43798,11 @@ var Slides = (function (_super) {
         }
     };
     Slides.prototype.onTouchEnd = function (e) {
-        // console.debug('PANEND', e);
+        (void 0);
         if (this.scale > 1) {
             if (Math.abs(this.touch.x) > this.viewportWidth) {
                 var posX = posX > 0 ? this.viewportWidth - 1 : -(this.viewportWidth - 1);
-                // console.debug('Setting on posx', this.touch.x);
+                (void 0);
             }
             this.touch.lastX = this.touch.x;
             this.touch.lastY = this.touch.y;
@@ -44458,8 +44071,8 @@ var SPINNERS = {
             return {
                 r: 5,
                 style: (_a = {
-                        top: 9 * Math.sin(2 * Math.PI * index / total),
-                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                        top: (9 * Math.sin(2 * Math.PI * index / total)) + 'px',
+                        left: (9 * Math.cos(2 * Math.PI * index / total)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
                     _a
@@ -44475,8 +44088,8 @@ var SPINNERS = {
             return {
                 r: 5,
                 style: (_a = {
-                        top: 9 * Math.sin(2 * Math.PI * index / total),
-                        left: 9 * Math.cos(2 * Math.PI * index / total)
+                        top: (9 * Math.sin(2 * Math.PI * index / total)) + 'px',
+                        left: (9 * Math.cos(2 * Math.PI * index / total)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(dur - ((dur / total) * index)) + 'ms',
                     _a
@@ -44502,7 +44115,7 @@ var SPINNERS = {
             return {
                 r: 6,
                 style: (_a = {
-                        left: (9 - (9 * index))
+                        left: (9 - (9 * index)) + 'px'
                     },
                     _a[CSS.animationDelay] = -(110 * index) + 'ms',
                     _a
@@ -44528,6 +44141,7 @@ var Tab = (function (_super) {
         this._isShown = true;
         this.ionSelect = new EventEmitter();
         this.id = parent.add(this);
+        this._tabsHideOnSubPages = config.getBoolean('tabsHideOnSubPages');
         this._tabId = 'tabpanel-' + this.id;
         this._btnId = 'tab-' + this.id;
     }
@@ -44561,6 +44175,16 @@ var Tab = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Tab.prototype, "tabsHideOnSubPages", {
+        get: function () {
+            return this._tabsHideOnSubPages;
+        },
+        set: function (val) {
+            this._tabsHideOnSubPages = isTrueProperty(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Tab.prototype, "_vp", {
         set: function (val) {
             this.setViewport(val);
@@ -44580,12 +44204,12 @@ var Tab = (function (_super) {
             done(true);
         }
     };
-    Tab.prototype._viewInsert = function (viewCtrl, componentRef, viewport) {
-        var isTabSubPage = (this.parent._subPages && viewCtrl.index > 0);
+    Tab.prototype._viewAttachToDOM = function (viewCtrl, componentRef, viewport) {
+        var isTabSubPage = (this._tabsHideOnSubPages && viewCtrl.index > 0);
         if (isTabSubPage) {
             viewport = this.parent.portal;
         }
-        _super.prototype._viewInsert.call(this, viewCtrl, componentRef, viewport);
+        _super.prototype._viewAttachToDOM.call(this, viewCtrl, componentRef, viewport);
         if (isTabSubPage) {
             var pageEleRef = viewCtrl.pageRef();
             if (pageEleRef) {
@@ -44657,6 +44281,7 @@ var Tab = (function (_super) {
         'enabled': [{ type: Input },],
         'show': [{ type: Input },],
         'swipeBackEnabled': [{ type: Input },],
+        'tabsHideOnSubPages': [{ type: Input },],
         'ionSelect': [{ type: Output },],
         '_vp': [{ type: ViewChild, args: ['viewport', { read: ViewContainerRef },] },],
     };
@@ -44880,7 +44505,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerStart = function (ev) {
-        // console.debug('scroll assist pointerStart', ev.type);
+        (void 0);
         if (ev.type === 'touchstart') {
             this._isTouch = true;
         }
@@ -44889,7 +44514,7 @@ var InputBase = (function (_super) {
         }
     };
     InputBase.prototype.pointerEnd = function (ev) {
-        // console.debug('scroll assist pointerEnd', ev.type);
+        (void 0);
         if ((this._isTouch && ev.type === 'mouseup') || !this._app.isEnabled()) {
             ev.preventDefault();
             ev.stopPropagation();
@@ -44899,7 +44524,7 @@ var InputBase = (function (_super) {
             if (!hasPointerMoved(8, this._coord, endCoord) && !this.hasFocus()) {
                 ev.preventDefault();
                 ev.stopPropagation();
-                // console.debug('initFocus', ev.type);
+                (void 0);
                 this.initFocus();
             }
         }
@@ -44942,7 +44567,7 @@ var InputBase = (function (_super) {
     };
     InputBase.prototype.setFocus = function () {
         this._form.setAsFocused(this);
-        // console.debug("input-base, setFocus " + this._native.element().value);
+        (void 0);
         this._native.setFocus();
         document.body.scrollTop = 0;
     };
@@ -45111,7 +44736,7 @@ var TextInput = (function (_super) {
         this._form.deregister(this);
     };
     TextInput.prototype.clearTextInput = function () {
-        // console.debug('Should clear input');
+        (void 0);
         this._value = '';
         this.onChange(this._value);
         this.writeValue(this._value);
@@ -45333,7 +44958,7 @@ var Toggle = (function (_super) {
     Toggle.prototype.pointerMove = function (ev) {
         if (this._startX) {
             var currentX = pointerCoord(ev).x;
-            // console.debug('toggle, pointerMove', ev.type, currentX);
+            (void 0);
             if (this._checked) {
                 if (currentX + 15 < this._startX) {
                     this.onChange(false);
@@ -45408,7 +45033,7 @@ var Toggle = (function (_super) {
         configurable: true
     });
     Toggle.prototype.onChange = function (isChecked) {
-        // console.debug('toggle, onChange', isChecked);
+        (void 0);
         this._fn && this._fn(isChecked);
         this._setChecked(isChecked);
         this.onTouched();
@@ -46088,7 +45713,7 @@ var VirtualScroll = (function () {
     });
     Object.defineProperty(VirtualScroll.prototype, "headerFn", {
         set: function (val) {
-            if (isFunction$6(val)) {
+            if (isFunction$1(val)) {
                 this._hdrFn = val.bind((this._ctrl && this._ctrl._cmp) || this);
             }
         },
@@ -46097,7 +45722,7 @@ var VirtualScroll = (function () {
     });
     Object.defineProperty(VirtualScroll.prototype, "footerFn", {
         set: function (val) {
-            if (isFunction$6(val)) {
+            if (isFunction$1(val)) {
                 this._ftrFn = val.bind((this._ctrl && this._ctrl._cmp) || this);
             }
         },
@@ -46129,7 +45754,7 @@ var VirtualScroll = (function () {
             }
             this.update(true);
             this._platform.onResize(function () {
-                // console.debug('VirtualScroll, onResize');
+                (void 0);
                 _this.update(false);
             });
         }
@@ -46145,7 +45770,7 @@ var VirtualScroll = (function () {
                     return;
             }
         }
-        // console.debug('VirtualScroll, update, records:', self._records.length);
+        (void 0);
         self._cells.length = 0;
         self._nodes.length = 0;
         self._itmTmp.viewContainer.clear();
@@ -46233,7 +45858,7 @@ var VirtualScroll = (function () {
         if (newVirtualHeight !== this._vHeight) {
             this._renderer.setElementStyle(this._elementRef.nativeElement, 'height', newVirtualHeight > 0 ? newVirtualHeight + 'px' : '');
             this._vHeight = newVirtualHeight;
-            // console.debug('VirtualScroll, height', newVirtualHeight);
+            (void 0);
         }
     };
     VirtualScroll.prototype.addScrollListener = function () {
@@ -46702,11 +46327,238 @@ var AppModule = (function () {
     return AppModule;
 }());
 
+var Wrapper_Backdrop = (function () {
+    function Wrapper_Backdrop(p0, p1, p2) {
+        this.changed = false;
+        this._disableScroll = UNINITIALIZED;
+        this.context = new Backdrop(p0, p1, p2);
+    }
+    Wrapper_Backdrop.prototype.check_disableScroll = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._disableScroll, currValue))) {
+            this.changed = true;
+            this.context.disableScroll = currValue;
+            this._disableScroll = currValue;
+        }
+    };
+    Wrapper_Backdrop.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Backdrop;
+}());
+
+var Wrapper_NgIf = (function () {
+    function Wrapper_NgIf(p0, p1) {
+        this.changed = false;
+        this._ngIf = UNINITIALIZED;
+        this.context = new NgIf(p0, p1);
+    }
+    Wrapper_NgIf.prototype.check_ngIf = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngIf, currValue))) {
+            this.changed = true;
+            this.context.ngIf = currValue;
+            this._ngIf = currValue;
+        }
+    };
+    Wrapper_NgIf.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgIf;
+}());
+
+var Wrapper_NgFor = (function () {
+    function Wrapper_NgFor(p0, p1, p2, p3) {
+        this.changed = false;
+        this.changes = {};
+        this._ngForOf = UNINITIALIZED;
+        this._ngForTrackBy = UNINITIALIZED;
+        this._ngForTemplate = UNINITIALIZED;
+        this.context = new NgFor(p0, p1, p2, p3);
+    }
+    Wrapper_NgFor.prototype.check_ngForOf = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForOf, currValue))) {
+            this.changed = true;
+            this.context.ngForOf = currValue;
+            this.changes['ngForOf'] = new SimpleChange(this._ngForOf, currValue);
+            this._ngForOf = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.check_ngForTrackBy = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForTrackBy, currValue))) {
+            this.changed = true;
+            this.context.ngForTrackBy = currValue;
+            this.changes['ngForTrackBy'] = new SimpleChange(this._ngForTrackBy, currValue);
+            this._ngForTrackBy = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.check_ngForTemplate = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngForTemplate, currValue))) {
+            this.changed = true;
+            this.context.ngForTemplate = currValue;
+            this.changes['ngForTemplate'] = new SimpleChange(this._ngForTemplate, currValue);
+            this._ngForTemplate = currValue;
+        }
+    };
+    Wrapper_NgFor.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if (changed) {
+                this.context.ngOnChanges(this.changes);
+                this.changes = {};
+            }
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgFor;
+}());
+
+var Wrapper_NgClass = (function () {
+    function Wrapper_NgClass(p0, p1, p2, p3) {
+        this.changed = false;
+        this._klass = UNINITIALIZED;
+        this._ngClass = UNINITIALIZED;
+        this.context = new NgClass(p0, p1, p2, p3);
+    }
+    Wrapper_NgClass.prototype.check_klass = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._klass, currValue))) {
+            this.changed = true;
+            this.context.klass = currValue;
+            this._klass = currValue;
+        }
+    };
+    Wrapper_NgClass.prototype.check_ngClass = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngClass, currValue))) {
+            this.changed = true;
+            this.context.ngClass = currValue;
+            this._ngClass = currValue;
+        }
+    };
+    Wrapper_NgClass.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgClass;
+}());
+
 var __extends$121 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Button = (function () {
+    function Wrapper_Button(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this._large = UNINITIALIZED;
+        this._small = UNINITIALIZED;
+        this._default = UNINITIALIZED;
+        this._outline = UNINITIALIZED;
+        this._clear = UNINITIALIZED;
+        this._solid = UNINITIALIZED;
+        this._round = UNINITIALIZED;
+        this._block = UNINITIALIZED;
+        this._full = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._color = UNINITIALIZED;
+        this.context = new Button(p0, p1, p2, p3, p4);
+    }
+    Wrapper_Button.prototype.check_large = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._large, currValue))) {
+            this.changed = true;
+            this.context.large = currValue;
+            this._large = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_small = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._small, currValue))) {
+            this.changed = true;
+            this.context.small = currValue;
+            this._small = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_default = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._default, currValue))) {
+            this.changed = true;
+            this.context.default = currValue;
+            this._default = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_outline = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._outline, currValue))) {
+            this.changed = true;
+            this.context.outline = currValue;
+            this._outline = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_clear = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._clear, currValue))) {
+            this.changed = true;
+            this.context.clear = currValue;
+            this._clear = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_solid = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._solid, currValue))) {
+            this.changed = true;
+            this.context.solid = currValue;
+            this._solid = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_round = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._round, currValue))) {
+            this.changed = true;
+            this.context.round = currValue;
+            this._round = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_block = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._block, currValue))) {
+            this.changed = true;
+            this.context.block = currValue;
+            this._block = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_full = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._full, currValue))) {
+            this.changed = true;
+            this.context.full = currValue;
+            this._full = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Button.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Button.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Button;
+}());
 var renderType_Button_Host = null;
 var _View_Button_Host0 = (function (_super) {
     __extends$121(_View_Button_Host0, _super);
@@ -46718,23 +46570,26 @@ var _View_Button_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', '');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, '', this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
-        compView_0.create(this._Button_0_4, this.projectableNodes, null);
+        this._Button_0_4 = new Wrapper_Button(null, '', this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
+        compView_0.create(this._Button_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Button_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && (0 === requestNodeIndex))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_Button_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -46772,16 +46627,89 @@ var _View_Button0 = (function (_super) {
 }(AppView));
 function viewFactory_Button0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Button === null)) {
-        (renderType_Button = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/button/button.d.ts class Button - inline template', 1, ViewEncapsulation.None, styles_Button, {}));
+        (renderType_Button = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_Button, {}));
     }
     return new _View_Button0(viewUtils, parentInjector, declarationEl);
 }
+
+var Wrapper_Icon = (function () {
+    function Wrapper_Icon(p0, p1, p2) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._name = UNINITIALIZED;
+        this._ios = UNINITIALIZED;
+        this._md = UNINITIALIZED;
+        this._isActive = UNINITIALIZED;
+        this.context = new Icon(p0, p1, p2);
+    }
+    Wrapper_Icon.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this._name = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_ios = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ios, currValue))) {
+            this.changed = true;
+            this.context.ios = currValue;
+            this._ios = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_md = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._md, currValue))) {
+            this.changed = true;
+            this.context.md = currValue;
+            this._md = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.check_isActive = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._isActive, currValue))) {
+            this.changed = true;
+            this.context.isActive = currValue;
+            this._isActive = currValue;
+        }
+    };
+    Wrapper_Icon.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Icon;
+}());
 
 var __extends$120 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ActionSheetCmp = (function () {
+    function Wrapper_ActionSheetCmp(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this.context = new ActionSheetCmp(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_ActionSheetCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ActionSheetCmp;
+}());
 var renderType_ActionSheetCmp_Host = null;
 var _View_ActionSheetCmp_Host0 = (function (_super) {
     __extends$120(_View_ActionSheetCmp_Host0, _super);
@@ -46793,9 +46721,9 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ActionSheetCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ActionSheetCmp_0_4 = new ActionSheetCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(Form), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._ActionSheetCmp_0_4, [], compView_0);
-        compView_0.create(this._ActionSheetCmp_0_4, this.projectableNodes, null);
+        this._ActionSheetCmp_0_4 = new Wrapper_ActionSheetCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(Form), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._ActionSheetCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ActionSheetCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -46804,18 +46732,19 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
     };
     _View_ActionSheetCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ActionSheetCmp) && (0 === requestNodeIndex))) {
-            return this._ActionSheetCmp_0_4;
+            return this._ActionSheetCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ActionSheetCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._ActionSheetCmp_0_4.hdrId;
+        var currVal_1 = this._ActionSheetCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._ActionSheetCmp_0_4.descId;
+        var currVal_2 = this._ActionSheetCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_2 == null) ? null : currVal_2.toString()));
             this._expr_2 = currVal_2;
@@ -46824,7 +46753,7 @@ var _View_ActionSheetCmp_Host0 = (function (_super) {
     };
     _View_ActionSheetCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._ActionSheetCmp_0_4.keyUp($event) !== false);
+        var pd_0 = (this._ActionSheetCmp_0_4.context.keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_ActionSheetCmp_Host0;
@@ -46849,7 +46778,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'action-sheet-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -46859,24 +46788,20 @@ var _View_ActionSheetCmp0 = (function (_super) {
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_4 = new AppElement(4, 3, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_ActionSheetCmp1);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._anchor_5 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_5 = new AppElement(5, 3, this, this._anchor_5);
         this._TemplateRef_5_5 = new TemplateRef_(this._appEl_5, viewFactory_ActionSheetCmp2);
-        this._NgIf_5_6 = new NgIf(this._appEl_5.vcRef, this._TemplateRef_5_5);
+        this._NgIf_5_6 = new Wrapper_NgIf(this._appEl_5.vcRef, this._TemplateRef_5_5);
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_3, null);
         this._appEl_6 = new AppElement(6, 3, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_ActionSheetCmp3);
-        this._NgFor_6_6 = new NgFor(this._appEl_6.vcRef, this._TemplateRef_6_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_6_6 = new Wrapper_NgFor(this._appEl_6.vcRef, this._TemplateRef_6_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_7 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_7 = new AppElement(7, 2, this, this._anchor_7);
         this._TemplateRef_7_5 = new TemplateRef_(this._appEl_7, viewFactory_ActionSheetCmp5);
-        this._NgIf_7_6 = new NgIf(this._appEl_7.vcRef, this._TemplateRef_7_5);
+        this._NgIf_7_6 = new Wrapper_NgIf(this._appEl_7.vcRef, this._TemplateRef_7_5);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -46891,75 +46816,53 @@ var _View_ActionSheetCmp0 = (function (_super) {
     };
     _View_ActionSheetCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (4 === requestNodeIndex))) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (5 === requestNodeIndex))) {
             return this._TemplateRef_5_5;
         }
         if (((token === NgIf) && (5 === requestNodeIndex))) {
-            return this._NgIf_5_6;
+            return this._NgIf_5_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgFor) && (6 === requestNodeIndex))) {
-            return this._NgFor_6_6;
+            return this._NgFor_6_6.context;
         }
         if (((token === TemplateRef) && (7 === requestNodeIndex))) {
             return this._TemplateRef_7_5;
         }
         if (((token === NgIf) && (7 === requestNodeIndex))) {
-            return this._NgIf_7_6;
+            return this._NgIf_7_6.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.d.title;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_4_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_2 = this.context.d.subTitle;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_5_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
-        changes = null;
+        this._NgIf_5_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_5_6.detectChangesInternal(this, this._anchor_5, throwOnChange);
         var currVal_3 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgFor_6_6.ngForOf = currVal_3;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_3, currVal_3);
-            this._expr_3 = currVal_3;
-        }
-        if ((changes !== null)) {
-            this._NgFor_6_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_6_6.ngDoCheck();
-        }
+        this._NgFor_6_6.check_ngForOf(currVal_3, throwOnChange, false);
+        this._NgFor_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         var currVal_4 = this.context.d.cancelButton;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_7_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_7_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_7_6.detectChangesInternal(this, this._anchor_7, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_ActionSheetCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -46970,7 +46873,7 @@ var _View_ActionSheetCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ActionSheetCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ActionSheetCmp === null)) {
-        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/action-sheet/action-sheet-component.d.ts class ActionSheetCmp - inline template', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
+        (renderType_ActionSheetCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ActionSheetCmp, {}));
     }
     return new _View_ActionSheetCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47057,23 +46960,20 @@ var _View_ActionSheetCmp3 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', 'action-sheet-button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._NgClass_0_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
-        this._Button_0_5 = new Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_5, [], compView_0);
+        this._NgClass_0_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._Button_0_5 = new Wrapper_Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_5.context, [], compView_0);
         this._anchor_1 = this.renderer.createTemplateAnchor(null, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_ActionSheetCmp4);
-        this._NgIf_1_6 = new NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
+        this._NgIf_1_6 = new Wrapper_NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
         this._text_2 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_5, [[].concat([
+        compView_0.create(this._Button_0_5.context, [[].concat([
                 this._appEl_1,
                 this._text_2
             ])], null);
         this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -47087,39 +46987,32 @@ var _View_ActionSheetCmp3 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgIf) && (1 === requestNodeIndex))) {
-            return this._NgIf_1_6;
+            return this._NgIf_1_6.context;
         }
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 2)))) {
-            return this._NgClass_0_4;
+            return this._NgClass_0_4.context;
         }
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 2)))) {
-            return this._Button_0_5;
+            return this._Button_0_5.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp3.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_2 = 'disable-hover';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_0_4.klass = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgClass_0_4.check_klass(currVal_2, throwOnChange, false);
         var currVal_3 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_0_4.ngClass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_4.ngDoCheck();
+        this._NgClass_0_4.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        if (this._Button_0_5.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         var currVal_4 = this.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_1_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_1_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_5.ngAfterContentInit();
+                this._Button_0_5.context.ngAfterContentInit();
             }
         }
         var currVal_1 = (this.context.$implicit.icon ? '' : null);
@@ -47153,26 +47046,23 @@ var _View_ActionSheetCmp4 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'action-sheet-icon');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_ActionSheetCmp4.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp4.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.context.$implicit.icon;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -47180,7 +47070,7 @@ var _View_ActionSheetCmp4 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp4.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_ActionSheetCmp4;
 }(AppView));
@@ -47200,23 +47090,20 @@ var _View_ActionSheetCmp5 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'ion-button', 'action-sheet-button');
         this._appEl_1 = new AppElement(1, 0, this, this._el_1);
         var compView_1 = viewFactory_Button0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._NgClass_1_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
-        this._Button_1_5 = new Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Button_1_5, [], compView_1);
+        this._NgClass_1_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this._Button_1_5 = new Wrapper_Button(null, 'action-sheet-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Button_1_5.context, [], compView_1);
         this._anchor_2 = this.renderer.createTemplateAnchor(null, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_ActionSheetCmp6);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this._text_3 = this.renderer.createText(null, '', null);
-        compView_1.create(this._Button_1_5, [[].concat([
+        compView_1.create(this._Button_1_5.context, [[].concat([
                 this._appEl_2,
                 this._text_3
             ])], null);
         this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this._expr_5 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -47231,39 +47118,32 @@ var _View_ActionSheetCmp5 = (function (_super) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === NgClass) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgClass_1_4;
+            return this._NgClass_1_4.context;
         }
         if (((token === Button) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._Button_1_5;
+            return this._Button_1_5.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp5.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_2 = 'action-sheet-cancel disable-hover';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgClass_1_4.klass = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgClass_1_4.check_klass(currVal_2, throwOnChange, false);
         var currVal_3 = this.parent.context.d.cancelButton.cssClass;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_1_4.ngClass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
-        if (!throwOnChange) {
-            this._NgClass_1_4.ngDoCheck();
+        this._NgClass_1_4.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_1_4.detectChangesInternal(this, this._el_1, throwOnChange);
+        if (this._Button_1_5.detectChangesInternal(this, this._el_1, throwOnChange)) {
+            this._appEl_1.componentView.markAsCheckOnce();
         }
         var currVal_4 = this.parent.context.d.cancelButton.icon;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_2_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_1_5.ngAfterContentInit();
+                this._Button_1_5.context.ngAfterContentInit();
             }
         }
         var currVal_1 = (this.parent.context.d.cancelButton.icon ? '' : null);
@@ -47297,26 +47177,23 @@ var _View_ActionSheetCmp6 = (function (_super) {
         this._el_0 = this.renderer.createElement(null, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'action-sheet-icon');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_ActionSheetCmp6.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_ActionSheetCmp6.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.parent.context.d.cancelButton.icon;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -47324,7 +47201,7 @@ var _View_ActionSheetCmp6 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ActionSheetCmp6.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_ActionSheetCmp6;
 }(AppView));
@@ -47332,11 +47209,158 @@ function viewFactory_ActionSheetCmp6(viewUtils, parentInjector, declarationEl) {
     return new _View_ActionSheetCmp6(viewUtils, parentInjector, declarationEl);
 }
 
+var Wrapper_NgSwitch = (function () {
+    function Wrapper_NgSwitch() {
+        this.changed = false;
+        this._ngSwitch = UNINITIALIZED;
+        this.context = new NgSwitch();
+    }
+    Wrapper_NgSwitch.prototype.check_ngSwitch = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngSwitch, currValue))) {
+            this.changed = true;
+            this.context.ngSwitch = currValue;
+            this._ngSwitch = currValue;
+        }
+    };
+    Wrapper_NgSwitch.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitch;
+}());
+var Wrapper_NgSwitchCase = (function () {
+    function Wrapper_NgSwitchCase(p0, p1, p2) {
+        this.changed = false;
+        this._ngSwitchCase = UNINITIALIZED;
+        this.context = new NgSwitchCase(p0, p1, p2);
+    }
+    Wrapper_NgSwitchCase.prototype.check_ngSwitchCase = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngSwitchCase, currValue))) {
+            this.changed = true;
+            this.context.ngSwitchCase = currValue;
+            this._ngSwitchCase = currValue;
+        }
+    };
+    Wrapper_NgSwitchCase.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitchCase;
+}());
+var Wrapper_NgSwitchDefault = (function () {
+    function Wrapper_NgSwitchDefault(p0, p1, p2) {
+        this.changed = false;
+        this.context = new NgSwitchDefault(p0, p1, p2);
+    }
+    Wrapper_NgSwitchDefault.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgSwitchDefault;
+}());
+
+var Wrapper_DefaultValueAccessor = (function () {
+    function Wrapper_DefaultValueAccessor(p0, p1) {
+        this.changed = false;
+        this.context = new DefaultValueAccessor(p0, p1);
+    }
+    Wrapper_DefaultValueAccessor.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_DefaultValueAccessor;
+}());
+
+var Wrapper_NgModel = (function () {
+    function Wrapper_NgModel(p0, p1, p2, p3) {
+        this.changed = false;
+        this.changes = {};
+        this._name = UNINITIALIZED;
+        this._isDisabled = UNINITIALIZED;
+        this._model = UNINITIALIZED;
+        this._options = UNINITIALIZED;
+        this.context = new NgModel(p0, p1, p2, p3);
+    }
+    Wrapper_NgModel.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this.changes['name'] = new SimpleChange(this._name, currValue);
+            this._name = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_isDisabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._isDisabled, currValue))) {
+            this.changed = true;
+            this.context.isDisabled = currValue;
+            this.changes['isDisabled'] = new SimpleChange(this._isDisabled, currValue);
+            this._isDisabled = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_model = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._model, currValue))) {
+            this.changed = true;
+            this.context.model = currValue;
+            this.changes['model'] = new SimpleChange(this._model, currValue);
+            this._model = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.check_options = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._options, currValue))) {
+            this.changed = true;
+            this.context.options = currValue;
+            this.changes['options'] = new SimpleChange(this._options, currValue);
+            this._options = currValue;
+        }
+    };
+    Wrapper_NgModel.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if (changed) {
+                this.context.ngOnChanges(this.changes);
+                this.changes = {};
+            }
+        }
+        return changed;
+    };
+    return Wrapper_NgModel;
+}());
+
+var Wrapper_NgControlStatus = (function () {
+    function Wrapper_NgControlStatus(p0) {
+        this.changed = false;
+        this.context = new NgControlStatus(p0);
+    }
+    Wrapper_NgControlStatus.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_NgControlStatus;
+}());
+
 var __extends$122 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_AlertCmp = (function () {
+    function Wrapper_AlertCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new AlertCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_AlertCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_AlertCmp;
+}());
 var renderType_AlertCmp_Host = null;
 var _View_AlertCmp_Host0 = (function (_super) {
     __extends$122(_View_AlertCmp_Host0, _super);
@@ -47348,9 +47372,9 @@ var _View_AlertCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_AlertCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._AlertCmp_0_4 = new AlertCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._AlertCmp_0_4, [], compView_0);
-        compView_0.create(this._AlertCmp_0_4, this.projectableNodes, null);
+        this._AlertCmp_0_4 = new Wrapper_AlertCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._AlertCmp_0_4.context, [], compView_0);
+        compView_0.create(this._AlertCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -47359,18 +47383,19 @@ var _View_AlertCmp_Host0 = (function (_super) {
     };
     _View_AlertCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === AlertCmp) && (0 === requestNodeIndex))) {
-            return this._AlertCmp_0_4;
+            return this._AlertCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._AlertCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._AlertCmp_0_4.hdrId;
+        var currVal_1 = this._AlertCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._AlertCmp_0_4.descId;
+        var currVal_2 = this._AlertCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_2 == null) ? null : currVal_2.toString()));
             this._expr_2 = currVal_2;
@@ -47379,7 +47404,7 @@ var _View_AlertCmp_Host0 = (function (_super) {
     };
     _View_AlertCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._AlertCmp_0_4.keyUp($event) !== false);
+        var pd_0 = (this._AlertCmp_0_4.context.keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_AlertCmp_Host0;
@@ -47404,7 +47429,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47412,36 +47437,30 @@ var _View_AlertCmp0 = (function (_super) {
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_3 = new AppElement(3, 2, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_AlertCmp1);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_4 = new AppElement(4, 2, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_AlertCmp2);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._el_5 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'alert-message');
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_6 = new AppElement(6, 1, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_AlertCmp3);
-        this._NgIf_6_6 = new NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
+        this._NgIf_6_6 = new Wrapper_NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
         this._el_7 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_7, 'class', 'alert-button-group');
-        this._NgClass_7_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_7), this.renderer);
+        this._NgClass_7_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_7), this.renderer);
         this._anchor_8 = this.renderer.createTemplateAnchor(this._el_7, null);
         this._appEl_8 = new AppElement(8, 7, this, this._anchor_8);
         this._TemplateRef_8_5 = new TemplateRef_(this._appEl_8, viewFactory_AlertCmp10);
-        this._NgFor_8_6 = new NgFor(this._appEl_8.vcRef, this._TemplateRef_8_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_8_6 = new Wrapper_NgFor(this._appEl_8.vcRef, this._TemplateRef_8_5, this.parentInjector.get(IterableDiffers), this.ref);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
         this._map_0 = pureProxy1(function (p0) {
             return { 'alert-button-group-vertical': p0 };
         });
-        this._expr_7 = UNINITIALIZED;
-        this._expr_8 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -47457,86 +47476,56 @@ var _View_AlertCmp0 = (function (_super) {
     };
     _View_AlertCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         if (((token === TemplateRef) && (4 === requestNodeIndex))) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgIf) && (6 === requestNodeIndex))) {
-            return this._NgIf_6_6;
+            return this._NgIf_6_6.context;
         }
         if (((token === TemplateRef) && (8 === requestNodeIndex))) {
             return this._TemplateRef_8_5;
         }
         if (((token === NgFor) && (8 === requestNodeIndex))) {
-            return this._NgFor_8_6;
+            return this._NgFor_8_6.context;
         }
         if (((token === NgClass) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
-            return this._NgClass_7_3;
+            return this._NgClass_7_3.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.d.title;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_3_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         var currVal_2 = this.context.d.subTitle;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_4_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_5 = this.context.d.inputs.length;
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgIf_6_6.ngIf = currVal_5;
-            this._expr_5 = currVal_5;
-        }
+        this._NgIf_6_6.check_ngIf(currVal_5, throwOnChange, false);
+        this._NgIf_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         var currVal_6 = 'alert-button-group';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._NgClass_7_3.klass = currVal_6;
-            this._expr_6 = currVal_6;
-        }
+        this._NgClass_7_3.check_klass(currVal_6, throwOnChange, false);
         var currVal_7 = this._map_0((this.context.d.buttons.length > 2));
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this._NgClass_7_3.ngClass = currVal_7;
-            this._expr_7 = currVal_7;
-        }
-        if (!throwOnChange) {
-            this._NgClass_7_3.ngDoCheck();
-        }
-        changes = null;
+        this._NgClass_7_3.check_ngClass(currVal_7, throwOnChange, false);
+        this._NgClass_7_3.detectChangesInternal(this, this._el_7, throwOnChange);
         var currVal_8 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
-            this._NgFor_8_6.ngForOf = currVal_8;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_8, currVal_8);
-            this._expr_8 = currVal_8;
-        }
-        if ((changes !== null)) {
-            this._NgFor_8_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_8_6.ngDoCheck();
-        }
+        this._NgFor_8_6.check_ngForOf(currVal_8, throwOnChange, false);
+        this._NgFor_8_6.detectChangesInternal(this, this._anchor_8, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_3 = interpolate(1, '', this.context.msgId, '');
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
@@ -47551,7 +47540,7 @@ var _View_AlertCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_AlertCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_AlertCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -47562,7 +47551,7 @@ var _View_AlertCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_AlertCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AlertCmp === null)) {
-        (renderType_AlertCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/alert/alert-component.d.ts class AlertCmp - inline template', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
+        (renderType_AlertCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_AlertCmp, {}));
     }
     return new _View_AlertCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -47637,22 +47626,19 @@ var _View_AlertCmp3 = (function (_super) {
     }
     _View_AlertCmp3.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
-        this._NgSwitch_0_3 = new NgSwitch();
+        this._NgSwitch_0_3 = new Wrapper_NgSwitch();
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp4);
-        this._NgSwitchCase_1_6 = new NgSwitchCase(this._appEl_1.vcRef, this._TemplateRef_1_5, this._NgSwitch_0_3);
+        this._NgSwitchCase_1_6 = new Wrapper_NgSwitchCase(this._appEl_1.vcRef, this._TemplateRef_1_5, this._NgSwitch_0_3.context);
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_2 = new AppElement(2, 0, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_AlertCmp6);
-        this._NgSwitchCase_2_6 = new NgSwitchCase(this._appEl_2.vcRef, this._TemplateRef_2_5, this._NgSwitch_0_3);
+        this._NgSwitchCase_2_6 = new Wrapper_NgSwitchCase(this._appEl_2.vcRef, this._TemplateRef_2_5, this._NgSwitch_0_3.context);
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_3 = new AppElement(3, 0, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_AlertCmp8);
-        this._NgSwitchDefault_3_6 = new NgSwitchDefault(this._appEl_3.vcRef, this._TemplateRef_3_5, this._NgSwitch_0_3);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
+        this._NgSwitchDefault_3_6 = new Wrapper_NgSwitchDefault(this._appEl_3.vcRef, this._TemplateRef_3_5, this._NgSwitch_0_3.context);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1,
@@ -47666,41 +47652,36 @@ var _View_AlertCmp3 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgSwitchCase) && (1 === requestNodeIndex))) {
-            return this._NgSwitchCase_1_6;
+            return this._NgSwitchCase_1_6.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgSwitchCase) && (2 === requestNodeIndex))) {
-            return this._NgSwitchCase_2_6;
+            return this._NgSwitchCase_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgSwitchDefault) && (3 === requestNodeIndex))) {
-            return this._NgSwitchDefault_3_6;
+            return this._NgSwitchDefault_3_6.context;
         }
         if (((token === NgSwitch) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgSwitch_0_3;
+            return this._NgSwitch_0_3.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp3.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.parent.context.inputType;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgSwitch_0_3.ngSwitch = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgSwitch_0_3.check_ngSwitch(currVal_0, throwOnChange, false);
+        this._NgSwitch_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = 'radio';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgSwitchCase_1_6.ngSwitchCase = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgSwitchCase_1_6.check_ngSwitchCase(currVal_1, throwOnChange, false);
+        this._NgSwitchCase_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         var currVal_2 = 'checkbox';
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgSwitchCase_2_6.ngSwitchCase = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgSwitchCase_2_6.check_ngSwitchCase(currVal_2, throwOnChange, false);
+        this._NgSwitchCase_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
+        this._NgSwitchDefault_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47721,10 +47702,9 @@ var _View_AlertCmp4 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp5);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -47736,28 +47716,14 @@ var _View_AlertCmp4 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp4.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_2 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_1_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = this.parent.parent.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -47788,8 +47754,8 @@ var _View_AlertCmp5 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'radio');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'alert-radio-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'alert-radio-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._el_1 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-radio-icon');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47797,7 +47763,7 @@ var _View_AlertCmp5 = (function (_super) {
         this._el_3 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'alert-radio-label');
         this._text_4 = this.renderer.createText(this._el_3, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([
+        compView_0.create(this._Button_0_4.context, [[].concat([
                 this._el_1,
                 this._el_3
             ])], null);
@@ -47817,15 +47783,18 @@ var _View_AlertCmp5 = (function (_super) {
     };
     _View_AlertCmp5.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp5.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit.checked;
@@ -47871,8 +47840,7 @@ var _View_AlertCmp6 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp7);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
-        this._expr_0 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -47884,28 +47852,14 @@ var _View_AlertCmp6 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp6.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_1_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -47926,8 +47880,8 @@ var _View_AlertCmp7 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'checkbox');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'alert-checkbox-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'alert-checkbox-button', this.parent.parent.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._el_1 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-checkbox-icon');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -47935,7 +47889,7 @@ var _View_AlertCmp7 = (function (_super) {
         this._el_3 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'alert-checkbox-label');
         this._text_4 = this.renderer.createText(this._el_3, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([
+        compView_0.create(this._Button_0_4.context, [[].concat([
                 this._el_1,
                 this._el_3
             ])], null);
@@ -47954,15 +47908,18 @@ var _View_AlertCmp7 = (function (_super) {
     };
     _View_AlertCmp7.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp7.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit.checked;
@@ -48003,8 +47960,7 @@ var _View_AlertCmp8 = (function (_super) {
         this._anchor_1 = this.renderer.createTemplateAnchor(this._el_0, null);
         this._appEl_1 = new AppElement(1, 0, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_AlertCmp9);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
-        this._expr_0 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parent.parent.parentInjector.get(IterableDiffers), this.parent.parent.ref);
         this.init([].concat([this._el_0]), [
             this._el_0,
             this._anchor_1
@@ -48016,28 +47972,14 @@ var _View_AlertCmp8 = (function (_super) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp8.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.parent.parent.context.d.inputs;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_1_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48056,18 +47998,17 @@ var _View_AlertCmp9 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'alert-input-wrapper');
         this._el_1 = this.renderer.createElement(this._el_0, 'input', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'alert-input');
-        this._DefaultValueAccessor_1_3 = new DefaultValueAccessor(this.renderer, new ElementRef(this._el_1));
-        this._NG_VALUE_ACCESSOR_1_4 = [this._DefaultValueAccessor_1_3];
-        this._NgModel_1_5 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
-        this._NgControl_1_6 = this._NgModel_1_5;
-        this._NgControlStatus_1_7 = new NgControlStatus(this._NgControl_1_6);
+        this._DefaultValueAccessor_1_3 = new Wrapper_DefaultValueAccessor(this.renderer, new ElementRef(this._el_1));
+        this._NG_VALUE_ACCESSOR_1_4 = [this._DefaultValueAccessor_1_3.context];
+        this._NgModel_1_5 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
+        this._NgControl_1_6 = this._NgModel_1_5.context;
+        this._NgControlStatus_1_7 = new Wrapper_NgControlStatus(this._NgControl_1_6);
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
         var disposable_1 = this.renderer.listen(this._el_1, 'input', this.eventHandler(this._handle_input_1_1.bind(this)));
         var disposable_2 = this.renderer.listen(this._el_1, 'blur', this.eventHandler(this._handle_blur_1_2.bind(this)));
-        this._expr_5 = UNINITIALIZED;
-        var subscription_0 = this._NgModel_1_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
+        var subscription_0 = this._NgModel_1_5.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_1_0.bind(this)));
         this._expr_6 = UNINITIALIZED;
         this._expr_7 = UNINITIALIZED;
         this._expr_8 = UNINITIALIZED;
@@ -48086,37 +48027,28 @@ var _View_AlertCmp9 = (function (_super) {
     };
     _View_AlertCmp9.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === DefaultValueAccessor) && (1 === requestNodeIndex))) {
-            return this._DefaultValueAccessor_1_3;
+            return this._DefaultValueAccessor_1_3.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && (1 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_1_4;
         }
         if (((token === NgModel) && (1 === requestNodeIndex))) {
-            return this._NgModel_1_5;
+            return this._NgModel_1_5.context;
         }
         if (((token === NgControl) && (1 === requestNodeIndex))) {
             return this._NgControl_1_6;
         }
         if (((token === NgControlStatus) && (1 === requestNodeIndex))) {
-            return this._NgControlStatus_1_7;
+            return this._NgControlStatus_1_7.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp9.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
+        this._DefaultValueAccessor_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
         var currVal_5 = this.context.$implicit.value;
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgModel_1_5.model = currVal_5;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_5, currVal_5);
-            this._expr_5 = currVal_5;
-        }
-        if ((changes !== null)) {
-            this._NgModel_1_5.ngOnChanges(changes);
-        }
+        this._NgModel_1_5.check_model(currVal_5, throwOnChange, false);
+        this._NgModel_1_5.detectChangesInternal(this, this._el_1, throwOnChange);
+        this._NgControlStatus_1_7.detectChangesInternal(this, this._el_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_3 = this.context.$implicit.placeholder;
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
@@ -48128,32 +48060,32 @@ var _View_AlertCmp9 = (function (_super) {
             this.renderer.setElementProperty(this._el_1, 'type', currVal_4);
             this._expr_4 = currVal_4;
         }
-        var currVal_6 = this._NgControlStatus_1_7.ngClassUntouched;
+        var currVal_6 = this._NgControlStatus_1_7.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this.renderer.setElementClass(this._el_1, 'ng-untouched', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_7 = this._NgControlStatus_1_7.ngClassTouched;
+        var currVal_7 = this._NgControlStatus_1_7.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_1, 'ng-touched', currVal_7);
             this._expr_7 = currVal_7;
         }
-        var currVal_8 = this._NgControlStatus_1_7.ngClassPristine;
+        var currVal_8 = this._NgControlStatus_1_7.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementClass(this._el_1, 'ng-pristine', currVal_8);
             this._expr_8 = currVal_8;
         }
-        var currVal_9 = this._NgControlStatus_1_7.ngClassDirty;
+        var currVal_9 = this._NgControlStatus_1_7.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_1, 'ng-dirty', currVal_9);
             this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._NgControlStatus_1_7.ngClassValid;
+        var currVal_10 = this._NgControlStatus_1_7.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this.renderer.setElementClass(this._el_1, 'ng-valid', currVal_10);
             this._expr_10 = currVal_10;
         }
-        var currVal_11 = this._NgControlStatus_1_7.ngClassInvalid;
+        var currVal_11 = this._NgControlStatus_1_7.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this.renderer.setElementClass(this._el_1, 'ng-invalid', currVal_11);
             this._expr_11 = currVal_11;
@@ -48161,7 +48093,7 @@ var _View_AlertCmp9 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_AlertCmp9.prototype.destroyInternal = function () {
-        this._NgModel_1_5.ngOnDestroy();
+        this._NgModel_1_5.context.ngOnDestroy();
     };
     _View_AlertCmp9.prototype._handle_ngModelChange_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -48170,12 +48102,12 @@ var _View_AlertCmp9 = (function (_super) {
     };
     _View_AlertCmp9.prototype._handle_input_1_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this._DefaultValueAccessor_1_3.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_1_3.context.onChange($event.target.value) !== false);
         return (true && pd_0);
     };
     _View_AlertCmp9.prototype._handle_blur_1_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        var pd_0 = (this._DefaultValueAccessor_1_3.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_1_3.context.onTouched() !== false);
         return (true && pd_0);
     };
     return _View_AlertCmp9;
@@ -48193,13 +48125,12 @@ var _View_AlertCmp10 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', 'alert-button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._NgClass_0_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
-        this._Button_0_5 = new Button(null, 'alert-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_5, [], compView_0);
+        this._NgClass_0_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._Button_0_5 = new Wrapper_Button(null, 'alert-button', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_5.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_5, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_5.context, [[].concat([this._text_1])], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -48209,26 +48140,24 @@ var _View_AlertCmp10 = (function (_super) {
     };
     _View_AlertCmp10.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgClass_0_4;
+            return this._NgClass_0_4.context;
         }
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_5;
+            return this._Button_0_5.context;
         }
         return notFoundResult;
     };
     _View_AlertCmp10.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_4.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_4.ngDoCheck();
+        this._NgClass_0_4.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        if (this._Button_0_5.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_5.ngAfterContentInit();
+                this._Button_0_5.context.ngAfterContentInit();
             }
         }
         var currVal_2 = interpolate(1, '', this.context.$implicit.text, '');
@@ -48249,11 +48178,41 @@ function viewFactory_AlertCmp10(viewUtils, parentInjector, declarationEl) {
     return new _View_AlertCmp10(viewUtils, parentInjector, declarationEl);
 }
 
+var Wrapper_OverlayPortal = (function () {
+    function Wrapper_OverlayPortal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+        this.changed = false;
+        this.context = new OverlayPortal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+    Wrapper_OverlayPortal.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_OverlayPortal;
+}());
+
 var __extends$123 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_IonicApp = (function () {
+    function Wrapper_IonicApp(p0, p1, p2, p3, p4, p5, p6) {
+        this.changed = false;
+        this.context = new IonicApp(p0, p1, p2, p3, p4, p5, p6);
+    }
+    Wrapper_IonicApp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_IonicApp;
+}());
 var renderType_IonicApp_Host = null;
 var _View_IonicApp_Host0 = (function (_super) {
     __extends$123(_View_IonicApp_Host0, _super);
@@ -48264,22 +48223,20 @@ var _View_IonicApp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-app', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_IonicApp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._IonicApp_0_4 = new IonicApp(this.parentInjector.get(AppRootToken), this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(Platform), this.parentInjector.get(App));
-        this._appEl_0.initComponent(this._IonicApp_0_4, [], compView_0);
-        compView_0.create(this._IonicApp_0_4, this.projectableNodes, null);
+        this._IonicApp_0_4 = new Wrapper_IonicApp(this.parentInjector.get(AppRootToken), this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(Platform), this.parentInjector.get(App));
+        this._appEl_0.initComponent(this._IonicApp_0_4.context, [], compView_0);
+        compView_0.create(this._IonicApp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_IonicApp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === IonicApp) && (0 === requestNodeIndex))) {
-            return this._IonicApp_0_4;
+            return this._IonicApp_0_4.context;
         }
         return notFoundResult;
     };
     _View_IonicApp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._IonicApp_0_4.ngOnInit();
-        }
+        this._IonicApp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48312,32 +48269,32 @@ var _View_IonicApp0 = (function (_super) {
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'overlay-portal', '');
         this._appEl_1 = new AppElement(1, null, this, this._el_1);
-        this._OverlayPortal_1_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_1), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_1.vcRef);
+        this._OverlayPortal_1_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_1), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_1.vcRef);
         this._el_2 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_2, 'overlay-portal', '');
         this._appEl_2 = new AppElement(2, null, this, this._el_2);
-        this._OverlayPortal_2_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_2), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_2.vcRef);
+        this._OverlayPortal_2_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_2), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_2.vcRef);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'loading-portal');
         this.renderer.setElementAttribute(this._el_3, 'overlay-portal', '');
         this._appEl_3 = new AppElement(3, null, this, this._el_3);
-        this._OverlayPortal_3_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_3), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_3.vcRef);
+        this._OverlayPortal_3_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_3), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_3.vcRef);
         this._el_4 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'toast-portal');
         this.renderer.setElementAttribute(this._el_4, 'overlay-portal', '');
         this._appEl_4 = new AppElement(4, null, this, this._el_4);
-        this._OverlayPortal_4_5 = new OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_4), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_4.vcRef);
+        this._OverlayPortal_4_5 = new Wrapper_OverlayPortal(this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_4), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null), this._appEl_4.vcRef);
         this._el_5 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'click-block');
         this._viewQuery_viewport_0.reset([this._appEl_0.vcRef]);
         this.context._viewport = this._viewQuery_viewport_0.first;
-        this._viewQuery_modalPortal_1.reset([this._OverlayPortal_1_5]);
+        this._viewQuery_modalPortal_1.reset([this._OverlayPortal_1_5.context]);
         this.context._modalPortal = this._viewQuery_modalPortal_1.first;
-        this._viewQuery_overlayPortal_2.reset([this._OverlayPortal_2_5]);
+        this._viewQuery_overlayPortal_2.reset([this._OverlayPortal_2_5.context]);
         this.context._overlayPortal = this._viewQuery_overlayPortal_2.first;
-        this._viewQuery_loadingPortal_3.reset([this._OverlayPortal_3_5]);
+        this._viewQuery_loadingPortal_3.reset([this._OverlayPortal_3_5.context]);
         this.context._loadingPortal = this._viewQuery_loadingPortal_3.first;
-        this._viewQuery_toastPortal_4.reset([this._OverlayPortal_4_5]);
+        this._viewQuery_toastPortal_4.reset([this._OverlayPortal_4_5.context]);
         this.context._toastPortal = this._viewQuery_toastPortal_4.first;
         this.init([], [
             this._el_0,
@@ -48351,33 +48308,122 @@ var _View_IonicApp0 = (function (_super) {
     };
     _View_IonicApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === OverlayPortal) && (1 === requestNodeIndex))) {
-            return this._OverlayPortal_1_5;
+            return this._OverlayPortal_1_5.context;
         }
         if (((token === OverlayPortal) && (2 === requestNodeIndex))) {
-            return this._OverlayPortal_2_5;
+            return this._OverlayPortal_2_5.context;
         }
         if (((token === OverlayPortal) && (3 === requestNodeIndex))) {
-            return this._OverlayPortal_3_5;
+            return this._OverlayPortal_3_5.context;
         }
         if (((token === OverlayPortal) && (4 === requestNodeIndex))) {
-            return this._OverlayPortal_4_5;
+            return this._OverlayPortal_4_5.context;
         }
         return notFoundResult;
+    };
+    _View_IonicApp0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._OverlayPortal_1_5.detectChangesInternal(this, this._el_1, throwOnChange);
+        this._OverlayPortal_2_5.detectChangesInternal(this, this._el_2, throwOnChange);
+        this._OverlayPortal_3_5.detectChangesInternal(this, this._el_3, throwOnChange);
+        this._OverlayPortal_4_5.detectChangesInternal(this, this._el_4, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_IonicApp0;
 }(AppView));
 function viewFactory_IonicApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_IonicApp === null)) {
-        (renderType_IonicApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/app/app-root.d.ts class IonicApp - inline template', 0, ViewEncapsulation.None, styles_IonicApp, {}));
+        (renderType_IonicApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_IonicApp, {}));
     }
     return new _View_IonicApp0(viewUtils, parentInjector, declarationEl);
 }
+
+var Wrapper_NgStyle = (function () {
+    function Wrapper_NgStyle(p0, p1, p2) {
+        this.changed = false;
+        this._ngStyle = UNINITIALIZED;
+        this.context = new NgStyle(p0, p1, p2);
+    }
+    Wrapper_NgStyle.prototype.check_ngStyle = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._ngStyle, currValue))) {
+            this.changed = true;
+            this.context.ngStyle = currValue;
+            this._ngStyle = currValue;
+        }
+    };
+    Wrapper_NgStyle.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            this.context.ngDoCheck();
+        }
+        return changed;
+    };
+    return Wrapper_NgStyle;
+}());
 
 var __extends$125 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Spinner = (function () {
+    function Wrapper_Spinner(p0, p1, p2) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._name = UNINITIALIZED;
+        this._duration = UNINITIALIZED;
+        this._paused = UNINITIALIZED;
+        this.context = new Spinner(p0, p1, p2);
+    }
+    Wrapper_Spinner.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_name = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._name, currValue))) {
+            this.changed = true;
+            this.context.name = currValue;
+            this._name = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_duration = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._duration, currValue))) {
+            this.changed = true;
+            this.context.duration = currValue;
+            this._duration = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.check_paused = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._paused, currValue))) {
+            this.changed = true;
+            this.context.paused = currValue;
+            this._paused = currValue;
+        }
+    };
+    Wrapper_Spinner.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Spinner;
+}());
 var renderType_Spinner_Host = null;
 var _View_Spinner_Host0 = (function (_super) {
     __extends$125(_View_Spinner_Host0, _super);
@@ -48388,25 +48434,25 @@ var _View_Spinner_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-spinner', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Spinner0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Spinner_0_4 = new Spinner(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Spinner_0_4, [], compView_0);
-        compView_0.create(this._Spinner_0_4, this.projectableNodes, null);
+        this._Spinner_0_4 = new Wrapper_Spinner(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Spinner_0_4.context, [], compView_0);
+        compView_0.create(this._Spinner_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Spinner_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Spinner) && (0 === requestNodeIndex))) {
-            return this._Spinner_0_4;
+            return this._Spinner_0_4.context;
         }
         return notFoundResult;
     };
     _View_Spinner_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_0_4.ngOnInit();
+        if (this._Spinner_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Spinner_0_4.paused;
+        var currVal_0 = this._Spinner_0_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_0, 'spinner-paused', currVal_0);
             this._expr_0 = currVal_0;
@@ -48434,13 +48480,11 @@ var _View_Spinner0 = (function (_super) {
         this._anchor_0 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_0 = new AppElement(0, null, this, this._anchor_0);
         this._TemplateRef_0_5 = new TemplateRef_(this._appEl_0, viewFactory_Spinner1);
-        this._NgFor_0_6 = new NgFor(this._appEl_0.vcRef, this._TemplateRef_0_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_0_6 = new Wrapper_NgFor(this._appEl_0.vcRef, this._TemplateRef_0_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_1 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_1 = new AppElement(1, null, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_Spinner2);
-        this._NgFor_1_6 = new NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parentInjector.get(IterableDiffers), this.ref);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
+        this._NgFor_1_6 = new Wrapper_NgFor(this._appEl_1.vcRef, this._TemplateRef_1_5, this.parentInjector.get(IterableDiffers), this.ref);
         this.init([], [
             this._anchor_0,
             this._anchor_1
@@ -48452,50 +48496,23 @@ var _View_Spinner0 = (function (_super) {
             return this._TemplateRef_0_5;
         }
         if (((token === NgFor) && (0 === requestNodeIndex))) {
-            return this._NgFor_0_6;
+            return this._NgFor_0_6.context;
         }
         if (((token === TemplateRef) && (1 === requestNodeIndex))) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgFor) && (1 === requestNodeIndex))) {
-            return this._NgFor_1_6;
+            return this._NgFor_1_6.context;
         }
         return notFoundResult;
     };
     _View_Spinner0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        changes = null;
         var currVal_0 = this.context._c;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgFor_0_6.ngForOf = currVal_0;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_0, currVal_0);
-            this._expr_0 = currVal_0;
-        }
-        if ((changes !== null)) {
-            this._NgFor_0_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_0_6.ngDoCheck();
-        }
-        changes = null;
+        this._NgFor_0_6.check_ngForOf(currVal_0, throwOnChange, false);
+        this._NgFor_0_6.detectChangesInternal(this, this._anchor_0, throwOnChange);
         var currVal_1 = this.context._l;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgFor_1_6.ngForOf = currVal_1;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_1, currVal_1);
-            this._expr_1 = currVal_1;
-        }
-        if ((changes !== null)) {
-            this._NgFor_1_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_1_6.ngDoCheck();
-        }
+        this._NgFor_1_6.check_ngForOf(currVal_1, throwOnChange, false);
+        this._NgFor_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48503,7 +48520,7 @@ var _View_Spinner0 = (function (_super) {
 }(AppView));
 function viewFactory_Spinner0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spinner === null)) {
-        (renderType_Spinner = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/spinner/spinner.d.ts class Spinner - inline template', 0, ViewEncapsulation.None, styles_Spinner, {}));
+        (renderType_Spinner = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Spinner, {}));
     }
     return new _View_Spinner0(viewUtils, parentInjector, declarationEl);
 }
@@ -48515,10 +48532,9 @@ var _View_Spinner1 = (function (_super) {
     _View_Spinner1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, ':svg:svg', null);
         this.renderer.setElementAttribute(this._el_0, 'viewBox', '0 0 64 64');
-        this._NgStyle_0_3 = new NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgStyle_0_3 = new Wrapper_NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(this._el_0, ':svg:circle', null);
         this.renderer.setElementAttribute(this._el_1, 'transform', 'translate(32,32)');
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -48528,19 +48544,14 @@ var _View_Spinner1 = (function (_super) {
     };
     _View_Spinner1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgStyle) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgStyle_0_3;
+            return this._NgStyle_0_3.context;
         }
         return notFoundResult;
     };
     _View_Spinner1.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.$implicit.style;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgStyle_0_3.ngStyle = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        if (!throwOnChange) {
-            this._NgStyle_0_3.ngDoCheck();
-        }
+        this._NgStyle_0_3.check_ngStyle(currVal_0, throwOnChange, false);
+        this._NgStyle_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.$implicit.r;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -48562,10 +48573,9 @@ var _View_Spinner2 = (function (_super) {
     _View_Spinner2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, ':svg:svg', null);
         this.renderer.setElementAttribute(this._el_0, 'viewBox', '0 0 64 64');
-        this._NgStyle_0_3 = new NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgStyle_0_3 = new Wrapper_NgStyle(this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(this._el_0, ':svg:line', null);
         this.renderer.setElementAttribute(this._el_1, 'transform', 'translate(32,32)');
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
@@ -48576,19 +48586,14 @@ var _View_Spinner2 = (function (_super) {
     };
     _View_Spinner2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgStyle) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._NgStyle_0_3;
+            return this._NgStyle_0_3.context;
         }
         return notFoundResult;
     };
     _View_Spinner2.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.$implicit.style;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgStyle_0_3.ngStyle = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        if (!throwOnChange) {
-            this._NgStyle_0_3.ngDoCheck();
-        }
+        this._NgStyle_0_3.check_ngStyle(currVal_0, throwOnChange, false);
+        this._NgStyle_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.$implicit.y1;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -48613,6 +48618,23 @@ var __extends$124 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_LoadingCmp = (function () {
+    function Wrapper_LoadingCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new LoadingCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_LoadingCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_LoadingCmp;
+}());
 var renderType_LoadingCmp_Host = null;
 var _View_LoadingCmp_Host0 = (function (_super) {
     __extends$124(_View_LoadingCmp_Host0, _super);
@@ -48624,22 +48646,20 @@ var _View_LoadingCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_LoadingCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._LoadingCmp_0_4 = new LoadingCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._LoadingCmp_0_4, [], compView_0);
-        compView_0.create(this._LoadingCmp_0_4, this.projectableNodes, null);
+        this._LoadingCmp_0_4 = new Wrapper_LoadingCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._LoadingCmp_0_4.context, [], compView_0);
+        compView_0.create(this._LoadingCmp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_LoadingCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === LoadingCmp) && (0 === requestNodeIndex))) {
-            return this._LoadingCmp_0_4;
+            return this._LoadingCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._LoadingCmp_0_4.ngOnInit();
-        }
+        this._LoadingCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -48665,20 +48685,18 @@ var _View_LoadingCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'loading-wrapper');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_LoadingCmp1);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this._anchor_3 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_3 = new AppElement(3, 1, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_LoadingCmp2);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._el_1,
@@ -48689,36 +48707,30 @@ var _View_LoadingCmp0 = (function (_super) {
     };
     _View_LoadingCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_1 = this.context.showSpinner;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_2_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         var currVal_2 = this.context.d.content;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgIf_3_6.ngIf = currVal_2;
-            this._expr_2 = currVal_2;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_2, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = !this.context.d.showBackdrop;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -48728,13 +48740,13 @@ var _View_LoadingCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_LoadingCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     return _View_LoadingCmp0;
 }(AppView));
 function viewFactory_LoadingCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LoadingCmp === null)) {
-        (renderType_LoadingCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/loading/loading-component.d.ts class LoadingCmp - inline template', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
+        (renderType_LoadingCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_LoadingCmp, {}));
     }
     return new _View_LoadingCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48749,10 +48761,9 @@ var _View_LoadingCmp1 = (function (_super) {
         this._el_1 = this.renderer.createElement(this._el_0, 'ion-spinner', null);
         this._appEl_1 = new AppElement(1, 0, this, this._el_1);
         var compView_1 = viewFactory_Spinner0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._Spinner_1_4 = new Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Spinner_1_4, [], compView_1);
-        compView_1.create(this._Spinner_1_4, [], null);
-        this._expr_0 = UNINITIALIZED;
+        this._Spinner_1_4 = new Wrapper_Spinner(this.parent.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Spinner_1_4.context, [], compView_1);
+        compView_1.create(this._Spinner_1_4.context, [], null);
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -48762,27 +48773,18 @@ var _View_LoadingCmp1 = (function (_super) {
     };
     _View_LoadingCmp1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Spinner) && (1 === requestNodeIndex))) {
-            return this._Spinner_1_4;
+            return this._Spinner_1_4.context;
         }
         return notFoundResult;
     };
     _View_LoadingCmp1.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
-        changed = false;
         var currVal_0 = this.parent.context.d.spinner;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Spinner_1_4.name = currVal_0;
-            changed = true;
-            this._expr_0 = currVal_0;
-        }
-        if (changed) {
+        this._Spinner_1_4.check_name(currVal_0, throwOnChange, false);
+        if (this._Spinner_1_4.detectChangesInternal(this, this._el_1, throwOnChange)) {
             this._appEl_1.componentView.markAsCheckOnce();
         }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Spinner_1_4.ngOnInit();
-        }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Spinner_1_4.paused;
+        var currVal_1 = this._Spinner_1_4.context.paused;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_1, 'spinner-paused', currVal_1);
             this._expr_1 = currVal_1;
@@ -48826,6 +48828,18 @@ var __extends$126 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ModalCmp = (function () {
+    function Wrapper_ModalCmp(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new ModalCmp(p0, p1, p2, p3);
+    }
+    Wrapper_ModalCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ModalCmp;
+}());
 var renderType_ModalCmp_Host = null;
 var _View_ModalCmp_Host0 = (function (_super) {
     __extends$126(_View_ModalCmp_Host0, _super);
@@ -48836,22 +48850,27 @@ var _View_ModalCmp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-modal', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ModalCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ModalCmp_0_4 = new ModalCmp(this.parentInjector.get(ComponentFactoryResolver), this.renderer, this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
-        this._appEl_0.initComponent(this._ModalCmp_0_4, [], compView_0);
-        compView_0.create(this._ModalCmp_0_4, this.projectableNodes, null);
+        this._ModalCmp_0_4 = new Wrapper_ModalCmp(this.parentInjector.get(ComponentFactoryResolver), this.renderer, this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
+        this._appEl_0.initComponent(this._ModalCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ModalCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_ModalCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ModalCmp) && (0 === requestNodeIndex))) {
-            return this._ModalCmp_0_4;
+            return this._ModalCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_ModalCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ModalCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_ModalCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._ModalCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._ModalCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_ModalCmp_Host0;
@@ -48878,14 +48897,13 @@ var _View_ModalCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disableScroll', 'false');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'modal-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
         this.renderer.setElementAttribute(this._el_2, 'nav-viewport', '');
         this._appEl_2 = new AppElement(2, 1, this, this._el_2);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._viewQuery_viewport_0.reset([this._appEl_2.vcRef]);
         this.context._viewport = this._viewQuery_viewport_0.first;
         this.init([], [
@@ -48897,24 +48915,19 @@ var _View_ModalCmp0 = (function (_super) {
     };
     _View_ModalCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         return notFoundResult;
     };
     _View_ModalCmp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = 'false';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._Backdrop_0_3.disableScroll = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.check_disableScroll(currVal_1, throwOnChange, false);
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_ModalCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_ModalCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -48925,7 +48938,7 @@ var _View_ModalCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ModalCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ModalCmp === null)) {
-        (renderType_ModalCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/modal/modal-component.d.ts class ModalCmp - inline template', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
+        (renderType_ModalCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ModalCmp, {}));
     }
     return new _View_ModalCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -48935,6 +48948,38 @@ var __extends$127 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_PickerColumnCmp = (function () {
+    function Wrapper_PickerColumnCmp(p0, p1, p2, p3) {
+        this.changed = false;
+        this._col = UNINITIALIZED;
+        this.context = new PickerColumnCmp(p0, p1, p2, p3);
+    }
+    Wrapper_PickerColumnCmp.prototype.check_col = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._col, currValue))) {
+            this.changed = true;
+            this.context.col = currValue;
+            this._col = currValue;
+        }
+    };
+    Wrapper_PickerColumnCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PickerColumnCmp;
+}());
+var Wrapper_PickerCmp = (function () {
+    function Wrapper_PickerCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new PickerCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_PickerCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PickerCmp;
+}());
 var renderType_PickerColumnCmp_Host = null;
 var _View_PickerColumnCmp_Host0 = (function (_super) {
     __extends$127(_View_PickerColumnCmp_Host0, _super);
@@ -48946,9 +48991,9 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
-        this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerColumnCmp_0_4, this.projectableNodes, null);
+        this._PickerColumnCmp_0_4 = new Wrapper_PickerColumnCmp(this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(DomSanitizer), this.parentInjector.get(Haptic));
+        this._appEl_0.initComponent(this._PickerColumnCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerColumnCmp_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
@@ -48957,23 +49002,24 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
     };
     _View_PickerColumnCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerColumnCmp) && (0 === requestNodeIndex))) {
-            return this._PickerColumnCmp_0_4;
+            return this._PickerColumnCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PickerColumnCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._PickerColumnCmp_0_4.col.columnWidth;
+        var currVal_0 = this._PickerColumnCmp_0_4.context.col.columnWidth;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementStyle(this._el_0, 'min-width', ((this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_0) == null) ? null : this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_0).toString()));
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = (this._PickerColumnCmp_0_4.col.align == 'left');
+        var currVal_1 = (this._PickerColumnCmp_0_4.context.col.align == 'left');
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-left', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = (this._PickerColumnCmp_0_4.col.align == 'right');
+        var currVal_2 = (this._PickerColumnCmp_0_4.context.col.align == 'right');
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-right', currVal_2);
             this._expr_2 = currVal_2;
@@ -48981,12 +49027,12 @@ var _View_PickerColumnCmp_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._PickerColumnCmp_0_4.ngAfterViewInit();
+                this._PickerColumnCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
     _View_PickerColumnCmp_Host0.prototype.destroyInternal = function () {
-        this._PickerColumnCmp_0_4.ngOnDestroy();
+        this._PickerColumnCmp_0_4.context.ngOnDestroy();
     };
     return _View_PickerColumnCmp_Host0;
 }(AppView));
@@ -49010,21 +49056,18 @@ var _View_PickerColumnCmp0 = (function (_super) {
         this._anchor_0 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_0 = new AppElement(0, null, this, this._anchor_0);
         this._TemplateRef_0_5 = new TemplateRef_(this._appEl_0, viewFactory_PickerColumnCmp1);
-        this._NgIf_0_6 = new NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
+        this._NgIf_0_6 = new Wrapper_NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'picker-opts');
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_PickerColumnCmp2);
-        this._NgFor_2_6 = new NgFor(this._appEl_2.vcRef, this._TemplateRef_2_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_2_6 = new Wrapper_NgFor(this._appEl_2.vcRef, this._TemplateRef_2_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._anchor_3 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_3 = new AppElement(3, null, this, this._anchor_3);
         this._TemplateRef_3_5 = new TemplateRef_(this._appEl_3, viewFactory_PickerColumnCmp3);
-        this._NgIf_3_6 = new NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
-        this._expr_0 = UNINITIALIZED;
+        this._NgIf_3_6 = new Wrapper_NgIf(this._appEl_3.vcRef, this._TemplateRef_3_5);
         this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
         this._viewQuery_colEle_0.reset([new ElementRef(this._el_1)]);
         this.context.colEle = this._viewQuery_colEle_0.first;
         this.init([], [
@@ -49040,50 +49083,32 @@ var _View_PickerColumnCmp0 = (function (_super) {
             return this._TemplateRef_0_5;
         }
         if (((token === NgIf) && (0 === requestNodeIndex))) {
-            return this._NgIf_0_6;
+            return this._NgIf_0_6.context;
         }
         if (((token === TemplateRef) && (2 === requestNodeIndex))) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgFor) && (2 === requestNodeIndex))) {
-            return this._NgFor_2_6;
+            return this._NgFor_2_6.context;
         }
         if (((token === TemplateRef) && (3 === requestNodeIndex))) {
             return this._TemplateRef_3_5;
         }
         if (((token === NgIf) && (3 === requestNodeIndex))) {
-            return this._NgIf_3_6;
+            return this._NgIf_3_6.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
         var currVal_0 = this.context.col.prefix;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgIf_0_6.ngIf = currVal_0;
-            this._expr_0 = currVal_0;
-        }
-        changes = null;
+        this._NgIf_0_6.check_ngIf(currVal_0, throwOnChange, false);
+        this._NgIf_0_6.detectChangesInternal(this, this._anchor_0, throwOnChange);
         var currVal_2 = this.context.col.options;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_2_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_2_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_2_6.ngDoCheck();
-        }
+        this._NgFor_2_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
         var currVal_3 = this.context.col.suffix;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_3_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgIf_3_6.check_ngIf(currVal_3, throwOnChange, false);
+        this._NgIf_3_6.detectChangesInternal(this, this._anchor_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = this.context.col.optionsWidth;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -49096,7 +49121,7 @@ var _View_PickerColumnCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerColumnCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerColumnCmp === null)) {
-        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerColumnCmp - inline template', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
+        (renderType_PickerColumnCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerColumnCmp, {}));
     }
     return new _View_PickerColumnCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49147,10 +49172,10 @@ var _View_PickerColumnCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'type', 'button');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, 'picker-opt', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, 'picker-opt', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_4.context, [[].concat([this._text_1])], null);
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
@@ -49167,15 +49192,18 @@ var _View_PickerColumnCmp2 = (function (_super) {
     };
     _View_PickerColumnCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerColumnCmp2.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_1 = this.context.$implicit._trans;
@@ -49272,22 +49300,27 @@ var _View_PickerCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerCmp_0_4 = new PickerCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._PickerCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerCmp_0_4, this.projectableNodes, null);
+        this._PickerCmp_0_4 = new Wrapper_PickerCmp(this.parentInjector.get(ViewController), new ElementRef(this._el_0), this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._PickerCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_PickerCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerCmp) && (0 === requestNodeIndex))) {
-            return this._PickerCmp_0_4;
+            return this._PickerCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_PickerCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PickerCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_PickerCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._PickerCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._PickerCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_PickerCmp_Host0;
@@ -49314,7 +49347,7 @@ var _View_PickerCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_1, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_1, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_1, 'tappable', '');
-        this._Backdrop_1_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
+        this._Backdrop_1_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_1), this.renderer);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n    ', null);
         this._el_3 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'picker-wrapper');
@@ -49325,7 +49358,7 @@ var _View_PickerCmp0 = (function (_super) {
         this._anchor_7 = this.renderer.createTemplateAnchor(this._el_5, null);
         this._appEl_7 = new AppElement(7, 5, this, this._anchor_7);
         this._TemplateRef_7_5 = new TemplateRef_(this._appEl_7, viewFactory_PickerCmp1);
-        this._NgFor_7_6 = new NgFor(this._appEl_7.vcRef, this._TemplateRef_7_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_7_6 = new Wrapper_NgFor(this._appEl_7.vcRef, this._TemplateRef_7_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_8 = this.renderer.createText(this._el_5, '\n      ', null);
         this._text_9 = this.renderer.createText(this._el_3, '\n      ', null);
         this._el_10 = this.renderer.createElement(this._el_3, 'div', null);
@@ -49337,7 +49370,7 @@ var _View_PickerCmp0 = (function (_super) {
         this._anchor_14 = this.renderer.createTemplateAnchor(this._el_10, null);
         this._appEl_14 = new AppElement(14, 10, this, this._anchor_14);
         this._TemplateRef_14_5 = new TemplateRef_(this._appEl_14, viewFactory_PickerCmp2);
-        this._NgFor_14_6 = new NgFor(this._appEl_14.vcRef, this._TemplateRef_14_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_14_6 = new Wrapper_NgFor(this._appEl_14.vcRef, this._TemplateRef_14_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_15 = this.renderer.createText(this._el_10, '\n        ', null);
         this._el_16 = this.renderer.createElement(this._el_10, 'div', null);
         this.renderer.setElementAttribute(this._el_16, 'class', 'picker-below-highlight');
@@ -49345,8 +49378,6 @@ var _View_PickerCmp0 = (function (_super) {
         this._text_18 = this.renderer.createText(this._el_3, '\n    ', null);
         this._text_19 = this.renderer.createText(parentRenderNode, '\n  ', null);
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
-        this._expr_2 = UNINITIALIZED;
         this.init([], [
             this._text_0,
             this._el_1,
@@ -49373,65 +49404,36 @@ var _View_PickerCmp0 = (function (_super) {
     };
     _View_PickerCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (1 === requestNodeIndex))) {
-            return this._Backdrop_1_3;
+            return this._Backdrop_1_3.context;
         }
         if (((token === TemplateRef) && (7 === requestNodeIndex))) {
             return this._TemplateRef_7_5;
         }
         if (((token === NgFor) && (7 === requestNodeIndex))) {
-            return this._NgFor_7_6;
+            return this._NgFor_7_6.context;
         }
         if (((token === TemplateRef) && (14 === requestNodeIndex))) {
             return this._TemplateRef_14_5;
         }
         if (((token === NgFor) && (14 === requestNodeIndex))) {
-            return this._NgFor_14_6;
+            return this._NgFor_14_6.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_1_3.ngOnInit();
-        }
-        changes = null;
+        this._Backdrop_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
         var currVal_1 = this.context.d.buttons;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgFor_7_6.ngForOf = currVal_1;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_1, currVal_1);
-            this._expr_1 = currVal_1;
-        }
-        if ((changes !== null)) {
-            this._NgFor_7_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_7_6.ngDoCheck();
-        }
-        changes = null;
+        this._NgFor_7_6.check_ngForOf(currVal_1, throwOnChange, false);
+        this._NgFor_7_6.detectChangesInternal(this, this._anchor_7, throwOnChange);
         var currVal_2 = this.context.d.columns;
-        if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
-            this._NgFor_14_6.ngForOf = currVal_2;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_2, currVal_2);
-            this._expr_2 = currVal_2;
-        }
-        if ((changes !== null)) {
-            this._NgFor_14_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_14_6.ngDoCheck();
-        }
+        this._NgFor_14_6.check_ngForOf(currVal_2, throwOnChange, false);
+        this._NgFor_14_6.detectChangesInternal(this, this._anchor_14, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._viewQuery_PickerColumnCmp_0.dirty) {
                 this._viewQuery_PickerColumnCmp_0.reset([this._appEl_14.mapNestedViews(_View_PickerCmp2, function (nestedView) {
-                        return [nestedView._PickerColumnCmp_0_4];
+                        return [nestedView._PickerColumnCmp_0_4.context];
                     })]);
                 this.context._cols = this._viewQuery_PickerColumnCmp_0;
                 this._viewQuery_PickerColumnCmp_0.notifyOnChanges();
@@ -49439,7 +49441,7 @@ var _View_PickerCmp0 = (function (_super) {
         }
     };
     _View_PickerCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_1_3.ngOnDestroy();
+        this._Backdrop_1_3.context.ngOnDestroy();
     };
     _View_PickerCmp0.prototype._handle_click_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49450,7 +49452,7 @@ var _View_PickerCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PickerCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PickerCmp === null)) {
-        (renderType_PickerCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/picker/picker-component.d.ts class PickerCmp - inline template', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
+        (renderType_PickerCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PickerCmp, {}));
     }
     return new _View_PickerCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49462,7 +49464,7 @@ var _View_PickerCmp1 = (function (_super) {
     _View_PickerCmp1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-toolbar-button');
-        this._NgClass_0_3 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._text_1 = this.renderer.createText(this._el_0, '\n          ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'button', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'picker-button');
@@ -49470,18 +49472,13 @@ var _View_PickerCmp1 = (function (_super) {
         this.renderer.setElementAttribute(this._el_2, 'ion-button', '');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Button0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._NgClass_2_4 = new NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_2), this.renderer);
-        this._Button_2_5 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._appEl_2.initComponent(this._Button_2_5, [], compView_2);
+        this._NgClass_2_4 = new Wrapper_NgClass(this.parent.parentInjector.get(IterableDiffers), this.parent.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_2), this.renderer);
+        this._Button_2_5 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._appEl_2.initComponent(this._Button_2_5.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '', null);
-        compView_2.create(this._Button_2_5, [[].concat([this._text_3])], null);
+        compView_2.create(this._Button_2_5.context, [[].concat([this._text_3])], null);
         this._text_4 = this.renderer.createText(this._el_0, '\n        ', null);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_2, 'click', this.eventHandler(this._handle_click_2_0.bind(this)));
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
         this._expr_6 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -49494,58 +49491,36 @@ var _View_PickerCmp1 = (function (_super) {
     };
     _View_PickerCmp1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._NgClass_2_4;
+            return this._NgClass_2_4.context;
         }
         if (((token === Button) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 3)))) {
-            return this._Button_2_5;
+            return this._Button_2_5.context;
         }
         if (((token === NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp1.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
         var currVal_0 = 'picker-toolbar-button';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = this.context.$implicit.cssRole;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_3 = 'picker-button';
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgClass_2_4.klass = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgClass_2_4.check_klass(currVal_3, throwOnChange, false);
         var currVal_4 = this.context.$implicit.cssClass;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgClass_2_4.ngClass = currVal_4;
-            this._expr_4 = currVal_4;
-        }
-        if (!throwOnChange) {
-            this._NgClass_2_4.ngDoCheck();
-        }
-        changed = false;
+        this._NgClass_2_4.check_ngClass(currVal_4, throwOnChange, false);
+        this._NgClass_2_4.detectChangesInternal(this, this._el_2, throwOnChange);
         var currVal_5 = '';
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._Button_2_5.clear = currVal_5;
-            changed = true;
-            this._expr_5 = currVal_5;
-        }
-        if (changed) {
+        this._Button_2_5.check_clear(currVal_5, throwOnChange, false);
+        if (this._Button_2_5.detectChangesInternal(this, this._el_2, throwOnChange)) {
             this._appEl_2.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_2_5.ngAfterContentInit();
+                this._Button_2_5.context.ngAfterContentInit();
             }
         }
         var currVal_6 = interpolate(1, '\n            ', this.context.$implicit.text, '\n          ');
@@ -49575,42 +49550,39 @@ var _View_PickerCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'picker-col');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PickerColumnCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PickerColumnCmp_0_4 = new PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
-        this._appEl_0.initComponent(this._PickerColumnCmp_0_4, [], compView_0);
-        compView_0.create(this._PickerColumnCmp_0_4, [], null);
+        this._PickerColumnCmp_0_4 = new Wrapper_PickerColumnCmp(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.parent.parentInjector.get(DomSanitizer), this.parent.parentInjector.get(Haptic));
+        this._appEl_0.initComponent(this._PickerColumnCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PickerColumnCmp_0_4.context, [], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'ionChange', this.eventHandler(this._handle_ionChange_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
-        var subscription_0 = this._PickerColumnCmp_0_4.ionChange.subscribe(this.eventHandler(this._handle_ionChange_0_0.bind(this)));
+        var subscription_0 = this._PickerColumnCmp_0_4.context.ionChange.subscribe(this.eventHandler(this._handle_ionChange_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], [subscription_0]);
         return null;
     };
     _View_PickerCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PickerColumnCmp) && (0 === requestNodeIndex))) {
-            return this._PickerColumnCmp_0_4;
+            return this._PickerColumnCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_PickerCmp2.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_1 = this.context.$implicit;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._PickerColumnCmp_0_4.col = currVal_1;
-            this._expr_1 = currVal_1;
-        }
+        this._PickerColumnCmp_0_4.check_col(currVal_1, throwOnChange, false);
+        this._PickerColumnCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_2 = this._PickerColumnCmp_0_4.col.columnWidth;
+        var currVal_2 = this._PickerColumnCmp_0_4.context.col.columnWidth;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementStyle(this._el_0, 'min-width', ((this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_2) == null) ? null : this.viewUtils.sanitizer.sanitize(SecurityContext.STYLE, currVal_2).toString()));
             this._expr_2 = currVal_2;
         }
-        var currVal_3 = (this._PickerColumnCmp_0_4.col.align == 'left');
+        var currVal_3 = (this._PickerColumnCmp_0_4.context.col.align == 'left');
         if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-left', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_4 = (this._PickerColumnCmp_0_4.col.align == 'right');
+        var currVal_4 = (this._PickerColumnCmp_0_4.context.col.align == 'right');
         if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this.renderer.setElementClass(this._el_0, 'picker-opts-right', currVal_4);
             this._expr_4 = currVal_4;
@@ -49618,7 +49590,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._PickerColumnCmp_0_4.ngAfterViewInit();
+                this._PickerColumnCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -49626,7 +49598,7 @@ var _View_PickerCmp2 = (function (_super) {
         this.parent._viewQuery_PickerColumnCmp_0.setDirty();
     };
     _View_PickerCmp2.prototype.destroyInternal = function () {
-        this._PickerColumnCmp_0_4.ngOnDestroy();
+        this._PickerColumnCmp_0_4.context.ngOnDestroy();
     };
     _View_PickerCmp2.prototype._handle_ionChange_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49644,6 +49616,18 @@ var __extends$128 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_PopoverCmp = (function () {
+    function Wrapper_PopoverCmp(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this.context = new PopoverCmp(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_PopoverCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_PopoverCmp;
+}());
 var renderType_PopoverCmp_Host = null;
 var _View_PopoverCmp_Host0 = (function (_super) {
     __extends$128(_View_PopoverCmp_Host0, _super);
@@ -49654,22 +49638,27 @@ var _View_PopoverCmp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-popover', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PopoverCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._PopoverCmp_0_4 = new PopoverCmp(this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
-        this._appEl_0.initComponent(this._PopoverCmp_0_4, [], compView_0);
-        compView_0.create(this._PopoverCmp_0_4, this.projectableNodes, null);
+        this._PopoverCmp_0_4 = new Wrapper_PopoverCmp(this.parentInjector.get(ComponentFactoryResolver), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Config), this.parentInjector.get(NavParams), this.parentInjector.get(ViewController));
+        this._appEl_0.initComponent(this._PopoverCmp_0_4.context, [], compView_0);
+        compView_0.create(this._PopoverCmp_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listenGlobal('body', 'keyup', this.eventHandler(this._handle_keyup_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_PopoverCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === PopoverCmp) && (0 === requestNodeIndex))) {
-            return this._PopoverCmp_0_4;
+            return this._PopoverCmp_0_4.context;
         }
         return notFoundResult;
     };
+    _View_PopoverCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._PopoverCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_PopoverCmp_Host0.prototype._handle_keyup_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._PopoverCmp_0_4._keyUp($event) !== false);
+        var pd_0 = (this._PopoverCmp_0_4.context._keyUp($event) !== false);
         return (true && pd_0);
     };
     return _View_PopoverCmp_Host0;
@@ -49695,7 +49684,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'disable-activated', '');
         this.renderer.setElementAttribute(this._el_0, 'role', 'presentation');
         this.renderer.setElementAttribute(this._el_0, 'tappable', '');
-        this._Backdrop_0_3 = new Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
+        this._Backdrop_0_3 = new Wrapper_Backdrop(this.parentInjector.get(GestureController), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'popover-wrapper');
         this._el_2 = this.renderer.createElement(this._el_1, 'div', null);
@@ -49723,14 +49712,12 @@ var _View_PopoverCmp0 = (function (_super) {
     };
     _View_PopoverCmp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Backdrop) && (0 === requestNodeIndex))) {
-            return this._Backdrop_0_3;
+            return this._Backdrop_0_3.context;
         }
         return notFoundResult;
     };
     _View_PopoverCmp0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Backdrop_0_3.ngOnInit();
-        }
+        this._Backdrop_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = !this.context.d.showBackdrop;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -49740,7 +49727,7 @@ var _View_PopoverCmp0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_PopoverCmp0.prototype.destroyInternal = function () {
-        this._Backdrop_0_3.ngOnDestroy();
+        this._Backdrop_0_3.context.ngOnDestroy();
     };
     _View_PopoverCmp0.prototype._handle_click_0_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -49751,7 +49738,7 @@ var _View_PopoverCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_PopoverCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PopoverCmp === null)) {
-        (renderType_PopoverCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/popover/popover-component.d.ts class PopoverCmp - inline template', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
+        (renderType_PopoverCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_PopoverCmp, {}));
     }
     return new _View_PopoverCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49761,6 +49748,18 @@ var __extends$129 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ToastCmp = (function () {
+    function Wrapper_ToastCmp(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new ToastCmp(p0, p1, p2, p3, p4);
+    }
+    Wrapper_ToastCmp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ToastCmp;
+}());
 var renderType_ToastCmp_Host = null;
 var _View_ToastCmp_Host0 = (function (_super) {
     __extends$129(_View_ToastCmp_Host0, _super);
@@ -49772,9 +49771,9 @@ var _View_ToastCmp_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'role', 'dialog');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ToastCmp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ToastCmp_0_4 = new ToastCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
-        this._appEl_0.initComponent(this._ToastCmp_0_4, [], compView_0);
-        compView_0.create(this._ToastCmp_0_4, this.projectableNodes, null);
+        this._ToastCmp_0_4 = new Wrapper_ToastCmp(this.parentInjector.get(ViewController), this.parentInjector.get(Config), new ElementRef(this._el_0), this.parentInjector.get(NavParams), this.renderer);
+        this._appEl_0.initComponent(this._ToastCmp_0_4.context, [], compView_0);
+        compView_0.create(this._ToastCmp_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
@@ -49782,18 +49781,19 @@ var _View_ToastCmp_Host0 = (function (_super) {
     };
     _View_ToastCmp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToastCmp) && (0 === requestNodeIndex))) {
-            return this._ToastCmp_0_4;
+            return this._ToastCmp_0_4.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ToastCmp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._ToastCmp_0_4.hdrId;
+        var currVal_0 = this._ToastCmp_0_4.context.hdrId;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-labelledby', ((currVal_0 == null) ? null : currVal_0.toString()));
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._ToastCmp_0_4.descId;
+        var currVal_1 = this._ToastCmp_0_4.context.descId;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementAttribute(this._el_0, 'aria-describedby', ((currVal_1 == null) ? null : currVal_1.toString()));
             this._expr_1 = currVal_1;
@@ -49801,7 +49801,7 @@ var _View_ToastCmp_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._ToastCmp_0_4.ngAfterViewInit();
+                this._ToastCmp_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -49832,19 +49832,17 @@ var _View_ToastCmp0 = (function (_super) {
         this._anchor_4 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_4 = new AppElement(4, 2, this, this._anchor_4);
         this._TemplateRef_4_5 = new TemplateRef_(this._appEl_4, viewFactory_ToastCmp1);
-        this._NgIf_4_6 = new NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
+        this._NgIf_4_6 = new Wrapper_NgIf(this._appEl_4.vcRef, this._TemplateRef_4_5);
         this._text_5 = this.renderer.createText(this._el_2, ' ', null);
         this._anchor_6 = this.renderer.createTemplateAnchor(this._el_2, null);
         this._appEl_6 = new AppElement(6, 2, this, this._anchor_6);
         this._TemplateRef_6_5 = new TemplateRef_(this._appEl_6, viewFactory_ToastCmp2);
-        this._NgIf_6_6 = new NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
+        this._NgIf_6_6 = new Wrapper_NgIf(this._appEl_6.vcRef, this._TemplateRef_6_5);
         this._text_7 = this.renderer.createText(this._el_2, ' ', null);
         this._text_8 = this.renderer.createText(this._el_0, ' ', null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
-        this._expr_3 = UNINITIALIZED;
-        this._expr_4 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -49863,27 +49861,23 @@ var _View_ToastCmp0 = (function (_super) {
             return this._TemplateRef_4_5;
         }
         if (((token === NgIf) && (4 === requestNodeIndex))) {
-            return this._NgIf_4_6;
+            return this._NgIf_4_6.context;
         }
         if (((token === TemplateRef) && (6 === requestNodeIndex))) {
             return this._TemplateRef_6_5;
         }
         if (((token === NgIf) && (6 === requestNodeIndex))) {
-            return this._NgIf_6_6;
+            return this._NgIf_6_6.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_3 = this.context.d.message;
-        if (checkBinding(throwOnChange, this._expr_3, currVal_3)) {
-            this._NgIf_4_6.ngIf = currVal_3;
-            this._expr_3 = currVal_3;
-        }
+        this._NgIf_4_6.check_ngIf(currVal_3, throwOnChange, false);
+        this._NgIf_4_6.detectChangesInternal(this, this._anchor_4, throwOnChange);
         var currVal_4 = this.context.d.showCloseButton;
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgIf_6_6.ngIf = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgIf_6_6.check_ngIf(currVal_4, throwOnChange, false);
+        this._NgIf_6_6.detectChangesInternal(this, this._anchor_6, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = (this.context.d.position === 'bottom');
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -49906,7 +49900,7 @@ var _View_ToastCmp0 = (function (_super) {
 }(AppView));
 function viewFactory_ToastCmp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToastCmp === null)) {
-        (renderType_ToastCmp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toast/toast-component.d.ts class ToastCmp - inline template', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
+        (renderType_ToastCmp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ToastCmp, {}));
     }
     return new _View_ToastCmp0(viewUtils, parentInjector, declarationEl);
 }
@@ -49958,12 +49952,11 @@ var _View_ToastCmp2 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'ion-button', '');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Button0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Button_0_4 = new Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Button_0_4, [], compView_0);
+        this._Button_0_4 = new Wrapper_Button(null, '', this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Button_0_4.context, [], compView_0);
         this._text_1 = this.renderer.createText(null, '', null);
-        compView_0.create(this._Button_0_4, [[].concat([this._text_1])], null);
+        compView_0.create(this._Button_0_4.context, [[].concat([this._text_1])], null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
-        this._expr_1 = UNINITIALIZED;
         this._expr_2 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -49973,26 +49966,20 @@ var _View_ToastCmp2 = (function (_super) {
     };
     _View_ToastCmp2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Button) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Button_0_4;
+            return this._Button_0_4.context;
         }
         return notFoundResult;
     };
     _View_ToastCmp2.prototype.detectChangesInternal = function (throwOnChange) {
-        var changed = true;
-        changed = false;
         var currVal_1 = '';
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._Button_0_4.clear = currVal_1;
-            changed = true;
-            this._expr_1 = currVal_1;
-        }
-        if (changed) {
+        this._Button_0_4.check_clear(currVal_1, throwOnChange, false);
+        if (this._Button_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
             this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_0_4.ngAfterContentInit();
+                this._Button_0_4.context.ngAfterContentInit();
             }
         }
         var currVal_2 = interpolate(1, ' ', (this.parent.context.d.closeButtonText || 'Close'), ' ');
@@ -50018,9 +50005,193 @@ var __extends$131 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Header = (function () {
+    function Wrapper_Header(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new Header(p0, p1, p2, p3);
+    }
+    Wrapper_Header.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Header;
+}());
+
+var Wrapper_Toolbar = (function () {
+    function Wrapper_Toolbar(p0, p1, p2, p3) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this.context = new Toolbar(p0, p1, p2, p3);
+    }
+    Wrapper_Toolbar.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Toolbar.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Toolbar.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Toolbar;
+}());
+var renderType_Toolbar_Host = null;
+var _View_Toolbar_Host0 = (function (_super) {
+    __extends$131(_View_Toolbar_Host0, _super);
+    function _View_Toolbar_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Toolbar_Host0, renderType_Toolbar_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
+    }
+    _View_Toolbar_Host0.prototype.createInternal = function (rootSelector) {
+        this._el_0 = this.selectOrCreateHostElement('ion-toolbar', rootSelector, null);
+        this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar');
+        this._appEl_0 = new AppElement(0, null, this, this._el_0);
+        var compView_0 = viewFactory_Toolbar0(this.viewUtils, this.injector(0), this._appEl_0);
+        this._Toolbar_0_4 = new Wrapper_Toolbar(this.parentInjector.get(ViewController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Toolbar_0_4.context, [], compView_0);
+        compView_0.create(this._Toolbar_0_4.context, this.projectableNodes, null);
+        this._expr_0 = UNINITIALIZED;
+        this.init([].concat([this._el_0]), [this._el_0], [], []);
+        return this._appEl_0;
+    };
+    _View_Toolbar_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+        if (((token === Toolbar) && (0 === requestNodeIndex))) {
+            return this._Toolbar_0_4.context;
+        }
+        return notFoundResult;
+    };
+    _View_Toolbar_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Toolbar_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
+        this.detectContentChildrenChanges(throwOnChange);
+        var currVal_0 = this._Toolbar_0_4.context._sbPadding;
+        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
+            this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_0);
+            this._expr_0 = currVal_0;
+        }
+        this.detectViewChildrenChanges(throwOnChange);
+    };
+    return _View_Toolbar_Host0;
+}(AppView));
+function viewFactory_Toolbar_Host0(viewUtils, parentInjector, declarationEl) {
+    if ((renderType_Toolbar_Host === null)) {
+        (renderType_Toolbar_Host = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, [], {}));
+    }
+    return new _View_Toolbar_Host0(viewUtils, parentInjector, declarationEl);
+}
+var ToolbarNgFactory = new ComponentFactory('ion-toolbar', viewFactory_Toolbar_Host0, Toolbar);
+var styles_Toolbar = [];
+var renderType_Toolbar = null;
+var _View_Toolbar0 = (function (_super) {
+    __extends$131(_View_Toolbar0, _super);
+    function _View_Toolbar0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Toolbar0, renderType_Toolbar, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
+    }
+    _View_Toolbar0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+        this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-background');
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[0]));
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[1]));
+        this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[2]));
+        this._el_1 = this.renderer.createElement(parentRenderNode, 'div', null);
+        this.renderer.setElementAttribute(this._el_1, 'class', 'toolbar-content');
+        this._NgClass_1_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this.renderer.projectNodes(this._el_1, flattenNestedViewRenderNodes(this.projectableNodes[3]));
+        this.init([], [
+            this._el_0,
+            this._el_1
+        ], [], []);
+        return null;
+    };
+    _View_Toolbar0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+        if (((token === NgClass) && (0 === requestNodeIndex))) {
+            return this._NgClass_0_3.context;
+        }
+        if (((token === NgClass) && (1 === requestNodeIndex))) {
+            return this._NgClass_1_3.context;
+        }
+        return notFoundResult;
+    };
+    _View_Toolbar0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = 'toolbar-background';
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
+        var currVal_1 = ('toolbar-background-' + this.context._mode);
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        var currVal_2 = 'toolbar-content';
+        this._NgClass_1_3.check_klass(currVal_2, throwOnChange, false);
+        var currVal_3 = ('toolbar-content-' + this.context._mode);
+        this._NgClass_1_3.check_ngClass(currVal_3, throwOnChange, false);
+        this._NgClass_1_3.detectChangesInternal(this, this._el_1, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
+    return _View_Toolbar0;
+}(AppView));
+function viewFactory_Toolbar0(viewUtils, parentInjector, declarationEl) {
+    if ((renderType_Toolbar === null)) {
+        (renderType_Toolbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Toolbar, {}));
+    }
+    return new _View_Toolbar0(viewUtils, parentInjector, declarationEl);
+}
+
+var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Wrapper_Navbar = (function () {
+    function Wrapper_Navbar(p0, p1, p2, p3, p4, p5) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._hideBackButton = UNINITIALIZED;
+        this.context = new Navbar(p0, p1, p2, p3, p4, p5);
+    }
+    Wrapper_Navbar.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.check_hideBackButton = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._hideBackButton, currValue))) {
+            this.changed = true;
+            this.context.hideBackButton = currValue;
+            this._hideBackButton = currValue;
+        }
+    };
+    Wrapper_Navbar.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Navbar;
+}());
 var renderType_Navbar_Host = null;
 var _View_Navbar_Host0 = (function (_super) {
-    __extends$131(_View_Navbar_Host0, _super);
+    __extends$132(_View_Navbar_Host0, _super);
     function _View_Navbar_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar_Host0, renderType_Navbar_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50029,9 +50200,9 @@ var _View_Navbar_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Navbar0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Navbar_0_4 = new Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._appEl_0.initComponent(this._Navbar_0_4, [], compView_0);
-        compView_0.create(this._Navbar_0_4, this.projectableNodes, null);
+        this._Navbar_0_4 = new Wrapper_Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._appEl_0.initComponent(this._Navbar_0_4.context, [], compView_0);
+        compView_0.create(this._Navbar_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
@@ -50039,18 +50210,19 @@ var _View_Navbar_Host0 = (function (_super) {
     };
     _View_Navbar_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Navbar) && (0 === requestNodeIndex))) {
-            return this._Navbar_0_4;
+            return this._Navbar_0_4.context;
         }
         return notFoundResult;
     };
     _View_Navbar_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Navbar_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Navbar_0_4._hidden;
+        var currVal_0 = this._Navbar_0_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementProperty(this._el_0, 'hidden', currVal_0);
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._Navbar_0_4._sbPadding;
+        var currVal_1 = this._Navbar_0_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_1);
             this._expr_1 = currVal_1;
@@ -50058,7 +50230,7 @@ var _View_Navbar_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Navbar_0_4.ngAfterViewInit();
+                this._Navbar_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -50074,7 +50246,7 @@ var NavbarNgFactory = new ComponentFactory('ion-navbar', viewFactory_Navbar_Host
 var styles_Navbar = [];
 var renderType_Navbar = null;
 var _View_Navbar0 = (function (_super) {
-    __extends$131(_View_Navbar0, _super);
+    __extends$132(_View_Navbar0, _super);
     function _View_Navbar0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Navbar0, renderType_Navbar, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50083,47 +50255,36 @@ var _View_Navbar0 = (function (_super) {
         this._viewQuery_bbTxt_0 = new QueryList();
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-background');
-        this._NgClass_0_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'button', null);
         this.renderer.setElementAttribute(this._el_1, 'class', 'back-button');
         this.renderer.setElementAttribute(this._el_1, 'ion-button', 'bar-button');
         this._appEl_1 = new AppElement(1, null, this, this._el_1);
         var compView_1 = viewFactory_Button0(this.viewUtils, this.injector(1), this._appEl_1);
-        this._NgClass_1_4 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
-        this._Button_1_5 = new Button(null, 'bar-button', this.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
-        this._appEl_1.initComponent(this._Button_1_5, [], compView_1);
+        this._NgClass_1_4 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_1), this.renderer);
+        this._Button_1_5 = new Wrapper_Button(null, 'bar-button', this.parentInjector.get(Config), new ElementRef(this._el_1), this.renderer);
+        this._appEl_1.initComponent(this._Button_1_5.context, [], compView_1);
         this._el_2 = this.renderer.createElement(null, 'span', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'button-inner');
         this._el_3 = this.renderer.createElement(this._el_2, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_3, 'class', 'back-button-icon');
         this.renderer.setElementAttribute(this._el_3, 'role', 'img');
-        this._NgClass_3_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_3), this.renderer);
-        this._Icon_3_4 = new Icon(this.parentInjector.get(Config), new ElementRef(this._el_3), this.renderer);
+        this._NgClass_3_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_3), this.renderer);
+        this._Icon_3_4 = new Wrapper_Icon(this.parentInjector.get(Config), new ElementRef(this._el_3), this.renderer);
         this._el_4 = this.renderer.createElement(this._el_2, 'span', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'back-button-text');
-        this._NgClass_4_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_4), this.renderer);
-        compView_1.create(this._Button_1_5, [[].concat([this._el_2])], null);
+        this._NgClass_4_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_4), this.renderer);
+        compView_1.create(this._Button_1_5.context, [[].concat([this._el_2])], null);
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[0]));
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[1]));
         this.renderer.projectNodes(parentRenderNode, flattenNestedViewRenderNodes(this.projectableNodes[2]));
         this._el_5 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_5, 'class', 'toolbar-content');
-        this._NgClass_5_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_5), this.renderer);
+        this._NgClass_5_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_5), this.renderer);
         this.renderer.projectNodes(this._el_5, flattenNestedViewRenderNodes(this.projectableNodes[3]));
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_1, 'click', this.eventHandler(this._handle_click_1_0.bind(this)));
-        this._expr_4 = UNINITIALIZED;
-        this._expr_5 = UNINITIALIZED;
-        this._expr_6 = UNINITIALIZED;
-        this._expr_7 = UNINITIALIZED;
-        this._expr_8 = UNINITIALIZED;
         this._expr_9 = UNINITIALIZED;
-        this._expr_10 = UNINITIALIZED;
-        this._expr_11 = UNINITIALIZED;
-        this._expr_12 = UNINITIALIZED;
-        this._expr_13 = UNINITIALIZED;
         this._viewQuery_bbTxt_0.reset([new ElementRef(this._el_4)]);
         this.context._bbTxt = this._viewQuery_bbTxt_0.first;
         this.init([], [
@@ -50138,103 +50299,64 @@ var _View_Navbar0 = (function (_super) {
     };
     _View_Navbar0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && (0 === requestNodeIndex))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         if (((token === NgClass) && (3 === requestNodeIndex))) {
-            return this._NgClass_3_3;
+            return this._NgClass_3_3.context;
         }
         if (((token === Icon) && (3 === requestNodeIndex))) {
-            return this._Icon_3_4;
+            return this._Icon_3_4.context;
         }
         if (((token === NgClass) && (4 === requestNodeIndex))) {
-            return this._NgClass_4_3;
+            return this._NgClass_4_3.context;
         }
         if (((token === NgClass) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._NgClass_1_4;
+            return this._NgClass_1_4.context;
         }
         if (((token === Button) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._Button_1_5;
+            return this._Button_1_5.context;
         }
         if (((token === NgClass) && (5 === requestNodeIndex))) {
-            return this._NgClass_5_3;
+            return this._NgClass_5_3.context;
         }
         return notFoundResult;
     };
     _View_Navbar0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'toolbar-background';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = ('toolbar-background-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         var currVal_4 = 'back-button';
-        if (checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this._NgClass_1_4.klass = currVal_4;
-            this._expr_4 = currVal_4;
-        }
+        this._NgClass_1_4.check_klass(currVal_4, throwOnChange, false);
         var currVal_5 = ('back-button-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_5, currVal_5)) {
-            this._NgClass_1_4.ngClass = currVal_5;
-            this._expr_5 = currVal_5;
-        }
-        if (!throwOnChange) {
-            this._NgClass_1_4.ngDoCheck();
+        this._NgClass_1_4.check_ngClass(currVal_5, throwOnChange, false);
+        this._NgClass_1_4.detectChangesInternal(this, this._el_1, throwOnChange);
+        if (this._Button_1_5.detectChangesInternal(this, this._el_1, throwOnChange)) {
+            this._appEl_1.componentView.markAsCheckOnce();
         }
         var currVal_6 = 'back-button-icon';
-        if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
-            this._NgClass_3_3.klass = currVal_6;
-            this._expr_6 = currVal_6;
-        }
+        this._NgClass_3_3.check_klass(currVal_6, throwOnChange, false);
         var currVal_7 = ('back-button-icon-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this._NgClass_3_3.ngClass = currVal_7;
-            this._expr_7 = currVal_7;
-        }
-        if (!throwOnChange) {
-            this._NgClass_3_3.ngDoCheck();
-        }
+        this._NgClass_3_3.check_ngClass(currVal_7, throwOnChange, false);
+        this._NgClass_3_3.detectChangesInternal(this, this._el_3, throwOnChange);
         var currVal_8 = this.context._bbIcon;
-        if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
-            this._Icon_3_4.name = currVal_8;
-            this._expr_8 = currVal_8;
-        }
+        this._Icon_3_4.check_name(currVal_8, throwOnChange, false);
+        this._Icon_3_4.detectChangesInternal(this, this._el_3, throwOnChange);
         var currVal_10 = 'back-button-text';
-        if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
-            this._NgClass_4_3.klass = currVal_10;
-            this._expr_10 = currVal_10;
-        }
+        this._NgClass_4_3.check_klass(currVal_10, throwOnChange, false);
         var currVal_11 = ('back-button-text-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
-            this._NgClass_4_3.ngClass = currVal_11;
-            this._expr_11 = currVal_11;
-        }
-        if (!throwOnChange) {
-            this._NgClass_4_3.ngDoCheck();
-        }
+        this._NgClass_4_3.check_ngClass(currVal_11, throwOnChange, false);
+        this._NgClass_4_3.detectChangesInternal(this, this._el_4, throwOnChange);
         var currVal_12 = 'toolbar-content';
-        if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
-            this._NgClass_5_3.klass = currVal_12;
-            this._expr_12 = currVal_12;
-        }
+        this._NgClass_5_3.check_klass(currVal_12, throwOnChange, false);
         var currVal_13 = ('toolbar-content-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
-            this._NgClass_5_3.ngClass = currVal_13;
-            this._expr_13 = currVal_13;
-        }
-        if (!throwOnChange) {
-            this._NgClass_5_3.ngDoCheck();
-        }
+        this._NgClass_5_3.check_ngClass(currVal_13, throwOnChange, false);
+        this._NgClass_5_3.detectChangesInternal(this, this._el_5, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_1_5.ngAfterContentInit();
+                this._Button_1_5.context.ngAfterContentInit();
             }
         }
         var currVal_3 = this.context._hideBb;
@@ -50242,7 +50364,7 @@ var _View_Navbar0 = (function (_super) {
             this.renderer.setElementProperty(this._el_1, 'hidden', currVal_3);
             this._expr_3 = currVal_3;
         }
-        var currVal_9 = this._Icon_3_4._hidden;
+        var currVal_9 = this._Icon_3_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_3, 'hide', currVal_9);
             this._expr_9 = currVal_9;
@@ -50250,7 +50372,7 @@ var _View_Navbar0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Navbar0.prototype.destroyInternal = function () {
-        this._Icon_3_4.ngOnDestroy();
+        this._Icon_3_4.context.ngOnDestroy();
     };
     _View_Navbar0.prototype._handle_click_1_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -50261,19 +50383,31 @@ var _View_Navbar0 = (function (_super) {
 }(AppView));
 function viewFactory_Navbar0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Navbar === null)) {
-        (renderType_Navbar = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/navbar/navbar.d.ts class Navbar - inline template', 4, ViewEncapsulation.None, styles_Navbar, {}));
+        (renderType_Navbar = viewUtils.createRenderComponentType('', 4, ViewEncapsulation.None, styles_Navbar, {}));
     }
     return new _View_Navbar0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$132 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ToolbarTitle = (function () {
+    function Wrapper_ToolbarTitle(p0, p1, p2, p3, p4) {
+        this.changed = false;
+        this.context = new ToolbarTitle(p0, p1, p2, p3, p4);
+    }
+    Wrapper_ToolbarTitle.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ToolbarTitle;
+}());
 var renderType_ToolbarTitle_Host = null;
 var _View_ToolbarTitle_Host0 = (function (_super) {
-    __extends$132(_View_ToolbarTitle_Host0, _super);
+    __extends$133(_View_ToolbarTitle_Host0, _super);
     function _View_ToolbarTitle_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle_Host0, renderType_ToolbarTitle_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50281,17 +50415,24 @@ var _View_ToolbarTitle_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-title', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ToolbarTitle0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ToolbarTitle_0_4 = new ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Toolbar, null), this.parentInjector.get(Navbar, null));
-        this._appEl_0.initComponent(this._ToolbarTitle_0_4, [], compView_0);
-        compView_0.create(this._ToolbarTitle_0_4, this.projectableNodes, null);
+        this._ToolbarTitle_0_4 = new Wrapper_ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Toolbar, null), this.parentInjector.get(Navbar, null));
+        this._appEl_0.initComponent(this._ToolbarTitle_0_4.context, [], compView_0);
+        compView_0.create(this._ToolbarTitle_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ToolbarTitle_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToolbarTitle) && (0 === requestNodeIndex))) {
-            return this._ToolbarTitle_0_4;
+            return this._ToolbarTitle_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ToolbarTitle_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._ToolbarTitle_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ToolbarTitle_Host0;
 }(AppView));
@@ -50305,7 +50446,7 @@ var ToolbarTitleNgFactory = new ComponentFactory('ion-title', viewFactory_Toolba
 var styles_ToolbarTitle = [];
 var renderType_ToolbarTitle = null;
 var _View_ToolbarTitle0 = (function (_super) {
-    __extends$132(_View_ToolbarTitle0, _super);
+    __extends$133(_View_ToolbarTitle0, _super);
     function _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_ToolbarTitle0, renderType_ToolbarTitle, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -50313,33 +50454,23 @@ var _View_ToolbarTitle0 = (function (_super) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'toolbar-title');
-        this._NgClass_0_3 = new NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
+        this._NgClass_0_3 = new Wrapper_NgClass(this.parentInjector.get(IterableDiffers), this.parentInjector.get(KeyValueDiffers), new ElementRef(this._el_0), this.renderer);
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[0]));
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_ToolbarTitle0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === NgClass) && (0 === requestNodeIndex))) {
-            return this._NgClass_0_3;
+            return this._NgClass_0_3.context;
         }
         return notFoundResult;
     };
     _View_ToolbarTitle0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'toolbar-title';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_0_3.klass = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgClass_0_3.check_klass(currVal_0, throwOnChange, false);
         var currVal_1 = ('toolbar-title-' + this.context._mode);
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_0_3.ngClass = currVal_1;
-            this._expr_1 = currVal_1;
-        }
-        if (!throwOnChange) {
-            this._NgClass_0_3.ngDoCheck();
-        }
+        this._NgClass_0_3.check_ngClass(currVal_1, throwOnChange, false);
+        this._NgClass_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     };
@@ -50347,19 +50478,44 @@ var _View_ToolbarTitle0 = (function (_super) {
 }(AppView));
 function viewFactory_ToolbarTitle0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ToolbarTitle === null)) {
-        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/toolbar/toolbar-title.d.ts class ToolbarTitle - inline template', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
+        (renderType_ToolbarTitle = viewUtils.createRenderComponentType('', 1, ViewEncapsulation.None, styles_ToolbarTitle, {}));
     }
     return new _View_ToolbarTitle0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$133 = (undefined && undefined.__extends) || function (d, b) {
+var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Content = (function () {
+    function Wrapper_Content(p0, p1, p2, p3, p4, p5, p6, p7) {
+        this.changed = false;
+        this._fullscreen = UNINITIALIZED;
+        this.context = new Content(p0, p1, p2, p3, p4, p5, p6, p7);
+    }
+    Wrapper_Content.prototype.check_fullscreen = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._fullscreen, currValue))) {
+            this.changed = true;
+            this.context.fullscreen = currValue;
+            this._fullscreen = currValue;
+        }
+    };
+    Wrapper_Content.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        if (!throwOnChange) {
+            if ((view.numberOfChecks === 0)) {
+                this.context.ngOnInit();
+            }
+        }
+        return changed;
+    };
+    return Wrapper_Content;
+}());
 var renderType_Content_Host = null;
 var _View_Content_Host0 = (function (_super) {
-    __extends$133(_View_Content_Host0, _super);
+    __extends$134(_View_Content_Host0, _super);
     function _View_Content_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content_Host0, renderType_Content_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50367,25 +50523,25 @@ var _View_Content_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-content', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Content0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Content_0_4 = new Content(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
-        this._appEl_0.initComponent(this._Content_0_4, [], compView_0);
-        compView_0.create(this._Content_0_4, this.projectableNodes, null);
+        this._Content_0_4 = new Wrapper_Content(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
+        this._appEl_0.initComponent(this._Content_0_4.context, [], compView_0);
+        compView_0.create(this._Content_0_4.context, this.projectableNodes, null);
         this._expr_0 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Content_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Content) && (0 === requestNodeIndex))) {
-            return this._Content_0_4;
+            return this._Content_0_4.context;
         }
         return notFoundResult;
     };
     _View_Content_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Content_0_4.ngOnInit();
+        if (this._Content_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_0 = this._Content_0_4._sbPadding;
+        var currVal_0 = this._Content_0_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_0, 'statusbar-padding', currVal_0);
             this._expr_0 = currVal_0;
@@ -50393,7 +50549,7 @@ var _View_Content_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Content_Host0.prototype.destroyInternal = function () {
-        this._Content_0_4.ngOnDestroy();
+        this._Content_0_4.context.ngOnDestroy();
     };
     return _View_Content_Host0;
 }(AppView));
@@ -50407,7 +50563,7 @@ var ContentNgFactory = new ComponentFactory('ion-content', viewFactory_Content_H
 var styles_Content = [];
 var renderType_Content = null;
 var _View_Content0 = (function (_super) {
-    __extends$133(_View_Content0, _super);
+    __extends$134(_View_Content0, _super);
     function _View_Content0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Content0, renderType_Content, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -50430,19 +50586,61 @@ var _View_Content0 = (function (_super) {
 }(AppView));
 function viewFactory_Content0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Content === null)) {
-        (renderType_Content = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/content/content.d.ts class Content - inline template', 3, ViewEncapsulation.None, styles_Content, {}));
+        (renderType_Content = viewUtils.createRenderComponentType('', 3, ViewEncapsulation.None, styles_Content, {}));
     }
     return new _View_Content0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_List = (function () {
+    function Wrapper_List(p0, p1, p2, p3) {
+        this.changed = false;
+        this._mode = UNINITIALIZED;
+        this._sliding = UNINITIALIZED;
+        this.context = new List(p0, p1, p2, p3);
+    }
+    Wrapper_List.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_List.prototype.check_sliding = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._sliding, currValue))) {
+            this.changed = true;
+            this.context.sliding = currValue;
+            this._sliding = currValue;
+        }
+    };
+    Wrapper_List.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_List;
+}());
+
+var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+
+var Wrapper_Reorder = (function () {
+    function Wrapper_Reorder(p0, p1) {
+        this.changed = false;
+        this.context = new Reorder(p0, p1);
+    }
+    Wrapper_Reorder.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Reorder;
+}());
 var renderType_Reorder_Host = null;
 var _View_Reorder_Host0 = (function (_super) {
-    __extends$135(_View_Reorder_Host0, _super);
+    __extends$136(_View_Reorder_Host0, _super);
     function _View_Reorder_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder_Host0, renderType_Reorder_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50450,22 +50648,27 @@ var _View_Reorder_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-reorder', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Reorder0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Reorder_0_4 = new Reorder(this.parentInjector.get(Item), new ElementRef(this._el_0));
-        this._appEl_0.initComponent(this._Reorder_0_4, [], compView_0);
-        compView_0.create(this._Reorder_0_4, this.projectableNodes, null);
+        this._Reorder_0_4 = new Wrapper_Reorder(this.parentInjector.get(Item), new ElementRef(this._el_0));
+        this._appEl_0.initComponent(this._Reorder_0_4.context, [], compView_0);
+        compView_0.create(this._Reorder_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         this.init([].concat([this._el_0]), [this._el_0], [disposable_0], []);
         return this._appEl_0;
     };
     _View_Reorder_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Reorder) && (0 === requestNodeIndex))) {
-            return this._Reorder_0_4;
+            return this._Reorder_0_4.context;
         }
         return notFoundResult;
     };
+    _View_Reorder_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Reorder_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
+    };
     _View_Reorder_Host0.prototype._handle_click_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Reorder_0_4.onClick($event) !== false);
+        var pd_0 = (this._Reorder_0_4.context.onClick($event) !== false);
         return (true && pd_0);
     };
     return _View_Reorder_Host0;
@@ -50480,7 +50683,7 @@ var ReorderNgFactory = new ComponentFactory('ion-reorder', viewFactory_Reorder_H
 var styles_Reorder = [];
 var renderType_Reorder = null;
 var _View_Reorder0 = (function (_super) {
-    __extends$135(_View_Reorder0, _super);
+    __extends$136(_View_Reorder0, _super);
     function _View_Reorder0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Reorder0, renderType_Reorder, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50489,26 +50692,23 @@ var _View_Reorder0 = (function (_super) {
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-icon', null);
         this.renderer.setElementAttribute(this._el_0, 'name', 'reorder');
         this.renderer.setElementAttribute(this._el_0, 'role', 'img');
-        this._Icon_0_3 = new Icon(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
-        this._expr_0 = UNINITIALIZED;
+        this._Icon_0_3 = new Wrapper_Icon(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._expr_1 = UNINITIALIZED;
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_Reorder0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Icon) && (0 === requestNodeIndex))) {
-            return this._Icon_0_3;
+            return this._Icon_0_3.context;
         }
         return notFoundResult;
     };
     _View_Reorder0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = 'reorder';
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Icon_0_3.name = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Icon_0_3.check_name(currVal_0, throwOnChange, false);
+        this._Icon_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
-        var currVal_1 = this._Icon_0_3._hidden;
+        var currVal_1 = this._Icon_0_3.context._hidden;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_0, 'hide', currVal_1);
             this._expr_1 = currVal_1;
@@ -50516,25 +50716,103 @@ var _View_Reorder0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Reorder0.prototype.destroyInternal = function () {
-        this._Icon_0_3.ngOnDestroy();
+        this._Icon_0_3.context.ngOnDestroy();
     };
     return _View_Reorder0;
 }(AppView));
 function viewFactory_Reorder0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Reorder === null)) {
-        (renderType_Reorder = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item-reorder.d.ts class Reorder - inline template', 0, ViewEncapsulation.None, styles_Reorder, {}));
+        (renderType_Reorder = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Reorder, {}));
     }
     return new _View_Reorder0(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$134 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_Label = (function () {
+    function Wrapper_Label(p0, p1, p2, p3, p4, p5, p6) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._id = UNINITIALIZED;
+        this.context = new Label(p0, p1, p2, p3, p4, p5, p6);
+    }
+    Wrapper_Label.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Label.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Label.prototype.check_id = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._id, currValue))) {
+            this.changed = true;
+            this.context.id = currValue;
+            this._id = currValue;
+        }
+    };
+    Wrapper_Label.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Label;
+}());
+
+var __extends$135 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Item = (function () {
+    function Wrapper_Item(p0, p1, p2, p3) {
+        this.changed = false;
+        this._color = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this.context = new Item(p0, p1, p2, p3);
+    }
+    Wrapper_Item.prototype.check_color = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._color, currValue))) {
+            this.changed = true;
+            this.context.color = currValue;
+            this._color = currValue;
+        }
+    };
+    Wrapper_Item.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Item.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Item;
+}());
+var Wrapper_ItemContent = (function () {
+    function Wrapper_ItemContent() {
+        this.changed = false;
+        this.context = new ItemContent();
+    }
+    Wrapper_ItemContent.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ItemContent;
+}());
+
 var renderType_Item_Host = null;
 var _View_Item_Host0 = (function (_super) {
-    __extends$134(_View_Item_Host0, _super);
+    __extends$135(_View_Item_Host0, _super);
     function _View_Item_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item_Host0, renderType_Item_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50543,38 +50821,41 @@ var _View_Item_Host0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_0, 'class', 'item');
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Item0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Item_0_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
+        this._Item_0_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer);
         this._query_Label_0_0 = new QueryList();
         this._query_Button_0_1 = new QueryList();
         this._query_Icon_0_2 = new QueryList();
-        this._appEl_0.initComponent(this._Item_0_4, [], compView_0);
+        this._appEl_0.initComponent(this._Item_0_4.context, [], compView_0);
         this._query_Label_0_0.reset([]);
-        this._Item_0_4.contentLabel = this._query_Label_0_0.first;
-        compView_0.create(this._Item_0_4, this.projectableNodes, null);
+        this._Item_0_4.context.contentLabel = this._query_Label_0_0.first;
+        compView_0.create(this._Item_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Item_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Item) && (0 === requestNodeIndex))) {
-            return this._Item_0_4;
+            return this._Item_0_4.context;
         }
         return notFoundResult;
     };
     _View_Item_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        if (this._Item_0_4.detectChangesInternal(this, this._el_0, throwOnChange)) {
+            this._appEl_0.componentView.markAsCheckOnce();
+        }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_0_1.dirty) {
                 this._query_Button_0_1.reset([]);
-                this._Item_0_4._buttons = this._query_Button_0_1;
+                this._Item_0_4.context._buttons = this._query_Button_0_1;
                 this._query_Button_0_1.notifyOnChanges();
             }
             if (this._query_Icon_0_2.dirty) {
                 this._query_Icon_0_2.reset([]);
-                this._Item_0_4._icons = this._query_Icon_0_2;
+                this._Item_0_4.context._icons = this._query_Icon_0_2;
                 this._query_Icon_0_2.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_0_4.ngAfterContentInit();
+                this._Item_0_4.context.ngAfterContentInit();
             }
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -50591,7 +50872,7 @@ var ItemNgFactory = new ComponentFactory('ion-list-header,ion-item,[ion-item],io
 var styles_Item = [];
 var renderType_Item = null;
 var _View_Item0 = (function (_super) {
-    __extends$134(_View_Item0, _super);
+    __extends$135(_View_Item0, _super);
     function _View_Item0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item0, renderType_Item, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckOnce);
     }
@@ -50607,18 +50888,17 @@ var _View_Item0 = (function (_super) {
         this._anchor_2 = this.renderer.createTemplateAnchor(this._el_1, null);
         this._appEl_2 = new AppElement(2, 1, this, this._anchor_2);
         this._TemplateRef_2_5 = new TemplateRef_(this._appEl_2, viewFactory_Item1);
-        this._NgIf_2_6 = new NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
+        this._NgIf_2_6 = new Wrapper_NgIf(this._appEl_2.vcRef, this._TemplateRef_2_5);
         this.renderer.projectNodes(this._el_1, flattenNestedViewRenderNodes(this.projectableNodes[3]));
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[4]));
         this._el_3 = this.renderer.createElement(this._el_0, 'ion-reorder', null);
         this._appEl_3 = new AppElement(3, 0, this, this._el_3);
         var compView_3 = viewFactory_Reorder0(this.viewUtils, this.injector(3), this._appEl_3);
-        this._Reorder_3_4 = new Reorder(this.parentInjector.get(Item), new ElementRef(this._el_3));
-        this._appEl_3.initComponent(this._Reorder_3_4, [], compView_3);
-        compView_3.create(this._Reorder_3_4, [], null);
+        this._Reorder_3_4 = new Wrapper_Reorder(this.parentInjector.get(Item), new ElementRef(this._el_3));
+        this._appEl_3.initComponent(this._Reorder_3_4.context, [], compView_3);
+        compView_3.create(this._Reorder_3_4.context, [], null);
         this._el_4 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_4, 'class', 'button-effect');
-        this._expr_0 = UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_3, 'click', this.eventHandler(this._handle_click_3_0.bind(this)));
         this.init([], [
             this._el_0,
@@ -50634,25 +50914,24 @@ var _View_Item0 = (function (_super) {
             return this._TemplateRef_2_5;
         }
         if (((token === NgIf) && (2 === requestNodeIndex))) {
-            return this._NgIf_2_6;
+            return this._NgIf_2_6.context;
         }
         if (((token === Reorder) && (3 === requestNodeIndex))) {
-            return this._Reorder_3_4;
+            return this._Reorder_3_4.context;
         }
         return notFoundResult;
     };
     _View_Item0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context._viewLabel;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgIf_2_6.ngIf = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgIf_2_6.check_ngIf(currVal_0, throwOnChange, false);
+        this._NgIf_2_6.detectChangesInternal(this, this._anchor_2, throwOnChange);
+        this._Reorder_3_4.detectChangesInternal(this, this._el_3, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._viewQuery_Label_0.dirty) {
                 this._viewQuery_Label_0.reset([this._appEl_2.mapNestedViews(_View_Item1, function (nestedView) {
-                        return [nestedView._Label_0_3];
+                        return [nestedView._Label_0_3.context];
                     })]);
                 this.context.viewLabel = this._viewQuery_Label_0.first;
             }
@@ -50660,34 +50939,39 @@ var _View_Item0 = (function (_super) {
     };
     _View_Item0.prototype._handle_click_3_0 = function ($event) {
         this._appEl_3.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Reorder_3_4.onClick($event) !== false);
+        var pd_0 = (this._Reorder_3_4.context.onClick($event) !== false);
         return (true && pd_0);
     };
     return _View_Item0;
 }(AppView));
 function viewFactory_Item0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Item === null)) {
-        (renderType_Item = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/item/item.d.ts class Item - inline template', 5, ViewEncapsulation.None, styles_Item, {}));
+        (renderType_Item = viewUtils.createRenderComponentType('', 5, ViewEncapsulation.None, styles_Item, {}));
     }
     return new _View_Item0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Item1 = (function (_super) {
-    __extends$134(_View_Item1, _super);
+    __extends$135(_View_Item1, _super);
     function _View_Item1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Item1, renderType_Item, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     _View_Item1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_0_3 = new Label(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, null, null, null, null);
+        this._Label_0_3 = new Wrapper_Label(this.parent.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, null, null, null, null);
         this.renderer.projectNodes(this._el_0, flattenNestedViewRenderNodes(this.projectableNodes[2]));
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return null;
     };
     _View_Item1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Label) && (0 === requestNodeIndex))) {
-            return this._Label_0_3;
+            return this._Label_0_3.context;
         }
         return notFoundResult;
+    };
+    _View_Item1.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Label_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Item1.prototype.dirtyParentQueriesInternal = function () {
         this.parent._viewQuery_Label_0.setDirty();
@@ -50698,21 +50982,118 @@ function viewFactory_Item1(viewUtils, parentInjector, declarationEl) {
     return new _View_Item1(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$136 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_ListHeader = (function () {
+    function Wrapper_ListHeader(p0, p1, p2, p3) {
+        this.changed = false;
+        this.context = new ListHeader(p0, p1, p2, p3);
+    }
+    Wrapper_ListHeader.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ListHeader;
+}());
+
+var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Select = (function () {
+    function Wrapper_Select(p0, p1, p2, p3, p4, p5, p6) {
+        this.changed = false;
+        this._cancelText = UNINITIALIZED;
+        this._okText = UNINITIALIZED;
+        this._placeholder = UNINITIALIZED;
+        this._selectOptions = UNINITIALIZED;
+        this._interface = UNINITIALIZED;
+        this._selectedText = UNINITIALIZED;
+        this._mode = UNINITIALIZED;
+        this._multiple = UNINITIALIZED;
+        this._disabled = UNINITIALIZED;
+        this.context = new Select(p0, p1, p2, p3, p4, p5, p6);
+    }
+    Wrapper_Select.prototype.check_cancelText = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._cancelText, currValue))) {
+            this.changed = true;
+            this.context.cancelText = currValue;
+            this._cancelText = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_okText = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._okText, currValue))) {
+            this.changed = true;
+            this.context.okText = currValue;
+            this._okText = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_placeholder = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._placeholder, currValue))) {
+            this.changed = true;
+            this.context.placeholder = currValue;
+            this._placeholder = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_selectOptions = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._selectOptions, currValue))) {
+            this.changed = true;
+            this.context.selectOptions = currValue;
+            this._selectOptions = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_interface = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._interface, currValue))) {
+            this.changed = true;
+            this.context.interface = currValue;
+            this._interface = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_selectedText = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._selectedText, currValue))) {
+            this.changed = true;
+            this.context.selectedText = currValue;
+            this._selectedText = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._mode, currValue))) {
+            this.changed = true;
+            this.context.mode = currValue;
+            this._mode = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_multiple = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._multiple, currValue))) {
+            this.changed = true;
+            this.context.multiple = currValue;
+            this._multiple = currValue;
+        }
+    };
+    Wrapper_Select.prototype.check_disabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._disabled, currValue))) {
+            this.changed = true;
+            this.context.disabled = currValue;
+            this._disabled = currValue;
+        }
+    };
+    Wrapper_Select.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Select;
+}());
 var renderType_Select_Host = null;
 var _View_Select_Host0 = (function (_super) {
-    __extends$136(_View_Select_Host0, _super);
+    __extends$137(_View_Select_Host0, _super);
     function _View_Select_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select_Host0, renderType_Select_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
     Object.defineProperty(_View_Select_Host0.prototype, "_NG_VALUE_ACCESSOR_0_5", {
         get: function () {
             if ((this.__NG_VALUE_ACCESSOR_0_5 == null)) {
-                (this.__NG_VALUE_ACCESSOR_0_5 = [this._Select_0_4]);
+                (this.__NG_VALUE_ACCESSOR_0_5 = [this._Select_0_4.context]);
             }
             return this.__NG_VALUE_ACCESSOR_0_5;
         },
@@ -50723,10 +51104,10 @@ var _View_Select_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-select', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Select0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Select_0_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Item, null), this.parentInjector.get(NavController, null));
+        this._Select_0_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(Item, null), this.parentInjector.get(NavController, null));
         this._query_Option_0_0 = new QueryList();
-        this._appEl_0.initComponent(this._Select_0_4, [], compView_0);
-        compView_0.create(this._Select_0_4, this.projectableNodes, null);
+        this._appEl_0.initComponent(this._Select_0_4.context, [], compView_0);
+        compView_0.create(this._Select_0_4.context, this.projectableNodes, null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         var disposable_1 = this.renderer.listen(this._el_0, 'keyup.space', this.eventHandler(this._handle_keyup_space_0_1.bind(this)));
         this._expr_2 = UNINITIALIZED;
@@ -50738,7 +51119,7 @@ var _View_Select_Host0 = (function (_super) {
     };
     _View_Select_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Select) && (0 === requestNodeIndex))) {
-            return this._Select_0_4;
+            return this._Select_0_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && (0 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_0_5;
@@ -50746,18 +51127,19 @@ var _View_Select_Host0 = (function (_super) {
         return notFoundResult;
     };
     _View_Select_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Select_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Option_0_0.dirty) {
                 this._query_Option_0_0.reset([]);
-                this._Select_0_4.options = this._query_Option_0_0;
+                this._Select_0_4.context.options = this._query_Option_0_0;
                 this._query_Option_0_0.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_0_4.ngAfterContentInit();
+                this._Select_0_4.context.ngAfterContentInit();
             }
         }
-        var currVal_2 = this._Select_0_4._disabled;
+        var currVal_2 = this._Select_0_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementClass(this._el_0, 'select-disabled', currVal_2);
             this._expr_2 = currVal_2;
@@ -50765,16 +51147,16 @@ var _View_Select_Host0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
     };
     _View_Select_Host0.prototype.destroyInternal = function () {
-        this._Select_0_4.ngOnDestroy();
+        this._Select_0_4.context.ngOnDestroy();
     };
     _View_Select_Host0.prototype._handle_click_0_0 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_0_4._click($event) !== false);
+        var pd_0 = (this._Select_0_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_Select_Host0.prototype._handle_keyup_space_0_1 = function ($event) {
         this._appEl_0.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_0_4._keyup() !== false);
+        var pd_0 = (this._Select_0_4.context._keyup() !== false);
         return (true && pd_0);
     };
     return _View_Select_Host0;
@@ -50789,7 +51171,7 @@ var SelectNgFactory = new ComponentFactory('ion-select', viewFactory_Select_Host
 var styles_Select = [];
 var renderType_Select = null;
 var _View_Select0 = (function (_super) {
-    __extends$136(_View_Select0, _super);
+    __extends$137(_View_Select0, _super);
     function _View_Select0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select0, renderType_Select, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50798,11 +51180,11 @@ var _View_Select0 = (function (_super) {
         this._anchor_0 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_0 = new AppElement(0, null, this, this._anchor_0);
         this._TemplateRef_0_5 = new TemplateRef_(this._appEl_0, viewFactory_Select1);
-        this._NgIf_0_6 = new NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
+        this._NgIf_0_6 = new Wrapper_NgIf(this._appEl_0.vcRef, this._TemplateRef_0_5);
         this._anchor_1 = this.renderer.createTemplateAnchor(parentRenderNode, null);
         this._appEl_1 = new AppElement(1, null, this, this._anchor_1);
         this._TemplateRef_1_5 = new TemplateRef_(this._appEl_1, viewFactory_Select2);
-        this._NgIf_1_6 = new NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
+        this._NgIf_1_6 = new Wrapper_NgIf(this._appEl_1.vcRef, this._TemplateRef_1_5);
         this._el_2 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'select-icon');
         this._el_3 = this.renderer.createElement(this._el_2, 'div', null);
@@ -50813,11 +51195,9 @@ var _View_Select0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_4, 'ion-button', 'item-cover');
         this._appEl_4 = new AppElement(4, null, this, this._el_4);
         var compView_4 = viewFactory_Button0(this.viewUtils, this.injector(4), this._appEl_4);
-        this._Button_4_4 = new Button(null, 'item-cover', this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer);
-        this._appEl_4.initComponent(this._Button_4_4, [], compView_4);
-        compView_4.create(this._Button_4_4, [[]], null);
-        this._expr_0 = UNINITIALIZED;
-        this._expr_1 = UNINITIALIZED;
+        this._Button_4_4 = new Wrapper_Button(null, 'item-cover', this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer);
+        this._appEl_4.initComponent(this._Button_4_4.context, [], compView_4);
+        compView_4.create(this._Button_4_4.context, [[]], null);
         this._expr_2 = UNINITIALIZED;
         this._expr_3 = UNINITIALIZED;
         this._expr_4 = UNINITIALIZED;
@@ -50835,34 +51215,33 @@ var _View_Select0 = (function (_super) {
             return this._TemplateRef_0_5;
         }
         if (((token === NgIf) && (0 === requestNodeIndex))) {
-            return this._NgIf_0_6;
+            return this._NgIf_0_6.context;
         }
         if (((token === TemplateRef) && (1 === requestNodeIndex))) {
             return this._TemplateRef_1_5;
         }
         if (((token === NgIf) && (1 === requestNodeIndex))) {
-            return this._NgIf_1_6;
+            return this._NgIf_1_6.context;
         }
         if (((token === Button) && (4 === requestNodeIndex))) {
-            return this._Button_4_4;
+            return this._Button_4_4.context;
         }
         return notFoundResult;
     };
     _View_Select0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = !this.context._text;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgIf_0_6.ngIf = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._NgIf_0_6.check_ngIf(currVal_0, throwOnChange, false);
+        this._NgIf_0_6.detectChangesInternal(this, this._anchor_0, throwOnChange);
         var currVal_1 = this.context._text;
-        if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgIf_1_6.ngIf = currVal_1;
-            this._expr_1 = currVal_1;
+        this._NgIf_1_6.check_ngIf(currVal_1, throwOnChange, false);
+        this._NgIf_1_6.detectChangesInternal(this, this._anchor_1, throwOnChange);
+        if (this._Button_4_4.detectChangesInternal(this, this._el_4, throwOnChange)) {
+            this._appEl_4.componentView.markAsCheckOnce();
         }
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Button_4_4.ngAfterContentInit();
+                this._Button_4_4.context.ngAfterContentInit();
             }
         }
         var currVal_2 = this.context.id;
@@ -50886,12 +51265,12 @@ var _View_Select0 = (function (_super) {
 }(AppView));
 function viewFactory_Select0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Select === null)) {
-        (renderType_Select = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/select/select.d.ts class Select - inline template', 0, ViewEncapsulation.None, styles_Select, {}));
+        (renderType_Select = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Select, {}));
     }
     return new _View_Select0(viewUtils, parentInjector, declarationEl);
 }
 var _View_Select1 = (function (_super) {
-    __extends$136(_View_Select1, _super);
+    __extends$137(_View_Select1, _super);
     function _View_Select1(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select1, renderType_Select, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50921,7 +51300,7 @@ function viewFactory_Select1(viewUtils, parentInjector, declarationEl) {
     return new _View_Select1(viewUtils, parentInjector, declarationEl);
 }
 var _View_Select2 = (function (_super) {
-    __extends$136(_View_Select2, _super);
+    __extends$137(_View_Select2, _super);
     function _View_Select2(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Select2, renderType_Select, ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50951,14 +51330,87 @@ function viewFactory_Select2(viewUtils, parentInjector, declarationEl) {
     return new _View_Select2(viewUtils, parentInjector, declarationEl);
 }
 
-var __extends$137 = (undefined && undefined.__extends) || function (d, b) {
+var Wrapper_Option = (function () {
+    function Wrapper_Option(p0) {
+        this.changed = false;
+        this._selected = UNINITIALIZED;
+        this._value = UNINITIALIZED;
+        this._disabled = UNINITIALIZED;
+        this.context = new Option(p0);
+    }
+    Wrapper_Option.prototype.check_selected = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._selected, currValue))) {
+            this.changed = true;
+            this.context.selected = currValue;
+            this._selected = currValue;
+        }
+    };
+    Wrapper_Option.prototype.check_value = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._value, currValue))) {
+            this.changed = true;
+            this.context.value = currValue;
+            this._value = currValue;
+        }
+    };
+    Wrapper_Option.prototype.check_disabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._disabled, currValue))) {
+            this.changed = true;
+            this.context.disabled = currValue;
+            this._disabled = currValue;
+        }
+    };
+    Wrapper_Option.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Option;
+}());
+
+var __extends$138 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_Nav = (function () {
+    function Wrapper_Nav(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) {
+        this.changed = false;
+        this._root = UNINITIALIZED;
+        this._rootParams = UNINITIALIZED;
+        this._swipeBackEnabled = UNINITIALIZED;
+        this.context = new Nav(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    }
+    Wrapper_Nav.prototype.check_root = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._root, currValue))) {
+            this.changed = true;
+            this.context.root = currValue;
+            this._root = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.check_rootParams = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._rootParams, currValue))) {
+            this.changed = true;
+            this.context.rootParams = currValue;
+            this._rootParams = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.check_swipeBackEnabled = function (currValue, throwOnChange, forceUpdate) {
+        if ((forceUpdate || checkBinding(throwOnChange, this._swipeBackEnabled, currValue))) {
+            this.changed = true;
+            this.context.swipeBackEnabled = currValue;
+            this._swipeBackEnabled = currValue;
+        }
+    };
+    Wrapper_Nav.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_Nav;
+}());
 var renderType_Nav_Host = null;
 var _View_Nav_Host0 = (function (_super) {
-    __extends$137(_View_Nav_Host0, _super);
+    __extends$138(_View_Nav_Host0, _super);
     function _View_Nav_Host0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav_Host0, renderType_Nav_Host, ViewType.HOST, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -50966,24 +51418,25 @@ var _View_Nav_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ion-nav', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Nav_0_4 = new Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
-        this._appEl_0.initComponent(this._Nav_0_4, [], compView_0);
-        compView_0.create(this._Nav_0_4, this.projectableNodes, null);
+        this._Nav_0_4 = new Wrapper_Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
+        this._appEl_0.initComponent(this._Nav_0_4.context, [], compView_0);
+        compView_0.create(this._Nav_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_Nav_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Nav) && (0 === requestNodeIndex))) {
-            return this._Nav_0_4;
+            return this._Nav_0_4.context;
         }
         return notFoundResult;
     };
     _View_Nav_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._Nav_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Nav_0_4.ngAfterViewInit();
+                this._Nav_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -50999,7 +51452,7 @@ var NavNgFactory = new ComponentFactory('ion-nav', viewFactory_Nav_Host0, Nav);
 var styles_Nav = [];
 var renderType_Nav = null;
 var _View_Nav0 = (function (_super) {
-    __extends$137(_View_Nav0, _super);
+    __extends$138(_View_Nav0, _super);
     function _View_Nav0(viewUtils, parentInjector, declarationEl) {
         _super.call(this, _View_Nav0, renderType_Nav, ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, ChangeDetectorStatus.CheckAlways);
     }
@@ -51023,7 +51476,7 @@ var _View_Nav0 = (function (_super) {
 }(AppView));
 function viewFactory_Nav0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Nav === null)) {
-        (renderType_Nav = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/node_modules/ionic-angular/components/nav/nav.d.ts class Nav - inline template', 0, ViewEncapsulation.None, styles_Nav, {}));
+        (renderType_Nav = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_Nav, {}));
     }
     return new _View_Nav0(viewUtils, parentInjector, declarationEl);
 }
@@ -51033,6 +51486,30 @@ var __extends$130 = (undefined && undefined.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var Wrapper_ApiDemoPage = (function () {
+    function Wrapper_ApiDemoPage() {
+        this.changed = false;
+        this.context = new ApiDemoPage();
+    }
+    Wrapper_ApiDemoPage.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ApiDemoPage;
+}());
+var Wrapper_ApiDemoApp = (function () {
+    function Wrapper_ApiDemoApp() {
+        this.changed = false;
+        this.context = new ApiDemoApp();
+    }
+    Wrapper_ApiDemoApp.prototype.detectChangesInternal = function (view, el, throwOnChange) {
+        var changed = this.changed;
+        this.changed = false;
+        return changed;
+    };
+    return Wrapper_ApiDemoApp;
+}());
 var renderType_ApiDemoPage_Host = null;
 var _View_ApiDemoPage_Host0 = (function (_super) {
     __extends$130(_View_ApiDemoPage_Host0, _super);
@@ -51043,17 +51520,22 @@ var _View_ApiDemoPage_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoPage0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ApiDemoPage_0_4 = new ApiDemoPage();
-        this._appEl_0.initComponent(this._ApiDemoPage_0_4, [], compView_0);
-        compView_0.create(this._ApiDemoPage_0_4, this.projectableNodes, null);
+        this._ApiDemoPage_0_4 = new Wrapper_ApiDemoPage();
+        this._appEl_0.initComponent(this._ApiDemoPage_0_4.context, [], compView_0);
+        compView_0.create(this._ApiDemoPage_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ApiDemoPage_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ApiDemoPage) && (0 === requestNodeIndex))) {
-            return this._ApiDemoPage_0_4;
+            return this._ApiDemoPage_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ApiDemoPage_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ApiDemoPage_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoPage_Host0;
 }(AppView));
@@ -51074,7 +51556,7 @@ var _View_ApiDemoPage0 = (function (_super) {
     Object.defineProperty(_View_ApiDemoPage0.prototype, "_NG_VALUE_ACCESSOR_63_5", {
         get: function () {
             if ((this.__NG_VALUE_ACCESSOR_63_5 == null)) {
-                (this.__NG_VALUE_ACCESSOR_63_5 = [this._Select_63_4]);
+                (this.__NG_VALUE_ACCESSOR_63_5 = [this._Select_63_4.context]);
             }
             return this.__NG_VALUE_ACCESSOR_63_5;
         },
@@ -51084,7 +51566,7 @@ var _View_ApiDemoPage0 = (function (_super) {
     Object.defineProperty(_View_ApiDemoPage0.prototype, "_NG_VALUE_ACCESSOR_102_5", {
         get: function () {
             if ((this.__NG_VALUE_ACCESSOR_102_5 == null)) {
-                (this.__NG_VALUE_ACCESSOR_102_5 = [this._Select_102_4]);
+                (this.__NG_VALUE_ACCESSOR_102_5 = [this._Select_102_4.context]);
             }
             return this.__NG_VALUE_ACCESSOR_102_5;
         },
@@ -51094,7 +51576,7 @@ var _View_ApiDemoPage0 = (function (_super) {
     Object.defineProperty(_View_ApiDemoPage0.prototype, "_NG_VALUE_ACCESSOR_200_5", {
         get: function () {
             if ((this.__NG_VALUE_ACCESSOR_200_5 == null)) {
-                (this.__NG_VALUE_ACCESSOR_200_5 = [this._Select_200_4]);
+                (this.__NG_VALUE_ACCESSOR_200_5 = [this._Select_200_4.context]);
             }
             return this.__NG_VALUE_ACCESSOR_200_5;
         },
@@ -51104,24 +51586,24 @@ var _View_ApiDemoPage0 = (function (_super) {
     _View_ApiDemoPage0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-header', null);
-        this._Header_0_3 = new Header(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(ViewController, null));
+        this._Header_0_3 = new Wrapper_Header(this.parentInjector.get(Config), new ElementRef(this._el_0), this.renderer, this.parentInjector.get(ViewController, null));
         this._text_1 = this.renderer.createText(this._el_0, '\n\n  ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'ion-navbar', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'toolbar');
         this._appEl_2 = new AppElement(2, 0, this, this._el_2);
         var compView_2 = viewFactory_Navbar0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._Navbar_2_4 = new Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
-        this._appEl_2.initComponent(this._Navbar_2_4, [], compView_2);
+        this._Navbar_2_4 = new Wrapper_Navbar(this.parentInjector.get(App), this.parentInjector.get(ViewController, null), this.parentInjector.get(NavController, null), this.parentInjector.get(Config), new ElementRef(this._el_2), this.renderer);
+        this._appEl_2.initComponent(this._Navbar_2_4.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '\n    ', null);
         this._el_4 = this.renderer.createElement(null, 'ion-title', null);
         this._appEl_4 = new AppElement(4, 2, this, this._el_4);
         var compView_4 = viewFactory_ToolbarTitle0(this.viewUtils, this.injector(4), this._appEl_4);
-        this._ToolbarTitle_4_4 = new ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer, this.parentInjector.get(Toolbar, null), this._Navbar_2_4);
-        this._appEl_4.initComponent(this._ToolbarTitle_4_4, [], compView_4);
+        this._ToolbarTitle_4_4 = new Wrapper_ToolbarTitle(this.parentInjector.get(Config), new ElementRef(this._el_4), this.renderer, this.parentInjector.get(Toolbar, null), this._Navbar_2_4.context);
+        this._appEl_4.initComponent(this._ToolbarTitle_4_4.context, [], compView_4);
         this._text_5 = this.renderer.createText(null, 'Select', null);
-        compView_4.create(this._ToolbarTitle_4_4, [[].concat([this._text_5])], null);
+        compView_4.create(this._ToolbarTitle_4_4.context, [[].concat([this._text_5])], null);
         this._text_6 = this.renderer.createText(null, '\n  ', null);
-        compView_2.create(this._Navbar_2_4, [
+        compView_2.create(this._Navbar_2_4.context, [
             [],
             [],
             [],
@@ -51137,26 +51619,26 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_9, 'class', 'outer-content');
         this._appEl_9 = new AppElement(9, null, this, this._el_9);
         var compView_9 = viewFactory_Content0(this.viewUtils, this.injector(9), this._appEl_9);
-        this._Content_9_4 = new Content(this.parentInjector.get(Config), new ElementRef(this._el_9), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
-        this._appEl_9.initComponent(this._Content_9_4, [], compView_9);
+        this._Content_9_4 = new Wrapper_Content(this.parentInjector.get(Config), new ElementRef(this._el_9), this.renderer, this.parentInjector.get(App), this.parentInjector.get(Keyboard), this.parentInjector.get(NgZone), this.parentInjector.get(ViewController, null), this.parentInjector.get(Tabs, null));
+        this._appEl_9.initComponent(this._Content_9_4.context, [], compView_9);
         this._text_10 = this.renderer.createText(null, '\n\n  ', null);
         this._el_11 = this.renderer.createElement(null, 'ion-list', null);
-        this._List_11_3 = new List(this.parentInjector.get(Config), new ElementRef(this._el_11), this.renderer, this.parentInjector.get(GestureController));
+        this._List_11_3 = new Wrapper_List(this.parentInjector.get(Config), new ElementRef(this._el_11), this.renderer, this.parentInjector.get(GestureController));
         this._text_12 = this.renderer.createText(this._el_11, '\n    ', null);
         this._el_13 = this.renderer.createElement(this._el_11, 'ion-list-header', null);
         this.renderer.setElementAttribute(this._el_13, 'class', 'item');
         this._appEl_13 = new AppElement(13, 11, this, this._el_13);
         var compView_13 = viewFactory_Item0(this.viewUtils, this.injector(13), this._appEl_13);
-        this._Item_13_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_13), this.renderer);
-        this._ListHeader_13_5 = new ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_13), null);
+        this._Item_13_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_13), this.renderer);
+        this._ListHeader_13_5 = new Wrapper_ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_13), null);
         this._query_Label_13_0 = new QueryList();
         this._query_Button_13_1 = new QueryList();
         this._query_Icon_13_2 = new QueryList();
-        this._appEl_13.initComponent(this._Item_13_4, [], compView_13);
+        this._appEl_13.initComponent(this._Item_13_4.context, [], compView_13);
         this._text_14 = this.renderer.createText(null, 'Single Value Select', null);
         this._query_Label_13_0.reset([]);
-        this._Item_13_4.contentLabel = this._query_Label_13_0.first;
-        compView_13.create(this._Item_13_4, [
+        this._Item_13_4.context.contentLabel = this._query_Label_13_0.first;
+        compView_13.create(this._Item_13_4.context, [
             [],
             [],
             [].concat([this._text_14]),
@@ -51168,43 +51650,43 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_16, 'class', 'item item-block');
         this._appEl_16 = new AppElement(16, 11, this, this._el_16);
         var compView_16 = viewFactory_Item0(this.viewUtils, this.injector(16), this._appEl_16);
-        this._Item_16_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_16), this.renderer);
-        this._ItemContent_16_5 = new ItemContent();
+        this._Item_16_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_16), this.renderer);
+        this._ItemContent_16_5 = new Wrapper_ItemContent();
         this._query_Label_16_0 = new QueryList();
         this._query_Button_16_1 = new QueryList();
         this._query_Icon_16_2 = new QueryList();
-        this._appEl_16.initComponent(this._Item_16_4, [], compView_16);
+        this._appEl_16.initComponent(this._Item_16_4.context, [], compView_16);
         this._text_17 = this.renderer.createText(null, '\n      ', null);
         this._el_18 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_18_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_18), this.renderer, null, null, null, null);
+        this._Label_18_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_18), this.renderer, null, null, null, null);
         this._text_19 = this.renderer.createText(this._el_18, 'Gender', null);
         this._text_20 = this.renderer.createText(null, '\n      ', null);
         this._el_21 = this.renderer.createElement(null, 'ion-select', null);
         this._appEl_21 = new AppElement(21, 16, this, this._el_21);
         var compView_21 = viewFactory_Select0(this.viewUtils, this.injector(21), this._appEl_21);
-        this._Select_21_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer, this._Item_16_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_21_5 = [this._Select_21_4];
-        this._NgModel_21_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_21_5);
-        this._NgControl_21_7 = this._NgModel_21_6;
-        this._NgControlStatus_21_8 = new NgControlStatus(this._NgControl_21_7);
+        this._Select_21_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_21), this.renderer, this._Item_16_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_21_5 = [this._Select_21_4.context];
+        this._NgModel_21_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_21_5);
+        this._NgControl_21_7 = this._NgModel_21_6.context;
+        this._NgControlStatus_21_8 = new Wrapper_NgControlStatus(this._NgControl_21_7);
         this._query_Option_21_0 = new QueryList();
-        this._appEl_21.initComponent(this._Select_21_4, [], compView_21);
+        this._appEl_21.initComponent(this._Select_21_4.context, [], compView_21);
         this._text_22 = this.renderer.createText(null, '\n        ', null);
         this._el_23 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_23, 'value', 'f');
-        this._Option_23_3 = new Option(new ElementRef(this._el_23));
+        this._Option_23_3 = new Wrapper_Option(new ElementRef(this._el_23));
         this._text_24 = this.renderer.createText(this._el_23, 'Female', null);
         this._text_25 = this.renderer.createText(null, '\n        ', null);
         this._el_26 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_26, 'value', 'm');
-        this._Option_26_3 = new Option(new ElementRef(this._el_26));
+        this._Option_26_3 = new Wrapper_Option(new ElementRef(this._el_26));
         this._text_27 = this.renderer.createText(this._el_26, 'Male', null);
         this._text_28 = this.renderer.createText(null, '\n      ', null);
-        compView_21.create(this._Select_21_4, [], null);
+        compView_21.create(this._Select_21_4.context, [], null);
         this._text_29 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_16_0.reset([this._Label_18_3]);
-        this._Item_16_4.contentLabel = this._query_Label_16_0.first;
-        compView_16.create(this._Item_16_4, [
+        this._query_Label_16_0.reset([this._Label_18_3.context]);
+        this._Item_16_4.context.contentLabel = this._query_Label_16_0.first;
+        compView_16.create(this._Item_16_4.context, [
             [],
             [].concat([this._el_18]),
             [].concat([
@@ -51220,15 +51702,15 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_31, 'class', 'item item-block');
         this._appEl_31 = new AppElement(31, 11, this, this._el_31);
         var compView_31 = viewFactory_Item0(this.viewUtils, this.injector(31), this._appEl_31);
-        this._Item_31_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_31), this.renderer);
-        this._ItemContent_31_5 = new ItemContent();
+        this._Item_31_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_31), this.renderer);
+        this._ItemContent_31_5 = new Wrapper_ItemContent();
         this._query_Label_31_0 = new QueryList();
         this._query_Button_31_1 = new QueryList();
         this._query_Icon_31_2 = new QueryList();
-        this._appEl_31.initComponent(this._Item_31_4, [], compView_31);
+        this._appEl_31.initComponent(this._Item_31_4.context, [], compView_31);
         this._text_32 = this.renderer.createText(null, '\n      ', null);
         this._el_33 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_33_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_33), this.renderer, null, null, null, null);
+        this._Label_33_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_33), this.renderer, null, null, null, null);
         this._text_34 = this.renderer.createText(this._el_33, 'Gaming', null);
         this._text_35 = this.renderer.createText(null, '\n      ', null);
         this._el_36 = this.renderer.createElement(null, 'ion-select', null);
@@ -51236,49 +51718,49 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_36, 'okText', 'Okay');
         this._appEl_36 = new AppElement(36, 31, this, this._el_36);
         var compView_36 = viewFactory_Select0(this.viewUtils, this.injector(36), this._appEl_36);
-        this._Select_36_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_36), this.renderer, this._Item_31_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_36_5 = [this._Select_36_4];
-        this._NgModel_36_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_36_5);
-        this._NgControl_36_7 = this._NgModel_36_6;
-        this._NgControlStatus_36_8 = new NgControlStatus(this._NgControl_36_7);
+        this._Select_36_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_36), this.renderer, this._Item_31_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_36_5 = [this._Select_36_4.context];
+        this._NgModel_36_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_36_5);
+        this._NgControl_36_7 = this._NgModel_36_6.context;
+        this._NgControlStatus_36_8 = new Wrapper_NgControlStatus(this._NgControl_36_7);
         this._query_Option_36_0 = new QueryList();
-        this._appEl_36.initComponent(this._Select_36_4, [], compView_36);
+        this._appEl_36.initComponent(this._Select_36_4.context, [], compView_36);
         this._text_37 = this.renderer.createText(null, '\n        ', null);
         this._el_38 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_38, 'value', 'nes');
-        this._Option_38_3 = new Option(new ElementRef(this._el_38));
+        this._Option_38_3 = new Wrapper_Option(new ElementRef(this._el_38));
         this._text_39 = this.renderer.createText(this._el_38, 'NES', null);
         this._text_40 = this.renderer.createText(null, '\n        ', null);
         this._el_41 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_41, 'value', 'n64');
-        this._Option_41_3 = new Option(new ElementRef(this._el_41));
+        this._Option_41_3 = new Wrapper_Option(new ElementRef(this._el_41));
         this._text_42 = this.renderer.createText(this._el_41, 'Nintendo64', null);
         this._text_43 = this.renderer.createText(null, '\n        ', null);
         this._el_44 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_44, 'value', 'ps');
-        this._Option_44_3 = new Option(new ElementRef(this._el_44));
+        this._Option_44_3 = new Wrapper_Option(new ElementRef(this._el_44));
         this._text_45 = this.renderer.createText(this._el_44, 'PlayStation', null);
         this._text_46 = this.renderer.createText(null, '\n        ', null);
         this._el_47 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_47, 'value', 'genesis');
-        this._Option_47_3 = new Option(new ElementRef(this._el_47));
+        this._Option_47_3 = new Wrapper_Option(new ElementRef(this._el_47));
         this._text_48 = this.renderer.createText(this._el_47, 'Sega Genesis', null);
         this._text_49 = this.renderer.createText(null, '\n        ', null);
         this._el_50 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_50, 'value', 'saturn');
-        this._Option_50_3 = new Option(new ElementRef(this._el_50));
+        this._Option_50_3 = new Wrapper_Option(new ElementRef(this._el_50));
         this._text_51 = this.renderer.createText(this._el_50, 'Sega Saturn', null);
         this._text_52 = this.renderer.createText(null, '\n        ', null);
         this._el_53 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_53, 'value', 'snes');
-        this._Option_53_3 = new Option(new ElementRef(this._el_53));
+        this._Option_53_3 = new Wrapper_Option(new ElementRef(this._el_53));
         this._text_54 = this.renderer.createText(this._el_53, 'SNES', null);
         this._text_55 = this.renderer.createText(null, '\n      ', null);
-        compView_36.create(this._Select_36_4, [], null);
+        compView_36.create(this._Select_36_4.context, [], null);
         this._text_56 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_31_0.reset([this._Label_33_3]);
-        this._Item_31_4.contentLabel = this._query_Label_31_0.first;
-        compView_31.create(this._Item_31_4, [
+        this._query_Label_31_0.reset([this._Label_33_3.context]);
+        this._Item_31_4.context.contentLabel = this._query_Label_31_0.first;
+        compView_31.create(this._Item_31_4.context, [
             [],
             [].concat([this._el_33]),
             [].concat([
@@ -51294,144 +51776,144 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_58, 'class', 'item item-block');
         this._appEl_58 = new AppElement(58, 11, this, this._el_58);
         var compView_58 = viewFactory_Item0(this.viewUtils, this.injector(58), this._appEl_58);
-        this._Item_58_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_58), this.renderer);
-        this._ItemContent_58_5 = new ItemContent();
+        this._Item_58_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_58), this.renderer);
+        this._ItemContent_58_5 = new Wrapper_ItemContent();
         this._query_Label_58_0 = new QueryList();
         this._query_Button_58_1 = new QueryList();
         this._query_Icon_58_2 = new QueryList();
-        this._appEl_58.initComponent(this._Item_58_4, [], compView_58);
+        this._appEl_58.initComponent(this._Item_58_4.context, [], compView_58);
         this._text_59 = this.renderer.createText(null, '\n      ', null);
         this._el_60 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_60_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_60), this.renderer, null, null, null, null);
+        this._Label_60_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_60), this.renderer, null, null, null, null);
         this._text_61 = this.renderer.createText(this._el_60, 'Date', null);
         this._text_62 = this.renderer.createText(null, '\n      ', null);
         this._el_63 = this.renderer.createElement(null, 'ion-select', null);
         this._appEl_63 = new AppElement(63, 58, this, this._el_63);
         var compView_63 = viewFactory_Select0(this.viewUtils, this.injector(63), this._appEl_63);
-        this._Select_63_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_63), this.renderer, this._Item_58_4, this.parentInjector.get(NavController, null));
+        this._Select_63_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_63), this.renderer, this._Item_58_4.context, this.parentInjector.get(NavController, null));
         this._query_Option_63_0 = new QueryList();
-        this._appEl_63.initComponent(this._Select_63_4, [], compView_63);
+        this._appEl_63.initComponent(this._Select_63_4.context, [], compView_63);
         this._text_64 = this.renderer.createText(null, '\n        ', null);
         this._el_65 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_65, 'value', '01');
-        this._Option_65_3 = new Option(new ElementRef(this._el_65));
+        this._Option_65_3 = new Wrapper_Option(new ElementRef(this._el_65));
         this._text_66 = this.renderer.createText(this._el_65, 'January', null);
         this._text_67 = this.renderer.createText(null, '\n        ', null);
         this._el_68 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_68, 'value', '02');
-        this._Option_68_3 = new Option(new ElementRef(this._el_68));
+        this._Option_68_3 = new Wrapper_Option(new ElementRef(this._el_68));
         this._text_69 = this.renderer.createText(this._el_68, 'February', null);
         this._text_70 = this.renderer.createText(null, '\n        ', null);
         this._el_71 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_71, 'selected', 'true');
         this.renderer.setElementAttribute(this._el_71, 'value', '03');
-        this._Option_71_3 = new Option(new ElementRef(this._el_71));
+        this._Option_71_3 = new Wrapper_Option(new ElementRef(this._el_71));
         this._text_72 = this.renderer.createText(this._el_71, 'March', null);
         this._text_73 = this.renderer.createText(null, '\n        ', null);
         this._el_74 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_74, 'value', '04');
-        this._Option_74_3 = new Option(new ElementRef(this._el_74));
+        this._Option_74_3 = new Wrapper_Option(new ElementRef(this._el_74));
         this._text_75 = this.renderer.createText(this._el_74, 'April', null);
         this._text_76 = this.renderer.createText(null, '\n        ', null);
         this._el_77 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_77, 'value', '05');
-        this._Option_77_3 = new Option(new ElementRef(this._el_77));
+        this._Option_77_3 = new Wrapper_Option(new ElementRef(this._el_77));
         this._text_78 = this.renderer.createText(this._el_77, 'May', null);
         this._text_79 = this.renderer.createText(null, '\n        ', null);
         this._el_80 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_80, 'value', '06');
-        this._Option_80_3 = new Option(new ElementRef(this._el_80));
+        this._Option_80_3 = new Wrapper_Option(new ElementRef(this._el_80));
         this._text_81 = this.renderer.createText(this._el_80, 'June', null);
         this._text_82 = this.renderer.createText(null, '\n        ', null);
         this._el_83 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_83, 'value', '07');
-        this._Option_83_3 = new Option(new ElementRef(this._el_83));
+        this._Option_83_3 = new Wrapper_Option(new ElementRef(this._el_83));
         this._text_84 = this.renderer.createText(this._el_83, 'July', null);
         this._text_85 = this.renderer.createText(null, '\n        ', null);
         this._el_86 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_86, 'value', '08');
-        this._Option_86_3 = new Option(new ElementRef(this._el_86));
+        this._Option_86_3 = new Wrapper_Option(new ElementRef(this._el_86));
         this._text_87 = this.renderer.createText(this._el_86, 'August', null);
         this._text_88 = this.renderer.createText(null, '\n        ', null);
         this._el_89 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_89, 'value', '09');
-        this._Option_89_3 = new Option(new ElementRef(this._el_89));
+        this._Option_89_3 = new Wrapper_Option(new ElementRef(this._el_89));
         this._text_90 = this.renderer.createText(this._el_89, 'September', null);
         this._text_91 = this.renderer.createText(null, '\n        ', null);
         this._el_92 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_92, 'value', '10');
-        this._Option_92_3 = new Option(new ElementRef(this._el_92));
+        this._Option_92_3 = new Wrapper_Option(new ElementRef(this._el_92));
         this._text_93 = this.renderer.createText(this._el_92, 'October', null);
         this._text_94 = this.renderer.createText(null, '\n        ', null);
         this._el_95 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_95, 'value', '11');
-        this._Option_95_3 = new Option(new ElementRef(this._el_95));
+        this._Option_95_3 = new Wrapper_Option(new ElementRef(this._el_95));
         this._text_96 = this.renderer.createText(this._el_95, 'November', null);
         this._text_97 = this.renderer.createText(null, '\n        ', null);
         this._el_98 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_98, 'value', '12');
-        this._Option_98_3 = new Option(new ElementRef(this._el_98));
+        this._Option_98_3 = new Wrapper_Option(new ElementRef(this._el_98));
         this._text_99 = this.renderer.createText(this._el_98, 'December', null);
         this._text_100 = this.renderer.createText(null, '\n      ', null);
-        compView_63.create(this._Select_63_4, [], null);
+        compView_63.create(this._Select_63_4.context, [], null);
         this._text_101 = this.renderer.createText(null, '\n      ', null);
         this._el_102 = this.renderer.createElement(null, 'ion-select', null);
         this._appEl_102 = new AppElement(102, 58, this, this._el_102);
         var compView_102 = viewFactory_Select0(this.viewUtils, this.injector(102), this._appEl_102);
-        this._Select_102_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_102), this.renderer, this._Item_58_4, this.parentInjector.get(NavController, null));
+        this._Select_102_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_102), this.renderer, this._Item_58_4.context, this.parentInjector.get(NavController, null));
         this._query_Option_102_0 = new QueryList();
-        this._appEl_102.initComponent(this._Select_102_4, [], compView_102);
+        this._appEl_102.initComponent(this._Select_102_4.context, [], compView_102);
         this._text_103 = this.renderer.createText(null, '\n        ', null);
         this._el_104 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_104_3 = new Option(new ElementRef(this._el_104));
+        this._Option_104_3 = new Wrapper_Option(new ElementRef(this._el_104));
         this._text_105 = this.renderer.createText(this._el_104, '1989', null);
         this._text_106 = this.renderer.createText(null, '\n        ', null);
         this._el_107 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_107_3 = new Option(new ElementRef(this._el_107));
+        this._Option_107_3 = new Wrapper_Option(new ElementRef(this._el_107));
         this._text_108 = this.renderer.createText(this._el_107, '1990', null);
         this._text_109 = this.renderer.createText(null, '\n        ', null);
         this._el_110 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_110_3 = new Option(new ElementRef(this._el_110));
+        this._Option_110_3 = new Wrapper_Option(new ElementRef(this._el_110));
         this._text_111 = this.renderer.createText(this._el_110, '1991', null);
         this._text_112 = this.renderer.createText(null, '\n        ', null);
         this._el_113 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_113_3 = new Option(new ElementRef(this._el_113));
+        this._Option_113_3 = new Wrapper_Option(new ElementRef(this._el_113));
         this._text_114 = this.renderer.createText(this._el_113, '1992', null);
         this._text_115 = this.renderer.createText(null, '\n        ', null);
         this._el_116 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_116_3 = new Option(new ElementRef(this._el_116));
+        this._Option_116_3 = new Wrapper_Option(new ElementRef(this._el_116));
         this._text_117 = this.renderer.createText(this._el_116, '1993', null);
         this._text_118 = this.renderer.createText(null, '\n        ', null);
         this._el_119 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_119, 'selected', 'true');
-        this._Option_119_3 = new Option(new ElementRef(this._el_119));
+        this._Option_119_3 = new Wrapper_Option(new ElementRef(this._el_119));
         this._text_120 = this.renderer.createText(this._el_119, '1994', null);
         this._text_121 = this.renderer.createText(null, '\n        ', null);
         this._el_122 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_122_3 = new Option(new ElementRef(this._el_122));
+        this._Option_122_3 = new Wrapper_Option(new ElementRef(this._el_122));
         this._text_123 = this.renderer.createText(this._el_122, '1995', null);
         this._text_124 = this.renderer.createText(null, '\n        ', null);
         this._el_125 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_125_3 = new Option(new ElementRef(this._el_125));
+        this._Option_125_3 = new Wrapper_Option(new ElementRef(this._el_125));
         this._text_126 = this.renderer.createText(this._el_125, '1996', null);
         this._text_127 = this.renderer.createText(null, '\n        ', null);
         this._el_128 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_128_3 = new Option(new ElementRef(this._el_128));
+        this._Option_128_3 = new Wrapper_Option(new ElementRef(this._el_128));
         this._text_129 = this.renderer.createText(this._el_128, '1997', null);
         this._text_130 = this.renderer.createText(null, '\n        ', null);
         this._el_131 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_131_3 = new Option(new ElementRef(this._el_131));
+        this._Option_131_3 = new Wrapper_Option(new ElementRef(this._el_131));
         this._text_132 = this.renderer.createText(this._el_131, '1998', null);
         this._text_133 = this.renderer.createText(null, '\n        ', null);
         this._el_134 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_134_3 = new Option(new ElementRef(this._el_134));
+        this._Option_134_3 = new Wrapper_Option(new ElementRef(this._el_134));
         this._text_135 = this.renderer.createText(this._el_134, '1999', null);
         this._text_136 = this.renderer.createText(null, '\n      ', null);
-        compView_102.create(this._Select_102_4, [], null);
+        compView_102.create(this._Select_102_4.context, [], null);
         this._text_137 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_58_0.reset([this._Label_60_3]);
-        this._Item_58_4.contentLabel = this._query_Label_58_0.first;
-        compView_58.create(this._Item_58_4, [
+        this._query_Label_58_0.reset([this._Label_60_3.context]);
+        this._Item_58_4.context.contentLabel = this._query_Label_58_0.first;
+        compView_58.create(this._Item_58_4.context, [
             [],
             [].concat([this._el_60]),
             [].concat([
@@ -51449,22 +51931,22 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_138 = this.renderer.createText(this._el_11, '\n\n  ', null);
         this._text_139 = this.renderer.createText(null, '\n\n  ', null);
         this._el_140 = this.renderer.createElement(null, 'ion-list', null);
-        this._List_140_3 = new List(this.parentInjector.get(Config), new ElementRef(this._el_140), this.renderer, this.parentInjector.get(GestureController));
+        this._List_140_3 = new Wrapper_List(this.parentInjector.get(Config), new ElementRef(this._el_140), this.renderer, this.parentInjector.get(GestureController));
         this._text_141 = this.renderer.createText(this._el_140, '\n    ', null);
         this._el_142 = this.renderer.createElement(this._el_140, 'ion-list-header', null);
         this.renderer.setElementAttribute(this._el_142, 'class', 'item');
         this._appEl_142 = new AppElement(142, 140, this, this._el_142);
         var compView_142 = viewFactory_Item0(this.viewUtils, this.injector(142), this._appEl_142);
-        this._Item_142_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_142), this.renderer);
-        this._ListHeader_142_5 = new ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_142), null);
+        this._Item_142_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_142), this.renderer);
+        this._ListHeader_142_5 = new Wrapper_ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_142), null);
         this._query_Label_142_0 = new QueryList();
         this._query_Button_142_1 = new QueryList();
         this._query_Icon_142_2 = new QueryList();
-        this._appEl_142.initComponent(this._Item_142_4, [], compView_142);
+        this._appEl_142.initComponent(this._Item_142_4.context, [], compView_142);
         this._text_143 = this.renderer.createText(null, 'Multiple Value Select', null);
         this._query_Label_142_0.reset([]);
-        this._Item_142_4.contentLabel = this._query_Label_142_0.first;
-        compView_142.create(this._Item_142_4, [
+        this._Item_142_4.context.contentLabel = this._query_Label_142_0.first;
+        compView_142.create(this._Item_142_4.context, [
             [],
             [],
             [].concat([this._text_143]),
@@ -51476,15 +51958,15 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_145, 'class', 'item item-block');
         this._appEl_145 = new AppElement(145, 140, this, this._el_145);
         var compView_145 = viewFactory_Item0(this.viewUtils, this.injector(145), this._appEl_145);
-        this._Item_145_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_145), this.renderer);
-        this._ItemContent_145_5 = new ItemContent();
+        this._Item_145_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_145), this.renderer);
+        this._ItemContent_145_5 = new Wrapper_ItemContent();
         this._query_Label_145_0 = new QueryList();
         this._query_Button_145_1 = new QueryList();
         this._query_Icon_145_2 = new QueryList();
-        this._appEl_145.initComponent(this._Item_145_4, [], compView_145);
+        this._appEl_145.initComponent(this._Item_145_4.context, [], compView_145);
         this._text_146 = this.renderer.createText(null, '\n      ', null);
         this._el_147 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_147_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_147), this.renderer, null, null, null, null);
+        this._Label_147_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_147), this.renderer, null, null, null, null);
         this._text_148 = this.renderer.createText(this._el_147, 'Toppings', null);
         this._text_149 = this.renderer.createText(null, '\n      ', null);
         this._el_150 = this.renderer.createElement(null, 'ion-select', null);
@@ -51493,69 +51975,69 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_150, 'okText', 'Okay!');
         this._appEl_150 = new AppElement(150, 145, this, this._el_150);
         var compView_150 = viewFactory_Select0(this.viewUtils, this.injector(150), this._appEl_150);
-        this._Select_150_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_150), this.renderer, this._Item_145_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_150_5 = [this._Select_150_4];
-        this._NgModel_150_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_150_5);
-        this._NgControl_150_7 = this._NgModel_150_6;
-        this._NgControlStatus_150_8 = new NgControlStatus(this._NgControl_150_7);
+        this._Select_150_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_150), this.renderer, this._Item_145_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_150_5 = [this._Select_150_4.context];
+        this._NgModel_150_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_150_5);
+        this._NgControl_150_7 = this._NgModel_150_6.context;
+        this._NgControlStatus_150_8 = new Wrapper_NgControlStatus(this._NgControl_150_7);
         this._query_Option_150_0 = new QueryList();
-        this._appEl_150.initComponent(this._Select_150_4, [], compView_150);
+        this._appEl_150.initComponent(this._Select_150_4.context, [], compView_150);
         this._text_151 = this.renderer.createText(null, '\n        ', null);
         this._el_152 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_152, 'value', 'bacon');
-        this._Option_152_3 = new Option(new ElementRef(this._el_152));
+        this._Option_152_3 = new Wrapper_Option(new ElementRef(this._el_152));
         this._text_153 = this.renderer.createText(this._el_152, 'Bacon', null);
         this._text_154 = this.renderer.createText(null, '\n        ', null);
         this._el_155 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_155, 'value', 'olives');
-        this._Option_155_3 = new Option(new ElementRef(this._el_155));
+        this._Option_155_3 = new Wrapper_Option(new ElementRef(this._el_155));
         this._text_156 = this.renderer.createText(this._el_155, 'Black Olives', null);
         this._text_157 = this.renderer.createText(null, '\n        ', null);
         this._el_158 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_158, 'value', 'xcheese');
-        this._Option_158_3 = new Option(new ElementRef(this._el_158));
+        this._Option_158_3 = new Wrapper_Option(new ElementRef(this._el_158));
         this._text_159 = this.renderer.createText(this._el_158, 'Extra Cheese', null);
         this._text_160 = this.renderer.createText(null, '\n        ', null);
         this._el_161 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_161, 'value', 'peppers');
-        this._Option_161_3 = new Option(new ElementRef(this._el_161));
+        this._Option_161_3 = new Wrapper_Option(new ElementRef(this._el_161));
         this._text_162 = this.renderer.createText(this._el_161, 'Green Peppers', null);
         this._text_163 = this.renderer.createText(null, '\n        ', null);
         this._el_164 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_164, 'value', 'mushrooms');
-        this._Option_164_3 = new Option(new ElementRef(this._el_164));
+        this._Option_164_3 = new Wrapper_Option(new ElementRef(this._el_164));
         this._text_165 = this.renderer.createText(this._el_164, 'Mushrooms', null);
         this._text_166 = this.renderer.createText(null, '\n        ', null);
         this._el_167 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_167, 'value', 'onions');
-        this._Option_167_3 = new Option(new ElementRef(this._el_167));
+        this._Option_167_3 = new Wrapper_Option(new ElementRef(this._el_167));
         this._text_168 = this.renderer.createText(this._el_167, 'Onions', null);
         this._text_169 = this.renderer.createText(null, '\n        ', null);
         this._el_170 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_170, 'value', 'pepperoni');
-        this._Option_170_3 = new Option(new ElementRef(this._el_170));
+        this._Option_170_3 = new Wrapper_Option(new ElementRef(this._el_170));
         this._text_171 = this.renderer.createText(this._el_170, 'Pepperoni', null);
         this._text_172 = this.renderer.createText(null, '\n        ', null);
         this._el_173 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_173, 'value', 'pineapple');
-        this._Option_173_3 = new Option(new ElementRef(this._el_173));
+        this._Option_173_3 = new Wrapper_Option(new ElementRef(this._el_173));
         this._text_174 = this.renderer.createText(this._el_173, 'Pineapple', null);
         this._text_175 = this.renderer.createText(null, '\n        ', null);
         this._el_176 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_176, 'value', 'sausage');
-        this._Option_176_3 = new Option(new ElementRef(this._el_176));
+        this._Option_176_3 = new Wrapper_Option(new ElementRef(this._el_176));
         this._text_177 = this.renderer.createText(this._el_176, 'Sausage', null);
         this._text_178 = this.renderer.createText(null, '\n        ', null);
         this._el_179 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_179, 'value', 'Spinach');
-        this._Option_179_3 = new Option(new ElementRef(this._el_179));
+        this._Option_179_3 = new Wrapper_Option(new ElementRef(this._el_179));
         this._text_180 = this.renderer.createText(this._el_179, 'Spinach', null);
         this._text_181 = this.renderer.createText(null, '\n      ', null);
-        compView_150.create(this._Select_150_4, [], null);
+        compView_150.create(this._Select_150_4.context, [], null);
         this._text_182 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_145_0.reset([this._Label_147_3]);
-        this._Item_145_4.contentLabel = this._query_Label_145_0.first;
-        compView_145.create(this._Item_145_4, [
+        this._query_Label_145_0.reset([this._Label_147_3.context]);
+        this._Item_145_4.context.contentLabel = this._query_Label_145_0.first;
+        compView_145.create(this._Item_145_4.context, [
             [],
             [].concat([this._el_147]),
             [].concat([
@@ -51571,39 +52053,39 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_184, 'class', 'item item-block');
         this._appEl_184 = new AppElement(184, 140, this, this._el_184);
         var compView_184 = viewFactory_Item0(this.viewUtils, this.injector(184), this._appEl_184);
-        this._Item_184_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_184), this.renderer);
-        this._ItemContent_184_5 = new ItemContent();
+        this._Item_184_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_184), this.renderer);
+        this._ItemContent_184_5 = new Wrapper_ItemContent();
         this._query_Label_184_0 = new QueryList();
         this._query_Button_184_1 = new QueryList();
         this._query_Icon_184_2 = new QueryList();
-        this._appEl_184.initComponent(this._Item_184_4, [], compView_184);
+        this._appEl_184.initComponent(this._Item_184_4.context, [], compView_184);
         this._text_185 = this.renderer.createText(null, '\n      ', null);
         this._el_186 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_186_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_186), this.renderer, null, null, null, null);
+        this._Label_186_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_186), this.renderer, null, null, null, null);
         this._text_187 = this.renderer.createText(this._el_186, 'Pets', null);
         this._text_188 = this.renderer.createText(null, '\n      ', null);
         this._el_189 = this.renderer.createElement(null, 'ion-select', null);
         this.renderer.setElementAttribute(this._el_189, 'multiple', 'true');
         this._appEl_189 = new AppElement(189, 184, this, this._el_189);
         var compView_189 = viewFactory_Select0(this.viewUtils, this.injector(189), this._appEl_189);
-        this._Select_189_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_189), this.renderer, this._Item_184_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_189_5 = [this._Select_189_4];
-        this._NgModel_189_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_189_5);
-        this._NgControl_189_7 = this._NgModel_189_6;
-        this._NgControlStatus_189_8 = new NgControlStatus(this._NgControl_189_7);
+        this._Select_189_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_189), this.renderer, this._Item_184_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_189_5 = [this._Select_189_4.context];
+        this._NgModel_189_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_189_5);
+        this._NgControl_189_7 = this._NgModel_189_6.context;
+        this._NgControlStatus_189_8 = new Wrapper_NgControlStatus(this._NgControl_189_7);
         this._query_Option_189_0 = new QueryList();
-        this._appEl_189.initComponent(this._Select_189_4, [], compView_189);
+        this._appEl_189.initComponent(this._Select_189_4.context, [], compView_189);
         this._text_190 = this.renderer.createText(null, '\n        ', null);
         this._anchor_191 = this.renderer.createTemplateAnchor(null, null);
         this._appEl_191 = new AppElement(191, 189, this, this._anchor_191);
         this._TemplateRef_191_5 = new TemplateRef_(this._appEl_191, viewFactory_ApiDemoPage1);
-        this._NgFor_191_6 = new NgFor(this._appEl_191.vcRef, this._TemplateRef_191_5, this.parentInjector.get(IterableDiffers), this.ref);
+        this._NgFor_191_6 = new Wrapper_NgFor(this._appEl_191.vcRef, this._TemplateRef_191_5, this.parentInjector.get(IterableDiffers), this.ref);
         this._text_192 = this.renderer.createText(null, '\n      ', null);
-        compView_189.create(this._Select_189_4, [], null);
+        compView_189.create(this._Select_189_4.context, [], null);
         this._text_193 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_184_0.reset([this._Label_186_3]);
-        this._Item_184_4.contentLabel = this._query_Label_184_0.first;
-        compView_184.create(this._Item_184_4, [
+        this._query_Label_184_0.reset([this._Label_186_3.context]);
+        this._Item_184_4.context.contentLabel = this._query_Label_184_0.first;
+        compView_184.create(this._Item_184_4.context, [
             [],
             [].concat([this._el_186]),
             [].concat([
@@ -51619,15 +52101,15 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_195, 'class', 'item item-block');
         this._appEl_195 = new AppElement(195, 140, this, this._el_195);
         var compView_195 = viewFactory_Item0(this.viewUtils, this.injector(195), this._appEl_195);
-        this._Item_195_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_195), this.renderer);
-        this._ItemContent_195_5 = new ItemContent();
+        this._Item_195_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_195), this.renderer);
+        this._ItemContent_195_5 = new Wrapper_ItemContent();
         this._query_Label_195_0 = new QueryList();
         this._query_Button_195_1 = new QueryList();
         this._query_Icon_195_2 = new QueryList();
-        this._appEl_195.initComponent(this._Item_195_4, [], compView_195);
+        this._appEl_195.initComponent(this._Item_195_4.context, [], compView_195);
         this._text_196 = this.renderer.createText(null, '\n      ', null);
         this._el_197 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_197_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_197), this.renderer, null, null, null, null);
+        this._Label_197_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_197), this.renderer, null, null, null, null);
         this._text_198 = this.renderer.createText(this._el_197, 'Disabled', null);
         this._text_199 = this.renderer.createText(null, '\n      ', null);
         this._el_200 = this.renderer.createElement(null, 'ion-select', null);
@@ -51635,20 +52117,20 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_200, 'multiple', '');
         this._appEl_200 = new AppElement(200, 195, this, this._el_200);
         var compView_200 = viewFactory_Select0(this.viewUtils, this.injector(200), this._appEl_200);
-        this._Select_200_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_200), this.renderer, this._Item_195_4, this.parentInjector.get(NavController, null));
+        this._Select_200_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_200), this.renderer, this._Item_195_4.context, this.parentInjector.get(NavController, null));
         this._query_Option_200_0 = new QueryList();
-        this._appEl_200.initComponent(this._Select_200_4, [], compView_200);
+        this._appEl_200.initComponent(this._Select_200_4.context, [], compView_200);
         this._text_201 = this.renderer.createText(null, '\n        ', null);
         this._el_202 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_202, 'checked', 'true');
-        this._Option_202_3 = new Option(new ElementRef(this._el_202));
+        this._Option_202_3 = new Wrapper_Option(new ElementRef(this._el_202));
         this._text_203 = this.renderer.createText(this._el_202, 'Selected Text', null);
         this._text_204 = this.renderer.createText(null, '\n      ', null);
-        compView_200.create(this._Select_200_4, [], null);
+        compView_200.create(this._Select_200_4.context, [], null);
         this._text_205 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_195_0.reset([this._Label_197_3]);
-        this._Item_195_4.contentLabel = this._query_Label_195_0.first;
-        compView_195.create(this._Item_195_4, [
+        this._query_Label_195_0.reset([this._Label_197_3.context]);
+        this._Item_195_4.context.contentLabel = this._query_Label_195_0.first;
+        compView_195.create(this._Item_195_4.context, [
             [],
             [].concat([this._el_197]),
             [].concat([
@@ -51662,22 +52144,22 @@ var _View_ApiDemoPage0 = (function (_super) {
         this._text_206 = this.renderer.createText(this._el_140, '\n\n  ', null);
         this._text_207 = this.renderer.createText(null, '\n\n  ', null);
         this._el_208 = this.renderer.createElement(null, 'ion-list', null);
-        this._List_208_3 = new List(this.parentInjector.get(Config), new ElementRef(this._el_208), this.renderer, this.parentInjector.get(GestureController));
+        this._List_208_3 = new Wrapper_List(this.parentInjector.get(Config), new ElementRef(this._el_208), this.renderer, this.parentInjector.get(GestureController));
         this._text_209 = this.renderer.createText(this._el_208, '\n    ', null);
         this._el_210 = this.renderer.createElement(this._el_208, 'ion-list-header', null);
         this.renderer.setElementAttribute(this._el_210, 'class', 'item');
         this._appEl_210 = new AppElement(210, 208, this, this._el_210);
         var compView_210 = viewFactory_Item0(this.viewUtils, this.injector(210), this._appEl_210);
-        this._Item_210_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_210), this.renderer);
-        this._ListHeader_210_5 = new ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_210), null);
+        this._Item_210_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_210), this.renderer);
+        this._ListHeader_210_5 = new Wrapper_ListHeader(this.parentInjector.get(Config), this.renderer, new ElementRef(this._el_210), null);
         this._query_Label_210_0 = new QueryList();
         this._query_Button_210_1 = new QueryList();
         this._query_Icon_210_2 = new QueryList();
-        this._appEl_210.initComponent(this._Item_210_4, [], compView_210);
+        this._appEl_210.initComponent(this._Item_210_4.context, [], compView_210);
         this._text_211 = this.renderer.createText(null, 'Action Sheet Interface Select', null);
         this._query_Label_210_0.reset([]);
-        this._Item_210_4.contentLabel = this._query_Label_210_0.first;
-        compView_210.create(this._Item_210_4, [
+        this._Item_210_4.context.contentLabel = this._query_Label_210_0.first;
+        compView_210.create(this._Item_210_4.context, [
             [],
             [],
             [].concat([this._text_211]),
@@ -51689,54 +52171,54 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_213, 'class', 'item item-block');
         this._appEl_213 = new AppElement(213, 208, this, this._el_213);
         var compView_213 = viewFactory_Item0(this.viewUtils, this.injector(213), this._appEl_213);
-        this._Item_213_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_213), this.renderer);
-        this._ItemContent_213_5 = new ItemContent();
+        this._Item_213_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_213), this.renderer);
+        this._ItemContent_213_5 = new Wrapper_ItemContent();
         this._query_Label_213_0 = new QueryList();
         this._query_Button_213_1 = new QueryList();
         this._query_Icon_213_2 = new QueryList();
-        this._appEl_213.initComponent(this._Item_213_4, [], compView_213);
+        this._appEl_213.initComponent(this._Item_213_4.context, [], compView_213);
         this._text_214 = this.renderer.createText(null, '\n      ', null);
         this._el_215 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_215_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_215), this.renderer, null, null, null, null);
+        this._Label_215_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_215), this.renderer, null, null, null, null);
         this._text_216 = this.renderer.createText(this._el_215, 'Mute Notifications', null);
         this._text_217 = this.renderer.createText(null, '\n      ', null);
         this._el_218 = this.renderer.createElement(null, 'ion-select', null);
         this.renderer.setElementAttribute(this._el_218, 'interface', 'action-sheet');
         this._appEl_218 = new AppElement(218, 213, this, this._el_218);
         var compView_218 = viewFactory_Select0(this.viewUtils, this.injector(218), this._appEl_218);
-        this._Select_218_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_218), this.renderer, this._Item_213_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_218_5 = [this._Select_218_4];
-        this._NgModel_218_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_218_5);
-        this._NgControl_218_7 = this._NgModel_218_6;
-        this._NgControlStatus_218_8 = new NgControlStatus(this._NgControl_218_7);
+        this._Select_218_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_218), this.renderer, this._Item_213_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_218_5 = [this._Select_218_4.context];
+        this._NgModel_218_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_218_5);
+        this._NgControl_218_7 = this._NgModel_218_6.context;
+        this._NgControlStatus_218_8 = new Wrapper_NgControlStatus(this._NgControl_218_7);
         this._query_Option_218_0 = new QueryList();
-        this._appEl_218.initComponent(this._Select_218_4, [], compView_218);
+        this._appEl_218.initComponent(this._Select_218_4.context, [], compView_218);
         this._text_219 = this.renderer.createText(null, '\n        ', null);
         this._el_220 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_220, 'value', 'mute_15');
-        this._Option_220_3 = new Option(new ElementRef(this._el_220));
+        this._Option_220_3 = new Wrapper_Option(new ElementRef(this._el_220));
         this._text_221 = this.renderer.createText(this._el_220, 'For 15 Minutes', null);
         this._text_222 = this.renderer.createText(null, '\n        ', null);
         this._el_223 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_223, 'value', 'mute_1');
-        this._Option_223_3 = new Option(new ElementRef(this._el_223));
+        this._Option_223_3 = new Wrapper_Option(new ElementRef(this._el_223));
         this._text_224 = this.renderer.createText(this._el_223, 'For 1 Hour', null);
         this._text_225 = this.renderer.createText(null, '\n        ', null);
         this._el_226 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_226, 'value', 'mute_23');
-        this._Option_226_3 = new Option(new ElementRef(this._el_226));
+        this._Option_226_3 = new Wrapper_Option(new ElementRef(this._el_226));
         this._text_227 = this.renderer.createText(this._el_226, 'For 24 Hours', null);
         this._text_228 = this.renderer.createText(null, '\n        ', null);
         this._el_229 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_229, 'value', 'mute_inf');
-        this._Option_229_3 = new Option(new ElementRef(this._el_229));
+        this._Option_229_3 = new Wrapper_Option(new ElementRef(this._el_229));
         this._text_230 = this.renderer.createText(this._el_229, 'Until I turn it back on', null);
         this._text_231 = this.renderer.createText(null, '\n      ', null);
-        compView_218.create(this._Select_218_4, [], null);
+        compView_218.create(this._Select_218_4.context, [], null);
         this._text_232 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_213_0.reset([this._Label_215_3]);
-        this._Item_213_4.contentLabel = this._query_Label_213_0.first;
-        compView_213.create(this._Item_213_4, [
+        this._query_Label_213_0.reset([this._Label_215_3.context]);
+        this._Item_213_4.context.contentLabel = this._query_Label_213_0.first;
+        compView_213.create(this._Item_213_4.context, [
             [],
             [].concat([this._el_215]),
             [].concat([
@@ -51752,59 +52234,59 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.renderer.setElementAttribute(this._el_234, 'class', 'item item-block');
         this._appEl_234 = new AppElement(234, 208, this, this._el_234);
         var compView_234 = viewFactory_Item0(this.viewUtils, this.injector(234), this._appEl_234);
-        this._Item_234_4 = new Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_234), this.renderer);
-        this._ItemContent_234_5 = new ItemContent();
+        this._Item_234_4 = new Wrapper_Item(this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_234), this.renderer);
+        this._ItemContent_234_5 = new Wrapper_ItemContent();
         this._query_Label_234_0 = new QueryList();
         this._query_Button_234_1 = new QueryList();
         this._query_Icon_234_2 = new QueryList();
-        this._appEl_234.initComponent(this._Item_234_4, [], compView_234);
+        this._appEl_234.initComponent(this._Item_234_4.context, [], compView_234);
         this._text_235 = this.renderer.createText(null, '\n      ', null);
         this._el_236 = this.renderer.createElement(null, 'ion-label', null);
-        this._Label_236_3 = new Label(this.parentInjector.get(Config), new ElementRef(this._el_236), this.renderer, null, null, null, null);
+        this._Label_236_3 = new Wrapper_Label(this.parentInjector.get(Config), new ElementRef(this._el_236), this.renderer, null, null, null, null);
         this._text_237 = this.renderer.createText(this._el_236, 'Rating', null);
         this._text_238 = this.renderer.createText(null, '\n      ', null);
         this._el_239 = this.renderer.createElement(null, 'ion-select', null);
         this.renderer.setElementAttribute(this._el_239, 'interface', 'action-sheet');
         this._appEl_239 = new AppElement(239, 234, this, this._el_239);
         var compView_239 = viewFactory_Select0(this.viewUtils, this.injector(239), this._appEl_239);
-        this._Select_239_4 = new Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_239), this.renderer, this._Item_234_4, this.parentInjector.get(NavController, null));
-        this._NG_VALUE_ACCESSOR_239_5 = [this._Select_239_4];
-        this._NgModel_239_6 = new NgModel(null, null, null, this._NG_VALUE_ACCESSOR_239_5);
-        this._NgControl_239_7 = this._NgModel_239_6;
-        this._NgControlStatus_239_8 = new NgControlStatus(this._NgControl_239_7);
+        this._Select_239_4 = new Wrapper_Select(this.parentInjector.get(App), this.parentInjector.get(Form), this.parentInjector.get(Config), new ElementRef(this._el_239), this.renderer, this._Item_234_4.context, this.parentInjector.get(NavController, null));
+        this._NG_VALUE_ACCESSOR_239_5 = [this._Select_239_4.context];
+        this._NgModel_239_6 = new Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_239_5);
+        this._NgControl_239_7 = this._NgModel_239_6.context;
+        this._NgControlStatus_239_8 = new Wrapper_NgControlStatus(this._NgControl_239_7);
         this._query_Option_239_0 = new QueryList();
-        this._appEl_239.initComponent(this._Select_239_4, [], compView_239);
+        this._appEl_239.initComponent(this._Select_239_4.context, [], compView_239);
         this._text_240 = this.renderer.createText(null, '\n        ', null);
         this._el_241 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_241, 'value', '1');
-        this._Option_241_3 = new Option(new ElementRef(this._el_241));
+        this._Option_241_3 = new Wrapper_Option(new ElementRef(this._el_241));
         this._text_242 = this.renderer.createText(this._el_241, '1 Star', null);
         this._text_243 = this.renderer.createText(null, '\n        ', null);
         this._el_244 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_244, 'value', '2');
-        this._Option_244_3 = new Option(new ElementRef(this._el_244));
+        this._Option_244_3 = new Wrapper_Option(new ElementRef(this._el_244));
         this._text_245 = this.renderer.createText(this._el_244, '2 Stars', null);
         this._text_246 = this.renderer.createText(null, '\n        ', null);
         this._el_247 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_247, 'value', '3');
-        this._Option_247_3 = new Option(new ElementRef(this._el_247));
+        this._Option_247_3 = new Wrapper_Option(new ElementRef(this._el_247));
         this._text_248 = this.renderer.createText(this._el_247, '3 Stars', null);
         this._text_249 = this.renderer.createText(null, '\n        ', null);
         this._el_250 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_250, 'value', '4');
-        this._Option_250_3 = new Option(new ElementRef(this._el_250));
+        this._Option_250_3 = new Wrapper_Option(new ElementRef(this._el_250));
         this._text_251 = this.renderer.createText(this._el_250, '4 Stars', null);
         this._text_252 = this.renderer.createText(null, '\n        ', null);
         this._el_253 = this.renderer.createElement(null, 'ion-option', null);
         this.renderer.setElementAttribute(this._el_253, 'value', '5');
-        this._Option_253_3 = new Option(new ElementRef(this._el_253));
+        this._Option_253_3 = new Wrapper_Option(new ElementRef(this._el_253));
         this._text_254 = this.renderer.createText(this._el_253, '5 Stars', null);
         this._text_255 = this.renderer.createText(null, '\n      ', null);
-        compView_239.create(this._Select_239_4, [], null);
+        compView_239.create(this._Select_239_4.context, [], null);
         this._text_256 = this.renderer.createText(null, '\n    ', null);
-        this._query_Label_234_0.reset([this._Label_236_3]);
-        this._Item_234_4.contentLabel = this._query_Label_234_0.first;
-        compView_234.create(this._Item_234_4, [
+        this._query_Label_234_0.reset([this._Label_236_3.context]);
+        this._Item_234_4.context.contentLabel = this._query_Label_234_0.first;
+        compView_234.create(this._Item_234_4.context, [
             [],
             [].concat([this._el_236]),
             [].concat([
@@ -51817,7 +52299,7 @@ var _View_ApiDemoPage0 = (function (_super) {
         ], null);
         this._text_257 = this.renderer.createText(this._el_208, '\n\n  ', null);
         this._text_258 = this.renderer.createText(null, '\n\n', null);
-        compView_9.create(this._Content_9_4, [
+        compView_9.create(this._Content_9_4.context, [
             [],
             [].concat([
                 this._text_10,
@@ -51838,140 +52320,81 @@ var _View_ApiDemoPage0 = (function (_super) {
         var disposable_1 = this.renderer.listen(this._el_21, 'click', this.eventHandler(this._handle_click_21_1.bind(this)));
         var disposable_2 = this.renderer.listen(this._el_21, 'keyup.space', this.eventHandler(this._handle_keyup_space_21_2.bind(this)));
         this._expr_6 = UNINITIALIZED;
-        this._expr_7 = UNINITIALIZED;
-        var subscription_0 = this._NgModel_21_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_21_0.bind(this)));
+        var subscription_0 = this._NgModel_21_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_21_0.bind(this)));
         this._expr_8 = UNINITIALIZED;
         this._expr_9 = UNINITIALIZED;
         this._expr_10 = UNINITIALIZED;
         this._expr_11 = UNINITIALIZED;
         this._expr_12 = UNINITIALIZED;
         this._expr_13 = UNINITIALIZED;
-        this._expr_14 = UNINITIALIZED;
-        this._expr_15 = UNINITIALIZED;
         var disposable_3 = this.renderer.listen(this._el_36, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_36_0.bind(this)));
         var disposable_4 = this.renderer.listen(this._el_36, 'click', this.eventHandler(this._handle_click_36_1.bind(this)));
         var disposable_5 = this.renderer.listen(this._el_36, 'keyup.space', this.eventHandler(this._handle_keyup_space_36_2.bind(this)));
-        this._expr_19 = UNINITIALIZED;
-        this._expr_20 = UNINITIALIZED;
         this._expr_21 = UNINITIALIZED;
-        this._expr_22 = UNINITIALIZED;
-        var subscription_1 = this._NgModel_36_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_36_0.bind(this)));
+        var subscription_1 = this._NgModel_36_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_36_0.bind(this)));
         this._expr_23 = UNINITIALIZED;
         this._expr_24 = UNINITIALIZED;
         this._expr_25 = UNINITIALIZED;
         this._expr_26 = UNINITIALIZED;
         this._expr_27 = UNINITIALIZED;
         this._expr_28 = UNINITIALIZED;
-        this._expr_29 = UNINITIALIZED;
-        this._expr_30 = UNINITIALIZED;
-        this._expr_31 = UNINITIALIZED;
-        this._expr_32 = UNINITIALIZED;
-        this._expr_33 = UNINITIALIZED;
-        this._expr_34 = UNINITIALIZED;
         var disposable_6 = this.renderer.listen(this._el_63, 'ionChange', this.eventHandler(this._handle_ionChange_63_0.bind(this)));
         var disposable_7 = this.renderer.listen(this._el_63, 'click', this.eventHandler(this._handle_click_63_1.bind(this)));
         var disposable_8 = this.renderer.listen(this._el_63, 'keyup.space', this.eventHandler(this._handle_keyup_space_63_2.bind(this)));
         this._expr_38 = UNINITIALIZED;
-        var subscription_2 = this._Select_63_4.ionChange.subscribe(this.eventHandler(this._handle_ionChange_63_0.bind(this)));
-        this._expr_39 = UNINITIALIZED;
-        this._expr_40 = UNINITIALIZED;
-        this._expr_41 = UNINITIALIZED;
-        this._expr_42 = UNINITIALIZED;
-        this._expr_43 = UNINITIALIZED;
-        this._expr_44 = UNINITIALIZED;
-        this._expr_45 = UNINITIALIZED;
-        this._expr_46 = UNINITIALIZED;
-        this._expr_47 = UNINITIALIZED;
-        this._expr_48 = UNINITIALIZED;
-        this._expr_49 = UNINITIALIZED;
-        this._expr_50 = UNINITIALIZED;
-        this._expr_51 = UNINITIALIZED;
+        var subscription_2 = this._Select_63_4.context.ionChange.subscribe(this.eventHandler(this._handle_ionChange_63_0.bind(this)));
         var disposable_9 = this.renderer.listen(this._el_102, 'ionChange', this.eventHandler(this._handle_ionChange_102_0.bind(this)));
         var disposable_10 = this.renderer.listen(this._el_102, 'click', this.eventHandler(this._handle_click_102_1.bind(this)));
         var disposable_11 = this.renderer.listen(this._el_102, 'keyup.space', this.eventHandler(this._handle_keyup_space_102_2.bind(this)));
         this._expr_55 = UNINITIALIZED;
-        var subscription_3 = this._Select_102_4.ionChange.subscribe(this.eventHandler(this._handle_ionChange_102_0.bind(this)));
-        this._expr_56 = UNINITIALIZED;
+        var subscription_3 = this._Select_102_4.context.ionChange.subscribe(this.eventHandler(this._handle_ionChange_102_0.bind(this)));
         var disposable_12 = this.renderer.listen(this._el_150, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_150_0.bind(this)));
         var disposable_13 = this.renderer.listen(this._el_150, 'click', this.eventHandler(this._handle_click_150_1.bind(this)));
         var disposable_14 = this.renderer.listen(this._el_150, 'keyup.space', this.eventHandler(this._handle_keyup_space_150_2.bind(this)));
-        this._expr_60 = UNINITIALIZED;
-        this._expr_61 = UNINITIALIZED;
-        this._expr_62 = UNINITIALIZED;
         this._expr_63 = UNINITIALIZED;
-        this._expr_64 = UNINITIALIZED;
-        var subscription_4 = this._NgModel_150_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_150_0.bind(this)));
+        var subscription_4 = this._NgModel_150_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_150_0.bind(this)));
         this._expr_65 = UNINITIALIZED;
         this._expr_66 = UNINITIALIZED;
         this._expr_67 = UNINITIALIZED;
         this._expr_68 = UNINITIALIZED;
         this._expr_69 = UNINITIALIZED;
         this._expr_70 = UNINITIALIZED;
-        this._expr_71 = UNINITIALIZED;
-        this._expr_72 = UNINITIALIZED;
-        this._expr_73 = UNINITIALIZED;
-        this._expr_74 = UNINITIALIZED;
-        this._expr_75 = UNINITIALIZED;
-        this._expr_76 = UNINITIALIZED;
-        this._expr_77 = UNINITIALIZED;
-        this._expr_78 = UNINITIALIZED;
-        this._expr_79 = UNINITIALIZED;
-        this._expr_80 = UNINITIALIZED;
         var disposable_15 = this.renderer.listen(this._el_189, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_189_0.bind(this)));
         var disposable_16 = this.renderer.listen(this._el_189, 'click', this.eventHandler(this._handle_click_189_1.bind(this)));
         var disposable_17 = this.renderer.listen(this._el_189, 'keyup.space', this.eventHandler(this._handle_keyup_space_189_2.bind(this)));
-        this._expr_84 = UNINITIALIZED;
-        this._expr_85 = UNINITIALIZED;
         this._expr_86 = UNINITIALIZED;
-        this._expr_87 = UNINITIALIZED;
-        var subscription_5 = this._NgModel_189_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_189_0.bind(this)));
+        var subscription_5 = this._NgModel_189_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_189_0.bind(this)));
         this._expr_88 = UNINITIALIZED;
         this._expr_89 = UNINITIALIZED;
         this._expr_90 = UNINITIALIZED;
         this._expr_91 = UNINITIALIZED;
         this._expr_92 = UNINITIALIZED;
         this._expr_93 = UNINITIALIZED;
-        this._expr_94 = UNINITIALIZED;
         var disposable_18 = this.renderer.listen(this._el_200, 'click', this.eventHandler(this._handle_click_200_0.bind(this)));
         var disposable_19 = this.renderer.listen(this._el_200, 'keyup.space', this.eventHandler(this._handle_keyup_space_200_1.bind(this)));
-        this._expr_97 = UNINITIALIZED;
-        this._expr_98 = UNINITIALIZED;
         this._expr_99 = UNINITIALIZED;
         var disposable_20 = this.renderer.listen(this._el_218, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_218_0.bind(this)));
         var disposable_21 = this.renderer.listen(this._el_218, 'click', this.eventHandler(this._handle_click_218_1.bind(this)));
         var disposable_22 = this.renderer.listen(this._el_218, 'keyup.space', this.eventHandler(this._handle_keyup_space_218_2.bind(this)));
-        this._expr_103 = UNINITIALIZED;
         this._expr_104 = UNINITIALIZED;
-        this._expr_105 = UNINITIALIZED;
-        var subscription_6 = this._NgModel_218_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_218_0.bind(this)));
+        var subscription_6 = this._NgModel_218_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_218_0.bind(this)));
         this._expr_106 = UNINITIALIZED;
         this._expr_107 = UNINITIALIZED;
         this._expr_108 = UNINITIALIZED;
         this._expr_109 = UNINITIALIZED;
         this._expr_110 = UNINITIALIZED;
         this._expr_111 = UNINITIALIZED;
-        this._expr_112 = UNINITIALIZED;
-        this._expr_113 = UNINITIALIZED;
-        this._expr_114 = UNINITIALIZED;
-        this._expr_115 = UNINITIALIZED;
         var disposable_23 = this.renderer.listen(this._el_239, 'ngModelChange', this.eventHandler(this._handle_ngModelChange_239_0.bind(this)));
         var disposable_24 = this.renderer.listen(this._el_239, 'click', this.eventHandler(this._handle_click_239_1.bind(this)));
         var disposable_25 = this.renderer.listen(this._el_239, 'keyup.space', this.eventHandler(this._handle_keyup_space_239_2.bind(this)));
-        this._expr_119 = UNINITIALIZED;
         this._expr_120 = UNINITIALIZED;
-        this._expr_121 = UNINITIALIZED;
-        var subscription_7 = this._NgModel_239_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_239_0.bind(this)));
+        var subscription_7 = this._NgModel_239_6.context.update.subscribe(this.eventHandler(this._handle_ngModelChange_239_0.bind(this)));
         this._expr_122 = UNINITIALIZED;
         this._expr_123 = UNINITIALIZED;
         this._expr_124 = UNINITIALIZED;
         this._expr_125 = UNINITIALIZED;
         this._expr_126 = UNINITIALIZED;
         this._expr_127 = UNINITIALIZED;
-        this._expr_128 = UNINITIALIZED;
-        this._expr_129 = UNINITIALIZED;
-        this._expr_130 = UNINITIALIZED;
-        this._expr_131 = UNINITIALIZED;
-        this._expr_132 = UNINITIALIZED;
         this.init([], [
             this._el_0,
             this._text_1,
@@ -52274,1257 +52697,1153 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
-            return this._ToolbarTitle_4_4;
+            return this._ToolbarTitle_4_4.context;
         }
         if (((token === Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 6)))) {
-            return this._Navbar_2_4;
+            return this._Navbar_2_4.context;
         }
         if (((token === Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
-            return this._Header_0_3;
+            return this._Header_0_3.context;
         }
         if (((token === Item) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
-            return this._Item_13_4;
+            return this._Item_13_4.context;
         }
         if (((token === ListHeader) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
-            return this._ListHeader_13_5;
+            return this._ListHeader_13_5.context;
         }
         if (((token === Label) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 19)))) {
-            return this._Label_18_3;
+            return this._Label_18_3.context;
         }
         if (((token === Option) && ((23 <= requestNodeIndex) && (requestNodeIndex <= 24)))) {
-            return this._Option_23_3;
+            return this._Option_23_3.context;
         }
         if (((token === Option) && ((26 <= requestNodeIndex) && (requestNodeIndex <= 27)))) {
-            return this._Option_26_3;
+            return this._Option_26_3.context;
         }
         if (((token === Select) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
-            return this._Select_21_4;
+            return this._Select_21_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
             return this._NG_VALUE_ACCESSOR_21_5;
         }
         if (((token === NgModel) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
-            return this._NgModel_21_6;
+            return this._NgModel_21_6.context;
         }
         if (((token === NgControl) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
             return this._NgControl_21_7;
         }
         if (((token === NgControlStatus) && ((21 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
-            return this._NgControlStatus_21_8;
+            return this._NgControlStatus_21_8.context;
         }
         if (((token === Item) && ((16 <= requestNodeIndex) && (requestNodeIndex <= 29)))) {
-            return this._Item_16_4;
+            return this._Item_16_4.context;
         }
         if (((token === ItemContent) && ((16 <= requestNodeIndex) && (requestNodeIndex <= 29)))) {
-            return this._ItemContent_16_5;
+            return this._ItemContent_16_5.context;
         }
         if (((token === Label) && ((33 <= requestNodeIndex) && (requestNodeIndex <= 34)))) {
-            return this._Label_33_3;
+            return this._Label_33_3.context;
         }
         if (((token === Option) && ((38 <= requestNodeIndex) && (requestNodeIndex <= 39)))) {
-            return this._Option_38_3;
+            return this._Option_38_3.context;
         }
         if (((token === Option) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 42)))) {
-            return this._Option_41_3;
+            return this._Option_41_3.context;
         }
         if (((token === Option) && ((44 <= requestNodeIndex) && (requestNodeIndex <= 45)))) {
-            return this._Option_44_3;
+            return this._Option_44_3.context;
         }
         if (((token === Option) && ((47 <= requestNodeIndex) && (requestNodeIndex <= 48)))) {
-            return this._Option_47_3;
+            return this._Option_47_3.context;
         }
         if (((token === Option) && ((50 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
-            return this._Option_50_3;
+            return this._Option_50_3.context;
         }
         if (((token === Option) && ((53 <= requestNodeIndex) && (requestNodeIndex <= 54)))) {
-            return this._Option_53_3;
+            return this._Option_53_3.context;
         }
         if (((token === Select) && ((36 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
-            return this._Select_36_4;
+            return this._Select_36_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((36 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
             return this._NG_VALUE_ACCESSOR_36_5;
         }
         if (((token === NgModel) && ((36 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
-            return this._NgModel_36_6;
+            return this._NgModel_36_6.context;
         }
         if (((token === NgControl) && ((36 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
             return this._NgControl_36_7;
         }
         if (((token === NgControlStatus) && ((36 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
-            return this._NgControlStatus_36_8;
+            return this._NgControlStatus_36_8.context;
         }
         if (((token === Item) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 56)))) {
-            return this._Item_31_4;
+            return this._Item_31_4.context;
         }
         if (((token === ItemContent) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 56)))) {
-            return this._ItemContent_31_5;
+            return this._ItemContent_31_5.context;
         }
         if (((token === Label) && ((60 <= requestNodeIndex) && (requestNodeIndex <= 61)))) {
-            return this._Label_60_3;
+            return this._Label_60_3.context;
         }
         if (((token === Option) && ((65 <= requestNodeIndex) && (requestNodeIndex <= 66)))) {
-            return this._Option_65_3;
+            return this._Option_65_3.context;
         }
         if (((token === Option) && ((68 <= requestNodeIndex) && (requestNodeIndex <= 69)))) {
-            return this._Option_68_3;
+            return this._Option_68_3.context;
         }
         if (((token === Option) && ((71 <= requestNodeIndex) && (requestNodeIndex <= 72)))) {
-            return this._Option_71_3;
+            return this._Option_71_3.context;
         }
         if (((token === Option) && ((74 <= requestNodeIndex) && (requestNodeIndex <= 75)))) {
-            return this._Option_74_3;
+            return this._Option_74_3.context;
         }
         if (((token === Option) && ((77 <= requestNodeIndex) && (requestNodeIndex <= 78)))) {
-            return this._Option_77_3;
+            return this._Option_77_3.context;
         }
         if (((token === Option) && ((80 <= requestNodeIndex) && (requestNodeIndex <= 81)))) {
-            return this._Option_80_3;
+            return this._Option_80_3.context;
         }
         if (((token === Option) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 84)))) {
-            return this._Option_83_3;
+            return this._Option_83_3.context;
         }
         if (((token === Option) && ((86 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
-            return this._Option_86_3;
+            return this._Option_86_3.context;
         }
         if (((token === Option) && ((89 <= requestNodeIndex) && (requestNodeIndex <= 90)))) {
-            return this._Option_89_3;
+            return this._Option_89_3.context;
         }
         if (((token === Option) && ((92 <= requestNodeIndex) && (requestNodeIndex <= 93)))) {
-            return this._Option_92_3;
+            return this._Option_92_3.context;
         }
         if (((token === Option) && ((95 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
-            return this._Option_95_3;
+            return this._Option_95_3.context;
         }
         if (((token === Option) && ((98 <= requestNodeIndex) && (requestNodeIndex <= 99)))) {
-            return this._Option_98_3;
+            return this._Option_98_3.context;
         }
         if (((token === Select) && ((63 <= requestNodeIndex) && (requestNodeIndex <= 100)))) {
-            return this._Select_63_4;
+            return this._Select_63_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((63 <= requestNodeIndex) && (requestNodeIndex <= 100)))) {
             return this._NG_VALUE_ACCESSOR_63_5;
         }
         if (((token === Option) && ((104 <= requestNodeIndex) && (requestNodeIndex <= 105)))) {
-            return this._Option_104_3;
+            return this._Option_104_3.context;
         }
         if (((token === Option) && ((107 <= requestNodeIndex) && (requestNodeIndex <= 108)))) {
-            return this._Option_107_3;
+            return this._Option_107_3.context;
         }
         if (((token === Option) && ((110 <= requestNodeIndex) && (requestNodeIndex <= 111)))) {
-            return this._Option_110_3;
+            return this._Option_110_3.context;
         }
         if (((token === Option) && ((113 <= requestNodeIndex) && (requestNodeIndex <= 114)))) {
-            return this._Option_113_3;
+            return this._Option_113_3.context;
         }
         if (((token === Option) && ((116 <= requestNodeIndex) && (requestNodeIndex <= 117)))) {
-            return this._Option_116_3;
+            return this._Option_116_3.context;
         }
         if (((token === Option) && ((119 <= requestNodeIndex) && (requestNodeIndex <= 120)))) {
-            return this._Option_119_3;
+            return this._Option_119_3.context;
         }
         if (((token === Option) && ((122 <= requestNodeIndex) && (requestNodeIndex <= 123)))) {
-            return this._Option_122_3;
+            return this._Option_122_3.context;
         }
         if (((token === Option) && ((125 <= requestNodeIndex) && (requestNodeIndex <= 126)))) {
-            return this._Option_125_3;
+            return this._Option_125_3.context;
         }
         if (((token === Option) && ((128 <= requestNodeIndex) && (requestNodeIndex <= 129)))) {
-            return this._Option_128_3;
+            return this._Option_128_3.context;
         }
         if (((token === Option) && ((131 <= requestNodeIndex) && (requestNodeIndex <= 132)))) {
-            return this._Option_131_3;
+            return this._Option_131_3.context;
         }
         if (((token === Option) && ((134 <= requestNodeIndex) && (requestNodeIndex <= 135)))) {
-            return this._Option_134_3;
+            return this._Option_134_3.context;
         }
         if (((token === Select) && ((102 <= requestNodeIndex) && (requestNodeIndex <= 136)))) {
-            return this._Select_102_4;
+            return this._Select_102_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((102 <= requestNodeIndex) && (requestNodeIndex <= 136)))) {
             return this._NG_VALUE_ACCESSOR_102_5;
         }
         if (((token === Item) && ((58 <= requestNodeIndex) && (requestNodeIndex <= 137)))) {
-            return this._Item_58_4;
+            return this._Item_58_4.context;
         }
         if (((token === ItemContent) && ((58 <= requestNodeIndex) && (requestNodeIndex <= 137)))) {
-            return this._ItemContent_58_5;
+            return this._ItemContent_58_5.context;
         }
         if (((token === List) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 138)))) {
-            return this._List_11_3;
+            return this._List_11_3.context;
         }
         if (((token === Item) && ((142 <= requestNodeIndex) && (requestNodeIndex <= 143)))) {
-            return this._Item_142_4;
+            return this._Item_142_4.context;
         }
         if (((token === ListHeader) && ((142 <= requestNodeIndex) && (requestNodeIndex <= 143)))) {
-            return this._ListHeader_142_5;
+            return this._ListHeader_142_5.context;
         }
         if (((token === Label) && ((147 <= requestNodeIndex) && (requestNodeIndex <= 148)))) {
-            return this._Label_147_3;
+            return this._Label_147_3.context;
         }
         if (((token === Option) && ((152 <= requestNodeIndex) && (requestNodeIndex <= 153)))) {
-            return this._Option_152_3;
+            return this._Option_152_3.context;
         }
         if (((token === Option) && ((155 <= requestNodeIndex) && (requestNodeIndex <= 156)))) {
-            return this._Option_155_3;
+            return this._Option_155_3.context;
         }
         if (((token === Option) && ((158 <= requestNodeIndex) && (requestNodeIndex <= 159)))) {
-            return this._Option_158_3;
+            return this._Option_158_3.context;
         }
         if (((token === Option) && ((161 <= requestNodeIndex) && (requestNodeIndex <= 162)))) {
-            return this._Option_161_3;
+            return this._Option_161_3.context;
         }
         if (((token === Option) && ((164 <= requestNodeIndex) && (requestNodeIndex <= 165)))) {
-            return this._Option_164_3;
+            return this._Option_164_3.context;
         }
         if (((token === Option) && ((167 <= requestNodeIndex) && (requestNodeIndex <= 168)))) {
-            return this._Option_167_3;
+            return this._Option_167_3.context;
         }
         if (((token === Option) && ((170 <= requestNodeIndex) && (requestNodeIndex <= 171)))) {
-            return this._Option_170_3;
+            return this._Option_170_3.context;
         }
         if (((token === Option) && ((173 <= requestNodeIndex) && (requestNodeIndex <= 174)))) {
-            return this._Option_173_3;
+            return this._Option_173_3.context;
         }
         if (((token === Option) && ((176 <= requestNodeIndex) && (requestNodeIndex <= 177)))) {
-            return this._Option_176_3;
+            return this._Option_176_3.context;
         }
         if (((token === Option) && ((179 <= requestNodeIndex) && (requestNodeIndex <= 180)))) {
-            return this._Option_179_3;
+            return this._Option_179_3.context;
         }
         if (((token === Select) && ((150 <= requestNodeIndex) && (requestNodeIndex <= 181)))) {
-            return this._Select_150_4;
+            return this._Select_150_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((150 <= requestNodeIndex) && (requestNodeIndex <= 181)))) {
             return this._NG_VALUE_ACCESSOR_150_5;
         }
         if (((token === NgModel) && ((150 <= requestNodeIndex) && (requestNodeIndex <= 181)))) {
-            return this._NgModel_150_6;
+            return this._NgModel_150_6.context;
         }
         if (((token === NgControl) && ((150 <= requestNodeIndex) && (requestNodeIndex <= 181)))) {
             return this._NgControl_150_7;
         }
         if (((token === NgControlStatus) && ((150 <= requestNodeIndex) && (requestNodeIndex <= 181)))) {
-            return this._NgControlStatus_150_8;
+            return this._NgControlStatus_150_8.context;
         }
         if (((token === Item) && ((145 <= requestNodeIndex) && (requestNodeIndex <= 182)))) {
-            return this._Item_145_4;
+            return this._Item_145_4.context;
         }
         if (((token === ItemContent) && ((145 <= requestNodeIndex) && (requestNodeIndex <= 182)))) {
-            return this._ItemContent_145_5;
+            return this._ItemContent_145_5.context;
         }
         if (((token === Label) && ((186 <= requestNodeIndex) && (requestNodeIndex <= 187)))) {
-            return this._Label_186_3;
+            return this._Label_186_3.context;
         }
         if (((token === TemplateRef) && (191 === requestNodeIndex))) {
             return this._TemplateRef_191_5;
         }
         if (((token === NgFor) && (191 === requestNodeIndex))) {
-            return this._NgFor_191_6;
+            return this._NgFor_191_6.context;
         }
         if (((token === Select) && ((189 <= requestNodeIndex) && (requestNodeIndex <= 192)))) {
-            return this._Select_189_4;
+            return this._Select_189_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((189 <= requestNodeIndex) && (requestNodeIndex <= 192)))) {
             return this._NG_VALUE_ACCESSOR_189_5;
         }
         if (((token === NgModel) && ((189 <= requestNodeIndex) && (requestNodeIndex <= 192)))) {
-            return this._NgModel_189_6;
+            return this._NgModel_189_6.context;
         }
         if (((token === NgControl) && ((189 <= requestNodeIndex) && (requestNodeIndex <= 192)))) {
             return this._NgControl_189_7;
         }
         if (((token === NgControlStatus) && ((189 <= requestNodeIndex) && (requestNodeIndex <= 192)))) {
-            return this._NgControlStatus_189_8;
+            return this._NgControlStatus_189_8.context;
         }
         if (((token === Item) && ((184 <= requestNodeIndex) && (requestNodeIndex <= 193)))) {
-            return this._Item_184_4;
+            return this._Item_184_4.context;
         }
         if (((token === ItemContent) && ((184 <= requestNodeIndex) && (requestNodeIndex <= 193)))) {
-            return this._ItemContent_184_5;
+            return this._ItemContent_184_5.context;
         }
         if (((token === Label) && ((197 <= requestNodeIndex) && (requestNodeIndex <= 198)))) {
-            return this._Label_197_3;
+            return this._Label_197_3.context;
         }
         if (((token === Option) && ((202 <= requestNodeIndex) && (requestNodeIndex <= 203)))) {
-            return this._Option_202_3;
+            return this._Option_202_3.context;
         }
         if (((token === Select) && ((200 <= requestNodeIndex) && (requestNodeIndex <= 204)))) {
-            return this._Select_200_4;
+            return this._Select_200_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((200 <= requestNodeIndex) && (requestNodeIndex <= 204)))) {
             return this._NG_VALUE_ACCESSOR_200_5;
         }
         if (((token === Item) && ((195 <= requestNodeIndex) && (requestNodeIndex <= 205)))) {
-            return this._Item_195_4;
+            return this._Item_195_4.context;
         }
         if (((token === ItemContent) && ((195 <= requestNodeIndex) && (requestNodeIndex <= 205)))) {
-            return this._ItemContent_195_5;
+            return this._ItemContent_195_5.context;
         }
         if (((token === List) && ((140 <= requestNodeIndex) && (requestNodeIndex <= 206)))) {
-            return this._List_140_3;
+            return this._List_140_3.context;
         }
         if (((token === Item) && ((210 <= requestNodeIndex) && (requestNodeIndex <= 211)))) {
-            return this._Item_210_4;
+            return this._Item_210_4.context;
         }
         if (((token === ListHeader) && ((210 <= requestNodeIndex) && (requestNodeIndex <= 211)))) {
-            return this._ListHeader_210_5;
+            return this._ListHeader_210_5.context;
         }
         if (((token === Label) && ((215 <= requestNodeIndex) && (requestNodeIndex <= 216)))) {
-            return this._Label_215_3;
+            return this._Label_215_3.context;
         }
         if (((token === Option) && ((220 <= requestNodeIndex) && (requestNodeIndex <= 221)))) {
-            return this._Option_220_3;
+            return this._Option_220_3.context;
         }
         if (((token === Option) && ((223 <= requestNodeIndex) && (requestNodeIndex <= 224)))) {
-            return this._Option_223_3;
+            return this._Option_223_3.context;
         }
         if (((token === Option) && ((226 <= requestNodeIndex) && (requestNodeIndex <= 227)))) {
-            return this._Option_226_3;
+            return this._Option_226_3.context;
         }
         if (((token === Option) && ((229 <= requestNodeIndex) && (requestNodeIndex <= 230)))) {
-            return this._Option_229_3;
+            return this._Option_229_3.context;
         }
         if (((token === Select) && ((218 <= requestNodeIndex) && (requestNodeIndex <= 231)))) {
-            return this._Select_218_4;
+            return this._Select_218_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((218 <= requestNodeIndex) && (requestNodeIndex <= 231)))) {
             return this._NG_VALUE_ACCESSOR_218_5;
         }
         if (((token === NgModel) && ((218 <= requestNodeIndex) && (requestNodeIndex <= 231)))) {
-            return this._NgModel_218_6;
+            return this._NgModel_218_6.context;
         }
         if (((token === NgControl) && ((218 <= requestNodeIndex) && (requestNodeIndex <= 231)))) {
             return this._NgControl_218_7;
         }
         if (((token === NgControlStatus) && ((218 <= requestNodeIndex) && (requestNodeIndex <= 231)))) {
-            return this._NgControlStatus_218_8;
+            return this._NgControlStatus_218_8.context;
         }
         if (((token === Item) && ((213 <= requestNodeIndex) && (requestNodeIndex <= 232)))) {
-            return this._Item_213_4;
+            return this._Item_213_4.context;
         }
         if (((token === ItemContent) && ((213 <= requestNodeIndex) && (requestNodeIndex <= 232)))) {
-            return this._ItemContent_213_5;
+            return this._ItemContent_213_5.context;
         }
         if (((token === Label) && ((236 <= requestNodeIndex) && (requestNodeIndex <= 237)))) {
-            return this._Label_236_3;
+            return this._Label_236_3.context;
         }
         if (((token === Option) && ((241 <= requestNodeIndex) && (requestNodeIndex <= 242)))) {
-            return this._Option_241_3;
+            return this._Option_241_3.context;
         }
         if (((token === Option) && ((244 <= requestNodeIndex) && (requestNodeIndex <= 245)))) {
-            return this._Option_244_3;
+            return this._Option_244_3.context;
         }
         if (((token === Option) && ((247 <= requestNodeIndex) && (requestNodeIndex <= 248)))) {
-            return this._Option_247_3;
+            return this._Option_247_3.context;
         }
         if (((token === Option) && ((250 <= requestNodeIndex) && (requestNodeIndex <= 251)))) {
-            return this._Option_250_3;
+            return this._Option_250_3.context;
         }
         if (((token === Option) && ((253 <= requestNodeIndex) && (requestNodeIndex <= 254)))) {
-            return this._Option_253_3;
+            return this._Option_253_3.context;
         }
         if (((token === Select) && ((239 <= requestNodeIndex) && (requestNodeIndex <= 255)))) {
-            return this._Select_239_4;
+            return this._Select_239_4.context;
         }
         if (((token === NG_VALUE_ACCESSOR) && ((239 <= requestNodeIndex) && (requestNodeIndex <= 255)))) {
             return this._NG_VALUE_ACCESSOR_239_5;
         }
         if (((token === NgModel) && ((239 <= requestNodeIndex) && (requestNodeIndex <= 255)))) {
-            return this._NgModel_239_6;
+            return this._NgModel_239_6.context;
         }
         if (((token === NgControl) && ((239 <= requestNodeIndex) && (requestNodeIndex <= 255)))) {
             return this._NgControl_239_7;
         }
         if (((token === NgControlStatus) && ((239 <= requestNodeIndex) && (requestNodeIndex <= 255)))) {
-            return this._NgControlStatus_239_8;
+            return this._NgControlStatus_239_8.context;
         }
         if (((token === Item) && ((234 <= requestNodeIndex) && (requestNodeIndex <= 256)))) {
-            return this._Item_234_4;
+            return this._Item_234_4.context;
         }
         if (((token === ItemContent) && ((234 <= requestNodeIndex) && (requestNodeIndex <= 256)))) {
-            return this._ItemContent_234_5;
+            return this._ItemContent_234_5.context;
         }
         if (((token === List) && ((208 <= requestNodeIndex) && (requestNodeIndex <= 257)))) {
-            return this._List_208_3;
+            return this._List_208_3.context;
         }
         if (((token === Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 258)))) {
-            return this._Content_9_4;
+            return this._Content_9_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoPage0.prototype.detectChangesInternal = function (throwOnChange) {
-        var changes = null;
-        if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._Content_9_4.ngOnInit();
+        this._Header_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
+        this._Navbar_2_4.detectChangesInternal(this, this._el_2, throwOnChange);
+        if (this._ToolbarTitle_4_4.detectChangesInternal(this, this._el_4, throwOnChange)) {
+            this._appEl_4.componentView.markAsCheckOnce();
         }
-        changes = null;
+        if (this._Content_9_4.detectChangesInternal(this, this._el_9, throwOnChange)) {
+            this._appEl_9.componentView.markAsCheckOnce();
+        }
+        this._List_11_3.detectChangesInternal(this, this._el_11, throwOnChange);
+        if (this._Item_13_4.detectChangesInternal(this, this._el_13, throwOnChange)) {
+            this._appEl_13.componentView.markAsCheckOnce();
+        }
+        this._ListHeader_13_5.detectChangesInternal(this, this._el_13, throwOnChange);
+        if (this._Item_16_4.detectChangesInternal(this, this._el_16, throwOnChange)) {
+            this._appEl_16.componentView.markAsCheckOnce();
+        }
+        this._ItemContent_16_5.detectChangesInternal(this, this._el_16, throwOnChange);
+        this._Label_18_3.detectChangesInternal(this, this._el_18, throwOnChange);
+        this._Select_21_4.detectChangesInternal(this, this._el_21, throwOnChange);
         var currVal_7 = this.context.gender;
-        if (checkBinding(throwOnChange, this._expr_7, currVal_7)) {
-            this._NgModel_21_6.model = currVal_7;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_7, currVal_7);
-            this._expr_7 = currVal_7;
-        }
-        if ((changes !== null)) {
-            this._NgModel_21_6.ngOnChanges(changes);
-        }
+        this._NgModel_21_6.check_model(currVal_7, throwOnChange, false);
+        this._NgModel_21_6.detectChangesInternal(this, this._el_21, throwOnChange);
+        this._NgControlStatus_21_8.detectChangesInternal(this, this._el_21, throwOnChange);
         var currVal_14 = 'f';
-        if (checkBinding(throwOnChange, this._expr_14, currVal_14)) {
-            this._Option_23_3.value = currVal_14;
-            this._expr_14 = currVal_14;
-        }
+        this._Option_23_3.check_value(currVal_14, throwOnChange, false);
+        this._Option_23_3.detectChangesInternal(this, this._el_23, throwOnChange);
         var currVal_15 = 'm';
-        if (checkBinding(throwOnChange, this._expr_15, currVal_15)) {
-            this._Option_26_3.value = currVal_15;
-            this._expr_15 = currVal_15;
+        this._Option_26_3.check_value(currVal_15, throwOnChange, false);
+        this._Option_26_3.detectChangesInternal(this, this._el_26, throwOnChange);
+        if (this._Item_31_4.detectChangesInternal(this, this._el_31, throwOnChange)) {
+            this._appEl_31.componentView.markAsCheckOnce();
         }
+        this._ItemContent_31_5.detectChangesInternal(this, this._el_31, throwOnChange);
+        this._Label_33_3.detectChangesInternal(this, this._el_33, throwOnChange);
         var currVal_19 = 'Dismiss';
-        if (checkBinding(throwOnChange, this._expr_19, currVal_19)) {
-            this._Select_36_4.cancelText = currVal_19;
-            this._expr_19 = currVal_19;
-        }
+        this._Select_36_4.check_cancelText(currVal_19, throwOnChange, false);
         var currVal_20 = 'Okay';
-        if (checkBinding(throwOnChange, this._expr_20, currVal_20)) {
-            this._Select_36_4.okText = currVal_20;
-            this._expr_20 = currVal_20;
-        }
-        changes = null;
+        this._Select_36_4.check_okText(currVal_20, throwOnChange, false);
+        this._Select_36_4.detectChangesInternal(this, this._el_36, throwOnChange);
         var currVal_22 = this.context.gaming;
-        if (checkBinding(throwOnChange, this._expr_22, currVal_22)) {
-            this._NgModel_36_6.model = currVal_22;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_22, currVal_22);
-            this._expr_22 = currVal_22;
-        }
-        if ((changes !== null)) {
-            this._NgModel_36_6.ngOnChanges(changes);
-        }
+        this._NgModel_36_6.check_model(currVal_22, throwOnChange, false);
+        this._NgModel_36_6.detectChangesInternal(this, this._el_36, throwOnChange);
+        this._NgControlStatus_36_8.detectChangesInternal(this, this._el_36, throwOnChange);
         var currVal_29 = 'nes';
-        if (checkBinding(throwOnChange, this._expr_29, currVal_29)) {
-            this._Option_38_3.value = currVal_29;
-            this._expr_29 = currVal_29;
-        }
+        this._Option_38_3.check_value(currVal_29, throwOnChange, false);
+        this._Option_38_3.detectChangesInternal(this, this._el_38, throwOnChange);
         var currVal_30 = 'n64';
-        if (checkBinding(throwOnChange, this._expr_30, currVal_30)) {
-            this._Option_41_3.value = currVal_30;
-            this._expr_30 = currVal_30;
-        }
+        this._Option_41_3.check_value(currVal_30, throwOnChange, false);
+        this._Option_41_3.detectChangesInternal(this, this._el_41, throwOnChange);
         var currVal_31 = 'ps';
-        if (checkBinding(throwOnChange, this._expr_31, currVal_31)) {
-            this._Option_44_3.value = currVal_31;
-            this._expr_31 = currVal_31;
-        }
+        this._Option_44_3.check_value(currVal_31, throwOnChange, false);
+        this._Option_44_3.detectChangesInternal(this, this._el_44, throwOnChange);
         var currVal_32 = 'genesis';
-        if (checkBinding(throwOnChange, this._expr_32, currVal_32)) {
-            this._Option_47_3.value = currVal_32;
-            this._expr_32 = currVal_32;
-        }
+        this._Option_47_3.check_value(currVal_32, throwOnChange, false);
+        this._Option_47_3.detectChangesInternal(this, this._el_47, throwOnChange);
         var currVal_33 = 'saturn';
-        if (checkBinding(throwOnChange, this._expr_33, currVal_33)) {
-            this._Option_50_3.value = currVal_33;
-            this._expr_33 = currVal_33;
-        }
+        this._Option_50_3.check_value(currVal_33, throwOnChange, false);
+        this._Option_50_3.detectChangesInternal(this, this._el_50, throwOnChange);
         var currVal_34 = 'snes';
-        if (checkBinding(throwOnChange, this._expr_34, currVal_34)) {
-            this._Option_53_3.value = currVal_34;
-            this._expr_34 = currVal_34;
+        this._Option_53_3.check_value(currVal_34, throwOnChange, false);
+        this._Option_53_3.detectChangesInternal(this, this._el_53, throwOnChange);
+        if (this._Item_58_4.detectChangesInternal(this, this._el_58, throwOnChange)) {
+            this._appEl_58.componentView.markAsCheckOnce();
         }
+        this._ItemContent_58_5.detectChangesInternal(this, this._el_58, throwOnChange);
+        this._Label_60_3.detectChangesInternal(this, this._el_60, throwOnChange);
+        this._Select_63_4.detectChangesInternal(this, this._el_63, throwOnChange);
         var currVal_39 = '01';
-        if (checkBinding(throwOnChange, this._expr_39, currVal_39)) {
-            this._Option_65_3.value = currVal_39;
-            this._expr_39 = currVal_39;
-        }
+        this._Option_65_3.check_value(currVal_39, throwOnChange, false);
+        this._Option_65_3.detectChangesInternal(this, this._el_65, throwOnChange);
         var currVal_40 = '02';
-        if (checkBinding(throwOnChange, this._expr_40, currVal_40)) {
-            this._Option_68_3.value = currVal_40;
-            this._expr_40 = currVal_40;
-        }
+        this._Option_68_3.check_value(currVal_40, throwOnChange, false);
+        this._Option_68_3.detectChangesInternal(this, this._el_68, throwOnChange);
         var currVal_41 = 'true';
-        if (checkBinding(throwOnChange, this._expr_41, currVal_41)) {
-            this._Option_71_3.selected = currVal_41;
-            this._expr_41 = currVal_41;
-        }
+        this._Option_71_3.check_selected(currVal_41, throwOnChange, false);
         var currVal_42 = '03';
-        if (checkBinding(throwOnChange, this._expr_42, currVal_42)) {
-            this._Option_71_3.value = currVal_42;
-            this._expr_42 = currVal_42;
-        }
+        this._Option_71_3.check_value(currVal_42, throwOnChange, false);
+        this._Option_71_3.detectChangesInternal(this, this._el_71, throwOnChange);
         var currVal_43 = '04';
-        if (checkBinding(throwOnChange, this._expr_43, currVal_43)) {
-            this._Option_74_3.value = currVal_43;
-            this._expr_43 = currVal_43;
-        }
+        this._Option_74_3.check_value(currVal_43, throwOnChange, false);
+        this._Option_74_3.detectChangesInternal(this, this._el_74, throwOnChange);
         var currVal_44 = '05';
-        if (checkBinding(throwOnChange, this._expr_44, currVal_44)) {
-            this._Option_77_3.value = currVal_44;
-            this._expr_44 = currVal_44;
-        }
+        this._Option_77_3.check_value(currVal_44, throwOnChange, false);
+        this._Option_77_3.detectChangesInternal(this, this._el_77, throwOnChange);
         var currVal_45 = '06';
-        if (checkBinding(throwOnChange, this._expr_45, currVal_45)) {
-            this._Option_80_3.value = currVal_45;
-            this._expr_45 = currVal_45;
-        }
+        this._Option_80_3.check_value(currVal_45, throwOnChange, false);
+        this._Option_80_3.detectChangesInternal(this, this._el_80, throwOnChange);
         var currVal_46 = '07';
-        if (checkBinding(throwOnChange, this._expr_46, currVal_46)) {
-            this._Option_83_3.value = currVal_46;
-            this._expr_46 = currVal_46;
-        }
+        this._Option_83_3.check_value(currVal_46, throwOnChange, false);
+        this._Option_83_3.detectChangesInternal(this, this._el_83, throwOnChange);
         var currVal_47 = '08';
-        if (checkBinding(throwOnChange, this._expr_47, currVal_47)) {
-            this._Option_86_3.value = currVal_47;
-            this._expr_47 = currVal_47;
-        }
+        this._Option_86_3.check_value(currVal_47, throwOnChange, false);
+        this._Option_86_3.detectChangesInternal(this, this._el_86, throwOnChange);
         var currVal_48 = '09';
-        if (checkBinding(throwOnChange, this._expr_48, currVal_48)) {
-            this._Option_89_3.value = currVal_48;
-            this._expr_48 = currVal_48;
-        }
+        this._Option_89_3.check_value(currVal_48, throwOnChange, false);
+        this._Option_89_3.detectChangesInternal(this, this._el_89, throwOnChange);
         var currVal_49 = '10';
-        if (checkBinding(throwOnChange, this._expr_49, currVal_49)) {
-            this._Option_92_3.value = currVal_49;
-            this._expr_49 = currVal_49;
-        }
+        this._Option_92_3.check_value(currVal_49, throwOnChange, false);
+        this._Option_92_3.detectChangesInternal(this, this._el_92, throwOnChange);
         var currVal_50 = '11';
-        if (checkBinding(throwOnChange, this._expr_50, currVal_50)) {
-            this._Option_95_3.value = currVal_50;
-            this._expr_50 = currVal_50;
-        }
+        this._Option_95_3.check_value(currVal_50, throwOnChange, false);
+        this._Option_95_3.detectChangesInternal(this, this._el_95, throwOnChange);
         var currVal_51 = '12';
-        if (checkBinding(throwOnChange, this._expr_51, currVal_51)) {
-            this._Option_98_3.value = currVal_51;
-            this._expr_51 = currVal_51;
-        }
+        this._Option_98_3.check_value(currVal_51, throwOnChange, false);
+        this._Option_98_3.detectChangesInternal(this, this._el_98, throwOnChange);
+        this._Select_102_4.detectChangesInternal(this, this._el_102, throwOnChange);
+        this._Option_104_3.detectChangesInternal(this, this._el_104, throwOnChange);
+        this._Option_107_3.detectChangesInternal(this, this._el_107, throwOnChange);
+        this._Option_110_3.detectChangesInternal(this, this._el_110, throwOnChange);
+        this._Option_113_3.detectChangesInternal(this, this._el_113, throwOnChange);
+        this._Option_116_3.detectChangesInternal(this, this._el_116, throwOnChange);
         var currVal_56 = 'true';
-        if (checkBinding(throwOnChange, this._expr_56, currVal_56)) {
-            this._Option_119_3.selected = currVal_56;
-            this._expr_56 = currVal_56;
+        this._Option_119_3.check_selected(currVal_56, throwOnChange, false);
+        this._Option_119_3.detectChangesInternal(this, this._el_119, throwOnChange);
+        this._Option_122_3.detectChangesInternal(this, this._el_122, throwOnChange);
+        this._Option_125_3.detectChangesInternal(this, this._el_125, throwOnChange);
+        this._Option_128_3.detectChangesInternal(this, this._el_128, throwOnChange);
+        this._Option_131_3.detectChangesInternal(this, this._el_131, throwOnChange);
+        this._Option_134_3.detectChangesInternal(this, this._el_134, throwOnChange);
+        this._List_140_3.detectChangesInternal(this, this._el_140, throwOnChange);
+        if (this._Item_142_4.detectChangesInternal(this, this._el_142, throwOnChange)) {
+            this._appEl_142.componentView.markAsCheckOnce();
         }
+        this._ListHeader_142_5.detectChangesInternal(this, this._el_142, throwOnChange);
+        if (this._Item_145_4.detectChangesInternal(this, this._el_145, throwOnChange)) {
+            this._appEl_145.componentView.markAsCheckOnce();
+        }
+        this._ItemContent_145_5.detectChangesInternal(this, this._el_145, throwOnChange);
+        this._Label_147_3.detectChangesInternal(this, this._el_147, throwOnChange);
         var currVal_60 = 'Nah';
-        if (checkBinding(throwOnChange, this._expr_60, currVal_60)) {
-            this._Select_150_4.cancelText = currVal_60;
-            this._expr_60 = currVal_60;
-        }
+        this._Select_150_4.check_cancelText(currVal_60, throwOnChange, false);
         var currVal_61 = 'Okay!';
-        if (checkBinding(throwOnChange, this._expr_61, currVal_61)) {
-            this._Select_150_4.okText = currVal_61;
-            this._expr_61 = currVal_61;
-        }
+        this._Select_150_4.check_okText(currVal_61, throwOnChange, false);
         var currVal_62 = 'true';
-        if (checkBinding(throwOnChange, this._expr_62, currVal_62)) {
-            this._Select_150_4.multiple = currVal_62;
-            this._expr_62 = currVal_62;
-        }
-        changes = null;
+        this._Select_150_4.check_multiple(currVal_62, throwOnChange, false);
+        this._Select_150_4.detectChangesInternal(this, this._el_150, throwOnChange);
         var currVal_64 = this.context.toppings;
-        if (checkBinding(throwOnChange, this._expr_64, currVal_64)) {
-            this._NgModel_150_6.model = currVal_64;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_64, currVal_64);
-            this._expr_64 = currVal_64;
-        }
-        if ((changes !== null)) {
-            this._NgModel_150_6.ngOnChanges(changes);
-        }
+        this._NgModel_150_6.check_model(currVal_64, throwOnChange, false);
+        this._NgModel_150_6.detectChangesInternal(this, this._el_150, throwOnChange);
+        this._NgControlStatus_150_8.detectChangesInternal(this, this._el_150, throwOnChange);
         var currVal_71 = 'bacon';
-        if (checkBinding(throwOnChange, this._expr_71, currVal_71)) {
-            this._Option_152_3.value = currVal_71;
-            this._expr_71 = currVal_71;
-        }
+        this._Option_152_3.check_value(currVal_71, throwOnChange, false);
+        this._Option_152_3.detectChangesInternal(this, this._el_152, throwOnChange);
         var currVal_72 = 'olives';
-        if (checkBinding(throwOnChange, this._expr_72, currVal_72)) {
-            this._Option_155_3.value = currVal_72;
-            this._expr_72 = currVal_72;
-        }
+        this._Option_155_3.check_value(currVal_72, throwOnChange, false);
+        this._Option_155_3.detectChangesInternal(this, this._el_155, throwOnChange);
         var currVal_73 = 'xcheese';
-        if (checkBinding(throwOnChange, this._expr_73, currVal_73)) {
-            this._Option_158_3.value = currVal_73;
-            this._expr_73 = currVal_73;
-        }
+        this._Option_158_3.check_value(currVal_73, throwOnChange, false);
+        this._Option_158_3.detectChangesInternal(this, this._el_158, throwOnChange);
         var currVal_74 = 'peppers';
-        if (checkBinding(throwOnChange, this._expr_74, currVal_74)) {
-            this._Option_161_3.value = currVal_74;
-            this._expr_74 = currVal_74;
-        }
+        this._Option_161_3.check_value(currVal_74, throwOnChange, false);
+        this._Option_161_3.detectChangesInternal(this, this._el_161, throwOnChange);
         var currVal_75 = 'mushrooms';
-        if (checkBinding(throwOnChange, this._expr_75, currVal_75)) {
-            this._Option_164_3.value = currVal_75;
-            this._expr_75 = currVal_75;
-        }
+        this._Option_164_3.check_value(currVal_75, throwOnChange, false);
+        this._Option_164_3.detectChangesInternal(this, this._el_164, throwOnChange);
         var currVal_76 = 'onions';
-        if (checkBinding(throwOnChange, this._expr_76, currVal_76)) {
-            this._Option_167_3.value = currVal_76;
-            this._expr_76 = currVal_76;
-        }
+        this._Option_167_3.check_value(currVal_76, throwOnChange, false);
+        this._Option_167_3.detectChangesInternal(this, this._el_167, throwOnChange);
         var currVal_77 = 'pepperoni';
-        if (checkBinding(throwOnChange, this._expr_77, currVal_77)) {
-            this._Option_170_3.value = currVal_77;
-            this._expr_77 = currVal_77;
-        }
+        this._Option_170_3.check_value(currVal_77, throwOnChange, false);
+        this._Option_170_3.detectChangesInternal(this, this._el_170, throwOnChange);
         var currVal_78 = 'pineapple';
-        if (checkBinding(throwOnChange, this._expr_78, currVal_78)) {
-            this._Option_173_3.value = currVal_78;
-            this._expr_78 = currVal_78;
-        }
+        this._Option_173_3.check_value(currVal_78, throwOnChange, false);
+        this._Option_173_3.detectChangesInternal(this, this._el_173, throwOnChange);
         var currVal_79 = 'sausage';
-        if (checkBinding(throwOnChange, this._expr_79, currVal_79)) {
-            this._Option_176_3.value = currVal_79;
-            this._expr_79 = currVal_79;
-        }
+        this._Option_176_3.check_value(currVal_79, throwOnChange, false);
+        this._Option_176_3.detectChangesInternal(this, this._el_176, throwOnChange);
         var currVal_80 = 'Spinach';
-        if (checkBinding(throwOnChange, this._expr_80, currVal_80)) {
-            this._Option_179_3.value = currVal_80;
-            this._expr_80 = currVal_80;
+        this._Option_179_3.check_value(currVal_80, throwOnChange, false);
+        this._Option_179_3.detectChangesInternal(this, this._el_179, throwOnChange);
+        if (this._Item_184_4.detectChangesInternal(this, this._el_184, throwOnChange)) {
+            this._appEl_184.componentView.markAsCheckOnce();
         }
+        this._ItemContent_184_5.detectChangesInternal(this, this._el_184, throwOnChange);
+        this._Label_186_3.detectChangesInternal(this, this._el_186, throwOnChange);
         var currVal_84 = this.context.petAlertOpts;
-        if (checkBinding(throwOnChange, this._expr_84, currVal_84)) {
-            this._Select_189_4.selectOptions = currVal_84;
-            this._expr_84 = currVal_84;
-        }
+        this._Select_189_4.check_selectOptions(currVal_84, throwOnChange, false);
         var currVal_85 = 'true';
-        if (checkBinding(throwOnChange, this._expr_85, currVal_85)) {
-            this._Select_189_4.multiple = currVal_85;
-            this._expr_85 = currVal_85;
-        }
-        changes = null;
+        this._Select_189_4.check_multiple(currVal_85, throwOnChange, false);
+        this._Select_189_4.detectChangesInternal(this, this._el_189, throwOnChange);
         var currVal_87 = this.context.pets;
-        if (checkBinding(throwOnChange, this._expr_87, currVal_87)) {
-            this._NgModel_189_6.model = currVal_87;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_87, currVal_87);
-            this._expr_87 = currVal_87;
-        }
-        if ((changes !== null)) {
-            this._NgModel_189_6.ngOnChanges(changes);
-        }
-        changes = null;
+        this._NgModel_189_6.check_model(currVal_87, throwOnChange, false);
+        this._NgModel_189_6.detectChangesInternal(this, this._el_189, throwOnChange);
+        this._NgControlStatus_189_8.detectChangesInternal(this, this._el_189, throwOnChange);
         var currVal_94 = this.context.petData;
-        if (checkBinding(throwOnChange, this._expr_94, currVal_94)) {
-            this._NgFor_191_6.ngForOf = currVal_94;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['ngForOf'] = new SimpleChange(this._expr_94, currVal_94);
-            this._expr_94 = currVal_94;
+        this._NgFor_191_6.check_ngForOf(currVal_94, throwOnChange, false);
+        this._NgFor_191_6.detectChangesInternal(this, this._anchor_191, throwOnChange);
+        if (this._Item_195_4.detectChangesInternal(this, this._el_195, throwOnChange)) {
+            this._appEl_195.componentView.markAsCheckOnce();
         }
-        if ((changes !== null)) {
-            this._NgFor_191_6.ngOnChanges(changes);
-        }
-        if (!throwOnChange) {
-            this._NgFor_191_6.ngDoCheck();
-        }
+        this._ItemContent_195_5.detectChangesInternal(this, this._el_195, throwOnChange);
+        this._Label_197_3.detectChangesInternal(this, this._el_197, throwOnChange);
         var currVal_97 = '';
-        if (checkBinding(throwOnChange, this._expr_97, currVal_97)) {
-            this._Select_200_4.multiple = currVal_97;
-            this._expr_97 = currVal_97;
-        }
+        this._Select_200_4.check_multiple(currVal_97, throwOnChange, false);
         var currVal_98 = 'true';
-        if (checkBinding(throwOnChange, this._expr_98, currVal_98)) {
-            this._Select_200_4.disabled = currVal_98;
-            this._expr_98 = currVal_98;
+        this._Select_200_4.check_disabled(currVal_98, throwOnChange, false);
+        this._Select_200_4.detectChangesInternal(this, this._el_200, throwOnChange);
+        this._Option_202_3.detectChangesInternal(this, this._el_202, throwOnChange);
+        this._List_208_3.detectChangesInternal(this, this._el_208, throwOnChange);
+        if (this._Item_210_4.detectChangesInternal(this, this._el_210, throwOnChange)) {
+            this._appEl_210.componentView.markAsCheckOnce();
         }
+        this._ListHeader_210_5.detectChangesInternal(this, this._el_210, throwOnChange);
+        if (this._Item_213_4.detectChangesInternal(this, this._el_213, throwOnChange)) {
+            this._appEl_213.componentView.markAsCheckOnce();
+        }
+        this._ItemContent_213_5.detectChangesInternal(this, this._el_213, throwOnChange);
+        this._Label_215_3.detectChangesInternal(this, this._el_215, throwOnChange);
         var currVal_103 = 'action-sheet';
-        if (checkBinding(throwOnChange, this._expr_103, currVal_103)) {
-            this._Select_218_4.interface = currVal_103;
-            this._expr_103 = currVal_103;
-        }
-        changes = null;
+        this._Select_218_4.check_interface(currVal_103, throwOnChange, false);
+        this._Select_218_4.detectChangesInternal(this, this._el_218, throwOnChange);
         var currVal_105 = this.context.notifications;
-        if (checkBinding(throwOnChange, this._expr_105, currVal_105)) {
-            this._NgModel_218_6.model = currVal_105;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_105, currVal_105);
-            this._expr_105 = currVal_105;
-        }
-        if ((changes !== null)) {
-            this._NgModel_218_6.ngOnChanges(changes);
-        }
+        this._NgModel_218_6.check_model(currVal_105, throwOnChange, false);
+        this._NgModel_218_6.detectChangesInternal(this, this._el_218, throwOnChange);
+        this._NgControlStatus_218_8.detectChangesInternal(this, this._el_218, throwOnChange);
         var currVal_112 = 'mute_15';
-        if (checkBinding(throwOnChange, this._expr_112, currVal_112)) {
-            this._Option_220_3.value = currVal_112;
-            this._expr_112 = currVal_112;
-        }
+        this._Option_220_3.check_value(currVal_112, throwOnChange, false);
+        this._Option_220_3.detectChangesInternal(this, this._el_220, throwOnChange);
         var currVal_113 = 'mute_1';
-        if (checkBinding(throwOnChange, this._expr_113, currVal_113)) {
-            this._Option_223_3.value = currVal_113;
-            this._expr_113 = currVal_113;
-        }
+        this._Option_223_3.check_value(currVal_113, throwOnChange, false);
+        this._Option_223_3.detectChangesInternal(this, this._el_223, throwOnChange);
         var currVal_114 = 'mute_23';
-        if (checkBinding(throwOnChange, this._expr_114, currVal_114)) {
-            this._Option_226_3.value = currVal_114;
-            this._expr_114 = currVal_114;
-        }
+        this._Option_226_3.check_value(currVal_114, throwOnChange, false);
+        this._Option_226_3.detectChangesInternal(this, this._el_226, throwOnChange);
         var currVal_115 = 'mute_inf';
-        if (checkBinding(throwOnChange, this._expr_115, currVal_115)) {
-            this._Option_229_3.value = currVal_115;
-            this._expr_115 = currVal_115;
+        this._Option_229_3.check_value(currVal_115, throwOnChange, false);
+        this._Option_229_3.detectChangesInternal(this, this._el_229, throwOnChange);
+        if (this._Item_234_4.detectChangesInternal(this, this._el_234, throwOnChange)) {
+            this._appEl_234.componentView.markAsCheckOnce();
         }
+        this._ItemContent_234_5.detectChangesInternal(this, this._el_234, throwOnChange);
+        this._Label_236_3.detectChangesInternal(this, this._el_236, throwOnChange);
         var currVal_119 = 'action-sheet';
-        if (checkBinding(throwOnChange, this._expr_119, currVal_119)) {
-            this._Select_239_4.interface = currVal_119;
-            this._expr_119 = currVal_119;
-        }
-        changes = null;
+        this._Select_239_4.check_interface(currVal_119, throwOnChange, false);
+        this._Select_239_4.detectChangesInternal(this, this._el_239, throwOnChange);
         var currVal_121 = this.context.rating;
-        if (checkBinding(throwOnChange, this._expr_121, currVal_121)) {
-            this._NgModel_239_6.model = currVal_121;
-            if ((changes === null)) {
-                (changes = {});
-            }
-            changes['model'] = new SimpleChange(this._expr_121, currVal_121);
-            this._expr_121 = currVal_121;
-        }
-        if ((changes !== null)) {
-            this._NgModel_239_6.ngOnChanges(changes);
-        }
+        this._NgModel_239_6.check_model(currVal_121, throwOnChange, false);
+        this._NgModel_239_6.detectChangesInternal(this, this._el_239, throwOnChange);
+        this._NgControlStatus_239_8.detectChangesInternal(this, this._el_239, throwOnChange);
         var currVal_128 = '1';
-        if (checkBinding(throwOnChange, this._expr_128, currVal_128)) {
-            this._Option_241_3.value = currVal_128;
-            this._expr_128 = currVal_128;
-        }
+        this._Option_241_3.check_value(currVal_128, throwOnChange, false);
+        this._Option_241_3.detectChangesInternal(this, this._el_241, throwOnChange);
         var currVal_129 = '2';
-        if (checkBinding(throwOnChange, this._expr_129, currVal_129)) {
-            this._Option_244_3.value = currVal_129;
-            this._expr_129 = currVal_129;
-        }
+        this._Option_244_3.check_value(currVal_129, throwOnChange, false);
+        this._Option_244_3.detectChangesInternal(this, this._el_244, throwOnChange);
         var currVal_130 = '3';
-        if (checkBinding(throwOnChange, this._expr_130, currVal_130)) {
-            this._Option_247_3.value = currVal_130;
-            this._expr_130 = currVal_130;
-        }
+        this._Option_247_3.check_value(currVal_130, throwOnChange, false);
+        this._Option_247_3.detectChangesInternal(this, this._el_247, throwOnChange);
         var currVal_131 = '4';
-        if (checkBinding(throwOnChange, this._expr_131, currVal_131)) {
-            this._Option_250_3.value = currVal_131;
-            this._expr_131 = currVal_131;
-        }
+        this._Option_250_3.check_value(currVal_131, throwOnChange, false);
+        this._Option_250_3.detectChangesInternal(this, this._el_250, throwOnChange);
         var currVal_132 = '5';
-        if (checkBinding(throwOnChange, this._expr_132, currVal_132)) {
-            this._Option_253_3.value = currVal_132;
-            this._expr_132 = currVal_132;
-        }
+        this._Option_253_3.check_value(currVal_132, throwOnChange, false);
+        this._Option_253_3.detectChangesInternal(this, this._el_253, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if (this._query_Button_13_1.dirty) {
                 this._query_Button_13_1.reset([]);
-                this._Item_13_4._buttons = this._query_Button_13_1;
+                this._Item_13_4.context._buttons = this._query_Button_13_1;
                 this._query_Button_13_1.notifyOnChanges();
             }
             if (this._query_Icon_13_2.dirty) {
                 this._query_Icon_13_2.reset([]);
-                this._Item_13_4._icons = this._query_Icon_13_2;
+                this._Item_13_4.context._icons = this._query_Icon_13_2;
                 this._query_Icon_13_2.notifyOnChanges();
             }
             if (this._query_Option_21_0.dirty) {
                 this._query_Option_21_0.reset([
-                    this._Option_23_3,
-                    this._Option_26_3
+                    this._Option_23_3.context,
+                    this._Option_26_3.context
                 ]);
-                this._Select_21_4.options = this._query_Option_21_0;
+                this._Select_21_4.context.options = this._query_Option_21_0;
                 this._query_Option_21_0.notifyOnChanges();
             }
             if (this._query_Button_16_1.dirty) {
                 this._query_Button_16_1.reset([]);
-                this._Item_16_4._buttons = this._query_Button_16_1;
+                this._Item_16_4.context._buttons = this._query_Button_16_1;
                 this._query_Button_16_1.notifyOnChanges();
             }
             if (this._query_Icon_16_2.dirty) {
                 this._query_Icon_16_2.reset([]);
-                this._Item_16_4._icons = this._query_Icon_16_2;
+                this._Item_16_4.context._icons = this._query_Icon_16_2;
                 this._query_Icon_16_2.notifyOnChanges();
             }
             if (this._query_Option_36_0.dirty) {
                 this._query_Option_36_0.reset([
-                    this._Option_38_3,
-                    this._Option_41_3,
-                    this._Option_44_3,
-                    this._Option_47_3,
-                    this._Option_50_3,
-                    this._Option_53_3
+                    this._Option_38_3.context,
+                    this._Option_41_3.context,
+                    this._Option_44_3.context,
+                    this._Option_47_3.context,
+                    this._Option_50_3.context,
+                    this._Option_53_3.context
                 ]);
-                this._Select_36_4.options = this._query_Option_36_0;
+                this._Select_36_4.context.options = this._query_Option_36_0;
                 this._query_Option_36_0.notifyOnChanges();
             }
             if (this._query_Button_31_1.dirty) {
                 this._query_Button_31_1.reset([]);
-                this._Item_31_4._buttons = this._query_Button_31_1;
+                this._Item_31_4.context._buttons = this._query_Button_31_1;
                 this._query_Button_31_1.notifyOnChanges();
             }
             if (this._query_Icon_31_2.dirty) {
                 this._query_Icon_31_2.reset([]);
-                this._Item_31_4._icons = this._query_Icon_31_2;
+                this._Item_31_4.context._icons = this._query_Icon_31_2;
                 this._query_Icon_31_2.notifyOnChanges();
             }
             if (this._query_Option_63_0.dirty) {
                 this._query_Option_63_0.reset([
-                    this._Option_65_3,
-                    this._Option_68_3,
-                    this._Option_71_3,
-                    this._Option_74_3,
-                    this._Option_77_3,
-                    this._Option_80_3,
-                    this._Option_83_3,
-                    this._Option_86_3,
-                    this._Option_89_3,
-                    this._Option_92_3,
-                    this._Option_95_3,
-                    this._Option_98_3
+                    this._Option_65_3.context,
+                    this._Option_68_3.context,
+                    this._Option_71_3.context,
+                    this._Option_74_3.context,
+                    this._Option_77_3.context,
+                    this._Option_80_3.context,
+                    this._Option_83_3.context,
+                    this._Option_86_3.context,
+                    this._Option_89_3.context,
+                    this._Option_92_3.context,
+                    this._Option_95_3.context,
+                    this._Option_98_3.context
                 ]);
-                this._Select_63_4.options = this._query_Option_63_0;
+                this._Select_63_4.context.options = this._query_Option_63_0;
                 this._query_Option_63_0.notifyOnChanges();
             }
             if (this._query_Option_102_0.dirty) {
                 this._query_Option_102_0.reset([
-                    this._Option_104_3,
-                    this._Option_107_3,
-                    this._Option_110_3,
-                    this._Option_113_3,
-                    this._Option_116_3,
-                    this._Option_119_3,
-                    this._Option_122_3,
-                    this._Option_125_3,
-                    this._Option_128_3,
-                    this._Option_131_3,
-                    this._Option_134_3
+                    this._Option_104_3.context,
+                    this._Option_107_3.context,
+                    this._Option_110_3.context,
+                    this._Option_113_3.context,
+                    this._Option_116_3.context,
+                    this._Option_119_3.context,
+                    this._Option_122_3.context,
+                    this._Option_125_3.context,
+                    this._Option_128_3.context,
+                    this._Option_131_3.context,
+                    this._Option_134_3.context
                 ]);
-                this._Select_102_4.options = this._query_Option_102_0;
+                this._Select_102_4.context.options = this._query_Option_102_0;
                 this._query_Option_102_0.notifyOnChanges();
             }
             if (this._query_Button_58_1.dirty) {
                 this._query_Button_58_1.reset([]);
-                this._Item_58_4._buttons = this._query_Button_58_1;
+                this._Item_58_4.context._buttons = this._query_Button_58_1;
                 this._query_Button_58_1.notifyOnChanges();
             }
             if (this._query_Icon_58_2.dirty) {
                 this._query_Icon_58_2.reset([]);
-                this._Item_58_4._icons = this._query_Icon_58_2;
+                this._Item_58_4.context._icons = this._query_Icon_58_2;
                 this._query_Icon_58_2.notifyOnChanges();
             }
             if (this._query_Button_142_1.dirty) {
                 this._query_Button_142_1.reset([]);
-                this._Item_142_4._buttons = this._query_Button_142_1;
+                this._Item_142_4.context._buttons = this._query_Button_142_1;
                 this._query_Button_142_1.notifyOnChanges();
             }
             if (this._query_Icon_142_2.dirty) {
                 this._query_Icon_142_2.reset([]);
-                this._Item_142_4._icons = this._query_Icon_142_2;
+                this._Item_142_4.context._icons = this._query_Icon_142_2;
                 this._query_Icon_142_2.notifyOnChanges();
             }
             if (this._query_Option_150_0.dirty) {
                 this._query_Option_150_0.reset([
-                    this._Option_152_3,
-                    this._Option_155_3,
-                    this._Option_158_3,
-                    this._Option_161_3,
-                    this._Option_164_3,
-                    this._Option_167_3,
-                    this._Option_170_3,
-                    this._Option_173_3,
-                    this._Option_176_3,
-                    this._Option_179_3
+                    this._Option_152_3.context,
+                    this._Option_155_3.context,
+                    this._Option_158_3.context,
+                    this._Option_161_3.context,
+                    this._Option_164_3.context,
+                    this._Option_167_3.context,
+                    this._Option_170_3.context,
+                    this._Option_173_3.context,
+                    this._Option_176_3.context,
+                    this._Option_179_3.context
                 ]);
-                this._Select_150_4.options = this._query_Option_150_0;
+                this._Select_150_4.context.options = this._query_Option_150_0;
                 this._query_Option_150_0.notifyOnChanges();
             }
             if (this._query_Button_145_1.dirty) {
                 this._query_Button_145_1.reset([]);
-                this._Item_145_4._buttons = this._query_Button_145_1;
+                this._Item_145_4.context._buttons = this._query_Button_145_1;
                 this._query_Button_145_1.notifyOnChanges();
             }
             if (this._query_Icon_145_2.dirty) {
                 this._query_Icon_145_2.reset([]);
-                this._Item_145_4._icons = this._query_Icon_145_2;
+                this._Item_145_4.context._icons = this._query_Icon_145_2;
                 this._query_Icon_145_2.notifyOnChanges();
             }
             if (this._query_Option_189_0.dirty) {
                 this._query_Option_189_0.reset([this._appEl_191.mapNestedViews(_View_ApiDemoPage1, function (nestedView) {
-                        return [nestedView._Option_0_3];
+                        return [nestedView._Option_0_3.context];
                     })]);
-                this._Select_189_4.options = this._query_Option_189_0;
+                this._Select_189_4.context.options = this._query_Option_189_0;
                 this._query_Option_189_0.notifyOnChanges();
             }
             if (this._query_Button_184_1.dirty) {
                 this._query_Button_184_1.reset([]);
-                this._Item_184_4._buttons = this._query_Button_184_1;
+                this._Item_184_4.context._buttons = this._query_Button_184_1;
                 this._query_Button_184_1.notifyOnChanges();
             }
             if (this._query_Icon_184_2.dirty) {
                 this._query_Icon_184_2.reset([]);
-                this._Item_184_4._icons = this._query_Icon_184_2;
+                this._Item_184_4.context._icons = this._query_Icon_184_2;
                 this._query_Icon_184_2.notifyOnChanges();
             }
             if (this._query_Option_200_0.dirty) {
-                this._query_Option_200_0.reset([this._Option_202_3]);
-                this._Select_200_4.options = this._query_Option_200_0;
+                this._query_Option_200_0.reset([this._Option_202_3.context]);
+                this._Select_200_4.context.options = this._query_Option_200_0;
                 this._query_Option_200_0.notifyOnChanges();
             }
             if (this._query_Button_195_1.dirty) {
                 this._query_Button_195_1.reset([]);
-                this._Item_195_4._buttons = this._query_Button_195_1;
+                this._Item_195_4.context._buttons = this._query_Button_195_1;
                 this._query_Button_195_1.notifyOnChanges();
             }
             if (this._query_Icon_195_2.dirty) {
                 this._query_Icon_195_2.reset([]);
-                this._Item_195_4._icons = this._query_Icon_195_2;
+                this._Item_195_4.context._icons = this._query_Icon_195_2;
                 this._query_Icon_195_2.notifyOnChanges();
             }
             if (this._query_Button_210_1.dirty) {
                 this._query_Button_210_1.reset([]);
-                this._Item_210_4._buttons = this._query_Button_210_1;
+                this._Item_210_4.context._buttons = this._query_Button_210_1;
                 this._query_Button_210_1.notifyOnChanges();
             }
             if (this._query_Icon_210_2.dirty) {
                 this._query_Icon_210_2.reset([]);
-                this._Item_210_4._icons = this._query_Icon_210_2;
+                this._Item_210_4.context._icons = this._query_Icon_210_2;
                 this._query_Icon_210_2.notifyOnChanges();
             }
             if (this._query_Option_218_0.dirty) {
                 this._query_Option_218_0.reset([
-                    this._Option_220_3,
-                    this._Option_223_3,
-                    this._Option_226_3,
-                    this._Option_229_3
+                    this._Option_220_3.context,
+                    this._Option_223_3.context,
+                    this._Option_226_3.context,
+                    this._Option_229_3.context
                 ]);
-                this._Select_218_4.options = this._query_Option_218_0;
+                this._Select_218_4.context.options = this._query_Option_218_0;
                 this._query_Option_218_0.notifyOnChanges();
             }
             if (this._query_Button_213_1.dirty) {
                 this._query_Button_213_1.reset([]);
-                this._Item_213_4._buttons = this._query_Button_213_1;
+                this._Item_213_4.context._buttons = this._query_Button_213_1;
                 this._query_Button_213_1.notifyOnChanges();
             }
             if (this._query_Icon_213_2.dirty) {
                 this._query_Icon_213_2.reset([]);
-                this._Item_213_4._icons = this._query_Icon_213_2;
+                this._Item_213_4.context._icons = this._query_Icon_213_2;
                 this._query_Icon_213_2.notifyOnChanges();
             }
             if (this._query_Option_239_0.dirty) {
                 this._query_Option_239_0.reset([
-                    this._Option_241_3,
-                    this._Option_244_3,
-                    this._Option_247_3,
-                    this._Option_250_3,
-                    this._Option_253_3
+                    this._Option_241_3.context,
+                    this._Option_244_3.context,
+                    this._Option_247_3.context,
+                    this._Option_250_3.context,
+                    this._Option_253_3.context
                 ]);
-                this._Select_239_4.options = this._query_Option_239_0;
+                this._Select_239_4.context.options = this._query_Option_239_0;
                 this._query_Option_239_0.notifyOnChanges();
             }
             if (this._query_Button_234_1.dirty) {
                 this._query_Button_234_1.reset([]);
-                this._Item_234_4._buttons = this._query_Button_234_1;
+                this._Item_234_4.context._buttons = this._query_Button_234_1;
                 this._query_Button_234_1.notifyOnChanges();
             }
             if (this._query_Icon_234_2.dirty) {
                 this._query_Icon_234_2.reset([]);
-                this._Item_234_4._icons = this._query_Icon_234_2;
+                this._Item_234_4.context._icons = this._query_Icon_234_2;
                 this._query_Icon_234_2.notifyOnChanges();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_13_4.ngAfterContentInit();
+                this._Item_13_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_21_4.ngAfterContentInit();
+                this._Select_21_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_16_4.ngAfterContentInit();
+                this._Item_16_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_36_4.ngAfterContentInit();
+                this._Select_36_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_31_4.ngAfterContentInit();
+                this._Item_31_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_63_4.ngAfterContentInit();
+                this._Select_63_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_102_4.ngAfterContentInit();
+                this._Select_102_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_58_4.ngAfterContentInit();
+                this._Item_58_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_142_4.ngAfterContentInit();
+                this._Item_142_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_150_4.ngAfterContentInit();
+                this._Select_150_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_145_4.ngAfterContentInit();
+                this._Item_145_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_189_4.ngAfterContentInit();
+                this._Select_189_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_184_4.ngAfterContentInit();
+                this._Item_184_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_200_4.ngAfterContentInit();
+                this._Select_200_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_195_4.ngAfterContentInit();
+                this._Item_195_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_210_4.ngAfterContentInit();
+                this._Item_210_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_218_4.ngAfterContentInit();
+                this._Select_218_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_213_4.ngAfterContentInit();
+                this._Item_213_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Select_239_4.ngAfterContentInit();
+                this._Select_239_4.context.ngAfterContentInit();
             }
             if ((this.numberOfChecks === 0)) {
-                this._Item_234_4.ngAfterContentInit();
+                this._Item_234_4.context.ngAfterContentInit();
             }
         }
-        var currVal_0 = this._Navbar_2_4._hidden;
+        var currVal_0 = this._Navbar_2_4.context._hidden;
         if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementProperty(this._el_2, 'hidden', currVal_0);
             this._expr_0 = currVal_0;
         }
-        var currVal_1 = this._Navbar_2_4._sbPadding;
+        var currVal_1 = this._Navbar_2_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setElementClass(this._el_2, 'statusbar-padding', currVal_1);
             this._expr_1 = currVal_1;
         }
-        var currVal_2 = this._Content_9_4._sbPadding;
+        var currVal_2 = this._Content_9_4.context._sbPadding;
         if (checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_6 = this._Select_21_4._disabled;
+        var currVal_6 = this._Select_21_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this.renderer.setElementClass(this._el_21, 'select-disabled', currVal_6);
             this._expr_6 = currVal_6;
         }
-        var currVal_8 = this._NgControlStatus_21_8.ngClassUntouched;
+        var currVal_8 = this._NgControlStatus_21_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementClass(this._el_21, 'ng-untouched', currVal_8);
             this._expr_8 = currVal_8;
         }
-        var currVal_9 = this._NgControlStatus_21_8.ngClassTouched;
+        var currVal_9 = this._NgControlStatus_21_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_21, 'ng-touched', currVal_9);
             this._expr_9 = currVal_9;
         }
-        var currVal_10 = this._NgControlStatus_21_8.ngClassPristine;
+        var currVal_10 = this._NgControlStatus_21_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this.renderer.setElementClass(this._el_21, 'ng-pristine', currVal_10);
             this._expr_10 = currVal_10;
         }
-        var currVal_11 = this._NgControlStatus_21_8.ngClassDirty;
+        var currVal_11 = this._NgControlStatus_21_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this.renderer.setElementClass(this._el_21, 'ng-dirty', currVal_11);
             this._expr_11 = currVal_11;
         }
-        var currVal_12 = this._NgControlStatus_21_8.ngClassValid;
+        var currVal_12 = this._NgControlStatus_21_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_12, currVal_12)) {
             this.renderer.setElementClass(this._el_21, 'ng-valid', currVal_12);
             this._expr_12 = currVal_12;
         }
-        var currVal_13 = this._NgControlStatus_21_8.ngClassInvalid;
+        var currVal_13 = this._NgControlStatus_21_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_13, currVal_13)) {
             this.renderer.setElementClass(this._el_21, 'ng-invalid', currVal_13);
             this._expr_13 = currVal_13;
         }
-        var currVal_21 = this._Select_36_4._disabled;
+        var currVal_21 = this._Select_36_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_21, currVal_21)) {
             this.renderer.setElementClass(this._el_36, 'select-disabled', currVal_21);
             this._expr_21 = currVal_21;
         }
-        var currVal_23 = this._NgControlStatus_36_8.ngClassUntouched;
+        var currVal_23 = this._NgControlStatus_36_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_23, currVal_23)) {
             this.renderer.setElementClass(this._el_36, 'ng-untouched', currVal_23);
             this._expr_23 = currVal_23;
         }
-        var currVal_24 = this._NgControlStatus_36_8.ngClassTouched;
+        var currVal_24 = this._NgControlStatus_36_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_24, currVal_24)) {
             this.renderer.setElementClass(this._el_36, 'ng-touched', currVal_24);
             this._expr_24 = currVal_24;
         }
-        var currVal_25 = this._NgControlStatus_36_8.ngClassPristine;
+        var currVal_25 = this._NgControlStatus_36_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_25, currVal_25)) {
             this.renderer.setElementClass(this._el_36, 'ng-pristine', currVal_25);
             this._expr_25 = currVal_25;
         }
-        var currVal_26 = this._NgControlStatus_36_8.ngClassDirty;
+        var currVal_26 = this._NgControlStatus_36_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_26, currVal_26)) {
             this.renderer.setElementClass(this._el_36, 'ng-dirty', currVal_26);
             this._expr_26 = currVal_26;
         }
-        var currVal_27 = this._NgControlStatus_36_8.ngClassValid;
+        var currVal_27 = this._NgControlStatus_36_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_27, currVal_27)) {
             this.renderer.setElementClass(this._el_36, 'ng-valid', currVal_27);
             this._expr_27 = currVal_27;
         }
-        var currVal_28 = this._NgControlStatus_36_8.ngClassInvalid;
+        var currVal_28 = this._NgControlStatus_36_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_28, currVal_28)) {
             this.renderer.setElementClass(this._el_36, 'ng-invalid', currVal_28);
             this._expr_28 = currVal_28;
         }
-        var currVal_38 = this._Select_63_4._disabled;
+        var currVal_38 = this._Select_63_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_38, currVal_38)) {
             this.renderer.setElementClass(this._el_63, 'select-disabled', currVal_38);
             this._expr_38 = currVal_38;
         }
-        var currVal_55 = this._Select_102_4._disabled;
+        var currVal_55 = this._Select_102_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_55, currVal_55)) {
             this.renderer.setElementClass(this._el_102, 'select-disabled', currVal_55);
             this._expr_55 = currVal_55;
         }
-        var currVal_63 = this._Select_150_4._disabled;
+        var currVal_63 = this._Select_150_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_63, currVal_63)) {
             this.renderer.setElementClass(this._el_150, 'select-disabled', currVal_63);
             this._expr_63 = currVal_63;
         }
-        var currVal_65 = this._NgControlStatus_150_8.ngClassUntouched;
+        var currVal_65 = this._NgControlStatus_150_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_65, currVal_65)) {
             this.renderer.setElementClass(this._el_150, 'ng-untouched', currVal_65);
             this._expr_65 = currVal_65;
         }
-        var currVal_66 = this._NgControlStatus_150_8.ngClassTouched;
+        var currVal_66 = this._NgControlStatus_150_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_66, currVal_66)) {
             this.renderer.setElementClass(this._el_150, 'ng-touched', currVal_66);
             this._expr_66 = currVal_66;
         }
-        var currVal_67 = this._NgControlStatus_150_8.ngClassPristine;
+        var currVal_67 = this._NgControlStatus_150_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_67, currVal_67)) {
             this.renderer.setElementClass(this._el_150, 'ng-pristine', currVal_67);
             this._expr_67 = currVal_67;
         }
-        var currVal_68 = this._NgControlStatus_150_8.ngClassDirty;
+        var currVal_68 = this._NgControlStatus_150_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_68, currVal_68)) {
             this.renderer.setElementClass(this._el_150, 'ng-dirty', currVal_68);
             this._expr_68 = currVal_68;
         }
-        var currVal_69 = this._NgControlStatus_150_8.ngClassValid;
+        var currVal_69 = this._NgControlStatus_150_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_69, currVal_69)) {
             this.renderer.setElementClass(this._el_150, 'ng-valid', currVal_69);
             this._expr_69 = currVal_69;
         }
-        var currVal_70 = this._NgControlStatus_150_8.ngClassInvalid;
+        var currVal_70 = this._NgControlStatus_150_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_70, currVal_70)) {
             this.renderer.setElementClass(this._el_150, 'ng-invalid', currVal_70);
             this._expr_70 = currVal_70;
         }
-        var currVal_86 = this._Select_189_4._disabled;
+        var currVal_86 = this._Select_189_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_86, currVal_86)) {
             this.renderer.setElementClass(this._el_189, 'select-disabled', currVal_86);
             this._expr_86 = currVal_86;
         }
-        var currVal_88 = this._NgControlStatus_189_8.ngClassUntouched;
+        var currVal_88 = this._NgControlStatus_189_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_88, currVal_88)) {
             this.renderer.setElementClass(this._el_189, 'ng-untouched', currVal_88);
             this._expr_88 = currVal_88;
         }
-        var currVal_89 = this._NgControlStatus_189_8.ngClassTouched;
+        var currVal_89 = this._NgControlStatus_189_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_89, currVal_89)) {
             this.renderer.setElementClass(this._el_189, 'ng-touched', currVal_89);
             this._expr_89 = currVal_89;
         }
-        var currVal_90 = this._NgControlStatus_189_8.ngClassPristine;
+        var currVal_90 = this._NgControlStatus_189_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_90, currVal_90)) {
             this.renderer.setElementClass(this._el_189, 'ng-pristine', currVal_90);
             this._expr_90 = currVal_90;
         }
-        var currVal_91 = this._NgControlStatus_189_8.ngClassDirty;
+        var currVal_91 = this._NgControlStatus_189_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_91, currVal_91)) {
             this.renderer.setElementClass(this._el_189, 'ng-dirty', currVal_91);
             this._expr_91 = currVal_91;
         }
-        var currVal_92 = this._NgControlStatus_189_8.ngClassValid;
+        var currVal_92 = this._NgControlStatus_189_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_92, currVal_92)) {
             this.renderer.setElementClass(this._el_189, 'ng-valid', currVal_92);
             this._expr_92 = currVal_92;
         }
-        var currVal_93 = this._NgControlStatus_189_8.ngClassInvalid;
+        var currVal_93 = this._NgControlStatus_189_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_93, currVal_93)) {
             this.renderer.setElementClass(this._el_189, 'ng-invalid', currVal_93);
             this._expr_93 = currVal_93;
         }
-        var currVal_99 = this._Select_200_4._disabled;
+        var currVal_99 = this._Select_200_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_99, currVal_99)) {
             this.renderer.setElementClass(this._el_200, 'select-disabled', currVal_99);
             this._expr_99 = currVal_99;
         }
-        var currVal_104 = this._Select_218_4._disabled;
+        var currVal_104 = this._Select_218_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_104, currVal_104)) {
             this.renderer.setElementClass(this._el_218, 'select-disabled', currVal_104);
             this._expr_104 = currVal_104;
         }
-        var currVal_106 = this._NgControlStatus_218_8.ngClassUntouched;
+        var currVal_106 = this._NgControlStatus_218_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_106, currVal_106)) {
             this.renderer.setElementClass(this._el_218, 'ng-untouched', currVal_106);
             this._expr_106 = currVal_106;
         }
-        var currVal_107 = this._NgControlStatus_218_8.ngClassTouched;
+        var currVal_107 = this._NgControlStatus_218_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_107, currVal_107)) {
             this.renderer.setElementClass(this._el_218, 'ng-touched', currVal_107);
             this._expr_107 = currVal_107;
         }
-        var currVal_108 = this._NgControlStatus_218_8.ngClassPristine;
+        var currVal_108 = this._NgControlStatus_218_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_108, currVal_108)) {
             this.renderer.setElementClass(this._el_218, 'ng-pristine', currVal_108);
             this._expr_108 = currVal_108;
         }
-        var currVal_109 = this._NgControlStatus_218_8.ngClassDirty;
+        var currVal_109 = this._NgControlStatus_218_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_109, currVal_109)) {
             this.renderer.setElementClass(this._el_218, 'ng-dirty', currVal_109);
             this._expr_109 = currVal_109;
         }
-        var currVal_110 = this._NgControlStatus_218_8.ngClassValid;
+        var currVal_110 = this._NgControlStatus_218_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_110, currVal_110)) {
             this.renderer.setElementClass(this._el_218, 'ng-valid', currVal_110);
             this._expr_110 = currVal_110;
         }
-        var currVal_111 = this._NgControlStatus_218_8.ngClassInvalid;
+        var currVal_111 = this._NgControlStatus_218_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_111, currVal_111)) {
             this.renderer.setElementClass(this._el_218, 'ng-invalid', currVal_111);
             this._expr_111 = currVal_111;
         }
-        var currVal_120 = this._Select_239_4._disabled;
+        var currVal_120 = this._Select_239_4.context._disabled;
         if (checkBinding(throwOnChange, this._expr_120, currVal_120)) {
             this.renderer.setElementClass(this._el_239, 'select-disabled', currVal_120);
             this._expr_120 = currVal_120;
         }
-        var currVal_122 = this._NgControlStatus_239_8.ngClassUntouched;
+        var currVal_122 = this._NgControlStatus_239_8.context.ngClassUntouched;
         if (checkBinding(throwOnChange, this._expr_122, currVal_122)) {
             this.renderer.setElementClass(this._el_239, 'ng-untouched', currVal_122);
             this._expr_122 = currVal_122;
         }
-        var currVal_123 = this._NgControlStatus_239_8.ngClassTouched;
+        var currVal_123 = this._NgControlStatus_239_8.context.ngClassTouched;
         if (checkBinding(throwOnChange, this._expr_123, currVal_123)) {
             this.renderer.setElementClass(this._el_239, 'ng-touched', currVal_123);
             this._expr_123 = currVal_123;
         }
-        var currVal_124 = this._NgControlStatus_239_8.ngClassPristine;
+        var currVal_124 = this._NgControlStatus_239_8.context.ngClassPristine;
         if (checkBinding(throwOnChange, this._expr_124, currVal_124)) {
             this.renderer.setElementClass(this._el_239, 'ng-pristine', currVal_124);
             this._expr_124 = currVal_124;
         }
-        var currVal_125 = this._NgControlStatus_239_8.ngClassDirty;
+        var currVal_125 = this._NgControlStatus_239_8.context.ngClassDirty;
         if (checkBinding(throwOnChange, this._expr_125, currVal_125)) {
             this.renderer.setElementClass(this._el_239, 'ng-dirty', currVal_125);
             this._expr_125 = currVal_125;
         }
-        var currVal_126 = this._NgControlStatus_239_8.ngClassValid;
+        var currVal_126 = this._NgControlStatus_239_8.context.ngClassValid;
         if (checkBinding(throwOnChange, this._expr_126, currVal_126)) {
             this.renderer.setElementClass(this._el_239, 'ng-valid', currVal_126);
             this._expr_126 = currVal_126;
         }
-        var currVal_127 = this._NgControlStatus_239_8.ngClassInvalid;
+        var currVal_127 = this._NgControlStatus_239_8.context.ngClassInvalid;
         if (checkBinding(throwOnChange, this._expr_127, currVal_127)) {
             this.renderer.setElementClass(this._el_239, 'ng-invalid', currVal_127);
             this._expr_127 = currVal_127;
@@ -53532,27 +53851,27 @@ var _View_ApiDemoPage0 = (function (_super) {
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Navbar_2_4.ngAfterViewInit();
+                this._Navbar_2_4.context.ngAfterViewInit();
             }
         }
     };
     _View_ApiDemoPage0.prototype.destroyInternal = function () {
-        this._Select_21_4.ngOnDestroy();
-        this._NgModel_21_6.ngOnDestroy();
-        this._Select_36_4.ngOnDestroy();
-        this._NgModel_36_6.ngOnDestroy();
-        this._Select_63_4.ngOnDestroy();
-        this._Select_102_4.ngOnDestroy();
-        this._Select_150_4.ngOnDestroy();
-        this._NgModel_150_6.ngOnDestroy();
-        this._Select_189_4.ngOnDestroy();
-        this._NgModel_189_6.ngOnDestroy();
-        this._Select_200_4.ngOnDestroy();
-        this._Select_218_4.ngOnDestroy();
-        this._NgModel_218_6.ngOnDestroy();
-        this._Select_239_4.ngOnDestroy();
-        this._NgModel_239_6.ngOnDestroy();
-        this._Content_9_4.ngOnDestroy();
+        this._Select_21_4.context.ngOnDestroy();
+        this._NgModel_21_6.context.ngOnDestroy();
+        this._Select_36_4.context.ngOnDestroy();
+        this._NgModel_36_6.context.ngOnDestroy();
+        this._Select_63_4.context.ngOnDestroy();
+        this._Select_102_4.context.ngOnDestroy();
+        this._Select_150_4.context.ngOnDestroy();
+        this._NgModel_150_6.context.ngOnDestroy();
+        this._Select_189_4.context.ngOnDestroy();
+        this._NgModel_189_6.context.ngOnDestroy();
+        this._Select_200_4.context.ngOnDestroy();
+        this._Select_218_4.context.ngOnDestroy();
+        this._NgModel_218_6.context.ngOnDestroy();
+        this._Select_239_4.context.ngOnDestroy();
+        this._NgModel_239_6.context.ngOnDestroy();
+        this._Content_9_4.context.ngOnDestroy();
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_21_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
@@ -53561,12 +53880,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_21_1 = function ($event) {
         this._appEl_21.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_21_4._click($event) !== false);
+        var pd_0 = (this._Select_21_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_21_2 = function ($event) {
         this._appEl_21.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_21_4._keyup() !== false);
+        var pd_0 = (this._Select_21_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_36_0 = function ($event) {
@@ -53576,12 +53895,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_36_1 = function ($event) {
         this._appEl_36.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_36_4._click($event) !== false);
+        var pd_0 = (this._Select_36_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_36_2 = function ($event) {
         this._appEl_36.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_36_4._keyup() !== false);
+        var pd_0 = (this._Select_36_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ionChange_63_0 = function ($event) {
@@ -53591,12 +53910,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_63_1 = function ($event) {
         this._appEl_63.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_63_4._click($event) !== false);
+        var pd_0 = (this._Select_63_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_63_2 = function ($event) {
         this._appEl_63.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_63_4._keyup() !== false);
+        var pd_0 = (this._Select_63_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ionChange_102_0 = function ($event) {
@@ -53606,12 +53925,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_102_1 = function ($event) {
         this._appEl_102.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_102_4._click($event) !== false);
+        var pd_0 = (this._Select_102_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_102_2 = function ($event) {
         this._appEl_102.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_102_4._keyup() !== false);
+        var pd_0 = (this._Select_102_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_150_0 = function ($event) {
@@ -53621,12 +53940,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_150_1 = function ($event) {
         this._appEl_150.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_150_4._click($event) !== false);
+        var pd_0 = (this._Select_150_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_150_2 = function ($event) {
         this._appEl_150.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_150_4._keyup() !== false);
+        var pd_0 = (this._Select_150_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_189_0 = function ($event) {
@@ -53636,22 +53955,22 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_189_1 = function ($event) {
         this._appEl_189.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_189_4._click($event) !== false);
+        var pd_0 = (this._Select_189_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_189_2 = function ($event) {
         this._appEl_189.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_189_4._keyup() !== false);
+        var pd_0 = (this._Select_189_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_click_200_0 = function ($event) {
         this._appEl_200.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_200_4._click($event) !== false);
+        var pd_0 = (this._Select_200_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_200_1 = function ($event) {
         this._appEl_200.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_200_4._keyup() !== false);
+        var pd_0 = (this._Select_200_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_218_0 = function ($event) {
@@ -53661,12 +53980,12 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_218_1 = function ($event) {
         this._appEl_218.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_218_4._click($event) !== false);
+        var pd_0 = (this._Select_218_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_218_2 = function ($event) {
         this._appEl_218.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_218_4._keyup() !== false);
+        var pd_0 = (this._Select_218_4.context._keyup() !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_ngModelChange_239_0 = function ($event) {
@@ -53676,19 +53995,19 @@ var _View_ApiDemoPage0 = (function (_super) {
     };
     _View_ApiDemoPage0.prototype._handle_click_239_1 = function ($event) {
         this._appEl_239.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_239_4._click($event) !== false);
+        var pd_0 = (this._Select_239_4.context._click($event) !== false);
         return (true && pd_0);
     };
     _View_ApiDemoPage0.prototype._handle_keyup_space_239_2 = function ($event) {
         this._appEl_239.componentView.markPathToRootAsCheckOnce();
-        var pd_0 = (this._Select_239_4._keyup() !== false);
+        var pd_0 = (this._Select_239_4.context._keyup() !== false);
         return (true && pd_0);
     };
     return _View_ApiDemoPage0;
 }(AppView));
 function viewFactory_ApiDemoPage0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoPage === null)) {
-        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/select/page.html', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
+        (renderType_ApiDemoPage = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoPage, {}));
     }
     return new _View_ApiDemoPage0(viewUtils, parentInjector, declarationEl);
 }
@@ -53699,9 +54018,8 @@ var _View_ApiDemoPage1 = (function (_super) {
     }
     _View_ApiDemoPage1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'ion-option', null);
-        this._Option_0_3 = new Option(new ElementRef(this._el_0));
+        this._Option_0_3 = new Wrapper_Option(new ElementRef(this._el_0));
         this._text_1 = this.renderer.createText(this._el_0, '', null);
-        this._expr_0 = UNINITIALIZED;
         this._expr_1 = UNINITIALIZED;
         this.init([].concat([this._el_0]), [
             this._el_0,
@@ -53711,16 +54029,14 @@ var _View_ApiDemoPage1 = (function (_super) {
     };
     _View_ApiDemoPage1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Option) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
-            return this._Option_0_3;
+            return this._Option_0_3.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoPage1.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.$implicit.value;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Option_0_3.value = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Option_0_3.check_value(currVal_0, throwOnChange, false);
+        this._Option_0_3.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_1 = interpolate(1, '', this.context.$implicit.text, '');
         if (checkBinding(throwOnChange, this._expr_1, currVal_1)) {
@@ -53747,17 +54063,22 @@ var _View_ApiDemoApp_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_ApiDemoApp0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._ApiDemoApp_0_4 = new ApiDemoApp();
-        this._appEl_0.initComponent(this._ApiDemoApp_0_4, [], compView_0);
-        compView_0.create(this._ApiDemoApp_0_4, this.projectableNodes, null);
+        this._ApiDemoApp_0_4 = new Wrapper_ApiDemoApp();
+        this._appEl_0.initComponent(this._ApiDemoApp_0_4.context, [], compView_0);
+        compView_0.create(this._ApiDemoApp_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
     };
     _View_ApiDemoApp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === ApiDemoApp) && (0 === requestNodeIndex))) {
-            return this._ApiDemoApp_0_4;
+            return this._ApiDemoApp_0_4.context;
         }
         return notFoundResult;
+    };
+    _View_ApiDemoApp_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._ApiDemoApp_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
+        this.detectContentChildrenChanges(throwOnChange);
+        this.detectViewChildrenChanges(throwOnChange);
     };
     return _View_ApiDemoApp_Host0;
 }(AppView));
@@ -53780,30 +54101,27 @@ var _View_ApiDemoApp0 = (function (_super) {
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-nav', null);
         this._appEl_0 = new AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Nav0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._Nav_0_4 = new Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
-        this._appEl_0.initComponent(this._Nav_0_4, [], compView_0);
-        compView_0.create(this._Nav_0_4, [], null);
-        this._expr_0 = UNINITIALIZED;
+        this._Nav_0_4 = new Wrapper_Nav(this.parentInjector.get(ViewController, null), this.parentInjector.get(NavControllerBase, null), this.parentInjector.get(App), this.parentInjector.get(Config), this.parentInjector.get(Keyboard), new ElementRef(this._el_0), this.parentInjector.get(NgZone), this.renderer, this.parentInjector.get(ComponentFactoryResolver), this.parentInjector.get(GestureController), this.parentInjector.get(TransitionController), this.parentInjector.get(DeepLinker, null));
+        this._appEl_0.initComponent(this._Nav_0_4.context, [], compView_0);
+        compView_0.create(this._Nav_0_4.context, [], null);
         this.init([], [this._el_0], [], []);
         return null;
     };
     _View_ApiDemoApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === Nav) && (0 === requestNodeIndex))) {
-            return this._Nav_0_4;
+            return this._Nav_0_4.context;
         }
         return notFoundResult;
     };
     _View_ApiDemoApp0.prototype.detectChangesInternal = function (throwOnChange) {
         var currVal_0 = this.context.root;
-        if (checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._Nav_0_4.root = currVal_0;
-            this._expr_0 = currVal_0;
-        }
+        this._Nav_0_4.check_root(currVal_0, throwOnChange, false);
+        this._Nav_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             if ((this.numberOfChecks === 0)) {
-                this._Nav_0_4.ngAfterViewInit();
+                this._Nav_0_4.context.ngAfterViewInit();
             }
         }
     };
@@ -53811,7 +54129,7 @@ var _View_ApiDemoApp0 = (function (_super) {
 }(AppView));
 function viewFactory_ApiDemoApp0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_ApiDemoApp === null)) {
-        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('/home/ubuntu/ionic/demos/src/select/app.component.ts class ApiDemoApp - inline template', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
+        (renderType_ApiDemoApp = viewUtils.createRenderComponentType('', 0, ViewEncapsulation.None, styles_ApiDemoApp, {}));
     }
     return new _View_ApiDemoApp0(viewUtils, parentInjector, declarationEl);
 }

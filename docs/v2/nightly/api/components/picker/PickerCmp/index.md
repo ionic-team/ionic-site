@@ -33,7 +33,7 @@ PickerCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker-component.ts#L368">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker-component.ts#L366">
 Improve this doc
 </a>
 
@@ -157,11 +157,11 @@ Improve this doc
 
 
 
-<div id="ionViewDidLoad"></div>
+<div id="ionViewWillLoad"></div>
 
 <h3>
-<a class="anchor" name="ionViewDidLoad" href="#ionViewDidLoad"></a>
-<code>ionViewDidLoad()</code>
+<a class="anchor" name="ionViewWillLoad" href="#ionViewWillLoad"></a>
+<code>ionViewWillLoad()</code>
   
 
 </h3>

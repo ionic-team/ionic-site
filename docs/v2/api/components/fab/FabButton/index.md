@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ FabButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab.ts#L7">
 Improve this doc
 </a>
 
@@ -94,8 +94,6 @@ FABs as its name suggests are floating over the content in a fixed position. Thi
 
 
 
-
-
 <th>Description</th>
 </tr>
 </thead>
@@ -110,18 +108,6 @@ mini
 
 <td>
 Makes a fab button with a reduced size.
-</td>
-</tr>
-
-<tr>
-<td>
-color
-</td>
-
-
-
-<td>
-Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 
 </td>
 </tr>
@@ -204,6 +190,33 @@ Dynamically set which predefined color this button should use (e.g. primary, sec
           <td><code>56px</code></td>
         
         <td><p>Width and height of the FAB button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-mini-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Width and height of the FAB button mini</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-content-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB Container</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-list-margin</code></td>
+        
+          <td><code>10px</code></td>
+        
+        <td><p>Margin of the FAB List</p>
 </td>
       </tr>
       

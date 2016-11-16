@@ -19,7 +19,7 @@ next_page_link: /docs/v2/getting-started/tutorial/navigation
 
 Now that we have a basic understanding of the layout of an Ionic 2 app, let's walk through the process of creating and navigating to pages in our app.
 
-Taking a look at `app/app.html`, we see this line near the bottom:
+Taking a look at `src/app/app.html`, we see this line near the bottom:
 
 ```html
 <ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
@@ -27,18 +27,19 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
 
-In `app/app.ts`, the `MyApp` component specifies this in its constructor:
+In `src/app/app.component.ts`, the `MyApp` component specifies this in its constructor:
 
 ```ts
 ...
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
 ...
 
-class MyApp {
+export class MyApp {
   ...
   
   // make HelloIonicPage the root (or first) page
   rootPage: any = HelloIonicPage;
+  pages: Array<{title: string, component: any}>;
 
     constructor(
       private platform: Platform,
@@ -57,7 +58,7 @@ We see that `rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be t
 
 ### Creating a Page
 
-Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, go and open up `hello-ionic.ts`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `src/pages/hello-ionic/` folder, go and open up `hello-ionic.ts`.
 
 > You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find `hello-ionic.ts`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
@@ -73,7 +74,7 @@ import {Component} from '@angular/core';
 export class HelloIonicPage {}
 ```
 
-All pages have both a class, and an associated template that's being compiled as well. Let's check out `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template that's being compiled as well. Let's check out `src/pages/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -105,7 +106,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 
@@ -113,7 +114,7 @@ The rest of the template is standard Ionic code that sets up our content area an
 
 To create an additional page, we don't need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.
 
-Let's check out the contents of `app/pages/list/list.ts`. Inside, you will see a new page is defined:
+Let's check out the contents of `src/pages/list/list.ts`. Inside, you will see a new page is defined:
 
 ```ts
 import {Component} from "@angular/core";

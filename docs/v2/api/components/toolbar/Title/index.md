@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Title
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar-title.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar-title.ts#L5">
 Improve this doc
 </a>
 
@@ -65,7 +65,7 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-header&gt;
 
   &lt;ion-navbar&gt;
-    &lt;ion-title&gt;Main Heder&lt;/ion-title&gt;
+    &lt;ion-title&gt;Main Header&lt;/ion-title&gt;
   &lt;/ion-navbar&gt;
 
   &lt;ion-toolbar&gt;

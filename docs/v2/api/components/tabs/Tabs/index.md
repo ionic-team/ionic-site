@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tabs.ts#L14">
 Improve this doc
 </a>
 
@@ -47,9 +47,9 @@ Improve this doc
 <p>Tabs make it easy to navigate between different pages or functional
 aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
 a container of individual <a href="../Tab/">Tab</a> components. Each individual <code>ion-tab</code>
-is a declarative component for a <a href="../../nav/NavController/">NavController</a></p>
+is a declarative component for a <a href="../../../navigation/NavController/">NavController</a></p>
 <p>For more information on using nav controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+take a look at the <a href="../../../navigation/NavController/">NavController API Docs</a>.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
 the mode. The tabs are placed at the bottom of the screen
@@ -138,6 +138,14 @@ ionViewDidEnter() {
 
 }
 </code></pre>
+<p>You can also switch tabs from a child component by calling <code>select()</code> on the
+parent view using the <code>NavController</code> instance. For example, assuming you have
+a <code>TabsPage</code> component, you could call the following from any of the child
+components to switch to <code>TabsRoot3</code>:</p>
+<pre><code class="lang-ts">switchTabs() {
+  this.navCtrl.parent.switch(2);
+}
+</code></pre>
 
 
 
@@ -155,6 +163,26 @@ ionViewDidEnter() {
 <h3>
 <a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
 <code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngOnDestroy"></div>
+
+<h3>
+<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
+<code>ngOnDestroy()</code>
   
 
 </h3>
@@ -672,7 +700,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-text-transform</code></td>
         
-          <td><code>scale(.85)</code></td>
+          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
         
         <td><p>Transform for the tab button text</p>
 </td>

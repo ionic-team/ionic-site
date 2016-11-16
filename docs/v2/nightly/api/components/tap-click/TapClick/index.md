@@ -31,7 +31,7 @@ TapClick
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tap-click/tap-click.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tap-click/tap-click.ts#L7">
 Improve this doc
 </a>
 
@@ -55,51 +55,11 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="lastTouch"></div>
-
-<h3>
-<a class="anchor" name="lastTouch" href="#lastTouch"></a>
-<code>lastTouch</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="disableClick"></div>
 
 <h3>
 <a class="anchor" name="disableClick" href="#disableClick"></a>
 <code>disableClick</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="lastActivated"></div>
-
-<h3>
-<a class="anchor" name="lastActivated" href="#lastActivated"></a>
-<code>lastActivated</code>
   
 
 </h3>
@@ -175,11 +135,31 @@ Improve this doc
 
 
 
-<div id="pointerMove"></div>
+<div id="events"></div>
 
 <h3>
-<a class="anchor" name="pointerMove" href="#pointerMove"></a>
-<code>pointerMove</code>
+<a class="anchor" name="events" href="#events"></a>
+<code>events</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pointerEvents"></div>
+
+<h3>
+<a class="anchor" name="pointerEvents" href="#pointerEvents"></a>
+<code>pointerEvents</code>
   
 
 </h3>
@@ -215,91 +195,31 @@ Improve this doc
 
 
 
-<div id="touchStart"></div>
-
-<h3>
-<a class="anchor" name="touchStart" href="#touchStart"></a>
-<code>touchStart()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="touchEnd"></div>
-
-<h3>
-<a class="anchor" name="touchEnd" href="#touchEnd"></a>
-<code>touchEnd()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="mouseDown"></div>
-
-<h3>
-<a class="anchor" name="mouseDown" href="#mouseDown"></a>
-<code>mouseDown()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="mouseUp"></div>
-
-<h3>
-<a class="anchor" name="mouseUp" href="#mouseUp"></a>
-<code>mouseUp()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="pointerStart"></div>
 
 <h3>
 <a class="anchor" name="pointerStart" href="#pointerStart"></a>
 <code>pointerStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pointerMove"></div>
+
+<h3>
+<a class="anchor" name="pointerMove" href="#pointerMove"></a>
+<code>pointerMove()</code>
   
 
 </h3>
@@ -355,11 +275,11 @@ Improve this doc
 
 
 
-<div id="moveListeners"></div>
+<div id="click"></div>
 
 <h3>
-<a class="anchor" name="moveListeners" href="#moveListeners"></a>
-<code>moveListeners()</code>
+<a class="anchor" name="click" href="#click"></a>
+<code>click()</code>
   
 
 </h3>
@@ -375,11 +295,11 @@ Improve this doc
 
 
 
-<div id="click"></div>
+<div id="handleTapPolyfill"></div>
 
 <h3>
-<a class="anchor" name="click" href="#click"></a>
-<code>click()</code>
+<a class="anchor" name="handleTapPolyfill" href="#handleTapPolyfill"></a>
+<code>handleTapPolyfill()</code>
   
 
 </h3>

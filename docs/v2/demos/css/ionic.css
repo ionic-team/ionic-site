@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201610131659, Default Theme
+ * vE2E-201611092146, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -85,8 +85,12 @@ ion-action-sheet {
   font-weight: 600;
   background: #fff; }
 
+.action-sheet-md .action-sheet-container {
+  padding: .8rem 0;
+  background: #fafafa; }
+
 .action-sheet-md .action-sheet-title {
-  padding: 19px 16px 17px;
+  padding: 11px 16px 17px;
   font-size: 1.6rem;
   text-align: left;
   color: #757575; }
@@ -105,18 +109,15 @@ ion-action-sheet {
   background: #f1f1f1; }
 
 .action-sheet-md .action-sheet-icon {
-  margin: 0 28px 0 0;
-  min-width: 24px;
+  margin: 0 32px 0 0;
+  padding: 0;
+  width: 2.3rem;
   font-size: 2.4rem;
   text-align: center;
   vertical-align: middle; }
 
 .action-sheet-md .action-sheet-group {
-  overflow: hidden;
-  background: #fafafa; }
-
-.action-sheet-md .action-sheet-group:last-child .action-sheet-button {
-  margin-bottom: 8px; }
+  overflow: hidden; }
 
 .action-sheet-md .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;
@@ -130,7 +131,7 @@ ion-action-sheet {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2); }
 
 .action-sheet-wp .action-sheet-title {
-  padding: 19px 16px 17px;
+  padding: 11px 16px 17px;
   font-size: 2rem;
   text-align: left;
   color: #4d4d4d; }
@@ -147,17 +148,16 @@ ion-action-sheet {
   background: #aaa; }
 
 .action-sheet-wp .action-sheet-icon {
-  margin: 0 16px 0 0;
-  min-width: 24px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  width: 2.3rem;
   font-size: 2.4rem;
   text-align: center;
   vertical-align: middle; }
 
-.action-sheet-wp .action-sheet-group {
+.action-sheet-wp .action-sheet-container {
+  padding: .8rem 0;
   background: #fff; }
-
-.action-sheet-wp .action-sheet-group:last-child .action-sheet-button {
-  margin-bottom: 8px; }
 
 .action-sheet-wp .action-sheet-group .button-inner {
   -webkit-justify-content: flex-start;
@@ -2691,8 +2691,7 @@ ion-content.js-scroll > .scroll-content {
   will-change: initial; }
 
 .disable-scroll .ion-page .scroll-content {
-  overflow-y: hidden;
-  overflow-x: hidden; }
+  pointer-events: none; }
 
 .fixed-content {
   position: absolute;
@@ -3065,7 +3064,6 @@ ion-fab-list {
   flex-direction: column;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
   margin: 66px 0;
   min-width: 56px;
@@ -3130,10 +3128,16 @@ ion-fab-list[side=right] {
   opacity: 0;
   -webkit-transform: scale(0.4) rotateZ(-45deg);
   transform: scale(0.4) rotateZ(-45deg);
-  transition: all ease-in-out 300ms; }
+  transition: all ease-in-out 300ms;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform; }
 
 .fab .button-inner {
-  transition: all ease-in-out 300ms; }
+  transition: all ease-in-out 300ms;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform; }
 
 .fab-close-active .fab-close-icon {
   opacity: 1;
@@ -3317,27 +3321,22 @@ ion-row {
   ion-row[top] {
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start; }
   ion-row[bottom] {
     -webkit-align-items: flex-end;
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end; }
   ion-row[center] {
     -webkit-align-items: center;
     -ms-flex-align: center;
-    -ms-grid-row-align: center;
     align-items: center; }
   ion-row[stretch] {
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
-    -ms-grid-row-align: stretch;
     align-items: stretch; }
   ion-row[baseline] {
     -webkit-align-items: baseline;
     -ms-flex-align: baseline;
-    -ms-grid-row-align: baseline;
     align-items: baseline; }
 
 ion-col {
@@ -3358,10 +3357,12 @@ ion-col {
   ion-col[center] {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center; }
   ion-col[stretch] {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
+    -ms-grid-row-align: stretch;
     align-self: stretch; }
   ion-col[baseline] {
     -webkit-align-self: baseline;
@@ -3607,7 +3608,6 @@ ion-textarea {
 .item.item-textarea {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
-  -ms-grid-row-align: stretch;
   align-items: stretch; }
 
 .text-input {
@@ -3951,7 +3951,6 @@ ion-item-divider[sticky] {
 ion-input.item {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
-  -ms-grid-row-align: flex-start;
   align-items: flex-start; }
 
 .item > ion-icon[small]:first-child,
@@ -4004,7 +4003,6 @@ ion-reorder {
   flex: 1;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -4641,6 +4639,7 @@ ion-label[fixed] {
 .item-label-floating ion-label {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
   align-self: stretch;
   width: auto;
   max-width: 100%; }
@@ -4662,6 +4661,7 @@ ion-label[floating] {
 .item-label-floating ion-select {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
   align-self: stretch;
   max-width: 100%; }
 
@@ -6178,13 +6178,15 @@ ion-popover {
   border-color: #222; }
 
 .item-range .item-inner {
-  overflow: visible; }
+  overflow: visible;
+  width: 100%; }
 
 .item-range .input-wrapper {
   overflow: visible;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 100%; }
 
 .item-range ion-range {
   width: 100%; }
@@ -6192,6 +6194,7 @@ ion-popover {
 .item-range ion-range ion-label {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center; }
 
 ion-range {
@@ -6680,7 +6683,9 @@ ion-refresher {
 .has-refresher > .scroll-content {
   margin-top: -1px;
   border-top: 1px solid #ddd;
-  transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1); }
+  transition: -webkit-transform 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: transform 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: transform 320ms cubic-bezier(0.36, 0.66, 0.04, 1), -webkit-transform 320ms cubic-bezier(0.36, 0.66, 0.04, 1); }
 
 ion-refresher-content {
   display: -webkit-flex;
@@ -7104,10 +7109,10 @@ ion-searchbar {
 .searchbar-md .searchbar-clear-icon.activated {
   background-color: transparent; }
 
-.searchbar-md .searchbar-has-focus.searchbar-show-cancel .searchbar-search-icon {
+.searchbar-md.searchbar-has-focus.searchbar-show-cancel .searchbar-search-icon {
   display: none; }
 
-.searchbar-md .searchbar-has-focus.searchbar-show-cancel .searchbar-md-cancel {
+.searchbar-md.searchbar-has-focus.searchbar-show-cancel .searchbar-md-cancel {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex; }
@@ -7602,6 +7607,7 @@ ion-select {
   position: relative;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   width: 18px;
   height: 18px; }
@@ -8427,6 +8433,7 @@ ion-spinner.spinner-paused svg {
   overflow: hidden;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   min-width: 26px;
   max-width: 100%;
@@ -8501,6 +8508,7 @@ ion-spinner.spinner-paused svg {
   padding: 0 2px;
   max-width: 240px;
   min-height: 49px;
+  font-size: 10px;
   color: #8c8c8c; }
 
 .tabs-ios .tab-button:hover:not(.disable-hover),
@@ -8510,8 +8518,7 @@ ion-spinner.spinner-paused svg {
 .tabs-ios .tab-button-text {
   margin-top: 0;
   margin-bottom: 0;
-  min-height: 11px;
-  font-size: 10px; }
+  min-height: 11px; }
 
 .tabs-ios .has-title-only .tab-button-text {
   font-size: 12px; }
@@ -8600,19 +8607,19 @@ ion-spinner.spinner-paused svg {
 .tabs-md .tab-button {
   padding: 8px 0 10px 0;
   min-height: 5.6rem;
+  font-size: 1.4rem;
   font-weight: normal;
   color: rgba(140, 140, 140, 0.7); }
 
 .tabs-md .tab-button[aria-selected=true] {
   padding: 6px 0 10px 0;
-  font-size: 1.4rem;
   color: #327eff; }
 
 .tabs-md .tab-button-text {
   margin: 6px 0;
   text-transform: none;
-  -webkit-transform: scale(0.85);
-  transform: scale(0.85);
+  -webkit-transform: scale(0.85714);
+  transform: scale(0.85714);
   -webkit-transform-origin: bottom center;
   transform-origin: bottom center;
   transition: -webkit-transform 200ms ease-in-out;

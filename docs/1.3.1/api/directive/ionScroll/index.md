@@ -185,6 +185,23 @@ with <a href="/docs/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegat
     
     <tr>
       <td>
+        on-scroll-complete
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        
+  <code>expression</code>
+      </td>
+      <td>
+        <p>Called whenever the scrolling paging is completed.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         scrollbar-x
         
         <div><em>(optional)</em></div>

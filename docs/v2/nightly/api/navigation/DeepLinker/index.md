@@ -84,7 +84,7 @@ So at any point, when a Component becomes the active view, we just append the UR
 <h3 id="dynamic-links">Dynamic Links</h3>
 <p>Since passing data around is common practice in an app, we can reflect that in our app&#39;s URL in a similar manner to Angular&#39;s router.</p>
 <pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
+  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
   { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39; }
 ]
 </code></pre>
@@ -105,7 +105,7 @@ So setting its value to be that of a string or number is suggested.</p>
  If you want a component to have a default history when none is present, you can use the <code>defaultHistory</code> property</p>
 <p>The <code>defaultHistory</code> property takes an array of components to create the history stack if none exist.</p>
 <pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
+  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
   { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39;, defaultHistory: [HomePage] }
 ]
 </code></pre>

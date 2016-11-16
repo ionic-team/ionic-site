@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ Animation
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/animations/animation.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/animations/animation.ts#L1">
 Improve this doc
 </a>
 
@@ -80,6 +80,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="opts" href="#opts"></a>
 <code>opts</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="hasChildren"></div>
+
+<h3>
+<a class="anchor" name="hasChildren" href="#hasChildren"></a>
+<code>hasChildren</code>
   
 
 </h3>

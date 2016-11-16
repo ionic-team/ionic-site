@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ PickerColumnCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/picker/picker-component.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/picker/picker-component.ts#L12">
 Improve this doc
 </a>
 
@@ -302,6 +302,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="lastIndex" href="#lastIndex"></a>
 <code>lastIndex</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="lastTempIndex"></div>
+
+<h3>
+<a class="anchor" name="lastTempIndex" href="#lastTempIndex"></a>
+<code>lastTempIndex</code>
   
 
 </h3>

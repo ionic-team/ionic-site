@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.2"
+version: "2.2.6"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -315,7 +315,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
   
   <tr>
     <td>
-      allowOldDate
+      allowOldDates
       <div><em>(optional)</em></div>
     </td>
     <td>

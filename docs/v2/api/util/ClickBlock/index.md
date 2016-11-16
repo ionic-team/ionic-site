@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ ClickBlock
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/click-block.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/util/click-block.ts#L6">
 Improve this doc
 </a>
 

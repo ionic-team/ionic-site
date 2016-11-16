@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.0"
+version: "2.0.0-rc.2"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/navbar/navbar.ts#L7">
 Improve this doc
 </a>
 
@@ -48,7 +48,7 @@ Improve this doc
 button. A navbar can contain a <code>ion-title</code>, any number of buttons,
 a segment, or a searchbar. Navbars must be placed within an
 <code>&lt;ion-header&gt;</code> in order for them to be placed above the content.
-It&#39;s important to note that navbar&#39;s are part of the dynamica navigation
+It&#39;s important to note that navbar&#39;s are part of the dynamic navigation
 stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
@@ -61,7 +61,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 <pre><code class="lang-html">&lt;ion-header&gt;
 
   &lt;ion-navbar&gt;
-    &lt;button ion-button menuToggle&gt;
+    &lt;button ion-button icon-only menuToggle&gt;
       &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
 
@@ -70,7 +70,7 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
     &lt;/ion-title&gt;
 
     &lt;ion-buttons end&gt;
-      &lt;button ion-button (click)=&quot;openModal()&quot;&gt;
+      &lt;button ion-button icon-only (click)=&quot;openModal()&quot;&gt;
         &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
       &lt;/button&gt;
     &lt;/ion-buttons&gt;

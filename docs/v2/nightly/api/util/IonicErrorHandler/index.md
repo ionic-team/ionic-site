@@ -41,9 +41,7 @@ Improve this doc
 
 
 <p>The <code>IonicErrorHandler</code> intercepts the default <code>Console</code> error handling
-and displays runtime errors as an overlay when using Ionic&#39;s Dev Build Server.
-We can often add some nice goodies to the dev/debugging process by reporting
-to our dev server and improving the error&#39;s readability.</p>
+and displays runtime errors as an overlay when using Ionic&#39;s Dev Build Server.</p>
 <h3 id="ionicerrorhandler-example">IonicErrorHandler Example</h3>
 <pre><code class="lang-typescript">import { NgModule, ErrorHandler } from &#39;@angular/core&#39;;
 import { IonicErrorHandler } from &#39;ionic-angular&#39;;
@@ -80,28 +78,6 @@ class AppModule {}
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="handleError"></div>
-
-<h3>
-<a class="anchor" name="handleError" href="#handleError"></a>
-<code>handleError()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

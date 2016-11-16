@@ -26,15 +26,14 @@ import { TranslateModule } from 'ng2-translate/ng2-translate';
 })
 ```
 
-By default this will look for your translation json files in `i18n/`, if you would like to customize this path you can create a function that returns a new
-TranslateLoader:
+By default this will look for your translation json files in `i18n/`, but for Ionic 2 you must change this to look in the `src/assets` directory. We can do this by creating a function that returns a new TranslateLoader:
 
 ```typescript
 export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, './assets/i18n', '.json');
+    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
 ```
-and then add the following to your NgModules imports array:
+and then adding the following to your NgModules imports array:
 
 ```typescript
 @NgModule({
@@ -74,7 +73,24 @@ Now we can use the `TranslatePipe` and the `TranslateService` to translate value
 
 Instead of writing the actual string as the title, we write the key of the string that should be there. The translate pipe then takes care of the rest.
 
-The `TranslateService`  can be used both to change the current language the app is using and to translate JavaScript values in an application. To change the language the app is currently using, there’s the `use` method of the TranslationService.
+The `TranslateService`  can be used both to change the current language the app is using and to translate JavaScript values in an application. To use the `TranslateService` in your app you must first import it and set the default language.
+
+```typescript
+import {TranslateService} from 'ng2-translate';
+
+@Component({
+    selector: 'page-schedule',
+    templateUrl: 'schedule.html'
+})
+export class SchedulePage {
+    constructor(translate: TranslateService) {
+        // this language will be used as a fallback when a translation isn't found in the current language
+        translate.setDefaultLang('en');
+    }
+}
+```
+
+To change the language the app is currently using, there’s the `use` method of the TranslationService.
 
 ```typescript
 translateService.use('en')

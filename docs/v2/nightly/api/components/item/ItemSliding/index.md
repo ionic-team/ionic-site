@@ -247,16 +247,34 @@ It reports the relative position.</p>
       <tr>
         <td><code>$item-ios-body-text-font-size</code></td>
         
-          <td><code>1.6rem</code></td>
+          <td><code>1.7rem</code></td>
         
         <td><p>Font size of the item text</p>
 </td>
       </tr>
       
       <tr>
+        <td><code>$item-ios-paragraph-margin</code></td>
+        
+          <td><code>0 0 2px</code></td>
+        
+        <td><p>Margin of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-ios-paragraph-text-color</code></td>
         
-          <td><code>#666</code></td>
+          <td><code>#8e9093</code></td>
         
         <td><p>Color of the item paragraph</p>
 </td>

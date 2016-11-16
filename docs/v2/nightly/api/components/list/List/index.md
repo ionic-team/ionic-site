@@ -413,6 +413,15 @@ export class MyClass {
       </tr>
       
       <tr>
+        <td><code>$list-md-header-margin-bottom</code></td>
+        
+          <td><code>13px</code></td>
+        
+        <td><p>Margin bottom of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$list-md-header-padding-left</code></td>
         
           <td><code>$item-md-padding-left</code></td>
@@ -422,11 +431,20 @@ export class MyClass {
       </tr>
       
       <tr>
-        <td><code>$list-md-header-border-bottom</code></td>
+        <td><code>$list-md-header-min-height</code></td>
+        
+          <td><code>4.5rem</code></td>
+        
+        <td><p>Minimum height of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-md-header-border-top</code></td>
         
           <td><code>1px solid $list-md-border-color</code></td>
         
-        <td><p>Border bottom of the header in a list</p>
+        <td><p>Border top of the header in a list</p>
 </td>
       </tr>
       

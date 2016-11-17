@@ -10451,12 +10451,13 @@ ul.docs-example {
     position: absolute;
     right: 0;
     top: 123px;
-    width: 600px; }
+    width: 48%; }
     @media (max-width: 991px) {
       .page-home .built-with .techs {
         top: 50px;
         left: 0;
-        margin: 0 auto; } }
+        margin: 0 auto;
+        width: 600px; } }
     @media (max-width: 767px) {
       .page-home .built-with .techs {
         -webkit-transform: scale(0.5, 0.5);
@@ -10711,7 +10712,8 @@ ul.docs-example {
       vertical-align: top;
       position: relative; }
       .page-home .about-toolkit .features li:nth-child(3), .page-home .about-toolkit .features li:last-child {
-        width: calc(33% - 40px); }
+        width: calc(33% - 40px);
+        padding-right: 0; }
       @media (max-width: 1219px) {
         .page-home .about-toolkit .features li {
           width: auto;

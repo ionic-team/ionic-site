@@ -326,12 +326,13 @@
       position: absolute;
       right: 0;
       top: 123px;
-      width: 600px;
+      width: 48%;
 
       @media (max-width: $screen-sm-max) {
         top: 50px;
         left: 0;
         margin: 0 auto;
+        width: 600px;
       }
 
       @media (max-width: $screen-xs-max) {
@@ -662,6 +663,7 @@
         &:nth-child(3),
         &:last-child {
           width: calc(33% - 40px);
+          padding-right:0;
         }
 
         @media (max-width: $screen-md-max) {

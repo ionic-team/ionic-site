@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/input/input.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L12">
 Improve this doc
 </a>
 
@@ -132,6 +132,13 @@ interactivity.</p>
     </tr>
     
     <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The text value of the input</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The HTML input type (text, password, email, number, search, tel, or url)</p>
@@ -139,9 +146,23 @@ interactivity.</p>
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>bool</code></td>
+      <td><p> If the input should be disabled or not</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>clearOnEdit</td>
+      <td><code>boolean</code></td>
+      <td><p> whether to clear the input upon editing or not</p>
 </td>
     </tr>
     
@@ -180,7 +201,11 @@ interactivity.</p>
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -195,6 +220,37 @@ interactivity.</p>
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-valid</code></td>
+        
+          <td><code>#32db64</code></td>
+        
+        <td><p>Color of the input highlight when valid</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-invalid</code></td>
+        
+          <td><code>#f53d3d</code></td>
+        
+        <td><p>Color of the input highlight when invalid</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
@@ -326,7 +382,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-valid</code></td>
         
-          <td><code>color($colors-ios, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -335,7 +391,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-ios, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -474,7 +530,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-valid</code></td>
         
-          <td><code>color($colors-md, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -483,7 +539,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-md, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -667,7 +723,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-valid</code></td>
         
-          <td><code>color($colors-wp, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -676,7 +732,7 @@ interactivity.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-wp, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>

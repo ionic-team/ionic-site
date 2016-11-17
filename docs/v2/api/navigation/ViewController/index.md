@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/view-controller.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/view-controller.ts#L8">
 Improve this doc
 </a>
 
@@ -363,43 +363,13 @@ Dismiss the current viewController
 
 <h3>
 <a class="anchor" name="enableBack" href="#enableBack"></a>
-<code>enableBack(Check)</code>
+<code>enableBack()</code>
   
 
 </h3>
 
 Check to see if you can go back in the navigation stack.
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        Check
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>whether or not you can go back from this page</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

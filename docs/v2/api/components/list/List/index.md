@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/list/list.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L6">
 Improve this doc
 </a>
 
@@ -256,6 +256,15 @@ export class MyClass {
       </tr>
       
       <tr>
+        <td><code>$list-ios-header-border-bottom</code></td>
+        
+          <td><code>$hairlines-width solid $list-ios-border-color</code></td>
+        
+        <td><p>Border bottom of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$list-ios-header-font-size</code></td>
         
           <td><code>1.2rem</code></td>
@@ -279,6 +288,15 @@ export class MyClass {
           <td><code>.1rem</code></td>
         
         <td><p>Letter spacing of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-ios-header-text-transform</code></td>
+        
+          <td><code>uppercase</code></td>
+        
+        <td><p>Text transform of the header in a list</p>
 </td>
       </tr>
       
@@ -395,11 +413,38 @@ export class MyClass {
       </tr>
       
       <tr>
+        <td><code>$list-md-header-margin-bottom</code></td>
+        
+          <td><code>13px</code></td>
+        
+        <td><p>Margin bottom of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$list-md-header-padding-left</code></td>
         
           <td><code>$item-md-padding-left</code></td>
         
         <td><p>Padding left of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-md-header-min-height</code></td>
+        
+          <td><code>4.5rem</code></td>
+        
+        <td><p>Minimum height of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-md-header-border-top</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border top of the header in a list</p>
 </td>
       </tr>
       
@@ -521,6 +566,15 @@ export class MyClass {
           <td><code>$item-wp-padding-left</code></td>
         
         <td><p>Padding left of the header in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$list-wp-header-border-bottom</code></td>
+        
+          <td><code>1px solid $list-wp-border-color</code></td>
+        
+        <td><p>Border bottom of the header in a list</p>
 </td>
       </tr>
       

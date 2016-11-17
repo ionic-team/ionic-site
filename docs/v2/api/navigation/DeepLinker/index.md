@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ DeepLinker
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/deep-linker.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/deep-linker.ts#L10">
 Improve this doc
 </a>
 

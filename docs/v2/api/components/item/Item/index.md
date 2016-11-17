@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item.ts#L8">
 Improve this doc
 </a>
 
@@ -360,16 +360,34 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-ios-body-text-font-size</code></td>
         
-          <td><code>1.6rem</code></td>
+          <td><code>1.7rem</code></td>
         
         <td><p>Font size of the item text</p>
 </td>
       </tr>
       
       <tr>
+        <td><code>$item-ios-paragraph-margin</code></td>
+        
+          <td><code>0 0 2px</code></td>
+        
+        <td><p>Margin of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-ios-paragraph-text-color</code></td>
         
-          <td><code>#666</code></td>
+          <td><code>#8e9093</code></td>
         
         <td><p>Color of the item paragraph</p>
 </td>
@@ -569,6 +587,15 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
+        <td><code>$item-md-divider-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-md-divider-background</code></td>
         
           <td><code>#fff</code></td>
@@ -578,11 +605,20 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
-        <td><code>$item-md-divider-color</code></td>
+        <td><code>$item-md-divider-font-size</code></td>
         
-          <td><code>#222</code></td>
+          <td><code>$item-md-body-text-font-size</code></td>
         
-        <td><p>Color for the divider</p>
+        <td><p>Font size for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-border-bottom</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border bottom for the divider</p>
 </td>
       </tr>
       
@@ -726,6 +762,15 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
+        <td><code>$item-wp-divider-color</code></td>
+        
+          <td><code>$list-wp-text-color</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$item-wp-divider-background</code></td>
         
           <td><code>#fff</code></td>
@@ -735,11 +780,20 @@ be added to <code>ion-item</code> to transform the text.</p>
       </tr>
       
       <tr>
-        <td><code>$item-wp-divider-color</code></td>
+        <td><code>$item-wp-divider-border-bottom</code></td>
         
-          <td><code>#222</code></td>
+          <td><code>1px solid $list-wp-border-color</code></td>
         
-        <td><p>Color for the divider</p>
+        <td><p>Bodrer bottom for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size for the divider</p>
 </td>
       </tr>
       

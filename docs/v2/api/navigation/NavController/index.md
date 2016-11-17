@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-controller.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-controller.ts#L4">
 Improve this doc
 </a>
 
@@ -48,7 +48,7 @@ navigation controller is an array of pages representing a particular history
 an app by pushing and popping pages or inserting and removing them at
 arbitrary locations in history.</p>
 <p>The current page is the last one in the array, or the top of the stack if we
-think of it that way.  <a href="#push">Pushing</a> a new page onto the top of the
+think of it that way. <a href="#push">Pushing</a> a new page onto the top of the
 navigation stack causes the new page to be animated in, while <a href="#pop">popping</a>
 the current page will navigate to the previous page in the stack.</p>
 <p>Unless you are using a directive like <a href="../../components/nav/NavPush/">NavPush</a>, or need a
@@ -59,7 +59,6 @@ nearest NavController to manipulate the navigation stack.</p>
 nav controller using the <code>&lt;ion-nav&gt;</code> component.  <code>ion-nav</code> extends the <code>NavController</code>
 class.</p>
 <pre><code class="lang-typescript">import { Component } from `@angular/core`;
-import { ionicBootstrap } from &#39;ionic-angular&#39;;
 import { StartPage } from &#39;./start-page&#39;;
 
 @Component(
@@ -67,13 +66,11 @@ import { StartPage } from &#39;./start-page&#39;;
 })
 class MyApp {
   // set the rootPage to the first page we want displayed
-  private rootPage: any = StartPage;
+  public rootPage: any = StartPage;
 
   constructor(){
   }
 }
-
-ionicBootstrap(MyApp);
 </code></pre>
 <h3 id="injecting-navcontroller">Injecting NavController</h3>
 <p>Injecting NavController will always get you an instance of the nearest
@@ -101,23 +98,50 @@ to be injected.</p>
 <p>By adding a reference variable to the <code>ion-nav</code>, you can use <code>@ViewChild</code> to
 get an instance of the <code>Nav</code> component, which is a navigation controller
 (it extends <code>NavController</code>):</p>
-<pre><code class="lang-typescript">import { App, ViewChild } from &#39;@angular/core&#39;;
+<pre><code class="lang-typescript">import { Component, ViewChild } from &#39;@angular/core&#39;;
 import { NavController } from &#39;ionic-angular&#39;;
 
-@App({
+@Component({
    template: &#39;&lt;ion-nav #myNav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;&#39;
 })
 export class MyApp {
    @ViewChild(&#39;myNav&#39;) nav: NavController
-   private rootPage = TabsPage;
+   public rootPage = TabsPage;
 
    // Wait for the components in MyApp&#39;s template to be initialized
-   // In this case, we are waiting for the Nav with id=&quot;my-nav&quot;
-   ngAfterViewInit() {
+   // In this case, we are waiting for the Nav with reference variable of &quot;#myNav&quot;
+   ngOnInit() {
       // Let&#39;s navigate from TabsPage to Page1
       this.nav.push(Page1);
    }
 }
+</code></pre>
+<h3 id="navigating-from-an-overlay-component">Navigating from an Overlay Component</h3>
+<p>What if you wanted to navigate from an overlay component (popover, modal, alert, etc)?
+In this example, we&#39;ve displayed a popover in our app. From the popover, we&#39;ll get a
+reference of the root <code>NavController</code> in our app, using the <code>getRootNav()</code> method.</p>
+<pre><code class="lang-typescript">import { Component } from &#39;@angular/core&#39;;
+import { App, ViewController } from &#39;ionic-angular&#39;;
+
+@Component({
+    template: `
+    &lt;ion-content&gt;
+      &lt;h1&gt;My PopoverPage&lt;/h1&gt;
+      &lt;button ion-button (click)=&quot;pushPage()&quot;&gt;Call pushPage&lt;/button&gt;
+     &lt;/ion-content&gt;
+    `
+  })
+  class PopoverPage {
+    constructor(
+      public viewCtrl: ViewController
+      public appCtrl: App
+    ) {}
+
+    pushPage() {
+      this.viewCtrl.dismiss();
+      this.appCtrl.getRootNav().push(SecondPage);
+    }
+  }
 </code></pre>
 <h2 id="view-creation">View creation</h2>
 <p>Views are created when they are added to the navigation stack.  For methods
@@ -202,7 +226,7 @@ import { NavController } from &#39;ionic-angular&#39;;
   &lt;ion-content&gt;I&#39;m the other page!&lt;/ion-content&gt;`
 })
 class OtherPage {
-   constructor(private navCtrl: NavController ){
+   constructor(public navCtrl: NavController ){
    }
 
    popView(){
@@ -231,40 +255,51 @@ class HelloWorld {
 <thead>
 <tr>
 <th>Page Event</th>
+<th>Returns</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>ionViewDidLoad</code></td>
+<td>void</td>
 <td>Runs when the page has loaded. This event only happens once per page being created. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>ionViewDidLoad</code> event is good place to put your setup code for the page.</td>
 </tr>
 <tr>
 <td><code>ionViewWillEnter</code></td>
+<td>void</td>
 <td>Runs when the page is about to enter and become the active page.</td>
 </tr>
 <tr>
 <td><code>ionViewDidEnter</code></td>
+<td>void</td>
 <td>Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.</td>
 </tr>
 <tr>
 <td><code>ionViewWillLeave</code></td>
+<td>void</td>
 <td>Runs when the page is about to leave and no longer be the active page.</td>
 </tr>
 <tr>
 <td><code>ionViewDidLeave</code></td>
+<td>void</td>
 <td>Runs when the page has finished leaving and is no longer the active page.</td>
 </tr>
 <tr>
 <td><code>ionViewWillUnload</code></td>
+<td>void</td>
 <td>Runs when the page is about to be destroyed and have its elements removed.</td>
 </tr>
 <tr>
 <td><code>ionViewCanEnter</code></td>
+<td>boolean \</td>
+<td>Promise\<void\></td>
 <td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
 </tr>
 <tr>
 <td><code>ionViewCanLeave</code></td>
+<td>boolean \</td>
+<td>Promise\<void\></td>
 <td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
 </tr>
 </tbody>
@@ -1031,6 +1066,81 @@ Removes a page from the nav stack at the specified index.
       </td>
       <td>
         <p>The number of pages to remove, defaults to remove <code>1</code>.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="removeView"></div>
+
+<h3>
+<a class="anchor" name="removeView" href="#removeView"></a>
+<code>removeView(viewController,&nbsp;opts)</code>
+  
+
+</h3>
+
+Removes the specified view controller from the nav stack.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        viewController
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The viewcontroller to remove.<strong class="tag">Optional</strong></p>
 
         
       </td>

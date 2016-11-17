@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/input/input.ts#L234">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L251">
 Improve this doc
 </a>
 
@@ -104,9 +104,55 @@ textarea&#39;s inner content.</p>
   <tbody>
     
     <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> The placeholder for the textarea</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The value of the textarea</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>bool</code></td>
+      <td><p> Wheather the textarea should be disabled or not</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>blur</td>
+      <td><p> Expression to call when the textarea no longer has focus</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>focus</td>
+      <td><p> Expression to call when the textarea has focus</p>
 </td>
     </tr>
     
@@ -120,7 +166,11 @@ textarea&#39;s inner content.</p>
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -135,6 +185,37 @@ textarea&#39;s inner content.</p>
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-valid</code></td>
+        
+          <td><code>#32db64</code></td>
+        
+        <td><p>Color of the input highlight when valid</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$text-input-highlight-color-invalid</code></td>
+        
+          <td><code>#f53d3d</code></td>
+        
+        <td><p>Color of the input highlight when invalid</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>
@@ -266,7 +347,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-valid</code></td>
         
-          <td><code>color($colors-ios, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -275,7 +356,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-ios-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-ios, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -414,7 +495,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-valid</code></td>
         
-          <td><code>color($colors-md, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -423,7 +504,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-md-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-md, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>
@@ -607,7 +688,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-valid</code></td>
         
-          <td><code>color($colors-wp, secondary)</code></td>
+          <td><code>$text-input-highlight-color-valid</code></td>
         
         <td><p>Color of the input highlight when valid</p>
 </td>
@@ -616,7 +697,7 @@ textarea&#39;s inner content.</p>
       <tr>
         <td><code>$text-input-wp-highlight-color-invalid</code></td>
         
-          <td><code>color($colors-wp, danger)</code></td>
+          <td><code>$text-input-highlight-color-invalid</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
 </td>

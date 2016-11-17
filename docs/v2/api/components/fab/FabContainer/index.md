@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.2"
+version: "2.0.0-rc.3"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ FabContainer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab.ts#L173">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L171">
 Improve this doc
 </a>
 
@@ -326,6 +326,15 @@ Close an active FAB list container
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-list-button-background-color</code></td>
+        
+          <td><code>#f4f4f4</code></td>
+        
+        <td><p>Background color of the button in a list</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -367,29 +376,29 @@ Close an active FAB list container
       </tr>
       
       <tr>
-        <td><code>$fab-ios-in-list-background-color</code></td>
+        <td><code>$fab-ios-list-button-background-color</code></td>
         
-          <td><code>color($colors-ios, light)</code></td>
+          <td><code>$fab-list-button-background-color</code></td>
         
-        <td><p>Background color of the button</p>
+        <td><p>Background color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-ios-in-list-text-color</code></td>
+        <td><code>$fab-ios-list-button-text-color</code></td>
         
-          <td><code>color-contrast($colors-ios, $fab-ios-in-list-background-color)</code></td>
+          <td><code>color-contrast($colors-ios, $fab-ios-list-button-background-color)</code></td>
         
-        <td><p>Text color of the button</p>
+        <td><p>Text color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-ios-in-list-background-color-activated</code></td>
+        <td><code>$fab-ios-list-button-background-color-activated</code></td>
         
-          <td><code>color-shade($fab-ios-in-list-background-color)</code></td>
+          <td><code>color-shade($fab-ios-list-button-background-color)</code></td>
         
-        <td><p>Background color of the activated button</p>
+        <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
       
@@ -452,29 +461,29 @@ Close an active FAB list container
       </tr>
       
       <tr>
-        <td><code>$fab-md-in-list-background-color</code></td>
+        <td><code>$fab-md-list-button-background-color</code></td>
         
-          <td><code>color($colors-md, light)</code></td>
+          <td><code>$fab-list-button-background-color</code></td>
         
-        <td><p>Background color of the button</p>
+        <td><p>Background color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-md-in-list-text-color</code></td>
+        <td><code>$fab-md-list-button-text-color</code></td>
         
-          <td><code>color-contrast($colors-md, $fab-md-in-list-background-color)</code></td>
+          <td><code>color-contrast($colors-md, $fab-md-list-button-background-color)</code></td>
         
-        <td><p>Text color of the button</p>
+        <td><p>Text color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-md-in-list-background-color-activated</code></td>
+        <td><code>$fab-md-list-button-background-color-activated</code></td>
         
-          <td><code>color-shade($fab-md-in-list-background-color)</code></td>
+          <td><code>color-shade($fab-md-list-button-background-color)</code></td>
         
-        <td><p>Background color of the activated button</p>
+        <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
       
@@ -519,29 +528,29 @@ Close an active FAB list container
       </tr>
       
       <tr>
-        <td><code>$fab-wp-in-list-background-color</code></td>
+        <td><code>$fab-wp-list-button-background-color</code></td>
         
-          <td><code>color($colors-wp, light)</code></td>
+          <td><code>$fab-list-button-background-color</code></td>
         
-        <td><p>Background color of the button</p>
+        <td><p>Background color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-wp-in-list-text-color</code></td>
+        <td><code>$fab-wp-list-button-text-color</code></td>
         
-          <td><code>color-contrast($colors-wp, $fab-wp-in-list-background-color)</code></td>
+          <td><code>color-contrast($colors-wp, $fab-wp-list-button-background-color)</code></td>
         
-        <td><p>Text color of the button</p>
+        <td><p>Text color of the button in a list</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$fab-wp-in-list-background-color-activated</code></td>
+        <td><code>$fab-wp-list-button-background-color-activated</code></td>
         
-          <td><code>color-shade($fab-wp-in-list-background-color)</code></td>
+          <td><code>color-shade($fab-wp-list-button-background-color)</code></td>
         
-        <td><p>Background color of the activated button</p>
+        <td><p>Background color of the activated button in a list</p>
 </td>
       </tr>
       

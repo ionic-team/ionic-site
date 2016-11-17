@@ -9206,7 +9206,9 @@ body {
   margin-top: -3.1em; }
 
 .docs-container .side-nav {
-  width: 230px; }
+  width: 230px;
+  height: 100%;
+  overflow-y: auto; }
 
 .docs-container > main {
   margin-left: 230px; }

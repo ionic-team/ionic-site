@@ -159,6 +159,13 @@ interactivity.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>clearOnEdit</td>
+      <td><code>boolean</code></td>
+      <td><p> whether to clear the input upon editing or not</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

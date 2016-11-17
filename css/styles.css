@@ -9990,16 +9990,20 @@ ul.docs-example {
       #search-results.active {
         display: block; } }
 
-#docs-page-ionicons main .download-link, #docs-page-ionicons main .search {
+#docs-page-ionicons main .download-link, #docs-page-ionicons main .search,
+#page-ionicons main .download-link,
+#page-ionicons main .search {
   margin-right: auto;
   margin-left: auto;
   max-width: 200px;
   width: 100%; }
 
-#docs-page-ionicons main .download-link {
+#docs-page-ionicons main .download-link,
+#page-ionicons main .download-link {
   margin-top: 60px;
   margin-bottom: 10px; }
-  #docs-page-ionicons main .download-link a {
+  #docs-page-ionicons main .download-link a,
+  #page-ionicons main .download-link a {
     display: block;
     padding: 12px 0;
     border: 2px solid #4F8EF7;
@@ -10008,19 +10012,23 @@ ul.docs-example {
     text-decoration: none;
     font-weight: bold;
     font-size: 22px; }
-    #docs-page-ionicons main .download-link a:hover {
+    #docs-page-ionicons main .download-link a:hover,
+    #page-ionicons main .download-link a:hover {
       background: #4F8EF7;
       color: white; }
 
-#docs-page-ionicons main .version {
+#docs-page-ionicons main .version,
+#page-ionicons main .version {
   margin: 2px auto;
   color: #ccc;
   font-size: 12px; }
 
-#docs-page-ionicons main form.search {
+#docs-page-ionicons main form.search,
+#page-ionicons main form.search {
   margin: 28px auto 52px;
   position: relative; }
-  #docs-page-ionicons main form.search:before {
+  #docs-page-ionicons main form.search:before,
+  #page-ionicons main form.search:before {
     font-family: "Ionicons";
     -webkit-font-smoothing: antialiased;
     content: "\f4a5";
@@ -10030,29 +10038,37 @@ ul.docs-example {
     position: absolute;
     top: 6px;
     left: 26px; }
-  #docs-page-ionicons main form.search input {
+  #docs-page-ionicons main form.search input,
+  #page-ionicons main form.search input {
     border-radius: 35px;
     border: 1px solid #e6e9ee;
     padding: 8px 8px 8px 56px;
     color: #4C555A;
     font-size: 16px;
     box-shadow: none; }
-    #docs-page-ionicons main form.search input::-webkit-input-placeholder {
+    #docs-page-ionicons main form.search input::-webkit-input-placeholder,
+    #page-ionicons main form.search input::-webkit-input-placeholder {
       /* WebKit, Blink, Edge */
       color: #9da5b3; }
-    #docs-page-ionicons main form.search input::-moz-placeholder {
+    #docs-page-ionicons main form.search input::-moz-placeholder,
+    #page-ionicons main form.search input::-moz-placeholder {
       /* Mozilla Firefox 19+ */
       color: #9da5b3; }
-    #docs-page-ionicons main form.search input:-ms-input-placeholder {
+    #docs-page-ionicons main form.search input:-ms-input-placeholder,
+    #page-ionicons main form.search input:-ms-input-placeholder {
       /* Internet Explorer 10-11 */
       color: #9da5b3; }
-    #docs-page-ionicons main form.search input:focus, #docs-page-ionicons main form.search input:hover, #docs-page-ionicons main form.search input:active {
+    #docs-page-ionicons main form.search input:focus, #docs-page-ionicons main form.search input:hover, #docs-page-ionicons main form.search input:active,
+    #page-ionicons main form.search input:focus,
+    #page-ionicons main form.search input:hover,
+    #page-ionicons main form.search input:active {
       border-color: #4a8bfc;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
       background: #fdfdfd;
       outline: none; }
 
-#docs-page-ionicons main #icon-panel {
+#docs-page-ionicons main #icon-panel,
+#page-ionicons main #icon-panel {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -10067,7 +10083,8 @@ ul.docs-example {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   opacity: .96; }
 
-#docs-page-ionicons main #icon-name {
+#docs-page-ionicons main #icon-name,
+#page-ionicons main #icon-name {
   display: block;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 14px;
@@ -10075,43 +10092,55 @@ ul.docs-example {
   width: 100%;
   border: 0; }
 
-#docs-page-ionicons main #icon-code {
+#docs-page-ionicons main #icon-code,
+#page-ionicons main #icon-code {
   padding-top: 10px;
   font-size: 12px; }
 
-#docs-page-ionicons main #icons {
+#docs-page-ionicons main #icons,
+#page-ionicons main #icons {
   transition: opacity .2s ease-in-out; }
 
-#docs-page-ionicons main section.search-matches {
+#docs-page-ionicons main section.search-matches,
+#page-ionicons main section.search-matches {
   all: initial; }
 
-#docs-page-ionicons main section.search-init {
+#docs-page-ionicons main section.search-init,
+#page-ionicons main section.search-init {
   all: initial;
   opacity: 0.15; }
 
-#docs-page-ionicons main section.search-nil {
+#docs-page-ionicons main section.search-nil,
+#page-ionicons main section.search-nil {
   all: initial; }
 
-#docs-page-ionicons main section#icons a {
+#docs-page-ionicons main section#icons a,
+#page-ionicons main section#icons a {
   color: #373737; }
 
-#docs-page-ionicons main section#icons ul {
+#docs-page-ionicons main section#icons ul,
+#page-ionicons main section#icons ul {
   display: block;
   list-style-type: none;
   cursor: pointer;
   border: 2px solid #fff; }
-  #docs-page-ionicons main section#icons ul:hover {
+  #docs-page-ionicons main section#icons ul:hover,
+  #page-ionicons main section#icons ul:hover {
     border: 2px solid #EBF0F6;
     border-radius: 2px; }
-  #docs-page-ionicons main section#icons ul.icon-labels {
+  #docs-page-ionicons main section#icons ul.icon-labels,
+  #page-ionicons main section#icons ul.icon-labels {
     border: none;
     cursor: default; }
     #docs-page-ionicons main section#icons ul.icon-labels li,
-    #docs-page-ionicons main section#icons ul.icon-labels li:first-child {
+    #docs-page-ionicons main section#icons ul.icon-labels li:first-child,
+    #page-ionicons main section#icons ul.icon-labels li,
+    #page-ionicons main section#icons ul.icon-labels li:first-child {
       font-size: 16px;
       font-weight: 500;
       font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif; }
-  #docs-page-ionicons main section#icons ul li {
+  #docs-page-ionicons main section#icons ul li,
+  #page-ionicons main section#icons ul li {
     display: inline-block;
     width: 23%;
     position: relative;
@@ -10124,41 +10153,49 @@ ul.docs-example {
     font-size: 40px;
     cursor: pointer;
     vertical-align: middle; }
-    #docs-page-ionicons main section#icons ul li:first-child {
+    #docs-page-ionicons main section#icons ul li:first-child,
+    #page-ionicons main section#icons ul li:first-child {
       font-size: 14px;
       font-weight: 400;
       font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif; }
 
-#docs-page-ionicons main .modal {
+#docs-page-ionicons main .modal,
+#page-ionicons main .modal {
   text-align: center;
   opacity: 0;
   -webkit-transform: scale3d(0.5, 0.5, 1);
           transform: scale3d(0.5, 0.5, 1);
   transition: opacity 0.2s, -webkit-transform 0.4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
   transition: opacity 0.2s, transform 0.4s cubic-bezier(0.155, 1.105, 0.295, 1.12); }
-  #docs-page-ionicons main .modal:before {
+  #docs-page-ionicons main .modal:before,
+  #page-ionicons main .modal:before {
     display: inline-block;
     vertical-align: middle;
     content: " ";
     height: 100%; }
-  #docs-page-ionicons main .modal .modal-dialog {
+  #docs-page-ionicons main .modal .modal-dialog,
+  #page-ionicons main .modal .modal-dialog {
     display: inline-block;
     vertical-align: middle;
     text-align: left;
     margin: 30px auto;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0); }
-  #docs-page-ionicons main .modal.in {
+  #docs-page-ionicons main .modal.in,
+  #page-ionicons main .modal.in {
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); }
-  #docs-page-ionicons main .modal .modal-content {
+  #docs-page-ionicons main .modal .modal-content,
+  #page-ionicons main .modal .modal-content {
     border-radius: 4px;
     border: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
-  #docs-page-ionicons main .modal .modal-body {
+  #docs-page-ionicons main .modal .modal-body,
+  #page-ionicons main .modal .modal-body {
     padding: 15px 30px; }
-  #docs-page-ionicons main .modal button.close {
+  #docs-page-ionicons main .modal button.close,
+  #page-ionicons main .modal button.close {
     position: absolute;
     top: -10px;
     right: -10px;
@@ -10169,48 +10206,61 @@ ul.docs-example {
     width: 30px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     outline: none; }
-    #docs-page-ionicons main .modal button.close span {
+    #docs-page-ionicons main .modal button.close span,
+    #page-ionicons main .modal button.close span {
       font-size: 28px;
       top: -7px;
       right: 0;
       position: relative;
       color: black; }
-  #docs-page-ionicons main .modal h2 {
+  #docs-page-ionicons main .modal h2,
+  #page-ionicons main .modal h2 {
     margin: 0;
     font-size: 24px;
     padding-top: 10px; }
-  #docs-page-ionicons main .modal h4 {
+  #docs-page-ionicons main .modal h4,
+  #page-ionicons main .modal h4 {
     margin: 50px 0 20px;
     font-size: 18px;
     display: block;
     line-height: 22px;
     height: 22px;
     vertical-align: middle; }
-  #docs-page-ionicons main .modal ul.modal-icons {
+  #docs-page-ionicons main .modal ul.modal-icons,
+  #page-ionicons main .modal ul.modal-icons {
     display: block;
     list-style-type: none;
     padding-left: 0;
     margin-top: 25px; }
-    #docs-page-ionicons main .modal ul.modal-icons li {
+    #docs-page-ionicons main .modal ul.modal-icons li,
+    #page-ionicons main .modal ul.modal-icons li {
       width: 180px;
       display: inline-block;
       padding-right: 15px; }
-      #docs-page-ionicons main .modal ul.modal-icons li:last-child {
+      #docs-page-ionicons main .modal ul.modal-icons li:last-child,
+      #page-ionicons main .modal ul.modal-icons li:last-child {
         padding-right: 0; }
       #docs-page-ionicons main .modal ul.modal-icons li code,
-      #docs-page-ionicons main .modal ul.modal-icons li i {
+      #docs-page-ionicons main .modal ul.modal-icons li i,
+      #page-ionicons main .modal ul.modal-icons li code,
+      #page-ionicons main .modal ul.modal-icons li i {
         display: block;
         text-align: center; }
-      #docs-page-ionicons main .modal ul.modal-icons li code {
+      #docs-page-ionicons main .modal ul.modal-icons li code,
+      #page-ionicons main .modal ul.modal-icons li code {
         width: auto; }
-      #docs-page-ionicons main .modal ul.modal-icons li i {
+      #docs-page-ionicons main .modal ul.modal-icons li i,
+      #page-ionicons main .modal ul.modal-icons li i {
         font-size: 32px; }
-  #docs-page-ionicons main .modal pre code {
+  #docs-page-ionicons main .modal pre code,
+  #page-ionicons main .modal pre code {
     margin: -60px -10px; }
-  #docs-page-ionicons main .modal code.hljs {
+  #docs-page-ionicons main .modal code.hljs,
+  #page-ionicons main .modal code.hljs {
     white-space: pre-wrap; }
 
-#docs-page-ionicons main a {
+#docs-page-ionicons main a,
+#page-ionicons main a {
   display: block;
   height: auto;
   width: auto; }

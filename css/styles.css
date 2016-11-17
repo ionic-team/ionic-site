@@ -7886,6 +7886,9 @@ pre {
       .navbar-default .sidebar-toggle {
         display: block; } }
 
+.docs-container + footer {
+  display: none; }
+
 footer {
   padding-top: 70px;
   padding-bottom: 20px; }

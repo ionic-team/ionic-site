@@ -7885,6 +7885,14 @@ pre {
     @media (max-width: 767px) {
       .navbar-default .sidebar-toggle {
         display: block; } }
+  @media (max-width: 1200px) {
+    .navbar-default .container-fluid .navbar-nav > li > a {
+      padding-left: 12px;
+      padding-right: 12px; } }
+  @media (max-width: 830px) {
+    .navbar-default .container-fluid .navbar-nav > li > a {
+      padding-left: 5px;
+      padding-right: 4px; } }
 
 .docs-container + footer {
   display: none; }
@@ -9260,7 +9268,8 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  overflow-y: scroll; }
   .side-nav::-webkit-scrollbar {
     display: none;
     width: 0 !important; }

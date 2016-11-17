@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% if page.layout == 'v2_fluid/docs_base' or page.layout == 'v2_fluid/docs_cli_base' %}
+    {% if page.centered != true %}
       {% assign isDocs = true %}
     {% else %}
       {% assign isDocs = false %}
@@ -15,7 +15,7 @@
         {% if isDocs %}data-target="#components-index"{% endif %}
         ng-app="IonicSite">
 
-    {% if page.layout == 'v2_fluid/docs_base' or page.layout == 'v2_fluid/docs_cli_base' %}
+    {% if page.centered != true %}
       {% include v2_fluid/docs_header.html %}
     {% else %}
       {% include v2_fluid/header.html %}
@@ -37,7 +37,7 @@
       </div>
     {% endif %}
 
-    {% if isDocs == false %}
+    {% if page.centered != true %}
       {% include v2_fluid/footer.html %}
     {% endif %}
 

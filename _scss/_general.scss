@@ -104,6 +104,7 @@ body {
   -webkit-overflow-scrolling: touch;
   -webkit-touch-callout: none;
   user-select: none;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none;

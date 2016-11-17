@@ -7812,6 +7812,8 @@ pre {
           color: #aecbfe; }
         .navbar-default .navbar-form .form-group input:-ms-input-placeholder {
           color: #aecbfe; }
+        .navbar-default .navbar-form .form-group input::-moz-placeholder {
+          color: #aecbfe; }
       .navbar-default .navbar-form .form-group::before {
         font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;

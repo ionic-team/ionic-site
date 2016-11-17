@@ -4,7 +4,7 @@ general:
       - production
 machine:
   node:
-    version: 4.1.0
+    version: 6.9.1
   ruby:
     version: 2.2.3
 dependencies:

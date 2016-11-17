@@ -2,16 +2,16 @@
 .navbar .btn {
   font-weight: 500;
   border-radius: 4px;
-  // letter-spacing: -0.5px;
   line-height: 1.4em;
   padding: 14px 33px 14px;
   margin-right: 10px;
   transition: all .2s linear;
-  font-size: 17px;
-  border: 0px solid transparent;
-  color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  background: $blue;
+  font-size: 18px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: #4a8bfc;
+  letter-spacing: -0.01em;
 
   &:last-child {
     margin-right: 0;
@@ -19,9 +19,9 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    background: lighten($blue, 3);
-    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    background: #5995fc;
+    color: #fff;
     outline: none;
   }
 

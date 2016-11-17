@@ -7915,7 +7915,8 @@ footer {
       padding: 7px 0;
       display: inline-block; }
       footer ul a:hover {
-        text-decoration: none; }
+        text-decoration: none;
+        color: #478aff; }
   @media (max-width: 991px) {
     footer nav {
       display: -webkit-flex;
@@ -7979,7 +7980,7 @@ footer {
           box-shadow: 0 1px 4px rgba(34, 47, 69, 0.4); }
       footer .signup form .btn {
         width: 110px;
-        font-weight: 400;
+        font-weight: 500;
         text-align: center;
         border-radius: 0 3px 3px 0; }
     footer .signup hgroup {
@@ -8056,20 +8057,21 @@ footer {
   padding: 14px 33px 14px;
   margin-right: 10px;
   transition: all .2s linear;
-  font-size: 17px;
+  font-size: 18px;
   border: 0px solid transparent;
-  color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  background: #4a8bfc; }
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: #4a8bfc;
+  letter-spacing: -0.01em; }
   .btn:last-child,
   .navbar .btn:last-child {
     margin-right: 0; }
   .btn:hover, .btn:focus,
   .navbar .btn:hover,
   .navbar .btn:focus {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
     background: #5995fc;
-    color: white;
+    color: #fff;
     outline: none; }
   .btn:active, .btn:active:focus,
   .navbar .btn:active,
@@ -10406,13 +10408,10 @@ ul.docs-example {
     font-size: 14px;
     padding: 11px 13px 10px; }
     .page-home .utility-bar button:hover {
-      background: #5998FF;
-      color: white; }
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); }
     .page-home .utility-bar button:active {
-      border: 1px solid #3E75CE;
-      background: #4683E7;
-      box-shadow: none;
-      color: #B1C4E4; }
+      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+      background: white; }
 
 .page-home .built-with {
   background: #f6f7fa;
@@ -11053,6 +11052,9 @@ ul.docs-example {
         font-size: 22px;
         margin-bottom: 13px;
         letter-spacing: -.03em; }
+        .page-home .continue ul li a:hover {
+          color: #186bfb;
+          text-decoration: none; }
       .page-home .continue ul li p {
         font-size: 15px;
         line-height: 1.8em;
@@ -11128,13 +11130,13 @@ ul.docs-example {
       #slider .col-sm-6:first-child {
         min-height: 304px; } }
   #slider h1 {
-    margin: 63px 0 0 0;
+    margin: 50px 0 0 0;
     font-size: 48px;
     font-weight: 400;
     color: white;
     letter-spacing: -0.05em;
     -webkit-font-smoothing: antialiased;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
     cursor: default;
     line-height: 64px; }
     #slider h1 strong {
@@ -11143,13 +11145,14 @@ ul.docs-example {
     font-size: 32px;
     color: white; }
   #slider h3 {
-    color: #B2CEFF;
+    color: #d8e8ff;
     font-size: 18px;
     font-weight: 400;
     margin: 20px 0px 32px;
     line-height: 1.6;
     letter-spacing: -0.02em;
-    max-width: 500px; }
+    max-width: 500px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }
   #slider .btn-row {
     margin-top: 66px; }
   #slider .ion-chevron-right {

@@ -12,7 +12,6 @@ hide_header_search: true
 </p>
 
 <div class="docs-home text-center">
-  <img src="/img/ionic-docs-logo-lg.png" class="docs-home-logo">
   <form class="form-group search" role="search">
     <input type="text"
            class="form-control search-input"

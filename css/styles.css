@@ -7893,6 +7893,9 @@ pre {
     .navbar-default .container-fluid .navbar-nav > li > a {
       padding-left: 5px;
       padding-right: 4px; } }
+  .navbar-default .container-fluid .navbar-brand img {
+    width: 88px;
+    margin-top: 2px; }
 
 .docs-container + footer {
   display: none; }
@@ -10499,14 +10502,16 @@ ul.docs-example {
           width: 100%;
           text-align: center; } }
     .page-home .built-with hgroup h2 {
-      font-size: 26px;
-      font-weight: 400; }
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -.02em; }
     .page-home .built-with hgroup h4 {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
       color: #4a566b;
-      line-height: 1.9em;
-      margin-top: 20px; }
+      line-height: 1.8em;
+      margin-top: 16px;
+      letter-spacing: -.02em; }
   .page-home .built-with .techs {
     list-style: none;
     position: absolute;
@@ -10574,7 +10579,7 @@ ul.docs-example {
       width: calc(25% + 2px);
       display: inline-block;
       padding-left: 37px;
-      padding-right: 15px;
+      padding-right: 20px;
       vertical-align: top;
       background: url("/img/home/checkmark-icon.png") no-repeat 0 0;
       background-size: 24px; }
@@ -10591,10 +10596,11 @@ ul.docs-example {
         margin-top: 4px;
         margin-bottom: 5px; }
       .page-home .built-with .features li p {
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 400;
         color: #5c6a81;
-        line-height: 1.75em; }
+        line-height: 1.7em;
+        letter-spacing: -.02em; }
       .page-home .built-with .features li:last-child {
         padding-right: 0;
         width: calc(25% - 19px); }
@@ -10670,11 +10676,12 @@ ul.docs-example {
       font-weight: 400;
       letter-spacing: -.02em; }
     .page-home .about-code hgroup h4 {
-      color: #4a566b;
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
-      line-height: 1.9em;
-      margin-top: 15px; }
+      color: #4a566b;
+      line-height: 1.8em;
+      margin-top: 16px;
+      letter-spacing: -0.02em; }
       .page-home .about-code hgroup h4 strong {
         color: black;
         font-weight: 400; }
@@ -10718,15 +10725,22 @@ ul.docs-example {
         padding-right: 0; }
       .page-home .about-code .features li h3 {
         font-size: 22px;
-        font-weight: 400;
-        margin-bottom: 20px; }
+        font-weight: 500;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em; }
       .page-home .about-code .features li p,
       .page-home .about-code .features li a {
-        font-size: 15px;
-        color: #727a87;
-        line-height: 2.15em; }
+        font-size: 16px;
+        color: #5c6a81;
+        line-height: 2em;
+        letter-spacing: -0.02em; }
       .page-home .about-code .features li a {
-        color: #4a8bfc; }
+        color: #4a8bfc;
+        font-weight: 500; }
+        .page-home .about-code .features li a span {
+          position: relative;
+          right: -2px;
+          top: 2px; }
         .page-home .about-code .features li a:hover {
           color: #317bfc;
           text-decoration: none; }
@@ -10771,7 +10785,8 @@ ul.docs-example {
       padding-right: 55px;
       line-height: 1.8em;
       vertical-align: top;
-      position: relative; }
+      position: relative;
+      letter-spacing: -0.02em; }
       .page-home .about-toolkit .features li:nth-child(3), .page-home .about-toolkit .features li:last-child {
         width: calc(33% - 40px);
         padding-right: 0; }
@@ -10837,12 +10852,12 @@ ul.docs-example {
         padding-right: 15px;
         padding-left: 15px; } }
     .page-home .about-community .stats h5 {
-      background: white;
+      background: #fff;
       color: #b8c1cf;
       font-size: 11px;
       position: relative;
       padding: 0 10px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: .2em; }
       .page-home .about-community .stats h5::before, .page-home .about-community .stats h5::after {
         content: '';
@@ -10863,10 +10878,10 @@ ul.docs-example {
       margin-top: 36px; }
     .page-home .about-community .stats h4 {
       margin-top: -3px;
-      font-size: 15px;
+      font-size: 13px;
       color: #272a2f;
-      font-weight: 600;
-      letter-spacing: 4px; }
+      font-weight: 700;
+      letter-spacing: 5px; }
     .page-home .about-community .stats ul {
       list-style: none;
       padding: 33px 0 0; }
@@ -11169,7 +11184,7 @@ ul.docs-example {
   #slider .slick-fade-out {
     opacity: 1 !important; }
   #slider .slide {
-    padding: 125px 0 113px;
+    padding: 100px 0 100px;
     width: 100%;
     outline: none; }
   #slider .feature-img {

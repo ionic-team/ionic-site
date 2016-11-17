@@ -305,16 +305,18 @@
       }
 
       h2 {
-        font-size: 26px;
-        font-weight: 400;
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: -.02em;
       }
 
       h4 {
-        font-size: 19px;
+        font-size: 20px;
         font-weight: 400;
         color: #4a566b;
-        line-height: 1.9em;
-        margin-top: 20px;
+        line-height: 1.8em;
+        margin-top: 16px;
+        letter-spacing: -.02em;
       }
     }
 
@@ -391,7 +393,7 @@
         width: calc(25% + 2px);
         display: inline-block;
         padding-left: 37px;
-        padding-right: 15px;
+        padding-right: 20px;
         vertical-align: top;
         background: url('/img/home/checkmark-icon.png') no-repeat 0 0;
         background-size: 24px;
@@ -410,10 +412,11 @@
         }
 
         p {
-          font-size: 15px;
-          font-weight: 500;
+          font-size: 16px;
+          font-weight: 400;
           color: #5c6a81;
-          line-height: 1.75em;
+          line-height: 1.7em;
+          letter-spacing: -.02em;
         }
 
         &:last-child {
@@ -521,11 +524,12 @@
       }
 
       h4 {
-        color: #4a566b;
-        font-size: 19px;
+        font-size: 20px;
         font-weight: 400;
-        line-height: 1.9em;
-        margin-top: 15px;
+        color: #4a566b;
+        line-height: 1.8em;
+        margin-top: 16px;
+        letter-spacing: -0.02em;
 
         strong {
           color: black;
@@ -587,19 +591,28 @@
 
         h3 {
           font-size: 22px;
-          font-weight: 400;
-          margin-bottom: 20px;
+          font-weight: 500;
+          margin-bottom: 16px;
+          letter-spacing: -0.02em;
         }
 
         p,
         a {
-          font-size: 15px;
-          color: #727a87;
-          line-height: 2.15em;
+          font-size: 16px;
+          color: #5c6a81;
+          line-height: 2em;
+          letter-spacing: -0.02em;
         }
 
         a {
-          color: $blue;
+          color: #4a8bfc;
+          font-weight: 500;
+
+          span {
+            position: relative;
+            right: -2px;
+            top: 2px;
+          }
 
           &:hover {
             color: darken($blue, 5);
@@ -656,6 +669,7 @@
         line-height: 1.8em;
         vertical-align: top;
         position: relative;
+        letter-spacing: -0.02em;
 
         &:nth-child(3),
         &:last-child {
@@ -753,12 +767,12 @@
       }
 
       h5 {
-        background: white;
+        background: #fff;
         color: #b8c1cf;
         font-size: 11px;
         position: relative;
         padding: 0 10px;
-        font-weight: 600;
+        font-weight: 700;
         letter-spacing: .2em;
 
         &::before,
@@ -788,10 +802,10 @@
 
       h4 {
         margin-top: -3px;
-        font-size: 15px;
+        font-size: 13px;
         color: #272a2f;
-        font-weight: 600;
-        letter-spacing: 4px;
+        font-weight: 700;
+        letter-spacing: 5px;
       }
 
       ul {
@@ -1203,7 +1217,7 @@
   }
 
   .slide {
-    padding:125px 0 113px;
+    padding:100px 0 100px;
     width:100%;
     outline: none;
   }

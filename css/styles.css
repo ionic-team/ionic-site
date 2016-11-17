@@ -10746,7 +10746,8 @@ ul.docs-example {
 
 .page-home .about-community {
   background: #09172e;
-  background: linear-gradient(to right, #050f23 0%, #13233f 100%);
+  background: url("/img/home/map.png") no-repeat center center, linear-gradient(to right, #050f23 0%, #13233f 100%);
+  background-size: cover, 100%;
   color: #909ebb;
   padding-bottom: 44px; }
   .page-home .about-community .container {
@@ -10866,7 +10867,9 @@ ul.docs-example {
       padding: 0 64px 83px 78px;
       display: inline-block;
       position: relative;
-      width: 49%; }
+      width: 49%;
+      font-weight: 400;
+      font-size: 16px; }
       @media (max-width: 991px) {
         .page-home .about-community .features li {
           width: 100%;

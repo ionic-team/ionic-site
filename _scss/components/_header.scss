@@ -145,6 +145,10 @@
         &:-ms-input-placeholder {
           color: lighten($blue, 20);
         }
+
+        &::-moz-placeholder {
+          color: lighten($blue, 20);
+        }
       }
 
       &::before {

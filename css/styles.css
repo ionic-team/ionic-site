@@ -7812,6 +7812,8 @@ pre {
           color: #aecbfe; }
         .navbar-default .navbar-form .form-group input:-ms-input-placeholder {
           color: #aecbfe; }
+        .navbar-default .navbar-form .form-group input::-moz-placeholder {
+          color: #aecbfe; }
       .navbar-default .navbar-form .form-group::before {
         font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
@@ -9312,7 +9314,7 @@ body {
       .side-nav .form-group.search input {
         border: 1px solid #e6e9ee;
         border-radius: 20px;
-        padding: 15px 0 13px 35px;
+        padding: 8px 0 6px 35px;
         font-size: 14px;
         box-shadow: none;
         transition: .2s border-color, .2s box-shadow; }

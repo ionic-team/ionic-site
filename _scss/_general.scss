@@ -42,6 +42,8 @@ body {
 .docs-container {
   .side-nav {
     width: $sidenav-width;
+    height: 100%;
+    overflow-y: auto;
     // padding-top: 73px;
   }
 

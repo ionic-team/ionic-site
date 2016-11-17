@@ -37,7 +37,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-camera-preview</code></pre>
+<pre><code>$ ionic plugin add https://github.com/westonganger/cordova-plugin-camera-preview</code></pre>
 <p>Repo:
   <a href="https://github.com/westonganger/cordova-plugin-camera-preview">
     https://github.com/westonganger/cordova-plugin-camera-preview
@@ -47,7 +47,7 @@ docType: "class"
 <!-- description -->
 
 <p>Showing camera preview in HTML</p>
-<p>For more info, please see the <a href="https://github.com/westonganger/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
+<p>For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview Plugin Docs</a>.</p>
 
 
 <!-- @platforms tag -->
@@ -79,7 +79,7 @@ let cameraRect: CameraPreviewRect = {
 CameraPreview.startCamera(
   cameraRect, // position and size of preview
   &#39;front&#39;, // default camera
-  true, // tape to take picture
+  true, // tap to take picture
   false, // disable drag
   true // send the preview to the back of the screen so we can add overlaying elements
 );

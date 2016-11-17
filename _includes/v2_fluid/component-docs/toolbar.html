@@ -24,7 +24,6 @@
   Demo Source
 </a>
 
-To use a toolbar as a footer you can use `ion-footer` instead of `ion-toolbar`.
 
 ```html
 <ion-header>
@@ -50,13 +49,17 @@ One of the best uses of the toolbar is as a header.
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons start>
-      <ion-icon name="content"></ion-icon>
+      <button ion-button icon-only>
+        <ion-icon name="content"></ion-icon>
+      </button>
     </ion-buttons>
 
     <ion-title>Header</ion-title>
 
     <ion-buttons end>
-      <ion-icon name="search"></ion-icon>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
     </ion-buttons>
 
   </ion-toolbar>
@@ -131,13 +134,13 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button ion-button color="royal">
+      <button ion-button icon-only color="royal">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Send To...</ion-title>
     <ion-buttons end>
-      <button ion-button color="royal">
+      <button ion-button icon-only color="royal">
         <ion-icon name="person-add"></ion-icon>
       </button>
     </ion-buttons>
@@ -150,7 +153,7 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
   <ion-toolbar>
     <p>Ash, Misty, Brock</p>
     <ion-buttons end>
-      <button ion-button color="royal">
+      <button ion-button icon-right color="royal">
         Send
         <ion-icon name="send"></ion-icon>
       </button>
@@ -170,7 +173,7 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button>
+      <button ion-button icon-only>
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-buttons>
@@ -183,7 +186,7 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
       </ion-segment-button>
     </ion-segment>
     <ion-buttons end>
-      <button>
+      <button ion-button icon-only>
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>

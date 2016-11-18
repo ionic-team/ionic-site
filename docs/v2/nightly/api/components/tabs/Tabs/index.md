@@ -601,7 +601,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-padding</code></td>
         
-          <td><code>8px 0 10px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Padding on the tab button</p>
 </td>
@@ -655,7 +655,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-padding-active</code></td>
         
-          <td><code>6px 0 10px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Padding of the active tab button</p>
 </td>
@@ -682,7 +682,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-text-margin</code></td>
         
-          <td><code>6px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Margin on the tab button text</p>
 </td>
@@ -698,36 +698,18 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-transform</code></td>
-        
-          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
-        
-        <td><p>Transform for the tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-text-transform-origin</code></td>
         
-          <td><code>bottom center</code></td>
+          <td><code>50% 80%</code></td>
         
         <td><p>Transform origin for the tab button text</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-margin-active</code></td>
-        
-          <td><code>7px 0</code></td>
-        
-        <td><p>Margin on the active tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-text-transform-active</code></td>
         
-          <td><code>scale(1)</code></td>
+          <td><code>scale3d($tabs-md-tab-font-size-active / $tabs-md-tab-font-size, $tabs-md-tab-font-size-active / $tabs-md-tab-font-size, 1)</code></td>
         
         <td><p>Transform for the active tab button text</p>
 </td>
@@ -736,9 +718,63 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-text-transition</code></td>
         
-          <td><code>transform 200ms ease-in-out</code></td>
+          <td><code>transform .3s ease-in-out</code></td>
         
         <td><p>Text transition for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-active</code></td>
+        
+          <td><code>translate3d(0, -2px, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        
+          <td><code>translate3d(2px, 0, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-active</code></td>
+        
+          <td><code>translate3d(0, 2px, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        
+          <td><code>translate3d(-2px, 0, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin</code></td>
+        
+          <td><code>50% 150%</code></td>
+        
+        <td><p>Transform origin for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transition</code></td>
+        
+          <td><code>transform .3s ease-in-out</code></td>
+        
+        <td><p>Text transition for the tab button icon</p>
 </td>
       </tr>
       

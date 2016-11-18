@@ -37,10 +37,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add https://github.com/westonganger/cordova-plugin-camera-preview</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-camera-preview</code></pre>
 <p>Repo:
-  <a href="https://github.com/westonganger/cordova-plugin-camera-preview">
-    https://github.com/westonganger/cordova-plugin-camera-preview
+  <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">
+    https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview
   </a>
 </p>
 

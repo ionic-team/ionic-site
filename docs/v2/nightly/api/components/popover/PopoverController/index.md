@@ -53,7 +53,7 @@ the second argument. Options for the popover can optionally be
 passed in the third argument. See the <a href="#create">create</a> method
 below for all available options.</p>
 <h3 id="presenting">Presenting</h3>
-<p>To present a popover, call the <code>present</code> method on a <a href="../../nav/PopoverConroller">PopoverController</a> instance.
+<p>To present a popover, call the <code>present</code> method on a PopoverController instance.
 In order to position the popover relative to the element clicked, a click event
 needs to be passed into the options of the the `present method. If the event
 is not passed, the popover will be positioned in the center of the current
@@ -61,7 +61,7 @@ view. See the <a href="#usage">usage</a> section for an example of passing this 
 <h3 id="dismissing">Dismissing</h3>
 <p>To dismiss the popover after creation, call the <code>dismiss()</code> method on the
 <code>Popover</code> instance. The popover can also be dismissed from within the popover&#39;s
-view by calling the <code>dismiss()</code> method on the <a href="../../nav/ViewController">ViewController</a>.
+view by calling the <code>dismiss()</code> method on the <a href="../../navigation/ViewController">ViewController</a>.
 The <code>dismiss()</code> call accepts an optional parameter that will be passed to the callback described
 as follows. The <code>onDidDismiss(&lt;func&gt;)</code> function can be called to set up a callback action that will
 be performed after the popover is dismissed, receiving the parameter passed to <code>dismiss()</code>.

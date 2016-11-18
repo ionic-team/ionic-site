@@ -110,7 +110,7 @@ page. You can use the <code>(ionSelect)</code> event to call a method on your cl
 the tab is selected. Below is an example of presenting a modal from one of
 the tabs.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
-  &lt;ion-tab (ionSelect)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab (ionSelect)=&quot;chat()&quot; tabTitle=&quot;Show Modal&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {

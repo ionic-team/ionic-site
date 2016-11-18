@@ -460,7 +460,7 @@ export class MyClass {
       <tr>
         <td><code>$list-md-header-color</code></td>
         
-          <td><code>#858585</code></td>
+          <td><code>#757575</code></td>
         
         <td><p>Text color of the header in a list</p>
 </td>

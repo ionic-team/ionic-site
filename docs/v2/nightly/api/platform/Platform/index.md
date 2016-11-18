@@ -725,6 +725,26 @@ Returns `true` if the app is in landscape mode.
 
 
 
+<div id="testUserAgent"></div>
+
+<h3>
+<a class="anchor" name="testUserAgent" href="#testUserAgent"></a>
+<code>testUserAgent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
   <div id="sass-variables" ng-controller="SassToggleCtrl">

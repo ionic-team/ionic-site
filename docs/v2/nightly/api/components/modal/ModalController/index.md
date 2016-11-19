@@ -371,7 +371,7 @@ class Profile {
       <tr>
         <td><code>$modal-ios-border-radius</code></td>
         
-          <td><code>5px</code></td>
+          <td><code>10px</code></td>
         
         <td><p>Border radius for the modal</p>
 </td>
@@ -396,6 +396,24 @@ class Profile {
           <td><code>$background-md-color</code></td>
         
         <td><p>Background color for the modal</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$modal-inset-box-shadow-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .4)</code></td>
+        
+        <td><p>Box shadow color of the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$modal-inset-box-shadow</code></td>
+        
+          <td><code>0 28px 48px $modal-inset-box-shadow-color</code></td>
+        
+        <td><p>Box shadow of the alert</p>
 </td>
       </tr>
       

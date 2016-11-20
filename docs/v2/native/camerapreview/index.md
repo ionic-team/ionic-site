@@ -64,7 +64,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { CameraPreview } from &#39;ionic-native&#39;;
+<pre><code>import { CameraPreview, CameraPreviewRect } from &#39;ionic-native&#39;;
 
 // camera options (Size and location)
 let cameraRect: CameraPreviewRect = {

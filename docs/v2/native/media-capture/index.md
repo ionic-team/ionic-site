@@ -78,7 +78,7 @@ MediaCapture.captureImage(options)
 </h3>
 
 
-The audio recording formats supported by the device.
+The recording image sizes and formats supported by the device.
 
 
 
@@ -99,7 +99,7 @@ The audio recording formats supported by the device.
 </h3>
 
 
-The recording image sizes and formats supported by the device.
+The audio recording formats supported by the device.
 
 
 

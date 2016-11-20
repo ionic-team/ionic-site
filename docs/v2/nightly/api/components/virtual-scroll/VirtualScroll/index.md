@@ -134,6 +134,22 @@ an image outside of Virtual Scroll you should use the standard <code>&lt;img&gt;
 
 &lt;/ion-list&gt;
 </code></pre>
+<h3 id="custom-components">Custom Components</h3>
+<p>If a custom component is going to be used within Virtual Scroll, it&#39;s best
+to wrap it with a good old <code>&lt;div&gt;</code> to ensure the component is rendered
+correctly. Since each custom component&#39;s implementation and internals can be
+quite different, wrapping within a <code>&lt;div&gt;</code> is a safe way to make sure
+dimensions are measured correctly.</p>
+<pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
+
+  &lt;div *virtualItem=&quot;let item&quot;&gt;
+    &lt;my-custom-item [item]=&quot;item&quot;&gt;
+      {% raw %} {{ item }}{% endraw %}
+    &lt;/my-custom-item&gt;
+  &lt;/div&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
 <h3 id="performance-tips">Performance Tips</h3>
 <ul>
 <li>Use <code>&lt;ion-img&gt;</code> rather than <code>&lt;img&gt;</code> so images are lazy loaded

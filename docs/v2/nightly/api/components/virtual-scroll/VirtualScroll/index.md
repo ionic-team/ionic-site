@@ -112,10 +112,12 @@ slightly different heights between platforms, which is perfectly fine.</p>
 <p>Ionic provides <code>&lt;ion-img&gt;</code> to manage HTTP requests and image rendering.
 Additionally, it includes a customizable placeholder element which shows
 before the image has finished loading. While scrolling through items
-quickly, <code>&lt;ion-img&gt;</code> knows not to make any image requests, and only loads
-the images that are viewable after scrolling. It&#39;s also important for app
-developers to ensure image sizes are locked in, and after images have fully
-loaded they do not change size and affect any other element sizes.</p>
+quickly, <code>&lt;ion-img&gt;</code> knows not to make any image http requests, and only
+loads the images that are viewable after scrolling.</p>
+<p>It&#39;s also important for app developers to ensure image sizes are locked in,
+and after images have fully loaded they do not change size and affect any
+other element sizes. Simply put, to ensure rendering bugs are not introduced,
+it&#39;s vital that elements within a virtual item does not dynamically change.</p>
 <p>We recommend using our <code>&lt;ion-img&gt;</code> element over the native <code>&lt;img&gt;</code> element
 because when an <code>&lt;img&gt;</code> element is added to the DOM, it immediately
 makes a HTTP request for the image file. HTTP requests, image
@@ -159,6 +161,9 @@ in order to take advantage of iOS&#39;s higher performimg webview.</li>
 while scrolling.</li>
 <li>Image sizes should be locked in, meaning the size of any element
 should not change after the image has loaded.</li>
+<li>For the most part, ensure the element size for each virtual item
+does not dynamically change, but rather, their size must already be
+locked in via CSS at the time they are rendered.</li>
 <li>Provide an approximate width and height so the virtual scroll can
 best calculate the cell height.</li>
 <li>Changing the dataset requires the entire virtual scroll to be

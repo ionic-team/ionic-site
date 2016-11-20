@@ -35,7 +35,7 @@ ItemReorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L15">
 Improve this doc
 </a>
 
@@ -129,6 +129,14 @@ class MyComponent {
     this.items = reorderArray(this.items, indexes);
   }
 }
+</code></pre>
+<p>Alternatevely you can execute helper function inside template:</p>
+<pre><code class="lang-html">&lt;ion-list&gt;
+  &lt;ion-list-header&gt;Header&lt;/ion-list-header&gt;
+  &lt;ion-item-group reorder=&quot;true&quot; (ionItemReorder)=&quot;$event.applyTo(items)&quot;&gt;
+    &lt;ion-item *ngFor=&quot;let item of items&quot;&gt;{% raw %}{{ item }}{% endraw %}&lt;/ion-item&gt;
+  &lt;/ion-item-group&gt;
+&lt;/ion-list&gt;
 </code></pre>
 
 

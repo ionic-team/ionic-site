@@ -152,6 +152,9 @@ dimensions are measured correctly.</p>
 </code></pre>
 <h3 id="performance-tips">Performance Tips</h3>
 <ul>
+<li>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
+<a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
+in order to take advantage of iOS&#39;s higher performimg webview.</li>
 <li>Use <code>&lt;ion-img&gt;</code> rather than <code>&lt;img&gt;</code> so images are lazy loaded
 while scrolling.</li>
 <li>Image sizes should be locked in, meaning the size of any element

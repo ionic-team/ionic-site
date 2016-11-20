@@ -63,6 +63,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
+<pre><code class="lang-typescript">import { AdMob } from &#39;ionic-native&#39;;
+
+ionViewDidLoad() {
+  AdMob.onBannerDismiss()
+    .subscribe(() =&gt; { console.log(&#39;User returned from interstitial&#39;); });
+}
+
+public onClick() {
+  AdMob.prepareInterstitial(&#39;YOUR_ADID&#39;)
+    .then(() =&gt; { AdMob.showInterstitial(); });
+}
+</code></pre>
 <p>Please refer the the plugin&#39;s original repository for detailed usage.</p>
 
 

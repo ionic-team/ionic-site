@@ -187,11 +187,6 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while changing pages.</td>
 </tr>
 <tr>
-<td><code>pageTransitionDelay</code></td>
-<td><code>number</code></td>
-<td>The delay in milliseconds before the transition starts while changing pages.</td>
-</tr>
-<tr>
 <td><code>pickerEnter</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while a picker is presented.</td>

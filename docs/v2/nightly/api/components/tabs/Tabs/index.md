@@ -143,7 +143,7 @@ parent view using the <code>NavController</code> instance. For example, assuming
 a <code>TabsPage</code> component, you could call the following from any of the child
 components to switch to <code>TabsRoot3</code>:</p>
 <pre><code class="lang-ts">switchTabs() {
-  this.navCtrl.parent.switch(2);
+  this.navCtrl.parent.select(2);
 }
 </code></pre>
 

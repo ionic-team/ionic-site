@@ -10888,11 +10888,12 @@ ul.docs-example {
           max-width: 250px;
           margin: 0 auto; } }
     .page-home .about-community .stats li {
-      font-weight: 600;
+      font-weight: 700;
       text-align: left;
       position: relative;
       letter-spacing: .15em;
-      padding: 12px 0 16px 37px; }
+      padding: 12px 0 16px 37px;
+      font-size: 13px; }
       .page-home .about-community .stats li::before {
         background: url("/img/home/icons-sm.png") no-repeat 0 0;
         background-size: 24px;
@@ -11050,7 +11051,7 @@ ul.docs-example {
       padding-right: 4.5%;
       min-height: 80px;
       margin-bottom: 20px;
-      opacity: .5;
+      opacity: .3;
       transition: .3s opacity;
       cursor: pointer; }
       @media (max-width: 991px) {
@@ -11126,7 +11127,8 @@ ul.docs-example {
       .page-home .continue ul li a {
         font-size: 22px;
         margin-bottom: 13px;
-        letter-spacing: -.03em; }
+        letter-spacing: -.03em;
+        font-weight: 500; }
         .page-home .continue ul li a:hover {
           color: #186bfb;
           text-decoration: none; }

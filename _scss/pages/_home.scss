@@ -819,11 +819,12 @@
       }
 
       li {
-        font-weight: 600;
+        font-weight: 700;
         text-align: left;
         position: relative;
         letter-spacing: .15em;
         padding: 12px 0 16px 37px;
+        font-size: 13px;
 
         &::before {
           background: url('/img/home/icons-sm.png') no-repeat 0 0;
@@ -1028,7 +1029,7 @@
         padding-right: 4.5%;
         min-height: 80px;
         margin-bottom: 20px;
-        opacity: .5;
+        opacity: .3;
         transition: .3s opacity;
         cursor: pointer;
 
@@ -1136,6 +1137,7 @@
           font-size: 22px;
           margin-bottom: 13px;
           letter-spacing: -.03em;
+          font-weight: 500;
 
           &:hover {
             color: darken($blue, 10);

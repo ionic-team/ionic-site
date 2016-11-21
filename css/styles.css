@@ -9187,8 +9187,7 @@ a.ui-button:active,
 body {
   font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased; }
+  overflow-x: hidden; }
   @media (max-width: 767px) {
     body {
       width: 100%;
@@ -10670,9 +10669,9 @@ ul.docs-example {
         margin-top: 0; } }
     .page-home .about-code hgroup h2 {
       padding-top: 72px;
-      font-size: 27px;
+      font-size: 28px;
       line-height: 1.6em;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -.02em; }
     .page-home .about-code hgroup h4 {
       font-size: 20px;

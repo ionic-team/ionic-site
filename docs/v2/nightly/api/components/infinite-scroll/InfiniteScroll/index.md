@@ -75,7 +75,7 @@ export class NewsFeedPage {
   items = [];
 
   constructor() {
-    for (var i = 0; i &lt; 30; i++) {
+    for (let i = 0; i &lt; 30; i++) {
       this.items.push( this.items.length );
     }
   }
@@ -84,7 +84,7 @@ export class NewsFeedPage {
     console.log(&#39;Begin async operation&#39;);
 
     setTimeout(() =&gt; {
-      for (var i = 0; i &lt; 30; i++) {
+      for (let i = 0; i &lt; 30; i++) {
         this.items.push( this.items.length );
       }
 

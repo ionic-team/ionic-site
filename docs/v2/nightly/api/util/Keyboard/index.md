@@ -40,7 +40,8 @@ Improve this doc
 
 
 
-<p>The <code>Keyboard</code> class allows you to work with the keyboard events provided by the Ionic keyboard plugin.</p>
+<p>The <code>Keyboard</code> class allows you to work with the keyboard events provided
+by the Ionic keyboard plugin.</p>
 
 
 
@@ -49,10 +50,10 @@ Improve this doc
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
- }
+<pre><code class="lang-ts">export class MyClass {
+  constructor(public keyboard: Keyboard) {
+
+  }
 }
 </code></pre>
 
@@ -79,15 +80,15 @@ Improve this doc
 Check to see if the keyboard is open or not.
 
 ```ts
-export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
- }
- keyboardCheck(){
-   setTimeout(()  => console.log('is the keyboard open ', this.keyboard.isOpen()));
- }
-}
+export class MyClass {
+  constructor(public keyboard: Keyboard) {
 
+  }
+
+  keyboardCheck() {
+    console.log('The keyboard is open:', this.keyboard.isOpen());
+  }
+}
 ```
 
 
@@ -99,7 +100,7 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>returns a true or flase value if the keyboard is open or not</p>
+  <code>boolean</code> <p>returns a true or false value if the keyboard is open or not.</p>
 
 
 </div>
@@ -116,21 +117,20 @@ export class MyClass{
 
 </h3>
 
-When the keyboard is closed, call any methods you want
+When the keyboard is closed, call any methods you want.
 
 ```ts
-export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
-   this.keyboard.onClose(this.closeCallback);
- }
- closeCallback(){
+export class MyClass {
+  constructor(public keyboard: Keyboard) {
+    this.keyboard.onClose(this.closeCallback);
+  }
+  closeCallback() {
     // call what ever functionality you want on keyboard close
     console.log('Closing time');
- }
+  }
 }
-
 ```
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -154,7 +154,7 @@ export class MyClass{
   <code>function</code>
       </td>
       <td>
-        <p>method you want to call when the keyboard has been closed</p>
+        <p>method you want to call when the keyboard has been closed.</p>
 
         
       </td>
@@ -170,7 +170,7 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>function</code> <p>returns a callback that gets fired when the keyboard is closed</p>
+  <code>function</code> <p>returns a callback that gets fired when the keyboard is closed.</p>
 
 
 </div>
@@ -187,7 +187,7 @@ export class MyClass{
 
 </h3>
 
-Programmatically close the keyboard
+Programmatically close the keyboard.
 
 
 

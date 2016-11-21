@@ -31,7 +31,7 @@ IonicFormInput
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/form.ts#L77">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/form.ts#L72">
 Improve this doc
 </a>
 

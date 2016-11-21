@@ -31,7 +31,7 @@ IonicTapInput
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/form.ts#L62">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/form.ts#L57">
 Improve this doc
 </a>
 

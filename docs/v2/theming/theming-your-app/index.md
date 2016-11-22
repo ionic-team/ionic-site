@@ -55,13 +55,14 @@ $colors: (
   )
 )
 ```
+
 Base normally acts as the background color for elements and contrast acts as the text color. This provides a much more flexible control over your styles.
 
 
 Ionic makes the `$colors` keys available as a property to many components. For example, to use our `twitter` color, add the key as a property:
 
 ```html
-<button color="twitter">I'm a button</button>
+<button ion-button color="twitter">I'm a button</button>
 ```
 
 For any custom components, you can use the `color` function to get the right colors.

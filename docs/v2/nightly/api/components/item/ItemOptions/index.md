@@ -202,15 +202,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
       </tr>
       
       <tr>
-        <td><code>$item-ios-note-color</code></td>
-        
-          <td><code>darken($list-ios-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$item-ios-detail-push-show</code></td>
         
           <td><code>true</code></td>
@@ -337,15 +328,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>8rem</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-note-color</code></td>
-        
-          <td><code>darken($list-md-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -512,15 +494,6 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
           <td><code>8rem</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-note-color</code></td>
-        
-          <td><code>$input-wp-border-color</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       

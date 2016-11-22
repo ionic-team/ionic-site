@@ -256,15 +256,6 @@ with <code>from</code> and <code>to</code> properties.</p>
       </tr>
       
       <tr>
-        <td><code>$item-ios-note-color</code></td>
-        
-          <td><code>darken($list-ios-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$item-ios-detail-push-show</code></td>
         
           <td><code>true</code></td>
@@ -391,15 +382,6 @@ with <code>from</code> and <code>to</code> properties.</p>
           <td><code>8rem</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-note-color</code></td>
-        
-          <td><code>darken($list-md-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -566,15 +548,6 @@ with <code>from</code> and <code>to</code> properties.</p>
           <td><code>8rem</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-note-color</code></td>
-        
-          <td><code>$input-wp-border-color</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       

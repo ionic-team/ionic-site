@@ -22,15 +22,7 @@
       {% include v2_fluid/header.html %}
     {% endif %}
 
-    {% if page.has_container == true %}
-      {{ content }}
-    {% else %}
-      <div class="container">
-        {{ content }}
-      </div>
-    {% endif %}
-
-
+    {{ content }}
 
     {% if page.prev_page_title  or page.next_page_title %}
       <div class="footer-links">

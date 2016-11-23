@@ -9,7 +9,8 @@
     {% include v2_fluid/head.html %}
   </head>
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
-        class="{% if isDocs %}v2 docs {% endif %}page-{{page.id}}"
+        class="{% if isDocs %}v2 docs {% endif %}page-{{page.id}}
+               {% if page.header_style %}{{page.header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
         {% if isDocs %}data-target="#components-index"{% endif %}
@@ -21,7 +22,15 @@
       {% include v2_fluid/header.html %}
     {% endif %}
 
-    {{ content }}
+    {% if page.has_container == true %}
+      {{ content }}
+    {% else %}
+      <div class="container">
+        {{ content }}
+      </div>
+    {% endif %}
+
+
 
     {% if page.prev_page_title  or page.next_page_title %}
       <div class="footer-links">
@@ -35,6 +44,10 @@
             {{page.next_page_title}}</a>
         {% endif %}
       </div>
+    {% endif %}
+
+    {% if page.pre_footer == true %}
+      {% include v2_fluid/pre_footer.html %}
     {% endif %}
 
     {% if page.centered == true %}

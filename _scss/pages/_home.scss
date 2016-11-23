@@ -1078,95 +1078,6 @@
       margin: 10px auto 123px;
     }
   }
-
-  .continue {
-    background: #f6f7fa;
-    color: #727a87;
-    padding-top: 80px;
-    padding-bottom: 72px;
-
-    ul {
-      list-style: none;
-
-      &::after {
-        content: '';
-        clear: both;
-      }
-
-      li {
-        float: left;
-        width: 45%;
-        padding-left: 108px;
-        position: relative;
-
-        &::before {
-          background: url('/img/home/icons-lg.png') no-repeat 0 -372px;
-          background-size: 93px;
-          height: 93px;
-          width: 93px;
-          content: '';
-          display: block;
-          position: absolute;
-          left: -9px;
-          top: 4px;
-        }
-
-        &::after {
-          border-right: 1px solid #dde1ea;
-          content: '';
-          position: absolute;
-          right: -10%;
-          top: 15px;
-          bottom: 15px;
-          display: block;
-        }
-
-        &:last-child {
-          float: right;
-
-          &::before {
-            background-position: 0 -279px;
-          }
-
-          &::after {
-            display: none;
-          }
-        }
-
-        a {
-          font-size: 22px;
-          margin-bottom: 13px;
-          letter-spacing: -.03em;
-          font-weight: 500;
-
-          &:hover {
-            color: darken($blue, 10);
-            text-decoration: none;
-          }
-        }
-
-        p {
-          font-size: 15px;
-          line-height: 1.8em;
-          margin-top: 6px;
-        }
-
-
-        @media (max-width: $screen-xs-max) {
-          float: none;
-          width: 100%;
-
-          &:first-child {
-            margin-bottom: 40px;
-          }
-
-          &::after {
-            display: none;
-          }
-        }
-      }
-    }
-  }
 }
 
 .fadeInDown {
@@ -1275,7 +1186,8 @@
   h3 {
     color: #d8e8ff;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
+    cursor: default;
     margin: 20px 0px 32px;
     line-height: 1.6;
     letter-spacing: -0.02em;

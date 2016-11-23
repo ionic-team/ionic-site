@@ -2,7 +2,8 @@ body {
   font-family: $font-family-default;
   position: relative;
   overflow-x: hidden;
-  // -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 
   @media (max-width: $screen-xs-max) {
     width: 100%;

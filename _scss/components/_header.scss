@@ -45,6 +45,7 @@
 
   .navbar-nav > li {
     > a {
+      color: white;
       font-size: 15px;
       font-weight: 500;
       padding: 27px 33px;
@@ -62,7 +63,14 @@
     }
 
     &.active > a {
-      border-top-color: white;
+      // border-top-color: white;
+      opacity: .7;
+      transition: .2s opacity;
+
+      &:hover {
+        opacity: 1;
+      }
+
     }
   }
 

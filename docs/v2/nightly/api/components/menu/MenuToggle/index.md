@@ -35,7 +35,7 @@ MenuToggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-toggle.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-toggle.ts#L5">
 Improve this doc
 </a>
 
@@ -116,6 +116,28 @@ on the different positions.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngAfterContentInit"></div>
+
+<h3>
+<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
+<code>ngAfterContentInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

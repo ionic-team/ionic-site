@@ -74,7 +74,7 @@ Prerequisites:</p>
 <h2>Static Members</h2>
 
 <div id="startTrackerWithId"></div>
-<h3><code>startTrackerWithId(id)</code>
+<h3><code>startTrackerWithId(id,&nbsp;interval)</code>
   
 </h3>
 
@@ -105,6 +105,23 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
     </td>
     <td>
       <p>Your Google Analytics Mobile App property</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      interval
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>Optional dispatch period in seconds. Defaults to 30.</p>
 
       
     </td>

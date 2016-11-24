@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L337">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L338">
   Improve this doc
 </a>
 
@@ -988,7 +988,7 @@ Write a new file to the desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> Returns a Promise that resolves or rejects with an error.
+<code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to updated file entry or rejects with an error.
 </div>
 
 

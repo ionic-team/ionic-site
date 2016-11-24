@@ -37,10 +37,10 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-image-picker</code></pre>
+<pre><code>$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker</code></pre>
 <p>Repo:
-  <a href="https://github.com/wymsee/cordova-imagePicker">
-    https://github.com/wymsee/cordova-imagePicker
+  <a href="https://github.com/Telerik-Verified-Plugins/ImagePicker">
+    https://github.com/Telerik-Verified-Plugins/ImagePicker
   </a>
 </p>
 

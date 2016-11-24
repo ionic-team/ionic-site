@@ -54,46 +54,63 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { GoogleMap, GoogleMapsEvent } from &#39;ionic-native&#39;;
+<pre><code>import {
+ GoogleMap,
+ GoogleMapsEvent,
+ GoogleMapsLatLng,
+ CameraPosition,
+ GoogleMapsMarkerOptions,
+ GoogleMapsMarker
+} from &#39;ionic-native&#39;;
 
-// create a new map using element ID
-let map = new GoogleMap(&#39;elementID&#39;);
+export class MapPage {
+ constructor() {}
 
-// or create a new map by passing HTMLElement
-let element: HTMLElement = document.getElementById(&#39;elementID&#39;);
+// Load map only after view is initialize
+ngAfterViewInit() {
+ this.loadMap();
+}
 
-// In Angular 2 or Ionic 2, if we have this element in html: &lt;div #map&gt;&lt;/div&gt;
-// then we can use @ViewChild to find the element and pass it to GoogleMaps
-@ViewChild(&#39;map&#39;) mapElement;
-let map = new GoogleMap(mapElement);
+loadMap() {
+ // make sure to create following structure in your view.html file
+ // &lt;ion-content&gt;
+ //  &lt;div #map id=&quot;map&quot;&gt;&lt;/div&gt;
+ // &lt;/ion-content&gt;
 
-// listen to MAP_READY event
-map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
+ // create a new map by passing HTMLElement
+ let element: HTMLElement = document.getElementById(&#39;map&#39;);
 
+ let map = new GoogleMap(element);
 
-// create LatLng object
-let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
+ // listen to MAP_READY event
+ map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
 
-// create CameraPosition
-let position: CameraPosition = {
-  target: ionic,
-  zoom: 18,
-  tilt: 30
-};
+ // create LatLng object
+ let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
 
-// move the map&#39;s camera to position
-map.moveCamera(position);
+ // create CameraPosition
+ let position: CameraPosition = {
+   target: ionic,
+   zoom: 18,
+   tilt: 30
+ };
 
-// create new marker
-let markerOptions: GoogleMapsMarkerOptions = {
-  position: ionic,
-  title: &#39;Ionic&#39;
-};
+ // move the map&#39;s camera to position
+ map.moveCamera(position);
 
-map.addMarker(markerOptions)
-  .then((marker: GoogleMapsMarker) =&gt; {
-    marker.showInfoWindow();
-  });
+ // create new marker
+ let markerOptions: GoogleMapsMarkerOptions = {
+   position: ionic,
+   title: &#39;Ionic&#39;
+ };
+
+ map.addMarker(markerOptions)
+   .then((marker: GoogleMapsMarker) =&gt; {
+      marker.showInfoWindow();
+    });
+ }
+
+}
 </code></pre>
 
 

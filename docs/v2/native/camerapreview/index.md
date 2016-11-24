@@ -389,6 +389,25 @@ Hide the camera preview box.
 
 
 
+<div id="disable"></div>
+<h3><code>disable()</code>
+  
+</h3>
+
+
+
+
+Disables the camera preview
+
+
+
+
+
+
+
+
+
+
 <div id="setColorEffect"></div>
 <h3><code>setColorEffect()</code>
   

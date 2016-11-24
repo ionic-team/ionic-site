@@ -60,6 +60,10 @@ NativeAudio.preloadSimple(&#39;uniqueId1&#39;, &#39;path/to/file.mp3&#39;).then(
 NativeAudio.preloadComplex(&#39;uniqueId2&#39;, &#39;path/to/file2.mp3&#39;, 1, 1, 0).then(onSuccess, onError);
 
 NativeAudio.play(&#39;uniqueId1&#39;).then(onSuccess, onError);
+
+// can optionally pass a callback to be called when the file is done playing
+NativeAudio.play(&#39;uniqueId1&#39;, () =&gt; console.log(&#39;uniqueId1 is done playing&#39;));
+
 NativeAudio.loop(&#39;uniqueId2&#39;).then(onSuccess, onError);
 
 NativeAudio.setVolumeForComplexAsset(&#39;uniqueId2&#39;, 0.6).then(onSuccess,onError);

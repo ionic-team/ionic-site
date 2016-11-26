@@ -120,7 +120,7 @@ textarea&#39;s inner content.</p>
     <tr>
       <td>disabled</td>
       <td><code>bool</code></td>
-      <td><p> Wheather the textarea should be disabled or not</p>
+      <td><p> Whether the textarea should be disabled or not</p>
 </td>
     </tr>
     

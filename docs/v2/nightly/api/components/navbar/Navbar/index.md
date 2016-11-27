@@ -110,26 +110,6 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
 
-<div id="ngAfterViewInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="backButtonClick"></div>
 
 <h3>

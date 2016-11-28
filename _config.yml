@@ -6,6 +6,7 @@ kramdown:
   hard_wrap: false
 timezone: "US/Central"
 highlighter: rouge
+url: https://ionicframework.com
 
 # Default news if the page didnt enter news
 news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.

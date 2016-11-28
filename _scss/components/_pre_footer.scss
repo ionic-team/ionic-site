@@ -58,9 +58,23 @@
         letter-spacing: -.03em;
         font-weight: 500;
 
+        &::after {
+          font-family: 'Ionicons';
+          content: '\f287';
+          font-size: .9em;
+          margin-left: 10px;
+          position: relative;
+          display: inline-block;
+          transition: .3s transform;
+        }
+
         &:hover {
           color: darken($blue, 10);
           text-decoration: none;
+
+          &::after {
+            transform: translate3d(5px, 0, 0);
+          }
         }
       }
 
@@ -68,6 +82,8 @@
         font-size: 15px;
         line-height: 1.8em;
         margin-top: 6px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
       }
 
 

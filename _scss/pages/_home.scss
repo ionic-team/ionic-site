@@ -663,7 +663,7 @@
         display: inline-block;
         padding-left: 83px;
         margin-bottom: 54px;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 16px;
         padding-right: 55px;
         line-height: 1.8em;
@@ -724,6 +724,11 @@
 
         a {
           color: white;
+
+          &:hover {
+            text-decoration: none;
+            color: rgba(white, .7);
+          }
         }
       }
     }
@@ -899,7 +904,7 @@
         display: inline-block;
         position: relative;
         width: 49%;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 16px;
 
         @media (max-width: $screen-sm-max) {
@@ -936,6 +941,11 @@
 
     a {
       color: white;
+
+      &:hover {
+        text-decoration: none;
+        color: rgba(white, .7);
+      }
     }
   }
 
@@ -948,7 +958,7 @@
       padding-top: 58px;
       margin-bottom: 67px;
       font-size: 22px;
-      font-weight: 400;
+      font-weight: 500;
       color: #4a566b;
       position: relative;
       letter-spacing: -.03em;

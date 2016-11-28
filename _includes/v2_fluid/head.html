@@ -1,12 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
-<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
-<meta name="author" content="Drifty">
-<meta property="og:image" content="http://ionicframework.com/img/ionic-logo-blog.png"/>
 
-<link href="/css/styles.min.css?v=6" rel="stylesheet">
-{% if page.header_includes %}{{ page.header_includes }}{% endif %}
+<link href="/css/styles.min.css?v=7" rel="stylesheet">
 
 {% if page.category == 'api' %}
   <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
@@ -17,3 +12,53 @@
 {% else %}
   <title>Ionic Framework</title>
 {% endif %}
+
+<meta name="author" content="Drifty">
+<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}Ionic lets developers build beautiful and interactive mobile apps using HTML5 and AngularJS.{% endif %}">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<link rel="canonical" href="{{site.url}}{{page.url}}">
+
+
+<!-- Social: Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ionicframework">
+<meta name="twitter:creator" content="ionicframework">
+<meta name="twitter:title" content="Ionic Framework">
+<meta name="twitter:description" content="The best open source framework for building amazing mobile apps">
+<meta name="twitter:image:src" content="{{site.url}}/img/ionic-meta.jpg">
+
+<!-- Social: Facebook / Open Graph -->
+<meta property="fb:admins" content="1321836767955949">
+<meta property="og:url" content="{{site.url}}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ionic Framework">
+<meta property="og:image" content="{{site.url}}/img/ionic-meta.jpg"/>
+<meta property="og:description" content="The best open source framework for building amazing mobile apps">
+<meta property="og:site_name" content="Ionic Framework">
+<meta property="article:publisher" content="https://www.facebook.com/ionicframework">
+<meta property="og:street-address" content="121 S Pinckney">
+<meta property="og:locality" content="Madison">
+<meta property="og:region" content="Wisconsin">
+<meta property="og:postal-code" content="53703">
+<meta property="og:country-name" content="United States">
+<meta property="og:email" content="hi@ionic.io">
+
+<link rel="apple-touch-icon" sizes="57x57" href="/img/meta/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/meta/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/meta/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/meta/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/meta/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/meta/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/meta/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/meta/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/meta/apple-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/meta/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/meta/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/meta/android-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/meta/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png">
+<meta name="theme-color" content="#4c8fff">
+
+{% if page.header_includes %}{{ page.header_includes }}{% endif %}

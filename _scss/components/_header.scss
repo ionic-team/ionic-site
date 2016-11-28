@@ -1,5 +1,5 @@
 .navbar-default {
-  background: linear-gradient(to right, #3071da, #4888f1);
+  background: linear-gradient(to right, #347eff, #1ea3ff);
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
@@ -14,6 +14,7 @@
 
   .navbar-brand {
     padding: 22px 0 0 13px;
+    transition: .3s opacity;
 
     @media (max-width: $screen-xs-max) {
       padding-top: 8px;
@@ -22,7 +23,16 @@
     img {
       width: 128px;
     }
+
+    &:hover {
+      opacity: .65;
+    }
   }
+
+  #ionic-docs-logo {
+    width: 94px;
+  }
+
   @media (min-width: $screen-sm-min) {
     &.transparent {
       background: transparent;
@@ -51,10 +61,15 @@
       padding: 27px 33px;
       transition: .2s color;
       border-top: 3px solid transparent;
+      transition-duration: .3s;
 
       @media (max-width: $screen-xs-max) {
         padding: 15px;
         border: 0;
+      }
+
+      &:hover {
+        color: rgba(white, .65);
       }
     }
 
@@ -244,6 +259,11 @@
   }
 
   .container-fluid {
+    .navbar-nav > li > a {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
     @media (max-width: 1200px) {
       .navbar-nav > li > a {
         padding-left: 12px;
@@ -251,7 +271,7 @@
       }
     }
 
-    @media (max-width: 830px) {
+    @media (max-width: 1068px) {
       .navbar-nav > li > a {
         padding-left: 5px;
         padding-right: 4px;

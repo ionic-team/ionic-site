@@ -30,7 +30,9 @@ app.set('trust proxy', true);
 app.use(compress());
 app.use(processRequest);
 
-app.use(express.static(process.env.PWD));
+app.use(express.static(process.env.PWD, {
+  maxage: 315360000000 // ten years
+}));
 
 app.use(function(req, res, next) {
   res.status(404);

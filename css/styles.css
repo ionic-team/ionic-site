@@ -7702,7 +7702,7 @@ pre {
             transform: scale3d(1, 1, 1); } }
 
 .navbar-default {
-  background: linear-gradient(to right, #3071da, #4888f1);
+  background: linear-gradient(to right, #347eff, #1ea3ff);
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
@@ -7714,12 +7714,17 @@ pre {
       top: 0;
       width: 100%; } }
   .navbar-default .navbar-brand {
-    padding: 22px 0 0 13px; }
+    padding: 22px 0 0 13px;
+    transition: .3s opacity; }
     @media (max-width: 767px) {
       .navbar-default .navbar-brand {
         padding-top: 8px; } }
     .navbar-default .navbar-brand img {
       width: 128px; }
+    .navbar-default .navbar-brand:hover {
+      opacity: .65; }
+  .navbar-default #ionic-docs-logo {
+    width: 94px; }
   @media (min-width: 768px) {
     .navbar-default.transparent {
       background: transparent; } }
@@ -7738,11 +7743,14 @@ pre {
     font-weight: 500;
     padding: 27px 33px;
     transition: .2s color;
-    border-top: 3px solid transparent; }
+    border-top: 3px solid transparent;
+    transition-duration: .3s; }
     @media (max-width: 767px) {
       .navbar-default .navbar-nav > li > a {
         padding: 15px;
         border: 0; } }
+    .navbar-default .navbar-nav > li > a:hover {
+      color: rgba(255, 255, 255, 0.65); }
   .navbar-default .navbar-nav > li:last-child > a {
     padding-right: 0; }
   .navbar-default .navbar-nav > li.active > a {
@@ -7889,11 +7897,14 @@ pre {
     @media (max-width: 767px) {
       .navbar-default .sidebar-toggle {
         display: block; } }
+  .navbar-default .container-fluid .navbar-nav > li > a {
+    padding-left: 28px;
+    padding-right: 28px; }
   @media (max-width: 1200px) {
     .navbar-default .container-fluid .navbar-nav > li > a {
       padding-left: 12px;
       padding-right: 12px; } }
-  @media (max-width: 830px) {
+  @media (max-width: 1068px) {
     .navbar-default .container-fluid .navbar-nav > li > a {
       padding-left: 5px;
       padding-right: 4px; } }
@@ -7989,13 +8000,27 @@ pre {
         margin-bottom: 13px;
         letter-spacing: -.03em;
         font-weight: 500; }
+        #pre-footer ul li a::after {
+          font-family: 'Ionicons';
+          content: '\f287';
+          font-size: .9em;
+          margin-left: 10px;
+          position: relative;
+          display: inline-block;
+          transition: .3s -webkit-transform;
+          transition: .3s transform; }
         #pre-footer ul li a:hover {
           color: #186bfb;
           text-decoration: none; }
+          #pre-footer ul li a:hover::after {
+            -webkit-transform: translate3d(5px, 0, 0);
+                    transform: translate3d(5px, 0, 0); }
       #pre-footer ul li p {
         font-size: 15px;
         line-height: 1.8em;
-        margin-top: 6px; }
+        margin-top: 6px;
+        font-weight: 500;
+        letter-spacing: -0.02em; }
       @media (max-width: 767px) {
         #pre-footer ul li {
           float: none;
@@ -8025,7 +8050,8 @@ footer {
     vertical-align: top; }
   footer ul {
     width: 16.3%;
-    list-style: none; }
+    list-style: none;
+    font-weight: 500; }
     footer ul strong {
       color: #545a64;
       font-weight: 500;
@@ -9292,80 +9318,6 @@ a.ui-button:active,
     .docs-container main .alert a:not(.btn):hover {
       color: #fff; }
 
-body {
-  font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility; }
-  @media (max-width: 767px) {
-    body {
-      width: 100%;
-      min-width: 100%;
-      background: #fff;
-      padding-top: 50px; } }
-  body .docs {
-    background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%); }
-
-#components-index ul.nav > li > a {
-  background-color: #F9FAFB; }
-
-.improve-docs {
-  position: absolute;
-  right: 3.5em;
-  top: 20px; }
-
-.improve-v2-docs {
-  display: block;
-  float: right;
-  margin-top: -7em; }
-
-.component-doc-demo {
-  display: block;
-  float: right;
-  margin-top: -3.1em; }
-
-.docs-container .side-nav {
-  width: 230px; }
-
-.docs-container > main {
-  margin-left: 230px; }
-
-.docs-container > aside {
-  width: 467px; }
-  .docs-container > aside + main {
-    margin-right: 407px;
-    min-height: 777px; }
-
-@media (max-width: 1100px) {
-  .docs-container aside {
-    display: none; }
-    .docs-container aside + main {
-      margin-right: 0; } }
-
-@media (max-width: 767px) {
-  .docs-container {
-    background-color: #fff; }
-    .docs-container main {
-      margin-left: 0;
-      padding: 30px 20px; }
-    .docs-container #side-nav {
-      padding-top: 0;
-      top: 50px;
-      z-index: 1;
-      -webkit-transform: translateX(-230px);
-          -ms-transform: translateX(-230px);
-              transform: translateX(-230px);
-      transition: -webkit-transform .3s ease;
-      transition: transform .3s ease; }
-      .docs-container #side-nav.shown {
-        -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-                transform: translateX(0);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        transition: -webkit-transform .3s ease;
-        transition: transform .3s ease; } }
-
 .side-nav {
   position: fixed;
   background: #f9fafb;
@@ -9423,18 +9375,20 @@ body {
       .side-nav .form-group.search::before {
         font-family: 'Ionicons';
         content: '\f4a5';
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 800;
-        color: #a4abb5;
+        color: #bdc3cc;
         position: absolute;
-        top: 25px;
+        top: 28px;
         left: 34px;
         transition: .2s color; }
       .side-nav .form-group.search input {
         border: 1px solid #e6e9ee;
         border-radius: 20px;
         padding: 15px 0 13px 35px;
-        font-size: 14px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #bdc3cc;
         box-shadow: none;
         transition: .2s border-color, .2s box-shadow; }
         .side-nav .form-group.search input:focus, .side-nav .form-group.search input:hover {
@@ -9509,7 +9463,7 @@ body {
         color: #4C555A;
         text-transform: none;
         font-size: 13px;
-        font-weight: 400;
+        font-weight: 500;
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s; }
@@ -9542,6 +9496,80 @@ body {
           -ms-transform: scaleY(1);
               transform: scaleY(1);
       outline: none; }
+
+body {
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+  @media (max-width: 767px) {
+    body {
+      width: 100%;
+      min-width: 100%;
+      background: #fff;
+      padding-top: 50px; } }
+  body .docs {
+    background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%); }
+
+#components-index ul.nav > li > a {
+  background-color: #F9FAFB; }
+
+.improve-docs {
+  position: absolute;
+  right: 3.5em;
+  top: 20px; }
+
+.improve-v2-docs {
+  display: block;
+  float: right;
+  margin-top: -7em; }
+
+.component-doc-demo {
+  display: block;
+  float: right;
+  margin-top: -3.1em; }
+
+.docs-container .side-nav {
+  width: 230px; }
+
+.docs-container > main {
+  margin-left: 230px; }
+
+.docs-container > aside {
+  width: 467px; }
+  .docs-container > aside + main {
+    margin-right: 407px;
+    min-height: 777px; }
+
+@media (max-width: 1100px) {
+  .docs-container aside {
+    display: none; }
+    .docs-container aside + main {
+      margin-right: 0; } }
+
+@media (max-width: 767px) {
+  .docs-container {
+    background-color: #fff; }
+    .docs-container main {
+      margin-left: 0;
+      padding: 30px 20px; }
+    .docs-container #side-nav {
+      padding-top: 0;
+      top: 50px;
+      z-index: 1;
+      -webkit-transform: translateX(-230px);
+          -ms-transform: translateX(-230px);
+              transform: translateX(-230px);
+      transition: -webkit-transform .3s ease;
+      transition: transform .3s ease; }
+      .docs-container #side-nav.shown {
+        -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+                transform: translateX(0);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        transition: -webkit-transform .3s ease;
+        transition: transform .3s ease; } }
 
 html {
   position: relative;
@@ -9619,7 +9647,7 @@ a.footer-link {
       line-height: 1.4em;
       margin: 2em 0 1em;
       font-size: 26px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.01em; }
       .docs-container main h1:first-child,
       .docs-container main h2:first-child,
@@ -9672,9 +9700,9 @@ a.footer-link {
       font-size: 12px; }
     .docs-container main p {
       color: #4C555A;
-      line-height: 1.9em;
+      line-height: 2.1em;
       margin: 1.2em 0 1.6em;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 14px; }
     .docs-container main pre {
       border: 1px solid #e6e9ee;
@@ -11274,7 +11302,7 @@ ul.docs-example {
       display: inline-block;
       padding-left: 83px;
       margin-bottom: 54px;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 16px;
       padding-right: 55px;
       line-height: 1.8em;
@@ -11315,6 +11343,9 @@ ul.docs-example {
         background-position: 0 -720px; }
       .page-home .about-toolkit .features li a {
         color: white; }
+        .page-home .about-toolkit .features li a:hover {
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.7); }
 
 .page-home .about-community {
   background: #09172e;
@@ -11441,7 +11472,7 @@ ul.docs-example {
       display: inline-block;
       position: relative;
       width: 49%;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 16px; }
       @media (max-width: 991px) {
         .page-home .about-community .features li {
@@ -11466,6 +11497,9 @@ ul.docs-example {
         background-position: 0 -240px; }
   .page-home .about-community a {
     color: white; }
+    .page-home .about-community a:hover {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7); }
 
 .page-home .loved-by {
   text-align: center;
@@ -11475,7 +11509,7 @@ ul.docs-example {
     padding-top: 58px;
     margin-bottom: 67px;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 500;
     color: #4a566b;
     position: relative;
     letter-spacing: -.03em; }

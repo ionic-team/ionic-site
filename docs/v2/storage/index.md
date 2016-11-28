@@ -3,7 +3,7 @@ layout: v2_fluid/docs_base
 version: "1.1.6"
 category: storage
 id: "storage"
-title: "Ionic Framework | Storage"
+title: "Storage - Ionic Framework"
 ---
 
 

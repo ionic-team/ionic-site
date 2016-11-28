@@ -78,37 +78,44 @@ So for basic example based on the blank starer, a link setup like so:</p>
   })
  ]
 </code></pre>
-<p>This Feels pretty familiar to how Angular sets up routes, but has some fundamental differences.
-Since components could be loaded anywhere in the app, DeepLinker lets you define their URL segment.
-So at any point, when a Component becomes the active view, we just append the URL segment.</p>
+<p>Since components/pages can be loaded anywhere in the app, DeepLinker lets you define their URL segment but
+doesn&#39;t require a full URL route.</p>
+<p>So, at any point a Page becomes the active page, we just append the URL segment.</p>
 <h3 id="dynamic-links">Dynamic Links</h3>
-<p>Since passing data around is common practice in an app, we can reflect that in our app&#39;s URL in a similar manner to Angular&#39;s router.</p>
+<p>Since passing data around is common practice in an app, we can reflect that in our app&#39;s URL by
+using the common <code>:param</code> syntax:</p>
 <pre><code class="lang-ts">links: [
   { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39; }
+  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:userId&#39; }
 ]
 </code></pre>
-<p>This approach of using <code>:param</code> has been around in previous routing solutions.
-All this means is that when we push a new component on to the stack, in the navParams, there should be a property of <code>user</code>.
-The property needs to be something that can be serialized by the DeepLinker. 
-So setting its value to be that of a string or number is suggested.</p>
+<p>In this case, when we <code>push</code> to a new instance of <code>DetailPage</code>, the <code>user</code> field of
+the data we pass to <code>push</code> will be put into the URL.</p>
+<p>The property needs to be something that can be serialized into a string by the DeepLinker.</p>
 <p>So in a typical <code>navCtrl.push()</code> scenario, we&#39;d do something like this:</p>
 <pre><code class="lang-ts">pushPage(userInfo) {
   this.navCtrl.push(DetailPage, {
-  &#39;user&#39;: userInfo
+    &#39;userId&#39;: userInfo.id
   })
 }
 </code></pre>
 <h3 id="default-history">Default History</h3>
-<p> In some cases when a page loads, you might be sent to a component that has it&#39;s own information, but not back view.
- This situation is common when loading a page from a Push Notification.
- If you want a component to have a default history when none is present, you can use the <code>defaultHistory</code> property</p>
-<p>The <code>defaultHistory</code> property takes an array of components to create the history stack if none exist.</p>
+<p>While pages can be navigated to anywhere and loaded at any time, what happens when an app is launched from a deeplink while cold or suspended?</p>
+<p>By default, the page would be navigated to in the root NavController, but often the history stack is a UX design issue that you&#39;ll
+want to tweak as you iterate on the UX of your app.</p>
+<p>An example here is the App Store app on iOS. If you navigate to an app link to the App Store app, the app decides to show
+a single page for the app detail, and no back button. In constrast, opening an instagram link shows a back button that
+goes back to the profile page of the user. The point is: this back button experience is totally up to you as the designer
+of the app experience.</p>
+<p>This is where <code>defaultHistory</code> comes in.</p>
+<p>The <code>defaultHistory</code> property takes an array of components to create the initial history stack if none exists.</p>
 <pre><code class="lang-ts">links: [
   { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:user&#39;, defaultHistory: [HomePage] }
+  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:userId&#39;, defaultHistory: [HomePage] }
 ]
 </code></pre>
+<p>In this example above, if we launch the app at myapp.com/detail/4, then the user will see the DetailPage and then the back button will
+go to the HomePage.</p>
 
 
 

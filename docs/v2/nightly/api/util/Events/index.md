@@ -64,7 +64,7 @@ function createUser(user) {
 
 // second page (listen for the user created event)
 events.subscribe(&#39;user:created&#39;, (user, time) =&gt; {
-  // userEventData is an array of parameters, so grab our first and only arg
+  // user and time are the same arguments passed in `events.publish(user, time)`
   console.log(&#39;Welcome&#39;, user, &#39;at&#39;, time);
 });
 </code></pre>

@@ -30,9 +30,9 @@ By default, all lists will be styled with divider lines:
 
 ```html
 <ion-list>
-  <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-    {% raw %}{{item.title}}{% endraw %}
-  </ion-item>
+  <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+    {% raw %}{{ item }}{% endraw %}
+  </button>  
 </ion-list>
 ```
 
@@ -46,9 +46,9 @@ Adding the `no-lines` attribute will hide the dividers between list items:
 
 ```html
 <ion-list no-lines>
-  <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-    {% raw %}{{item.title}}{% endraw %}
-  </ion-item>
+  <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+    {% raw %}{{ item }}{% endraw %}
+  </button> 
 </ion-list>
 ```
 
@@ -61,9 +61,9 @@ Lists don’t have an outside margin by default.  To add one, add the `inset` at
 
 ```html
 <ion-list inset>
-  <ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-    {% raw %}{{item.title}}{% endraw %}
-  </ion-item>
+  <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+    {% raw %}{{ item }}{% endraw %}
+  </button> 
 </ion-list>
 ```
 

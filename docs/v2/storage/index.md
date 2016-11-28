@@ -73,10 +73,11 @@ export class AppModule {}
 
 export class MyApp {
   constructor(storage: Storage) {
-     storage.set(&#39;name&#39;, &#39;Max&#39;);
-     storage.get(&#39;name&#39;).then((val) =&gt; {
-       console.log(&#39;Your name is&#39;, val);
-     })
+     storage.set(&#39;name&#39;, &#39;Max&#39;).then(() => {
+       storage.get(&#39;name&#39;).then((val) =&gt; {
+         console.log(&#39;Your name is&#39;, val);
+       });
+     });
   }
 }
 </code></pre>

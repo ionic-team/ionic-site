@@ -127,45 +127,6 @@ However, you may need to add a `(click)` event to an element that is not normall
 ```
 
 ## Common mistakes
-### Page components acting odd
-
-Page components that are loaded with NavController do not need selectors added to them.
-If you place a selector on a page component, chances are it will animate incorrectly and have the wrong styles applied to it.
-
-**Wrong**
-
-```typescript
-@Component({
-  selector: 'my-page',
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-  <ion-content>Hello World</ion-content>`
-})
-export class StartPage {}
-```
-
-**Correct**
-
-```typescript
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-  <ion-content>Hello World</ion-content>`
-})
-export class StartPage {}
-```
-
-
 ### Forgetting Parentheses on a Decorator
 
 Decorators should have parentheses `()` after an annotation. Some examples include: `@Injectable()`, `@Optional()`, `@Input()`, etc.

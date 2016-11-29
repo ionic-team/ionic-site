@@ -608,8 +608,8 @@ the parent would be another nav, if it's not already the root nav.
 
 </h3>
 
-Push a new component onto the current navication stack. Pass any aditional information
-along as an object. This additional information is acessible through NavParams
+Push a new component onto the current navigation stack. Pass any aditional information
+along as an object. This additional information is accessible through NavParams
 
 
 

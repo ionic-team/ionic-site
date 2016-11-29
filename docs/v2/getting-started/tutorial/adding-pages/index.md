@@ -66,12 +66,17 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `sr
 Below, we see the `HelloIonicPage` class. This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't have a selector:
 
 ```ts
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
-  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
+  templateUrl: 'hello-ionic.html'
 })
-export class HelloIonicPage {}
+export class HelloIonicPage {
+  constructor() {
+
+  }
+}
 ```
 
 All pages have both a class, and an associated template that's being compiled as well. Let's check out `src/pages/hello-ionic/hello-ionic.html` - the template file for this page:
@@ -80,7 +85,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% raw %}
 <ion-header>
   <ion-navbar>
-    <button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Hello Ionic</ion-title>
@@ -88,7 +93,7 @@ All pages have both a class, and an associated template that's being compiled as
 </ion-header>
 
 
-<ion-content padding class="getting-started">
+<ion-content padding>
 
   <h3>Welcome to your first Ionic app!</h3>
 
@@ -99,7 +104,7 @@ All pages have both a class, and an associated template that's being compiled as
     Follow along on the tutorial section of the Ionic docs!
   </p>
   <p>
-    <button primary menuToggle>Toggle Menu</button>
+    <button ion-button color="primary" menuToggle>Toggle Menu</button>
   </p>
 
 </ion-content>
@@ -123,14 +128,14 @@ import {ItemDetailsPage} from '../item-details/item-details';
 
 
 @Component({
-  templateUrl: 'build/pages/list/list.html'
+  templateUrl: 'list.html'
 })
 export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(private navCtrl: NavController, navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -148,9 +153,9 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-     this.navCtrl.push(ItemDetailsPage, {
-       item: item
-     });
+    this.navCtrl.push(ItemDetailsPage, {
+      item: item
+    });
   }
 }
 ```

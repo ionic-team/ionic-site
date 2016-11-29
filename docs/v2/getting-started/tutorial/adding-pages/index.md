@@ -69,7 +69,7 @@ Below, we see the `HelloIonicPage` class. This creates a Page - an Angular compo
 import {Component} from '@angular/core';
 
 @Component({
-  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
+  templateUrl: 'hello-ionic.html'
 })
 export class HelloIonicPage {}
 ```
@@ -123,7 +123,7 @@ import {ItemDetailsPage} from '../item-details/item-details';
 
 
 @Component({
-  templateUrl: 'build/pages/list/list.html'
+  templateUrl: 'list.html'
 })
 export class ListPage {
   selectedItem: any;

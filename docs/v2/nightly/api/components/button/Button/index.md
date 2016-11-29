@@ -186,6 +186,13 @@ and be enhanced by a wide range of attributes.</p>
     </tr>
     
     <tr>
+      <td>strong</td>
+      <td><code>boolean</code></td>
+      <td><p> A button that has strong importance, ie. it represents an important action.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>

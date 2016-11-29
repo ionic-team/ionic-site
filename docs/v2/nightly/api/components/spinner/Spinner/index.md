@@ -33,7 +33,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L5">
 Improve this doc
 </a>
 
@@ -177,7 +177,7 @@ of <code>background-color</code>.</p>
     
     <tr>
       <td>paused</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> If the animation is paused or not. Defaults to <code>false</code>.</p>
 </td>
     </tr>

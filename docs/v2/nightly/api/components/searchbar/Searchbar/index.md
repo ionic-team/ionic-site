@@ -195,8 +195,8 @@ Improve this doc
     
     <tr>
       <td>animated</td>
-      <td><code>string|boolean</code></td>
-      <td><p> Configures if the searchbar is animated or no. By default, animation is disabled.</p>
+      <td><code>boolean</code></td>
+      <td><p> Configures if the searchbar is animated or no. By default, animation is <code>false</code>.</p>
 </td>
     </tr>
     

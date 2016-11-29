@@ -7972,7 +7972,7 @@ pre {
       padding-left: 108px;
       position: relative; }
       #pre-footer ul li::before {
-        background: url("/img/home/icons-lg.png") no-repeat 0 -372px;
+        background: url("/img/home/icons-lg.png?1") no-repeat 0 -372px;
         background-size: 93px;
         height: 93px;
         width: 93px;
@@ -7989,10 +7989,12 @@ pre {
         top: 15px;
         bottom: 15px;
         display: block; }
+      #pre-footer ul li.explor-docs::before {
+        background-position: 0 -279px; }
+      #pre-footer ul li.forum::before {
+        background-position: 0 -465px; }
       #pre-footer ul li:last-child {
         float: right; }
-        #pre-footer ul li:last-child::before {
-          background-position: 0 -279px; }
         #pre-footer ul li:last-child::after {
           display: none; }
       #pre-footer ul li a {
@@ -8321,121 +8323,9 @@ footer {
     right: 65%;
     position: absolute;
     overflow: hidden;
-    padding: 9px 0 0 9px; }
-    .draggable .app ion-list {
-      display: block;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      margin: -1px 0 16px 0; }
-    .draggable .app .item-block {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      overflow: hidden;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      margin: 0;
-      padding: 0;
-      width: calc(100% - 16px);
-      min-height: 4.4rem;
-      border: 0;
-      font-weight: normal;
-      line-height: normal;
-      text-align: initial;
-      text-decoration: none;
-      color: inherit; }
-    .draggable .app .item-md {
-      position: relative;
-      padding-right: 0;
-      margin-left: 16px;
-      font-size: 1.6rem;
-      font-weight: normal;
-      text-transform: none;
-      color: #000;
-      background-color: #fff;
-      box-shadow: none;
-      transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-    .draggable .app ion-icon {
-      display: inline-block;
-      font-size: 1.2em; }
-    .draggable .app .item > ion-icon, .draggable .app .item-inner > ion-icon {
-      min-height: 2.4rem;
-      font-size: 2.4rem;
-      line-height: 1; }
-    .draggable .app .item-md [item-left], .draggable .app .item-md [item-right] {
-      margin: 9px 8px 9px 0; }
-    .draggable .app .item > ion-icon:first-child, .draggable .app .item-inner > ion-icon:first-child {
-      min-width: 24px;
-      text-align: center; }
-    .draggable .app .item-md ion-icon[item-left], .draggable .app .item-md ion-icon[item-right] {
-      margin-top: 11px;
-      margin-bottom: 7px;
-      margin-left: 0; }
-    .draggable .app .item-inner {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      overflow: hidden;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      -webkit-flex-direction: inherit;
-      -ms-flex-direction: inherit;
-      flex-direction: inherit;
-      -webkit-align-items: inherit;
-      -ms-flex-align: inherit;
-      align-items: inherit;
-      -ms-flex-item-align: stretch;
-      -webkit-align-self: stretch;
-              align-self: stretch;
-      margin: 0;
-      padding: 0;
-      min-height: inherit;
-      border: 0; }
-    .draggable .app .item-md.item-block .item-inner {
-      padding-right: 8px;
-      border-bottom: 1px solid #dedede; }
-    .draggable .app .list-md .item-block .item-inner {
-      border-bottom: 1px solid #dedede; }
-    .draggable .app .list-md .item-block:last-child .item-inner {
-      border-bottom: 0; }
-    .draggable .app .item-md ion-icon[item-left] + .item-inner, .draggable .app .item-md ion-icon[item-left] + .item-input {
-      margin-left: 24px; }
-    .draggable .app .input-wrapper {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      overflow: hidden;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      -webkit-flex-direction: inherit;
-      -ms-flex-direction: inherit;
-      flex-direction: inherit;
-      -webkit-align-items: inherit;
-      -ms-flex-align: inherit;
-      align-items: inherit;
-      -ms-flex-item-align: stretch;
-      -webkit-align-self: stretch;
-              align-self: stretch;
-      text-overflow: ellipsis; }
-    .draggable .app ion-label {
-      display: block;
-      overflow: hidden;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      margin: 0;
-      font-size: inherit;
-      text-overflow: ellipsis;
-      white-space: nowrap; }
-    .draggable .app .label-md {
-      margin: 13px 8px 10px 0; }
+    padding: 9px 0 0 9px;
+    background: white url("/img/home/ios-list-design.png") no-repeat 0 bottom;
+    background-size: 540px; }
   .draggable .code code {
     padding: 0;
     position: absolute;

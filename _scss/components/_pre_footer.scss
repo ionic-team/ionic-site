@@ -19,7 +19,7 @@
       position: relative;
 
       &::before {
-        background: url('/img/home/icons-lg.png') no-repeat 0 -372px;
+        background: url('/img/home/icons-lg.png?1') no-repeat 0 -372px;
         background-size: 93px;
         height: 93px;
         width: 93px;
@@ -40,12 +40,16 @@
         display: block;
       }
 
+      &.explor-docs::before {
+        background-position: 0 -279px;
+      }
+
+      &.forum::before {
+        background-position: 0 -465px;
+      }
+
       &:last-child {
         float: right;
-
-        &::before {
-          background-position: 0 -279px;
-        }
 
         &::after {
           display: none;

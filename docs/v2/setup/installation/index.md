@@ -1,18 +1,16 @@
 ---
 layout: v2_fluid/docs_base
-category: getting-started
+category: setup
 id: installation
 title: Installing Ionic
 header_sub_title: Getting Started with Ionic
-prev_page_title: Welcome to Ionic
-prev_page_link: /docs/v2/getting-started/
-next_page_title: Learn the basics
-next_page_link: /docs/v2/getting-started/tutorial
+next_page_title: Tutorial
+next_page_link: /docs/v2/setup/tutorial
 ---
 
 # Installing Ionic
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/installation/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/installation/index.md'>Improve this doc</a>
 
 Ionic 2 apps are created and developed primarily through the Ionic command line utility (the "CLI"), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.
 

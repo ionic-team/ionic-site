@@ -83,12 +83,15 @@
         transition: transform .25s cubic-bezier(0.33, 1.6, 0.66, 1);
       }
 
-      &.getting-started:before {background-image: url('/img/docs-thumbnail-getting-started.png');}
-      &.ui:before {background-image: url('/img/docs-thumbnail-ui-components.png');}
-      &.api:before {background-image: url('/img/docs-thumbnail-api.png');}
-      &.theming:before {background-image: url('/img/docs-thumbnail-theming.png');}
-      &.ionicons-link:before {background-image: url('/img/docs-thumbnail-ionicons.png');}
-      &.forum:before {background-image: url('/img/docs-thumbnail-forum.png');}
+      &.getting-started:before { background-image: url('/img/docs-thumbnail-getting-started.png'); }
+      &.ui:before { background-image: url('/img/docs-thumbnail-ui-components.png'); }
+      &.api:before { background-image: url('/img/docs-thumbnail-api.png'); }
+      &.theming:before { background-image: url('/img/docs-thumbnail-theming.png'); }
+      &.ionicons-link:before { background-image: url('/img/docs-thumbnail-ionicons.png'); }
+      &.forum:before { background-image: url('/img/docs-thumbnail-forum.png'); }
+      &.cli:before { background-image: url('/img/docs/docs-thumbnail-cli.png'); }
+      &.faq:before { background-image: url('/img/docs/docs-thumbnail-faq.png'); }
+      &.native:before { background-image: url('/img/docs/docs-thumbnail-ionic-native.png'); }
       &:hover:before {
         transform: scale3d(1.05, 1.05, 1);
       }
@@ -97,7 +100,7 @@
         font-size: 20px;
         font-weight: 500;
       }
-      
+
       p {
         font-size: 14px;
         color: $lightish-grey;

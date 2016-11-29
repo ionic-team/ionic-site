@@ -1,19 +1,19 @@
 ---
 layout: v2_fluid/docs_base
-category: getting-started
+category: setup
 id: tutorial
 subid: tutorial
 title: Adding Pages - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Project Structure
-prev_page_link: /docs/v2/getting-started/tutorial/project-structure
+prev_page_link: /docs/v2/setup/tutorial/project-structure
 next_page_title: Navigating to Pages
-next_page_link: /docs/v2/getting-started/tutorial/navigation
+next_page_link: /docs/v2/setup/tutorial/navigation
 ---
 
 <h1 class="title">Adding Pages</h1>
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/adding-pages/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/adding-pages/index.md'>
   Improve this doc
 </a>
 
@@ -36,7 +36,7 @@ import {HelloIonicPage} from '../pages/hello-ionic/hello-ionic';
 
 export class MyApp {
   ...
-  
+
   // make HelloIonicPage the root (or first) page
   rootPage: any = HelloIonicPage;
   pages: Array<{title: string, component: any}>;

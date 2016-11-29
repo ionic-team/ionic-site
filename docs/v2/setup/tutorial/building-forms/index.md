@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: getting-started
+category: setup
 id: tutorial
 title: Building Forms - Tutorial
 header_sub_title: Getting Started with Ionic

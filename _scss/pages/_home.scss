@@ -240,12 +240,16 @@
       font-weight: normal;
       height: 40px;
       padding: 1px 16px 0px;
-      transition: .2s background;
+      transition: .2s background, .2s box-shadow;
+
+      &:hover {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+      }
 
       &:focus {
         box-shadow: none;
-        border: 1px solid rgba(255, 255, 255, .1);
-        background: rgba(255, 255, 255, .1);
+        border: 1px solid rgba(255,255,255,0);
+        background: rgba(255,255,255,.4);
       }
 
       &::-webkit-input-placeholder {
@@ -1343,6 +1347,7 @@ $ieEightAndNine: '\0/';
     opacity: .6;
     color: white;
     letter-spacing: -.02em;
+    transition: .3s opacity;
 
     &:hover {
       opacity: 1;

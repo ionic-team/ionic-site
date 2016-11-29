@@ -60,7 +60,7 @@
       font-weight: 500;
       padding: 27px 33px;
       transition: .2s color;
-      border-top: 3px solid transparent;
+      border-top: none;
       transition-duration: .3s;
 
       @media (max-width: $screen-xs-max) {

@@ -1,19 +1,19 @@
 ---
 layout: v2_fluid/docs_base
-category: getting-started
+category: setup
 id: tutorial
 subid: tutorial
 title: Project Structure - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Learn the basics
-prev_page_link: /docs/v2/getting-started/tutorial/
+prev_page_link: /docs/v2/setup/tutorial/
 next_page_title: Adding Pages
-next_page_link: /docs/v2/getting-started/tutorial/adding-pages
+next_page_link: /docs/v2/setup/tutorial/adding-pages
 ---
 
 # Project Structure
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/tutorial/project-structure/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/project-structure/index.md'>
   Improve this doc
 </a>
 
@@ -77,7 +77,7 @@ Here's the main template for the app in `src/app/app.html`:
       <ion-title>Pages</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content>
     <ion-list>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">

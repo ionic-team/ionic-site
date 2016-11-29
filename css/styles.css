@@ -7743,7 +7743,7 @@ pre {
     font-weight: 500;
     padding: 27px 33px;
     transition: .2s color;
-    border-top: 3px solid transparent;
+    border-top: none;
     transition-duration: .3s; }
     @media (max-width: 767px) {
       .navbar-default .navbar-nav > li > a {
@@ -8018,11 +8018,11 @@ pre {
             -webkit-transform: translate3d(5px, 0, 0);
                     transform: translate3d(5px, 0, 0); }
       #pre-footer ul li p {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.8em;
         margin-top: 6px;
         font-weight: 500;
-        letter-spacing: -0.02em; }
+        letter-spacing: -0.03em; }
       @media (max-width: 767px) {
         #pre-footer ul li {
           float: none;
@@ -9919,6 +9919,12 @@ ul.docs-example {
       background-image: url("/img/docs-thumbnail-ionicons.png"); }
     .docs-home .sections .section.forum:before {
       background-image: url("/img/docs-thumbnail-forum.png"); }
+    .docs-home .sections .section.cli:before {
+      background-image: url("/img/docs/docs-thumbnail-cli.png"); }
+    .docs-home .sections .section.faq:before {
+      background-image: url("/img/docs/docs-thumbnail-faq.png"); }
+    .docs-home .sections .section.native:before {
+      background-image: url("/img/docs/docs-thumbnail-ionic-native.png"); }
     .docs-home .sections .section:hover:before {
       -webkit-transform: scale3d(1.05, 1.05, 1);
               transform: scale3d(1.05, 1.05, 1); }
@@ -10567,7 +10573,7 @@ ul.docs-example {
       #page-getting-started main .what-next .items a::before {
         border-radius: 4px;
         background: white;
-        box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0px 6px rgba(0, 0, 0, 0.05);
         position: absolute;
         top: 0;
         bottom: 0;
@@ -10575,11 +10581,12 @@ ul.docs-example {
         right: 0;
         content: '';
         display: block;
-        transition: 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-        transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12); }
+        transition: 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow;
+        transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow; }
       #page-getting-started main .what-next .items a:hover {
         text-decoration: none; }
         #page-getting-started main .what-next .items a:hover::before {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
           -webkit-transform: scale(1.05);
               -ms-transform: scale(1.05);
                   transform: scale(1.05); }
@@ -10869,11 +10876,13 @@ ul.docs-example {
     font-weight: normal;
     height: 40px;
     padding: 1px 16px 0px;
-    transition: .2s background; }
+    transition: .2s background, .2s box-shadow; }
+    .page-home .utility-bar input:hover {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); }
     .page-home .utility-bar input:focus {
       box-shadow: none;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.1); }
+      border: 1px solid rgba(255, 255, 255, 0);
+      background: rgba(255, 255, 255, 0.4); }
     .page-home .utility-bar input::-webkit-input-placeholder {
       padding-left: 0;
       color: #bbceef; }
@@ -11675,7 +11684,8 @@ ul.docs-example {
     text-decoration: none;
     opacity: .6;
     color: white;
-    letter-spacing: -.02em; }
+    letter-spacing: -.02em;
+    transition: .3s opacity; }
     .social-row a:hover {
       opacity: 1; }
 

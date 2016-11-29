@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: getting-started
+category: setup
 id: concepts
 title: Concepts
 header_sub_title: Getting Started with Ionic
@@ -9,7 +9,7 @@ header_sub_title: Getting Started with Ionic
 
 # Core Concepts
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/concepts/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/concepts/index.md'>Improve this doc</a>
 
 If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.
 

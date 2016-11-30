@@ -30,13 +30,13 @@ For example, to install the popular library Lodash:
 npm install lodash --save
 ```
 
-`npm install` will download a copy of the library from NPM, and save it in your app's `node_modules` directory.  `--save` will tell the NPM CLI to add an entry to your app’s `package.json` dependency list. The library is now ready to use.
+`npm install` will download a copy of the library from NPM and save it in your app's `node_modules` directory.  `--save` will tell the NPM CLI to add an entry to your app’s `package.json` dependency list. The library is now ready to use.
 
 ### Using Libraries
 
 After installing the library, we must import it into our code to use it.
 
-Import statements can follow two simple patterns: Using a `named export` and using a `default export`. The best practice is to use the `named export` pattern whenever possible. If it doesn't work correctly, fall back to the `default export`.
+Import statements can follow two simple patterns: using a `named export` and using a `default export`. The best practice is to use the `named export` pattern whenever possible. If it doesn't work correctly, fall back to the `default export`.
 
 ```typescript
 // named export pattern
@@ -59,7 +59,7 @@ myLibrary.myFunction();
 
 #### Examples and Additional Details
 
-Angular and Ionic components are imported using the `named export` pattern. Standard compliant third-party libraries do too.
+Angular and Ionic components are imported using the `named export` pattern, as are standard compliant third-party libraries.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -68,7 +68,7 @@ import { NavController } from 'ionic-angular';
 
 Using the `named export` pattern is preferred and considered best practice because it only imports/includes the portion of the library that is needed. This results in smaller, faster apps.
 
-There are some cases where importing a specific portion of a library is not possible. Typically, this is the case with older libraries written for the [Node Environments](https://nodejs.org/en/) that do not follow the ES2015 Module standard.
+In some cases, importing a specific portion of a library isn't possible. Typically, this is the case with older libraries written for the [Node Environments](https://nodejs.org/en/) that don't follow the ES2015 Module standard.
 
 In that case, the library can be used but must be imported using the `default` export approach.
 
@@ -86,15 +86,15 @@ lodash.capitalize('myStringToCapitalize');
 
 ### Type Definitions
 
-Third Party libraries work with Ionic just like they would for any other javascript project utilizing `npm`. Often times these libraries will not have intellisense information for IDEs and editors. Adding a Type Definition will enable intellisense and ensure correctness of the program. To add a Type Definition for a Library, we can again utilize `npm` and the `@types` namespace maintained by the TypeScript community.
+Third Party libraries work with Ionic just like they would for any other JavaScript project utilizing `npm`. Often, these libraries don't have intellisense information for IDEs and editors. Adding a Type Definition will enable intellisense and ensure correctness of the program. To add a Type Definition for a Library, we can again utilize `npm` and the `@types` namespace maintained by the TypeScript community.
 
-To install a Type Definition execute the following command:
+To install a Type Definition, execute the following command:
 
 ```bash
 npm install @types/theLibraryName --save
 ```
 
-For example, to install the Type Definitions for Lodash
+For example, to install the Type Definitions for Lodash:
 
 ```bash
 npm install @types/lodash --save
@@ -110,7 +110,7 @@ import lodash from 'lodash'
 console.dir(lodash);
 ```
 
-`console.dir` prints out all of the important details about an object and it's API.
+`console.dir` prints out all of the important details about an object and its API.
 
 #### Custom Build Configuration
 With most libraries, everything "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/driftyco/ionic-app-scripts#custom-config-files).

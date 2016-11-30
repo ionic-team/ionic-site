@@ -86,26 +86,45 @@ pre_footer: true
       </li>
       <li>
         <h3>Run it</h3>
-        <div class="left">
+        <div class="clearfix">
+          <div class="left">
 {% highlight bash %}
 
 cd myApp
-ionic platform add ios
-ionic build ios
-ionic emulate ios
+ionic serve
 
 {% endhighlight %}
+
+To run on iOS or Android devices and emulators:
+
+          </div>
+          <div class="right">
+            <p>
+            Much of your app can be built right in the browser with <code>ionic serve</code>. We recommend starting with this
+            workflow.
+            </p>
+          </div>
         </div>
-        <div class="right">
-          <p>
-            Create an Ionic project using one of our ready-made app templates,
-            or a blank one to start fresh.
-          </p>
-          <div class="info-container">
-            <a class="info" href="http://view.ionic.io/">
-              Try <strong>Ionic View app</strong> to preview, test, and share
-              your app, live on the device <i class="ion-ios-arrow-forward"></i>
-            </a>
+        <div class="clearfix">
+          <div class="left">
+{% highlight bash %}
+
+ionic platform add ios
+ionic run ios
+
+{% endhighlight %}
+          </div>
+          <div class="right">
+            <p>
+              When you're ready to move
+              to a real device, add the ios and/or android platforms and use <code>ionic run</code>.
+            </p>
+            <div class="info-container">
+              <a class="info" href="http://view.ionic.io/">
+                Try <strong>Ionic View app</strong> to preview, test, and share
+                your app, live on the device <i class="ion-ios-arrow-forward"></i>
+              </a>
+            </div>
           </div>
         </div>
       </li>
@@ -144,7 +163,7 @@ ionic emulate ios
     </div>
     <div class="subscribe container">
       <h4>
-        Subscribe to our newsletter for important Ionic feature and security updates, along with tips and tutorials.
+        Get our newsletter with Ionic feature and security updates, along with tips and tutorials.
       </h4>
       <form action="http://codiqa.createsend.com/t/t/s/jytylh/" method="post">
         <input type="text" class="form-control" placeholder="Email address">

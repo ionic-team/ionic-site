@@ -62,7 +62,7 @@ navigation controllers take a look at the <a href="../../../navigation/NavContro
 is the page you want to load for that tab, <code>tabTitle</code> is the optional text to
 display on the tab, and <code>tabIcon</code> is the optional <a href="../../icon/Icon/">icon</a>.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
- &lt;ion-tab [root]=&quot;chatRoot&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;ion-tab&gt;
+ &lt;ion-tab [root]=&quot;chatRoot&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>Then, in your class you can set <code>chatRoot</code> to an imported class:</p>

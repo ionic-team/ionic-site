@@ -498,18 +498,9 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-ios-border</code></td>
         
-          <td><code>$hairlines-width solid $toolbar-ios-border-color</code></td>
+          <td><code>$hairlines-width solid $tabs-ios-border-color</code></td>
         
         <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$tabs-ios-background</code></td>
-        
-          <td><code>$toolbar-ios-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
 </td>
       </tr>
       
@@ -541,20 +532,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-color</code></td>
+        <td><code>$tabs-ios-tab-text-color</code></td>
         
-          <td><code>$toolbar-ios-inactive-color</code></td>
+          <td><code>$tabs-ios-tab-color-inactive</code></td>
         
         <td><p>Text color of the inactive tab button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-color-active</code></td>
+        <td><code>$tabs-ios-tab-text-color-active</code></td>
         
-          <td><code>$toolbar-ios-active-color</code></td>
+          <td><code>$tabs-ios-tab-color-active</code></td>
         
         <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-icon-color</code></td>
+        
+          <td><code>$tabs-ios-tab-color-inactive</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-ios-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
 </td>
       </tr>
       
@@ -588,15 +597,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td><code>$tabs-md-background</code></td>
-        
-          <td><code>$toolbar-md-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
-</td>
-      </tr>
       
       <tr>
         <td><code>$tabs-md-tab-padding</code></td>
@@ -644,11 +644,38 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-color</code></td>
+        <td><code>$tabs-md-tab-text-color</code></td>
         
-          <td><code>rgba($toolbar-md-inactive-color, $tabs-md-tab-opacity)</code></td>
+          <td><code>rgba($tabs-md-tab-color-inactive, $tabs-md-tab-opacity)</code></td>
         
         <td><p>Text color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-text-color-active</code></td>
+        
+          <td><code>$tabs-md-tab-color-active</code></td>
+        
+        <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-color</code></td>
+        
+          <td><code>rgba($tabs-md-tab-color-inactive, $tabs-md-tab-opacity)</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-md-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
 </td>
       </tr>
       
@@ -667,15 +694,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
           <td><code>1.4rem</code></td>
         
         <td><p>Font size of the active tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$tabs-md-tab-color-active</code></td>
-        
-          <td><code>$toolbar-md-active-color</code></td>
-        
-        <td><p>Text color of the active tab button</p>
 </td>
       </tr>
       
@@ -801,15 +819,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td><code>$tabs-wp-background</code></td>
-        
-          <td><code>$toolbar-wp-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-wp-tab-padding</code></td>
         
           <td><code>12px 10px 5px 10px</code></td>
@@ -857,7 +866,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-wp-tab-color</code></td>
         
-          <td><code>rgba($toolbar-wp-inactive-color, $tabs-wp-tab-opacity)</code></td>
+          <td><code>rgba($tabs-wp-tab-color-inactive, $tabs-wp-tab-opacity)</code></td>
         
         <td><p>Text color of the inactive tab button</p>
 </td>
@@ -866,16 +875,34 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-wp-tab-color-active</code></td>
         
-          <td><code>$toolbar-wp-active-color</code></td>
+          <td><code>$tabs-wp-tab-color-active</code></td>
         
         <td><p>Text color of the active tab button</p>
 </td>
       </tr>
       
       <tr>
+        <td><code>$tabs-wp-tab-icon-color</code></td>
+        
+          <td><code>rgba($tabs-wp-tab-color-inactive, $tabs-wp-tab-opacity)</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-wp-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$tabs-wp-tab-border</code></td>
         
-          <td><code>2px solid transparent</code></td>
+          <td><code>2px solid $tabs-wp-border-color</code></td>
         
         <td><p>Border on the inactive tab button (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
 </td>

@@ -1,6 +1,6 @@
 <section id="pre-footer" class="continue">
   <ul class="container">
-    {% if page.id != "getting-started" %}
+    {% if page.id == "home" %}
       <li class="getting-started">
         <a href="/getting-started">Getting started</a>
         <p>
@@ -17,12 +17,22 @@
         </p>
       </li>
     {% endif %}
-    <li class="explor-docs">
-      <a href="/docs/v2/">Explore the docs</a>
-      <p>
-        Take a look and get coding! Our documentation covers all you need to
-        know to get an app up and running in minutes.
-      </p>
-    </li>
+    {% if page.id == "docs" %}
+      <li class="explor-docs">
+        <a href="/docs/v2/">Explore the docs</a>
+        <p>
+          Take a look and get coding! Our documentation covers all you need to
+          know to get an app up and running in minutes.
+        </p>
+      </li>
+    {% else %}
+      <li class="blog">
+        <a href="/docs/v2/">Explore the docs</a>
+        <p>
+          Take a look and get coding! Our documentation covers all you need to
+          know to get an app up and running in minutes.
+        </p>
+      </li>
+    {% endif %}
   </ul>
 </section>

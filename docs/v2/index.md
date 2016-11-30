@@ -4,6 +4,7 @@ category: home
 id: home
 title: Ionic Documentation
 hide_header_search: true
+pre_footer: true
 ---
 
 <p class="alert">

@@ -7714,7 +7714,7 @@ pre {
       top: 0;
       width: 100%; } }
   .navbar-default .navbar-brand {
-    padding: 22px 0 0 13px;
+    padding: 20px 0 0 13px;
     transition: .3s opacity; }
     @media (max-width: 767px) {
       .navbar-default .navbar-brand {
@@ -7803,7 +7803,7 @@ pre {
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0); } }
   .navbar-default .navbar-form {
-    margin: 22px 0 0 110px; }
+    margin: 20px 0 0 110px; }
     .navbar-default .navbar-form .form-group {
       position: relative;
       padding-left: 0; }
@@ -9814,6 +9814,9 @@ ul.docs-example {
 
 .native-docs a {
   margin-top: 0 !important; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
 
 .docs-container main .four-oh-four {
   text-align: center; }

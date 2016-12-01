@@ -1,0 +1,22 @@
+.table {
+  > thead,
+  > thead:first-child,
+  > tbody,
+  > tbody:first-child {
+    > tr,
+    > tr:first-child {
+      > th {
+        padding: 11px 11px 12px;
+        border-bottom: 1px solid #eee;
+        font-weight: 700;
+      }
+
+      > td {
+        padding: 12px;
+        font-weight: 500;
+        border-bottom: 1px solid #eee;
+        color: #555;
+      }
+    }
+  }
+}

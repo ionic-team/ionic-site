@@ -7776,32 +7776,49 @@ pre {
     -webkit-transform: scaleY(1);
         -ms-transform: scaleY(1);
             transform: scaleY(1); }
+  .navbar-default .dropdown .divider {
+    border-bottom: 1px solid #ebeef2;
+    margin: 5px 0 6px; }
   @media (min-width: 768px) {
     .navbar-default .dropdown .dropdown-menu {
       display: block;
       position: absolute;
-      visibility: 0;
-      top: -500px;
+      border: 0;
+      border-radius: 3px;
+      padding: 12px 0 10px;
+      top: 56px;
+      left: -23px;
+      right: -13px;
+      min-width: 155px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
       opacity: 0;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 4px;
-      padding: 8px 0;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-      -webkit-transform: translate3d(0, -10px, 0);
-              transform: translate3d(0, -10px, 0);
-      -webkit-transform-origin: top;
-          -ms-transform-origin: top;
-              transform-origin: top;
-      transition: opacity 0.4s, -webkit-transform 0.4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
-      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
+      -webkit-transform: scale(0.01);
+          -ms-transform: scale(0.01);
+              transform: scale(0.01);
+      -webkit-transform-origin: 80% 8px;
+          -ms-transform-origin: 80% 8px;
+              transform-origin: 80% 8px;
+      transition: all 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12), opacity 0.1s linear; }
       .navbar-default .dropdown .dropdown-menu a {
-        padding: 10px 20px; }
+        padding: 6px 23px;
+        line-height: 1.6;
+        font-size: 13px;
+        font-weight: 500; }
+      .navbar-default .dropdown .dropdown-menu::before {
+        background: url("/img/ico-nav-arrow.png") center center no-repeat;
+        background-size: 15px;
+        width: 15px;
+        height: 8px;
+        position: absolute;
+        top: -7px;
+        right: 23px;
+        content: '';
+        z-index: 5; }
     .navbar-default .dropdown.open .dropdown-menu {
-      visibility: 1;
-      top: 64px;
       opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0); } }
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); } }
   .navbar-default .navbar-form {
     margin: 20px 0 0 110px; }
     .navbar-default .navbar-form .form-group {
@@ -9386,6 +9403,31 @@ a.ui-button:active,
           -ms-transform: scaleY(1);
               transform: scaleY(1);
       outline: none; }
+
+.table > thead > tr > th,
+.table > thead > tr:first-child > th,
+.table > thead:first-child > tr > th,
+.table > thead:first-child > tr:first-child > th,
+.table > tbody > tr > th,
+.table > tbody > tr:first-child > th,
+.table > tbody:first-child > tr > th,
+.table > tbody:first-child > tr:first-child > th {
+  padding: 11px 11px 12px;
+  border-bottom: 1px solid #eee;
+  font-weight: 700; }
+
+.table > thead > tr > td,
+.table > thead > tr:first-child > td,
+.table > thead:first-child > tr > td,
+.table > thead:first-child > tr:first-child > td,
+.table > tbody > tr > td,
+.table > tbody > tr:first-child > td,
+.table > tbody:first-child > tr > td,
+.table > tbody:first-child > tr:first-child > td {
+  padding: 12px;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+  color: #555; }
 
 body {
   font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;

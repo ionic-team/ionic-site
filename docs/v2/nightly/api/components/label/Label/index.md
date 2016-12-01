@@ -218,15 +218,6 @@ A stacked label will always appear on top of the input.
     <tbody>
       
       <tr>
-        <td><code>$label-ios-text-color</code></td>
-        
-          <td><code>#7f7f7f</code></td>
-        
-        <td><p>Text color of the label</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$label-ios-margin</code></td>
         
           <td><code>$item-ios-padding-top ($item-ios-padding-right / 2) $item-ios-padding-bottom 0</code></td>

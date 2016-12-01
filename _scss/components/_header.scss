@@ -105,6 +105,11 @@
       opacity: 1;
       transform: scaleY(1);
     }
+
+    .divider {
+      border-bottom: 1px solid #ebeef2;
+      margin: 5px 0 6px;
+    }
   }
   // desktop width animation
   @media (min-width: $screen-sm-min) {
@@ -112,28 +117,43 @@
       .dropdown-menu {
         display: block;
         position: absolute;
-        visibility: 0;
-        top: -500px;
+        border: 0;
+        border-radius: 3px;
+        padding: 12px 0 10px;
+        top: 56px;
+        left: -23px;
+        right: -13px;
+        min-width: 155px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
         opacity: 0;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 4px;
-        padding: 8px 0;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-        transform: translate3d(0, -10px, 0);
-        transform-origin: top;
-        transition: opacity .4s,
-                    transform .4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+        transform: scale(.01);
+        transform-origin: 80% 8px;
+        transition: all .3s cubic-bezier(.155, 1.105, .295, 1.12), opacity .1s linear;
 
         a {
-          padding: 10px 20px;
+          padding: 6px 23px;
+          line-height: 1.6;
+          font-size: 13px;
+          font-weight: 500;
+        }
+
+        &::before {
+          background: url('/img/ico-nav-arrow.png') center center no-repeat;
+          background-size: 15px;
+          width: 15px;
+          height: 8px;
+          position: absolute;
+          top: -7px;
+          right: 23px;
+          content: '';
+          z-index: 5;
         }
       }
 
       &.open .dropdown-menu {
-        visibility: 1;
-        top: 64px;
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: scale(1);
+
       }
     }
   }

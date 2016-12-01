@@ -22,15 +22,28 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 ### Starting a New Ionic 2 App
 
-Let's create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used. Ionic 2 applications are created as TypeScript.
+Starting a new app is easy! From your [command line](/docs/v2/resources/what-is/#cli), run this command:
 
 ```bash
 $ ionic start MyIonic2Project tutorial --v2
 ```
 
-This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
+- `start` will tell the CLI create a new app.
+- `MyIonic2Project` will be the directory name and the app name from your project.
+- `tutorial` will be the starter template for your project.
+- `--v2` tells the CLI that you want a 2.0 project.
 
-> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to initialize your application using the [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+Along with creating your project, this will also install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
+
+If the tutorial template isn't something you want to use, Ionic has a few templates available:
+
+- `tabs` : a simple 3 tab layout
+- `sidemenu`: a layout with a swipable menu on the side
+- `blank`: a bare starter with a single page
+- `tutorial`: a guided starter project
+
+If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+
 
 
 ### Viewing the app in a browser

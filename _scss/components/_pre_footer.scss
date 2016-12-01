@@ -1,5 +1,5 @@
 #pre-footer {
-  background: #f6f7fa;
+  background: $whiteish;
   color: #727a87;
   padding-top: 80px;
   padding-bottom: 72px;
@@ -46,6 +46,10 @@
 
       &.forum::before {
         background-position: 0 -465px;
+      }
+
+      &.blog::before {
+        background-position: 0 -558px;
       }
 
       &:last-child {
@@ -104,5 +108,16 @@
         }
       }
     }
+  }
+}
+.docs #pre-footer {
+  margin-left: 230px;
+
+  @media (max-width: $screen-xs-max) {
+    margin-left: 0;
+  }
+
+  .container {
+    max-width: 100%;
   }
 }

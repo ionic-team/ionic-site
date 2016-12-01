@@ -7974,7 +7974,7 @@ pre {
         color: rgba(255, 255, 255, 0.8); }
 
 #pre-footer {
-  background: #f6f7fa;
+  background: #f9fafb;
   color: #727a87;
   padding-top: 80px;
   padding-bottom: 72px; }
@@ -8010,6 +8010,8 @@ pre {
         background-position: 0 -279px; }
       #pre-footer ul li.forum::before {
         background-position: 0 -465px; }
+      #pre-footer ul li.blog::before {
+        background-position: 0 -558px; }
       #pre-footer ul li:last-child {
         float: right; }
         #pre-footer ul li:last-child::after {
@@ -8048,6 +8050,14 @@ pre {
             margin-bottom: 40px; }
           #pre-footer ul li::after {
             display: none; } }
+
+.docs #pre-footer {
+  margin-left: 230px; }
+  @media (max-width: 767px) {
+    .docs #pre-footer {
+      margin-left: 0; } }
+  .docs #pre-footer .container {
+    max-width: 100%; }
 
 .docs-container + footer {
   display: none; }

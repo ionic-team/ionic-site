@@ -1,7 +1,7 @@
 ---
 layout: v2_fluid/docs_base
 category: home
-id: home
+id: docs-home
 title: Ionic Documentation
 hide_header_search: true
 pre_footer: true
@@ -22,8 +22,8 @@ pre_footer: true
   </form>
   <div class="sections">
     <a class="section getting-started"
-       href="/getting-started">
-      <h3>Get Started</h3>
+       href="/docs/v2/setup/installation">
+      <h3>Setup</h3>
       <p>
         Everything you need to know to get started with Ionic.
       </p>

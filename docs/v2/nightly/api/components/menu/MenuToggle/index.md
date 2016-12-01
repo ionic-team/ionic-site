@@ -140,6 +140,132 @@ on the different positions.</p>
 
 
 
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$menu-ios-background</code></td>
+        
+          <td><code>$background-ios-color</code></td>
+        
+        <td><p>Background of the menu</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$menu-ios-box-shadow-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .25)</code></td>
+        
+        <td><p>Box shadow color of the menu</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$menu-ios-box-shadow</code></td>
+        
+          <td><code>0 0 10px $menu-ios-box-shadow-color</code></td>
+        
+        <td><p>Box shadow of the menu</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$menu-md-background</code></td>
+        
+          <td><code>$background-md-color</code></td>
+        
+        <td><p>Background of the menu</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$menu-md-box-shadow-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .25)</code></td>
+        
+        <td><p>Box shadow color of the menu</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$menu-md-box-shadow</code></td>
+        
+          <td><code>0 0 10px $menu-md-box-shadow-color</code></td>
+        
+        <td><p>Box shadow of the menu</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$menu-wp-background</code></td>
+        
+          <td><code>#f2f2f2</code></td>
+        
+        <td><p>Background of the menu</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
 
 
 <!-- related link -->

@@ -208,6 +208,239 @@ Create a new toast component. See options below
 
 
 
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toast-width</code></td>
+        
+          <td><code>100%</code></td>
+        
+        <td><p>Width of the toast</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-max-width</code></td>
+        
+          <td><code>700px</code></td>
+        
+        <td><p>Max width of the toast</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toast-ios-background</code></td>
+        
+          <td><code>rgba(0, 0, 0, .9)</code></td>
+        
+        <td><p>Background of the toast wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-border-radius</code></td>
+        
+          <td><code>.65rem</code></td>
+        
+        <td><p>Border radius of the toast wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Color of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-ios-title-padding</code></td>
+        
+          <td><code>1.5rem</code></td>
+        
+        <td><p>Padding of the toast title</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toast-md-background</code></td>
+        
+          <td><code>#333</code></td>
+        
+        <td><p>Background of the toast wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Color of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-font-size</code></td>
+        
+          <td><code>1.5rem</code></td>
+        
+        <td><p>Font size of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-md-title-padding</code></td>
+        
+          <td><code>19px 16px 17px</code></td>
+        
+        <td><p>Padding of the toast title</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toast-wp-background</code></td>
+        
+          <td><code>rgba(0, 0, 0, 1)</code></td>
+        
+        <td><p>Background of the toast wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-border-radius</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Border radius of the toast wrapper</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-button-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Color of the toast button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Color of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the toast title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toast-wp-title-padding</code></td>
+        
+          <td><code>1.5rem</code></td>
+        
+        <td><p>Padding of the toast title</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
 
 
 <!-- related link --><!-- end content block -->

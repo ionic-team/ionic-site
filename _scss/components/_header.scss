@@ -170,6 +170,10 @@
       color: rgba(255, 255, 255, .5);
       display: block;
 
+      @media (max-width: $screen-xs-max) {
+        padding: 13px 10px 0px;
+      }
+
       &:hover,
       &:active,
       &:focus {

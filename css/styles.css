@@ -7829,6 +7829,9 @@ pre {
       font-weight: 600;
       color: rgba(255, 255, 255, 0.5);
       display: block; }
+      @media (max-width: 767px) {
+        .navbar-default .version > li > a {
+          padding: 13px 10px 0px; } }
       .navbar-default .version > li > a:hover, .navbar-default .version > li > a:active, .navbar-default .version > li > a:focus {
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none; }

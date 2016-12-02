@@ -35,6 +35,101 @@
     }
   }
 
+  .tabs {
+    background: #f6f7fa;
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    li {
+      flex: 0 0 360px;
+      margin-left: 50px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #272a2f;
+      margin-bottom: 5px;
+      margin-top: 0;
+      position: relative;
+    }
+
+    p {
+      font-size: 14px;
+      color: #727a87;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    a {
+      position: relative;
+      display: block;
+      padding: 32px 0 28px 108px;
+      z-index: 1;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .3s box-shadow, .3s transform, .3s background, .3s border-radius;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+
+        &::before {
+          background: white;
+          border-radius: 4px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
+          transform: scale(1.1, 1.1);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &.active::before {
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
+        transform: scale(1.2, 1.2);
+      }
+
+      &::after {
+        background: url('/img/getting-started/getting-started-toggle-icons.png') no-repeat 0 0;
+        background-size: 70px;
+        width: 70px;
+        height: 70px;
+        content: '';
+        left: 10px;
+        top: 20px;
+        display: block;
+        position: absolute;
+        opacity: .7;
+        transition: .3s opacity;
+      }
+
+      &.creator::after {
+        background-position: 0 -140px;
+      }
+    }
+  }
+
   .alert {
     color: #ffeed6;
     font-size: 14px;

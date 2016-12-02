@@ -464,4 +464,42 @@
       }
     }
   }
+
+  .creator {
+    text-align: center;
+
+    hgroup {
+      .logo {
+        width: 158px;
+        margin-bottom: 57px;
+        margin-top: 100px;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #272a2f;
+        margin-bottom: 2px;
+        margin-top: 0;
+        letter-spacing: -.02em;
+      }
+
+      p {
+        font-size: 16px;
+        color: #727a87;
+        max-width: 335px;
+        line-height: 1.8em;
+        margin: 0 auto 47px;
+      }
+
+      .btn {
+        letter-spacing: -.05em;
+      }
+    }
+
+    .xl {
+      margin-top: 80px;
+      margin-bottom: 50px;
+      width: 100%;
+    }
+  }
 }

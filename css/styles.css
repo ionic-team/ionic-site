@@ -8049,6 +8049,84 @@ pre {
       font-size: 20px;
       color: rgba(255, 255, 255, 0.8);
       letter-spacing: -.03em; }
+  .cta .tabs {
+    background: #f6f7fa; }
+    .cta .tabs .container {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      list-style: none;
+      margin-bottom: 0; }
+    .cta .tabs li {
+      -webkit-flex: 0 0 360px;
+          -ms-flex: 0 0 360px;
+              flex: 0 0 360px;
+      margin-left: 50px; }
+      .cta .tabs li:first-child {
+        margin-left: 0; }
+    .cta .tabs h3 {
+      font-size: 16px;
+      color: #272a2f;
+      margin-bottom: 5px;
+      margin-top: 0;
+      position: relative; }
+    .cta .tabs p {
+      font-size: 14px;
+      color: #727a87;
+      position: relative;
+      margin-bottom: 0; }
+    .cta .tabs a {
+      position: relative;
+      display: block;
+      padding: 32px 0 28px 108px;
+      z-index: 1; }
+      .cta .tabs a::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .3s box-shadow, .3s -webkit-transform, .3s background, .3s border-radius;
+        transition: .3s box-shadow, .3s transform, .3s background, .3s border-radius; }
+      .cta .tabs a:hover, .cta .tabs a:active, .cta .tabs a:focus {
+        text-decoration: none; }
+        .cta .tabs a:hover::before, .cta .tabs a:active::before, .cta .tabs a:focus::before {
+          background: white;
+          border-radius: 4px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.05), 0 6px 10px rgba(0, 0, 0, 0.08);
+          -webkit-transform: scale(1.1, 1.1);
+              -ms-transform: scale(1.1, 1.1);
+                  transform: scale(1.1, 1.1); }
+        .cta .tabs a:hover::after, .cta .tabs a:active::after, .cta .tabs a:focus::after {
+          opacity: 1; }
+      .cta .tabs a.active::before {
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.05), 0 6px 10px rgba(0, 0, 0, 0.08);
+        -webkit-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+                transform: scale(1.2, 1.2); }
+      .cta .tabs a::after {
+        background: url("/img/getting-started/getting-started-toggle-icons.png") no-repeat 0 0;
+        background-size: 70px;
+        width: 70px;
+        height: 70px;
+        content: '';
+        left: 10px;
+        top: 20px;
+        display: block;
+        position: absolute;
+        opacity: .7;
+        transition: .3s opacity; }
+      .cta .tabs a.creator::after {
+        background-position: 0 -140px; }
   .cta .alert {
     color: #ffeed6;
     font-size: 14px;
@@ -10855,6 +10933,31 @@ ul.docs-example {
         border-radius: 0 3px 3px 0; }
         #page-getting-started main .what-next .subscribe form .btn i {
           margin-right: 3px; }
+
+#page-getting-started main .creator {
+  text-align: center; }
+  #page-getting-started main .creator hgroup .logo {
+    width: 158px;
+    margin-bottom: 57px;
+    margin-top: 100px; }
+  #page-getting-started main .creator hgroup h2 {
+    font-size: 28px;
+    color: #272a2f;
+    margin-bottom: 2px;
+    margin-top: 0;
+    letter-spacing: -.02em; }
+  #page-getting-started main .creator hgroup p {
+    font-size: 16px;
+    color: #727a87;
+    max-width: 335px;
+    line-height: 1.8em;
+    margin: 0 auto 47px; }
+  #page-getting-started main .creator hgroup .btn {
+    letter-spacing: -.05em; }
+  #page-getting-started main .creator .xl {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    width: 100%; }
 
 .page-home .primary-row {
   text-align: center; }

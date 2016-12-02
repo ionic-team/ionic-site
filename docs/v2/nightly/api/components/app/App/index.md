@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/app/app.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/app/app.ts#L11">
 Improve this doc
 </a>
 
@@ -155,6 +155,26 @@ Boolean if the app is actively scrolling or not.
 
 
 </div>
+
+
+
+
+<div id="goBack"></div>
+
+<h3>
+<a class="anchor" name="goBack" href="#goBack"></a>
+<code>goBack()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
 
 
 

@@ -495,7 +495,8 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>Returns true if the menu is currently open, otherwise false.</p>
+  <code>boolean</code> <p>Returns true if the specified menu is currently open, otherwise false.
+If the menuId is not specified, it returns true if ANY menu is currenly open.</p>
 
 
 </div>

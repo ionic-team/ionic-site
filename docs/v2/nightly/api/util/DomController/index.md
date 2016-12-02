@@ -31,7 +31,7 @@ DomController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/dom-controller.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/dom-controller.ts#L48">
 Improve this doc
 </a>
 
@@ -115,6 +115,26 @@ Improve this doc
 
 
 
+<div id="debouncer"></div>
+
+<h3>
+<a class="anchor" name="debouncer" href="#debouncer"></a>
+<code>debouncer()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="read"></div>
 
 <h3>
@@ -175,6 +195,46 @@ Improve this doc
 
 
 
+<div id="cancelW"></div>
+
+<h3>
+<a class="anchor" name="cancelW" href="#cancelW"></a>
+<code>cancelW()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="cancelR"></div>
+
+<h3>
+<a class="anchor" name="cancelR" href="#cancelR"></a>
+<code>cancelR()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="queue"></div>
 
 <h3>
@@ -200,6 +260,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="flush" href="#flush"></a>
 <code>flush()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="dispatch"></div>
+
+<h3>
+<a class="anchor" name="dispatch" href="#dispatch"></a>
+<code>dispatch()</code>
   
 
 </h3>

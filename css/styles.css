@@ -7819,6 +7819,67 @@ pre {
       -webkit-transform: scale(1);
           -ms-transform: scale(1);
               transform: scale(1); } }
+  .navbar-default .version {
+    float: left;
+    list-style: none;
+    padding-left: 0; }
+    .navbar-default .version > li > a {
+      padding: 24px 10px 5px;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      display: block; }
+      .navbar-default .version > li > a:hover, .navbar-default .version > li > a:active, .navbar-default .version > li > a:focus {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none; }
+    .navbar-default .version .dropdown-menu {
+      display: block;
+      position: absolute;
+      border: 0;
+      border-radius: 3px;
+      padding: 12px 0 10px;
+      top: 56px;
+      left: -23px;
+      right: -100px;
+      min-width: 155px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      -webkit-transform: scale(0.01);
+          -ms-transform: scale(0.01);
+              transform: scale(0.01);
+      -webkit-transform-origin: 80% 8px;
+          -ms-transform-origin: 80% 8px;
+              transform-origin: 80% 8px;
+      transition: all 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12), opacity 0.1s linear; }
+      .navbar-default .version .dropdown-menu a {
+        padding: 6px 23px;
+        line-height: 1.6;
+        font-size: 13px;
+        font-weight: 500; }
+        .navbar-default .version .dropdown-menu a i::before {
+          font-size: 30px;
+          line-height: 10px;
+          position: relative;
+          top: 7px;
+          margin-left: 5px; }
+        .navbar-default .version .dropdown-menu a.active, .navbar-default .version .dropdown-menu a.active:hover {
+          color: #4a8bfc;
+          text-decoration: none; }
+      .navbar-default .version .dropdown-menu::before {
+        background: url("/img/ico-nav-arrow.png") center center no-repeat;
+        background-size: 15px;
+        width: 15px;
+        height: 8px;
+        position: absolute;
+        top: -7px;
+        left: 35px;
+        content: '';
+        z-index: 5; }
+    .navbar-default .version.open .dropdown-menu {
+      opacity: 1;
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); }
   .navbar-default .navbar-form {
     margin: 20px 0 0 110px; }
     .navbar-default .navbar-form .form-group {

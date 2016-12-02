@@ -7723,8 +7723,6 @@ pre {
       width: 128px; }
     .navbar-default .navbar-brand:hover {
       opacity: .65; }
-  .navbar-default #ionic-docs-logo {
-    width: 94px; }
   @media (min-width: 768px) {
     .navbar-default.transparent {
       background: transparent; } }
@@ -7800,10 +7798,11 @@ pre {
               transform-origin: 80% 8px;
       transition: all 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12), opacity 0.1s linear; }
       .navbar-default .dropdown .dropdown-menu a {
-        padding: 6px 23px;
+        padding: 6px 21px;
         line-height: 1.6;
         font-size: 13px;
-        font-weight: 500; }
+        font-weight: 500;
+        color: #727c8e; }
       .navbar-default .dropdown .dropdown-menu::before {
         background: url("/img/ico-nav-arrow.png") center center no-repeat;
         background-size: 15px;
@@ -7824,7 +7823,7 @@ pre {
     list-style: none;
     padding-left: 0; }
     .navbar-default .version > li > a {
-      padding: 24px 10px 5px;
+      padding: 26px 12px 0px;
       font-size: 18px;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.5);
@@ -7850,9 +7849,9 @@ pre {
       -webkit-transform: scale(0.01);
           -ms-transform: scale(0.01);
               transform: scale(0.01);
-      -webkit-transform-origin: 80% 8px;
-          -ms-transform-origin: 80% 8px;
-              transform-origin: 80% 8px;
+      -webkit-transform-origin: 20% 8px;
+          -ms-transform-origin: 20% 8px;
+              transform-origin: 20% 8px;
       transition: all 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12), opacity 0.1s linear; }
       .navbar-default .version .dropdown-menu a {
         padding: 6px 23px;
@@ -7867,7 +7866,9 @@ pre {
           margin-left: 5px; }
         .navbar-default .version .dropdown-menu a.active, .navbar-default .version .dropdown-menu a.active:hover {
           color: #4a8bfc;
-          text-decoration: none; }
+          text-decoration: none;
+          background: transparent;
+          cursor: default; }
       .navbar-default .version .dropdown-menu::before {
         background: url("/img/ico-nav-arrow.png") center center no-repeat;
         background-size: 15px;
@@ -7989,9 +7990,42 @@ pre {
     .navbar-default .container-fluid .navbar-nav > li > a {
       padding-left: 5px;
       padding-right: 4px; } }
+  .navbar-default .container-fluid #ionic-docs-logo,
+  .navbar-default .container-fluid #ionic-docs-back {
+    width: 32px;
+    transition: .3s -webkit-transform, .3s opacity;
+    transition: .3s transform, .3s opacity; }
+  .navbar-default .container-fluid #ionic-docs-back {
+    position: absolute;
+    top: 20px;
+    left: 13px;
+    opacity: 0;
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+            transform: scale3d(1.1, 1.1, 1); }
+  .navbar-default .container-fluid #ionic-docs-text {
+    width: 56px;
+    margin-left: 5px; }
   .navbar-default .container-fluid .navbar-brand img {
     width: 88px;
     margin-top: 2px; }
+  .navbar-default .container-fluid .navbar-brand.logo {
+    position: relative; }
+    .navbar-default .container-fluid .navbar-brand.logo:hover {
+      opacity: 1; }
+      .navbar-default .container-fluid .navbar-brand.logo:hover #ionic-docs-logo {
+        opacity: 0;
+        -webkit-transform: translate3d(-3px, 0, 0) scale3d(1.1, 1.1, 1);
+                transform: translate3d(-3px, 0, 0) scale3d(1.1, 1.1, 1); }
+      .navbar-default .container-fluid .navbar-brand.logo:hover #ionic-docs-back {
+        opacity: 1;
+        -webkit-transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
+                transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1); }
+    .navbar-default .container-fluid .navbar-brand.logo:hover:active, .navbar-default .container-fluid .navbar-brand.logo:active, .navbar-default .container-fluid .navbar-brand.logo:focus {
+      -webkit-transform: translate3d(-3px, 0, 0) scale3d(0.9, 0.9, 1);
+              transform: translate3d(-3px, 0, 0) scale3d(0.9, 0.9, 1);
+      -webkit-transform-origin: 120% 80%;
+          -ms-transform-origin: 120% 80%;
+              transform-origin: 120% 80%; }
 
 .transparent .cta {
   margin-top: -77px;

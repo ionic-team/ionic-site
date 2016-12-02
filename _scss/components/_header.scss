@@ -29,10 +29,6 @@
     }
   }
 
-  #ionic-docs-logo {
-    width: 94px;
-  }
-
   @media (min-width: $screen-sm-min) {
     &.transparent {
       background: transparent;
@@ -131,10 +127,11 @@
         transition: all .3s cubic-bezier(.155, 1.105, .295, 1.12), opacity .1s linear;
 
         a {
-          padding: 6px 23px;
+          padding: 6px 21px;
           line-height: 1.6;
           font-size: 13px;
           font-weight: 500;
+          color: #727c8e;
         }
 
         &::before {
@@ -164,7 +161,7 @@
     padding-left: 0;
 
     > li > a {
-      padding: 24px 10px 5px;
+      padding: 26px 12px 0px;
       font-size: 18px;
       font-weight: 600;
       color: rgba(255, 255, 255, .5);
@@ -195,7 +192,7 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
       opacity: 0;
       transform: scale(.01);
-      transform-origin: 80% 8px;
+      transform-origin: 20% 8px;
       transition: all .3s cubic-bezier(.155, 1.105, .295, 1.12), opacity .1s linear;
 
       a {
@@ -216,6 +213,8 @@
         &.active:hover {
           color: $blue;
           text-decoration: none;
+          background: transparent;
+          cursor: default;
         }
       }
 
@@ -379,9 +378,55 @@
       }
     }
 
-    .navbar-brand img {
-      width: 88px;
-      margin-top: 2px;
+    #ionic-docs-logo,
+    #ionic-docs-back {
+      width: 32px;
+      transition: .3s transform, .3s opacity;
+    }
+
+    #ionic-docs-back {
+      position: absolute;
+      top: 20px;
+      left: 13px;
+      opacity: 0;
+      transform: scale3d(1.1, 1.1, 1);
+    }
+
+    #ionic-docs-text {
+      width: 56px;
+      margin-left: 5px;
+    }
+
+    .navbar-brand {
+      img {
+        width: 88px;
+        margin-top: 2px;
+      }
+
+      &.logo {
+        position: relative;
+
+        &:hover {
+          opacity: 1;
+
+          #ionic-docs-logo {
+            opacity: 0;
+            transform: translate3d(-3px, 0, 0) scale3d(1.1, 1.1, 1);
+          }
+
+          #ionic-docs-back {
+            opacity: 1;
+            transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
+          }
+        }
+
+        &:hover:active,
+        &:active,
+        &:focus {
+          transform: translate3d(-3px, 0, 0) scale3d(.9, .9, 1);
+          transform-origin: 120% 80%;
+        }
+      }
     }
   }
 }

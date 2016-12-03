@@ -39,19 +39,32 @@
     background: #f6f7fa;
 
     .container {
-      display: flex;
       flex-wrap: wrap;
       justify-content: center;
       list-style: none;
       margin-bottom: 0;
+      text-align: center;
     }
 
     li {
-      flex: 0 0 360px;
+      max-width: 360px;
       margin-left: 50px;
+      text-align: left;
+      display: inline-block;
 
       &:first-child {
         margin-left: 0;
+      }
+
+
+      @media (max-width: 991px) {
+        margin-left: 0;
+        display: block;
+        margin: 0 auto;
+
+        &:first-child {
+          margin-left: auto;
+        }
       }
     }
 

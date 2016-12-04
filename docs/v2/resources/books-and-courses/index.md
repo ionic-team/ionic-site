@@ -20,6 +20,7 @@ header_sub_title: Ionic 2 Developer Preview
   <p>There are some wonderful books out for Ionic 2, with several major ones in the works.</p>
 
   <ul>
+    <li><a href="https://www.leanpub.com/masteringionic2">Mastering Ionic 2 by James Griffiths</a></li>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
   </ul>
 </section>

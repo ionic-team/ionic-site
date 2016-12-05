@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L15">
 Improve this doc
 </a>
 
@@ -117,6 +117,199 @@ adjusted, which could be by either padding or margin.
 
 A number representing how many pixels the bottom of the content has been
 adjusted, which could be by either padding or margin.
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollHeight"></div>
+
+<h3>
+<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
+<code>scrollHeight</code>
+  
+
+</h3>
+
+The height the content, including content not visible
+on the screen due to overflow.
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollWidth"></div>
+
+<h3>
+<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
+<code>scrollWidth</code>
+  
+
+</h3>
+
+The width the content, including content not visible
+on the screen due to overflow.
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollTop"></div>
+
+<h3>
+<a class="anchor" name="scrollTop" href="#scrollTop"></a>
+<code>scrollTop</code>
+  
+
+</h3>
+
+The distance of the content's top to its topmost visible content.
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollLeft"></div>
+
+<h3>
+<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
+<code>scrollLeft</code>
+  
+
+</h3>
+
+The distance of the content's left to its leftmost visible content.
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isScrolling"></div>
+
+<h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<code>isScrolling</code>
+  
+
+</h3>
+
+If the scrollable area is actively scrolling or not.
+
+
+
+
+
+
+
+
+
+
+
+<div id="velocityY"></div>
+
+<h3>
+<a class="anchor" name="velocityY" href="#velocityY"></a>
+<code>velocityY</code>
+  
+
+</h3>
+
+The current vertical scroll velocity.
+
+
+
+
+
+
+
+
+
+
+
+<div id="velocityX"></div>
+
+<h3>
+<a class="anchor" name="velocityX" href="#velocityX"></a>
+<code>velocityX</code>
+  
+
+</h3>
+
+The current horizontal scroll velocity.
+
+
+
+
+
+
+
+
+
+
+
+<div id="directionY"></div>
+
+<h3>
+<a class="anchor" name="directionY" href="#directionY"></a>
+<code>directionY</code>
+  
+
+</h3>
+
+The current, or last known, vertical scroll direction.
+
+
+
+
+
+
+
+
+
+
+
+<div id="directionX"></div>
+
+<h3>
+<a class="anchor" name="directionX" href="#directionX"></a>
+<code>directionX</code>
+  
+
+</h3>
+
+The current, or last known, horizontal scroll direction.
 
 
 
@@ -274,80 +467,6 @@ Scroll to the top of the content component.
 
 
 </div>
-
-
-
-
-<div id="getScrollTop"></div>
-
-<h3>
-<a class="anchor" name="getScrollTop" href="#getScrollTop"></a>
-<code>getScrollTop()</code>
-  
-
-</h3>
-
-Get the `scrollTop` property of the content's scrollable element.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="setScrollTop"></div>
-
-<h3>
-<a class="anchor" name="setScrollTop" href="#setScrollTop"></a>
-<code>setScrollTop(top)</code>
-  
-
-</h3>
-
-Set the `scrollTop` property of the content's scrollable element.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        top
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
 
 
 
@@ -616,6 +735,26 @@ Returns the content and scroll elements' dimensions.
 
 Tell the content to recalculate its dimensions. This should be called
 after dynamically adding headers, footers, or tabs.
+
+
+
+
+
+
+
+
+
+
+
+<div id="isImgsRefreshable"></div>
+
+<h3>
+<a class="anchor" name="isImgsRefreshable" href="#isImgsRefreshable"></a>
+<code>isImgsRefreshable()</code>
+  
+
+</h3>
+
 
 
 

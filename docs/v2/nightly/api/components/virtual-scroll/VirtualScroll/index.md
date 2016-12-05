@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/virtual-scroll/virtual-scroll.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/virtual-scroll/virtual-scroll.ts#L10">
 Improve this doc
 </a>
 
@@ -185,6 +185,48 @@ dataset, so please make sure they&#39;re performant.</li>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="readUpdate"></div>
+
+<h3>
+<a class="anchor" name="readUpdate" href="#readUpdate"></a>
+<code>readUpdate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="writeUpdate"></div>
+
+<h3>
+<a class="anchor" name="writeUpdate" href="#writeUpdate"></a>
+<code>writeUpdate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

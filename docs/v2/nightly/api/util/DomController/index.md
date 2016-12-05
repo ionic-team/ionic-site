@@ -275,26 +275,6 @@ Improve this doc
 
 
 
-<div id="dispatch"></div>
-
-<h3>
-<a class="anchor" name="dispatch" href="#dispatch"></a>
-<code>dispatch()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

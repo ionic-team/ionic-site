@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.3.0"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/service/$ionicPlatform/"
 
 title: "$ionicPlatform"

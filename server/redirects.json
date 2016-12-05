@@ -17,5 +17,6 @@
   "/docs/v2/getting-started/tutoria/building-forms": "/docs/v2/setup/tutorial/building-forms",
   "/docs/v2/getting-started/tutoria/customization": "/docs/v2/setup/tutorial/customization",
   "/docs/v2/getting-started/tutoria/project-structure": "/docs/v2/setup/tutorial/project-structure",
-  "/docs/v2/getting-started/tutoria/using-platform-plugins": "/docs/v2/setup/tutorial/using-platform-plugins"
+  "/docs/v2/getting-started/tutoria/using-platform-plugins": "/docs/v2/setup/tutorial/using-platform-plugins",
+  "/docs/v2": "/docs"
 }

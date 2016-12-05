@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.2.0"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/directive/ionPane/"
 
 title: "ion-pane"

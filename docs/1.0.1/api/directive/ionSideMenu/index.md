@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.1"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/directive/ionSideMenu/"
 
 title: "ion-side-menu"

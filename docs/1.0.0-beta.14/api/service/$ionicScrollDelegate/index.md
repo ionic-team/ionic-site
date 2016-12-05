@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-beta.14"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/service/$ionicScrollDelegate/"
 
 title: "$ionicScrollDelegate"

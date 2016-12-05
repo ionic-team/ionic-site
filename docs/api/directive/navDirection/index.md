@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.3.2"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/directive/navDirection/"
 
 title: "nav-direction"

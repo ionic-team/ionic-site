@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.3.1"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/service/$ionicNavBarDelegate/"
 
 title: "$ionicNavBarDelegate"

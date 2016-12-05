@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.1.0"
-versionHref: "/docs"
+versionHref: "/docs/v1"
 path: "api/directive/ionNavBackButton/"
 
 title: "ion-nav-back-button"

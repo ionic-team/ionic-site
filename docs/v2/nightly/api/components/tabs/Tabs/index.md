@@ -527,7 +527,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>49px</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -612,7 +612,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>5.6rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -832,7 +832,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>4.8rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       

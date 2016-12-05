@@ -306,7 +306,7 @@ class Profile {
         
           <td><code>600px</code></td>
         
-        <td><p>Min height of the small modal inset</p>
+        <td><p>Minimum height of the small modal inset</p>
 </td>
       </tr>
       
@@ -315,7 +315,7 @@ class Profile {
         
           <td><code>768px</code></td>
         
-        <td><p>Min height of the large modal inset</p>
+        <td><p>Minimum height of the large modal inset</p>
 </td>
       </tr>
       

@@ -335,7 +335,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
         
           <td><code>49px</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -420,7 +420,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
         
           <td><code>5.6rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -640,7 +640,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
         
           <td><code>4.8rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       

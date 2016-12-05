@@ -254,6 +254,555 @@ Improve this doc
 </table>
 
 
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$searchbar-ios-padding-vertical</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top/bottom of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-padding-horizontal</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding left/right of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-background-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .2)</code></td>
+        
+        <td><p>Background of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-border-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .05)</code></td>
+        
+        <td><p>Border color of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-min-height</code></td>
+        
+          <td><code>44px</code></td>
+        
+        <td><p>Minimum height of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-search-icon-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .5)</code></td>
+        
+        <td><p>Color of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-search-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 13 13&#39;&gt;&lt;path fill=&#39;fg-color&#39; d=&#39;M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1 M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0 L5,0z&#39;/&gt;&lt;line stroke=&#39;fg-color&#39; stroke-miterlimit=&#39;10&#39; x1=&#39;12.6&#39; y1=&#39;12.6&#39; x2=&#39;8.2&#39; y2=&#39;8.2&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-search-icon-size</code></td>
+        
+          <td><code>13px</code></td>
+        
+        <td><p>Size of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-height</code></td>
+        
+          <td><code>3rem</code></td>
+        
+        <td><p>Height of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-placeholder-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .5)</code></td>
+        
+        <td><p>Color of the searchbar input placeholder</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-text-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the searchbar input text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-background-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Background of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-transition</code></td>
+        
+          <td><code>all 300ms ease</code></td>
+        
+        <td><p>Transition of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-cancel-transition</code></td>
+        
+          <td><code>all 300ms ease</code></td>
+        
+        <td><p>Transition of the searchbar input cancel button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-clear-icon-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .5)</code></td>
+        
+        <td><p>Color of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-clear-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39;&gt;&lt;path fill=&#39;fg-color&#39; d=&#39;M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-input-clear-icon-size</code></td>
+        
+          <td><code>18px</code></td>
+        
+        <td><p>Size of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-ios-toolbar-input-background</code></td>
+        
+          <td><code>rgba(0, 0, 0, .08)</code></td>
+        
+        <td><p>Background of the searchbar input inside of a toolbar</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$searchbar-md-padding</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-background-color</code></td>
+        
+          <td><code>inherit</code></td>
+        
+        <td><p>Background of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-search-icon-color</code></td>
+        
+          <td><code>#5b5b5b</code></td>
+        
+        <td><p>Color of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-search-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39;&gt;&lt;path fill=&#39;&quot; + $searchbar-md-input-search-icon-color + &quot;&#39; d=&#39;M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-search-icon-size</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Size of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-height</code></td>
+        
+          <td><code>auto</code></td>
+        
+        <td><p>Height of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-line-height</code></td>
+        
+          <td><code>3rem</code></td>
+        
+        <td><p>Line height of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-box-shadow</code></td>
+        
+          <td><code>0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)</code></td>
+        
+        <td><p>Box shadow of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-placeholder-color</code></td>
+        
+          <td><code>#aeaeae</code></td>
+        
+        <td><p>Color of the searchbar input placeholder</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-text-color</code></td>
+        
+          <td><code>#141414</code></td>
+        
+        <td><p>Color of the searchbar input text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-background-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Background of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-border-radius</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Border radius of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-clear-icon-color</code></td>
+        
+          <td><code>#5b5b5b</code></td>
+        
+        <td><p>Color of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-clear-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39;&gt;&lt;polygon fill=&#39;&quot; + $searchbar-md-input-clear-icon-color + &quot;&#39; points=&#39;405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 375.202,405 405,375.202 285.798,256&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-md-input-clear-icon-size</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Size of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$searchbar-wp-padding</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-background-color</code></td>
+        
+          <td><code>transparent</code></td>
+        
+        <td><p>Background of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-border-width</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Border width of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-border-color</code></td>
+        
+          <td><code>$input-wp-border-color</code></td>
+        
+        <td><p>Border color of the searchbar</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-border-color-focused</code></td>
+        
+          <td><code>color($colors-wp, primary)</code></td>
+        
+        <td><p>Border color of the searchbar on focus</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-search-icon-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-search-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39;&gt;&lt;path fill=&#39;&quot; + $searchbar-wp-input-search-icon-color + &quot;&#39; d=&#39;M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-search-icon-size</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Size of the searchbar input search icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-padding-vertical</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Padding top/bottom of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-padding-horizontal</code></td>
+        
+          <td><code>8px</code></td>
+        
+        <td><p>Padding left/right of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-height</code></td>
+        
+          <td><code>auto</code></td>
+        
+        <td><p>Height of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-line-height</code></td>
+        
+          <td><code>3rem</code></td>
+        
+        <td><p>Line height of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-placeholder-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color of the searchbar input placeholder</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-text-color</code></td>
+        
+          <td><code>#141414</code></td>
+        
+        <td><p>Color of the searchbar input text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-background-color</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Background of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-border-radius</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Border radius of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-font-weight</code></td>
+        
+          <td><code>400</code></td>
+        
+        <td><p>Font weight of the searchbar input</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-clear-icon-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-clear-icon-svg</code></td>
+        
+          <td><code>&quot;&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 512 512&#39;&gt;&lt;polygon fill=&#39;&quot; + $searchbar-wp-input-clear-icon-color + &quot;&#39; points=&#39;405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 375.202,405 405,375.202 285.798,256&#39;/&gt;&lt;/svg&gt;&quot;</code></td>
+        
+        <td><p>Svg for the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$searchbar-wp-input-clear-icon-size</code></td>
+        
+          <td><code>22px</code></td>
+        
+        <td><p>Size of the searchbar input clear icon</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
 
 
 <!-- related link -->

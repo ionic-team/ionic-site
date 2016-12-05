@@ -300,7 +300,7 @@ Present a popover. See below for options
         
           <td><code>0</code></td>
         
-        <td><p>Min height of the popover content</p>
+        <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
       
@@ -309,7 +309,7 @@ Present a popover. See below for options
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the popover content</p>
+        <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
       
@@ -385,7 +385,7 @@ Present a popover. See below for options
         
           <td><code>0</code></td>
         
-        <td><p>Min height of the popover content</p>
+        <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
       
@@ -394,7 +394,7 @@ Present a popover. See below for options
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the popover content</p>
+        <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
       
@@ -479,7 +479,7 @@ Present a popover. See below for options
         
           <td><code>0</code></td>
         
-        <td><p>Min height of the popover content</p>
+        <td><p>Minimum height of the popover content</p>
 </td>
       </tr>
       
@@ -488,7 +488,7 @@ Present a popover. See below for options
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the popover content</p>
+        <td><p>Maximum height of the popover content</p>
 </td>
       </tr>
       

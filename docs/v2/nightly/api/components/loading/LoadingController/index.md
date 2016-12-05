@@ -302,7 +302,7 @@ Create a loading indicator. See below for options.
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the loading wrapper</p>
+        <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
       
@@ -432,7 +432,7 @@ Create a loading indicator. See below for options.
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the loading wrapper</p>
+        <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
       
@@ -571,7 +571,7 @@ Create a loading indicator. See below for options.
         
           <td><code>90%</code></td>
         
-        <td><p>Max height of the loading wrapper</p>
+        <td><p>Maximum height of the loading wrapper</p>
 </td>
       </tr>
       

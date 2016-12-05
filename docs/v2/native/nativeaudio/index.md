@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -316,7 +316,7 @@ Plays an audio asset
 <code>Function</code>
     </td>
     <td>
-      <p>callback to be invoked when audio is done playing</p>
+      <p>optional. Callback to be invoked when audio is done playing</p>
 
       
     </td>
@@ -328,6 +328,12 @@ Plays an audio asset
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -373,6 +379,12 @@ Stops playing an audio
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -470,6 +482,12 @@ Unloads an audio file from memory
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="setVolumeForComplexAsset"></div>
@@ -531,6 +549,12 @@ Changes the volume for preloaded complex assets.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

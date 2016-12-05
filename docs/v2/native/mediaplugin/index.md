@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -138,7 +138,7 @@ Get the current amplitude of the current recording.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with the amplitude of the current recording
+<code>Promise&lt;any&gt;</code> Returns a promise with the amplitude of the current recording
 </div><div id="getCurrentPosition"></div>
 <h3>
   <code>getCurrentPosition()</code>
@@ -151,7 +151,7 @@ Get the current position within an audio file. Also updates the Media object's p
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with the position of the current recording
+<code>Promise&lt;any&gt;</code> Returns a promise with the position of the current recording
 </div><div id="getDuration"></div>
 <h3>
   <code>getDuration()</code>
@@ -164,7 +164,7 @@ Get the duration of an audio file in seconds. If the duration is unknown, it ret
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with the duration of the current recording
+<code>number</code> Returns a promise with the duration of the current recording
 </div><div id="play"></div>
 <h3>
   <code>play()</code>
@@ -260,7 +260,7 @@ Set the volume for an audio file.
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       <p>The volume to set for playback. The value must be within the range of 0.0 to 1.0.</p>

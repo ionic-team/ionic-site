@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -99,12 +99,16 @@ Checks whether to device is capable of printing.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
 <div id="print"></div>
-<h3><code>print(The,&nbsp;The)</code>
+<h3><code>print(content,&nbsp;options)</code>
   
 </h3>
 
@@ -124,16 +128,16 @@ Sends content to the printer.
   
   <tr>
     <td>
-      The
+      content
       
       
     </td>
     <td>
       
-<code>content</code>
+<code>string</code>|<code>HTMLElement</code>
     </td>
     <td>
-      <p>content to print. Can be a URL or an HTML string. If a HTML DOM Object is provided, its innerHtml property value will be used.</p>
+      <p>The content to print. Can be a URL or an HTML string. If a HTML DOM Object is provided, its innerHtml property value will be used.</p>
 
       
     </td>
@@ -141,16 +145,16 @@ Sends content to the printer.
   
   <tr>
     <td>
-      The
+      options
       
       
     </td>
     <td>
       
-<code>options</code>
+<code>PrintOptions</code>
     </td>
     <td>
-      <p>options to pass to the printer</p>
+      <p>optional. The options to pass to the printer</p>
 
       
     </td>
@@ -162,6 +166,12 @@ Sends content to the printer.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

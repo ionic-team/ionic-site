@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -134,9 +134,7 @@ Open the scanner
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the scanned string, or rejects with an error.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the scanned string, or rejects with an error.
 </div>
 
 

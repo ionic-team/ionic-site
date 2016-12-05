@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -113,7 +113,7 @@ Initializes the plugin. User will be prompted to allow the app to use location a
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;void&gt;</code> 
 </div>
 
 
@@ -135,7 +135,7 @@ Adds a new geofence or array of geofences. For geofence object, see above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;void&gt;</code> 
 </div>
 
 
@@ -158,7 +158,7 @@ geofence was created.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;void&gt;</code> 
 </div>
 
 
@@ -180,7 +180,7 @@ Removes all geofences.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;void&gt;</code> 
 </div>
 
 
@@ -223,7 +223,7 @@ Called when a geofence is crossed in the direction specified by `TransitType`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
@@ -244,7 +244,7 @@ Called when the user clicks a geofence notification. iOS and Android only.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Object&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 

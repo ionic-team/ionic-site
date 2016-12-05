@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -263,9 +263,7 @@ Scan and discover BLE peripherals for the specified amount of time.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each peripheral that is discovered during the specified time.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral that is discovered during the specified time.
 </div>
 
 
@@ -319,9 +317,7 @@ Scan and discover BLE peripherals until `stopScan` is called.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each peripheral discovered.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral discovered.
 </div>
 
 
@@ -390,9 +386,7 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each peripheral discovered.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral discovered.
 </div>
 
 
@@ -997,9 +991,7 @@ Stop being notified when the value of a characteristic changes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1051,9 +1043,7 @@ Report the connection status.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1097,9 +1087,7 @@ Open System Bluetooth settings (Android only).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1121,9 +1109,7 @@ Enable Bluetooth on the device (Android only).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

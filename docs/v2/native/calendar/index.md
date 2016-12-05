@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -262,7 +262,7 @@ Create a calendar. (iOS only)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise
+<code>Promise&lt;any&gt;</code> Returns a Promise
 </div>
 
 
@@ -313,9 +313,7 @@ Delete a calendar. (iOS only)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise
 </div>
 
 
@@ -468,9 +466,7 @@ Silently create an event.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise
 </div>
 
 
@@ -607,9 +603,7 @@ Silently create an event with additional options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise
 </div>
 
 
@@ -729,9 +723,7 @@ Interactively create an event.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise
 </div>
 
 
@@ -868,9 +860,7 @@ Interactively create an event with additional options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -990,9 +980,7 @@ Find an event.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1128,9 +1116,7 @@ Find an event with additional options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the event, or rejects with an error.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the event, or rejects with an error.
 </div>
 
 
@@ -1199,9 +1185,7 @@ Find a list of events within the specified date range. (Android only)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the list of events, or rejects with an error.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
 </div>
 
 
@@ -1222,9 +1206,7 @@ Get a list of all calendars.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- A Promise that resolves with the list of calendars, or rejects with an error.
-
-
+<code>Promise&lt;any&gt;</code> A Promise that resolves with the list of calendars, or rejects with an error.
 </div>
 
 
@@ -1245,9 +1227,7 @@ Get a list of all future events in the specified calendar. (iOS only)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the list of events, or rejects with an error.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
 </div>
 
 

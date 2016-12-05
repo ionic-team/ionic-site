@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -91,6 +91,11 @@ Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -107,6 +112,11 @@ Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -361,6 +371,11 @@ Checks if hotspot is enabled
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;HotspotDevice&gt;&gt;</code> 
+</div>
 
 
 
@@ -687,6 +702,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -703,6 +723,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -719,6 +744,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -735,6 +765,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -751,6 +786,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -767,6 +807,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;HotspotNetwork&gt;&gt;</code> 
+</div>
 
 
 
@@ -783,6 +828,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;HotspotNetwork&gt;&gt;</code> 
+</div>
 
 
 
@@ -799,6 +849,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -815,6 +870,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -831,6 +891,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;HotspotNetworkConfig&gt;</code> 
+</div>
 
 
 
@@ -847,6 +912,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;ConnectionInfo&gt;</code> 
+</div>
 
 
 
@@ -863,6 +933,11 @@ Remove a WiFi network
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> 
+</div>
 
 
 

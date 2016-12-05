@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -81,7 +81,7 @@ CameraPreview.startCamera(
   &#39;front&#39;, // default camera
   true, // tap to take picture
   false, // disable drag
-  false, // Keep preview in front. Set to false (back of the screen) to apply overlaying elements
+  false, // keep preview in front. Set to true (back of the screen) to apply overlaying elements
   1 // set the preview alpha
 );
 
@@ -329,7 +329,11 @@ Register a callback function that receives the original picture and the image ca
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 

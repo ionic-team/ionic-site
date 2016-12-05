@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -126,10 +126,11 @@ Schedules a single or multiple notifications
     </td>
     <td>
       
-
+<code>Notification</code>|<code>Array.&lt;Notification&gt;</code>
     </td>
     <td>
-      
+      <p>optional</p>
+
       
     </td>
   </tr>
@@ -172,10 +173,11 @@ Updates a previously scheduled notification. Must include the id in the options 
     </td>
     <td>
       
-
+<code>Notification</code>
     </td>
     <td>
-      
+      <p>optional</p>
+
       
     </td>
   </tr>
@@ -216,7 +218,7 @@ Clears single or multiple notifications
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
@@ -235,7 +237,7 @@ Clears single or multiple notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when the notification had been cleared
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification had been cleared
 </div>
 
 
@@ -258,7 +260,7 @@ Clears all notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when all notifications have cleared
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications have cleared
 </div>
 
 
@@ -290,7 +292,7 @@ Cancels single or multiple notifications
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
@@ -309,7 +311,7 @@ Cancels single or multiple notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when the notification is canceled
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled
 </div>
 
 
@@ -332,7 +334,7 @@ Cancels all notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise when all notifications are canceled
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications are canceled
 </div>
 
 
@@ -364,7 +366,7 @@ Checks presence of a notification
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -382,7 +384,7 @@ Checks presence of a notification
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -414,7 +416,7 @@ Checks is a notification is scheduled
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -432,7 +434,7 @@ Checks is a notification is scheduled
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -464,7 +466,7 @@ Checks if a notification is triggered
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       
@@ -482,7 +484,7 @@ Checks if a notification is triggered
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -503,7 +505,7 @@ Get all the notification ids
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> 
 </div>
 
 
@@ -524,7 +526,7 @@ Get the ids of triggered notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> 
 </div>
 
 
@@ -545,7 +547,7 @@ Get the ids of scheduled notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
 </div>
 
 
@@ -577,7 +579,7 @@ Get a notification object
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
@@ -596,7 +598,7 @@ Get a notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Notification&gt;</code> 
 </div>
 
 
@@ -628,7 +630,7 @@ Get a scheduled notification object
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
@@ -647,7 +649,7 @@ Get a scheduled notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Notification&gt;</code> 
 </div>
 
 
@@ -698,7 +700,7 @@ Get a triggered notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Notification&gt;</code> 
 </div>
 
 
@@ -719,7 +721,7 @@ Get all notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
 </div>
 
 
@@ -740,7 +742,7 @@ Get all scheduled notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
 </div>
 
 
@@ -761,7 +763,7 @@ Get all triggered notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
 </div>
 
 
@@ -782,7 +784,7 @@ Register permission to show notifications if not already granted.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -803,7 +805,7 @@ Informs if the app has the permission to show notifications.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 

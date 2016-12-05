@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -445,6 +445,12 @@ Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="setBluetoothState"></div>
@@ -498,6 +504,12 @@ Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -948,7 +960,7 @@ Notes for iOS:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -1222,7 +1234,7 @@ Returns true if Location mode is enabled and is set to "Device only" or "High ac
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
@@ -1250,7 +1262,11 @@ Checks if location mode is set to return high-accuracy locations from GPS hardwa
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

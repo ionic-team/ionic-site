@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -84,7 +84,7 @@ ScreenOrientation.unlockOrientation();
 <h2>Static Members</h2>
 
 <div id="lockOrientation"></div>
-<h3><code>lockOrientation(The)</code>
+<h3><code>lockOrientation(orientation)</code>
   
 </h3>
 
@@ -107,16 +107,16 @@ See below for accepted values
   
   <tr>
     <td>
-      The
+      orientation
       
       
     </td>
     <td>
       
-<code>orientation</code>
+<code>string</code>
     </td>
     <td>
-      <p>orientation which should be locked. Accepted values see table below.</p>
+      <p>The orientation which should be locked. Accepted values see table below.</p>
 
       
     </td>
@@ -156,6 +156,7 @@ Unlock and allow all orientations.
 </h3>
 
 
+Get the current orientation of the device.
 
 
 

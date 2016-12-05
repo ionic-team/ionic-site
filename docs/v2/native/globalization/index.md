@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -241,7 +241,7 @@ Parses a date formatted as a string, according to the client's user preferences 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
+<code>Promise&lt;{ year: number, month: number, day: number, hour: number, minute: number, second: number, millisecond: number }&gt;</code> Returns a promise when the date has been converted.
 </div>
 
 
@@ -294,7 +294,7 @@ Returns a pattern string to format and parse dates according to the client's use
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise.
+<code>Promise&lt;{pattern: string}&gt;</code> Returns a promise.
 </div>
 
 
@@ -347,7 +347,7 @@ Returns an array of the names of the months or days of the week, depending on th
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise.
+<code>Promise&lt;{value: Array&lt;string&gt;}&gt;</code> Returns a promise.
 </div>
 
 
@@ -398,7 +398,7 @@ Indicates whether daylight savings time is in effect for a given date using the 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;dst&gt;</code> reutrns a promise with the value
+<code>Promise&lt;{dst: string}&gt;</code> reutrns a promise with the value
 </div>
 
 
@@ -419,13 +419,13 @@ Returns the first day of the week according to the client's user preferences and
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;value&gt;</code> reutrns a promise with the value
+<code>Promise&lt;{value: string}&gt;</code> returns a promise with the value
 </div>
 
 
 
 <div id="numberToString"></div>
-<h3><code>numberToString(options)</code>
+<h3><code>numberToString(numberToConvert,&nbsp;options)</code>
   
 </h3>
 
@@ -447,16 +447,34 @@ Returns a number formatted as a string according to the client's user preference
   
   <tr>
     <td>
+      numberToConvert
+      
+      
+    </td>
+    <td>
+      
+<code>Number</code>
+    </td>
+    <td>
+      <p>The number to convert</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       options
       
       
     </td>
     <td>
       
-
+<code>Object</code>
     </td>
     <td>
-      
+      <p>Object with property <code>type</code> that can be set to: decimal, percent, or currency.</p>
+
       
     </td>
   </tr>
@@ -535,7 +553,7 @@ Returns a number formatted as a string according to the client's user preference
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with the value.
+<code>Promise&lt;{ value: number | string }&gt;</code> Returns a promise with the value.
 </div>
 
 
@@ -588,7 +606,7 @@ Returns a pattern string to format and parse numbers according to the client's u
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise with the value.
+<code>Promise&lt;{ pattern: string, symbol: string, fraction: number, rounding: number, positive: string, negative: string, decimal: string, grouping: string }&gt;</code> 
 </div>
 
 
@@ -639,7 +657,7 @@ Returns a pattern string to format and parse currency values according to the cl
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise with the value
+<code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
 </div>
 
 

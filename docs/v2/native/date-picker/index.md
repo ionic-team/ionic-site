@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -47,9 +47,16 @@ docType: "class"
 <!-- description -->
 
 <p>The DatePicker plugin allows the user to fetch date or time using native dialogs.</p>
-<p>Platforms supported: iOS, Android, Windows</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">DatePicker plugin docs</a>.</p>
 
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows</li>
+</ul>
+
+<!-- @platforms tag end -->
 
 
 <!-- @usage tag -->
@@ -138,10 +145,10 @@ Shows the date and/or time picker dialog(s)
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="DatePickerOptions" href="#DatePickerOptions"></a>DatePickerOptions</h3>
+<h2><a class="anchor" name="DatePickerOptions" href="#DatePickerOptions"></a>DatePickerOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -160,7 +167,7 @@ Shows the date and/or time picker dialog(s)
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>The mode of the date picker
@@ -175,7 +182,7 @@ Values: date | time | datetime</p>
       
     </td>
     <td>
-      Date | string | number
+      <code>Date | string | number</code>
     </td>
     <td>
       <p>Selected date</p>
@@ -189,7 +196,7 @@ Values: date | time | datetime</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      Date | string | number
+      <code>Date | string | number</code>
     </td>
     <td>
       <p>Minimum date
@@ -204,7 +211,7 @@ Default: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      Date | string | number
+      <code>Date | string | number</code>
     </td>
     <td>
       <p>Maximum date
@@ -219,7 +226,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label for the dialog title. If empty, uses android default (Set date/Set time).
@@ -234,7 +241,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of BUTTON_POSITIVE (done button) on Android</p>
@@ -248,7 +255,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of BUTTON_NEGATIVE (cancel button). If empty, uses android.R.string.cancel.</p>
@@ -262,7 +269,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of today button. If empty, doesn&#39;t show the option to select current date.</p>
@@ -276,7 +283,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of now button. If empty, doesn&#39;t show the option to select current time.</p>
@@ -290,7 +297,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Shows time dialog in 24 hours format.</p>
@@ -304,7 +311,7 @@ Default?: empty String</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Choose the Android theme for the picker. You can use the DatePicker.ANDROID_THEMES property.
@@ -319,7 +326,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Shows or hide dates earlier then selected date.</p>
@@ -333,7 +340,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Shows or hide dates after selected date.</p>
@@ -347,7 +354,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of done button.</p>
@@ -361,7 +368,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Hex color of done button.</p>
@@ -375,7 +382,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Label of cancel button.</p>
@@ -389,7 +396,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Hex color of cancel button.</p>
@@ -403,7 +410,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>X position of date picker. The position is absolute to the root view of the application.</p>
@@ -417,7 +424,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Y position of date picker. The position is absolute to the root view of the application.</p>
@@ -431,7 +438,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Interval between options in the minute section of the date picker.</p>
@@ -445,7 +452,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Force the UIPopoverArrowDirection enum. The value any will revert to default UIPopoverArrowDirectionAny and let the app choose the proper direction itself.</p>
@@ -459,7 +466,7 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Force locale for datePicker.</p>

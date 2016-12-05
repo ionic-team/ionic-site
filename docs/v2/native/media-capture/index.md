@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -179,6 +179,12 @@ Start the audio recorder application and return information about captured audio
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;MediaFile[]&gt;</code> 
+</div>
+
 
 
 <div id="captureImage"></div>
@@ -224,6 +230,12 @@ Start the camera application and return information about captured image files.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;MediaFile[]&gt;</code> 
+</div>
 
 
 
@@ -271,6 +283,12 @@ Start the video recorder application and return information about captured video
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;MediaFile[]&gt;</code> 
+</div>
+
 
 
 <div id="onPendingCaptureResult"></div>
@@ -288,7 +306,11 @@ is fired if the capture call is successful
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;MediaFile[]&gt;</code> 
+</div>
 
 
 
@@ -307,7 +329,11 @@ is fired if the capture call is unsuccessful
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;CaptureError&gt;</code> 
+</div>
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -135,7 +135,7 @@ Copies the given text
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> Returns a promise after the text has been copied
+<code>Promise&lt;any&gt;</code> Returns a promise after the text has been copied
 </div>
 
 
@@ -156,7 +156,7 @@ Pastes the text stored in clipboard
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> Returns a promise after the text has been pasted
+<code>Promise&lt;any&gt;</code> Returns a promise after the text has been pasted
 </div>
 
 

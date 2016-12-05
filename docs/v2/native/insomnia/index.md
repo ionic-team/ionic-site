@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -103,7 +103,7 @@ Keeps awake the application
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -124,7 +124,7 @@ Allows the application to sleep again
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

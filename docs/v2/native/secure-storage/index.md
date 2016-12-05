@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -139,7 +139,11 @@ Creates a namespaced storage.
   </tbody>
 </table>
 
-<div id="get"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="get"></div>
 <h3>
   <code>get(reference)</code>
   
@@ -175,7 +179,11 @@ Gets a stored item
   </tbody>
 </table>
 
-<div id="set"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="set"></div>
 <h3>
   <code>set(reference,&nbsp;value)</code>
   
@@ -227,7 +235,11 @@ Stores a value
   </tbody>
 </table>
 
-<div id="remove"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="remove"></div>
 <h3>
   <code>remove(reference)</code>
   
@@ -263,7 +275,11 @@ Removes a single stored item
   </tbody>
 </table>
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

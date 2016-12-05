@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -150,7 +150,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that is called each time a deeplink comes through, and
+<code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
 </div>
 
@@ -214,7 +214,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that resolves each time a deeplink comes through, and
+<code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that resolves each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
 </div>
 

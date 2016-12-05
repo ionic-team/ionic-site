@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -118,7 +118,11 @@ Retrieve the version of the PayPal iOS SDK library. Useful when contacting suppo
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> 
+</div>
 
 
 
@@ -168,6 +172,12 @@ the recommended time to preconnect is on page load.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -234,6 +244,12 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="renderSinglePaymentUI"></div>
@@ -282,6 +298,12 @@ for more documentation of the params.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="clientMetadataID"></div>
@@ -303,7 +325,11 @@ Do not otherwise cache or store this value.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -320,7 +346,11 @@ Please Read Docs on Future Payments at https://github.com/paypal/PayPal-iOS-SDK#
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -369,6 +399,12 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 
@@ -377,11 +413,11 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
 
 
 <!-- other classes -->
-<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
 
 
 
-<h3><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h3>
+<h2><a class="anchor" name="PayPalPayment" href="#PayPalPayment"></a>PayPalPayment</h2>
 
 
 <!-- methods on the class -->
@@ -513,7 +549,7 @@ Optional PayPalPaymentDetails object
 
 
 
-<h3><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h3>
+<h2><a class="anchor" name="PayPalItem" href="#PayPalItem"></a>PayPalItem</h2>
 
 
 <!-- methods on the class -->
@@ -578,7 +614,7 @@ The stock keeping unit for this item. 50 characters max (optional)
 
 
 
-<h3><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h3>
+<h2><a class="anchor" name="PayPalPaymentDetails" href="#PayPalPaymentDetails"></a>PayPalPaymentDetails</h2>
 
 
 <!-- methods on the class -->
@@ -621,7 +657,7 @@ Amount charged for tax. 10 characters max with support for 2 decimal places.
 
 
 
-<h3><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h3>
+<h2><a class="anchor" name="PayPalShippingAddress" href="#PayPalShippingAddress"></a>PayPalShippingAddress</h2>
 
 
 <!-- methods on the class -->
@@ -711,10 +747,10 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="PayPalEnvironment" href="#PayPalEnvironment"></a>PayPalEnvironment</h3>
+<h2><a class="anchor" name="PayPalEnvironment" href="#PayPalEnvironment"></a>PayPalEnvironment</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -733,7 +769,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       
@@ -746,7 +782,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       
@@ -759,7 +795,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
 
 
 
-<h3><a class="anchor" name="PayPalConfigurationOptions" href="#PayPalConfigurationOptions"></a>PayPalConfigurationOptions</h3>
+<h2><a class="anchor" name="PayPalConfigurationOptions" href="#PayPalConfigurationOptions"></a>PayPalConfigurationOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -778,7 +814,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by email used in most recent PayPal login.</p>
@@ -792,7 +828,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by phone country code used in most recent PayPal login</p>
@@ -806,7 +842,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Will be overridden by phone number used in most recent PayPal login.</p>
@@ -820,7 +856,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Your company name, as it should be displayed to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -834,7 +870,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>URL of your company&#39;s privacy policy, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -848,7 +884,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>URL of your company&#39;s user agreement, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
@@ -862,7 +898,7 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If set to NO, the SDK will only support paying with PayPal, not with credit cards.
@@ -879,7 +915,7 @@ Defaults to true</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>For single payments, options for the shipping address.</p>
@@ -903,7 +939,7 @@ Defaults to 0 (PayPalShippingAddressOptionNone).</li>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If set to YES, then if the user pays via their PayPal account,
@@ -924,7 +960,7 @@ not be remembered.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>If not set, or if set to nil, defaults to the device&#39;s current language setting.</p>
@@ -944,7 +980,7 @@ E.g., specifying &quot;en&quot; on a device set to &quot;English&quot; and &quot
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Normally, the SDK blurs the screen when the app is backgrounded,
@@ -961,7 +997,7 @@ Defaults to NO.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>If you will present the SDK&#39;s view controller within a popover, then set this property to YES.
@@ -976,7 +1012,7 @@ Defaults to NO. (iOS only)</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Sandbox credentials can be difficult to type on a mobile device. Setting this flag to YES will
@@ -991,7 +1027,7 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Password to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>
@@ -1005,7 +1041,7 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>PIN to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -130,9 +130,7 @@ Get the device's current position.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
-
-
+<code>Promise&lt;Geoposition&gt;</code> Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
 </div>
 
 
@@ -195,9 +193,7 @@ subscription.unsubscribe();
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
-
-
+<code>Observable&lt;Geoposition&gt;</code> Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
 </div>
 
 
@@ -213,10 +209,10 @@ subscription.unsubscribe();
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="Coordinates" href="#Coordinates"></a>Coordinates</h3>
+<h2><a class="anchor" name="Coordinates" href="#Coordinates"></a>Coordinates</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -235,7 +231,7 @@ subscription.unsubscribe();
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>a double representing the position&#39;s latitude in decimal degrees.</p>
@@ -249,7 +245,7 @@ subscription.unsubscribe();
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the position&#39;s longitude in decimal degrees.</p>
@@ -263,7 +259,7 @@ subscription.unsubscribe();
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the accuracy of the latitude and longitude properties,
@@ -278,7 +274,7 @@ expressed in meters.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the position&#39;s altitude in metres, relative to sea
@@ -293,7 +289,7 @@ level. This value can be null if the implementation cannot provide the data.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the accuracy of the altitude expressed in meters.
@@ -308,7 +304,7 @@ This value can be null.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the direction in which the device is traveling. This
@@ -327,7 +323,7 @@ heading information, this value is null.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A double representing the velocity of the device in meters per second.
@@ -342,7 +338,7 @@ This value can be null.</p>
 
 
 
-<h3><a class="anchor" name="Geoposition" href="#Geoposition"></a>Geoposition</h3>
+<h2><a class="anchor" name="Geoposition" href="#Geoposition"></a>Geoposition</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -361,7 +357,7 @@ This value can be null.</p>
       
     </td>
     <td>
-      Coordinates
+      <code>Coordinates</code>
     </td>
     <td>
       <p>A Coordinates object defining the current location</p>
@@ -375,7 +371,7 @@ This value can be null.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A timestamp representing the time at which the location was retrieved.</p>
@@ -389,7 +385,7 @@ This value can be null.</p>
 
 
 
-<h3><a class="anchor" name="PositionError" href="#PositionError"></a>PositionError</h3>
+<h2><a class="anchor" name="PositionError" href="#PositionError"></a>PositionError</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -408,7 +404,7 @@ This value can be null.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A code that indicates the error that occurred</p>
@@ -422,7 +418,7 @@ This value can be null.</p>
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>A message that can describe the error that occurred</p>
@@ -436,7 +432,7 @@ This value can be null.</p>
 
 
 
-<h3><a class="anchor" name="GeolocationOptions" href="#GeolocationOptions"></a>GeolocationOptions</h3>
+<h2><a class="anchor" name="GeolocationOptions" href="#GeolocationOptions"></a>GeolocationOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -455,7 +451,7 @@ This value can be null.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Is a positive long value indicating the maximum age in milliseconds of a
@@ -473,7 +469,7 @@ return a cached position regardless of its age. Default: 0.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Is a positive long value representing the maximum length of time
@@ -490,7 +486,7 @@ won&#39;t return until the position is available.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Indicates the application would like to receive the best possible results.

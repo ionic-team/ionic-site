@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -147,7 +147,7 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with an array of objects.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with an array of objects.
 </div>
 
 
@@ -200,7 +200,7 @@ Buy a product that matches the productId.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the transaction details.
+<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
 </div>
 
 
@@ -253,7 +253,7 @@ Same as buy, but for subscription based products.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the transaction details.
+<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
 </div>
 
 
@@ -334,6 +334,12 @@ Call this function after purchasing a "consumable" product to mark it as consume
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="restorePurchases"></div>
@@ -354,7 +360,7 @@ Restore all purchases from the store
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a promise with an array of purchases.
+<code>Promise&lt;any&gt;</code> Returns a promise with an array of purchases.
 </div>
 
 

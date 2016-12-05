@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -160,6 +160,12 @@ Browser wrapper
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="login"></div>
@@ -246,9 +252,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves on a successful logout, and rejects if logout fails.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves on a successful logout, and rejects if logout fails.
 </div>
 
 
@@ -291,9 +295,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with a status, or rejects with an error
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with a status, or rejects with an error
 </div>
 
 
@@ -315,15 +317,13 @@ Get a Facebook access token for using Facebook services.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with an access token, or rejects with an error
-
-
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with an access token, or rejects with an error
 </div>
 
 
 
 <div id="showDialog"></div>
-<h3><code>showDialog()</code>
+<h3><code>showDialog(options)</code>
   
 </h3>
 
@@ -343,6 +343,36 @@ Show one of various Facebook dialogs. Example of options for a Share dialog:
 For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova-plugin-facebook4#show-a-dialog) and the [Facebook docs](https://developers.facebook.com/docs/javascript/reference/FB.ui)
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>The dialog options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -350,9 +380,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with success data, or rejects with an error
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with success data, or rejects with an error
 </div>
 
 
@@ -427,9 +455,7 @@ For more information see:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the result of the request, or rejects with an error
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result of the request, or rejects with an error
 </div>
 
 
@@ -515,7 +541,7 @@ Log an event.  For more information see the Events section above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -584,9 +610,7 @@ Log a purchase. For more information see the Events section above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -646,9 +670,7 @@ For more information see:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the result data, or rejects with an error
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result data, or rejects with an error
 </div>
 
 

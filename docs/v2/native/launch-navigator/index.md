@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -188,6 +188,12 @@ Determines if the given app is installed and available on the current device.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="availableApps"></div>
@@ -203,7 +209,11 @@ Returns a list indicating which apps are installed and available on the current 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string[]&gt;</code> 
+</div>
 
 
 
@@ -251,6 +261,12 @@ Returns the display name of the specified app.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
+</div>
+
 
 
 <div id="getAppsForPlatform"></div>
@@ -296,6 +312,12 @@ Returns list of supported apps on a given platform.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string[]</code> 
+</div>
 
 
 
@@ -360,6 +382,12 @@ Indicates if an app on a given platform supports specification of transport mode
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
+
 
 
 <div id="getTransportModes"></div>
@@ -421,6 +449,12 @@ Returns the list of transport modes supported by an app on a given platform.
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string[]</code> 
+</div>
 
 
 
@@ -485,6 +519,12 @@ Note that currently only Google Maps on Android does.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
+
 
 
 <div id="supportsStart"></div>
@@ -547,10 +587,16 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
+
 
 
 <div id="supportsStartName"></div>
-<h3><code>supportsStartName()</code>
+<h3><code>supportsStartName(app,&nbsp;platform)</code>
   
 </h3>
 
@@ -560,15 +606,65 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      platform
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
 
 
 
 <div id="supportsDestName"></div>
-<h3><code>supportsDestName()</code>
+<h3><code>supportsDestName(app,&nbsp;platform)</code>
   
 </h3>
 
@@ -578,15 +674,65 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      platform
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div>
 
 
 
 <div id="userSelect"></div>
-<h3><code>userSelect()</code>
+<h3><code>userSelect(destination,&nbsp;options)</code>
   
 </h3>
 
@@ -596,6 +742,50 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      destination
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>|<code>Array.&lt;number&gt;</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>LaunchNavigatorOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

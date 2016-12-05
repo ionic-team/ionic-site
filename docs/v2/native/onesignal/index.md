@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -160,6 +160,12 @@ Start the initialization process. Once you are done configuring OneSignal, call 
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>any</code> 
+</div>
+
 
 
 <div id="handleNotificationReceived"></div>
@@ -252,6 +258,12 @@ Callback to run when a notification is opened
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>any</code> 
+</div>
+
 
 
 <div id="endInit"></div>
@@ -269,6 +281,11 @@ Callback to run when a notification is opened
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>any</code> 
+</div>
 
 
 
@@ -289,7 +306,7 @@ Retrieve a list of tags that have been set on the user from the OneSignal server
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when tags are recieved.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves when tags are recieved.
 </div>
 
 
@@ -312,7 +329,7 @@ Your handler is called after the device is successfully registered with OneSigna
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that reolves if the device was successfully registered.
+<code>Promise&lt;any&gt;</code> Returns a Promise that reolves if the device was successfully registered.
 It returns a JSON with `userId`and `pushToken`.
 </div>
 
@@ -795,7 +812,7 @@ You can pass true later to opt users back into notifications.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves if the notification was send successfully.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the notification was send successfully.
 </div>
 
 

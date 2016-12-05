@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -247,7 +247,11 @@ Creates an observable that notifies you when the keyboard is shown. Unsubscribe 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 
@@ -277,7 +281,11 @@ Creates an observable that notifies you when the keyboard is hidden. Unsubscribe
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 

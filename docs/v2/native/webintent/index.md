@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -109,7 +109,7 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 <div id="startActivity"></div>
-<h3><code>startActivity()</code>
+<h3><code>startActivity(options)</code>
   
 </h3>
 
@@ -117,15 +117,50 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>{ action: any, url: string, type?: string }</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="hasExtra"></div>
-<h3><code>hasExtra()</code>
+<h3><code>hasExtra(extra)</code>
   
 </h3>
 
@@ -133,15 +168,49 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      extra
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="getExtra"></div>
-<h3><code>getExtra()</code>
+<h3><code>getExtra(extra)</code>
   
 </h3>
 
@@ -149,10 +218,44 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      extra
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -169,6 +272,11 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -185,11 +293,16 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> 
+</div>
 
 
 
 <div id="sendBroadcast"></div>
-<h3><code>sendBroadcast()</code>
+<h3><code>sendBroadcast(options)</code>
   
 </h3>
 
@@ -197,10 +310,45 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>{ action: string, extras?: { option: boolean } }</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

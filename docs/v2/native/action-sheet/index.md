@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -66,7 +66,6 @@ docType: "class"
 
 <pre><code class="lang-typescript">import { ActionSheet } from &#39;ionic-native&#39;;
 
-
 let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
 ActionSheet.show({
   &#39;title&#39;: &#39;What do you want with this image?&#39;,
@@ -87,7 +86,7 @@ ActionSheet.show({
 <h2>Static Members</h2>
 
 <div id="show"></div>
-<h3><code>show(Options)</code>
+<h3><code>show(options)</code>
   
 </h3>
 
@@ -107,16 +106,16 @@ Show a native ActionSheet component. See below for options.
   
   <tr>
     <td>
-      Options
+      options
       
       
     </td>
     <td>
       
-<code>options</code>
+<code>ActionSheetOptions</code>
     </td>
     <td>
-      <p>See table below</p>
+      <p>Options See table below</p>
 
       
     </td>
@@ -132,7 +131,7 @@ Show a native ActionSheet component. See below for options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the index of the
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
 </div>
 
@@ -154,7 +153,7 @@ Progamtically hide the native ActionSheet
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves when the actionsheet is closed
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the actionsheet is closed
 </div>
 
 
@@ -162,59 +161,6 @@ Progamtically hide the native ActionSheet
 
 <!-- methods on the class -->
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>ActionSheet options</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>title</td>
-<td><code>string</code></td>
-<td>The title for the actionsheet</td>
-</tr>
-<tr>
-<td>buttonLabels</td>
-<td><code>string[]</code></td>
-<td>the labels for the buttons. Uses the index x</td>
-</tr>
-<tr>
-<td>androidTheme</td>
-<td><code>number</code></td>
-<td>Theme to be used on Android</td>
-</tr>
-<tr>
-<td>androidEnableCancelButton</td>
-<td><code>boolean</code></td>
-<td>Enable a cancel on Android</td>
-</tr>
-<tr>
-<td>winphoneEnableCancelButton</td>
-<td><code>boolean</code></td>
-<td>Enable a cancel on Windows Phone</td>
-</tr>
-<tr>
-<td>addCancelButtonWithLabel</td>
-<td><code>string</code></td>
-<td>Add a cancel button with text</td>
-</tr>
-<tr>
-<td>addDestructiveButtonWithLabel</td>
-<td><code>string</code></td>
-<td>Add a destructive button with text</td>
-</tr>
-<tr>
-<td>position</td>
-<td><code>number[]</code></td>
-<td>On an iPad, set the X,Y position</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- other classes -->
@@ -222,6 +168,141 @@ Progamtically hide the native ActionSheet
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="ActionSheetOptions" href="#ActionSheetOptions"></a>ActionSheetOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      buttonLabels
+      
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      <p>The labels for the buttons. Uses the index x</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The title for the actionsheet</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      androidTheme
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Theme to be used on Android</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      androidEnableCancelButton
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Enable a cancel on Android</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      winphoneEnableCancelButton
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Enable a cancel on Windows Phone</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      addCancelButtonWithLabel
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Add a cancel button with text</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      addDestructiveButtonWithLabel
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Add a destructive button with text</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      position
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number[]</code>
+    </td>
+    <td>
+      <p>On an iPad, set the X,Y position</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

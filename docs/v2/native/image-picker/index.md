@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -122,10 +122,8 @@ Pick pictures from the library.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves the image file URI
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves the image file URI
 otherwise rejects with an error.
-
-
 </div>
 
 
@@ -197,10 +195,10 @@ Request permission to read images
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="ImagePickerOptions" href="#ImagePickerOptions"></a>ImagePickerOptions</h3>
+<h2><a class="anchor" name="ImagePickerOptions" href="#ImagePickerOptions"></a>ImagePickerOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -219,7 +217,7 @@ Request permission to read images
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it.</p>
@@ -233,7 +231,7 @@ Request permission to read images
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Max width to allow images to be</p>
@@ -247,7 +245,7 @@ Request permission to read images
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Max height to allow images to be</p>
@@ -261,7 +259,7 @@ Request permission to read images
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Quality of images, defaults to 100</p>

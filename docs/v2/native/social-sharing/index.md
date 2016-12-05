@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -185,7 +185,7 @@ Shares using the share sheet
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -245,7 +245,7 @@ Shares using the share sheet with additional options and returns a result object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -369,7 +369,7 @@ Checks if you can share via a specific app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -460,7 +460,7 @@ Shares directly to Twitter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -551,7 +551,7 @@ Shares directly to Facebook
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -658,7 +658,7 @@ Shares directly to Facebook with a paste message hint
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -733,7 +733,7 @@ Shares directly to Instagram
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -824,7 +824,7 @@ Shares directly to WhatsApp
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -935,7 +935,7 @@ Shares directly to a WhatsApp Contact
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1012,7 +1012,7 @@ Share via SMS
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1042,7 +1042,7 @@ Checks if you can share via email
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1184,7 +1184,7 @@ Share via Email
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1308,7 +1308,7 @@ Share via AppName
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -93,7 +93,11 @@ Clear the badge of the app icon.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -143,7 +147,7 @@ Set the badge of the app icon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -164,7 +168,7 @@ Get the badge of the app icon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -215,7 +219,7 @@ Increase the badge number.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -266,7 +270,7 @@ Decrease the badge number.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -284,7 +288,11 @@ Determine if the app has permission to show badges.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -304,7 +312,7 @@ Register permission to set badge notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -151,7 +151,7 @@ Check whether the push notification permission has been granted.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
+<code>Promise&lt;{isEnabled: boolean}&gt;</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
 </div>
 
 

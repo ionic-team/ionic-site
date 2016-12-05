@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -126,7 +126,7 @@ Sets the brightness of the display.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves if setting brightness was successful.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if setting brightness was successful.
 </div>
 
 
@@ -148,7 +148,7 @@ Reads the current brightness of the device display.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with the
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
 </div>
 

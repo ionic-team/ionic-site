@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L290">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L237">
   Improve this doc
 </a>
 
@@ -58,7 +58,9 @@ docType: "class"
 
 
 let contact = new Contact();
-contact.displayName = &#39;Mr. Ionitron&#39;;
+
+contact.name = new ContactName(null, &#39;Smith&#39;, &#39;John&#39;);
+contact.phoneNumbers = [new ContactField(&#39;mobile&#39;, &#39;6471234567&#39;)];
 contact.save().then(
   () =&gt; console.log(&#39;Contact saved!&#39;, contact),
   (error: any) =&gt; console.error(&#39;Error saving contact.&#39;, error)
@@ -88,9 +90,7 @@ Create a single contact.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a object Contact
-
-
+<code>Contact</code> Returns a Contact object
 </div>
 
 
@@ -99,9 +99,6 @@ Create a single contact.
 <h3><code>find(fields,&nbsp;options)</code>
   
 </h3>
-
-
-
 
 Search for contacts in the Contacts list.
 
@@ -124,7 +121,7 @@ Search for contacts in the Contacts list.
     </td>
     <td>
       
-<code>string[]</code>
+<code>ContactFieldType[]</code>
     </td>
     <td>
       <p>Contact fields to be used as a search qualifier.
@@ -143,7 +140,7 @@ Search for contacts in the Contacts list.
     </td>
     <td>
       
-<code>Object</code>
+<code>IContactFindOptions</code>
     </td>
     <td>
       <p>the options to query with:
@@ -166,9 +163,7 @@ Search for contacts in the Contacts list.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the search results (an array of Contact objects)
-
-
+<code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
 </div>
 
 
@@ -177,7 +172,6 @@ Search for contacts in the Contacts list.
 <h3><code>pickContact()</code>
   
 </h3>
-
 
 Select a single Contact.
 
@@ -189,9 +183,7 @@ Select a single Contact.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with the selected Contact
-
-
+<code>Promise&lt;Contact&gt;</code> Returns a Promise that resolves with the selected Contact
 </div>
 
 
@@ -202,234 +194,15 @@ Select a single Contact.
 
 
 <!-- other classes -->
-<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>
-
-
-
-<h3><a class="anchor" name="ContactFindOptions" href="#ContactFindOptions"></a>ContactFindOptions</h3>
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-<div id="filter"></div>
-<h3>
-  <code>filter()</code>
-  
-
-</h3>
-The search string used to find navigator.contacts. (Default: "")
-
-
-
-
-<div id="multiple"></div>
-<h3>
-  <code>multiple()</code>
-  
-
-</h3>
-Determines if the find operation returns multiple navigator.contacts. (Default: false)
-
-
-
-
-<div id="desiredFields"></div>
-<h3>
-  <code>desiredFields()</code>
-  
-
-</h3>
-Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields.
-
-
-
-
-<div id="hasPhoneNumber"></div>
-<h3>
-  <code>hasPhoneNumber()</code>
-  
-
-</h3>
-(Android only): Filters the search to only return contacts with a phone number informed.
-
-
-
-
-
-
-
-
-<h3><a class="anchor" name="ContactOrganization" href="#ContactOrganization"></a>ContactOrganization</h3>
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-<div id="pref"></div>
-<h3>
-  <code>pref()</code>
-  
-
-</h3>
-Set to true if this ContactOrganization contains the user's preferred value.
-
-
-
-
-<div id="type"></div>
-<h3>
-  <code>type()</code>
-  
-
-</h3>
-A string that indicates what type of field this is, home for example.
-
-
-
-
-<div id="name"></div>
-<h3>
-  <code>name()</code>
-  
-
-</h3>
-The name of the organization.
-
-
-
-
-<div id="department"></div>
-<h3>
-  <code>department()</code>
-  
-
-</h3>
-The department the contract works for.
-
-
-
-
-<div id="title"></div>
-<h3>
-  <code>title()</code>
-  
-
-</h3>
-The contact's title at the organization.
-
-
-
-
-
-
-
-
-<h3><a class="anchor" name="ContactAddress" href="#ContactAddress"></a>ContactAddress</h3>
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-<div id="pref"></div>
-<h3>
-  <code>pref()</code>
-  
-
-</h3>
-Set to true if this ContactAddress contains the user's preferred value.
-
-
-
-
-<div id="type"></div>
-<h3>
-  <code>type()</code>
-  
-
-</h3>
-A string indicating what type of field this is, home for example.
-
-
-
-
-<div id="formatted"></div>
-<h3>
-  <code>formatted()</code>
-  
-
-</h3>
-The full address formatted for display.
-
-
-
-
-<div id="streetAddress"></div>
-<h3>
-  <code>streetAddress()</code>
-  
-
-</h3>
-The full street address.
-
-
-
-
-<div id="locality"></div>
-<h3>
-  <code>locality()</code>
-  
-
-</h3>
-The city or locality.
-
-
-
-
-<div id="region"></div>
-<h3>
-  <code>region()</code>
-  
-
-</h3>
-The state or region.
-
-
-
-
-<div id="postalCode"></div>
-<h3>
-  <code>postalCode()</code>
-  
-
-</h3>
-The zip code or postal code.
-
-
-
-
-<div id="country"></div>
-<h3>
-  <code>country()</code>
-  
-
-</h3>
-The country name.
-
-
-
-
-
-
 
 <!-- end other classes -->
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="IContactProperties" href="#IContactProperties"></a>IContactProperties</h3>
+<h2><a class="anchor" name="IContactProperties" href="#IContactProperties"></a>IContactProperties</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -448,7 +221,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>A globally unique identifier.</p>
@@ -462,7 +235,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>The name of this Contact, suitable for display to end users.</p>
@@ -476,7 +249,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactName
+      <code>IContactName</code>
     </td>
     <td>
       <p>An object containing all components of a persons name.</p>
@@ -490,7 +263,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>A casual name by which to address the contact.</p>
@@ -504,7 +277,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of all the contact&#39;s phone numbers.</p>
@@ -518,7 +291,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of all the contact&#39;s email addresses.</p>
@@ -532,7 +305,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactAddress[]
+      <code>IContactAddress[]</code>
     </td>
     <td>
       <p>An array of all the contact&#39;s addresses.</p>
@@ -546,7 +319,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of all the contact&#39;s IM addresses.</p>
@@ -560,7 +333,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactOrganization[]
+      <code>IContactOrganization[]</code>
     </td>
     <td>
       <p>An array of all the contact&#39;s organizations.</p>
@@ -574,7 +347,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      Date
+      <code>Date</code>
     </td>
     <td>
       <p>The birthday of the contact.</p>
@@ -588,7 +361,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>A note about the contact.</p>
@@ -602,7 +375,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of the contact&#39;s photos.</p>
@@ -616,7 +389,7 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of all the user-defined categories associated with the contact.</p>
@@ -630,10 +403,515 @@ The country name.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      IContactField[]
+      <code>IContactField[]</code>
     </td>
     <td>
       <p>An array of web pages associated with the contact.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactError" href="#IContactError"></a>IContactError</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      code
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Error code</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Error message</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactName" href="#IContactName"></a>IContactName</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      formatted
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The complete name of the contact.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      familyName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s family name.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      givenName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s given name.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      middleName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s middle name.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      honorificPrefix
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s prefix (example Mr. or Dr.)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      honorificSuffix
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s suffix (example Esq.).</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactField" href="#IContactField"></a>IContactField</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      type
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string that indicates what type of field this is, home for example.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The value of the field, such as a phone number or email address.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      pref
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true if this ContactField contains the user&#39;s preferred value.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactAddress" href="#IContactAddress"></a>IContactAddress</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      pref
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true if this ContactAddress contains the user&#39;s preferred value.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string indicating what type of field this is, home for example.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      formatted
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The full address formatted for display.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      streetAddress
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The full street address.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locality
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The city or locality.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      region
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The state or region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      postalCode
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The zip code or postal code.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      country
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The country name.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactOrganization" href="#IContactOrganization"></a>IContactOrganization</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      pref
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true if this ContactOrganization contains the user&#39;s preferred value.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      type
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string that indicates what type of field this is, home for example.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      name
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the organization.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      department
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The department the contract works for.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The contact&#39;s title at the organization.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IContactFindOptions" href="#IContactFindOptions"></a>IContactFindOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      filter
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The search string used to find navigator.contacts.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      multiple
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Determines if the find operation returns multiple navigator.contacts.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      desiredFields
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hasPhoneNumber
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>(Android only): Filters the search to only return contacts with a phone number informed.</p>
 
     </td>
   </tr>

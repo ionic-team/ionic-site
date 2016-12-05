@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -147,7 +147,7 @@ Verifies if sending emails is supported on the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> Resolves if available, rejects if not available
+<code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
 </div>
 
 

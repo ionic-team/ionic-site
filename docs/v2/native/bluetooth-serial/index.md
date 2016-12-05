@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -149,7 +149,7 @@ Connect to a Bluetooth device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Subscribe to connect, unsubscribe to disconnect.
+<code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
 </div>
 
 
@@ -207,7 +207,7 @@ Connect insecurely to a Bluetooth device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Subscribe to connect, unsubscribe to disconnect.
+<code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
 </div>
 
 
@@ -269,7 +269,7 @@ Writes data to the serial port
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise when data has been written
+<code>Promise&lt;any&gt;</code> returns a promise when data has been written
 </div>
 
 
@@ -301,7 +301,7 @@ Gets the number of bytes of data available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise that contains the available bytes
+<code>Promise&lt;any&gt;</code> returns a promise that contains the available bytes
 </div>
 
 
@@ -333,7 +333,7 @@ Reads data from the buffer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise with data from the buffer
+<code>Promise&lt;any&gt;</code> returns a promise with data from the buffer
 </div>
 
 
@@ -395,7 +395,7 @@ Reads data from the buffer until it reaches a delimiter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -457,7 +457,7 @@ Subscribe to be notified when data is received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> returns an observable.
+<code>Observable&lt;any&gt;</code> returns an observable.
 </div>
 
 
@@ -489,7 +489,7 @@ Subscribe to be notified when data is received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> returns an observable
+<code>Observable&lt;any&gt;</code> returns an observable
 </div>
 
 
@@ -521,7 +521,7 @@ Clears data in buffer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise when completed
+<code>Promise&lt;any&gt;</code> returns a promise when completed
 </div>
 
 
@@ -553,7 +553,7 @@ Lists bonded devices
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -585,7 +585,7 @@ Reports if bluetooth is enabled
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -617,7 +617,7 @@ Reports the connection status
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -649,7 +649,7 @@ Reads the RSSI from the connected peripheral
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -681,7 +681,7 @@ Show the Bluetooth settings on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -713,7 +713,7 @@ Enable Bluetooth on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -745,7 +745,7 @@ Discover unpaired devices
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> returns a promise
+<code>Promise&lt;any&gt;</code> returns a promise
 </div>
 
 
@@ -777,7 +777,7 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an observable
+<code>Observable&lt;any&gt;</code> Returns an observable
 </div>
 
 

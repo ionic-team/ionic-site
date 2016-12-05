@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -165,7 +165,7 @@ Show a native toast for the given duration at the specified position.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
@@ -186,7 +186,7 @@ Manually hide any currently visible toast.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves on success.
 </div>
 
 
@@ -244,13 +244,13 @@ Show a native toast with the given options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showShortTop"></div>
-<h3><code>showShortTop()</code>
+<h3><code>showShortTop(message)</code>
   
 </h3>
 
@@ -260,6 +260,35 @@ Show a native toast with the given options.
 Shorthand for `show(message, 'short', 'top')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -267,13 +296,13 @@ Shorthand for `show(message, 'short', 'top')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showShortCenter"></div>
-<h3><code>showShortCenter()</code>
+<h3><code>showShortCenter(message)</code>
   
 </h3>
 
@@ -283,6 +312,35 @@ Shorthand for `show(message, 'short', 'top')`.
 Shorthand for `show(message, 'short', 'center')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -290,13 +348,13 @@ Shorthand for `show(message, 'short', 'center')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showShortBottom"></div>
-<h3><code>showShortBottom()</code>
+<h3><code>showShortBottom(message)</code>
   
 </h3>
 
@@ -306,6 +364,35 @@ Shorthand for `show(message, 'short', 'center')`.
 Shorthand for `show(message, 'short', 'bottom')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -313,13 +400,13 @@ Shorthand for `show(message, 'short', 'bottom')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showLongTop"></div>
-<h3><code>showLongTop()</code>
+<h3><code>showLongTop(message)</code>
   
 </h3>
 
@@ -329,6 +416,35 @@ Shorthand for `show(message, 'short', 'bottom')`.
 Shorthand for `show(message, 'long', 'top')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -336,13 +452,13 @@ Shorthand for `show(message, 'long', 'top')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showLongCenter"></div>
-<h3><code>showLongCenter()</code>
+<h3><code>showLongCenter(message)</code>
   
 </h3>
 
@@ -352,6 +468,35 @@ Shorthand for `show(message, 'long', 'top')`.
 Shorthand for `show(message, 'long', 'center')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -359,13 +504,13 @@ Shorthand for `show(message, 'long', 'center')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
 
 <div id="showLongBottom"></div>
-<h3><code>showLongBottom()</code>
+<h3><code>showLongBottom(message)</code>
   
 </h3>
 
@@ -375,6 +520,35 @@ Shorthand for `show(message, 'long', 'center')`.
 Shorthand for `show(message, 'long', 'bottom')`.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -382,7 +556,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
 
 
@@ -398,10 +572,10 @@ Shorthand for `show(message, 'long', 'bottom')`.
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="ToastOptions" href="#ToastOptions"></a>ToastOptions</h3>
+<h2><a class="anchor" name="ToastOptions" href="#ToastOptions"></a>ToastOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -420,7 +594,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Message to display</p>
@@ -434,7 +608,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Duration in ms to show</p>
@@ -448,7 +622,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Position</p>
@@ -462,7 +636,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Add negative value to move it up a bit</p>
@@ -476,7 +650,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      any
+      <code>any</code>
     </td>
     <td>
       <p>Pass JSON object to be sent back in success callback</p>
@@ -490,14 +664,14 @@ Shorthand for `show(message, 'long', 'bottom')`.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      {
+      <code>{
     opacity?: number;
     backgroundColor?: string;
     textColor?: string;
     cornerRadius?: number;
     horizontalPadding?: number;
     verticalPadding?: number;
-  }
+  }</code>
     </td>
     <td>
       <p>Styling</p>

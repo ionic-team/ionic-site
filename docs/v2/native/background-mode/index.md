@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -131,7 +131,7 @@ Checks if background mode is enabled or not.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>boolean</code> returns a true of false if the background mode is enabled.
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is enabled.
 </div>
 
 
@@ -152,7 +152,7 @@ Can be used to get the information if the background mode is active.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>boolean</code> returns tru or flase if the background mode is active.
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is active.
 </div>
 
 
@@ -276,7 +276,11 @@ Called when background mode is activated.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is activated
+</div>
 
 
 
@@ -293,7 +297,11 @@ Called when background mode is deactivated.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is deactivated
+</div>
 
 
 
@@ -310,7 +318,11 @@ Called when background mode fails
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode fails
+</div>
 
 
 

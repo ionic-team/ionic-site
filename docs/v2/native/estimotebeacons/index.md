@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -376,9 +376,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -404,9 +402,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -430,9 +426,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -537,9 +531,7 @@ Start advertising as a beacon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -561,9 +553,7 @@ Stop advertising as a beacon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -615,9 +605,7 @@ Enable analytics.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -639,9 +627,7 @@ Test if analytics is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -663,9 +649,7 @@ Test if App ID and App Token is set.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -734,9 +718,7 @@ Set App ID and App Token.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -761,9 +743,7 @@ Available on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each beacon discovered.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.
 </div>
 
 
@@ -785,9 +765,7 @@ Stop CoreBluetooth scan. Available on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -841,9 +819,7 @@ Start ranging beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each beacon discovered.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.
 </div>
 
 
@@ -895,9 +871,7 @@ Stop ranging beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -921,7 +895,11 @@ To use secure beacons set the App ID and App Token using
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 
@@ -940,7 +918,11 @@ This function has the same parameters/behaviour as
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -1013,9 +995,7 @@ for further details (optional, defaults to false, iOS only).</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an Observable that notifies of each region state discovered.
-
-
+<code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each region state discovered.
 </div>
 
 
@@ -1067,9 +1047,7 @@ Stop monitoring beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1139,6 +1117,12 @@ To use secure beacons set the App ID and App Token using
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
+
 
 
 <div id="stopSecureMonitoringForRegion"></div>
@@ -1185,6 +1169,12 @@ This function has the same parameters/behaviour as
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -1235,9 +1225,7 @@ Connect to Estimote Beacon. Available on Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -1259,9 +1247,7 @@ Disconnect from connected Estimote Beacon. Available on Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- returns a Promise.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

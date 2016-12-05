@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -96,7 +96,7 @@ Get the current acceleration along the x, y, and z axes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns object with x, y, z, and timestamp properties
+<code>Promise&lt;AccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
 </div>
 
 

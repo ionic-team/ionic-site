@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -137,9 +137,13 @@ Injects JavaScript code into the InAppBrowser window.
   </tbody>
 </table>
 
-<div id="insertCss"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="insertCss"></div>
 <h3>
-  <code>insertCss(css)</code>
+  <code>insertCss(Details)</code>
   
 
 </h3>
@@ -156,16 +160,16 @@ Injects CSS into the InAppBrowser window.
   
   <tr>
     <td>
-      css
+      Details
       
       
     </td>
     <td>
       
-
+<code>Object</code>
     </td>
     <td>
-      <p>Details of the script to run, specifying either a file or code key.</p>
+      <p>of the script to run, specifying either a file or code key.</p>
 
       
     </td>
@@ -174,9 +178,13 @@ Injects CSS into the InAppBrowser window.
   </tbody>
 </table>
 
-<div id="on"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="on"></div>
 <h3>
-  <code>on(event)</code>
+  <code>on(name)</code>
   
 
 </h3>
@@ -193,16 +201,16 @@ A method that allows you to listen to events happening in the browser.
   
   <tr>
     <td>
-      event
+      name
       
       
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Event name</p>
+      <p>of the event</p>
 
       
     </td>
@@ -214,7 +222,7 @@ A method that allows you to listen to events happening in the browser.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
+<code>Observable&lt;InAppBrowserEvent&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
 </div>
 
 

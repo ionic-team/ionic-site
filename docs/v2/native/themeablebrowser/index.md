@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -204,7 +204,11 @@ Injects JavaScript code into the browser window.
   </tbody>
 </table>
 
-<div id="insertCss"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="insertCss"></div>
 <h3>
   <code>insertCss(css)</code>
   
@@ -241,7 +245,11 @@ Injects CSS into the browser window.
   </tbody>
 </table>
 
-<div id="on"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="on"></div>
 <h3>
   <code>on(event)</code>
   
@@ -282,7 +290,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
+<code>Observable&lt;InAppBrowserEvent&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
 </div>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -316,8 +316,11 @@ Get the visible region.
 
 
 
-
-<div id="moveCamera"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="moveCamera"></div>
 <h3>
   <code>moveCamera()</code>
   
@@ -326,8 +329,11 @@ Get the visible region.
 
 
 
-
-<div id="setMyLocationEnabled"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="setMyLocationEnabled"></div>
 <h3>
   <code>setMyLocationEnabled()</code>
   
@@ -386,8 +392,11 @@ Get the visible region.
 
 
 
-
-<div id="addCircle"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsMarker | any&gt;</code> 
+</div><div id="addCircle"></div>
 <h3>
   <code>addCircle()</code>
   
@@ -396,8 +405,11 @@ Get the visible region.
 
 
 
-
-<div id="addPolygon"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsCircle | any&gt;</code> 
+</div><div id="addPolygon"></div>
 <h3>
   <code>addPolygon()</code>
   
@@ -406,8 +418,11 @@ Get the visible region.
 
 
 
-
-<div id="addPolyline"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsPolygon | any&gt;</code> 
+</div><div id="addPolyline"></div>
 <h3>
   <code>addPolyline()</code>
   
@@ -416,8 +431,11 @@ Get the visible region.
 
 
 
-
-<div id="addTileOverlay"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsPolyline | any&gt;</code> 
+</div><div id="addTileOverlay"></div>
 <h3>
   <code>addTileOverlay()</code>
   
@@ -426,8 +444,11 @@ Get the visible region.
 
 
 
-
-<div id="addGroundOverlay"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsTileOverlay | any&gt;</code> 
+</div><div id="addGroundOverlay"></div>
 <h3>
   <code>addGroundOverlay()</code>
   
@@ -436,8 +457,11 @@ Get the visible region.
 
 
 
-
-<div id="addKmlOverlay"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsGroundOverlay | any&gt;</code> 
+</div><div id="addKmlOverlay"></div>
 <h3>
   <code>addKmlOverlay()</code>
   
@@ -446,8 +470,11 @@ Get the visible region.
 
 
 
-
-<div id="setDiv"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsKmlOverlay | any&gt;</code> 
+</div><div id="setDiv"></div>
 <h3>
   <code>setDiv()</code>
   
@@ -526,8 +553,11 @@ Get the visible region.
 
 
 
-
-<div id="fromPointToLatLng"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="fromPointToLatLng"></div>
 <h3>
   <code>fromPointToLatLng()</code>
   
@@ -536,8 +566,11 @@ Get the visible region.
 
 
 
-
-<div id="toDataURL"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;GoogleMapsLatLng&gt;</code> 
+</div><div id="toDataURL"></div>
 <h3>
   <code>toDataURL()</code>
   
@@ -546,8 +579,11 @@ Get the visible region.
 
 
 
-
-<div id="remove"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="remove"></div>
 <h3>
   <code>remove()</code>
   

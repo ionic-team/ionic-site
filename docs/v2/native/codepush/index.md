@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -143,6 +143,12 @@ Get the current package information.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;ILocalPackage&gt;</code> 
+</div>
+
 
 
 <div id="getPendingPackage"></div>
@@ -159,7 +165,11 @@ This happends only after a package has been installed using ON_NEXT_RESTART or O
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;ILocalPackage&gt;</code> 
+</div>
 
 
 
@@ -245,6 +255,12 @@ Checks with the CodePush server if an update package is available for download.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;IRemotePackage&gt;</code> 
+</div>
+
 
 
 <div id="notifyApplicationReady"></div>
@@ -310,6 +326,12 @@ If using sync API, calling this function is not required since sync calls it int
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div>
+
 
 
 <div id="restartApplication"></div>
@@ -326,7 +348,11 @@ will be immediately visible to the user. Otherwise, calling this function will s
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div>
 
 
 
@@ -421,6 +447,12 @@ The algorithm of this method is the following:
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;SyncStatus&gt;</code> 
+</div>
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -343,7 +343,7 @@ As an alternative, you can store your .cer files in the www/certificates folder.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> returns a promise that will resolve on success, and reject on failure
+<code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
 </div>
 
 
@@ -394,7 +394,7 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> returns a promise that will resolve on success, and reject on failure
+<code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
 </div>
 
 
@@ -445,7 +445,7 @@ Whether or not to validate the domain name in the certificate. This defaults to 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> returns a promise that will resolve on success, and reject on failure
+<code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
 </div>
 
 
@@ -852,10 +852,10 @@ Make a POST request
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="HTTPResponse" href="#HTTPResponse"></a>HTTPResponse</h3>
+<h2><a class="anchor" name="HTTPResponse" href="#HTTPResponse"></a>HTTPResponse</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -874,7 +874,7 @@ Make a POST request
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>The status number of the response</p>
@@ -888,7 +888,7 @@ Make a POST request
       <div><em>(optional)</em></div>
     </td>
     <td>
-      any
+      <code>any</code>
     </td>
     <td>
       <p>The data that is in the response. This property usually exists when a promise returned by a request method resolves.</p>
@@ -902,7 +902,7 @@ Make a POST request
       
     </td>
     <td>
-      any
+      <code>any</code>
     </td>
     <td>
       <p>The headers of the response</p>
@@ -916,7 +916,7 @@ Make a POST request
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Error response from the server. This property usually exists when a promise returned by a request method rejects.</p>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -233,9 +233,7 @@ Sends a file to a server.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
-
-
+<code>Promise&lt;FileUploadResult&gt;</code> Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
 </div><div id="download"></div>
 <h3>
   <code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code>
@@ -328,9 +326,7 @@ Downloads a file from server.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves to a FileEntry object.
-
-
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves to a FileEntry object.
 </div><div id="onProgress"></div>
 <h3>
   <code>onProgress(Listener)</code>

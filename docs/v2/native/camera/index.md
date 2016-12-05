@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -116,7 +116,7 @@ Take a picture or video, or load one from the library.
 <code>CameraOptions</code>
     </td>
     <td>
-      <p>Options that you want to pass to the camera. Encoding type, quality, etc. Optional</p>
+      <p>optional. Options that you want to pass to the camera. Encoding type, quality, etc. Platform-specific quirks are described in the <a href="https://github.com/apache/cordova-plugin-camera#cameraoptions-errata-">Cordova plugin docs</a>.</p>
 
       
     </td>
@@ -132,7 +132,7 @@ Take a picture or video, or load one from the library.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
 </div>
 
 
@@ -161,9 +161,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -179,10 +177,10 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="CameraOptions" href="#CameraOptions"></a>CameraOptions</h3>
+<h2><a class="anchor" name="CameraOptions" href="#CameraOptions"></a>CameraOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -201,7 +199,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Picture quality in range 0-100. Default is 50</p>
@@ -215,7 +213,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Choose the format of the return value.
@@ -234,7 +232,7 @@ Defined in Camera.DestinationType. Default is FILE_URI.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Set the source of the picture.
@@ -252,7 +250,7 @@ Defined in Camera.PictureSourceType. Default is CAMERA.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Allow simple editing of image before selection.</p>
@@ -266,7 +264,7 @@ Defined in Camera.PictureSourceType. Default is CAMERA.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Choose the returned image file&#39;s encoding.
@@ -283,7 +281,7 @@ Defined in Camera.EncodingType. Default is JPEG
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Width in pixels to scale image. Must be used with targetHeight.
@@ -298,7 +296,7 @@ Aspect ratio remains constant.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Height in pixels to scale image. Must be used with targetWidth.
@@ -313,7 +311,7 @@ Aspect ratio remains constant.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Set the type of media to select from. Only works when PictureSourceType
@@ -332,7 +330,7 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Rotate the image to correct for the orientation of the device during capture.</p>
@@ -346,7 +344,7 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>Save the image to the photo album on the device after capture.</p>
@@ -360,13 +358,13 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Choose the camera to use (front- or back-facing).
 Defined in Camera.Direction. Default is BACK.
-     FRONT: 0
-     BACK: 1</p>
+     BACK: 0
+     FRONT: 1</p>
 
     </td>
   </tr>
@@ -377,7 +375,7 @@ Defined in Camera.Direction. Default is BACK.
       <div><em>(optional)</em></div>
     </td>
     <td>
-      CameraPopoverOptions
+      <code>CameraPopoverOptions</code>
     </td>
     <td>
       <p>iOS-only options that specify popover location in iPad. Defined in CameraPopoverOptions.</p>
@@ -391,7 +389,7 @@ Defined in Camera.Direction. Default is BACK.
 
 
 
-<h3><a class="anchor" name="CameraPopoverOptions" href="#CameraPopoverOptions"></a>CameraPopoverOptions</h3>
+<h2><a class="anchor" name="CameraPopoverOptions" href="#CameraPopoverOptions"></a>CameraPopoverOptions</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -410,7 +408,7 @@ Defined in Camera.Direction. Default is BACK.
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       
@@ -423,7 +421,7 @@ Defined in Camera.Direction. Default is BACK.
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       
@@ -436,7 +434,7 @@ Defined in Camera.Direction. Default is BACK.
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       
@@ -449,7 +447,7 @@ Defined in Camera.Direction. Default is BACK.
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       
@@ -462,7 +460,7 @@ Defined in Camera.Direction. Default is BACK.
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Direction the arrow on the popover should point. Defined in Camera.PopoverArrowDirection

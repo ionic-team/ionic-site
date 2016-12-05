@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -115,7 +115,11 @@ Checks if SafariViewController is available
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -146,10 +150,11 @@ Shows Safari View Controller
     </td>
     <td>
       
-
+<code>SafariViewControllerOptions</code>
     </td>
     <td>
-      
+      <p>optional</p>
+
       
     </td>
   </tr>
@@ -160,6 +165,12 @@ Shows Safari View Controller
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -193,7 +204,11 @@ Tries to connect to the  Chrome's custom tabs service. you must call this method
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -210,7 +225,11 @@ Call this method whenever there's a chance the user will open an external url.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -241,7 +260,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       
@@ -255,6 +274,12 @@ For even better performance optimization, call this methods if there's more than
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

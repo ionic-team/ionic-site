@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -56,6 +56,20 @@ docType: "class"
 
 <pre><code class="lang-typescript">import { SQLite } from &#39;ionic-native&#39;;
 
+// OPTION A: Use static constructor
+SQLite.openDatabase({
+  name: &#39;data.db&#39;,
+  location: &#39;default&#39;
+})
+  .then((db: SQLite) =&gt; {
+
+    db.executeSQL(&#39;create table danceMoves(name VARCHAR(32))&#39;).then(() =&gt; {}).catch(() =&gt; {});
+
+  })
+  .catch(error =&gt; console.error(&#39;Error openening database&#39;, error);
+
+
+// OPTION B: Create a new instance of SQLite
 let db = new SQLite();
 db.openDatabase({
   name: &#39;data.db&#39;,
@@ -79,6 +93,21 @@ db.openDatabase({
 
 <h2>Static Members</h2>
 
+<div id="openDatabase"></div>
+<h3><code>openDatabase()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="echoTest"></div>
 <h3><code>echoTest()</code>
   
@@ -92,11 +121,16 @@ db.openDatabase({
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="deleteDatabase"></div>
-<h3><code>deleteDatabase()</code>
+<h3><code>deleteDatabase(first)</code>
   
 </h3>
 
@@ -104,10 +138,44 @@ db.openDatabase({
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      first
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -177,25 +245,85 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 <div id="transaction"></div>
 <h3>
-  <code>transaction()</code>
+  <code>transaction(fn)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      fn
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
-
-
-<div id="readTransaction"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="readTransaction"></div>
 <h3>
-  <code>readTransaction()</code>
+  <code>readTransaction(fn)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      fn
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
-
-
-<div id="startNextTransaction"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="startNextTransaction"></div>
 <h3>
   <code>startNextTransaction()</code>
   
@@ -214,8 +342,11 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
-<div id="start"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="start"></div>
 <h3>
   <code>start()</code>
   
@@ -236,27 +367,104 @@ ensure it resolved and successfully opened the database.
 
 
 
+
 <div id="addStatement"></div>
 <h3>
-  <code>addStatement()</code>
+  <code>addStatement(sql,&nbsp;values)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      sql
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      values
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
-<div id="sqlBatch"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="sqlBatch"></div>
 <h3>
-  <code>sqlBatch()</code>
+  <code>sqlBatch(sqlStatements)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      sqlStatements
+      
+      
+    </td>
+    <td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
-
-
-<div id="abortallPendingTransactions"></div>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="abortallPendingTransactions"></div>
 <h3>
   <code>abortallPendingTransactions()</code>
   
@@ -268,23 +476,107 @@ ensure it resolved and successfully opened the database.
 
 <div id="handleStatementSuccess"></div>
 <h3>
-  <code>handleStatementSuccess()</code>
+  <code>handleStatementSuccess(handler,&nbsp;response)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      handler
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      response
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div id="handleStatementFailure"></div>
 <h3>
-  <code>handleStatementFailure()</code>
+  <code>handleStatementFailure(handler,&nbsp;response)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      handler
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      response
+      
+      
+    </td>
+    <td>
+      
 
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div id="run"></div>
 <h3>
@@ -298,13 +590,39 @@ ensure it resolved and successfully opened the database.
 
 <div id="abort"></div>
 <h3>
-  <code>abort()</code>
+  <code>abort(txFailure)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      txFailure
+      
+      
+    </td>
+    <td>
+      
 
-
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div id="finish"></div>
 <h3>
@@ -318,13 +636,39 @@ ensure it resolved and successfully opened the database.
 
 <div id="abortFromQ"></div>
 <h3>
-  <code>abortFromQ()</code>
+  <code>abortFromQ(sqlerror)</code>
   
 
 </h3>
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      sqlerror
+      
+      
+    </td>
+    <td>
+      
 
-
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -278,7 +278,11 @@ The user will be tracked whenever they suspend the app.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -295,7 +299,11 @@ Turn OFF background-tracking
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -350,7 +358,11 @@ Setup configuration
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -368,7 +380,11 @@ NOTE: IOS, WP only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;Location&gt;</code> 
+</div>
 
 
 
@@ -387,7 +403,11 @@ NOTE: IOS, WP only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -467,7 +487,11 @@ NOTE: ANDROID only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
@@ -508,7 +532,11 @@ NOTE: ANDROID only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -518,14 +546,18 @@ NOTE: ANDROID only
 </h3>
 
 
-Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId.
+Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId. 
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -543,7 +575,11 @@ NOTE: ANDROID only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -561,12 +597,16 @@ NOTE: ANDROID only
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="switchMode"></div>
-<h3><code>switchMode(See)</code>
+<h3><code>switchMode()</code>
   
 </h3>
 
@@ -582,46 +622,23 @@ BackgroundGeolocation.Mode.BACKGROUND 
 
 NOTE: iOS only
 
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      See
-      
-      
-    </td>
-    <td>
-      
-<code>number</code>
-    </td>
-    <td>
-      <p>above.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
+@param {number} See above. 
 
 
 
 
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="getLogEntries"></div>
-<h3><code>getLogEntries(Limits)</code>
+<h3><code>getLogEntries()</code>
   
 </h3>
 
@@ -629,41 +646,18 @@ NOTE: iOS only
 Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
 @see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
 
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      Limits
-      
-      
-    </td>
-    <td>
-      
-<code>number</code>
-    </td>
-    <td>
-      <p>the number of entries</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
+@param {number} Limits the number of entries 
 
 
 
 
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -678,10 +672,10 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 
 <!-- interfaces -->
 
-<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h3><a class="anchor" name="Location" href="#Location"></a>Location</h3>
+<h2><a class="anchor" name="Location" href="#Location"></a>Location</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -700,7 +694,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>ID of location as stored in DB (or null)</p>
@@ -714,7 +708,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Service provider</p>
@@ -728,7 +722,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>true if location recorded as part of debug</p>
@@ -742,7 +736,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>UTC time of this fix, in milliseconds since January 1, 1970.</p>
@@ -756,7 +750,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>latitude, in degrees.</p>
@@ -770,7 +764,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>longitude, in degrees.</p>
@@ -784,7 +778,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>estimated accuracy of this location, in meters.</p>
@@ -798,7 +792,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>speed if it is available, in meters/second over ground.</p>
@@ -812,7 +806,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>altitude if available, in meters above the WGS 84 reference ellipsoid.</p>
@@ -826,7 +820,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>bearing, in degrees.</p>
@@ -840,7 +834,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      Coordinates
+      <code>Coordinates</code>
     </td>
     <td>
       <p>A Coordinates object defining the current location</p>
@@ -854,7 +848,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>A timestamp representing the time at which the location was retrieved.</p>
@@ -868,7 +862,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 
 
 
-<h3><a class="anchor" name="Config" href="#Config"></a>Config</h3>
+<h2><a class="anchor" name="Config" href="#Config"></a>Config</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -887,7 +881,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Desired accuracy in meters. Possible values [0, 10, 100, 1000]. The lower
@@ -904,7 +898,7 @@ readings. @see Apple docs (<a href="https://developer.apple.com/library/ios/docu
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Stationary radius in meters. When stopped, the minimum distance the device
@@ -920,7 +914,7 @@ to engage.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>When enabled, the plugin will emit sounds for life-cycle events of
@@ -935,7 +929,7 @@ background-geolocation! See debugging sounds table.</p>
       
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>The minimum distance (measured in meters) a device must move horizontally
@@ -950,7 +944,7 @@ before an update event is generated. @see Apple docs. (<a href="https://develope
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>IOS, ANDROID ONLY
@@ -967,7 +961,7 @@ Enable this in order to force a stop() when the application terminated
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>ANDROID ONLY 
@@ -983,7 +977,7 @@ Start background service on device boot. </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>ANDROID ONLY 
@@ -999,7 +993,7 @@ If false location service will not be started in foreground and no notification 
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>ANDROID, WP8 ONLY
@@ -1014,7 +1008,7 @@ The minimum time interval between location updates in seconds.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>ANDROID ONLY
@@ -1029,7 +1023,7 @@ Custom notification title in the drawer.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>ANDROID ONLY
@@ -1044,7 +1038,7 @@ Custom notification text in the drawer.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>ANDROID ONLY
@@ -1059,7 +1053,7 @@ The accent color to use for notification. Eg. #4CAF50.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>ANDROID ONLY 
@@ -1075,7 +1069,7 @@ NOTE: Only available for API Level &gt;=21.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>ANDROID ONLY 
@@ -1091,7 +1085,7 @@ NOTE: Only available for API Level &gt;=21.</p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>ANDROID ONLY
@@ -1106,7 +1100,7 @@ Set location service provider @see wiki (<a href="https://github.com/mauron85/co
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>IOS ONLY
@@ -1123,7 +1117,7 @@ this affects iOS GPS algorithm. @see Apple docs for more information
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>IOS ONLY 
@@ -1139,7 +1133,7 @@ Pauses location updates when app is paused </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Server url where to send HTTP POST with recorded locations </p>
@@ -1153,7 +1147,7 @@ Pauses location updates when app is paused </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      string
+      <code>string</code>
     </td>
     <td>
       <p>Server url where to send fail to post locations </p>
@@ -1167,7 +1161,7 @@ Pauses location updates when app is paused </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Specifies how many previously failed locations will be sent to server at once </p>
@@ -1182,7 +1176,7 @@ Pauses location updates when app is paused </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      any
+      <code>any</code>
     </td>
     <td>
       <p>Optional HTTP headers sent along in HTTP request</p>
@@ -1196,7 +1190,7 @@ Pauses location updates when app is paused </p>
       <div><em>(optional)</em></div>
     </td>
     <td>
-      boolean
+      <code>boolean</code>
     </td>
     <td>
       <p>IOS ONLY 
@@ -1212,7 +1206,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <div><em>(optional)</em></div>
     </td>
     <td>
-      number
+      <code>number</code>
     </td>
     <td>
       <p>Limit maximum number of locations stored into db </p>

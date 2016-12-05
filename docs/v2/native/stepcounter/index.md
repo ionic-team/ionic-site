@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -131,7 +131,7 @@ Start the step counter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success or rejects on failure
+<code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success or rejects on failure
 </div>
 
 
@@ -152,7 +152,7 @@ Stop the step counter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
+<code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
 </div>
 
 
@@ -173,7 +173,7 @@ Get the amount of steps for today (or -1 if it no data given)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success with the amount of steps today, or rejects on failure
+<code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps today, or rejects on failure
 </div>
 
 
@@ -194,7 +194,7 @@ Get the amount of steps since the start command has been called
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
+<code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
 </div>
 
 
@@ -215,7 +215,7 @@ Returns true/false if Android device is running >API level 19 && has the step co
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success, or rejects on failure
+<code>Promise&lt;any | boolean&gt;</code> Returns a Promise that resolves on success, or rejects on failure
 </div>
 
 
@@ -236,7 +236,7 @@ Get the step history (JavaScript object)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves on success, or rejects on failure
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves on success, or rejects on failure
 </div>
 
 

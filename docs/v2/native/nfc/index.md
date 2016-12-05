@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.7"
+version: "2.2.10"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -139,7 +139,7 @@ Registers an event listener for any NDEF tag.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
@@ -223,7 +223,7 @@ Registers an event listener for tags matching any tag type.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
@@ -291,7 +291,7 @@ Registers an event listener for NDEF tags matching a specified MIME type.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
@@ -359,7 +359,7 @@ Registers an event listener for formatable NDEF tags.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 

@@ -78,7 +78,7 @@ NavController, regardless of whether it is a Tab or a Nav.</p>
 <p>Behind the scenes, when Ionic instantiates a new NavController, it creates an
 injector with NavController bound to that instance (usually either a Nav or
 Tab) and adds the injector to its own providers.  For more information on
-providers and dependency injection, see <a href="">Providers and DI</a>.</p>
+providers and dependency injection, see <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">Dependency Injection</a>.</p>
 <p>Instead, you can inject NavController and know that it is the correct
 navigation controller for most situations (for more advanced situations, see
 <a href="../../menu/Menu/">Menu</a> and <a href="../../tab/Tab/">Tab</a>).</p>

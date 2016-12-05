@@ -44,6 +44,14 @@ This should print out details about your Ionic environment, which is useful for 
 $ ionic serve
 ```
 
+### Best Practices
+
+When using the Ionic CLI there are a few best practices you can follow to ensure your development workflow is speedy and efficient:
+
+- Use livereload (`ionic run android -l`) as much as possible. Livereload stops you from having to run `ionic run` everytime you would like to push a change to your device making for much faster development.
+- By default all of our commands do development builds. To do a production build you can pass the `--prod` flag in your command: `ionic run android --prod`.
+- If using xCode to build the iOS version of your app you do not need to run `ionic build` before building the app in xCode, `ionic prepare` will setup your project for buidling in xCode much faster.
+
 ### Next Steps
 
 Now that you've got the basics down, check out the menu on the left for a full list of commands. If you prefer to use the command line, you can see the full list of commands and options by simply typing `ionic`.

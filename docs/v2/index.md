@@ -7,11 +7,6 @@ hide_header_search: true
 pre_footer: true
 ---
 
-<p class="alert">
-  Welcome to the Ionic v2 docs! Looking for our v1 docs? Head <a href="/docs">
-  over here</a>.
-</p>
-
 <div class="docs-home text-center">
   <form class="form-group search" role="search">
     <input type="text"

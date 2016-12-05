@@ -20,6 +20,6 @@ This project is in some ways multiple sites in one and has multiple build/compil
 
 v1 styles are in `scss` and output to `css/site.css`. v2 styles are in `_scss` and output to `css/v2.css`.
 
-v2 images and JS are preprocessed and optimized. Their working directories should be `_img` and `_js` respectively.
+v2 images and JS are preprocessed and optimized. Their working directories should be `_img` and `_js` respectively. 
 
-Per Jekyll conventions, any directory starting with an underscore does not get copied to production. 
+Per Jekyll conventions, any directory starting with an underscore does not get copied to production.

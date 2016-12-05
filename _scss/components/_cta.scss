@@ -33,6 +33,22 @@
       color: rgba(255, 255, 255, .8);
       letter-spacing: -.03em;
     }
+
+    p {
+      color: rgba(white, .7)
+    }
+
+    small {
+      a {
+        color: rgba(white, .9);
+        font-weight: 600;
+
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   .tabs {
@@ -48,7 +64,7 @@
 
     li {
       max-width: 360px;
-      margin-left: 50px;
+      margin-left: 43px;
       text-align: left;
       display: inline-block;
 
@@ -86,8 +102,10 @@
     a {
       position: relative;
       display: block;
-      padding: 32px 0 28px 108px;
+      padding: 32px 0 28px 85px;
       z-index: 1;
+      cursor: pointer;
+      user-select: none;
 
       &::before {
         position: absolute;
@@ -116,11 +134,17 @@
         }
       }
 
-      &.active::before {
-        background: white;
-        border-radius: 4px;
-        box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
-        transform: scale(1.2, 1.2);
+      &.active {
+        &::before {
+          background: white;
+          border-radius: 4px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
+          transform: scale(1.2, 1.2);
+        }
+
+        &::after {
+          opacity: 1;
+        }
       }
 
       &::after {
@@ -129,7 +153,7 @@
         width: 70px;
         height: 70px;
         content: '';
-        left: 10px;
+        left: 5px;
         top: 20px;
         display: block;
         position: absolute;
@@ -146,6 +170,7 @@
   .alert {
     color: #ffeed6;
     font-size: 14px;
+    font-weight: 500;
     border-radius: 0;
     margin-bottom: 0;
     text-align: center;
@@ -164,6 +189,7 @@
 
     a {
       color: #ffffff;
+      font-weight: 600;
 
       &:hover {
         text-decoration: none;

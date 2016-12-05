@@ -8049,6 +8049,14 @@ pre {
       font-size: 20px;
       color: rgba(255, 255, 255, 0.8);
       letter-spacing: -.03em; }
+    .cta hgroup p {
+      color: rgba(255, 255, 255, 0.7); }
+    .cta hgroup small a {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600; }
+      .cta hgroup small a:hover {
+        color: white;
+        text-decoration: none; }
   .cta .tabs {
     background: #f6f7fa; }
     .cta .tabs .container {
@@ -8063,7 +8071,7 @@ pre {
       text-align: center; }
     .cta .tabs li {
       max-width: 360px;
-      margin-left: 50px;
+      margin-left: 43px;
       text-align: left;
       display: inline-block; }
       .cta .tabs li:first-child {
@@ -8089,8 +8097,13 @@ pre {
     .cta .tabs a {
       position: relative;
       display: block;
-      padding: 32px 0 28px 108px;
-      z-index: 1; }
+      padding: 32px 0 28px 85px;
+      z-index: 1;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
       .cta .tabs a::before {
         position: absolute;
         content: '';
@@ -8118,13 +8131,15 @@ pre {
         -webkit-transform: scale(1.2, 1.2);
             -ms-transform: scale(1.2, 1.2);
                 transform: scale(1.2, 1.2); }
+      .cta .tabs a.active::after {
+        opacity: 1; }
       .cta .tabs a::after {
         background: url("/img/getting-started/getting-started-toggle-icons.png") no-repeat 0 0;
         background-size: 70px;
         width: 70px;
         height: 70px;
         content: '';
-        left: 10px;
+        left: 5px;
         top: 20px;
         display: block;
         position: absolute;
@@ -8135,6 +8150,7 @@ pre {
   .cta .alert {
     color: #ffeed6;
     font-size: 14px;
+    font-weight: 500;
     border-radius: 0;
     margin-bottom: 0;
     text-align: center;
@@ -8149,7 +8165,8 @@ pre {
       margin-right: 5px;
       content: "\f17e"; }
     .cta .alert a {
-      color: #ffffff; }
+      color: #ffffff;
+      font-weight: 600; }
       .cta .alert a:hover {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.8); }
@@ -10673,9 +10690,6 @@ ul.docs-example {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
     padding-left: 0;
     padding-top: 13px;
     clear: both;
@@ -10687,6 +10701,9 @@ ul.docs-example {
         -webkit-justify-content: space-around;
             -ms-flex-pack: distribute;
                 justify-content: space-around; } }
+    @media (max-width: 767px) {
+      #page-getting-started main .code .templates {
+        display: block; } }
     #page-getting-started main .code .templates li {
       position: relative;
       padding-top: 285px;
@@ -10699,6 +10716,11 @@ ul.docs-example {
       @media (max-width: 1219px) {
         #page-getting-started main .code .templates li {
           margin-bottom: 50px; } }
+      @media (max-width: 767px) {
+        #page-getting-started main .code .templates li {
+          display: block;
+          margin: 0 auto 50px;
+          width: 340px; } }
       #page-getting-started main .code .templates li::before {
         background: url("/img/getting-started/starter-app-thumbnails.png") no-repeat 0 0;
         background-size: 340px;
@@ -10713,6 +10735,20 @@ ul.docs-example {
         background-position: 0 -280px; }
       #page-getting-started main .code .templates li.sidemenu::before {
         background-position: 0 -560px; }
+      @media (max-width: 991px) and (min-width: 768px) {
+        #page-getting-started main .code .templates li {
+          -webkit-flex: 0 0 266px;
+              -ms-flex: 0 0 266px;
+                  flex: 0 0 266px;
+          padding-top: 220px; }
+          #page-getting-started main .code .templates li::before {
+            width: 266px;
+            background-size: 266px;
+            height: 213px; }
+          #page-getting-started main .code .templates li.tabs::before {
+            background-position: 0 -219px; }
+          #page-getting-started main .code .templates li.sidemenu::before {
+            background-position: 0 -438px; } }
     #page-getting-started main .code .templates code {
       width: 94%;
       display: block;
@@ -10957,8 +10993,6 @@ ul.docs-example {
     max-width: 335px;
     line-height: 1.8em;
     margin: 0 auto 47px; }
-  #page-getting-started main .creator hgroup .btn {
-    letter-spacing: -.05em; }
   #page-getting-started main .creator .xl {
     margin-top: 80px;
     margin-bottom: 50px;

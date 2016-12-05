@@ -143,7 +143,6 @@
 
     .templates {
       display: flex;
-      flex-wrap: wrap;
       padding-left: 0;
       padding-top: 13px;
       clear: both;
@@ -153,6 +152,10 @@
         justify-content: space-around;
       }
 
+      @media (max-width: $screen-xs-max) {
+        display: block;
+      }
+
       li {
         position: relative;
         padding-top: 285px;
@@ -160,8 +163,15 @@
         list-style: none;
         flex: 0 0 340px;
         margin-bottom: 50px;
+
         @media (max-width: $screen-md-max) {
           margin-bottom: 50px;
+        }
+
+        @media (max-width: $screen-xs-max) {
+          display: block;
+          margin: 0 auto 50px;
+          width: 340px;
         }
 
         &::before {
@@ -182,6 +192,25 @@
 
         &.sidemenu::before {
           background-position: 0 -560px;
+        }
+
+        @media (max-width: $screen-sm-max) and (min-width: $screen-sm-min) {
+          flex: 0 0 266px;
+          padding-top: 220px;
+
+          &::before {
+            width: 266px;
+            background-size: 266px;
+            height: 213px;
+          }
+
+          &.tabs::before {
+            background-position: 0 -219px;
+          }
+
+          &.sidemenu::before {
+            background-position: 0 -438px;
+          }
         }
       }
 
@@ -489,10 +518,6 @@
         max-width: 335px;
         line-height: 1.8em;
         margin: 0 auto 47px;
-      }
-
-      .btn {
-        letter-spacing: -.05em;
       }
     }
 

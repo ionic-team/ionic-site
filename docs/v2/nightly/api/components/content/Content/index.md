@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L14">
 Improve this doc
 </a>
 
@@ -102,6 +102,12 @@ adjusted, which could be by either padding or margin.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -124,6 +130,12 @@ adjusted, which could be by either padding or margin.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -146,6 +158,12 @@ on the screen due to overflow.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -168,6 +186,12 @@ on the screen due to overflow.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -189,7 +213,12 @@ The distance of the content's top to its topmost visible content.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
 
+</div>
 
 
 
@@ -211,7 +240,12 @@ The distance of the content's left to its leftmost visible content.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
 
+</div>
 
 
 
@@ -233,6 +267,12 @@ If the scrollable area is actively scrolling or not.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
 
 
 
@@ -254,6 +294,12 @@ The current vertical scroll velocity.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -275,6 +321,12 @@ The current horizontal scroll velocity.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -296,6 +348,12 @@ The current, or last known, vertical scroll direction.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ScrollDirection</code> 
+
+</div>
 
 
 
@@ -317,6 +375,12 @@ The current, or last known, horizontal scroll direction.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ScrollDirection</code> 
+
+</div>
 
 
 
@@ -481,6 +545,7 @@ Scroll to the top of the content component.
 </h3>
 
 Scroll to the bottom of the content component.
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -745,26 +810,6 @@ after dynamically adding headers, footers, or tabs.
 
 
 
-
-<div id="isImgsRefreshable"></div>
-
-<h3>
-<a class="anchor" name="isImgsRefreshable" href="#isImgsRefreshable"></a>
-<code>isImgsRefreshable()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -786,6 +831,38 @@ able to scroll &quot;under&quot; the headers and footers. At first glance the
 fullscreen option may not look any different than the default, however,
 by adding a transparency effect to a header then the content can be
 seen under the header as the user scrolls.</p>
+<p>@returns {boolean}</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>ionScrollStart</td>
+      <td><p> Emitted when the scrolling first starts.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionScroll</td>
+      <td><p> Emitted on every scroll event.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionScrollEnd</td>
+      <td><p> Emitted when scrolling ends.</p>
 </td>
     </tr>
     

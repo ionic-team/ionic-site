@@ -396,7 +396,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-ios-avatar-size</code></td>
         
-          <td><code>3.6rem</code></td>
+          <td><code>36px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -405,7 +405,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
-          <td><code>5.6rem</code></td>
+          <td><code>56px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
 </td>
@@ -526,7 +526,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-md-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -535,7 +535,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-md-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
 </td>
@@ -692,7 +692,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-wp-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -701,7 +701,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-wp-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
 </td>

@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-rc.4"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/directive/ionSpinner/"
 
 title: "ion-spinner"

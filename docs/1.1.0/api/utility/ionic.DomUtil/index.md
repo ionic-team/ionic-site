@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.1.0"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/utility/ionic.DomUtil/"
 
 title: "ionic.DomUtil"

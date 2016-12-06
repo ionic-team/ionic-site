@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-rc.0"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/directive/onSwipe/"
 
 title: "on-swipe"

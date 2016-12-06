@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.2.1"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/service/$ionicBackdrop/"
 
 title: "$ionicBackdrop"

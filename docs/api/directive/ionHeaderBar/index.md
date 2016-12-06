@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.3.2"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/directive/ionHeaderBar/"
 
 title: "ion-header-bar"

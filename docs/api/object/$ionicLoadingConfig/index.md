@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.3.2"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/object/$ionicLoadingConfig/"
 
 title: "$ionicLoadingConfig"

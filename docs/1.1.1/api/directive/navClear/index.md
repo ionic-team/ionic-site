@@ -1,7 +1,7 @@
 ---
 layout: "docs_api"
 version: "1.0.0-beta.13"
-versionHref: "/docs/v1"
+versionHref: "/docs"
 path: "api/directive/navClear/"
 
 title: "nav-clear"

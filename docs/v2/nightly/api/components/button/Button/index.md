@@ -617,6 +617,15 @@ class E2EPage {
 </td>
       </tr>
       
+      <tr>
+        <td><code>$button-ios-strong-font-weight</code></td>
+        
+          <td><code>600</code></td>
+        
+        <td><p>Font weight of the strong button</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1044,6 +1053,15 @@ class E2EPage {
 </td>
       </tr>
       
+      <tr>
+        <td><code>$button-md-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong button</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1333,6 +1351,15 @@ class E2EPage {
           <td><code>$button-round-border-radius</code></td>
         
         <td><p>Border radius of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong button</p>
 </td>
       </tr>
       

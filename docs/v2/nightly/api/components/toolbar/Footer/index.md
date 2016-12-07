@@ -33,7 +33,7 @@ Footer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L45">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L41">
 Improve this doc
 </a>
 
@@ -52,16 +52,13 @@ Footer can be a wrapper for <code>ion-toolbar</code> to make sure the content ar
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">@Component({
-  template: `
-     &lt;ion-content&gt;&lt;/ion-content&gt;
-     &lt;ion-footer&gt;
-       &lt;ion-toolbar&gt;
-         &lt;ion-title&gt;Footer&lt;/ion-title&gt;
-       &lt;/ion-toolbar&gt;
-     &lt;/ion-footer&gt;
-  `
-})
+<pre><code class="lang-html">&lt;ion-content&gt;&lt;/ion-content&gt;
+
+&lt;ion-footer&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Footer&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-footer&gt;
 </code></pre>
 
 

@@ -52,21 +52,17 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">@Component({
-  template: `
-     &lt;ion-header&gt;
-       &lt;ion-navbar&gt;
-         &lt;ion-title&gt;Page1&lt;/ion-title&gt;
-       &lt;/ion-navbar&gt;
+<pre><code class="lang-html">&lt;ion-header&gt;
+  &lt;ion-navbar&gt;
+    &lt;ion-title&gt;Page1&lt;/ion-title&gt;
+  &lt;/ion-navbar&gt;
 
-       &lt;ion-toolbar&gt;
-         &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
-       &lt;/ion-toolbar&gt;
-     &lt;/ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
 
-     &lt;ion-content&gt;&lt;/ion-content&gt;
-  `
-})
+&lt;ion-content&gt;&lt;/ion-content&gt;
 </code></pre>
 
 

@@ -24,7 +24,8 @@ export class MyPage {
   }
 
   presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
+    
+    let options = {
       title: 'Modify your album',
       buttons: [
         {
@@ -46,7 +47,10 @@ export class MyPage {
           }
         }
       ]
-    });
+    }
+
+    let actionSheet = this.actionSheetCtrl.create(options);
+    
     actionSheet.present();
   }
 }

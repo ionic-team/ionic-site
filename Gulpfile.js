@@ -58,7 +58,8 @@ function bustCache() {
   var bustArray = function() {
     return [
       cacheBust('_includes/', 'head_includes.html'),
-      cacheBust('_includes/v2_fluid/','header_tags.html')
+      cacheBust('_includes/v2_fluid/','head.html'),
+      cacheBust('_includes/v2_fluid/','footer_tags.html')
     ]
   }
 

@@ -8,7 +8,7 @@ header_sub_title: The powerful command line utility
 ## Adding a platform target
 
 ```bash
-$ ionic platform ios android
+$ ionic platform add ios android
 ```
 
 ## Building your app

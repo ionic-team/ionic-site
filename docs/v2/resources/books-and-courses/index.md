@@ -32,6 +32,7 @@ header_sub_title: Ionic 2 Developer Preview
   </p>
 
   <ul>
+    <li><a href="https://www.packtpub.com/web-development/introducing-ionic-2-video">Introducing Ionic 2 by Mathieu Chauvinc (January 2016)</a></li>
     <li><a href="https://www.packtpub.com/web-development/learning-ionic-2-second-edition">Learning Ionic 2 Second Edition by Arvind Ravulavaru (June 2016)</a></li>
     <li><a href="http://www.amazon.com/Mobile-App-Development-Ionic-Cross-Platform/dp/1491937785/ref=sr_1_2?ie=UTF8&qid=1464183332&sr=8-2&keywords=ionic+2">Mobile App Development with Ionic: Cross-Platform Apps with Ionic 2, Angular 2, and Cordova, Chris Griffith (O'Reilly, October 2016)</a></li>
     <li><a href="https://www.amazon.com/Ionic-Cookbook-Second-Hoc-Phan-ebook/dp/B01C4D9VWS?ie=UTF8&keywords=ionic%202&qid=1464183332&ref_=sr_1_3&sr=8-3">Ionic 2 Cookbook - Second Edition, Hoc Phan (August 2016)</a></li>

@@ -18,7 +18,8 @@ _For more information, Check out the [API docs](../api/components/select/Select)
 <ion-list>
   <ion-item>
     <ion-label>Gaming</ion-label>
-    <ion-select [(ngModel)]="gaming">
+    <ion-select [(ngModel)]="gaming"
+                (ionChange)="GetListData($event)">
       <ion-option value="nes">NES</ion-option>
       <ion-option value="n64">Nintendo64</ion-option>
       <ion-option value="ps">PlayStation</ion-option>
@@ -37,7 +38,11 @@ multiple selections can be made with `<ion-select>` by adding `multiple="true"` 
 <ion-list>
   <ion-item>
     <ion-label>Toppings</ion-label>
-    <ion-select [(ngModel)]="toppings" multiple="true" cancelText="Nah" okText="Okay!">
+    <ion-select [(ngModel)]="toppings" 
+                multiple="true" 
+                cancelText="Nah" 
+                okText="Okay!"
+                GetListData($event)>
       <ion-option value="bacon" checked="true">Bacon</ion-option>
       <ion-option value="olives">Black Olives</ion-option>
       <ion-option value="xcheese" checked="true">Extra Cheese</ion-option>
@@ -52,3 +57,9 @@ multiple selections can be made with `<ion-select>` by adding `multiple="true"` 
   </ion-item>
 </ion-list>
 ```
+  In all html code snippets we can see GetListData function
+ ```ts
+  GetListData(event:Event){
+  console.log(event);
+  }
+  ```

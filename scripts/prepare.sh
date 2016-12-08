@@ -35,7 +35,7 @@ function buildforjekyll {
   jekyll build
 }
 
-if [ -d "_scripts" ]; then
+if [ -d "scripts" ]; then
   clone_site
   buildforjekyll
 fi

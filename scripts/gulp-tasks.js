@@ -8,7 +8,7 @@ module.exports = function(gulp, flags) {
         '../demos/**',
       ])
       .pipe(babel)
-      .pipe(gulp.dest('/test'));
+      .pipe(gulp.dest('content/test'));
   });
 
 }

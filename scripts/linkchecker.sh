@@ -18,6 +18,6 @@ function runlinkchecker {
   cd ..
 }
 
-if [ -d "_scripts" ]; then
+if [ -d "scripts" ]; then
   runlinkchecker
 fi

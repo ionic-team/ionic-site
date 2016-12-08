@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-if [ -d "_scripts" ]; then
+if [ -d "scripts" ]; then
   echo "No tests for now"
   # update search index
   ./node_modules/.bin/gulp docs.index

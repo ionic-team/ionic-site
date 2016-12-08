@@ -26,6 +26,6 @@ function deploy {
   #rm -R _site
 }
 
-if [ -d "_scripts" ]; then
+if [ -d "scripts" ]; then
   deploy
 fi

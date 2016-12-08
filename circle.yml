@@ -10,14 +10,14 @@ machine:
 dependencies:
   pre:
     - gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
-    - ./_scripts/prepare.sh
+    - ./scripts/prepare.sh
   cache_directories:
     - "~/.rvm"
 test:
   override:
-    - ./_scripts/test.sh
+    - ./scripts/test.sh
 deployment:
  staging:
    branch: master
    commands:
-     - ./_scripts/deploy_staging.sh
+     - ./scripts/deploy_staging.sh

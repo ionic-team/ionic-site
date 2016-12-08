@@ -351,7 +351,7 @@ The current, or last known, vertical scroll direction.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ScrollDirection</code> 
+  <code>string</code> 
 
 </div>
 
@@ -378,7 +378,7 @@ The current, or last known, horizontal scroll direction.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ScrollDirection</code> 
+  <code>string</code> 
 
 </div>
 

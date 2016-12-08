@@ -10778,11 +10778,11 @@ ul.docs-example {
   border: none;
   padding: 0; }
   #page-getting-started main pre code {
-    background: #0d1829;
+    background: #ecf0f6;
     border-left: 4px #cdd2dd solid;
     border-radius: 3px;
-    color: black;
-    padding: 14px 16px;
+    color: #0d1829;
+    padding: 13px 15px;
     margin-bottom: 16px;
     margin-top: 8px;
     font-size: 16px;

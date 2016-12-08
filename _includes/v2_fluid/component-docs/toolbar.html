@@ -193,23 +193,3 @@ Buttons can be added to both header and footer toolbars. To add a button to a to
   </ion-toolbar>
 </ion-header>
 ```
-
-<h3 id="toolbar-searchbar" class="no-para">Searchbar in Toolbars</h3>
-
-Another common design paradigm is to include a searchbar inside your toolbar.
-
-```html
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {% raw %}{{ item }}{% endraw %}
-    </ion-item>
-  </ion-list>
-</ion-content>
-```

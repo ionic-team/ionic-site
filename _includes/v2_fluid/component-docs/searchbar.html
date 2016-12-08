@@ -61,3 +61,24 @@ class SearchPage {
   }
 }
 ```
+<h3>Creating a Fixed Searchbar</h3>
+
+A common UI layout is to have a fixed searchbar below the app's header bar so that the 
+searchbar always remains in place at the top of the view. To do this, wrap `<ion-navbar>` 
+and `<ion-searchbar>` inside an `<ion-toolbar>` in your `<ion-header>`. 
+  
+You can also assign a `color` to `<ion-toolbar>` to create the appearance that the searchbar 
+and navbar are a combined UI element:
+  
+```html
+<ion-header>
+  <ion-toolbar color="myCustomColor">
+    <ion-navbar>
+      <ion-title>
+        Nearby Restaurants
+      </ion-title>
+    </ion-navbar>
+    <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+```

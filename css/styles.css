@@ -8607,7 +8607,7 @@ footer {
     bottom: 0;
     right: 65%;
     position: absolute;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.06);
     background: white;
     z-index: 3;
     cursor: -webkit-grab;
@@ -10778,11 +10778,11 @@ ul.docs-example {
   border: none;
   padding: 0; }
   #page-getting-started main pre code {
-    background: #ecf0f6;
+    background: #0d1829;
     border-left: 4px #cdd2dd solid;
     border-radius: 3px;
     color: black;
-    padding: 13px 15px;
+    padding: 14px 16px;
     margin-bottom: 16px;
     margin-top: 8px;
     font-size: 16px;

@@ -402,6 +402,33 @@ Close an active FAB list container
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-ios-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -487,6 +514,33 @@ Close an active FAB list container
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-md-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -551,6 +605,33 @@ Close an active FAB list container
           <td><code>color-shade($fab-wp-list-button-background-color)</code></td>
         
         <td><p>Background color of the activated button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
 </td>
       </tr>
       

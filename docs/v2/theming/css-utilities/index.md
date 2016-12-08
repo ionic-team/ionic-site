@@ -62,7 +62,7 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 | `no-margin`          | removes any margin                  |
 
 
-### `ion-buttons` property
+### `ion-button` properties
 
 | Attribute | Description                                                                                                |
 |-----------|------------------------------------------------------------------------------------------------------------|
@@ -72,3 +72,40 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 | `right`   | Aligns the element on the right side. Overrides the platform specific order                                |
 
 
+### `ion-grid` properties
+
+#### Column Width
+
+| Attribute            | Description                         |
+|----------------------|-------------------------------------|
+| `width-10`           | 10% of row width                    |
+| `width-20`           | 20% of row width                    |
+| `width-25`           | 25% of row width                    |
+| `width-33`           | 33.3333% of row width               |
+| `width-50`           | 50% of row width                    |
+| `width-67`           | 66.6666% of row width               |
+| `width-75`           | 75% of row width                    |
+| `width-80`           | 80% of row width                    |
+| `width-90`           | 10% of row width                    |
+
+#### Column Left Offset
+
+| Attribute            | Description                         |
+|----------------------|-------------------------------------|
+| `offset-10`          | 10% left offset                     |
+| `offset-20`          | 20% left offset                     |
+| `offset-25`          | 25% left offset                     |
+| `offset-33`          | 33.3333% left offset                |
+| `offset-50`          | 50% left offset                     |
+| `offset-67`          | 66.6666% left offset                |
+| `offset-75`          | 75% left offset                     |
+| `offset-80`          | 80% left offset                     |
+| `offset-90`          | 10% left offset                     |
+
+#### Row Formatting
+
+| Attribute            | Description                         |
+|----------------------|-------------------------------------|
+| `center`             | Align columns to vertical middle    |
+| `baseline`           | Align columns to baseline           |
+| `wrap`               | Wrap elements inside row            |

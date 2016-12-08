@@ -50,16 +50,16 @@ function bustCache() {
   function cacheBust(path, fileName) {
     return gulp.src(path + fileName)
       .pipe(cachebust({
-        basePath: "./"
+        basePath: 'content'
       }))
       .pipe(gulp.dest('./' + path))
   }
 
   var bustArray = function() {
     return [
-      cacheBust('_includes/', 'head_includes.html'),
-      cacheBust('_includes/v2_fluid/','head.html'),
-      cacheBust('_includes/v2_fluid/','footer_tags.html')
+      cacheBust('content/_includes/', 'head_includes.html'),
+      cacheBust('content/_includes/v2_fluid/','head.html'),
+      cacheBust('content/_includes/v2_fluid/','footer_tags.html')
     ]
   }
 
@@ -79,7 +79,7 @@ function bustCacheAndReload(done) {
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src('_scss/styles.scss')
+  return gulp.src('assets/scss/styles.scss')
     // .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
@@ -88,8 +88,8 @@ gulp.task('styles:v2', function() {
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     //
     // .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'))
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
 
     // .pipe($.sourcemaps.write('./css/'))
     // Concatenate and minify styles
@@ -97,48 +97,48 @@ gulp.task('styles:v2', function() {
       keepSpecialComments: 0
     }))
     .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'))
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
     .pipe($.size({title: 'styles'}));
 });
 
 gulp.task('styles:v1', function(done) {
-  return gulp.src('scss/**/*.scss')
+  return gulp.src('content/scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'))
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'))
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
     .pipe(rename({extname: '.min.css'}))
-    .pipe(gulp.dest('./css/'))
-    .pipe(gulp.dest('./_site/css/'));
+    .pipe(gulp.dest('content/css/'))
+    .pipe(gulp.dest('_site/css/'));
 });
 
 // Optimize images
 gulp.task('images', function() {
-  return gulp.src('_img/**/*')
+  return gulp.src('assets/img/**/*')
     .pipe(cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('img'))
+    .pipe(gulp.dest('content/img'))
     .pipe(gulp.dest('_site/img'))
     .pipe($.size({title: 'images'}));
 });
 
 // compress and concat JS
 gulp.task('js', function() {
-  return gulp.src(['_js/**/*.js'])
-    .pipe(concat('ionic-docs.js'))
+  return gulp.src(['assets/js/**/*.js'])
+    .pipe(concat('ionic-site.js'))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('content/js'))
     .pipe(gulp.dest('_site/js'))
     .pipe(uglify())
     .pipe(rename({extname: '.min.js'}))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('content/js'))
     .pipe(gulp.dest('_site/js'))
     .pipe($.size({title: 'js'}));
 });
@@ -149,17 +149,17 @@ gulp.task('js', function() {
 gulp.task('jekyll-build', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
   return cp.spawn('jekyll',
-                  ['build', '--config', '_config_development.yml'],
+                  ['build', '-I', '--config', '_config_development.yml'],
                   {stdio: 'inherit'})
            .on('close', function(){
              done()
            });
 });
 
-gulp.task('jekyll-build.incremental', [], function(done) {
+gulp.task('jekyll-build.clean', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
   return cp.spawn('jekyll',
-                  ['build', '-I', '--config', '_config_development.yml'],
+                  ['build', '--config', '_config_development.yml'],
                   {stdio: 'inherit'})
            .on('close', done);
 });
@@ -174,7 +174,7 @@ gulp.task('linkchecker', ['build'],
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build.incremental'], function() {
+gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
 });
 
@@ -197,20 +197,21 @@ gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['_scss/**/*.scss'], ['server:stylesv2']);
-  gulp.watch(['_img/*', '_img/*/*'], ['images']);
-  gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
-  gulp.watch(['*.html', 'submit-issue/*.html', 'getting-started/*.html',
-    '_layouts/*', '_layouts/*/*', '_posts/*', '_includes/**/*',
-    'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*', '!docs/nightly',
-    '!docs/api', 'dist/preview-app/www/**/*'
+  gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
+  gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['content/**/*.{md,html}',
+    //'_layouts/*', '_layouts/*/*', '_posts/*', '_includes/**/*',
+    //'docs/**/*.{md,html,js,css}', '!docs/v2/2*', '!docs/1.*', '!docs/nightly',
+    //'!docs/api', 'dist/preview-app/www/**/*'
   ], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {
-  gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
-  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss', '_scss/pages/*.scss'], ['server:stylesv2']);
-  gulp.watch(['_layouts/*/*','_includes/**/*', 'docs/v2/**/*.{md,html}'], ['server:jekyll']);
+  gulp.watch(['assets/js/**/*.js'], ['server:js']);
+  gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
+  gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
+              'content/docs/v2/**/*.{md,html}'], ['server:jekyll']);
 
 });
 gulp.task('cli-docs', function() {
@@ -250,7 +251,7 @@ gulp.task('docs.index', function() {
     refId++;
   }
 
-  var docPath = 'docs/v2';
+  var docPath = 'content/docs/v2';
   gutil.log('Reading docs from', gutil.colors.cyan(docPath));
 
   return gulp.src([
@@ -262,7 +263,7 @@ gulp.task('docs.index', function() {
     var contents = file.contents.toString(); //was buffer
 
     // Grab relative path from ionic-site root
-    var relpath = file.path.replace(RegExp('^.*?' + docPath.replace('/docs/v2', '') + '/'), '');
+    var relpath = file.path.replace(RegExp('^.*?' + docPath.replace('/content/docs/v2', '') + '/'), '');
 
     // Read out the yaml portion of the Jekyll file
     var yamlStartIndex = contents.indexOf('---');
@@ -367,20 +368,25 @@ gulp.task('docs.index', function() {
 gulp.task('ionicons', function() {
   gulp.src('node_modules/ionicons/dist/data/ionicons.json')
     .pipe(rename('site_data.json'))
-    .pipe(gulp.dest('./docs/v2/resources/ionicons/'));
+    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/'))
+    .pipe(gulp.dest('content/docs/v2/resources/ionicons/'));
 
   gulp.src('node_modules/ionicons/dist/data/mode-icons.json')
-    .pipe(gulp.dest('./docs/v2/resources/ionicons/data/'));
+    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/data/'))
+    .pipe(gulp.dest('content/docs/v2/resources/ionicons/data/'));
 
   gulp.src('node_modules/ionicons/dist/data/logo-icons.json')
     .pipe(rename('generic-icons.json'))
-    .pipe(gulp.dest('./docs/v2/resources/ionicons/data/'));
+    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/data/'))
+    .pipe(gulp.dest('content/docs/v2/resources/ionicons/data/'));
 
   gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
-    .pipe(gulp.dest('./css/v2-demos/ionicons/'));
+    .pipe(gulp.dest('_site/css/v2-demos/ionicons/'))
+    .pipe(gulp.dest('content/css/v2-demos/ionicons/'));
 
   return gulp.src('node_modules/ionicons/dist/fonts/*{eot,svg,ttf,woff}')
-    .pipe(gulp.dest('./css/v2-demos/fonts/'));
+    .pipe(gulp.dest('_site/css/v2-demos/fonts/'))
+    .pipe(gulp.dest('content/css/v2-demos/fonts/'));
 });
 
 gulp.task('build', ['build-prep'], function(done) {

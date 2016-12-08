@@ -81,7 +81,7 @@ export class Tabs {
 <p>You can also pass some parameters to the root page of the tab through
 <code>rootParams</code>. Below we pass <code>chatParams</code> to the Chat tab:</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
- &lt;ion-tab [root]=&quot;chatRoot&quot; [rootParams]=&quot;chatParams&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;ion-tab&gt;
+ &lt;ion-tab [root]=&quot;chatRoot&quot; [rootParams]=&quot;chatParams&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {

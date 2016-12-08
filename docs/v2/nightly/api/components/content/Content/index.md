@@ -84,6 +84,63 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="contentHeight"></div>
+
+<h3>
+<a class="anchor" name="contentHeight" href="#contentHeight"></a>
+<code>contentHeight</code>
+  
+
+</h3>
+
+Content height of the viewable area. This does not include content
+which is outside the overflow area, or content area which is under
+headers and footers. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="contentWidth"></div>
+
+<h3>
+<a class="anchor" name="contentWidth" href="#contentWidth"></a>
+<code>contentWidth</code>
+  
+
+</h3>
+
+Content width including content which is not visible on the screen
+due to overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
 <div id="contentTop"></div>
 
 <h3>
@@ -94,7 +151,8 @@ export class MyPage{
 </h3>
 
 A number representing how many pixels the top of the content has been
-adjusted, which could be by either padding or margin.
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the header.
 
 
 
@@ -122,7 +180,8 @@ adjusted, which could be by either padding or margin.
 </h3>
 
 A number representing how many pixels the bottom of the content has been
-adjusted, which could be by either padding or margin.
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the footer.
 
 
 
@@ -149,8 +208,8 @@ adjusted, which could be by either padding or margin.
 
 </h3>
 
-The height the content, including content not visible
-on the screen due to overflow.
+Content height including content which is not visible on the screen
+due to overflow. Read-only.
 
 
 
@@ -177,8 +236,8 @@ on the screen due to overflow.
 
 </h3>
 
-The width the content, including content not visible
-on the screen due to overflow.
+Content width including content which is not visible due to
+overflow. Read-only.
 
 
 
@@ -259,7 +318,7 @@ The distance of the content's left to its leftmost visible content.
 
 </h3>
 
-If the scrollable area is actively scrolling or not.
+If the content is actively scrolling or not.
 
 
 
@@ -340,7 +399,8 @@ The current horizontal scroll velocity.
 
 </h3>
 
-The current, or last known, vertical scroll direction.
+The current, or last known, vertical scroll direction. Possible
+string values include `down` and `up`.
 
 
 
@@ -367,7 +427,8 @@ The current, or last known, vertical scroll direction.
 
 </h3>
 
-The current, or last known, horizontal scroll direction.
+The current, or last known, horizontal scroll direction. Possible
+string values include `right` and `left`.
 
 
 

@@ -93,7 +93,7 @@ import {Validators, FormBuilder } from '@angular/forms';
 })
 export class FormsPage {
   constructor(private formBuilder: FormBuilder) {}
-  ionViewLoaded() {
+  ionViewDidLoad() {
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
       description: [''],

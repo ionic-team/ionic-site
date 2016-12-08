@@ -16,95 +16,61 @@ While there are many great built-in features in Ionic, there's some functionalit
 
 If you want to read more about NPM and the command line tools, check out [NPM's docs](https://docs.npmjs.com/) before proceeding.
 
+### Installation Using NPM
 
-### Installation
-
-To add an additional library to your app, you can run:
+To add a third party library to an app, run the following command:
 
 ```bash
 npm install <theLibraryName> --save
 ```
 
-For example, to install Lodash:
+For example, to install the popular library Lodash:
 
 ```bash
 npm install lodash --save
 ```
 
-`install` will download a copy of the library from NPM, and save it in your app's `node_modules` directory.  `--save` will tell the NPM CLI to add an entry to your app’s `package.json` dependency list.
-
-If this was _just_ JavaScript, the process above would be enough for installing third party libraries. But Ionic uses TypeScript, there is an additional step to the process.
-
-Since TypeScript utilizes [static types](https://en.wikipedia.org/wiki/Type_system#STATIC), we need to be able to "describe" code we want to use and import. TypeScript does this through type definitions. The TypeScript team actually maintains a large collection of these, which can be installed through NPM as well.
-
-Similar to our library installation, we can run:
-
-```bash
-npm install @types/theLibraryName --save
-```
-
-For our Lodash example, we can run:
-
-```bash
-npm install @types/lodash --save
-```
-
-In the rare case that types don't exist for your library, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a create a complete type definition.
-
-### Creating Short-hand Definition
-
-In the app's `src/` directory, make a new file called `declarations.d.ts`. The `.d.ts` denotes that the file is a definition file and not actual code.
-
-In the file, we can add a line to `declare` our module:
-
-```typescript
-declare module 'theLibraryName';
-```
-
-All this does is tell the Typescript compiler that the module is found, and it is an object of `any` type. This will allow the library to be used freely without the Typescript compiler giving errors.
-
-Going back to the Lodash example, we can write:
-
-```typescript
-declare module 'lodash';
-```
-
-Now we can declare several definitions in this file, so if you ended up using multiple libraries that do not have types, it's really easy to just drop them into your `declarations.d.ts`.
-
-```typescript
-declare module 'theLibraryName';
-declare module 'anotherLibraryName';
-declare module 'someOtherLibraryName';
-```
+`npm install` will download a copy of the library from NPM and save it in your app's `node_modules` directory.  `--save` will tell the NPM CLI to add an entry to your app’s `package.json` dependency list. The library is now ready to use.
 
 ### Using Libraries
 
-After installing the library and its type definition, we can use it by importing the library.
+After installing the library, we must import it into our code to use it.
 
-Import statement follow a simple pattern.
+Import statements can follow two simple patterns: using a `named export` and using a `default export`. The best practice is to use the `named export` pattern whenever possible. If it doesn't work correctly, fall back to the `default export`.
 
 ```typescript
+// named export pattern
 import { myFunction } from 'theLibraryName';
+...
+// use the imported functionality
+myFunction();
 ```
 
-We first import the named exported function and say were it's from. This pattern is called the `named exports` approach. This is considered the best practice as it only imports the portion of the library that is needed - `myFunction` in the case above. This is exactly what is being done in your app when you import `Component` from Angular or `NavController` for Ionic.
+- OR -
+
+```typescript
+// default export pattern
+import myLibrary from 'theLibraryName';
+...
+// call the function on the object
+myLibrary.myFunction();
+```
+
+
+#### Examples and Additional Details
+
+Angular and Ionic components are imported using the `named export` pattern, as are standard compliant third-party libraries.
 
 ```typescript
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 ```
 
-There are some cases where importing a specific portion of a library is not possible. Typically, this is the case with older libraries written for the [Node Environments](https://nodejs.org/en/). These follow the older [CommonJS module](https://nodejs.org/docs/latest/api/modules.html) pattern.
+Using the `named export` pattern is preferred and considered best practice because it only imports/includes the portion of the library that is needed. This results in smaller, faster apps.
+
+In some cases, importing a specific portion of a library isn't possible. Typically, this is the case with older libraries written for the [Node Environments](https://nodejs.org/en/) that don't follow the ES2015 Module standard.
 
 In that case, the library can be used but must be imported using the `default` export approach.
-
-```typescript
-import myLib from 'theLibraryName';
-```
-
-The default export maps one-to-one with a CommonJS `module.exports` attribute, meaning `myLib` has access to all properties, functions, etc that are exposed.
-
-To call `myFunction` to follow our example above, the code would look like this:
 
 ```typescript
 import myLib from 'theLibraryName';
@@ -118,8 +84,33 @@ import lodash from 'lodash';
 lodash.capitalize('myStringToCapitalize');
 ```
 
-The best practice is to always try to import libraries using the `named export` approach, and only switching to the `default export` approach if there is an error when building.
+### Type Definitions
+
+Third Party libraries work with Ionic just like they would for any other JavaScript project utilizing `npm`. Often, these libraries don't have intellisense information for IDEs and editors. Adding a Type Definition will enable intellisense and ensure correctness of the program. To add a Type Definition for a Library, we can again utilize `npm` and the `@types` namespace maintained by the TypeScript community.
+
+To install a Type Definition, execute the following command:
+
+```bash
+npm install @types/theLibraryName --save
+```
+
+For example, to install the Type Definitions for Lodash:
+
+```bash
+npm install @types/lodash --save
+```
 
 ### Troubleshooting
 
-With most libraries, everything should "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/driftyco/ionic-app-scripts#custom-config-files).
+#### Using console.dir
+If you're unsure of the "shape" of the object being imported, using `console.dir` can be very helpful.
+
+```
+import lodash from 'lodash'
+console.dir(lodash);
+```
+
+`console.dir` prints out all of the important details about an object and its API.
+
+#### Custom Build Configuration
+With most libraries, everything "just works" out of the box. In some rare cases, the build process might need changes made to build. The Ionic build process allows you to easily extend the default settings with [custom configs](https://github.com/driftyco/ionic-app-scripts#custom-config-files).

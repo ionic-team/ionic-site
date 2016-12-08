@@ -394,7 +394,7 @@ Qrites an NdefMessage to a NFC tag.
 <code>any[]</code>
     </td>
     <td>
-      
+      <p>An array of NDEF Records.</p>
       
     </td>
   </tr>

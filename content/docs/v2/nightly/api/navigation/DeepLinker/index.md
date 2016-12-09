@@ -69,7 +69,7 @@ over the world.</p>
  ]
 </code></pre>
 <p>DeepLinker implements <code>DeepLinkerConfig</code>, which is an object with an array of links.
-So for basic example based on the blank starer, a link setup like so:</p>
+So for basic example based on the blank starter, a link setup like so:</p>
 <pre><code class="lang-ts">imports: [
    IonicModule.forRoot(MyApp, {}, {
      links: [

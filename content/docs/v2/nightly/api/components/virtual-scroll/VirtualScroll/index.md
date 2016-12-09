@@ -243,7 +243,7 @@ dataset, so please make sure they&#39;re performant.</li>
       <td>virtualScroll</td>
       <td><code>array</code></td>
       <td><p> The data that builds the templates within the virtual scroll.
-This is the same data that you&#39;d pass to <code>ngFor</code>. It&#39;s important to note
+This is the same data that you&#39;d pass to <code>*ngFor</code>. It&#39;s important to note
 that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
@@ -256,10 +256,10 @@ which is an expensive operation and should be avoided if possible.</p>
 should get created when initially rendered. The number is a
 multiplier against the viewable area&#39;s height. For example, if it
 takes <code>20</code> cells to fill up the height of the viewable area, then
-with a buffer ratio of <code>2</code> it will create <code>40</code> cells that are
+with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
-viewable area. Default is <code>2</code>.</p>
+viewable area. Default is <code>3</code>.</p>
 </td>
     </tr>
     
@@ -272,14 +272,15 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>100%</code>.</p>
+initial dimensions before the item has been rendered. Default is
+<code>100%</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
-      <td><p> Default is <code>40px</code>. It is important to provide this
+      <td><p> It is important to provide this
 if virtual item height will be significantly larger than the default
 The approximate height of each virtual item template&#39;s cell.
 This dimension is used to help determine how many cells should
@@ -287,7 +288,8 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions.</p>
+initial dimensions before the item has been rendered. Default is
+<code>40px</code>.</p>
 </td>
     </tr>
     
@@ -313,7 +315,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>40px</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
     
@@ -326,7 +328,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>100%</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>100%</code>.</p>
 </td>
     </tr>
     
@@ -339,7 +341,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>40px</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
     

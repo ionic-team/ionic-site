@@ -31,7 +31,7 @@ ImgLoader
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img-loader.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img-loader.ts#L3">
 Improve this doc
 </a>
 
@@ -100,6 +100,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="ids" href="#ids"></a>
 <code>ids</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="url"></div>
+
+<h3>
+<a class="anchor" name="url" href="#url"></a>
+<code>url</code>
   
 
 </h3>

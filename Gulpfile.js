@@ -394,6 +394,7 @@ gulp.task('build', ['build-prep'], function(done) {
     done();
   })
 });
-gulp.task('build-prep', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'images', 'js'], bustCache);
+
+gulp.task('build-prep', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'images', 'js', 'docs.index'], bustCache);
 
 gulp.task('default', ['build']);

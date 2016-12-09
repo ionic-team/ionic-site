@@ -4,7 +4,9 @@
   Improve this Doc
 </a>
 
-Slides make it easy to create galleries, tutorials, and page-based layouts. Slides take a number of configuration options on the `<ion-slides>` component.
+Slides make it easy to create galleries, tutorials, and page-based layouts, and are implemented by nesting multiple `ion-slide` components inside an `ion-slides` compoentn. 
+
+The behavior of Slides can be customized by binding an options object to the `options` attribute of `ion-slides`. Customizations include the speed the slides change, whether the slides should autoplay and loop, and whether pagination bullets should be shown.
 
 _For complete usage information, check out the [Slides API docs](../api/components/slides/Slides) and the [Slide API docs](../api/components/slides/Slide)._
 
@@ -14,19 +16,12 @@ _For complete usage information, check out the [Slides API docs](../api/componen
 </a>
 
 ```html
-<ion-slides pager>
-
-  <ion-slide style="background-color: green">
+<ion-slides [options]="myOptionsObject">
+  <ion-slide>
     <h2>Slide 1</h2>
   </ion-slide>
-
-  <ion-slide style="background-color: blue">
+  <ion-slide>
     <h2>Slide 2</h2>
   </ion-slide>
-
-  <ion-slide style="background-color: red">
-    <h2>Slide 3</h2>
-  </ion-slide>
-
 </ion-slides>
 ```

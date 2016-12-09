@@ -4,7 +4,7 @@
   Improve this Doc
 </a>
 
-Toast is a subtle notification that appears on top of an app's content. Typically, Toasts are displayed for a short duration of time then automatically dismiss.
+Toast is a subtle notification that appears on top of an app's content. Typically, Toasts are displayed for a short duration and automatically dismiss.
 
 _For complete usage information, check out the [API docs](../api/components/toast/ToastController)._
 
@@ -22,10 +22,13 @@ export class MyPage {
   }
 
   presentToast() {
-    let toast = this.toastCtrl.create({
+    let options = {
       message: 'User was added successfully',
       duration: 3000
-    });
+    }
+
+    let toast = this.toastCtrl.create(options);
+    
     toast.present();
   }
 }

@@ -151,30 +151,10 @@ Boolean if the app is actively scrolling or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> <p>Retuns the root NavController</p>
+  <code>NavController</code> <p>Returns the root NavController</p>
 
 
 </div>
-
-
-
-
-<div id="goBack"></div>
-
-<h3>
-<a class="anchor" name="goBack" href="#goBack"></a>
-<code>goBack()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
 
 
 

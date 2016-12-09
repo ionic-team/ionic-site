@@ -8543,7 +8543,8 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: white; }
+    background: white;
+    border-radius: 8px; }
   .draggable .app {
     right: 65%;
     position: absolute;

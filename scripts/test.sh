@@ -2,7 +2,6 @@
 
 
 if [ -d "scripts" ]; then
-  echo "No tests for now"
-  # update search index
-  ./node_modules/.bin/gulp docs.index
+  echo "Running build"
+  ./node_modules/.bin/gulp build
 fi

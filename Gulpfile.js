@@ -159,7 +159,7 @@ gulp.task('jekyll-build', [], function(done) {
 gulp.task('jekyll-build.clean', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
   return cp.spawn('jekyll',
-                  ['build', '--config', '_config_development.yml'],
+                  ['build', '--config', '_config.yml'],
                   {stdio: 'inherit'})
            .on('close', done);
 });

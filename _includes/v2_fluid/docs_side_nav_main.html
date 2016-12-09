@@ -157,7 +157,30 @@
       <a href="/docs/v2/api">API</a>
     </li>
 
-  {% comment %} ### Native ### {% endcomment %}
+    {% comment %} ### Navigation ### {% endcomment %}
+    <li class="{% if page.category == 'navigation' %}active{% endif %}">
+      <a ng-click="showNavigation = !showNavigation">Navigation</a>
+      <ul ng-show="showNavigation"
+          ng-cloak
+          {% if page.category == 'navigation' %}
+            ng-init="showNavigation = true"
+          {% endif %}>
+        <li class="{% if page.id == 'navigation' %}active{% endif %}">
+          <a href="/docs/v2/navigation/">Intro</a>
+        </li>
+        <li class="{% if page.id == 'lifecycle_events' %}active{% endif %}">
+          <a href="/docs/v2/navigation/lifecycle-events/">Lifecycle Events</a>
+        </li>
+        <li class="{% if page.id == 'nav_guards' %}active{% endif %}">
+          <a href="/docs/v2/navigation/nav-guards/">Nav Guards</a>
+        </li>
+        <li class="{% if page.id == 'advanced_cases' %}active{% endif %}">
+          <a href="/docs/v2/navigation/advanced-cases/">Advanced Cases</a>
+        </li>        
+      </ul>
+    </li>
+
+   {% comment %} ### Native ### {% endcomment %}
    <li>
      <a href="/docs/v2/native/">Native</a>
    </li>

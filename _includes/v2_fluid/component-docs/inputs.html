@@ -8,7 +8,7 @@ The Input component implements the Angular 2 form module, and is essential for c
 
 Each input field in a form has a **Control**, a function that binds to the value in the field and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
 
-There are several types of Inputs available, each with its own behavior, including:
+There are several types of Input labels available, each with its own behavior:
 
 - inline: label does not hide when text is entered
 - fixed: label is placed to the left of the input element
@@ -28,26 +28,26 @@ _For complete usage information, check out the [API docs](../api/components/inpu
 <ion-list>
 
   <ion-item>
-    <ion-label>Inline Input</ion-label>
+    <ion-label>Inline Label</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input type="text" placeholder="Placeholder Input"></ion-input>
+    <ion-input type="text" placeholder="Placeholder Label"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label fixed>Fixed Input</ion-label>
+    <ion-label fixed>Fixed Label</ion-label>
     <ion-input type="text" value=""></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Floating Input</ion-label>
+    <ion-label floating>Floating Label</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label stacked>Stacked Input</ion-label>
+    <ion-label stacked>Stacked Label</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 
@@ -56,7 +56,7 @@ _For complete usage information, check out the [API docs](../api/components/inpu
 <ion-list inset>
 
   <ion-item>
-    <ion-label>Inset Input</ion-label>
+    <ion-label>Inset Label</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 

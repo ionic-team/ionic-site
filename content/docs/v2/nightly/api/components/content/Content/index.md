@@ -336,60 +336,6 @@ If the content is actively scrolling or not.
 
 
 
-<div id="velocityY"></div>
-
-<h3>
-<a class="anchor" name="velocityY" href="#velocityY"></a>
-<code>velocityY</code>
-  
-
-</h3>
-
-The current vertical scroll velocity.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="velocityX"></div>
-
-<h3>
-<a class="anchor" name="velocityX" href="#velocityX"></a>
-<code>velocityX</code>
-  
-
-</h3>
-
-The current horizontal scroll velocity.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
 <div id="directionY"></div>
 
 <h3>

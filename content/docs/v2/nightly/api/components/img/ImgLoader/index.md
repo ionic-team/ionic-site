@@ -31,7 +31,7 @@ ImgLoader
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img-loader.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img-loader.ts#L0">
 Improve this doc
 </a>
 
@@ -55,71 +55,11 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="wkr"></div>
+<div id="imgs"></div>
 
 <h3>
-<a class="anchor" name="wkr" href="#wkr"></a>
-<code>wkr</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="callbacks"></div>
-
-<h3>
-<a class="anchor" name="callbacks" href="#callbacks"></a>
-<code>callbacks</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ids"></div>
-
-<h3>
-<a class="anchor" name="ids" href="#ids"></a>
-<code>ids</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="url"></div>
-
-<h3>
-<a class="anchor" name="url" href="#url"></a>
-<code>url</code>
+<a class="anchor" name="imgs" href="#imgs"></a>
+<code>imgs</code>
   
 
 </h3>
@@ -155,51 +95,11 @@ Improve this doc
 
 
 
-<div id="cancelLoad"></div>
-
-<h3>
-<a class="anchor" name="cancelLoad" href="#cancelLoad"></a>
-<code>cancelLoad()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="abort"></div>
 
 <h3>
 <a class="anchor" name="abort" href="#abort"></a>
 <code>abort()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="worker"></div>
-
-<h3>
-<a class="anchor" name="worker" href="#worker"></a>
-<code>worker()</code>
   
 
 </h3>

@@ -5,7 +5,7 @@
 </a>
 
 The Loading component is an overlay that prevents user interaction while indicating activity.
-By default, it shows a spinner based on the mode. Dynamic content can be passed and displayed with the spinner. The spinner can be hidden or customized to use several predefined options. The loading indicator is presented on top of other content even during navigation.
+By default, it shows a spinner whose styling is based on the platform mode (iOS, Material Design, Windows Universal). The spinner can be hidden or customized to use several predefined options, as well as dynamic content. The loading component is presented on top of other content even during navigation.
 
 _For complete usage information, check out the [API docs](../api/components/loading/LoadingController)._
 
@@ -22,10 +22,11 @@ export class MyPage {
   }
 
   presentLoading() {
-    let loader = this.loadingCtrl.create({
+    let options = {
       content: "Please wait...",
       duration: 3000
-    });
+    }
+    let loader = this.loadingCtrl.create(options);
     loader.present();
   }
 }

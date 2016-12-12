@@ -227,6 +227,11 @@ and be enhanced by a wide range of attributes.</p>
 &lt;button ion-button [color]=&quot;myColor2&quot; [outline]=&quot;isOutline&quot; [round]=&quot;isRound&quot;&gt;
   Dark (Solid + Round)
 &lt;/button&gt;
+
+&lt;!-- Bind the click event to a method --&gt;
+&lt;button ion-button (click)=&quot;logEvent($event)&quot;&gt;
+  Click me!
+&lt;/button&gt;
 </code></pre>
 <pre><code class="lang-ts">@Component({
   templateUrl: &#39;main.html&#39;
@@ -239,6 +244,10 @@ class E2EPage {
   isClear: boolean = true;
   myColor: string = &#39;secondary&#39;;
   myColor2: string = &#39;dark&#39;;
+
+  logEvent(event) {
+    console.log(event)
+  }
 }
 </code></pre>
 

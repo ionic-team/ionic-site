@@ -1,0 +1,110 @@
+.draggable {
+  height: 345px;
+  position: relative;
+
+  .code,
+  .app {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    border-radius: 8px;
+  }
+
+  .app {
+    right: 65%;
+    position: absolute;
+    overflow: hidden;
+    padding: 9px 0 0 9px;
+    background: white url('/img/home/ios-list-design.png') no-repeat 0 bottom;
+    background-size: 540px;
+  }
+
+  .code {
+    code {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: transparent;
+      padding-top: 15px;
+    }
+
+    pre {
+      font-family: monospace;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      line-height: 0em;
+      counter-reset: line;
+      white-space: pre-wrap;
+      padding: 0;
+      border: 0;
+      margin: 0;
+
+      &::before {
+        background: #f3f7ff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        content: '';
+        display: block;
+      }
+
+      span.line {
+        display: block;
+        padding: 12px 0 12px 55px;
+        position: relative;
+
+        &:before {
+          counter-increment: line;
+          content: counter(line);
+          display: block;
+          color: #79a5f1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 40px;
+          text-align: right;
+          padding-top: 12px;
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+
+  .toggle {
+    width: 4px;
+    top: 0 !important;
+    bottom: 0;
+    right: 65%;
+    position: absolute;
+    box-shadow: 0 0 18px rgba(0,0,0,.1),0 0 4px rgba(0,0,0,.06);
+    background: white;
+    z-index: 3;
+    cursor: grab;
+
+    &::after {
+      background: url('/img/home/drag-button.png') no-repeat 0 0;
+      background-size: 64px;
+      width: 64px;
+      height: 64px;
+      display: block;
+      content: '';
+      top: calc(50% - 40px);
+      left: -28px;
+      position: absolute;
+    }
+  }
+}

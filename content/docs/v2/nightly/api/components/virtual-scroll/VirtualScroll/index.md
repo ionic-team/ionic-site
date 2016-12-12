@@ -109,22 +109,23 @@ is only used to help calculate initial dimensions.</p>
 <p>It&#39;s also important to know that Ionic&#39;s default item sizes have
 slightly different heights between platforms, which is perfectly fine.</p>
 <h3 id="images-within-virtual-scroll">Images Within Virtual Scroll</h3>
-<p>Ionic provides <code>&lt;ion-img&gt;</code> to manage HTTP requests and image rendering.
-Additionally, it includes a customizable placeholder element which shows
-before the image has finished loading. While scrolling through items
-quickly, <code>&lt;ion-img&gt;</code> knows not to make any image http requests, and only
-loads the images that are viewable after scrolling.</p>
+<p>HTTP requests, image decoding, and image rendering can cause jank while
+scrolling. In order to better control images, Ionic provides <code>&lt;ion-img&gt;</code>
+to manage HTTP requests and image rendering. While scrolling through items
+quickly, <code>&lt;ion-img&gt;</code> knows when and when not to make requests, when and
+when not to render images, and only loads the images that are viewable
+after scrolling. <a href="../img/Img/">Read more about <code>ion-img</code>.</a></p>
 <p>It&#39;s also important for app developers to ensure image sizes are locked in,
 and after images have fully loaded they do not change size and affect any
 other element sizes. Simply put, to ensure rendering bugs are not introduced,
 it&#39;s vital that elements within a virtual item does not dynamically change.</p>
-<p>We recommend using our <code>&lt;ion-img&gt;</code> element over the native <code>&lt;img&gt;</code> element
-because when an <code>&lt;img&gt;</code> element is added to the DOM, it immediately
-makes a HTTP request for the image file. HTTP requests, image
-decoding, and image rendering can cause issues while scrolling. For virtual
-scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable features.</p>
-<p>Note: <code>&lt;ion-img&gt;</code> should only be used with Virtual Scroll. If you are using
-an image outside of Virtual Scroll you should use the standard <code>&lt;img&gt;</code> tag.</p>
+<p>For virtual scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable
+features. We recommend using the <code>&lt;ion-img&gt;</code> component over the native
+<code>&lt;img&gt;</code> element because when an <code>&lt;img&gt;</code> element is added to the DOM, it
+immediately makes a HTTP request for the image file. Additionally, <code>&lt;img&gt;</code>
+renders whenever it wants which could be while the user is scrolling. However,
+<code>&lt;ion-img&gt;</code> is governed by the containing <code>ion-content</code> and does not render
+images while scrolling quickly.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
@@ -152,27 +153,44 @@ dimensions are measured correctly.</p>
 
 &lt;/ion-list&gt;
 </code></pre>
-<h3 id="performance-tips">Performance Tips</h3>
-<ul>
-<li>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
+<h2 id="virtual-scroll-performance-tips">Virtual Scroll Performance Tips</h2>
+<h4 id="ios-cordova-wkwebview">iOS Cordova WKWebView</h4>
+<p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
 <a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
-in order to take advantage of iOS&#39;s higher performimg webview.</li>
-<li>Use <code>&lt;ion-img&gt;</code> rather than <code>&lt;img&gt;</code> so images are lazy loaded
-while scrolling.</li>
-<li>Image sizes should be locked in, meaning the size of any element
-should not change after the image has loaded.</li>
-<li>For the most part, ensure the element size for each virtual item
-does not dynamically change, but rather, their size must already be
-locked in via CSS at the time they are rendered.</li>
-<li>Provide an approximate width and height so the virtual scroll can
-best calculate the cell height.</li>
-<li>Changing the dataset requires the entire virtual scroll to be
-reset, which is an expensive operation and should be avoided
-if possible.</li>
-<li>Do not perform any DOM manipulation within section header and
-footer functions. These functions are called for every record in the
-dataset, so please make sure they&#39;re performant.</li>
-</ul>
+in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
+WKWebView is superior at scrolling efficiently in comparision to the older
+UIWebView.</p>
+<h4 id="lock-in-element-dimensions-and-locations">Lock in element dimensions and locations</h4>
+<p>In order for virtual scroll to efficiently size and locate every item, it&#39;s
+very important every element within each virtual item does not dynamically
+change its dimensions or location. The best way to ensure size and location
+does not change, it&#39;s recommended each virtual item has locked in its size
+via CSS.</p>
+<h4 id="use-ion-img-for-images">Use <code>ion-img</code> for images</h4>
+<p>When including images within Virtual Scroll, be sure to use
+<a href="../img/Img/"><code>ion-img</code></a> rather than the standard <code>&lt;img&gt;</code> HTML element.
+With <code>ion-img</code>, images are lazy loaded so only the viewable ones are
+rendered, and HTTP requests are efficiently controlled while scrolling.</p>
+<h4 id="set-approximate-widths-and-heights">Set Approximate Widths and Heights</h4>
+<p>As mentioned above, all elements should lock in their dimensions. However,
+virtual scroll isn&#39;t aware of the dimensions until after they have been
+rendered. For the initial render, virtual scroll still needs to set
+how many items should be built. With &quot;approx&quot; property inputs, such as
+<code>approxItemHeight</code>, we&#39;re able to give virtual sroll an approximate size,
+therefore allowing virtual scroll to decide how many items should be
+created.</p>
+<h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>
+<p>It is possible for the identities of elements in the iterator to change
+while the data does not. This can happen, for example, if the iterator
+produced from an RPC to the server, and that RPC is re-run. Even if the
+&quot;data&quot; hasn&#39;t changed, the second response will produce objects with
+different identities, and Ionic will tear down the entire DOM and rebuild
+it. This is an expensive operation and should be avoided if possible.</p>
+<h4 id="efficient-headers-and-footer-functions">Efficient headers and footer functions</h4>
+<p>Each virtual item must stay extremely efficient, but one way to really
+kill its performance is to perform any DOM operations within section header
+and footer functions. These functions are called for every record in the
+dataset, so please make sure they&#39;re performant.</p>
 
 
 

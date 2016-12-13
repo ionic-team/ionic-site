@@ -16,8 +16,8 @@ dependencies:
 test:
   override:
     - ./scripts/test.sh
-deployment:
- staging:
-   branch: master
-   commands:
-     - ./scripts/deploy_staging.sh
+# deployment:
+#  staging:
+#    branch: master
+#    commands:
+#      - ./scripts/deploy_staging.sh

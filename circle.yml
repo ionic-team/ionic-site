@@ -6,18 +6,18 @@ machine:
   node:
     version: 6.9.1
   ruby:
-    version: 2.2.3
+    version: 2.3.0
 dependencies:
   pre:
-    - gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
+    - bundle install
     - ./scripts/prepare.sh
   cache_directories:
     - "~/.rvm"
 test:
   override:
     - ./scripts/test.sh
-deployment:
- staging:
-   branch: master
-   commands:
-     - ./scripts/deploy_staging.sh
+# deployment:
+#  staging:
+#    branch: master
+#    commands:
+#      - ./scripts/deploy_staging.sh

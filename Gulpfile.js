@@ -16,6 +16,7 @@ var prefix      = require('gulp-autoprefixer');
 var rename      = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass        = require('gulp-sass');
+var server      = require('gulp-develop-server');
 var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
 
@@ -26,15 +27,13 @@ var messages = {
 };
 
 var AUTOPREFIXER_BROWSERS = [
-  'ie >= 9',
-  'ie_mob >= 9',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
+  'ie >= 10',
+  'ff >= 45',
+  'chrome >= 54',
+  'safari >= 9',
   'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
+  'ios >= 9',
+  'android >= 4.4'
 ];
 var closureStart =
   '/*!\n' +
@@ -70,7 +69,7 @@ function bustCacheAndReload(done) {
 
 
   bustCache().on('end', function() {
-    // browserSync.reload();
+    browserSync.reload();
     done();
     // apply the template change in the background
     // gulp.start('jekyll-build.incremental');
@@ -153,7 +152,8 @@ gulp.task('jekyll-build', [], function(done) {
                   {stdio: 'inherit'})
            .on('close', function(){
              done()
-           });
+           })
+           .on('error', function( err ){ throw err });
 });
 
 gulp.task('jekyll-build.clean', [], function(done) {
@@ -161,7 +161,8 @@ gulp.task('jekyll-build.clean', [], function(done) {
   return cp.spawn('jekyll',
                   ['build', '--config', '_config.yml'],
                   {stdio: 'inherit'})
-           .on('close', done);
+           .on('close', done)
+           .on('error', function( err ){ throw err });
 });
 
 /**
@@ -178,13 +179,26 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
 });
 
+gulp.task('server-listen', function() {
+  return server.listen({ 'path': './server.js', 'execArgv': ['--harmony'] },
+  function(error) {
+    if (!error) {
+      browserSync({ 'proxy': 'http://localhost:3000', 'port': 3003 });
+    }
+  });
+});
+
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['build'], function() {
-  browserSync({
-    server: {
-      baseDir: '_site'
+gulp.task('server', function() {
+  return runSequence('build', 'server-listen');
+});
+
+gulp.task('server:server', function() {
+  server.restart(function(err) {
+    if (!err) {
+      browserSync.reload();
     }
   });
 });
@@ -196,7 +210,8 @@ gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
-  gulp.watch('scss/**.scss', ['server:stylesv1']);
+  gulp.watch(['server/**/*'], ['server:server']);
+  gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
@@ -391,6 +406,12 @@ gulp.task('ionicons', function() {
 
 gulp.task('build', ['build-prep'], function(done) {
   runSequence('jekyll-build', function() {
+    done();
+  })
+});
+
+gulp.task('build.clean', ['build-prep'], function(done) {
+  runSequence('jekyll-build.clean', function() {
     done();
   })
 });

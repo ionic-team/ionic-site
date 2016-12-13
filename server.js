@@ -30,13 +30,13 @@ app.set('trust proxy', true);
 app.use(compress());
 app.use(processRequest);
 
-app.use(express.static(process.env.PWD, {
+app.use(express.static(process.env.PWD + '/_site/', {
   maxage: 315360000000 // ten years
 }));
 
 app.use(function(req, res, next) {
   res.status(404);
-  res.sendFile(__dirname + '/404.html');
+  res.sendFile(__dirname + '/_site/404.html');
 });
 
 // bind the app to listen for connections on a specified port

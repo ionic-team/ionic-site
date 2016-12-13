@@ -6,15 +6,14 @@ id: "navigation"
 title: "Navigation - Ionic Framework"
 ---
 
-<h2 id="navigation" class="section-header">Navigation</h2>
-
-<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/navigation.html">
-  Improve this Doc
-</a>
-
-_For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
+<h1 class="api-title">
+  <a class="anchor" name="navigation" href="#navigation"></a>
+  Navigation
+</h1>
 
 Navigation is how users move between different pages in your app. Ionic's navigation follows standard native navigation concepts, like [those in iOS](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/NavigationControllers.html#//apple_ref/doc/uid/TP40011313-CH2-SW1). In order to enable native-like navigation, we've built a few new navigation components that might feel different for developers used to traditional desktop browser navigation.
+
+_For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
 
 <!--
 Like native apps, URLs are not required for navigation in Ionic.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  URLs can be used to link back to unique, important parts of your app ("deeplinking") but don't define navigation as your app runs.

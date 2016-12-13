@@ -152,7 +152,8 @@ gulp.task('jekyll-build', [], function(done) {
                   {stdio: 'inherit'})
            .on('close', function(){
              done()
-           });
+           })
+           .on('error', function( err ){ throw err });
 });
 
 gulp.task('jekyll-build.clean', [], function(done) {
@@ -160,7 +161,8 @@ gulp.task('jekyll-build.clean', [], function(done) {
   return cp.spawn('jekyll',
                   ['build', '--config', '_config.yml'],
                   {stdio: 'inherit'})
-           .on('close', done);
+           .on('close', done)
+           .on('error', function( err ){ throw err });
 });
 
 /**
@@ -404,6 +406,12 @@ gulp.task('ionicons', function() {
 
 gulp.task('build', ['build-prep'], function(done) {
   runSequence('jekyll-build', function() {
+    done();
+  })
+});
+
+gulp.task('build.clean', ['build-prep'], function(done) {
+  runSequence('jekyll-build.clean', function() {
     done();
   })
 });

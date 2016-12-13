@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Ionic Framework main site - IonicFramework.com",
   "main": "Gulpfile.js",
+  "scripts": {
+    "heroku-postbuild": "gulp build"
+  },
   "engines": {
     "node": "6.9.2"
   },

@@ -15,9 +15,9 @@ Forms have gone through quite a bit of a change in Angular 2, but all for the be
 
 Simple forms that binds and passes an object in our class
 
-**Pros**: Simpler API, more familiar to angular 1 devs
+**Pros**: Simpler API, more familiar to Angular 1 developers.
 
-**Cons**: Less programatic control, hard to unit test
+**Cons**: Less programmatic control, hard to unit test
 
 ```typescript
 import { Component } from '@angular/core';
@@ -44,9 +44,9 @@ export class FormsPage {
 }
 ```
 
-This is very similar to how forms were made in Angular 1/Ionic 1 and will be the most familiar with other developers.
+This is very similar to how forms were made in Angular 1/Ionic 1 and will be the most familiar to other developers.
 
->Note: If you use ngModel within a form tag, you have to provide a `name` property. If you do not, you must set `standalone` to try in ngModelOptions.
+>Note: If you use ngModel within a Form tag, you have to provide a `name` property. If you do not, you must set `standalone` to try in ngModelOptions.
 
 ```html
 <!-- with name set -->
@@ -105,12 +105,12 @@ export class FormsPage {
 }
 ```
 
-This approach puts most of your form logic in the class for your component. This makes testing much easier, and the form it self becomes much easier to read.
+This approach puts most of your form logic in the class for your component. This makes testing much easier, and the form itself becomes much easier to read.
 
 
 ### Forms with Templates
 
-Forms not driven by an object in our class, but by an actual reference to the form itself
+Forms are not driven by an object in our class, but by an actual reference to the form itself
 
 **Pros**: More vanilla HTML forms, all of the logic is in the template
 
@@ -149,4 +149,4 @@ This is very similar to how you can use forms with just ngModel, but instead of 
 
 ### Parting words
 
-While all methods of creating forms work with Ionic 2 and it's components, we strongly recomned using the FormBuilder API as it allows for a much similar method, and is easily testable with unit tests.
+While all methods of creating forms work with Ionic 2 and its components, we strongly recommend using the FormBuilder API as it allows for a much similar method, and is easily testable with unit tests.

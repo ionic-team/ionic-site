@@ -1,6 +1,35 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { ApiDemoApp, ApiDemoPage } from './app.component';
+import { Component, NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from '../';
+// Use the toolbar demo but pass in the demo name to change the title
+// this will also hide some of the toolbars that don't use `ion-title`
+export var ApiDemoPage = (function () {
+    function ApiDemoPage() {
+        this.demo = 'Title';
+        this.favorites = 'recent';
+        this.apps = 'free';
+    }
+    ApiDemoPage.decorators = [
+        { type: Component, args: [{
+                    templateUrl: 'page.html'
+                },] },
+    ];
+    /** @nocollapse */
+    ApiDemoPage.ctorParameters = [];
+    return ApiDemoPage;
+}());
+export var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = ApiDemoPage;
+    }
+    ApiDemoApp.decorators = [
+        { type: Component, args: [{
+                    template: '<ion-nav [root]="root"></ion-nav>'
+                },] },
+    ];
+    /** @nocollapse */
+    ApiDemoApp.ctorParameters = [];
+    return ApiDemoApp;
+}());
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -19,6 +48,8 @@ export var AppModule = (function () {
                     ]
                 },] },
     ];
+    /** @nocollapse */
     AppModule.ctorParameters = [];
     return AppModule;
 }());
+//# sourceMappingURL=app.module.js.map

@@ -1,7 +1,6 @@
 import { ElementRef, NgZone, OnDestroy, Renderer } from '@angular/core';
 import { Content } from '../content/content';
 import { DomController } from '../../util/dom-controller';
-import { ImgLoader, ImgLoadCallback } from './img-loader';
 import { Platform } from '../../platform/platform';
 /**
  * @name Img
@@ -76,44 +75,15 @@ import { Platform } from '../../platform/platform';
  * Its concrete object size is resolved as a cover constraint against the
  * element’s used width and height.
  *
+ * ### Future Optimizations
  *
- * ### Web Worker and XHR Requests
- *
- * Another big cause of scroll jank is kicking off a new HTTP request,
- * which is exactly what images do. Normally, this isn't a problem for
- * something like a blog since all image HTTP requests are started immediately
- * as HTML parses. However, Ionic has the ability to include hundreds, or even
- * thousands of images within one page, but its not actually loading all of
- * the images at the same time.
- *
- * Imagine an app where users can scroll slowly, or very quickly, through
- * thousands of images. If they're scrolling extremely fast, ideally the app
- * wouldn't want to start all of those image requests, but if they're scrolling
- * slowly they would. Additionally, most browsers can only have six requests at
- * one time for the same domain, so it's extemely important that we're managing
- * exacctly which images we should downloading. Basically we want to ensure
- * that the app is requesting the most important images, and aborting
- * unnecessary requests, which is another benefit of using `ion-img`.
- *
- * Next, by running the image request within a web worker, we're able to pass
- * off the heavy lifting to another thread. Not only are able to take the load
- * of the main thread, but we're also able to accurately control exactly which
- * images should be downloading, along with the ability to abort unnecessary
- * requests. Aborting requets is just as important so that Ionic can free up
- * connections for the most important images which are visible.
- *
- * One restriction however, is that all image requests must work with
- * [cross-origin HTTP requests (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
- * Traditionally, the `img` element does not have this issue, but because
- * `ion-img` uses `XMLHttpRequest` within a web worker, then requests for
- * images must be served from the same domain, or the image server's response
- * must set the `Access-Control-Allow-Origin` HTTP header. Again, if your app
- * does not have the same problems which `ion-img` is solving, then it's
- * recommended to just use the standard `img` HTML element instead.
+ * Future goals are to place image requests within web workers, and cache
+ * images in-memory as datauris. This method has proven to be effective,
+ * however there are some current limitations with Cordova which we are
+ * currently working on.
  *
  */
 export declare class Img implements OnDestroy {
-    private _ldr;
     private _elementRef;
     private _renderer;
     private _platform;
@@ -127,11 +97,9 @@ export declare class Img implements OnDestroy {
     /** @internal */
     _renderedSrc: string;
     /** @internal */
-    _tmpDataUri: string;
+    _hasLoaded: boolean;
     /** @internal */
     _cache: boolean;
-    /** @internal */
-    _cb: ImgLoadCallback;
     /** @internal */
     _bounds: any;
     /** @internal */
@@ -144,11 +112,15 @@ export declare class Img implements OnDestroy {
     _wQ: string;
     /** @internal */
     _hQ: string;
+    /** @internal */
+    _img: HTMLImageElement;
+    /** @internal */
+    _unreg: Function;
     /** @private */
     canRequest: boolean;
     /** @private */
     canRender: boolean;
-    constructor(_ldr: ImgLoader, _elementRef: ElementRef, _renderer: Renderer, _platform: Platform, _zone: NgZone, _content: Content, _dom: DomController);
+    constructor(_elementRef: ElementRef, _renderer: Renderer, _platform: Platform, _zone: NgZone, _content: Content, _dom: DomController);
     /**
      * @input {string} Image src.
      */
@@ -161,7 +133,6 @@ export declare class Img implements OnDestroy {
      * @private
      */
     update(): void;
-    private _loadResponse(status, msg, datauri);
     /**
      * @internal
      */
@@ -210,6 +181,10 @@ export declare class Img implements OnDestroy {
      * the inner `img` element.
      */
     alt: string;
+    /**
+     * @private
+     */
+    ngAfterContentInit(): void;
     /**
      * @private
      */

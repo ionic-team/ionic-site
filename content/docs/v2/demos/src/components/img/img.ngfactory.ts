@@ -13,12 +13,11 @@ import * as import4 from '@angular/core/src/render/api';
 import * as import5 from '@angular/core/src/metadata/view';
 import * as import6 from '@angular/core/src/linker/view_type';
 import * as import7 from '@angular/core/src/linker/component_factory';
-import * as import8 from './img-loader';
-import * as import9 from '@angular/core/src/linker/element_ref';
-import * as import10 from '../../platform/platform';
-import * as import11 from '@angular/core/src/zone/ng_zone';
-import * as import12 from '../content/content';
-import * as import13 from '../../util/dom-controller';
+import * as import8 from '@angular/core/src/linker/element_ref';
+import * as import9 from '../../platform/platform';
+import * as import10 from '@angular/core/src/zone/ng_zone';
+import * as import11 from '../content/content';
+import * as import12 from '../../util/dom-controller';
 export class Wrapper_Img {
   /*private*/ _eventHandler:Function;
   context:import0.Img;
@@ -29,9 +28,9 @@ export class Wrapper_Img {
   /*private*/ _expr_3:any;
   /*private*/ _expr_4:any;
   /*private*/ _expr_5:any;
-  constructor(p0:any,p1:any,p2:any,p3:any,p4:any,p5:any,p6:any) {
+  constructor(p0:any,p1:any,p2:any,p3:any,p4:any,p5:any) {
     this._changed = false;
-    this.context = new import0.Img(p0,p1,p2,p3,p4,p5,p6);
+    this.context = new import0.Img(p0,p1,p2,p3,p4,p5);
     this._expr_0 = import1.UNINITIALIZED;
     this._expr_1 = import1.UNINITIALIZED;
     this._expr_2 = import1.UNINITIALIZED;
@@ -112,7 +111,7 @@ class View_Img_Host0 extends import2.AppView<any> {
   createInternal(rootSelector:string):import7.ComponentRef<any> {
     this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer,'ion-img',import3.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
     this.compView_0 = new View_Img0(this.viewUtils,this,0,this._el_0);
-    this._Img_0_3 = new Wrapper_Img(this.injectorGet(import8.ImgLoader,this.parentIndex),new import9.ElementRef(this._el_0),this.renderer,this.injectorGet(import10.Platform,this.parentIndex),this.injectorGet(import11.NgZone,this.parentIndex),this.injectorGet(import12.Content,this.parentIndex,(null as any)),this.injectorGet(import13.DomController,this.parentIndex));
+    this._Img_0_3 = new Wrapper_Img(new import8.ElementRef(this._el_0),this.renderer,this.injectorGet(import9.Platform,this.parentIndex),this.injectorGet(import10.NgZone,this.parentIndex),this.injectorGet(import11.Content,this.parentIndex,(null as any)),this.injectorGet(import12.DomController,this.parentIndex));
     this.compView_0.create(this._Img_0_3.context);
     this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),(null as any));
     return new import7.ComponentRef_<any>(0,this,this._el_0,this._Img_0_3.context);
@@ -123,6 +122,7 @@ class View_Img_Host0 extends import2.AppView<any> {
   }
   detectChangesInternal(throwOnChange:boolean):void {
     if (this._Img_0_3.ngDoCheck(this,this._el_0,throwOnChange)) { this.compView_0.markAsCheckOnce(); }
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._Img_0_3.context.ngAfterContentInit(); } }
     this.compView_0.detectChanges(throwOnChange);
   }
   destroyInternal():void {

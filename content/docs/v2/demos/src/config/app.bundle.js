@@ -33452,145 +33452,6 @@ var Haptic = (function () {
     return Haptic;
 }());
 
-var ImgLoader = (function () {
-    function ImgLoader() {
-        this.imgs = [];
-    }
-    ImgLoader.prototype.load = function (src, useCache, callback) {
-        var _this = this;
-        // see if we already have image data for this src
-        var img = this.imgs.find(function (i) { return i.src === src; });
-        if (img && img.datauri && useCache) {
-            // we found image data, and it's cool if we use the cache
-            // so let's respond with the cached data
-            callback(200, null, img.datauri);
-            return;
-        }
-        // so no cached image data, so we'll
-        // need to do a new http request
-        if (img && img.xhr && img.xhr.readyState !== 4) {
-            // looks like there's already an active http request going on
-            // for this same source, so let's just add another listener
-            img.xhr.addEventListener('load', function (xhrEvent) {
-                var target = xhrEvent.target;
-                var contentType = target.getResponseHeader('Content-Type');
-                onXhrLoad(callback, target.status, contentType, target.response, useCache, img, _this.imgs);
-            });
-            img.xhr.addEventListener('error', function (xhrErrorEvent) {
-                onXhrError(callback, img, xhrErrorEvent);
-            });
-            return;
-        }
-        if (!img) {
-            // no image data yet, so let's create it
-            img = { src: src, len: 0 };
-            this.imgs.push(img);
-        }
-        // ok, let's do a full request for the image
-        img.xhr = new XMLHttpRequest();
-        img.xhr.open('GET', src, true);
-        img.xhr.responseType = 'arraybuffer';
-        // add the listeners if it loaded or errored
-        img.xhr.addEventListener('load', function (xhrEvent) {
-            var target = xhrEvent.target;
-            var contentType = target.getResponseHeader('Content-Type');
-            onXhrLoad(callback, target.status, contentType, target.response, useCache, img, _this.imgs);
-        });
-        img.xhr.addEventListener('error', function (xhrErrorEvent) {
-            onXhrError(callback, img, xhrErrorEvent);
-        });
-        // awesome, let's kick off the request
-        img.xhr.send();
-    };
-    ImgLoader.prototype.abort = function (src) {
-        var img = this.imgs.find(function (i) { return i.src === src; });
-        if (img && img.xhr && img.xhr.readyState !== 4) {
-            // we found the image data and there's an active
-            // http request, so let's abort the request
-            img.xhr.abort();
-            img.xhr = null;
-        }
-    };
-    return ImgLoader;
-}());
-function onXhrLoad(callback, status, contentType, responseData, useCache, img, imgs) {
-    if (!callback) {
-        return null;
-    }
-    // the http request has been loaded
-    // create a rsp object to send back to the main thread
-    var datauri = null;
-    if (status === 200) {
-        // success!!
-        // now let's convert the response arraybuffer data into a datauri
-        datauri = getDataUri(contentType, responseData);
-        if (useCache) {
-            // if the image was successfully downloaded
-            // and this image is allowed to be cached
-            // then let's add it to our image data for later use
-            img.datauri = datauri;
-            img.len = datauri.length;
-            cleanCache(imgs, CACHE_LIMIT);
-        }
-    }
-    // fire the callback with what we've learned today
-    callback(status, null, datauri);
-}
-function cleanCache(imgs, cacheLimit) {
-    // let's loop through all our cached data and if we go
-    // over our limit then let's clean it out a bit
-    // oldest data should go first
-    var cacheSize = 0;
-    for (var i = imgs.length - 1; i >= 0; i--) {
-        cacheSize += imgs[i].len;
-        if (cacheSize > cacheLimit) {
-            console.debug("img-loader, clear cache");
-            imgs.splice(0, i + 1);
-            break;
-        }
-    }
-}
-function onXhrError(callback, imgData, err) {
-    // darn, we got an error!
-    callback && callback(0, (err.message || ''), null);
-    imgData.xhr = null;
-}
-function getDataUri(contentType, arrayBuffer) {
-    // take arraybuffer and content type and turn it into
-    // a datauri string that can be used by <img>
-    var rtn = ['data:' + contentType + ';base64,'];
-    var bytes = new Uint8Array(arrayBuffer);
-    var byteLength = bytes.byteLength;
-    var byteRemainder = byteLength % 3;
-    var mainLength = byteLength - byteRemainder;
-    var i, a, b, c, d, chunk;
-    for (i = 0; i < mainLength; i = i + 3) {
-        chunk = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-        a = (chunk & 16515072) >> 18;
-        b = (chunk & 258048) >> 12;
-        c = (chunk & 4032) >> 6;
-        d = chunk & 63;
-        rtn.push(ENCODINGS[a] + ENCODINGS[b] + ENCODINGS[c] + ENCODINGS[d]);
-    }
-    if (byteRemainder === 1) {
-        chunk = bytes[mainLength];
-        a = (chunk & 252) >> 2;
-        b = (chunk & 3) << 4;
-        rtn.push(ENCODINGS[a] + ENCODINGS[b] + '==');
-    }
-    else if (byteRemainder === 2) {
-        chunk = (bytes[mainLength] << 8) | bytes[mainLength + 1];
-        a = (chunk & 64512) >> 10;
-        b = (chunk & 1008) >> 4;
-        c = (chunk & 15) << 2;
-        rtn.push(ENCODINGS[a] + ENCODINGS[b] + ENCODINGS[c] + '=');
-    }
-    return rtn.join('');
-}
-// used by the setData function
-var ENCODINGS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-var CACHE_LIMIT = 1381855 * 20;
-
 var __extends$76 = (undefined && undefined.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -41728,45 +41589,16 @@ var Col = (function () {
  * Its concrete object size is resolved as a cover constraint against the
  * element’s used width and height.
  *
+ * ### Future Optimizations
  *
- * ### Web Worker and XHR Requests
- *
- * Another big cause of scroll jank is kicking off a new HTTP request,
- * which is exactly what images do. Normally, this isn't a problem for
- * something like a blog since all image HTTP requests are started immediately
- * as HTML parses. However, Ionic has the ability to include hundreds, or even
- * thousands of images within one page, but its not actually loading all of
- * the images at the same time.
- *
- * Imagine an app where users can scroll slowly, or very quickly, through
- * thousands of images. If they're scrolling extremely fast, ideally the app
- * wouldn't want to start all of those image requests, but if they're scrolling
- * slowly they would. Additionally, most browsers can only have six requests at
- * one time for the same domain, so it's extemely important that we're managing
- * exacctly which images we should downloading. Basically we want to ensure
- * that the app is requesting the most important images, and aborting
- * unnecessary requests, which is another benefit of using `ion-img`.
- *
- * Next, by running the image request within a web worker, we're able to pass
- * off the heavy lifting to another thread. Not only are able to take the load
- * of the main thread, but we're also able to accurately control exactly which
- * images should be downloading, along with the ability to abort unnecessary
- * requests. Aborting requets is just as important so that Ionic can free up
- * connections for the most important images which are visible.
- *
- * One restriction however, is that all image requests must work with
- * [cross-origin HTTP requests (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS).
- * Traditionally, the `img` element does not have this issue, but because
- * `ion-img` uses `XMLHttpRequest` within a web worker, then requests for
- * images must be served from the same domain, or the image server's response
- * must set the `Access-Control-Allow-Origin` HTTP header. Again, if your app
- * does not have the same problems which `ion-img` is solving, then it's
- * recommended to just use the standard `img` HTML element instead.
+ * Future goals are to place image requests within web workers, and cache
+ * images in-memory as datauris. This method has proven to be effective,
+ * however there are some current limitations with Cordova which we are
+ * currently working on.
  *
  */
 var Img = (function () {
-    function Img(_ldr, _elementRef, _renderer, _platform, _zone, _content, _dom) {
-        this._ldr = _ldr;
+    function Img(_elementRef, _renderer, _platform, _zone, _content, _dom) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
         this._platform = _platform;
@@ -41814,11 +41646,11 @@ var Img = (function () {
                 this._src = newSrc;
                 if (newSrc.indexOf('data:') === 0) {
                     // they're using an actual datauri already
-                    this._tmpDataUri = newSrc;
+                    this._hasLoaded = true;
                 }
                 else {
                     // reset any existing datauri we might be holding onto
-                    this._tmpDataUri = null;
+                    this._hasLoaded = false;
                 }
                 // run update to kick off requests or render if everything is good
                 this.update();
@@ -41834,7 +41666,7 @@ var Img = (function () {
         if (this._requestingSrc) {
             // abort any active requests
             console.debug("abortRequest " + this._requestingSrc + " " + Date.now());
-            this._ldr.abort(this._requestingSrc);
+            this._srcAttr('');
             this._requestingSrc = null;
         }
         if (this._renderedSrc) {
@@ -41852,53 +41684,28 @@ var Img = (function () {
         // only attempt an update if there is an active src
         // and the content containing the image considers it updatable
         if (this._src && this._content.isImgsUpdatable()) {
-            if (this.canRequest && (this._src !== this._renderedSrc && this._src !== this._requestingSrc) && !this._tmpDataUri) {
+            if (this.canRequest && (this._src !== this._renderedSrc && this._src !== this._requestingSrc) && !this._hasLoaded) {
                 // only begin the request if we "can" request
                 // begin the image request if the src is different from the rendered src
                 // and if we don't already has a tmpDataUri
                 console.debug("request " + this._src + " " + Date.now());
                 this._requestingSrc = this._src;
-                this._cb = function (status, msg, datauri) {
-                    _this._loadResponse(status, msg, datauri);
-                    _this._cb = null;
-                };
-                // post the message to the web worker
-                this._ldr.load(this._src, this._cache, this._cb);
+                this._isLoaded(false);
+                this._srcAttr(this._src);
                 // set the dimensions of the image if we do have different data
                 this._setDims();
             }
-            if (this.canRender && this._tmpDataUri && this._src !== this._renderedSrc) {
+            if (this.canRender && this._hasLoaded && this._src !== this._renderedSrc) {
                 // we can render and we have a datauri to render
                 this._renderedSrc = this._src;
                 this._setDims();
                 this._dom.write(function () {
-                    if (_this._tmpDataUri) {
+                    if (_this._hasLoaded) {
                         console.debug("render " + _this._src + " " + Date.now());
                         _this._isLoaded(true);
-                        _this._srcAttr(_this._tmpDataUri);
-                        _this._tmpDataUri = null;
                     }
                 });
             }
-        }
-    };
-    Img.prototype._loadResponse = function (status, msg, datauri) {
-        var _this = this;
-        this._requestingSrc = null;
-        if (status === 200) {
-            // success :)
-            this._tmpDataUri = datauri;
-            this.update();
-        }
-        else {
-            // error :(
-            if (status) {
-                console.error("img, status: " + status + " " + msg);
-            }
-            this._renderedSrc = this._tmpDataUri = null;
-            this._dom.write(function () {
-                _this._isLoaded(false);
-            });
         }
     };
     /**
@@ -41914,10 +41721,9 @@ var Img = (function () {
      * @internal
      */
     Img.prototype._srcAttr = function (srcAttr) {
-        var imgEle = this._elementRef.nativeElement.firstChild;
         var renderer = this._renderer;
-        renderer.setElementAttribute(imgEle, 'src', srcAttr);
-        renderer.setElementAttribute(imgEle, 'alt', this.alt);
+        renderer.setElementAttribute(this._img, 'src', srcAttr);
+        renderer.setElementAttribute(this._img, 'alt', this.alt);
     };
     Object.defineProperty(Img.prototype, "top", {
         /**
@@ -42033,8 +41839,21 @@ var Img = (function () {
     /**
      * @private
      */
+    Img.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this._img = this._elementRef.nativeElement.firstChild;
+        this._unreg && this._unreg();
+        var opts = eventOptions(false, true);
+        this._unreg = listenEvent(this._img, 'load', false, opts, function () {
+            _this._hasLoaded = true;
+            _this.update();
+        });
+    };
+    /**
+     * @private
+     */
     Img.prototype.ngOnDestroy = function () {
-        this._cb = null;
+        this._unreg && this._unreg();
         this._content && this._content.removeImg(this);
     };
     Img.decorators = [
@@ -42047,7 +41866,6 @@ var Img = (function () {
     ];
     /** @nocollapse */
     Img.ctorParameters = [
-        { type: ImgLoader, },
         { type: ElementRef, },
         { type: Renderer, },
         { type: Platform, },
@@ -58927,7 +58745,6 @@ var IonicModule = (function () {
                 Form,
                 GestureController,
                 Haptic,
-                ImgLoader,
                 Keyboard,
                 LoadingController,
                 Location,
@@ -66370,132 +66187,122 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ImgLoader_63", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_63", {
         get: function () {
-            if ((this.__ImgLoader_63 == null)) {
-                (this.__ImgLoader_63 = new ImgLoader());
+            if ((this.__Keyboard_63 == null)) {
+                (this.__Keyboard_63 = new Keyboard(this._Config_21, this.parent.get(NgZone), this._DomController_22));
             }
-            return this.__ImgLoader_63;
+            return this.__Keyboard_63;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_64", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_64", {
         get: function () {
-            if ((this.__Keyboard_64 == null)) {
-                (this.__Keyboard_64 = new Keyboard(this._Config_21, this.parent.get(NgZone), this._DomController_22));
+            if ((this.__LoadingController_64 == null)) {
+                (this.__LoadingController_64 = new LoadingController(this._App_24));
             }
-            return this.__Keyboard_64;
+            return this.__LoadingController_64;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_65", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_65", {
         get: function () {
-            if ((this.__LoadingController_65 == null)) {
-                (this.__LoadingController_65 = new LoadingController(this._App_24));
+            if ((this.__LocationStrategy_65 == null)) {
+                (this.__LocationStrategy_65 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
             }
-            return this.__LoadingController_65;
+            return this.__LocationStrategy_65;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_66", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Location_66", {
         get: function () {
-            if ((this.__LocationStrategy_66 == null)) {
-                (this.__LocationStrategy_66 = provideLocationStrategy(this.parent.get(PlatformLocation), this.parent.get(APP_BASE_HREF, null), this._Config_21));
+            if ((this.__Location_66 == null)) {
+                (this.__Location_66 = new Location(this._LocationStrategy_65));
             }
-            return this.__LocationStrategy_66;
+            return this.__Location_66;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Location_67", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_67", {
         get: function () {
-            if ((this.__Location_67 == null)) {
-                (this.__Location_67 = new Location(this._LocationStrategy_66));
+            if ((this.__ModalController_67 == null)) {
+                (this.__ModalController_67 = new ModalController(this._App_24));
             }
-            return this.__Location_67;
+            return this.__ModalController_67;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_68", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_68", {
         get: function () {
-            if ((this.__ModalController_68 == null)) {
-                (this.__ModalController_68 = new ModalController(this._App_24));
+            if ((this.__PickerController_68 == null)) {
+                (this.__PickerController_68 = new PickerController(this._App_24));
             }
-            return this.__ModalController_68;
+            return this.__PickerController_68;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_69", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_69", {
         get: function () {
-            if ((this.__PickerController_69 == null)) {
-                (this.__PickerController_69 = new PickerController(this._App_24));
+            if ((this.__PopoverController_69 == null)) {
+                (this.__PopoverController_69 = new PopoverController(this._App_24));
             }
-            return this.__PickerController_69;
+            return this.__PopoverController_69;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_70", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_70", {
         get: function () {
-            if ((this.__PopoverController_70 == null)) {
-                (this.__PopoverController_70 = new PopoverController(this._App_24));
+            if ((this.__TapClick_70 == null)) {
+                (this.__TapClick_70 = new TapClick(this._Config_21, this._App_24, this.parent.get(NgZone), this._GestureController_25));
             }
-            return this.__PopoverController_70;
+            return this.__TapClick_70;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_71", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_71", {
         get: function () {
-            if ((this.__TapClick_71 == null)) {
-                (this.__TapClick_71 = new TapClick(this._Config_21, this._App_24, this.parent.get(NgZone), this._GestureController_25));
+            if ((this.__ToastController_71 == null)) {
+                (this.__ToastController_71 = new ToastController(this._App_24));
             }
-            return this.__TapClick_71;
+            return this.__ToastController_71;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_72", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_72", {
         get: function () {
-            if ((this.__ToastController_72 == null)) {
-                (this.__ToastController_72 = new ToastController(this._App_24));
+            if ((this.__TransitionController_72 == null)) {
+                (this.__TransitionController_72 = new TransitionController(this._Config_21));
             }
-            return this.__ToastController_72;
+            return this.__TransitionController_72;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_73", {
+    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_73", {
         get: function () {
-            if ((this.__TransitionController_73 == null)) {
-                (this.__TransitionController_73 = new TransitionController(this._Config_21));
+            if ((this.__UrlSerializer_73 == null)) {
+                (this.__UrlSerializer_73 = setupUrlSerializer(this._DeepLinkConfigToken_57));
             }
-            return this.__TransitionController_73;
+            return this.__UrlSerializer_73;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_74", {
+    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_74", {
         get: function () {
-            if ((this.__UrlSerializer_74 == null)) {
-                (this.__UrlSerializer_74 = setupUrlSerializer(this._DeepLinkConfigToken_57));
+            if ((this.__DeepLinker_74 == null)) {
+                (this.__DeepLinker_74 = setupDeepLinker(this._App_24, this._UrlSerializer_73, this._Location_66));
             }
-            return this.__UrlSerializer_74;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_75", {
-        get: function () {
-            if ((this.__DeepLinker_75 == null)) {
-                (this.__DeepLinker_75 = setupDeepLinker(this._App_24, this._UrlSerializer_74, this._Location_67));
-            }
-            return this.__DeepLinker_75;
+            return this.__DeepLinker_74;
         },
         enumerable: true,
         configurable: true
@@ -66726,44 +66533,41 @@ var AppModuleInjector = (function (_super) {
         if ((token === Haptic)) {
             return this._Haptic_62;
         }
-        if ((token === ImgLoader)) {
-            return this._ImgLoader_63;
-        }
         if ((token === Keyboard)) {
-            return this._Keyboard_64;
+            return this._Keyboard_63;
         }
         if ((token === LoadingController)) {
-            return this._LoadingController_65;
+            return this._LoadingController_64;
         }
         if ((token === LocationStrategy)) {
-            return this._LocationStrategy_66;
+            return this._LocationStrategy_65;
         }
         if ((token === Location)) {
-            return this._Location_67;
+            return this._Location_66;
         }
         if ((token === ModalController)) {
-            return this._ModalController_68;
+            return this._ModalController_67;
         }
         if ((token === PickerController)) {
-            return this._PickerController_69;
+            return this._PickerController_68;
         }
         if ((token === PopoverController)) {
-            return this._PopoverController_70;
+            return this._PopoverController_69;
         }
         if ((token === TapClick)) {
-            return this._TapClick_71;
+            return this._TapClick_70;
         }
         if ((token === ToastController)) {
-            return this._ToastController_72;
+            return this._ToastController_71;
         }
         if ((token === TransitionController)) {
-            return this._TransitionController_73;
+            return this._TransitionController_72;
         }
         if ((token === UrlSerializer)) {
-            return this._UrlSerializer_74;
+            return this._UrlSerializer_73;
         }
         if ((token === DeepLinker)) {
-            return this._DeepLinker_75;
+            return this._DeepLinker_74;
         }
         return notFoundResult;
     };

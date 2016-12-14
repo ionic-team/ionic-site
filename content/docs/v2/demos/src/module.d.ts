@@ -8,7 +8,6 @@ export { Config, setupConfig, ConfigToken } from './config/config';
 export { DomController, DomCallback } from './util/dom-controller';
 export { Platform, setupPlatform, UserAgentToken, DocumentDirToken, DocLangToken, NavigatorPlatformToken } from './platform/platform';
 export { Haptic } from './util/haptic';
-export { ImgLoader } from './components/img/img-loader';
 export { QueryParams, setupQueryParams, UrlToken } from './platform/query-params';
 export { DeepLinker } from './navigation/deep-linker';
 export { NavController } from './navigation/nav-controller';

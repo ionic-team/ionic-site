@@ -98,35 +98,11 @@ it&#39;s container. Or to really get detailed: The image is sized to maintain
 its aspect ratio while filling the containing element’s entire content box.
 Its concrete object size is resolved as a cover constraint against the
 element’s used width and height.</p>
-<h3 id="web-worker-and-xhr-requests">Web Worker and XHR Requests</h3>
-<p>Another big cause of scroll jank is kicking off a new HTTP request,
-which is exactly what images do. Normally, this isn&#39;t a problem for
-something like a blog since all image HTTP requests are started immediately
-as HTML parses. However, Ionic has the ability to include hundreds, or even
-thousands of images within one page, but its not actually loading all of
-the images at the same time.</p>
-<p>Imagine an app where users can scroll slowly, or very quickly, through
-thousands of images. If they&#39;re scrolling extremely fast, ideally the app
-wouldn&#39;t want to start all of those image requests, but if they&#39;re scrolling
-slowly they would. Additionally, most browsers can only have six requests at
-one time for the same domain, so it&#39;s extemely important that we&#39;re managing
-exacctly which images we should downloading. Basically we want to ensure
-that the app is requesting the most important images, and aborting
-unnecessary requests, which is another benefit of using <code>ion-img</code>.</p>
-<p>Next, by running the image request within a web worker, we&#39;re able to pass
-off the heavy lifting to another thread. Not only are able to take the load
-of the main thread, but we&#39;re also able to accurately control exactly which
-images should be downloading, along with the ability to abort unnecessary
-requests. Aborting requets is just as important so that Ionic can free up
-connections for the most important images which are visible.</p>
-<p>One restriction however, is that all image requests must work with
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">cross-origin HTTP requests (CORS)</a>.
-Traditionally, the <code>img</code> element does not have this issue, but because
-<code>ion-img</code> uses <code>XMLHttpRequest</code> within a web worker, then requests for
-images must be served from the same domain, or the image server&#39;s response
-must set the <code>Access-Control-Allow-Origin</code> HTTP header. Again, if your app
-does not have the same problems which <code>ion-img</code> is solving, then it&#39;s
-recommended to just use the standard <code>img</code> HTML element instead.</p>
+<h3 id="future-optimizations">Future Optimizations</h3>
+<p>Future goals are to place image requests within web workers, and cache
+images in-memory as datauris. This method has proven to be effective,
+however there are some current limitations with Cordova which we are
+currently working on.</p>
 
 
 

@@ -45,117 +45,116 @@ import * as import32 from '../components/alert/alert';
 import * as import33 from '../util/events';
 import * as import34 from '../util/form';
 import * as import35 from '../util/haptic';
-import * as import36 from '../components/img/img-loader';
-import * as import37 from '../util/keyboard';
-import * as import38 from '../components/loading/loading';
-import * as import39 from '@angular/common/src/location/location';
-import * as import40 from '../components/modal/modal';
-import * as import41 from '../components/picker/picker';
-import * as import42 from '../components/popover/popover';
-import * as import43 from '../components/tap-click/tap-click';
-import * as import44 from '../components/toast/toast';
-import * as import45 from '../transitions/transition-controller';
-import * as import47 from '../components/action-sheet/action-sheet-component.ngfactory';
-import * as import48 from '../components/alert/alert-component.ngfactory';
-import * as import49 from '../components/app/app-root.ngfactory';
-import * as import50 from '../components/loading/loading-component.ngfactory';
-import * as import51 from '../components/modal/modal-component.ngfactory';
-import * as import52 from '../components/picker/picker-component.ngfactory';
-import * as import53 from '../components/popover/popover-component.ngfactory';
-import * as import54 from '../components/toast/toast-component.ngfactory';
-import * as import55 from '@angular/core/src/application_tokens';
-import * as import56 from '@angular/platform-browser/src/dom/events/dom_events';
-import * as import57 from '@angular/platform-browser/src/dom/events/key_events';
-import * as import58 from '@angular/platform-browser/src/dom/events/hammer_gestures';
-import * as import59 from '@angular/core/src/zone/ng_zone';
-import * as import60 from '@angular/platform-browser/src/dom/debug/ng_probe';
-import * as import61 from '@angular/common/src/location/platform_location';
-import * as import62 from '@angular/common/src/location/location_strategy';
-import * as import63 from '../navigation/url-serializer';
-import * as import64 from '../navigation/deep-linker';
-import * as import65 from '../platform/query-params';
-import * as import66 from '../platform/platform-registry';
-import * as import67 from '../platform/platform';
-import * as import68 from '../config/config';
-import * as import69 from '../config/mode-registry';
-import * as import70 from '../transitions/transition-registry';
-import * as import71 from '@angular/core/src/console';
-import * as import72 from '@angular/core/src/i18n/tokens';
-import * as import73 from '@angular/core/src/error_handler';
-import * as import74 from '@angular/platform-browser/src/dom/dom_tokens';
-import * as import75 from '@angular/platform-browser/src/dom/animation_driver';
-import * as import76 from '@angular/core/src/render/api';
-import * as import77 from '@angular/core/src/security';
-import * as import78 from '@angular/core/src/change_detection/differs/iterable_differs';
-import * as import79 from '@angular/core/src/change_detection/differs/keyvalue_differs';
-import * as import80 from '@angular/http/src/interfaces';
-import * as import81 from '@angular/http/src/http';
-import * as import82 from '../components/app/app-root';
-import * as import83 from '@angular/core/src/linker/view';
-import * as import85 from '@angular/core/src/linker/view_utils';
-import * as import86 from '@angular/core/src/metadata/view';
-import * as import87 from '@angular/core/src/linker/view_type';
-import * as import88 from '@angular/core/src/change_detection/change_detection';
-import * as import89 from '@angular/core/src/linker/component_factory';
-import * as import90 from '../components/nav/nav';
-import * as import91 from '../components/nav/nav.ngfactory';
-import * as import92 from '../navigation/view-controller';
-import * as import93 from '../navigation/nav-controller';
-import * as import94 from '@angular/core/src/linker/element_ref';
-import * as import95 from '@angular/core/src/linker/component_factory_resolver';
-import * as import96 from '@angular/core/src/linker/query_list';
-import * as import97 from '../components/toolbar/toolbar.ngfactory';
-import * as import98 from '../components/navbar/navbar';
-import * as import99 from '../components/navbar/navbar.ngfactory';
-import * as import100 from '../components/toolbar/toolbar-title';
-import * as import101 from '../components/toolbar/toolbar-title.ngfactory';
-import * as import102 from '../components/toolbar/toolbar-item.ngfactory';
-import * as import103 from '../components/button/button';
-import * as import104 from '../components/button/button.ngfactory';
-import * as import105 from '../components/icon/icon.ngfactory';
-import * as import106 from '../components/content/content';
-import * as import107 from '../components/content/content.ngfactory';
-import * as import108 from '../components/toolbar/toolbar';
-import * as import109 from '../components/tabs/tabs';
-import * as import110 from '../components/icon/icon';
-import * as import111 from '../components/toolbar/toolbar-item';
-import * as import112 from '../navigation/nav-params';
-import * as import113 from '../components/radio/radio-group.ngfactory';
-import * as import114 from '../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
-import * as import115 from '../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
-import * as import116 from '../components/list/list.ngfactory';
-import * as import117 from '../components/grid/grid.ngfactory';
-import * as import118 from '../components/item/item';
-import * as import119 from '../components/item/item.ngfactory';
-import * as import120 from '../components/label/label.ngfactory';
-import * as import121 from '../components/radio/radio-button';
-import * as import122 from '../components/radio/radio-button.ngfactory';
-import * as import123 from '../components/item/item-reorder';
-import * as import124 from '../components/grid/grid';
-import * as import125 from '../components/label/label';
-import * as import126 from '../components/radio/radio-group';
-import * as import127 from '@angular/forms/src/directives/control_value_accessor';
-import * as import128 from '@angular/forms/src/directives/ng_model';
-import * as import129 from '@angular/forms/src/directives/ng_control';
-import * as import130 from '@angular/forms/src/directives/ng_control_status';
-import * as import131 from '../components/list/list';
+import * as import36 from '../util/keyboard';
+import * as import37 from '../components/loading/loading';
+import * as import38 from '@angular/common/src/location/location';
+import * as import39 from '../components/modal/modal';
+import * as import40 from '../components/picker/picker';
+import * as import41 from '../components/popover/popover';
+import * as import42 from '../components/tap-click/tap-click';
+import * as import43 from '../components/toast/toast';
+import * as import44 from '../transitions/transition-controller';
+import * as import46 from '../components/action-sheet/action-sheet-component.ngfactory';
+import * as import47 from '../components/alert/alert-component.ngfactory';
+import * as import48 from '../components/app/app-root.ngfactory';
+import * as import49 from '../components/loading/loading-component.ngfactory';
+import * as import50 from '../components/modal/modal-component.ngfactory';
+import * as import51 from '../components/picker/picker-component.ngfactory';
+import * as import52 from '../components/popover/popover-component.ngfactory';
+import * as import53 from '../components/toast/toast-component.ngfactory';
+import * as import54 from '@angular/core/src/application_tokens';
+import * as import55 from '@angular/platform-browser/src/dom/events/dom_events';
+import * as import56 from '@angular/platform-browser/src/dom/events/key_events';
+import * as import57 from '@angular/platform-browser/src/dom/events/hammer_gestures';
+import * as import58 from '@angular/core/src/zone/ng_zone';
+import * as import59 from '@angular/platform-browser/src/dom/debug/ng_probe';
+import * as import60 from '@angular/common/src/location/platform_location';
+import * as import61 from '@angular/common/src/location/location_strategy';
+import * as import62 from '../navigation/url-serializer';
+import * as import63 from '../navigation/deep-linker';
+import * as import64 from '../platform/query-params';
+import * as import65 from '../platform/platform-registry';
+import * as import66 from '../platform/platform';
+import * as import67 from '../config/config';
+import * as import68 from '../config/mode-registry';
+import * as import69 from '../transitions/transition-registry';
+import * as import70 from '@angular/core/src/console';
+import * as import71 from '@angular/core/src/i18n/tokens';
+import * as import72 from '@angular/core/src/error_handler';
+import * as import73 from '@angular/platform-browser/src/dom/dom_tokens';
+import * as import74 from '@angular/platform-browser/src/dom/animation_driver';
+import * as import75 from '@angular/core/src/render/api';
+import * as import76 from '@angular/core/src/security';
+import * as import77 from '@angular/core/src/change_detection/differs/iterable_differs';
+import * as import78 from '@angular/core/src/change_detection/differs/keyvalue_differs';
+import * as import79 from '@angular/http/src/interfaces';
+import * as import80 from '@angular/http/src/http';
+import * as import81 from '../components/app/app-root';
+import * as import82 from '@angular/core/src/linker/view';
+import * as import84 from '@angular/core/src/linker/view_utils';
+import * as import85 from '@angular/core/src/metadata/view';
+import * as import86 from '@angular/core/src/linker/view_type';
+import * as import87 from '@angular/core/src/change_detection/change_detection';
+import * as import88 from '@angular/core/src/linker/component_factory';
+import * as import89 from '../components/nav/nav';
+import * as import90 from '../components/nav/nav.ngfactory';
+import * as import91 from '../navigation/view-controller';
+import * as import92 from '../navigation/nav-controller';
+import * as import93 from '@angular/core/src/linker/element_ref';
+import * as import94 from '@angular/core/src/linker/component_factory_resolver';
+import * as import95 from '@angular/core/src/linker/query_list';
+import * as import96 from '../components/toolbar/toolbar.ngfactory';
+import * as import97 from '../components/navbar/navbar';
+import * as import98 from '../components/navbar/navbar.ngfactory';
+import * as import99 from '../components/toolbar/toolbar-title';
+import * as import100 from '../components/toolbar/toolbar-title.ngfactory';
+import * as import101 from '../components/toolbar/toolbar-item.ngfactory';
+import * as import102 from '../components/button/button';
+import * as import103 from '../components/button/button.ngfactory';
+import * as import104 from '../components/icon/icon.ngfactory';
+import * as import105 from '../components/content/content';
+import * as import106 from '../components/content/content.ngfactory';
+import * as import107 from '../components/toolbar/toolbar';
+import * as import108 from '../components/tabs/tabs';
+import * as import109 from '../components/icon/icon';
+import * as import110 from '../components/toolbar/toolbar-item';
+import * as import111 from '../navigation/nav-params';
+import * as import112 from '../components/radio/radio-group.ngfactory';
+import * as import113 from '../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
+import * as import114 from '../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
+import * as import115 from '../components/list/list.ngfactory';
+import * as import116 from '../components/grid/grid.ngfactory';
+import * as import117 from '../components/item/item';
+import * as import118 from '../components/item/item.ngfactory';
+import * as import119 from '../components/label/label.ngfactory';
+import * as import120 from '../components/radio/radio-button';
+import * as import121 from '../components/radio/radio-button.ngfactory';
+import * as import122 from '../components/item/item-reorder';
+import * as import123 from '../components/grid/grid';
+import * as import124 from '../components/label/label';
+import * as import125 from '../components/radio/radio-group';
+import * as import126 from '@angular/forms/src/directives/control_value_accessor';
+import * as import127 from '@angular/forms/src/directives/ng_model';
+import * as import128 from '@angular/forms/src/directives/ng_control';
+import * as import129 from '@angular/forms/src/directives/ng_control_status';
+import * as import130 from '../components/list/list';
 var AppModuleInjector = (function (_super) {
     __extends(AppModuleInjector, _super);
     function AppModuleInjector(parent) {
         _super.call(this, parent, [
-            import47.ActionSheetCmpNgFactory,
-            import48.AlertCmpNgFactory,
-            import49.IonicAppNgFactory,
-            import50.LoadingCmpNgFactory,
-            import51.ModalCmpNgFactory,
-            import52.PickerCmpNgFactory,
-            import53.PopoverCmpNgFactory,
-            import54.ToastCmpNgFactory,
+            import46.ActionSheetCmpNgFactory,
+            import47.AlertCmpNgFactory,
+            import48.IonicAppNgFactory,
+            import49.LoadingCmpNgFactory,
+            import50.ModalCmpNgFactory,
+            import51.PickerCmpNgFactory,
+            import52.PopoverCmpNgFactory,
+            import53.ToastCmpNgFactory,
             ApiDemoAppNgFactory,
             ApiDemoPageNgFactory,
             PopoverRadioPageNgFactory,
-            import49.IonicAppNgFactory
-        ], [import49.IonicAppNgFactory]);
+            import48.IonicAppNgFactory
+        ], [import48.IonicAppNgFactory]);
     }
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_9", {
         get: function () {
@@ -200,7 +199,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_APP_ID_32", {
         get: function () {
             if ((this.__APP_ID_32 == null)) {
-                (this.__APP_ID_32 = import55._appIdRandomProviderFactory());
+                (this.__APP_ID_32 = import54._appIdRandomProviderFactory());
             }
             return this.__APP_ID_32;
         },
@@ -231,9 +230,9 @@ var AppModuleInjector = (function (_super) {
         get: function () {
             if ((this.__EVENT_MANAGER_PLUGINS_35 == null)) {
                 (this.__EVENT_MANAGER_PLUGINS_35 = [
-                    new import56.DomEventsPlugin(),
-                    new import57.KeyEventsPlugin(),
-                    new import58.HammerGesturesPlugin(this._HAMMER_GESTURE_CONFIG_34)
+                    new import55.DomEventsPlugin(),
+                    new import56.KeyEventsPlugin(),
+                    new import57.HammerGesturesPlugin(this._HAMMER_GESTURE_CONFIG_34)
                 ]);
             }
             return this.__EVENT_MANAGER_PLUGINS_35;
@@ -244,7 +243,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_EventManager_36", {
         get: function () {
             if ((this.__EventManager_36 == null)) {
-                (this.__EventManager_36 = new import19.EventManager(this._EVENT_MANAGER_PLUGINS_35, this.parent.get(import59.NgZone)));
+                (this.__EventManager_36 = new import19.EventManager(this._EVENT_MANAGER_PLUGINS_35, this.parent.get(import58.NgZone)));
             }
             return this.__EventManager_36;
         },
@@ -284,7 +283,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_RootRenderer_40", {
         get: function () {
             if ((this.__RootRenderer_40 == null)) {
-                (this.__RootRenderer_40 = import60._createConditionalRootRenderer(this._DomRootRenderer_39, this.parent.get(import60.NgProbeToken, null)));
+                (this.__RootRenderer_40 = import59._createConditionalRootRenderer(this._DomRootRenderer_39, this.parent.get(import59.NgProbeToken, null)));
             }
             return this.__RootRenderer_40;
         },
@@ -511,132 +510,122 @@ var AppModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ImgLoader_63", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_63", {
         get: function () {
-            if ((this.__ImgLoader_63 == null)) {
-                (this.__ImgLoader_63 = new import36.ImgLoader());
+            if ((this.__Keyboard_63 == null)) {
+                (this.__Keyboard_63 = new import36.Keyboard(this._Config_21, this.parent.get(import58.NgZone), this._DomController_22));
             }
-            return this.__ImgLoader_63;
+            return this.__Keyboard_63;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Keyboard_64", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_64", {
         get: function () {
-            if ((this.__Keyboard_64 == null)) {
-                (this.__Keyboard_64 = new import37.Keyboard(this._Config_21, this.parent.get(import59.NgZone), this._DomController_22));
+            if ((this.__LoadingController_64 == null)) {
+                (this.__LoadingController_64 = new import37.LoadingController(this._App_24));
             }
-            return this.__Keyboard_64;
+            return this.__LoadingController_64;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LoadingController_65", {
+    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_65", {
         get: function () {
-            if ((this.__LoadingController_65 == null)) {
-                (this.__LoadingController_65 = new import38.LoadingController(this._App_24));
+            if ((this.__LocationStrategy_65 == null)) {
+                (this.__LocationStrategy_65 = import8.provideLocationStrategy(this.parent.get(import60.PlatformLocation), this.parent.get(import61.APP_BASE_HREF, null), this._Config_21));
             }
-            return this.__LoadingController_65;
+            return this.__LocationStrategy_65;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_LocationStrategy_66", {
+    Object.defineProperty(AppModuleInjector.prototype, "_Location_66", {
         get: function () {
-            if ((this.__LocationStrategy_66 == null)) {
-                (this.__LocationStrategy_66 = import8.provideLocationStrategy(this.parent.get(import61.PlatformLocation), this.parent.get(import62.APP_BASE_HREF, null), this._Config_21));
+            if ((this.__Location_66 == null)) {
+                (this.__Location_66 = new import38.Location(this._LocationStrategy_65));
             }
-            return this.__LocationStrategy_66;
+            return this.__Location_66;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_Location_67", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_67", {
         get: function () {
-            if ((this.__Location_67 == null)) {
-                (this.__Location_67 = new import39.Location(this._LocationStrategy_66));
+            if ((this.__ModalController_67 == null)) {
+                (this.__ModalController_67 = new import39.ModalController(this._App_24));
             }
-            return this.__Location_67;
+            return this.__ModalController_67;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ModalController_68", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_68", {
         get: function () {
-            if ((this.__ModalController_68 == null)) {
-                (this.__ModalController_68 = new import40.ModalController(this._App_24));
+            if ((this.__PickerController_68 == null)) {
+                (this.__PickerController_68 = new import40.PickerController(this._App_24));
             }
-            return this.__ModalController_68;
+            return this.__PickerController_68;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PickerController_69", {
+    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_69", {
         get: function () {
-            if ((this.__PickerController_69 == null)) {
-                (this.__PickerController_69 = new import41.PickerController(this._App_24));
+            if ((this.__PopoverController_69 == null)) {
+                (this.__PopoverController_69 = new import41.PopoverController(this._App_24));
             }
-            return this.__PickerController_69;
+            return this.__PopoverController_69;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_PopoverController_70", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_70", {
         get: function () {
-            if ((this.__PopoverController_70 == null)) {
-                (this.__PopoverController_70 = new import42.PopoverController(this._App_24));
+            if ((this.__TapClick_70 == null)) {
+                (this.__TapClick_70 = new import42.TapClick(this._Config_21, this._App_24, this.parent.get(import58.NgZone), this._GestureController_25));
             }
-            return this.__PopoverController_70;
+            return this.__TapClick_70;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TapClick_71", {
+    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_71", {
         get: function () {
-            if ((this.__TapClick_71 == null)) {
-                (this.__TapClick_71 = new import43.TapClick(this._Config_21, this._App_24, this.parent.get(import59.NgZone), this._GestureController_25));
+            if ((this.__ToastController_71 == null)) {
+                (this.__ToastController_71 = new import43.ToastController(this._App_24));
             }
-            return this.__TapClick_71;
+            return this.__ToastController_71;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_ToastController_72", {
+    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_72", {
         get: function () {
-            if ((this.__ToastController_72 == null)) {
-                (this.__ToastController_72 = new import44.ToastController(this._App_24));
+            if ((this.__TransitionController_72 == null)) {
+                (this.__TransitionController_72 = new import44.TransitionController(this._Config_21));
             }
-            return this.__ToastController_72;
+            return this.__TransitionController_72;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_TransitionController_73", {
+    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_73", {
         get: function () {
-            if ((this.__TransitionController_73 == null)) {
-                (this.__TransitionController_73 = new import45.TransitionController(this._Config_21));
+            if ((this.__UrlSerializer_73 == null)) {
+                (this.__UrlSerializer_73 = import62.setupUrlSerializer(this._DeepLinkConfigToken_57));
             }
-            return this.__TransitionController_73;
+            return this.__UrlSerializer_73;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(AppModuleInjector.prototype, "_UrlSerializer_74", {
+    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_74", {
         get: function () {
-            if ((this.__UrlSerializer_74 == null)) {
-                (this.__UrlSerializer_74 = import63.setupUrlSerializer(this._DeepLinkConfigToken_57));
+            if ((this.__DeepLinker_74 == null)) {
+                (this.__DeepLinker_74 = import63.setupDeepLinker(this._App_24, this._UrlSerializer_73, this._Location_66));
             }
-            return this.__UrlSerializer_74;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DeepLinker_75", {
-        get: function () {
-            if ((this.__DeepLinker_75 == null)) {
-                (this.__DeepLinker_75 = import64.setupDeepLinker(this._App_24, this._UrlSerializer_74, this._Location_67));
-            }
-            return this.__DeepLinker_75;
+            return this.__DeepLinker_74;
         },
         enumerable: true,
         configurable: true
@@ -654,27 +643,27 @@ var AppModuleInjector = (function (_super) {
         this._ErrorHandler_11 = import4.errorHandler();
         this._ConfigToken_12 = null;
         this._UrlToken_13 = import8.provideLocationHref();
-        this._QueryParams_14 = import65.setupQueryParams(this._UrlToken_13);
-        this._PlatformConfigToken_15 = import66.providePlatformConfigs();
+        this._QueryParams_14 = import64.setupQueryParams(this._UrlToken_13);
+        this._PlatformConfigToken_15 = import65.providePlatformConfigs();
         this._UserAgentToken_16 = import8.provideUserAgent();
         this._NavigatorPlatformToken_17 = import8.provideNavigatorPlatform();
         this._DocumentDirToken_18 = import8.provideDocumentDirection();
         this._DocLangToken_19 = import8.provideDocumentLang();
-        this._Platform_20 = import67.setupPlatform(this._PlatformConfigToken_15, this._QueryParams_14, this._UserAgentToken_16, this._NavigatorPlatformToken_17, this._DocumentDirToken_18, this._DocLangToken_19, this.parent.get(import59.NgZone));
-        this._Config_21 = import68.setupConfig(this._ConfigToken_12, this._QueryParams_14, this._Platform_20);
+        this._Platform_20 = import66.setupPlatform(this._PlatformConfigToken_15, this._QueryParams_14, this._UserAgentToken_16, this._NavigatorPlatformToken_17, this._DocumentDirToken_18, this._DocLangToken_19, this.parent.get(import58.NgZone));
+        this._Config_21 = import67.setupConfig(this._ConfigToken_12, this._QueryParams_14, this._Platform_20);
         this._DomController_22 = new import10.DomController();
         this._MenuController_23 = new import11.MenuController();
         this._App_24 = new import12.App(this._Config_21, this._Platform_20, this._MenuController_23);
         this._GestureController_25 = new import13.GestureController(this._App_24);
         this._APP_INITIALIZER_26 = [
-            import69.registerModeConfigs(this._Config_21),
-            import70.registerTransitions(this._Config_21),
+            import68.registerModeConfigs(this._Config_21),
+            import69.registerTransitions(this._Config_21),
             import33.setupProvideEvents(this._Platform_20, this._DomController_22),
-            import43.setupTapClick(this._Config_21, this._App_24, this.parent.get(import59.NgZone), this._GestureController_25)
+            import42.setupTapClick(this._Config_21, this._App_24, this.parent.get(import58.NgZone), this._GestureController_25)
         ];
         this._ApplicationInitStatus_27 = new import14.ApplicationInitStatus(this._APP_INITIALIZER_26);
-        this._Testability_28 = new import15.Testability(this.parent.get(import59.NgZone));
-        this._ApplicationRef__29 = new import16.ApplicationRef_(this.parent.get(import59.NgZone), this.parent.get(import71.Console), this, this._ErrorHandler_11, this, this._ApplicationInitStatus_27, this.parent.get(import15.TestabilityRegistry, null), this._Testability_28);
+        this._Testability_28 = new import15.Testability(this.parent.get(import58.NgZone));
+        this._ApplicationRef__29 = new import16.ApplicationRef_(this.parent.get(import58.NgZone), this.parent.get(import70.Console), this, this._ErrorHandler_11, this, this._ApplicationInitStatus_27, this.parent.get(import15.TestabilityRegistry, null), this._Testability_28);
         return this._AppModule_8;
     };
     AppModuleInjector.prototype.getInternal = function (token, notFoundResult) {
@@ -705,43 +694,43 @@ var AppModuleInjector = (function (_super) {
         if ((token === import1.AppModule)) {
             return this._AppModule_8;
         }
-        if ((token === import72.LOCALE_ID)) {
+        if ((token === import71.LOCALE_ID)) {
             return this._LOCALE_ID_9;
         }
         if ((token === import9.NgLocalization)) {
             return this._NgLocalization_10;
         }
-        if ((token === import73.ErrorHandler)) {
+        if ((token === import72.ErrorHandler)) {
             return this._ErrorHandler_11;
         }
-        if ((token === import68.ConfigToken)) {
+        if ((token === import67.ConfigToken)) {
             return this._ConfigToken_12;
         }
-        if ((token === import65.UrlToken)) {
+        if ((token === import64.UrlToken)) {
             return this._UrlToken_13;
         }
-        if ((token === import65.QueryParams)) {
+        if ((token === import64.QueryParams)) {
             return this._QueryParams_14;
         }
-        if ((token === import66.PlatformConfigToken)) {
+        if ((token === import65.PlatformConfigToken)) {
             return this._PlatformConfigToken_15;
         }
-        if ((token === import67.UserAgentToken)) {
+        if ((token === import66.UserAgentToken)) {
             return this._UserAgentToken_16;
         }
-        if ((token === import67.NavigatorPlatformToken)) {
+        if ((token === import66.NavigatorPlatformToken)) {
             return this._NavigatorPlatformToken_17;
         }
-        if ((token === import67.DocumentDirToken)) {
+        if ((token === import66.DocumentDirToken)) {
             return this._DocumentDirToken_18;
         }
-        if ((token === import67.DocLangToken)) {
+        if ((token === import66.DocLangToken)) {
             return this._DocLangToken_19;
         }
-        if ((token === import67.Platform)) {
+        if ((token === import66.Platform)) {
             return this._Platform_20;
         }
-        if ((token === import68.Config)) {
+        if ((token === import67.Config)) {
             return this._Config_21;
         }
         if ((token === import10.DomController)) {
@@ -774,13 +763,13 @@ var AppModuleInjector = (function (_super) {
         if ((token === import17.Compiler)) {
             return this._Compiler_31;
         }
-        if ((token === import55.APP_ID)) {
+        if ((token === import54.APP_ID)) {
             return this._APP_ID_32;
         }
-        if ((token === import74.DOCUMENT)) {
+        if ((token === import73.DOCUMENT)) {
             return this._DOCUMENT_33;
         }
-        if ((token === import58.HAMMER_GESTURE_CONFIG)) {
+        if ((token === import57.HAMMER_GESTURE_CONFIG)) {
             return this._HAMMER_GESTURE_CONFIG_34;
         }
         if ((token === import19.EVENT_MANAGER_PLUGINS)) {
@@ -792,28 +781,28 @@ var AppModuleInjector = (function (_super) {
         if ((token === import20.DomSharedStylesHost)) {
             return this._DomSharedStylesHost_37;
         }
-        if ((token === import75.AnimationDriver)) {
+        if ((token === import74.AnimationDriver)) {
             return this._AnimationDriver_38;
         }
         if ((token === import21.DomRootRenderer)) {
             return this._DomRootRenderer_39;
         }
-        if ((token === import76.RootRenderer)) {
+        if ((token === import75.RootRenderer)) {
             return this._RootRenderer_40;
         }
         if ((token === import22.DomSanitizer)) {
             return this._DomSanitizer_41;
         }
-        if ((token === import77.Sanitizer)) {
+        if ((token === import76.Sanitizer)) {
             return this._Sanitizer_42;
         }
         if ((token === import23.ViewUtils)) {
             return this._ViewUtils_43;
         }
-        if ((token === import78.IterableDiffers)) {
+        if ((token === import77.IterableDiffers)) {
             return this._IterableDiffers_44;
         }
-        if ((token === import79.KeyValueDiffers)) {
+        if ((token === import78.KeyValueDiffers)) {
             return this._KeyValueDiffers_45;
         }
         if ((token === import20.SharedStylesHost)) {
@@ -828,7 +817,7 @@ var AppModuleInjector = (function (_super) {
         if ((token === import26.ResponseOptions)) {
             return this._ResponseOptions_49;
         }
-        if ((token === import80.XSRFStrategy)) {
+        if ((token === import79.XSRFStrategy)) {
             return this._XSRFStrategy_50;
         }
         if ((token === import27.XHRBackend)) {
@@ -837,7 +826,7 @@ var AppModuleInjector = (function (_super) {
         if ((token === import28.RequestOptions)) {
             return this._RequestOptions_52;
         }
-        if ((token === import81.Http)) {
+        if ((token === import80.Http)) {
             return this._Http_53;
         }
         if ((token === import29.RadioControlRegistry)) {
@@ -846,10 +835,10 @@ var AppModuleInjector = (function (_super) {
         if ((token === import30.FormBuilder)) {
             return this._FormBuilder_55;
         }
-        if ((token === import82.AppRootToken)) {
+        if ((token === import81.AppRootToken)) {
             return this._AppRootToken_56;
         }
-        if ((token === import63.DeepLinkConfigToken)) {
+        if ((token === import62.DeepLinkConfigToken)) {
             return this._DeepLinkConfigToken_57;
         }
         if ((token === import31.ActionSheetController)) {
@@ -867,44 +856,41 @@ var AppModuleInjector = (function (_super) {
         if ((token === import35.Haptic)) {
             return this._Haptic_62;
         }
-        if ((token === import36.ImgLoader)) {
-            return this._ImgLoader_63;
+        if ((token === import36.Keyboard)) {
+            return this._Keyboard_63;
         }
-        if ((token === import37.Keyboard)) {
-            return this._Keyboard_64;
+        if ((token === import37.LoadingController)) {
+            return this._LoadingController_64;
         }
-        if ((token === import38.LoadingController)) {
-            return this._LoadingController_65;
+        if ((token === import61.LocationStrategy)) {
+            return this._LocationStrategy_65;
         }
-        if ((token === import62.LocationStrategy)) {
-            return this._LocationStrategy_66;
+        if ((token === import38.Location)) {
+            return this._Location_66;
         }
-        if ((token === import39.Location)) {
-            return this._Location_67;
+        if ((token === import39.ModalController)) {
+            return this._ModalController_67;
         }
-        if ((token === import40.ModalController)) {
-            return this._ModalController_68;
+        if ((token === import40.PickerController)) {
+            return this._PickerController_68;
         }
-        if ((token === import41.PickerController)) {
-            return this._PickerController_69;
+        if ((token === import41.PopoverController)) {
+            return this._PopoverController_69;
         }
-        if ((token === import42.PopoverController)) {
-            return this._PopoverController_70;
+        if ((token === import42.TapClick)) {
+            return this._TapClick_70;
         }
-        if ((token === import43.TapClick)) {
-            return this._TapClick_71;
+        if ((token === import43.ToastController)) {
+            return this._ToastController_71;
         }
-        if ((token === import44.ToastController)) {
-            return this._ToastController_72;
+        if ((token === import44.TransitionController)) {
+            return this._TransitionController_72;
         }
-        if ((token === import45.TransitionController)) {
-            return this._TransitionController_73;
+        if ((token === import62.UrlSerializer)) {
+            return this._UrlSerializer_73;
         }
-        if ((token === import63.UrlSerializer)) {
-            return this._UrlSerializer_74;
-        }
-        if ((token === import64.DeepLinker)) {
-            return this._DeepLinker_75;
+        if ((token === import63.DeepLinker)) {
+            return this._DeepLinker_74;
         }
         return notFoundResult;
     };
@@ -994,19 +980,19 @@ export var Wrapper_PopoverRadioPage = (function () {
     };
     return Wrapper_PopoverRadioPage;
 }());
-var renderType_ApiDemoApp_Host = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, [], {});
+var renderType_ApiDemoApp_Host = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, [], {});
 var View_ApiDemoApp_Host0 = (function (_super) {
     __extends(View_ApiDemoApp_Host0, _super);
     function View_ApiDemoApp_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_ApiDemoApp_Host0, renderType_ApiDemoApp_Host, import87.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
+        _super.call(this, View_ApiDemoApp_Host0, renderType_ApiDemoApp_Host, import86.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
     }
     View_ApiDemoApp_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = import85.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import85.EMPTY_INLINE_ARRAY, rootSelector, null);
+        this._el_0 = import84.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import84.EMPTY_INLINE_ARRAY, rootSelector, null);
         this.compView_0 = new View_ApiDemoApp0(this.viewUtils, this, 0, this._el_0);
         this._ApiDemoApp_0_3 = new Wrapper_ApiDemoApp();
         this.compView_0.create(this._ApiDemoApp_0_3.context);
         this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new import89.ComponentRef_(0, this, this._el_0, this._ApiDemoApp_0_3.context);
+        return new import88.ComponentRef_(0, this, this._el_0, this._ApiDemoApp_0_3.context);
     };
     View_ApiDemoApp_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import1.ApiDemoApp) && (0 === requestNodeIndex))) {
@@ -1025,26 +1011,26 @@ var View_ApiDemoApp_Host0 = (function (_super) {
         cb(this._el_0, ctx);
     };
     return View_ApiDemoApp_Host0;
-}(import83.AppView));
-export var ApiDemoAppNgFactory = new import89.ComponentFactory('ng-component', View_ApiDemoApp_Host0, import1.ApiDemoApp);
+}(import82.AppView));
+export var ApiDemoAppNgFactory = new import88.ComponentFactory('ng-component', View_ApiDemoApp_Host0, import1.ApiDemoApp);
 var styles_ApiDemoApp = [];
-var renderType_ApiDemoApp = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, styles_ApiDemoApp, {});
+var renderType_ApiDemoApp = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, styles_ApiDemoApp, {});
 export var View_ApiDemoApp0 = (function (_super) {
     __extends(View_ApiDemoApp0, _super);
     function View_ApiDemoApp0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_ApiDemoApp0, renderType_ApiDemoApp, import87.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
+        _super.call(this, View_ApiDemoApp0, renderType_ApiDemoApp, import86.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
     }
     View_ApiDemoApp0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
-        this._el_0 = import85.createRenderElement(this.renderer, parentRenderNode, 'ion-nav', import85.EMPTY_INLINE_ARRAY, null);
-        this.compView_0 = new import91.View_Nav0(this.viewUtils, this, 0, this._el_0);
-        this._Nav_0_3 = new import91.Wrapper_Nav(this.parentView.injectorGet(import92.ViewController, this.parentIndex, null), this.parentView.injectorGet(import93.NavController, this.parentIndex, null), this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), this.parentView.injectorGet(import37.Keyboard, this.parentIndex), new import94.ElementRef(this._el_0), this.parentView.injectorGet(import59.NgZone, this.parentIndex), this.renderer, this.parentView.injectorGet(import95.ComponentFactoryResolver, this.parentIndex), this.parentView.injectorGet(import13.GestureController, this.parentIndex), this.parentView.injectorGet(import45.TransitionController, this.parentIndex), this.parentView.injectorGet(import64.DeepLinker, this.parentIndex, null), this.parentView.injectorGet(import10.DomController, this.parentIndex));
+        this._el_0 = import84.createRenderElement(this.renderer, parentRenderNode, 'ion-nav', import84.EMPTY_INLINE_ARRAY, null);
+        this.compView_0 = new import90.View_Nav0(this.viewUtils, this, 0, this._el_0);
+        this._Nav_0_3 = new import90.Wrapper_Nav(this.parentView.injectorGet(import91.ViewController, this.parentIndex, null), this.parentView.injectorGet(import92.NavController, this.parentIndex, null), this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), this.parentView.injectorGet(import36.Keyboard, this.parentIndex), new import93.ElementRef(this._el_0), this.parentView.injectorGet(import58.NgZone, this.parentIndex), this.renderer, this.parentView.injectorGet(import94.ComponentFactoryResolver, this.parentIndex), this.parentView.injectorGet(import13.GestureController, this.parentIndex), this.parentView.injectorGet(import44.TransitionController, this.parentIndex), this.parentView.injectorGet(import63.DeepLinker, this.parentIndex, null), this.parentView.injectorGet(import10.DomController, this.parentIndex));
         this.compView_0.create(this._Nav_0_3.context);
         this.init(null, (this.renderer.directRenderer ? null : [this._el_0]), null);
         return null;
     };
     View_ApiDemoApp0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import90.Nav) && (0 === requestNodeIndex))) {
+        if (((token === import89.Nav) && (0 === requestNodeIndex))) {
             return this._Nav_0_3.context;
         }
         return notFoundResult;
@@ -1064,20 +1050,20 @@ export var View_ApiDemoApp0 = (function (_super) {
         this.compView_0.destroy();
     };
     return View_ApiDemoApp0;
-}(import83.AppView));
-var renderType_ApiDemoPage_Host = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, [], {});
+}(import82.AppView));
+var renderType_ApiDemoPage_Host = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, [], {});
 var View_ApiDemoPage_Host0 = (function (_super) {
     __extends(View_ApiDemoPage_Host0, _super);
     function View_ApiDemoPage_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_ApiDemoPage_Host0, renderType_ApiDemoPage_Host, import87.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
+        _super.call(this, View_ApiDemoPage_Host0, renderType_ApiDemoPage_Host, import86.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
     }
     View_ApiDemoPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = import85.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import85.EMPTY_INLINE_ARRAY, rootSelector, null);
+        this._el_0 = import84.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import84.EMPTY_INLINE_ARRAY, rootSelector, null);
         this.compView_0 = new View_ApiDemoPage0(this.viewUtils, this, 0, this._el_0);
-        this._ApiDemoPage_0_3 = new Wrapper_ApiDemoPage(this.injectorGet(import42.PopoverController, this.parentIndex));
+        this._ApiDemoPage_0_3 = new Wrapper_ApiDemoPage(this.injectorGet(import41.PopoverController, this.parentIndex));
         this.compView_0.create(this._ApiDemoPage_0_3.context);
         this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new import89.ComponentRef_(0, this, this._el_0, this._ApiDemoPage_0_3.context);
+        return new import88.ComponentRef_(0, this, this._el_0, this._ApiDemoPage_0_3.context);
     };
     View_ApiDemoPage_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import1.ApiDemoPage) && (0 === requestNodeIndex))) {
@@ -1096,42 +1082,42 @@ var View_ApiDemoPage_Host0 = (function (_super) {
         cb(this._el_0, ctx);
     };
     return View_ApiDemoPage_Host0;
-}(import83.AppView));
-export var ApiDemoPageNgFactory = new import89.ComponentFactory('ng-component', View_ApiDemoPage_Host0, import1.ApiDemoPage);
+}(import82.AppView));
+export var ApiDemoPageNgFactory = new import88.ComponentFactory('ng-component', View_ApiDemoPage_Host0, import1.ApiDemoPage);
 var styles_ApiDemoPage = [];
-var renderType_ApiDemoPage = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, styles_ApiDemoPage, {});
+var renderType_ApiDemoPage = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, styles_ApiDemoPage, {});
 export var View_ApiDemoPage0 = (function (_super) {
     __extends(View_ApiDemoPage0, _super);
     function View_ApiDemoPage0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_ApiDemoPage0, renderType_ApiDemoPage, import87.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
+        _super.call(this, View_ApiDemoPage0, renderType_ApiDemoPage, import86.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
     }
     View_ApiDemoPage0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
-        this._viewQuery_popoverContent_0 = new import96.QueryList();
-        this._viewQuery_popoverText_1 = new import96.QueryList();
-        this._el_0 = import85.createRenderElement(this.renderer, parentRenderNode, 'ion-header', import85.EMPTY_INLINE_ARRAY, null);
-        this._Header_0_3 = new import97.Wrapper_Header(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_0), this.renderer, this.parentView.injectorGet(import92.ViewController, this.parentIndex, null));
+        this._viewQuery_popoverContent_0 = new import95.QueryList();
+        this._viewQuery_popoverText_1 = new import95.QueryList();
+        this._el_0 = import84.createRenderElement(this.renderer, parentRenderNode, 'ion-header', import84.EMPTY_INLINE_ARRAY, null);
+        this._Header_0_3 = new import96.Wrapper_Header(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_0), this.renderer, this.parentView.injectorGet(import91.ViewController, this.parentIndex, null));
         this._text_1 = this.renderer.createText(this._el_0, '\n\n  ', null);
-        this._el_2 = import85.createRenderElement(this.renderer, this._el_0, 'ion-navbar', new import85.InlineArray4(4, 'class', 'toolbar', 'color', 'primary'), null);
-        this.compView_2 = new import99.View_Navbar0(this.viewUtils, this, 2, this._el_2);
-        this._Navbar_2_3 = new import99.Wrapper_Navbar(this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import92.ViewController, this.parentIndex, null), this.parentView.injectorGet(import93.NavController, this.parentIndex, null), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_2), this.renderer);
+        this._el_2 = import84.createRenderElement(this.renderer, this._el_0, 'ion-navbar', new import84.InlineArray4(4, 'class', 'toolbar', 'color', 'primary'), null);
+        this.compView_2 = new import98.View_Navbar0(this.viewUtils, this, 2, this._el_2);
+        this._Navbar_2_3 = new import98.Wrapper_Navbar(this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import91.ViewController, this.parentIndex, null), this.parentView.injectorGet(import92.NavController, this.parentIndex, null), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_2), this.renderer);
         this._text_3 = this.renderer.createText(null, '\n    ', null);
-        this._el_4 = import85.createRenderElement(this.renderer, null, 'ion-title', import85.EMPTY_INLINE_ARRAY, null);
-        this.compView_4 = new import101.View_ToolbarTitle0(this.viewUtils, this, 4, this._el_4);
-        this._ToolbarTitle_4_3 = new import101.Wrapper_ToolbarTitle(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_4), this.renderer, this.parentView.injectorGet(import108.Toolbar, this.parentIndex, null), this._Navbar_2_3.context);
+        this._el_4 = import84.createRenderElement(this.renderer, null, 'ion-title', import84.EMPTY_INLINE_ARRAY, null);
+        this.compView_4 = new import100.View_ToolbarTitle0(this.viewUtils, this, 4, this._el_4);
+        this._ToolbarTitle_4_3 = new import100.Wrapper_ToolbarTitle(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_4), this.renderer, this.parentView.injectorGet(import107.Toolbar, this.parentIndex, null), this._Navbar_2_3.context);
         this._text_5 = this.renderer.createText(null, 'Popover', null);
         this.compView_4.create(this._ToolbarTitle_4_3.context);
         this._text_6 = this.renderer.createText(null, '\n    ', null);
-        this._el_7 = import85.createRenderElement(this.renderer, null, 'ion-buttons', new import85.InlineArray2(2, 'end', ''), null);
-        this._ToolbarItem_7_3 = new import102.Wrapper_ToolbarItem(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_7), this.renderer, this.parentView.injectorGet(import108.Toolbar, this.parentIndex, null), this._Navbar_2_3.context);
-        this._query_Button_7_0 = new import96.QueryList();
+        this._el_7 = import84.createRenderElement(this.renderer, null, 'ion-buttons', new import84.InlineArray2(2, 'end', ''), null);
+        this._ToolbarItem_7_3 = new import101.Wrapper_ToolbarItem(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_7), this.renderer, this.parentView.injectorGet(import107.Toolbar, this.parentIndex, null), this._Navbar_2_3.context);
+        this._query_Button_7_0 = new import95.QueryList();
         this._text_8 = this.renderer.createText(this._el_7, '\n      ', null);
-        this._el_9 = import85.createRenderElement(this.renderer, this._el_7, 'button', new import85.InlineArray4(4, 'icon-only', '', 'ion-button', ''), null);
-        this.compView_9 = new import104.View_Button0(this.viewUtils, this, 9, this._el_9);
-        this._Button_9_3 = new import104.Wrapper_Button('', this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_9), this.renderer);
+        this._el_9 = import84.createRenderElement(this.renderer, this._el_7, 'button', new import84.InlineArray4(4, 'icon-only', '', 'ion-button', ''), null);
+        this.compView_9 = new import103.View_Button0(this.viewUtils, this, 9, this._el_9);
+        this._Button_9_3 = new import103.Wrapper_Button('', this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_9), this.renderer);
         this._text_10 = this.renderer.createText(null, '\n        ', null);
-        this._el_11 = import85.createRenderElement(this.renderer, null, 'ion-icon', new import85.InlineArray4(4, 'name', 'more', 'role', 'img'), null);
-        this._Icon_11_3 = new import105.Wrapper_Icon(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_11), this.renderer);
+        this._el_11 = import84.createRenderElement(this.renderer, null, 'ion-icon', new import84.InlineArray4(4, 'name', 'more', 'role', 'img'), null);
+        this._Icon_11_3 = new import104.Wrapper_Icon(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_11), this.renderer);
         this._text_12 = this.renderer.createText(null, '\n      ', null);
         this.compView_9.create(this._Button_9_3.context);
         this._text_13 = this.renderer.createText(this._el_7, '\n    ', null);
@@ -1139,34 +1125,34 @@ export var View_ApiDemoPage0 = (function (_super) {
         this.compView_2.create(this._Navbar_2_3.context);
         this._text_15 = this.renderer.createText(this._el_0, '\n\n', null);
         this._text_16 = this.renderer.createText(parentRenderNode, '\n\n\n', null);
-        this._el_17 = import85.createRenderElement(this.renderer, parentRenderNode, 'ion-content', new import85.InlineArray2(2, 'padding', ''), null);
-        this.compView_17 = new import107.View_Content0(this.viewUtils, this, 17, this._el_17);
-        this._Content_17_3 = new import107.Wrapper_Content(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_17), this.renderer, this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import37.Keyboard, this.parentIndex), this.parentView.injectorGet(import59.NgZone, this.parentIndex), this.parentView.injectorGet(import92.ViewController, this.parentIndex, null), this.parentView.injectorGet(import109.Tabs, this.parentIndex, null), this.parentView.injectorGet(import10.DomController, this.parentIndex));
+        this._el_17 = import84.createRenderElement(this.renderer, parentRenderNode, 'ion-content', new import84.InlineArray2(2, 'padding', ''), null);
+        this.compView_17 = new import106.View_Content0(this.viewUtils, this, 17, this._el_17);
+        this._Content_17_3 = new import106.Wrapper_Content(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_17), this.renderer, this.parentView.injectorGet(import12.App, this.parentIndex), this.parentView.injectorGet(import36.Keyboard, this.parentIndex), this.parentView.injectorGet(import58.NgZone, this.parentIndex), this.parentView.injectorGet(import91.ViewController, this.parentIndex, null), this.parentView.injectorGet(import108.Tabs, this.parentIndex, null), this.parentView.injectorGet(import10.DomController, this.parentIndex));
         this._text_18 = this.renderer.createText(null, '\n\n  ', null);
-        this._el_19 = import85.createRenderElement(this.renderer, null, 'div', new import85.InlineArray4(4, 'margin-bottom', '', 'margin-top', ''), null);
+        this._el_19 = import84.createRenderElement(this.renderer, null, 'div', new import84.InlineArray4(4, 'margin-bottom', '', 'margin-top', ''), null);
         this._text_20 = this.renderer.createText(this._el_19, '\n    ', null);
-        this._el_21 = import85.createRenderElement(this.renderer, this._el_19, 'div', import85.EMPTY_INLINE_ARRAY, null);
+        this._el_21 = import84.createRenderElement(this.renderer, this._el_19, 'div', import84.EMPTY_INLINE_ARRAY, null);
         this._text_22 = this.renderer.createText(this._el_21, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ipsum in purus mollis dictum eget vitae purus. Nulla ultrices est odio, a maximus velit pretium ac. Donec vel elementum mi. Proin elementum pulvinar neque, in lacinia nibh tempus auctor. Nam sapien velit, commodo ac nibh a, maximus ullamcorper nunc. Integer luctus tortor dignissim, dictum neque at, scelerisque purus. Vivamus nec erat vel magna posuere euismod. Sed ac augue eu tellus tincidunt fermentum eget sit amet nunc. Donec sit amet mi libero. Cras nunc arcu, ultrices nec sapien eu, convallis posuere libero. Pellentesque vulputate lacus eros, at lobortis lorem egestas et. Vestibulum tempus quam in efficitur lobortis. Maecenas consectetur consequat sem pharetra aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', null);
         this._text_23 = this.renderer.createText(this._el_19, '\n\n    ', null);
-        this._el_24 = import85.createRenderElement(this.renderer, this._el_19, 'div', import85.EMPTY_INLINE_ARRAY, null);
+        this._el_24 = import84.createRenderElement(this.renderer, this._el_19, 'div', import84.EMPTY_INLINE_ARRAY, null);
         this._text_25 = this.renderer.createText(this._el_24, 'Mauris ac ligula elit. Nulla pulvinar eget leo ut aliquet. Praesent sit amet luctus quam. Nam fringilla iaculis mi, ut maximus mauris molestie feugiat. Curabitur nec scelerisque elit. Nunc eu odio facilisis, tempor enim eget, venenatis sem. Sed vitae lorem vehicula, auctor orci ultrices, finibus mauris. Donec vitae pulvinar diam. Nulla luctus congue quam, sed lacinia arcu dictum a.', null);
         this._text_26 = this.renderer.createText(this._el_19, '\n\n    ', null);
-        this._el_27 = import85.createRenderElement(this.renderer, this._el_19, 'div', import85.EMPTY_INLINE_ARRAY, null);
+        this._el_27 = import84.createRenderElement(this.renderer, this._el_19, 'div', import84.EMPTY_INLINE_ARRAY, null);
         this._text_28 = this.renderer.createText(this._el_27, 'Morbi laoreet magna elit, id dapibus massa varius consequat. Praesent rhoncus nunc quam, eu mollis velit commodo ut. Etiam euismod elit mi, non auctor velit blandit ut. Aenean vitae pulvinar mi, ac pretium tellus. Morbi eu auctor sem, sollicitudin cursus felis. Praesent vestibulum velit sed eros iaculis ornare. Praesent diam diam, pellentesque eget scelerisque sed, bibendum ut risus. Sed sed fermentum sem. Integer vel justo felis. Proin eget quam est. In sit amet ipsum sagittis, convallis ipsum fringilla, interdum ante. Etiam vel tincidunt mauris. Nunc feugiat eros nunc, et vestibulum metus mollis et. Nullam eu viverra velit, id ultrices nisl. Donec non enim elementum, laoreet sapien id, feugiat tellus.', null);
         this._text_29 = this.renderer.createText(this._el_19, '\n\n    ', null);
-        this._el_30 = import85.createRenderElement(this.renderer, this._el_19, 'div', import85.EMPTY_INLINE_ARRAY, null);
+        this._el_30 = import84.createRenderElement(this.renderer, this._el_19, 'div', import84.EMPTY_INLINE_ARRAY, null);
         this._text_31 = this.renderer.createText(this._el_30, 'Sed pellentesque ipsum eget ante hendrerit maximus. Aliquam id venenatis nulla. Nullam in nibh at enim vestibulum ullamcorper. Nam felis dolor, lobortis vel est non, condimentum malesuada nisl. In metus sapien, malesuada at nulla in, pretium aliquam turpis. Quisque elementum purus mi, sed tristique turpis ultricies in. Donec feugiat dolor non ultricies ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin ut purus et diam porta cursus vitae semper mi. Donec fringilla tellus orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vitae commodo sem. Duis vehicula quam sit amet imperdiet facilisis. Pellentesque eget dignissim neque, et scelerisque libero. Maecenas molestie metus sed orci cursus, in venenatis justo dapibus.', null);
         this._text_32 = this.renderer.createText(this._el_19, '\n\n    ', null);
-        this._el_33 = import85.createRenderElement(this.renderer, this._el_19, 'div', import85.EMPTY_INLINE_ARRAY, null);
+        this._el_33 = import84.createRenderElement(this.renderer, this._el_19, 'div', import84.EMPTY_INLINE_ARRAY, null);
         this._text_34 = this.renderer.createText(this._el_33, 'Aenean rhoncus urna at interdum blandit. Donec ac massa nec libero vehicula tincidunt. Sed sit amet hendrerit risus. Aliquam vitae vestibulum ipsum, non feugiat orci. Vivamus eu rutrum elit. Nulla dapibus tortor non dignissim pretium. Nulla in luctus turpis. Etiam non mattis tortor, at aliquet ex. Nunc ut ante varius, auctor dui vel, volutpat elit. Nunc laoreet augue sit amet ultrices porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum pellentesque lobortis est, ut tincidunt ligula mollis sit amet. In porta risus arcu, quis pellentesque dolor mattis non. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;', null);
         this._text_35 = this.renderer.createText(this._el_19, '\n  ', null);
         this._text_36 = this.renderer.createText(null, '\n\n', null);
         this.compView_17.create(this._Content_17_3.context);
         this._text_37 = this.renderer.createText(parentRenderNode, '\n', null);
-        var disposable_0 = import85.subscribeToRenderElement(this, this._el_9, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_9));
-        this._viewQuery_popoverContent_0.reset([new import94.ElementRef(this._el_17)]);
+        var disposable_0 = import84.subscribeToRenderElement(this, this._el_9, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_9));
+        this._viewQuery_popoverContent_0.reset([new import93.ElementRef(this._el_17)]);
         this.context.content = this._viewQuery_popoverContent_0.first;
-        this._viewQuery_popoverText_1.reset([new import94.ElementRef(this._el_19)]);
+        this._viewQuery_popoverText_1.reset([new import93.ElementRef(this._el_19)]);
         this.context.text = this._viewQuery_popoverText_1.first;
         this.init(null, (this.renderer.directRenderer ? null : [
             this._el_0,
@@ -1211,25 +1197,25 @@ export var View_ApiDemoPage0 = (function (_super) {
         return null;
     };
     View_ApiDemoPage0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import100.ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
+        if (((token === import99.ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
             return this._ToolbarTitle_4_3.context;
         }
-        if (((token === import110.Icon) && (11 === requestNodeIndex))) {
+        if (((token === import109.Icon) && (11 === requestNodeIndex))) {
             return this._Icon_11_3.context;
         }
-        if (((token === import103.Button) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 12)))) {
+        if (((token === import102.Button) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 12)))) {
             return this._Button_9_3.context;
         }
-        if (((token === import111.ToolbarItem) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 13)))) {
+        if (((token === import110.ToolbarItem) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 13)))) {
             return this._ToolbarItem_7_3.context;
         }
-        if (((token === import98.Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
+        if (((token === import97.Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
             return this._Navbar_2_3.context;
         }
-        if (((token === import108.Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 15)))) {
+        if (((token === import107.Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 15)))) {
             return this._Header_0_3.context;
         }
-        if (((token === import106.Content) && ((17 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import105.Content) && ((17 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._Content_17_3.context;
         }
         return notFoundResult;
@@ -1316,20 +1302,20 @@ export var View_ApiDemoPage0 = (function (_super) {
         return result;
     };
     return View_ApiDemoPage0;
-}(import83.AppView));
-var renderType_PopoverRadioPage_Host = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, [], {});
+}(import82.AppView));
+var renderType_PopoverRadioPage_Host = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, [], {});
 var View_PopoverRadioPage_Host0 = (function (_super) {
     __extends(View_PopoverRadioPage_Host0, _super);
     function View_PopoverRadioPage_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PopoverRadioPage_Host0, renderType_PopoverRadioPage_Host, import87.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
+        _super.call(this, View_PopoverRadioPage_Host0, renderType_PopoverRadioPage_Host, import86.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
     }
     View_PopoverRadioPage_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = import85.selectOrCreateRenderHostElement(this.renderer, 'page-api-radio-popover', import85.EMPTY_INLINE_ARRAY, rootSelector, null);
+        this._el_0 = import84.selectOrCreateRenderHostElement(this.renderer, 'page-api-radio-popover', import84.EMPTY_INLINE_ARRAY, rootSelector, null);
         this.compView_0 = new View_PopoverRadioPage0(this.viewUtils, this, 0, this._el_0);
-        this._PopoverRadioPage_0_3 = new Wrapper_PopoverRadioPage(this.injectorGet(import112.NavParams, this.parentIndex));
+        this._PopoverRadioPage_0_3 = new Wrapper_PopoverRadioPage(this.injectorGet(import111.NavParams, this.parentIndex));
         this.compView_0.create(this._PopoverRadioPage_0_3.context);
         this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new import89.ComponentRef_(0, this, this._el_0, this._PopoverRadioPage_0_3.context);
+        return new import88.ComponentRef_(0, this, this._el_0, this._PopoverRadioPage_0_3.context);
     };
     View_PopoverRadioPage_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import1.PopoverRadioPage) && (0 === requestNodeIndex))) {
@@ -1348,60 +1334,60 @@ var View_PopoverRadioPage_Host0 = (function (_super) {
         cb(this._el_0, ctx);
     };
     return View_PopoverRadioPage_Host0;
-}(import83.AppView));
-export var PopoverRadioPageNgFactory = new import89.ComponentFactory('page-api-radio-popover', View_PopoverRadioPage_Host0, import1.PopoverRadioPage);
+}(import82.AppView));
+export var PopoverRadioPageNgFactory = new import88.ComponentFactory('page-api-radio-popover', View_PopoverRadioPage_Host0, import1.PopoverRadioPage);
 var styles_PopoverRadioPage = [];
-var renderType_PopoverRadioPage = import85.createRenderComponentType('', 0, import86.ViewEncapsulation.None, styles_PopoverRadioPage, {});
+var renderType_PopoverRadioPage = import84.createRenderComponentType('', 0, import85.ViewEncapsulation.None, styles_PopoverRadioPage, {});
 export var View_PopoverRadioPage0 = (function (_super) {
     __extends(View_PopoverRadioPage0, _super);
     function View_PopoverRadioPage0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PopoverRadioPage0, renderType_PopoverRadioPage, import87.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import88.ChangeDetectorStatus.CheckAlways);
-        this._expr_196 = import88.UNINITIALIZED;
-        this._expr_197 = import88.UNINITIALIZED;
-        this._expr_198 = import88.UNINITIALIZED;
-        this._expr_199 = import88.UNINITIALIZED;
+        _super.call(this, View_PopoverRadioPage0, renderType_PopoverRadioPage, import86.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import87.ChangeDetectorStatus.CheckAlways);
+        this._expr_196 = import87.UNINITIALIZED;
+        this._expr_197 = import87.UNINITIALIZED;
+        this._expr_198 = import87.UNINITIALIZED;
+        this._expr_199 = import87.UNINITIALIZED;
     }
     View_PopoverRadioPage0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
         this._text_0 = this.renderer.createText(parentRenderNode, '\n    ', null);
-        this._el_1 = import85.createRenderElement(this.renderer, parentRenderNode, 'ion-list', new import85.InlineArray4(4, 'radio-group', '', 'role', 'radiogroup'), null);
-        this._RadioGroup_1_3 = new import113.Wrapper_RadioGroup(this.renderer, new import94.ElementRef(this._el_1));
+        this._el_1 = import84.createRenderElement(this.renderer, parentRenderNode, 'ion-list', new import84.InlineArray4(4, 'radio-group', '', 'role', 'radiogroup'), null);
+        this._RadioGroup_1_3 = new import112.Wrapper_RadioGroup(this.renderer, new import93.ElementRef(this._el_1));
         this._NG_VALUE_ACCESSOR_1_4 = [this._RadioGroup_1_3.context];
-        this._NgModel_1_5 = new import114.Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
+        this._NgModel_1_5 = new import113.Wrapper_NgModel(null, null, null, this._NG_VALUE_ACCESSOR_1_4);
         this._NgControl_1_6 = this._NgModel_1_5.context;
-        this._NgControlStatus_1_7 = new import115.Wrapper_NgControlStatus(this._NgControl_1_6);
-        this._List_1_8 = new import116.Wrapper_List(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_1), this.renderer, this.parentView.injectorGet(import13.GestureController, this.parentIndex), this.parentView.injectorGet(import10.DomController, this.parentIndex));
-        this._query_ListHeader_1_0 = new import96.QueryList();
+        this._NgControlStatus_1_7 = new import114.Wrapper_NgControlStatus(this._NgControl_1_6);
+        this._List_1_8 = new import115.Wrapper_List(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_1), this.renderer, this.parentView.injectorGet(import13.GestureController, this.parentIndex), this.parentView.injectorGet(import10.DomController, this.parentIndex));
+        this._query_ListHeader_1_0 = new import95.QueryList();
         this._text_2 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_3 = import85.createRenderElement(this.renderer, this._el_1, 'ion-row', import85.EMPTY_INLINE_ARRAY, null);
-        this._Row_3_3 = new import117.Wrapper_Row();
+        this._el_3 = import84.createRenderElement(this.renderer, this._el_1, 'ion-row', import84.EMPTY_INLINE_ARRAY, null);
+        this._Row_3_3 = new import116.Wrapper_Row();
         this._text_4 = this.renderer.createText(this._el_3, '\n        ', null);
-        this._el_5 = import85.createRenderElement(this.renderer, this._el_3, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_5_3 = new import117.Wrapper_Col();
+        this._el_5 = import84.createRenderElement(this.renderer, this._el_3, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_5_3 = new import116.Wrapper_Col();
         this._text_6 = this.renderer.createText(this._el_5, '\n          ', null);
-        this._el_7 = import85.createRenderElement(this.renderer, this._el_5, 'button', new import85.InlineArray8(6, 'class', 'popover-text-button popover-text-smaller item item-block', 'detail-none', '', 'ion-item', ''), null);
-        this.compView_7 = new import119.View_Item0(this.viewUtils, this, 7, this._el_7);
-        this._Item_7_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_7), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_7_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_7_0 = new import96.QueryList();
-        this._query_Button_7_1 = new import96.QueryList();
-        this._query_Icon_7_2 = new import96.QueryList();
+        this._el_7 = import84.createRenderElement(this.renderer, this._el_5, 'button', new import84.InlineArray8(6, 'class', 'popover-text-button popover-text-smaller item item-block', 'detail-none', '', 'ion-item', ''), null);
+        this.compView_7 = new import118.View_Item0(this.viewUtils, this, 7, this._el_7);
+        this._Item_7_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_7), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_7_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_7_0 = new import95.QueryList();
+        this._query_Button_7_1 = new import95.QueryList();
+        this._query_Icon_7_2 = new import95.QueryList();
         this._text_8 = this.renderer.createText(null, 'A', null);
         this._query_Label_7_0.reset([]);
         this._Item_7_3.context.contentLabel = this._query_Label_7_0.first;
         this.compView_7.create(this._Item_7_3.context);
         this._text_9 = this.renderer.createText(this._el_5, '\n        ', null);
         this._text_10 = this.renderer.createText(this._el_3, '\n        ', null);
-        this._el_11 = import85.createRenderElement(this.renderer, this._el_3, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_11_3 = new import117.Wrapper_Col();
+        this._el_11 = import84.createRenderElement(this.renderer, this._el_3, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_11_3 = new import116.Wrapper_Col();
         this._text_12 = this.renderer.createText(this._el_11, '\n          ', null);
-        this._el_13 = import85.createRenderElement(this.renderer, this._el_11, 'button', new import85.InlineArray8(6, 'class', 'popover-text-button popover-text-larger item item-block', 'detail-none', '', 'ion-item', ''), null);
-        this.compView_13 = new import119.View_Item0(this.viewUtils, this, 13, this._el_13);
-        this._Item_13_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_13), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_13_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_13_0 = new import96.QueryList();
-        this._query_Button_13_1 = new import96.QueryList();
-        this._query_Icon_13_2 = new import96.QueryList();
+        this._el_13 = import84.createRenderElement(this.renderer, this._el_11, 'button', new import84.InlineArray8(6, 'class', 'popover-text-button popover-text-larger item item-block', 'detail-none', '', 'ion-item', ''), null);
+        this.compView_13 = new import118.View_Item0(this.viewUtils, this, 13, this._el_13);
+        this._Item_13_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_13), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_13_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_13_0 = new import95.QueryList();
+        this._query_Button_13_1 = new import95.QueryList();
+        this._query_Icon_13_2 = new import95.QueryList();
         this._text_14 = this.renderer.createText(null, 'A', null);
         this._query_Label_13_0.reset([]);
         this._Item_13_3.context.contentLabel = this._query_Label_13_0.first;
@@ -1409,187 +1395,187 @@ export var View_PopoverRadioPage0 = (function (_super) {
         this._text_15 = this.renderer.createText(this._el_11, '\n        ', null);
         this._text_16 = this.renderer.createText(this._el_3, '\n      ', null);
         this._text_17 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_18 = import85.createRenderElement(this.renderer, this._el_1, 'ion-row', new import85.InlineArray2(2, 'class', 'popover-row-dots'), null);
-        this._Row_18_3 = new import117.Wrapper_Row();
+        this._el_18 = import84.createRenderElement(this.renderer, this._el_1, 'ion-row', new import84.InlineArray2(2, 'class', 'popover-row-dots'), null);
+        this._Row_18_3 = new import116.Wrapper_Row();
         this._text_19 = this.renderer.createText(this._el_18, '\n        ', null);
-        this._el_20 = import85.createRenderElement(this.renderer, this._el_18, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_20_3 = new import117.Wrapper_Col();
+        this._el_20 = import84.createRenderElement(this.renderer, this._el_18, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_20_3 = new import116.Wrapper_Col();
         this._text_21 = this.renderer.createText(this._el_20, '\n          ', null);
-        this._el_22 = import85.createRenderElement(this.renderer, this._el_20, 'button', new import85.InlineArray4(4, 'class', 'popover-dot-white', 'ion-button', 'popover-dot'), null);
-        this.compView_22 = new import104.View_Button0(this.viewUtils, this, 22, this._el_22);
-        this._Button_22_3 = new import104.Wrapper_Button('popover-dot', this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_22), this.renderer);
+        this._el_22 = import84.createRenderElement(this.renderer, this._el_20, 'button', new import84.InlineArray4(4, 'class', 'popover-dot-white', 'ion-button', 'popover-dot'), null);
+        this.compView_22 = new import103.View_Button0(this.viewUtils, this, 22, this._el_22);
+        this._Button_22_3 = new import103.Wrapper_Button('popover-dot', this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_22), this.renderer);
         this.compView_22.create(this._Button_22_3.context);
         this._text_23 = this.renderer.createText(this._el_20, '\n        ', null);
         this._text_24 = this.renderer.createText(this._el_18, '\n        ', null);
-        this._el_25 = import85.createRenderElement(this.renderer, this._el_18, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_25_3 = new import117.Wrapper_Col();
+        this._el_25 = import84.createRenderElement(this.renderer, this._el_18, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_25_3 = new import116.Wrapper_Col();
         this._text_26 = this.renderer.createText(this._el_25, '\n          ', null);
-        this._el_27 = import85.createRenderElement(this.renderer, this._el_25, 'button', new import85.InlineArray4(4, 'class', 'popover-dot-tan', 'ion-button', 'popover-dot'), null);
-        this.compView_27 = new import104.View_Button0(this.viewUtils, this, 27, this._el_27);
-        this._Button_27_3 = new import104.Wrapper_Button('popover-dot', this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_27), this.renderer);
+        this._el_27 = import84.createRenderElement(this.renderer, this._el_25, 'button', new import84.InlineArray4(4, 'class', 'popover-dot-tan', 'ion-button', 'popover-dot'), null);
+        this.compView_27 = new import103.View_Button0(this.viewUtils, this, 27, this._el_27);
+        this._Button_27_3 = new import103.Wrapper_Button('popover-dot', this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_27), this.renderer);
         this.compView_27.create(this._Button_27_3.context);
         this._text_28 = this.renderer.createText(this._el_25, '\n        ', null);
         this._text_29 = this.renderer.createText(this._el_18, '\n        ', null);
-        this._el_30 = import85.createRenderElement(this.renderer, this._el_18, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_30_3 = new import117.Wrapper_Col();
+        this._el_30 = import84.createRenderElement(this.renderer, this._el_18, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_30_3 = new import116.Wrapper_Col();
         this._text_31 = this.renderer.createText(this._el_30, '\n          ', null);
-        this._el_32 = import85.createRenderElement(this.renderer, this._el_30, 'button', new import85.InlineArray4(4, 'class', 'popover-dot-grey', 'ion-button', 'popover-dot'), null);
-        this.compView_32 = new import104.View_Button0(this.viewUtils, this, 32, this._el_32);
-        this._Button_32_3 = new import104.Wrapper_Button('popover-dot', this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_32), this.renderer);
+        this._el_32 = import84.createRenderElement(this.renderer, this._el_30, 'button', new import84.InlineArray4(4, 'class', 'popover-dot-grey', 'ion-button', 'popover-dot'), null);
+        this.compView_32 = new import103.View_Button0(this.viewUtils, this, 32, this._el_32);
+        this._Button_32_3 = new import103.Wrapper_Button('popover-dot', this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_32), this.renderer);
         this.compView_32.create(this._Button_32_3.context);
         this._text_33 = this.renderer.createText(this._el_30, '\n        ', null);
         this._text_34 = this.renderer.createText(this._el_18, '\n        ', null);
-        this._el_35 = import85.createRenderElement(this.renderer, this._el_18, 'ion-col', import85.EMPTY_INLINE_ARRAY, null);
-        this._Col_35_3 = new import117.Wrapper_Col();
+        this._el_35 = import84.createRenderElement(this.renderer, this._el_18, 'ion-col', import84.EMPTY_INLINE_ARRAY, null);
+        this._Col_35_3 = new import116.Wrapper_Col();
         this._text_36 = this.renderer.createText(this._el_35, '\n          ', null);
-        this._el_37 = import85.createRenderElement(this.renderer, this._el_35, 'button', new import85.InlineArray4(4, 'class', 'popover-dot-black', 'ion-button', 'popover-dot'), null);
-        this.compView_37 = new import104.View_Button0(this.viewUtils, this, 37, this._el_37);
-        this._Button_37_3 = new import104.Wrapper_Button('popover-dot', this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_37), this.renderer);
+        this._el_37 = import84.createRenderElement(this.renderer, this._el_35, 'button', new import84.InlineArray4(4, 'class', 'popover-dot-black', 'ion-button', 'popover-dot'), null);
+        this.compView_37 = new import103.View_Button0(this.viewUtils, this, 37, this._el_37);
+        this._Button_37_3 = new import103.Wrapper_Button('popover-dot', this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_37), this.renderer);
         this.compView_37.create(this._Button_37_3.context);
         this._text_38 = this.renderer.createText(this._el_35, '\n        ', null);
         this._text_39 = this.renderer.createText(this._el_18, '\n      ', null);
         this._text_40 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_41 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-athelas item item-block'), null);
-        this.compView_41 = new import119.View_Item0(this.viewUtils, this, 41, this._el_41);
-        this._Item_41_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_41), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_41_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_41_0 = new import96.QueryList();
-        this._query_Button_41_1 = new import96.QueryList();
-        this._query_Icon_41_2 = new import96.QueryList();
+        this._el_41 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-athelas item item-block'), null);
+        this.compView_41 = new import118.View_Item0(this.viewUtils, this, 41, this._el_41);
+        this._Item_41_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_41), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_41_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_41_0 = new import95.QueryList();
+        this._query_Button_41_1 = new import95.QueryList();
+        this._query_Icon_41_2 = new import95.QueryList();
         this._text_42 = this.renderer.createText(null, '\n        ', null);
-        this._el_43 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_43_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_43), this.renderer, null, null, null, null);
+        this._el_43 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_43_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_43), this.renderer, null, null, null, null);
         this._text_44 = this.renderer.createText(this._el_43, 'Athelas', null);
         this._text_45 = this.renderer.createText(null, '\n        ', null);
-        this._el_46 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Athelas'), null);
-        this.compView_46 = new import122.View_RadioButton0(this.viewUtils, this, 46, this._el_46);
-        this._RadioButton_46_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_46), this.renderer, this._Item_41_3.context, this._RadioGroup_1_3.context);
+        this._el_46 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Athelas'), null);
+        this.compView_46 = new import121.View_RadioButton0(this.viewUtils, this, 46, this._el_46);
+        this._RadioButton_46_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_46), this.renderer, this._Item_41_3.context, this._RadioGroup_1_3.context);
         this.compView_46.create(this._RadioButton_46_3.context);
         this._text_47 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_41_0.reset([this._Label_43_3.context]);
         this._Item_41_3.context.contentLabel = this._query_Label_41_0.first;
         this.compView_41.create(this._Item_41_3.context);
         this._text_48 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_49 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-charter item item-block'), null);
-        this.compView_49 = new import119.View_Item0(this.viewUtils, this, 49, this._el_49);
-        this._Item_49_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_49), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_49_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_49_0 = new import96.QueryList();
-        this._query_Button_49_1 = new import96.QueryList();
-        this._query_Icon_49_2 = new import96.QueryList();
+        this._el_49 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-charter item item-block'), null);
+        this.compView_49 = new import118.View_Item0(this.viewUtils, this, 49, this._el_49);
+        this._Item_49_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_49), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_49_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_49_0 = new import95.QueryList();
+        this._query_Button_49_1 = new import95.QueryList();
+        this._query_Icon_49_2 = new import95.QueryList();
         this._text_50 = this.renderer.createText(null, '\n        ', null);
-        this._el_51 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_51_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_51), this.renderer, null, null, null, null);
+        this._el_51 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_51_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_51), this.renderer, null, null, null, null);
         this._text_52 = this.renderer.createText(this._el_51, 'Charter', null);
         this._text_53 = this.renderer.createText(null, '\n        ', null);
-        this._el_54 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Charter'), null);
-        this.compView_54 = new import122.View_RadioButton0(this.viewUtils, this, 54, this._el_54);
-        this._RadioButton_54_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_54), this.renderer, this._Item_49_3.context, this._RadioGroup_1_3.context);
+        this._el_54 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Charter'), null);
+        this.compView_54 = new import121.View_RadioButton0(this.viewUtils, this, 54, this._el_54);
+        this._RadioButton_54_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_54), this.renderer, this._Item_49_3.context, this._RadioGroup_1_3.context);
         this.compView_54.create(this._RadioButton_54_3.context);
         this._text_55 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_49_0.reset([this._Label_51_3.context]);
         this._Item_49_3.context.contentLabel = this._query_Label_49_0.first;
         this.compView_49.create(this._Item_49_3.context);
         this._text_56 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_57 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-iowan item item-block'), null);
-        this.compView_57 = new import119.View_Item0(this.viewUtils, this, 57, this._el_57);
-        this._Item_57_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_57), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_57_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_57_0 = new import96.QueryList();
-        this._query_Button_57_1 = new import96.QueryList();
-        this._query_Icon_57_2 = new import96.QueryList();
+        this._el_57 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-iowan item item-block'), null);
+        this.compView_57 = new import118.View_Item0(this.viewUtils, this, 57, this._el_57);
+        this._Item_57_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_57), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_57_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_57_0 = new import95.QueryList();
+        this._query_Button_57_1 = new import95.QueryList();
+        this._query_Icon_57_2 = new import95.QueryList();
         this._text_58 = this.renderer.createText(null, '\n        ', null);
-        this._el_59 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_59_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_59), this.renderer, null, null, null, null);
+        this._el_59 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_59_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_59), this.renderer, null, null, null, null);
         this._text_60 = this.renderer.createText(this._el_59, 'Iowan', null);
         this._text_61 = this.renderer.createText(null, '\n        ', null);
-        this._el_62 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Iowan'), null);
-        this.compView_62 = new import122.View_RadioButton0(this.viewUtils, this, 62, this._el_62);
-        this._RadioButton_62_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_62), this.renderer, this._Item_57_3.context, this._RadioGroup_1_3.context);
+        this._el_62 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Iowan'), null);
+        this.compView_62 = new import121.View_RadioButton0(this.viewUtils, this, 62, this._el_62);
+        this._RadioButton_62_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_62), this.renderer, this._Item_57_3.context, this._RadioGroup_1_3.context);
         this.compView_62.create(this._RadioButton_62_3.context);
         this._text_63 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_57_0.reset([this._Label_59_3.context]);
         this._Item_57_3.context.contentLabel = this._query_Label_57_0.first;
         this.compView_57.create(this._Item_57_3.context);
         this._text_64 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_65 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-palatino item item-block'), null);
-        this.compView_65 = new import119.View_Item0(this.viewUtils, this, 65, this._el_65);
-        this._Item_65_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_65), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_65_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_65_0 = new import96.QueryList();
-        this._query_Button_65_1 = new import96.QueryList();
-        this._query_Icon_65_2 = new import96.QueryList();
+        this._el_65 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-palatino item item-block'), null);
+        this.compView_65 = new import118.View_Item0(this.viewUtils, this, 65, this._el_65);
+        this._Item_65_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_65), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_65_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_65_0 = new import95.QueryList();
+        this._query_Button_65_1 = new import95.QueryList();
+        this._query_Icon_65_2 = new import95.QueryList();
         this._text_66 = this.renderer.createText(null, '\n        ', null);
-        this._el_67 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_67_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_67), this.renderer, null, null, null, null);
+        this._el_67 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_67_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_67), this.renderer, null, null, null, null);
         this._text_68 = this.renderer.createText(this._el_67, 'Palatino', null);
         this._text_69 = this.renderer.createText(null, '\n        ', null);
-        this._el_70 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Palatino'), null);
-        this.compView_70 = new import122.View_RadioButton0(this.viewUtils, this, 70, this._el_70);
-        this._RadioButton_70_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_70), this.renderer, this._Item_65_3.context, this._RadioGroup_1_3.context);
+        this._el_70 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Palatino'), null);
+        this.compView_70 = new import121.View_RadioButton0(this.viewUtils, this, 70, this._el_70);
+        this._RadioButton_70_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_70), this.renderer, this._Item_65_3.context, this._RadioGroup_1_3.context);
         this.compView_70.create(this._RadioButton_70_3.context);
         this._text_71 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_65_0.reset([this._Label_67_3.context]);
         this._Item_65_3.context.contentLabel = this._query_Label_65_0.first;
         this.compView_65.create(this._Item_65_3.context);
         this._text_72 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_73 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-san-francisco item item-block'), null);
-        this.compView_73 = new import119.View_Item0(this.viewUtils, this, 73, this._el_73);
-        this._Item_73_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_73), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_73_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_73_0 = new import96.QueryList();
-        this._query_Button_73_1 = new import96.QueryList();
-        this._query_Icon_73_2 = new import96.QueryList();
+        this._el_73 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-san-francisco item item-block'), null);
+        this.compView_73 = new import118.View_Item0(this.viewUtils, this, 73, this._el_73);
+        this._Item_73_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_73), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_73_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_73_0 = new import95.QueryList();
+        this._query_Button_73_1 = new import95.QueryList();
+        this._query_Icon_73_2 = new import95.QueryList();
         this._text_74 = this.renderer.createText(null, '\n        ', null);
-        this._el_75 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_75_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_75), this.renderer, null, null, null, null);
+        this._el_75 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_75_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_75), this.renderer, null, null, null, null);
         this._text_76 = this.renderer.createText(this._el_75, 'San Francisco', null);
         this._text_77 = this.renderer.createText(null, '\n        ', null);
-        this._el_78 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'San Francisco'), null);
-        this.compView_78 = new import122.View_RadioButton0(this.viewUtils, this, 78, this._el_78);
-        this._RadioButton_78_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_78), this.renderer, this._Item_73_3.context, this._RadioGroup_1_3.context);
+        this._el_78 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'San Francisco'), null);
+        this.compView_78 = new import121.View_RadioButton0(this.viewUtils, this, 78, this._el_78);
+        this._RadioButton_78_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_78), this.renderer, this._Item_73_3.context, this._RadioGroup_1_3.context);
         this.compView_78.create(this._RadioButton_78_3.context);
         this._text_79 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_73_0.reset([this._Label_75_3.context]);
         this._Item_73_3.context.contentLabel = this._query_Label_73_0.first;
         this.compView_73.create(this._Item_73_3.context);
         this._text_80 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_81 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-seravek item item-block'), null);
-        this.compView_81 = new import119.View_Item0(this.viewUtils, this, 81, this._el_81);
-        this._Item_81_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_81), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_81_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_81_0 = new import96.QueryList();
-        this._query_Button_81_1 = new import96.QueryList();
-        this._query_Icon_81_2 = new import96.QueryList();
+        this._el_81 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-seravek item item-block'), null);
+        this.compView_81 = new import118.View_Item0(this.viewUtils, this, 81, this._el_81);
+        this._Item_81_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_81), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_81_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_81_0 = new import95.QueryList();
+        this._query_Button_81_1 = new import95.QueryList();
+        this._query_Icon_81_2 = new import95.QueryList();
         this._text_82 = this.renderer.createText(null, '\n        ', null);
-        this._el_83 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_83_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_83), this.renderer, null, null, null, null);
+        this._el_83 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_83_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_83), this.renderer, null, null, null, null);
         this._text_84 = this.renderer.createText(this._el_83, 'Seravek', null);
         this._text_85 = this.renderer.createText(null, '\n        ', null);
-        this._el_86 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Seravek'), null);
-        this.compView_86 = new import122.View_RadioButton0(this.viewUtils, this, 86, this._el_86);
-        this._RadioButton_86_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_86), this.renderer, this._Item_81_3.context, this._RadioGroup_1_3.context);
+        this._el_86 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Seravek'), null);
+        this.compView_86 = new import121.View_RadioButton0(this.viewUtils, this, 86, this._el_86);
+        this._RadioButton_86_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_86), this.renderer, this._Item_81_3.context, this._RadioGroup_1_3.context);
         this.compView_86.create(this._RadioButton_86_3.context);
         this._text_87 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_81_0.reset([this._Label_83_3.context]);
         this._Item_81_3.context.contentLabel = this._query_Label_81_0.first;
         this.compView_81.create(this._Item_81_3.context);
         this._text_88 = this.renderer.createText(this._el_1, '\n      ', null);
-        this._el_89 = import85.createRenderElement(this.renderer, this._el_1, 'ion-item', new import85.InlineArray2(2, 'class', 'popover-text-times-new-roman item item-block'), null);
-        this.compView_89 = new import119.View_Item0(this.viewUtils, this, 89, this._el_89);
-        this._Item_89_3 = new import119.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_89), this.renderer, this.parentView.injectorGet(import123.ItemReorder, this.parentIndex, null));
-        this._ItemContent_89_4 = new import119.Wrapper_ItemContent();
-        this._query_Label_89_0 = new import96.QueryList();
-        this._query_Button_89_1 = new import96.QueryList();
-        this._query_Icon_89_2 = new import96.QueryList();
+        this._el_89 = import84.createRenderElement(this.renderer, this._el_1, 'ion-item', new import84.InlineArray2(2, 'class', 'popover-text-times-new-roman item item-block'), null);
+        this.compView_89 = new import118.View_Item0(this.viewUtils, this, 89, this._el_89);
+        this._Item_89_3 = new import118.Wrapper_Item(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_89), this.renderer, this.parentView.injectorGet(import122.ItemReorder, this.parentIndex, null));
+        this._ItemContent_89_4 = new import118.Wrapper_ItemContent();
+        this._query_Label_89_0 = new import95.QueryList();
+        this._query_Button_89_1 = new import95.QueryList();
+        this._query_Icon_89_2 = new import95.QueryList();
         this._text_90 = this.renderer.createText(null, '\n        ', null);
-        this._el_91 = import85.createRenderElement(this.renderer, null, 'ion-label', import85.EMPTY_INLINE_ARRAY, null);
-        this._Label_91_3 = new import120.Wrapper_Label(this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_91), this.renderer, null, null, null, null);
+        this._el_91 = import84.createRenderElement(this.renderer, null, 'ion-label', import84.EMPTY_INLINE_ARRAY, null);
+        this._Label_91_3 = new import119.Wrapper_Label(this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_91), this.renderer, null, null, null, null);
         this._text_92 = this.renderer.createText(this._el_91, 'Times New Roman', null);
         this._text_93 = this.renderer.createText(null, '\n        ', null);
-        this._el_94 = import85.createRenderElement(this.renderer, null, 'ion-radio', new import85.InlineArray2(2, 'value', 'Times New Roman'), null);
-        this.compView_94 = new import122.View_RadioButton0(this.viewUtils, this, 94, this._el_94);
-        this._RadioButton_94_3 = new import122.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import68.Config, this.parentIndex), new import94.ElementRef(this._el_94), this.renderer, this._Item_89_3.context, this._RadioGroup_1_3.context);
+        this._el_94 = import84.createRenderElement(this.renderer, null, 'ion-radio', new import84.InlineArray2(2, 'value', 'Times New Roman'), null);
+        this.compView_94 = new import121.View_RadioButton0(this.viewUtils, this, 94, this._el_94);
+        this._RadioButton_94_3 = new import121.Wrapper_RadioButton(this.parentView.injectorGet(import34.Form, this.parentIndex), this.parentView.injectorGet(import67.Config, this.parentIndex), new import93.ElementRef(this._el_94), this.renderer, this._Item_89_3.context, this._RadioGroup_1_3.context);
         this.compView_94.create(this._RadioButton_94_3.context);
         this._text_95 = this.renderer.createText(null, '\n      ', null);
         this._query_Label_89_0.reset([this._Label_91_3.context]);
@@ -1599,22 +1585,22 @@ export var View_PopoverRadioPage0 = (function (_super) {
         this._query_ListHeader_1_0.reset([]);
         this._RadioGroup_1_3.context._header = this._query_ListHeader_1_0.first;
         this._text_97 = this.renderer.createText(parentRenderNode, '\n  ', null);
-        var disposable_0 = import85.subscribeToRenderElement(this, this._el_1, new import85.InlineArray4(4, 'ngModelChange', null, 'ionChange', null), this.eventHandler(this.handleEvent_1));
+        var disposable_0 = import84.subscribeToRenderElement(this, this._el_1, new import84.InlineArray4(4, 'ngModelChange', null, 'ionChange', null), this.eventHandler(this.handleEvent_1));
         this._RadioGroup_1_3.subscribe(this, this.eventHandler(this.handleEvent_1), true);
         this._NgModel_1_5.subscribe(this, this.eventHandler(this.handleEvent_1), true);
-        var disposable_1 = import85.subscribeToRenderElement(this, this._el_7, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_7));
-        var disposable_2 = import85.subscribeToRenderElement(this, this._el_13, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_13));
-        var disposable_3 = import85.subscribeToRenderElement(this, this._el_22, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_22));
-        var disposable_4 = import85.subscribeToRenderElement(this, this._el_27, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_27));
-        var disposable_5 = import85.subscribeToRenderElement(this, this._el_32, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_32));
-        var disposable_6 = import85.subscribeToRenderElement(this, this._el_37, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_37));
-        var disposable_7 = import85.subscribeToRenderElement(this, this._el_46, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_46));
-        var disposable_8 = import85.subscribeToRenderElement(this, this._el_54, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_54));
-        var disposable_9 = import85.subscribeToRenderElement(this, this._el_62, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_62));
-        var disposable_10 = import85.subscribeToRenderElement(this, this._el_70, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_70));
-        var disposable_11 = import85.subscribeToRenderElement(this, this._el_78, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_78));
-        var disposable_12 = import85.subscribeToRenderElement(this, this._el_86, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_86));
-        var disposable_13 = import85.subscribeToRenderElement(this, this._el_94, new import85.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_94));
+        var disposable_1 = import84.subscribeToRenderElement(this, this._el_7, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_7));
+        var disposable_2 = import84.subscribeToRenderElement(this, this._el_13, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_13));
+        var disposable_3 = import84.subscribeToRenderElement(this, this._el_22, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_22));
+        var disposable_4 = import84.subscribeToRenderElement(this, this._el_27, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_27));
+        var disposable_5 = import84.subscribeToRenderElement(this, this._el_32, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_32));
+        var disposable_6 = import84.subscribeToRenderElement(this, this._el_37, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_37));
+        var disposable_7 = import84.subscribeToRenderElement(this, this._el_46, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_46));
+        var disposable_8 = import84.subscribeToRenderElement(this, this._el_54, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_54));
+        var disposable_9 = import84.subscribeToRenderElement(this, this._el_62, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_62));
+        var disposable_10 = import84.subscribeToRenderElement(this, this._el_70, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_70));
+        var disposable_11 = import84.subscribeToRenderElement(this, this._el_78, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_78));
+        var disposable_12 = import84.subscribeToRenderElement(this, this._el_86, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_86));
+        var disposable_13 = import84.subscribeToRenderElement(this, this._el_94, new import84.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_94));
         this.init(null, (this.renderer.directRenderer ? null : [
             this._text_0,
             this._el_1,
@@ -1733,154 +1719,154 @@ export var View_PopoverRadioPage0 = (function (_super) {
         return null;
     };
     View_PopoverRadioPage0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import118.Item) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
+        if (((token === import117.Item) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
             return this._Item_7_3.context;
         }
-        if (((token === import118.ItemContent) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
+        if (((token === import117.ItemContent) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
             return this._ItemContent_7_4.context;
         }
-        if (((token === import124.Col) && ((5 <= requestNodeIndex) && (requestNodeIndex <= 9)))) {
+        if (((token === import123.Col) && ((5 <= requestNodeIndex) && (requestNodeIndex <= 9)))) {
             return this._Col_5_3.context;
         }
-        if (((token === import118.Item) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
+        if (((token === import117.Item) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
             return this._Item_13_3.context;
         }
-        if (((token === import118.ItemContent) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
+        if (((token === import117.ItemContent) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
             return this._ItemContent_13_4.context;
         }
-        if (((token === import124.Col) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 15)))) {
+        if (((token === import123.Col) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 15)))) {
             return this._Col_11_3.context;
         }
-        if (((token === import124.Row) && ((3 <= requestNodeIndex) && (requestNodeIndex <= 16)))) {
+        if (((token === import123.Row) && ((3 <= requestNodeIndex) && (requestNodeIndex <= 16)))) {
             return this._Row_3_3.context;
         }
-        if (((token === import103.Button) && (22 === requestNodeIndex))) {
+        if (((token === import102.Button) && (22 === requestNodeIndex))) {
             return this._Button_22_3.context;
         }
-        if (((token === import124.Col) && ((20 <= requestNodeIndex) && (requestNodeIndex <= 23)))) {
+        if (((token === import123.Col) && ((20 <= requestNodeIndex) && (requestNodeIndex <= 23)))) {
             return this._Col_20_3.context;
         }
-        if (((token === import103.Button) && (27 === requestNodeIndex))) {
+        if (((token === import102.Button) && (27 === requestNodeIndex))) {
             return this._Button_27_3.context;
         }
-        if (((token === import124.Col) && ((25 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
+        if (((token === import123.Col) && ((25 <= requestNodeIndex) && (requestNodeIndex <= 28)))) {
             return this._Col_25_3.context;
         }
-        if (((token === import103.Button) && (32 === requestNodeIndex))) {
+        if (((token === import102.Button) && (32 === requestNodeIndex))) {
             return this._Button_32_3.context;
         }
-        if (((token === import124.Col) && ((30 <= requestNodeIndex) && (requestNodeIndex <= 33)))) {
+        if (((token === import123.Col) && ((30 <= requestNodeIndex) && (requestNodeIndex <= 33)))) {
             return this._Col_30_3.context;
         }
-        if (((token === import103.Button) && (37 === requestNodeIndex))) {
+        if (((token === import102.Button) && (37 === requestNodeIndex))) {
             return this._Button_37_3.context;
         }
-        if (((token === import124.Col) && ((35 <= requestNodeIndex) && (requestNodeIndex <= 38)))) {
+        if (((token === import123.Col) && ((35 <= requestNodeIndex) && (requestNodeIndex <= 38)))) {
             return this._Col_35_3.context;
         }
-        if (((token === import124.Row) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 39)))) {
+        if (((token === import123.Row) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 39)))) {
             return this._Row_18_3.context;
         }
-        if (((token === import125.Label) && ((43 <= requestNodeIndex) && (requestNodeIndex <= 44)))) {
+        if (((token === import124.Label) && ((43 <= requestNodeIndex) && (requestNodeIndex <= 44)))) {
             return this._Label_43_3.context;
         }
-        if (((token === import121.RadioButton) && (46 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (46 === requestNodeIndex))) {
             return this._RadioButton_46_3.context;
         }
-        if (((token === import118.Item) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
+        if (((token === import117.Item) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
             return this._Item_41_3.context;
         }
-        if (((token === import118.ItemContent) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
+        if (((token === import117.ItemContent) && ((41 <= requestNodeIndex) && (requestNodeIndex <= 47)))) {
             return this._ItemContent_41_4.context;
         }
-        if (((token === import125.Label) && ((51 <= requestNodeIndex) && (requestNodeIndex <= 52)))) {
+        if (((token === import124.Label) && ((51 <= requestNodeIndex) && (requestNodeIndex <= 52)))) {
             return this._Label_51_3.context;
         }
-        if (((token === import121.RadioButton) && (54 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (54 === requestNodeIndex))) {
             return this._RadioButton_54_3.context;
         }
-        if (((token === import118.Item) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
+        if (((token === import117.Item) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
             return this._Item_49_3.context;
         }
-        if (((token === import118.ItemContent) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
+        if (((token === import117.ItemContent) && ((49 <= requestNodeIndex) && (requestNodeIndex <= 55)))) {
             return this._ItemContent_49_4.context;
         }
-        if (((token === import125.Label) && ((59 <= requestNodeIndex) && (requestNodeIndex <= 60)))) {
+        if (((token === import124.Label) && ((59 <= requestNodeIndex) && (requestNodeIndex <= 60)))) {
             return this._Label_59_3.context;
         }
-        if (((token === import121.RadioButton) && (62 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (62 === requestNodeIndex))) {
             return this._RadioButton_62_3.context;
         }
-        if (((token === import118.Item) && ((57 <= requestNodeIndex) && (requestNodeIndex <= 63)))) {
+        if (((token === import117.Item) && ((57 <= requestNodeIndex) && (requestNodeIndex <= 63)))) {
             return this._Item_57_3.context;
         }
-        if (((token === import118.ItemContent) && ((57 <= requestNodeIndex) && (requestNodeIndex <= 63)))) {
+        if (((token === import117.ItemContent) && ((57 <= requestNodeIndex) && (requestNodeIndex <= 63)))) {
             return this._ItemContent_57_4.context;
         }
-        if (((token === import125.Label) && ((67 <= requestNodeIndex) && (requestNodeIndex <= 68)))) {
+        if (((token === import124.Label) && ((67 <= requestNodeIndex) && (requestNodeIndex <= 68)))) {
             return this._Label_67_3.context;
         }
-        if (((token === import121.RadioButton) && (70 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (70 === requestNodeIndex))) {
             return this._RadioButton_70_3.context;
         }
-        if (((token === import118.Item) && ((65 <= requestNodeIndex) && (requestNodeIndex <= 71)))) {
+        if (((token === import117.Item) && ((65 <= requestNodeIndex) && (requestNodeIndex <= 71)))) {
             return this._Item_65_3.context;
         }
-        if (((token === import118.ItemContent) && ((65 <= requestNodeIndex) && (requestNodeIndex <= 71)))) {
+        if (((token === import117.ItemContent) && ((65 <= requestNodeIndex) && (requestNodeIndex <= 71)))) {
             return this._ItemContent_65_4.context;
         }
-        if (((token === import125.Label) && ((75 <= requestNodeIndex) && (requestNodeIndex <= 76)))) {
+        if (((token === import124.Label) && ((75 <= requestNodeIndex) && (requestNodeIndex <= 76)))) {
             return this._Label_75_3.context;
         }
-        if (((token === import121.RadioButton) && (78 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (78 === requestNodeIndex))) {
             return this._RadioButton_78_3.context;
         }
-        if (((token === import118.Item) && ((73 <= requestNodeIndex) && (requestNodeIndex <= 79)))) {
+        if (((token === import117.Item) && ((73 <= requestNodeIndex) && (requestNodeIndex <= 79)))) {
             return this._Item_73_3.context;
         }
-        if (((token === import118.ItemContent) && ((73 <= requestNodeIndex) && (requestNodeIndex <= 79)))) {
+        if (((token === import117.ItemContent) && ((73 <= requestNodeIndex) && (requestNodeIndex <= 79)))) {
             return this._ItemContent_73_4.context;
         }
-        if (((token === import125.Label) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 84)))) {
+        if (((token === import124.Label) && ((83 <= requestNodeIndex) && (requestNodeIndex <= 84)))) {
             return this._Label_83_3.context;
         }
-        if (((token === import121.RadioButton) && (86 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (86 === requestNodeIndex))) {
             return this._RadioButton_86_3.context;
         }
-        if (((token === import118.Item) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
+        if (((token === import117.Item) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
             return this._Item_81_3.context;
         }
-        if (((token === import118.ItemContent) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
+        if (((token === import117.ItemContent) && ((81 <= requestNodeIndex) && (requestNodeIndex <= 87)))) {
             return this._ItemContent_81_4.context;
         }
-        if (((token === import125.Label) && ((91 <= requestNodeIndex) && (requestNodeIndex <= 92)))) {
+        if (((token === import124.Label) && ((91 <= requestNodeIndex) && (requestNodeIndex <= 92)))) {
             return this._Label_91_3.context;
         }
-        if (((token === import121.RadioButton) && (94 === requestNodeIndex))) {
+        if (((token === import120.RadioButton) && (94 === requestNodeIndex))) {
             return this._RadioButton_94_3.context;
         }
-        if (((token === import118.Item) && ((89 <= requestNodeIndex) && (requestNodeIndex <= 95)))) {
+        if (((token === import117.Item) && ((89 <= requestNodeIndex) && (requestNodeIndex <= 95)))) {
             return this._Item_89_3.context;
         }
-        if (((token === import118.ItemContent) && ((89 <= requestNodeIndex) && (requestNodeIndex <= 95)))) {
+        if (((token === import117.ItemContent) && ((89 <= requestNodeIndex) && (requestNodeIndex <= 95)))) {
             return this._ItemContent_89_4.context;
         }
-        if (((token === import126.RadioGroup) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import125.RadioGroup) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._RadioGroup_1_3.context;
         }
-        if (((token === import127.NG_VALUE_ACCESSOR) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import126.NG_VALUE_ACCESSOR) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._NG_VALUE_ACCESSOR_1_4;
         }
-        if (((token === import128.NgModel) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import127.NgModel) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._NgModel_1_5.context;
         }
-        if (((token === import129.NgControl) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import128.NgControl) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._NgControl_1_6;
         }
-        if (((token === import130.NgControlStatus) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import129.NgControlStatus) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._NgControlStatus_1_7.context;
         }
-        if (((token === import131.List) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
+        if (((token === import130.List) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 96)))) {
             return this._List_1_8.context;
         }
         return notFoundResult;
@@ -2112,22 +2098,22 @@ export var View_PopoverRadioPage0 = (function (_super) {
         }
         this._NgControlStatus_1_7.checkHost(this, this, this._el_1, throwOnChange);
         var currVal_196 = (this.context.background == 'white');
-        if (import85.checkBinding(throwOnChange, this._expr_196, currVal_196)) {
+        if (import84.checkBinding(throwOnChange, this._expr_196, currVal_196)) {
             this.renderer.setElementClass(this._el_22, 'selected', currVal_196);
             this._expr_196 = currVal_196;
         }
         var currVal_197 = (this.context.background == 'tan');
-        if (import85.checkBinding(throwOnChange, this._expr_197, currVal_197)) {
+        if (import84.checkBinding(throwOnChange, this._expr_197, currVal_197)) {
             this.renderer.setElementClass(this._el_27, 'selected', currVal_197);
             this._expr_197 = currVal_197;
         }
         var currVal_198 = (this.context.background == 'grey');
-        if (import85.checkBinding(throwOnChange, this._expr_198, currVal_198)) {
+        if (import84.checkBinding(throwOnChange, this._expr_198, currVal_198)) {
             this.renderer.setElementClass(this._el_32, 'selected', currVal_198);
             this._expr_198 = currVal_198;
         }
         var currVal_199 = (this.context.background == 'black');
-        if (import85.checkBinding(throwOnChange, this._expr_199, currVal_199)) {
+        if (import84.checkBinding(throwOnChange, this._expr_199, currVal_199)) {
             this.renderer.setElementClass(this._el_37, 'selected', currVal_199);
             this._expr_199 = currVal_199;
         }
@@ -2411,5 +2397,5 @@ export var View_PopoverRadioPage0 = (function (_super) {
         return result;
     };
     return View_PopoverRadioPage0;
-}(import83.AppView));
+}(import82.AppView));
 //# sourceMappingURL=app.module.ngfactory.js.map

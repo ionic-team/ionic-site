@@ -3,9 +3,19 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+import { ElementRef, Renderer, Optional } from '@angular/core';
+import { NgControl } from '@angular/forms';
+import { App } from '../app/app';
 import { copyInputAttributes, hasPointerMoved, pointerCoord } from '../../util/dom';
+import { Config } from '../../config/config';
+import { Content } from '../content/content';
+import { DomController } from '../../util/dom-controller';
+import { Form } from '../../util/form';
 import { Ion } from '../ion';
 import { isTrueProperty } from '../../util/util';
+import { Item } from '../item/item';
+import { NavController } from '../../navigation/nav-controller';
+import { Platform } from '../../platform/platform';
 /**
  * @private
  * Hopefully someday a majority of the auto-scrolling tricks can get removed.
@@ -36,12 +46,15 @@ export var InputBase = (function (_super) {
             this.inputControl = ngControl;
         }
         _form.register(this);
-        this._scrollStart = _content.ionScrollStart.subscribe(function (ev) {
-            _this.scrollHideFocus(ev, true);
-        });
-        this._scrollEnd = _content.ionScrollEnd.subscribe(function (ev) {
-            _this.scrollHideFocus(ev, false);
-        });
+        // only listen to content scroll events if there is content
+        if (_content) {
+            this._scrollStart = _content.ionScrollStart.subscribe(function (ev) {
+                _this.scrollHideFocus(ev, true);
+            });
+            this._scrollEnd = _content.ionScrollEnd.subscribe(function (ev) {
+                _this.scrollHideFocus(ev, false);
+            });
+        }
     }
     InputBase.prototype.scrollHideFocus = function (ev, shouldHideFocus) {
         var _this = this;
@@ -375,6 +388,20 @@ export var InputBase = (function (_super) {
     InputBase.prototype.focusNext = function () {
         this._form.tabFocus(this);
     };
+    /** @nocollapse */
+    InputBase.ctorParameters = [
+        { type: Config, },
+        { type: Form, },
+        { type: Item, },
+        { type: App, },
+        { type: Platform, },
+        { type: ElementRef, },
+        { type: Renderer, },
+        { type: Content, decorators: [{ type: Optional },] },
+        { type: NavController, },
+        { type: NgControl, },
+        { type: DomController, },
+    ];
     return InputBase;
 }(Ion));
 /**

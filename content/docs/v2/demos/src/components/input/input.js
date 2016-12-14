@@ -226,8 +226,11 @@ export var TextInput = (function (_super) {
      */
     TextInput.prototype.ngOnDestroy = function () {
         this._form.deregister(this);
-        this._scrollStart.unsubscribe();
-        this._scrollEnd.unsubscribe();
+        // only stop listening to content scroll events if there is content
+        if (this._content) {
+            this._scrollStart.unsubscribe();
+            this._scrollEnd.unsubscribe();
+        }
     };
     /**
      * @private
@@ -414,8 +417,11 @@ export var TextArea = (function (_super) {
      */
     TextArea.prototype.ngOnDestroy = function () {
         this._form.deregister(this);
-        this._scrollStart.unsubscribe();
-        this._scrollEnd.unsubscribe();
+        // only stop listening to content scroll events if there is content
+        if (this._content) {
+            this._scrollStart.unsubscribe();
+            this._scrollEnd.unsubscribe();
+        }
     };
     /**
      * @private

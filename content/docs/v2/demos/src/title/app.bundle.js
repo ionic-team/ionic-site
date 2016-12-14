@@ -55785,12 +55785,15 @@ var InputBase = (function (_super) {
             this.inputControl = ngControl;
         }
         _form.register(this);
-        this._scrollStart = _content.ionScrollStart.subscribe(function (ev) {
-            _this.scrollHideFocus(ev, true);
-        });
-        this._scrollEnd = _content.ionScrollEnd.subscribe(function (ev) {
-            _this.scrollHideFocus(ev, false);
-        });
+        // only listen to content scroll events if there is content
+        if (_content) {
+            this._scrollStart = _content.ionScrollStart.subscribe(function (ev) {
+                _this.scrollHideFocus(ev, true);
+            });
+            this._scrollEnd = _content.ionScrollEnd.subscribe(function (ev) {
+                _this.scrollHideFocus(ev, false);
+            });
+        }
     }
     InputBase.prototype.scrollHideFocus = function (ev, shouldHideFocus) {
         var _this = this;
@@ -56124,6 +56127,20 @@ var InputBase = (function (_super) {
     InputBase.prototype.focusNext = function () {
         this._form.tabFocus(this);
     };
+    /** @nocollapse */
+    InputBase.ctorParameters = [
+        { type: Config, },
+        { type: Form, },
+        { type: Item, },
+        { type: App, },
+        { type: Platform, },
+        { type: ElementRef, },
+        { type: Renderer, },
+        { type: Content, decorators: [{ type: Optional },] },
+        { type: NavController, },
+        { type: NgControl, },
+        { type: DomController, },
+    ];
     return InputBase;
 }(Ion));
 /**
@@ -56439,8 +56456,11 @@ var TextInput = (function (_super) {
      */
     TextInput.prototype.ngOnDestroy = function () {
         this._form.deregister(this);
-        this._scrollStart.unsubscribe();
-        this._scrollEnd.unsubscribe();
+        // only stop listening to content scroll events if there is content
+        if (this._content) {
+            this._scrollStart.unsubscribe();
+            this._scrollEnd.unsubscribe();
+        }
     };
     /**
      * @private
@@ -56627,8 +56647,11 @@ var TextArea = (function (_super) {
      */
     TextArea.prototype.ngOnDestroy = function () {
         this._form.deregister(this);
-        this._scrollStart.unsubscribe();
-        this._scrollEnd.unsubscribe();
+        // only stop listening to content scroll events if there is content
+        if (this._content) {
+            this._scrollStart.unsubscribe();
+            this._scrollEnd.unsubscribe();
+        }
     };
     /**
      * @private

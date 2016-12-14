@@ -191,6 +191,7 @@ export var Img = (function () {
                     if (_this._hasLoaded) {
                         console.debug("render " + _this._src + " " + Date.now());
                         _this._isLoaded(true);
+                        _this._srcAttr(_this._src);
                     }
                 });
             }
@@ -209,9 +210,12 @@ export var Img = (function () {
      * @internal
      */
     Img.prototype._srcAttr = function (srcAttr) {
+        var imgEle = this._img;
         var renderer = this._renderer;
-        renderer.setElementAttribute(this._img, 'src', srcAttr);
-        renderer.setElementAttribute(this._img, 'alt', this.alt);
+        if (imgEle.src !== srcAttr) {
+            renderer.setElementAttribute(this._img, 'src', srcAttr);
+            renderer.setElementAttribute(this._img, 'alt', this.alt);
+        }
     };
     Object.defineProperty(Img.prototype, "top", {
         /**

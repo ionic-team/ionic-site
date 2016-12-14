@@ -1,0 +1,151 @@
+.docs-container {
+  min-height: 100%;
+
+  main {
+    padding: 50px 40px 100px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $blacker;
+      line-height: 1.4em;
+      margin: 2em 0 1em;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      // position: relative;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      a.anchor {
+        &::before {
+          content: '\f22a';
+          font-family: 'Ionicons';
+          margin-left: -15px;
+          margin-right: 5px;
+          font-size: 14px;
+          color: $light-grey;
+          transition: .3s color;
+        }
+
+        &:hover::before,
+        &:active::before {
+          color: rgba($blue, .6);
+        }
+      }
+    }
+
+    h1 {
+      margin-bottom: 0;
+
+      a.anchor::before {
+        margin-left: -23px;
+      }
+    }
+
+    h2 {
+      padding: 2em 0 0;
+      font-size: 24px;
+
+      &.section-header {
+        border-top: 1px solid #F0F3F7;
+        margin-top: 5.6em;
+      }
+    }
+
+    h3 {
+      margin: 3.2em 0 0;
+      font-size: 18px;
+
+      &.no-para {
+        margin-bottom: 1em;
+      }
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      font-size: 12px;
+    }
+
+    p {
+      color: #4C555A;
+      line-height: 2.1em;
+      margin: 1.2em 0 1.6em;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    pre {
+      border: 1px solid $light-grey;
+      background: white;
+      padding: 16px;
+      line-height: 24px;
+    }
+
+    a:not(.btn) {
+      color: $blue;
+      text-decoration: none;
+      transition: .2s color;
+
+      &:hover {
+        color: lighten($blue, 15);
+      }
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td,
+    th {
+      white-space: nowrap;
+
+      &:last-child {
+        white-space: normal;
+        width: 99%;
+      }
+    }
+
+    b,
+    strong {
+      font-weight: 500;
+      color: #26292e;
+    }
+
+    .fixed-width {
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    .nav {
+      a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+    blockquote {
+      padding: 0 15px;
+      margin: 40px 0;
+      font-size: 16px;
+      border-left: 4px solid #eeeeee;
+    }
+
+    img.section-header {
+      width: 100%;
+      margin: 50px 0;
+      max-width: 1037px;
+      display: block;
+    }
+  }
+}

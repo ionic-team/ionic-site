@@ -261,11 +261,7 @@
           background: lighten($blue, 5);
         }
 
-        &::-webkit-input-placeholder {
-          color: lighten($blue, 20);
-        }
-
-        &:-ms-input-placeholder {
+        &::placeholder {
           color: lighten($blue, 20);
         }
       }

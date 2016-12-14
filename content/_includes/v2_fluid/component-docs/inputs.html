@@ -4,18 +4,18 @@
   Improve this Doc
 </a>
 
-The Input component implements the Angular 2 form module, and is essential for collecting and handling user input in a secure way. A variety of Input styles are available, and all follow the styling and interaction guidelines for each platform, which makes them intuitive for users to interact with. 
+The Input component is used for collecting and handling user input in a secure way. A variety of Input styles are available, all of which follow the styling and interaction guidelines for each platform. 
 
-Each input field in a form has a **Control**, a function that binds to the value in the field and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
+Inputs are normally used in conjunction with the [Angular 2 Form module](https://angular.io/docs/ts/latest/guide/forms.html) to enable features like input validation and form submission.
 
-There are several types of Input labels available, each with its own behavior:
+Ionic also provides a set of label styles for inputs, most of which are implemented using [utility attributes]():
 
-- inline: label does not hide when text is entered
-- fixed: label is placed to the left of the input element
-- floating: labels animate or “float” up when the input is selected
-- inset: input spans less than 100% of the screen width
-- placeholder: input has placeholder text that disappears when text is entered
-- stacked: label always appears above the input, even after text is entered
+- **inline**: label does not hide when text is entered
+- **fixed**: label is placed to the left of the input element
+- **floating**: labels animate or “float” up when the input is selected
+- **inset**: input spans less than 100% of the screen width
+- **placeholder**: input has placeholder text that disappears when text is entered
+- **stacked**: label always appears above the input, even after text is entered
 
 _For complete usage information, check out the [Input API docs](../api/components/input/Input)._
 

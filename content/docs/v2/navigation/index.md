@@ -21,7 +21,7 @@ Like native apps, URLs are not required for navigation in Ionic.  Instead, pages
 
 There are several ways to navigate throughout an Ionic app:
 
-<h3 id="basic_navigation">Basic Navigation</h3>
+<h2 id="basic_navigation">Basic Navigation</h2>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/navigation/basic">
   Demo Source
 </a>
@@ -126,29 +126,7 @@ class OtherPage {
 
 For more information on basic navigation, check out the [Nav API reference](../api/components/nav/Nav/).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="nav_controller">The Navigation Controller</h2>
 
  NavController is the base class for navigation controller components like
  [`Nav`](../Nav/) and [`Tab`](../../tabs/Tab/). You use navigation controllers
@@ -167,29 +145,7 @@ For more information on basic navigation, check out the [Nav API reference](../a
  specific NavController, most times you will inject and use a reference to the
  nearest NavController to manipulate the navigation stack.
  
- ## Basic usage
- The simplest way to navigate through an app is to create and initialize a new
- nav controller using the `<ion-nav>` component.  `ion-nav` extends the `NavController`
- class.
- 
- ```typescript
- import { Component } from `@angular/core`;
- import { StartPage } from './start-page';
- 
- @Component(
-   template: `<ion-nav [root]="rootPage"></ion-nav>`
- })
- class MyApp {
-   // set the rootPage to the first page we want displayed
-   public rootPage: any = StartPage;
- 
-   constructor(){
-   }
- }
- 
- ```
- 
- ### Injecting NavController
+ <h3 id="injecting_nav_controller">Injecting NavController</h3>
  Injecting NavController will always get you an instance of the nearest
  NavController, regardless of whether it is a Tab or a Nav.
  

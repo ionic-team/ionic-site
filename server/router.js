@@ -1,6 +1,5 @@
-var bodyParser = require('body-parser');
 var express    = require('express');
-var ab         = require('express-ab');
+var ab         = require('express-ab')({ cookie: false });
 
 module.exports = function router(app) {
 

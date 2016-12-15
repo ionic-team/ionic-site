@@ -13,20 +13,15 @@ module.exports = function(req, res, next) {
   var parts = url.parse(req.url);
 
   if (parts.path.indexOf('/blog/') == 0) {
-    res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
-    return next();
+    return res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
   } else if (parts.path.indexOf('/creator/') == 0) {
-    res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
-    return next();
+    return res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
   } else if (parts.path.indexOf('/tutorials') == 0) {
-    res.redirect(301, 'http://ionicframework.com/getting-started');
-    return next();
+    return res.redirect(301, 'http://ionicframework.com/getting-started');
   } else if (parts.path.indexOf('/jobs') == 0) {
-    res.redirect(301, 'http://ionic.io/jobs');
-    return next();
+    return res.redirect(301, 'http://ionic.io/jobs');
   } else if (req.headers.host.indexOf('learn.') == 0) {
-    res.redirect(301, 'http://ionicframework.com/docs/');
-    return next();
+    return res.redirect(301, 'http://ionicframework.com/docs/');
   }
 
   // handle redirects
@@ -38,11 +33,9 @@ module.exports = function(req, res, next) {
 
   if (redirects[requrl]) {
     if (uri[1]) {
-      res.redirect(301, redirects[requrl] + '?' + uri[1]);
-      return next();
+      return res.redirect(301, redirects[requrl] + '?' + uri[1]);
     }
-    res.redirect(301, redirects[requrl]);
-    return next();
+    return res.redirect(301, redirects[requrl]);
   }
 
   // don't index non production URLs

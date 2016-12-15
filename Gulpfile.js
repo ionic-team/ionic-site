@@ -210,7 +210,7 @@ gulp.task('server:stylesv2', ['styles:v2'], bustCacheAndReload);
 gulp.task('server:js', ['js'], bustCacheAndReload);
 
 gulp.task('watch', ['server'], function() {
-  gulp.watch(['server/**/*'], ['server:server']);
+  gulp.watch(['server.js','server/**/*'], ['server:server']);
   gulp.watch('content/scss/**.scss', ['server:stylesv1']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);

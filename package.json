@@ -9,7 +9,10 @@
   "engines": {
     "node": "6.9.2"
   },
-  "cacheDirectories": ["node_modules", "_site" ],
+  "cacheDirectories": [
+    "node_modules",
+    "_site"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/driftyco/ionic-site"

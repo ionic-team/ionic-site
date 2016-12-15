@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -186,6 +186,13 @@ and be enhanced by a wide range of attributes.</p>
     </tr>
     
     <tr>
+      <td>strong</td>
+      <td><code>boolean</code></td>
+      <td><p> A button that has strong importance, ie. it represents an important action.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode to apply to this component.</p>
@@ -220,6 +227,11 @@ and be enhanced by a wide range of attributes.</p>
 &lt;button ion-button [color]=&quot;myColor2&quot; [outline]=&quot;isOutline&quot; [round]=&quot;isRound&quot;&gt;
   Dark (Solid + Round)
 &lt;/button&gt;
+
+&lt;!-- Bind the click event to a method --&gt;
+&lt;button ion-button (click)=&quot;logEvent($event)&quot;&gt;
+  Click me!
+&lt;/button&gt;
 </code></pre>
 <pre><code class="lang-ts">@Component({
   templateUrl: &#39;main.html&#39;
@@ -232,6 +244,10 @@ class E2EPage {
   isClear: boolean = true;
   myColor: string = &#39;secondary&#39;;
   myColor2: string = &#39;dark&#39;;
+
+  logEvent(event) {
+    console.log(event)
+  }
 }
 </code></pre>
 
@@ -607,6 +623,15 @@ class E2EPage {
           <td><code>$button-round-border-radius</code></td>
         
         <td><p>Border radius of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-ios-strong-font-weight</code></td>
+        
+          <td><code>600</code></td>
+        
+        <td><p>Font weight of the strong button</p>
 </td>
       </tr>
       
@@ -1037,6 +1062,15 @@ class E2EPage {
 </td>
       </tr>
       
+      <tr>
+        <td><code>$button-md-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong button</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1326,6 +1360,15 @@ class E2EPage {
           <td><code>$button-round-border-radius</code></td>
         
         <td><p>Border radius of the round button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$button-wp-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong button</p>
 </td>
       </tr>
       

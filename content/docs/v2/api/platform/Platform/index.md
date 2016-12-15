@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L4">
 Improve this doc
 </a>
 
@@ -714,6 +714,26 @@ Returns `true` if the app is in portait mode.
 </h3>
 
 Returns `true` if the app is in landscape mode.
+
+
+
+
+
+
+
+
+
+
+
+<div id="testUserAgent"></div>
+
+<h3>
+<a class="anchor" name="testUserAgent" href="#testUserAgent"></a>
+<code>testUserAgent()</code>
+  
+
+</h3>
+
 
 
 

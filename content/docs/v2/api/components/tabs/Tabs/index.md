@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L13">
 Improve this doc
 </a>
 
@@ -143,7 +143,7 @@ parent view using the <code>NavController</code> instance. For example, assuming
 a <code>TabsPage</code> component, you could call the following from any of the child
 components to switch to <code>TabsRoot3</code>:</p>
 <pre><code class="lang-ts">switchTabs() {
-  this.navCtrl.parent.switch(2);
+  this.navCtrl.parent.select(2);
 }
 </code></pre>
 
@@ -498,18 +498,9 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-ios-border</code></td>
         
-          <td><code>$hairlines-width solid $toolbar-ios-border-color</code></td>
+          <td><code>$hairlines-width solid $tabs-ios-border-color</code></td>
         
         <td><p>Border on the tabbar (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$tabs-ios-background</code></td>
-        
-          <td><code>$toolbar-ios-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
 </td>
       </tr>
       
@@ -536,25 +527,43 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>49px</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-color</code></td>
+        <td><code>$tabs-ios-tab-text-color</code></td>
         
-          <td><code>$toolbar-ios-inactive-color</code></td>
+          <td><code>$tabs-ios-tab-color-inactive</code></td>
         
         <td><p>Text color of the inactive tab button</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-ios-tab-color-active</code></td>
+        <td><code>$tabs-ios-tab-text-color-active</code></td>
         
-          <td><code>$toolbar-ios-active-color</code></td>
+          <td><code>$tabs-ios-tab-color-active</code></td>
         
         <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-icon-color</code></td>
+        
+          <td><code>$tabs-ios-tab-color-inactive</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-ios-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-ios-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
 </td>
       </tr>
       
@@ -590,18 +599,9 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td><code>$tabs-md-background</code></td>
-        
-          <td><code>$toolbar-md-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-padding</code></td>
         
-          <td><code>8px 0 10px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Padding on the tab button</p>
 </td>
@@ -612,7 +612,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>5.6rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -644,18 +644,45 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-color</code></td>
+        <td><code>$tabs-md-tab-text-color</code></td>
         
-          <td><code>rgba($toolbar-md-inactive-color, $tabs-md-tab-opacity)</code></td>
+          <td><code>rgba($tabs-md-tab-color-inactive, $tabs-md-tab-opacity)</code></td>
         
         <td><p>Text color of the inactive tab button</p>
 </td>
       </tr>
       
       <tr>
+        <td><code>$tabs-md-tab-text-color-active</code></td>
+        
+          <td><code>$tabs-md-tab-color-active</code></td>
+        
+        <td><p>Text color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-color</code></td>
+        
+          <td><code>rgba($tabs-md-tab-color-inactive, $tabs-md-tab-opacity)</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-md-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$tabs-md-tab-padding-active</code></td>
         
-          <td><code>6px 0 10px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Padding of the active tab button</p>
 </td>
@@ -671,18 +698,9 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-color-active</code></td>
-        
-          <td><code>$toolbar-md-active-color</code></td>
-        
-        <td><p>Text color of the active tab button</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-text-margin</code></td>
         
-          <td><code>6px 0</code></td>
+          <td><code>0</code></td>
         
         <td><p>Margin on the tab button text</p>
 </td>
@@ -698,36 +716,18 @@ Get the previously selected Tab which is currently not disabled or hidden.
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-transform</code></td>
-        
-          <td><code>scale($tabs-md-tab-font-size / $tabs-md-tab-font-size-active)</code></td>
-        
-        <td><p>Transform for the tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-text-transform-origin</code></td>
         
-          <td><code>bottom center</code></td>
+          <td><code>50% 80%</code></td>
         
         <td><p>Transform origin for the tab button text</p>
 </td>
       </tr>
       
       <tr>
-        <td><code>$tabs-md-tab-text-margin-active</code></td>
-        
-          <td><code>7px 0</code></td>
-        
-        <td><p>Margin on the active tab button text</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-md-tab-text-transform-active</code></td>
         
-          <td><code>scale(1)</code></td>
+          <td><code>scale3d($tabs-md-tab-font-size-active / $tabs-md-tab-font-size, $tabs-md-tab-font-size-active / $tabs-md-tab-font-size, 1)</code></td>
         
         <td><p>Transform for the active tab button text</p>
 </td>
@@ -736,9 +736,63 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-md-tab-text-transition</code></td>
         
-          <td><code>transform 200ms ease-in-out</code></td>
+          <td><code>transform .3s ease-in-out</code></td>
         
         <td><p>Text transition for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-active</code></td>
+        
+          <td><code>translate3d(0, -2px, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-top, icon-only, or title-only</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-right-transform-active</code></td>
+        
+          <td><code>translate3d(2px, 0, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-right</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-bottom-transform-active</code></td>
+        
+          <td><code>translate3d(0, 2px, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-bottom</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-left-transform-active</code></td>
+        
+          <td><code>translate3d(-2px, 0, 0)</code></td>
+        
+        <td><p>Transform for the active tab button icon when the layout is icon-left</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transform-origin</code></td>
+        
+          <td><code>50% 150%</code></td>
+        
+        <td><p>Transform origin for the tab button text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-md-tab-icon-transition</code></td>
+        
+          <td><code>transform .3s ease-in-out</code></td>
+        
+        <td><p>Text transition for the tab button icon</p>
 </td>
       </tr>
       
@@ -765,15 +819,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tbody>
       
       <tr>
-        <td><code>$tabs-wp-background</code></td>
-        
-          <td><code>$toolbar-wp-background</code></td>
-        
-        <td><p>Background color of the tabbar</p>
-</td>
-      </tr>
-      
-      <tr>
         <td><code>$tabs-wp-tab-padding</code></td>
         
           <td><code>12px 10px 5px 10px</code></td>
@@ -787,7 +832,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
         
           <td><code>4.8rem</code></td>
         
-        <td><p>Min height of the tab button</p>
+        <td><p>Minimum height of the tab button</p>
 </td>
       </tr>
       
@@ -821,7 +866,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-wp-tab-color</code></td>
         
-          <td><code>rgba($toolbar-wp-inactive-color, $tabs-wp-tab-opacity)</code></td>
+          <td><code>rgba($tabs-wp-tab-color-inactive, $tabs-wp-tab-opacity)</code></td>
         
         <td><p>Text color of the inactive tab button</p>
 </td>
@@ -830,16 +875,34 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <tr>
         <td><code>$tabs-wp-tab-color-active</code></td>
         
-          <td><code>$toolbar-wp-active-color</code></td>
+          <td><code>$tabs-wp-tab-color-active</code></td>
         
         <td><p>Text color of the active tab button</p>
 </td>
       </tr>
       
       <tr>
+        <td><code>$tabs-wp-tab-icon-color</code></td>
+        
+          <td><code>rgba($tabs-wp-tab-color-inactive, $tabs-wp-tab-opacity)</code></td>
+        
+        <td><p>Icon color of the inactive tab button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$tabs-wp-tab-icon-color-active</code></td>
+        
+          <td><code>$tabs-wp-tab-color-active</code></td>
+        
+        <td><p>Icon color of the active tab button</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$tabs-wp-tab-border</code></td>
         
-          <td><code>2px solid transparent</code></td>
+          <td><code>2px solid $tabs-wp-border-color</code></td>
         
         <td><p>Border on the inactive tab button (border-top when [tabsPlacement=bottom] and border-bottom when [tabsPlacement=top])</p>
 </td>

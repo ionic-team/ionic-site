@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -375,6 +375,85 @@ updated to <code>refreshing</code>. From within your refresh handler, you must c
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+    <h3 ng-init="setSassPlatform('base')">All</h3>
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$refresher-height</code></td>
+        
+          <td><code>60px</code></td>
+        
+        <td><p>Height of the refresher</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$refresher-icon-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the refresher icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$refresher-icon-font-size</code></td>
+        
+          <td><code>30px</code></td>
+        
+        <td><p>Font size of the refresher icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$refresher-text-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Text color of the refresher content</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$refresher-text-font-size</code></td>
+        
+          <td><code>16px</code></td>
+        
+        <td><p>Font size of the refresher content</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$refresher-border-color</code></td>
+        
+          <td><code>#ddd</code></td>
+        
+        <td><p>Border color of the refresher</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

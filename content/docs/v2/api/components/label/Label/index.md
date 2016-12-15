@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -216,15 +216,6 @@ A stacked label will always appear on top of the input.
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td><code>$label-ios-text-color</code></td>
-        
-          <td><code>#7f7f7f</code></td>
-        
-        <td><p>Text color of the label</p>
-</td>
-      </tr>
       
       <tr>
         <td><code>$label-ios-margin</code></td>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L14">
 Improve this doc
 </a>
 
@@ -84,6 +84,63 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="contentHeight"></div>
+
+<h3>
+<a class="anchor" name="contentHeight" href="#contentHeight"></a>
+<code>contentHeight</code>
+  
+
+</h3>
+
+Content height of the viewable area. This does not include content
+which is outside the overflow area, or content area which is under
+headers and footers. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="contentWidth"></div>
+
+<h3>
+<a class="anchor" name="contentWidth" href="#contentWidth"></a>
+<code>contentWidth</code>
+  
+
+</h3>
+
+Content width including content which is not visible on the screen
+due to overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
 <div id="contentTop"></div>
 
 <h3>
@@ -94,7 +151,8 @@ export class MyPage{
 </h3>
 
 A number representing how many pixels the top of the content has been
-adjusted, which could be by either padding or margin.
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the header.
 
 
 
@@ -102,6 +160,12 @@ adjusted, which could be by either padding or margin.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
 
 
 
@@ -116,7 +180,8 @@ adjusted, which could be by either padding or margin.
 </h3>
 
 A number representing how many pixels the bottom of the content has been
-adjusted, which could be by either padding or margin.
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the footer.
 
 
 
@@ -124,6 +189,205 @@ adjusted, which could be by either padding or margin.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollHeight"></div>
+
+<h3>
+<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
+<code>scrollHeight</code>
+  
+
+</h3>
+
+Content height including content which is not visible on the screen
+due to overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollWidth"></div>
+
+<h3>
+<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
+<code>scrollWidth</code>
+  
+
+</h3>
+
+Content width including content which is not visible due to
+overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollTop"></div>
+
+<h3>
+<a class="anchor" name="scrollTop" href="#scrollTop"></a>
+<code>scrollTop</code>
+  
+
+</h3>
+
+The distance of the content's top to its topmost visible content.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollLeft"></div>
+
+<h3>
+<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
+<code>scrollLeft</code>
+  
+
+</h3>
+
+The distance of the content's left to its leftmost visible content.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="isScrolling"></div>
+
+<h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<code>isScrolling</code>
+  
+
+</h3>
+
+If the content is actively scrolling or not.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="directionY"></div>
+
+<h3>
+<a class="anchor" name="directionY" href="#directionY"></a>
+<code>directionY</code>
+  
+
+</h3>
+
+The current, or last known, vertical scroll direction. Possible
+string values include `down` and `up`.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>string</code> 
+
+</div>
+
+
+
+
+<div id="directionX"></div>
+
+<h3>
+<a class="anchor" name="directionX" href="#directionX"></a>
+<code>directionX</code>
+  
+
+</h3>
+
+The current, or last known, horizontal scroll direction. Possible
+string values include `right` and `left`.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>string</code> 
+
+</div>
 
 
 
@@ -278,80 +542,6 @@ Scroll to the top of the content component.
 
 
 
-<div id="getScrollTop"></div>
-
-<h3>
-<a class="anchor" name="getScrollTop" href="#getScrollTop"></a>
-<code>getScrollTop()</code>
-  
-
-</h3>
-
-Get the `scrollTop` property of the content's scrollable element.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="setScrollTop"></div>
-
-<h3>
-<a class="anchor" name="setScrollTop" href="#setScrollTop"></a>
-<code>setScrollTop(top)</code>
-  
-
-</h3>
-
-Set the `scrollTop` property of the content's scrollable element.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        top
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
 <div id="scrollToBottom"></div>
 
 <h3>
@@ -362,6 +552,7 @@ Set the `scrollTop` property of the content's scrollable element.
 </h3>
 
 Scroll to the bottom of the content component.
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -647,6 +838,38 @@ able to scroll &quot;under&quot; the headers and footers. At first glance the
 fullscreen option may not look any different than the default, however,
 by adding a transparency effect to a header then the content can be
 seen under the header as the user scrolls.</p>
+<p>@returns {boolean}</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>ionScrollStart</td>
+      <td><p> Emitted when the scrolling first starts.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionScroll</td>
+      <td><p> Emitted on every scroll event.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionScrollEnd</td>
+      <td><p> Emitted when scrolling ends.</p>
 </td>
     </tr>
     

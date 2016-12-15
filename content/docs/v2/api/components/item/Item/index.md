@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -396,7 +396,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-ios-avatar-size</code></td>
         
-          <td><code>3.6rem</code></td>
+          <td><code>36px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -405,18 +405,9 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
-          <td><code>5.6rem</code></td>
+          <td><code>56px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-ios-note-color</code></td>
-        
-          <td><code>darken($list-ios-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -535,7 +526,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-md-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -544,18 +535,9 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-md-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-note-color</code></td>
-        
-          <td><code>darken($list-md-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -710,7 +692,7 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-wp-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -719,18 +701,9 @@ be added to <code>ion-item</code> to transform the text.</p>
       <tr>
         <td><code>$item-wp-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-note-color</code></td>
-        
-          <td><code>$input-wp-border-color</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-version: "1.1.6"
+version: "1.1.7"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -84,6 +84,26 @@ export class MyApp {
   }
 }
 </code></pre>
+<h3 id="configuring-storage">Configuring Storage</h3>
+<p>The Storage engine can be configured both with specific storage engine priorities, or custom configuration
+options to pass to localForage. See the localForage config docs for possible options: <a href="https://github.com/localForage/localForage#configuration">https://github.com/localForage/localForage#configuration</a></p>
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+
+export function provideStorage() {
+  return new Storage([&#39;sqlite&#39;, &#39;websql&#39;, &#39;indexeddb&#39;], { name: &#39;__mydb&#39; }// optional config);
+}
+
+@NgModule({
+  declarations: ...,
+  imports: ...,
+  bootstrap: ...,
+  entryComponents: ...,
+   providers: [
+     { provide: Storage, useFactory: provideStorage }
+   ]
+})
+export class AppModule {}
+</code></pre>
 
 
 
@@ -93,6 +113,16 @@ export class MyApp {
 
 <!-- instance methods on the class -->
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<div id="ready"></div>
+<h3><a class="anchor" name="ready" href="#ready"></a><code>ready()</code>
+  
+</h3>
+
+
+
+
+
+
 <div id="get"></div>
 <h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
   

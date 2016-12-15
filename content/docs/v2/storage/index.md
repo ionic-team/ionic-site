@@ -87,10 +87,23 @@ export class MyApp {
 <h3 id="configuring-storage">Configuring Storage</h3>
 <p>The Storage engine can be configured both with specific storage engine priorities, or custom configuration
 options to pass to localForage. See the localForage config docs for possible options: <a href="https://github.com/localForage/localForage#configuration">https://github.com/localForage/localForage#configuration</a></p>
-<p>import { Storage } from &#39;@ionic/storage&#39;;</p>
-<p>export function provideStorage() {
+<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+
+export function provideStorage() {
   return new Storage([&#39;sqlite&#39;, &#39;websql&#39;, &#39;indexeddb&#39;], { name: &#39;__mydb&#39; }// optional config);
-}</p>
+}
+
+@NgModule({
+  declarations: ...,
+  imports: ...,
+  bootstrap: ...,
+  entryComponents: ...,
+   providers: [
+     { provide: Storage, useFactory: provideStorage }
+   ]
+})
+export class AppModule {}
+</code></pre>
 
 
 

@@ -4702,6 +4702,62 @@
   content: "\f3aa";
 }
 
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../assets/fonts/roboto-light.ttf") format("truetype"), url("../assets/fonts/roboto-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../assets/fonts/roboto-regular.ttf") format("truetype"), url("../assets/fonts/roboto-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../assets/fonts/roboto-medium.ttf") format("truetype"), url("../assets/fonts/roboto-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../assets/fonts/roboto-bold.ttf") format("truetype"), url("../assets/fonts/roboto-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../assets/fonts/noto-sans-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../assets/fonts/noto-sans-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
+}
+
 body, body:hover, body a, body button, body media-switch {
   cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto;
 }

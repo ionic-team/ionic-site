@@ -13,7 +13,7 @@ app.set('trust proxy', true);
 app.use(compress());
 // app.use(cookieParser());
 app.use(processRequest);
-app.use(router(app));
+// app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
   maxage: 315360000000 // ten years

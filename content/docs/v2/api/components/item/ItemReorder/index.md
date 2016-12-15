@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ ItemReorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L15">
 Improve this doc
 </a>
 
@@ -129,6 +129,14 @@ class MyComponent {
     this.items = reorderArray(this.items, indexes);
   }
 }
+</code></pre>
+<p>Alternatevely you can execute helper function inside template:</p>
+<pre><code class="lang-html">&lt;ion-list&gt;
+  &lt;ion-list-header&gt;Header&lt;/ion-list-header&gt;
+  &lt;ion-item-group reorder=&quot;true&quot; (ionItemReorder)=&quot;$event.applyTo(items)&quot;&gt;
+    &lt;ion-item *ngFor=&quot;let item of items&quot;&gt;{% raw %}{{ item }}{% endraw %}&lt;/ion-item&gt;
+  &lt;/ion-item-group&gt;
+&lt;/ion-list&gt;
 </code></pre>
 
 
@@ -232,7 +240,7 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-ios-avatar-size</code></td>
         
-          <td><code>3.6rem</code></td>
+          <td><code>36px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -241,18 +249,9 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-ios-thumbnail-size</code></td>
         
-          <td><code>5.6rem</code></td>
+          <td><code>56px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-ios-note-color</code></td>
-        
-          <td><code>darken($list-ios-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -371,7 +370,7 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-md-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -380,18 +379,9 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-md-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-md-note-color</code></td>
-        
-          <td><code>darken($list-md-border-color, 10%)</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       
@@ -546,7 +536,7 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-wp-avatar-size</code></td>
         
-          <td><code>4rem</code></td>
+          <td><code>40px</code></td>
         
         <td><p>Size of the avatar in the item</p>
 </td>
@@ -555,18 +545,9 @@ with <code>from</code> and <code>to</code> properties.</p>
       <tr>
         <td><code>$item-wp-thumbnail-size</code></td>
         
-          <td><code>8rem</code></td>
+          <td><code>80px</code></td>
         
         <td><p>Size of the thumbnail in the item</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><code>$item-wp-note-color</code></td>
-        
-          <td><code>$input-wp-border-color</code></td>
-        
-        <td><p>Color of the note in the item</p>
 </td>
       </tr>
       

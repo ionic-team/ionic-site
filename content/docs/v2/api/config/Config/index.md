@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -185,11 +185,6 @@ chart displays each property with a description of what it controls.</p>
 <td><code>pageTransition</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while changing pages.</td>
-</tr>
-<tr>
-<td><code>pageTransitionDelay</code></td>
-<td><code>number</code></td>
-<td>The delay in milliseconds before the transition starts while changing pages.</td>
 </tr>
 <tr>
 <td><code>pickerEnter</code></td>

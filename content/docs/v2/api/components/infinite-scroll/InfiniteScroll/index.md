@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L3">
 Improve this doc
 </a>
 
@@ -75,7 +75,7 @@ export class NewsFeedPage {
   items = [];
 
   constructor() {
-    for (var i = 0; i &lt; 30; i++) {
+    for (let i = 0; i &lt; 30; i++) {
       this.items.push( this.items.length );
     }
   }
@@ -84,7 +84,7 @@ export class NewsFeedPage {
     console.log(&#39;Begin async operation&#39;);
 
     setTimeout(() =&gt; {
-      for (var i = 0; i &lt; 30; i++) {
+      for (let i = 0; i &lt; 30; i++) {
         this.items.push( this.items.length );
       }
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -429,7 +429,7 @@ out before starting a new transition.</p>
         
           <td><code>5.6rem</code></td>
         
-        <td><p>Min height of the action sheet button</p>
+        <td><p>Minimum height of the action sheet button</p>
 </td>
       </tr>
       
@@ -604,7 +604,7 @@ out before starting a new transition.</p>
         
           <td><code>4.8rem</code></td>
         
-        <td><p>Min height of the action sheet button</p>
+        <td><p>Minimum height of the action sheet button</p>
 </td>
       </tr>
       

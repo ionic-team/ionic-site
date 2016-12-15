@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L46">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L63">
 Improve this doc
 </a>
 
@@ -306,7 +306,7 @@ class Profile {
         
           <td><code>600px</code></td>
         
-        <td><p>Min height of the small modal inset</p>
+        <td><p>Minimum height of the small modal inset</p>
 </td>
       </tr>
       
@@ -315,7 +315,7 @@ class Profile {
         
           <td><code>768px</code></td>
         
-        <td><p>Min height of the large modal inset</p>
+        <td><p>Minimum height of the large modal inset</p>
 </td>
       </tr>
       
@@ -371,7 +371,7 @@ class Profile {
       <tr>
         <td><code>$modal-ios-border-radius</code></td>
         
-          <td><code>5px</code></td>
+          <td><code>10px</code></td>
         
         <td><p>Border radius for the modal</p>
 </td>
@@ -396,6 +396,24 @@ class Profile {
           <td><code>$background-md-color</code></td>
         
         <td><p>Background color for the modal</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$modal-inset-box-shadow-color</code></td>
+        
+          <td><code>rgba(0, 0, 0, .4)</code></td>
+        
+        <td><p>Box shadow color of the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$modal-inset-box-shadow</code></td>
+        
+          <td><code>0 28px 48px $modal-inset-box-shadow-color</code></td>
+        
+        <td><p>Box shadow of the alert</p>
 </td>
       </tr>
       

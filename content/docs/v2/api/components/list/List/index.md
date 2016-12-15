@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L7">
 Improve this doc
 </a>
 
@@ -460,7 +460,7 @@ export class MyClass {
       <tr>
         <td><code>$list-md-header-color</code></td>
         
-          <td><code>#858585</code></td>
+          <td><code>#757575</code></td>
         
         <td><p>Text color of the header in a list</p>
 </td>

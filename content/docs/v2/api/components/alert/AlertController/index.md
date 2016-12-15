@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -571,7 +571,7 @@ out before starting a new transition.</p>
         
           <td><code>240px</code></td>
         
-        <td><p>Max height of the alert content</p>
+        <td><p>Maximum height of the alert content</p>
 </td>
       </tr>
       
@@ -670,7 +670,7 @@ out before starting a new transition.</p>
         
           <td><code>44px</code></td>
         
-        <td><p>Min height of the alert button</p>
+        <td><p>Minimum height of the alert button</p>
 </td>
       </tr>
       
@@ -1169,7 +1169,7 @@ out before starting a new transition.</p>
         
           <td><code>240px</code></td>
         
-        <td><p>Max height of the alert content</p>
+        <td><p>Maximum height of the alert content</p>
 </td>
       </tr>
       
@@ -1911,7 +1911,7 @@ out before starting a new transition.</p>
         
           <td><code>240px</code></td>
         
-        <td><p>Max height of the alert content</p>
+        <td><p>Maximum height of the alert content</p>
 </td>
       </tr>
       

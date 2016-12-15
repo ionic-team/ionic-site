@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/spinner/spinner.ts#L5">
 Improve this doc
 </a>
 
@@ -177,7 +177,7 @@ of <code>background-color</code>.</p>
     
     <tr>
       <td>paused</td>
-      <td><code>string</code></td>
+      <td><code>boolean</code></td>
       <td><p> If the animation is paused or not. Defaults to <code>false</code>.</p>
 </td>
     </tr>
@@ -185,6 +185,204 @@ of <code>background-color</code>.</p>
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$spinner-ios-ios-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the ios spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-ios-bubbles-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the bubbles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-ios-circles-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the circles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-ios-crescent-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the crescent spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-ios-dots-color</code></td>
+        
+          <td><code>#444</code></td>
+        
+        <td><p>Color of the dots spinner</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$spinner-md-ios-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the ios spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-md-bubbles-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the bubbles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-md-circles-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the circles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-md-crescent-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the crescent spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-md-dots-color</code></td>
+        
+          <td><code>#444</code></td>
+        
+        <td><p>Color of the dots spinner</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$spinner-wp-ios-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the ios spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-wp-bubbles-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the bubbles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-wp-circles-color</code></td>
+        
+          <td><code>#69717d</code></td>
+        
+        <td><p>Color of the circles spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-wp-crescent-color</code></td>
+        
+          <td><code>#000</code></td>
+        
+        <td><p>Color of the crescent spinner</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$spinner-wp-dots-color</code></td>
+        
+          <td><code>#444</code></td>
+        
+        <td><p>Color of the dots spinner</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

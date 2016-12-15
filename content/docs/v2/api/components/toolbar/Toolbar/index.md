@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Toolbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L108">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L101">
 Improve this doc
 </a>
 
@@ -82,11 +82,13 @@ property.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="header-footer-box-shadow">Header / Footer Box Shadow</h3>
-<p>In <code>md</code> mode, the <code>ion-header</code> will receive a box-shadow on the bottom, and the
-<code>ion-footer</code> will receive a box-shadow on the top. This can be removed by adding
-the <code>no-shadow</code> attribute to the element.</p>
-<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
+<h3 id="header-footer-box-shadow-and-border">Header / Footer Box Shadow and Border</h3>
+<p>In <code>md</code> mode, the <code>&lt;ion-header&gt;</code> will receive a box-shadow on the bottom, and the
+<code>&lt;ion-footer&gt;</code> will receive a box-shadow on the top.  In <code>ios</code> mode, the <code>&lt;ion-header&gt;</code>
+will receive a border on the bottom, and the <code>&lt;ion-footer&gt;</code> will receive a border on the
+top. Both the <code>md</code> box-shadow and the <code>ios</code> border can be removed by adding the <code>no-border</code>
+attribute to the element.</p>
+<pre><code class="lang-html">&lt;ion-header no-border&gt;
   &lt;ion-toolbar&gt;
     &lt;ion-title&gt;Header&lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
@@ -95,32 +97,11 @@ the <code>no-shadow</code> attribute to the element.</p>
 &lt;ion-content&gt;
 &lt;/ion-content&gt;
 
-&lt;ion-footer no-shadow&gt;
+&lt;ion-footer no-border&gt;
   &lt;ion-toolbar&gt;
     &lt;ion-title&gt;Footer&lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-footer&gt;
-</code></pre>
-<h3 id="toolbar-borders">Toolbar Borders</h3>
-<p>Toolbars can be stacked up vertically in <code>&lt;ion-header&gt;</code>, <code>&lt;ion-content&gt;</code>, and
-<code>&lt;ion-footer&gt;</code> elements. In <code>ios</code> mode, toolbars have borders on the top and
-bottom. To hide both borders, the <code>no-border</code> attribute should be used on the
-<code>ion-toolbar</code>. To hide the top or bottom border, the <code>no-border-top</code> and
-<code>no-border-bottom</code> attribute should be used.</p>
-<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
-  &lt;ion-toolbar no-border-bottom&gt;
-    &lt;ion-title&gt;Header&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
-  &lt;ion-toolbar no-border&gt;
-    &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
-  &lt;ion-toolbar no-border-top&gt;
-    &lt;ion-title&gt;Another Header&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
-&lt;/ion-header&gt;
-
-&lt;ion-content&gt;
-&lt;/ion-content&gt;
 </code></pre>
 
 
@@ -130,21 +111,13 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-header no-shadow&gt;
+<pre><code class="lang-html">&lt;ion-header no-border&gt;
 
-  &lt;ion-toolbar no-border-bottom&gt;
-    &lt;ion-buttons start&gt;
-      &lt;button ion-button&gt;
-        &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/button&gt;
-      &lt;button ion-button&gt;
-        &lt;ion-icon name=&quot;search&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/button&gt;
-    &lt;/ion-buttons&gt;
+  &lt;ion-toolbar&gt;
     &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
 
-  &lt;ion-toolbar no-border-top&gt;
+  &lt;ion-toolbar&gt;
     &lt;ion-title&gt;I&#39;m a subheader&lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
 
@@ -160,27 +133,10 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
 &lt;/ion-content&gt;
 
 
-&lt;ion-footer&gt;
+&lt;ion-footer no-border&gt;
 
-  &lt;ion-toolbar no-border&gt;
-    &lt;ion-title&gt;I&#39;m a subfooter&lt;/ion-title&gt;
-    &lt;ion-buttons right&gt;
-      &lt;button ion-button&gt;
-        &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/button&gt;
-    &lt;/ion-buttons&gt;
-  &lt;/ion-toolbar&gt;
-
-  &lt;ion-toolbar no-border-top&gt;
+  &lt;ion-toolbar&gt;
     &lt;ion-title&gt;I&#39;m a footer&lt;/ion-title&gt;
-    &lt;ion-buttons end&gt;
-      &lt;button ion-button&gt;
-        &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/button&gt;
-      &lt;button ion-button&gt;
-        &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
-      &lt;/button&gt;
-    &lt;/ion-buttons&gt;
   &lt;/ion-toolbar&gt;
 
 &lt;/ion-footer&gt;
@@ -223,6 +179,303 @@ bottom. To hide both borders, the <code>no-border</code> attribute should be use
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toolbar-order-ios</code></td>
+        
+          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  buttons-start: 3,&#10;  content: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
+        
+        <td><p>Order of the toolbar elements</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-button-font-size</code></td>
+        
+          <td><code>1.7rem</code></td>
+        
+        <td><p>Font size of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-title-font-size</code></td>
+        
+          <td><code>1.7rem</code></td>
+        
+        <td><p>Font size of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-title-font-weight</code></td>
+        
+          <td><code>600</code></td>
+        
+        <td><p>Font weight of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-title-text-align</code></td>
+        
+          <td><code>center</code></td>
+        
+        <td><p>Text alignment of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-title-text-color</code></td>
+        
+          <td><code>color-contrast($colors-ios, $toolbar-ios-background)</code></td>
+        
+        <td><p>Text color of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-button-color</code></td>
+        
+          <td><code>color-contrast($colors-ios, $toolbar-ios-background, ios)</code></td>
+        
+        <td><p>Text color of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-ios-button-border-radius</code></td>
+        
+          <td><code>4px</code></td>
+        
+        <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$navbar-ios-height</code></td>
+        
+          <td><code>$toolbar-ios-height</code></td>
+        
+        <td><p>Height of the navigation bar</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toolbar-order-md</code></td>
+        
+          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  content: 3,&#10;  buttons-start: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
+        
+        <td><p>Order of the toolbar elements</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-title-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-title-text-color</code></td>
+        
+          <td><code>color-contrast($colors-md, $toolbar-md-background, md)</code></td>
+        
+        <td><p>Text color of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-button-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-button-color</code></td>
+        
+          <td><code>$toolbar-md-title-text-color</code></td>
+        
+        <td><p>Text color of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-button-border-radius</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$navbar-md-height</code></td>
+        
+          <td><code>$toolbar-md-height</code></td>
+        
+        <td><p>Height of the navigation bar</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$toolbar-order-wp</code></td>
+        
+          <td><code>(&#10;  back-button: 0,&#10;  menu-toggle-start: 1,&#10;  buttons-left: 2,&#10;  content: 3,&#10;  buttons-start: 4,&#10;  buttons-end: 5,&#10;  buttons-right: 6,&#10;  menu-toggle-end: 7,&#10;)</code></td>
+        
+        <td><p>Order of the toolbar elements</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-padding</code></td>
+        
+          <td><code>0 6px</code></td>
+        
+        <td><p>Padding of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-font-size</code></td>
+        
+          <td><code>1.5rem</code></td>
+        
+        <td><p>Font size of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-text-transform</code></td>
+        
+          <td><code>uppercase</code></td>
+        
+        <td><p>Text transform of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-title-text-color</code></td>
+        
+          <td><code>color-contrast($colors-wp, $toolbar-wp-background, wp)</code></td>
+        
+        <td><p>Text color of the toolbar title</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-button-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-button-color</code></td>
+        
+          <td><code>color-contrast($colors-wp, $toolbar-wp-background, wp)</code></td>
+        
+        <td><p>Text color of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-button-border-radius</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$navbar-wp-height</code></td>
+        
+          <td><code>$toolbar-wp-height</code></td>
+        
+        <td><p>Height of the navigation bar</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

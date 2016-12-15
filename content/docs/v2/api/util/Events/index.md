@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ Events
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/events.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/events.ts#L3">
 Improve this doc
 </a>
 
@@ -59,13 +59,13 @@ constructor(public events: Events) {}
 // first page (publish an event when a user is created)
 function createUser(user) {
   console.log(&#39;User created!&#39;)
-  events.publish(&#39;user:created&#39;, user);
+  events.publish(&#39;user:created&#39;, user, Date.now());
 }
 
 // second page (listen for the user created event)
-events.subscribe(&#39;user:created&#39;, (userEventData) =&gt; {
-  // userEventData is an array of parameters, so grab our first and only arg
-  console.log(&#39;Welcome&#39;, userEventData[0]);
+events.subscribe(&#39;user:created&#39;, (user, time) =&gt; {
+  // user and time are the same arguments passed in `events.publish(user, time)`
+  console.log(&#39;Welcome&#39;, user, &#39;at&#39;, time);
 });
 </code></pre>
 

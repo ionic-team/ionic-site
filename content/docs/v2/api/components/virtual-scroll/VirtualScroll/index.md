@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/virtual-scroll/virtual-scroll.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/virtual-scroll/virtual-scroll.ts#L10">
 Improve this doc
 </a>
 
@@ -109,20 +109,23 @@ is only used to help calculate initial dimensions.</p>
 <p>It&#39;s also important to know that Ionic&#39;s default item sizes have
 slightly different heights between platforms, which is perfectly fine.</p>
 <h3 id="images-within-virtual-scroll">Images Within Virtual Scroll</h3>
-<p>Ionic provides <code>&lt;ion-img&gt;</code> to manage HTTP requests and image rendering.
-Additionally, it includes a customizable placeholder element which shows
-before the image has finished loading. While scrolling through items
-quickly, <code>&lt;ion-img&gt;</code> knows not to make any image requests, and only loads
-the images that are viewable after scrolling. It&#39;s also important for app
-developers to ensure image sizes are locked in, and after images have fully
-loaded they do not change size and affect any other element sizes.</p>
-<p>We recommend using our <code>&lt;ion-img&gt;</code> element over the native <code>&lt;img&gt;</code> element
-because when an <code>&lt;img&gt;</code> element is added to the DOM, it immediately
-makes a HTTP request for the image file. HTTP requests, image
-decoding, and image rendering can cause issues while scrolling. For virtual
-scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable features.</p>
-<p>Note: <code>&lt;ion-img&gt;</code> should only be used with Virtual Scroll. If you are using
-an image outside of Virtual Scroll you should use the standard <code>&lt;img&gt;</code> tag.</p>
+<p>HTTP requests, image decoding, and image rendering can cause jank while
+scrolling. In order to better control images, Ionic provides <code>&lt;ion-img&gt;</code>
+to manage HTTP requests and image rendering. While scrolling through items
+quickly, <code>&lt;ion-img&gt;</code> knows when and when not to make requests, when and
+when not to render images, and only loads the images that are viewable
+after scrolling. <a href="../img/Img/">Read more about <code>ion-img</code>.</a></p>
+<p>It&#39;s also important for app developers to ensure image sizes are locked in,
+and after images have fully loaded they do not change size and affect any
+other element sizes. Simply put, to ensure rendering bugs are not introduced,
+it&#39;s vital that elements within a virtual item does not dynamically change.</p>
+<p>For virtual scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable
+features. We recommend using the <code>&lt;ion-img&gt;</code> component over the native
+<code>&lt;img&gt;</code> element because when an <code>&lt;img&gt;</code> element is added to the DOM, it
+immediately makes a HTTP request for the image file. Additionally, <code>&lt;img&gt;</code>
+renders whenever it wants which could be while the user is scrolling. However,
+<code>&lt;ion-img&gt;</code> is governed by the containing <code>ion-content</code> and does not render
+images while scrolling quickly.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
@@ -134,21 +137,60 @@ an image outside of Virtual Scroll you should use the standard <code>&lt;img&gt;
 
 &lt;/ion-list&gt;
 </code></pre>
-<h3 id="performance-tips">Performance Tips</h3>
-<ul>
-<li>Use <code>&lt;ion-img&gt;</code> rather than <code>&lt;img&gt;</code> so images are lazy loaded
-while scrolling.</li>
-<li>Image sizes should be locked in, meaning the size of any element
-should not change after the image has loaded.</li>
-<li>Provide an approximate width and height so the virtual scroll can
-best calculate the cell height.</li>
-<li>Changing the dataset requires the entire virtual scroll to be
-reset, which is an expensive operation and should be avoided
-if possible.</li>
-<li>Do not perform any DOM manipulation within section header and
-footer functions. These functions are called for every record in the
-dataset, so please make sure they&#39;re performant.</li>
-</ul>
+<h3 id="custom-components">Custom Components</h3>
+<p>If a custom component is going to be used within Virtual Scroll, it&#39;s best
+to wrap it with a good old <code>&lt;div&gt;</code> to ensure the component is rendered
+correctly. Since each custom component&#39;s implementation and internals can be
+quite different, wrapping within a <code>&lt;div&gt;</code> is a safe way to make sure
+dimensions are measured correctly.</p>
+<pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
+
+  &lt;div *virtualItem=&quot;let item&quot;&gt;
+    &lt;my-custom-item [item]=&quot;item&quot;&gt;
+      {% raw %} {{ item }}{% endraw %}
+    &lt;/my-custom-item&gt;
+  &lt;/div&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
+<h2 id="virtual-scroll-performance-tips">Virtual Scroll Performance Tips</h2>
+<h4 id="ios-cordova-wkwebview">iOS Cordova WKWebView</h4>
+<p>When deploying to iOS with Cordova, it&#39;s highly recommended to use the
+<a href="http://blog.ionic.io/cordova-ios-performance-improvements-drop-in-speed-with-wkwebview/">WKWebView plugin</a>
+in order to take advantage of iOS&#39;s higher performimg webview. Additionally,
+WKWebView is superior at scrolling efficiently in comparision to the older
+UIWebView.</p>
+<h4 id="lock-in-element-dimensions-and-locations">Lock in element dimensions and locations</h4>
+<p>In order for virtual scroll to efficiently size and locate every item, it&#39;s
+very important every element within each virtual item does not dynamically
+change its dimensions or location. The best way to ensure size and location
+does not change, it&#39;s recommended each virtual item has locked in its size
+via CSS.</p>
+<h4 id="use-ion-img-for-images">Use <code>ion-img</code> for images</h4>
+<p>When including images within Virtual Scroll, be sure to use
+<a href="../img/Img/"><code>ion-img</code></a> rather than the standard <code>&lt;img&gt;</code> HTML element.
+With <code>ion-img</code>, images are lazy loaded so only the viewable ones are
+rendered, and HTTP requests are efficiently controlled while scrolling.</p>
+<h4 id="set-approximate-widths-and-heights">Set Approximate Widths and Heights</h4>
+<p>As mentioned above, all elements should lock in their dimensions. However,
+virtual scroll isn&#39;t aware of the dimensions until after they have been
+rendered. For the initial render, virtual scroll still needs to set
+how many items should be built. With &quot;approx&quot; property inputs, such as
+<code>approxItemHeight</code>, we&#39;re able to give virtual sroll an approximate size,
+therefore allowing virtual scroll to decide how many items should be
+created.</p>
+<h4 id="changing-dataset-should-use-virtualtrackby-">Changing dataset should use <code>virtualTrackBy</code></h4>
+<p>It is possible for the identities of elements in the iterator to change
+while the data does not. This can happen, for example, if the iterator
+produced from an RPC to the server, and that RPC is re-run. Even if the
+&quot;data&quot; hasn&#39;t changed, the second response will produce objects with
+different identities, and Ionic will tear down the entire DOM and rebuild
+it. This is an expensive operation and should be avoided if possible.</p>
+<h4 id="efficient-headers-and-footer-functions">Efficient headers and footer functions</h4>
+<p>Each virtual item must stay extremely efficient, but one way to really
+kill its performance is to perform any DOM operations within section header
+and footer functions. These functions are called for every record in the
+dataset, so please make sure they&#39;re performant.</p>
 
 
 
@@ -161,6 +203,48 @@ dataset, so please make sure they&#39;re performant.</li>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="readUpdate"></div>
+
+<h3>
+<a class="anchor" name="readUpdate" href="#readUpdate"></a>
+<code>readUpdate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="writeUpdate"></div>
+
+<h3>
+<a class="anchor" name="writeUpdate" href="#writeUpdate"></a>
+<code>writeUpdate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -177,7 +261,7 @@ dataset, so please make sure they&#39;re performant.</li>
       <td>virtualScroll</td>
       <td><code>array</code></td>
       <td><p> The data that builds the templates within the virtual scroll.
-This is the same data that you&#39;d pass to <code>ngFor</code>. It&#39;s important to note
+This is the same data that you&#39;d pass to <code>*ngFor</code>. It&#39;s important to note
 that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
@@ -190,10 +274,10 @@ which is an expensive operation and should be avoided if possible.</p>
 should get created when initially rendered. The number is a
 multiplier against the viewable area&#39;s height. For example, if it
 takes <code>20</code> cells to fill up the height of the viewable area, then
-with a buffer ratio of <code>2</code> it will create <code>40</code> cells that are
+with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
-viewable area. Default is <code>2</code>.</p>
+viewable area. Default is <code>3</code>.</p>
 </td>
     </tr>
     
@@ -206,14 +290,15 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>100%</code>.</p>
+initial dimensions before the item has been rendered. Default is
+<code>100%</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>approxItemHeight</td>
       <td><code>string</code></td>
-      <td><p> Default is <code>40px</code>. It is important to provide this
+      <td><p> It is important to provide this
 if virtual item height will be significantly larger than the default
 The approximate height of each virtual item template&#39;s cell.
 This dimension is used to help determine how many cells should
@@ -221,7 +306,8 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions.</p>
+initial dimensions before the item has been rendered. Default is
+<code>40px</code>.</p>
 </td>
     </tr>
     
@@ -247,7 +333,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>40px</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
     
@@ -260,7 +346,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>100%</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>100%</code>.</p>
 </td>
     </tr>
     
@@ -273,7 +359,7 @@ be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>40px</code>.</p>
+initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
 </td>
     </tr>
     

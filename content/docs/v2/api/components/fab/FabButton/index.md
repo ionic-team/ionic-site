@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -296,6 +296,33 @@ Makes a fab button with a reduced size.
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-ios-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-ios-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -381,6 +408,33 @@ Makes a fab button with a reduced size.
 </td>
       </tr>
       
+      <tr>
+        <td><code>$fab-md-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-md-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -445,6 +499,33 @@ Makes a fab button with a reduced size.
           <td><code>color-shade($fab-wp-list-button-background-color)</code></td>
         
         <td><p>Background color of the activated button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-duration</code></td>
+        
+          <td><code>200ms</code></td>
+        
+        <td><p>Transition duration of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-timing-function</code></td>
+        
+          <td><code>ease</code></td>
+        
+        <td><p>Speed curve of the transition of the transform and opacity of the button in a list</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$fab-wp-list-button-transition-delay</code></td>
+        
+          <td><code>10ms</code></td>
+        
+        <td><p>Transition delay of the transform and opacity of the button in a list</p>
 </td>
       </tr>
       

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.3"
+version: "2.0.0-rc.4"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ IonicModule
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/module.ts#L63">
 Improve this doc
 </a>
 
@@ -40,7 +40,7 @@ Improve this doc
 
 
 
-<p>IonicModule is a NgModule that helps bootstrap a whole Ionic App. By passing a root component, IonicModule will make sure that all the components and directives from the framework are provided. This includes components such as Tabs, Menus, and Slides, as well as classes like AlertController.</p>
+<p>IonicModule is an NgModule that helps bootstrap a whole Ionic App. By passing a root component, IonicModule will make sure that all the components and directives from the framework are provided. This includes components such as Tabs, Menus, and Slides, as well as classes like AlertController.</p>
 <p>We&#39;re also able to pass any configuration to our app as a second argument for <code>.forRoot</code>. This is any valid config property from <a href="/docs/v2/api/config/Config/">the Config Class</a>.</p>
 <p>The last functionality that IonicModule allows you to configure is optional routes for DeepLinker. For more information on DeepLinker, please see the <a href="/docs/v2/api/navigation/DeepLinker/">DeepLinker Docs</a></p>
 

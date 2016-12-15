@@ -7,6 +7,11 @@ ga('create', 'UA-44023830-1', 'ionicframework.com');
 
 ga('create', 'UA-77242104-1', 'auto');
 
+if (window.experiment) {
+  ga('set', 'expId', window.experiment.id);
+  ga('set', 'expVar', window.experiment.variant);
+}
+
 // Universal ID
 ga('create', 'UA-44023830-23', 'auto', {'allowLinker': true}, 'universalID');
 ga('require', 'linker');

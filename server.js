@@ -1,34 +1,19 @@
-var express = require("express"),
-    app = express(),
-    url = require('url'),
-    compress = require('compression'),
-    processRequest = require('./server/processRequest');
+var express        = require("express");
+var app            = express();
+var compress       = require('compression');
+var cookieParser   = require('cookie-parser');
+var processRequest = require('./server/processRequest');
+var router         = require('./server/router');
 
 process.env.PWD = process.cwd()
 
 console.log('PWD', process.env.PWD);
 
-app.use(function(req, res, next) {
-  var parts = url.parse(req.url);
-
-  if (parts.path.indexOf('/blog/') == 0) {
-    res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
-  } else if (parts.path.indexOf('/creator/') == 0) {
-    res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''))
-  } else if (parts.path.indexOf('/tutorials') == 0) {
-    res.redirect(301, 'http://ionicframework.com/getting-started');
-  } else if (parts.path.indexOf('/jobs') == 0) {
-    res.redirect(301, 'http://ionic.io/jobs');
-  } else if (req.headers.host.indexOf('learn.') == 0) {
-    res.redirect(301, 'http://ionicframework.com/docs/');
-  } else {
-    next();
-  }
-});
-
 app.set('trust proxy', true);
 app.use(compress());
+app.use(cookieParser());
 app.use(processRequest);
+app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
   maxage: 315360000000 // ten years

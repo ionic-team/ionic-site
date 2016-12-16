@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dialogs.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/dialogs.ts#L15">
   Improve this doc
 </a>
 
@@ -339,7 +339,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
+<code>Promise&lt;DialogsPromptCallback&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
 </div>
 
 
@@ -401,6 +401,57 @@ The device plays a beep sound.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="DialogsPromptCallback" href="#DialogsPromptCallback"></a>DialogsPromptCallback</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      buttonIndex
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The index of the pressed button. (Number) Note that the index uses one-based indexing, so the value is 1, 2, 3, etc.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      input1
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The text entered in the prompt dialog box. (String)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

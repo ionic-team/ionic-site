@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceorientation.ts#L40">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/deviceorientation.ts#L39">
   Improve this doc
 </a>
 
@@ -97,7 +97,7 @@ Get the current compass heading.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;CompassHeading&gt;</code> 
+<code>Promise&lt;DeviceOrientationCompassHeading&gt;</code> 
 </div>
 
 
@@ -133,7 +133,7 @@ Stop the watch by unsubscribing from the observable
     </td>
     <td>
       
-<code>CompassOptions</code>
+<code>DeviceOrientationCompassOptions</code>
     </td>
     <td>
       <p>Options for compass. Frequency and Filter. Optional</p>
@@ -152,7 +152,7 @@ Stop the watch by unsubscribing from the observable
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;CompassHeading&gt;</code> Returns an observable that contains the compass heading
+<code>Observable&lt;DeviceOrientationCompassHeading&gt;</code> Returns an observable that contains the compass heading
 </div>
 
 
@@ -167,6 +167,132 @@ Stop the watch by unsubscribing from the observable
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="DeviceOrientationCompassOptions" href="#DeviceOrientationCompassOptions"></a>DeviceOrientationCompassOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      frequency
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>How often to retrieve the compass heading in milliseconds. (Number) (Default: 100)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      filter
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The change in degrees required to initiate a watchHeading success callback. When this value is set, frequency is ignored. (Number)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="DeviceOrientationCompassHeading" href="#DeviceOrientationCompassHeading"></a>DeviceOrientationCompassHeading</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      magneticHeading
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The heading in degrees from 0-359.99 at a single moment in time. (Number)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      trueHeading
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can&#39;t be determined. (Number)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      headingAccuracy
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The deviation in degrees between the reported heading and the true heading. (Number)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>The time at which this heading was determined. (DOMTimeStamp)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

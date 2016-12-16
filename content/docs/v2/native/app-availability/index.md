@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/appavailability.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/appavailability.ts#L0">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ docType: "class"
 <!-- description -->
 
 <p>This plugin allows you to check if an app is installed on the user&#39;s device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
-<p>This requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
+<p>Requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
 
 
 <!-- @platforms tag -->
@@ -64,12 +64,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AppAvailability } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppAvailability, Device } from &#39;ionic-native&#39;;
 
 
 let app;
 
-if (device.platform === &#39;iOS&#39;) {
+if (Device.platform === &#39;iOS&#39;) {
   app = &#39;twitter://&#39;;
 } else if (device.platform === &#39;Android&#39;) {
   app = &#39;com.twitter.android&#39;;

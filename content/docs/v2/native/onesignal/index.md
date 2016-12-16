@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/onesignal.ts#L64">
   Improve this doc
 </a>
 
@@ -943,6 +943,809 @@ The higher the value the more information is shown.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="OneSignalNotification" href="#OneSignalNotification"></a>OneSignalNotification</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app_id
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      contents
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      headings
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isIos
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isAndroid
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isWP
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isWP_WNS
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isAdm
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isChrome
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isChromeWeb
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isSafari
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isAnyWeb
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      included_segments
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      excluded_segments
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_player_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_ios_tokens
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_android_reg_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_wp_uris
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_wp_wns_uris
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_amazon_reg_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_chrome_reg_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      include_chrome_web_reg_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      app_ids
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tags
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any[]</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ios_badgeType
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ios_badgeCount
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ios_sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      wp_sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      wp_wns_sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      data
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      buttons
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      small_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      large_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      big_picture
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_small_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_large_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_big_picture
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      chrome_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      chrome_big_picture
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      chrome_web_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      firefox_icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      send_after
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      delayed_option
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      delivery_time_of_day
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_led_color
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_accent_color
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_visibility
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      content_available
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      amazon_background_data
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      template_id
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_group
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android_group_message
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_group
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      adm_group_message
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ttl
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      priority
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ios_category
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

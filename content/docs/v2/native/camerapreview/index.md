@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera-preview.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/camera-preview.ts#L21">
   Improve this doc
 </a>
 
@@ -442,6 +442,126 @@ Set camera color effect.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="CameraPreviewRect" href="#CameraPreviewRect"></a>CameraPreviewRect</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      x
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      y
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      width
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      height
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="CameraPreviewSize" href="#CameraPreviewSize"></a>CameraPreviewSize</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      maxWidth
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      maxHeight
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

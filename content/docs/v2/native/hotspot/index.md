@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/hotspot.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/hotspot.ts#L102">
   Improve this doc
 </a>
 
@@ -915,7 +915,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;ConnectionInfo&gt;</code> 
+<code>Promise&lt;HotspotConnectionInfo&gt;</code> 
 </div>
 
 
@@ -1129,6 +1129,326 @@ Checks if device is rooted
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="HotspotConnectionInfo" href="#HotspotConnectionInfo"></a>HotspotConnectionInfo</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      SSID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The service set identifier (SSID) of the current 802.11 network.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      BSSID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The basic service set identifier (BSSID) of the current access point.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      linkSpeed
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The current link speed in Mbps</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      IPAddress
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The IP Address</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      networkID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Each configured network has a unique small integer ID, used to identify the network when performing operations on the supplicant.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="HotspotNetwork" href="#HotspotNetwork"></a>HotspotNetwork</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      SSID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Human readable network name</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      BSSID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>MAC Address of the access point</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      frequency
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The primary 20 MHz frequency (in MHz) of the channel over which the client is communicating with the access point.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      level
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The detected signal level in dBm, also known as the RSSI.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Timestamp in microseconds (since boot) when this result was last seen.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      capabilities
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Describes the authentication, key management, and encryption schemes supported by the access point.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="HotspotNetworkConfig" href="#HotspotNetworkConfig"></a>HotspotNetworkConfig</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      deviceIPAddress
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Device IP Address</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      deviceMacAddress
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Device MAC Address</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      gatewayIPAddress
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Gateway IP Address</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      gatewayMacAddress
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Gateway MAC Address</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="HotspotDevice" href="#HotspotDevice"></a>HotspotDevice</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ip
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ip
+     Hotspot IP Address</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mac
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>mac
+     Hotspot MAC Address</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

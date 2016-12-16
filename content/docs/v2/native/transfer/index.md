@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/filetransfer.ts#L105">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/filetransfer.ts#L107">
   Improve this doc
 </a>
 
@@ -385,6 +385,313 @@ object which has an error code of FileTransferError.ABORT_ERR.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="FileUploadOptions" href="#FileUploadOptions"></a>FileUploadOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      fileKey
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the form element.
+Defaults to &#39;file&#39;.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The file name to use when saving the file on the server.
+Defaults to &#39;image.jpg&#39;.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      httpMethod
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The HTTP method to use - either PUT or POST.
+Defaults to POST.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mimeType
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The mime type of the data to upload.
+Defaults to image/jpeg.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      params
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>{ [s: string]: any; }</code>
+    </td>
+    <td>
+      <p>A set of optional key/value pairs to pass in the HTTP request.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      chunkedMode
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Whether to upload the data in chunked streaming mode.
+Defaults to true.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>{ [s: string]: any; }</code>
+    </td>
+    <td>
+      <p>A map of header name/header values. Use an array to specify more
+than one value. On iOS, FireOS, and Android, if a header named
+Content-Type is present, multipart form data will NOT be used.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="FileUploadResult" href="#FileUploadResult"></a>FileUploadResult</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      bytesSent
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The number of bytes sent to the server as part of the upload.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      responseCode
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The HTTP response code returned by the server.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      response
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The HTTP response returned by the server.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      headers
+      
+    </td>
+    <td>
+      <code>{ [s: string]: any; }</code>
+    </td>
+    <td>
+      <p>The HTTP response headers by the server.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="FileTransferError" href="#FileTransferError"></a>FileTransferError</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      code
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>One of the predefined error codes listed below.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      source
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL to the source.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      target
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL to the target.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      http_status
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>HTTP status code. This attribute is only available when a response
+code is received from the HTTP connection.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      body
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Response body. This attribute is only available when a response is received from the HTTP connection.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      exception
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Either e.getMessage or e.toString.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

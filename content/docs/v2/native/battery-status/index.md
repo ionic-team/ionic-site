@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/batterystatus.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/batterystatus.ts#L15">
   Improve this doc
 </a>
 
@@ -103,7 +103,7 @@ Watch the change in battery level
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
 </div>
 
 
@@ -126,7 +126,7 @@ Watch when the battery level goes low
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
 </div>
 
 
@@ -149,7 +149,7 @@ Watch when the battery level goes to critial
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
 </div>
 
 
@@ -164,6 +164,57 @@ Watch when the battery level goes to critial
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="BatteryStatusResponse" href="#BatteryStatusResponse"></a>BatteryStatusResponse</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      level
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The battery charge percentage</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isPlugged
+      
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>A boolean that indicates whether the device is plugged in</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

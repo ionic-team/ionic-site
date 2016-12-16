@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/barcodescanner.ts#L39">
   Improve this doc
 </a>
 
@@ -111,7 +111,7 @@ Open the barcode scanner.
     </td>
     <td>
       
-<code>Object</code>
+<code>BarcodeScannerOptions</code>
     </td>
     <td>
       <p>Optional options to pass to the scanner</p>
@@ -214,6 +214,127 @@ NOTE: not well supported on Android
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="BarcodeScannerOptions" href="#BarcodeScannerOptions"></a>BarcodeScannerOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      preferFrontCamera
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Prefer front camera. Supported on iOS and Android.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      showFlipCameraButton
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Show flip camera button. Supported on iOS and Android.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      showTorchButton
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Show torch button. Supported on iOS and Android.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      disableAnimations
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Disable animations. Supported on iOS only.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      prompt
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Prompt text. Supported on Android only.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      formats
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Formats separated by commas. Defaults to all formats except <code>PDF_417</code> and <code>RSS_EXPANDED</code>.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      orientation
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Orientation. Supported on Android only. Can be set to <code>portrait</code> or <code>landscape</code>. Defaults to none so the user can rotate the phone and pick an orientation.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

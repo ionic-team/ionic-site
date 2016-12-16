@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/apprate.ts#L89">
   Improve this doc
 </a>
 
@@ -148,98 +148,6 @@ Prompts the user for rating
 
 <!-- methods on the class -->
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>Rating dialog preferences</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>useLanguage</td>
-<td><code>String</code></td>
-<td>null</td>
-<td>custom BCP 47 language tag</td>
-</tr>
-<tr>
-<td>displayAppName</td>
-<td><code>String</code></td>
-<td>&#39;&#39;</td>
-<td>custom application title</td>
-</tr>
-<tr>
-<td>promptAgainForEachNewVersion</td>
-<td><code>Boolean</code></td>
-<td>true</td>
-<td>show dialog again when application version will be updated</td>
-</tr>
-<tr>
-<td>usesUntilPrompt</td>
-<td><code>Integer</code></td>
-<td>3</td>
-<td>count of runs of application before dialog will be displayed</td>
-</tr>
-<tr>
-<td>openStoreInApp</td>
-<td><code>Boolean</code></td>
-<td>false</td>
-<td>leave app or no when application page opened in app store (now supported only for iOS)</td>
-</tr>
-<tr>
-<td>useCustomRateDialog</td>
-<td><code>Boolean</code></td>
-<td>false</td>
-<td>use custom view for rate dialog</td>
-</tr>
-<tr>
-<td>callbacks.onButtonClicked</td>
-<td><code>Function</code></td>
-<td>null</td>
-<td>call back function. called when user clicked on rate-dialog buttons</td>
-</tr>
-<tr>
-<td>callbacks.onRateDialogShow</td>
-<td><code>Function</code></td>
-<td>null</td>
-<td>call back function. called when rate-dialog showing</td>
-</tr>
-<tr>
-<td>storeAppURL.ios</td>
-<td><code>String</code></td>
-<td>null</td>
-<td>application id in AppStore</td>
-</tr>
-<tr>
-<td>storeAppURL.android</td>
-<td><code>String</code></td>
-<td>null</td>
-<td>application URL in GooglePlay</td>
-</tr>
-<tr>
-<td>storeAppURL.blackberry</td>
-<td><code>String</code></td>
-<td>null</td>
-<td>application URL in AppWorld</td>
-</tr>
-<tr>
-<td>storeAppURL.windows8</td>
-<td><code>String</code></td>
-<td>null</td>
-<td>application URL in WindowsStore</td>
-</tr>
-<tr>
-<td>customLocale</td>
-<td><code>Object</code></td>
-<td>null</td>
-<td>custom locale object</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- other classes -->
@@ -247,6 +155,277 @@ Prompts the user for rating
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="AppRatePreferences" href="#AppRatePreferences"></a>AppRatePreferences</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      useLanguage
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Custom BCP 47 language tag</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      displayAppName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Custom application title</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      promptAgainForEachNewVersion
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Show dialog again when application version will be updated. Defaults to <code>true</code></p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      usesUntilPrompt
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>count of runs of application before dialog will be displayed. Defaults to <code>3</code></p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      openStoreInApp
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>leave app or no when application page opened in app store (now supported only for iOS). Defaults to <code>false</code></p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      useCustomRateDialog
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>use custom view for rate dialog. Defaults to <code>false</code></p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      customLocale
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>Custom locale object</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      callbacks
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>AppRateCallbacks</code>
+    </td>
+    <td>
+      <p>Callbacks for events</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      storeAppUrl
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>AppRateStoreAppUrls</code>
+    </td>
+    <td>
+      <p>App Store URLS</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="AppRateStoreAppUrls" href="#AppRateStoreAppUrls"></a>AppRateStoreAppUrls</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ios
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>application id in AppStore</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>application URL in GooglePlay</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      blackberry
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>application URL in AppWorld</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      windows8
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>application URL in WindowsStore</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="AppRateCallbacks" href="#AppRateCallbacks"></a>AppRateCallbacks</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      onButtonClicked
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>call back function. called when user clicked on rate-dialog buttons</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      onRateDialogShowed
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>Function</code>
+    </td>
+    <td>
+      <p>call back function. called when rate-dialog showing</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

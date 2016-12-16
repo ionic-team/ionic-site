@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/emailcomposer.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/emailcomposer.ts#L22">
   Improve this doc
 </a>
 
@@ -216,7 +216,7 @@ Adds a new mail app alias.
 
 
 <div id="open"></div>
-<h3><code>open(email,&nbsp;scope)</code>
+<h3><code>open(options,&nbsp;scope)</code>
   
 </h3>
 
@@ -239,13 +239,13 @@ Displays the email composer pre-filled with data.
   
   <tr>
     <td>
-      email
+      options
       
       
     </td>
     <td>
       
-<code>Email</code>
+<code>EmailComposerOptions</code>
     </td>
     <td>
       <p>Email</p>
@@ -296,6 +296,133 @@ Displays the email composer pre-filled with data.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="EmailComposerOptions" href="#EmailComposerOptions"></a>EmailComposerOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      app
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      to
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string | Array&lt;string&gt;</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      cc
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string | Array&lt;string&gt;</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bcc
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string | Array&lt;string&gt;</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      attachments
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>Array&lt;any&gt;</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subject
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      body
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      isHtml
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

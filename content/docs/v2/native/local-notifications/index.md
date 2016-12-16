@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/localnotifications.ts#L83">
   Improve this doc
 </a>
 
@@ -60,7 +60,7 @@ docType: "class"
 // Schedule a single notification
 LocalNotifications.schedule({
   id: 1,
-  text: &#39;Single Notification&#39;,
+  text: &#39;Single ILocalNotification&#39;,
   sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
   data: { secret: key }
 });
@@ -69,20 +69,20 @@ LocalNotifications.schedule({
 // Schedule multiple notifications
 LocalNotifications.schedule([{
    id: 1,
-   text: &#39;Multi Notification 1&#39;,
+   text: &#39;Multi ILocalNotification 1&#39;,
    sound: isAndroid ? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
    data: { secret:key }
   },{
    id: 2,
-   title: &#39;Local Notification Example&#39;,
-   text: &#39;Multi Notification 2&#39;,
+   title: &#39;Local ILocalNotification Example&#39;,
+   text: &#39;Multi ILocalNotification 2&#39;,
    icon: &#39;http://example.com/icon.png&#39;
 }]);
 
 
 // Schedule delayed notification
 LocalNotifications.schedule({
-   text: &#39;Delayed Notification&#39;,
+   text: &#39;Delayed ILocalNotification&#39;,
    at: new Date(new Date().getTime() + 3600),
    led: &#39;FF0000&#39;,
    sound: null
@@ -126,7 +126,7 @@ Schedules a single or multiple notifications
     </td>
     <td>
       
-<code>Notification</code>|<code>Array.&lt;Notification&gt;</code>
+<code>Notification</code>|<code>Array.&lt;ILocalNotification&gt;</code>
     </td>
     <td>
       <p>optional</p>
@@ -173,7 +173,7 @@ Updates a previously scheduled notification. Must include the id in the options 
     </td>
     <td>
       
-<code>Notification</code>
+<code>ILocalNotification</code>
     </td>
     <td>
       <p>optional</p>
@@ -598,7 +598,7 @@ Get a notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Notification&gt;</code> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
 </div>
 
 
@@ -649,7 +649,7 @@ Get a scheduled notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Notification&gt;</code> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
 </div>
 
 
@@ -700,7 +700,7 @@ Get a triggered notification object
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Notification&gt;</code> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
 </div>
 
 
@@ -721,7 +721,7 @@ Get all notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
 </div>
 
 
@@ -742,7 +742,7 @@ Get all scheduled notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
 </div>
 
 
@@ -763,7 +763,7 @@ Get all triggered notification objects
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Array&lt;Notification&gt;&gt;</code> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
 </div>
 
 
@@ -884,6 +884,230 @@ Sets a callback for a specific event
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="ILocalNotification" href="#ILocalNotification"></a>ILocalNotification</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      id
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>A unique identifier required to clear, cancel, update or retrieve the local notification in the future
+Default: 0</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>First row of the notification
+Default: Empty string (iOS) or the app name (Android)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      text
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Second row of the notification
+Default: Empty string</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      every
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The interval at which to reschedule the local notification. That can be a value of second, minute, hour, day, week, month or year
+Default: 0 (which means that the system triggers the local notification once)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      at
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>The date and time when the system should deliver the local notification. If the specified value is nil or is a date in the past, the local notification is delivered immediately.
+Default: now ~ new Date()</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      firstAt
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      badge
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The number currently set as the badge of the app icon in Springboard (iOS) or at the right-hand side of the local notification (Android)
+Default: 0 (which means don&#39;t show a number)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      sound
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Uri of the file containing the sound to play when an alert is displayed
+Default: res://platform_default</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      data
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>Arbitrary data, objects will be encoded to JSON string
+Default: null</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      icon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Uri of the icon that is shown in the ticker and notification
+Default: res://icon</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      smallIcon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Uri of the resource (only res://) to use in the notification layouts. Different classes of devices may return different sizes
+Default: res://ic_popup_reminder</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ongoing
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+Ongoing notifications differ from regular notifications in the following ways:</p>
+<ul>
+<li>They are sorted above the regular notifications in the notification panel</li>
+<li>They do not have an &#39;X&#39; close button, and are not affected by the &quot;Clear all&quot; button
+Default: false</li>
+</ul>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      led
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+ARGB value that you would like the LED on the device to blink
+Default: FFFFFF</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

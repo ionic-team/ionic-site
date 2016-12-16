@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/z-bar.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/z-bar.ts#L34">
   Improve this doc
 </a>
 
@@ -142,50 +142,6 @@ Open the scanner
 
 <!-- methods on the class -->
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>zBar options</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Values</th>
-<th>Defaults</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text_title</td>
-<td><code>string?</code></td>
-<td></td>
-<td><code>&quot;Scan QR Code&quot;</code> (Android only)</td>
-</tr>
-<tr>
-<td>text_instructions</td>
-<td><code>string?</code></td>
-<td></td>
-<td><code>&quot;Please point your camera at the QR code.&quot;</code> (Android only)</td>
-</tr>
-<tr>
-<td>camera</td>
-<td><code>string?</code></td>
-<td><code>&quot;front&quot;</code>, <code>&quot;back&quot;</code>,</td>
-<td><code>&quot;back&quot;</code></td>
-</tr>
-<tr>
-<td>flash</td>
-<td><code>string?</code></td>
-<td><code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>, <code>&quot;auto&quot;</code></td>
-<td><code>&quot;auto&quot;</code></td>
-</tr>
-<tr>
-<td>drawSight</td>
-<td><code>boolean?</code></td>
-<td><code>true</code>, <code>false</code></td>
-<td><code>true</code> (Draws red line in center of scanner)</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- other classes -->
@@ -193,6 +149,106 @@ Open the scanner
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="ZBarOptions" href="#ZBarOptions"></a>ZBarOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      text_title
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string representing the title text (Android only).
+Default: &quot;Scan QR Code&quot;</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      text_instructions
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string representing the instruction text (Android only).
+Default: &quot;Please point your camera at the QR code.&quot;</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      camera
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string defining the active camera when opening the scanner.
+Possible values: &quot;front&quot;, &quot;back&quot;
+Default: &quot;back&quot;</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      flash
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A string defining the state of the flash.
+Possible values: &quot;on&quot;, &quot;off&quot;, &quot;auto&quot;
+Default: &quot;auto&quot;</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      drawSight
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>A boolean to show or hide a line in the center of the scanner.
+Default: true</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

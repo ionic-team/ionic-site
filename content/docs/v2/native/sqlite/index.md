@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sqlite.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/sqlite.ts#L3">
   Improve this doc
 </a>
 
@@ -63,10 +63,10 @@ SQLite.openDatabase({
 })
   .then((db: SQLite) =&gt; {
 
-    db.executeSQL(&#39;create table danceMoves(name VARCHAR(32))&#39;).then(() =&gt; {}).catch(() =&gt; {});
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;).then(() =&gt; {}).catch(() =&gt; {});
 
   })
-  .catch(error =&gt; console.error(&#39;Error openening database&#39;, error);
+  .catch(error =&gt; console.error(&#39;Error opening database&#39;, error);
 
 
 // OPTION B: Create a new instance of SQLite

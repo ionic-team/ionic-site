@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/network.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/network.ts#L4">
   Improve this doc
 </a>
 
@@ -99,20 +99,87 @@ connectSubscription.unsubscribe();
 
 <h2>Static Members</h2>
 
-<div id="connection"></div>
-<h3><code>connection()</code>
+<div id="type"></div>
+<h3><code>type()</code>
   
 </h3>
 
 
-Return the network connection type
+Connection type
 
 
 
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
+</div>
 
+
+
+<div id="downlinkMax"></div>
+<h3><code>downlinkMax()</code>
+  
+</h3>
+
+
+Downlink Max Speed
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
+</div>
+
+
+
+<div id="onchange"></div>
+<h3><code>onchange()</code>
+  
+</h3>
+
+
+Returns an observable to watch connection changes
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="ontypechange"></div>
+<h3><code>ontypechange()</code>
+  
+</h3>
+
+
+Returns an observable to watch connection type changes
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div>
 
 
 

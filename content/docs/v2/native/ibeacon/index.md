@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L222">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/ibeacon.ts#L221">
   Improve this doc
 </a>
 
@@ -70,7 +70,7 @@ docType: "class"
 // Request permission to use location on iOS
 IBeacon.requestAlwaysAuthorization();
 // create a new delegate and register it with the native layer
-let delegate = IBeacon.Delegate();
+let delegate = IBeacon.IBeaconDelegate();
 
 // Subscribe to some of the delegate&#39;s event handlers
 delegate.didRangeBeaconsInRegion()
@@ -124,7 +124,7 @@ the code that consumes the messages generated on in the native layer.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Delegate</code> An instance of the type {@type Delegate}.
+<code>IBeaconDelegate</code> An instance of the type {@type Delegate}.
 </div>
 
 
@@ -264,7 +264,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Delegate</code> Returns the Delegate
+<code>IBeaconDelegate</code> Returns the IBeaconDelegate
 </div>
 
 
@@ -296,7 +296,7 @@ This value must not be blank nor invalid as a UUID.</p>
     </td>
     <td>
       
-<code>Delegate</code>
+<code>IBeaconDelegate</code>
     </td>
     <td>
       <p>An instance of a delegate to register with the native layer.</p>
@@ -315,7 +315,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Delegate</code> Returns the Delegate
+<code>IBeaconDelegate</code> Returns the IBeaconDelegate
 </div>
 
 
@@ -329,18 +329,18 @@ This value must not be blank nor invalid as a UUID.</p>
 
 
 Signals the native layer that the client side is ready to consume messages.
-Readiness here means that it has a {Delegate} set by the consumer javascript
+Readiness here means that it has a {IBeaconDelegate} set by the consumer javascript
 code.
 
 The {LocationManager.setDelegate()} will implicitly call this method as well,
 therefore the only case when you have to call this manually is if you don't
-wish to specify a {Delegate} of yours.
+wish to specify a {IBeaconDelegate} of yours.
 
 The purpose of this signaling mechanism is to make the events work when the
 app is being woken up by the Operating System to give it a chance to handle
 region monitoring events for example.
 
-If you don't set a {Delegate} and don't call this method manually, an error
+If you don't set a {IBeaconDelegate} and don't call this method manually, an error
 message get emitted in the native runtime and the DOM as well after a certain
 period of time.
 
@@ -960,7 +960,7 @@ If a region a different identifier is already being advertised for
 this application, it will be replaced with the new identifier.
 
 This call will accept a valid beacon even when no BlueTooth is available,
-and will start when BlueTooth is powered on. See {Delegate.}
+and will start when BlueTooth is powered on. See {IBeaconDelegate.}
 
 
 
@@ -1273,6 +1273,565 @@ is expected to be equivalent to the one provided in the original call.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="Beacon" href="#Beacon"></a>Beacon</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      uuid
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The physical device&#39;s identifier.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      major
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The beacon&#39;s major identifier number.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      minor
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The beacon&#39;s major identifier number.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      proximity
+      
+    </td>
+    <td>
+      <code>&#39;ProximityImmediate&#39; | &#39;ProximityNear&#39; | &#39;ProximityFar&#39; | &#39;ProximityUnknown&#39;</code>
+    </td>
+    <td>
+      <p>The proximity of the beacon relative to the phone.</p>
+<p>Possible options are:
+ProximityImmediate
+ProximityNear
+ProximityFar
+ProximityUnknown</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      tx
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Transmission Power of the beacon. A constant emitted by the beacon which indicates what&#39;s the expected RSSI at a distance of 1 meter to the beacon.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      rssi
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Received Signal Strength Indicator. The strength of the beacon&#39;s signal when it reaches the device.
+ RSSI ranges from aprox -26 (a few inches) to -100 (40-50 m distance).</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      accuracy
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The accuracy of the ranging.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="BeaconRegion" href="#BeaconRegion"></a>BeaconRegion</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      identifier
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A unique identifier for this region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      uuid
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The the beacon identifier the device will &quot;watch&quot; for. Many beacons can share the same uuid.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      major
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The beacon&#39;s major identifier number. Optional, of nothing is supplied
+the plugin will treat it as a wildcard.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      minor
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The beacon&#39;s minor identifier number. Optional, of nothing is supplied
+the plugin will treat it as a wildcard.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notifyEntryStateOnDisplay
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>If set to true the device will scan for beacons and determine region state anytime
+the device&#39;s screen is turned on or off. Useful for debugging.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="CircularRegion" href="#CircularRegion"></a>CircularRegion</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      identifier
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A unique identifier for this region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      latitude
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The latitude of this region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      longitude
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The longitude of this region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      radius
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The radius of the geofence for this region.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IBeaconPluginResult" href="#IBeaconPluginResult"></a>IBeaconPluginResult</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      eventType
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the delegate function that produced the PluginResult object.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      region
+      
+    </td>
+    <td>
+      <code>Region</code>
+    </td>
+    <td>
+      <p>The region that triggered the event.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      beacons
+      
+    </td>
+    <td>
+      <code>Beacon[]</code>
+    </td>
+    <td>
+      <p>An array of beacon objects</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      authorizationStatus
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The status of the location permission for iOS.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      state
+      
+    </td>
+    <td>
+      <code>&#39;CLRegionStateInside&#39; | &#39;CLRegionStateOutside&#39;</code>
+    </td>
+    <td>
+      <p>The state of the phone in relation to the region. Inside/outside for example.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      error
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Error message, used only with monitoringDidFailForRegionWithError delegate.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="IBeaconDelegate" href="#IBeaconDelegate"></a>IBeaconDelegate</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      didChangeAuthorizationStatus
+      
+    </td>
+    <td>
+      <code>Observable&lt;string&gt;</code>
+    </td>
+    <td>
+      <p>An observable that publishes information about the location permission authorization status.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      didDetermineStateForRegion
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+when the native layer is able to determine the device&#39;s state.</p>
+<p>This event is called when the phone begins starts monitoring,
+when requestStateForRegion is called, etc.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      didEnterRegion
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+when the phone enters a region that it was asked to monitor.</p>
+<p>If the user has given the app Always-Location permission, this function
+ will be called even when the app is not running on iOS.
+The app will run silently in the background for a small amount of time.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      didExitRegion
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+when the phone exits a region that it was asked to monitor.</p>
+<p>If the user has given the app Always-Location permission, this function
+ will be called even when the app is not running on iOS.
+The app will run silently in the background for a small amount of time.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      didRangeBeaconsInRegion
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+ each time that the device ranges beacons. Modern Android and iOS devices range
+aproximately once per second.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      didStartMonitoringForRegion
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+ when the device begins monitoring a region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      monitoringDidFailForRegionWithError
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+ when the device fails to monitor a region.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      peripheralManagerDidStartAdvertising
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+ when the device begins advertising as an iBeacon.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      peripheralManagerDidUpdateState
+      
+    </td>
+    <td>
+      <code>Observable&lt;IBeaconPluginResult&gt;</code>
+    </td>
+    <td>
+      <p>An Observable that publishes event data to it&#39;s subscribers
+when the state of the peripheral manager&#39;s state updates.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

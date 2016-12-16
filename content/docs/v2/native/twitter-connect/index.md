@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/twitter-connect.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/twitter-connect.ts#L19">
   Improve this doc
 </a>
 
@@ -150,6 +150,85 @@ Returns user's profile information
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="TwitterConnectResponse" href="#TwitterConnectResponse"></a>TwitterConnectResponse</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      userName
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Twitter Username</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      userId
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Twitter User ID</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      secret
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Twitter OAuth Secret</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      token
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Twitter OAuth Token</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

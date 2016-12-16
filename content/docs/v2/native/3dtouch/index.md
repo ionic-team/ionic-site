@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/3dtouch.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/3dtouch.ts#L56">
   Improve this doc
 </a>
 
@@ -353,6 +353,174 @@ Disabled the link preview feature, if enabled.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="ThreeDeeTouchQuickAction" href="#ThreeDeeTouchQuickAction"></a>ThreeDeeTouchQuickAction</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      type
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Type that can be used in the onHomeIconPressed callback</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Title</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subtitle
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Subtitle</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      iconType
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Icon type. Case insensitive</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      iconTemplate
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Icon template</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="ThreeDeeTouchForceTouch" href="#ThreeDeeTouchForceTouch"></a>ThreeDeeTouchForceTouch</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      force
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Touch force</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Timestamp of action</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      x
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>X coordinate of action</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      y
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Y coordinate of action</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

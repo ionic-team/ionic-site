@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/keyboard.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/keyboard.ts#L1">
   Improve this doc
 </a>
 

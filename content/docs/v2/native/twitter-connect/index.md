@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/twitter-connect.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/twitter-connect.ts#L19">
   Improve this doc
 </a>
 

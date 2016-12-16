@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/video-player.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-player.ts#L16">
   Improve this doc
 </a>
 

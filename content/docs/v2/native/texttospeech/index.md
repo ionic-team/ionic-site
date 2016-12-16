@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master//Users/perry/Development/ionic-native/src/plugins/text-to-speech.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/text-to-speech.ts#L9">
   Improve this doc
 </a>
 

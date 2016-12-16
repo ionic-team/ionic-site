@@ -54,6 +54,7 @@
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
     "htmlparser2": "^3.8.3",
+    "ionic-web-analytics": "github:driftyco/ionic-web-analytics",
     "ionicons": "^3.0.0-alpha.3",
     "js-yaml": "^3.4.2",
     "lunr": "^0.5.12",

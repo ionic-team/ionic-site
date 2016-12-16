@@ -1,6 +1,7 @@
 var express        = require("express");
 var app            = express();
 var compress       = require('compression');
+var analytics      = require('ionic-web-analytics');
 // var cookieParser   = require('cookie-parser');
 var processRequest = require('./server/processRequest');
 var router         = require('./server/router');
@@ -14,6 +15,14 @@ app.use(compress());
 // app.use(cookieParser());
 app.use(processRequest);
 // app.use(router(app));
+
+var checkRequest = function (req) {
+  return !/.*(css\/|data\/|fonts\/|img\/|js\/|public_html\/|browserconfig\.xml|favicon\.ico|manifest\.json).*/.test(req.path);
+}
+
+app.use(analytics('ionic_framework', checkRequest, {
+  batchSize: 500
+}));
 
 app.use(express.static(process.env.PWD + '/_site/', {
   maxage: 315360000000 // ten years

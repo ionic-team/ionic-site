@@ -878,7 +878,7 @@ Select a single Contact.
       <code>boolean</code>
     </td>
     <td>
-      <p>Determines if the find operation returns multiple navigator.contacts. Defaults to true.</p>
+      <p>Determines if the find operation returns multiple navigator.contacts. Defaults to false.</p>
 
     </td>
   </tr>

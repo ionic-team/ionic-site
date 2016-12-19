@@ -1,5 +1,5 @@
 var express    = require('express');
-var ab         = require('express-ab')({ cookie: false });
+var ab         = require('express-ab');
 
 module.exports = function router(app) {
 

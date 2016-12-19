@@ -44837,7 +44837,28 @@ var __extends$101 = (undefined && undefined.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
-  * @private
+  * @name Note
+  * @module ionic
+  * @description
+  * A note is detailed item in an ion-item. It creates greyed out element that can be on the left or right side of an item.
+  * @usage
+  *
+  * ```html
+  * <ion-content>
+  *   <ion-list>
+  *     <ion-item>
+  *       <ion-note item-left>
+  *         Left Note
+  *       </ion-note>
+  *       My Item
+  *       <ion-note item-right>
+  *         Right Note
+  *       </ion-note>
+  *     </ion-item>
+  *   </ion-list>
+  * </ion-content>
+  *```
+ * {@link /docs/v2/api/components/api/components/item/item ion-item}
   */
 var Note = (function (_super) {
     __extends$101(Note, _super);

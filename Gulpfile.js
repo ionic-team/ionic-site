@@ -9,7 +9,6 @@ var es          = require('event-stream');
 var footer      = require('gulp-footer');
 var header      = require('gulp-header');
 var minifyCss   = require('gulp-minify-css');
-var ngmin       = require('gulp-ngmin');
 var pagespeed   = require('psi');
 var pkg         = require('./package.json');
 var prefix      = require('gulp-autoprefixer');

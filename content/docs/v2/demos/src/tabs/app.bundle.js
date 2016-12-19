@@ -40755,9 +40755,13 @@ var DateTime = (function (_super) {
         var yearOpt;
         var monthOpt;
         var dayOpt;
-        // default to assuming today's year
+        // default to the current year
         var selectedYear = today.getFullYear();
         if (yearCol) {
+            // default to the first value if the current year doesn't exist in the options
+            if (!yearCol.options.find(function (col) { return col.value === today.getFullYear(); })) {
+                selectedYear = yearCol.options[0].value;
+            }
             yearOpt = yearCol.options[yearCol.selectedIndex];
             if (yearOpt) {
                 // they have a selected year value
@@ -40794,7 +40798,7 @@ var DateTime = (function (_super) {
             if (isPresent$4(selectedMonth)) {
                 // enable/disable which days are valid
                 // to show within the min/max date range
-                for (i = 0; i < 31; i++) {
+                for (i = 0; i < dayCol.options.length; i++) {
                     dayOpt = dayCol.options[i];
                     // loop through each day and see if it
                     // is within the min/max date range
@@ -40806,7 +40810,7 @@ var DateTime = (function (_super) {
             }
             else {
                 // enable/disable which numbers of days to show in this month
-                for (i = 0; i < 31; i++) {
+                for (i = 0; i < dayCol.options.length; i++) {
                     dayCol.options[i].disabled = (numDaysInMonth <= i);
                 }
             }

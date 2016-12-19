@@ -4,7 +4,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201612161748, Default Theme
+ * vE2E-201612191554, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -4391,6 +4391,9 @@ input.text-input:-webkit-autofill {
   left: 0;
   width: 100%;
   height: 100%; }
+
+ion-input[disabled] .input-cover {
+  pointer-events: none; }
 
 .input-has-focus .input-cover {
   display: none; }

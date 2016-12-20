@@ -11,7 +11,7 @@ next_page_link: /docs/v2/theming/overriding-ionic-variables/
 ---
 
 <h1 class="title">Platform Specific Styles</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/platform-specific-styles/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/theming/platform-specific-styles/index.md'>
   Improve this doc
 </a>
 

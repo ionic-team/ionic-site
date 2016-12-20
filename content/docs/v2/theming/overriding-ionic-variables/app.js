@@ -88,7 +88,11 @@ $(document).ready(function() {
         '<tr class="ionic">' +
         '<td><code>' + results[i].name + '</code></td>' +
         '<td><code>' + results[i].defaultValue + '</code></td>' +
-        '<td><a href="https://github.com/driftyco/ionic/blob/master/' + results[i].file + '" data-toggle="tooltip" data-placement="right" title="' + results[i].file + '" target="_blank"><icon class="ion-ios-document"></icon></a></td>' +
+        '<td><a href="https://github.com/driftyco/ionic/blob/master/' +
+          results[i].file.replace('content/','') + '" data-toggle="tooltip" ' +
+          'data-placement="right" title="' +
+          results[i].file.replace('content/','') + '" target="_blank"><icon '+
+          'class="ion-ios-document"></icon></a></td>' +
         '</tr>'
       );
     }

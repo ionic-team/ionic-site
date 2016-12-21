@@ -32444,13 +32444,16 @@ var __extends$59 = (undefined && undefined.__extends) || function (d, b) {
 var OverlayPortal = (function (_super) {
     __extends$59(OverlayPortal, _super);
     function OverlayPortal(app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, viewPort, domCtrl) {
+        var _this = this;
         _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl);
         this._isPortal = true;
         this._init = true;
         this.setViewport(viewPort);
         // on every page change make sure the portal has
         // dismissed any views that should be auto dismissed on page change
-        app.viewDidLeave.subscribe(this.dismissPageChangeViews.bind(this));
+        app.viewDidLeave.subscribe(function (ev) {
+            !ev.isOverlay && _this.dismissPageChangeViews();
+        });
     }
     Object.defineProperty(OverlayPortal.prototype, "_overlayPortal", {
         set: function (val) {

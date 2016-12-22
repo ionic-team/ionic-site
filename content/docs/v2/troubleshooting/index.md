@@ -1,8 +1,8 @@
 ---
 layout: v2_fluid/docs_base
-id: faq
-category: faq
-title: Ionic Frequently Asked Questions
+id: troubleshooting
+category: troubleshooting
+title: Ionic Troubleshooting
 footer_includes: |
   <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
   <script>
@@ -11,7 +11,7 @@ footer_includes: |
   </script>
 ---
 
-# Trouble Shooting
+# Troubleshooting
 
 Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com) or join the [Ionic Worldwide Slack Channel](http://ionicworldwide.herokuapp.com/), where the friendly Ions of the community will help you!
 

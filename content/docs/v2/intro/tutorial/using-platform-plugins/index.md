@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: tutorial
 sub-id: tutorial
 title: Using Platform Plugins - Tutorial

@@ -1,11 +1,11 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: installation
 title: Installing Ionic
 header_sub_title: Getting Started with Ionic
 next_page_title: Tutorial
-next_page_link: /docs/v2/setup/tutorial
+next_page_link: /docs/v2/intro/tutorial
 ---
 
 # Installing Ionic

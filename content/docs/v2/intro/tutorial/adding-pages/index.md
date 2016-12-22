@@ -1,14 +1,14 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: tutorial
 subid: tutorial
 title: Adding Pages - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Project Structure
-prev_page_link: /docs/v2/setup/tutorial/project-structure
+prev_page_link: /docs/v2/intro/tutorial/project-structure
 next_page_title: Navigating to Pages
-next_page_link: /docs/v2/setup/tutorial/navigation
+next_page_link: /docs/v2/intro/tutorial/navigation
 ---
 
 <h1 class="title">Adding Pages</h1>

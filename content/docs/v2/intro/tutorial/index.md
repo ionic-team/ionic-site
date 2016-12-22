@@ -1,14 +1,14 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: tutorial
 subid: tutorial
 title: Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Installing Ionic
-prev_page_link: /docs/v2/setup/installation/
+prev_page_link: /docs/v2/intro/installation/
 next_page_title: Project Structure
-next_page_link: /docs/v2/setup/tutorial/project-structure/
+next_page_link: /docs/v2/intro/tutorial/project-structure/
 ---
 
 # Ionic 2 Tutorial

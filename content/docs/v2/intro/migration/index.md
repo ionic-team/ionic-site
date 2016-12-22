@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: migration
 title: Migration
 header_sub_title: Getting Started with Ionic

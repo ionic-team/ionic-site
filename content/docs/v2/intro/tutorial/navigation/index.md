@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: tutorial
 subid: tutorial
 title: Navigating - Tutorial
@@ -8,7 +8,7 @@ header_sub_title: Getting Started with Ionic
 next_page_title: Component Docs
 next_page_link: /docs/v2/components
 prev_page_title: Adding Pages
-prev_page_link: /docs/v2/setup/tutorial/adding-pages/
+prev_page_link: /docs/v2/intro/tutorial/adding-pages/
 ---
 
 <h1 class="title">Navigating to Pages</h1>

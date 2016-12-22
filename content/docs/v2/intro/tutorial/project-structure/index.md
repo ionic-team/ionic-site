@@ -1,14 +1,14 @@
 ---
 layout: v2_fluid/docs_base
-category: setup
+category: intro
 id: tutorial
 subid: tutorial
 title: Project Structure - Tutorial
 header_sub_title: Getting Started with Ionic
 prev_page_title: Learn the basics
-prev_page_link: /docs/v2/setup/tutorial/
+prev_page_link: /docs/v2/intro/tutorial/
 next_page_title: Adding Pages
-next_page_link: /docs/v2/setup/tutorial/adding-pages
+next_page_link: /docs/v2/intro/tutorial/adding-pages
 ---
 
 # Project Structure

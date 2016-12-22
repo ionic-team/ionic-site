@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/admob.ts#L78">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/admob.ts#L83">
   Improve this doc
 </a>
 
@@ -637,6 +637,20 @@ Triggered when dismiss the Ad and back to your App
   </tr>
   </thead>
   <tbody>
+  
+  <tr>
+    <td>
+      adId
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Banner ad ID</p>
+
+    </td>
+  </tr>
   
   <tr>
     <td>

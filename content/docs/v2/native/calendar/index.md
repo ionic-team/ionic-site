@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L52">
   Improve this doc
 </a>
 
@@ -337,17 +337,7 @@ Returns the default calendar options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns an object with the default calendar options:
-  firstReminderMinutes: 60,
-  secondReminderMinutes: null,
-  recurrence: null, // options are: 'daily', 'weekly', 'monthly', 'yearly'
-  recurrenceInterval: 1, // only used when recurrence is set
-  recurrenceEndDate: null,
-  calendarName: null,
-  calendarId: null,
-  url: null
-
-
+<code>CalendarOptions</code> Returns an object with the default calendar options
 </div>
 
 
@@ -1127,6 +1117,13 @@ Find an event with additional options.
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Find a list of events within the specified date range. (Android only)
 
 
@@ -1217,6 +1214,13 @@ Get a list of all calendars.
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
 Get a list of all future events in the specified calendar. (iOS only)
 
 
@@ -1236,6 +1240,13 @@ Get a list of all future events in the specified calendar. (iOS only)
 <h3><code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code>
   
 </h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Modify an event. (iOS only)
@@ -1443,6 +1454,13 @@ Modify an event. (iOS only)
 <h3><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code>
   
 </h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Modify an event with additional options. (iOS only)
@@ -1808,6 +1826,13 @@ Delete an event.
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
 Delete an event from the specified Calendar. (iOS only)
 
 
@@ -2001,6 +2026,153 @@ Open the calendar at the specified date.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="CalendarOptions" href="#CalendarOptions"></a>CalendarOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      id
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Id</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      firstReminderMinutes
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      secondReminderMinutes
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      recurrence
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Recurrence. Can be set to <code>daily</code>, <code>weekly</code>, <code>monthly</code> or <code>yearly</code></p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      recurrenceInterval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Recurrence interval. Valid only when <code>recurrence</code> option is set.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      recurrenceEndDate
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>Date</code>
+    </td>
+    <td>
+      <p>Recurrence end date. Valid only when <code>recurrence</code> option is set.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      calendarName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Calendar name. Ths is supported by <code>iOS</code> only.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      calendarId
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Calendar id</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

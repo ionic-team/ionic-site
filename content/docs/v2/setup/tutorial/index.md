@@ -13,12 +13,13 @@ next_page_link: /docs/v2/setup/tutorial/project-structure/
 
 # Ionic 2 Tutorial
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/setup/tutorial/index.md'>
   Improve this doc
 </a>
 
 Now that you have [Ionic and its dependencies installed](../installation), you can build your first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
+>Ionic uses TypeScript for it's code. If you're unfamiliar with typescript, take a look at [this page](http://ionicframework.com/docs/v2/resources/what-is/#typescript).
 
 ### Starting a New Ionic 2 App
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -132,6 +132,71 @@ This function speaks
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="TTSOptions" href="#TTSOptions"></a>TTSOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      text
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>text to speak</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      locale
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>a string like &#39;en-US&#39;, &#39;zh-CN&#39;, etc</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      rate
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>speed rate, 0 ~ 1</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

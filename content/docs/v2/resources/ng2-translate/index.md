@@ -52,26 +52,32 @@ and then adding the following to your NgModules imports array:
 Once the above steps have been completed, we can begin to use NG2-Translate in your Ionic 2 app. The first step is to set up the translation assets. The translation assets are just json objects, as shown below:
 
 es.json
+
 ```json
 {
-    “HELLO”: “hola”
+  "HELLO": "hola"
 }
 ```
 
 en.json
+
 ```json
-  {
-      “HELLO”: “hello”
-  }
+{
+  "HELLO": "Hello"
+}
 ```
 
 Now we can use the `TranslatePipe` and the `TranslateService` to translate values in the app. The `TranslatePipe` is an Angular [pipe](https://angular.io/docs/ts/latest/guide/pipes.html) that can be used to translate static values in the application, such as a navbar title. Below is an example of how to use `TranslatePipe` to translate the app title using the above translation assets.
 
 ```html
+{% raw %}
 <ion-title>{{ 'HELLO' | translate }}</ion-title>
+{% endraw %}
 ```
 
 Instead of writing the actual string as the title, we write the key of the string that should be there. The translate pipe then takes care of the rest.
+
+> For Ionic's components it's recommended to use the translate pipe, as this will make things behave correctly with content projections.
 
 The `TranslateService`  can be used both to change the current language the app is using and to translate JavaScript values in an application. To use the `TranslateService` in your app you must first import it and set the default language.
 

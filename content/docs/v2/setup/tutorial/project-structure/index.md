@@ -13,7 +13,7 @@ next_page_link: /docs/v2/setup/tutorial/adding-pages
 
 # Project Structure
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/setup/tutorial/project-structure/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/setup/tutorial/project-structure/index.md'>
   Improve this doc
 </a>
 

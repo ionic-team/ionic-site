@@ -11,7 +11,7 @@ next_page_link: /docs/v2/theming/sass-variables/
 ---
 
 <h1 class="title">Theming your Ionic App</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/theming/theming-your-app/index.md'>
   Improve this doc
 </a>
 

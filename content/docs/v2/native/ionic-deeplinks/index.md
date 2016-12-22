@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deeplinks.ts#L21">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deeplinks.ts#L22">
   Improve this doc
 </a>
 
@@ -85,7 +85,15 @@ the actual navigation for you:</p>
 <pre><code class="lang-typescript">Deeplinks.routeWithNavController(this.navController, {
   &#39;/about-us&#39;: AboutPage,
   &#39;/products/:productId&#39;: ProductPage
-});
+}).subscribe((match) =&gt; {
+    // match.$route - the route we matched, which is the matched entry from the arguments to route()
+    // match.$args - the args passed in the link
+    // match.$link - the full link data
+    console.log(&#39;Successfully matched route&#39;, match);
+  }, (nomatch) =&gt; {
+    // nomatch.$link - the full link data
+    console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
+  });
 </code></pre>
 <p>See the <a href="https://github.com/driftyco/ionic2-deeplinks-demo/blob/master/app/app.ts">Ionic 2 Deeplinks Demo</a> for an example of how to
 retrieve the <code>NavController</code> reference at runtime.</p>
@@ -230,6 +238,73 @@ errors if a deeplink comes through that does not match a given path.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="DeeplinkMatch" href="#DeeplinkMatch"></a>DeeplinkMatch</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      $route
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>The route info for the matched route</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      $args
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>Any arguments passed either through route parameters or GET parameters</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      $link
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>The deeplink object processed from the plugin, along with any
+any internal native data available as &quot;extras&quot; at the time
+the route was matched (for example, Facebook sometimes adds extra data)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

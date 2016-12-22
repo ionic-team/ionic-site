@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L237">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L251">
   Improve this doc
 </a>
 
@@ -54,10 +54,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Contact } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Contacts, Contact, ContactField, ContactName } from &#39;ionic-native&#39;;
 
 
-let contact = new Contact();
+let contact: Contact = Contacts.create();
 
 contact.name = new ContactName(null, &#39;Smith&#39;, &#39;John&#39;);
 contact.phoneNumbers = [new ContactField(&#39;mobile&#39;, &#39;6471234567&#39;)];
@@ -124,9 +124,7 @@ Search for contacts in the Contacts list.
 <code>ContactFieldType[]</code>
     </td>
     <td>
-      <p>Contact fields to be used as a search qualifier.
- A zero-length contactFields parameter is invalid and results in ContactError.INVALID_ARGUMENT_ERROR.
- A contactFields value of &quot;*&quot; searches all contact fields.</p>
+      <p>Contact fields to be used as a search qualifier</p>
 
       
     </td>
@@ -143,11 +141,7 @@ Search for contacts in the Contacts list.
 <code>IContactFindOptions</code>
     </td>
     <td>
-      <p>the options to query with:
-  filter: The search string used to find navigator.contacts. (string) (Default: &quot;&quot;)
-  multiple: Determines if the find operation returns multiple navigator.contacts. (Boolean) (Default: false)
-  desiredFields: Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields. (DOMString[]) [Optional]
-  hasPhoneNumber(Android only): Filters the search to only return contacts with a phone number informed. (Boolean) (Default: false)</p>
+      <p>Optional options for the query</p>
 
       
     </td>
@@ -884,7 +878,7 @@ Select a single Contact.
       <code>boolean</code>
     </td>
     <td>
-      <p>Determines if the find operation returns multiple navigator.contacts.</p>
+      <p>Determines if the find operation returns multiple navigator.contacts. Defaults to false.</p>
 
     </td>
   </tr>
@@ -898,7 +892,8 @@ Select a single Contact.
       <code>string[]</code>
     </td>
     <td>
-      
+      <p>Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields.</p>
+
     </td>
   </tr>
   

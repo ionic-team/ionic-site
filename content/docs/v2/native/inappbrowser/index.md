@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -232,6 +232,85 @@ A method that allows you to listen to events happening in the browser.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="InAppBrowserEvent" href="#InAppBrowserEvent"></a>InAppBrowserEvent</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      type
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>the eventname, either loadstart, loadstop, loaderror, or exit.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      url
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>the URL that was loaded.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      code
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>the error code, only in the case of loaderror.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>the error message, only in the case of loaderror.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

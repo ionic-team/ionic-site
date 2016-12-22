@@ -32444,13 +32444,16 @@ var __extends$59 = (undefined && undefined.__extends) || function (d, b) {
 var OverlayPortal = (function (_super) {
     __extends$59(OverlayPortal, _super);
     function OverlayPortal(app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, viewPort, domCtrl) {
+        var _this = this;
         _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl);
         this._isPortal = true;
         this._init = true;
         this.setViewport(viewPort);
         // on every page change make sure the portal has
         // dismissed any views that should be auto dismissed on page change
-        app.viewDidLeave.subscribe(this.dismissPageChangeViews.bind(this));
+        app.viewDidLeave.subscribe(function (ev) {
+            !ev.isOverlay && _this.dismissPageChangeViews();
+        });
     }
     Object.defineProperty(OverlayPortal.prototype, "_overlayPortal", {
         set: function (val) {
@@ -40755,9 +40758,13 @@ var DateTime = (function (_super) {
         var yearOpt;
         var monthOpt;
         var dayOpt;
-        // default to assuming today's year
+        // default to the current year
         var selectedYear = today.getFullYear();
         if (yearCol) {
+            // default to the first value if the current year doesn't exist in the options
+            if (!yearCol.options.find(function (col) { return col.value === today.getFullYear(); })) {
+                selectedYear = yearCol.options[0].value;
+            }
             yearOpt = yearCol.options[yearCol.selectedIndex];
             if (yearOpt) {
                 // they have a selected year value
@@ -40794,7 +40801,7 @@ var DateTime = (function (_super) {
             if (isPresent$4(selectedMonth)) {
                 // enable/disable which days are valid
                 // to show within the min/max date range
-                for (i = 0; i < 31; i++) {
+                for (i = 0; i < dayCol.options.length; i++) {
                     dayOpt = dayCol.options[i];
                     // loop through each day and see if it
                     // is within the min/max date range
@@ -40806,7 +40813,7 @@ var DateTime = (function (_super) {
             }
             else {
                 // enable/disable which numbers of days to show in this month
-                for (i = 0; i < 31; i++) {
+                for (i = 0; i < dayCol.options.length; i++) {
                     dayCol.options[i].disabled = (numDaysInMonth <= i);
                 }
             }
@@ -44833,7 +44840,28 @@ var __extends$101 = (undefined && undefined.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
-  * @private
+  * @name Note
+  * @module ionic
+  * @description
+  * A note is detailed item in an ion-item. It creates greyed out element that can be on the left or right side of an item.
+  * @usage
+  *
+  * ```html
+  * <ion-content>
+  *   <ion-list>
+  *     <ion-item>
+  *       <ion-note item-left>
+  *         Left Note
+  *       </ion-note>
+  *       My Item
+  *       <ion-note item-right>
+  *         Right Note
+  *       </ion-note>
+  *     </ion-item>
+  *   </ion-list>
+  * </ion-content>
+  *```
+ * {@link /docs/v2/api/components/api/components/item/item ion-item}
   */
 var Note = (function (_super) {
     __extends$101(Note, _super);

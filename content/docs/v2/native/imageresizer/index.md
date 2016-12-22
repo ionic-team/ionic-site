@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -114,6 +114,116 @@ ImageResizer
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="ImageResizerOptions" href="#ImageResizerOptions"></a>ImageResizerOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      uri
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The URI for the image on the device to get scaled</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      width
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The width of the new image</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      height
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The height of the new image</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      folderName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the folder the image should be put
+(Android only)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      quality
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Quality given as Number for the quality of the new image
+(Android and iOS only)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>A custom name for the file. Default name is a timestamp
+(Android and Windows only)</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

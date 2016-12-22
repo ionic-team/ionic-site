@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L34">
   Improve this doc
 </a>
 
@@ -329,44 +329,6 @@ Called when background mode fails
 
 <!-- methods on the class -->
 
-<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>Configuration options</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>title</td>
-<td><code>string</code></td>
-<td>Title of the background task. Optional</td>
-</tr>
-<tr>
-<td>ticker</td>
-<td><code>string</code></td>
-<td>The text that scrolls itself on the statusbar. Optional</td>
-</tr>
-<tr>
-<td>text</td>
-<td><code>string</code></td>
-<td>Description of the background task. Optional</td>
-</tr>
-<tr>
-<td>silent</td>
-<td><code>boolean</code></td>
-<td>If the plugin will display a notification or not. Default is false. Optional</td>
-</tr>
-<tr>
-<td>resume</td>
-<td><code>boolean</code></td>
-<td>Bring the app into the foreground if the notification is tapped. Optional</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- other classes -->
@@ -374,6 +336,99 @@ Called when background mode fails
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="BackgroundModeConfiguration" href="#BackgroundModeConfiguration"></a>BackgroundModeConfiguration</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      title
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>String</code>
+    </td>
+    <td>
+      <p>Title of the background task</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ticker
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>String</code>
+    </td>
+    <td>
+      <p>The text that scrolls itself on statusbar</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      text
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>String</code>
+    </td>
+    <td>
+      <p>Description of background task</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      silent
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>if true plugin will not display a notification. Default is false.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      resume
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>By default the app will come to foreground when taping on the notification. If false, plugin wont come to foreground when tapped.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

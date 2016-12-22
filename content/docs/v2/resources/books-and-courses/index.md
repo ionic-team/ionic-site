@@ -9,7 +9,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Books and Courses
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/books-and-courses/index.md'>
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/resources/books-and-courses/index.md'>
   Improve this doc
 </a>
 
@@ -54,5 +54,5 @@ header_sub_title: Ionic 2 Developer Preview
 </section>
 
 <p>
-This is by no means an exhaustive list.  Please <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/books-and-courses/index.md'>Submit a PR</a> to let us know about any interesting Ionic 2 books and courses.
+This is by no means an exhaustive list.  Please <a href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/resources/books-and-courses/index.md'>Submit a PR</a> to let us know about any interesting Ionic 2 books and courses.
 </p>

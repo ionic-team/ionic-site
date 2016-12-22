@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -675,7 +675,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 <!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h2><a class="anchor" name="Location" href="#Location"></a>Location</h2>
+<h2><a class="anchor" name="BackgroundGeolocationResponse" href="#BackgroundGeolocationResponse"></a>BackgroundGeolocationResponse</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -862,7 +862,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
 
 
 
-<h2><a class="anchor" name="Config" href="#Config"></a>Config</h2>
+<h2><a class="anchor" name="BackgroundGeolocationConfig" href="#BackgroundGeolocationConfig"></a>BackgroundGeolocationConfig</h2>
 
 
 <table class="table param-table" style="margin:0;">

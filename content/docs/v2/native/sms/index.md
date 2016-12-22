@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -82,6 +82,8 @@ SMS.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 <h3><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
   
 </h3>
+
+
 
 
 Sends sms to a number
@@ -201,6 +203,89 @@ This function lets you know if the app has permission to send SMS
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="SmsOptions" href="#SmsOptions"></a>SmsOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      replaceLineBreaks
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Set to true to replace \n by a new line. Default: false</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      android
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>SmsOptionsAndroid</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="SmsOptionsAndroid" href="#SmsOptionsAndroid"></a>SmsOptionsAndroid</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      intent
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Set to &quot;INTENT&quot; to send SMS with the native android SMS messaging. Leaving it empty will send the SMS without opening any app.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

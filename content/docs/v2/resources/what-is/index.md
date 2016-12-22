@@ -8,7 +8,7 @@ header_sub_title: Ionic Resources
 
 # Ionic Developer Glossary
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/what-is/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/resources/what-is/index.md'>
   Improve this doc
 </a>
 

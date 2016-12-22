@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -185,6 +185,119 @@ Sends content to the printer.
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="PrintOptions" href="#PrintOptions"></a>PrintOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      name
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The name of the print job and the document</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      printerId
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The network URL of the printer.
+Only supported on iOS.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      duplex
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Specifies the duplex mode to use for the print job.
+Either double-sided (duplex:true) or single-sided (duplex:false).
+Double-sided by default.
+Only supported on iOS</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      landscape
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>The orientation of the printed content, portrait or landscape
+Portrait by default.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      grayscale
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>If your application only prints black text, setting this property to true can result in better performance in many cases.
+False by default.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bounds
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number[] | any</code>
+    </td>
+    <td>
+      <p>The Size and position of the print view</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

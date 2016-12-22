@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/native-page-transitions.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/native-page-transitions.ts#L15">
   Improve this doc
 </a>
 
@@ -63,9 +63,9 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {NativePageTransitions, TransitionOptions} from &#39;ionic-native&#39;;
+<pre><code>import {NativePageTransitions, NativeTransitionOptions} from &#39;ionic-native&#39;;
 
-let options: TransitionOptions = {
+let options: NativeTransitionOptions = {
    direction: &#39;up&#39;,
    duration: 500,
    slowdownfactor: 3,
@@ -117,7 +117,7 @@ Perform a slide animation
     </td>
     <td>
       
-<code>TransitionOptions</code>
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
@@ -168,7 +168,7 @@ Perform a flip animation
     </td>
     <td>
       
-<code>TransitionOptions</code>
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
@@ -228,7 +228,7 @@ Perform a fade animation
     </td>
     <td>
       
-<code>TransitionOptions</code>
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
@@ -288,7 +288,7 @@ Perform a slide animation
     </td>
     <td>
       
-<code>TransitionOptions</code>
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
@@ -346,7 +346,7 @@ Perform a slide animation
     </td>
     <td>
       
-<code>TransitionOptions</code>
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>

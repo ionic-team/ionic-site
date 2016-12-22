@@ -1,9 +1,10 @@
+@charset "UTF-8";
 /*!
  * Ionic Framework
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201612151624, Dark Theme
+ * vE2E-201612212108, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -4391,6 +4392,9 @@ input.text-input:-webkit-autofill {
   width: 100%;
   height: 100%; }
 
+ion-input[disabled] .input-cover {
+  pointer-events: none; }
+
 .input-has-focus .input-cover {
   display: none; }
 
@@ -4441,6 +4445,10 @@ input.text-input:-webkit-autofill {
   margin-bottom: 8px;
   margin-left: 0;
   width: calc(100% - 8px); }
+
+.item-ios.item-label-stacked .label-ios + .input + .cloned-input,
+.item-ios.item-label-floating .label-ios + .input +  .cloned-input {
+  margin-left: 0; }
 
 .item-label-stacked .select-ios,
 .item-label-floating .select-ios {

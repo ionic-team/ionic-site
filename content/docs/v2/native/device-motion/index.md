@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/devicemotion.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/devicemotion.ts#L34">
   Improve this doc
 </a>
 
@@ -96,7 +96,7 @@ Get the current acceleration along the x, y, and z axes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;AccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
+<code>Promise&lt;DeviceMotionAccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
 </div>
 
 
@@ -149,7 +149,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;AccelerationData&gt;</code> Observable returns an observable that you can subscribe to
+<code>Observable&lt;DeviceMotionAccelerationData&gt;</code> Observable returns an observable that you can subscribe to
 </div>
 
 
@@ -164,6 +164,118 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="DeviceMotionAccelerationData" href="#DeviceMotionAccelerationData"></a>DeviceMotionAccelerationData</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      x
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Amount of acceleration on the x-axis. (in m/s^2)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      y
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Amount of acceleration on the y-axis. (in m/s^2)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      z
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Amount of acceleration on the z-axis. (in m/s^2)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      timestamp
+      
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>Creation timestamp in milliseconds.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="DeviceMotionAccelerometerOptions" href="#DeviceMotionAccelerometerOptions"></a>DeviceMotionAccelerometerOptions</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      frequency
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Requested period of calls to accelerometerSuccess with acceleration data in Milliseconds. Default: 10000</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

@@ -5,11 +5,11 @@ id: overriding-ionic-variables
 title: Overriding Ionic Sass Variables
 header_sub_title: Ionic Theming
 header_includes: <link rel="stylesheet" type="text/css" href="style.css">
-footer_includes: <script src="app.js"></script>
+footer_includes: <script src="app.js?1"></script>
 ---
 
 <h1 class="title">Overriding Ionic Sass Variables</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/theming/overriding-ionic-variables/index.md'>
   Improve this doc
 </a>
 

@@ -13,7 +13,7 @@ next_page_link: /docs/v2/theming/platform-specific-styles/
 
 <h1 class="title">Utility Attributes</h1>
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/css-utilities/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/theming/css-utilities/index.md'>
   Improve this doc
 </a>
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.10"
+version: "2.2.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geofence.ts#L73">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geofence.ts#L3">
   Improve this doc
 </a>
 
@@ -46,6 +46,8 @@ docType: "class"
 
 <!-- description -->
 
+<p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
+Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
 
 
 <!-- @platforms tag -->
@@ -59,6 +61,77 @@ docType: "class"
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code>import { Geofence } from &#39;ionic-native&#39;;
+import { Platform } from  &#39;ionic-angular&#39;
+...
+
+constructor(private platform: Platform) {
+  this.platform.ready().then(() =&gt; {
+         // initialize the plugin
+      Geofence.initialize().then(
+        // resolved promise does not return a value
+        () =&gt; console.log(&#39;Geofence Plugin Ready&#39;),
+        (err) =&gt; console.log(err)
+      )
+  })
+}
+
+private addGeofence() {
+  //options describing geofence
+  let fence = {
+    id: &quot;69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb&quot;, //any unique ID
+    latitude:       37.285951, //center of geofence radius
+    longitude:      -121.936650,
+    radius:         100, //radius to edge of geofence
+    transitionType: 3, //see &#39;Transition Types&#39; below
+    notification: { //notification settings
+        id:             1, //any unique ID
+        title:          &quot;You crossed a fence&quot;, //notification title
+        text:           &quot;You just arrived to Gliwice city center.&quot;, //notification body
+        openAppOnClick: true //open app when notification is tapped
+    }
+  }
+
+  Geofence.addOrUpdate(fence).then(
+     () =&gt; console.log(&#39;Geofence added&#39;),
+     (err) =&gt; console.log(&#39;Geofence failed to add&#39;)
+   );
+}
+</code></pre>
+<h3 id="transition-types">Transition Types</h3>
+<p>Transition type specifies whether the geofence should trigger when the user enters and/or leaves the geofence.</p>
+<h4 id="supported-values">Supported values</h4>
+<ul>
+<li>1: Enter</li>
+<li>2: Leave</li>
+<li>3: Both</li>
+</ul>
+<h3 id="defining-a-geofence">Defining a Geofence</h3>
+<p>Geofences are defined by an object that is passed to <code>addOrUpdate()</code>. Object properties are:</p>
+<ul>
+<li>id: Any unique ID for the geofence. This ID is used to remove and update a geofence</li>
+<li>latitude: Latitude coordinate of the center of the geofence radius</li>
+<li>longitude: Latitude coordinate of the center of the geofence radius</li>
+<li>radius: Radius from the center to the edge of the geofence</li>
+<li>transitionType: Type of geofence transition to monitor for. See &#39;Transition Types&#39; above</li>
+<li>notification: Object. Options for defining the notification sent when a geofence is crossed<ul>
+<li>id: Any unique ID</li>
+<li>title: Notification title</li>
+<li>text: Notification body</li>
+<li>openAppOnClick: Boolean. Whether to open the app when the notification is tapped by the user</li>
+</ul>
+</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="i-get-compile-errors-when-i-run-ionic-build-ios-or-ionic-run-ios-">I get compile errors when I run <code>ionic build ios</code> or <code>ionic run ios</code>.</h4>
+<p>This could be caused by the Cordova project directory in <code>/platforms/ios</code> not being named correctly.
+Try running <code>ionic platform rm &lt;platform&gt;</code> then run <code>ionic platform add &lt;platform&gt;</code> to recreate the
+platform directories.</p>
+
+
 
 
 <!-- @property tags -->

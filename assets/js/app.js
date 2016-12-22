@@ -18,8 +18,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
   var $iosIframe = $('iframe#demo-ios');
   var $windowsIframe = $('iframe#demo-windows');
 
-  var sectionsWithChildrenSimple = ['buttons', 'cards', 'alerts', 'forms',
-                                    'lists', 'tabs', 'toolbar'];
+  //add the IDs of any sections with child nav in component list
+  var sectionsWithChildrenSimple = [];
   var sectionsWithChildren = {};
   for (i in sectionsWithChildrenSimple) {
     var section = sectionsWithChildrenSimple[i];

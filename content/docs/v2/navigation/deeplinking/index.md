@@ -1,4 +1,8 @@
-<h3 id="navigating_routing">Routing and DeepLinking</h3>
+<h1 class="title">Routing and Deeplinking</h1>
+
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/navigation/deeplinking/index.md'>
+  Improve this doc
+</a>
 
 Pushing and popping views is a simple operation that can be made more powerful with URLs for routing and deeplinking. We can identify pages with a URL we share to users that brings them back to the exact page they were viewing when they left (including setting the history state if we desire), and we can have our Nav Controller navigate to pages based on a URL segment.
 

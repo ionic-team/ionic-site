@@ -1,4 +1,5 @@
 var redirects = require('./redirects');
+var url       = require('url');
 
 module.exports = function(req, res, next) {
 
@@ -6,6 +7,21 @@ module.exports = function(req, res, next) {
   if (req.headers.host.slice(0, 4) === 'www.') {
     var newHost = req.headers.host.slice(4);
     return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
+  }
+
+  // redirect entire old sections
+  var parts = url.parse(req.url);
+
+  if (parts.path.indexOf('/blog/') == 0) {
+    return res.redirect(301, 'http://blog.ionic.io/' + req.url.replace(/^\/blog\//, ''));
+  } else if (parts.path.indexOf('/creator/') == 0) {
+    return res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''));
+  } else if (parts.path.indexOf('/tutorials') == 0) {
+    return res.redirect(301, 'http://ionicframework.com/getting-started');
+  } else if (parts.path.indexOf('/jobs') == 0) {
+    return res.redirect(301, 'http://ionic.io/jobs');
+  } else if (req.headers.host.indexOf('learn.') == 0) {
+    return res.redirect(301, 'http://ionicframework.com/docs/');
   }
 
   // handle redirects
@@ -31,8 +47,8 @@ module.exports = function(req, res, next) {
   var staticURLS = ['/img/','/css/','/js/','/fonts/','/favicon.ico'];
   for (var i = 0; i < staticURLS.length; i++) {
     if (req.url.indexOf(staticURLS[i]) === 0) {
-      res.setHeader('Cache-Control', 'public, max-age=345600'); // 4 days
-      res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
+      res.setHeader('Cache-Control', 'public, max-age=315360000000');
+      res.setHeader('Expires', new Date(Date.now() + 315360000000).toUTCString());
     }
   }
 

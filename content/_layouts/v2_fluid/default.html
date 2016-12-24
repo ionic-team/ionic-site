@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% if page.centered != true %}
+      {% assign isDocs = true %}
+    {% else %}
+      {% assign isDocs = false %}
+    {% endif %}
+    {% include v2_fluid/head.html %}
+  </head>
+  <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
+        class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}}
+               {% if page.header_style %}{{page.header_style}}{% endif %}"
+        data-spy="scroll"
+        data-offset="100"
+        {% if isDocs %}data-target="#components-index"{% endif %}
+        ng-app="IonicSite">
+
+    {% if page.centered != true %}
+      {% include v2_fluid/docs_header.html %}
+    {% else %}
+      {% include v2_fluid/header.html %}
+    {% endif %}
+
+    {{ content }}
+
+    {% if page.prev_page_title  or page.next_page_title %}
+      <div class="footer-links">
+        <hr>
+        {% if page.prev_page_title and page.prev_page_link %}
+          <a class="footer-link prev" href="{{page.prev_page_link}}">
+            {{page.prev_page_title}}</a>
+        {% endif %}
+        {% if page.next_page_title and page.next_page_link %}
+          <a class="footer-link next" href="{{page.next_page_link}}">
+            {{page.next_page_title}}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if page.pre_footer == true %}
+      {% include v2_fluid/pre_footer.html %}
+    {% endif %}
+
+    {% if page.centered == true %}
+      {% include v2_fluid/footer.html %}
+    {% endif %}
+
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    {% include v2_fluid/footer_tags.html %}
+  </body>
+</html>

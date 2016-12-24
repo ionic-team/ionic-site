@@ -1,0 +1,44 @@
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44023830-1', 'ionicframework.com');
+
+ga('create', 'UA-77242104-1', 'auto');
+
+if (window.experiment) {
+  ga('set', 'expId', window.experiment.id);
+  ga('set', 'expVar', window.experiment.variant);
+}
+
+// Universal ID
+ga('create', 'UA-44023830-23', 'auto', {'allowLinker': true}, 'universalID');
+ga('require', 'linker');
+ga('linker:autoLink', ['ionic.io','blog.ionic.io','apps.ionic.io',
+   'creator.ionic.io','ideas.ionic.io','showcase.ionic.io','market.ionic.io']);
+ga('send', 'pageview');
+
+
+// shorthand global analytics click event helper
+window.c = function(cat, lbl, el, val) {
+  if (typeof val === 'undefined') {
+    var val = null;
+  }
+  ga('send', {
+    hitType: 'event',
+    eventCategory: cat,
+    eventAction: 'Click',
+    eventLabel: lbl,
+    eventValue: val,
+    hitCallback: function() {
+      if (el) {
+        document.location = el.href;
+      };
+    }
+  });
+  // don't follow links until analytics is recieved
+  if (el) {
+    return false;
+  }
+};

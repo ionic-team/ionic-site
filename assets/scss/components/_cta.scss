@@ -1,0 +1,200 @@
+.transparent .cta {
+  margin-top: -77px;
+  padding-top: 77px;
+}
+
+.cta {
+  color: white;
+  background: $blue;
+
+  &.gradient {
+    background: linear-gradient(45deg, rgba(52,126,255,1) 0%,
+                                       rgba(41,144,255,1) 50%,
+                                       rgba(34,133,255,1) 50%,
+                                       rgba(30,161,255,1) 100%);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  hgroup {
+    padding-top: 33px;
+    padding-bottom: 94px;
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 26px;
+      letter-spacing: -.03em;
+    }
+
+    h4 {
+      font-size: 20px;
+      color: rgba(255, 255, 255, .8);
+      letter-spacing: -.03em;
+    }
+
+    p {
+      color: rgba(white, .7)
+    }
+
+    small {
+      a {
+        color: rgba(white, .9);
+        font-weight: 600;
+
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    background: #f6f7fa;
+
+    .container {
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    li {
+      max-width: 360px;
+      margin-left: 43px;
+      text-align: left;
+      display: inline-block;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+
+      @media (max-width: 991px) {
+        margin-left: 0;
+        display: block;
+        margin: 0 auto;
+
+        &:first-child {
+          margin-left: auto;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #272a2f;
+      margin-bottom: 5px;
+      margin-top: 0;
+      position: relative;
+    }
+
+    p {
+      font-size: 14px;
+      color: #727a87;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    a {
+      position: relative;
+      display: block;
+      padding: 32px 0 28px 85px;
+      z-index: 1;
+      cursor: pointer;
+      user-select: none;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .3s box-shadow, .3s transform, .3s background, .3s border-radius;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+
+        &::before {
+          background: white;
+          border-radius: 4px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
+          transform: scale(1.1, 1.1);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &.active {
+        &::before {
+          background: white;
+          border-radius: 4px;
+          box-shadow: 0 0 4px rgba(0, 0, 0, .05), 0 6px 10px rgba(0, 0, 0, .08);
+          transform: scale(1.2, 1.2);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &::after {
+        background: url('/img/getting-started/getting-started-toggle-icons.png') no-repeat 0 0;
+        background-size: 70px;
+        width: 70px;
+        height: 70px;
+        content: '';
+        left: 5px;
+        top: 20px;
+        display: block;
+        position: absolute;
+        opacity: .7;
+        transition: .3s opacity;
+      }
+
+      &.creator::after {
+        background-position: 0 -140px;
+      }
+    }
+  }
+
+  .alert {
+    color: #ffeed6;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 0;
+    margin-bottom: 0;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &::before {
+      position: relative;
+      font-size: 20px;
+      line-height: 14px;
+      left: 0;
+      top: 2px;
+      margin-right: 5px;
+      content: "\f17e";
+    }
+
+    a {
+      color: #ffffff;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: none;
+        color: rgba(white, .8);
+      }
+    }
+  }
+}

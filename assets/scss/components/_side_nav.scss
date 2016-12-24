@@ -1,0 +1,225 @@
+.side-nav {
+  position: fixed;
+  background: $whiteish;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow-y: -moz-scrollbars-none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+  -webkit-touch-callout: none;
+  user-select: none;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
+
+  .back-to-main {
+    a {
+      padding-top: 5px;
+      border: 1px solid #e6e9ee;
+      padding: 10px 12px 13px;
+      margin-right: 20px;
+      margin-top: -15px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
+
+      &::before {
+        font-family: 'Ionicons';
+        -webkit-font-smoothing: antialiased;
+        content: '\f3cf';
+        font-size: 16px;
+        font-weight: 800;
+        position: relative;
+        padding-right: 5px;
+        top: 2px;
+      }
+
+      &:hover {
+        border-color: #DFE3E8;
+        color: $blue;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        background: #fdfdfd;
+      }
+
+      &:focus::after {
+        border-right-color: transparent;
+      }
+    }
+  }
+
+  .form-group {
+    position: relative;
+    border-bottom: 1px solid $light-grey;
+    min-height: 54px;
+
+    &.search {
+      padding: 20px 20px 20px;
+      margin-bottom: 0;
+
+      &:hover::before {
+        color: #a4abb5;
+      }
+
+      &::before {
+        font-family: 'Ionicons';
+        content: '\f4a5';
+        font-size: 16px;
+        font-weight: 800;
+        color: #bdc3cc;
+        position: absolute;
+        top: 28px;
+        left: 34px;
+        transition: .2s color;
+      }
+
+      input {
+        border: 1px solid #e6e9ee;
+        border-radius: 20px;
+        padding: 8px 0 6px 35px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #bdc3cc;
+        box-shadow: none;
+        transition: .2s border-color, .2s box-shadow;
+
+        &:focus,
+        &:hover {
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          border-color: $blue;
+        }
+      }
+    }
+
+    select {
+      padding: 17px 20px;
+      display: block;
+      width: 100%;
+      background: none;
+      border-radius: 0;
+      border: 0;
+      outline: none;
+      color: $grey;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
+
+      &:hover {
+        border-color: $blue;
+        color: $blue;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        background: #fdfdfd;
+      }
+    }
+
+    &:hover {
+      transition: .2s border-color;
+
+      &::before {
+        color: $blue;
+      }
+    }
+
+    &.api-select::before {
+      font-family: 'Ionicons';
+      -webkit-font-smoothing: antialiased;
+      content: '\f3d0';
+      font-size: 14px;
+      font-weight: 800;
+      color: #a4abb5;
+      position: absolute;
+      top: 17px;
+      right: 20px;
+      transition: .2s color;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 18px 0 20px 20px;
+
+    a {
+      color: $grey;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        content: '';
+        border-right: 2px solid $blue;
+        transform: scaleY(0.0001);
+        transition: transform .08s ease-in-out;
+      }
+    }
+
+    ul,
+    .capitalize {
+      padding: 0;
+      opacity: 1;
+
+      a {
+        color: $blackish;
+        text-transform: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0;
+        height: 34px;
+        transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s,
+                    padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s,
+                    color 0.2s;
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      &.ng-hide-add,
+      &.ng-hide-remove {
+        transition: opacity cubic-bezier(0.36, 0.66, 0.04, 1) 0.3s;
+      }
+
+      &.ng-hide {
+        opacity: 0;
+
+        a {
+          padding: 0;
+          height: 0;
+        }
+      }
+    }
+
+    ul .active > a,
+    .capitalize.active > a,
+    a:hover,
+    .active.top-level > a {
+      color: $blue;
+      text-decoration: none;
+      background: none;
+    }
+
+    ul .active > a::after,
+    .capitalize.active > a::after,
+    a:focus::after,
+    .active.top-level > a::after {
+      transform: scaleY(1);
+      outline: none;
+    }
+  }
+}

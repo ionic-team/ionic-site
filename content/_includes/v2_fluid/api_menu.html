@@ -1,0 +1,63 @@
+
+  
+    
+{% if page.versionHref == "/docs/v2/nightly" %}
+    
+  {% include v2_fluid/api_menu_flat_nightly.html %}
+  
+
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-rc.3" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-rc.3.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-rc.2" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-rc.2.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-rc.1" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-rc.1.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-rc.0" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-rc.0.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-beta.11" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-beta.11.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-beta.10" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-beta.10.html %}
+  
+
+  
+    
+{% elsif page.versionHref == "/docs/v2/2.0.0-beta.9" %}
+    
+  {% include v2_fluid/api_menu_flat_2.0.0-beta.9.html %}
+  
+
+
+{% else %}
+  {% include v2_fluid/api_menu_flat_2.0.0-rc.4.html %}
+{% endif %}

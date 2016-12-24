@@ -7,5 +7,16 @@
   "/docs/v2/api/menu/Menu": "/docs/v2/api/components/menu/Menu",
   "/docs/v2/api/components/nav/NavBar": "/docs/v2/api/components/navbar/NavBar",
   "/docs/v2/native/ibeacon/LocationManager": "/docs/v2/native/ibeacon/",
-  "/docs/v2/native/estimotebeacons/undefined": "/docs/v2/native/estimotebeacons"
+  "/docs/v2/native/estimotebeacons/undefined": "/docs/v2/native/estimotebeacons",
+  "/docs/v2/getting-started": "/getting-started",
+  "/docs/v2/getting-started/concepts": "/docs/v2/setup/concepts",
+  "/docs/v2/getting-started/installation": "/docs/v2/setup/installation",
+  "/docs/v2/getting-started/migration": "/docs/v2/setup/migration",
+  "/docs/v2/getting-started/tutorial": "/docs/v2/setup/tutorial",
+  "/docs/v2/getting-started/tutoria/adding-pages": "/docs/v2/setup/tutorial/adding-pages",
+  "/docs/v2/getting-started/tutoria/building-forms": "/docs/v2/setup/tutorial/building-forms",
+  "/docs/v2/getting-started/tutoria/customization": "/docs/v2/setup/tutorial/customization",
+  "/docs/v2/getting-started/tutoria/project-structure": "/docs/v2/setup/tutorial/project-structure",
+  "/docs/v2/getting-started/tutoria/using-platform-plugins": "/docs/v2/setup/tutorial/using-platform-plugins",
+  "/docs/v2": "/docs"
 }

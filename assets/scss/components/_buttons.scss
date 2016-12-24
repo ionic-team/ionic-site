@@ -1,0 +1,129 @@
+.btn,
+.navbar .btn {
+  font-weight: 500;
+  border-radius: 4px;
+  line-height: 1.4em;
+  padding: 14px 33px 14px;
+  margin-right: 10px;
+  transition: all .2s linear;
+  font-size: 18px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: #4a8bfc;
+  letter-spacing: -0.01em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    background: #5995fc;
+    color: #fff;
+    outline: none;
+  }
+
+  &:active,
+  &:active:focus {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    background: lighten($blue, 3);
+    outline: none;
+  }
+
+  &.outline {
+    border-color: $blue;
+    background: transparent;
+    color: $blue;
+  }
+
+  &.btn-primary,
+  &.light-blue {
+    background: $light-blue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: lighten($light-blue, 3);
+    }
+
+    &.outline {
+      border-color: $light-blue;
+      color: $light-blue;
+    }
+  }
+
+  &.red {
+    background: $red;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: #FF6177;
+    }
+  }
+
+  &.white {
+    background: white;
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    color: $blue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $blue;
+      // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      color: lighten($blue, 5);
+    }
+
+    &:active {
+      // box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
+    }
+  }
+
+  &.grey {
+    background: $grey;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $grey;
+    }
+
+    &.outline {
+      color: $grey;
+      background: transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: darken($grey, 10);
+        background: transparent;
+      }
+    }
+  }
+
+  &.sm {
+    font-weight: 600;
+    border-radius: 2px;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 12px 19px 10px;
+  }
+
+  &.rounded {
+    border-radius: 2.5em;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 19px 25px 18px;
+    line-height: 1em;
+
+    &.sm {
+      padding: 12px 22px 10px;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+#pre-footer {
+  background: $whiteish;
+  color: #727a87;
+  padding-top: 80px;
+  padding-bottom: 72px;
+
+  ul {
+    list-style: none;
+
+    &::after {
+      content: '';
+      clear: both;
+    }
+
+    li {
+      float: left;
+      width: 45%;
+      padding-left: 108px;
+      position: relative;
+
+      &::before {
+        background: url('/img/home/icons-lg.png?1') no-repeat 0 -372px;
+        background-size: 93px;
+        height: 93px;
+        width: 93px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: -9px;
+        top: 4px;
+      }
+
+      &::after {
+        border-right: 1px solid #dde1ea;
+        content: '';
+        position: absolute;
+        right: -10%;
+        top: 15px;
+        bottom: 15px;
+        display: block;
+      }
+
+      &.explor-docs::before {
+        background-position: 0 -279px;
+      }
+
+      &.forum::before {
+        background-position: 0 -465px;
+      }
+
+      &.blog::before {
+        background-position: 0 -558px;
+      }
+
+      &:last-child {
+        float: right;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      a {
+        font-size: 22px;
+        margin-bottom: 13px;
+        letter-spacing: -.03em;
+        font-weight: 500;
+
+        &::after {
+          font-family: 'Ionicons';
+          content: '\f287';
+          font-size: .9em;
+          margin-left: 10px;
+          position: relative;
+          display: inline-block;
+          transition: .3s transform;
+        }
+
+        &:hover {
+          color: darken($blue, 10);
+          text-decoration: none;
+
+          &::after {
+            transform: translate3d(5px, 0, 0);
+          }
+        }
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.8em;
+        margin-top: 6px;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+
+      @media (max-width: $screen-xs-max) {
+        float: none;
+        width: 100%;
+
+        &:first-child {
+          margin-bottom: 40px;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.docs #pre-footer {
+  margin-left: 230px;
+
+  @media (max-width: $screen-xs-max) {
+    margin-left: 0;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}

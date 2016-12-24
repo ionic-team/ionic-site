@@ -1,0 +1,428 @@
+.navbar-default {
+  background: linear-gradient(to right, #347eff, #1ea3ff);
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+
+  @media (max-width: $screen-xs-max) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    padding: 20px 0 0 13px;
+    transition: .3s opacity;
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 8px;
+    }
+
+    img {
+      width: 128px;
+    }
+
+    &:hover {
+      opacity: .65;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    &.transparent {
+      background: transparent;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .navbar-collapse {
+      box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    }
+  }
+
+  #ionic-io-logo {
+    background: url('/img/ionic-logo.png') no-repeat 0 bottom;
+    background-size: 90px;
+    height: 32px;
+    width: 90px;
+    display: block;
+  }
+
+  .navbar-nav > li {
+    > a {
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 27px 33px;
+      transition: .2s color;
+      border-top: none;
+      transition-duration: .3s;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 15px;
+        border: 0;
+      }
+
+      &:hover {
+        color: rgba(white, .65);
+      }
+    }
+
+    &:last-child > a {
+      padding-right: 0;
+    }
+
+    &.active > a {
+      // border-top-color: white;
+      opacity: .7;
+      transition: .2s opacity;
+
+      &:hover {
+        opacity: 1;
+      }
+
+    }
+  }
+
+  // mobile width animation & default styles
+  .dropdown {
+    .dropdown-menu {
+      display: block;
+      visibility: 0;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .3s ease, opacity .3s;
+    }
+
+    &.open .dropdown-menu {
+      visibility: 1;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    .divider {
+      border-bottom: 1px solid #ebeef2;
+      margin: 5px 0 6px;
+    }
+  }
+  // desktop width animation
+  @media (min-width: $screen-sm-min) {
+    .dropdown {
+      .dropdown-menu {
+        display: block;
+        position: absolute;
+        border: 0;
+        border-radius: 3px;
+        padding: 12px 0 10px;
+        top: 56px;
+        left: -23px;
+        right: -13px;
+        min-width: 155px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
+        opacity: 0;
+        transform: scale(.01);
+        transform-origin: 80% 8px;
+        transition: all .3s cubic-bezier(.155, 1.105, .295, 1.12), opacity .1s linear;
+
+        a {
+          padding: 6px 21px;
+          line-height: 1.6;
+          font-size: 13px;
+          font-weight: 500;
+          color: #727c8e;
+        }
+
+        &::before {
+          background: url('/img/ico-nav-arrow.png') center center no-repeat;
+          background-size: 15px;
+          width: 15px;
+          height: 8px;
+          position: absolute;
+          top: -7px;
+          right: 23px;
+          content: '';
+          z-index: 5;
+        }
+      }
+
+      &.open .dropdown-menu {
+        opacity: 1;
+        transform: scale(1);
+
+      }
+    }
+  }
+
+  .version {
+    float: left;
+    list-style: none;
+    padding-left: 0;
+
+    > li > a {
+      padding: 26px 12px 0px;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .5);
+      display: block;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 13px 10px 0px;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: rgba(white, .7);
+        text-decoration: none;
+      }
+    }
+
+    .dropdown-menu {
+      display: block;
+      position: absolute;
+      border: 0;
+      border-radius: 3px;
+      padding: 12px 0 10px;
+      top: 56px;
+      left: -23px;
+      right: -100px;
+      min-width: 155px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
+      opacity: 0;
+      transform: scale(.01);
+      transform-origin: 20% 8px;
+      transition: all .3s cubic-bezier(.155, 1.105, .295, 1.12), opacity .1s linear;
+
+      a {
+        padding: 6px 23px;
+        line-height: 1.6;
+        font-size: 13px;
+        font-weight: 500;
+
+        i::before {
+          font-size: 30px;
+          line-height: 10px;
+          position:relative;
+          top: 7px;
+          margin-left:5px;
+        }
+
+        &.active,
+        &.active:hover {
+          color: $blue;
+          text-decoration: none;
+          background: transparent;
+          cursor: default;
+        }
+      }
+
+      &::before {
+        background: url('/img/ico-nav-arrow.png') center center no-repeat;
+        background-size: 15px;
+        width: 15px;
+        height: 8px;
+        position: absolute;
+        top: -7px;
+        left: 35px;
+        content: '';
+        z-index: 5;
+      }
+    }
+
+    &.open .dropdown-menu {
+      opacity: 1;
+      transform: scale(1);
+
+    }
+  }
+
+  .navbar-form {
+    margin: 20px 0 0 110px;
+
+    .form-group {
+      position: relative;
+      padding-left: 0;
+
+      input {
+        background: lighten($blue, 2);
+        box-shadow: none;
+        border: 0;
+        color: white;
+        font-size: 14px;
+        border-radius: 800px;
+        padding-left: 38px;
+        width: 150px;
+        transition: all .3s cubic-bezier(0.2, 0.85, 0.2, 1.1);
+
+        &:focus {
+          width: 270px;
+          background: lighten($blue, 5);
+        }
+
+        &::placeholder {
+          color: lighten($blue, 20);
+        }
+      }
+
+      &::before {
+        font-family: 'Ionicons';
+        -webkit-font-smoothing: antialiased;
+        content: '\f4a5';
+        font-size: 18px;
+        font-weight: 800;
+        color: lighten($blue, 15);
+        position: absolute;
+        top: 4px;
+        left: 14px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-left: 25px;
+
+      .form-group input:focus {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: -1px;
+      margin-left: 0;
+
+      .form-group input,
+      .form-group input:focus {
+        width: 100%;
+      }
+    }
+  }
+
+  .navbar-toggle,
+  .sidebar-toggle {
+    border: 0;
+    position: relative;
+    background: transparent;
+
+    i {
+      position: absolute;
+      font-size: 27px;
+      top: -3px;
+      color: $navbar-default-link-color;
+      transition: color .3s, transform .3s, opacity .3s;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparent;
+      outline: none;
+
+      i {
+        color: white;
+        transform: scale(1.05);
+      }
+    }
+
+    .ion-md-close {
+      opacity: 0;
+    }
+
+    &.active {
+      i {
+        transform: rotate(90deg);
+      }
+
+      i:not(.ion-md-close) {
+        opacity: 0;
+      }
+
+      .ion-md-close {
+        transform: rotate(90deg);
+        opacity: 1;
+      }
+    }
+  }
+
+  .sidebar-toggle {
+    float: left;
+    margin: 8px 10px 0;
+    display: none;
+
+    @media (max-width: $screen-xs-max) {
+      display: block;
+    }
+  }
+
+  .container-fluid {
+    .navbar-nav > li > a {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+    @media (max-width: 1200px) {
+      .navbar-nav > li > a {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    @media (max-width: 1068px) {
+      .navbar-nav > li > a {
+        padding-left: 5px;
+        padding-right: 4px;
+      }
+    }
+
+    #ionic-docs-logo,
+    #ionic-docs-back {
+      width: 32px;
+      transition: .3s transform, .3s opacity;
+    }
+
+    #ionic-docs-back {
+      position: absolute;
+      top: 20px;
+      left: 13px;
+      opacity: 0;
+      transform: scale3d(1.1, 1.1, 1);
+    }
+
+    #ionic-docs-text {
+      width: 56px;
+      margin-left: 5px;
+    }
+
+    .navbar-brand {
+      img {
+        width: 88px;
+        margin-top: 2px;
+      }
+
+      &.logo {
+        position: relative;
+
+        &:hover {
+          opacity: 1;
+
+          #ionic-docs-logo {
+            opacity: 0;
+            transform: translate3d(-3px, 0, 0) scale3d(1.1, 1.1, 1);
+          }
+
+          #ionic-docs-back {
+            opacity: 1;
+            transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
+          }
+        }
+
+        &:hover:active,
+        &:active,
+        &:focus {
+          transform: translate3d(-3px, 0, 0) scale3d(.9, .9, 1);
+          transform-origin: 120% 80%;
+        }
+      }
+    }
+  }
+}

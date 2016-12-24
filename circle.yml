@@ -4,20 +4,14 @@ general:
       - production
 machine:
   node:
-    version: 4.1.0
+    version: 6.9.2
   ruby:
-    version: 2.2.3
+    version: 2.3.0
 dependencies:
   pre:
-    - gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
-    - ./_scripts/prepare.sh
+    - bundle install
   cache_directories:
     - "~/.rvm"
 test:
   override:
-    - ./_scripts/test.sh
-deployment:
- staging:
-   branch: master
-   commands:
-     - ./_scripts/deploy_staging.sh
+    - ./scripts/test.sh

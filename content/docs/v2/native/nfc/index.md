@@ -145,7 +145,7 @@ Registers an event listener for any NDEF tag.
 
 
 <div id="addTagDiscoveredListener"></div>
-<h3><code>addTagDiscoveredListener(mimeType,&nbsp;onSuccess,&nbsp;onFailure)</code>
+<h3><code>addTagDiscoveredListener(onSuccess,&nbsp;onFailure)</code>
   
 </h3>
 
@@ -164,22 +164,6 @@ Registers an event listener for tags matching any tag type.
   </tr>
   </thead>
   <tbody>
-  
-  <tr>
-    <td>
-      mimeType
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
   
   <tr>
     <td>
@@ -634,6 +618,162 @@ Check if NFC is available and enabled on this device.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="bytesToString"></div>
+<h3><code>bytesToString(bytes)</code>
+  
+</h3>
+
+
+
+
+Convert bytes to string
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      bytes
+      
+      
+    </td>
+    <td>
+      
+<code>number[]</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
+</div>
+
+
+
+<div id="stringToBytes"></div>
+<h3><code>stringToBytes(str)</code>
+  
+</h3>
+
+
+
+
+Convert string to bytes
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      str
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
+</div>
+
+
+
+<div id="bytesToHexString"></div>
+<h3><code>bytesToHexString(bytes)</code>
+  
+</h3>
+
+
+
+
+Convert bytes to hex string
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      bytes
+      
+      
+    </td>
+    <td>
+      
+<code>number[]</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>string</code> 
 </div>
 
 

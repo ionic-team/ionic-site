@@ -58,7 +58,11 @@ docType: "class"
 
 
 // Create a MediaPlugin instance.  Expects path to file or url as argument
-var file = new MediaPlugin(&#39;path/to/file.mp3&#39;);
+// We can optionally pass a second argument to track the status of the media
+
+const onStatusUpdate = (status) =&gt; console.log(status);
+
+const file = new MediaPlugin(&#39;path/to/file.mp3&#39;, onStatusUpdate);
 
 // Catch the Success &amp; Error Output
 // Platform Quirks

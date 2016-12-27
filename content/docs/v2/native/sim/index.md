@@ -117,8 +117,14 @@ Returns info from the SIM card.
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Check permission
-Android only
 
 
 
@@ -139,8 +145,14 @@ Android only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Request permission
-Android only
 
 
 

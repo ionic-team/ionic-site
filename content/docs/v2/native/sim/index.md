@@ -71,6 +71,15 @@ Sim.getSimInfo().then(
   (info) =&gt; console.log(&#39;Sim info: &#39;, info),
   (err) =&gt; console.log(&#39;Unable to get sim info: &#39;, err)
 );
+
+Sim.hasReadPermission().then(
+  (info) =&gt; console.log(&#39;Has permission: &#39;, info)
+);
+
+Sim.requestReadPermission().then(
+  () =&gt; console.log(&#39;Permission granted&#39;),
+  () =&gt; console.log(&#39;Permission denied&#39;)
+);
 </code></pre>
 
 
@@ -88,6 +97,50 @@ Sim.getSimInfo().then(
 
 
 Returns info from the SIM card.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="hasReadPermission"></div>
+<h3><code>hasReadPermission()</code>
+  
+</h3>
+
+
+Check permission
+Android only
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="requestReadPermission"></div>
+<h3><code>requestReadPermission()</code>
+  
+</h3>
+
+
+Request permission
+Android only
 
 
 

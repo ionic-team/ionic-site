@@ -46,32 +46,18 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $timeout(function() {
         $scope.iosActive = true;
       },30);
-      badChromeFix($('iframe#demo-ios'));
     } else if (platform == 'windows') {
       $scope.iosActive = false;
       $scope.androidActive = false;
       $timeout(function() {
         $scope.windowsActive = true;
       },30);
-      badChromeFix($('iframe#demo-windows'));
     } else {
       $scope.iosActive = false;
       $scope.windowsActive = false;
       $timeout(function() {
         $scope.androidActive = true;
       },30);
-      badChromeFix($('iframe#demo-android'));
-    }
-
-    function badChromeFix(iframe) {
-      var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
-      var version =  raw ? parseInt(raw[2], 10) : false;
-      if (version === 49) {
-        $('ion-content', iframe.contents()).hide();
-        $timeout(function() {
-          $('ion-content', iframe.contents()).show();
-        }, 200);
-      }
     }
   };
 
@@ -194,6 +180,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $platformPreview.removeClass('fixey');
     }
   }
+  // check scroll position on load
+  fixyCheck();
 }])
 .controller('APIDemoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var $platformPreview = $('#platform-preview');

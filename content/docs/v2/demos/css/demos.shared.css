@@ -9,6 +9,15 @@ body.has-scrollbar ion-menu .scroll-content {
   margin-right: 0;
 }
 
+.scroll-content {
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+}
+
+.scroll-content::-webkit-scrollbar {
+    display: none;  // Safari and Chrome
+}
+
 /*
   Popover
 */

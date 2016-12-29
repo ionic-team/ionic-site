@@ -57,6 +57,6 @@ $ ionic serve
 
 <img src="/img/docs/tutorial-screen.png" style="max-width: 320px">
 
-You should see the welcome message shown above if everything was installed successfully.
+Now type in http://localhost:8100/ or http://127.0.0.1:8100/ on your favourite web browser. You should see the welcome message shown above if everything was installed successfully.
 
 In the next section, let's go over the project structure created by the `ionic start` command.

@@ -54,7 +54,7 @@
       "created_at": "2014-05-15T17:33:14Z",
       "updated_at": "2014-05-23T19:52:29Z",
       "closed_at": null,
-      "body": "I think that Chap 4: \"Testing your App\" is misleading.  It does kinda work but cannot be used for real testing of the app.\r\ndeviceReady event does not get called for instance.  so code waiting to execute will not trigger.\r\nI would like to see Testing your App with XCode/Safari.\r\nHow do you force an ionic build ios?\r\nHow do you run and see logging messages?\r\nFor some strange reason, I need to hit the run button twice to force the App to come up and trigger the deviceReady event.\r\nionic build ios also keeps adding the some facebook info to my app plist over and over again... How do you prevent that?\r\nJust some ideas.\r\nThanks for great framework.\r\nPat.\r\n\r\n",
+      "body": "I think that Chap 4: \"Testing your App\" is misleading.  It does kinda work but cannot be used for real testing of the app.\r\ndeviceReady event does not get called for instance.  so code waiting to execute will not trigger.\r\nI would like to see Testing your App with Xcode/Safari.\r\nHow do you force an ionic build ios?\r\nHow do you run and see logging messages?\r\nFor some strange reason, I need to hit the run button twice to force the App to come up and trigger the deviceReady event.\r\nionic build ios also keeps adding the some facebook info to my app plist over and over again... How do you prevent that?\r\nJust some ideas.\r\nThanks for great framework.\r\nPat.\r\n\r\n",
       "score": 10.274609
     },
     {

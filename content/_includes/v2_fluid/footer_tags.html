@@ -2,5 +2,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
-<script src="/js/ionic-site.min.js?v=94103c06653255ca60a299325b3f4a43"></script>
+<script src="/js/ionic-site.min.js?v=aa9bc96f738ebe0020cd1106e246aa11"></script>
 {% if page.footer_includes %}{{ page.footer_includes }}{% endif %}
+
+{% if page.additional_preview_device_urls %}
+<script>
+additionalPreviewUrls = {
+  {% for link_hash in page.additional_preview_device_urls %}
+    {% for link in link_hash %}
+      "{{ link[0] }}":{% raw %}{{% endraw %}
+        "url":"{{ link[1] }}"
+      {% raw %}}{% endraw %}{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+</script>
+{% endif %}>

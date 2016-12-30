@@ -10,7 +10,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
 .controller('SassToggleCtrl', ['$scope', function ($scope) {
   $scope.setSassPlatform = function (platform) {
     $scope.active = platform;
-  }
+  };
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
                        function($scope, $timeout) {
@@ -197,6 +197,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
 }])
 .controller('APIDemoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var $platformPreview = $('#platform-preview');
+  var $window = $(window);
+  var $iframes = $('iframe');
+  var activeDemoIndex = 0;
+
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
     if (platform == 'ios') {
@@ -219,15 +223,68 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
   $('iframe').on('mousewheel DOMMouseScroll', function(ev) {
     ev.preventDefault();
   });
-  var $window = $(window);
-  $window.scroll(fixyCheck);
-  function fixyCheck(a, b, c) {
-    if ($window.scrollTop() > 78) {
+  $window.scroll(fixyAndDemoCheck);
+  $window.scroll();
+  function fixyAndDemoCheck() {
+    var scrollTop = $window.scrollTop();
+
+    if (scrollTop > 78) {
       $platformPreview.addClass('fixey');
     } else {
       $platformPreview.removeClass('fixey');
     }
+
+    if (typeof $scope.additionalPreviewUrls === 'undefined') {
+      return;
+    }
+
+    var activeKey = null;
+    for (var i = 0; i < $scope.additionalPreviewUrls.length; i++) {
+      if (scrollTop > $scope.additionalPreviewUrls[i].offset) {
+        activeKey = i;
+      }
+    };
+
+    if (activeKey == activeDemoIndex) {
+      // demo is already active
+      return;
+    }
+
+    $iframes.each(function() {
+      activeDemoIndex = activeKey;
+      var queryString = $(this).attr('src').split('?')[1];
+      var newURL = $scope.additionalPreviewUrls[activeKey].url + queryString;
+      $(this).attr('src', $scope.additionalPreviewUrls[activeKey].url);
+    });
   }
+
+  $scope.initAdditionalPreviewUrls = function() {
+    if (typeof window.additionalPreviewUrls === 'undefined') {
+      return;
+    }
+
+    $scope.additionalPreviewUrls = [{
+      id: 'default',
+      url: $($iframes[0]).attr('src').split('?')[0],
+      offset: -1
+    }];
+
+    Object.keys(window.additionalPreviewUrls).forEach(function(key) {
+      $scope.additionalPreviewUrls.push({
+        id: key,
+        url: window.additionalPreviewUrls[key].url,
+        offset: $('[name="' + key + '"]').offset().top
+      });
+    });
+
+    $scope.additionalPreviewUrls.sort(function(a, b) {
+      if (a.offset < b.offset) {
+        return -1;
+      }
+      return a.offset > b.offset ? 1 : 0;
+    });
+    $scope.$evalAsync($window.scroll());
+  };
 }])
 .controller('IoniconDocsCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.icons = {};

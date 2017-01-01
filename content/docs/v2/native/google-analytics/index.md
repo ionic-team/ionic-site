@@ -94,6 +94,8 @@ GoogleAnalytics.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
 </h3>
 
 
+
+
 In your 'deviceready' handler, set up your Analytics tracker.
 https://developers.google.com/analytics/devguides/collection/analyticsjs/
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.2.13"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -233,7 +233,7 @@ Get notified when the device goes online
 <!-- methods on the class -->
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>The <code>connection</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
+<p>The <code>type</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
 
 
 <!-- other classes -->

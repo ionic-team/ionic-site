@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.2.13"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L256">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L261">
   Improve this doc
 </a>
 
@@ -810,6 +810,20 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     </td>
     <td>
       <p>altitude if available, in meters above the WGS 84 reference ellipsoid.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      altitudeAccuracy
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>accuracy of the altitude if available.</p>
 
     </td>
   </tr>

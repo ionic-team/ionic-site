@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.2.13"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -66,6 +66,21 @@ Prerequisites:</p>
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import { GoogleAnalytics } from &#39;ionic-native&#39;;
+
+GoogleAnalytics.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
+   .then(() =&gt; {
+     console.log(&#39;Google analytics is ready now&#39;);
+     // Tracker is ready
+     // You can now track pages or set additional information such as AppVersion or UserId
+   })
+   .catch(e =&gt; console.log(&#39;Error starting GoogleAnalytics&#39;, e));
+</code></pre>
+
+
 
 
 <!-- @property tags -->

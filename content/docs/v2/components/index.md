@@ -20,9 +20,12 @@ Ionic apps are made of high-level building blocks called components. Components 
 {% include v2_fluid/component-docs/buttons.html %}
 {% include v2_fluid/component-docs/cards.html %}
 {% include v2_fluid/component-docs/checkbox.html %}
+{% include v2_fluid/component-docs/content.html %}
 {% include v2_fluid/component-docs/datetime.html %}
 {% include v2_fluid/component-docs/fabs.html %}
+{% include v2_fluid/component-docs/footer.html %}
 {% include v2_fluid/component-docs/grid.html %}
+{% include v2_fluid/component-docs/header.html %}
 {% include v2_fluid/component-docs/icons.html %}
 {% include v2_fluid/component-docs/infinite-scroll.html %}
 {% include v2_fluid/component-docs/inputs.html %}

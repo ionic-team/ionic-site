@@ -35050,7 +35050,7 @@ var Popover = (function (_super) {
  * which creates and presents the popover:
  *
  * ```html
- * <button ion-button (click)="presentPopover($event)">
+ * <button ion-button icon-only (click)="presentPopover($event)">
  *   <ion-icon name="more"></ion-icon>
  * </button>
  * ```

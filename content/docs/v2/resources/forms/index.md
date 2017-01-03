@@ -96,8 +96,7 @@ import {Validators, FormBuilder } from '@angular/forms';
   `
 })
 export class FormsPage {
-  constructor(private formBuilder: FormBuilder) {}
-  ionViewDidLoad() {
+  constructor(private formBuilder: FormBuilder) {
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
       description: [''],
@@ -118,7 +117,7 @@ Forms are not driven by an object in our class, but by an actual reference to th
 
 **Pros**: More vanilla HTML forms, all of the logic is in the template
 
-**Cons**: Harder to test, template can be cluttered.
+**Cons**: More difficult to test, template can be cluttered.
 
 ```typescript
 import { Component } from '@angular/core';

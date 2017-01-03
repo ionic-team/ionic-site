@@ -19,8 +19,7 @@
     ]
   },
   "include": [
-    "./*/app.module.ts",
-    "./*/entry.ts"
+    "./**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

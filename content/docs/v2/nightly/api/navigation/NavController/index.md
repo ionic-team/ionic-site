@@ -292,14 +292,12 @@ class HelloWorld {
 </tr>
 <tr>
 <td><code>ionViewCanEnter</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean &#124; Promise\<void\></td>
 <td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
 </tr>
 <tr>
 <td><code>ionViewCanLeave</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean &#124; Promise\<void\></td>
 <td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
 </tr>
 </tbody>

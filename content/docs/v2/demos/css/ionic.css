@@ -4,7 +4,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201701041601, Default Theme
+ * vE2E-201701041858, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -4459,7 +4459,7 @@ ion-input[disabled] .input-cover {
 .input-ios[clearInput] {
   position: relative; }
 
-.input-ios .text-input {
+.input-ios[clearInput] .text-input {
   padding-right: 30px; }
 
 .input-ios .text-input-clear-icon {

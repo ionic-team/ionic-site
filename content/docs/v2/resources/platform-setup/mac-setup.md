@@ -21,7 +21,7 @@ Once installed, you should have access to both `node` and `npm` from your comman
 
 
 ### iOS
-You'll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple's Developer portal. The Mac App store is the easiest approach. Once XCode is installed, you'll have XCode, the iOS SDK, XCode command line tools, and all the build tools to output a native app.
+You'll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple's Developer portal. The Mac App store is the easiest approach. Once Xcode is installed, you'll have Xcode, the iOS SDK, Xcode command line tools, and all the build tools to output a native app.
 
 ### Java
 You'll need to download and install Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

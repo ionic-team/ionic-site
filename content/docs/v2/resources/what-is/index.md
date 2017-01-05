@@ -192,8 +192,8 @@ header_sub_title: Ionic Resources
   </section>
 
   <section id="xcode">
-    <h3><a href="#xcode">XCode</a></h3><p>
-    <a href="https://developer.apple.com/xcode/">XCode</a> is an IDE that allows you to develop iOS apps. XCode includes tools that help with building, testing, and debugging your app. Although many Ionic developers do not use it as their primary editor, it is often used to build and sign the production version of an app.</p>
+    <h3><a href="#xcode">Xcode</a></h3><p>
+    <a href="https://developer.apple.com/xcode/">Xcode</a> is an IDE that allows you to develop iOS apps. Xcode includes tools that help with building, testing, and debugging your app. Although many Ionic developers do not use it as their primary editor, it is often used to build and sign the production version of an app.</p>
   </section>
 
 </div>

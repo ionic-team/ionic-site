@@ -69,7 +69,7 @@ Oops, code signing error! No problem.
 
 Next, you'll need to code sign your app. How you do this will depend on if you are running Xcode 8 or an earlier version.
 
-#### XCode 7 and Earlier ####
+#### Xcode 7 and Earlier ####
 
 If you are running Xcode 7 or earlier, you'll get a code signing error that looks like this when you try to run the app:
 
@@ -79,7 +79,7 @@ Click the 'Fix Issue' button, then select your 'Personal Team' profile.
 
 <img src="/img/docs/deploying/team-menu-1.jpg">
 
-#### XCode 8 ####
+#### Xcode 8 ####
 
 If you are running Xcode 8, the code signing error will appear as a buildtime error, rather than as a pop-up:
 

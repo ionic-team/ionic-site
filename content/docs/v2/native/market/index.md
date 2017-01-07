@@ -68,7 +68,7 @@ Market.open(&#39;your.package.name&#39;);
 <h2>Static Members</h2>
 
 <div id="open"></div>
-<h3><code>open(appId,&nbsp;callbacks)</code>
+<h3><code>open(appId)</code>
   
 </h3>
 
@@ -105,18 +105,59 @@ Opens an app in Google Play / App Store
     </td>
   </tr>
   
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="search"></div>
+<h3><code>search(keyword)</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Search apps by keyword
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
   <tr>
     <td>
-      callbacks
+      keyword
       
       
     </td>
     <td>
       
-<code>Object</code>
+<code>string</code>
     </td>
     <td>
-      <p>Optional callbacks in the format {success?: Function, failure?: Function}</p>
+      <p>Keyword</p>
 
       
     </td>
@@ -128,6 +169,12 @@ Opens an app in Google Play / App Store
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

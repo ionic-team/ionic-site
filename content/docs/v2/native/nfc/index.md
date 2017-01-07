@@ -213,7 +213,7 @@ Registers an event listener for tags matching any tag type.
 
 
 <div id="addMimeTypeListener"></div>
-<h3><code>addMimeTypeListener(onSuccess,&nbsp;onFailure)</code>
+<h3><code>addMimeTypeListener(mimeType,&nbsp;onSuccess,&nbsp;onFailure)</code>
   
 </h3>
 
@@ -232,6 +232,22 @@ Registers an event listener for NDEF tags matching a specified MIME type.
   </tr>
   </thead>
   <tbody>
+  
+  <tr>
+    <td>
+      mimeType
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
   
   <tr>
     <td>

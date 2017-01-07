@@ -71,7 +71,7 @@ let app;
 
 if (Device.platform === &#39;iOS&#39;) {
   app = &#39;twitter://&#39;;
-} else if (device.platform === &#39;Android&#39;) {
+} else if (Device.platform === &#39;Android&#39;) {
   app = &#39;com.twitter.android&#39;;
 }
 

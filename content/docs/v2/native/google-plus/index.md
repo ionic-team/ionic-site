@@ -79,6 +79,8 @@ docType: "class"
 </h3>
 
 
+
+
 The login function walks the user through the Google Auth process.
 
 

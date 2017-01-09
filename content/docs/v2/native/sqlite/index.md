@@ -63,7 +63,7 @@ SQLite.openDatabase({
 })
   .then((db: SQLite) =&gt; {
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;).then(() =&gt; {}).catch(() =&gt; {});
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {}).catch(() =&gt; {});
 
   })
   .catch(error =&gt; console.error(&#39;Error opening database&#39;, error);

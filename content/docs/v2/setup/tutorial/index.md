@@ -42,6 +42,7 @@ If the tutorial template isn't something you want to use, Ionic has a few templa
 - `sidemenu`: a layout with a swipable menu on the side
 - `blank`: a bare starter with a single page
 - `tutorial`: a guided starter project
+- `super`: starter project with over 14 ready to use page designs
 
 If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 

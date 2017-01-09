@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="input" href="#input"></a>
 
 Input
-<h3><code>ion-input</code></h3>
+<h3><code>ion-input,ion-textarea</code></h3>
 
 
 
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L15">
 Improve this doc
 </a>
 
@@ -105,6 +105,28 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="setItemInputControlCss"></div>
+
+<h3>
+<a class="anchor" name="setItemInputControlCss" href="#setItemInputControlCss"></a>
+<code>setItemInputControlCss()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

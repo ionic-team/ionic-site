@@ -31,7 +31,7 @@ Ion
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/ion.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/ion.ts#L2">
 Improve this doc
 </a>
 

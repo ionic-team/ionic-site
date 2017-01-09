@@ -543,7 +543,7 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
 </td>
     </tr>
     

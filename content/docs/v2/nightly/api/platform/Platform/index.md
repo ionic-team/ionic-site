@@ -61,8 +61,8 @@ customize your app to fit any device.</p>
 
 @Component({...})
 export MyPage {
-  constructor(platform: Platform) {
-    this.platform = platform;
+  constructor(public plt: Platform) {
+
   }
 }
 </code></pre>
@@ -100,10 +100,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(platform: Platform) {
-    this.platform = platform;
-
-    if (this.platform.is('ios')) {
+  constructor(public plt: Platform) {
+    if (this.plt.is('ios')) {
       // This will only print when on iOS
       console.log("I'm an iOS device!");
     }
@@ -188,11 +186,9 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(platform: Platform) {
-    this.platform = platform;
-
+  constructor(public plt: Platform) {
     // This will print an array of the current platforms
-    console.log(this.platform.platforms());
+    console.log(this.plt.platforms());
   }
 }
 ```
@@ -229,12 +225,10 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyPage {
-  constructor(platform: Platform) {
-    this.platform = platform;
-
+  constructor(public plt: Platform) {
     // This will print an object containing
     // all of the platforms and their versions
-    console.log(platform.versions());
+    console.log(plt.versions());
   }
 }
 ```
@@ -284,8 +278,8 @@ import { Platform } from 'ionic-angular';
 
 @Component({...})
 export MyApp {
-  constructor(platform: Platform) {
-    platform.ready().then((readySource) => {
+  constructor(public plt: Platform) {
+    this.plt.ready().then((readySource) => {
       console.log('Platform ready from', readySource);
       // Platform now ready, execute any required native code
     });
@@ -633,6 +627,48 @@ the its back button action.</p>
 
 
 </div>
+
+
+
+
+<div id="getQueryParam"></div>
+
+<h3>
+<a class="anchor" name="getQueryParam" href="#getQueryParam"></a>
+<code>getQueryParam()</code>
+  
+
+</h3>
+
+Get the query string parameter
+
+
+
+
+
+
+
+
+
+
+
+<div id="url"></div>
+
+<h3>
+<a class="anchor" name="url" href="#url"></a>
+<code>url()</code>
+  
+
+</h3>
+
+Get the current url.
+
+
+
+
+
+
+
 
 
 

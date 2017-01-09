@@ -31,7 +31,7 @@ Haptic
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/haptic.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/tap-click/haptic.ts#L2">
 Improve this doc
 </a>
 
@@ -40,9 +40,9 @@ Improve this doc
 
 
 
-<p>The <code>Haptic</code> class interacts with a haptic engine on the device, if available. Generally,
-Ionic components use this under the hood, but you&#39;re welcome to get a bit crazy with it
-if you fancy.</p>
+<p>The <code>Haptic</code> class interacts with a haptic engine on the device, if
+available. Generally, Ionic components use this under the hood, but you&#39;re
+welcome to get a bit crazy with it if you fancy.</p>
 <p>Currently, this uses the Taptic engine on iOS.</p>
 
 
@@ -106,7 +106,8 @@ Check to see if the Haptic Plugin is available
 
 </h3>
 
-Trigger a selection changed haptic event. Good for one-time events (not for gestures)
+Trigger a selection changed haptic event. Good for one-time events
+(not for gestures)
 
 
 

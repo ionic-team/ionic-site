@@ -35,7 +35,7 @@ FabButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L6">
 Improve this doc
 </a>
 
@@ -140,7 +140,7 @@ Makes a fab button with a reduced size.
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
 </td>
     </tr>
     

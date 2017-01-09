@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toggle/toggle.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toggle/toggle.ts#L20">
 Improve this doc
 </a>
 
@@ -108,7 +108,7 @@ for more info on forms and inputs.</p>
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
 </td>
     </tr>
     

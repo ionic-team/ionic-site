@@ -1074,7 +1074,7 @@ The higher the value the more information is shown.
   <tr>
     <td>
       app_id
-      
+      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>

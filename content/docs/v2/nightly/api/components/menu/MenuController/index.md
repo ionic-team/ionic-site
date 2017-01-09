@@ -147,7 +147,7 @@ id will be disabled.</p>
 
 </h3>
 
-Progamatically open the Menu.
+Programatically open the Menu.
 
 
 <table class="table param-table" style="margin:0;">
@@ -204,7 +204,7 @@ Progamatically open the Menu.
 
 </h3>
 
-Progamatically close the Menu. If no `menuId` is given as the first
+Programatically close the Menu. If no `menuId` is given as the first
 argument then it'll close any menu which is open. If a `menuId`
 is given then it'll close that exact menu.
 

@@ -15,7 +15,7 @@ Testing your app in the browser with `ionic serve` or with an emulator is fast, 
 
 ## Android Devices
 
-Deploying to an Android device is a fairly straightforward process. If you have a working Android development environment, you're ready to go. 
+Deploying to an Android device is a fairly straightforward process. If you have a working Android development environment, you're ready to go.
 
 ### Requirements
 
@@ -26,9 +26,23 @@ Deploying to an Android device is a fairly straightforward process. If you have 
 
 To run your app, all you have to do is enable USB debugging and Developer Mode on your Android device, then run `ionic run android --device` from the command line.
 
-Enabling USB debugging and Developer Mode can vary between devices, but is easy to look up with a Google search. You can also check out [Enabling On-device Developer Options](https://developer.android.com/studio/run/device.html#developer-device-options) in the Android docs. 
+This will produce a debug build of your app, both in terms of Android and Ionic's code
 
-## iOS Devices 
+Enabling USB debugging and Developer Mode can vary between devices, but is easy to look up with a Google search. You can also check out [Enabling On-device Developer Options](https://developer.android.com/studio/run/device.html#developer-device-options) in the Android docs.
+
+### Production Builds
+
+To run or build your app for prodction, run
+
+```bash
+ionic run android --prod --release
+# or
+ionic build android --prod --release
+```
+
+This will minify your app's code as Ionic's source and also remove any debugging capabilities from the APK. This is generally used when deploying an app to the Google Play store.
+
+## iOS Devices
 
 Unlike Android, iOS developers need to generate a provisioning profile to code sign their apps for testing. The good news is that, as of iOS9, you can develop and test your apps on your iOS device without a paid Apple Developer account. This is particularly great for developers who want to try out mobile development with Ionic, since it saves the cost but still provides a lot of the features of having a full Apple Developer account. For a full breakdown of the features included, check out [Apple's docs](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/SupportedCapabilities/SupportedCapabilities.html#//apple_ref/doc/uid/TP40012582-CH38-SW1).
 
@@ -58,10 +72,10 @@ Creating a provisioning profile with a paid Apple Developer account is a little 
 
 ### Running Your App
 
-1. Run a production build of your app with `ionic build ios`
+1. Run a production build of your app with `ionic build ios --prod`
 2. Open the `.xcodeproj` file in `platforms/ios/` in Xcode
 3. Connect your phone via USB and select it as the run target
-4. Click the play button in Xcode to try to run your app 
+4. Click the play button in Xcode to try to run your app
 
 Oops, code signing error! No problem.
 
@@ -75,7 +89,7 @@ If you are running Xcode 7 or earlier, you'll get a code signing error that look
 
 <img src="/img/docs/deploying/sign-fail-1.jpg">
 
-Click the 'Fix Issue' button, then select your 'Personal Team' profile. 
+Click the 'Fix Issue' button, then select your 'Personal Team' profile.
 
 <img src="/img/docs/deploying/team-menu-1.jpg">
 
@@ -101,8 +115,8 @@ Once you've code signed your app, you should get a launch error that looks like 
 
 To get past this, we have to tell our iOS device to trust the certificate we code signed our app with:
 
-1. Open the 'Settings' app on your iOS device 
-2. Go to 'General > Device Management'. You'll see the email address associated with the Apple ID or Apple Developer account you used to code sign your app. 
+1. Open the 'Settings' app on your iOS device
+2. Go to 'General > Device Management'. You'll see the email address associated with the Apple ID or Apple Developer account you used to code sign your app.
 3. Tap the email address
 4. Tap 'Trust &lt;your_email&gt;':
 

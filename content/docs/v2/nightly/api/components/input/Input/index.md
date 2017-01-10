@@ -94,6 +94,10 @@ interactivity.</p>
   &lt;ion-item&gt;
     &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-textarea placeholder=&quot;Enter a description&quot;&gt;&lt;/ion-textarea&gt;
+  &lt;/ion-item&gt;
 &lt;/ion-list&gt;
 </code></pre>
 
@@ -105,28 +109,6 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="setItemInputControlCss"></div>
-
-<h3>
-<a class="anchor" name="setItemInputControlCss" href="#setItemInputControlCss"></a>
-<code>setItemInputControlCss()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

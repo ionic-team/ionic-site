@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/facebook.ts#L22">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"</code></pre>
@@ -84,6 +85,8 @@ docType: "class"
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

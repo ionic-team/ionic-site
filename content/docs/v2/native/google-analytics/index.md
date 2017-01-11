@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googleanalytics.ts#L2">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-google-analytics</code></pre>
@@ -64,6 +65,8 @@ Prerequisites:</p>
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

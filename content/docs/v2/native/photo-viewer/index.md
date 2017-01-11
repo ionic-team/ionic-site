@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/photo-viewer.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add com-sarriaroman-photoviewer</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>This plugin can display your image in full screen with the ability to pan, zoom, and share the image.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L22">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker</code></pre>
@@ -51,6 +52,8 @@ docType: "class"
 For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

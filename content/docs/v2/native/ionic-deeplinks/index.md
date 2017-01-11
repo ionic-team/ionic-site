@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deeplinks.ts#L22">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/</code></pre>
@@ -59,6 +60,8 @@ and Universal App Links.</p>
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

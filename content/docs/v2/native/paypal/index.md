@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pay-pal.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add com.paypal.cordova.mobilesdk</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>PayPal plugin for Cordova/Ionic Applications</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

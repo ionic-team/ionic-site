@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dialogs.ts#L15">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-dialogs</code></pre>
@@ -50,6 +51,8 @@ docType: "class"
 <p>Requires Cordova plugin: <code>cordova-plugin-dialogs</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-dialogs">Dialogs plugin docs</a>.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

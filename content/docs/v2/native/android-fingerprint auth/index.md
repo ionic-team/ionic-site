@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/android-fingerprint-auth.ts#L63">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-android-fingerprint-auth</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

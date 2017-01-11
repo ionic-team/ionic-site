@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imageresizer.ts#L36">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git</code></pre>
@@ -52,6 +53,8 @@ docType: "class"
 <p>For more info, please see the <a href="https://github.com/protonet/cordova-plugin-image-resizer">https://github.com/protonet/cordova-plugin-image-resizer</a></p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

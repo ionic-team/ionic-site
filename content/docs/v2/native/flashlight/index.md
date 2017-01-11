@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/flashlight.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-flashlight</code></pre>
@@ -50,6 +51,8 @@ docType: "class"
 <p>Requires Cordova plugin: <code>cordova-plugin-flashlight</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin">Flashlight plugin docs</a>.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceaccounts.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add https://github.com/loicknuchel/cordova-device-accounts.git</code></pre>
@@ -57,6 +58,8 @@ docType: "class"
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

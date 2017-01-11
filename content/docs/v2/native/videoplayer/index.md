@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-player.ts#L16">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add https://github.com/moust/cordova-plugin-videoplayer</code></pre>
@@ -59,6 +60,8 @@ docType: "class"
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

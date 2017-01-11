@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L34">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-background-mode</code></pre>
@@ -59,6 +60,8 @@ Requires Cordova plugin: cordova-plugin-background-mode. For more info about plu
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

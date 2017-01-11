@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L109">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-geolocation</code></pre>
@@ -50,6 +51,8 @@ docType: "class"
 <p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

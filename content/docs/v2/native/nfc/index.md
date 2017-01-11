@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/nfc.ts#L2">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add phonegap-nfc</code></pre>
@@ -57,6 +58,8 @@ docType: "class"
 <p>This plugin uses NDEF (NFC Data Exchange Format) for maximum compatibilty between NFC devices, tag types, and operating systems.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

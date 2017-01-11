@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sqlite.ts#L3">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-sqlite-storage</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Access SQLite databases on the device.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

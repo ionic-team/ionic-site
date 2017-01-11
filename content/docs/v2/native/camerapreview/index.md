@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  <span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera-preview.ts#L21">
   Improve this doc
@@ -35,6 +33,15 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
+
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit and issues to the <a target="_blank"
+  href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview/issues">plugin repo</a>.
+</p>
 
 
 <pre><code>$ ionic plugin add cordova-plugin-camera-preview</code></pre>
@@ -59,6 +66,8 @@ docType: "class"
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L338">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-file</code></pre>
@@ -61,6 +62,8 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
  It also implements the FileWriter spec : <a href="http://dev.w3.org/2009/dap/file-system/file-writer.html">http://dev.w3.org/2009/dap/file-system/file-writer.html</a></p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

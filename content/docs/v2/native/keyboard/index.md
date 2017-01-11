@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/keyboard.ts#L1">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add ionic-plugin-keyboard</code></pre>
@@ -48,6 +49,8 @@ docType: "class"
 
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

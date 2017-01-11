@@ -9320,8 +9320,8 @@ var ItemGroup = (function () {
  * @demo /docs/v2/demos/src/nav-params/
  * @see {@link /docs/v2/components#navigation Navigation Component Docs}
  * @see {@link ../NavController/ NavController API Docs}
- * @see {@link ../Nav/ Nav API Docs}
- * @see {@link ../NavPush/ NavPush API Docs}
+ * @see {@link /docs/v2/api/components/nav/Nav/ Nav API Docs}
+ * @see {@link /docs/v2/api/components/nav/NavPush/ NavPush API Docs}
  */
 var NavParams = (function () {
     /**
@@ -41759,7 +41759,7 @@ var Slides = (function (_super) {
      */
     Slides.prototype.getSlider = function () {
         // deprecated 2016-12-29
-        console.warn("ion-slides, getSlide() has been removed. Please use the properties and methods on the instance of ion-slide instead.");
+        console.warn("ion-slides, getSlider() has been removed. Please use the properties and methods on the instance of ion-slides instead.");
     };
     Slides.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Component */], args: [{
@@ -60694,6 +60694,10 @@ var __extends = (this && this.__extends) || function (d, b) {
  *   <ion-item>
  *     <ion-input placeholder="Clear Input" clearInput></ion-input>
  *   </ion-item>
+ *
+ *   <ion-item>
+ *     <ion-textarea placeholder="Enter a description"></ion-textarea>
+ *   </ion-item>
  * </ion-list>
  * ```
  *
@@ -61143,6 +61147,9 @@ var TextInput = (function (_super) {
         }
         this._coord = null;
     };
+    /**
+     * @private
+     */
     TextInput.prototype.setItemInputControlCss = function () {
         var item = this._item;
         var nativeInput = this._native;

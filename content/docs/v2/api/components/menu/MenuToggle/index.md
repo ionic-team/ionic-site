@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p>The <code>menuToggle</code> directive can be placed on any button to toggle a menu open or closed.
-If it is added to the <a href="../../nav/NavBar">NavBar</a> of a page, the button will only appear
+If it is added to the <a href="../../navbar/NavBar">NavBar</a> of a page, the button will only appear
 when the page it&#39;s in is currently a root page. See the <a href="../Menu#navigation-bar-behavior">Menu Navigation Bar Behavior</a>
 docs for more information.</p>
 

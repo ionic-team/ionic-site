@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ Ion
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/ion.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/ion.ts#L2">
 Improve this doc
 </a>
 

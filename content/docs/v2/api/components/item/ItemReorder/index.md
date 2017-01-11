@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ ItemReorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L16">
 Improve this doc
 </a>
 

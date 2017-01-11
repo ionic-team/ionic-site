@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="input" href="#input"></a>
 
 Input
-<h3><code>ion-input</code></h3>
+<h3><code>ion-input,ion-textarea</code></h3>
 
 
 
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L15">
 Improve this doc
 </a>
 
@@ -93,6 +93,10 @@ interactivity.</p>
 
   &lt;ion-item&gt;
     &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-textarea placeholder=&quot;Enter a description&quot;&gt;&lt;/ion-textarea&gt;
   &lt;/ion-item&gt;
 &lt;/ion-list&gt;
 </code></pre>

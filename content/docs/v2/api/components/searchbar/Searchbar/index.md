@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/searchbar/searchbar.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -133,7 +133,7 @@ Improve this doc
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
 </td>
     </tr>
     

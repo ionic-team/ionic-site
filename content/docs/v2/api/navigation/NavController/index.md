@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0-rc.5"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -292,14 +292,12 @@ class HelloWorld {
 </tr>
 <tr>
 <td><code>ionViewCanEnter</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean/Promise&lt;void&gt;</td>
 <td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
 </tr>
 <tr>
 <td><code>ionViewCanLeave</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean/Promise&lt;void&gt;</td>
 <td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
 </tr>
 </tbody>
@@ -1306,10 +1304,10 @@ navigation params to the individual pages in the array.
       </td>
       <td>
         
-  <code>array&lt;Page&gt;</code>
+  <code>array</code>
       </td>
       <td>
-        <p>An arry of page components and their params to load in the stack.</p>
+        <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property to load in the stack.</p>
 
         
       </td>

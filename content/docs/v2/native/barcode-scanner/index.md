@@ -28,7 +28,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L39">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L49">
   Improve this doc
 </a>
 
@@ -325,6 +325,34 @@ NOTE: not well supported on Android
     </td>
     <td>
       <p>Orientation. Supported on Android only. Can be set to <code>portrait</code> or <code>landscape</code>. Defaults to none so the user can rotate the phone and pick an orientation.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      torchOn
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Launch with the torch switched on (if available). Supported on Android only.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      resultDisplayDuration
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Display scanned text for X ms. 0 suppresses it entirely, default 1500. Supported on Android only.</p>
 
     </td>
   </tr>

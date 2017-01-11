@@ -803,15 +803,13 @@ first slide. Default: <code>false</code>.</p>
     <tr>
       <td>pager</td>
       <td><code>boolean</code></td>
-      <td><p>  String with type of pagination. Can be
-<code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default does not have
-pagination set.</p>
+      <td><p>  Whether or not to show the pager. Default: <code>false</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>paginationType</td>
-      <td><code>boolean</code></td>
+      <td><code>string</code></td>
       <td><p>  String with type of pagination. Can be
 <code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default: <code>bullets</code>.
 (Note that the pager will not show unless <code>pager</code> input

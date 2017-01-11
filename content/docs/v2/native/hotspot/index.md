@@ -39,7 +39,7 @@ docType: "class"
 
 <p class="beta-notice">
   This plugin is still in beta stage and may not work as expected. Please
-  submit and issues to the <a target="_blank"
+  submit any issues to the <a target="_blank"
   href="https://github.com/hypery2k/cordova-hotspot-plugin/issues">plugin repo</a>.
 </p>
 

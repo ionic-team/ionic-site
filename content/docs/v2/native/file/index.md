@@ -71,7 +71,7 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 <h2>Static Members</h2>
 
 <div id="cordovaFileError"></div>
-<h3><code>cordovaFileError()</code>
+<h3><code>cordovaFileError</code>
   
 </h3>
 

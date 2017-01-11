@@ -83,7 +83,7 @@ Diagnostic.getBluetoothState()
 <h2>Static Members</h2>
 
 <div id="permission"></div>
-<h3><code>permission()</code>
+<h3><code>permission</code>
   
 </h3>
 
@@ -98,7 +98,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="permissionStatus"></div>
-<h3><code>permissionStatus()</code>
+<h3><code>permissionStatus</code>
   
 </h3>
 
@@ -114,7 +114,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="locationAuthorizationMode"></div>
-<h3><code>locationAuthorizationMode()</code>
+<h3><code>locationAuthorizationMode</code>
   
 </h3>
 
@@ -129,7 +129,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="permissionGroups"></div>
-<h3><code>permissionGroups()</code>
+<h3><code>permissionGroups</code>
   
 </h3>
 
@@ -144,7 +144,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="locationMode"></div>
-<h3><code>locationMode()</code>
+<h3><code>locationMode</code>
   
 </h3>
 
@@ -159,7 +159,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="bluetoothState"></div>
-<h3><code>bluetoothState()</code>
+<h3><code>bluetoothState</code>
   
 </h3>
 

@@ -91,7 +91,7 @@ OneSignal.endInit();
 <h2>Static Members</h2>
 
 <div id="OSInFocusDisplayOption"></div>
-<h3><code>OSInFocusDisplayOption()</code>
+<h3><code>OSInFocusDisplayOption</code>
   
 </h3>
 

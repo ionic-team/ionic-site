@@ -345,7 +345,7 @@ Show the StatusBar
 
 
 <div id="isVisible"></div>
-<h3><code>isVisible()</code>
+<h3><code>isVisible</code>
   
 </h3>
 

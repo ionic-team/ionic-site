@@ -173,7 +173,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_NO_POWER"></div>
-<h3><code>REQUEST_PRIORITY_NO_POWER()</code>
+<h3><code>REQUEST_PRIORITY_NO_POWER</code>
   
 </h3>
 
@@ -188,7 +188,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_LOW_POWER"></div>
-<h3><code>REQUEST_PRIORITY_LOW_POWER()</code>
+<h3><code>REQUEST_PRIORITY_LOW_POWER</code>
   
 </h3>
 
@@ -203,7 +203,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_BALANCED_POWER_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY()</code>
+<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY</code>
   
 </h3>
 
@@ -218,7 +218,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_HIGH_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY()</code>
+<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY</code>
   
 </h3>
 
@@ -233,7 +233,7 @@ Requests accurate location
 
 
 <div id="SUCCESS_SETTINGS_SATISFIED"></div>
-<h3><code>SUCCESS_SETTINGS_SATISFIED()</code>
+<h3><code>SUCCESS_SETTINGS_SATISFIED</code>
   
 </h3>
 
@@ -248,7 +248,7 @@ Requests accurate location
 
 
 <div id="SUCCESS_USER_AGREED"></div>
-<h3><code>SUCCESS_USER_AGREED()</code>
+<h3><code>SUCCESS_USER_AGREED</code>
   
 </h3>
 
@@ -263,7 +263,7 @@ Requests accurate location
 
 
 <div id="ERROR_ALREADY_REQUESTING"></div>
-<h3><code>ERROR_ALREADY_REQUESTING()</code>
+<h3><code>ERROR_ALREADY_REQUESTING</code>
   
 </h3>
 
@@ -278,7 +278,7 @@ Requests accurate location
 
 
 <div id="ERROR_INVALID_ACTION"></div>
-<h3><code>ERROR_INVALID_ACTION()</code>
+<h3><code>ERROR_INVALID_ACTION</code>
   
 </h3>
 
@@ -293,7 +293,7 @@ Requests accurate location
 
 
 <div id="ERROR_INVALID_ACCURACY"></div>
-<h3><code>ERROR_INVALID_ACCURACY()</code>
+<h3><code>ERROR_INVALID_ACCURACY</code>
   
 </h3>
 
@@ -308,7 +308,7 @@ Requests accurate location
 
 
 <div id="ERROR_EXCEPTION"></div>
-<h3><code>ERROR_EXCEPTION()</code>
+<h3><code>ERROR_EXCEPTION</code>
   
 </h3>
 
@@ -323,7 +323,7 @@ Requests accurate location
 
 
 <div id="ERROR_CANNOT_CHANGE_ACCURACY"></div>
-<h3><code>ERROR_CANNOT_CHANGE_ACCURACY()</code>
+<h3><code>ERROR_CANNOT_CHANGE_ACCURACY</code>
   
 </h3>
 
@@ -338,7 +338,7 @@ Requests accurate location
 
 
 <div id="ERROR_USER_DISAGREED"></div>
-<h3><code>ERROR_USER_DISAGREED()</code>
+<h3><code>ERROR_USER_DISAGREED</code>
   
 </h3>
 
@@ -353,7 +353,7 @@ Requests accurate location
 
 
 <div id="ERROR_GOOGLE_API_CONNECTION_FAILED"></div>
-<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED()</code>
+<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED</code>
   
 </h3>
 

@@ -140,7 +140,7 @@ platform directories.</p>
 <h2>Static Members</h2>
 
 <div id="TransitionType"></div>
-<h3><code>TransitionType()</code>
+<h3><code>TransitionType</code>
   
 </h3>
 
@@ -155,7 +155,7 @@ platform directories.</p>
 
 
 <div id="onTrasitionReceived"></div>
-<h3><code>onTrasitionReceived()</code>
+<h3><code>onTrasitionReceived</code>
   
 </h3>
 

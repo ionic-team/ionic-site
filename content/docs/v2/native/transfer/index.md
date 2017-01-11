@@ -118,7 +118,7 @@ ls
 <h2>Static Members</h2>
 
 <div id="FileTransferErrorCode"></div>
-<h3><code>FileTransferErrorCode()</code>
+<h3><code>FileTransferErrorCode</code>
   
 </h3>
 

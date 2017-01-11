@@ -100,7 +100,7 @@ connectSubscription.unsubscribe();
 <h2>Static Members</h2>
 
 <div id="type"></div>
-<h3><code>type()</code>
+<h3><code>type</code>
   
 </h3>
 
@@ -121,7 +121,7 @@ Connection type
 
 
 <div id="downlinkMax"></div>
-<h3><code>downlinkMax()</code>
+<h3><code>downlinkMax</code>
   
 </h3>
 

@@ -794,7 +794,7 @@ Indicates if an app on a given platform supports specification of start location
 
 
 <div id="APP"></div>
-<h3><code>APP()</code>
+<h3><code>APP</code>
   
 </h3>
 
@@ -809,7 +809,7 @@ Indicates if an app on a given platform supports specification of start location
 
 
 <div id="TRANSPORT_MODE"></div>
-<h3><code>TRANSPORT_MODE()</code>
+<h3><code>TRANSPORT_MODE</code>
   
 </h3>
 

@@ -68,7 +68,7 @@ docType: "class"
 <h2>Static Members</h2>
 
 <div id="ProximityUnknown"></div>
-<h3><code>ProximityUnknown()</code>
+<h3><code>ProximityUnknown</code>
   
 </h3>
 
@@ -84,7 +84,7 @@ Proximity value
 
 
 <div id="ProximityImmediate"></div>
-<h3><code>ProximityImmediate()</code>
+<h3><code>ProximityImmediate</code>
   
 </h3>
 
@@ -100,7 +100,7 @@ Proximity value
 
 
 <div id="ProximityNear"></div>
-<h3><code>ProximityNear()</code>
+<h3><code>ProximityNear</code>
   
 </h3>
 
@@ -116,7 +116,7 @@ Proximity value
 
 
 <div id="ProximityFar"></div>
-<h3><code>ProximityFar()</code>
+<h3><code>ProximityFar</code>
   
 </h3>
 
@@ -132,7 +132,7 @@ Proximity value
 
 
 <div id="BeaconColorUnknown"></div>
-<h3><code>BeaconColorUnknown()</code>
+<h3><code>BeaconColorUnknown</code>
   
 </h3>
 
@@ -148,7 +148,7 @@ Beacon colour
 
 
 <div id="BeaconColorMintCocktail"></div>
-<h3><code>BeaconColorMintCocktail()</code>
+<h3><code>BeaconColorMintCocktail</code>
   
 </h3>
 
@@ -164,7 +164,7 @@ Beacon colour
 
 
 <div id="BeaconColorIcyMarshmallow"></div>
-<h3><code>BeaconColorIcyMarshmallow()</code>
+<h3><code>BeaconColorIcyMarshmallow</code>
   
 </h3>
 
@@ -180,7 +180,7 @@ Beacon colour
 
 
 <div id="BeaconColorBlueberryPie"></div>
-<h3><code>BeaconColorBlueberryPie()</code>
+<h3><code>BeaconColorBlueberryPie</code>
   
 </h3>
 
@@ -196,7 +196,7 @@ Beacon colour
 
 
 <div id="BeaconColorSweetBeetroot"></div>
-<h3><code>BeaconColorSweetBeetroot()</code>
+<h3><code>BeaconColorSweetBeetroot</code>
   
 </h3>
 
@@ -212,7 +212,7 @@ Beacon colour.
 
 
 <div id="BeaconColorCandyFloss"></div>
-<h3><code>BeaconColorCandyFloss()</code>
+<h3><code>BeaconColorCandyFloss</code>
   
 </h3>
 
@@ -228,7 +228,7 @@ Beacon colour
 
 
 <div id="BeaconColorLemonTart"></div>
-<h3><code>BeaconColorLemonTart()</code>
+<h3><code>BeaconColorLemonTart</code>
   
 </h3>
 
@@ -244,7 +244,7 @@ Beacon colour
 
 
 <div id="BeaconColorVanillaJello"></div>
-<h3><code>BeaconColorVanillaJello()</code>
+<h3><code>BeaconColorVanillaJello</code>
   
 </h3>
 
@@ -260,7 +260,7 @@ Beacon colour
 
 
 <div id="BeaconColorLiquoriceSwirl"></div>
-<h3><code>BeaconColorLiquoriceSwirl()</code>
+<h3><code>BeaconColorLiquoriceSwirl</code>
   
 </h3>
 
@@ -276,7 +276,7 @@ Beacon colour
 
 
 <div id="BeaconColorWhite"></div>
-<h3><code>BeaconColorWhite()</code>
+<h3><code>BeaconColorWhite</code>
   
 </h3>
 
@@ -292,7 +292,7 @@ Beacon colour
 
 
 <div id="BeaconColorTransparent"></div>
-<h3><code>BeaconColorTransparent()</code>
+<h3><code>BeaconColorTransparent</code>
   
 </h3>
 
@@ -308,7 +308,7 @@ Beacon colour
 
 
 <div id="RegionStateUnknown"></div>
-<h3><code>RegionStateUnknown()</code>
+<h3><code>RegionStateUnknown</code>
   
 </h3>
 
@@ -324,7 +324,7 @@ Region state
 
 
 <div id="RegionStateOutside"></div>
-<h3><code>RegionStateOutside()</code>
+<h3><code>RegionStateOutside</code>
   
 </h3>
 
@@ -340,7 +340,7 @@ Region state
 
 
 <div id="RegionStateInside"></div>
-<h3><code>RegionStateInside()</code>
+<h3><code>RegionStateInside</code>
   
 </h3>
 

@@ -73,7 +73,7 @@ MediaCapture.captureImage(options)
 <h2>Static Members</h2>
 
 <div id="supportedImageModes"></div>
-<h3><code>supportedImageModes()</code>
+<h3><code>supportedImageModes</code>
   
 </h3>
 
@@ -94,7 +94,7 @@ The recording image sizes and formats supported by the device.
 
 
 <div id="supportedAudioModes"></div>
-<h3><code>supportedAudioModes()</code>
+<h3><code>supportedAudioModes</code>
   
 </h3>
 
@@ -115,7 +115,7 @@ The audio recording formats supported by the device.
 
 
 <div id="supportedVideoModes"></div>
-<h3><code>supportedVideoModes()</code>
+<h3><code>supportedVideoModes</code>
   
 </h3>
 

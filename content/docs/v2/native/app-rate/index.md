@@ -83,7 +83,7 @@ AppRate.promptForRating(false);
 <h2>Static Members</h2>
 
 <div id="preferences"></div>
-<h3><code>preferences()</code>
+<h3><code>preferences</code>
   
 </h3>
 

@@ -77,7 +77,7 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 <h2>Static Members</h2>
 
 <div id="ACTION_VIEW"></div>
-<h3><code>ACTION_VIEW()</code>
+<h3><code>ACTION_VIEW</code>
   
 </h3>
 
@@ -93,7 +93,7 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 <div id="EXTRA_TEXT"></div>
-<h3><code>EXTRA_TEXT()</code>
+<h3><code>EXTRA_TEXT</code>
   
 </h3>
 

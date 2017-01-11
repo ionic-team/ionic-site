@@ -109,7 +109,7 @@ BackgroundGeolocation.stop();
 <h2>Static Members</h2>
 
 <div id="LocationProvider"></div>
-<h3><code>LocationProvider()</code>
+<h3><code>LocationProvider</code>
   
 </h3>
 
@@ -128,7 +128,7 @@ Possible values:
 
 
 <div id="Accuracy"></div>
-<h3><code>Accuracy()</code>
+<h3><code>Accuracy</code>
   
 </h3>
 
@@ -154,7 +154,7 @@ enum {number}
 
 
 <div id="Mode"></div>
-<h3><code>Mode()</code>
+<h3><code>Mode</code>
   
 </h3>
 

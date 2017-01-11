@@ -439,7 +439,7 @@ Mixpanel.init(token)
 
 
 <div id="people"></div>
-<h3><code>people()</code>
+<h3><code>people</code>
   
 </h3>
 

@@ -83,7 +83,7 @@ VideoEditor.transcodeVideo({
 <h2>Static Members</h2>
 
 <div id="OptimizeForNetworkUse"></div>
-<h3><code>OptimizeForNetworkUse()</code>
+<h3><code>OptimizeForNetworkUse</code>
   
 </h3>
 
@@ -98,7 +98,7 @@ VideoEditor.transcodeVideo({
 
 
 <div id="OutputFileType"></div>
-<h3><code>OutputFileType()</code>
+<h3><code>OutputFileType</code>
   
 </h3>
 

@@ -151,7 +151,7 @@ Unlock and allow all orientations.
 
 
 <div id="orientation"></div>
-<h3><code>orientation()</code>
+<h3><code>orientation</code>
   
 </h3>
 

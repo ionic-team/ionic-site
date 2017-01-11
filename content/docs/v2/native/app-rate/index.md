@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.14"
+version: "2.2.15"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -286,7 +286,7 @@ Prompts the user for rating
   
   <tr>
     <td>
-      storeAppUrl
+      storeAppURL
       <div><em>(optional)</em></div>
     </td>
     <td>

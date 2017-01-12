@@ -124,6 +124,46 @@ index and prints it:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="controlBy"></div>
+
+<h3>
+<a class="anchor" name="controlBy" href="#controlBy"></a>
+<code>controlBy</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="controlInverse"></div>
+
+<h3>
+<a class="anchor" name="controlInverse" href="#controlInverse"></a>
+<code>controlInverse</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="slideTo"></div>
 
 <h3>
@@ -625,6 +665,15 @@ Enable or disable keyboard control.
       <td><p>  Delay between transitions (in milliseconds). If this
 parameter is not passed, autoplay is disabled. Default does
 not have a value and does not autoplay.
+Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>control</td>
+      <td><code>Slides</code></td>
+      <td><p>  Pass another Slides instance or array of Slides instances
+that should be controlled by this Slides instance.
 Default: <code>null</code>.</p>
 </td>
     </tr>

@@ -7,7 +7,7 @@ footer_includes: |
   <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
   <script>
    anchors.options.placement = 'left';
-    anchors.add('.v2.docs.page-faq main h2, .v2.docs.page-faq main h3');
+    anchors.add('.v2.docs.page-troublshooting main h2, .v2.docs.page-troublshooting main h3');
   </script>
 ---
 
@@ -27,7 +27,7 @@ From here, we can import it into what ever class we want to use it in.
 
 ```ts
 import {Page} from 'ionic-angular';
-import * as moment from 'moment';
+import moment from 'moment';
 
 export class MyClass {
   constructor(){
@@ -127,6 +127,7 @@ However, you may need to add a `(click)` event to an element that is not normall
 ```
 
 ## Common mistakes
+
 ### Forgetting Parentheses on a Decorator
 
 Decorators should have parentheses `()` after an annotation. Some examples include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
@@ -205,7 +206,9 @@ Plunker: [http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd](http://plnkr.co/edit/QzgR5H
 
 ## Common Pitfalls
 
-### Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.
+### Cannot resolve parameters.
+
+> Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.
 
 This exception means that Angular is confused about one or more of the parameters for `YourClass`'s constructor. In order to do [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) Angular needs to know the type of the parameter to inject. You let Angular know this by specifying the class of the parameter. Make sure:
 
@@ -340,7 +343,9 @@ class MyDir {
 }
 ```
 
-### Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property
+### Can't bind to 'propertyName'
+
+>Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property
 
 This happens when you try and bind a property on an element that doesn't have that property. If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
 
@@ -349,7 +354,9 @@ This happens when you try and bind a property on an element that doesn't have th
 <div [foo]="bar"></div>
 ```
 
-### No provider for ControlContainer! (NgControlName -> ControlContainer)
+### No provider for ControlContainer
+
+> No provider for ControlContainer! (NgControlName -> ControlContainer)
 
 This error is a more specific version of the `No provider` error above.  It happens when you use a form control like NgControlName without specifying a parent [NgForm](https://angular.io/docs/ts/latest/api/forms/index/NgForm-directive.html) or NgFormModel.  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
 

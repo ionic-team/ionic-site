@@ -296,8 +296,58 @@
     </ul>
   </li>
 
+
   {% comment %} ### Troubleshooting ### {% endcomment %}
-  <li class="{% if page.category == 'faq' %}top-level active{% endif %}">
+  <li id="troubleshooting-index" class="{% if page.category == 'troubleshooting' %}active{% endif %}">
     <a href="/docs/v2/troubleshooting/">Troubleshooting</a>
+    <ul ng-show="showTroubleShooing"
+        ng-cloak
+        {% if page.category == 'troubleshooting' %}
+          ng-init="showTroubleShooing = true"
+          {% endif %}>
+          <li>
+            <a href="#adding-third-party-libs">Adding third party libs</a>
+          </li>
+
+          <li>
+            <a href="#blank-app">Blank App</a>
+          </li>
+
+          <li>
+            <a href="#directive-not-working">Directive Not Working</a>
+          </li>
+
+          <li>
+            <a href="#click-delays">Click Delays</a>
+          </li>
+
+          <li>
+            <a href="#forgetting-parentheses-on-a-decorator">Decorator Parentheses</a>
+          </li>
+
+          <li>
+            <a href="#forgetting-parentheses-on-a-decorator">Cordova plugins in browser</a>
+          </li>
+
+          <li>
+            <a href="#multiple-instances-of-a-provider">Multiple provider instances </a>
+          </li>
+
+          <li>
+            <a href="cannot-resolve-parameters">Resolve Parameters</a>
+          </li>
+
+          <li>
+            <a href="#no-provider-for-paramtype-myclass---paramtype">No Provider</a>
+          </li>
+
+          <li>
+            <a href="#cant-bind-to-propertyname">Can't bind to Property</a>
+          </li>
+
+          <li>
+            <a href="#no-provider-for-controlcontainer">No provider for ControlContainer</a>
+          </li>
+    </ul>
   </li>
 </ul>

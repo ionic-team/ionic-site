@@ -124,146 +124,6 @@ index and prints it:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="resistance"></div>
-
-<h3>
-<a class="anchor" name="resistance" href="#resistance"></a>
-<code>resistance</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="resistanceRatio"></div>
-
-<h3>
-<a class="anchor" name="resistanceRatio" href="#resistanceRatio"></a>
-<code>resistanceRatio</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="watchSlidesProgress"></div>
-
-<h3>
-<a class="anchor" name="watchSlidesProgress" href="#watchSlidesProgress"></a>
-<code>watchSlidesProgress</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="watchSlidesVisibility"></div>
-
-<h3>
-<a class="anchor" name="watchSlidesVisibility" href="#watchSlidesVisibility"></a>
-<code>watchSlidesVisibility</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="runCallbacksOnInit"></div>
-
-<h3>
-<a class="anchor" name="runCallbacksOnInit" href="#runCallbacksOnInit"></a>
-<code>runCallbacksOnInit</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="nextButton"></div>
-
-<h3>
-<a class="anchor" name="nextButton" href="#nextButton"></a>
-<code>nextButton</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="prevButton"></div>
-
-<h3>
-<a class="anchor" name="prevButton" href="#prevButton"></a>
-<code>prevButton</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="slideTo"></div>
 
 <h3>
@@ -841,6 +701,18 @@ Default: <code>false</code>.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>spaceBetween</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>slidesPerView</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -939,7 +811,22 @@ Default: <code>false</code>.</p>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>There are several options available to create customized slides. Ionic exposes
+the most commonly used options as <a href="http://learnangular2.com/inputs/">inputs</a>.
+In order to use an option that isn&#39;t exposed as an input the following code
+should be used, where <code>freeMode</code> is the option to change:</p>
+<pre><code class="lang-ts">class MyPage {
+  @ViewChild(Slides) slides: Slides;
+
+  ngAfterViewInit() {
+    this.slides.freeMode = true;
+  }
+}
+</code></pre>
+<p>To see all of the available options, take a look at the
+<a href="https://github.com/driftyco/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
+
 
 
 

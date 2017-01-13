@@ -109,6 +109,28 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngControl"></div>
+
+<h3>
+<a class="anchor" name="ngControl" href="#ngControl"></a>
+<code>ngControl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

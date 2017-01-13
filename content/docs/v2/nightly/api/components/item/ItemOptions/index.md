@@ -87,7 +87,7 @@ You can combine the <code>(ionSwipe)</code> event plus the <code>expandable</cod
     <tr>
       <td>side</td>
       <td><code>string</code></td>
-      <td><p> the side the option button should be on. Defaults to right
+      <td><p> the side the option button should be on. Defaults to right.
 If you have multiple <code>ion-item-options</code>, a side must be provided for each.</p>
 </td>
     </tr>

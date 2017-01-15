@@ -752,14 +752,16 @@ Default: <code>false</code>.</p>
     
     <tr>
       <td>spaceBetween</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>number</code></td>
+      <td><p>  Distance between slides in px. Default: <code>0</code>.</p>
+</td>
     </tr>
     
     <tr>
       <td>slidesPerView</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>number</code></td>
+      <td><p>  Slides per view. Slides visible at the same time. Default: <code>1</code>.</p>
+</td>
     </tr>
     
   </tbody>

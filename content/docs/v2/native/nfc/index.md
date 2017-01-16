@@ -740,7 +740,7 @@ Convert string to bytes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>string</code> 
+<code>number[]</code> 
 </div>
 
 

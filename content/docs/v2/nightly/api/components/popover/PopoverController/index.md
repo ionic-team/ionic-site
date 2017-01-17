@@ -87,7 +87,9 @@ which creates and presents the popover:</p>
   &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;
 </code></pre>
-<pre><code class="lang-ts">@Component({})
+<pre><code class="lang-ts">import { PopoverController } from &#39;ionic-angular&#39;;
+
+@Component({})
 class MyPage {
   constructor(public popoverCtrl: PopoverController) {}
 

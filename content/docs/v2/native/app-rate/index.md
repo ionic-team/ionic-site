@@ -411,7 +411,7 @@ Prompts the user for rating
   
   <tr>
     <td>
-      onRateDialogShowed
+      onRateDialogShow
       <div><em>(optional)</em></div>
     </td>
     <td>

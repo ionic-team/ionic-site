@@ -93,7 +93,7 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
   
 </h3>
 
-Get free disk space
+Get free disk space in Bytes
 
 
 
@@ -103,7 +103,7 @@ Get free disk space
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space
+<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space in Bytes
 </div>
 
 

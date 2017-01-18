@@ -273,7 +273,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $scope.additionalPreviewUrls.push({
         id: key,
         url: window.additionalPreviewUrls[key].url,
-        offset: $('[name="' + key + '"]').offset().top
+        offset: $('#' + key).offset().top
       });
     });
 

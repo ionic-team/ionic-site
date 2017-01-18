@@ -5,6 +5,9 @@ layout: v2_fluid/default
 <div class="docs-container"
      {% if page.angular_controller %}
        ng-controller="{{ page.angular_controller }}"
+     {% endif %}
+     {% if page.additional_preview_device_urls %}
+       ng-init="initAdditionalPreviewUrls()"
      {% endif %}>
   <nav class="side-nav" id="side-nav">
     <form class="form-group search" role="search">

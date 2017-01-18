@@ -76,8 +76,9 @@ ngAfterViewInit() {
 
 loadMap() {
  // make sure to create following structure in your view.html file
+ // and add a height (for example 100%) to it, else the map won&#39;t be visible
  // &lt;ion-content&gt;
- //  &lt;div #map id=&quot;map&quot;&gt;&lt;/div&gt;
+ //  &lt;div #map id=&quot;map&quot; style=&quot;height:100%;&quot;&gt;&lt;/div&gt;
  // &lt;/ion-content&gt;
 
  // create a new map by passing HTMLElement

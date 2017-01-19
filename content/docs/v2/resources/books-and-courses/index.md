@@ -22,6 +22,9 @@ header_sub_title: Ionic 2 Developer Preview
   <ul>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
   </ul>
+    <ul>
+    <li><a href="https://devdactic.com/zero-to-app/">Ionic 2 From Zero to App Store by Simon Reimler</a></li>
+  </ul>
 </section>
 
 <section id="books-soon">

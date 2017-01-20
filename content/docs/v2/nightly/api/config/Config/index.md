@@ -152,6 +152,11 @@ chart displays each property with a description of what it controls.</p>
 <td>The mode to use for all icons throughout the application. Available options: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code></td>
 </tr>
 <tr>
+<td><code>locationStrategy</code></td>
+<td><code>string</code></td>
+<td>Set to &#39;path&#39; to remove hashbangs when using Deeplinking.</td>
+</tr>
+<tr>
 <td><code>loadingEnter</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while a loading indicator is presented.</td>

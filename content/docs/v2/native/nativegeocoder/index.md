@@ -66,14 +66,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { NativeGeocoder } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from &#39;ionic-native&#39;;
 
 NativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-  .then((result: ReverseResult) =&gt; console.log(&quot;The address is &quot; + result.address + &quot; in &quot; + result.countryCode))
+  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&quot;The address is &quot; + result.address + &quot; in &quot; + result.countryCode))
   .catch((error: any) =&gt; console.log(error));
 
 NativeGeocoder.forwardGeocode(&quot;Berlin&quot;)
-  .then((coordinates: ForwardResult) =&gt; console.log(&quot;The coordinates are latitude=&quot; + coordinates.latitude + &quot; and longitude=&quot; + coordinates.longitude))
+  .then((coordinates: NativeGeocoderForwardResult) =&gt; console.log(&quot;The coordinates are latitude=&quot; + coordinates.latitude + &quot; and longitude=&quot; + coordinates.longitude))
   .catch((error: any) =&gt; console.log(error));
 </code></pre>
 
@@ -89,6 +89,8 @@ NativeGeocoder.forwardGeocode(&quot;Berlin&quot;)
 <h3><code>reverseGeocode(latitude,&nbsp;longitude)</code>
   
 </h3>
+
+
 
 
 Reverse geocode a given latitude and longitude to find location address
@@ -159,6 +161,8 @@ Reverse geocode a given latitude and longitude to find location address
 </h3>
 
 
+
+
 Forward geocode a given address to find coordinates
 
 
@@ -214,6 +218,160 @@ Forward geocode a given address to find coordinates
 <!-- end other classes -->
 
 <!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+
+<h2><a class="anchor" name="NativeGeocoderReverseResult" href="#NativeGeocoderReverseResult"></a>NativeGeocoderReverseResult</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      street
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The street.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      houseNumber
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The house number.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      postalCode
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The postal code.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      city
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The city.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      countryName
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The country name.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      countryCode
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The country code.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="NativeGeocoderForwardResult" href="#NativeGeocoderForwardResult"></a>NativeGeocoderForwardResult</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      latitude
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The latitude.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      longitude
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>The longitude.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 <!-- end interfaces -->
 

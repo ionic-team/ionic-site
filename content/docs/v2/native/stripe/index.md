@@ -24,7 +24,7 @@ docType: "class"
 
   
 
-  </h1>
+  <span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/stripe.ts#L51">
   Improve this doc
@@ -36,6 +36,12 @@ docType: "class"
 
 
 
+
+<p class="beta-notice">
+  This plugin is still in beta stage and may not work as expected. Please
+  submit any issues to the <a target="_blank"
+  href="https://github.com/zyramedia/cordova-plugin-stripe/issues">plugin repo</a>.
+</p>
 
 
 <pre><code>$ ionic plugin add cordova-plugin-stripe</code></pre>

@@ -311,6 +311,87 @@
       }
     }
 
+    .view-cta {
+      background: url('/img/getting-started/view-feature.jpg') no-repeat center center;
+      background-size: cover;
+
+      .content {
+        width: 50%;
+        text-align: left;
+        padding-top: 100px;
+        padding-bottom: 120px;
+      }
+
+      h4 {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .3em;
+        color: #60646e;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: white;
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #caccdc;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 30px;
+
+        a {
+          color: white;
+
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+
+      .play-store,
+      .app-store {
+        background: url('/img/getting-started/view-appstore-icons.png') no-repeat 0 0;
+        background-size: 44px;
+        height: 44px;
+        width: 44px;
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: -120%;
+        position: relative;
+
+        &::after {
+          background: url('/img/getting-started/view-appstore-icons.png') no-repeat 0 -44px;
+          background-size: 44px;
+          height: 44px;
+          width: 44px;
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: .2s opacity;
+        }
+
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      .app-store {
+        background-position: 0 -88px;
+
+        &::after {
+          background-position: 0 -132px;
+        }
+      }
+    }
+
     .what-next {
       padding-top: 94px;
       border-top: 1px solid #f0f3f7;

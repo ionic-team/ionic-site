@@ -15,19 +15,25 @@ Ionic apps are made of high-level building blocks called components. Components 
 
 {% include v2_fluid/component-docs/action-sheets.html %}
 {% include v2_fluid/component-docs/alert.html %}
+{% include v2_fluid/component-docs/avatar.html %}
 {% include v2_fluid/component-docs/badges.html %}
 {% include v2_fluid/component-docs/buttons.html %}
 {% include v2_fluid/component-docs/cards.html %}
 {% include v2_fluid/component-docs/checkbox.html %}
+{% include v2_fluid/component-docs/content.html %}
 {% include v2_fluid/component-docs/datetime.html %}
 {% include v2_fluid/component-docs/fabs.html %}
+{% include v2_fluid/component-docs/footer.html %}
 {% include v2_fluid/component-docs/grid.html %}
+{% include v2_fluid/component-docs/header.html %}
 {% include v2_fluid/component-docs/icons.html %}
+{% include v2_fluid/component-docs/infinite-scroll.html %}
 {% include v2_fluid/component-docs/inputs.html %}
 {% include v2_fluid/component-docs/lists.html %}
 {% include v2_fluid/component-docs/loading.html %}
 {% include v2_fluid/component-docs/menus.html %}
 {% include v2_fluid/component-docs/modals.html %}
+{% include v2_fluid/component-docs/note.html %}
 {% include v2_fluid/component-docs/popover.html %}
 {% include v2_fluid/component-docs/radio.html %}
 {% include v2_fluid/component-docs/range.html %}
@@ -39,3 +45,4 @@ Ionic apps are made of high-level building blocks called components. Components 
 {% include v2_fluid/component-docs/toast.html %}
 {% include v2_fluid/component-docs/toggle.html %}
 {% include v2_fluid/component-docs/toolbar.html %}
+{% include v2_fluid/component-docs/virtual-scroll.html %}

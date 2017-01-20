@@ -12,7 +12,7 @@ additionalPreviewUrls = {
     {% for link in link_hash %}
       "{{ link[0] }}":{% raw %}{{% endraw %}
         "url":"{{ link[1] }}"
-      {% raw %}}{% endraw %}{% if forloop.last == false %},{% endif %}
+      {% raw %}}{% endraw %}{% if forloop.last == true %},{% endif %}
     {% endfor %}
   {% endfor %}
 }

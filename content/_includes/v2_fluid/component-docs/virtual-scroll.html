@@ -1,0 +1,21 @@
+<h2 id="virtualscroll" class="section-header">Virtual Scroll</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/virtual-scroll.html">
+  Improve this Doc
+</a>
+
+The Virtual Scroll component is one solution Ionic offers for peformantly rendering large amounts of data, and is particularly useful for very long lists. Virtual Scroll is used in place of `*ngFor` for iterating over records in an array, and works by rendering only enough records to fill the viewport. Virtual Scroll then reuses the DOM elements for those records as the user scrolls. This prevents very large arrays from rendering a large number of elements to the DOM, which can result in performance issues.
+
+_For complete usage information, check out the [Virtual Scroll API docs](../api/components/virtual-scroll/VirtualScroll)._
+
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/virtual-scroll">
+  Demo Source
+</a>
+
+```html
+<ion-list [virtualScroll]="items">
+  <ion-item *virtualItem="let item">
+    {{ item }}
+  </ion-item>
+</ion-list>
+```

@@ -1,0 +1,36 @@
+<h2 id="infinitescroll" class="section-header">Infinite Scroll</h2>
+
+The Infinite Scroll component is one solution Ionic offers for peformantly rendering large amounts of data, and is particularly useful for very long lists. Infinite Scroll calls a specified function when the user scrolls a set distance from the bottom of the page. This allows you to do things like fetch additional data from an API, then add it to a list to be rendered.
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/infinite-scroll.html">
+  Improve this Doc
+</a>
+
+
+_For complete usage information, check out the [Infinite Scroll API docs](../api/components/infinite-scroll/InfiniteScroll)._
+
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/infinite-scroll">
+  Demo Source
+</a>
+
+#### template.html
+```html
+<ion-list>
+ <ion-item *ngFor="let i of items">{{i}}</ion-item>
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+ <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+```
+
+#### infinite-scroll.ts
+```typescript
+doInfinite(infiniteScroll) {
+  for (let i = 0; i < 30; i++) {
+    this.items.push( this.items.length );
+  }
+
+  infiniteScroll.complete();  
+}
+```

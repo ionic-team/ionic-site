@@ -151,6 +151,122 @@ Checks if a map object has been created and is available.
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
+<div id="addEventListener"></div>
+<h3>
+  <code>addEventListener()</code>
+  
+
+</h3>
+Adds an event listener.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="addListenerOnce"></div>
+<h3>
+  <code>addListenerOnce()</code>
+  
+
+</h3>
+Adds an event listener that works once.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="get"></div>
+<h3>
+  <code>get(key)</code>
+  
+
+</h3>
+Gets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="set"></div>
+<h3>
+  <code>set(key,&nbsp;value)</code>
+  
+
+</h3>
+Sets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 <div id="on"></div>
 <h3>
   <code>on()</code>
@@ -179,7 +295,18 @@ Listen to a map event only once.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div><div id="setDebuggable"></div>
+</div><div id="empty"></div>
+<h3>
+  <code>empty()</code>
+  
+
+</h3>
+Clears all stored values
+
+
+
+
+<div id="setDebuggable"></div>
 <h3>
   <code>setDebuggable()</code>
   

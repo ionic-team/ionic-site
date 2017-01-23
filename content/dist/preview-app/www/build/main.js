@@ -82859,6 +82859,7 @@ var MyApp = (function () {
         this.config = config;
         this.zone = zone;
         this.isProductionMode = false;
+        this.isLab = false;
         this.currentPlatform = 'ios';
         this.currentPageIndex = 1;
         this.pages = [
@@ -82869,10 +82870,14 @@ var MyApp = (function () {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_action_sheets_basic_pages__["a" /* BasicPage */];
     }
     MyApp.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        // if viewing the preview app in lab, hide the statusbars
+        this.isLab = window.parent.location.pathname === '/ionic-lab';
+        if (this.isLab)
+            this.config.set('statusbarPadding', false);
         // production-only code
         // production is false unless viewed on the docs
         // http://ionicframework.com/docs/v2/components/
-        var _this = this;
         if (this.platform.getQueryParam('production') === 'true') {
             this.isProductionMode = true;
             // Platform is ios by default
@@ -82951,7 +82956,7 @@ var MyApp = (function () {
         __metadata('design:type', __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Menu */])
     ], MyApp.prototype, "menu", void 0);
     MyApp = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Component */])({template:/*ion-inline-start:"/home/ubuntu/ionic-preview-app/src/app/app.template.html"*/'<img src="assets/img/android-statusbar.png" style="display:none" id="md-only">\n<img src="assets/img/ios-statusbar.png" style="display:none" id="ios-only">\n<img src="assets/img/wp-statusbar.png" style="display:none" id="wp-only">\n\n<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="primary">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <!-- Display the side menu pages if it is production -->\n    <ion-list *ngIf="isProductionMode">\n      <button ion-item *ngFor="let p of pages" menuClose (click)="openPage(p)">\n        {{p.title}}\n      </button>\n\n      <button ion-item menuClose detail-none>\n        Close Menu\n      </button>\n    </ion-list>\n\n    <!-- Display all of the sections if this isn\'t production -->\n    <ion-list *ngIf="!isProductionMode">\n      <button ion-item *ngFor="let route of routes" menuClose (click)="openPage(route)">\n        {{ route.path | displayRoute }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content></ion-nav>\n\n<div *ngIf="!isProductionMode">\n  <ion-fab left middle>\n    <button ion-fab color="light" (click)="previousSection()">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab right middle>\n    <button ion-fab color="light" (click)="nextSection()">\n      <ion-icon name="arrow-forward"></ion-icon>\n    </button>\n  </ion-fab>\n</div>'/*ion-inline-end:"/home/ubuntu/ionic-preview-app/src/app/app.template.html"*/
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Component */])({template:/*ion-inline-start:"/home/ubuntu/ionic-preview-app/src/app/app.template.html"*/'<img src="assets/img/android-statusbar.png" *ngIf="!isLab" class="statusbar-img statusbar-img-md">\n<img src="assets/img/ios-statusbar.png" *ngIf="!isLab" class="statusbar-img statusbar-img-ios">\n<img src="assets/img/wp-statusbar.png" *ngIf="!isLab" class="statusbar-img statusbar-img-wp">\n\n<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar color="primary">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <!-- Display the side menu pages if it is production -->\n    <ion-list *ngIf="isProductionMode">\n      <button ion-item *ngFor="let p of pages" menuClose (click)="openPage(p)">\n        {{p.title}}\n      </button>\n\n      <button ion-item menuClose detail-none>\n        Close Menu\n      </button>\n    </ion-list>\n\n    <!-- Display all of the sections if this isn\'t production -->\n    <ion-list *ngIf="!isProductionMode">\n      <button ion-item *ngFor="let route of routes" menuClose (click)="openPage(route)">\n        {{ route.path | displayRoute }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content></ion-nav>\n\n<div *ngIf="!isProductionMode">\n  <ion-fab left middle>\n    <button ion-fab color="light" (click)="previousSection()">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab right middle>\n    <button ion-fab color="light" (click)="nextSection()">\n      <ion-icon name="arrow-forward"></ion-icon>\n    </button>\n  </ion-fab>\n</div>'/*ion-inline-end:"/home/ubuntu/ionic-preview-app/src/app/app.template.html"*/
         }), 
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* Config */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgZone */]])
     ], MyApp);

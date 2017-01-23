@@ -4789,7 +4789,11 @@ scroll-content {
   overflow-y: scroll;
 }
 
-.ios img#ios-only {
+.statusbar-img {
+  display: none;
+}
+
+.ios .statusbar-img-ios {
   display: block !important;
   position: absolute;
   background-color: transparent;
@@ -4805,7 +4809,7 @@ scroll-content {
   color: #7e60ff;
 }
 
-.md img#md-only {
+.md .statusbar-img-md {
   display: block !important;
   position: absolute;
   background-color: transparent;
@@ -4832,7 +4836,7 @@ scroll-content {
   background-color: #fff;
 }
 
-.wp img#wp-only {
+.wp .statusbar-img-wp {
   display: block !important;
   position: absolute;
   background-color: transparent;

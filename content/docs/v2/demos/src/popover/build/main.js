@@ -40031,6 +40031,7 @@ var TextInput = (function (_super) {
         this._dom = _dom;
         this._clearInput = false;
         this._disabled = false;
+        this._readonly = false;
         this._type = 'text';
         this._value = '';
         /**
@@ -40073,7 +40074,7 @@ var TextInput = (function (_super) {
     }
     Object.defineProperty(TextInput.prototype, "clearInput", {
         /**
-         * @input {bool} A clear icon will appear in the input when there is a value. Clicking it clears the input.
+         * @input {boolean} A clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         get: function () {
             return this._clearInput;
@@ -40121,7 +40122,7 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "disabled", {
         /**
-         * @input {bool} If the input should be disabled or not
+         * @input {boolean} If the input should be disabled or not
          */
         get: function () {
             return this.ngControl ? this.ngControl.disabled : this._disabled;
@@ -40139,6 +40140,19 @@ var TextInput = (function (_super) {
         this._item && this._item.setElementClass('item-input-disabled', val);
         this._native && this._native.isDisabled(val);
     };
+    Object.defineProperty(TextInput.prototype, "readonly", {
+        /**
+         * @input {boolean} If the input should be readonly or not
+         */
+        get: function () {
+            return this._readonly;
+        },
+        set: function (val) {
+            this._readonly = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["a" /* isTrueProperty */])(val);
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(TextInput.prototype, "mode", {
         /**
          * @input {string} The mode to apply to this component.
@@ -40214,6 +40228,7 @@ var TextInput = (function (_super) {
         }
         nativeInput.valueChange.subscribe(function (inputValue) {
             _this.onChange(inputValue);
+            _this.checkHasValue(inputValue);
         });
         nativeInput.keydown.subscribe(function (inputValue) {
             _this.onKeydown(inputValue);
@@ -40561,8 +40576,8 @@ var TextInput = (function (_super) {
     TextInput.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Component */], args: [{
                     selector: 'ion-input,ion-textarea',
-                    template: '<input [(ngModel)]="_value" [type]="type" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type!==\'textarea\'"  #input>' +
-                        '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type===\'textarea\'" #textarea></textarea>' +
+                    template: '<input [(ngModel)]="_value" [type]="type" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type!==\'textarea\'"  #input>' +
+                        '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type===\'textarea\'" #textarea></textarea>' +
                         '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
                         '<button ion-button clear [hidden]="!clearInput" type="button" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
                         '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
@@ -40589,6 +40604,7 @@ var TextInput = (function (_super) {
         'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
         'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
         'disabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
+        'readonly': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
         'mode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
         'clearOnEdit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Input */] },],
         '_nativeInput': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* ViewChild */], args: ['input', { read: __WEBPACK_IMPORTED_MODULE_11__native_input__["a" /* NativeInput */] },] },],

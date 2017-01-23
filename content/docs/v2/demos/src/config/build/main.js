@@ -19883,7 +19883,9 @@ var AlertCmp = (function () {
             }
         }
         if (shouldDismiss) {
-            this.dismiss(button.role);
+            this.dismiss(button.role).catch(function () {
+                (void 0) /* console.debug */;
+            });
         }
     };
     AlertCmp.prototype.rbClick = function (checkedInput) {
@@ -23614,9 +23616,12 @@ var PanGesture = (function () {
         return true;
     };
     PanGesture.prototype.pointerMove = function (ev) {
+        var _this = this;
         (void 0) /* assert */;
         if (this.captured) {
-            this.onDragMove(ev);
+            this.debouncer.write(function () {
+                _this.onDragMove(ev);
+            });
             return;
         }
         (void 0) /* assert */;
@@ -41697,7 +41702,6 @@ var ItemSliding = (function () {
      * @private
      */
     ItemSliding.prototype.moveSliding = function (x) {
-        var _this = this;
         if (this._optsDirty) {
             this.calculateOptsWidth();
             return;
@@ -41724,11 +41728,7 @@ var ItemSliding = (function () {
             var optsWidth = -this._optsWidthLeftSide;
             openAmount = optsWidth + (openAmount - optsWidth) * ELASTIC_FACTOR;
         }
-        // this.debouncer.write(() => {
-        // });
-        this._dom.write(function () {
-            _this._setOpenAmount(openAmount, false);
-        });
+        this._setOpenAmount(openAmount, false);
         return openAmount;
     };
     /**
@@ -41766,28 +41766,28 @@ var ItemSliding = (function () {
      * @private
      */
     ItemSliding.prototype.calculateOptsWidth = function () {
-        var _this = this;
-        this._plt.raf(function () {
-            if (!_this._optsDirty) {
-                return;
-            }
-            _this._optsWidthRightSide = 0;
-            if (_this._rightOptions) {
-                _this._optsWidthRightSide = _this._rightOptions.width();
-                (void 0) /* assert */;
-            }
-            _this._optsWidthLeftSide = 0;
-            if (_this._leftOptions) {
-                _this._optsWidthLeftSide = _this._leftOptions.width();
-                (void 0) /* assert */;
-            }
-            _this._optsDirty = false;
-        });
+        if (!this._optsDirty) {
+            return;
+        }
+        this._optsWidthRightSide = 0;
+        if (this._rightOptions) {
+            this._optsWidthRightSide = this._rightOptions.width();
+            (void 0) /* assert */;
+        }
+        this._optsWidthLeftSide = 0;
+        if (this._leftOptions) {
+            this._optsWidthLeftSide = this._leftOptions.width();
+            (void 0) /* assert */;
+        }
+        this._optsDirty = false;
     };
     ItemSliding.prototype._setOpenAmount = function (openAmount, isFinal) {
         var _this = this;
         var platform = this._plt;
-        platform.cancelTimeout(this._tmr);
+        if (this._tmr) {
+            platform.cancelTimeout(this._tmr);
+            this._tmr = null;
+        }
         this._openAmount = openAmount;
         if (isFinal) {
             this.item.setElementStyle(platform.Css.transition, '');
@@ -42795,7 +42795,9 @@ var NavPop = (function () {
     NavPop.prototype.onClick = function () {
         // If no target, or if target is _self, prevent default browser behavior
         if (this._nav) {
-            this._nav.pop(null, null);
+            this._nav.pop().catch(function () {
+                (void 0) /* console.debug */;
+            });
             return false;
         }
         return true;
@@ -42919,7 +42921,9 @@ var NavPush = (function () {
      */
     NavPush.prototype.onClick = function () {
         if (this._nav && this.navPush) {
-            this._nav.push(this.navPush, this.navParams, null);
+            this._nav.push(this.navPush, this.navParams).catch(function () {
+                (void 0) /* console.debug */;
+            });
             return false;
         }
         return true;

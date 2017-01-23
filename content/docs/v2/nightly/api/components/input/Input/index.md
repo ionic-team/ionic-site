@@ -152,7 +152,7 @@ interactivity.</p>
     
     <tr>
       <td>clearInput</td>
-      <td><code>boolean</code></td>
+      <td><code>bool</code></td>
       <td><p> A clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
 </td>
     </tr>
@@ -173,15 +173,8 @@ interactivity.</p>
     
     <tr>
       <td>disabled</td>
-      <td><code>boolean</code></td>
+      <td><code>bool</code></td>
       <td><p> If the input should be disabled or not</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>readonly</td>
-      <td><code>boolean</code></td>
-      <td><p> If the input should be readonly or not</p>
 </td>
     </tr>
     

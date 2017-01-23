@@ -20471,7 +20471,6 @@ var TextInput = (function (_super) {
         this._dom = _dom;
         this._clearInput = false;
         this._disabled = false;
-        this._readonly = false;
         this._type = 'text';
         this._value = '';
         /**
@@ -20514,7 +20513,7 @@ var TextInput = (function (_super) {
     }
     Object.defineProperty(TextInput.prototype, "clearInput", {
         /**
-         * @input {boolean} A clear icon will appear in the input when there is a value. Clicking it clears the input.
+         * @input {bool} A clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         get: function () {
             return this._clearInput;
@@ -20562,7 +20561,7 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "disabled", {
         /**
-         * @input {boolean} If the input should be disabled or not
+         * @input {bool} If the input should be disabled or not
          */
         get: function () {
             return this.ngControl ? this.ngControl.disabled : this._disabled;
@@ -20580,19 +20579,6 @@ var TextInput = (function (_super) {
         this._item && this._item.setElementClass('item-input-disabled', val);
         this._native && this._native.isDisabled(val);
     };
-    Object.defineProperty(TextInput.prototype, "readonly", {
-        /**
-         * @input {boolean} If the input should be readonly or not
-         */
-        get: function () {
-            return this._readonly;
-        },
-        set: function (val) {
-            this._readonly = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["a" /* isTrueProperty */])(val);
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(TextInput.prototype, "mode", {
         /**
          * @input {string} The mode to apply to this component.
@@ -21016,8 +21002,8 @@ var TextInput = (function (_super) {
     TextInput.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */], args: [{
                     selector: 'ion-input,ion-textarea',
-                    template: '<input [(ngModel)]="_value" [type]="type" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type!==\'textarea\'"  #input>' +
-                        '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" [readonly]="readonly" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type===\'textarea\'" #textarea></textarea>' +
+                    template: '<input [(ngModel)]="_value" [type]="type" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type!==\'textarea\'"  #input>' +
+                        '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" [disabled]="disabled" class="text-input" [ngClass]="\'text-input-\' + _mode" *ngIf="_type===\'textarea\'" #textarea></textarea>' +
                         '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
                         '<button ion-button clear [hidden]="!clearInput" type="button" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
                         '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
@@ -21044,7 +21030,6 @@ var TextInput = (function (_super) {
         'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
         'type': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
         'disabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
-        'readonly': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
         'mode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
         'clearOnEdit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* Input */] },],
         '_nativeInput': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ViewChild */], args: ['input', { read: __WEBPACK_IMPORTED_MODULE_11__native_input__["a" /* NativeInput */] },] },],
@@ -70350,7 +70335,6 @@ var Wrapper_TextInput = (function () {
         this._expr_4 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
         this._expr_5 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
         this._expr_6 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
-        this._expr_7 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
     }
     Wrapper_TextInput.prototype.ngOnDetach = function (view, componentView, el) {
     };
@@ -70394,25 +70378,18 @@ var Wrapper_TextInput = (function () {
             this._expr_4 = currValue;
         }
     };
-    Wrapper_TextInput.prototype.check_readonly = function (currValue, throwOnChange, forceUpdate) {
+    Wrapper_TextInput.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
         if ((forceUpdate || __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_5, currValue))) {
             this._changed = true;
-            this.context.readonly = currValue;
+            this.context.mode = currValue;
             this._expr_5 = currValue;
         }
     };
-    Wrapper_TextInput.prototype.check_mode = function (currValue, throwOnChange, forceUpdate) {
+    Wrapper_TextInput.prototype.check_clearOnEdit = function (currValue, throwOnChange, forceUpdate) {
         if ((forceUpdate || __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_6, currValue))) {
             this._changed = true;
-            this.context.mode = currValue;
-            this._expr_6 = currValue;
-        }
-    };
-    Wrapper_TextInput.prototype.check_clearOnEdit = function (currValue, throwOnChange, forceUpdate) {
-        if ((forceUpdate || __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_7, currValue))) {
-            this._changed = true;
             this.context.clearOnEdit = currValue;
-            this._expr_7 = currValue;
+            this._expr_6 = currValue;
         }
     };
     Wrapper_TextInput.prototype.ngDoCheck = function (view, el, throwOnChange) {
@@ -70652,7 +70629,6 @@ var View_TextInput1 = (function (_super) {
         _super.call(this, View_TextInput1, renderType_TextInput, __WEBPACK_IMPORTED_MODULE_5__angular_core_src_linker_view_type__["a" /* ViewType */].EMBEDDED, viewUtils, parentView, parentIndex, parentElement, __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["a" /* ChangeDetectorStatus */].CheckAlways, declaredViewContainer);
         this._expr_8 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
         this._expr_9 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
-        this._expr_10 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
     }
     View_TextInput1.prototype.createInternal = function (rootSelector) {
         this._el_0 = __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["createRenderElement"](this.renderer, null, 'input', new __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["InlineArray2"](2, 'class', 'text-input'), null);
@@ -70717,11 +70693,6 @@ var View_TextInput1 = (function (_super) {
             this.renderer.setElementProperty(this._el_0, 'placeholder', currVal_9);
             this._expr_9 = currVal_9;
         }
-        var currVal_10 = this.parentView.context.readonly;
-        if (__WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_10, currVal_10)) {
-            this.renderer.setElementProperty(this._el_0, 'readOnly', currVal_10);
-            this._expr_10 = currVal_10;
-        }
         this._NgControlStatus_0_8.checkHost(this, this, this._el_0, throwOnChange);
     };
     View_TextInput1.prototype.dirtyParentQueriesInternal = function () {
@@ -70760,7 +70731,6 @@ var View_TextInput2 = (function (_super) {
     function View_TextInput2(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
         _super.call(this, View_TextInput2, renderType_TextInput, __WEBPACK_IMPORTED_MODULE_5__angular_core_src_linker_view_type__["a" /* ViewType */].EMBEDDED, viewUtils, parentView, parentIndex, parentElement, __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["a" /* ChangeDetectorStatus */].CheckAlways, declaredViewContainer);
         this._expr_8 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
-        this._expr_9 = __WEBPACK_IMPORTED_MODULE_1__angular_core_src_change_detection_change_detection__["d" /* UNINITIALIZED */];
     }
     View_TextInput2.prototype.createInternal = function (rootSelector) {
         this._el_0 = __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["createRenderElement"](this.renderer, null, 'textarea', new __WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["InlineArray2"](2, 'class', 'text-input'), null);
@@ -70819,11 +70789,6 @@ var View_TextInput2 = (function (_super) {
         if (__WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementProperty(this._el_0, 'placeholder', currVal_8);
             this._expr_8 = currVal_8;
-        }
-        var currVal_9 = this.parentView.context.readonly;
-        if (__WEBPACK_IMPORTED_MODULE_3__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_9, currVal_9)) {
-            this.renderer.setElementProperty(this._el_0, 'readOnly', currVal_9);
-            this._expr_9 = currVal_9;
         }
         this._NgControlStatus_0_8.checkHost(this, this, this._el_0, throwOnChange);
     };

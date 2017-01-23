@@ -136,7 +136,7 @@ content:</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
     &lt;ion-list&gt;
-      &lt;button ion-button menuClose ion-item detail-none&gt;Close Menu&lt;/button&gt;
+      &lt;ion-item menuClose detail-none&gt;Close Menu&lt;/ion-item&gt;
     &lt;/ion-list&gt;
   &lt;/ion-content&gt;
 &lt;/ion-menu&gt;

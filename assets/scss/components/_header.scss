@@ -426,3 +426,11 @@
     }
   }
 }
+
+// fix for the header component API docs page. it conflicts w/ a bootstrap
+// component
+body.page-header {
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 0;
+}

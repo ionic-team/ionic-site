@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -150,6 +150,11 @@ chart displays each property with a description of what it controls.</p>
 <td><code>iconMode</code></td>
 <td><code>string</code></td>
 <td>The mode to use for all icons throughout the application. Available options: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code></td>
+</tr>
+<tr>
+<td><code>locationStrategy</code></td>
+<td><code>string</code></td>
+<td>Set to &#39;path&#39; to remove hashbangs when using Deeplinking.</td>
 </tr>
 <tr>
 <td><code>loadingEnter</code></td>

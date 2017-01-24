@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -244,7 +244,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
     <tr>
       <td>tabsHideOnSubPages</td>
       <td><code>boolean</code></td>
-      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
+      <td><p> Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</p>
 </td>
     </tr>
     

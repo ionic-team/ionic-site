@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -55,6 +55,168 @@ Improve this doc
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="viewDidLoad"></div>
+
+<h3>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<code>viewDidLoad</code>
+  
+
+</h3>
+
+Observable that emits whenever a view loads in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillEnter"></div>
+
+<h3>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<code>viewWillEnter</code>
+  
+
+</h3>
+
+Observable that emits before any view is entered in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewDidEnter"></div>
+
+<h3>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<code>viewDidEnter</code>
+  
+
+</h3>
+
+Observable that emits after any view is entered in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillLeave"></div>
+
+<h3>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<code>viewWillLeave</code>
+  
+
+</h3>
+
+Observable that emits before any view is exited in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewDidLeave"></div>
+
+<h3>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<code>viewDidLeave</code>
+  
+
+</h3>
+
+Observable that emits after any view is exited in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillUnload"></div>
+
+<h3>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<code>viewWillUnload</code>
+  
+
+</h3>
+
+Observable that emits before any view unloads in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
 
 <div id="setTitle"></div>
 

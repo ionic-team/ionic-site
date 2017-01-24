@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -124,11 +124,11 @@ index and prints it:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="resistance"></div>
+<div id="controlBy"></div>
 
 <h3>
-<a class="anchor" name="resistance" href="#resistance"></a>
-<code>resistance</code>
+<a class="anchor" name="controlBy" href="#controlBy"></a>
+<code>controlBy</code>
   
 
 </h3>
@@ -144,111 +144,11 @@ index and prints it:</p>
 
 
 
-<div id="resistanceRatio"></div>
+<div id="controlInverse"></div>
 
 <h3>
-<a class="anchor" name="resistanceRatio" href="#resistanceRatio"></a>
-<code>resistanceRatio</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="watchSlidesProgress"></div>
-
-<h3>
-<a class="anchor" name="watchSlidesProgress" href="#watchSlidesProgress"></a>
-<code>watchSlidesProgress</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="watchSlidesVisibility"></div>
-
-<h3>
-<a class="anchor" name="watchSlidesVisibility" href="#watchSlidesVisibility"></a>
-<code>watchSlidesVisibility</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="runCallbacksOnInit"></div>
-
-<h3>
-<a class="anchor" name="runCallbacksOnInit" href="#runCallbacksOnInit"></a>
-<code>runCallbacksOnInit</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="nextButton"></div>
-
-<h3>
-<a class="anchor" name="nextButton" href="#nextButton"></a>
-<code>nextButton</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="prevButton"></div>
-
-<h3>
-<a class="anchor" name="prevButton" href="#prevButton"></a>
-<code>prevButton</code>
+<a class="anchor" name="controlInverse" href="#controlInverse"></a>
+<code>controlInverse</code>
   
 
 </h3>
@@ -770,6 +670,15 @@ Default: <code>null</code>.</p>
     </tr>
     
     <tr>
+      <td>control</td>
+      <td><code>Slides</code></td>
+      <td><p>  Pass another Slides instance or array of Slides instances
+that should be controlled by this Slides instance.
+Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>effect</td>
       <td><code>string</code></td>
       <td><p> Could be <code>slide</code>, <code>fade</code>, <code>cube</code>, <code>coverflow</code> or <code>flip</code>.
@@ -803,15 +712,13 @@ first slide. Default: <code>false</code>.</p>
     <tr>
       <td>pager</td>
       <td><code>boolean</code></td>
-      <td><p>  String with type of pagination. Can be
-<code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default does not have
-pagination set.</p>
+      <td><p>  Whether or not to show the pager. Default: <code>false</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>paginationType</td>
-      <td><code>boolean</code></td>
+      <td><code>string</code></td>
       <td><p>  String with type of pagination. Can be
 <code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default: <code>bullets</code>.
 (Note that the pager will not show unless <code>pager</code> input
@@ -840,6 +747,20 @@ slider. Default: <code>false</code>.</p>
       <td><code>boolean</code></td>
       <td><p>  Set to <code>true</code> to enable zooming functionality.
 Default: <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>spaceBetween</td>
+      <td><code>number</code></td>
+      <td><p>  Distance between slides in px. Default: <code>0</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>slidesPerView</td>
+      <td><code>number</code></td>
+      <td><p>  Slides per view. Slides visible at the same time. Default: <code>1</code>.</p>
 </td>
     </tr>
     
@@ -941,7 +862,22 @@ Default: <code>false</code>.</p>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>There are several options available to create customized slides. Ionic exposes
+the most commonly used options as <a href="http://learnangular2.com/inputs/">inputs</a>.
+In order to use an option that isn&#39;t exposed as an input the following code
+should be used, where <code>freeMode</code> is the option to change:</p>
+<pre><code class="lang-ts">class MyPage {
+  @ViewChild(Slides) slides: Slides;
+
+  ngAfterViewInit() {
+    this.slides.freeMode = true;
+  }
+}
+</code></pre>
+<p>To see all of the available options, take a look at the
+<a href="https://github.com/driftyco/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
+
 
 
 

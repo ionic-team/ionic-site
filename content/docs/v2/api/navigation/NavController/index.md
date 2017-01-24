@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -41,7 +41,7 @@ Improve this doc
 
 
 <p>NavController is the base class for navigation controller components like
-<a href="../Nav/"><code>Nav</code></a> and <a href="../../tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
+<a href="../../components/nav/Nav/"><code>Nav</code></a> and <a href="../../components/tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
 to navigate to <a href="#view-creation">pages</a> in your app. At a basic level, a
 navigation controller is an array of pages representing a particular history
 (of a Tab for example). This array can be manipulated to navigate throughout

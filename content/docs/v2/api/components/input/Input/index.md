@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -109,6 +109,28 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngControl"></div>
+
+<h3>
+<a class="anchor" name="ngControl" href="#ngControl"></a>
+<code>ngControl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -130,7 +152,7 @@ interactivity.</p>
     
     <tr>
       <td>clearInput</td>
-      <td><code>bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> A clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
 </td>
     </tr>
@@ -151,8 +173,15 @@ interactivity.</p>
     
     <tr>
       <td>disabled</td>
-      <td><code>bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> If the input should be disabled or not</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>readonly</td>
+      <td><code>boolean</code></td>
+      <td><p> If the input should be readonly or not</p>
 </td>
     </tr>
     

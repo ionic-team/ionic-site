@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.5"
+version: "2.0.0-rc.6"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,6 +50,30 @@ will be displayed differently based on the mode, however the display type can be
 to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
 to the app&#39;s content element. There can be any number of menus attached to the content.
 These can be controlled from the templates, or programmatically using the <a href="../MenuController">MenuController</a>.</p>
+
+
+
+
+<!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
+  &lt;ion-content&gt;
+    &lt;ion-list&gt;
+      &lt;p&gt;some menu content, could be list items&lt;/p&gt;
+    &lt;/ion-list&gt;
+  &lt;/ion-content&gt;
+&lt;/ion-menu&gt;
+
+&lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
+</code></pre>
+<p>To add a menu to an app, the <code>&lt;ion-menu&gt;</code> element should be added as a sibling to the <code>ion-nav</code> it will belongs
+to. A <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">local variable</a>
+should be added to the <code>ion-nav</code> and passed to the <code>ion-menu</code>s <code>content</code> property.</p>
+<p>This tells the menu what it is bound to and what element to watch for gestures.
+In the below example, <code>content</code> is using <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding">property binding</a>
+because <code>mycontent</code> is a reference to the <code>&lt;ion-nav&gt;</code> element, and not a string.</p>
 <h3 id="opening-closing-menus">Opening/Closing Menus</h3>
 <p>There are several ways to open or close a menu. The menu can be <strong>toggled</strong> open or closed
 from the template using the <a href="../MenuToggle">MenuToggle</a> directive. It can also be
@@ -77,30 +101,6 @@ is <code>Page1</code>, making it the root page. <code>Page1</code> will display 
 on all pages in the navigation stack. To make a menu persistent set <code>persistent</code> to <code>true</code> on the
 <code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>Navbar</code> attached
 to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>
-
-
-
-
-<!-- @usage tag -->
-
-<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
-
-<p>To add a menu to an application, the <code>&lt;ion-menu&gt;</code> element should be added as a sibling to
-the content it belongs to. A <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">local variable</a>
-should be added to the content element and passed to the menu element in the <code>content</code> property.
-This tells the menu which content it is attached to, so it knows which element to watch for
-gestures. In the below example, <code>content</code> is using <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding">property binding</a>
-because <code>mycontent</code> is a reference to the <code>&lt;ion-nav&gt;</code> element, and not a string.</p>
-<pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
-  &lt;ion-content&gt;
-    &lt;ion-list&gt;
-    ...
-    &lt;/ion-list&gt;
-  &lt;/ion-content&gt;
-&lt;/ion-menu&gt;
-
-&lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
-</code></pre>
 <h3 id="menu-side">Menu Side</h3>
 <p>By default, menus slide in from the left, but this can be overridden by passing <code>right</code>
 to the <code>side</code> property:</p>
@@ -136,7 +136,7 @@ content:</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
     &lt;ion-list&gt;
-      &lt;button ion-button menuClose ion-item detail-none&gt;Close Menu&lt;/button&gt;
+      &lt;ion-item menuClose detail-none&gt;Close Menu&lt;/ion-item&gt;
     &lt;/ion-list&gt;
   &lt;/ion-content&gt;
 &lt;/ion-menu&gt;

@@ -102,7 +102,7 @@ gulp.task('styles:v2', function() {
     .pipe($.size({title: 'styles'}));
 });
 
-gulp.task('styles:v1', function(done) {
+gulp.task('styles:v1', function() {
   return gulp.src('content/scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
@@ -148,7 +148,7 @@ gulp.task('js', function() {
  */
 gulp.task('jekyll-build', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('jekyll',
+  cp.spawn('jekyll',
                   ['build', '-I', '--config', '_config_development.yml'],
                   {stdio: 'inherit'})
            .on('close', function(){
@@ -159,7 +159,7 @@ gulp.task('jekyll-build', [], function(done) {
 
 gulp.task('jekyll-build.clean', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('jekyll',
+  cp.spawn('jekyll',
                   ['build', '--config', '_config.yml'],
                   {stdio: 'inherit'})
            .on('close', done)
@@ -192,8 +192,8 @@ gulp.task('server-listen', function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', function() {
-  return runSequence('build', 'server-listen');
+gulp.task('server', ['build'], function() {
+  return runSequence('server-listen');
 });
 
 gulp.task('server:server', function() {

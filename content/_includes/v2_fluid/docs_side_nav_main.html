@@ -245,6 +245,11 @@
     </ul>
   </li>
 
+  {% comment %} ### Troubleshooting ### {% endcomment %}
+  <li class="{% if page.category == 'faq' %}top-level active{% endif %}">
+    <a href="/docs/v2/troubleshooting/">Troubleshooting</a>
+  </li>
+
   {% comment %} ### Resources ### {% endcomment %}
   <li class="{% if page.category == 'resources' %}active{% endif %}">
     <a href="/docs/v2/resources" >Resources</a>
@@ -294,10 +299,5 @@
         <a href="/docs/v2/resources/platform-setup/windows-setup.html">Windows Setup</a>
       </li>
     </ul>
-  </li>
-
-  {% comment %} ### Troubleshooting ### {% endcomment %}
-  <li class="{% if page.category == 'faq' %}top-level active{% endif %}">
-    <a href="/docs/v2/troubleshooting/">Troubleshooting</a>
   </li>
 </ul>

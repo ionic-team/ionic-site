@@ -7,17 +7,40 @@ footer_includes: |
   <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
   <script>
    anchors.options.placement = 'left';
-    anchors.add('.v2.docs.page-faq main h2, .v2.docs.page-faq main h3');
+    anchors.add('main h2, main h3');
   </script>
 ---
 
 # Troubleshooting
 
-Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com) or join the [Ionic Worldwide Slack Channel](http://ionicworldwide.herokuapp.com/), where the friendly Ions of the community will help you!
+Can't find a solution on this page? Check out the
+[Ionic Forums](http://forum.ionicframework.com) or join the
+[Ionic Worldwide Slack Channel](http://ionicworldwide.herokuapp.com/), where the
+friendly Ions of the community will help you!
+
+{% include v2_fluid/toc.html %}
+
+
+#### Table of Contents
+{: .toc}
+- [Adding third party libs](#adding-third-party-libs)
+- [Blank App](#blank-app)
+- [Directive Not Working](#directive-not-working)
+- [Click Delays](#click-delays)
+- [Common mistakes](#common-mistakes)
+  - [Forgetting Parentheses on a Decorator](#forgetting-parentheses-on-a-decorator)
+  - [Cordova plugins not working in the browser](#cordova-plugins-not-working-in-the-browser)
+  - [Multiple instances of a provider](#multiple-instances-of-a-provider)
+- [Common errors](#common-errors)
+  - [Cannot resolve all parameters for...](#cannot-resolve-all-parameters-for-yourclass-make-sure-that-all-the-parameters-are-decorated-with-inject-or-have-valid-type-annotations-and-that-yourclass-is-decorated-with-injectable)
+  - [No provider for ParamType...](#no-provider-for-paramtype-myclass---paramtype)
+  - [Can’t bind to ‘propertyName’ since it isn’t a known property of](#cant-bind-to-propertyname-since-it-isnt-a-known-property-of-the-elementname-element-and-there-are-no-matching-directives-with-a-corresponding-property)
+  - [No provider for ControlContainer](#no-provider-for-controlcontainer-ngcontrolname---controlcontainer)
 
 ## Adding third party libs
 
-You can add most third party libraries to your V2 project from NPM. For example let's add MomentJs.
+You can add most third party libraries to your V2 project from NPM. For example
+let's add MomentJs.
 
 ```bash
 $ npm install moment --save
@@ -37,7 +60,10 @@ export class MyClass {
 }
 ```
 
-For TypeScript, you might get a warning, `cannot find module 'moment'`. This just means that TypeScript doesn't know MomentJs since it's Javascript. But we can add external type definitions from [typings](https://github.com/typings/typings).
+For TypeScript, you might get a warning, `cannot find module 'moment'`. This
+just means that TypeScript doesn't know MomentJs since it's Javascript. But we
+can add external type definitions from
+[typings](https://github.com/typings/typings).
 
 ```bash
 $ npm install -g typings
@@ -57,14 +83,16 @@ We have multiple sources for typings, but we can choose the one from npm
 $ typings install npm~moment --save
 ```
 
-Now our editor and TypeScript will be able to provide code-completion and understand moment.
+Now our editor and TypeScript will be able to provide code-completion and
+understand moment.
 
 
 ## Blank App
 
 >I have no errors in my app. Why does it show a blank screen?
 
-There are different reasons this can happen. If you are unable to find a solution on the forums, make sure:
+There are different reasons this can happen. If you are unable to find a
+solution on the forums, make sure:
 
 - Root `@Component` has a `template` or `templateUrl`.
 - Root `@Component` template has an `<ion-nav>` with a `root` property:
@@ -118,18 +146,26 @@ class MyPage {}
 
 > Why is there a delay on my click event?
 
-In general, we recommend only adding `(click)` events to elements that are normally clickable. This includes `<button>` and `<a>` elements. This improves accessibility as a screen reader will be able to tell that the element is clickable.
+In general, we recommend only adding `(click)` events to elements that are
+normally clickable. This includes `<button>` and `<a>` elements. This improves
+accessibility as a screen reader will be able to tell that the element is
+clickable.
 
-However, you may need to add a `(click)` event to an element that is not normally clickable. When you do this you may experience a `300ms` delay from the time you click the element to the event firing. To remove this delay, you can add the `tappable` attribute to your element.
+However, you may need to add a `(click)` event to an element that is not
+normally clickable. When you do this you may experience a `300ms` delay from the
+time you click the element to the event firing. To remove this delay, you can
+add the `tappable` attribute to your element.
 
 ```
  <div tappable (click)="doClick()">I am clickable!</div>
 ```
 
 ## Common mistakes
+
 ### Forgetting Parentheses on a Decorator
 
-Decorators should have parentheses `()` after an annotation. Some examples include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
+Decorators should have parentheses `()` after an annotation. Some examples
+include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
 
 ```ts
 @Directive({
@@ -146,25 +182,34 @@ class MyDirective {
 
 ### Cordova plugins not working in the browser
 
-At some point in your development you may, try to call Cordova plugin, but get a warning:
+At some point in your development you may, try to call Cordova plugin, but get a
+warning:
 
 ```
-[Warning] Native: tried calling StatusBar.styleDefault, but Cordova is not available. Make sure to include cordova.js or run in a device/simulator (app.bundle.js, line 83388)
+[Warning] Native: tried calling StatusBar.styleDefault, but Cordova is not
+available. Make sure to include cordova.js or run in a device/simulator
+(app.bundle.js, line 83388)
 ```
 
-This happens when you try to call a native plugin, but Cordova isn't available. Thankfully, Ionic Native will print out a nice warning, instead of an error.
+This happens when you try to call a native plugin, but Cordova isn't available.
+Thankfully, Ionic Native will print out a nice warning, instead of an error.
 
-In other cases where the plugin is not being used through Ionic Native, plugins can print a much more obscure warning.
+In other cases where the plugin is not being used through Ionic Native, plugins
+can print a much more obscure warning.
 
 ```
-EXCEPTION: Error: Uncaught (in promise): TypeError: undefined is not an object (evaluating 'navigator.camera.getPicture')
+EXCEPTION: Error: Uncaught (in promise): TypeError: undefined is not an object
+(evaluating 'navigator.camera.getPicture')
 ```
 
 If this happens, test the plugin on a real device or simulator.
 
 ### Multiple instances of a provider
 
-If you inject a provider in every component because you want it available to all of them you will end up with multiple instances of the provider. You should inject the provider once in the parent component if you want it to be available to the child components.
+If you inject a provider in every component because you want it available to all
+of them you will end up with multiple instances of the provider. You should
+inject the provider once in the parent component if you want it to be available
+to the child components.
 
 ```ts
 let id = 0;
@@ -203,11 +248,15 @@ class MyApp {
 
 Plunker: [http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd](http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd)
 
-## Common Pitfalls
+## Common Errors
 
 ### Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.
 
-This exception means that Angular is confused about one or more of the parameters for `YourClass`'s constructor. In order to do [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) Angular needs to know the type of the parameter to inject. You let Angular know this by specifying the class of the parameter. Make sure:
+This exception means that Angular is confused about one or more of the
+parameters for `YourClass`'s constructor. In order to do
+[dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html)
+Angular needs to know the type of the parameter to inject. You let Angular know
+this by specifying the class of the parameter. Make sure:
 
 - You are importing the parameter's class.
 - You have properly annotated the parameter or specified its type.
@@ -226,7 +275,11 @@ export class MyClass {
 }
 ```
 
-Sometimes circular references within your code can cause this error. Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other. To get around this, we can use the [`forwardRef`](https://angular.io/docs/ts/latest/api/core/forwardRef-function.html) function built in to Angular.
+Sometimes circular references within your code can cause this error. Circular
+references mean that two objects depend on each other, and so there is no way to
+declare both of them before each other. To get around this, we can use the
+[`forwardRef`](https://angular.io/docs/ts/latest/api/core/forwardRef-function.html)
+function built in to Angular.
 
 ```ts
 import {forwardRef} from 'angular2/core';
@@ -255,9 +308,11 @@ class MyIcon {
 
 ### No provider for ParamType! (MyClass -> ParamType)
 
-This means Angular knows the type of parameter it is supposed to inject, but it doesn't know how to inject it.
+This means Angular knows the type of parameter it is supposed to inject, but it
+doesn't know how to inject it.
 
-If the parameter is a service, make sure you have added the specified class to the list of providers available to your app:
+If the parameter is a service, make sure you have added the specified class to
+the list of providers available to your app:
 
 
 ```ts
@@ -270,7 +325,15 @@ import {MyService} from 'my-service';
 class MyApp {
 ```
 
-If the parameter is another component or directive (for example, a parent component), adding it to your list of providers will make the error go away, but this will have the same effect as the [Multiple instances of a provider](#multiple_instances) above. You'll be creating a new instance of the component class, and you won't get a reference to the component instance you want. Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
+If the parameter is another component or directive (for example, a parent
+  component), adding it to your list of providers will make the error go away,
+  but this will have the same effect as the
+  [Multiple instances of a provider](#multiple_instances) above. You'll be
+  creating a new instance of the component class, and you won't get a reference
+  to the component instance you want. Instead, make sure that the directive or
+  component you expect to be injected is available to your component (e.g. that
+    it is actually a parent if you are expecting it to be a parent). This is
+    probably easiest understood with an example:
 
 ```ts
 @Component({
@@ -324,7 +387,8 @@ No MyComp to inject        +------+------+
                            +-------------+
 ```
 
-To expand on the previous example, you can use the Angular 2 `@Optional` annotation if you don't always expect a component/directive reference:
+To expand on the previous example, you can use the Angular 2 `@Optional` a
+nnotation if you don't always expect a component/directive reference:
 
 ```ts
 @Directive({
@@ -342,7 +406,9 @@ class MyDir {
 
 ### Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property
 
-This happens when you try and bind a property on an element that doesn't have that property. If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
+This happens when you try and bind a property on an element that doesn't have
+that property. If the element is a component or has one or more directives on
+it, neither the component nor the directives have that property either.
 
 ```html
 <!-- div doesn't have a 'foo' property -->
@@ -351,7 +417,12 @@ This happens when you try and bind a property on an element that doesn't have th
 
 ### No provider for ControlContainer! (NgControlName -> ControlContainer)
 
-This error is a more specific version of the `No provider` error above.  It happens when you use a form control like NgControlName without specifying a parent [NgForm](https://angular.io/docs/ts/latest/api/forms/index/NgForm-directive.html) or NgFormModel.  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
+This error is a more specific version of the `No provider` error above.  It
+happens when you use a form control like NgControlName without specifying a
+parent [NgForm](https://angular.io/docs/ts/latest/api/forms/index/NgForm-directive.html)
+or NgFormModel.  In most cases, this can be resolved by making sure your form
+control is within an actual form element.  NgForm uses `form` as a selector so
+this will instantiate a new NgForm:
 
 ```ts
 @Component({

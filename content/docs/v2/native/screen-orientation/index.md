@@ -132,6 +132,12 @@ See below for accepted values
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves when the screen orientation is locked, and rejects when an error occurs.
+</div>
+
 
 
 <div id="unlockOrientation"></div>

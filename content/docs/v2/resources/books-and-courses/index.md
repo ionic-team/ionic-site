@@ -49,7 +49,9 @@ header_sub_title: Ionic 2 Developer Preview
     <li><a href="https://www.udemy.com/ionic-2-tutorial/?couponCode=IONIC15/">Ionic 2 Master Course (50% Off code - Udemy)</a></li>
     <li><a href="https://www.udemy.com/ionic-2-quickstart/">Ionic 2 Quickstart (Udemy)</a></li>
     <li><a href="https://www.udemy.com/introducing-ionic-2/">Introducing Ionic 2 (Udemy)</a></li>
+     <li><a href="https://app.pluralsight.com/library/courses/ionic2-angular2-typescript-mobile-apps/table-of-contents">Building Mobile Apps with Ionic 2, Angular 2, and TypeScript (Pluralsight)</a></li>
     <li>Many more Ionic 1 and 2 coures on <a href="https://www.udemy.com/courses/search/?q=ionic+2&src=ukw&lang=en">Udemy</a></li>
+   
   </ul>
 </section>
 

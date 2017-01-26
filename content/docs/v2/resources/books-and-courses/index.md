@@ -18,12 +18,10 @@ header_sub_title: Ionic 2 Developer Preview
     <a href="#books">Ionic 2 Books</a>
   </h3>
   <p>There are some wonderful books out for Ionic 2, with several major ones in the works.</p>
-
   <ul>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
   </ul>
 </section>
-
 <section id="books-soon">
   <h3><a href="#books-soon">Ionic 2 Books Coming Soon</a></h3>
 
@@ -40,9 +38,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <section id="courses">
   <h3>
-    <a href="#courses">Ionic 2 Online Courses</a>
+    <a href="#courses">Ionic 2 Courses</a>
   </h3>
-  <p>Learn Ionic 2 through enjoyable online courses complete with video and app examples.</p>
+  <p>Learn Ionic 2 through enjoyable courses.</p>
 
   <ul>
     <li><a href="http://shop.oreilly.com/product/0636920050353.do">Introducing Ionic 2 (O'Reilly)</a></li>
@@ -50,6 +48,7 @@ header_sub_title: Ionic 2 Developer Preview
     <li><a href="https://www.udemy.com/ionic-2-quickstart/">Ionic 2 Quickstart (Udemy)</a></li>
     <li><a href="https://www.udemy.com/introducing-ionic-2/">Introducing Ionic 2 (Udemy)</a></li>
     <li>Many more Ionic 1 and 2 coures on <a href="https://www.udemy.com/courses/search/?q=ionic+2&src=ukw&lang=en">Udemy</a></li>
+    <li><a href="http://caravanaweb.com.br" target="_blank">Learn Ionic 2 (Portuguese - Brazil)</a></li>
   </ul>
 </section>
 

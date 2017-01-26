@@ -38,10 +38,10 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/texh/cordova-plugin-stepcounter</code></pre>
+<pre><code>$ ionic plugin add https://github.com/Slidee/cordova-plugin-stepcounter</code></pre>
 <p>Repo:
-  <a href="https://github.com/texh/cordova-plugin-stepcounter">
-    https://github.com/texh/cordova-plugin-stepcounter
+  <a href="https://github.com/Slidee/cordova-plugin-stepcounterr">
+    https://github.com/Slidee/cordova-plugin-stepcounterr
   </a>
 </p>
 

@@ -273,6 +273,58 @@ your async operation has completed.</p>
 </table>
 
 
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+    <h3 ng-init="setSassPlatform('base')">All</h3>
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-margin</code></td>
+        
+          <td><code>0 0 32px 0</code></td>
+        
+        <td><p>Margin of the infinite scroll loading icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-color</code></td>
+        
+          <td><code>#666</code></td>
+        
+        <td><p>Color of the infinite scroll loading indicator</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-margin</code></td>
+        
+          <td><code>4px 32px 0 32px</code></td>
+        
+        <td><p>Margin of the infinite scroll loading text</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
 
 
 <!-- related link --><!-- end content block -->

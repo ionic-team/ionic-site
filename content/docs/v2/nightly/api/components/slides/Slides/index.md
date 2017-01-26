@@ -164,6 +164,28 @@ index and prints it:</p>
 
 
 
+<div id="update"></div>
+
+<h3>
+<a class="anchor" name="update" href="#update"></a>
+<code>update()</code>
+  
+
+</h3>
+
+Update the underlying slider implementation. Call this if you've added or removed
+child slides.
+
+
+
+
+
+
+
+
+
+
+
 <div id="slideTo"></div>
 
 <h3>

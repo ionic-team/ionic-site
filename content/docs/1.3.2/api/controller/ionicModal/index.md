@@ -11,11 +11,11 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/service/modal.js#L81'>
+<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/modal.js#L81'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/1.x/js/angular/service/modal.js#L81'>
+<a href='https://github.com/driftyco/ionic-v1/edit/master/js/angular/service/modal.js#L81'>
 Improve this doc
 </a>
 </div>

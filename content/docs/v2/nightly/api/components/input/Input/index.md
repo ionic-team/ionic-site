@@ -199,6 +199,27 @@ interactivity.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>min</td>
+      <td><code>any</code></td>
+      <td><p> The minimum value, which must not be greater than its maximum (max attribute) value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>max</td>
+      <td><code>any</code></td>
+      <td><p> The maximum value, which must not be less than its minimum (min attribute) value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>step</td>
+      <td><code>any</code></td>
+      <td><p> Works with the min and max attributes to limit the increments at which a value can be set.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

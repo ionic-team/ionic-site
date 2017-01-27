@@ -462,6 +462,15 @@ out before starting a new transition.</p>
 </td>
       </tr>
       
+      <tr>
+        <td><code>$alert-input-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the alert input placeholder</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   

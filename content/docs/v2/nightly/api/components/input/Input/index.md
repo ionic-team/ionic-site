@@ -282,6 +282,15 @@ interactivity.</p>
 </td>
       </tr>
       
+      <tr>
+        <td><code>$text-input-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the input placeholder</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   

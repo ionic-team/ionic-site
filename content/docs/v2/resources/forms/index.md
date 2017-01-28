@@ -79,7 +79,7 @@ Forms that are created in our class. The logic for the form is held entirely in 
 
 ```typescript
 import { Component } from '@angular/core';
-import {Validators, FormBuilder } from '@angular/forms';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   template: `
     <form [formGroup]="todo" (ngSubmit)="logForm()">
@@ -96,7 +96,9 @@ import {Validators, FormBuilder } from '@angular/forms';
   `
 })
 export class FormsPage {
-  constructor(private formBuilder: FormBuilder) {
+  private todo : FormGroup;
+  
+  constructor( private formBuilder: FormBuilder ) {
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
       description: [''],

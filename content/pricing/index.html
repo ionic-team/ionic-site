@@ -1,0 +1,168 @@
+---
+layout: v2_fluid/default
+title: Pricing
+body_css: pricing-page
+id: pricing
+header_style: transparent
+centered: true
+has_container: true
+pre_footer: true
+footer_includes: |
+  <style>
+    .tooltip-inner { text-align: left; }
+  </style>
+  <script>
+    $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+
+    angular.module('IonicSite').directive('qtt', function() {
+      return {
+        restrict: 'E',
+        template: '<button type="button" class="btn btn-default question" data-toggle="tooltip" data-placement="right"><i class="ion-ios-help"></i></button>',
+        scope: {
+          title: '@'
+        },
+        link: function($scope, $element, $attr) {
+          var c = $element.children().first();
+          c.tooltip({ container: 'body', title: $scope.title });
+        }
+      }
+    })
+  </script>
+---
+
+<div class="cta gradient">
+  <hgroup class="container center">
+    <h1>Build, test, and deploy cross-platform apps from a single codebase with Ionic</h1>
+    <h4>
+      From the always free Ionic Framework, to powerful tools and collaboration features to help you do more
+    </h4>
+  </hgroup>
+</div>
+
+<main>
+  <div class="container">
+  <table class="table table-bordered" id="pricing-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><h4>Open Source</h4><h2>Free</h2></th>
+        <th><h4>Pro</h4><h2>$7/user/mo</h2></th>
+        <th><h4>Business</h4><h2>$14/user/mo</h2></th>
+        <th><h4>Enterprise</h4><h2 style="color: #5288F3">Contact Us</h2></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-tr">
+        <td colspan="5">Development</td>
+      </tr>
+      <tr>
+        <td>Ionic Framework <qtt title="The open source framework you know and love"></qtt></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>All Platforms <qtt title="Run your app on iOS, Android, Windows, Mobile Web (PWA), and more. All with one code base"></qtt></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Ionic CLI <qtt title="Create, build, and deploy Ionic apps with our Command Line tool"></qtt></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Ionic Creator <qtt title="Rapid prototyping and development with our drag-and-drop tool"></qtt></td>
+        <td>Creator Basic</td>
+        <td>Creator Pro</td>
+        <td>Creator Business</td>
+        <td>Creator Enterprise</td>
+      </tr>
+      <tr class="section-tr">
+        <td colspan="5">Testing &amp; Deployment</td>
+      </tr>
+      <tr>
+        <td>Ionic View App <qtt title="Our revolutionary testing, feedback, and previewing utility app"></qtt></td>
+        <td>View App Standard</td>
+        <td>View App Pro</td>
+        <td>View App Business</td>
+        <td>View App Enterprise</td>
+      </tr>
+      <tr>
+        <td>Live App Updating <qtt title="Update your app remotely without app store delays"></qtt></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>APK/IPA Builds <qtt title="Generate binaries for iOS and Android from any platform"></qtt></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr class="section-tr">
+        <td colspan="5">Hosting</td>
+      </tr>
+      <tr>
+        <td>PWA Hosting <qtt title="Easy Progressive Web App hosting with SSL, service workers, app manifest, and more"></qtt></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Custom Domain <qtt title="Attach a custom domain to your hosted Progressive Web App"></qtt></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr class="section-tr">
+        <td colspan="5">Support</td>
+      </tr>
+      <tr>
+        <td>Forum Support <qtt title="Get help from one of the largest community of developers in the world"></qtt></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Email Support <qtt title="Direct access to the Ionic team for a variety of needs"></qtt></td>
+        <td></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Hotfixes <qtt title="Priority updates and fixes for Ionic related issues"></qtt></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td>Code Review <qtt title="Code review available at extra cost per session"></qtt></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><i class="checkmark"></i></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><a href="/getting-started" class="btn btn-outline">Get Started</button></td>
+        <td><a href="contact.html" class="btn">Reserve my Spot</button></td>
+        <td><a href="contact.html" class="btn">Reserve my Spot</button></td>
+        <td><a href="contact.html" class="btn">Contact Us</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</main>

@@ -1,4 +1,4 @@
-var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ionicate', 'ngSanitize'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;
@@ -271,4 +271,94 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
     return iconObj.icons[2].name;
   };
 
+}])
+
+.controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
+  $scope.launched = false;
+  $scope.showSurvey = false;
+  $scope.submitting = false;
+  $scope.thanks = false;
+
+  $scope.form = {};
+
+  $scope.submit = function() {
+    $scope.submitting = true;
+    $http.post('http://survey.apis.ionicjs.com/reservespot/v1pricing', {
+      email: $scope.form.email
+    }).then(function(res) {
+      $scope.thanks = true;
+      $scope.submitting = false;
+      $scope.showSurvey = true;
+    }, function(err) {
+      $scope.submitting = false;
+      alert('Unable to reserve spot. Please contact help@ionic.io (see console for more info)');
+      console.error(err);
+      $scope.showSurvey = true;
+    })
+  };
+
+  $scope.surveyQuestions = {
+    questions: [
+      {
+        title: 'What kind of developer are you?',
+        tag: 'aboutyourself',
+        options: [
+          { title: 'Novice Developer', tag: 'novice', value: 'novice-dev' },
+          { title: 'Expert Developer', tag: 'expert', value: 'expert-dev' },
+          { title: 'Designer', tag: 'designer', value: 'designer' },
+          { title: 'Product Manager', tag: 'pm', value: 'pm' },
+          { title: 'Student', tag: 'student', value: 'student' },
+        ],
+        type: 'checkbox',
+        allowOther: true
+      },
+      {
+        title: 'What are you building?',
+        tag: 'whatyoucreate',
+        options: [
+          { title: 'An app for my company', tag: 'appforcompany', value: 'for-company' },
+          { title: 'A personal project', tag: 'appforpersonal', value: 'for-personal' },
+          { title: 'An app for a client', tag: 'appforclient', value: 'for-client' },
+          { title: 'An app for school', tag: 'appforschool', value: 'for-school' },
+          { title: 'I\'m just evaluating', tag: 'appfornothing', value: 'for-nothing' },
+        ],
+        type: 'checkbox',
+        allowOther: true
+      },
+      {
+        title: 'How large is your Employer?',
+        tag: 'howlargeco',
+        options: [
+          { title: 'Self-employed', tag: '1', value: '1' },
+          { title: '2-10', tag: '2-10', value: '2-10' },
+          { title: '11-50', tag: '11-50', value: '11-50' },
+          { title: '51-500', tag: '51-500', value: '51-500' },
+          { title: '500+', tag: '500-', value: '500-' }
+        ],
+        type: 'checkbox',
+        limit: 1
+      }
+    ],
+    done: {
+      title: 'Thanks!',
+      text: 'Keep building awesome apps 🎉'
+    },
+    contact: {
+      ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
+      message: 'We are collecting feedback on Ionic. Would you be willing to speak with us briefly? If so, please choose a time <a href="https://calendly.com/ionic-research/ionic-wiz-research" target="_blank">here</a>.'
+    }
+  };
+
+  $scope.finishedSurvey = function(results) {
+    $http.post('http://survey.apis.ionicjs.com/survey/', {
+      campaign: 'pricing_v1',
+      results: results,
+    }).then(function(resp) {
+    }).catch(function(err) {
+      console.error('Unable to save survey', err);
+    });
+  }
+  $scope.closedSurvey = function() {
+    $scope.showSurvey = false;
+  }
 }]);

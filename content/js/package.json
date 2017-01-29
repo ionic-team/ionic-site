@@ -1,0 +1,19 @@
+{
+  "name": "ionicate",
+  "version": "1.0.0",
+  "description": "Simple angular 1 survey tool",
+  "main": "ionicate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionicate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/driftyco/ionicate/issues"
+  },
+  "homepage": "https://github.com/driftyco/ionicate#readme"
+}

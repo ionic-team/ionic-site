@@ -1660,24 +1660,11 @@ Convenience constant for authentication scopes
       <div><em>(optional)</em></div>
     </td>
     <td>
-      <code></code>
+      <code>any</code>
     </td>
     <td>
       <p>The Pin’s image. The default response returns the image’s URL, width and height.</p>
 
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      any
-      
-    </td>
-    <td>
-      <code></code>
-    </td>
-    <td>
-      
     </td>
   </tr>
   

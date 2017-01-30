@@ -214,8 +214,8 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
-  gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}'
-  ], ['jekyll-rebuild']);
+  gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
+    '!content/_includes/v2_fluid/head.html'], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {

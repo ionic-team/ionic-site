@@ -246,58 +246,28 @@
   </li>
 
   {% comment %} ### Troubleshooting ### {% endcomment %}
-  <li class="{% if page.category == 'faq' %}top-level active{% endif %}">
+  <li class="{% if page.category == 'troubleshooting' %}top-level active{% endif %}">
     <a href="/docs/v2/troubleshooting/">Troubleshooting</a>
   </li>
 
   {% comment %} ### Resources ### {% endcomment %}
   <li class="{% if page.category == 'resources' %}active{% endif %}">
     <a href="/docs/v2/resources" >Resources</a>
-    <ul ng-show="showResources"
-        ng-cloak
-        {% if page.category == 'resources' %}
-          ng-init="showResources = true"
-        {% endif %}>
-      {% comment %} <li class="{% if page.id == 'resources&#45;intro' %}active{% endif %}"> {% endcomment %}
-      {% comment %}   <a href="/docs/v2/resources/">Resources Intro</a> {% endcomment %}
-      {% comment %} </li> {% endcomment %}
-
-      <li class="{% if page.id == 'app-scripts' %}active{% endif %}">
-        <a href="/docs/v2/resources/app-scripts">App Build Scripts</a>
-      </li>
-      <li class="{% if page.id == 'books-and-courses' %}active{% endif %}">
-        <a href="/docs/v2/resources/books-and-courses/">Books and Online Courses</a>
-      </li>
-      <li class="{% if page.id == 'developer-tips' %}active{% endif %}">
-        <a href="/docs/v2/resources/developer-tips/">Developer Tips</a>
-      </li>
-      <li class="{% if page.id == 'editors_and_ides' %}active{% endif %}">
-        <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>
-      </li>
-      <li class="{% if page.id == 'forms' %}active{% endif %}">
-        <a href="/docs/v2/resources/forms/">Ionic 2 and Forms</a>
-      </li>
-      <li class="{% if page.id == 'what-is' %}active{% endif %}">
-        <a href="/docs/v2/resources/what-is/">Glossary</a>
-      </li>
-      <li class="{% if page.id == 'mac_setup' %}active{% endif %}">
-        <a href="/docs/v2/resources/platform-setup/mac-setup.html">Mac OS Setup</a>
-      </li>
-      <li class="{% if page.id == 'what_are_progressive_web_apps' %}active{% endif %}">
-        <a href="/docs/v2/resources/progressive-web-apps/">Progressive Web Apps</a>
-      </li>
-      <li class="{% if page.id == 'third-party-libs' %}active{% endif %}">
-        <a href="/docs/v2/resources/third-party-libs">Using Third Party Libraries</a>
-      </li>
-      <li class="{% if page.id == 'using_npm' %}active{% endif %}">
-        <a href="/docs/v2/resources/using-npm/">Using NPM</a>
-      </li>
-      <li class="{% if page.id == 'all_in_on_typescript' %}active{% endif %}">
-        <a href="/docs/v2/resources/typescript/">Why TypeScript</a>
-      </li>
-      <li class="{% if page.id == 'windows_setup' %}active{% endif %}">
-        <a href="/docs/v2/resources/platform-setup/windows-setup.html">Windows Setup</a>
-      </li>
-    </ul>
+    {% if page.category == 'resources' %}
+      <ul>
+        <li ng-class="{active:hash == 'guides'}">
+          <a href="#guides">Guides</a></li>
+        <li ng-class="{active:hash == 'videos'}">
+          <a href="#videos">Videos</a></li>
+        <li ng-class="{active:hash == 'books'}">
+          <a href="#books">Books</a></li>
+        <li ng-class="{active:hash == 'courses'}">
+          <a href="#courses">Courses</a></li>
+        <li ng-class="{active:hash == 'tools'}">
+          <a href="#tools">Tools</a></li>
+        <li ng-class="{active:hash == 'community'}">
+          <a href="#community">Community Posts</a></li>
+      </ul>
+    {% endif %}
   </li>
 </ul>

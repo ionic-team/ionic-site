@@ -246,7 +246,7 @@
       padding-left: 0;
 
       input {
-        background: lighten($blue, 2);
+        background: rgba(255, 255, 255, .1);
         box-shadow: none;
         border: 0;
         color: white;
@@ -258,11 +258,12 @@
 
         &:focus {
           width: 270px;
-          background: lighten($blue, 5);
+          color: rgba(255, 255, 255, .2);
+          background: rgba(255, 255, 255, .15);
         }
 
         &::placeholder {
-          color: lighten($blue, 20);
+          color: rgba(255, 255, 255, .4);
         }
       }
 
@@ -272,7 +273,7 @@
         content: '\f4a5';
         font-size: 18px;
         font-weight: 800;
-        color: lighten($blue, 15);
+        color: rgba(255, 255, 255, .4);
         position: absolute;
         top: 4px;
         left: 14px;

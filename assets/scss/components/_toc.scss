@@ -1,6 +1,6 @@
 .toc {
   margin-top: 20px;
-  border-bottom: 1px solid #bbb;
+  // border-bottom: 1px solid #bbb;
 
   .toggle {
     background: none;
@@ -45,7 +45,11 @@
           display: block;
           max-height: 25px;
           overflow: hidden;
+          font-weight: 500;
           transition: .3s max-height cubic-bezier(0.36, 0.66, 0.04, 1);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
       }
     }
@@ -58,7 +62,8 @@
         line-height: 2em;
 
         > a {
-          color: $blue;
+          // color: $blue;
+          display: none;
         }
       }
     }

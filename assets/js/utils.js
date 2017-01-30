@@ -17,6 +17,10 @@ $(document).ready(function() {
   });
 });
 
+window.tocToggle = function(btnEl) {
+  btnEl.parentElement.classList.toggle('collapsed');
+};
+
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();
 

@@ -140,6 +140,10 @@
     }
   }
 
+  > ul > .active > a {
+    color: #4f5358;
+  }
+
   ul {
     list-style: none;
     padding: 18px 0 20px 20px;

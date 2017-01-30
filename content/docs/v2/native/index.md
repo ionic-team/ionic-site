@@ -9,7 +9,7 @@ header_sub_title: "Harness the power of devices' native APIs"
 searchable: false
 ---
 
-<h1 id="Overview">Ionic Native</h1>
+<h1 id="Overview" class="banner">Ionic Native</h1>
 Ionic Native is a curated set of ES5/ES6/TypeScript wrappers for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
 
 <h3 id="Promises_and_Observables">Promises and Observables</h3>
@@ -57,6 +57,26 @@ It is recommended to follow the installation instruction on each plugin's docume
 Ionic Native will work with any Cordova app as long as you have Promise support. It can be used with ES5, ES6, or TypeScript. The library also generates Angular 1 services automatically if you are using it with Angular 1 / Ionic 1. Below are examples demonstrating different implementations.
 
 ```js
+// ES6 / TypeScript / Ionic 2 / Angular 2
+// Import the plugin you need to use from 'ionic-native' package
+import {Camera} from 'ionic-native';
+
+// wait for `ondeviceready` or use `platform.ready()` if you're using Ionic Framework 2
+this.platform().then(() => { // we're assuming you injected platform in your constructor
+  Camera.getPicture().then(
+    res => console.log("We have taken a picture!"),
+    err => console.error("Error taking picture", err)
+  );
+});
+```
+
+<a class="show-old" ng-click="showOld = !showOld" ng-class="{active: showOld}">
+  Show ES5, Ionic 1, and Angular 1 examples
+  <i class="ion-ios-arrow-forward"></i>
+</a>
+<div ng-show="showOld" markdown="1">
+
+```js
 // ES5 JavaScript
 document.addEventListener('ondeviceready', function(){
   IonicNative.Camera.getPicture().then(
@@ -91,16 +111,5 @@ angular.module('MyApp', ['ionic.native'])
       );
     });
 });
-
-// ES6 / TypeScript / Ionic 2 / Angular 2
-// Import the plugin you need to use from 'ionic-native' package
-import {Camera} from 'ionic-native';
-
-// wait for `ondeviceready` or use `platform.ready()` if you're using Ionic Framework 2
-this.platform().then(() => { // we're assuming you injected platform in your constructor
-  Camera.getPicture().then(
-    res => console.log("We have taken a picture!"),
-    err => console.error("Error taking picture", err)
-  );
-});
 ```
+</div>

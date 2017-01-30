@@ -7,27 +7,6 @@ header_style: transparent
 centered: true
 has_container: true
 pre_footer: true
-footer_includes: |
-  <style>
-    .tooltip-inner { text-align: left; }
-  </style>
-  <script>
-    $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
-
-    angular.module('IonicSite').directive('qtt', function() {
-      return {
-        restrict: 'E',
-        template: '<button type="button" class="btn btn-default question" data-toggle="tooltip" data-placement="right"><i class="ion-ios-help"></i></button>',
-        scope: {
-          title: '@'
-        },
-        link: function($scope, $element, $attr) {
-          var c = $element.children().first();
-          c.tooltip({ container: 'body', title: $scope.title });
-        }
-      }
-    })
-  </script>
 ---
 
 <div class="cta gradient">
@@ -41,7 +20,7 @@ footer_includes: |
 
 <main>
   <div class="container">
-  <table class="table table-bordered" id="pricing-table">
+  <table class="table table-bordered table-responsive" id="pricing-table">
     <thead>
       <tr>
         <th></th>

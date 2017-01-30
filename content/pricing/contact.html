@@ -7,16 +7,17 @@ header_style: transparent
 centered: true
 has_container: true
 pre_footer: true
-footer_includes: |
-  <link rel="stylesheet" href="../js/ionicate/ionicate.css" />
-  <script src="../js/ionicate/ionicate.js"></script>
 ---
-<div ng-app="IonicSite.Reserve" ng-controller="PricingReserveCtrl">
+<div ng-controller="PricingReserveCtrl">
   <div class="cta gradient">
     <hgroup class="container center">
-      <h1>Build, test, and deploy cross-platform apps from a single codebase with Ionic</h1>
+      <h1>
+        Build, test, and deploy cross-platform apps from a single codebase with
+        Ionic
+      </h1>
       <h4>
-        From the always free Ionic Framework, to powerful tools and collaboration features to help you do more
+        From the always free Ionic Framework, to powerful tools and
+        collaboration features to help you do more
       </h4>
     </hgroup>
   </div>
@@ -25,12 +26,16 @@ footer_includes: |
     <section class="container">
       <h2>Reserve your Spot</h2>
       <p>
-        Our pricing packages aren't quite ready. Leave your email below to be notified when they're ready to go!
+        Our pricing packages aren't quite ready. Leave your email below to be
+        notified when they're ready to go!
       </p>
       <form ng-submit="submit()" method="post">
         <div class="form-group">
           <label>Email</label>
-          <input type="email" name="email" class="form-control" ng-model="form.email" />
+          <input type="email"
+                 name="email"
+                 class="form-control"
+                 ng-model="form.email" />
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -44,6 +49,9 @@ footer_includes: |
       </form>
     </section>
   </main>
-  <ionicate ng-show="showSurvey" questions="surveyQuestions" on-finish="finishedSurvey(results)" on-close="closedSurvey()">
+  <ionicate ng-show="showSurvey"
+            questions="surveyQuestions"
+            on-finish="finishedSurvey(results)"
+            on-close="closedSurvey()">
   </ionicate>
 </div>

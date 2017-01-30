@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L261">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L287">
   Improve this doc
 </a>
 
@@ -1014,7 +1014,8 @@ If false location service will not be started in foreground and no notification 
     </td>
     <td>
       <p>ANDROID, WP8 ONLY
-The minimum time interval between location updates in seconds.</p>
+When using BackgroundGeolocation.LocationProvider.ANDROID_DISTANCE_FILTER_PROVIDER:
+The minimum time interval between location updates in milliseconds.</p>
 
     </td>
   </tr>
@@ -1228,6 +1229,51 @@ Switch to less accurate significant changes and region monitory when in backgrou
     <td>
       <p>Limit maximum number of locations stored into db </p>
 <p>Defaults to 10000</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fastestInterval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>Fastest rate in milliseconds at which your app can handle location updates.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      activitiesInterval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>Rate in milliseconds at which activity recognition occurs. Larger values will result in fewer activity detections while improving battery life.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      stopOnStillActivity
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>stop() is forced, when the STILL activity is detected (default is true)</p>
 
     </td>
   </tr>

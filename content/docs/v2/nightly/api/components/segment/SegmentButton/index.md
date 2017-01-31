@@ -103,6 +103,13 @@ Improve this doc
 </td>
     </tr>
     
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> disabled state of the button. Optional.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

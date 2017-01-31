@@ -4,10 +4,10 @@ version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "headerolor"
-title: "Headerolor"
+id: "headercolor"
+title: "HeaderColor"
 header_sub_title: "Class in module "
-doc: "Headerolor"
+doc: "HeaderColor"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  Headerolor
+  HeaderColor
   
 
   

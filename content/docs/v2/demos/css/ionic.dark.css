@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201701310117, Dark Theme
+ * vE2E-201701310148, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3241,7 +3241,8 @@ ion-chip ion-icon {
   height: 32px;
   border-radius: 50%;
   font-size: 18px;
-  line-height: 32px; }
+  line-height: 32px;
+  text-align: center; }
 
 ion-chip ion-avatar {
   width: 32px;

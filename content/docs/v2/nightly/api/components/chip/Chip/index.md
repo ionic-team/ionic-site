@@ -233,6 +233,15 @@ class E2EPage {
       </tr>
       
       <tr>
+        <td><code>$chip-icon-text-align</code></td>
+        
+          <td><code>center</code></td>
+        
+        <td><p>Text alignment of the icon in the chip</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$chip-icon-size</code></td>
         
           <td><code>32px</code></td>

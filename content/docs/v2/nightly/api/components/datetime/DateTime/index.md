@@ -543,14 +543,16 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the datetime component is disabled. Default <code>false</code>.</p>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
@@ -569,13 +571,13 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     
     <tr>
       <td>ionChange</td>
-      <td><p> Any expression to evaluate when the datetime selection has changed.</p>
+      <td><p> Emitted when the datetime selection has changed.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionCancel</td>
-      <td><p> Any expression to evaluate when the datetime selection was cancelled.</p>
+      <td><p> Emitted when the datetime selection was cancelled.</p>
 </td>
     </tr>
     

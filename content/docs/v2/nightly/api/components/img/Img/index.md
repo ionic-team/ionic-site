@@ -133,7 +133,7 @@ currently working on.</p>
     <tr>
       <td>src</td>
       <td><code>string</code></td>
-      <td><p> Image src.</p>
+      <td><p> The source of the image.</p>
 </td>
     </tr>
     

@@ -219,32 +219,31 @@ the tabs.</p>
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
-      <td><p> If the tab is enabled or not. If the tab
-is not enabled then the tab button will still show, however,
-the button will appear grayed out and will not be clickable.
-Defaults to <code>true</code>.</p>
+      <td><p> If true, enable the tab. If false,
+the user cannot interact with this element.
+Default: <code>true</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>show</td>
       <td><code>boolean</code></td>
-      <td><p> If the tab button is visible within the
-tabbar or not. Defaults to <code>true</code>.</p>
+      <td><p> If true, the tab button is visible within the
+tabbar. Default: <code>true</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>swipeBackEnabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
+      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabsHideOnSubPages</td>
       <td><code>boolean</code></td>
-      <td><p> Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</p>
+      <td><p> If true, hide the tabs on child pages.</p>
 </td>
     </tr>
     
@@ -263,7 +262,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
     
     <tr>
       <td>ionSelect</td>
-      <td><p> Method to call when the current tab is selected</p>
+      <td><p> Emitted when the current tab is selected.</p>
 </td>
     </tr>
     

@@ -126,14 +126,18 @@ Improve this doc
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -147,7 +151,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> Whether to show the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
+      <td><p> If true, show the cancel button.</p>
 </td>
     </tr>
     
@@ -196,7 +200,7 @@ Improve this doc
     <tr>
       <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> Configures if the searchbar is animated or no. By default, animation is <code>false</code>.</p>
+      <td><p> If true, enable searchbar animation.</p>
 </td>
     </tr>
     
@@ -222,31 +226,31 @@ Improve this doc
     
     <tr>
       <td>ionInput</td>
-      <td><p> When the Searchbar input has changed including cleared.</p>
+      <td><p> Emitted when the Searchbar input has changed, including when it&#39;s cleared.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionBlur</td>
-      <td><p> When the Searchbar input has blurred.</p>
+      <td><p> Emitted when the Searchbar input has blurred.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionFocus</td>
-      <td><p> When the Searchbar input has focused.</p>
+      <td><p> Emitted when the Searchbar input has focused.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionCancel</td>
-      <td><p> When the cancel button is clicked.</p>
+      <td><p> Emitted when the cancel button is clicked.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionClear</td>
-      <td><p> When the clear input button is clicked.</p>
+      <td><p> Emitted when the clear input button is clicked.</p>
 </td>
     </tr>
     

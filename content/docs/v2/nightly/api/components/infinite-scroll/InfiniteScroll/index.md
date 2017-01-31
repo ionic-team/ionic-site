@@ -241,7 +241,7 @@ Default is <code>15%</code>.</p>
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the infinite scroll should be
+      <td><p> If true, Whether or not the infinite scroll should be
 enabled or not. Setting to <code>false</code> will remove scroll event listeners
 and hide the display.</p>
 </td>
@@ -262,7 +262,7 @@ and hide the display.</p>
     
     <tr>
       <td>ionInfinite</td>
-      <td><p> The expression to call when the scroll reaches
+      <td><p> Emitted when the scroll reaches
 the threshold distance. From within your infinite handler,
 you must call the infinite scroll&#39;s <code>complete()</code> method when
 your async operation has completed.</p>

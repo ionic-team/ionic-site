@@ -890,14 +890,9 @@ after dynamically adding headers, footers, or tabs.
     <tr>
       <td>fullscreen</td>
       <td><code>boolean</code></td>
-      <td><p> By default, content is positioned between the headers
-and footers. However, using <code>fullscreen=&quot;true&quot;</code>, the content will be
-able to scroll &quot;under&quot; the headers and footers. At first glance the
-fullscreen option may not look any different than the default, however,
-by adding a transparency effect to a header then the content can be
-seen under the header as the user scrolls.</p>
-<p>@returns {boolean}</p>
-<p>@param {boolean} val</p>
+      <td><p> If true, the content will scroll behind the headers
+and footers. This effect can easily be seen by setting the toolbar
+to transparent.</p>
 </td>
     </tr>
     

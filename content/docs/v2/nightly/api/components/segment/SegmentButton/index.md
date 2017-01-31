@@ -106,7 +106,7 @@ Improve this doc
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
-      <td><p> disabled state of the button. Optional.</p>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
@@ -125,7 +125,7 @@ Improve this doc
     
     <tr>
       <td>ionSelect</td>
-      <td><p> expression to evaluate when a segment button has been clicked</p>
+      <td><p> Emitted when a segment button has been clicked.</p>
 </td>
     </tr>
     

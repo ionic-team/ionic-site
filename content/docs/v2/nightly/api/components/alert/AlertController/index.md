@@ -325,7 +325,7 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>handler</td>
 <td><code>any</code></td>
-<td>Expression that should be evaluated when the button is pressed.</td>
+<td>Emitted when the button is pressed.</td>
 </tr>
 <tr>
 <td>cssClass</td>

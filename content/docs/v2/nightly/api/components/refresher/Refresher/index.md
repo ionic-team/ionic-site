@@ -353,22 +353,22 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
     
     <tr>
       <td>ionRefresh</td>
-      <td><p> When the user lets go and has pulled down far enough, which would be
-farther than the <code>pullMin</code>, then your refresh hander if fired and the state is
-updated to <code>refreshing</code>. From within your refresh handler, you must call the
-<code>complete()</code> method when your async operation has completed.</p>
+      <td><p> Emitted when the user lets go and has pulled down
+far enough, which would be farther than the <code>pullMin</code>, then your refresh hander if
+fired and the state is updated to <code>refreshing</code>. From within your refresh handler,
+you must call the <code>complete()</code> method when your async operation has completed.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionPull</td>
-      <td><p> While the user is pulling down the content and exposing the refresher.</p>
+      <td><p> Emitted while the user is pulling down the content and exposing the refresher.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionStart</td>
-      <td><p> When the user begins to start pulling down.</p>
+      <td><p> Emitted when the user begins to start pulling down.</p>
 </td>
     </tr>
     

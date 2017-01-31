@@ -150,7 +150,7 @@ class MyApp {
     <tr>
       <td>swipeBackEnabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether it&#39;s possible to swipe-to-go-back on this nav controller or not.</p>
+      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     

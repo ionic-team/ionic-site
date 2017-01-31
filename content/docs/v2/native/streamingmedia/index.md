@@ -74,7 +74,7 @@ let options: StreamingVideoOptions = {
   orientation: &#39;landscape&#39;
 };
 
-StreamingMedia.(&#39;https://path/to/video/stream&#39;, options);
+StreamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 </code></pre>
 
 

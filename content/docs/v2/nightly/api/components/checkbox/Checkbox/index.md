@@ -117,7 +117,7 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     <tr>
       <td>checked</td>
       <td><code>boolean</code></td>
-      <td><p> If <code>true</code>, the element is selected.</p>
+      <td><p> If true, the element is selected.</p>
 </td>
     </tr>
     

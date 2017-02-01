@@ -103,6 +103,18 @@ Closes the InAppBrowser window.
 
 
 
+<div id="hide"></div>
+<h3>
+  <code>hide()</code>
+  
+
+</h3>
+Hides an InAppBrowser window that is currently shown. Calling this has no effect
+if the InAppBrowser was already hidden.
+
+
+
+
 <div id="executeScript"></div>
 <h3>
   <code>executeScript(script)</code>

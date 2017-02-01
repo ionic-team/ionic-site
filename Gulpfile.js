@@ -50,23 +50,21 @@ function bustCache() {
       .pipe(cachebust({
         basePath: 'content'
       }))
-      .pipe(gulp.dest('./' + path))
+      .pipe(gulp.dest('./' + path));
   }
 
   var bustArray = function() {
     return [
       cacheBust('content/_includes/', 'head_includes.html'),
-      cacheBust('content/_includes/v2_fluid/','head.html'),
-      cacheBust('content/_includes/v2_fluid/','footer_tags.html')
-    ]
-  }
+      cacheBust('content/_includes/v2_fluid/', 'head.html'),
+      cacheBust('content/_includes/v2_fluid/', 'footer_tags.html')
+    ];
+  };
 
   return es.concat(bustArray());
 }
 
 function bustCacheAndReload(done) {
-
-
   bustCache().on('end', function() {
     browserSync.reload();
     done();
@@ -146,29 +144,29 @@ gulp.task('js', function() {
  */
 gulp.task('jekyll-build', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('jekyll',
-                  ['build', '-I', '--config', '_config_development.yml'],
-                  {stdio: 'inherit'})
-           .on('close', function(){
-             done()
-           })
-           .on('error', function( err ){ throw err });
+  return cp.spawn('bundle',
+    ['exec', 'jekyll', 'build', '-I', '--config', '_config_development.yml'],
+    {stdio: 'inherit'})
+  .on('close', function() {
+    done();
+  }).on('error', function(err) {throw err; });
 });
 
 gulp.task('jekyll-build.clean', [], function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('jekyll',
-                  ['build', '--config', '_config.yml'],
-                  {stdio: 'inherit'})
-           .on('close', done)
-           .on('error', function( err ){ throw err });
+  return cp.spawn('bundle',
+    ['exec', 'jekyll', 'build', '-I', '--config', '_config.yml'],
+    {stdio: 'inherit'})
+  .on('close', function() {
+    done();
+  }).on('error', function(err) {throw err; });
 });
 
 /**
  * Run Generate linkchecker page
  */
 gulp.task('linkchecker', ['build'],
-  shell.task('_scripts/linkchecker.sh',{verbose: true})
+  shell.task('_scripts/linkchecker.sh', {verbose: true})
 );
 
 /**
@@ -179,10 +177,10 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 });
 
 gulp.task('server-listen', function() {
-  return server.listen({ 'path': './server.js', 'execArgv': ['--harmony'] },
+  return server.listen({'path': './server.js', 'execArgv': ['--harmony']},
   function(error) {
     if (!error) {
-      browserSync({ 'proxy': 'http://localhost:3000', 'port': 3003 });
+      browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
     }
   });
 });
@@ -201,7 +199,6 @@ gulp.task('server:server', function() {
     }
   });
 });
-
 
 gulp.task('server:ionicons', ['ionicons'], bustCacheAndReload);
 gulp.task('server:stylesv1', ['styles:v1'], bustCacheAndReload);

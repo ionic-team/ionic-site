@@ -19,7 +19,9 @@
     overflow: hidden;
     text-shadow: 0 1px 4px rgba(0,0,0,.1);
 
-
+    @media (max-width: 420px) {
+      letter-spacing: 4px;
+    }
 
     .bg {
       background: no-repeat center center;
@@ -45,6 +47,10 @@
         position: relative;
         top: -5px;
         margin-right: 20px;
+
+        @media (max-width: 420px) {
+          margin-right: 5px;
+        }
       }
 
       &.active {
@@ -179,11 +185,6 @@
       overflow: visible;
       transition: .3s transform, .3s width, .3s opacity, .3s padding-left,
                   .3s height, .3s padding-bottom;
-
-
-      @media (max-width: $screen-xs-max) {
-        flex: 1 1 100%;
-      }
 
       &::before {
         background: no-repeat center top url('/img/docs/resources/resources-icons.png');

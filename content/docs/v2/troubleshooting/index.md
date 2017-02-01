@@ -20,24 +20,6 @@ friendly Ions of the community will help you!
 
 {% include v2_fluid/toc.html %}
 
-<!-- 
-#### Table of Contents
-{: .toc} -->
-
-<!-- - [Adding third party libs](#adding-third-party-libs)
-- [Blank App](#blank-app)
-- [Directive Not Working](#directive-not-working)
-- [Click Delays](#click-delays)
-- [Common mistakes](#common-mistakes)
-  - [Forgetting Parentheses on a Decorator](#forgetting-parentheses-on-a-decorator)
-  - [Cordova plugins not working in the browser](#cordova-plugins-not-working-in-the-browser)
-  - [Multiple instances of a provider](#multiple-instances-of-a-provider)
-- [Common errors](#common-errors)
-  - [Cannot resolve all parameters for...](#cannot-resolve-all-parameters-for-yourclass-make-sure-that-all-the-parameters-are-decorated-with-inject-or-have-valid-type-annotations-and-that-yourclass-is-decorated-with-injectable)
-  - [No provider for ParamType...](#no-provider-for-paramtype-myclass---paramtype)
-  - [Can’t bind to ‘propertyName’ since it isn’t a known property of](#cant-bind-to-propertyname-since-it-isnt-a-known-property-of-the-elementname-element-and-there-are-no-matching-directives-with-a-corresponding-property)
-  - [No provider for ControlContainer](#no-provider-for-controlcontainer-ngcontrolname---controlcontainer) -->
-
 ## Adding third party libs
 
 You can add most third party libraries to your V2 project from NPM. For example

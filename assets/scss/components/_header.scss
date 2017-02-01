@@ -281,7 +281,7 @@
     }
 
     @media (max-width: $screen-sm-max) {
-      margin-left: 25px;
+      margin-left: 5px;
 
       .form-group input:focus {
         width: 200px;
@@ -379,6 +379,11 @@
     #ionic-docs-back {
       width: 32px;
       transition: .3s transform, .3s opacity;
+
+      @media (max-width: $screen-xs-max) {
+        margin-left: 12px;
+        margin-right: -13px;
+      }
     }
 
     #ionic-docs-back {
@@ -387,6 +392,10 @@
       left: 13px;
       opacity: 0;
       transform: scale3d(1.1, 1.1, 1);
+
+      @media (max-width: $screen-xs-max) {
+        top: 8px;
+      }
     }
 
     #ionic-docs-text {

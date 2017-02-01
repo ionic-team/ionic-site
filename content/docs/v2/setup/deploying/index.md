@@ -32,7 +32,7 @@ Enabling USB debugging and Developer Mode can vary between devices, but is easy 
 
 ### Production Builds
 
-To run or build your app for prodction, run
+To run or build your app for production, run
 
 ```bash
 ionic run android --prod --release

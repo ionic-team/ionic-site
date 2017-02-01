@@ -123,30 +123,9 @@ and be enhanced by a wide range of attributes.</p>
   <tbody>
     
     <tr>
-      <td>large</td>
+      <td>block</td>
       <td><code>boolean</code></td>
-      <td><p> If true, activates the large button size.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>small</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, activates the small button size.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>default</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, activates the default button size. Normally the default, useful for buttons in an item.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>outline</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, activates a transparent button style with a border.</p>
+      <td><p> If true, activates a button style that fills the available width.</p>
 </td>
     </tr>
     
@@ -158,23 +137,18 @@ and be enhanced by a wide range of attributes.</p>
     </tr>
     
     <tr>
-      <td>solid</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, activates a solid button style. Normally the default, useful for buttons in a toolbar.</p>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>round</td>
+      <td>default</td>
       <td><code>boolean</code></td>
-      <td><p> If true, activates a button with rounded corners.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>block</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, activates a button style that fills the available width.</p>
+      <td><p> If true, activates the default button size. Normally the default, useful for buttons in an item.</p>
 </td>
     </tr>
     
@@ -187,9 +161,9 @@ a left and right border.</p>
     </tr>
     
     <tr>
-      <td>strong</td>
+      <td>large</td>
       <td><code>boolean</code></td>
-      <td><p> If true, activates a button with a heavier font weight.</p>
+      <td><p> If true, activates the large button size.</p>
 </td>
     </tr>
     
@@ -203,11 +177,37 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     </tr>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
+      <td>outline</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, activates a transparent button style with a border.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>round</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, activates a button with rounded corners.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>small</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, activates the small button size.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>solid</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, activates a solid button style. Normally the default, useful for buttons in a toolbar.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>strong</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, activates a button with a heavier font weight.</p>
 </td>
     </tr>
     

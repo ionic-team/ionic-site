@@ -84,6 +84,13 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>maxZoom</td>
+      <td><code>number</code></td>
+      <td><p> Set the max zoom amount.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>scrollX</td>
       <td><code>boolean</code></td>
       <td><p> If true, scrolling along the X axis is enabled.</p>
@@ -101,13 +108,6 @@ Improve this doc
       <td>zoom</td>
       <td><code>boolean</code></td>
       <td><p> If true, zooming is enabled.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>maxZoom</td>
-      <td><code>number</code></td>
-      <td><p> Set the max zoom amount.</p>
 </td>
     </tr>
     

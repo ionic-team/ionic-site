@@ -90,11 +90,11 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="navCtrl"></div>
+<div id="backButtonClick"></div>
 
 <h3>
-<a class="anchor" name="navCtrl" href="#navCtrl"></a>
-<code>navCtrl</code>
+<a class="anchor" name="backButtonClick" href="#backButtonClick"></a>
+<code>backButtonClick()</code>
   
 
 </h3>
@@ -110,11 +110,11 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
 
-<div id="backButtonClick"></div>
+<div id="navCtrl"></div>
 
 <h3>
-<a class="anchor" name="backButtonClick" href="#backButtonClick"></a>
-<code>backButtonClick()</code>
+<a class="anchor" name="navCtrl" href="#navCtrl"></a>
+<code>navCtrl</code>
   
 
 </h3>
@@ -172,18 +172,18 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
     </tr>
     
     <tr>
+      <td>hideBackButton</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the back button will be hidden.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
 For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>hideBackButton</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the back button will be hidden.</p>
 </td>
     </tr>
     

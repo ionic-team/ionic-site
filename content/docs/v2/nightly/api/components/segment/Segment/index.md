@@ -122,18 +122,18 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with any of the buttons in the segment.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
 Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
 For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with any of the buttons in the segment.</p>
 </td>
     </tr>
     

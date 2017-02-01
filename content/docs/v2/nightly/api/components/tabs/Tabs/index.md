@@ -158,151 +158,6 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="viewCtrl"></div>
-
-<h3>
-<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
-<code>viewCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="select"></div>
-
-<h3>
-<a class="anchor" name="select" href="#select"></a>
-<code>select(tabOrIndex)</code>
-  
-
-</h3>
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        tabOrIndex
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>|<code>Tab</code>
-      </td>
-      <td>
-        <p>Index, or the Tab instance, of the tab to select.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="previousTab"></div>
-
-<h3>
-<a class="anchor" name="previousTab" href="#previousTab"></a>
-<code>previousTab(trimHistory)</code>
-  
-
-</h3>
-
-Get the previously selected Tab which is currently not disabled or hidden.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        trimHistory
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If the selection history should be trimmed up to the previous tab selection or not.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Tab</code> 
-
-</div>
-
-
-
-
 <div id="getByIndex"></div>
 
 <h3>
@@ -386,6 +241,151 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 
 
+
+<div id="ngOnDestroy"></div>
+
+<h3>
+<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
+<code>ngOnDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="previousTab"></div>
+
+<h3>
+<a class="anchor" name="previousTab" href="#previousTab"></a>
+<code>previousTab(trimHistory)</code>
+  
+
+</h3>
+
+Get the previously selected Tab which is currently not disabled or hidden.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        trimHistory
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>If the selection history should be trimmed up to the previous tab selection or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Tab</code> 
+
+</div>
+
+
+
+
+<div id="select"></div>
+
+<h3>
+<a class="anchor" name="select" href="#select"></a>
+<code>select(tabOrIndex)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        tabOrIndex
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>|<code>Tab</code>
+      </td>
+      <td>
+        <p>Index, or the Tab instance, of the tab to select.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="viewCtrl"></div>
+
+<h3>
+<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -424,6 +424,13 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     </tr>
     
     <tr>
+      <td>tabsHighlight</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, show the tab highlight bar under the selected tab.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>tabsLayout</td>
       <td><code>string</code></td>
       <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
@@ -434,13 +441,6 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <td>tabsPlacement</td>
       <td><code>string</code></td>
       <td><p> Set position of the tabbar: <code>top</code>, <code>bottom</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>tabsHighlight</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, show the tab highlight bar under the selected tab.</p>
 </td>
     </tr>
     

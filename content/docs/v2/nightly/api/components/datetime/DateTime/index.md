@@ -384,135 +384,9 @@ configuration should be decided by the end-developer.</p>
   <tbody>
     
     <tr>
-      <td>min</td>
-      <td><code>string</code></td>
-      <td><p> The minimum datetime allowed. Value must be a date string
-following the
-<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
-such as <code>1996-12-19</code>. The format does not have to be specific to an exact
-datetime. For example, the minimum could just be the year, such as <code>1994</code>.
-Defaults to the beginning of the year, 100 years ago from today.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>max</td>
-      <td><code>string</code></td>
-      <td><p> The maximum datetime allowed. Value must be a date string
-following the
-<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
-<code>1996-12-19</code>. The format does not have to be specific to an exact
-datetime. For example, the maximum could just be the year, such as <code>1994</code>.
-Defaults to the end of this year.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>displayFormat</td>
-      <td><code>string</code></td>
-      <td><p> The display format of the date and time as text that shows
-within the item. When the <code>pickerFormat</code> input is not used, then the
-<code>displayFormat</code> is used for both display the formatted text, and determining
-the datetime picker&#39;s columns. See the <code>pickerFormat</code> input description for
-more info. Defaults to <code>MMM D, YYYY</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>pickerFormat</td>
-      <td><code>string</code></td>
-      <td><p> The format of the date and time picker columns the user selects.
-A datetime input can have one or many datetime parts, each getting their
-own column which allow individual selection of that particular datetime part. For
-example, year and month columns are two individually selectable columns which help
-choose an exact date from the datetime picker. Each column follows the string
-parse format. Defaults to use <code>displayFormat</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the picker&#39;s cancel button. Default: <code>Cancel</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>doneText</td>
-      <td><code>string</code></td>
-      <td><p> The text to display on the picker&#39;s &quot;Done&quot; button. Default: <code>Done</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>yearValues</td>
-      <td><code>array | string</code></td>
-      <td><p> Values used to create the list of selectable years. By default
-the year values range between the <code>min</code> and <code>max</code> datetime inputs. However, to
-control exactly which years to display, the <code>yearValues</code> input can take either an array
-of numbers, or string of comma separated numbers. For example, to show upcoming and
-recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2024,2020,2016,2012,2008&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>monthValues</td>
-      <td><code>array | string</code></td>
-      <td><p> Values used to create the list of selectable months. By default
-the month values range from <code>1</code> to <code>12</code>. However, to control exactly which months to
-display, the <code>monthValues</code> input can take either an array of numbers, or string of
-comma separated numbers. For example, if only summer months should be shown, then this
-input value would be <code>monthValues=&quot;6,7,8&quot;</code>. Note that month numbers do <em>not</em> have a
-zero-based index, meaning January&#39;s value is <code>1</code>, and December&#39;s is <code>12</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>dayValues</td>
-      <td><code>array | string</code></td>
-      <td><p> Values used to create the list of selectable days. By default
-every day is shown for the given month. However, to control exactly which days of
-the month to display, the <code>dayValues</code> input can take either an array of numbers, or
-string of comma separated numbers. Note that even if the array days have an invalid
-number for the selected month, like <code>31</code> in February, it will correctly not show
-days which are not valid for the selected month.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>hourValues</td>
-      <td><code>array | string</code></td>
-      <td><p> Values used to create the list of selectable hours. By default
-the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
-to control exactly which hours to display, the <code>hourValues</code> input can take either an
-array of numbers, or string of comma separated numbers.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>minuteValues</td>
-      <td><code>array | string</code></td>
-      <td><p> Values used to create the list of selectable minutes. By default
-the mintues range from <code>0</code> to <code>59</code>. However, to control exactly which minutes to display,
-the <code>minuteValues</code> input can take either an array of numbers, or string of comma separated
-numbers. For example, if the minute selections should only be every 15 minutes, then
-this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>monthNames</td>
-      <td><code>array</code></td>
-      <td><p> Full names for each month name. This can be used to provide
-locale month names. Defaults to English.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>monthShortNames</td>
-      <td><code>array</code></td>
-      <td><p> Short abbreviated names for each month name. This can be used to provide
-locale month names. Defaults to English.</p>
 </td>
     </tr>
     
@@ -533,10 +407,84 @@ locale names for each day in the week. Defaults to English.</p>
     </tr>
     
     <tr>
-      <td>pickerOptions</td>
-      <td><code>any</code></td>
-      <td><p> Any additional options that the picker interface can accept.
-See the <a href="../../picker/Picker">Picker API docs</a> for the picker options.</p>
+      <td>dayValues</td>
+      <td><code>array | string</code></td>
+      <td><p> Values used to create the list of selectable days. By default
+every day is shown for the given month. However, to control exactly which days of
+the month to display, the <code>dayValues</code> input can take either an array of numbers, or
+string of comma separated numbers. Note that even if the array days have an invalid
+number for the selected month, like <code>31</code> in February, it will correctly not show
+days which are not valid for the selected month.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>displayFormat</td>
+      <td><code>string</code></td>
+      <td><p> The display format of the date and time as text that shows
+within the item. When the <code>pickerFormat</code> input is not used, then the
+<code>displayFormat</code> is used for both display the formatted text, and determining
+the datetime picker&#39;s columns. See the <code>pickerFormat</code> input description for
+more info. Defaults to <code>MMM D, YYYY</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>doneText</td>
+      <td><code>string</code></td>
+      <td><p> The text to display on the picker&#39;s &quot;Done&quot; button. Default: <code>Done</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>hourValues</td>
+      <td><code>array | string</code></td>
+      <td><p> Values used to create the list of selectable hours. By default
+the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
+to control exactly which hours to display, the <code>hourValues</code> input can take either an
+array of numbers, or string of comma separated numbers.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>max</td>
+      <td><code>string</code></td>
+      <td><p> The maximum datetime allowed. Value must be a date string
+following the
+<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
+<code>1996-12-19</code>. The format does not have to be specific to an exact
+datetime. For example, the maximum could just be the year, such as <code>1994</code>.
+Defaults to the end of this year.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>min</td>
+      <td><code>string</code></td>
+      <td><p> The minimum datetime allowed. Value must be a date string
+following the
+<a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format standard</a>,
+such as <code>1996-12-19</code>. The format does not have to be specific to an exact
+datetime. For example, the minimum could just be the year, such as <code>1994</code>.
+Defaults to the beginning of the year, 100 years ago from today.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>minuteValues</td>
+      <td><code>array | string</code></td>
+      <td><p> Values used to create the list of selectable minutes. By default
+the mintues range from <code>0</code> to <code>59</code>. However, to control exactly which minutes to display,
+the <code>minuteValues</code> input can take either an array of numbers, or string of comma separated
+numbers. For example, if the minute selections should only be every 15 minutes, then
+this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>
 </td>
     </tr>
     
@@ -550,9 +498,61 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     </tr>
     
     <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
+      <td>monthNames</td>
+      <td><code>array</code></td>
+      <td><p> Full names for each month name. This can be used to provide
+locale month names. Defaults to English.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>monthShortNames</td>
+      <td><code>array</code></td>
+      <td><p> Short abbreviated names for each month name. This can be used to provide
+locale month names. Defaults to English.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>monthValues</td>
+      <td><code>array | string</code></td>
+      <td><p> Values used to create the list of selectable months. By default
+the month values range from <code>1</code> to <code>12</code>. However, to control exactly which months to
+display, the <code>monthValues</code> input can take either an array of numbers, or string of
+comma separated numbers. For example, if only summer months should be shown, then this
+input value would be <code>monthValues=&quot;6,7,8&quot;</code>. Note that month numbers do <em>not</em> have a
+zero-based index, meaning January&#39;s value is <code>1</code>, and December&#39;s is <code>12</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>pickerFormat</td>
+      <td><code>string</code></td>
+      <td><p> The format of the date and time picker columns the user selects.
+A datetime input can have one or many datetime parts, each getting their
+own column which allow individual selection of that particular datetime part. For
+example, year and month columns are two individually selectable columns which help
+choose an exact date from the datetime picker. Each column follows the string
+parse format. Defaults to use <code>displayFormat</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>pickerOptions</td>
+      <td><code>any</code></td>
+      <td><p> Any additional options that the picker interface can accept.
+See the <a href="../../picker/Picker">Picker API docs</a> for the picker options.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>yearValues</td>
+      <td><code>array | string</code></td>
+      <td><p> Values used to create the list of selectable years. By default
+the year values range between the <code>min</code> and <code>max</code> datetime inputs. However, to
+control exactly which years to display, the <code>yearValues</code> input can take either an array
+of numbers, or string of comma separated numbers. For example, to show upcoming and
+recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2024,2020,2016,2012,2008&quot;</code>.</p>
 </td>
     </tr>
     
@@ -570,14 +570,14 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
   <tbody>
     
     <tr>
-      <td>ionChange</td>
-      <td><p> Emitted when the datetime selection has changed.</p>
+      <td>ionCancel</td>
+      <td><p> Emitted when the datetime selection was cancelled.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionCancel</td>
-      <td><p> Emitted when the datetime selection was cancelled.</p>
+      <td>ionChange</td>
+      <td><p> Emitted when the datetime selection has changed.</p>
 </td>
     </tr>
     

@@ -82,11 +82,11 @@ class MyApp {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="ngAfterViewInit"></div>
+<div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
+<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<code>goToRoot()</code>
   
 
 </h3>
@@ -102,11 +102,11 @@ class MyApp {
 
 
 
-<div id="goToRoot"></div>
+<div id="ngAfterViewInit"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
-<code>goToRoot()</code>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<code>ngAfterViewInit()</code>
   
 
 </h3>

@@ -131,9 +131,10 @@ currently working on.</p>
   <tbody>
     
     <tr>
-      <td>src</td>
+      <td>alt</td>
       <td><code>string</code></td>
-      <td><p> The source of the image.</p>
+      <td><p>  Set the <code>alt</code> attribute which gets assigned to
+the inner <code>img</code> element.</p>
 </td>
     </tr>
     
@@ -157,15 +158,6 @@ smoother scrolling.</p>
     </tr>
     
     <tr>
-      <td>width</td>
-      <td><code>string</code></td>
-      <td><p>  Image width. If this property is not set it&#39;s important that
-the dimensions are still set using CSS. If the dimension is just a number it
-will assume the <code>px</code> unit.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>height</td>
       <td><code>string</code></td>
       <td><p>  Image height. If this property is not set it&#39;s important that
@@ -175,10 +167,18 @@ will assume the <code>px</code> unit.</p>
     </tr>
     
     <tr>
-      <td>alt</td>
+      <td>src</td>
       <td><code>string</code></td>
-      <td><p>  Set the <code>alt</code> attribute which gets assigned to
-the inner <code>img</code> element.</p>
+      <td><p> The source of the image.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>width</td>
+      <td><code>string</code></td>
+      <td><p>  Image width. If this property is not set it&#39;s important that
+the dimensions are still set using CSS. If the dimension is just a number it
+will assume the <code>px</code> unit.</p>
 </td>
     </tr>
     

@@ -68,6 +68,47 @@ by the Ionic keyboard plugin.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="close"></div>
+
+<h3>
+<a class="anchor" name="close" href="#close"></a>
+<code>close()</code>
+  
+
+</h3>
+
+Programmatically close the keyboard.
+
+
+
+
+
+
+
+
+
+
+
+<div id="hasFocusedTextInput"></div>
+
+<h3>
+<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput"></a>
+<code>hasFocusedTextInput()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="isOpen"></div>
 
 <h3>
@@ -174,47 +215,6 @@ export class MyClass {
 
 
 </div>
-
-
-
-
-<div id="close"></div>
-
-<h3>
-<a class="anchor" name="close" href="#close"></a>
-<code>close()</code>
-  
-
-</h3>
-
-Programmatically close the keyboard.
-
-
-
-
-
-
-
-
-
-
-
-<div id="hasFocusedTextInput"></div>
-
-<h3>
-<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput"></a>
-<code>hasFocusedTextInput()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
 
 
 

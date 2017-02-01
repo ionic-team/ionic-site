@@ -102,6 +102,29 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
     </tr>
     
     <tr>
+      <td>ios</td>
+      <td><code>string</code></td>
+      <td><p> Specifies which icon to use on <code>ios</code> mode.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>isActive</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the icon is styled with an &quot;active&quot; appearance.
+An active icon is filled in, and an inactive icon is the outline of the icon.
+The <code>isActive</code> property is largely used by the tabbar. Only affects <code>ios</code> icons.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>md</td>
+      <td><code>string</code></td>
+      <td><p> Specifies which icon to use on <code>md</code> mode.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
@@ -115,29 +138,6 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <td><code>string</code></td>
       <td><p> Specifies which icon to use. The appropriate icon will be used based on the mode.
 For more information, see <a href="/docs/v2/ionicons/">Ionicons</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ios</td>
-      <td><code>string</code></td>
-      <td><p> Specifies which icon to use on <code>ios</code> mode.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>md</td>
-      <td><code>string</code></td>
-      <td><p> Specifies which icon to use on <code>md</code> mode.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>isActive</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the icon is styled with an &quot;active&quot; appearance.
-An active icon is filled in, and an inactive icon is the outline of the icon.
-The <code>isActive</code> property is largely used by the tabbar. Only affects <code>ios</code> icons.</p>
 </td>
     </tr>
     

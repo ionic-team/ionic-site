@@ -97,16 +97,16 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>value</td>
-      <td><code>string</code></td>
-      <td><p> the value of the segment button. Required.</p>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
     <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> the value of the segment button. Required.</p>
 </td>
     </tr>
     

@@ -157,6 +157,13 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
     </tr>
     
     <tr>
+      <td>duration</td>
+      <td><code>string</code></td>
+      <td><p> How long it takes it to do one loop.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>mode</td>
       <td><code>string</code></td>
       <td><p> The mode determines which platform styles to use.
@@ -169,13 +176,6 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <td>name</td>
       <td><code>string</code></td>
       <td><p> SVG spinner name.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>duration</td>
-      <td><code>string</code></td>
-      <td><p> How long it takes it to do one loop.</p>
 </td>
     </tr>
     

@@ -184,18 +184,24 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
     </tr>
     
     <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+      <td>debounce</td>
+      <td><code>number</code></td>
+      <td><p> How long, in milliseconds, to wait to trigger the
+<code>ionChange</code> event after each change in the range value. Default <code>0</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>min</td>
-      <td><code>number</code></td>
-      <td><p> Minimum integer value of the range. Defaults to <code>0</code>.</p>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>dualKnobs</td>
+      <td><code>boolean</code></td>
+      <td><p> Show two knobs. Defaults to <code>false</code>.</p>
 </td>
     </tr>
     
@@ -207,17 +213,18 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     </tr>
     
     <tr>
-      <td>step</td>
+      <td>min</td>
       <td><code>number</code></td>
-      <td><p> Specifies the value granularity. Defaults to <code>1</code>.</p>
+      <td><p> Minimum integer value of the range. Defaults to <code>0</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>snaps</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the knob snaps to tick marks evenly spaced based
-on the step property value. Defaults to <code>false</code>.</p>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -230,24 +237,17 @@ is pressed. Defaults to <code>false</code>.</p>
     </tr>
     
     <tr>
-      <td>debounce</td>
+      <td>snaps</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the knob snaps to tick marks evenly spaced based
+on the step property value. Defaults to <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>step</td>
       <td><code>number</code></td>
-      <td><p> How long, in milliseconds, to wait to trigger the
-<code>ionChange</code> event after each change in the range value. Default <code>0</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>dualKnobs</td>
-      <td><code>boolean</code></td>
-      <td><p> Show two knobs. Defaults to <code>false</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
+      <td><p> Specifies the value granularity. Defaults to <code>1</code>.</p>
 </td>
     </tr>
     

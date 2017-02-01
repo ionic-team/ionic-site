@@ -71,16 +71,36 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="willEnter"></div>
+<div id="component"></div>
 
 <h3>
-<a class="anchor" name="willEnter" href="#willEnter"></a>
-<code>willEnter</code>
+<a class="anchor" name="component" href="#component"></a>
+<code>component</code>
   
 
 </h3>
 
-Observable to be subscribed to when the current component will become active
+
+
+
+
+
+
+
+
+
+
+
+<div id="contentRef"></div>
+
+<h3>
+<a class="anchor" name="contentRef" href="#contentRef"></a>
+<code>contentRef()</code>
+  
+
+</h3>
+
+
 
 
 
@@ -90,7 +110,7 @@ Observable to be subscribed to when the current component will become active
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
+  <code>ElementRef</code> <p>Returns the Content&#39;s ElementRef.</p>
 
 
 </div>
@@ -108,33 +128,6 @@ Observable to be subscribed to when the current component will become active
 </h3>
 
 Observable to be subscribed to when the current component has become active
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
-
-</div>
-
-
-
-
-<div id="willLeave"></div>
-
-<h3>
-<a class="anchor" name="willLeave" href="#willLeave"></a>
-<code>willLeave</code>
-  
-
-</h3>
-
-Observable to be subscribed to when the current component will no longer be active
 
 
 
@@ -175,95 +168,6 @@ Observable to be subscribed to when the current component is no long active
 
 
 </div>
-
-
-
-
-<div id="willUnload"></div>
-
-<h3>
-<a class="anchor" name="willUnload" href="#willUnload"></a>
-<code>willUnload</code>
-  
-
-</h3>
-
-Observable to be subscribed to when the current component has been destroyed
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
-
-</div>
-
-
-
-
-<div id="component"></div>
-
-<h3>
-<a class="anchor" name="component" href="#component"></a>
-<code>component</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onDidDismiss"></div>
-
-<h3>
-<a class="anchor" name="onDidDismiss" href="#onDidDismiss"></a>
-<code>onDidDismiss()</code>
-  
-
-</h3>
-
-Called when the current viewController has be successfully dismissed
-
-
-
-
-
-
-
-
-
-
-
-<div id="onWillDismiss"></div>
-
-<h3>
-<a class="anchor" name="onWillDismiss" href="#onWillDismiss"></a>
-<code>onWillDismiss()</code>
-  
-
-</h3>
-
-Called when the current viewController will be dismissed
-
-
-
-
-
-
-
 
 
 
@@ -386,6 +290,62 @@ Check to see if you can go back in the navigation stack.
 
 
 
+<div id="getContent"></div>
+
+<h3>
+<a class="anchor" name="getContent" href="#getContent"></a>
+<code>getContent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>component</code> <p>Returns the Page&#39;s Content component reference.</p>
+
+
+</div>
+
+
+
+
+<div id="hasNavbar"></div>
+
+<h3>
+<a class="anchor" name="hasNavbar" href="#hasNavbar"></a>
+<code>hasNavbar()</code>
+  
+
+</h3>
+
+Find out if the current component has a NavBar or not. Be sure
+to wrap this in an `ionViewWillEnter` method in order to make sure
+the view has rendered fully.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>Returns a boolean if this Page has a navbar or not.</p>
+
+
+</div>
+
+
+
+
 <div id="index"></div>
 
 <h3>
@@ -467,6 +427,48 @@ Get the index of the current component in the current navigation stack.
 
 
 
+<div id="onDidDismiss"></div>
+
+<h3>
+<a class="anchor" name="onDidDismiss" href="#onDidDismiss"></a>
+<code>onDidDismiss()</code>
+  
+
+</h3>
+
+Called when the current viewController has be successfully dismissed
+
+
+
+
+
+
+
+
+
+
+
+<div id="onWillDismiss"></div>
+
+<h3>
+<a class="anchor" name="onWillDismiss" href="#onWillDismiss"></a>
+<code>onWillDismiss()</code>
+  
+
+</h3>
+
+Called when the current viewController will be dismissed
+
+
+
+
+
+
+
+
+
+
+
 <div id="pageRef"></div>
 
 <h3>
@@ -487,89 +489,6 @@ Get the index of the current component in the current navigation stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>ElementRef</code> <p>Returns the Page&#39;s ElementRef.</p>
-
-
-</div>
-
-
-
-
-<div id="getContent"></div>
-
-<h3>
-<a class="anchor" name="getContent" href="#getContent"></a>
-<code>getContent()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>component</code> <p>Returns the Page&#39;s Content component reference.</p>
-
-
-</div>
-
-
-
-
-<div id="contentRef"></div>
-
-<h3>
-<a class="anchor" name="contentRef" href="#contentRef"></a>
-<code>contentRef()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>ElementRef</code> <p>Returns the Content&#39;s ElementRef.</p>
-
-
-</div>
-
-
-
-
-<div id="hasNavbar"></div>
-
-<h3>
-<a class="anchor" name="hasNavbar" href="#hasNavbar"></a>
-<code>hasNavbar()</code>
-  
-
-</h3>
-
-Find out if the current component has a NavBar or not. Be sure
-to wrap this in an `ionViewWillEnter` method in order to make sure
-the view has rendered fully.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>Returns a boolean if this Page has a navbar or not.</p>
 
 
 </div>
@@ -673,6 +592,87 @@ after `ionViewWillEnter` to make sure the  DOM has been rendered.
 
 
 
+
+
+
+
+<div id="willEnter"></div>
+
+<h3>
+<a class="anchor" name="willEnter" href="#willEnter"></a>
+<code>willEnter</code>
+  
+
+</h3>
+
+Observable to be subscribed to when the current component will become active
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="willLeave"></div>
+
+<h3>
+<a class="anchor" name="willLeave" href="#willLeave"></a>
+<code>willLeave</code>
+  
+
+</h3>
+
+Observable to be subscribed to when the current component will no longer be active
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="willUnload"></div>
+
+<h3>
+<a class="anchor" name="willUnload" href="#willUnload"></a>
+<code>willUnload</code>
+  
+
+</h3>
+
+Observable to be subscribed to when the current component has been destroyed
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
 
 
 

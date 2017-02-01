@@ -144,13 +144,6 @@ interactivity.</p>
   <tbody>
     
     <tr>
-      <td>placeholder</td>
-      <td><code>string</code></td>
-      <td><p> Instructional text that shows before the input has a value.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>clearInput</td>
       <td><code>boolean</code></td>
       <td><p> If true, a clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
@@ -158,16 +151,9 @@ interactivity.</p>
     </tr>
     
     <tr>
-      <td>value</td>
-      <td><code>string</code></td>
-      <td><p> The text value of the input.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>type</td>
-      <td><code>string</code></td>
-      <td><p> The type of control to display. The default type is text. Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, or <code>&quot;url&quot;</code>.</p>
+      <td>clearOnEdit</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the value will be cleared after focus upon edit. Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quot;</code>, <code>false</code> for all other types.</p>
 </td>
     </tr>
     
@@ -179,9 +165,16 @@ interactivity.</p>
     </tr>
     
     <tr>
-      <td>readonly</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot modify the value.</p>
+      <td>max</td>
+      <td><code>any</code></td>
+      <td><p> The maximum value, which must not be less than its minimum (min attribute) value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>min</td>
+      <td><code>any</code></td>
+      <td><p> The minimum value, which must not be greater than its maximum (max attribute) value.</p>
 </td>
     </tr>
     
@@ -195,23 +188,16 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
     </tr>
     
     <tr>
-      <td>clearOnEdit</td>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> Instructional text that shows before the input has a value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>readonly</td>
       <td><code>boolean</code></td>
-      <td><p> If true, the value will be cleared after focus upon edit. Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quot;</code>, <code>false</code> for all other types.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>min</td>
-      <td><code>any</code></td>
-      <td><p> The minimum value, which must not be greater than its maximum (max attribute) value.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>max</td>
-      <td><code>any</code></td>
-      <td><p> The maximum value, which must not be less than its minimum (min attribute) value.</p>
+      <td><p> If true, the user cannot modify the value.</p>
 </td>
     </tr>
     
@@ -219,6 +205,20 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <td>step</td>
       <td><code>any</code></td>
       <td><p> Works with the min and max attributes to limit the increments at which a value can be set.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>type</td>
+      <td><code>string</code></td>
+      <td><p> The type of control to display. The default type is text. Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, or <code>&quot;url&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The text value of the input.</p>
 </td>
     </tr>
     

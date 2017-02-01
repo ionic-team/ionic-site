@@ -168,6 +168,15 @@ the tabs.</p>
   <tbody>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, enable the tab. If false,
+the user cannot interact with this element.
+Default: <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> Set the root page for this tab.</p>
@@ -182,23 +191,17 @@ the tabs.</p>
     </tr>
     
     <tr>
-      <td>tabUrlPath</td>
-      <td><code>string</code></td>
-      <td><p> The URL path name to represent this tab within the URL.</p>
+      <td>show</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the tab button is visible within the
+tabbar. Default: <code>true</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>tabTitle</td>
-      <td><code>string</code></td>
-      <td><p> The title of the tab button.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>tabIcon</td>
-      <td><code>string</code></td>
-      <td><p> The icon for the tab button.</p>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     
@@ -217,26 +220,23 @@ the tabs.</p>
     </tr>
     
     <tr>
-      <td>enabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, enable the tab. If false,
-the user cannot interact with this element.
-Default: <code>true</code>.</p>
+      <td>tabIcon</td>
+      <td><code>string</code></td>
+      <td><p> The icon for the tab button.</p>
 </td>
     </tr>
     
     <tr>
-      <td>show</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the tab button is visible within the
-tabbar. Default: <code>true</code>.</p>
+      <td>tabTitle</td>
+      <td><code>string</code></td>
+      <td><p> The title of the tab button.</p>
 </td>
     </tr>
     
     <tr>
-      <td>swipeBackEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, swipe to go back is enabled.</p>
+      <td>tabUrlPath</td>
+      <td><code>string</code></td>
+      <td><p> The URL path name to represent this tab within the URL.</p>
 </td>
     </tr>
     

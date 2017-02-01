@@ -98,11 +98,25 @@ more information on forms and input.</p>
   <tbody>
     
     <tr>
+      <td>checked</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the element is selected, and other buttons in the group are unselected.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>color</td>
       <td><code>string</code></td>
       <td><p> The color to use from your Sass <code>$colors</code> map.
 Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
 For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
@@ -119,20 +133,6 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the radio button. Defaults to the generated id.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>checked</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the element is selected, and other buttons in the group are unselected.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     

@@ -78,6 +78,79 @@ export MyPage {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="dir"></div>
+
+<h3>
+<a class="anchor" name="dir" href="#dir"></a>
+<code>dir()</code>
+  
+
+</h3>
+
+Returns app's language direction.
+We recommend the app's `index.html` file already has the correct `dir`
+attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
+[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>string</code> 
+
+</div>
+
+
+
+
+<div id="getQueryParam"></div>
+
+<h3>
+<a class="anchor" name="getQueryParam" href="#getQueryParam"></a>
+<code>getQueryParam()</code>
+  
+
+</h3>
+
+Get the query string parameter
+
+
+
+
+
+
+
+
+
+
+
+<div id="height"></div>
+
+<h3>
+<a class="anchor" name="height" href="#height"></a>
+<code>height()</code>
+  
+
+</h3>
+
+Gets the height of the platform's viewport using `window.innerHeight`.
+Using this method is preferred since the dimension is a cached value,
+which reduces the chance of multiple and expensive DOM reads.
+
+
+
+
+
+
+
+
+
+
+
 <div id="is"></div>
 
 <h3>
@@ -168,70 +241,37 @@ export MyPage {
 
 
 
-<div id="platforms"></div>
+<div id="isLandscape"></div>
 
 <h3>
-<a class="anchor" name="platforms" href="#platforms"></a>
-<code>platforms()</code>
+<a class="anchor" name="isLandscape" href="#isLandscape"></a>
+<code>isLandscape()</code>
   
 
 </h3>
 
-Depending on what device you are on, `platforms` can return multiple values.
-Each possible value is a hierarchy of platforms. For example, on an iPhone,
-it would return `mobile`, `ios`, and `iphone`.
-
-```
-import { Platform } from 'ionic-angular';
-
-@Component({...})
-export MyPage {
-  constructor(public plt: Platform) {
-    // This will print an array of the current platforms
-    console.log(this.plt.platforms());
-  }
-}
-```
+Returns `true` if the app is in landscape mode.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>array</code> <p>the array of platforms</p>
-
-
-</div>
 
 
 
 
-<div id="versions"></div>
+
+<div id="isPortrait"></div>
 
 <h3>
-<a class="anchor" name="versions" href="#versions"></a>
-<code>versions()</code>
+<a class="anchor" name="isPortrait" href="#isPortrait"></a>
+<code>isPortrait()</code>
   
 
 </h3>
 
-Returns an object containing version information about all of the platforms.
-
-```
-import { Platform } from 'ionic-angular';
-
-@Component({...})
-export MyPage {
-  constructor(public plt: Platform) {
-    // This will print an object containing
-    // all of the platforms and their versions
-    console.log(plt.versions());
-  }
-}
-```
+Returns `true` if the app is in portait mode.
 
 
 
@@ -239,148 +279,6 @@ export MyPage {
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>object</code> <p>An object containing all of the platforms and their versions.</p>
-
-
-</div>
-
-
-
-
-<div id="ready"></div>
-
-<h3>
-<a class="anchor" name="ready" href="#ready"></a>
-<code>ready()</code>
-  
-
-</h3>
-
-Returns a promise when the platform is ready and native functionality
-can be called. If the app is running from within a web browser, then
-the promise will resolve when the DOM is ready. When the app is running
-from an application engine such as Cordova, then the promise will
-resolve when Cordova triggers the `deviceready` event.
-
-The resolved value is the `readySource`, which states which platform
-ready was used. For example, when Cordova is ready, the resolved ready
-source is `cordova`. The default ready source value will be `dom`. The
-`readySource` is useful if different logic should run depending on the
-platform the app is running from. For example, only Cordova can execute
-the status bar plugin, so the web should not run status bar plugin logic.
-
-```
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-
-@Component({...})
-export MyApp {
-  constructor(public plt: Platform) {
-    this.plt.ready().then((readySource) => {
-      console.log('Platform ready from', readySource);
-      // Platform now ready, execute any required native code
-    });
-  }
-}
-```
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>promise</code> 
-
-</div>
-
-
-
-
-<div id="setDir"></div>
-
-<h3>
-<a class="anchor" name="setDir" href="#setDir"></a>
-<code>setDir(dir)</code>
-  
-
-</h3>
-
-Set the app's language direction, which will update the `dir` attribute
-on the app's root `<html>` element. We recommend the app's `index.html`
-file already has the correct `dir` attribute value set, such as
-`<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
-direction needs to be dynamically changed per user/session.
-[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        dir
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Examples: <code>rtl</code>, <code>ltr</code></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="dir"></div>
-
-<h3>
-<a class="anchor" name="dir" href="#dir"></a>
-<code>dir()</code>
-  
-
-</h3>
-
-Returns app's language direction.
-We recommend the app's `index.html` file already has the correct `dir`
-attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
-[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>string</code> 
-
-</div>
 
 
 
@@ -410,60 +308,6 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
   <code>boolean</code> 
 
 </div>
-
-
-
-
-<div id="setLang"></div>
-
-<h3>
-<a class="anchor" name="setLang" href="#setLang"></a>
-<code>setLang(language)</code>
-  
-
-</h3>
-
-Set the app's language and optionally the country code, which will update
-the `lang` attribute on the app's root `<html>` element.
-We recommend the app's `index.html` file already has the correct `lang`
-attribute value set, such as `<html lang="en">`. This method is useful if
-the language needs to be dynamically changed per user/session.
-[W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        language
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Examples: <code>en-US</code>, <code>en-GB</code>, <code>ar</code>, <code>de</code>, <code>zh</code>, <code>es-MX</code></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
 
 
 
@@ -521,25 +365,95 @@ the background, however, it would not fire on a standard web browser.
 
 
 
-<div id="resume"></div>
+<div id="platforms"></div>
 
 <h3>
-<a class="anchor" name="resume" href="#resume"></a>
-<code>resume</code>
+<a class="anchor" name="platforms" href="#platforms"></a>
+<code>platforms()</code>
   
 
 </h3>
 
-The resume event emits when the native platform pulls the application
-out from the background. This event would emit when a Cordova app comes
-out from the background, however, it would not fire on a standard web browser.
+Depending on what device you are on, `platforms` can return multiple values.
+Each possible value is a hierarchy of platforms. For example, on an iPhone,
+it would return `mobile`, `ios`, and `iphone`.
+
+```
+import { Platform } from 'ionic-angular';
+
+@Component({...})
+export MyPage {
+  constructor(public plt: Platform) {
+    // This will print an array of the current platforms
+    console.log(this.plt.platforms());
+  }
+}
+```
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>array</code> <p>the array of platforms</p>
 
+
+</div>
+
+
+
+
+<div id="ready"></div>
+
+<h3>
+<a class="anchor" name="ready" href="#ready"></a>
+<code>ready()</code>
+  
+
+</h3>
+
+Returns a promise when the platform is ready and native functionality
+can be called. If the app is running from within a web browser, then
+the promise will resolve when the DOM is ready. When the app is running
+from an application engine such as Cordova, then the promise will
+resolve when Cordova triggers the `deviceready` event.
+
+The resolved value is the `readySource`, which states which platform
+ready was used. For example, when Cordova is ready, the resolved ready
+source is `cordova`. The default ready source value will be `dom`. The
+`readySource` is useful if different logic should run depending on the
+platform the app is running from. For example, only Cordova can execute
+the status bar plugin, so the web should not run status bar plugin logic.
+
+```
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
+
+@Component({...})
+export MyApp {
+  constructor(public plt: Platform) {
+    this.plt.ready().then((readySource) => {
+      console.log('Platform ready from', readySource);
+      // Platform now ready, execute any required native code
+    });
+  }
+}
+```
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>promise</code> 
+
+</div>
 
 
 
@@ -631,16 +545,146 @@ the its back button action.</p>
 
 
 
-<div id="getQueryParam"></div>
+<div id="resume"></div>
 
 <h3>
-<a class="anchor" name="getQueryParam" href="#getQueryParam"></a>
-<code>getQueryParam()</code>
+<a class="anchor" name="resume" href="#resume"></a>
+<code>resume</code>
   
 
 </h3>
 
-Get the query string parameter
+The resume event emits when the native platform pulls the application
+out from the background. This event would emit when a Cordova app comes
+out from the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
+
+
+
+
+<div id="setDir"></div>
+
+<h3>
+<a class="anchor" name="setDir" href="#setDir"></a>
+<code>setDir(dir)</code>
+  
+
+</h3>
+
+Set the app's language direction, which will update the `dir` attribute
+on the app's root `<html>` element. We recommend the app's `index.html`
+file already has the correct `dir` attribute value set, such as
+`<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
+direction needs to be dynamically changed per user/session.
+[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        dir
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Examples: <code>rtl</code>, <code>ltr</code></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="setLang"></div>
+
+<h3>
+<a class="anchor" name="setLang" href="#setLang"></a>
+<code>setLang(language)</code>
+  
+
+</h3>
+
+Set the app's language and optionally the country code, which will update
+the `lang` attribute on the app's root `<html>` element.
+We recommend the app's `index.html` file already has the correct `lang`
+attribute value set, such as `<html lang="en">`. This method is useful if
+the language needs to be dynamically changed per user/session.
+[W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        language
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Examples: <code>en-US</code>, <code>en-GB</code>, <code>ar</code>, <code>de</code>, <code>zh</code>, <code>es-MX</code></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="testUserAgent"></div>
+
+<h3>
+<a class="anchor" name="testUserAgent" href="#testUserAgent"></a>
+<code>testUserAgent()</code>
+  
+
+</h3>
+
 
 
 
@@ -673,6 +717,47 @@ Get the current url.
 
 
 
+<div id="versions"></div>
+
+<h3>
+<a class="anchor" name="versions" href="#versions"></a>
+<code>versions()</code>
+  
+
+</h3>
+
+Returns an object containing version information about all of the platforms.
+
+```
+import { Platform } from 'ionic-angular';
+
+@Component({...})
+export MyPage {
+  constructor(public plt: Platform) {
+    // This will print an object containing
+    // all of the platforms and their versions
+    console.log(plt.versions());
+  }
+}
+```
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> <p>An object containing all of the platforms and their versions.</p>
+
+
+</div>
+
+
+
+
 <div id="width"></div>
 
 <h3>
@@ -685,91 +770,6 @@ Get the current url.
 Gets the width of the platform's viewport using `window.innerWidth`.
 Using this method is preferred since the dimension is a cached value,
 which reduces the chance of multiple and expensive DOM reads.
-
-
-
-
-
-
-
-
-
-
-
-<div id="height"></div>
-
-<h3>
-<a class="anchor" name="height" href="#height"></a>
-<code>height()</code>
-  
-
-</h3>
-
-Gets the height of the platform's viewport using `window.innerHeight`.
-Using this method is preferred since the dimension is a cached value,
-which reduces the chance of multiple and expensive DOM reads.
-
-
-
-
-
-
-
-
-
-
-
-<div id="isPortrait"></div>
-
-<h3>
-<a class="anchor" name="isPortrait" href="#isPortrait"></a>
-<code>isPortrait()</code>
-  
-
-</h3>
-
-Returns `true` if the app is in portait mode.
-
-
-
-
-
-
-
-
-
-
-
-<div id="isLandscape"></div>
-
-<h3>
-<a class="anchor" name="isLandscape" href="#isLandscape"></a>
-<code>isLandscape()</code>
-  
-
-</h3>
-
-Returns `true` if the app is in landscape mode.
-
-
-
-
-
-
-
-
-
-
-
-<div id="testUserAgent"></div>
-
-<h3>
-<a class="anchor" name="testUserAgent" href="#testUserAgent"></a>
-<code>testUserAgent()</code>
-  
-
-</h3>
-
 
 
 

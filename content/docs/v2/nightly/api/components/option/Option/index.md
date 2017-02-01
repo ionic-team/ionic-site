@@ -70,6 +70,13 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>selected</td>
       <td><code>boolean</code></td>
       <td><p> If true, the element is selected.</p>
@@ -80,13 +87,6 @@ Improve this doc
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the option.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     

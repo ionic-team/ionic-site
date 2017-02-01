@@ -173,6 +173,36 @@ Open the select interface.
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>interface</td>
+      <td><code>string</code></td>
+      <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>multiple</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the element can accept multiple values.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>okText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the ok button. Default: <code>OK</code>.</p>
@@ -197,37 +227,9 @@ create options for each interface.</p>
     </tr>
     
     <tr>
-      <td>interface</td>
-      <td><code>string</code></td>
-      <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>selectedText</td>
       <td><code>string</code></td>
       <td><p> The text to display instead of the selected option&#39;s value.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>multiple</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the select component can accept multiple values. Default: <code>false</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the select component is disabled. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -245,14 +247,14 @@ create options for each interface.</p>
   <tbody>
     
     <tr>
-      <td>ionChange</td>
-      <td><p> Any expression you want to evaluate when the selection has changed.</p>
+      <td>ionCancel</td>
+      <td><p> Emitted when the selection was cancelled.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionCancel</td>
-      <td><p> Any expression you want to evaluate when the selection was cancelled.</p>
+      <td>ionChange</td>
+      <td><p> Emitted when the selection has changed.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,17 +24,18 @@ docType: "class"
 
   
 
-  
+  </h1>
 
-</h1>
-
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L64">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/onesignal.ts#L259">
   Improve this doc
 </a>
 
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add onesignal-cordova-plugin</code></pre>
@@ -51,6 +52,17 @@ OneSignal is a simple implementation for delivering push notifications.</p>
 <p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows</li><li>FireOS</li>
+</ul>
+
+<!-- @platforms tag end -->
+
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -82,7 +94,7 @@ OneSignal.endInit();
 <h2>Static Members</h2>
 
 <div id="OSInFocusDisplayOption"></div>
-<h3><code>OSInFocusDisplayOption()</code>
+<h3><code>OSInFocusDisplayOption</code>
   
 </h3>
 
@@ -105,7 +117,7 @@ constants to use in inFocusDisplaying()
 
 
 
-Start the initialization process. Once you are done configuring OneSignal, call the endInit function.
+Start the initialization process. Once you are done configuring OneSignal, call the `endInit` function.
 
 
 
@@ -130,7 +142,7 @@ Start the initialization process. Once you are done configuring OneSignal, call 
 <code>string</code>
     </td>
     <td>
-      <p>Your AppId from your OneSignal app</p>
+      <p>Your OneSignal app id</p>
 
       
     </td>
@@ -147,7 +159,7 @@ Start the initialization process. Once you are done configuring OneSignal, call 
 <code>string</code>
     </td>
     <td>
-      <p>The Google Project Number (which you can get from the Google Developer Portal) and the autoRegister option.</p>
+      <p><strong>ANDROID</strong> - your Google project number; only required for Android GCM/FCM pushes.</p>
 
       
     </td>
@@ -176,7 +188,8 @@ Start the initialization process. Once you are done configuring OneSignal, call 
 
 
 
-Callback to run when a notification is received
+Callback to run when a notification is received, whether it was displayed or not.
+
 
 
 
@@ -186,7 +199,7 @@ Callback to run when a notification is received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
+<code>Observable&lt;OneSignalReceivedNotification&gt;</code> 
 </div>
 
 
@@ -199,7 +212,10 @@ Callback to run when a notification is received
 
 
 
-Callback to run when a notification is opened
+Callback to run when a notification is tapped on from the notification shade (**ANDROID**) or notification
+center (**iOS**), or when closing an Alert notification shown in the app (if InAppAlert is enabled in
+inFocusDisplaying).
+
 
 
 
@@ -209,7 +225,7 @@ Callback to run when a notification is opened
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
+<code>Observable&lt;OneSignalOpenedNotification&gt;</code> 
 </div>
 
 
@@ -222,6 +238,7 @@ Callback to run when a notification is opened
 
 
 
+**iOS** - Settings for iOS apps
 
 
 
@@ -246,7 +263,11 @@ Callback to run when a notification is opened
 
     </td>
     <td>
-      
+      <p>kOSSettingsKeyAutoPrompt: boolean = true
+ Auto prompt user for notification permissions.</p>
+<p> kOSSettingsKeyInAppLaunchURL: boolean = false
+ Launch notifications with a launch URL as an in app webview.</p>
+
       
     </td>
   </tr>
@@ -274,6 +295,7 @@ Callback to run when a notification is opened
 
 
 
+Must be called after `startInit` to complete initialization of OneSignal.
 
 
 
@@ -329,8 +351,11 @@ Your handler is called after the device is successfully registered with OneSigna
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that reolves if the device was successfully registered.
-It returns a JSON with `userId`and `pushToken`.
+<code>Promise&lt;Object&gt;</code> Returns a Promise that resolves if the device was successfully registered.
+
+ userId {string} OneSignal userId is a UUID formatted string. (unique per device per app)
+
+ pushToken {string} A push token is a Google/Apple assigned identifier(unique per device per app).
 </div>
 
 
@@ -555,7 +580,7 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
 
 
 Call this when you would like to prompt an iOS user to accept push notifications with the default system prompt.
-Only use if you passed false to autoRegister when calling init.
+Only works if you set `kOSSettingsAutoPrompt` to `false` in `iOSSettings`
 
 
 
@@ -700,11 +725,10 @@ Setting to control how OneSignal notifications will be shown when one is receive
     </td>
     <td>
       
-<code>number</code>
+<code>DisplayType</code>
     </td>
     <td>
-      <p>Options are 0 = None, 1 = InAppAlert, and 2 = Notification.</p>
-
+      
       
     </td>
   </tr>
@@ -715,6 +739,12 @@ Setting to control how OneSignal notifications will be shown when one is receive
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>any</code> 
+</div>
 
 
 
@@ -947,7 +977,7 @@ The higher the value the more information is shown.
 <!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
-<h2><a class="anchor" name="OneSignalNotification" href="#OneSignalNotification"></a>OneSignalNotification</h2>
+<h2><a class="anchor" name="OSNotification" href="#OSNotification"></a>OSNotification</h2>
 
 
 <table class="table param-table" style="margin:0;">
@@ -962,8 +992,92 @@ The higher the value the more information is shown.
   
   <tr>
     <td>
-      app_id
+      isAppInFocus
       
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Was app in focus.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      shown
+      
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Was notification shown to the user. Will be false for silent notifications.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      androidNotificationId
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Android Notification assigned to the notification. Can be used to cancel or replace the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      payload
+      
+    </td>
+    <td>
+      <code>OSNotificationPayload</code>
+    </td>
+    <td>
+      <p>Payload received from OneSignal.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      displayType
+      
+    </td>
+    <td>
+      <code>OSDisplayType</code>
+    </td>
+    <td>
+      <p>How the notification was displayed to the user. Can be set to <code>Notification</code>, <code>InAppAlert</code>, or <code>None</code> if it was not displayed.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      groupedNotifications
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>OSNotificationPayload[]</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Notification is a summary notification for a group this will contain all notification payloads it was created from.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      app_id
+      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1734,6 +1848,626 @@ The higher the value the more information is shown.
     </td>
     <td>
       <code>string</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSLockScreenVisibility" href="#OSLockScreenVisibility"></a>OSLockScreenVisibility</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      Public
+      
+    </td>
+    <td>
+      <code>1</code>
+    </td>
+    <td>
+      <p>Fully visible (default)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Private
+      
+    </td>
+    <td>
+      <code>0</code>
+    </td>
+    <td>
+      <p>Contents are hidden</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Secret
+      
+    </td>
+    <td>
+      <code>-1</code>
+    </td>
+    <td>
+      <p>Not shown</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSDisplayType" href="#OSDisplayType"></a>OSDisplayType</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      None
+      
+    </td>
+    <td>
+      <code>0</code>
+    </td>
+    <td>
+      <p>notification is silent, or inFocusDisplaying is disabled.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      InAppAlert
+      
+    </td>
+    <td>
+      <code>1</code>
+    </td>
+    <td>
+      <p>(<strong>DEFAULT</strong>) - native alert dialog display.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Notification
+      
+    </td>
+    <td>
+      <code>2</code>
+    </td>
+    <td>
+      <p>native notification display.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSNotificationPayload" href="#OSNotificationPayload"></a>OSNotificationPayload</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      notificationID
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>OneSignal notification UUID.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Title of the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      body
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Body of the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      additionalData
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>Custom additional data that was sent with the notification. Set on the dashboard under Options &gt; Additional Data
+or with the &#39;data&#39; field on the REST API.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      smallIcon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Small icon resource name set on the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      largeIcon
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Large icon set on the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bigPicture
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Big picture image set on the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      smallIconAccentColor
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Accent color shown around small notification icon on Android 5+ devices. ARGB format.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      launchUrl
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>URL to open when opening the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      sound
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Sound resource to play when the notification is shown.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ledColor
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Devices that have a notification LED will blink in this color. ARGB format.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      lockScreenVisibility
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>OSLockScreenVisibility</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      groupKey
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Notifications with this same key will be grouped together as a single summary notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      groupMessage
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Summary text displayed in the summary notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      actionButtons
+      
+    </td>
+    <td>
+      <code>OSActionButton[]</code>
+    </td>
+    <td>
+      <p>List of action buttons on the notification.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fromProjectNumber
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - The Google project number the notification was sent under.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      backgroundImageLayout
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>OSBackgroundImageLayout</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - If a background image was set this object will be available.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      priority
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      rawPayload
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>List of action buttons on the notification.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSActionButton" href="#OSActionButton"></a>OSActionButton</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      id
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Id assigned to the button.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      text
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Text show on the button to the user.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      icon
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p><strong>ANDROID</strong> - Icon shown on the button.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSBackgroundImageLayout" href="#OSBackgroundImageLayout"></a>OSBackgroundImageLayout</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      image
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Image URL or name used as the background image.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      titleTextColor
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Text color of the title on the notification. ARGB Format.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bodyTextColor
+      
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Text color of the body on the notification. ARGB Format.</p>
+
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSNotificationOpenedResult" href="#OSNotificationOpenedResult"></a>OSNotificationOpenedResult</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      action
+      
+    </td>
+    <td>
+      <code>*/
+    actionID?: string;
+  }</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      notification
+      
+    </td>
+    <td>
+      <code>OSNotification</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<h2><a class="anchor" name="OSActionType" href="#OSActionType"></a>OSActionType</h2>
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      Opened
+      
+    </td>
+    <td>
+      <code>0</code>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ActionTake
+      
+    </td>
+    <td>
+      <code>1</code>
     </td>
     <td>
       

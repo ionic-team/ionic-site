@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/launchnavigator.ts#L57">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add uk.co.workingedge.phonegap.plugin.launchnavigator</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Requires Cordova plugin: uk.co.workingedge.phonegap.plugin.launchnavigator. For more info, please see the <a href="https://github.com/dpa99c/phonegap-launch-navigator">LaunchNavigator plugin docs</a>.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -794,7 +797,7 @@ Indicates if an app on a given platform supports specification of start location
 
 
 <div id="APP"></div>
-<h3><code>APP()</code>
+<h3><code>APP</code>
   
 </h3>
 
@@ -809,7 +812,7 @@ Indicates if an app on a given platform supports specification of start location
 
 
 <div id="TRANSPORT_MODE"></div>
-<h3><code>TRANSPORT_MODE()</code>
+<h3><code>TRANSPORT_MODE</code>
   
 </h3>
 

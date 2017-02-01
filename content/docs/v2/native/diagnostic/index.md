@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/diagnostic.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova.plugins.diagnostic</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Checks whether device hardware features are enabled or available to the app, e.g. camera, GPS, wifi</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -83,7 +86,7 @@ Diagnostic.getBluetoothState()
 <h2>Static Members</h2>
 
 <div id="permission"></div>
-<h3><code>permission()</code>
+<h3><code>permission</code>
   
 </h3>
 
@@ -98,7 +101,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="permissionStatus"></div>
-<h3><code>permissionStatus()</code>
+<h3><code>permissionStatus</code>
   
 </h3>
 
@@ -114,7 +117,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="locationAuthorizationMode"></div>
-<h3><code>locationAuthorizationMode()</code>
+<h3><code>locationAuthorizationMode</code>
   
 </h3>
 
@@ -129,7 +132,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="permissionGroups"></div>
-<h3><code>permissionGroups()</code>
+<h3><code>permissionGroups</code>
   
 </h3>
 
@@ -144,7 +147,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="locationMode"></div>
-<h3><code>locationMode()</code>
+<h3><code>locationMode</code>
   
 </h3>
 
@@ -159,7 +162,7 @@ Diagnostic.getBluetoothState()
 
 
 <div id="bluetoothState"></div>
-<h3><code>bluetoothState()</code>
+<h3><code>bluetoothState</code>
   
 </h3>
 

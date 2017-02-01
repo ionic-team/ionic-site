@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -259,7 +259,7 @@ overflow. Read-only.
 
 <h3>
 <a class="anchor" name="scrollTop" href="#scrollTop"></a>
-<code>scrollTop</code>
+<code>scrollToptop</code>
   
 
 </h3>
@@ -267,6 +267,35 @@ overflow. Read-only.
 The distance of the content's top to its topmost visible content.
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        top
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -286,7 +315,7 @@ The distance of the content's top to its topmost visible content.
 
 <h3>
 <a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
-<code>scrollLeft</code>
+<code>scrollLefttop</code>
   
 
 </h3>
@@ -294,6 +323,35 @@ The distance of the content's top to its topmost visible content.
 The distance of the content's left to its leftmost visible content.
 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        top
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -839,6 +897,7 @@ fullscreen option may not look any different than the default, however,
 by adding a transparency effect to a header then the content can be
 seen under the header as the user scrolls.</p>
 <p>@returns {boolean}</p>
+<p>@param {boolean} val</p>
 </td>
     </tr>
     

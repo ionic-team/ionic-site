@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -83,11 +83,13 @@ section below.</p>
 
 <p>To open a popover on the click of a button, pass <code>$event</code> to the method
 which creates and presents the popover:</p>
-<pre><code class="lang-html">&lt;button ion-button (click)=&quot;presentPopover($event)&quot;&gt;
+<pre><code class="lang-html">&lt;button ion-button icon-only (click)=&quot;presentPopover($event)&quot;&gt;
   &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;
 </code></pre>
-<pre><code class="lang-ts">@Component({})
+<pre><code class="lang-ts">import { PopoverController } from &#39;ionic-angular&#39;;
+
+@Component({})
 class MyPage {
   constructor(public popoverCtrl: PopoverController) {}
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media-capture.ts#L108">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-media-capture</code></pre>
@@ -48,6 +49,8 @@ docType: "class"
 
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -73,7 +76,7 @@ MediaCapture.captureImage(options)
 <h2>Static Members</h2>
 
 <div id="supportedImageModes"></div>
-<h3><code>supportedImageModes()</code>
+<h3><code>supportedImageModes</code>
   
 </h3>
 
@@ -94,7 +97,7 @@ The recording image sizes and formats supported by the device.
 
 
 <div id="supportedAudioModes"></div>
-<h3><code>supportedAudioModes()</code>
+<h3><code>supportedAudioModes</code>
   
 </h3>
 
@@ -115,7 +118,7 @@ The audio recording formats supported by the device.
 
 
 <div id="supportedVideoModes"></div>
-<h3><code>supportedVideoModes()</code>
+<h3><code>supportedVideoModes</code>
   
 </h3>
 

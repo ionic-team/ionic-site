@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L16">
 Improve this doc
 </a>
 
@@ -87,7 +87,7 @@ You can combine the <code>(ionSwipe)</code> event plus the <code>expandable</cod
     <tr>
       <td>side</td>
       <td><code>string</code></td>
-      <td><p> the side the option button should be on. Defaults to right
+      <td><p> the side the option button should be on. Defaults to right.
 If you have multiple <code>ion-item-options</code>, a side must be provided for each.</p>
 </td>
     </tr>

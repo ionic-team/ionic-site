@@ -100,6 +100,27 @@ for more information on forms and inputs.</p>
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with any of the buttons in the group.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 <!-- output events on the class -->
 <h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
@@ -113,7 +134,7 @@ for more information on forms and inputs.</p>
     
     <tr>
       <td>ionChange</td>
-      <td><p> expression to be evaluated when selection has been changed</p>
+      <td><p> Emitted when the selected button has changed.</p>
 </td>
     </tr>
     

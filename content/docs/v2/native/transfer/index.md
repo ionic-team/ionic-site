@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/filetransfer.ts#L107">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-file-transfer</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>This plugin allows you to upload and download files.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -108,6 +111,8 @@ run-as com.your.app
 cd files
 ls
 </code></pre>
+<p>To store files in a different/publicly accessible directory, please refer to the following link
+<a href="https://github.com/apache/cordova-plugin-file#where-to-store-files">https://github.com/apache/cordova-plugin-file#where-to-store-files</a></p>
 
 
 
@@ -118,7 +123,7 @@ ls
 <h2>Static Members</h2>
 
 <div id="FileTransferErrorCode"></div>
-<h3><code>FileTransferErrorCode()</code>
+<h3><code>FileTransferErrorCode</code>
   
 </h3>
 

@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L8">
 Improve this doc
 </a>
 
@@ -102,14 +102,16 @@ Close any sliding items that are open.
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>sliding</td>
       <td><code>boolean</code></td>
-      <td><p> shouldEnable whether the item-sliding should be enabled or not</p>
+      <td><p> If true, the sliding items will be enabled.</p>
 </td>
     </tr>
     

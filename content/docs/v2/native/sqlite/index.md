@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sqlite.ts#L3">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-sqlite-storage</code></pre>
@@ -50,6 +51,8 @@ docType: "class"
 
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -63,7 +66,7 @@ SQLite.openDatabase({
 })
   .then((db: SQLite) =&gt; {
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;).then(() =&gt; {}).catch(() =&gt; {});
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {}).catch(() =&gt; {});
 
   })
   .catch(error =&gt; console.error(&#39;Error opening database&#39;, error);

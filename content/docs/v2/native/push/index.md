@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,17 +24,18 @@ docType: "class"
 
   
 
-  
+  </h1>
 
-</h1>
-
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/push.ts#L271">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/push.ts#L303">
   Improve this doc
 </a>
 
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX</code></pre>
@@ -51,6 +52,8 @@ docType: "class"
 <p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

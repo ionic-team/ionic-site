@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/mixpanel.ts#L2">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-mixpanel</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Cordova Plugin that wraps Mixpanel SDK for Android and iOS</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -357,6 +360,8 @@ Mixpanel.init(token)
 
 
 
+
+
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -437,7 +442,7 @@ Mixpanel.init(token)
 
 
 <div id="people"></div>
-<h3><code>people()</code>
+<h3><code>people</code>
   
 </h3>
 

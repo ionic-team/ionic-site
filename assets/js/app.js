@@ -1,4 +1,4 @@
-var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;
@@ -7,10 +7,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
     $sideNav[0].scrollTop =  navItemPos - 300;
   }
 }])
-.controller('SassToggleCtrl', ['$scope', function ($scope) {
-  $scope.setSassPlatform = function (platform) {
+.controller('SassToggleCtrl', ['$scope', function($scope) {
+  $scope.setSassPlatform = function(platform) {
     $scope.active = platform;
-  }
+  };
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
                        function($scope, $timeout) {
@@ -45,33 +45,19 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $scope.windowsActive = false;
       $timeout(function() {
         $scope.iosActive = true;
-      },30);
-      badChromeFix($('iframe#demo-ios'));
+      }, 30);
     } else if (platform == 'windows') {
       $scope.iosActive = false;
       $scope.androidActive = false;
       $timeout(function() {
         $scope.windowsActive = true;
-      },30);
-      badChromeFix($('iframe#demo-windows'));
+      }, 30);
     } else {
       $scope.iosActive = false;
       $scope.windowsActive = false;
       $timeout(function() {
         $scope.androidActive = true;
-      },30);
-      badChromeFix($('iframe#demo-android'));
-    }
-
-    function badChromeFix(iframe) {
-      var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
-      var version =  raw ? parseInt(raw[2], 10) : false;
-      if (version === 49) {
-        $('ion-content', iframe.contents()).hide();
-        $timeout(function() {
-          $('ion-content', iframe.contents()).show();
-        }, 200);
-      }
+      }, 30);
     }
   };
 
@@ -195,6 +181,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $platformPreview.removeClass('fixey');
     }
   }
+  // check scroll position on load
+  fixyCheck();
 }])
 .controller('APIDemoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var $platformPreview = $('#platform-preview');
@@ -294,4 +282,118 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate'])
       $scope.hash = window.location.hash.substr(2).split('?')[0];
     });
   });
+.controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
+  $scope.launched = false;
+  $scope.showSurvey = false;
+  $scope.submitting = false;
+  $scope.thanks = false;
+
+  $scope.form = {};
+
+  $scope.submit = function() {
+    $scope.submitting = true;
+    $http.post('http://survey.apis.ionicjs.com/reservespot/v1pricing', {
+      email: $scope.form.email
+    }).then(function(res) {
+      $scope.thanks = true;
+      $scope.submitting = false;
+      $scope.showSurvey = true;
+    }, function(err) {
+      $scope.submitting = false;
+      var msg = 'Unable to reserve spot. Please contact help@ionic.io (see ' +
+        'console for more info)';
+      alert(msg);
+      console.error(err);
+      $scope.showSurvey = true;
+    });
+  };
+
+  $scope.surveyQuestions = {
+    questions: [
+      {
+        title: 'What kind of developer are you?',
+        tag: 'aboutyourself',
+        options: [
+          {title: 'Novice Developer', tag: 'novice', value: 'novice-dev'},
+          {title: 'Expert Developer', tag: 'expert', value: 'expert-dev'},
+          {title: 'Designer', tag: 'designer', value: 'designer'},
+          {title: 'Product Manager', tag: 'pm', value: 'pm'},
+          {title: 'Student', tag: 'student', value: 'student'},
+        ],
+        type: 'checkbox',
+        allowOther: true
+      },
+      {
+        title: 'What are you building?',
+        tag: 'whatyoucreate',
+        options: [
+          {
+            title: 'An app for my company',
+            tag: 'appforcompany',
+            value: 'for-company'
+          },
+          {
+            title: 'A personal project',
+            tag: 'appforpersonal',
+            value: 'for-personal'
+          },
+          {
+            title: 'An app for a client',
+            tag: 'appforclient',
+            value: 'for-client'
+          },
+          {
+            title: 'An app for school',
+            tag: 'appforschool',
+            value: 'for-school'
+          },
+          {
+            title: 'I\'m just evaluating',
+            tag: 'appfornothing',
+            value: 'for-nothing'
+          },
+        ],
+        type: 'checkbox',
+        allowOther: true
+      },
+      {
+        title: 'How large is your Employer?',
+        tag: 'howlargeco',
+        options: [
+          {title: 'Self-employed', tag: '1', value: '1'},
+          {title: '2-10', tag: '2-10', value: '2-10'},
+          {title: '11-50', tag: '11-50', value: '11-50'},
+          {title: '51-500', tag: '51-500', value: '51-500'},
+          {title: '500+', tag: '500-', value: '500-'}
+        ],
+        type: 'checkbox',
+        limit: 1
+      }
+    ],
+    done: {
+      title: 'Thanks!',
+      text: 'Keep building awesome apps 🎉'
+    },
+    contact: {
+      ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
+      message: 'We are collecting feedback on Ionic. Would you be willing to ' +
+        'speak with us briefly? If so, please choose a time <a ' +
+        'href="https://calendly.com/ionic-research/ionic-wiz-research" ' +
+        'target="_blank">here</a>.'
+    }
+  };
+
+  $scope.finishedSurvey = function(results) {
+    $http.post('http://survey.apis.ionicjs.com/survey/', {
+      campaign: 'pricing_v1',
+      results: results,
+    }).then(function(resp) {
+    }).catch(function(err) {
+      console.error('Unable to save survey', err);
+    });
+  };
+
+  $scope.closedSurvey = function() {
+    $scope.showSurvey = false;
+  };
 }]);

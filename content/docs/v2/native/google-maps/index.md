@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googlemap.ts#L36">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>This plugin uses the native Google Maps SDK</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -73,8 +76,9 @@ ngAfterViewInit() {
 
 loadMap() {
  // make sure to create following structure in your view.html file
+ // and add a height (for example 100%) to it, else the map won&#39;t be visible
  // &lt;ion-content&gt;
- //  &lt;div #map id=&quot;map&quot;&gt;&lt;/div&gt;
+ //  &lt;div #map id=&quot;map&quot; style=&quot;height:100%;&quot;&gt;&lt;/div&gt;
  // &lt;/ion-content&gt;
 
  // create a new map by passing HTMLElement
@@ -147,6 +151,122 @@ Checks if a map object has been created and is available.
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
+<div id="addEventListener"></div>
+<h3>
+  <code>addEventListener()</code>
+  
+
+</h3>
+Adds an event listener.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="addListenerOnce"></div>
+<h3>
+  <code>addListenerOnce()</code>
+  
+
+</h3>
+Adds an event listener that works once.
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="get"></div>
+<h3>
+  <code>get(key)</code>
+  
+
+</h3>
+Gets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div id="set"></div>
+<h3>
+  <code>set(key,&nbsp;value)</code>
+  
+
+</h3>
+Sets a value
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      key
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      value
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 <div id="on"></div>
 <h3>
   <code>on()</code>
@@ -175,7 +295,18 @@ Listen to a map event only once.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div><div id="setDebuggable"></div>
+</div><div id="empty"></div>
+<h3>
+  <code>empty()</code>
+  
+
+</h3>
+Clears all stored values
+
+
+
+
+<div id="setDebuggable"></div>
 <h3>
   <code>setDebuggable()</code>
   

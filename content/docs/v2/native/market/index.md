@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/market.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-market</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Opens an app&#39;s page in the market place (Google Play, App Store)</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -68,7 +71,7 @@ Market.open(&#39;your.package.name&#39;);
 <h2>Static Members</h2>
 
 <div id="open"></div>
-<h3><code>open(appId,&nbsp;callbacks)</code>
+<h3><code>open(appId)</code>
   
 </h3>
 
@@ -105,18 +108,59 @@ Opens an app in Google Play / App Store
     </td>
   </tr>
   
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="search"></div>
+<h3><code>search(keyword)</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Search apps by keyword
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
   <tr>
     <td>
-      callbacks
+      keyword
       
       
     </td>
     <td>
       
-<code>Object</code>
+<code>string</code>
     </td>
     <td>
-      <p>Optional callbacks in the format {success?: Function, failure?: Function}</p>
+      <p>Keyword</p>
 
       
     </td>
@@ -128,6 +172,12 @@ Opens an app in Google Play / App Store
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

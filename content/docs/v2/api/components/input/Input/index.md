@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="input" href="#input"></a>
 
 Input
-<h3><code>ion-input</code></h3>
+<h3><code>ion-input,ion-textarea</code></h3>
 
 
 
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L15">
 Improve this doc
 </a>
 
@@ -94,6 +94,10 @@ interactivity.</p>
   &lt;ion-item&gt;
     &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-textarea placeholder=&quot;Enter a description&quot;&gt;&lt;/ion-textarea&gt;
+  &lt;/ion-item&gt;
 &lt;/ion-list&gt;
 </code></pre>
 
@@ -105,6 +109,28 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngControl"></div>
+
+<h3>
+<a class="anchor" name="ngControl" href="#ngControl"></a>
+<code>ngControl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -126,7 +152,7 @@ interactivity.</p>
     
     <tr>
       <td>clearInput</td>
-      <td><code>bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> A clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
 </td>
     </tr>
@@ -147,8 +173,15 @@ interactivity.</p>
     
     <tr>
       <td>disabled</td>
-      <td><code>bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> If the input should be disabled or not</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>readonly</td>
+      <td><code>boolean</code></td>
+      <td><p> If the input should be readonly or not</p>
 </td>
     </tr>
     

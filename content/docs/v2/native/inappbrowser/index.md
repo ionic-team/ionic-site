@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/inappbrowser.ts#L14">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-inappbrowser</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>Launches in app Browser</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -100,6 +103,18 @@ Closes the InAppBrowser window.
 
 
 
+<div id="hide"></div>
+<h3>
+  <code>hide()</code>
+  
+
+</h3>
+Hides an InAppBrowser window that is currently shown. Calling this has no effect
+if the InAppBrowser was already hidden.
+
+
+
+
 <div id="executeScript"></div>
 <h3>
   <code>executeScript(script)</code>
@@ -125,7 +140,7 @@ Injects JavaScript code into the InAppBrowser window.
     </td>
     <td>
       
-
+<code>Object</code>
     </td>
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
@@ -141,9 +156,9 @@ Injects JavaScript code into the InAppBrowser window.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div><div id="insertCss"></div>
+</div><div id="insertCSS"></div>
 <h3>
-  <code>insertCss(Details)</code>
+  <code>insertCSS(css)</code>
   
 
 </h3>
@@ -160,7 +175,7 @@ Injects CSS into the InAppBrowser window.
   
   <tr>
     <td>
-      Details
+      css
       
       
     </td>
@@ -169,7 +184,7 @@ Injects CSS into the InAppBrowser window.
 <code>Object</code>
     </td>
     <td>
-      <p>of the script to run, specifying either a file or code key.</p>
+      <p>Details of the script to run, specifying either a file or code key.</p>
 
       
     </td>

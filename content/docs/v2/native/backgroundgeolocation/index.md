@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,17 +24,18 @@ docType: "class"
 
   
 
-  
+  </h1>
 
-</h1>
-
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L256">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/background-geolocation.ts#L287">
   Improve this doc
 </a>
 
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-mauron85-background-geolocation</code></pre>
@@ -59,6 +60,8 @@ more detail, please see <a href="https://github.com/mauron85/cordova-plugin-back
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -109,7 +112,7 @@ BackgroundGeolocation.stop();
 <h2>Static Members</h2>
 
 <div id="LocationProvider"></div>
-<h3><code>LocationProvider()</code>
+<h3><code>LocationProvider</code>
   
 </h3>
 
@@ -128,7 +131,7 @@ Possible values:
 
 
 <div id="Accuracy"></div>
-<h3><code>Accuracy()</code>
+<h3><code>Accuracy</code>
   
 </h3>
 
@@ -154,7 +157,7 @@ enum {number}
 
 
 <div id="Mode"></div>
-<h3><code>Mode()</code>
+<h3><code>Mode</code>
   
 </h3>
 
@@ -816,6 +819,20 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
   
   <tr>
     <td>
+      altitudeAccuracy
+      
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>accuracy of the altitude if available.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
       bearing
       
     </td>
@@ -997,7 +1014,8 @@ If false location service will not be started in foreground and no notification 
     </td>
     <td>
       <p>ANDROID, WP8 ONLY
-The minimum time interval between location updates in seconds.</p>
+When using BackgroundGeolocation.LocationProvider.ANDROID_DISTANCE_FILTER_PROVIDER:
+The minimum time interval between location updates in milliseconds.</p>
 
     </td>
   </tr>
@@ -1211,6 +1229,51 @@ Switch to less accurate significant changes and region monitory when in backgrou
     <td>
       <p>Limit maximum number of locations stored into db </p>
 <p>Defaults to 10000</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fastestInterval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>Fastest rate in milliseconds at which your app can handle location updates.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      activitiesInterval
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>Rate in milliseconds at which activity recognition occurs. Larger values will result in fewer activity detections while improving battery life.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      stopOnStillActivity
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
+<p>stop() is forced, when the STILL activity is detected (default is true)</p>
 
     </td>
   </tr>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file-chooser.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add http://github.com/don/cordova-filechooser.git</code></pre>
@@ -59,6 +60,8 @@ docType: "class"
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -66,8 +69,8 @@ docType: "class"
 <pre><code>import {FileChooser} from &#39;ionic-native&#39;;
 
 FileChooser.open()
-  .then(uri =&gt; console.log(uri);
-  .catch(e =&gt; console.log(e);
+  .then(uri =&gt; console.log(uri));
+  .catch(e =&gt; console.log(e));
 </code></pre>
 
 

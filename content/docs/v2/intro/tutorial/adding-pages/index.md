@@ -22,7 +22,7 @@ Now that we have a basic understanding of the layout of an Ionic 2 app, let's wa
 Taking a look at `src/app/app.html`, we see this line near the bottom:
 
 ```html
-<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 ```
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
@@ -63,12 +63,13 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `sr
 > You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find `hello-ionic.ts`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
 
-Below, we see the `HelloIonicPage` class. This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't have a selector:
+Below, we see the `HelloIonicPage` class. This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't need to have a selector. However, the selector is useful in order to override the default styles on a specific page (see `hello-ionic.scss`):
 
 ```ts
 import {Component} from '@angular/core';
 
 @Component({
+  selector: 'page-hello-ionic',
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {}

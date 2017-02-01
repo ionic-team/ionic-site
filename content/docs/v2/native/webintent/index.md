@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/webintent.ts#L3">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add https://github.com/Initsogar/cordova-webintent.git</code></pre>
@@ -58,6 +59,8 @@ docType: "class"
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -77,7 +80,7 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 <h2>Static Members</h2>
 
 <div id="ACTION_VIEW"></div>
-<h3><code>ACTION_VIEW()</code>
+<h3><code>ACTION_VIEW</code>
   
 </h3>
 
@@ -93,7 +96,7 @@ WebIntent.startActivity(options).then(onSuccess, onError);
 
 
 <div id="EXTRA_TEXT"></div>
-<h3><code>EXTRA_TEXT()</code>
+<h3><code>EXTRA_TEXT</code>
   
 </h3>
 

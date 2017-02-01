@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-rc.4"
+version: "2.0.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -41,7 +41,7 @@ Improve this doc
 
 
 <p>NavController is the base class for navigation controller components like
-<a href="../Nav/"><code>Nav</code></a> and <a href="../../tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
+<a href="../../components/nav/Nav/"><code>Nav</code></a> and <a href="../../components/tabs/Tab/"><code>Tab</code></a>. You use navigation controllers
 to navigate to <a href="#view-creation">pages</a> in your app. At a basic level, a
 navigation controller is an array of pages representing a particular history
 (of a Tab for example). This array can be manipulated to navigate throughout
@@ -292,14 +292,12 @@ class HelloWorld {
 </tr>
 <tr>
 <td><code>ionViewCanEnter</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean/Promise&lt;void&gt;</td>
 <td>Runs before the view can enter. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can enter</td>
 </tr>
 <tr>
 <td><code>ionViewCanLeave</code></td>
-<td>boolean \</td>
-<td>Promise\<void\></td>
+<td>boolean/Promise&lt;void&gt;</td>
 <td>Runs before the view can leave. This can be used as a sort of &quot;guard&quot; in authenticated views where you need to check permissions before the view can leave</td>
 </tr>
 </tbody>
@@ -1306,10 +1304,10 @@ navigation params to the individual pages in the array.
       </td>
       <td>
         
-  <code>array&lt;Page&gt;</code>
+  <code>array</code>
       </td>
       <td>
-        <p>An arry of page components and their params to load in the stack.</p>
+        <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property to load in the stack.</p>
 
         
       </td>

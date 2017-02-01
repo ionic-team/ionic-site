@@ -33,7 +33,7 @@ Img
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img.ts#L5">
 Improve this doc
 </a>
 
@@ -58,6 +58,9 @@ images to be rendered on a page, then the standard <code>img</code> is probably
 best. However, if a page has the potential for hundreds or even thousands
 of images within a scrollable area, then <code>ion-img</code> would be better suited
 for the job.</p>
+<blockquote>
+<p>Note: <code>ion-img</code> is only meant to be used inside of <a href="/docs/v2/api/components/virtual-scroll/VirtualScroll/">virtual-scroll</a></p>
+</blockquote>
 <h3 id="lazy-loading">Lazy Loading</h3>
 <p>Lazy loading images refers to only loading images which are actually
 visible within the user&#39;s viewport. This also means that images which are
@@ -128,9 +131,10 @@ currently working on.</p>
   <tbody>
     
     <tr>
-      <td>src</td>
+      <td>alt</td>
       <td><code>string</code></td>
-      <td><p> Image src.</p>
+      <td><p>  Set the <code>alt</code> attribute which gets assigned to
+the inner <code>img</code> element.</p>
 </td>
     </tr>
     
@@ -154,15 +158,6 @@ smoother scrolling.</p>
     </tr>
     
     <tr>
-      <td>width</td>
-      <td><code>string</code></td>
-      <td><p>  Image width. If this property is not set it&#39;s important that
-the dimensions are still set using CSS. If the dimension is just a number it
-will assume the <code>px</code> unit.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>height</td>
       <td><code>string</code></td>
       <td><p>  Image height. If this property is not set it&#39;s important that
@@ -172,10 +167,18 @@ will assume the <code>px</code> unit.</p>
     </tr>
     
     <tr>
-      <td>alt</td>
+      <td>src</td>
       <td><code>string</code></td>
-      <td><p>  Set the <code>alt</code> attribute which gets assigned to
-the inner <code>img</code> element.</p>
+      <td><p> The source of the image.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>width</td>
+      <td><code>string</code></td>
+      <td><p>  Image width. If this property is not set it&#39;s important that
+the dimensions are still set using CSS. If the dimension is just a number it
+will assume the <code>px</code> unit.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/network.ts#L4">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-network-information</code></pre>
@@ -58,6 +59,8 @@ docType: "class"
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -100,7 +103,7 @@ connectSubscription.unsubscribe();
 <h2>Static Members</h2>
 
 <div id="type"></div>
-<h3><code>type()</code>
+<h3><code>type</code>
   
 </h3>
 
@@ -121,7 +124,7 @@ Connection type
 
 
 <div id="downlinkMax"></div>
-<h3><code>downlinkMax()</code>
+<h3><code>downlinkMax</code>
   
 </h3>
 
@@ -233,7 +236,7 @@ Get notified when the device goes online
 <!-- methods on the class -->
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
-<p>The <code>connection</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
+<p>The <code>type</code> property will return one of the following connection types: <code>unknown</code>, <code>ethernet</code>, <code>wifi</code>, <code>2g</code>, <code>3g</code>, <code>4g</code>, <code>cellular</code>, <code>none</code></p>
 
 
 <!-- other classes -->

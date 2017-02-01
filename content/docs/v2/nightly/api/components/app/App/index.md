@@ -56,6 +56,60 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="getRootNav"></div>
+
+<h3>
+<a class="anchor" name="getRootNav" href="#getRootNav"></a>
+<code>getRootNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController</code> <p>Returns the root NavController</p>
+
+
+</div>
+
+
+
+
+<div id="isScrolling"></div>
+
+<h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<code>isScrolling()</code>
+  
+
+</h3>
+
+Boolean if the app is actively scrolling or not.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>returns true or false</p>
+
+
+</div>
+
+
+
+
 <div id="setTitle"></div>
 
 <h3>
@@ -105,16 +159,16 @@ Sets the document title.
 
 
 
-<div id="isScrolling"></div>
+<div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="isScrolling" href="#isScrolling"></a>
-<code>isScrolling()</code>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<code>viewDidEnter</code>
   
 
 </h3>
 
-Boolean if the app is actively scrolling or not.
+Observable that emits after any view is entered in the app.
 
 
 
@@ -124,7 +178,7 @@ Boolean if the app is actively scrolling or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>returns true or false</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -132,16 +186,16 @@ Boolean if the app is actively scrolling or not.
 
 
 
-<div id="getRootNav"></div>
+<div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="getRootNav" href="#getRootNav"></a>
-<code>getRootNav()</code>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<code>viewDidLeave</code>
   
 
 </h3>
 
-
+Observable that emits after any view is exited in the app.
 
 
 
@@ -151,7 +205,115 @@ Boolean if the app is actively scrolling or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code> <p>Returns the root NavController</p>
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewDidLoad"></div>
+
+<h3>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<code>viewDidLoad</code>
+  
+
+</h3>
+
+Observable that emits whenever a view loads in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillEnter"></div>
+
+<h3>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<code>viewWillEnter</code>
+  
+
+</h3>
+
+Observable that emits before any view is entered in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillLeave"></div>
+
+<h3>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<code>viewWillLeave</code>
+  
+
+</h3>
+
+Observable that emits before any view is exited in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
+
+
+</div>
+
+
+
+
+<div id="viewWillUnload"></div>
+
+<h3>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<code>viewWillUnload</code>
+  
+
+</h3>
+
+Observable that emits before any view unloads in the app.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>

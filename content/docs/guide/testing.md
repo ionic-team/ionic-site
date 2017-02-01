@@ -33,7 +33,7 @@ $ ionic build ios
 $ ionic emulate ios
 ```
 
-Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required XCode or Android Eclipse project in `platforms/PLATFORM` inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root `www` folder, and when you've made changes to this folder, run the command:
+Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required Xcode or Android Eclipse project in `platforms/PLATFORM` inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root `www` folder, and when you've made changes to this folder, run the command:
 
 ```bash
 $ cordova prepare ios
@@ -53,7 +53,7 @@ One problem with testing in a mobile browser is that it's probably the furthest 
 
 ### Testing as a native app
 
-Since we are building a native (or "hybrid") app, we can (and should!) test it as one. There are several ways to do this. If you are building for iOS, you'll need to sign up for an [Apple Developer](https://developer.apple.com/) account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don't blame us!). Once you have an account and you have set up XCode with your certificates to enable device testing, you'll want to open the XCode project from `platforms/ios/` and do your testing from XCode.
+Since we are building a native (or "hybrid") app, we can (and should!) test it as one. There are several ways to do this. If you are building for iOS, you'll need to sign up for an [Apple Developer](https://developer.apple.com/) account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don't blame us!). Once you have an account and you have set up Xcode with your certificates to enable device testing, you'll want to open the Xcode project from `platforms/ios/` and do your testing from Xcode.
 
 Testing on Android is much easier and faster. To test on the device, simply plug it in, and run
 

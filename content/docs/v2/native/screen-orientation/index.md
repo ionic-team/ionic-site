@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/screen-orientation.ts#L2">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-screen-orientation</code></pre>
@@ -60,6 +61,8 @@ This plugin is based on an early version of Screen Orientation API so the api do
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -129,6 +132,12 @@ See below for accepted values
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves when the screen orientation is locked, and rejects when an error occurs.
+</div>
+
 
 
 <div id="unlockOrientation"></div>
@@ -151,7 +160,7 @@ Unlock and allow all orientations.
 
 
 <div id="orientation"></div>
-<h3><code>orientation()</code>
+<h3><code>orientation</code>
   
 </h3>
 

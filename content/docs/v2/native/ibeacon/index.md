@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L221">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-ibeacon</code></pre>
@@ -60,6 +61,8 @@ docType: "class"
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -70,7 +73,7 @@ docType: "class"
 // Request permission to use location on iOS
 IBeacon.requestAlwaysAuthorization();
 // create a new delegate and register it with the native layer
-let delegate = IBeacon.IBeaconDelegate();
+let delegate = IBeacon.Delegate();
 
 // Subscribe to some of the delegate&#39;s event handlers
 delegate.didRangeBeaconsInRegion()

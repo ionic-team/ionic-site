@@ -35,7 +35,7 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L12">
 Improve this doc
 </a>
 
@@ -49,66 +49,10 @@ or dragged between. It contains any number of <a href="../Slide">Slide</a> compo
 <h3 id="creating">Creating</h3>
 <p>You should use a template to create slides and listen to slide events. The template
 should contain the slide container, an <code>&lt;ion-slides&gt;</code> element, and any number of
-<a href="../Slide">Slide</a> components, written as <code>&lt;ion-slide&gt;</code>. Any configuration of the
-slides should be passed in the <code>options</code> property of the <code>&lt;ion-slides&gt;</code> element.
-You can listen to events such as the slide changing by placing the event on the
-<code>&lt;ion-slides&gt;</code> element. See <a href="#usage">Usage</a> below for more information on
-creating slides.</p>
-<h3 id="configuring">Configuring</h3>
-<p>There are several configuration options that can be passed to Slides. These should
-be passed in the <code>options</code> property of the <code>&lt;ion-slides&gt;</code> element upon creation.
-You can allow the slides to loop around from the last to the first, set autoplay
-on the slides so it will automatically switch between them, and more.</p>
-<p>Properties to pass in options:</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>autoplay</td>
-<td><code>number</code></td>
-<td>-</td>
-<td>Delay between transitions (in ms). If this parameter is not passed, autoplay is disabled.</td>
-</tr>
-<tr>
-<td>direction</td>
-<td><code>string</code></td>
-<td>&#39;horizontal&#39;</td>
-<td>Swipe direction: &#39;horizontal&#39; or &#39;vertical&#39;.</td>
-</tr>
-<tr>
-<td>initialSlide</td>
-<td><code>number</code></td>
-<td>0</td>
-<td>Index number of initial slide</td>
-</tr>
-<tr>
-<td>loop</td>
-<td><code>boolean</code></td>
-<td>false</td>
-<td>Whether to continuously loop from the last slide to the first slide.</td>
-</tr>
-<tr>
-<td>pager</td>
-<td><code>boolean</code></td>
-<td>false</td>
-<td>Show the pagination bullets.</td>
-</tr>
-<tr>
-<td>speed</td>
-<td><code>number</code></td>
-<td>300</td>
-<td>Duration of transition between slides (in ms).</td>
-</tr>
-</tbody>
-</table>
-<p>See <a href="#usage">Usage</a> below for more information on configuring slides.</p>
+<a href="../Slide">Slide</a> components, written as <code>&lt;ion-slide&gt;</code>. Basic configuration
+values can be set as input properties, which are listed below. Slides events
+can also be listened to such as the slide changing by placing the event on the
+<code>&lt;ion-slides&gt;</code> element. See <a href="#usage">Usage</a> below for more information.</p>
 <h3 id="navigating">Navigating</h3>
 <p>After creating and configuring the slides, you can navigate between them
 by swiping or calling methods on the <code>Slides</code> instance. You can call <code>slideTo()</code> to
@@ -116,11 +60,6 @@ navigate to a specific slide, or <code>slideNext()</code> to change to the slide
 the active slide. All of the <a href="#instance-members">methods</a> provided by the <code>Slides</code>
 instance are listed below. See <a href="#usage">Usage</a> below for more information on
 navigating between slides.</p>
-<h3 id="limitations">Limitations</h3>
-<p>The Slides component wraps the <a href="http://www.idangero.us/swiper/">Swiper</a> component
-built by iDangero.us. This means that all of the Swiper API isn&#39;t exposed on the
-Slides component. See the <a href="#getSlider"><code>getSlider()</code></a> method for information on
-getting the <code>Swiper</code> instance and using its methods directly.</p>
 
 
 
@@ -142,70 +81,37 @@ getting the <code>Swiper</code> instance and using its methods directly.</p>
   &lt;/ion-slide&gt;
 &lt;/ion-slides&gt;
 </code></pre>
-<p>To add <a href="#configuring">options</a>, we will define them in <code>mySlideOptions</code> in our class <code>MyPage</code>:</p>
-<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
-import { Slides } from &#39;ionic-angular&#39;;
-
-@Component({
-  templateUrl: &#39;my-page.html&#39;
-})
-class MyPage {
-  mySlideOptions = {
-    initialSlide: 1,
-    loop: true
-  };
-}
-</code></pre>
-<p>This is setting the second slide as the initial slide on load, since
-the <code>initialSlide</code> begins at <code>0</code>. We are also setting <code>loop</code> to true which
-allows us to swipe from the last slide to the first continuously. Then,
-we will pass <code>mySlideOptions</code> in the <code>options</code> property of the <code>&lt;ion-slides&gt;</code>
-element. We are using <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding">property binding</a>
-on <code>options</code> because <code>mySlideOptions</code> is an expression:</p>
-<pre><code class="lang-html">&lt;ion-slides [options]=&quot;mySlideOptions&quot;&gt;
-</code></pre>
-<p>To grab a reference to the Slides, we will add a <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#local-vars">local template variable</a>
-to <code>&lt;ion-slides&gt;</code> called <code>mySlider</code>:</p>
-<pre><code class="lang-html">&lt;ion-slides #mySlider [options]=&quot;mySlideOptions&quot;&gt;
-</code></pre>
-<p>Next, we can use <code>ViewChild</code> to assign the Slides instance to <code>slider</code>:</p>
+<p>Next, we can use <code>ViewChild</code> to assign the Slides instance to
+your <code>slides</code> property. Now we can call any of the <code>Slides</code>
+<a href="#instance-members">methods</a>, for example we can use the Slide&#39;s
+<code>slideTo()</code> method in order to navigate to a specific slide on
+a button click. Below we call the <code>goToSlide()</code> method and it
+navigates to the 3rd slide:</p>
 <pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
 
 class MyPage {
-  @ViewChild(&#39;mySlider&#39;) slider: Slides;
-
-  ...
-}
-</code></pre>
-<p>Now we can call any of the <code>Slider</code> <a href="#instance-members">methods</a>,
-for example we can use the Slider&#39;s <code>slideTo()</code> method in order to
-navigate to a specific slide on a button click. Below we call the
-<code>goToSlide()</code> method and it navigates to the 3rd slide:</p>
-<pre><code class="lang-ts">class MyPage {
-  ...
+  @ViewChild(Slides) slides: Slides;
 
   goToSlide() {
-    this.slider.slideTo(2, 500);
+    this.slides.slideTo(2, 500);
   }
 }
 </code></pre>
 <p>We can also add events to listen to on the <code>&lt;ion-slides&gt;</code> element.
-Let&#39;s add the <code>ionDidChange</code> event and call a method when the slide changes:</p>
-<pre><code class="lang-html">&lt;ion-slides #mySlider (ionDidChange)=&quot;onSlideChanged()&quot; [options]=&quot;mySlideOptions&quot;&gt;
+Let&#39;s add the <code>ionSlideDidChange</code> event and call a method when the slide changes:</p>
+<pre><code class="lang-html">&lt;ion-slides (ionSlideDidChange)=&quot;slideChanged()&quot;&gt;
 </code></pre>
-<p>In our class, we add the <code>onSlideChanged()</code> method which gets the active
+<p>In our class, we add the <code>slideChanged()</code> method which gets the active
 index and prints it:</p>
 <pre><code class="lang-ts">class MyPage {
   ...
 
-  onSlideChanged() {
-    let currentIndex = this.slider.getActiveIndex();
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
     console.log(&quot;Current index is&quot;, currentIndex);
   }
 }
 </code></pre>
-<p>For all of the methods you can call on the <code>Slider</code> instance, see the
-<a href="#instance-members">Instance Members</a>.</p>
 
 
 
@@ -218,82 +124,262 @@ index and prints it:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="slideTo"></div>
+<div id="controlBy"></div>
 
 <h3>
-<a class="anchor" name="slideTo" href="#slideTo"></a>
-<code>slideTo(index,&nbsp;speed,&nbsp;runCallbacks)</code>
+<a class="anchor" name="controlBy" href="#controlBy"></a>
+<code>controlBy</code>
   
 
 </h3>
 
-Transition to the specified slide.
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        index
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>The index number of the slide.</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        speed
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        runCallbacks
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+
+
+
+
+
+<div id="controlInverse"></div>
+
+<h3>
+<a class="anchor" name="controlInverse" href="#controlInverse"></a>
+<code>controlInverse</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="enableKeyboardControl"></div>
+
+<h3>
+<a class="anchor" name="enableKeyboardControl" href="#enableKeyboardControl"></a>
+<code>enableKeyboardControl()</code>
+  
+
+</h3>
+
+Enable or disable keyboard control.
+
+
+
+
+
+
+
+
+
+
+
+<div id="getActiveIndex"></div>
+
+<h3>
+<a class="anchor" name="getActiveIndex" href="#getActiveIndex"></a>
+<code>getActiveIndex()</code>
+  
+
+</h3>
+
+Get the index of the active slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The index number of the current slide.</p>
+
+
+</div>
+
+
+
+
+<div id="getPreviousIndex"></div>
+
+<h3>
+<a class="anchor" name="getPreviousIndex" href="#getPreviousIndex"></a>
+<code>getPreviousIndex()</code>
+  
+
+</h3>
+
+Get the index of the previous slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The index number of the previous slide.</p>
+
+
+</div>
+
+
+
+
+<div id="isBeginning"></div>
+
+<h3>
+<a class="anchor" name="isBeginning" href="#isBeginning"></a>
+<code>isBeginning()</code>
+  
+
+</h3>
+
+Get whether or not the current slide is the first slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>If the slide is the first slide or not.</p>
+
+
+</div>
+
+
+
+
+<div id="isEnd"></div>
+
+<h3>
+<a class="anchor" name="isEnd" href="#isEnd"></a>
+<code>isEnd()</code>
+  
+
+</h3>
+
+Get whether or not the current slide is the last slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>If the slide is the last slide or not.</p>
+
+
+</div>
+
+
+
+
+<div id="length"></div>
+
+<h3>
+<a class="anchor" name="length" href="#length"></a>
+<code>length()</code>
+  
+
+</h3>
+
+Get the total number of slides.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The total number of slides.</p>
+
+
+</div>
+
+
+
+
+<div id="lockSwipeToNext"></div>
+
+<h3>
+<a class="anchor" name="lockSwipeToNext" href="#lockSwipeToNext"></a>
+<code>lockSwipeToNext()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to the next slides.
+
+
+
+
+
+
+
+
+
+
+
+<div id="lockSwipeToPrev"></div>
+
+<h3>
+<a class="anchor" name="lockSwipeToPrev" href="#lockSwipeToPrev"></a>
+<code>lockSwipeToPrev()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to the previous slides.
+
+
+
+
+
+
+
+
+
+
+
+<div id="lockSwipes"></div>
+
+<h3>
+<a class="anchor" name="lockSwipes" href="#lockSwipes"></a>
+<code>lockSwipes()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to change slides.
+
+
+
 
 
 
@@ -436,16 +522,82 @@ Transition to the previous slide.
 
 
 
-<div id="getActiveIndex"></div>
+<div id="slideTo"></div>
 
 <h3>
-<a class="anchor" name="getActiveIndex" href="#getActiveIndex"></a>
-<code>getActiveIndex()</code>
+<a class="anchor" name="slideTo" href="#slideTo"></a>
+<code>slideTo(index,&nbsp;speed,&nbsp;runCallbacks)</code>
   
 
 </h3>
 
-Get the index of the active slide.
+Transition to the specified slide.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        index
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The index number of the slide.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        speed
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        runCallbacks
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -453,27 +605,17 @@ Get the index of the active slide.
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The index number of the current slide.</p>
 
-
-</div>
-
-
-
-
-<div id="getPreviousIndex"></div>
+<div id="startAutoplay"></div>
 
 <h3>
-<a class="anchor" name="getPreviousIndex" href="#getPreviousIndex"></a>
-<code>getPreviousIndex()</code>
+<a class="anchor" name="startAutoplay" href="#startAutoplay"></a>
+<code>startAutoplay()</code>
   
 
 </h3>
 
-Get the index of the previous slide.
+Start auto play.
 
 
 
@@ -481,27 +623,20 @@ Get the index of the previous slide.
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The index number of the previous slide.</p>
-
-
-</div>
 
 
 
 
-<div id="length"></div>
+<div id="stopAutoplay"></div>
 
 <h3>
-<a class="anchor" name="length" href="#length"></a>
-<code>length()</code>
+<a class="anchor" name="stopAutoplay" href="#stopAutoplay"></a>
+<code>stopAutoplay()</code>
   
 
 </h3>
 
-Get the total number of slides.
+Stop auto play.
 
 
 
@@ -509,27 +644,21 @@ Get the total number of slides.
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The total number of slides.</p>
-
-
-</div>
 
 
 
 
-<div id="isEnd"></div>
+<div id="update"></div>
 
 <h3>
-<a class="anchor" name="isEnd" href="#isEnd"></a>
-<code>isEnd()</code>
+<a class="anchor" name="update" href="#update"></a>
+<code>update()</code>
   
 
 </h3>
 
-Get whether or not the current slide is the last slide.
+Update the underlying slider implementation. Call this if you've added or removed
+child slides.
 
 
 
@@ -537,72 +666,6 @@ Get whether or not the current slide is the last slide.
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>If the slide is the last slide or not.</p>
-
-
-</div>
-
-
-
-
-<div id="isBeginning"></div>
-
-<h3>
-<a class="anchor" name="isBeginning" href="#isBeginning"></a>
-<code>isBeginning()</code>
-  
-
-</h3>
-
-Get whether or not the current slide is the first slide.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>If the slide is the first slide or not.</p>
-
-
-</div>
-
-
-
-
-<div id="getSlider"></div>
-
-<h3>
-<a class="anchor" name="getSlider" href="#getSlider"></a>
-<code>getSlider()</code>
-  
-
-</h3>
-
-Get the `Swiper` instance.
-
-The Slides component wraps the `Swiper` component built by iDangero.us. See the
-[Swiper API Docs](http://idangero.us/swiper/api/) for information on using
-the `Swiper` instance directly.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Swiper</code> 
-
-</div>
 
 
 
@@ -619,9 +682,107 @@ the `Swiper` instance directly.
   <tbody>
     
     <tr>
-      <td>options</td>
-      <td><code>Object</code></td>
-      <td><p> Any configuration for the slides</p>
+      <td>autoplay</td>
+      <td><code>number</code></td>
+      <td><p> Delay between transitions (in milliseconds). If this
+parameter is not passed, autoplay is disabled. Default does
+not have a value and does not autoplay.
+Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>control</td>
+      <td><code>Slides</code></td>
+      <td><p> Pass another Slides instance or array of Slides instances
+that should be controlled by this Slides instance.
+Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>direction</td>
+      <td><code>string</code></td>
+      <td><p>  Swipe direction: &#39;horizontal&#39; or &#39;vertical&#39;.
+Default: <code>horizontal</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>effect</td>
+      <td><code>string</code></td>
+      <td><p> The animation effect of the slides.
+Possible values are: <code>slide</code>, <code>fade</code>, <code>cube</code>, <code>coverflow</code> or <code>flip</code>.
+Default: <code>slide</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>initialSlide</td>
+      <td><code>number</code></td>
+      <td><p>  Index number of initial slide. Default: <code>0</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>loop</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, continuously loop from the last slide to the
+first slide.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>pager</td>
+      <td><code>boolean</code></td>
+      <td><p>  If true, show the pager.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>paginationType</td>
+      <td><code>string</code></td>
+      <td><p>  Type of pagination. Possible values are:
+<code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default: <code>bullets</code>.
+(Note that the pager will not show unless <code>pager</code> input
+is set to true).</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>parallax</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, allows you to use &quot;parallaxed&quot; elements inside of
+slider.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>slidesPerView</td>
+      <td><code>number</code></td>
+      <td><p> Slides per view. Slides visible at the same time. Default: <code>1</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>spaceBetween</td>
+      <td><code>number</code></td>
+      <td><p> Distance between slides in px. Default: <code>0</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>speed</td>
+      <td><code>number</code></td>
+      <td><p> Duration of transition between slides
+(in milliseconds). Default: <code>300</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>zoom</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, enables zooming functionality.</p>
 </td>
     </tr>
     
@@ -639,25 +800,106 @@ the `Swiper` instance directly.
   <tbody>
     
     <tr>
-      <td>ionWillChange</td>
-      <td><p> Expression to evaluate when a slide change starts.</p>
+      <td>ionSlideAutoplay</td>
+      <td><p> Emitted when a slide moves.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionDidChange</td>
-      <td><p> Expression to evaluate when a slide change ends.</p>
+      <td>ionSlideAutoplayStart</td>
+      <td><p> Emitted when a autoplay starts.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionDrag</td>
-      <td><p> Expression to evaluate when a slide moves.</p>
+      <td>ionSlideAutoplayStop</td>
+      <td><p> Emitted when a autoplay stops.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideDidChange</td>
+      <td><p> Emitted when a slide change ends.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideDoubleTap</td>
+      <td><p> Emitted when the user double taps on the slide&#39;s container.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideDrag</td>
+      <td><p> Emitted when a slide moves.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideNextEnd</td>
+      <td><p> Emitted when a slide change ends with the &quot;forward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideNextStart</td>
+      <td><p> Emitted when a slide change starts with the &quot;forward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlidePrevEnd</td>
+      <td><p> Emitted when a slide change ends with the &quot;backward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlidePrevStart</td>
+      <td><p> Emitted when a slide change starts with the &quot;backward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideReachEnd</td>
+      <td><p> Emitted when slides reaches its last slide.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideReachStart</td>
+      <td><p> Emitted when slides reaches its beginning (initial position).</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideTap</td>
+      <td><p> Emitted when the user taps/clicks on the slide&#39;s container.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideWillChange</td>
+      <td><p> Emitted when a slide change starts.</p>
 </td>
     </tr>
     
   </tbody>
-</table>
+</table><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>There are several options available to create customized slides. Ionic exposes
+the most commonly used options as <a href="http://learnangular2.com/inputs/">inputs</a>.
+In order to use an option that isn&#39;t exposed as an input the following code
+should be used, where <code>freeMode</code> is the option to change:</p>
+<pre><code class="lang-ts">class MyPage {
+  @ViewChild(Slides) slides: Slides;
+
+  ngAfterViewInit() {
+    this.slides.freeMode = true;
+  }
+}
+</code></pre>
+<p>To see all of the available options, take a look at the
+<a href="https://github.com/driftyco/ionic/blob/master/src/components/slides/slides.ts">source for slides</a>.</p>
+
 
 
 
@@ -668,12 +910,13 @@ the `Swiper` instance directly.
 
 <a href='/docs/v2/components#slides'>Slides Component Docs</a>
 
-Swiper.js:
-The most modern mobile touch slider and framework with hardware accelerated transitions
+Adopted from Swiper.js:
+The most modern mobile touch slider and framework with
+hardware accelerated transitions.
 
 http://www.idangero.us/swiper/
 
-Copyright 2015, Vladimir Kharlampidi
+Copyright 2016, Vladimir Kharlampidi
 The iDangero.us
 http://www.idangero.us/
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/streaming-media.ts#L15">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-streaming-media</code></pre>
@@ -59,6 +60,8 @@ docType: "class"
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -71,7 +74,7 @@ let options: StreamingVideoOptions = {
   orientation: &#39;landscape&#39;
 };
 
-StreamingMedia.(&#39;https://path/to/video/stream&#39;, options);
+StreamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 </code></pre>
 
 

@@ -84,18 +84,18 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="contentHeight"></div>
+<div id="contentBottom"></div>
 
 <h3>
-<a class="anchor" name="contentHeight" href="#contentHeight"></a>
-<code>contentHeight</code>
+<a class="anchor" name="contentBottom" href="#contentBottom"></a>
+<code>contentBottom</code>
   
 
 </h3>
 
-Content height of the viewable area. This does not include content
-which is outside the overflow area, or content area which is under
-headers and footers. Read-only.
+A number representing how many pixels the bottom of the content has been
+adjusted, which could be by either padding or margin. This adjustment
+is to account for the space needed for the footer.
 
 
 
@@ -113,17 +113,18 @@ headers and footers. Read-only.
 
 
 
-<div id="contentWidth"></div>
+<div id="contentHeight"></div>
 
 <h3>
-<a class="anchor" name="contentWidth" href="#contentWidth"></a>
-<code>contentWidth</code>
+<a class="anchor" name="contentHeight" href="#contentHeight"></a>
+<code>contentHeight</code>
   
 
 </h3>
 
-Content width including content which is not visible on the screen
-due to overflow. Read-only.
+Content height of the viewable area. This does not include content
+which is outside the overflow area, or content area which is under
+headers and footers. Read-only.
 
 
 
@@ -170,45 +171,16 @@ is to account for the space needed for the header.
 
 
 
-<div id="contentBottom"></div>
+<div id="contentWidth"></div>
 
 <h3>
-<a class="anchor" name="contentBottom" href="#contentBottom"></a>
-<code>contentBottom</code>
+<a class="anchor" name="contentWidth" href="#contentWidth"></a>
+<code>contentWidth</code>
   
 
 </h3>
 
-A number representing how many pixels the bottom of the content has been
-adjusted, which could be by either padding or margin. This adjustment
-is to account for the space needed for the footer.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="scrollHeight"></div>
-
-<h3>
-<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
-<code>scrollHeight</code>
-  
-
-</h3>
-
-Content height including content which is not visible on the screen
+Content width including content which is not visible on the screen
 due to overflow. Read-only.
 
 
@@ -221,143 +193,6 @@ due to overflow. Read-only.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> 
-
-</div>
-
-
-
-
-<div id="scrollWidth"></div>
-
-<h3>
-<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
-<code>scrollWidth</code>
-  
-
-</h3>
-
-Content width including content which is not visible due to
-overflow. Read-only.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="scrollTop"></div>
-
-<h3>
-<a class="anchor" name="scrollTop" href="#scrollTop"></a>
-<code>scrollTop</code>
-  
-
-</h3>
-
-The distance of the content's top to its topmost visible content.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="scrollLeft"></div>
-
-<h3>
-<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
-<code>scrollLeft</code>
-  
-
-</h3>
-
-The distance of the content's left to its leftmost visible content.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="isScrolling"></div>
-
-<h3>
-<a class="anchor" name="isScrolling" href="#isScrolling"></a>
-<code>isScrolling</code>
-  
-
-</h3>
-
-If the content is actively scrolling or not.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="directionY"></div>
-
-<h3>
-<a class="anchor" name="directionY" href="#directionY"></a>
-<code>directionY</code>
-  
-
-</h3>
-
-The current, or last known, vertical scroll direction. Possible
-string values include `down` and `up`.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>string</code> 
 
 </div>
 
@@ -392,82 +227,19 @@ string values include `right` and `left`.
 
 
 
-<div id="scrollTo"></div>
+<div id="directionY"></div>
 
 <h3>
-<a class="anchor" name="scrollTo" href="#scrollTo"></a>
-<code>scrollTo(x,&nbsp;y,&nbsp;duration)</code>
+<a class="anchor" name="directionY" href="#directionY"></a>
+<code>directionY</code>
   
 
 </h3>
 
-Scroll to the specified position.
+The current, or last known, vertical scroll direction. Possible
+string values include `down` and `up`.
 
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        x
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>The x-value to scroll to.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        y
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>The y-value to scroll to.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        duration
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -476,124 +248,7 @@ Scroll to the specified position.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
-
-
-</div>
-
-
-
-
-<div id="scrollToTop"></div>
-
-<h3>
-<a class="anchor" name="scrollToTop" href="#scrollToTop"></a>
-<code>scrollToTop(duration)</code>
-  
-
-</h3>
-
-Scroll to the top of the content component.
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        duration
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
-
-
-</div>
-
-
-
-
-<div id="scrollToBottom"></div>
-
-<h3>
-<a class="anchor" name="scrollToBottom" href="#scrollToBottom"></a>
-<code>scrollToBottom(duration)</code>
-  
-
-</h3>
-
-Scroll to the bottom of the content component.
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        duration
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
-
+  <code>string</code> 
 
 </div>
 
@@ -796,6 +451,33 @@ Returns the content and scroll elements' dimensions.
 
 
 
+<div id="isScrolling"></div>
+
+<h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
+<code>isScrolling</code>
+  
+
+</h3>
+
+If the content is actively scrolling or not.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
 <div id="resize"></div>
 
 <h3>
@@ -817,6 +499,382 @@ after dynamically adding headers, footers, or tabs.
 
 
 
+
+<div id="scrollHeight"></div>
+
+<h3>
+<a class="anchor" name="scrollHeight" href="#scrollHeight"></a>
+<code>scrollHeight</code>
+  
+
+</h3>
+
+Content height including content which is not visible on the screen
+due to overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollLeft"></div>
+
+<h3>
+<a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
+<code>scrollLefttop</code>
+  
+
+</h3>
+
+The distance of the content's left to its leftmost visible content.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        top
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollTo"></div>
+
+<h3>
+<a class="anchor" name="scrollTo" href="#scrollTo"></a>
+<code>scrollTo(x,&nbsp;y,&nbsp;duration)</code>
+  
+
+</h3>
+
+Scroll to the specified position.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        x
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The x-value to scroll to.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        y
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The y-value to scroll to.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        duration
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="scrollToBottom"></div>
+
+<h3>
+<a class="anchor" name="scrollToBottom" href="#scrollToBottom"></a>
+<code>scrollToBottom(duration)</code>
+  
+
+</h3>
+
+Scroll to the bottom of the content component.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        duration
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="scrollToTop"></div>
+
+<h3>
+<a class="anchor" name="scrollToTop" href="#scrollToTop"></a>
+<code>scrollToTop(duration)</code>
+  
+
+</h3>
+
+Scroll to the top of the content component.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        duration
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="scrollTop"></div>
+
+<h3>
+<a class="anchor" name="scrollTop" href="#scrollTop"></a>
+<code>scrollToptop</code>
+  
+
+</h3>
+
+The distance of the content's top to its topmost visible content.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        top
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
+
+<div id="scrollWidth"></div>
+
+<h3>
+<a class="anchor" name="scrollWidth" href="#scrollWidth"></a>
+<code>scrollWidth</code>
+  
+
+</h3>
+
+Content width including content which is not visible due to
+overflow. Read-only.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
+
+</div>
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -832,13 +890,9 @@ after dynamically adding headers, footers, or tabs.
     <tr>
       <td>fullscreen</td>
       <td><code>boolean</code></td>
-      <td><p> By default, content is positioned between the headers
-and footers. However, using <code>fullscreen=&quot;true&quot;</code>, the content will be
-able to scroll &quot;under&quot; the headers and footers. At first glance the
-fullscreen option may not look any different than the default, however,
-by adding a transparency effect to a header then the content can be
-seen under the header as the user scrolls.</p>
-<p>@returns {boolean}</p>
+      <td><p> If true, the content will scroll behind the headers
+and footers. This effect can easily be seen by setting the toolbar
+to transparent.</p>
 </td>
     </tr>
     
@@ -856,12 +910,6 @@ seen under the header as the user scrolls.</p>
   <tbody>
     
     <tr>
-      <td>ionScrollStart</td>
-      <td><p> Emitted when the scrolling first starts.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>ionScroll</td>
       <td><p> Emitted on every scroll event.</p>
 </td>
@@ -870,6 +918,12 @@ seen under the header as the user scrolls.</p>
     <tr>
       <td>ionScrollEnd</td>
       <td><p> Emitted when scrolling ends.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionScrollStart</td>
+      <td><p> Emitted when the scrolling first starts.</p>
 </td>
     </tr>
     

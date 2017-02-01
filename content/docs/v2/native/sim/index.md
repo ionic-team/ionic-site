@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sim.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-sim</code></pre>
@@ -60,6 +61,8 @@ docType: "class"
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -70,6 +73,15 @@ docType: "class"
 Sim.getSimInfo().then(
   (info) =&gt; console.log(&#39;Sim info: &#39;, info),
   (err) =&gt; console.log(&#39;Unable to get sim info: &#39;, err)
+);
+
+Sim.hasReadPermission().then(
+  (info) =&gt; console.log(&#39;Has permission: &#39;, info)
+);
+
+Sim.requestReadPermission().then(
+  () =&gt; console.log(&#39;Permission granted&#39;),
+  () =&gt; console.log(&#39;Permission denied&#39;)
 );
 </code></pre>
 
@@ -88,6 +100,62 @@ Sim.getSimInfo().then(
 
 
 Returns info from the SIM card.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="hasReadPermission"></div>
+<h3><code>hasReadPermission()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Check permission
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="requestReadPermission"></div>
+<h3><code>requestReadPermission()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Request permission
 
 
 

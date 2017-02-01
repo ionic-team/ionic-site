@@ -21,4 +21,22 @@ IonicSiteModule
     terminal: window.isIoniconsPage ? false : true,
     priority: 1000
   };
-}]);
+}])
+.directive('qtt', function() {
+  return {
+    restrict: 'E',
+    template: '<button type="button" ' +
+                      'class="btn btn-default question" ' +
+                      'data-toggle="tooltip" ' +
+                      'data-placement="right">' +
+                '<i class="ion-ios-help"></i>' +
+              '</button>',
+    scope: {
+      title: '@'
+    },
+    link: function($scope, $element, $attr) {
+      var c = $element.children().first();
+      c.tooltip({container: 'body', title: $scope.title});
+    }
+  };
+});

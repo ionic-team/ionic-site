@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/music-controls.ts#L13">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-music-controls</code></pre>
@@ -51,6 +52,8 @@ Display a &#39;media&#39; notification with play/pause, previous, next buttons, 
 Handle also headset event (plug, unplug, headset button).</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 

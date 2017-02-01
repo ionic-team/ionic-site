@@ -17,7 +17,7 @@ export var DisplayWhen = (function () {
         this.platform = platform;
         if (!conditions)
             return;
-        this.conditions = conditions.split(',');
+        this.conditions = conditions.replace(/\s/g, '').split(',');
         // check if its one of the matching platforms first
         // a platform does not change during the life of an app
         for (var i = 0; i < this.conditions.length; i++) {

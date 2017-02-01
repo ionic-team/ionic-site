@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L338">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-file</code></pre>
@@ -62,6 +63,8 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 
@@ -71,7 +74,7 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 <h2>Static Members</h2>
 
 <div id="cordovaFileError"></div>
-<h3><code>cordovaFileError()</code>
+<h3><code>cordovaFileError</code>
   
 </h3>
 
@@ -90,7 +93,7 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
   
 </h3>
 
-Get free disk space
+Get free disk space in Bytes
 
 
 
@@ -100,7 +103,7 @@ Get free disk space
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space
+<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space in Bytes
 </div>
 
 

@@ -258,76 +258,9 @@ dataset, so please make sure they&#39;re performant.</p>
   <tbody>
     
     <tr>
-      <td>virtualScroll</td>
-      <td><code>array</code></td>
-      <td><p> The data that builds the templates within the virtual scroll.
-This is the same data that you&#39;d pass to <code>*ngFor</code>. It&#39;s important to note
-that when this data has changed, then the entire virtual scroll is reset,
-which is an expensive operation and should be avoided if possible.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>bufferRatio</td>
-      <td><code>number</code></td>
-      <td><p> The buffer ratio is used to decide how many cells
-should get created when initially rendered. The number is a
-multiplier against the viewable area&#39;s height. For example, if it
-takes <code>20</code> cells to fill up the height of the viewable area, then
-with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
-available for reuse while scrolling. For better performance, it&#39;s
-better to have more cells than what are required to fill the
-viewable area. Default is <code>3</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>approxItemWidth</td>
+      <td>approxFooterHeight</td>
       <td><code>string</code></td>
-      <td><p> The approximate width of each item template&#39;s cell.
-This dimension is used to help determine how many cells should
-be created when initialized, and to help calculate the height of
-the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
-Note that the actual rendered size of each cell comes from the
-app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions before the item has been rendered. Default is
-<code>100%</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>approxItemHeight</td>
-      <td><code>string</code></td>
-      <td><p> It is important to provide this
-if virtual item height will be significantly larger than the default
-The approximate height of each virtual item template&#39;s cell.
-This dimension is used to help determine how many cells should
-be created when initialized, and to help calculate the height of
-the scrollable area. This height value can only use <code>px</code> units.
-Note that the actual rendered size of each cell comes from the
-app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions before the item has been rendered. Default is
-<code>40px</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>approxHeaderWidth</td>
-      <td><code>string</code></td>
-      <td><p> The approximate width of each header template&#39;s cell.
-This dimension is used to help determine how many cells should
-be created when initialized, and to help calculate the height of
-the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
-Note that the actual rendered size of each cell comes from the
-app&#39;s CSS, whereas this approximation is used to help calculate
-initial dimensions. Default is <code>100%</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>approxHeaderHeight</td>
-      <td><code>string</code></td>
-      <td><p> The approximate height of each header template&#39;s cell.
+      <td><p> The approximate height of each footer template&#39;s cell.
 This dimension is used to help determine how many cells should
 be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
@@ -351,15 +284,83 @@ initial dimensions before the item has been rendered. Default is <code>100%</cod
     </tr>
     
     <tr>
-      <td>approxFooterHeight</td>
+      <td>approxHeaderHeight</td>
       <td><code>string</code></td>
-      <td><p> The approximate height of each footer template&#39;s cell.
+      <td><p> The approximate height of each header template&#39;s cell.
 This dimension is used to help determine how many cells should
 be created when initialized, and to help calculate the height of
 the scrollable area. This height value can only use <code>px</code> units.
 Note that the actual rendered size of each cell comes from the
 app&#39;s CSS, whereas this approximation is used to help calculate
 initial dimensions before the item has been rendered. Default is <code>40px</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>approxHeaderWidth</td>
+      <td><code>string</code></td>
+      <td><p> The approximate width of each header template&#39;s cell.
+This dimension is used to help determine how many cells should
+be created when initialized, and to help calculate the height of
+the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
+Note that the actual rendered size of each cell comes from the
+app&#39;s CSS, whereas this approximation is used to help calculate
+initial dimensions. Default is <code>100%</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>approxItemHeight</td>
+      <td><code>string</code></td>
+      <td><p> It is important to provide this
+if virtual item height will be significantly larger than the default
+The approximate height of each virtual item template&#39;s cell.
+This dimension is used to help determine how many cells should
+be created when initialized, and to help calculate the height of
+the scrollable area. This height value can only use <code>px</code> units.
+Note that the actual rendered size of each cell comes from the
+app&#39;s CSS, whereas this approximation is used to help calculate
+initial dimensions before the item has been rendered. Default is
+<code>40px</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>approxItemWidth</td>
+      <td><code>string</code></td>
+      <td><p> The approximate width of each item template&#39;s cell.
+This dimension is used to help determine how many cells should
+be created when initialized, and to help calculate the height of
+the scrollable area. This value can use either <code>px</code> or <code>%</code> units.
+Note that the actual rendered size of each cell comes from the
+app&#39;s CSS, whereas this approximation is used to help calculate
+initial dimensions before the item has been rendered. Default is
+<code>100%</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>bufferRatio</td>
+      <td><code>number</code></td>
+      <td><p> The buffer ratio is used to decide how many cells
+should get created when initially rendered. The number is a
+multiplier against the viewable area&#39;s height. For example, if it
+takes <code>20</code> cells to fill up the height of the viewable area, then
+with a buffer ratio of <code>3</code> it will create <code>60</code> cells that are
+available for reuse while scrolling. For better performance, it&#39;s
+better to have more cells than what are required to fill the
+viewable area. Default is <code>3</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>footerFn</td>
+      <td><code>function</code></td>
+      <td><p> Section footers and the data used within its given
+template can be dynamically created by passing a function to <code>footerFn</code>.
+The logic within the footer function can decide if the footer template
+should be used, and what data to give to the footer template. The function
+must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
 </td>
     </tr>
     
@@ -378,13 +379,12 @@ and what data to give to the header template. The function must return
     </tr>
     
     <tr>
-      <td>footerFn</td>
-      <td><code>function</code></td>
-      <td><p> Section footers and the data used within its given
-template can be dynamically created by passing a function to <code>footerFn</code>.
-The logic within the footer function can decide if the footer template
-should be used, and what data to give to the footer template. The function
-must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
+      <td>virtualScroll</td>
+      <td><code>array</code></td>
+      <td><p> The data that builds the templates within the virtual scroll.
+This is the same data that you&#39;d pass to <code>*ngFor</code>. It&#39;s important to note
+that when this data has changed, then the entire virtual scroll is reset,
+which is an expensive operation and should be avoided if possible.</p>
 </td>
     </tr>
     

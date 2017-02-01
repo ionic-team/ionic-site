@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googleanalytics.ts#L2">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-google-analytics</code></pre>
@@ -65,7 +66,24 @@ Prerequisites:</p>
 <!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-typescript">import { GoogleAnalytics } from &#39;ionic-native&#39;;
+
+GoogleAnalytics.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
+   .then(() =&gt; {
+     console.log(&#39;Google analytics is ready now&#39;);
+     // Tracker is ready
+     // You can now track pages or set additional information such as AppVersion or UserId
+   })
+   .catch(e =&gt; console.log(&#39;Error starting GoogleAnalytics&#39;, e));
+</code></pre>
+
+
 
 
 <!-- @property tags -->
@@ -77,6 +95,8 @@ Prerequisites:</p>
 <h3><code>startTrackerWithId(id,&nbsp;interval)</code>
   
 </h3>
+
+
 
 
 In your 'deviceready' handler, set up your Analytics tracker.

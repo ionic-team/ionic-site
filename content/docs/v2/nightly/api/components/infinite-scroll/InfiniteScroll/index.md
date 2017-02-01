@@ -225,6 +225,15 @@ and hide the display.</p>
   <tbody>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, Whether or not the infinite scroll should be
+enabled or not. Setting to <code>false</code> will remove scroll event listeners
+and hide the display.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>threshold</td>
       <td><code>string</code></td>
       <td><p> The threshold distance from the bottom
@@ -235,15 +244,6 @@ output event to get called when the user has scrolled 10%
 from the bottom of the page. Use the value <code>100px</code> when the
 scroll is within 100 pixels from the bottom of the page.
 Default is <code>15%</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>enabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the infinite scroll should be
-enabled or not. Setting to <code>false</code> will remove scroll event listeners
-and hide the display.</p>
 </td>
     </tr>
     
@@ -262,7 +262,7 @@ and hide the display.</p>
     
     <tr>
       <td>ionInfinite</td>
-      <td><p> The expression to call when the scroll reaches
+      <td><p> Emitted when the scroll reaches
 the threshold distance. From within your infinite handler,
 you must call the infinite scroll&#39;s <code>complete()</code> method when
 your async operation has completed.</p>
@@ -272,6 +272,58 @@ your async operation has completed.</p>
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+    <h3 ng-init="setSassPlatform('base')">All</h3>
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-margin</code></td>
+        
+          <td><code>0 0 32px 0</code></td>
+        
+        <td><p>Margin of the infinite scroll loading icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-color</code></td>
+        
+          <td><code>#666</code></td>
+        
+        <td><p>Color of the infinite scroll loading indicator</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-margin</code></td>
+        
+          <td><code>4px 32px 0 32px</code></td>
+        
+        <td><p>Margin of the infinite scroll loading text</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

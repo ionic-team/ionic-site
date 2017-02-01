@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/location-accuracy.ts#L0">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-request-location-accuracy</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 <p>This Cordova/Phonegap plugin for Android and iOS to request enabling/changing of Location Services by triggering a native dialog from within the app, avoiding the need for the user to leave your app to change location settings manually.</p>
 
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -173,7 +176,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_NO_POWER"></div>
-<h3><code>REQUEST_PRIORITY_NO_POWER()</code>
+<h3><code>REQUEST_PRIORITY_NO_POWER</code>
   
 </h3>
 
@@ -188,7 +191,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_LOW_POWER"></div>
-<h3><code>REQUEST_PRIORITY_LOW_POWER()</code>
+<h3><code>REQUEST_PRIORITY_LOW_POWER</code>
   
 </h3>
 
@@ -203,7 +206,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_BALANCED_POWER_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY()</code>
+<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY</code>
   
 </h3>
 
@@ -218,7 +221,7 @@ Requests accurate location
 
 
 <div id="REQUEST_PRIORITY_HIGH_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY()</code>
+<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY</code>
   
 </h3>
 
@@ -233,7 +236,7 @@ Requests accurate location
 
 
 <div id="SUCCESS_SETTINGS_SATISFIED"></div>
-<h3><code>SUCCESS_SETTINGS_SATISFIED()</code>
+<h3><code>SUCCESS_SETTINGS_SATISFIED</code>
   
 </h3>
 
@@ -248,7 +251,7 @@ Requests accurate location
 
 
 <div id="SUCCESS_USER_AGREED"></div>
-<h3><code>SUCCESS_USER_AGREED()</code>
+<h3><code>SUCCESS_USER_AGREED</code>
   
 </h3>
 
@@ -263,7 +266,7 @@ Requests accurate location
 
 
 <div id="ERROR_ALREADY_REQUESTING"></div>
-<h3><code>ERROR_ALREADY_REQUESTING()</code>
+<h3><code>ERROR_ALREADY_REQUESTING</code>
   
 </h3>
 
@@ -278,7 +281,7 @@ Requests accurate location
 
 
 <div id="ERROR_INVALID_ACTION"></div>
-<h3><code>ERROR_INVALID_ACTION()</code>
+<h3><code>ERROR_INVALID_ACTION</code>
   
 </h3>
 
@@ -293,7 +296,7 @@ Requests accurate location
 
 
 <div id="ERROR_INVALID_ACCURACY"></div>
-<h3><code>ERROR_INVALID_ACCURACY()</code>
+<h3><code>ERROR_INVALID_ACCURACY</code>
   
 </h3>
 
@@ -308,7 +311,7 @@ Requests accurate location
 
 
 <div id="ERROR_EXCEPTION"></div>
-<h3><code>ERROR_EXCEPTION()</code>
+<h3><code>ERROR_EXCEPTION</code>
   
 </h3>
 
@@ -323,7 +326,7 @@ Requests accurate location
 
 
 <div id="ERROR_CANNOT_CHANGE_ACCURACY"></div>
-<h3><code>ERROR_CANNOT_CHANGE_ACCURACY()</code>
+<h3><code>ERROR_CANNOT_CHANGE_ACCURACY</code>
   
 </h3>
 
@@ -338,7 +341,7 @@ Requests accurate location
 
 
 <div id="ERROR_USER_DISAGREED"></div>
-<h3><code>ERROR_USER_DISAGREED()</code>
+<h3><code>ERROR_USER_DISAGREED</code>
   
 </h3>
 
@@ -353,7 +356,7 @@ Requests accurate location
 
 
 <div id="ERROR_GOOGLE_API_CONNECTION_FAILED"></div>
-<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED()</code>
+<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED</code>
   
 </h3>
 

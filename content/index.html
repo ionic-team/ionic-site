@@ -32,11 +32,11 @@ pre_footer: true
             View docs</a>
         </p>
         <p class="version-text">
-          <a href="https://github.com/driftyco/ionic/releases/tag/v2.0.0-rc.4"
-             target="_blank">v2.0.0 rc.4</a> / 2016-11-17 /
+          <a href="https://github.com/driftyco/ionic/releases/tag/v2.0.0"
+             target="_blank">v2.0.0</a> / 2017-01-25 /
           <a href="https://github.com/driftyco/ionic/blob/master/LICENSE"
              target="_blank">MIT Licensed</a> /
-          <a href="https://github.com/driftyco/ionic/releases/tag/v2.0.0-rc.4"
+          <a href="https://github.com/driftyco/ionic/releases/tag/v2.0.0"
              target="_blank">Release Notes</a>
         </p>
       </div>
@@ -54,7 +54,7 @@ pre_footer: true
 
 <div class="utility-bar">
   <div class="container">
-    <form action="http://codiqa.createsend.com/t/t/s/jytylh/"
+    <form action="https://codiqa.createsend.com/t/t/s/jytylh/"
           method="post"
           class="input-group col-md-5">
       <input name="cm-jytylh-jytylh"
@@ -276,7 +276,7 @@ pre_footer: true
       <ul>
         <li class="devs">5 Million developers</li>
         <li class="meetups">100+ Meetup Groups</li>
-        <li class="github">26,000+ Github stars</li>
+        <li class="github"><span id="gh-stars">27,400+</span> Github stars</li>
         <li class="so">30,000 S.O. questions</li>
       </ul>
     </aside>
@@ -380,6 +380,7 @@ $.ajax({
     if(data) {
       if(data.data.watchers){
         $("#gh-stargazers").html(digits(data.data.watchers));
+        $('#gh-stars').html(digits(Math.round(data.data.watchers / 100)*100));
       }
       if(data.data.forks){
         $("#gh-forks").html(digits(data.data.forks));

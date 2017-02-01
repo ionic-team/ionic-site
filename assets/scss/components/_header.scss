@@ -59,6 +59,10 @@
       border-top: none;
       transition-duration: .3s;
 
+      @media (max-width: $screen-sm-max) {
+        padding: 27px 23px;
+      }
+
       @media (max-width: $screen-xs-max) {
         padding: 15px;
         border: 0;
@@ -435,4 +439,16 @@
       }
     }
   }
+}
+
+// fix for the header component API docs page. it conflicts w/ a bootstrap
+// component
+body.page-header {
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 0;
+}
+
+#test10001 {
+  display: none;
 }

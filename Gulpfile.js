@@ -5,6 +5,7 @@ var cache       = require('gulp-cache');
 var cachebust   = require('gulp-cache-bust');
 var concat      = require('gulp-concat');
 var cp          = require('child_process');
+var del         = require('del');
 var es          = require('event-stream');
 var footer      = require('gulp-footer');
 var header      = require('gulp-header');
@@ -18,6 +19,7 @@ var sass        = require('gulp-sass');
 var server      = require('gulp-develop-server');
 var shell       = require('gulp-shell');
 var uglify      = require('gulp-uglify');
+var del          = require('del');
 
 var bustingCache = false;
 
@@ -98,7 +100,7 @@ gulp.task('styles:v2', function() {
     .pipe($.size({title: 'styles'}));
 });
 
-gulp.task('styles:v1', function(done) {
+gulp.task('styles:v1', function() {
   return gulp.src('content/scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
@@ -188,8 +190,8 @@ gulp.task('server-listen', function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', function() {
-  return runSequence('build', 'server-listen');
+gulp.task('server', ['build'], function() {
+  return runSequence('server-listen');
 });
 
 gulp.task('server:server', function() {
@@ -407,6 +409,10 @@ gulp.task('build.clean', ['build-prep'], function(done) {
   runSequence('jekyll-build.clean', function() {
     done();
   })
+});
+
+gulp.task('slug.prep', function () {
+  return del(['assets', 'content']);
 });
 
 gulp.task('build-prep', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'images', 'js', 'docs.index'], bustCache);

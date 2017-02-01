@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,17 +24,18 @@ docType: "class"
 
   
 
-  
+  </h1>
 
-</h1>
-
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/android-fingerprint-auth.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/android-fingerprint-auth.ts#L63">
   Improve this doc
 </a>
 
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-android-fingerprint-auth</code></pre>
@@ -50,6 +51,8 @@ docType: "class"
 
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -61,15 +64,20 @@ AndroidFingerprintAuth.isAvailable()
     if(result.isAvailable){
       // it is available
 
-      AndroidFingerprintAuth.show({ clientId: &quot;myAppName&quot;, clientSecret: &quot;so_encrypted_much_secure_very_secret&quot; })
+      AndroidFingerprintAuth.encrypt({ clientId: &quot;myAppName&quot;, username: &quot;myUsername&quot;, password: &quot;myPassword&quot; })
         .then(result =&gt; {
-           if(result.withFingerprint) {
-             console.log(&#39;Successfully authenticated with fingerprint!&#39;);
-           } else if(result.withPassword) {
+           if (result.withFingerprint) {
+               console.log(&quot;Successfully encrypted credentials.&quot;);
+               console.log(&quot;Encrypted credentials: &quot; + result.token);
+           } else if (result.withBackup) {
              console.log(&#39;Successfully authenticated with backup password!&#39;);
            } else console.log(&#39;Didn\&#39;t authenticate!&#39;);
         })
-        .catch(error =&gt; console.error(error));
+        .catch(error =&gt; {
+           if (error === &quot;Cancelled&quot;) {
+             console.log(&quot;Fingerprint authentication cancelled&quot;);
+           } else console.error(error)
+        });
 
     } else {
       // fingerprint auth isn&#39;t available
@@ -86,8 +94,59 @@ AndroidFingerprintAuth.isAvailable()
 
 <h2>Static Members</h2>
 
-<div id="show"></div>
-<h3><code>show(options)</code>
+<div id="encrypt"></div>
+<h3><code>encrypt(options)</code>
+  
+</h3>
+
+
+Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>AndroidFingerprintAuthOptions</code>
+    </td>
+    <td>
+      <p>Options</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="decrypt"></div>
+<h3><code>decrypt(options)</code>
   
 </h3>
 
@@ -158,6 +217,27 @@ Check if service is available
 
 
 
+<div id="delete"></div>
+<h3><code>delete()</code>
+  
+</h3>
+
+
+Delete the cipher used for encryption and decryption by username
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the cipher was successfully deleted
+</div>
+
+
+
 
 <!-- methods on the class -->
 
@@ -194,21 +274,51 @@ Check if service is available
       <code>string</code>
     </td>
     <td>
-      <p>Used as the alias for your key in the Android Key Store.</p>
+      <p>Required
+Used as the alias for your key in the Android Key Store.</p>
 
     </td>
   </tr>
   
   <tr>
     <td>
-      clientSecret
-      
+      username
+      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
-      <p>Used to encrypt the token returned upon successful fingerprint authentication.</p>
+      <p>Used to create credential string for encrypted token and as alias to retrieve the cipher.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Used to create credential string for encrypted token</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      token
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Required for decrypt()
+Encrypted user credentials to decrypt upon successful authentication.</p>
 
     </td>
   </tr>
@@ -237,6 +347,78 @@ Check if service is available
     </td>
     <td>
       <p>Change the language. (en_US or es)</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      maxAttempts
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>The device max is 5 attempts. Set this parameter if you want to allow fewer than 5 attempts.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      userAuthRequired
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Require the user to authenticate with a fingerprint to authorize every use of the key.
+New fingerprint enrollment will invalidate key and require backup authenticate to
+re-enable the fingerprint authentication dialog.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      dialogTitle
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Set the title of the fingerprint authentication dialog.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      dialogMessage
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Set the message of the fingerprint authentication dialog.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      dialogHint
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Set the hint displayed by the fingerprint icon on the fingerprint authentication dialog.</p>
 
     </td>
   </tr>

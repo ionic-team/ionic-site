@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L34">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-background-mode</code></pre>
@@ -59,6 +60,8 @@ Requires Cordova plugin: cordova-plugin-background-mode. For more info about plu
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -121,6 +124,8 @@ Once the background mode has been disabled, the app will be paused when in backg
 </h3>
 
 
+
+
 Checks if background mode is enabled or not.
 
 
@@ -131,7 +136,7 @@ Checks if background mode is enabled or not.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is enabled.
+<code>boolean</code> returns a boolean that indicates if the background mode is enabled.
 </div>
 
 
@@ -140,6 +145,8 @@ Checks if background mode is enabled or not.
 <h3><code>isActive()</code>
   
 </h3>
+
+
 
 
 Can be used to get the information if the background mode is active.
@@ -152,7 +159,7 @@ Can be used to get the information if the background mode is active.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with boolean that indicates if the background mode is active.
+<code>boolean</code> returns a boolean that indicates if the background mode is active.
 </div>
 
 

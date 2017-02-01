@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-editor.ts#L118">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-video-editor</code></pre>
@@ -58,6 +59,8 @@ docType: "class"
 
 <!-- @platforms tag end -->
 
+
+<!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
@@ -83,7 +86,7 @@ VideoEditor.transcodeVideo({
 <h2>Static Members</h2>
 
 <div id="OptimizeForNetworkUse"></div>
-<h3><code>OptimizeForNetworkUse()</code>
+<h3><code>OptimizeForNetworkUse</code>
   
 </h3>
 
@@ -98,7 +101,7 @@ VideoEditor.transcodeVideo({
 
 
 <div id="OutputFileType"></div>
-<h3><code>OutputFileType()</code>
+<h3><code>OutputFileType</code>
   
 </h3>
 

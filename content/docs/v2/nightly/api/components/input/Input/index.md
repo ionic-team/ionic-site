@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="input" href="#input"></a>
 
 Input
-<h3><code>ion-input</code></h3>
+<h3><code>ion-input,ion-textarea</code></h3>
 
 
 
@@ -35,7 +35,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/input/input.ts#L15">
 Improve this doc
 </a>
 
@@ -94,6 +94,10 @@ interactivity.</p>
   &lt;ion-item&gt;
     &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
   &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-textarea placeholder=&quot;Enter a description&quot;&gt;&lt;/ion-textarea&gt;
+  &lt;/ion-item&gt;
 &lt;/ion-list&gt;
 </code></pre>
 
@@ -105,6 +109,28 @@ interactivity.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="ngControl"></div>
+
+<h3>
+<a class="anchor" name="ngControl" href="#ngControl"></a>
+<code>ngControl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -118,51 +144,81 @@ interactivity.</p>
   <tbody>
     
     <tr>
-      <td>placeholder</td>
-      <td><code>string</code></td>
-      <td><p> The placeholder for the input</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>clearInput</td>
-      <td><code>bool</code></td>
-      <td><p> A clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>value</td>
-      <td><code>string</code></td>
-      <td><p> The text value of the input</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>type</td>
-      <td><code>string</code></td>
-      <td><p> The HTML input type (text, password, email, number, search, tel, or url)</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>bool</code></td>
-      <td><p> If the input should be disabled or not</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component.</p>
+      <td><code>boolean</code></td>
+      <td><p> If true, a clear icon will appear in the input when there is a value. Clicking it clears the input.</p>
 </td>
     </tr>
     
     <tr>
       <td>clearOnEdit</td>
       <td><code>boolean</code></td>
-      <td><p> whether to clear the input upon editing or not</p>
+      <td><p> If true, the value will be cleared after focus upon edit. Defaults to <code>true</code> when <code>type</code> is <code>&quot;password&quot;</code>, <code>false</code> for all other types.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>max</td>
+      <td><code>any</code></td>
+      <td><p> The maximum value, which must not be less than its minimum (min attribute) value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>min</td>
+      <td><code>any</code></td>
+      <td><p> The minimum value, which must not be greater than its maximum (max attribute) value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> Instructional text that shows before the input has a value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>readonly</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot modify the value.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>step</td>
+      <td><code>any</code></td>
+      <td><p> Works with the min and max attributes to limit the increments at which a value can be set.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>type</td>
+      <td><code>string</code></td>
+      <td><p> The type of control to display. The default type is text. Possible values are: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, or <code>&quot;url&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> The text value of the input.</p>
 </td>
     </tr>
     
@@ -181,13 +237,13 @@ interactivity.</p>
     
     <tr>
       <td>blur</td>
-      <td><p> Expression to call when the input no longer has focus</p>
+      <td><p> Emitted when the input no longer has focus.</p>
 </td>
     </tr>
     
     <tr>
       <td>focus</td>
-      <td><p> Expression to call when the input has focus</p>
+      <td><p> Emitted when the input has focus.</p>
 </td>
     </tr>
     
@@ -246,6 +302,15 @@ interactivity.</p>
           <td><code>#f53d3d</code></td>
         
         <td><p>Color of the input highlight when invalid</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$text-input-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the input placeholder</p>
 </td>
       </tr>
       

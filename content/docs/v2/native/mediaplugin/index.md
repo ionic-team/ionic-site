@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.12"
+version: "2.4.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -24,9 +24,7 @@ docType: "class"
 
   
 
-  
-
-</h1>
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/media.ts#L7">
   Improve this doc
@@ -35,6 +33,9 @@ docType: "class"
 
 
 <!-- decorators -->
+
+
+
 
 
 <pre><code>$ ionic plugin add cordova-plugin-media</code></pre>
@@ -49,6 +50,8 @@ docType: "class"
 
 
 
+<!-- if doc.decorators -->
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -58,7 +61,11 @@ docType: "class"
 
 
 // Create a MediaPlugin instance.  Expects path to file or url as argument
-var file = new MediaPlugin(&#39;path/to/file.mp3&#39;);
+// We can optionally pass a second argument to track the status of the media
+
+const onStatusUpdate = (status) =&gt; console.log(status);
+
+const file = new MediaPlugin(&#39;path/to/file.mp3&#39;, onStatusUpdate);
 
 // Catch the Success &amp; Error Output
 // Platform Quirks

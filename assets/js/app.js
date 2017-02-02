@@ -1,4 +1,4 @@
-var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
+var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'ionicate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
   var navItemPos = $('#side-nav > ul > .active').length ?
                     $('#side-nav > ul > .active').offset().top : null;
@@ -291,10 +291,25 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
 
   $scope.form = {};
 
+  function getJsonFromUrl() {
+    var query = location.search.substr(1);
+    var result = {};
+    query.split("&").forEach(function(part) {
+      var item = part.split("=");
+      result[item[0]] = decodeURIComponent(item[1]);
+    });
+    return result;
+  }
+
+  var params = getJsonFromUrl();
+
   $scope.submit = function() {
     $scope.submitting = true;
     $http.post('http://survey.apis.ionicjs.com/reservespot/v1pricing', {
-      email: $scope.form.email
+      email: $scope.form.email,
+      meta: {
+        plan: params['p']
+      }
     }).then(function(res) {
       $scope.thanks = true;
       $scope.submitting = false;
@@ -378,15 +393,16 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
     contact: {
       ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
       message: 'We are collecting feedback on Ionic. Would you be willing to ' +
-        'speak with us briefly? If so, please choose a time <a ' +
-        'href="https://calendly.com/ionic-research/ionic-wiz-research" ' +
-        'target="_blank">here</a>.'
+        'speak to our research team about your needs? <a ' +
+        'href="https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017" ' +
+        'target="_blank">Select a time</a>.'
     }
   };
 
   $scope.finishedSurvey = function(results) {
+
     $http.post('http://survey.apis.ionicjs.com/survey/', {
-      email: $scope.data.email,
+      email: $scope.form.email,
       campaign: 'pricing_v1',
       results: results,
     }).then(function(resp) {

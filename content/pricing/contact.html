@@ -7,6 +7,9 @@ header_style: transparent
 centered: true
 has_container: true
 pre_footer: true
+footer_includes: |
+  <link rel="stylesheet" href="../js/ionicate/ionicate.css" />
+  <script src="../js/ionicate/ionicate.js"></script>
 ---
 <div ng-controller="PricingReserveCtrl">
   <div class="cta gradient">
@@ -26,8 +29,7 @@ pre_footer: true
     <section class="container">
       <h2>Reserve your Spot</h2>
       <p>
-        Our pricing packages aren't quite ready. Leave your email below to be
-        notified when they're ready to go!
+        We’re allowing a limited number of new signups each day for our premium packages. Leave us your email and we’ll let you know when we’re ready for you.
       </p>
       <form ng-submit="submit()" method="post">
         <div class="form-group">

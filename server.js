@@ -16,7 +16,7 @@ app.use(processRequest);
 app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
-  maxage: 315360000000 // ten years
+  // maxage: 315360000000 // ten years
 }));
 
 app.use(function(req, res, next) {

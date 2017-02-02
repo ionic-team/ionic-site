@@ -76,7 +76,8 @@
           transition: .3s transform;
         }
 
-        &:hover {
+        &:hover,
+        &:active  {
           color: darken($blue, 10);
           text-decoration: none;
 

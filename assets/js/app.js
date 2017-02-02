@@ -282,6 +282,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
       $scope.hash = window.location.hash.substr(2).split('?')[0];
     });
   });
+}])
 .controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.launched = false;
   $scope.showSurvey = false;

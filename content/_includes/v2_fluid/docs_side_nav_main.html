@@ -252,8 +252,8 @@
 
   {% comment %} ### Resources ### {% endcomment %}
   <li class="{% if page.category == 'resources' %}active{% endif %}">
-    <a href="/docs/v2/resources" >Resources</a>
-    {% if page.category == 'resources' %}
+    <a href="/docs/v2/resources">Resources</a>
+    {% if page.id == 'resources-index' %}
       <ul>
         <li ng-class="{active:hash == 'guides'}">
           <a href="#guides">Guides</a></li>

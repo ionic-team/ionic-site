@@ -138,63 +138,6 @@ id will be disabled.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="open"></div>
-
-<h3>
-<a class="anchor" name="open" href="#open"></a>
-<code>open(menuId)</code>
-  
-
-</h3>
-
-Programatically open the Menu.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
-
-
-</div>
-
-
-
-
 <div id="close"></div>
 
 <h3>
@@ -247,64 +190,6 @@ is given then it'll close that exact menu.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> <p>returns a promise when the menu is fully closed</p>
-
-
-</div>
-
-
-
-
-<div id="toggle"></div>
-
-<h3>
-<a class="anchor" name="toggle" href="#toggle"></a>
-<code>toggle(menuId)</code>
-  
-
-</h3>
-
-Toggle the menu. If it's closed, it will open, and if opened, it
-will close.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
 
 
 </div>
@@ -365,6 +250,293 @@ will also automatically disable all the others that are on the same side.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
+
+
+</div>
+
+
+
+
+<div id="get"></div>
+
+<h3>
+<a class="anchor" name="get" href="#get"></a>
+<code>get(menuId)</code>
+  
+
+</h3>
+
+Used to get a menu instance. If a `menuId` is not provided then it'll
+return the first menu found. If a `menuId` is `left` or `right`, then
+it'll return the enabled menu on that side. Otherwise, if a `menuId` is
+provided, then it'll try to find the menu using the menu's `id`
+property. If a menu is not found then it'll return `null`.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
+
+
+</div>
+
+
+
+
+<div id="getMenus"></div>
+
+<h3>
+<a class="anchor" name="getMenus" href="#getMenus"></a>
+<code>getMenus()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
+
+
+</div>
+
+
+
+
+<div id="getOpen"></div>
+
+<h3>
+<a class="anchor" name="getOpen" href="#getOpen"></a>
+<code>getOpen()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
+
+
+</div>
+
+
+
+
+<div id="isEnabled"></div>
+
+<h3>
+<a class="anchor" name="isEnabled" href="#isEnabled"></a>
+<code>isEnabled(menuId)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
+
+
+</div>
+
+
+
+
+<div id="isOpen"></div>
+
+<h3>
+<a class="anchor" name="isOpen" href="#isOpen"></a>
+<code>isOpen(menuId)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>Returns true if the specified menu is currently open, otherwise false.
+If the menuId is not specified, it returns true if ANY menu is currenly open.</p>
+
+
+</div>
+
+
+
+
+<div id="open"></div>
+
+<h3>
+<a class="anchor" name="open" href="#open"></a>
+<code>open(menuId)</code>
+  
+
+</h3>
+
+Programatically open the Menu.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        menuId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
 
 
 </div>
@@ -446,16 +618,17 @@ Used to enable or disable the ability to swipe open the menu.
 
 
 
-<div id="isOpen"></div>
+<div id="toggle"></div>
 
 <h3>
-<a class="anchor" name="isOpen" href="#isOpen"></a>
-<code>isOpen(menuId)</code>
+<a class="anchor" name="toggle" href="#toggle"></a>
+<code>toggle(menuId)</code>
   
 
 </h3>
 
-
+Toggle the menu. If it's closed, it will open, and if opened, it
+will close.
 
 
 <table class="table param-table" style="margin:0;">
@@ -495,180 +668,7 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> <p>Returns true if the specified menu is currently open, otherwise false.
-If the menuId is not specified, it returns true if ANY menu is currenly open.</p>
-
-
-</div>
-
-
-
-
-<div id="isEnabled"></div>
-
-<h3>
-<a class="anchor" name="isEnabled" href="#isEnabled"></a>
-<code>isEnabled(menuId)</code>
-  
-
-</h3>
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
-
-
-</div>
-
-
-
-
-<div id="get"></div>
-
-<h3>
-<a class="anchor" name="get" href="#get"></a>
-<code>get(menuId)</code>
-  
-
-</h3>
-
-Used to get a menu instance. If a `menuId` is not provided then it'll
-return the first menu found. If a `menuId` is `left` or `right`, then
-it'll return the enabled menu on that side. Otherwise, if a `menuId` is
-provided, then it'll try to find the menu using the menu's `id`
-property. If a menu is not found then it'll return `null`.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
-
-
-</div>
-
-
-
-
-<div id="getOpen"></div>
-
-<h3>
-<a class="anchor" name="getOpen" href="#getOpen"></a>
-<code>getOpen()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Menu</code> <p>Returns the instance of the menu already opened, otherwise <code>null</code>.</p>
-
-
-</div>
-
-
-
-
-<div id="getMenus"></div>
-
-<h3>
-<a class="anchor" name="getMenus" href="#getMenus"></a>
-<code>getMenus()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
+  <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
 
 
 </div>

@@ -177,52 +177,9 @@ will return `null`.
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>,
-<code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>min</td>
-      <td><code>number</code></td>
-      <td><p> Minimum integer value of the range. Defaults to <code>0</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>max</td>
-      <td><code>number</code></td>
-      <td><p> Maximum integer value of the range. Defaults to <code>100</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>step</td>
-      <td><code>number</code></td>
-      <td><p> Specifies the value granularity. Defaults to <code>1</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>snaps</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the knob snaps to tick marks evenly spaced based
-on the step property value. Defaults to <code>false</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>pin</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, a pin with integer value is shown when the knob
-is pressed. Defaults to <code>false</code>.</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
@@ -235,6 +192,13 @@ is pressed. Defaults to <code>false</code>.</p>
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>dualKnobs</td>
       <td><code>boolean</code></td>
       <td><p> Show two knobs. Defaults to <code>false</code>.</p>
@@ -242,9 +206,48 @@ is pressed. Defaults to <code>false</code>.</p>
     </tr>
     
     <tr>
-      <td>disabled</td>
+      <td>max</td>
+      <td><code>number</code></td>
+      <td><p> Maximum integer value of the range. Defaults to <code>100</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>min</td>
+      <td><code>number</code></td>
+      <td><p> Minimum integer value of the range. Defaults to <code>0</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>pin</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the range is disabled. Defaults to <code>false</code>.</p>
+      <td><p> If true, a pin with integer value is shown when the knob
+is pressed. Defaults to <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>snaps</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the knob snaps to tick marks evenly spaced based
+on the step property value. Defaults to <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>step</td>
+      <td><code>number</code></td>
+      <td><p> Specifies the value granularity. Defaults to <code>1</code>.</p>
 </td>
     </tr>
     
@@ -263,7 +266,7 @@ is pressed. Defaults to <code>false</code>.</p>
     
     <tr>
       <td>ionChange</td>
-      <td><p> Expression to evaluate when the range value changes.</p>
+      <td><p> Emitted when the range value changes.</p>
 </td>
     </tr>
     

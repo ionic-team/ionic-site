@@ -111,6 +111,8 @@ run-as com.your.app
 cd files
 ls
 </code></pre>
+<p>To store files in a different/publicly accessible directory, please refer to the following link
+<a href="https://github.com/apache/cordova-plugin-file#where-to-store-files">https://github.com/apache/cordova-plugin-file#where-to-store-files</a></p>
 
 
 

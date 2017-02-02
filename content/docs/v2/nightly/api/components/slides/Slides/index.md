@@ -164,17 +164,16 @@ index and prints it:</p>
 
 
 
-<div id="update"></div>
+<div id="enableKeyboardControl"></div>
 
 <h3>
-<a class="anchor" name="update" href="#update"></a>
-<code>update()</code>
+<a class="anchor" name="enableKeyboardControl" href="#enableKeyboardControl"></a>
+<code>enableKeyboardControl()</code>
   
 
 </h3>
 
-Update the underlying slider implementation. Call this if you've added or removed
-child slides.
+Enable or disable keyboard control.
 
 
 
@@ -186,82 +185,201 @@ child slides.
 
 
 
-<div id="slideTo"></div>
+<div id="getActiveIndex"></div>
 
 <h3>
-<a class="anchor" name="slideTo" href="#slideTo"></a>
-<code>slideTo(index,&nbsp;speed,&nbsp;runCallbacks)</code>
+<a class="anchor" name="getActiveIndex" href="#getActiveIndex"></a>
+<code>getActiveIndex()</code>
   
 
 </h3>
 
-Transition to the specified slide.
+Get the index of the active slide.
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        index
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>The index number of the slide.</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        speed
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        runCallbacks
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The index number of the current slide.</p>
+
+
+</div>
+
+
+
+
+<div id="getPreviousIndex"></div>
+
+<h3>
+<a class="anchor" name="getPreviousIndex" href="#getPreviousIndex"></a>
+<code>getPreviousIndex()</code>
+  
+
+</h3>
+
+Get the index of the previous slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The index number of the previous slide.</p>
+
+
+</div>
+
+
+
+
+<div id="isBeginning"></div>
+
+<h3>
+<a class="anchor" name="isBeginning" href="#isBeginning"></a>
+<code>isBeginning()</code>
+  
+
+</h3>
+
+Get whether or not the current slide is the first slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>If the slide is the first slide or not.</p>
+
+
+</div>
+
+
+
+
+<div id="isEnd"></div>
+
+<h3>
+<a class="anchor" name="isEnd" href="#isEnd"></a>
+<code>isEnd()</code>
+  
+
+</h3>
+
+Get whether or not the current slide is the last slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> <p>If the slide is the last slide or not.</p>
+
+
+</div>
+
+
+
+
+<div id="length"></div>
+
+<h3>
+<a class="anchor" name="length" href="#length"></a>
+<code>length()</code>
+  
+
+</h3>
+
+Get the total number of slides.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The total number of slides.</p>
+
+
+</div>
+
+
+
+
+<div id="lockSwipeToNext"></div>
+
+<h3>
+<a class="anchor" name="lockSwipeToNext" href="#lockSwipeToNext"></a>
+<code>lockSwipeToNext()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to the next slides.
+
+
+
+
+
+
+
+
+
+
+
+<div id="lockSwipeToPrev"></div>
+
+<h3>
+<a class="anchor" name="lockSwipeToPrev" href="#lockSwipeToPrev"></a>
+<code>lockSwipeToPrev()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to the previous slides.
+
+
+
+
+
+
+
+
+
+
+
+<div id="lockSwipes"></div>
+
+<h3>
+<a class="anchor" name="lockSwipes" href="#lockSwipes"></a>
+<code>lockSwipes()</code>
+  
+
+</h3>
+
+Lock or unlock the ability to slide to change slides.
+
+
+
 
 
 
@@ -404,142 +522,86 @@ Transition to the previous slide.
 
 
 
-<div id="getActiveIndex"></div>
+<div id="slideTo"></div>
 
 <h3>
-<a class="anchor" name="getActiveIndex" href="#getActiveIndex"></a>
-<code>getActiveIndex()</code>
+<a class="anchor" name="slideTo" href="#slideTo"></a>
+<code>slideTo(index,&nbsp;speed,&nbsp;runCallbacks)</code>
   
 
 </h3>
 
-Get the index of the active slide.
+Transition to the specified slide.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        index
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The index number of the slide.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        speed
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Transition duration (in ms).<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        runCallbacks
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
 
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The index number of the current slide.</p>
-
-
-</div>
-
-
-
-
-<div id="getPreviousIndex"></div>
-
-<h3>
-<a class="anchor" name="getPreviousIndex" href="#getPreviousIndex"></a>
-<code>getPreviousIndex()</code>
-  
-
-</h3>
-
-Get the index of the previous slide.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The index number of the previous slide.</p>
-
-
-</div>
-
-
-
-
-<div id="length"></div>
-
-<h3>
-<a class="anchor" name="length" href="#length"></a>
-<code>length()</code>
-  
-
-</h3>
-
-Get the total number of slides.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The total number of slides.</p>
-
-
-</div>
-
-
-
-
-<div id="isEnd"></div>
-
-<h3>
-<a class="anchor" name="isEnd" href="#isEnd"></a>
-<code>isEnd()</code>
-  
-
-</h3>
-
-Get whether or not the current slide is the last slide.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>If the slide is the last slide or not.</p>
-
-
-</div>
-
-
-
-
-<div id="isBeginning"></div>
-
-<h3>
-<a class="anchor" name="isBeginning" href="#isBeginning"></a>
-<code>isBeginning()</code>
-  
-
-</h3>
-
-Get whether or not the current slide is the first slide.
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>If the slide is the first slide or not.</p>
-
-
-</div>
 
 
 
@@ -586,79 +648,17 @@ Stop auto play.
 
 
 
-<div id="lockSwipeToNext"></div>
+<div id="update"></div>
 
 <h3>
-<a class="anchor" name="lockSwipeToNext" href="#lockSwipeToNext"></a>
-<code>lockSwipeToNext()</code>
+<a class="anchor" name="update" href="#update"></a>
+<code>update()</code>
   
 
 </h3>
 
-Lock or unlock the ability to slide to the next slides.
-
-
-
-
-
-
-
-
-
-
-
-<div id="lockSwipeToPrev"></div>
-
-<h3>
-<a class="anchor" name="lockSwipeToPrev" href="#lockSwipeToPrev"></a>
-<code>lockSwipeToPrev()</code>
-  
-
-</h3>
-
-Lock or unlock the ability to slide to the previous slides.
-
-
-
-
-
-
-
-
-
-
-
-<div id="lockSwipes"></div>
-
-<h3>
-<a class="anchor" name="lockSwipes" href="#lockSwipes"></a>
-<code>lockSwipes()</code>
-  
-
-</h3>
-
-Lock or unlock the ability to slide to change slides.
-
-
-
-
-
-
-
-
-
-
-
-<div id="enableKeyboardControl"></div>
-
-<h3>
-<a class="anchor" name="enableKeyboardControl" href="#enableKeyboardControl"></a>
-<code>enableKeyboardControl()</code>
-  
-
-</h3>
-
-Enable or disable keyboard control.
+Update the underlying slider implementation. Call this if you've added or removed
+child slides.
 
 
 
@@ -684,7 +684,7 @@ Enable or disable keyboard control.
     <tr>
       <td>autoplay</td>
       <td><code>number</code></td>
-      <td><p>  Delay between transitions (in milliseconds). If this
+      <td><p> Delay between transitions (in milliseconds). If this
 parameter is not passed, autoplay is disabled. Default does
 not have a value and does not autoplay.
 Default: <code>null</code>.</p>
@@ -694,17 +694,9 @@ Default: <code>null</code>.</p>
     <tr>
       <td>control</td>
       <td><code>Slides</code></td>
-      <td><p>  Pass another Slides instance or array of Slides instances
+      <td><p> Pass another Slides instance or array of Slides instances
 that should be controlled by this Slides instance.
 Default: <code>null</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>effect</td>
-      <td><code>string</code></td>
-      <td><p> Could be <code>slide</code>, <code>fade</code>, <code>cube</code>, <code>coverflow</code> or <code>flip</code>.
-Default: <code>slide</code>.</p>
 </td>
     </tr>
     
@@ -713,6 +705,15 @@ Default: <code>slide</code>.</p>
       <td><code>string</code></td>
       <td><p>  Swipe direction: &#39;horizontal&#39; or &#39;vertical&#39;.
 Default: <code>horizontal</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>effect</td>
+      <td><code>string</code></td>
+      <td><p> The animation effect of the slides.
+Possible values are: <code>slide</code>, <code>fade</code>, <code>cube</code>, <code>coverflow</code> or <code>flip</code>.
+Default: <code>slide</code>.</p>
 </td>
     </tr>
     
@@ -726,22 +727,22 @@ Default: <code>horizontal</code>.</p>
     <tr>
       <td>loop</td>
       <td><code>boolean</code></td>
-      <td><p>  Whether to continuously loop from the last slide to the
-first slide. Default: <code>false</code>.</p>
+      <td><p> If true, continuously loop from the last slide to the
+first slide.</p>
 </td>
     </tr>
     
     <tr>
       <td>pager</td>
       <td><code>boolean</code></td>
-      <td><p>  Whether or not to show the pager. Default: <code>false</code>.</p>
+      <td><p>  If true, show the pager.</p>
 </td>
     </tr>
     
     <tr>
       <td>paginationType</td>
       <td><code>string</code></td>
-      <td><p>  String with type of pagination. Can be
+      <td><p>  Type of pagination. Possible values are:
 <code>bullets</code>, <code>fraction</code>, <code>progress</code>. Default: <code>bullets</code>.
 (Note that the pager will not show unless <code>pager</code> input
 is set to true).</p>
@@ -751,15 +752,29 @@ is set to true).</p>
     <tr>
       <td>parallax</td>
       <td><code>boolean</code></td>
-      <td><p> Enable, if you want to use &quot;parallaxed&quot; elements inside of
-slider. Default: <code>false</code>.</p>
+      <td><p> If true, allows you to use &quot;parallaxed&quot; elements inside of
+slider.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>slidesPerView</td>
+      <td><code>number</code></td>
+      <td><p> Slides per view. Slides visible at the same time. Default: <code>1</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>spaceBetween</td>
+      <td><code>number</code></td>
+      <td><p> Distance between slides in px. Default: <code>0</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>speed</td>
       <td><code>number</code></td>
-      <td><p>  Duration of transition between slides
+      <td><p> Duration of transition between slides
 (in milliseconds). Default: <code>300</code>.</p>
 </td>
     </tr>
@@ -767,22 +782,7 @@ slider. Default: <code>false</code>.</p>
     <tr>
       <td>zoom</td>
       <td><code>boolean</code></td>
-      <td><p>  Set to <code>true</code> to enable zooming functionality.
-Default: <code>false</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>spaceBetween</td>
-      <td><code>number</code></td>
-      <td><p>  Distance between slides in px. Default: <code>0</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>slidesPerView</td>
-      <td><code>number</code></td>
-      <td><p>  Slides per view. Slides visible at the same time. Default: <code>1</code>.</p>
+      <td><p> If true, enables zooming functionality.</p>
 </td>
     </tr>
     
@@ -800,86 +800,86 @@ Default: <code>false</code>.</p>
   <tbody>
     
     <tr>
-      <td>ionSlideWillChange</td>
-      <td><p> Expression to evaluate when a slide change starts.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideDidChange</td>
-      <td><p> Expression to evaluate when a slide change ends.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideDrag</td>
-      <td><p> Expression to evaluate when a slide moves.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideReachStart</td>
-      <td><p> When slides reach its beginning (initial position).</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideReachEnd</td>
-      <td><p> When slides reach its last slide.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>ionSlideAutoplay</td>
-      <td><p> Expression to evaluate when a slide moves.</p>
+      <td><p> Emitted when a slide moves.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionSlideAutoplayStart</td>
-      <td><p> Same as <code>ionSlideWillChange</code> but caused by autoplay.</p>
+      <td><p> Emitted when a autoplay starts.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionSlideAutoplayStop</td>
-      <td><p> Expression to evaluate when a autoplay stops.</p>
+      <td><p> Emitted when a autoplay stops.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionSlideNextStart</td>
-      <td><p> Same as <code>ionSlideWillChange</code> but for &quot;forward&quot; direction only.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlidePrevStart</td>
-      <td><p> Same as <code>ionSlideWillChange</code> but for &quot;backward&quot; direction only.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideNextEnd</td>
-      <td><p> Same as <code>ionSlideDidChange</code> but for &quot;forward&quot; direction only.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlidePrevEnd</td>
-      <td><p> Same as <code>ionSlideDidChange</code> but for &quot;backward&quot; direction only.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionSlideTap</td>
-      <td><p> When the user taps/clicks on the slide&#39;s container.</p>
+      <td>ionSlideDidChange</td>
+      <td><p> Emitted when a slide change ends.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionSlideDoubleTap</td>
-      <td><p> When the user double taps on the slide&#39;s container.</p>
+      <td><p> Emitted when the user double taps on the slide&#39;s container.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideDrag</td>
+      <td><p> Emitted when a slide moves.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideNextEnd</td>
+      <td><p> Emitted when a slide change ends with the &quot;forward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideNextStart</td>
+      <td><p> Emitted when a slide change starts with the &quot;forward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlidePrevEnd</td>
+      <td><p> Emitted when a slide change ends with the &quot;backward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlidePrevStart</td>
+      <td><p> Emitted when a slide change starts with the &quot;backward&quot; direction.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideReachEnd</td>
+      <td><p> Emitted when slides reaches its last slide.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideReachStart</td>
+      <td><p> Emitted when slides reaches its beginning (initial position).</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideTap</td>
+      <td><p> Emitted when the user taps/clicks on the slide&#39;s container.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionSlideWillChange</td>
+      <td><p> Emitted when a slide change starts.</p>
 </td>
     </tr>
     

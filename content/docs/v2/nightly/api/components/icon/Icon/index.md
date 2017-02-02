@@ -95,42 +95,49 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>name</td>
-      <td><code>string</code></td>
-      <td><p> Icon to use. Will load the appropriate icon for each mode</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>ios</td>
       <td><code>string</code></td>
-      <td><p> Explicitly set the icon to use on iOS</p>
+      <td><p> Specifies which icon to use on <code>ios</code> mode.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>isActive</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the icon is styled with an &quot;active&quot; appearance.
+An active icon is filled in, and an inactive icon is the outline of the icon.
+The <code>isActive</code> property is largely used by the tabbar. Only affects <code>ios</code> icons.</p>
 </td>
     </tr>
     
     <tr>
       <td>md</td>
       <td><code>string</code></td>
-      <td><p> Explicitly set the icon to use on MD</p>
+      <td><p> Specifies which icon to use on <code>md</code> mode.</p>
 </td>
     </tr>
     
     <tr>
-      <td>isActive</td>
-      <td><code>bool</code></td>
-      <td><p> Whether or not the icon has an &quot;active&quot; appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they&#39;re active or not. The <code>isActive</code> property is largely used by the tabbar.</p>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> Specifies which icon to use. The appropriate icon will be used based on the mode.
+For more information, see <a href="/docs/v2/ionicons/">Ionicons</a>.</p>
 </td>
     </tr>
     

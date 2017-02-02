@@ -122,23 +122,16 @@ custom SVG or CSS animations.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="state"></div>
+<div id="cancel"></div>
 
 <h3>
-<a class="anchor" name="state" href="#state"></a>
-<code>state</code>
+<a class="anchor" name="cancel" href="#cancel"></a>
+<code>cancel()</code>
   
 
 </h3>
 
-The current state which the refresher is in. The refresher's states include:
-
-- `inactive` - The refresher is not being pulled down or refreshing and is currently hidden.
-- `pulling` - The user is actively pulling down the refresher, but has not reached the point yet that if the user lets go, it'll refresh.
-- `cancelling` - The user pulled down the refresher and let go, but did not pull down far enough to kick off the `refreshing` state. After letting go, the refresher is in the `cancelling` state while it is closing, and will go back to the `inactive` state once closed.
-- `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
-- `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `complete()` it will begin the `completing` state.
-- `completing` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
+Changes the refresher's state from `refreshing` to `cancelling`.
 
 
 
@@ -150,16 +143,22 @@ The current state which the refresher is in. The refresher's states include:
 
 
 
-<div id="startY"></div>
+<div id="complete"></div>
 
 <h3>
-<a class="anchor" name="startY" href="#startY"></a>
-<code>startY</code>
+<a class="anchor" name="complete" href="#complete"></a>
+<code>complete()</code>
   
 
 </h3>
 
-The Y coordinate of where the user started to the pull down the content.
+Call `complete()` when your async operation has completed.
+For example, the `refreshing` state is while the app is performing
+an asynchronous operation, such as receiving more data from an
+AJAX request. Once the data has been received, you then call this
+method to signify that the refreshing has completed and to close
+the refresher. This method also changes the refresher's state from
+`refreshing` to `completing`.
 
 
 
@@ -241,22 +240,16 @@ position.
 
 
 
-<div id="complete"></div>
+<div id="startY"></div>
 
 <h3>
-<a class="anchor" name="complete" href="#complete"></a>
-<code>complete()</code>
+<a class="anchor" name="startY" href="#startY"></a>
+<code>startY</code>
   
 
 </h3>
 
-Call `complete()` when your async operation has completed.
-For example, the `refreshing` state is while the app is performing
-an asynchronous operation, such as receiving more data from an
-AJAX request. Once the data has been received, you then call this
-method to signify that the refreshing has completed and to close
-the refresher. This method also changes the refresher's state from
-`refreshing` to `completing`.
+The Y coordinate of where the user started to the pull down the content.
 
 
 
@@ -268,16 +261,23 @@ the refresher. This method also changes the refresher's state from
 
 
 
-<div id="cancel"></div>
+<div id="state"></div>
 
 <h3>
-<a class="anchor" name="cancel" href="#cancel"></a>
-<code>cancel()</code>
+<a class="anchor" name="state" href="#state"></a>
+<code>state</code>
   
 
 </h3>
 
-Changes the refresher's state from `refreshing` to `cancelling`.
+The current state which the refresher is in. The refresher's states include:
+
+- `inactive` - The refresher is not being pulled down or refreshing and is currently hidden.
+- `pulling` - The user is actively pulling down the refresher, but has not reached the point yet that if the user lets go, it'll refresh.
+- `cancelling` - The user pulled down the refresher and let go, but did not pull down far enough to kick off the `refreshing` state. After letting go, the refresher is in the `cancelling` state while it is closing, and will go back to the `inactive` state once closed.
+- `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
+- `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `complete()` it will begin the `completing` state.
+- `completing` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
 
 
 
@@ -301,10 +301,16 @@ Changes the refresher's state from `refreshing` to `cancelling`.
   <tbody>
     
     <tr>
-      <td>pullMin</td>
+      <td>closeDuration</td>
       <td><code>number</code></td>
-      <td><p> The min distance the user must pull down until the
-refresher can go into the <code>refreshing</code> state. Default is <code>60</code>.</p>
+      <td><p> How many milliseconds it takes to close the refresher. Default is <code>280</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If the refresher is enabled or not. This should be used in place of an <code>ngIf</code>. Default is <code>true</code>.</p>
 </td>
     </tr>
     
@@ -318,9 +324,10 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
     </tr>
     
     <tr>
-      <td>closeDuration</td>
+      <td>pullMin</td>
       <td><code>number</code></td>
-      <td><p> How many milliseconds it takes to close the refresher. Default is <code>280</code>.</p>
+      <td><p> The min distance the user must pull down until the
+refresher can go into the <code>refreshing</code> state. Default is <code>60</code>.</p>
 </td>
     </tr>
     
@@ -328,13 +335,6 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
       <td>snapbackDuration</td>
       <td><code>number</code></td>
       <td><p> How many milliseconds it takes the refresher to to snap back to the <code>refreshing</code> state. Default is <code>280</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>enabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If the refresher is enabled or not. This should be used in place of an <code>ngIf</code>. Default is <code>true</code>.</p>
 </td>
     </tr>
     
@@ -352,23 +352,23 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
   <tbody>
     
     <tr>
-      <td>ionRefresh</td>
-      <td><p> When the user lets go and has pulled down far enough, which would be
-farther than the <code>pullMin</code>, then your refresh hander if fired and the state is
-updated to <code>refreshing</code>. From within your refresh handler, you must call the
-<code>complete()</code> method when your async operation has completed.</p>
+      <td>ionPull</td>
+      <td><p> Emitted while the user is pulling down the content and exposing the refresher.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ionPull</td>
-      <td><p> While the user is pulling down the content and exposing the refresher.</p>
+      <td>ionRefresh</td>
+      <td><p> Emitted when the user lets go and has pulled down
+far enough, which would be farther than the <code>pullMin</code>, then your refresh hander if
+fired and the state is updated to <code>refreshing</code>. From within your refresh handler,
+you must call the <code>complete()</code> method when your async operation has completed.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionStart</td>
-      <td><p> When the user begins to start pulling down.</p>
+      <td><p> Emitted when the user begins to start pulling down.</p>
 </td>
     </tr>
     

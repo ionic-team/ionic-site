@@ -132,6 +132,8 @@ Checks if SafariViewController is available
 </h3>
 
 
+
+
 Shows Safari View Controller
 
 

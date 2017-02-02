@@ -1,0 +1,81 @@
+.toc {
+  margin-top: 20px;
+  // border-bottom: 1px solid #bbb;
+
+  .toggle {
+    background: none;
+    border: 0;
+    text-transform: uppercase;
+    color: #b1bac8;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    position: relative;
+    display: inline;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    outline: none;
+
+    &::after {
+      font-family: Ionicons;
+      content: '\f3d0';
+      float: right;
+      font-size: 18px;
+      font-weight: 400;
+      transition: .3s transform ease;
+      position: relative;
+      top: -5px;
+    }
+  }
+
+  .expanded {
+    ul {
+      list-style: none;
+      padding-left: 15px;
+
+      li {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8em;
+        margin-bottom: 0;
+
+        a {
+          color: $blue;
+          display: block;
+          max-height: 25px;
+          overflow: hidden;
+          font-weight: 500;
+          transition: .3s max-height cubic-bezier(0.36, 0.66, 0.04, 1);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    > ul {
+      padding-left: 0;
+
+      > li {
+        font-weight: 500;
+        line-height: 2em;
+
+        > a {
+          // color: $blue;
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.collapsed {
+    .toggle::after {
+      transform: rotate3d(0, 0, 1, -90deg);
+    }
+
+    .expanded ul li a {
+      max-height: 0;
+    }
+  }
+}

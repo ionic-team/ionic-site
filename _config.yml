@@ -16,6 +16,7 @@ exclude: [node_modules, scss, README.md, Gulpfile.js]
 # Markdown Settings
 markdown: kramdown
 kramdown:
+  toc_levels: 2..3
   input: GFM
   hard_wrap: false
 

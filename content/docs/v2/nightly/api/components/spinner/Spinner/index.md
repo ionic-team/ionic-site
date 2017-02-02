@@ -150,21 +150,9 @@ of <code>background-color</code>.</p>
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>name</td>
-      <td><code>string</code></td>
-      <td><p> SVG spinner name.</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
@@ -176,9 +164,25 @@ of <code>background-color</code>.</p>
     </tr>
     
     <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>name</td>
+      <td><code>string</code></td>
+      <td><p> SVG spinner name.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>paused</td>
       <td><code>boolean</code></td>
-      <td><p> If the animation is paused or not. Defaults to <code>false</code>.</p>
+      <td><p> If true, pause the animation.</p>
 </td>
     </tr>
     

@@ -160,7 +160,7 @@ class MyComponent {
     
     <tr>
       <td>ionItemReorder</td>
-      <td><p> The expression to evaluate when the item is reordered. Emits an object
+      <td><p> Emitted when the item is reordered. Emits an object
 with <code>from</code> and <code>to</code> properties.</p>
 </td>
     </tr>

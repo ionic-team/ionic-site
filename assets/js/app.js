@@ -141,6 +141,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
     var evMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
     var eventer = window[evMethod];
     var messageEvent = evMethod == 'attachEvent' ? 'onmessage' : 'message';
+
     // Listen to message from child window
     eventer(messageEvent, function(e) {
       sendCurrentHash(e.data);
@@ -202,11 +203,14 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
     $scope.windowsActive = false;
     $timeout(function() { $scope.androidActive = true; }, 30);
   };
+
   $scope.setPlatform('ios');
+
   // Listen for scroll events on iframe - don't allow them to bubble to parent
   $('iframe').on('mousewheel DOMMouseScroll', function(ev) {
     ev.preventDefault();
   });
+
   var $window = $(window);
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {
@@ -272,7 +276,12 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
   };
 
 }])
-
+.controller('ResourcesCtrl', ['$scope', '$location', function($scope, $location) {
+  $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
+    $scope.$evalAsync(function() {
+      $scope.hash = window.location.hash.substr(2).split('?')[0];
+    });
+  });
 .controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.launched = false;
   $scope.showSurvey = false;

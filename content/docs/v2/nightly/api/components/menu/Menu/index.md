@@ -190,9 +190,23 @@ and usage information.</p>
     </tr>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the menu is enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>id</td>
       <td><code>string</code></td>
       <td><p> An id for the menu.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>persistent</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the menu will persist on child pages.</p>
 </td>
     </tr>
     
@@ -204,32 +218,18 @@ and usage information.</p>
     </tr>
     
     <tr>
+      <td>swipeEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, swiping the menu is enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The display type of the menu. Default varies based on the mode,
 see the <code>menuType</code> in the <a href="../../config/Config">config</a>. Available options:
 <code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>enabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the menu should be enabled. Default <code>true</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>swipeEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not swiping the menu should be enabled. Default <code>true</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>persistent</td>
-      <td><code>string</code></td>
-      <td><p> Whether or not the menu should persist on child pages. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -247,20 +247,20 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   <tbody>
     
     <tr>
+      <td>ionClose</td>
+      <td><p> Emitted when the menu has been closed.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>ionDrag</td>
-      <td><p> When the menu is being dragged open.</p>
+      <td><p> Emitted when the menu is being dragged open.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionOpen</td>
-      <td><p> When the menu has been opened.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionClose</td>
-      <td><p> When the menu has been closed.</p>
+      <td><p> Emitted when the menu has been opened.</p>
 </td>
     </tr>
     

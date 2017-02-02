@@ -17,7 +17,11 @@ $(document).ready(function() {
   });
 });
 
-$('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+window.tocToggle = function(btnEl) {
+  btnEl.parentElement.classList.toggle('collapsed');
+};
+
+$('[data-toggle="tooltip"]').tooltip({container: 'body'});
 
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();

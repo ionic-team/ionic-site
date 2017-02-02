@@ -49,7 +49,7 @@ For our Lodash example, we can run:
 npm install @types/lodash --save
 ```
 
-In the rare case that types don't exist for your library, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a create a complete type definition.
+In the rare case that types don't exist for your library, there are two options to proceed. The simple option is to create a short-hand type definition. A more complicated and time consuming option is to create a complete type definition.
 
 ### Creating Short-hand Definition
 

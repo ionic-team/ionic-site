@@ -386,6 +386,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize'])
 
   $scope.finishedSurvey = function(results) {
     $http.post('http://survey.apis.ionicjs.com/survey/', {
+      email: $scope.data.email,
       campaign: 'pricing_v1',
       results: results,
     }).then(function(resp) {

@@ -40,8 +40,8 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 var closureStart =
   '/*!\n' +
-  ' * Ionic IO\n' +
-  ' * Copyright ' + new Date().getYear() + ' Drifty Co. http://drifty.com/\n' +
+  ' * Ionic \n' +
+  ' * Copyright 2015-present Drifty Co.\n' +
   ' */\n' +
   '(function() {\n';
 var closureEnd = '\n})();\n';
@@ -134,8 +134,8 @@ gulp.task('images', function() {
 
 // compress and concat JS
 gulp.task('js', function() {
-  return gulp.src(['assets/js/**/*.js'].concat(lib.js))
-    .pipe(concat('ionic-site.js'))
+  return gulp.src(lib.js.concat(['assets/js/**/*.js']))
+    .pipe(concat('ionic-site.js', {newLine: ';'}))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
     .pipe(gulp.dest('content/js'))

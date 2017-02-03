@@ -77,7 +77,8 @@
         }
 
         &:hover,
-        &:active  {
+        &:active,
+        &:focus  {
           color: darken($blue, 10);
           text-decoration: none;
 

@@ -6,7 +6,7 @@ Repo for the ionicframework.com site.  To preview local Ionic changes, follow th
 
 gulp watch uses LiveReload. You may have to up your max file limit with the following command:
 
-    ulimit -n 7000 
+    ulimit -n 7000
 
 
 ## Local Build
@@ -25,6 +25,9 @@ Ionic v1 and v2 now automatically deploy their changes to an Ionic staging serve
 4. Sit back. The [Ionic v1 CI tasks](https://circleci.com/gh/driftyco/ionic) and the [Ionic v2 CI tasks](https://circleci.com/gh/driftyco/ionic2) will generate the new docs and push them to the `ionic-site` repo. The `ionic-site` CI tasks will then build them and automatically deploy them to the staging server.
 5. Preview changes on the [staging server](http://ionic-site-staging.herokuapp.com/) and promote the changes to production if all looks well. Be sure to give the site a quick look over to make sure things look good.
 
+## Third Party Libraries
+
+3rd part libraries should be concatonated in to the site bundle by adding them via package.json and specifying what files to include in the `assets/3rd-party-libs.json` file. 
 
 ## Deploy
 

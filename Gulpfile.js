@@ -9,6 +9,8 @@ var del         = require('del');
 var es          = require('event-stream');
 var footer      = require('gulp-footer');
 var header      = require('gulp-header');
+var lib         = require('./assets/3rd-party-libs.json');
+var merge       = require('merge-stream');
 var minifyCss   = require('gulp-minify-css');
 var pagespeed   = require('psi');
 var pkg         = require('./package.json');
@@ -77,12 +79,16 @@ function bustCacheAndReload(done) {
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src('assets/scss/styles.scss')
+  var sassStream =  gulp.src('assets/scss/styles.scss')
     // .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
+  var libStream = gulp.src(lib.css);
+
+  return merge(sassStream, libStream)
+    .pipe(concat('styles.css'))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     //
     // .pipe($.sourcemaps.write())
@@ -128,7 +134,7 @@ gulp.task('images', function() {
 
 // compress and concat JS
 gulp.task('js', function() {
-  return gulp.src(['assets/js/**/*.js'])
+  return gulp.src(['assets/js/**/*.js'].concat(lib.js))
     .pipe(concat('ionic-site.js'))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
@@ -214,7 +220,8 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
-    '!content/_includes/v2_fluid/head.html'], ['jekyll-rebuild']);
+  '!content/_includes/head_includes.html', '!content/_includes/v2_fluid/head.html',
+  '!content/_includes/v2_fluid/footer_tags.html'], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {

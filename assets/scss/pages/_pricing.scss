@@ -101,6 +101,41 @@
   }
 }
 
+#pricing-2 {
+  #pricing-img {
+    display: block;
+
+    margin: auto;
+  }
+  #pricing-btns {
+    margin: auto;
+    display: flex;
+    a {
+      flex: 1;
+      margin-right: 7px;
+      margin-left: 5px;
+    }
+  }
+  #pricing-img, #pricing-btns {
+    width: 768px;
+  }
+  @media screen and (min-width: 768px) {
+    #pricing-img, #pricing-btns {
+      width: 768px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    #pricing-img, #pricing-btns {
+      width: 992px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    #pricing-img, #pricing-btns {
+      width: 992px;
+    }
+  }
+}
+
 #page-pricing-contact {
   main {
     padding: 50px 0;

@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L49">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L54">
   Improve this doc
 </a>
 
@@ -286,6 +286,20 @@ NOTE: not well supported on Android
     </td>
     <td>
       <p>Disable animations. Supported on iOS only.</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      disableSuccessBeep
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Disable success beep. Supported on iOS only.</p>
 
     </td>
   </tr>

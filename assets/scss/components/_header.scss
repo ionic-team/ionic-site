@@ -50,6 +50,13 @@
   }
 
   .navbar-nav > li {
+
+    &.sm-hide {
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  {
+        display: none;
+      }
+    }
+
     > a {
       color: white;
       font-size: 14px;
@@ -58,6 +65,11 @@
       transition: .2s color;
       border-top: none;
       transition-duration: .3s;
+
+      @media (max-width: $screen-md-max) {
+        padding: 27px 15px;
+      }
+
 
       @media (max-width: $screen-xs-max) {
         padding: 15px;

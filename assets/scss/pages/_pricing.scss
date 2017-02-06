@@ -136,6 +136,76 @@
   }
 }
 
+#pricing-3 {
+  a.btn {
+    font-size: 14px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .btn-outline {
+    background-color: white;
+    border: 2px solid #5A8DF4;
+    color: #5A8DF4;
+  }
+  #pricing-info {
+    position: relative;
+    margin: auto;
+    margin-top: -35px;
+  }
+  #pricing-img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+  #pricing-btns {
+    margin: auto;
+    position: absolute;
+    top: 155px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px 13px;
+    a {
+      flex: 1;
+    }
+    a.btn {
+      font-size: 12px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    #pricing-info {
+      width: 768px;
+
+      #pricing-btns {
+        top: 155px;
+      }
+
+      a.btn {
+        font-size: 12px;
+        margin-right: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    #pricing-info {
+      width: 992px;
+      #pricing-btns {
+        top: 213px;
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    #pricing-info {
+      width: 992px;
+      #pricing-btns {
+        top: 213px;
+      }
+    }
+  }
+}
 #page-pricing-contact {
   main {
     padding: 50px 0;

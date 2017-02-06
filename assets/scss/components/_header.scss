@@ -52,16 +52,12 @@
   .navbar-nav > li {
     > a {
       color: white;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
-      padding: 27px 33px;
+      padding: 27px 22px;
       transition: .2s color;
       border-top: none;
       transition-duration: .3s;
-
-      @media (max-width: $screen-sm-max) {
-        padding: 27px 23px;
-      }
 
       @media (max-width: $screen-xs-max) {
         padding: 15px;
@@ -447,8 +443,4 @@ body.page-header {
   padding-bottom: 0;
   margin: 0;
   border-bottom: 0;
-}
-
-#test10001 {
-  display: none;
 }

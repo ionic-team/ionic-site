@@ -363,10 +363,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
     },
     contact: {
       ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
-      message: 'We are collecting feedback on Ionic. Would you be willing to ' +
-        'speak to our research team about your needs? <a ' +
-        'href="https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017" ' +
-        'target="_blank">Select a time</a>.'
+      title: 'Time to chat?',
+      message: "We're finalizing our premium product lineup. Can our product team speak with you live for feedback? Please <a href=\"https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017\" target=\"_blank\">choose a time here</a>."
     }
   };
 
@@ -520,10 +518,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
     },
     contact: {
       ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
-      message: 'We are collecting feedback on Ionic. Would you be willing to ' +
-        'speak to our research team about your needs? <a ' +
-        'href="https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017" ' +
-        'target="_blank">Select a time</a>.'
+      title: 'Time to chat?',
+      message: "We're finalizing our premium product lineup. Can our product team speak with you live for feedback? Please <a href=\"https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017\" target=\"_blank\">choose a time here</a>."
     }
   };
 

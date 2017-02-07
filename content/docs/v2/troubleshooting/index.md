@@ -20,6 +20,26 @@ friendly Ions of the community will help you!
 
 {% include v2_fluid/toc.html %}
 
+## Updating Ionic's packages
+
+To update the version of the ionic-angular package, run:
+
+```bash
+npm install ionic-angular@latest --save --save-exact
+```
+
+This will install the latest version of the framework and saved the version to the package.json.
+If you need to update any additional packages (Angular, RxJS, etc), the output from npm will tell you.
+
+To update the ionic-cli install run:
+
+```bash
+npm install -g ionic
+```
+
+Depending on your setup, you might need to run this with`sudo` in front for macOS and Linux.
+For windows, run this from an admin command prompt.
+
 ## Adding third party libs
 
 You can add most third party libraries to your V2 project from NPM. For example

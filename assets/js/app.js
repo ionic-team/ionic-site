@@ -362,7 +362,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
       text: 'Keep building awesome apps 🎉'
     },
     contact: {
-      ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
+      ifHasValue: ['howlargeco.2-10', 'howlargeco.11-50', 'howlargeco.51-500', 'howlargeco.500-'],
       title: 'Time to chat?',
       message: "We're finalizing our premium product lineup. Can our product team speak with you live for feedback? Please <a href=\"https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017\" target=\"_blank\">choose a time here</a>."
     }
@@ -517,7 +517,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
       text: 'Keep building awesome apps 🎉'
     },
     contact: {
-      ifHasValue: ['howlargeco.51-500', 'howlargeco.500-'],
+      ifHasValue: ['howlargeco.2-10', 'howlargeco.11-50', 'howlargeco.51-500', 'howlargeco.500-'],
       title: 'Time to chat?',
       message: "We're finalizing our premium product lineup. Can our product team speak with you live for feedback? Please <a href=\"https://calendly.com/ionic-research/ionic-pkg-research-v1/02-02-2017\" target=\"_blank\">choose a time here</a>."
     }

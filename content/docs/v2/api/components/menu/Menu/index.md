@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -190,9 +190,23 @@ and usage information.</p>
     </tr>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the menu is enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>id</td>
       <td><code>string</code></td>
       <td><p> An id for the menu.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>persistent</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the menu will persist on child pages.</p>
 </td>
     </tr>
     
@@ -204,32 +218,18 @@ and usage information.</p>
     </tr>
     
     <tr>
+      <td>swipeEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, swiping the menu is enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>type</td>
       <td><code>string</code></td>
       <td><p> The display type of the menu. Default varies based on the mode,
 see the <code>menuType</code> in the <a href="../../config/Config">config</a>. Available options:
 <code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>enabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the menu should be enabled. Default <code>true</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>swipeEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not swiping the menu should be enabled. Default <code>true</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>persistent</td>
-      <td><code>string</code></td>
-      <td><p> Whether or not the menu should persist on child pages. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -247,20 +247,20 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   <tbody>
     
     <tr>
+      <td>ionClose</td>
+      <td><p> Emitted when the menu has been closed.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>ionDrag</td>
-      <td><p> When the menu is being dragged open.</p>
+      <td><p> Emitted when the menu is being dragged open.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionOpen</td>
-      <td><p> When the menu has been opened.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionClose</td>
-      <td><p> When the menu has been closed.</p>
+      <td><p> Emitted when the menu has been opened.</p>
 </td>
     </tr>
     
@@ -274,7 +274,11 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -289,6 +293,37 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$menu-width</code></td>
+        
+          <td><code>304px</code></td>
+        
+        <td><p>Width of the menu</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$menu-small-width</code></td>
+        
+          <td><code>$menu-width - 40px</code></td>
+        
+        <td><p>Width of the menu on small devices (under 340px)</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>

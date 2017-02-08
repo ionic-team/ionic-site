@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -87,7 +87,7 @@ You can combine the <code>(ionSwipe)</code> event plus the <code>expandable</cod
     <tr>
       <td>side</td>
       <td><code>string</code></td>
-      <td><p> the side the option button should be on. Defaults to right.
+      <td><p> The side the option button should be on. Defaults to <code>&quot;right&quot;</code>.
 If you have multiple <code>ion-item-options</code>, a side must be provided for each.</p>
 </td>
     </tr>
@@ -107,7 +107,7 @@ If you have multiple <code>ion-item-options</code>, a side must be provided for 
     
     <tr>
       <td>ionSwipe</td>
-      <td><p> Expression to evaluate when the item has been fully swiped.</p>
+      <td><p> Emitted when the item has been fully swiped.</p>
 </td>
     </tr>
     

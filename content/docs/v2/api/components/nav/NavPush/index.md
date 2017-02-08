@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -97,16 +97,16 @@ class MyPage {
   <tbody>
     
     <tr>
-      <td>navPush</td>
-      <td><code>Page</code></td>
-      <td><p> The Page to push onto the Nav.</p>
+      <td>navParams</td>
+      <td><code>any</code></td>
+      <td><p> Parameters to pass to the page.</p>
 </td>
     </tr>
     
     <tr>
-      <td>navParams</td>
-      <td><code>any</code></td>
-      <td><p> Parameters to pass to the page.</p>
+      <td>navPush</td>
+      <td><code>Page</code></td>
+      <td><p> The Page to push onto the Nav.</p>
 </td>
     </tr>
     

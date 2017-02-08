@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -84,30 +84,30 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>maxZoom</td>
+      <td><code>number</code></td>
+      <td><p> Set the max zoom amount.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>scrollX</td>
       <td><code>boolean</code></td>
-      <td><p> whether to enable scrolling along the X axis</p>
+      <td><p> If true, scrolling along the X axis is enabled.</p>
 </td>
     </tr>
     
     <tr>
       <td>scrollY</td>
       <td><code>boolean</code></td>
-      <td><p> whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }</p>
+      <td><p> If true, scrolling along the Y axis is enabled; requires the following CSS declaration: ion-scroll { white-space: nowrap; }</p>
 </td>
     </tr>
     
     <tr>
       <td>zoom</td>
       <td><code>boolean</code></td>
-      <td><p> whether to enable zooming</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>maxZoom</td>
-      <td><code>number</code></td>
-      <td><p> set the max zoom amount for ion-scroll</p>
+      <td><p> If true, zooming is enabled.</p>
 </td>
     </tr>
     

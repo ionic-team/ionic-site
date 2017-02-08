@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -82,11 +82,11 @@ class MyApp {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="ngAfterViewInit"></div>
+<div id="goToRoot"></div>
 
 <h3>
-<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
-<code>ngAfterViewInit()</code>
+<a class="anchor" name="goToRoot" href="#goToRoot"></a>
+<code>goToRoot()</code>
   
 
 </h3>
@@ -102,11 +102,11 @@ class MyApp {
 
 
 
-<div id="goToRoot"></div>
+<div id="ngAfterViewInit"></div>
 
 <h3>
-<a class="anchor" name="goToRoot" href="#goToRoot"></a>
-<code>goToRoot()</code>
+<a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
+<code>ngAfterViewInit()</code>
   
 
 </h3>
@@ -150,7 +150,7 @@ class MyApp {
     <tr>
       <td>swipeBackEnabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether it&#39;s possible to swipe-to-go-back on this nav controller or not.</p>
+      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     

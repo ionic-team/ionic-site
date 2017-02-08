@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -158,151 +158,6 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="viewCtrl"></div>
-
-<h3>
-<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
-<code>viewCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngOnDestroy"></div>
-
-<h3>
-<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
-<code>ngOnDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="select"></div>
-
-<h3>
-<a class="anchor" name="select" href="#select"></a>
-<code>select(tabOrIndex)</code>
-  
-
-</h3>
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        tabOrIndex
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>|<code>Tab</code>
-      </td>
-      <td>
-        <p>Index, or the Tab instance, of the tab to select.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="previousTab"></div>
-
-<h3>
-<a class="anchor" name="previousTab" href="#previousTab"></a>
-<code>previousTab(trimHistory)</code>
-  
-
-</h3>
-
-Get the previously selected Tab which is currently not disabled or hidden.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        trimHistory
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>If the selection history should be trimmed up to the previous tab selection or not.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Tab</code> 
-
-</div>
-
-
-
-
 <div id="getByIndex"></div>
 
 <h3>
@@ -386,6 +241,151 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 
 
+
+<div id="ngOnDestroy"></div>
+
+<h3>
+<a class="anchor" name="ngOnDestroy" href="#ngOnDestroy"></a>
+<code>ngOnDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="previousTab"></div>
+
+<h3>
+<a class="anchor" name="previousTab" href="#previousTab"></a>
+<code>previousTab(trimHistory)</code>
+  
+
+</h3>
+
+Get the previously selected Tab which is currently not disabled or hidden.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        trimHistory
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>If the selection history should be trimmed up to the previous tab selection or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Tab</code> 
+
+</div>
+
+
+
+
+<div id="select"></div>
+
+<h3>
+<a class="anchor" name="select" href="#select"></a>
+<code>select(tabOrIndex)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        tabOrIndex
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>|<code>Tab</code>
+      </td>
+      <td>
+        <p>Index, or the Tab instance, of the tab to select.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="viewCtrl"></div>
+
+<h3>
+<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -401,14 +401,18 @@ Get the previously selected Tab which is currently not disabled or hidden.
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -416,6 +420,13 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <td>selectedIndex</td>
       <td><code>number</code></td>
       <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabsHighlight</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, show the tab highlight bar under the selected tab.</p>
 </td>
     </tr>
     
@@ -430,13 +441,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
       <td>tabsPlacement</td>
       <td><code>string</code></td>
       <td><p> Set position of the tabbar: <code>top</code>, <code>bottom</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>tabsHighlight</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether to show the tab highlight bar under the selected tab. Default: <code>false</code>.</p>
 </td>
     </tr>
     
@@ -455,7 +459,7 @@ Get the previously selected Tab which is currently not disabled or hidden.
     
     <tr>
       <td>ionChange</td>
-      <td><p> Expression to evaluate when the tab changes.</p>
+      <td><p> Emitted when the tab changes.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -299,7 +299,11 @@ out before starting a new transition.</p>
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -314,6 +318,37 @@ out before starting a new transition.</p>
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$action-sheet-width</code></td>
+        
+          <td><code>100%</code></td>
+        
+        <td><p>Width of the action sheet</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$action-sheet-max-width</code></td>
+        
+          <td><code>500px</code></td>
+        
+        <td><p>Maximum width of the action sheet</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>

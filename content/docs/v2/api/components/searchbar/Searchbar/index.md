@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -124,44 +124,9 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>cancelButtonText</td>
-      <td><code>string</code></td>
-      <td><p> Set the the cancel button text. Default: <code>&quot;Cancel&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>showCancelButton</td>
+      <td>animated</td>
       <td><code>boolean</code></td>
-      <td><p> Whether to show the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>debounce</td>
-      <td><code>number</code></td>
-      <td><p> How long, in milliseconds, to wait to trigger the <code>ionInput</code> event after each keystroke. Default <code>250</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>placeholder</td>
-      <td><code>string</code></td>
-      <td><p> Set the input&#39;s placeholder. Default <code>&quot;Search&quot;</code>.</p>
+      <td><p> If true, enable searchbar animation.</p>
 </td>
     </tr>
     
@@ -180,6 +145,52 @@ Improve this doc
     </tr>
     
     <tr>
+      <td>cancelButtonText</td>
+      <td><code>string</code></td>
+      <td><p> Set the the cancel button text. Default: <code>&quot;Cancel&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>debounce</td>
+      <td><code>number</code></td>
+      <td><p> How long, in milliseconds, to wait to trigger the <code>ionInput</code> event after each keystroke. Default <code>250</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> Set the input&#39;s placeholder. Default <code>&quot;Search&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>showCancelButton</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, show the cancel button.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>spellcheck</td>
       <td><code>string|boolean</code></td>
       <td><p> Set the input&#39;s spellcheck property. Values: <code>true</code>, <code>false</code>. Default <code>false</code>.</p>
@@ -190,13 +201,6 @@ Improve this doc
       <td>type</td>
       <td><code>string</code></td>
       <td><p> Set the type of the input. Values: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, <code>&quot;url&quot;</code>. Default <code>&quot;search&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>animated</td>
-      <td><code>boolean</code></td>
-      <td><p> Configures if the searchbar is animated or no. By default, animation is <code>false</code>.</p>
 </td>
     </tr>
     
@@ -221,32 +225,32 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>ionInput</td>
-      <td><p> When the Searchbar input has changed including cleared.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>ionBlur</td>
-      <td><p> When the Searchbar input has blurred.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>ionFocus</td>
-      <td><p> When the Searchbar input has focused.</p>
+      <td><p> Emitted when the Searchbar input has blurred.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionCancel</td>
-      <td><p> When the cancel button is clicked.</p>
+      <td><p> Emitted when the cancel button is clicked.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionClear</td>
-      <td><p> When the clear input button is clicked.</p>
+      <td><p> Emitted when the clear input button is clicked.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionFocus</td>
+      <td><p> Emitted when the Searchbar input has focused.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionInput</td>
+      <td><p> Emitted when the Searchbar input has changed, including when it&#39;s cleared.</p>
 </td>
     </tr>
     

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -97,30 +97,34 @@ for more info on forms and inputs.</p>
   <tbody>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>checked</td>
       <td><code>boolean</code></td>
-      <td><p> whether or not the checkbox is checked (defaults to false)</p>
+      <td><p> If true, the element is selected.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
 </td>
     </tr>
     
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
-      <td><p> whether or not the checkbox is disabled or not.</p>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>mode</td>
+      <td><code>string</code></td>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -139,7 +143,7 @@ for more info on forms and inputs.</p>
     
     <tr>
       <td>ionChange</td>
-      <td><p> expression to evaluate when the checkbox value changes</p>
+      <td><p> Emitted when the checkbox value changes.</p>
 </td>
     </tr>
     

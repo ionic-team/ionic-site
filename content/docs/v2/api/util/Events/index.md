@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -79,6 +79,73 @@ events.subscribe(&#39;user:created&#39;, (user, time) =&gt; {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="publish"></div>
+
+<h3>
+<a class="anchor" name="publish" href="#publish"></a>
+<code>publish(topic,&nbsp;eventData)</code>
+  
+
+</h3>
+
+Publish an event to the given topic.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        topic
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the topic to publish to</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        eventData
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>the data to send as the event</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
 
 <div id="subscribe"></div>
 
@@ -218,73 +285,6 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
 
 
 </div>
-
-
-
-
-<div id="publish"></div>
-
-<h3>
-<a class="anchor" name="publish" href="#publish"></a>
-<code>publish(topic,&nbsp;eventData)</code>
-  
-
-</h3>
-
-Publish an event to the given topic.
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        topic
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>the topic to publish to</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        eventData
-        
-        
-      </td>
-      <td>
-        
-  <code>any</code>
-      </td>
-      <td>
-        <p>the data to send as the event</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -160,7 +160,7 @@ class MyComponent {
     
     <tr>
       <td>ionItemReorder</td>
-      <td><p> The expression to evaluate when the item is reordered. Emits an object
+      <td><p> Emitted when the item is reordered. Emits an object
 with <code>from</code> and <code>to</code> properties.</p>
 </td>
     </tr>

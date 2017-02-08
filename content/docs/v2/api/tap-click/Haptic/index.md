@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -97,49 +97,6 @@ Check to see if the Haptic Plugin is available
 
 
 
-<div id="selection"></div>
-
-<h3>
-<a class="anchor" name="selection" href="#selection"></a>
-<code>selection()</code>
-  
-
-</h3>
-
-Trigger a selection changed haptic event. Good for one-time events
-(not for gestures)
-
-
-
-
-
-
-
-
-
-
-
-<div id="gestureSelectionStart"></div>
-
-<h3>
-<a class="anchor" name="gestureSelectionStart" href="#gestureSelectionStart"></a>
-<code>gestureSelectionStart()</code>
-  
-
-</h3>
-
-Tell the haptic engine that a gesture for a selection change is starting.
-
-
-
-
-
-
-
-
-
-
-
 <div id="gestureSelectionChanged"></div>
 
 <h3>
@@ -183,17 +140,16 @@ called lest resources are not properly recycled.
 
 
 
-<div id="notification"></div>
+<div id="gestureSelectionStart"></div>
 
 <h3>
-<a class="anchor" name="notification" href="#notification"></a>
-<code>notification()</code>
+<a class="anchor" name="gestureSelectionStart" href="#gestureSelectionStart"></a>
+<code>gestureSelectionStart()</code>
   
 
 </h3>
 
-Use this to indicate success/failure/warning to the user.
-options should be of the type `{ type: 'success' }` (or `warning`/`error`)
+Tell the haptic engine that a gesture for a selection change is starting.
 
 
 
@@ -216,6 +172,50 @@ options should be of the type `{ type: 'success' }` (or `warning`/`error`)
 
 Use this to indicate success/failure/warning to the user.
 options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
+
+
+
+
+
+
+
+
+
+
+
+<div id="notification"></div>
+
+<h3>
+<a class="anchor" name="notification" href="#notification"></a>
+<code>notification()</code>
+  
+
+</h3>
+
+Use this to indicate success/failure/warning to the user.
+options should be of the type `{ type: 'success' }` (or `warning`/`error`)
+
+
+
+
+
+
+
+
+
+
+
+<div id="selection"></div>
+
+<h3>
+<a class="anchor" name="selection" href="#selection"></a>
+<code>selection()</code>
+  
+
+</h3>
+
+Trigger a selection changed haptic event. Good for one-time events
+(not for gestures)
 
 
 

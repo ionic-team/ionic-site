@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -325,7 +325,7 @@ Display an alert with a title, inputs, and buttons
 <tr>
 <td>handler</td>
 <td><code>any</code></td>
-<td>Expression that should be evaluated when the button is pressed.</td>
+<td>Emitted when the button is pressed.</td>
 </tr>
 <tr>
 <td>cssClass</td>
@@ -396,7 +396,11 @@ out before starting a new transition.</p>
     
       
       
-      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      <a ng-init="setSassPlatform('base')" ng-class="{ active: active === 'base' }" ng-click="setSassPlatform('base')" >All</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')">iOS</a>
       
       
       
@@ -411,6 +415,64 @@ out before starting a new transition.</p>
   </div>
 
 
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$alert-min-width</code></td>
+        
+          <td><code>250px</code></td>
+        
+        <td><p>Minimum width of the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-max-height</code></td>
+        
+          <td><code>90%</code></td>
+        
+        <td><p>Maximum height of the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-button-line-height</code></td>
+        
+          <td><code>20px</code></td>
+        
+        <td><p>Line height of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-button-font-size</code></td>
+        
+          <td><code>14px</code></td>
+        
+        <td><p>Font size of the alert button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-input-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the alert input placeholder</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
   
   <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
     <thead>

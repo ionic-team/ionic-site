@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -189,7 +189,7 @@ export class MyClass {
     
     <tr>
       <td>ionDrag</td>
-      <td><p> Expression to evaluate when the sliding position changes.
+      <td><p> Emitted when the sliding position changes.
 It reports the relative position.</p>
 <pre><code class="lang-ts">ondrag(item) {
   let percent = item.getSlidingPercent();

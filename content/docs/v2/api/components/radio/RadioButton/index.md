@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -98,16 +98,34 @@ more information on forms and input.</p>
   <tbody>
     
     <tr>
+      <td>checked</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the element is selected, and other buttons in the group are unselected.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> The predefined color to use. For example: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>.</p>
+      <td><p> The color to use from your Sass <code>$colors</code> map.
+Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
+For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
     <tr>
       <td>mode</td>
       <td><code>string</code></td>
-      <td><p> The mode to apply to this component. Mode can be <code>ios</code>, <code>wp</code>, or <code>md</code>.</p>
+      <td><p> The mode determines which platform styles to use.
+Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
+For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -115,20 +133,6 @@ more information on forms and input.</p>
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the radio button. Defaults to the generated id.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>checked</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether the radio button should be checked or not. Default false.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether the radio button should be disabled or not. Default false.</p>
 </td>
     </tr>
     
@@ -147,7 +151,7 @@ more information on forms and input.</p>
     
     <tr>
       <td>ionSelect</td>
-      <td><p> expression to be evaluated when selected</p>
+      <td><p> Emitted when the radio button is selected.</p>
 </td>
     </tr>
     

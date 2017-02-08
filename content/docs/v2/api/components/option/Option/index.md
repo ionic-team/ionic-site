@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -70,23 +70,23 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>selected</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the option is already selected</p>
+      <td><p> If true, the element is selected.</p>
 </td>
     </tr>
     
     <tr>
       <td>value</td>
       <td><code>any</code></td>
-      <td><p> The value of the option</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether or not the option is disabled</p>
+      <td><p> The value of the option.</p>
 </td>
     </tr>
     
@@ -105,7 +105,7 @@ Improve this doc
     
     <tr>
       <td>ionSelect</td>
-      <td><p> Event to evaluate when option is selected</p>
+      <td><p> Event to evaluate when option is selected.</p>
 </td>
     </tr>
     

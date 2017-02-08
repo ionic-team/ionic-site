@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -412,16 +412,17 @@ To do this, we can pass an object with the modified properites.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="viewDidLoad"></div>
+<div id="canGoBack"></div>
 
 <h3>
-<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
-<code>viewDidLoad</code>
+<a class="anchor" name="canGoBack" href="#canGoBack"></a>
+<code>canGoBack()</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component is loaded.
+Returns `true` if there's a valid previous page that we can pop
+back to. Otherwise returns `false`.
 
 
 
@@ -431,24 +432,26 @@ Observable to be subscribed to when a component is loaded.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
+  <code>boolean</code> 
 
 </div>
 
 
 
 
-<div id="viewWillEnter"></div>
+<div id="canSwipeBack"></div>
 
 <h3>
-<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
-<code>viewWillEnter</code>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
+<code>canSwipeBack()</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component is about to be loaded.
+If it's possible to use swipe back or not. If it's not possible
+to go back, or swipe back is not enabled, then this will return `false`.
+If it is possible to go back, and swipe back is enabled, then this
+will return `true`.
 
 
 
@@ -458,24 +461,23 @@ Observable to be subscribed to when a component is about to be loaded.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
+  <code>boolean</code> 
 
 </div>
 
 
 
 
-<div id="viewDidEnter"></div>
+<div id="first"></div>
 
 <h3>
-<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
-<code>viewDidEnter</code>
+<a class="anchor" name="first" href="#first"></a>
+<code>first()</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component has fully become the active component.
+Returns the first view controller in this nav controller's stack.
 
 
 
@@ -485,24 +487,23 @@ Observable to be subscribed to when a component has fully become the active comp
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
+  <code>ViewController</code> 
 
 </div>
 
 
 
 
-<div id="viewWillLeave"></div>
+<div id="getActive"></div>
 
 <h3>
-<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
-<code>viewWillLeave</code>
+<a class="anchor" name="getActive" href="#getActive"></a>
+<code>getActive()</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component is about to leave, and no longer active.
+
 
 
 
@@ -512,7 +513,7 @@ Observable to be subscribed to when a component is about to leave, and no longer
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
+  <code>ViewController</code> <p>Returns the active page&#39;s view controller.</p>
 
 
 </div>
@@ -520,94 +521,36 @@ Observable to be subscribed to when a component is about to leave, and no longer
 
 
 
-<div id="viewDidLeave"></div>
+<div id="getActiveChildNav"></div>
 
 <h3>
-<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
-<code>viewDidLeave</code>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<code>getActiveChildNav()</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component has fully left and is no longer active.
+Returns the active child navigation.
 
 
 
 
 
 
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
-
-</div>
 
 
 
 
-<div id="viewWillUnload"></div>
+
+<div id="getByIndex"></div>
 
 <h3>
-<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
-<code>viewWillUnload</code>
+<a class="anchor" name="getByIndex" href="#getByIndex"></a>
+<code>getByIndex(index)</code>
   
 
 </h3>
 
-Observable to be subscribed to when a component is about to be unloaded and destroyed.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> <p>Returns an observable</p>
-
-
-</div>
-
-
-
-
-<div id="parent"></div>
-
-<h3>
-<a class="anchor" name="parent" href="#parent"></a>
-<code>parent</code>
-  
-
-</h3>
-
-The parent navigation instance. If this is the root nav, then
-it'll be `null`. A `Tab` instance's parent is `Tabs`, otherwise
-the parent would be another nav, if it's not already the root nav.
-
-
-
-
-
-
-
-
-
-
-
-<div id="push"></div>
-
-<h3>
-<a class="anchor" name="push" href="#push"></a>
-<code>push(page,&nbsp;params,&nbsp;opts)</code>
-  
-
-</h3>
-
-Push a new component onto the current navigation stack. Pass any aditional information
-along as an object. This additional information is accessible through NavParams
 
 
 
@@ -623,50 +566,16 @@ along as an object. This additional information is accessible through NavParams
     
     <tr>
       <td>
-        page
+        index
         
         
       </td>
       <td>
         
-  <code>Page</code>
+  <code>number</code>
       </td>
       <td>
-        <p>The page component class you want to push on to the navigation stack</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        params
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Any nav-params you want to pass along to the next view<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
+        <p>The index of the page to get.</p>
 
         
       </td>
@@ -682,8 +591,146 @@ along as an object. This additional information is accessible through NavParams
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+  <code>ViewController</code> <p>Returns the view controller that matches the given index.</p>
 
+
+</div>
+
+
+
+
+<div id="getPrevious"></div>
+
+<h3>
+<a class="anchor" name="getPrevious" href="#getPrevious"></a>
+<code>getPrevious(view)</code>
+  
+
+</h3>
+
+Returns the view controller which is before the given view controller.
+If no view controller is passed in, then it'll default to the active view.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>viewController</code> 
+
+</div>
+
+
+
+
+<div id="getViews"></div>
+
+<h3>
+<a class="anchor" name="getViews" href="#getViews"></a>
+<code>getViews()</code>
+  
+
+</h3>
+
+Returns the current stack of views in this nav controller.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Array&lt;ViewController&gt;</code> <p>the stack of view controllers in this nav controller.</p>
+
+
+</div>
+
+
+
+
+<div id="indexOf"></div>
+
+<h3>
+<a class="anchor" name="indexOf" href="#indexOf"></a>
+<code>indexOf(view)</code>
+  
+
+</h3>
+
+Returns the index number of the given view controller.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> 
 
 </div>
 
@@ -895,6 +942,163 @@ and animate in to become the active view.
 
 
 
+<div id="isActive"></div>
+
+<h3>
+<a class="anchor" name="isActive" href="#isActive"></a>
+<code>isActive(view)</code>
+  
+
+</h3>
+
+Returns if the given view is the active view or not.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="isTransitioning"></div>
+
+<h3>
+<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
+<code>isTransitioning()</code>
+  
+
+</h3>
+
+Returns if the nav controller is actively transitioning or not.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+
+</div>
+
+
+
+
+<div id="last"></div>
+
+<h3>
+<a class="anchor" name="last" href="#last"></a>
+<code>last()</code>
+  
+
+</h3>
+
+Returns the last page in this nav controller's stack.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ViewController</code> 
+
+</div>
+
+
+
+
+<div id="length"></div>
+
+<h3>
+<a class="anchor" name="length" href="#length"></a>
+<code>length()</code>
+  
+
+</h3>
+
+Returns the number of views in this nav controller.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The number of views in this stack, including the current view.</p>
+
+
+</div>
+
+
+
+
+<div id="parent"></div>
+
+<h3>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
+  
+
+</h3>
+
+The parent navigation instance. If this is the root nav, then
+it'll be `null`. A `Tab` instance's parent is `Tabs`, otherwise
+the parent would be another nav, if it's not already the root nav.
+
+
+
+
+
+
+
+
+
+
+
 <div id="pop"></div>
 
 <h3>
@@ -976,6 +1180,99 @@ Navigate back to the root of the stack, no matter how far back that is.
     </tr>
   </thead>
   <tbody>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
+<div id="push"></div>
+
+<h3>
+<a class="anchor" name="push" href="#push"></a>
+<code>push(page,&nbsp;params,&nbsp;opts)</code>
+  
+
+</h3>
+
+Push a new component onto the current navigation stack. Pass any aditional information
+along as an object. This additional information is accessible through NavParams
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        page
+        
+        
+      </td>
+      <td>
+        
+  <code>Page</code>
+      </td>
+      <td>
+        <p>The page component class you want to push on to the navigation stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        params
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any nav-params you want to pass along to the next view<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
     
     <tr>
       <td>
@@ -1179,6 +1476,84 @@ Removes the specified view controller from the nav stack.
 
 
 
+<div id="setPages"></div>
+
+<h3>
+<a class="anchor" name="setPages" href="#setPages"></a>
+<code>setPages(pages,&nbsp;opts)</code>
+  
+
+</h3>
+
+Set the views of the current navigation stack and navigate to the
+last view. By default animations are disabled, but they can be enabled
+by passing options to the navigation controller.You can also pass any
+navigation params to the individual pages in the array.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        pages
+        
+        
+      </td>
+      <td>
+        
+  <code>array</code>
+      </td>
+      <td>
+        <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property to load in the stack.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+
+
+</div>
+
+
+
+
 <div id="setRoot"></div>
 
 <h3>
@@ -1270,68 +1645,17 @@ Set the root for the current navigation stack.
 
 
 
-<div id="setPages"></div>
+<div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="setPages" href="#setPages"></a>
-<code>setPages(pages,&nbsp;opts)</code>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<code>viewDidEnter</code>
   
 
 </h3>
 
-Set the views of the current navigation stack and navigate to the
-last view. By default animations are disabled, but they can be enabled
-by passing options to the navigation controller.You can also pass any
-navigation params to the individual pages in the array.
+Observable to be subscribed to when a component has fully become the active component.
 
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        pages
-        
-        
-      </td>
-      <td>
-        
-  <code>array</code>
-      </td>
-      <td>
-        <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property to load in the stack.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -1340,7 +1664,7 @@ navigation params to the individual pages in the array.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -1348,47 +1672,17 @@ navigation params to the individual pages in the array.
 
 
 
-<div id="getByIndex"></div>
+<div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="getByIndex" href="#getByIndex"></a>
-<code>getByIndex(index)</code>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<code>viewDidLeave</code>
   
 
 </h3>
 
+Observable to be subscribed to when a component has fully left and is no longer active.
 
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        index
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>The index of the page to get.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -1397,7 +1691,7 @@ navigation params to the individual pages in the array.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ViewController</code> <p>Returns the view controller that matches the given index.</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -1405,16 +1699,16 @@ navigation params to the individual pages in the array.
 
 
 
-<div id="getActive"></div>
+<div id="viewDidLoad"></div>
 
 <h3>
-<a class="anchor" name="getActive" href="#getActive"></a>
-<code>getActive()</code>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<code>viewDidLoad</code>
   
 
 </h3>
 
-
+Observable to be subscribed to when a component is loaded.
 
 
 
@@ -1424,7 +1718,7 @@ navigation params to the individual pages in the array.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ViewController</code> <p>Returns the active page&#39;s view controller.</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -1432,127 +1726,16 @@ navigation params to the individual pages in the array.
 
 
 
-<div id="isActive"></div>
+<div id="viewWillEnter"></div>
 
 <h3>
-<a class="anchor" name="isActive" href="#isActive"></a>
-<code>isActive(view)</code>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<code>viewWillEnter</code>
   
 
 </h3>
 
-Returns if the given view is the active view or not.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="getPrevious"></div>
-
-<h3>
-<a class="anchor" name="getPrevious" href="#getPrevious"></a>
-<code>getPrevious(view)</code>
-  
-
-</h3>
-
-Returns the view controller which is before the given view controller.
-If no view controller is passed in, then it'll default to the active view.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>viewController</code> 
-
-</div>
-
-
-
-
-<div id="first"></div>
-
-<h3>
-<a class="anchor" name="first" href="#first"></a>
-<code>first()</code>
-  
-
-</h3>
-
-Returns the first view controller in this nav controller's stack.
+Observable to be subscribed to when a component is about to be loaded.
 
 
 
@@ -1562,114 +1745,7 @@ Returns the first view controller in this nav controller's stack.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ViewController</code> 
-
-</div>
-
-
-
-
-<div id="last"></div>
-
-<h3>
-<a class="anchor" name="last" href="#last"></a>
-<code>last()</code>
-  
-
-</h3>
-
-Returns the last page in this nav controller's stack.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>ViewController</code> 
-
-</div>
-
-
-
-
-<div id="indexOf"></div>
-
-<h3>
-<a class="anchor" name="indexOf" href="#indexOf"></a>
-<code>indexOf(view)</code>
-  
-
-</h3>
-
-Returns the index number of the given view controller.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        view
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> 
-
-</div>
-
-
-
-
-<div id="length"></div>
-
-<h3>
-<a class="anchor" name="length" href="#length"></a>
-<code>length()</code>
-  
-
-</h3>
-
-Returns the number of views in this nav controller.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> <p>The number of views in this stack, including the current view.</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -1677,16 +1753,16 @@ Returns the number of views in this nav controller.
 
 
 
-<div id="getViews"></div>
+<div id="viewWillLeave"></div>
 
 <h3>
-<a class="anchor" name="getViews" href="#getViews"></a>
-<code>getViews()</code>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<code>viewWillLeave</code>
   
 
 </h3>
 
-Returns the current stack of views in this nav controller.
+Observable to be subscribed to when a component is about to leave, and no longer active.
 
 
 
@@ -1696,7 +1772,7 @@ Returns the current stack of views in this nav controller.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Array&lt;ViewController&gt;</code> <p>the stack of view controllers in this nav controller.</p>
+  <code>Observable</code> <p>Returns an observable</p>
 
 
 </div>
@@ -1704,37 +1780,16 @@ Returns the current stack of views in this nav controller.
 
 
 
-<div id="getActiveChildNav"></div>
+<div id="viewWillUnload"></div>
 
 <h3>
-<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
-<code>getActiveChildNav()</code>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<code>viewWillUnload</code>
   
 
 </h3>
 
-Returns the active child navigation.
-
-
-
-
-
-
-
-
-
-
-
-<div id="isTransitioning"></div>
-
-<h3>
-<a class="anchor" name="isTransitioning" href="#isTransitioning"></a>
-<code>isTransitioning()</code>
-  
-
-</h3>
-
-Returns if the nav controller is actively transitioning or not.
+Observable to be subscribed to when a component is about to be unloaded and destroyed.
 
 
 
@@ -1744,63 +1799,8 @@ Returns if the nav controller is actively transitioning or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> 
+  <code>Observable</code> <p>Returns an observable</p>
 
-</div>
-
-
-
-
-<div id="canSwipeBack"></div>
-
-<h3>
-<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
-<code>canSwipeBack()</code>
-  
-
-</h3>
-
-If it's possible to use swipe back or not. If it's not possible
-to go back, or swipe back is not enabled, then this will return `false`.
-If it is possible to go back, and swipe back is enabled, then this
-will return `true`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
-
-
-
-
-<div id="canGoBack"></div>
-
-<h3>
-<a class="anchor" name="canGoBack" href="#canGoBack"></a>
-<code>canGoBack()</code>
-  
-
-</h3>
-
-Returns `true` if there's a valid previous page that we can pop
-back to. Otherwise returns `false`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
 
 </div>
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -67,6 +67,47 @@ by the Ionic keyboard plugin.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="close"></div>
+
+<h3>
+<a class="anchor" name="close" href="#close"></a>
+<code>close()</code>
+  
+
+</h3>
+
+Programmatically close the keyboard.
+
+
+
+
+
+
+
+
+
+
+
+<div id="hasFocusedTextInput"></div>
+
+<h3>
+<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput"></a>
+<code>hasFocusedTextInput()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="isOpen"></div>
 
@@ -174,47 +215,6 @@ export class MyClass {
 
 
 </div>
-
-
-
-
-<div id="close"></div>
-
-<h3>
-<a class="anchor" name="close" href="#close"></a>
-<code>close()</code>
-  
-
-</h3>
-
-Programmatically close the keyboard.
-
-
-
-
-
-
-
-
-
-
-
-<div id="hasFocusedTextInput"></div>
-
-<h3>
-<a class="anchor" name="hasFocusedTextInput" href="#hasFocusedTextInput"></a>
-<code>hasFocusedTextInput()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -115,7 +115,7 @@ for more information on forms and inputs.</p>
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether all radio buttons in the group should be disabled. Default false.</p>
+      <td><p> If true, the user cannot interact with any of the buttons in the group.</p>
 </td>
     </tr>
     
@@ -134,7 +134,7 @@ for more information on forms and inputs.</p>
     
     <tr>
       <td>ionChange</td>
-      <td><p> expression to be evaluated when selection has been changed</p>
+      <td><p> Emitted when the selected button has changed.</p>
 </td>
     </tr>
     

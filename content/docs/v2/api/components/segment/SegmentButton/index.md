@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
+version: "2.0.1"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -97,6 +97,13 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>value</td>
       <td><code>string</code></td>
       <td><p> the value of the segment button. Required.</p>
@@ -118,7 +125,7 @@ Improve this doc
     
     <tr>
       <td>ionSelect</td>
-      <td><p> expression to evaluate when a segment button has been clicked</p>
+      <td><p> Emitted when a segment button has been clicked.</p>
 </td>
     </tr>
     

@@ -10675,6 +10675,7 @@ ion-chip ion-icon {
   border-radius: 50%;
   font-size: 18px;
   line-height: 32px;
+  text-align: center;
 }
 
 ion-chip ion-avatar {
@@ -12429,7 +12430,7 @@ input.text-input:-webkit-autofill {
   height: 100%;
 }
 
-ion-input[disabled] .input-cover {
+.input[disabled] .input-cover {
   pointer-events: none;
 }
 

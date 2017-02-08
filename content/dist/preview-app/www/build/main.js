@@ -1769,6 +1769,15 @@ var Platform = (function () {
             platformNode = rootPlatformNode;
             while (platformNode) {
                 platformNode.initialize(this);
+                // extra check for ipad pro issue
+                // https://forums.developer.apple.com/thread/25948
+                if (platformNode.name === 'iphone' && this.navigatorPlatform() === 'iPad') {
+                    // this is an ipad pro so push ipad and tablet to platforms
+                    // and then return as we are done
+                    this._platforms.push('tablet');
+                    this._platforms.push('ipad');
+                    return;
+                }
                 // set the array of active platforms with
                 // the last one in the array the most important
                 this._platforms.push(platformNode.name);
@@ -3822,7 +3831,7 @@ var App = (function () {
         return true;
     };
     /**
-     * @private
+     * @return {NavController} Returns the active NavController. Using this method is preferred when we need access to the top-level navigation controller while on the outside views and handlers like `registerBackButtonAction()`
      */
     App.prototype.getActiveNav = function () {
         var portal = this._appRoot._getPortal(MODAL);
@@ -9083,7 +9092,9 @@ var Item = (function (_super) {
     }
     Object.defineProperty(Item.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._updateColor(val, this._name);
@@ -9093,7 +9104,9 @@ var Item = (function (_super) {
     });
     Object.defineProperty(Item.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -9248,7 +9261,9 @@ var ItemDivider = (function (_super) {
     }
     Object.defineProperty(ItemDivider.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -9258,8 +9273,10 @@ var ItemDivider = (function (_super) {
     });
     Object.defineProperty(ItemDivider.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
-         */
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
+        */
         set: function (val) {
             this._setMode(val);
         },
@@ -10027,21 +10044,13 @@ var Content = (function (_super) {
     };
     Object.defineProperty(Content.prototype, "fullscreen", {
         /**
-         * @input {boolean} By default, content is positioned between the headers
-         * and footers. However, using `fullscreen="true"`, the content will be
-         * able to scroll "under" the headers and footers. At first glance the
-         * fullscreen option may not look any different than the default, however,
-         * by adding a transparency effect to a header then the content can be
-         * seen under the header as the user scrolls.
-         *
-         * @returns {boolean}
+         * @input {boolean} If true, the content will scroll behind the headers
+         * and footers. This effect can easily be seen by setting the toolbar
+         * to transparent.
          */
         get: function () {
             return !!this._fullscreen;
         },
-        /**
-         * @param {boolean} val
-         */
         set: function (val) {
             this._fullscreen = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["i" /* isTrueProperty */])(val);
         },
@@ -10159,6 +10168,7 @@ var Content = (function (_super) {
         var cacheHeaderHeight = this._hdrHeight;
         var cacheFooterHeight = this._ftrHeight;
         var cacheTabsPlacement = this._tabsPlacement;
+        var scrollEvent;
         var tabsTop = 0;
         this._pTop = 0;
         this._pRight = 0;
@@ -10170,7 +10180,11 @@ var Content = (function (_super) {
         this._tTop = 0;
         this._fTop = 0;
         this._fBottom = 0;
-        var scrollEvent = this._scroll.ev;
+        // In certain cases this._scroll is undefined
+        // if that is the case then we should just return
+        if (!this._scroll)
+            return;
+        scrollEvent = this._scroll.ev;
         var ele = this._elementRef.nativeElement;
         if (!ele) {
             (void 0) /* assert */;
@@ -18311,7 +18325,7 @@ var Button = (function (_super) {
     }
     Object.defineProperty(Button.prototype, "large", {
         /**
-         * @input {boolean} Large button.
+         * @input {boolean} If true, activates the large button size.
          */
         set: function (val) {
             this._attr('_size', 'large', val);
@@ -18321,7 +18335,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "small", {
         /**
-         * @input {boolean} Small button.
+         * @input {boolean} If true, activates the small button size.
          */
         set: function (val) {
             this._attr('_size', 'small', val);
@@ -18331,7 +18345,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "default", {
         /**
-         * @input {boolean} Default button.
+         * @input {boolean} If true, activates the default button size. Normally the default, useful for buttons in an item.
          */
         set: function (val) {
             this._attr('_size', 'default', val);
@@ -18341,7 +18355,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "outline", {
         /**
-         * @input {boolean} A transparent button with a border.
+         * @input {boolean} If true, activates a transparent button style with a border.
          */
         set: function (val) {
             this._attr('_style', 'outline', val);
@@ -18351,7 +18365,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "clear", {
         /**
-         * @input {boolean} A transparent button without a border.
+         * @input {boolean} If true, activates a transparent button style without a border.
          */
         set: function (val) {
             this._attr('_style', 'clear', val);
@@ -18361,7 +18375,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "solid", {
         /**
-         * @input {boolean} Force a solid button. Useful for buttons within an item.
+         * @input {boolean} If true, activates a solid button style. Normally the default, useful for buttons in a toolbar.
          */
         set: function (val) {
             this._attr('_style', 'solid', val);
@@ -18371,7 +18385,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "round", {
         /**
-         * @input {boolean} A button with rounded corners.
+         * @input {boolean} If true, activates a button with rounded corners.
          */
         set: function (val) {
             this._attr('_shape', 'round', val);
@@ -18381,7 +18395,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "block", {
         /**
-         * @input {boolean} A button that fills its parent container with a border-radius.
+         * @input {boolean} If true, activates a button style that fills the available width.
          */
         set: function (val) {
             this._attr('_display', 'block', val);
@@ -18391,7 +18405,8 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "full", {
         /**
-         * @input {boolean} A button that fills its parent container without a border-radius or borders on the left/right.
+         * @input {boolean} If true, activates a button style that fills the available width without
+         * a left and right border.
          */
         set: function (val) {
             this._attr('_display', 'full', val);
@@ -18401,7 +18416,7 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "strong", {
         /**
-         * @input {boolean} A button that has strong importance, ie. it represents an important action.
+         * @input {boolean} If true, activates a button with a heavier font weight.
          */
         set: function (val) {
             this._attr('_decorator', 'strong', val);
@@ -18411,7 +18426,9 @@ var Button = (function (_super) {
     });
     Object.defineProperty(Button.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._assignCss(false);
@@ -18442,7 +18459,9 @@ var Button = (function (_super) {
     };
     Object.defineProperty(Button.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._updateColor(this._color, false);
@@ -18626,7 +18645,9 @@ var Navbar = (function (_super) {
     }
     Object.defineProperty(Navbar.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -18636,7 +18657,9 @@ var Navbar = (function (_super) {
     });
     Object.defineProperty(Navbar.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -18646,7 +18669,7 @@ var Navbar = (function (_super) {
     });
     Object.defineProperty(Navbar.prototype, "hideBackButton", {
         /**
-         * @input {boolean} whether the back button should be shown or not
+         * @input {boolean} If true, the back button will be hidden.
          */
         get: function () {
             return this._hideBb;
@@ -18948,7 +18971,9 @@ var Toolbar = (function (_super) {
     }
     Object.defineProperty(Toolbar.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -18958,7 +18983,9 @@ var Toolbar = (function (_super) {
     });
     Object.defineProperty(Toolbar.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -27037,7 +27064,7 @@ var Tabs = (function (_super) {
         /** @internal */
         this._selectHistory = [];
         /**
-         * @input {any} Expression to evaluate when the tab changes.
+         * @output {any} Emitted when the tab changes.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.parent = parent;
@@ -27067,7 +27094,9 @@ var Tabs = (function (_super) {
     }
     Object.defineProperty(Tabs.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (value) {
             this._setColor(value);
@@ -27077,7 +27106,9 @@ var Tabs = (function (_super) {
     });
     Object.defineProperty(Tabs.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -38788,7 +38819,7 @@ var Alert = (function (_super) {
  *  | Property | Type     | Description                                                     |
  *  |----------|----------|-----------------------------------------------------------------|
  *  | text     | `string` | The buttons displayed text.                                     |
- *  | handler  | `any`    | Expression that should be evaluated when the button is pressed. |
+ *  | handler  | `any`    | Emitted when the button is pressed.                             |
  *  | cssClass | `string` | An additional CSS class for the button.                         |
  *  | role     | `string` | The buttons role, null or `cancel`.                             |
  *
@@ -39173,7 +39204,9 @@ var Icon = (function (_super) {
     }
     Object.defineProperty(Icon.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         get: function () {
             return this._color;
@@ -39186,7 +39219,9 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -39204,7 +39239,8 @@ var Icon = (function (_super) {
     };
     Object.defineProperty(Icon.prototype, "name", {
         /**
-         * @input {string} Icon to use. Will load the appropriate icon for each mode
+         * @input {string} Specifies which icon to use. The appropriate icon will be used based on the mode.
+         * For more information, see [Ionicons](/docs/v2/ionicons/).
          */
         get: function () {
             return this._name;
@@ -39225,7 +39261,7 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "ios", {
         /**
-         * @input {string} Explicitly set the icon to use on iOS
+         * @input {string} Specifies which icon to use on `ios` mode.
          */
         get: function () {
             return this._ios;
@@ -39239,7 +39275,7 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "md", {
         /**
-         * @input {string} Explicitly set the icon to use on MD
+         * @input {string} Specifies which icon to use on `md` mode.
          */
         get: function () {
             return this._md;
@@ -39253,7 +39289,9 @@ var Icon = (function (_super) {
     });
     Object.defineProperty(Icon.prototype, "isActive", {
         /**
-         * @input {bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
+         * @input {boolean} If true, the icon is styled with an "active" appearance.
+         * An active icon is filled in, and an inactive icon is the outline of the icon.
+         * The `isActive` property is largely used by the tabbar. Only affects `ios` icons.
          */
         get: function () {
             return this._isActive;
@@ -39449,7 +39487,7 @@ var InfiniteScroll = (function () {
          */
         this.state = STATE_ENABLED;
         /**
-         * @output {event} The expression to call when the scroll reaches
+         * @output {event} Emitted when the scroll reaches
          * the threshold distance. From within your infinite handler,
          * you must call the infinite scroll's `complete()` method when
          * your async operation has completed.
@@ -39487,7 +39525,7 @@ var InfiniteScroll = (function () {
     });
     Object.defineProperty(InfiniteScroll.prototype, "enabled", {
         /**
-         * @input {boolean} Whether or not the infinite scroll should be
+         * @input {boolean} If true, Whether or not the infinite scroll should be
          * enabled or not. Setting to `false` will remove scroll event listeners
          * and hide the display.
          */
@@ -39756,6 +39794,15 @@ var NativeInput = (function () {
     NativeInput.prototype.getValue = function () {
         return this.element().value;
     };
+    NativeInput.prototype.setMin = function (val) {
+        this._elementRef.nativeElement['min'] = val;
+    };
+    NativeInput.prototype.setMax = function (val) {
+        this._elementRef.nativeElement['max'] = val;
+    };
+    NativeInput.prototype.setStep = function (val) {
+        this._elementRef.nativeElement['step'] = val;
+    };
     NativeInput.prototype.setElementClass = function (cssClass, shouldAdd) {
         this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
     };
@@ -40023,7 +40070,7 @@ var ItemReorder = (function () {
         this._visibleReorder = false;
         this._lastToIndex = -1;
         /**
-         * @output {object} The expression to evaluate when the item is reordered. Emits an object
+         * @output {object} Emitted when the item is reordered. Emits an object
          * with `from` and `to` properties.
          */
         this.ionItemReorder = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
@@ -40277,7 +40324,9 @@ var Label = (function (_super) {
     }
     Object.defineProperty(Label.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -40287,7 +40336,9 @@ var Label = (function (_super) {
     });
     Object.defineProperty(Label.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -40373,7 +40424,9 @@ var ListHeader = (function (_super) {
     }
     Object.defineProperty(ListHeader.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -40383,7 +40436,9 @@ var ListHeader = (function (_super) {
     });
     Object.defineProperty(ListHeader.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -40496,7 +40551,9 @@ var List = (function (_super) {
     }
     Object.defineProperty(List.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -40506,7 +40563,7 @@ var List = (function (_super) {
     });
     Object.defineProperty(List.prototype, "sliding", {
         /**
-         * @input {boolean} shouldEnable whether the item-sliding should be enabled or not
+         * @input {boolean} If true, the sliding items will be enabled.
          */
         get: function () {
             return this._enableSliding;
@@ -40886,13 +40943,13 @@ var Option = (function () {
         this._selected = false;
         this._disabled = false;
         /**
-         * @input {any} Event to evaluate when option is selected
+         * @output {any} Event to evaluate when option is selected.
          */
         this.ionSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
     }
     Object.defineProperty(Option.prototype, "selected", {
         /**
-         * @input {boolean} Whether or not the option is already selected
+         * @input {boolean} If true, the element is selected.
          */
         get: function () {
             return this._selected;
@@ -40905,7 +40962,7 @@ var Option = (function () {
     });
     Object.defineProperty(Option.prototype, "value", {
         /**
-         * @input {any} The value of the option
+         * @input {any} The value of the option.
          */
         get: function () {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(this._value)) {
@@ -40921,7 +40978,7 @@ var Option = (function () {
     });
     Object.defineProperty(Option.prototype, "disabled", {
         /**
-         * @input {boolean} Whether or not the option is disabled
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -41283,14 +41340,14 @@ var RadioGroup = (function () {
          */
         this._init = false;
         /**
-         * @output {any} expression to be evaluated when selection has been changed
+         * @output {any} Emitted when the selected button has changed.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.id = ++radioGroupIds;
     }
     Object.defineProperty(RadioGroup.prototype, "disabled", {
         /**
-         * @input {boolean} Whether all radio buttons in the group should be disabled. Default false.
+         * @input {boolean} If true, the user cannot interact with any of the buttons in the group.
          */
         get: function () {
             return this._disabled;
@@ -41618,18 +41675,18 @@ var Refresher = (function () {
          */
         this.snapbackDuration = 280;
         /**
-         * @output {event} When the user lets go and has pulled down far enough, which would be
-         * farther than the `pullMin`, then your refresh hander if fired and the state is
-         * updated to `refreshing`. From within your refresh handler, you must call the
-         * `complete()` method when your async operation has completed.
+         * @output {event} Emitted when the user lets go and has pulled down
+         * far enough, which would be farther than the `pullMin`, then your refresh hander if
+         * fired and the state is updated to `refreshing`. From within your refresh handler,
+         * you must call the `complete()` method when your async operation has completed.
          */
         this.ionRefresh = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} While the user is pulling down the content and exposing the refresher.
+         * @output {event} Emitted while the user is pulling down the content and exposing the refresher.
          */
         this.ionPull = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the user begins to start pulling down.
+         * @output {event} Emitted when the user begins to start pulling down.
          */
         this.ionStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_6__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
@@ -42379,59 +42436,59 @@ var Slides = (function (_super) {
          */
         this.lastSlideMessage = 'This is the last slide';
         /**
-         * @output {Slides} Expression to evaluate when a slide change starts.
+         * @output {Slides} Emitted when a slide change starts.
          */
         this.ionSlideWillChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Expression to evaluate when a slide change ends.
+         * @output {Slides} Emitted when a slide change ends.
          */
         this.ionSlideDidChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Expression to evaluate when a slide moves.
+         * @output {Slides} Emitted when a slide moves.
          */
         this.ionSlideDrag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} When slides reach its beginning (initial position).
+         * @output {Slides} Emitted when slides reaches its beginning (initial position).
          */
         this.ionSlideReachStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} When slides reach its last slide.
+         * @output {Slides} Emitted when slides reaches its last slide.
          */
         this.ionSlideReachEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Expression to evaluate when a slide moves.
+         * @output {Slides} Emitted when a slide moves.
          */
         this.ionSlideAutoplay = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Same as `ionSlideWillChange` but caused by autoplay.
+         * @output {Slides} Emitted when a autoplay starts.
          */
         this.ionSlideAutoplayStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Expression to evaluate when a autoplay stops.
+         * @output {Slides} Emitted when a autoplay stops.
          */
         this.ionSlideAutoplayStop = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Same as `ionSlideWillChange` but for "forward" direction only.
+         * @output {Slides} Emitted when a slide change starts with the "forward" direction.
          */
         this.ionSlideNextStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Same as `ionSlideWillChange` but for "backward" direction only.
+         * @output {Slides} Emitted when a slide change starts with the "backward" direction.
          */
         this.ionSlidePrevStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Same as `ionSlideDidChange` but for "forward" direction only.
+         * @output {Slides} Emitted when a slide change ends with the "forward" direction.
          */
         this.ionSlideNextEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} Same as `ionSlideDidChange` but for "backward" direction only.
+         * @output {Slides} Emitted when a slide change ends with the "backward" direction.
          */
         this.ionSlidePrevEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} When the user taps/clicks on the slide's container.
+         * @output {Slides} Emitted when the user taps/clicks on the slide's container.
          */
         this.ionSlideTap = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {Slides} When the user double taps on the slide's container.
+         * @output {Slides} Emitted when the user double taps on the slide's container.
          */
         this.ionSlideDoubleTap = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /** @private */
@@ -42463,7 +42520,7 @@ var Slides = (function (_super) {
     }
     Object.defineProperty(Slides.prototype, "autoplay", {
         /**
-         * @input {number}  Delay between transitions (in milliseconds). If this
+         * @input {number} Delay between transitions (in milliseconds). If this
          * parameter is not passed, autoplay is disabled. Default does
          * not have a value and does not autoplay.
          * Default: `null`.
@@ -42479,7 +42536,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "control", {
         /**
-         * @input {Slides}  Pass another Slides instance or array of Slides instances
+         * @input {Slides} Pass another Slides instance or array of Slides instances
          * that should be controlled by this Slides instance.
          * Default: `null`.
          */
@@ -42496,7 +42553,8 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "effect", {
         /**
-         * @input {string} Could be `slide`, `fade`, `cube`, `coverflow` or `flip`.
+         * @input {string} The animation effect of the slides.
+         * Possible values are: `slide`, `fade`, `cube`, `coverflow` or `flip`.
          * Default: `slide`.
          */
         get: function () {
@@ -42541,8 +42599,8 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "loop", {
         /**
-         * @input {boolean}  Whether to continuously loop from the last slide to the
-         * first slide. Default: `false`.
+         * @input {boolean} If true, continuously loop from the last slide to the
+         * first slide.
          */
         get: function () {
             return this._isLoop;
@@ -42555,7 +42613,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "pager", {
         /**
-         * @input {boolean}  Whether or not to show the pager. Default: `false`.
+         * @input {boolean}  If true, show the pager.
          */
         get: function () {
             return this._pager;
@@ -42568,7 +42626,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "paginationType", {
         /**
-         * @input {string}  String with type of pagination. Can be
+         * @input {string}  Type of pagination. Possible values are:
          * `bullets`, `fraction`, `progress`. Default: `bullets`.
          * (Note that the pager will not show unless `pager` input
          * is set to true).
@@ -42586,8 +42644,8 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "parallax", {
         /**
-         * @input {boolean} Enable, if you want to use "parallaxed" elements inside of
-         * slider. Default: `false`.
+         * @input {boolean} If true, allows you to use "parallaxed" elements inside of
+         * slider.
          */
         get: function () {
             return this._isParallax;
@@ -42600,7 +42658,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "speed", {
         /**
-         * @input {number}  Duration of transition between slides
+         * @input {number} Duration of transition between slides
          * (in milliseconds). Default: `300`.
          */
         get: function () {
@@ -42614,8 +42672,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "zoom", {
         /**
-         * @input {boolean}  Set to `true` to enable zooming functionality.
-         * Default: `false`.
+         * @input {boolean} If true, enables zooming functionality.
          */
         get: function () {
             return this._isZoom;
@@ -42629,7 +42686,7 @@ var Slides = (function (_super) {
     Object.defineProperty(Slides.prototype, "spaceBetween", {
         // Slides grid
         /**
-         * @input {number}  Distance between slides in px. Default: `0`.
+         * @input {number} Distance between slides in px. Default: `0`.
          */
         get: function () {
             return this._spaceBetween;
@@ -42642,7 +42699,7 @@ var Slides = (function (_super) {
     });
     Object.defineProperty(Slides.prototype, "slidesPerView", {
         /**
-         * @input {number}  Slides per view. Slides visible at the same time. Default: `1`.
+         * @input {number} Slides per view. Slides visible at the same time. Default: `1`.
          */
         get: function () {
             return this._slidesPerView;
@@ -42735,7 +42792,6 @@ var Slides = (function (_super) {
         }, 300);
     };
     /**
-     * @private
      * Update the underlying slider implementation. Call this if you've added or removed
      * child slides.
      */
@@ -58407,7 +58463,9 @@ var Badge = (function (_super) {
     }
     Object.defineProperty(Badge.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58417,7 +58475,9 @@ var Badge = (function (_super) {
     });
     Object.defineProperty(Badge.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -58474,7 +58534,9 @@ var Card = (function (_super) {
     }
     Object.defineProperty(Card.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58484,7 +58546,9 @@ var Card = (function (_super) {
     });
     Object.defineProperty(Card.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -58519,7 +58583,9 @@ var CardContent = (function (_super) {
     }
     Object.defineProperty(CardContent.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58529,8 +58595,10 @@ var CardContent = (function (_super) {
     });
     Object.defineProperty(CardContent.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
-         */
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
+        */
         set: function (val) {
             this._setMode(val);
         },
@@ -58564,7 +58632,9 @@ var CardHeader = (function (_super) {
     }
     Object.defineProperty(CardHeader.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58574,7 +58644,9 @@ var CardHeader = (function (_super) {
     });
     Object.defineProperty(CardHeader.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -58609,7 +58681,9 @@ var CardTitle = (function (_super) {
     }
     Object.defineProperty(CardTitle.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58619,7 +58693,9 @@ var CardTitle = (function (_super) {
     });
     Object.defineProperty(CardTitle.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -58727,7 +58803,7 @@ var Checkbox = (function (_super) {
         /** @private */
         this._disabled = false;
         /**
-         * @output {Checkbox} expression to evaluate when the checkbox value changes
+         * @output {Checkbox} Emitted when the checkbox value changes.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         _form.register(this);
@@ -58739,7 +58815,9 @@ var Checkbox = (function (_super) {
     }
     Object.defineProperty(Checkbox.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -58749,7 +58827,9 @@ var Checkbox = (function (_super) {
     });
     Object.defineProperty(Checkbox.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -58768,7 +58848,7 @@ var Checkbox = (function (_super) {
     };
     Object.defineProperty(Checkbox.prototype, "checked", {
         /**
-         * @input {boolean} whether or not the checkbox is checked (defaults to false)
+         * @input {boolean} If true, the element is selected.
          */
         get: function () {
             return this._checked;
@@ -58784,7 +58864,7 @@ var Checkbox = (function (_super) {
      * @private
      */
     Checkbox.prototype._setChecked = function (isChecked) {
-        if (!this._disabled && isChecked !== this._checked) {
+        if (isChecked !== this._checked) {
             this._checked = isChecked;
             if (this._init) {
                 this.ionChange.emit(this);
@@ -58817,7 +58897,7 @@ var Checkbox = (function (_super) {
     Checkbox.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     Object.defineProperty(Checkbox.prototype, "disabled", {
         /**
-         * @input {boolean} whether or not the checkbox is disabled or not.
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -59021,7 +59101,9 @@ var Chip = (function (_super) {
     }
     Object.defineProperty(Chip.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -59031,7 +59113,9 @@ var Chip = (function (_super) {
     });
     Object.defineProperty(Chip.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -59351,11 +59435,11 @@ var DateTime = (function (_super) {
          */
         this.pickerOptions = {};
         /**
-         * @output {any} Any expression to evaluate when the datetime selection has changed.
+         * @output {any} Emitted when the datetime selection has changed.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {any} Any expression to evaluate when the datetime selection was cancelled.
+         * @output {any} Emitted when the datetime selection was cancelled.
          */
         this.ionCancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         _form.register(this);
@@ -59367,7 +59451,9 @@ var DateTime = (function (_super) {
     }
     Object.defineProperty(DateTime.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -59668,7 +59754,7 @@ var DateTime = (function (_super) {
     };
     Object.defineProperty(DateTime.prototype, "disabled", {
         /**
-         * @input {boolean} Whether or not the datetime component is disabled. Default `false`.
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -59731,6 +59817,7 @@ var DateTime = (function (_super) {
         (void 0) /* console.debug */;
         this.setValue(val);
         this.updateText();
+        this.checkHasValue(val);
         this.onTouched();
     };
     /**
@@ -59937,7 +60024,9 @@ var FabButton = (function (_super) {
     }
     Object.defineProperty(FabButton.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -59947,7 +60036,9 @@ var FabButton = (function (_super) {
     });
     Object.defineProperty(FabButton.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -60446,7 +60537,7 @@ var Img = (function () {
     }
     Object.defineProperty(Img.prototype, "src", {
         /**
-         * @input {string} Image src.
+         * @input {string} The source of the image.
          */
         get: function () {
             return this._src;
@@ -60894,15 +60985,15 @@ var TextInput = (function (_super) {
         this._type = 'text';
         this._value = '';
         /**
-         * @input {string} The placeholder for the input
+         * @input {string} Instructional text that shows before the input has a value.
          */
         this.placeholder = '';
         /**
-         * @output {event} Expression to call when the input no longer has focus
+         * @output {event} Emitted when the input no longer has focus.
          */
         this.blur = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} Expression to call when the input has focus
+         * @output {event} Emitted when the input has focus.
          */
         this.focus = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this._nav = nav;
@@ -60933,7 +61024,7 @@ var TextInput = (function (_super) {
     }
     Object.defineProperty(TextInput.prototype, "clearInput", {
         /**
-         * @input {boolean} A clear icon will appear in the input when there is a value. Clicking it clears the input.
+         * @input {boolean} If true, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         get: function () {
             return this._clearInput;
@@ -60946,7 +61037,7 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "value", {
         /**
-         * @input {string} The text value of the input
+         * @input {string} The text value of the input.
          */
         get: function () {
             return this._value;
@@ -60960,7 +61051,7 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "type", {
         /**
-         * @input {string} The HTML input type (text, password, email, number, search, tel, or url)
+         * @input {string} The type of control to display. The default type is text. Possible values are: `"text"`, `"password"`, `"email"`, `"number"`, `"search"`, `"tel"`, or `"url"`.
          */
         get: function () {
             return this._type;
@@ -60981,10 +61072,10 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "disabled", {
         /**
-         * @input {boolean} If the input should be disabled or not
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
-            return this.ngControl ? this.ngControl.disabled : this._disabled;
+            return this._disabled;
         },
         set: function (val) {
             this.setDisabled(this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["i" /* isTrueProperty */])(val));
@@ -60996,12 +61087,19 @@ var TextInput = (function (_super) {
      * @private
      */
     TextInput.prototype.setDisabled = function (val) {
+        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'disabled', val ? '' : null);
         this._item && this._item.setElementClass('item-input-disabled', val);
         this._native && this._native.isDisabled(val);
     };
+    /**
+     * @private
+     */
+    TextInput.prototype.setDisabledState = function (isDisabled) {
+        this.disabled = isDisabled;
+    };
     Object.defineProperty(TextInput.prototype, "readonly", {
         /**
-         * @input {boolean} If the input should be readonly or not
+         * @input {boolean} If true, the user cannot modify the value.
          */
         get: function () {
             return this._readonly;
@@ -61014,7 +61112,9 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -61024,7 +61124,7 @@ var TextInput = (function (_super) {
     });
     Object.defineProperty(TextInput.prototype, "clearOnEdit", {
         /**
-         * @input {boolean} whether to clear the input upon editing or not
+         * @input {boolean} If true, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
          */
         get: function () {
             return this._clearOnEdit;
@@ -61035,6 +61135,63 @@ var TextInput = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(TextInput.prototype, "min", {
+        /**
+         * @input {any} The minimum value, which must not be greater than its maximum (max attribute) value.
+         */
+        get: function () {
+            return this._min;
+        },
+        set: function (val) {
+            this.setMin(this._min = val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @private
+     */
+    TextInput.prototype.setMin = function (val) {
+        this._native && this._native.setMin(val);
+    };
+    Object.defineProperty(TextInput.prototype, "max", {
+        /**
+         * @input {any} The maximum value, which must not be less than its minimum (min attribute) value.
+         */
+        get: function () {
+            return this._max;
+        },
+        set: function (val) {
+            this.setMax(this._max = val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @private
+     */
+    TextInput.prototype.setMax = function (val) {
+        this._native && this._native.setMax(val);
+    };
+    Object.defineProperty(TextInput.prototype, "step", {
+        /**
+         * @input {any} Works with the min and max attributes to limit the increments at which a value can be set.
+         */
+        get: function () {
+            return this._step;
+        },
+        set: function (val) {
+            this.setStep(this._step = val);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @private
+     */
+    TextInput.prototype.setStep = function (val) {
+        this._native && this._native.setStep(val);
+    };
     Object.defineProperty(TextInput.prototype, "_nativeInput", {
         /**
          * @private
@@ -61081,6 +61238,9 @@ var TextInput = (function (_super) {
         var _this = this;
         this._native = nativeInput;
         nativeInput.setValue(this._value);
+        nativeInput.setMin(this._min);
+        nativeInput.setMax(this._max);
+        nativeInput.setStep(this._step);
         nativeInput.isDisabled(this.disabled);
         if (this._item && this._item.labelId !== null) {
             nativeInput.labelledBy(this._item.labelId);
@@ -61466,6 +61626,9 @@ var TextInput = (function (_super) {
         'readonly': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
         'mode': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
         'clearOnEdit': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
+        'min': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
+        'max': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
+        'step': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Input */] },],
         '_nativeInput': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* ViewChild */], args: ['input', { read: __WEBPACK_IMPORTED_MODULE_11__native_input__["a" /* NativeInput */] },] },],
         '_nativeTextarea': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* ViewChild */], args: ['textarea', { read: __WEBPACK_IMPORTED_MODULE_11__native_input__["a" /* NativeInput */] },] },],
         '_nextInput': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* ViewChild */], args: [__WEBPACK_IMPORTED_MODULE_11__native_input__["b" /* NextInput */],] },],
@@ -61478,7 +61641,7 @@ var TextInput = (function (_super) {
  * @name TextArea
  * @description
  *
- * `ion-textarea` is is used for multi-line text inputs. Ionic still
+ * `ion-textarea` is used for multi-line text inputs. Ionic still
  * uses an actual `<textarea>` HTML element within the component;
  * however, with Ionic wrapping the native HTML text area element, Ionic
  * is able to better handle the user experience and interactivity.
@@ -61711,7 +61874,7 @@ var ItemOptions = (function () {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
         /**
-         * @output {event} Expression to evaluate when the item has been fully swiped.
+         * @output {event} Emitted when the item has been fully swiped.
          */
         this.ionSwipe = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
     }
@@ -61847,7 +62010,7 @@ var ItemSliding = (function () {
         this._optsDirty = true;
         this._state = 2 /* Disabled */;
         /**
-         * @output {event} Expression to evaluate when the sliding position changes.
+         * @output {event} Emitted when the sliding position changes.
          * It reports the relative position.
          *
          * ```ts
@@ -62772,15 +62935,15 @@ var Menu = (function () {
          */
         this.isOpen = false;
         /**
-         * @output {event} When the menu is being dragged open.
+         * @output {event} Emitted when the menu is being dragged open.
          */
         this.ionDrag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the menu has been opened.
+         * @output {event} Emitted when the menu has been opened.
          */
         this.ionOpen = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the menu has been closed.
+         * @output {event} Emitted when the menu has been closed.
          */
         this.ionClose = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_12__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
@@ -62790,7 +62953,7 @@ var Menu = (function () {
     }
     Object.defineProperty(Menu.prototype, "enabled", {
         /**
-         * @input {boolean} Whether or not the menu should be enabled. Default `true`.
+         * @input {boolean} If true, the menu is enabled. Default `true`.
          */
         get: function () {
             return this._isEnabled;
@@ -62804,7 +62967,7 @@ var Menu = (function () {
     });
     Object.defineProperty(Menu.prototype, "swipeEnabled", {
         /**
-         * @input {boolean} Whether or not swiping the menu should be enabled. Default `true`.
+         * @input {boolean} If true, swiping the menu is enabled. Default `true`.
          */
         get: function () {
             return this._isSwipeEnabled;
@@ -62818,7 +62981,7 @@ var Menu = (function () {
     });
     Object.defineProperty(Menu.prototype, "persistent", {
         /**
-         * @input {string} Whether or not the menu should persist on child pages. Default `false`.
+         * @input {boolean} If true, the menu will persist on child pages.
          */
         get: function () {
             return this._isPersistent;
@@ -63756,7 +63919,7 @@ var Nav = (function (_super) {
     });
     Object.defineProperty(Nav.prototype, "swipeBackEnabled", {
         /**
-         * @input {boolean} Whether it's possible to swipe-to-go-back on this nav controller or not.
+         * @input {boolean} If true, swipe to go back is enabled.
          */
         get: function () {
             return this._sbEnabled;
@@ -63857,7 +64020,9 @@ var Note = (function (_super) {
     }
     Object.defineProperty(Note.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -63867,7 +64032,9 @@ var Note = (function (_super) {
     });
     Object.defineProperty(Note.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -64158,7 +64325,7 @@ var RadioButton = (function (_super) {
          */
         this._value = null;
         /**
-         * @output {any} expression to be evaluated when selected
+         * @output {any} Emitted when the radio button is selected.
          */
         this.ionSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         _form.register(this);
@@ -64176,7 +64343,9 @@ var RadioButton = (function (_super) {
     }
     Object.defineProperty(RadioButton.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -64189,7 +64358,9 @@ var RadioButton = (function (_super) {
     });
     Object.defineProperty(RadioButton.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -64213,13 +64384,13 @@ var RadioButton = (function (_super) {
     });
     Object.defineProperty(RadioButton.prototype, "checked", {
         /**
-         * @input {boolean} Whether the radio button should be checked or not. Default false.
+         * @input {boolean} If true, the element is selected, and other buttons in the group are unselected.
          */
         get: function () {
             return this._checked;
         },
-        set: function (isChecked) {
-            this._checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["i" /* isTrueProperty */])(isChecked);
+        set: function (val) {
+            this._checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["i" /* isTrueProperty */])(val);
             if (this._item) {
                 this._item.setElementClass('item-radio-checked', this._checked);
             }
@@ -64229,7 +64400,7 @@ var RadioButton = (function (_super) {
     });
     Object.defineProperty(RadioButton.prototype, "disabled", {
         /**
-         * @input {boolean} Whether the radio button should be disabled or not. Default false.
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled || (this._group != null && this._group.disabled);
@@ -64531,7 +64702,7 @@ var Range = (function (_super) {
         this._ratioB = 0;
         this._debouncer = new __WEBPACK_IMPORTED_MODULE_11__util_debouncer__["a" /* TimeoutDebouncer */](0);
         /**
-         * @output {Range} Expression to evaluate when the range value changes.
+         * @output {Range} Emitted when the range value changes.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this._events = new __WEBPACK_IMPORTED_MODULE_12__gestures_ui_event_manager__["a" /* UIEventManager */](_plt);
@@ -64544,8 +64715,9 @@ var Range = (function (_super) {
     }
     Object.defineProperty(Range.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`,
-         * `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -64555,7 +64727,9 @@ var Range = (function (_super) {
     });
     Object.defineProperty(Range.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -64613,7 +64787,7 @@ var Range = (function (_super) {
     });
     Object.defineProperty(Range.prototype, "snaps", {
         /**
-         * @input {number} If true, the knob snaps to tick marks evenly spaced based
+         * @input {boolean} If true, the knob snaps to tick marks evenly spaced based
          * on the step property value. Defaults to `false`.
          */
         get: function () {
@@ -64627,7 +64801,7 @@ var Range = (function (_super) {
     });
     Object.defineProperty(Range.prototype, "pin", {
         /**
-         * @input {number} If true, a pin with integer value is shown when the knob
+         * @input {boolean} If true, a pin with integer value is shown when the knob
          * is pressed. Defaults to `false`.
          */
         get: function () {
@@ -64668,7 +64842,7 @@ var Range = (function (_super) {
     });
     Object.defineProperty(Range.prototype, "disabled", {
         /**
-         * @input {boolean} Whether or not the range is disabled. Defaults to `false`.
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -65147,7 +65321,7 @@ var Scroll = (function () {
     }
     Object.defineProperty(Scroll.prototype, "scrollX", {
         /**
-         * @input {boolean} whether to enable scrolling along the X axis
+         * @input {boolean} If true, scrolling along the X axis is enabled.
          */
         get: function () {
             return this._scrollX;
@@ -65160,7 +65334,7 @@ var Scroll = (function () {
     });
     Object.defineProperty(Scroll.prototype, "scrollY", {
         /**
-         * @input {boolean} whether to enable scrolling along the Y axis; requires the following CSS declaration: ion-scroll { white-space: nowrap; }
+         * @input {boolean} If true, scrolling along the Y axis is enabled; requires the following CSS declaration: ion-scroll { white-space: nowrap; }
          */
         get: function () {
             return this._scrollY;
@@ -65173,7 +65347,7 @@ var Scroll = (function () {
     });
     Object.defineProperty(Scroll.prototype, "zoom", {
         /**
-         * @input {boolean} whether to enable zooming
+         * @input {boolean} If true, zooming is enabled.
          */
         get: function () {
             return this._zoom;
@@ -65186,7 +65360,7 @@ var Scroll = (function () {
     });
     Object.defineProperty(Scroll.prototype, "maxZoom", {
         /**
-         * @input {number} set the max zoom amount for ion-scroll
+         * @input {number} Set the max zoom amount.
          */
         get: function () {
             return this._maxZoom;
@@ -65323,23 +65497,23 @@ var Searchbar = (function (_super) {
          */
         this.type = 'search';
         /**
-         * @output {event} When the Searchbar input has changed including cleared.
+         * @output {event} Emitted when the Searchbar input has changed, including when it's cleared.
          */
         this.ionInput = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the Searchbar input has blurred.
+         * @output {event} Emitted when the Searchbar input has blurred.
          */
         this.ionBlur = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the Searchbar input has focused.
+         * @output {event} Emitted when the Searchbar input has focused.
          */
         this.ionFocus = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the cancel button is clicked.
+         * @output {event} Emitted when the cancel button is clicked.
          */
         this.ionCancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {event} When the clear input button is clicked.
+         * @output {event} Emitted when the clear input button is clicked.
          */
         this.ionClear = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
@@ -65357,7 +65531,9 @@ var Searchbar = (function (_super) {
     }
     Object.defineProperty(Searchbar.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -65367,7 +65543,9 @@ var Searchbar = (function (_super) {
     });
     Object.defineProperty(Searchbar.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -65377,7 +65555,7 @@ var Searchbar = (function (_super) {
     });
     Object.defineProperty(Searchbar.prototype, "showCancelButton", {
         /**
-         * @input {boolean} Whether to show the cancel button or not. Default: `"false"`.
+         * @input {boolean} If true, show the cancel button.
          */
         get: function () {
             return this._showCancelButton;
@@ -65433,7 +65611,7 @@ var Searchbar = (function (_super) {
     });
     Object.defineProperty(Searchbar.prototype, "animated", {
         /**
-         * @input {boolean} Configures if the searchbar is animated or no. By default, animation is `false`.
+         * @input {boolean} If true, enable searchbar animation.
          */
         get: function () {
             return this._animated;
@@ -65772,13 +65950,13 @@ var SegmentButton = (function () {
         this._elementRef = _elementRef;
         this._disabled = false;
         /**
-         * @output {SegmentButton} expression to evaluate when a segment button has been clicked
+         * @output {SegmentButton} Emitted when a segment button has been clicked.
          */
         this.ionSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
     }
     Object.defineProperty(SegmentButton.prototype, "disabled", {
         /**
-         * @private
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -65911,7 +66089,7 @@ var Segment = (function (_super) {
         _super.call(this, config, elementRef, renderer, 'segment');
         this._disabled = false;
         /**
-         * @output {Any}  expression to evaluate when a segment button has been changed
+         * @output {Any} Emitted when a segment button has been changed.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
@@ -65928,7 +66106,9 @@ var Segment = (function (_super) {
     }
     Object.defineProperty(Segment.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -65938,7 +66118,9 @@ var Segment = (function (_super) {
     });
     Object.defineProperty(Segment.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -65948,7 +66130,7 @@ var Segment = (function (_super) {
     });
     Object.defineProperty(Segment.prototype, "disabled", {
         /**
-         * @private
+         * @input {boolean} If true, the user cannot interact with any of the buttons in the segment.
          */
         get: function () {
             return this._disabled;
@@ -66212,11 +66394,11 @@ var Select = (function (_super) {
          */
         this.selectedText = '';
         /**
-         * @output {any} Any expression you want to evaluate when the selection has changed.
+         * @output {any} Emitted when the selection has changed.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         /**
-         * @output {any} Any expression you want to evaluate when the selection was cancelled.
+         * @output {any} Emitted when the selection was cancelled.
          */
         this.ionCancel = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         _form.register(this);
@@ -66228,7 +66410,9 @@ var Select = (function (_super) {
     }
     Object.defineProperty(Select.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -66353,7 +66537,7 @@ var Select = (function (_super) {
     };
     Object.defineProperty(Select.prototype, "multiple", {
         /**
-         * @input {boolean} Whether or not the select component can accept multiple values. Default: `false`.
+         * @input {boolean} If true, the element can accept multiple values.
          */
         get: function () {
             return this._multi;
@@ -66411,7 +66595,7 @@ var Select = (function (_super) {
     };
     Object.defineProperty(Select.prototype, "disabled", {
         /**
-         * @input {boolean} Whether or not the select component is disabled. Default `false`.
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -67409,7 +67593,9 @@ var Spinner = (function (_super) {
     }
     Object.defineProperty(Spinner.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         get: function () {
             return this._color;
@@ -67422,7 +67608,9 @@ var Spinner = (function (_super) {
     });
     Object.defineProperty(Spinner.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -67460,7 +67648,7 @@ var Spinner = (function (_super) {
     });
     Object.defineProperty(Spinner.prototype, "paused", {
         /**
-         * @input {boolean} If the animation is paused or not. Defaults to `false`.
+         * @input {boolean} If true, pause the animation.
          */
         get: function () {
             return this._paused;
@@ -67870,7 +68058,7 @@ var Tab = (function (_super) {
          */
         this._isShown = true;
         /**
-         * @output {Tab} Method to call when the current tab is selected
+         * @output {Tab} Emitted when the current tab is selected.
          */
         this.ionSelect = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.id = parent.add(this);
@@ -67880,10 +68068,9 @@ var Tab = (function (_super) {
     }
     Object.defineProperty(Tab.prototype, "enabled", {
         /**
-         * @input {boolean} If the tab is enabled or not. If the tab
-         * is not enabled then the tab button will still show, however,
-         * the button will appear grayed out and will not be clickable.
-         * Defaults to `true`.
+         * @input {boolean} If true, enable the tab. If false,
+         * the user cannot interact with this element.
+         * Default: `true`.
          */
         get: function () {
             return this._isEnabled;
@@ -67896,8 +68083,8 @@ var Tab = (function (_super) {
     });
     Object.defineProperty(Tab.prototype, "show", {
         /**
-         * @input {boolean} If the tab button is visible within the
-         * tabbar or not. Defaults to `true`.
+         * @input {boolean} If true, the tab button is visible within the
+         * tabbar. Default: `true`.
          */
         get: function () {
             return this._isShown;
@@ -67910,7 +68097,7 @@ var Tab = (function (_super) {
     });
     Object.defineProperty(Tab.prototype, "swipeBackEnabled", {
         /**
-         * @input {boolean} Whether it's possible to swipe-to-go-back on this tab or not.
+         * @input {boolean} If true, swipe to go back is enabled.
          */
         get: function () {
             return this._sbEnabled;
@@ -67923,7 +68110,7 @@ var Tab = (function (_super) {
     });
     Object.defineProperty(Tab.prototype, "tabsHideOnSubPages", {
         /**
-         * @input {boolean} Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.
+         * @input {boolean} If true, hide the tabs on child pages.
          */
         get: function () {
             return this._tabsHideOnSubPages;
@@ -68374,7 +68561,7 @@ var Toggle = (function (_super) {
         this._msPrv = 0;
         this._fn = null;
         /**
-         * @output {Toggle} expression to evaluate when the toggle value changes
+         * @output {Toggle} Emitted when the toggle value changes.
          */
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         _form.register(this);
@@ -68386,7 +68573,9 @@ var Toggle = (function (_super) {
     }
     Object.defineProperty(Toggle.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -68396,7 +68585,9 @@ var Toggle = (function (_super) {
     });
     Object.defineProperty(Toggle.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component. Mode can be `ios`, `wp`, or `md`.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);
@@ -68469,7 +68660,7 @@ var Toggle = (function (_super) {
     };
     Object.defineProperty(Toggle.prototype, "checked", {
         /**
-         * @input {boolean} whether the toggle it toggled or not
+         * @input {boolean} If true, the element is selected.
          */
         get: function () {
             return this._checked;
@@ -68485,7 +68676,7 @@ var Toggle = (function (_super) {
      * @private
      */
     Toggle.prototype._setChecked = function (isChecked) {
-        if (!this._disabled && isChecked !== this._checked) {
+        if (isChecked !== this._checked) {
             this._checked = isChecked;
             if (this._init) {
                 this.ionChange.emit(this);
@@ -68513,7 +68704,7 @@ var Toggle = (function (_super) {
     };
     Object.defineProperty(Toggle.prototype, "disabled", {
         /**
-         * @input {boolean} whether the toggle is disabled or not
+         * @input {boolean} If true, the user cannot interact with this element.
          */
         get: function () {
             return this._disabled;
@@ -68843,7 +69034,9 @@ var Typography = (function (_super) {
     }
     Object.defineProperty(Typography.prototype, "color", {
         /**
-         * @input {string} The predefined color to use. For example: `"primary"`, `"secondary"`, `"danger"`.
+         * @input {string} The color to use from your Sass `$colors` map.
+         * Default options are: `"primary"`, `"secondary"`, `"danger"`, `"light"`, and `"dark"`.
+         * For more information, see [Theming your App](/docs/v2/theming/theming-your-app).
          */
         set: function (val) {
             this._setColor(val);
@@ -68853,7 +69046,9 @@ var Typography = (function (_super) {
     });
     Object.defineProperty(Typography.prototype, "mode", {
         /**
-         * @input {string} The mode to apply to this component.
+         * @input {string} The mode determines which platform styles to use.
+         * Possible values are: `"ios"`, `"md"`, or `"wp"`.
+         * For more information, see [Platform Styles](/docs/v2/theming/platform-specific-styles).
          */
         set: function (val) {
             this._setMode(val);

@@ -1,14 +1,12 @@
 {
-  "/docs/v2/resources/resources/what-is": "/docs/v2/cli/",
-  "/docs/v2/faq": "/docs/v2/troubleshooting",
+  "/docs/v2": "/docs",
   "/docs/v2/api/components/config/Config": "/docs/v2/api/config/Config",
   "/docs/v2/api/components/Tabs/Tab": "/docs/v2/api/components/tabs/Tab",
-  "/docs/v2/api/components/nav/NavController": "/docs/v2/api/navigation/NavController/",
-  "/docs/v2/api/tab/Tab": "/docs/v2/api/components/tabs/Tab/",
-  "/docs/v2/api/menu/Menu": "/docs/v2/api/components/menu/Menu",
   "/docs/v2/api/components/nav/NavBar": "/docs/v2/api/components/navbar/NavBar",
-  "/docs/v2/native/ibeacon/LocationManager": "/docs/v2/native/ibeacon/",
-  "/docs/v2/native/estimotebeacons/undefined": "/docs/v2/native/estimotebeacons",
+  "/docs/v2/api/components/nav/NavController": "/docs/v2/api/navigation/NavController/",
+  "/docs/v2/api/menu/Menu": "/docs/v2/api/components/menu/Menu",
+  "/docs/v2/api/tab/Tab": "/docs/v2/api/components/tabs/Tab/",
+  "/docs/v2/faq": "/docs/v2/troubleshooting",
   "/docs/v2/getting-started": "/getting-started",
   "/docs/v2/getting-started/concepts": "/docs/v2/intro/concepts",
   "/docs/v2/getting-started/installation": "/docs/v2/intro/installation",
@@ -19,6 +17,9 @@
   "/docs/v2/getting-started/tutoria/customization": "/docs/v2/intro/tutorial/customization",
   "/docs/v2/getting-started/tutoria/project-structure": "/docs/v2/intro/tutorial/project-structure",
   "/docs/v2/getting-started/tutoria/using-platform-plugins": "/docs/v2/intro/tutorial/using-platform-plugins",
+  "/docs/v2/native/estimotebeacons/undefined": "/docs/v2/native/estimotebeacons",
+  "/docs/v2/native/ibeacon/LocationManager": "/docs/v2/native/ibeacon/",
+  "/docs/v2/resources/resources/what-is": "/docs/v2/cli/",
   "/docs/v2/setup/concepts": "/docs/v2/intro/concepts",
   "/docs/v2/setup/installation": "/docs/v2/intro/installation",
   "/docs/v2/setup/migration": "/docs/v2/intro/migration",
@@ -28,5 +29,5 @@
   "/docs/v2/setup/tutoria/customization": "/docs/v2/intro/tutorial/customization",
   "/docs/v2/setup/tutoria/project-structure": "/docs/v2/intro/tutorial/project-structure",
   "/docs/v2/setup/tutoria/using-platform-plugins": "/docs/v2/intro/tutorial/using-platform-plugins",
-  "/docs/v2": "/docs"
+  "/pricing": "/pricing/index3.html"
 }

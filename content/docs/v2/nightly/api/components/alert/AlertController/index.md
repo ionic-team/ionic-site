@@ -836,6 +836,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-ios-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-ios-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-ios-button-text-color</code></td>
@@ -931,6 +940,15 @@ out before starting a new transition.</p>
           <td><code>13px</code></td>
         
         <td><p>Padding of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
 </td>
       </tr>
       
@@ -1470,6 +1488,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-md-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-md-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-md-button-text-color</code></td>
@@ -1641,11 +1668,20 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-md-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-md-checkbox-label-text-color-checked</code></td>
         
           <td><code>initial</code></td>
         
-        <td><p>Text color of the label for the checked checkbox in the  alert</p>
+        <td><p>Text color of the label for the checked checkbox in the alert</p>
 </td>
       </tr>
       
@@ -2194,6 +2230,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-wp-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-wp-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-wp-button-text-color</code></td>
@@ -2325,6 +2370,15 @@ out before starting a new transition.</p>
           <td><code>13px 26px</code></td>
         
         <td><p>Padding of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
 </td>
       </tr>
       

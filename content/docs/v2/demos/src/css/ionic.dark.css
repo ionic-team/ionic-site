@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201702081642, Dark Theme
+ * vE2E-201702101917, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -338,7 +338,8 @@ ion-alert input {
   order: 0;
   padding: 13px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-ios [aria-checked=true] .alert-radio-label {
   color: #007aff; }
@@ -371,7 +372,8 @@ ion-alert input {
   flex: 1;
   padding: 13px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-ios [aria-checked=true] .alert-checkbox-label {
   color: initial; }
@@ -493,7 +495,8 @@ ion-alert input {
   flex: 1;
   padding: 13px 26px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-md .alert-radio-icon {
   position: relative;
@@ -538,7 +541,8 @@ ion-alert input {
   flex: 1;
   padding: 13px 26px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-md [aria-checked=true] .alert-checkbox-label {
   color: initial; }
@@ -665,7 +669,8 @@ ion-alert input {
   flex: 1;
   padding: 13px 26px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-wp .alert-radio-icon {
   position: relative;
@@ -706,7 +711,8 @@ ion-alert input {
   flex: 1;
   padding: 13px 26px;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: initial; }
 
 .alert-wp [aria-checked=true] .alert-checkbox-label {
   color: initial; }

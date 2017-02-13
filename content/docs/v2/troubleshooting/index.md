@@ -435,3 +435,13 @@ this will instantiate a new NgForm:
     '</form>'
 })
 ```
+### No component factory found for <component name>
+
+This error happens when you are trying to use a component, provider pipe or
+directive that has not been imported and added to your ngModule. Whenever you
+add a new component, provider, pipe or directive to your app, you must add it to
+the ngModule in the `app/app.module.ts` file for Angular to be able to use it.
+To fix this error you can import the offending component, provider, pipe or
+directive into the app.module file and then if it is a provider add it to the
+`providers` array and for a component, pipe or directive add it to both the
+declarations array and entryComponents array.

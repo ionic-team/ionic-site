@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L89">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L94">
   Improve this doc
 </a>
 
@@ -55,7 +55,7 @@ docType: "class"
 <h2>Supported platforms</h2>
 
 <ul>
-  <li>Android</li><li>iOS</li>
+  <li>Android</li><li>iOS</li><li>Windows (experimental)</li>
 </ul>
 
 <!-- @platforms tag end -->
@@ -72,6 +72,7 @@ docType: "class"
  AppRate.preferences.storeAppURL = {
    ios: &#39;&lt;my_app_id&gt;&#39;,
    android: &#39;market://details?id=&lt;package_name&gt;&#39;,
+   windows: &#39;ms-windows-store://review/?ProductId=&lt;Store_ID&gt;&#39;
  };
 
 AppRate.promptForRating(false);
@@ -344,6 +345,20 @@ Prompts the user for rating
     </td>
     <td>
       <p>application URL in GooglePlay</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      windows
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>application URL in Windows Store</p>
 
     </td>
   </tr>

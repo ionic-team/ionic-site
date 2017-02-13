@@ -62,7 +62,7 @@ export class AppModule {}
 
 Every app has a *root module* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. This is also where we bootstrap our app using `ionicBootstrap`.
 
-In this module, we're setting the root component to MyApp, in `src/app/app.component.ts`. This is the first component that gets loaded in our app, and it typically is an empty shell for other components to be loaded into. In `app.component.ts`, we're setting our template to `src/app/app.html`, so let's look in there.
+In this module, we're setting the root component to MyApp, in `src/app/app.component.ts`. This is the first component that gets loaded in our app, and typically  it's an empty shell for other components to be loaded into. In `app.component.ts`, we're setting our template to `src/app/app.html`, so let's look in there.
 
 <h3 class="file-title">./src/app/app.html</h3>
 

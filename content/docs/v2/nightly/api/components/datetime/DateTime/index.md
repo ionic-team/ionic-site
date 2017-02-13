@@ -546,6 +546,14 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     </tr>
     
     <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> The text to display when there&#39;s no date selected yet.
+Using lowercase to match the input attribute</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>yearValues</td>
       <td><code>array | string</code></td>
       <td><p> Values used to create the list of selectable years. By default
@@ -653,6 +661,15 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
 </td>
       </tr>
       
+      <tr>
+        <td><code>$datetime-ios-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the DateTime placeholder</p>
+</td>
+      </tr>
+      
     </tbody>
   </table>
   
@@ -699,6 +716,15 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
           <td><code>$item-md-padding-left</code></td>
         
         <td><p>Padding left of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-md-placeholder-color</code></td>
+        
+          <td><code>#999</code></td>
+        
+        <td><p>Color of the DateTime placeholder</p>
 </td>
       </tr>
       
@@ -775,6 +801,15 @@ recent leap years, then this input&#39;s value would be <code>yearValues=&quot;2
           <td><code>$input-wp-border-color</code></td>
         
         <td><p>Border color of the DateTime component</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$datetime-wp-placeholder-color</code></td>
+        
+          <td><code>$input-wp-border-color</code></td>
+        
+        <td><p>Color of the DateTime placeholder</p>
 </td>
       </tr>
       

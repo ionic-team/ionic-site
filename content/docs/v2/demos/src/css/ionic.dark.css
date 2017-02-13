@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201702131749, Dark Theme
+ * vE2E-201702132007, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -3806,8 +3806,14 @@ ion-datetime {
 .datetime-ios {
   padding: 11px 8px 11px 16px; }
 
+.datetime-ios .datetime-placeholder {
+  color: #999; }
+
 .datetime-md {
   padding: 13px 8px 13px 16px; }
+
+.datetime-md .datetime-placeholder {
+  color: #999; }
 
 .datetime-wp {
   padding: 13px 8px 13px 16px;
@@ -3822,6 +3828,9 @@ ion-datetime {
 .item-datetime .datetime-wp ion-label[floating] {
   -webkit-transform: translate3d(8px, 41px, 0);
   transform: translate3d(8px, 41px, 0); }
+
+.datetime-wp .datetime-placeholder {
+  color: rgba(0, 0, 0, 0.5); }
 
 .fab {
   -moz-appearance: none;

@@ -69,7 +69,7 @@ docType: "class"
 <pre><code>import {FileChooser} from &#39;ionic-native&#39;;
 
 FileChooser.open()
-  .then(uri =&gt; console.log(uri));
+  .then(uri =&gt; console.log(uri))
   .catch(e =&gt; console.log(e));
 </code></pre>
 

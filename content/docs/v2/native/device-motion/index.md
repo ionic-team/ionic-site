@@ -57,17 +57,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { DeviceMotion } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { DeviceMotion, DeviceMotionAccelerationData } from &#39;ionic-native&#39;;
 
 
 // Get the device current acceleration
 DeviceMotion.getCurrentAcceleration().then(
-  (acceleration: AccelerationData) =&gt; console.log(acceleration),
+  (acceleration: DeviceMotionAccelerationData) =&gt; console.log(acceleration),
   (error: any) =&gt; console.log(error)
 );
 
 // Watch device acceleration
-var subscription = DeviceMotion.watchAcceleration().subscribe((acceleration: AccelerationData) =&gt; {
+var subscription = DeviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) =&gt; {
   console.log(acceleration);
 });
 

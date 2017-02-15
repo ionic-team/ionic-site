@@ -371,7 +371,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
   $scope.submit = function() {
     $scope.submitting = true;
-    $http.post('http://survey.apis.ionicjs.com/reservespot/snapshot', {
+    $http.post('http://survey.apis.ionicjs.com/reservespot/' + $scope.form.campaign, {
       email: $scope.form.email,
       meta: {
         name: $scope.form.name,

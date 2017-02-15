@@ -286,6 +286,36 @@
     }
   }
 
+  #promo-ionicu {
+    background: url('/img/promos/university.jpg') no-repeat transparent;
+    background-size: cover;
+    text-align: center;
+    padding-top: 100px;
+    height: 450px;
+    box-sizing: border-box;
+
+    h2, h4 {
+      color: #fff;
+      text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    }
+    h2 {
+      font-weight: 400;
+      b {
+        font-weight: 600;
+      }
+    }
+    h4 {
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      background-color: white;
+      color: #397FF2;
+      box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+    }
+  }
+
   #promo-snapshot {
     position: relative;
     text-align: center;

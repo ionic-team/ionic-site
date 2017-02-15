@@ -19,6 +19,16 @@ header_sub_title: Ionic 2 Developer Preview
   </h3>
   <p>There are some wonderful books out for Ionic 2, with several major ones in the works.</p>
   <ul>
+    <li><a href="https://www.packtpub.com/application-development/getting-started-ionic">Getting Started with Ionic by Rahat Khanna</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://www.packtpub.com/application-development/ionic-framework-example">Ionic Framework By Example by Sani Yusuf</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://www.packtpub.com/web-development/ionic-2-blueprints">Ionic 2 Blueprints by Indermohan Singh</a>
+</li>
+  </ul>
+  <ul>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
   </ul>
     <ul>
@@ -46,6 +56,7 @@ header_sub_title: Ionic 2 Developer Preview
   <p>Learn Ionic 2 through enjoyable courses.</p>
 
   <ul>
+    <li><a href=" https://www.packtpub.com/web-development/ionic-2-solutions-video "> Ionic 2 Solutions by Hoc Phan </a></li>
     <li><a href="http://shop.oreilly.com/product/0636920050353.do">Introducing Ionic 2 (O'Reilly)</a></li>
     <li><a href="https://www.udemy.com/ionic-2-tutorial/?couponCode=IONIC15/">Ionic 2 Master Course (50% Off code - Udemy)</a></li>
     <li><a href="https://www.udemy.com/ionic-2-quickstart/">Ionic 2 Quickstart (Udemy)</a></li>

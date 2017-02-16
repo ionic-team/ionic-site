@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/service/popup.js#L17'>
+<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/popup.js#L17'>
 View Source
 </a>
 &nbsp;

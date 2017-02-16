@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/directive/tabs.js#L1'>
+<a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/tabs.js#L1'>
 View Source
 </a>
 &nbsp;

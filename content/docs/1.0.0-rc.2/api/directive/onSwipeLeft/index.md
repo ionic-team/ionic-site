@@ -11,7 +11,7 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/directive/gesture.js#L236'>
+  <a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/directive/gesture.js#L236'>
     View Source
   </a>
   &nbsp;

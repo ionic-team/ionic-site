@@ -66,9 +66,15 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 
 | Attribute | Description                                                                                                |
 |-----------|------------------------------------------------------------------------------------------------------------|
-| `start`   | Aligns the element at the start based on platform. iOS goes left, Android is the first item on the right   |
-| `end`     | Aligns the element at the end based on the platform. iOS goes right, Android is the last item on the right |
-| `left`    | Aligns the element on the left side. Overrides the platform specific order                                 |
-| `right`   | Aligns the element on the right side. Overrides the platform specific order                                |
+| `start`   | aligns the element at the start based on platform. iOS goes left, Android is the first item on the right   |
+| `end`     | aligns the element at the end based on the platform. iOS goes right, Android is the last item on the right |
+| `left`    | aligns the element on the left side. Overrides the platform specific order                                 |
+| `right`   | aligns the element on the right side. Overrides the platform specific order                                |
 
 
+### `ion-checkbox, ion-select, ion-toggle` property
+
+| Attribute         | Description                                           |
+|-------------------|-------------------------------------------------------|
+| `text-left`       | aligns the control to the left of the `ion-label`     |
+| `text-right`      | aligns the control to the right of the `ion-label`    |

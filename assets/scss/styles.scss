@@ -7,7 +7,7 @@
 //
 //
 // @import url('https://fonts.googleapis.com/css?family=Nunito:300');
-@import '../../node_modules/ionicons/dist/css/ionicons';
+@import '../../node_modules/ionicons/dist/scss/ionicons';
 
 @import 'vars';
 @import 'fonts';
@@ -15,8 +15,6 @@
 // Core variables and mixins
 @import 'bootstrap/variables';
 @import 'bootstrap/mixins';
-
-
 
 // Reset and dependencies
 @import 'bootstrap/normalize';

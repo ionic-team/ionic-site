@@ -1343,7 +1343,7 @@ Removes a page from the nav stack at the specified index.
   <code>number</code>
       </td>
       <td>
-        <p>The starting index to remove pages from the stack. Default is the index of the last page.<strong class="tag">Optional</strong></p>
+        <p>The starting index to remove pages from the stack. Default is the index of the last page.</p>
 
         
       </td>

@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 @font-face {
- font-family: "Ionicons";
+ font-family: 'Ionicons';
  src:
-  url("#{$ionicons-font-path}/ionicons.woff2?v=#{$ionicons-version}") format("woff2"),
-  url("#{$ionicons-font-path}/ionicons.woff?v=#{$ionicons-version}") format("woff"),
-  url("#{$ionicons-font-path}/ionicons.ttf?v=#{$ionicons-version}") format("truetype"),
-  url("#{$ionicons-font-path}/ionicons.eot?v=#{$ionicons-version}#iefix") format("embedded-opentype")
-  url("#{$ionicons-font-path}/ionicons.svg?v=#{$ionicons-version}#Ionicons") format("svg");
+  url('/fonts/ionicons.woff2') format('woff2'),
+  url('/fonts/ionicons.woff') format('woff'),
+  url('/fonts/ionicons.ttf') format('ttf'),
+  url('/fonts/ionicons.eot#iefix') format('eot')
+  url('/fonts/ionicons.svg#Ionicons') format('svg');
  font-weight: normal;
  font-style: normal;
 }
@@ -47,7 +47,7 @@
   src: local('Avenir Next'),
        url('/fonts/avenir-next/regular.woff2') format('woff2'),
        url('/fonts/avenir-next/regular.woff') format('woff'),
-       url('/fonts/avenir-next/regular.ttf') format('truetype'),
+       url('/fonts/avenir-next/regular.ttf') format('ttf'),
        url('/fonts/avenir-next/regular.eot?#iefix') format('eot');
   font-weight: 400;
   unicode-range: U+000-5FF;

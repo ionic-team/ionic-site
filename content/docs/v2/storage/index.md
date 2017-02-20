@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-version: "1.1.7"
+version: "1.1.9"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -74,13 +74,16 @@ export class AppModule {}
 export class MyApp {
   constructor(storage: Storage) {
 
-     // set a key/value
-     storage.set(&#39;name&#39;, &#39;Max&#39;);
+     storage.ready().then(() =&gt; {
 
-     // Or to get a key/value pair
-     storage.get(&#39;name&#39;).then((val) =&gt; {
-       console.log(&#39;Your name is&#39;, val);
-     })
+       // set a key/value
+       storage.set(&#39;name&#39;, &#39;Max&#39;);
+
+       // Or to get a key/value pair
+       storage.get(&#39;age&#39;).then((val) =&gt; {
+         console.log(&#39;Your age is&#39;, val);
+       })
+     });
   }
 }
 </code></pre>
@@ -90,7 +93,7 @@ options to pass to localForage. See the localForage config docs for possible opt
 <pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
 
 export function provideStorage() {
-  return new Storage([&#39;sqlite&#39;, &#39;websql&#39;, &#39;indexeddb&#39;], { name: &#39;__mydb&#39; }// optional config);
+  return new Storage([&#39;sqlite&#39;, &#39;websql&#39;, &#39;indexeddb&#39;], { name: &#39;__mydb&#39; });
 }
 
 @NgModule({
@@ -113,22 +116,72 @@ export class AppModule {}
 
 <!-- instance methods on the class -->
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+<div id="driver"></div>
+<h3><a class="anchor" name="driver" href="#driver"></a><code>driver</code>
+  
+</h3>
+Get the name of the driver being used.
+
+
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Name of the driver</p>
+
+
+</div>
+
+
 <div id="ready"></div>
 <h3><a class="anchor" name="ready" href="#ready"></a><code>ready()</code>
   
 </h3>
+Reflect the readiness of the store.
 
 
 
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves when the store is ready</p>
 
+
+</div>
 
 
 <div id="get"></div>
-<h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
+<h3><a class="anchor" name="get" href="#get"></a><code>get(key)</code>
   
 </h3>
-Get the value assocated with the given key.
+Get the value associated with the given key.
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        <p>the key to identify this value</p>
 
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 <div class="return-value">
@@ -254,7 +307,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>Promise that resolves when the kv store is cleared</p>
+   <p>Promise that resolves when the store is cleared</p>
 
 
 </div>
@@ -270,7 +323,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>the number of keys stored.</p>
+   <p>Promise that resolves with the number of keys stored.</p>
 
 
 </div>
@@ -286,7 +339,7 @@ Clear the entire key value store. WARNING: HOT!
 
 <div class="return-value">
 <b>Returns:</b> 
-   <p>the keys in the store.</p>
+   <p>Promise that resolves with the keys in the store.</p>
 
 
 </div>
@@ -327,6 +380,13 @@ Iterate through each key,value pair.
   </tbody>
 </table>
 
+
+<div class="return-value">
+<b>Returns:</b> 
+   <p>Promise that resolves when the iteration has finished.</p>
+
+
+</div>
 
 
 

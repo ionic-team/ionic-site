@@ -23,58 +23,58 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 
 | Attribute         | Description                                           |
 |-------------------|-------------------------------------------------------|
-| `text-left`       | aligns the text of the element to its left            |
-| `text-center`     | aligns the text of the element to its center          |
-| `text-right`      | aligns the text of the element to its right           |
-| `text-justify`    | stretches the lines so that each line has equal width |
-| `text-wrap`       | wrap text                                             |
-| `text-nowrap`     | don't wrap text                                       |
-| `text-uppercase`  | transforms text to all caps                           |
-| `text-lowercase ` | transforms text to all lowercase                      |
-| `text-capitalize` | transforms the first letter of the text to capitals   |
+| `text-left`       | Aligns the text of the element to its left            |
+| `text-center`     | Aligns the text of the element to its center          |
+| `text-right`      | Aligns the text of the element to its right           |
+| `text-justify`    | Stretches the lines so that each line has equal width |
+| `text-wrap`       | Wraps text                                             |
+| `text-nowrap`     | Don't wrap text                                       |
+| `text-uppercase`  | Transforms text to all caps                           |
+| `text-lowercase ` | Transforms text to all lowercase                      |
+| `text-capitalize` | Transforms the first letter of the text to capitals   |
 
 ### Element Padding
 
 
 | Attribute            | Description                         |
 |----------------------|-------------------------------------|
-| `padding`            | adds padding to the whole element   |
-| `padding-top`        | adds padding-top                    |
-| `padding-left`       | adds padding-left                   |
-| `padding-right`      | adds padding-right                  |
-| `padding-bottom`     | adds padding-bottom                 |
-| `padding-vertical`   | adds padding to the top and botttom |
-| `padding-horizontal` | adds padding to the left and right  |
-| `no-padding`         | removes any padding                 |
+| `padding`            | Adds padding to the whole element   |
+| `padding-top`        | Adds padding-top                    |
+| `padding-left`       | Adds padding-left                   |
+| `padding-right`      | Adds padding-right                  |
+| `padding-bottom`     | Adds padding-bottom                 |
+| `padding-vertical`   | Adds padding to the top and botttom |
+| `padding-horizontal` | Adds padding to the left and right  |
+| `no-padding`         | Removes any padding                 |
 
 ### Element Margin
 
 
 | Attribute            | Description                         |
 |----------------------|-------------------------------------|
-| `margin`             | adds margin to the whole element    |
-| `margin-top`         | adds margin-top                     |
-| `margin-left`        | adds margin-left                    |
-| `margin-right`       | adds margin-right                   |
-| `margin-bottom`      | adds margin-bottom                  |
-| `margin-vertical`    | adds margin to the top and botttom  |
-| `margin-horizontal`  | adds margin to the left and right   |
-| `no-margin`          | removes any margin                  |
+| `margin`             | Adds margin to the whole element    |
+| `margin-top`         | Adds margin-top                     |
+| `margin-left`        | Adds margin-left                    |
+| `margin-right`       | Adds margin-right                   |
+| `margin-bottom`      | Adds margin-bottom                  |
+| `margin-vertical`    | Adds margin to the top and botttom  |
+| `margin-horizontal`  | Adds margin to the left and right   |
+| `no-margin`          | Removes any margin                  |
 
 
 ### `ion-buttons` property
 
 | Attribute | Description                                                                                                |
 |-----------|------------------------------------------------------------------------------------------------------------|
-| `start`   | aligns the element at the start based on platform. iOS goes left, Android is the first item on the right   |
-| `end`     | aligns the element at the end based on the platform. iOS goes right, Android is the last item on the right |
-| `left`    | aligns the element on the left side. Overrides the platform specific order                                 |
-| `right`   | aligns the element on the right side. Overrides the platform specific order                                |
+| `start`   | Aligns the element at the start based on platform. iOS goes left, Android is the first item on the right   |
+| `end`     | Aligns the element at the end based on the platform. iOS goes right, Android is the last item on the right |
+| `left`    | Aligns the element on the left side. Overrides the platform specific order                                 |
+| `right`   | Aligns the element on the right side. Overrides the platform specific order                                |
 
 
 ### `ion-checkbox, ion-select, ion-toggle` property
 
 | Attribute         | Description                                           |
 |-------------------|-------------------------------------------------------|
-| `text-left`       | aligns the control to the left of the `ion-label`     |
-| `text-right`      | aligns the control to the right of the `ion-label`    |
+| `text-left`       | Aligns the control to the left of the `ion-label`     |
+| `text-right`      | Aligns the control to the right of the `ion-label`    |

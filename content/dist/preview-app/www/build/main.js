@@ -83341,6 +83341,7 @@ var MyApp = (function () {
                         if (data.hash) {
                             _this.nextPage = __WEBPACK_IMPORTED_MODULE_2__directives_helpers__["b" /* getPageFor */](data.hash.replace('#', ''));
                             if (data.hash !== 'menus') {
+                                _this.menu.close();
                                 _this.menu.enable(false);
                             }
                         }

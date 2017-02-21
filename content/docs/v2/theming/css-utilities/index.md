@@ -76,5 +76,5 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 
 | Attribute         | Description                                           |
 |-------------------|-------------------------------------------------------|
-| `text-left`       | Aligns the control to the left of the `ion-label`     |
-| `text-right`      | Aligns the control to the right of the `ion-label`    |
+| `item-left`       | Aligns the control to the left of the `ion-label`     |
+| `item-right`      | Aligns the control to the right of the `ion-label`    |

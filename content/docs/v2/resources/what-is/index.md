@@ -194,7 +194,11 @@ header_sub_title: Ionic Resources
   <section id="xcode">
     <h3><a href="#xcode">Xcode</a></h3>
     <p>
-    <a href="https://webpack.github.io/">Webpack</a> bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Webpack will take multiple files and dependencies and bundle them into one or multiple output files depending upon the configuration.</p>
+      <a href="https://developer.apple.com/xcode/">Xcode</a> is an Apple IDE (integrated 
+      development environment) for software development on Apple operating systems 
+      (macOS, iOS, watchOS and tvOS), with extensions available for other languages 
+      and platforms.
+    </p>
   </section>
 
 </div>

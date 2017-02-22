@@ -72,3 +72,9 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 | `right`   | Aligns the element on the right side. Overrides the platform specific order                                |
 
 
+### `ion-checkbox, ion-select, ion-toggle` property
+
+| Attribute     | Description                                                                                                |
+|---------------|----------------------------------------------------|
+| `item-left`   | Aligns the control to the left of the `ion-label`  |
+| `item-right`  | Aligns the control to the left of the `ion-label`  |

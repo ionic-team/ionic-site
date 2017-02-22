@@ -81,7 +81,31 @@ using Sass.</p>
 </li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
-<p>TODO</p>
+<p>The grid is a mobile-first system made up of any number of rows and columns.
+It is built with flexbox making it extremely responsive. The components that
+make up the grid can be written as an element (e.g., <code>&lt;ion-grid&gt;</code>) or added as
+an attribute to any element (e.g., <code>&lt;div ion-row&gt;</code>).</p>
+<p>Here&#39;s how it works:</p>
+<ul>
+<li>Grids act as a container for all rows and columns. Grids take up the full width of their container,
+but adding the <code>fixed</code> attribute will specify the width per screen size, see <a href="#grid-size">grid size</a> below.</li>
+<li>Rows are horizontal groups of columns that line the columns up properly.</li>
+<li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+<li>Grid columns without a specified width will automatically have equal widths.
+For example, four instances of <code>col-sm</code> will each automatically be 25% wide for small breakpoints.</li>
+<li>Column attributes indicate the number of columns to use out of the default 12 per row.
+So, <code>col-4</code> can be added in order to have three equal-width columns.</li>
+<li>Column widths are set as a percentage, so they’re always fluid and sized relative to their parent element.</li>
+<li>Columns have padding between individual columns, however, the padding can be removed from the grid and
+columns by adding <code>no-padding</code> on the grid.</li>
+<li>There are five grid tiers by default, one for each responsive breakpoint: all breakpoints (extra small),
+small, medium, large, and extra large.</li>
+<li>Grid tiers are based on minimum widths, meaning they apply to their tier and all those larger than it
+(e.g., <code>col-sm-4</code> applies to small, medium, large, and extra large devices).</li>
+<li>Grids can easily be customized via Sass variables. See <a href="#customizing-the-grid">customizing the grid</a>.</li>
+</ul>
+<p>There are some <a href="https://github.com/philipwalton/flexbugs">known bugs with flexbox</a> that
+should be checked prior to creating issues with Ionic.</p>
 <h2 id="grid-size">Grid size</h2>
 <p>By default, the grid will take up 100% width. To set a maximum width based on the screen
 size add the <code>fixed</code> attribute. The maximum width of the grid for each breakpoint is defined
@@ -339,7 +363,7 @@ on extra small screens before becoming horizontal on small screens.</p>
 &lt;/ion-grid&gt;
 </code></pre>
 <h2 id="reordering">Reordering</h2>
-<h3 id="offseting-columns">Offseting columns</h3>
+<h3 id="offsetting-columns">Offsetting columns</h3>
 <p>Move columns to the right by adding the <code>offset-*</code> attributes. These attributes
 increase the margin left of the column by <code>*</code> columns. For example, in the following
 grid the last column will be offset by 3 columns and take up 3 columns:</p>
@@ -543,7 +567,7 @@ the number of columns, and more.</p>
 <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column.
 <code>$grid-padding-width</code> is used for the padding on the grid, while <code>$grid-padding-widths</code>
 allows breakpoint-specific widths that are divided evenly across <code>padding-left</code> and
-<code>padding-right</code> as well as <code>pdading-top</code> and <code>padding-bottom</code> of the grid and columns.</p>
+<code>padding-right</code> as well as <code>padding-top</code> and <code>padding-bottom</code> of the grid and columns.</p>
 <pre><code>$grid-columns:               12 !default;
 
 $grid-padding-width:         10px !default;

@@ -87,7 +87,8 @@ loadMap() {
  let map = new GoogleMap(element);
 
  // listen to MAP_READY event
- map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
+ map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; {
+      console.log(&#39;Map is ready!&#39;);
 
  // create LatLng object
  let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
@@ -113,7 +114,7 @@ loadMap() {
       marker.showInfoWindow();
     });
  }
-
+});
 }
 </code></pre>
 

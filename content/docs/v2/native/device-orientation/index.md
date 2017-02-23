@@ -57,19 +57,19 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">// CompassHeading is an interface for compass
-import { DeviceOrientation, CompassHeading } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">// DeviceOrientationCompassHeading is an interface for compass
+import { DeviceOrientation, DeviceOrientationCompassHeading } from &#39;ionic-native&#39;;
 
 
 // Get the device current compass heading
 DeviceOrientation.getCurrentHeading().then(
-  (data: CompassHeading) =&gt; console.log(data),
+  (data: DeviceOrientationCompassHeading) =&gt; console.log(data),
   (error: any) =&gt; console.log(error)
 );
 
 // Watch the device compass heading change
 var subscription = DeviceOrientation.watchHeading().subscribe(
-  (data: CompassHeading) =&gt; console.log(data)
+  (data: DeviceOrientationCompassHeading) =&gt; console.log(data)
 );
 
 // Stop watching heading change

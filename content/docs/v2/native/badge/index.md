@@ -71,7 +71,7 @@ docType: "class"
 
 
 Badge.set(10);
-Badge.increase();
+Badge.increase(1);
 Badge.clear();
 </code></pre>
 

@@ -479,7 +479,7 @@ attributes to the row. For a list of available attributes, see
   &lt;/ion-row&gt;
 &lt;/ion-grid&gt;
 </code></pre>
-<p>Columns can be also align themselves differently than other columns by
+<p>Columns can also align themselves differently than other columns by
 adding the alignment attribute directly to the column. For a list of available
 attributes, see <a href="../Col#column-attributes">column attributes</a>.</p>
 <pre><code>&lt;ion-grid&gt;

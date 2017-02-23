@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.1.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -31,7 +31,7 @@ IonicModule
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L256">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L260">
 Improve this doc
 </a>
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.1.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -50,9 +50,12 @@ still uses an actual <code>&lt;input type=&quot;text&quot;&gt;</code> HTML eleme
 component, however, with Ionic wrapping the native HTML input
 element it&#39;s able to better handle the user experience and
 interactivity.</p>
-<p>Similarily, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
+<p>Similarly, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
 <p>An <code>ion-input</code> is <strong>not</strong> used for non-text type inputs, such as a
 <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
+<p>Along with the blur/focus events, <code>input</code> support all standard text input
+events like <code>keyup</code>, <code>keydown</code>, <code>keypress</code>, <code>input</code>,etc. Any standard event
+can be attached and will function as expected.</p>
 
 
 

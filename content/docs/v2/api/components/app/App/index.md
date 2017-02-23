@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.1.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -348,6 +348,112 @@ Observable that emits before any view unloads in the app.
 
 
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+    <h3 ng-init="setSassPlatform('base')">All</h3>
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'base'" id="sass-base" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$font-size-root</code></td>
+        
+          <td><code>62.5%</code></td>
+        
+        <td><p>Font size of the root html</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$headings-font-weight</code></td>
+        
+          <td><code>500</code></td>
+        
+        <td><p>Font weight of all headings</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$headings-line-height</code></td>
+        
+          <td><code>1.2</code></td>
+        
+        <td><p>Line height of all headings</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h1-font-size</code></td>
+        
+          <td><code>2.6rem</code></td>
+        
+        <td><p>Font size of heading level 1</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h2-font-size</code></td>
+        
+          <td><code>2.4rem</code></td>
+        
+        <td><p>Font size of heading level 2</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h3-font-size</code></td>
+        
+          <td><code>2.2rem</code></td>
+        
+        <td><p>Font size of heading level 3</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h4-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size of heading level 4</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h5-font-size</code></td>
+        
+          <td><code>1.8rem</code></td>
+        
+        <td><p>Font size of heading level 5</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$h6-font-size</code></td>
+        
+          <td><code>1.6rem</code></td>
+        
+        <td><p>Font size of heading level 6</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

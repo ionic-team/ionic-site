@@ -762,7 +762,7 @@ Queries the native layer to determine the current authorization in effect.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise which is resolved with the
+<code>Promise&lt;IBeaconPluginResult&gt;</code> Returns a promise which is resolved with the
 requested authorization status.
 </div>
 

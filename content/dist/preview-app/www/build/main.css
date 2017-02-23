@@ -35836,9 +35836,9 @@ ion-card.cards-list-demo ion-card-header {
   font-family: "Times New Roman";
 }
 
-.hairlines .popover-page .text-smaller,
-.hairlines .popover-page .row-dots,
-.hairlines .popover-page .dot {
+.popover-page .text-smaller,
+.popover-page .row-dots,
+.popover-page .dot {
   border-width: 0.55px;
 }
 

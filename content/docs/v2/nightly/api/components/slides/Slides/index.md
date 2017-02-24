@@ -88,6 +88,7 @@ your <code>slides</code> property. Now we can call any of the <code>Slides</code
 a button click. Below we call the <code>goToSlide()</code> method and it
 navigates to the 3rd slide:</p>
 <pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
+import { Slides } from &#39;ionic-angular&#39;;
 
 class MyPage {
   @ViewChild(Slides) slides: Slides;
@@ -889,7 +890,10 @@ slider.</p>
 the most commonly used options as <a href="http://learnangular2.com/inputs/">inputs</a>.
 In order to use an option that isn&#39;t exposed as an input the following code
 should be used, where <code>freeMode</code> is the option to change:</p>
-<pre><code class="lang-ts">class MyPage {
+<pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
+import { Slides } from &#39;ionic-angular&#39;;
+
+class MyPage {
   @ViewChild(Slides) slides: Slides;
 
   ngAfterViewInit() {

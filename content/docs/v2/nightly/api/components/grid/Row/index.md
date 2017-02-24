@@ -42,7 +42,8 @@ Improve this doc
 
 
 
-<p>Row description</p>
+<p>Rows are horizontal components of the <a href="../Grid">grid</a> system and contain varying numbers of
+<a href="../Col">columns</a>. They ensure the columns are positioned properly.</p>
 <h2 id="row-attributes">Row attributes</h2>
 <p>By default, columns will stretch to fill the entire height of the row and wrap when necessary.
 There are several attributes that can be added to a row to customize this behavior.</p>

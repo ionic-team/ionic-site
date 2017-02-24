@@ -42,7 +42,8 @@ Improve this doc
 
 
 
-<p>Column description</p>
+<p>Columns are cellular components of the <a href="../Grid">grid</a> system and go inside of a <a href="../Row">row</a>.
+They will expand to fill their row. All content within a grid should go inside of a column.</p>
 <h2 id="column-attributes">Column attributes</h2>
 <p>By default, columns will stretch to fill the entire height of the row.
 There are several attributes that can be added to a column to customize this behavior.</p>

@@ -149,7 +149,7 @@ export class FormsPage {
 }
 ```
 
-This is very similar to how you can use forms with just ngModel, but instead of using the actual model of the form, we can use the reference to the form itself. In the first example, all of our values were coming directly from the model `todo`. With template driven forms, the values are pull directly from the form itelf.
+This is very similar to how you can use forms with just ngModel, but instead of using the actual model of the form, we can use the reference to the form itself. In the first example, all of our values were coming directly from the model `todo`. With template driven forms, the values are pulled directly from the form itself.
 
 
 ### Parting words

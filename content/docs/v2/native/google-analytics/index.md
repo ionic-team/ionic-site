@@ -622,7 +622,7 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
     </td>
     <td>
       
-<code>string</code>
+<code>number</code>
     </td>
     <td>
       

@@ -114,7 +114,7 @@ scrolling. In order to better control images, Ionic provides <code>&lt;ion-img&g
 to manage HTTP requests and image rendering. While scrolling through items
 quickly, <code>&lt;ion-img&gt;</code> knows when and when not to make requests, when and
 when not to render images, and only loads the images that are viewable
-after scrolling. <a href="../img/Img/">Read more about <code>ion-img</code>.</a></p>
+after scrolling. <a href="../../img/Img/">Read more about <code>ion-img</code>.</a></p>
 <p>It&#39;s also important for app developers to ensure image sizes are locked in,
 and after images have fully loaded they do not change size and affect any
 other element sizes. Simply put, to ensure rendering bugs are not introduced,

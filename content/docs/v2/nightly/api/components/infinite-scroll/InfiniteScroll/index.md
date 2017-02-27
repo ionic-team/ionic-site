@@ -312,6 +312,15 @@ your async operation has completed.</p>
       </tr>
       
       <tr>
+        <td><code>$infinite-scroll-loading-text-color</code></td>
+        
+          <td><code>$infinite-scroll-loading-color</code></td>
+        
+        <td><p>Text color of the infinite scroll loading indicator</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$infinite-scroll-loading-text-margin</code></td>
         
           <td><code>4px 32px 0 32px</code></td>

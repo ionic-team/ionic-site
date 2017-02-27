@@ -51,9 +51,9 @@ layout: v2_fluid/default
          ng-cloak>
       <iframe id="demo-android"
             {% if page.preview_device_url %}
-              src="{{ page.preview_device_url }}?production=true"
+              src="{{ page.preview_device_url }}?production=true&ionicplatform=android"
             {% else %}
-              src="/dist/preview-app/www/?production=true"
+              src="/dist/preview-app/www/?production=true&ionicplatform=android"
             {% endif %}
               frameborder="0">
       </iframe>

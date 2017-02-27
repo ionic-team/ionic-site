@@ -440,7 +440,7 @@ Transition to the next slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -507,7 +507,7 @@ Transition to the previous slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -591,7 +591,7 @@ Transition to the specified slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>

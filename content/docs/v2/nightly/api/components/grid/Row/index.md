@@ -85,23 +85,23 @@ There are several attributes that can be added to a row to customize this behavi
 </tr>
 <tr>
 <td>justify-content-start</td>
-<td>Adds <code>justify-content: start</code>. All columns will be horrizontally aligned at the start.</td>
+<td>Adds <code>justify-content: start</code>. All columns will be horizontally aligned at the start.</td>
 </tr>
 <tr>
 <td>justify-content-center</td>
-<td>Adds <code>justify-content: center</code>. All columns will be horrizontally aligned at the center.</td>
+<td>Adds <code>justify-content: center</code>. All columns will be horizontally aligned at the center.</td>
 </tr>
 <tr>
 <td>justify-content-end</td>
-<td>Adds <code>justify-content: end</code>. All columns will be horrizontally aligned at the end.</td>
+<td>Adds <code>justify-content: end</code>. All columns will be horizontally aligned at the end.</td>
 </tr>
 <tr>
 <td>justify-content-around</td>
-<td>Adds <code>justify-content: space-around</code>. All columns will be horrizontally aligned with equal space around them.</td>
+<td>Adds <code>justify-content: space-around</code>. All columns will be horizontally aligned with equal space around them.</td>
 </tr>
 <tr>
 <td>justify-content-between</td>
-<td>Adds <code>justify-content: space-between</code>. All columns will be horrizontally aligned with a half-size space on either end.</td>
+<td>Adds <code>justify-content: space-between</code>. All columns will be horizontally aligned with a half-size space on either end.</td>
 </tr>
 </tbody>
 </table>

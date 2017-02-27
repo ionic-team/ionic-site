@@ -73,7 +73,7 @@ There are several attributes that can be added to a column to customize this beh
 </tr>
 <tr>
 <td>align-self-baseline</td>
-<td>Adds <code>align-self: baseline</code>. The column will be vertically aligned at its baselines.</td>
+<td>Adds <code>align-self: baseline</code>. The column will be vertically aligned at its baseline.</td>
 </tr>
 </tbody>
 </table>

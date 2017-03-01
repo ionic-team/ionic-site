@@ -299,6 +299,28 @@ Stops recording
 
 
 
+<div id="pauseRecord"></div>
+<h3>
+  <code>pauseRecord()</code>
+  
+
+</h3>
+Pauses recording
+
+
+
+
+<div id="resumeRecord"></div>
+<h3>
+  <code>resumeRecord()</code>
+  
+
+</h3>
+Resumes recording
+
+
+
+
 <div id="stop"></div>
 <h3>
   <code>stop()</code>

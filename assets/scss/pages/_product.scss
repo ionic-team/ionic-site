@@ -1,4 +1,17 @@
 #product {
+  .hero {
+    padding-top: 128px;
+    padding-bottom: 72px;
+    position: relative;
+  }
+  .hero.left .graphics {
+    top: 150px;
+    right: 0;
+    position: absolute;
+  }
+  .hero .graphics {
+    width: 500px;
+  }
   .view-cta {
     background: url('/img/getting-started/view-feature.jpg') no-repeat center center;
     background-size: cover;
@@ -400,6 +413,32 @@
           }
         }
       }
+    }
+  }
+
+  #get-started {
+    background: #1f2632;
+    background-image: linear-gradient(to right, #1f2632 0%, #28354d 100%);
+
+    h3 {
+      color: rgba(255, 255, 255, 0.8);
+
+      strong {
+        color: white;
+      }
+    }
+
+    p {
+      color: #a2b5d6;
+    }
+
+    a {
+      margin-top: 20px;
+    }
+
+    hgroup {
+      padding-top: 100px;
+      padding-bottom: 100px;
     }
   }
 

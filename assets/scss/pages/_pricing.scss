@@ -216,3 +216,82 @@
     }
   }
 }
+
+#pricing-4 {
+  #pricing-info {
+    padding: 40px 0;
+    .container {
+      max-width: 900px;
+    }
+  }
+  .btn-wrap {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .btn {
+    line-height: 1.1em;
+    padding: 12px 33px;
+    font-size: 13px;
+  }
+
+  .btn-outline {
+    background-color: white;
+    border: 2px solid #5A8DF4;
+    color: #5A8DF4;
+  }
+  .box-row {
+    display: flex;
+  }
+  .box {
+    flex: 1;
+    margin: 0 10px;
+  }
+  .box {
+    padding: 20px;
+    position: relative;
+    height: 300px;
+    box-sizing: border-box;
+    h2 {
+      text-transform: uppercase;
+      color: #222;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    h2, h4 {
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+    .btn {
+      width: calc(100% - 20px);
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+    li:before {
+      content: '';
+      background: url('../img/pricing/checkmark.png') no-repeat transparent;
+      background-size: 100%;
+      display: inline-block;
+      width: 16px;
+      height: 12px;
+      margin-right: 5px;
+    }
+  }
+  #box-free {
+    background-color: #eee;
+    h2, h4, li {
+      color: #222;
+    }
+  }
+  #box-pro {
+    background-color: #333;
+    h2, h4, li {
+      color: #fff;
+    }
+  }
+}

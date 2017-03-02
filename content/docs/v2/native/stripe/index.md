@@ -71,10 +71,10 @@ let card = {
  number: &#39;4242424242424242&#39;,
  expMonth: 12,
  expYear: 2020,
- cvc: 220
+ cvc: &#39;220&#39;
 };
 
-Stripe.createToken(card)
+Stripe.createCardToken(card)
    .then(token =&gt; console.log(token))
    .catch(error =&gt; console.error(error));
 </code></pre>

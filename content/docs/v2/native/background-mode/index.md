@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L34">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backgroundmode.ts#L33">
   Improve this doc
 </a>
 
@@ -270,14 +270,46 @@ Available only for Android platform.
 
 
 
-<div id="onactivate"></div>
-<h3><code>onactivate()</code>
+<div id="on"></div>
+<h3><code>on(event)</code>
   
 </h3>
 
 
-Called when background mode is activated.
 
+
+Listen for events that the plugin fires. Available events are `enable`, `disable`, `activate`, `deactivate` and `failure`.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      event
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Event name</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -286,50 +318,128 @@ Called when background mode is activated.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is activated
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
 
-<div id="ondeactivate"></div>
-<h3><code>ondeactivate()</code>
+<div id="overrideBackButton"></div>
+<h3><code>overrideBackButton()</code>
   
 </h3>
 
 
-Called when background mode is deactivated.
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Override the back button on Android to go to background instead of closing the app.
 
 
 
 
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode is deactivated
-</div>
 
 
 
-<div id="onfailure"></div>
-<h3><code>onfailure()</code>
+
+<div id="excludeFromTaskList"></div>
+<h3><code>excludeFromTaskList()</code>
   
 </h3>
 
 
-Called when background mode fails
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Exclude the app from the recent task list works on Android 5.0+.
 
 
 
 
 
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> returns an observable that emits when background mode fails
-</div>
+
+
+
+
+<div id="isScreenOff"></div>
+<h3><code>isScreenOff()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+The method works async instead of isActive() or isEnabled().
+
+
+
+
+
+
+
+
+
+
+<div id="wakeUp"></div>
+<h3><code>wakeUp()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Turn screen on
+
+
+
+
+
+
+
+
+
+
+<div id="unlock"></div>
+<h3><code>unlock()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Turn screen on and show app even locked
+
+
+
+
+
+
+
 
 
 

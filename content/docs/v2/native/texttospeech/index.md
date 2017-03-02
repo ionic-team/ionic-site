@@ -125,6 +125,21 @@ This function speaks
 
 
 
+<div id="stop"></div>
+<h3><code>stop()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- methods on the class -->
 

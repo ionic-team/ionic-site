@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googlemap.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googlemap.ts#L46">
   Improve this doc
 </a>
 
@@ -63,7 +63,8 @@ docType: "class"
  GoogleMapsLatLng,
  CameraPosition,
  GoogleMapsMarkerOptions,
- GoogleMapsMarker
+ GoogleMapsMarker,
+ GoogleMapsMapTypeId
 } from &#39;ionic-native&#39;;
 
 export class MapPage {

@@ -258,11 +258,7 @@ Configure the plugin.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Location object, which tries to mimic w3c Coordinates interface.
-See http://dev.w3.org/geo/api/spec-source.html#coordinates_interface
-Callback to be executed every time a geolocation is recorded in the background.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -316,15 +312,27 @@ Turn OFF background-tracking
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Inform the native plugin that you're finished, the background-task may be completed
-NOTE: IOS, WP only
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -334,15 +342,27 @@ NOTE: IOS, WP only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Force the plugin to enter "moving" or "stationary" state
-NOTE: IOS, WP only
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -375,8 +395,16 @@ Setup configuration
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Returns current stationaryLocation if available. null if not
-NOTE: IOS, WP only
 
 
 
@@ -397,9 +425,17 @@ NOTE: IOS, WP only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Add a stationary-region listener. Whenever the devices enters "stationary-mode",
 your #success callback will be executed with #location param containing #radius of region
-NOTE: IOS, WP only
 
 
 
@@ -420,6 +456,13 @@ NOTE: IOS, WP only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Check if location is enabled on the device
 
 
@@ -431,7 +474,6 @@ Check if location is enabled on the device
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;number&gt;</code> Returns a promise with int argument that takes values 0, 1 (true).
-NOTE: ANDROID only
 </div>
 
 
@@ -480,10 +522,16 @@ Display device location settings
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Method can be used to detect user changes in location services settings.
 If user enable or disable location services then success callback will be executed.
 In case or error (SettingNotFoundException) fail callback will be executed.
-NOTE: ANDROID only
 
 
 
@@ -504,15 +552,25 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Stop watching for location mode changes.
-NOTE: ANDROID only
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -522,13 +580,19 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Method will return all stored locations.
 Locations are stored when:
  - config.stopOnTerminate is false and main activity was killed
    by the system
  or
  - option.debug is true
-NOTE: ANDROID only
 
 
 
@@ -570,8 +634,14 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Delete stored location by given locationId.
-NOTE: ANDROID only
 
 
 
@@ -592,8 +662,14 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Delete all stored locations.
-NOTE: ANDROID only
 
 
 
@@ -614,6 +690,13 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
 Normally plugin will handle switching between BACKGROUND and FOREGROUND mode itself.
 Calling switchMode you can override plugin behavior and force plugin to switch into other mode.
 
@@ -622,9 +705,7 @@ In BACKGROUND mode plugin uses significant changes and region monitoring to rece
 
 BackgroundGeolocation.Mode.FOREGROUND
 BackgroundGeolocation.Mode.BACKGROUND 
-
-NOTE: iOS only
-
+*
 @param {number} See above. 
 
 

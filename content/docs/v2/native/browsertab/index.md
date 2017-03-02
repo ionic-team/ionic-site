@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/browser-tab.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/browser-tab.ts#L0">
   Improve this doc
 </a>
 
@@ -47,7 +47,7 @@ docType: "class"
 
 <!-- description -->
 
-<p>This plugin does something</p>
+<p>This plugin provides an interface to in-app browser tabs that exist on some mobile platforms, specifically <a href="http://developer.android.com/tools/support-library/features.html#custom-tabs">Custom Tabs</a> on Android (including the <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a> implementation), and <a href="https://developer.apple.com/library/ios/documentation/SafariServices/Reference/SFSafariViewController_Ref/">SFSafariViewController</a> on iOS.</p>
 
 
 <!-- @platforms tag -->
@@ -68,9 +68,18 @@ docType: "class"
 
 <pre><code>import { BrowserTab } from &#39;ionic-native&#39;;
 
-BrowserTab.functionName(&#39;Hello&#39;, 123)
-  .then((something: any) =&gt; doSomething(something))
-  .catch((error: any) =&gt; console.log(error));
+BrowserTab.isAvailable()
+  .then((isAvailable: boolean) =&gt; {
+
+    if (isAvailable) {
+
+      BrowserTab.openUrl(&#39;https://ionic.io&#39;);
+
+    } else {
+      // open url with InAppBrowser instead
+    }
+
+  });
 </code></pre>
 
 

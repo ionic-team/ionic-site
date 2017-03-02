@@ -52,9 +52,9 @@ docType: "class"
 <p>Example:</p>
 <pre><code>import { File } from &#39;ionic-native&#39;;
 
-declare var cordova: any;
-const fs:string = cordova.file.dataDirectory;
-File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;)).catch(err =&gt; console.log(&#39;boooh&#39;));
+const dataDirectory: string = File.dataDirectory;
+
+File.checkDir(dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;)).catch(err =&gt; console.log(&#39;boooh&#39;));
 </code></pre>
 <p> This plugin is based on several specs, including : The HTML5 File API <a href="http://www.w3.org/TR/FileAPI/">http://www.w3.org/TR/FileAPI/</a>
  The (now-defunct) Directories and System extensions Latest: <a href="http://www.w3.org/TR/2012/WD-file-system-api-20120417/">http://www.w3.org/TR/2012/WD-file-system-api-20120417/</a>
@@ -72,6 +72,211 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 
 
 <h2>Static Members</h2>
+
+<div id="applicationDirectory"></div>
+<h3><code>applicationDirectory</code>
+  
+</h3>
+
+
+Read-only directory where the application is installed.
+
+
+
+
+
+
+
+
+
+
+<div id="applicationStorageDirectory"></div>
+<h3><code>applicationStorageDirectory</code>
+  
+</h3>
+
+
+Read-only directory where the application is installed.
+
+
+
+
+
+
+
+
+
+
+<div id="dataDirectory"></div>
+<h3><code>dataDirectory</code>
+  
+</h3>
+
+
+Where to put app-specific data files.
+
+
+
+
+
+
+
+
+
+
+<div id="cacheDirectory"></div>
+<h3><code>cacheDirectory</code>
+  
+</h3>
+
+
+Cached files that should survive app restarts.
+Apps should not rely on the OS to delete files in here.
+
+
+
+
+
+
+
+
+
+
+<div id="externalApplicationStorageDirectory"></div>
+<h3><code>externalApplicationStorageDirectory</code>
+  
+</h3>
+
+
+Android: the application space on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalDataDirectory"></div>
+<h3><code>externalDataDirectory</code>
+  
+</h3>
+
+
+Android: Where to put app-specific data files on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalCacheDirectory"></div>
+<h3><code>externalCacheDirectory</code>
+  
+</h3>
+
+
+Android: the application cache on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalRootDirectory"></div>
+<h3><code>externalRootDirectory</code>
+  
+</h3>
+
+
+Android: the external storage (SD card) root.
+
+
+
+
+
+
+
+
+
+
+<div id="tempDirectory"></div>
+<h3><code>tempDirectory</code>
+  
+</h3>
+
+
+iOS: Temp directory that the OS can clear at will.
+
+
+
+
+
+
+
+
+
+
+<div id="syncedDataDirectory"></div>
+<h3><code>syncedDataDirectory</code>
+  
+</h3>
+
+
+iOS: Holds app-specific files that should be synced (e.g. to iCloud).
+
+
+
+
+
+
+
+
+
+
+<div id="documentsDirectory"></div>
+<h3><code>documentsDirectory</code>
+  
+</h3>
+
+
+iOS: Files private to the app, but that are meaningful to other applications (e.g. Office files)
+
+
+
+
+
+
+
+
+
+
+<div id="sharedDirectory"></div>
+<h3><code>sharedDirectory</code>
+  
+</h3>
+
+
+BlackBerry10: Files globally available to all apps
+
+
+
+
+
+
+
+
+
 
 <div id="cordovaFileError"></div>
 <h3><code>cordovaFileError</code>

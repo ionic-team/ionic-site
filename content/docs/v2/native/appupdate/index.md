@@ -38,7 +38,7 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-app-update --save</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-app-update</code></pre>
 <p>Repo:
   <a href="https://github.com/vaenow/cordova-plugin-app-update">
     https://github.com/vaenow/cordova-plugin-app-update
@@ -66,13 +66,21 @@ docType: "class"
 
 <h2>Usage</h2>
 
+<p>You should first host an XML file on your server with the following data in it:</p>
+<pre><code class="lang-xml">&lt;update&gt;
+    &lt;version&gt;302048&lt;/version&gt;
+    &lt;name&gt;APK Name&lt;/name&gt;
+    &lt;url&gt;https://your-remote-api.com/YourApp.apk&lt;/url&gt;
+&lt;/update&gt;
+</code></pre>
+<p>Then use the following code:</p>
 <pre><code>import { AppUpdate } from &#39;ionic-native&#39;;
 
-let updateUrl = &#39;http://your-remote-api&#39;;
-AppUpdate.checkAppUpdate(updateUrl)
-  .then((something: any) =&gt; doSomething(something))
-  .catch((error: any) =&gt; console.log(error));
+let updateUrl = &#39;http://your-remote-api.com/update.xml&#39;;
+
+AppUpdate.checkAppUpdate(updateUrl);
 </code></pre>
+<p>The plugin will compare the app version and update it automatically if the API has a newer version to install.</p>
 
 
 

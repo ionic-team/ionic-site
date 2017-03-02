@@ -179,6 +179,34 @@ Grant permission to recieve push notifications
 
 
 
+<div id="hasPermission"></div>
+<h3><code>hasPermission()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Check permission to recieve push notifications
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
 <div id="setBadgeNumber"></div>
 <h3><code>setBadgeNumber(badgeNumber)</code>
   

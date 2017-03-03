@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-version: "1.1.9"
+version: "2.0.0-0"
 category: storage
 id: "storage"
 title: "Storage - Ionic Framework"
@@ -90,10 +90,11 @@ export class MyApp {
 <h3 id="configuring-storage">Configuring Storage</h3>
 <p>The Storage engine can be configured both with specific storage engine priorities, or custom configuration
 options to pass to localForage. See the localForage config docs for possible options: <a href="https://github.com/localForage/localForage#configuration">https://github.com/localForage/localForage#configuration</a></p>
+<p>Note: Any custom configurations will be merged with the default configuration</p>
 <pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
 
 export function provideStorage() {
-  return new Storage([&#39;sqlite&#39;, &#39;websql&#39;, &#39;indexeddb&#39;], { name: &#39;__mydb&#39; });
+  return new Storage({ name: &#39;__mydb&#39; });
 }
 
 @NgModule({

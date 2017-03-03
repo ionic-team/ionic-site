@@ -389,6 +389,26 @@ Lock or unlock the ability to slide to change slides.
 
 
 
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="slideNext"></div>
 
 <h3>

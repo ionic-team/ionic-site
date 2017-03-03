@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L14">
 Improve this doc
 </a>
 
@@ -520,7 +520,7 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
       <tr>
         <td><code>$tabs-ios-tab-max-width</code></td>
         
-          <td><code>240px</code></td>
+          <td><code>110px</code></td>
         
         <td><p>Max width of the tab button</p>
 </td>

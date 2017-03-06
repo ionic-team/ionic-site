@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201703051507, Dark Theme
+ * vE2E-201703061703, Dark Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -11764,7 +11764,7 @@ ion-spinner.spinner-paused svg {
 
 .tabs-ios .tab-button {
   padding: 0 2px;
-  max-width: 110px;
+  max-width: 240px;
   min-height: 49px;
   font-size: 10px;
   color: #8c8c8c; }

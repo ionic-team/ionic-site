@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.0"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L15">
 Improve this doc
 </a>
 
@@ -102,11 +102,51 @@ class MyApp {
 
 
 
+<div id="initPane"></div>
+
+<h3>
+<a class="anchor" name="initPane" href="#initPane"></a>
+<code>initPane()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="ngAfterViewInit"></div>
 
 <h3>
 <a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
 <code>ngAfterViewInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="paneChanged"></div>
+
+<h3>
+<a class="anchor" name="paneChanged" href="#paneChanged"></a>
+<code>paneChanged()</code>
   
 
 </h3>

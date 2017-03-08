@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.0"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -42,8 +42,8 @@ Improve this doc
 
 
 
-Rows are horizontal components of the [grid](../Grid) system and contain varying numbers of [columns](../Col). They ensure the groups of columns are positioned properly.
-
+<p>Rows are horizontal components of the <a href="../Grid">grid</a> system and contain varying numbers of
+<a href="../Col">columns</a>. They ensure the columns are positioned properly.</p>
 <h2 id="row-attributes">Row attributes</h2>
 <p>By default, columns will stretch to fill the entire height of the row and wrap when necessary.
 There are several attributes that can be added to a row to customize this behavior.</p>
@@ -85,23 +85,23 @@ There are several attributes that can be added to a row to customize this behavi
 </tr>
 <tr>
 <td>justify-content-start</td>
-<td>Adds <code>justify-content: start</code>. All columns will be horrizontally aligned at the start.</td>
+<td>Adds <code>justify-content: start</code>. All columns will be horizontally aligned at the start.</td>
 </tr>
 <tr>
 <td>justify-content-center</td>
-<td>Adds <code>justify-content: center</code>. All columns will be horrizontally aligned at the center.</td>
+<td>Adds <code>justify-content: center</code>. All columns will be horizontally aligned at the center.</td>
 </tr>
 <tr>
 <td>justify-content-end</td>
-<td>Adds <code>justify-content: end</code>. All columns will be horrizontally aligned at the end.</td>
+<td>Adds <code>justify-content: end</code>. All columns will be horizontally aligned at the end.</td>
 </tr>
 <tr>
 <td>justify-content-around</td>
-<td>Adds <code>justify-content: space-around</code>. All columns will be horrizontally aligned with equal space around them.</td>
+<td>Adds <code>justify-content: space-around</code>. All columns will be horizontally aligned with equal space around them.</td>
 </tr>
 <tr>
 <td>justify-content-between</td>
-<td>Adds <code>justify-content: space-between</code>. All columns will be horrizontally aligned with a half-size space on either end.</td>
+<td>Adds <code>justify-content: space-between</code>. All columns will be horizontally aligned with a half-size space on either end.</td>
 </tr>
 </tbody>
 </table>

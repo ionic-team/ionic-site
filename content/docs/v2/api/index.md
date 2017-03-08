@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.0"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 

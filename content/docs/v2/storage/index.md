@@ -48,23 +48,22 @@ IndexedDB, WebSQL, and localstorage, in that order.</p>
 <p>Next, install the package (comes by default for Ionic 2 apps &gt;= RC.0)</p>
 <pre><code class="lang-bash">npm install --save @ionic/storage
 </code></pre>
-<p>Next, add it to the providers list in your <code>NgModule</code> declaration (for example, in <code>src/app.module.ts</code>):</p>
-<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+<p>Next, add it to the imports list in your <code>NgModule</code> declaration (for example, in <code>src/app.module.ts</code>):</p>
+<pre><code class="lang-typescript">import { IonicStorageModule } from &#39;@ionic/storage&#39;;
 
 @NgModule({
   declarations: [
     // ...
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     // ...
   ],
-  providers: [
-    Storage
-  ]
+  providers: []
 })
 export class AppModule {}
 </code></pre>
@@ -91,7 +90,7 @@ export class MyApp {
 <p>The Storage engine can be configured both with specific storage engine priorities, or custom configuration
 options to pass to localForage. See the localForage config docs for possible options: <a href="https://github.com/localForage/localForage#configuration">https://github.com/localForage/localForage#configuration</a></p>
 <p>Note: Any custom configurations will be merged with the default configuration</p>
-<pre><code class="lang-typescript">import { Storage } from &#39;@ionic/storage&#39;;
+<pre><code class="lang-typescript">import { IonicStorageModule } from &#39;@ionic/storage&#39;;
 
 export function provideStorage() {
   return new Storage({ name: &#39;__mydb&#39; });
@@ -99,12 +98,12 @@ export function provideStorage() {
 
 @NgModule({
   declarations: ...,
-  imports: ...,
+  imports: [
+    IonicStorageModule.forRoot({ useFactory: provideStorage })
+  ],
   bootstrap: ...,
   entryComponents: ...,
-   providers: [
-     { provide: Storage, useFactory: provideStorage }
-   ]
+   providers: []
 })
 export class AppModule {}
 </code></pre>

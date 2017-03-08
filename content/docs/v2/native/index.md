@@ -17,18 +17,29 @@ Ionic Native wraps plugin callbacks in a Promise or an [Observable](https://gist
 
 
 ```ts
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
 
-Geolocation.getCurrentPosition().then(pos => {
-  console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-});
+class MyComponentOrService {
 
-let watch = Geolocation.watchPosition().subscribe(pos => {
-  console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-});
+  constructor(private platform: Platform, private geolocation: Geolocation) {
 
-// to stop watching
-watch.unsubscribe();
+    // get current position
+    geolocation.getCurrentPosition().then(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+    });
+
+    const watch = geolocation.watchPosition().subscribe(pos => {
+      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+    });
+
+    // to stop watching
+    watch.unsubscribe();
+
+  }
+
+}
+
 ```
 
 <h3 id="Runtime_Diagnostics">Runtime Diagnostics</h3>
@@ -55,20 +66,3 @@ npm install @ionic-native/camera --save
 Ionic Native will **not** install plugins for you automatically. You still need to install the plugins you need using Cordova CLI or Ionic CLI. Ionic Native will notify you if you are missing a plugin, and will provide you with the plugin package name to install.
 
 It is recommended to follow the installation instruction on each plugin's documentation, as some plugins require additional steps to fully install.
-
-<h4 id="Using_Ionic_Native_Wrappers">Examples</h4>
-
-```js
-import { Camera } from '@ionic-native/camera';
-import { Platform } from 'ionic-angular';
-
-constructor(private camera: Camera, privat platform: Platform) {
-
-  platform.ready().then(() => {
-    camera.getPicture()
-      .then((data: any) => console.log(data))
-      .catch((error: any) => console.log(error));
-  });
-
-}
-```

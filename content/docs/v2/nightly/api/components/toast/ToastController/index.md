@@ -33,7 +33,7 @@ ToastController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L69">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L102">
 Improve this doc
 </a>
 

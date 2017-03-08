@@ -722,6 +722,13 @@ Default: <code>null</code>.</p>
     </tr>
     
     <tr>
+      <td>dir</td>
+      <td><code>string</code></td>
+      <td><p> If dir attribute is equal to rtl, set interal _rtl to true;</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>direction</td>
       <td><code>string</code></td>
       <td><p>  Swipe direction: &#39;horizontal&#39; or &#39;vertical&#39;.

@@ -38,9 +38,11 @@ module.exports = function(req, res, next) {
     return res.redirect(301, redirects[requrl]);
   }
 
-  // don't index non production URLs
+  // don't index non production URLs, but favor HTTPS 
+  var protocol = 'https';
   if (req.hostname.indexOf('ionicframework.com') == -1) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    protocol = 'http';
   }
 
   // cache static files
@@ -50,6 +52,16 @@ module.exports = function(req, res, next) {
       res.setHeader('Cache-Control', 'public, max-age=315360000000');
       res.setHeader('Expires', new Date(Date.now() + 315360000000).toUTCString());
     }
+  }
+
+  // Setting default Page Vars
+  res.locals = {
+    header_style: 'transparent',
+    id: req.originalUrl.split('/').join('-'),
+    pre_footer: true,
+    protocol: protocol,
+    domain: req.get('host'),
+    url: req.originalUrl
   }
 
   return next();

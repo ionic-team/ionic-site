@@ -59,6 +59,8 @@ function bustCache() {
 
   var bustArray = function() {
     return [
+      cacheBust('server/pages/partials/', 'head.html'),
+      cacheBust('server/pages/partials/', 'scripts.html'),
       cacheBust('content/_includes/', 'head_includes.html'),
       cacheBust('content/_includes/v2_fluid/', 'head.html'),
       cacheBust('content/_includes/v2_fluid/', 'footer_tags.html')

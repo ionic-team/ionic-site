@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block header %}
+      {% include '../partials/head.html' %}
+      {% block header_includes %}{% endblock %}
+    {% endblock %}
+  </head>
+  <body id="page-{{id}}"
+        class="page-{{id}}
+               {% if header_style %}{{header_style}}{% endif %}"
+        data-spy="scroll"
+        data-offset="100"
+        ng-app="IonicSite">
+
+    <div id="snap-bar">
+      Add your voice:
+      <a href="https://goo.gl/forms/bodM9ebK7R4RdjF93" style="color: #fff">
+        <b>The 2017 Ionic Developer Survey is here</b>
+        <i class="ion-md-arrow-forward"></i>
+      </a>
+    </div>
+    {% include '../partials/header.html' %}
+
+    {% block content %}{% endblock %}
+
+    {% if pre_footer == true %}
+      {% include '../partials/pre_footer.html' %}
+    {% endif %}
+
+    {% include '../partials/footer.html' %}
+
+    {% block footer %}
+      {% include '../partials/scripts.html' %}
+      {% block scripts %}{% endblock %}
+    {% endblock %}
+  </body>
+</html>

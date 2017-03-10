@@ -23,9 +23,8 @@
   </hgroup>
   <div class="bar" data-spy="affix" data-offset-top="375">
     <div class="container" id="platform-nav">
-      <a href="http://apps.ionic.io/signup"
-         class="btn ionic"
-         onclick="c('Platform','DeployCTA', this)">Sign Up Free</a>
+      <a href="/products/pricing"
+         class="btn ionic">View Pricing</a>
       <ul class="categories nav">
         <li class="active">
           <a class="anchor overview" href="#overview">Overview</a>
@@ -57,262 +56,116 @@
 </div>
 
 <main>
-  <section class="overview" id="overview">
-    <hgroup class="container hero text-center">
-      <h3>The Ionic Cloud</h3>
-      <p>
-        A cloud platform for managing and scaling cross-platform mobile apps.
-        Integrated services enable you and your team to build, deploy, and grow
-        your apps efficiently.
-      </p>
-    </hgroup>
-    <div class="container hero left">
-      <ul class="content">
-        <li>
-          <h4>Powerful tools, all in one place</h4>
-          <p>
-            The one central hub to engage with and manage your users, deploy
-            live updates, and track your native builds.
-          </p>
-        </li>
-        <li>
-          <h4>Developer focused</h4>
-          <p>
-            Developers are at the heart of every great app. Our platform makes
-            designing and developing apps a joy.
-          </p>
-        </li>
-        <li>
-          <h4>Built with teams in mind</h4>
-          <p>
-            Invite team members to collaborate on your Ionic apps with unique
-            developer accounts and more.
-          </p>
-        </li>
-        <li>
-          <h4>Designed to work seamlessly with Ionic Framework</h4>
-          <p>
-            The Ionic Cloud has been built to work beautifully with apps built
-            using the open source Ionic Framework.
-          </p>
-        </li>
-      </ul>
-      <div class="graphics" ng-class="{active:true}">
-        <div class="circle sm"></div>
-        <div class="circle md"></div>
-        <div class="circle lg"></div>
-      </div>
-    </div>
-  </section>
-  <section class="notifications" id="notifications">
+  <section class="overview hero left" id="overview">
     <div class="container">
-      <hgroup class="hero text-center">
-        <h3>Connect with confidence</h3>
+      <hgroup>
+        <h3>The Full Ionic Experience</h3>
         <p>
-          Send dynamic, targeted, push notifications to all, or a segment of 
-          your users. Ionic’s simple push notifications allow you to grow and 
-          retain your mobile app user base.
+          Give you and your team all the tools needed to quickly move from app 
+          ideation to app store, allowing you to easily transition between the 
+          critical phases of your mobile development lifecycle.
         </p>
       </hgroup>
-      <div class="hero bottom">
-        <div class="graphics">
-          <div ng-repeat="dot in dots"
-               class="dot"
-               ng-class="dot.status"
-               ng-style="{left:dot.x, top:dot.y}">
-          </div>
-        </div>
-        <ul class="content">
-          <li>
-            <h4>Targeted Pushes</h4>
-            <p>
-            Send targeted pushes to all or some of your users, based on
-            fine-grained filters on real user data. Personalize each push
-            notification with a powerful template engine.
-            </p>
-          </li>
-          <li>
-            <h4>Custom scheduling</h4>
-            <p>
-              It matters what time of day your users receive push notifications.
-              Schedule your pushes in advance with our custom time options. 
-              Ionic does all the heavy lifting.
-            </p>
-          </li>
-          <li>
-            <h4>Improve retention</h4>
-            <p>
-              Connect and engage with your users. Easily track engagement of 
-              your push notifications in the dashboard to optimize user behavior 
-              and retention.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section class="authentication container" id="authentication">
-    <hgroup class="hero text-center">
-      <h3>User identity, made simple</h3>
-      <p>
-        One auth solution for all your apps. Ionic offers traditional email 
-        &amp; password authentication, as well as third-party providers like 
-        Facebook, Twitter, Google, and more.
-      </p>
-    </hgroup>
-    <div class="hero right">
-      <div class="graphics" ng-class="{shown:authShown}"></div>
       <ul class="content">
         <li>
-          <h4>Social integration</h4>
+          <h4>Design &amp; prototyping</h4>
           <p>
-            Easily add authentication for popular social networks and auth 
-            providers. Ionic Auth cures the OAuth headache.
+            <strong>Ionic Creator</strong> your team get from idea to app with 
+            as little friction as possible through a simple drag-and-drop 
+            interface, no coding required.
           </p>
         </li>
         <li>
-          <h4>User management</h4>
+          <h4>Device testing &amp; feedback</h4>
           <p>
-            Track, edit, and engage with your users through a simple, easy to 
-            use dashboard interface.
+            Use the <strong>Ionic View</strong> app for live app testing and to 
+            get your app in the hands of clients, testers, or collaborators as 
+            quickly as you make changes.
           </p>
         </li>
         <li>
-          <h4>Client-side API</h4>
+          <h4>Realtime app updates</h4>
           <p>
-            Query and manage users with a simple client-side JavaScript API. 
-            Login, signup, and logout are simple method calls.
+            Push hot code updates, content changes, A/B tests, and bug fixes in 
+            real time before and after your app is in the app stores, with Ionic 
+            Deploy.
           </p>
         </li>
         <li>
-          <h4>Native Plugins</h4>
+          <h4>Native cloud builds</h4>
           <p>
-            Ionic Auth works with native authentication plugins and providers 
-            for a great mobile user experience.
+            Create native apps in the cloud with <strong>Ionic Package</strong> 
+            to get from code to app store with no platform dependencies or 
+            complicated build steps.
           </p>
         </li>
       </ul>
     </div>
   </section>
-  <section class="updates" id="updates">
+
+  <section class="prototyping hero" id="prototyping">
     <div class="container">
-      <hgroup class="hero text-center">
-        <h3>Change everything. In real time. </h3>
+      <div class="content">
+        <h4>Ionic Creator</h4>
+        <h2>Prototype &amp; Design</h2>
         <p>
-          Ionic changes the way you update and improve your app by giving you 
-          the ability to deploy hot code live into production without going 
-          through the app stores.
+          Visually build high-fidelity apps in minutes. Drag and drop UI 
+          components, add themes, animations, design files, and even custom code 
+          to create real, interactive Ionic mobile apps.
         </p>
-      </hgroup>
-      <div class="hero left">
-        <ul class="content">
-          <li>
-            <h4>Skip the line</h4>
-            <p>
-              No more waiting for app store reviews. Push updates and UI changes 
-              to users immediately.
-            </p>
-          </li>
-          <li>
-            <h4>Rollback in seconds</h4>
-            <p>
-              Ionic Deploy tracks every version of your app, so you can roll 
-              back quickly if necessary.
-            </p>
-          </li>
-          <li>
-            <h4>Test multiple versions</h4>
-            <p>
-              Send updates to specific users before rolling them out to everyone 
-              with Deploy Channels.
-            </p>
-          </li>
-          <li>
-            <h4>Move faster</h4>
-            <p>
-              Update apps immediately. Fix bugs in production without weeks of 
-              review delays.
-            </p>
-          </li>
-        </ul>
-        <div class="graphics">
-          <div id="pages">
-            <div class="page profile" ng-class="profilePage"></div>
-            <div class="page likes"   ng-class="likesPage"></div>
-            <div class="page tabs"    ng-class="tabsPage"></div>
-            <div class="page color"   ng-class="colorPage"></div>
-          </div>
-          <div id="chats">
-            <div class="chat profile" ng-class="profileChat"></div>
-            <div class="chat likes"   ng-class="likesChat"></div>
-            <div class="chat tabs"    ng-class="tabsChat"></div>
-            <div class="chat color"   ng-class="colorChat"></div>
-            <div class="chat revert"  ng-class="revertChat"></div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
-  <section class="packaging" id="packaging">
+
+  <section class="authentication hero" id="testing">
     <div class="container">
-      <hgroup class="hero text-center">
-        <h3>Build apps with ease</h3>
+      <div class="content dark">
+        <h4>Ionic View APP</h4>
+        <h2>Live device testing</h2>
         <p>
-          Turn your Ionic code and web assets into native app binaries for
-          different platforms<br>with a single command. Build iOS apps even if
-          you don't use a Mac.
+          The Ionic View app makes it easy to live preview, test, and distribute 
+          your apps directly on the device with co-workers, testers, and clients 
+          alike. Get better feedback, faster and more easily.
         </p>
-      </hgroup>
-      <div class="hero bottom">
-        <div class="graphics">
-          <div class="circles">
-            <div class="circle" ng-class="circles[0]"></div>
-            <div class="circle" ng-class="circles[1]"></div>
-            <div class="circle" ng-class="circles[2]"></div>
-            <div class="circle" ng-class="circles[3]"></div>
-            <div class="circle" ng-class="circles[4]"></div>
-            <div class="circle" ng-class="circles[5]"></div>
-            <div class="circle" ng-class="circles[6]"></div>
-            <div class="circle" ng-class="circles[7]"></div>
-            <div class="circle" ng-class="circles[8]"></div>
-            <div class="circle" ng-class="circles[9]"></div>
-            <div class="box" ng-class="packageBoxStyle"></div>
-          </div>
-        </div>
-        <ul class="content">
-          <li>
-            <h4>Cloud builds</h4>
-            <p>
-              The Ionic Package build farm handles building your Ionic app for
-              each platform in the cloud. Build apps with a single command.
-            </p>
-          </li>
-          <li>
-            <h4>iOS for Windows</h4>
-            <p>
-              Don't use a Mac for development? No problem! Ionic Package builds
-              iOS apps for you with our Mac build farm. No equipment needed.
-            </p>
-          </li>
-          <li>
-            <h4>Rapid Development</h4>
-            <p>
-              Send app binaries to testers through email and other channels for
-              rapid feedback. Skip complicated beta testing tools.
-            </p>
-          </li>
-        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="updates hero" id="updates">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic deploy</h4>
+        <h2>Realtime app updating</h2>
+        <p>
+          Update everything in realtime. Ionic changes the way you update and 
+          improve your app by giving you the ability to deploy hot code live 
+          into production, before and after the app stores.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="packaging hero" id="packaging">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Package</h4>
+        <h2>Native Builds in the Cloud</h2>
+        <p>
+          Turn your web assets into native SDKs for multiple platforms, in the 
+          cloud, from a single codebase. Leave configuration, compilation, and 
+          packaging to us, so you can focus on shipping.
+        </p>
       </div>
     </div>
   </section>
   
   <section id="get-started">
-    <hgroup class="container text-center dark hero">
-      <h3>Get started with the <strong> Ionic Cloud</strong> today.</h3>
-      <p>Build, push, deploy, and scale your Ionic apps, the easy way.</p>
-      <a href="http://apps.ionic.io/signup"
-         class="btn ionic"
-         onclick="c('Platform','BottomSectionCTA')">Sign Up For Free</a>
+    <hgroup class="container text-center dark">
+      <a href="/products/pricing"
+         class="btn ionic right">View Pricing</a>
+      <h3>Ready to start building better apps, faster?</h3>
+      <p>
+        Create an account to build, code, test, and deploy apps faster, 
+        together.
+      </p>
     </hgroup>
   </section>
 </main>

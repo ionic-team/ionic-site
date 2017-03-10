@@ -416,6 +416,26 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   };
 }])
 
+.controller('PricingFormCtrl', ['$scope', '$http', '$timeout', 
+  function($scope, $http, $timeout) {
+
+  $scope.submit = function(form) {
+    var cleanForm = {
+      table: 'nick_sdlc_030917',
+      data: JSON.parse(JSON.stringify(form))
+    }
+    cleanForm.data.unused_features = Object.keys(form.unused_features).join(', ');
+
+    $http.post('http://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
+      alert('Thanks!');
+      $('#modal-close').click();
+      $scope.form = {};
+    }).catch(function(err) {
+      console.error('Unable to save survey', err);
+    });
+  };
+}])
+
 .controller('PricingReserveCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.launched = false;
   $scope.showSurvey = false;

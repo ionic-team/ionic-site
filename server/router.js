@@ -14,5 +14,6 @@ module.exports = function router(app) {
   // });
 
   .get('/', (req, res) => { res.render('index'); })
-  .get('/products', (req, res) => { res.render('products/index'); });
+  .get('/products', (req, res) => { res.render('products/index'); })
+  .get('/products/pricing', (req, res) => { res.render('products/pricing'); });
 };

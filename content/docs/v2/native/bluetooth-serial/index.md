@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -211,6 +211,27 @@ Connect insecurely to a Bluetooth device
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
+</div>
+
+
+
+<div id="disconnect"></div>
+<h3><code>disconnect()</code>
+  
+</h3>
+
+
+Disconnect from the connected device
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

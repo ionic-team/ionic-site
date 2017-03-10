@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -176,7 +176,7 @@ Possible values:
 
 
 <div id="configure"></div>
-<h3><code>configure(callback,&nbsp;errorCallback,&nbsp;options)</code>
+<h3><code>configure(options)</code>
   
 </h3>
 
@@ -199,50 +199,16 @@ Configure the plugin.
   
   <tr>
     <td>
-      callback
-      
-      
-    </td>
-    <td>
-      
-<code>Function</code>
-    </td>
-    <td>
-      <p>callback will be called when background location is determined.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      errorCallback
-      
-      
-    </td>
-    <td>
-      
-<code>Function</code>
-    </td>
-    <td>
-      <p>callback to be executed every time a geolocation error occurs.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       options
       
       
     </td>
     <td>
       
-<code>Config</code>
+<code>BackgroundGeolocationConfig</code>
     </td>
     <td>
-      <p>An object of type Config</p>
+      <p>options An object of type Config</p>
 
       
     </td>
@@ -337,7 +303,7 @@ Inform the native plugin that you're finished, the background-task may be comple
 
 
 <div id="changePace"></div>
-<h3><code>changePace()</code>
+<h3><code>changePace(isMoving)</code>
   
 </h3>
 
@@ -354,6 +320,35 @@ Inform the native plugin that you're finished, the background-task may be comple
 Force the plugin to enter "moving" or "stationary" state
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      isMoving
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
 
 
 
@@ -367,7 +362,7 @@ Force the plugin to enter "moving" or "stationary" state
 
 
 <div id="setConfig"></div>
-<h3><code>setConfig()</code>
+<h3><code>setConfig(options)</code>
   
 </h3>
 
@@ -376,6 +371,35 @@ Force the plugin to enter "moving" or "stationary" state
 
 Setup configuration
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>BackgroundGeolocationConfig</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -629,7 +653,7 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 
 
 <div id="deleteLocation"></div>
-<h3><code>deleteLocation()</code>
+<h3><code>deleteLocation(locationId)</code>
   
 </h3>
 
@@ -643,6 +667,35 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 
 Delete stored location by given locationId.
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      locationId
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -685,7 +738,7 @@ Delete all stored locations.
 
 
 <div id="switchMode"></div>
-<h3><code>switchMode()</code>
+<h3><code>switchMode(modeId)</code>
   
 </h3>
 
@@ -706,8 +759,36 @@ In BACKGROUND mode plugin uses significant changes and region monitoring to rece
 BackgroundGeolocation.Mode.FOREGROUND
 BackgroundGeolocation.Mode.BACKGROUND 
 *
-@param {number} See above. 
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      modeId
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -730,7 +811,7 @@ BackgroundGeolocation.Mode.BACKGROUND 
 Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
 @see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
 
-@param {number} Limits the number of entries 
+@param limit {number} Limits the number of entries 
 
 
 

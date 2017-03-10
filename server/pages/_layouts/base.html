@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {% block header %}
-      {% include '../partials/head.html' %}
+      {% include '../_includes/head.html' %}
       {% block header_includes %}{% endblock %}
     {% endblock %}
   </head>
@@ -20,18 +20,18 @@
         <i class="ion-md-arrow-forward"></i>
       </a>
     </div>
-    {% include '../partials/header.html' %}
+    {% include '../_includes/header.html' %}
 
-    {% block content %}{% endblock %}
+    {% block main %}{% endblock %}
 
     {% if pre_footer == true %}
-      {% include '../partials/pre_footer.html' %}
+      {% include '../_includes/pre_footer.html' %}
     {% endif %}
 
-    {% include '../partials/footer.html' %}
+    {% include '../_includes/footer.html' %}
 
     {% block footer %}
-      {% include '../partials/scripts.html' %}
+      {% include '../_includes/scripts.html' %}
       {% block scripts %}{% endblock %}
     {% endblock %}
   </body>

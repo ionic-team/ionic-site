@@ -13,7 +13,6 @@ module.exports = function router(app) {
   //   res.sendFile('/css/styles.test.min.css', {root: './_site'});
   // });
 
-  .get('/', (req, res) => {
-    res.render('index');
-});
+  .get('/', (req, res) => { res.render('index'); })
+  .get('/products', (req, res) => { res.render('products/index'); });
 };

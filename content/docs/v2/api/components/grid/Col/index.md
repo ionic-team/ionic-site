@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.0"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -42,9 +42,8 @@ Improve this doc
 
 
 
-Columns are cellular components of the [grid](../Grid) system and go inside of a [row](../Row).
-They will expand to fill their row. All content within a grid should go inside of a column.
-
+<p>Columns are cellular components of the <a href="../Grid">grid</a> system and go inside of a <a href="../Row">row</a>.
+They will expand to fill their row. All content within a grid should go inside of a column.</p>
 <h2 id="column-attributes">Column attributes</h2>
 <p>By default, columns will stretch to fill the entire height of the row.
 There are several attributes that can be added to a column to customize this behavior.</p>
@@ -74,7 +73,7 @@ There are several attributes that can be added to a column to customize this beh
 </tr>
 <tr>
 <td>align-self-baseline</td>
-<td>Adds <code>align-self: baseline</code>. The column will be vertically aligned at its baselines.</td>
+<td>Adds <code>align-self: baseline</code>. The column will be vertically aligned at its baseline.</td>
 </tr>
 </tbody>
 </table>

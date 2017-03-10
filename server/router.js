@@ -12,4 +12,8 @@ module.exports = function router(app) {
   // .get('/css/styles.min.css', abTestTest(null, 0.50), function(req, res) {
   //   res.sendFile('/css/styles.test.min.css', {root: './_site'});
   // });
+
+  .get('/', (req, res) => {
+    res.render('index');
+});
 };

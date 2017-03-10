@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.1.0"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L87">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L94">
 Improve this doc
 </a>
 
@@ -79,7 +79,9 @@ building the form within a modal instead.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private alertCtrl: AlertController) {
+<pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
+
+constructor(private alertCtrl: AlertController) {
 
 }
 
@@ -242,6 +244,11 @@ Display an alert with a title, inputs, and buttons
 <td>cssClass</td>
 <td><code>string</code></td>
 <td>Additional classes for custom styles, separated by spaces.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td><code>string</code></td>
+<td>Set alert mode (ios, md, wp).</td>
 </tr>
 <tr>
 <td>inputs</td>

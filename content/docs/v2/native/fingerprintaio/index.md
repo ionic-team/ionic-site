@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/fingerprint-aio.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/fingerprint-aio.ts#L18">
   Improve this doc
 </a>
 
@@ -77,7 +77,8 @@ Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plu
 
 FingerprintAIO.show({
     clientId: &quot;Fingerprint-Demo&quot;,
-   clientSecret: &quot;password&quot; //Only necessary for Android
+    clientSecret: &quot;password&quot;, //Only necessary for Android
+    disableBackup:true  //Only for Android(optional)
 })
 .then((result: any) =&gt; console.log(any))
 .catch((error: any) =&gt; console.log(error));
@@ -214,6 +215,20 @@ Show authentication dialogue
     </td>
     <td>
       <p>Secret password. Only for android</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      disableBackup
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>Disable &#39;use backup&#39; option. Only for android (optional)</p>
 
     </td>
   </tr>

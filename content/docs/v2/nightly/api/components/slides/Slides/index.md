@@ -389,6 +389,26 @@ Lock or unlock the ability to slide to change slides.
 
 
 
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="slideNext"></div>
 
 <h3>
@@ -698,6 +718,13 @@ Default: <code>null</code>.</p>
       <td><p> Pass another Slides instance or array of Slides instances
 that should be controlled by this Slides instance.
 Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>dir</td>
+      <td><code>string</code></td>
+      <td><p> If dir attribute is equal to rtl, set interal _rtl to true;</p>
 </td>
     </tr>
     

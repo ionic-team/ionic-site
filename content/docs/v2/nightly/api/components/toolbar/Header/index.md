@@ -180,6 +180,15 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
       </tr>
       
       <tr>
+        <td><code>$toolbar-ios-button-strong-font-weight</code></td>
+        
+          <td><code>600</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$navbar-ios-height</code></td>
         
           <td><code>$toolbar-ios-height</code></td>
@@ -252,6 +261,15 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
           <td><code>2px</code></td>
         
         <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-button-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
 </td>
       </tr>
       
@@ -355,6 +373,15 @@ It&#39;s important to note that <code>ion-header</code> needs to be the one of t
           <td><code>2px</code></td>
         
         <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-button-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
 </td>
       </tr>
       

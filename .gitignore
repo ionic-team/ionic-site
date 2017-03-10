@@ -19,3 +19,4 @@ linkchecker.html
 /content/docs/v2/resources/ionicons/site_data.json
 /content/js/ionic-site.js
 /content/js/ionic-site.min.js
+/.env

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -69,8 +69,8 @@ docType: "class"
 <pre><code>import {FilePath} from &#39;ionic-native&#39;;
 
 FilePath.resolveNativePath(path)
-  .then(filePath =&gt; console.log(filePath);
-  .catch(err =&gt; console.log(err);
+  .then(filePath =&gt; console.log(filePath))
+  .catch(err =&gt; console.log(err));
 </code></pre>
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -804,7 +804,7 @@ If you are using this plugin on Android devices only, you will never have to use
 
 
 
-See the docuemntation of {@code requestWhenInUseAuthorization} for further details.
+See the documentation of {@code requestWhenInUseAuthorization} for further details.
 
 
 

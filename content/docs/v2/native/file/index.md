@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.7.0"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -376,7 +376,7 @@ Check if a directory exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;boolean&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
 </div>
 
 
@@ -463,7 +463,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;DirectoryEntry&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
+<code>Promise&lt;DirectoryEntry&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
 </div>
 
 
@@ -531,7 +531,7 @@ Remove a directory at a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;RemoveResult&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
 </div>
 
 
@@ -633,7 +633,7 @@ Move a directory to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;(DirectoryEntry|Entry)&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
+<code>Promise&lt;DirectoryEntry|Entry&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
 </div>
 
 
@@ -735,7 +735,7 @@ Copy a directory in various methods. If destination directory exists, will fail 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;Entry&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
 </div>
 
 
@@ -939,7 +939,7 @@ Check if a file exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;boolean&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
 </div>
 
 
@@ -1026,7 +1026,7 @@ If an existing file exists and the replace value is false, the promise will fail
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;FileEntry&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
+<code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
 </div>
 
 
@@ -1094,7 +1094,7 @@ Removes a file from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;RemoveResult&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
 </div>
 
 
@@ -1349,7 +1349,7 @@ Read the contents of a file as text.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;string&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
 </div>
 
 
@@ -1419,7 +1419,7 @@ A data url is of the form:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;string&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
 </div>
 
 
@@ -1487,7 +1487,7 @@ Read file and return data as a binary data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;string&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
 </div>
 
 
@@ -1555,7 +1555,7 @@ Read file and return data as an ArrayBuffer.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;ArrayBuffer&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
+<code>Promise&lt;ArrayBuffer&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
 </div>
 
 
@@ -1657,7 +1657,7 @@ Move a file to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;Entry&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
 </div>
 
 
@@ -1759,7 +1759,7 @@ Copy a file in various methods. If file exists, will fail to copy.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise.&lt;Entry&gt;</code>|<code>Promise.&lt;FileError&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
 </div>
 
 

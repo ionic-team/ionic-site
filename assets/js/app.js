@@ -426,7 +426,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
     }
     cleanForm.data.unused_features = Object.keys(form.unused_features).join(', ');
 
-    $http.post('http://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
+    $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
       alert('Thanks!');
       $('#modal-close').click();
       $scope.form = {};

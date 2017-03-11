@@ -56,24 +56,23 @@ Note that Ionic Native core package is included by default with every Ionic 2 ap
 <h3 id="Usage">Usage</h3>
 
 <h4 id="Install_Plugins_Needed">Install the Needed Plugins</h4>
-Install the Ionic Native package for each plugin you want to add from NPM. The package names are documented in each plugin's documentation.
+Install the Ionic Native package for each plugin you want to add from NPM. 
 
 For example, if you want to install the Camera plugin, you will need to run the following command:
 ```
 npm install @ionic-native/camera --save
 ```
-
-Ionic Native will **not** install plugins for you automatically. You still need to install the plugins you need using Cordova CLI or Ionic CLI. The plugin's package id is also documented on the plugin's documentation.
+Then install the plugin using Cordova or Ionic CLI.
 
 For example:
 ```
 ionic plugin add cordova-plugin-camera
 ```
 
-It is recommended to follow the installation instruction on each plugin's documentation, as some plugins require additional steps to fully install.
+All package names are documented on the plugin's documentation. It is recommended to follow the installation instructions on each plugin's documentation, as some plugins require additional steps to fully install.
 
 <h4 id="Add_Plugins_to_Your_App_Module">Add Plugins to Your App's Module</h4>
-After installing a plugin's package, you need to add it to your app's `NgModule`.
+After installing a plugin's package, add it to your app's `NgModule`.
 
 ```typescript
 ...

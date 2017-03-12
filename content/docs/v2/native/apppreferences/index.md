@@ -57,9 +57,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<p>```
-import { AppPreferences } from &#39;ionic-native&#39;;</p>
-<p>AppPreferences.fetch(&#39;key&#39;).then((res) =&gt; { console.log(res); });</p>
+<pre><code>import { AppPreferences } from &#39;ionic-native&#39;;
+
+AppPreferences.fetch(&#39;key&#39;).then((res) =&gt; { console.log(res); });
+</code></pre>
 
 
 

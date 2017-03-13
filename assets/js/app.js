@@ -420,6 +420,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   function($scope, $http, $timeout) {
 
   $scope.submit = function(form) {
+    window.history.push('submitting');
     var cleanForm = {
       table: 'nick_sdlc_030917',
       data: JSON.parse(JSON.stringify(form))
@@ -429,8 +430,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
     $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
       alert('Thanks!');
       $('#modal-close').click();
+      window.history.push('submitted');
       $scope.form = {};
     }).catch(function(err) {
+      window.history.push('submission error');
       console.error('Unable to save survey', err);
     });
   };

@@ -52,7 +52,10 @@
           <li>Custom Cordova Plugin support for Cloud Builds</li>
         </ul>
         <div class="cta">I'm interested</div>
-        <a  class="cta" data-toggle="modal" data-target="#myModal">
+        <a  class="cta" 
+            data-toggle="modal" 
+            data-target="#myModal"
+            onclick="window.history.push('FormOpened')">
           I'm interested
         </a>
       </div>
@@ -76,7 +79,8 @@
                 class="close" 
                 data-dismiss="modal" 
                 aria-label="Close"
-                id="modal-close"></button>
+                id="modal-close"
+                onclick="window.history.push('FormClosed')"></button>
         <h4 class="modal-title">Thanks for your interest</h4> 
         <p>
           We're currently evaluating this product and would love your feedback
@@ -84,7 +88,7 @@
         
       </div>
       <div class="modal-body">
-        <form>
+        <form id="pricingInterestedForm">
 
           <div class="form-group">
             <label for="name" class="control-label">
@@ -290,4 +294,24 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+var $form = document.querySelector('#pricingInterestedForm');
+window.history = [];
+window.addEventListener('beforeunload', function() {
+  if (window.history.length) {
+    window.dataLayer.push({
+      'event' : 'formAbandonment',
+      'eventCategory' : 'Pricing Form Tracking',
+      'eventAction' : window.history.join(' > ')
+    });
+  }
+});
+
+$form.addEventListener('change', function(e) {
+  window.history.push(e['target'].getAttribute('name'));
+});
+</script>
 {% endblock %}

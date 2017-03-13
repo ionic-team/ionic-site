@@ -348,7 +348,7 @@ A method that allows you to listen to events happening in the browser.
       <code>&#39;yes&#39; | &#39;no&#39;</code>
     </td>
     <td>
-      <p>Set to yes or no to ruen the InAppBrowser&#39;s location bar on or off.</p>
+      <p>Set to yes or no to turn the InAppBrowser&#39;s location bar on or off.</p>
 
     </td>
   </tr>

@@ -23,11 +23,13 @@ expressNunjucks(app, {
   noCache: !config.PROD,
   autoescape: false
 });
+app.enable('etag');
 
 app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
-  maxage: 315360000000 // ten years
+  maxage: 315360000000, // ten years
+  etag: true
 }));
 
 app.use(function(req, res, next) {

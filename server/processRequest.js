@@ -47,10 +47,11 @@ module.exports = function(req, res, next) {
 
   // cache static files
   var staticURLS = ['/img/','/css/','/js/','/fonts/','/favicon.ico'];
-  for (var i = 0; i < staticURLS.length; i++) {
+  for (var i = 0; i <= staticURLS.length; i++) {
     if (req.url.indexOf(staticURLS[i]) === 0) {
       res.setHeader('Cache-Control', 'public, max-age=315360000000');
       res.setHeader('Expires', new Date(Date.now() + 315360000000).toUTCString());
+      break;
     }
   }
 

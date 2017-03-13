@@ -323,6 +323,54 @@ Listen for events that the plugin fires. Available events are `enable`, `disable
 
 
 
+<div id="moveToBackground"></div>
+<h3><code>moveToBackground()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Android allows to programmatically move from foreground to background.
+
+
+
+
+
+
+
+
+
+
+<div id="moveToForeground"></div>
+<h3><code>moveToForeground()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Android allows to programmatically move from background to foreground.
+
+
+
+
+
+
+
+
+
+
 <div id="overrideBackButton"></div>
 <h3><code>overrideBackButton()</code>
   

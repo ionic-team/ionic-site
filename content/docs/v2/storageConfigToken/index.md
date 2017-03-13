@@ -20,7 +20,7 @@ StorageConfigToken
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L242">
+<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L236">
 Improve this doc
 </a>
 

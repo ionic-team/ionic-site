@@ -4,9 +4,9 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     colorator (1.1.0)
-    ffi (1.9.17)
+    ffi (1.9.18)
     forwardable-extended (2.6.0)
-    jekyll (3.3.1)
+    jekyll (3.4.2)
       addressable (~> 2.4)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
@@ -31,7 +31,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
     rb-fsevent (0.9.8)
-    rb-inotify (0.9.7)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     rouge (1.11.1)
     safe_yaml (1.0.4)
@@ -45,4 +45,4 @@ DEPENDENCIES
   kramdown
 
 BUNDLED WITH
-   1.12.5
+   1.14.6

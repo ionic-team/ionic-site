@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -467,6 +467,8 @@ For more information see:
 <h3><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
   
 </h3>
+
+
 
 
 Log an event.  For more information see the Events section above.

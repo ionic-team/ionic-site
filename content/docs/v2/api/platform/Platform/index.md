@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -541,6 +541,29 @@ the its back button action.</p>
 
 
 </div>
+
+
+
+
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize</code>
+  
+
+</h3>
+
+The resize event emits when the native platform pulls the application
+out from the background. This event would emit when a Cordova app comes
+out from the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
 
 
 

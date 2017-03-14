@@ -95,6 +95,47 @@ export class NewsFeedPage {
 
 }
 </code></pre>
+<h2 id="-waitfor-method-of-infinitescroll"><code>waitFor</code> method of InfiniteScroll</h2>
+<p>In case if your async operation returns promise you can utilize
+<code>waitFor</code> method inside your template.</p>
+<pre><code class="lang-html">&lt;ion-content&gt;
+
+ &lt;ion-list&gt;
+   &lt;ion-item *ngFor=&quot;let item of items&quot;&gt;{{item}}&lt;/ion-item&gt;
+ &lt;/ion-list&gt;
+
+ &lt;ion-infinite-scroll (ionInfinite)=&quot;$event.waitFor(doInfinite())&quot;&gt;
+   &lt;ion-infinite-scroll-content&gt;&lt;/ion-infinite-scroll-content&gt;
+ &lt;/ion-infinite-scroll&gt;
+
+&lt;/ion-content&gt;
+</code></pre>
+<pre><code class="lang-ts">@Component({...})
+export class NewsFeedPage {
+  items = [];
+
+  constructor() {
+    for (var i = 0; i &lt; 30; i++) {
+      this.items.push( this.items.length );
+    }
+  }
+
+  doInfinite(): Promise&lt;any&gt; {
+    console.log(&#39;Begin async operation&#39;);
+
+    return new Promise((resolve) =&gt; {
+      setTimeout(() =&gt; {
+        for (var i = 0; i &lt; 30; i++) {
+          this.items.push( this.items.length );
+        }
+
+        console.log(&#39;Async operation has ended&#39;);
+        resolve();
+      }, 500);
+    })
+  }
+}
+</code></pre>
 <h2 id="infinite-scroll-content">Infinite Scroll Content</h2>
 <p>By default, Ionic uses the infinite scroll spinner that looks
 best for the platform the user is on. However, you can change the
@@ -212,6 +253,28 @@ and hide the display.</p>
 
 
 
+
+<div id="waitFor"></div>
+
+<h3>
+<a class="anchor" name="waitFor" href="#waitFor"></a>
+<code>waitFor()</code>
+  
+
+</h3>
+
+Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
+change state of infiniteScroll to "complete"
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -308,6 +371,15 @@ your async operation has completed.</p>
           <td><code>#666</code></td>
         
         <td><p>Color of the infinite scroll loading indicator</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-color</code></td>
+        
+          <td><code>$infinite-scroll-loading-color</code></td>
+        
+        <td><p>Text color of the infinite scroll loading indicator</p>
 </td>
       </tr>
       

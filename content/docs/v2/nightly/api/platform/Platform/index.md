@@ -545,6 +545,29 @@ the its back button action.</p>
 
 
 
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize</code>
+  
+
+</h3>
+
+The resize event emits when the native platform pulls the application
+out from the background. This event would emit when a Cordova app comes
+out from the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
+
+
+
+
 <div id="resume"></div>
 
 <h3>

@@ -1,0 +1,315 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'products-pricing' %}
+
+{% block main %}
+<div class="cta gradient">
+  <hgroup class="container center">
+    <h1>The app platform for modern developers</h1>
+    <h4>
+      Ionic gives you all the tools and services needed to quickly move through 
+      the SDLC,<br>from app ideation to app store, and allows you to easily 
+      transition between the critical phases of your development.
+    </h4>
+  </hgroup>
+</div>
+
+<main>
+  <div class="container">
+    <div class="cards">
+      <div class="card community"
+           ng-click="community = true"
+           ng-class="{active: community}">
+        <h4 class="title">Community</h4>
+        <h2 class="free">Free</h2>
+        <h3>Maximize your Ionic Development Process</h3>
+        <ul>
+          <li>The #1 Open Source app Framework</li>
+          <li>Unlimited Public Apps</li>
+          <li>Share your app with a small group of testers</li>
+          <li>Live update to a single environment</li>
+        </ul>
+        <div class="cta">Gets Started</div>
+        <a class="cta" href="/getting-started">
+          Get Started
+        </a>
+      </div>
+      <div class="card production active"
+           ng-click="community = false"
+           ng-class="{active: !community}">
+        <h4 class="title">Professional</h4>
+        <h2>
+          <sup>$</sup>1999<sub>/dev /yr</sub>
+        </h2>
+        <h3>Supercharge your team's workflow</h3>
+        <ul>
+          <li>All Community Features plus</li>
+          <li>Rapid prototyping with Creator Pro</li>
+          <li>Unlimited testing accounts with Ionic View</li>
+          <li>Unlimited Private Apps</li>
+          <li>Development, Staging, and Productions live deploy channels</li>
+          <li>Unlimited custom deploy channels for A/B testing</li>
+          <li>Unlimited Cloud Builds</li>
+          <li>Custom Cordova Plugin support for Cloud Builds</li>
+        </ul>
+        <div class="cta">I'm interested</div>
+        <a  class="cta" 
+            data-toggle="modal" 
+            data-target="#myModal"
+            onclick="window.history.push('FormOpened')">
+          I'm interested
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<div class="modal fade" 
+     id="myModal" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="myModalLabel"
+     ng-controller="PricingFormCtrl">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" 
+                class="close" 
+                data-dismiss="modal" 
+                aria-label="Close"
+                id="modal-close"
+                onclick="window.history.push('FormClosed')"></button>
+        <h4 class="modal-title">Thanks for your interest</h4> 
+        <p>
+          We're currently evaluating this product and would love your feedback
+        </p>
+        
+      </div>
+      <div class="modal-body">
+        <form id="pricingInterestedForm">
+
+          <div class="form-group">
+            <label for="name" class="control-label">
+              Name
+            </label>
+            <input type="text" 
+                   class="form-control" 
+                   id="name"
+                   ng-model="form.name">
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="control-label">
+              Email
+            </label>
+            <input type="email" 
+                   class="form-control" 
+                   id="email"
+                   ng-model="form.email">
+          </div>
+
+          <div class="form-group">
+            <label for="company_size" class="control-label">Company Size</label>
+            <select id="company_size" 
+                    name="company_size" 
+                    class="form-control" 
+                    ng-model="form.company_size">
+              <option ng-value="null" disabled selected></option>
+              <option ng-value="1">Self Employed</option>
+              <option ng-value="10">2-10</option>
+              <option ng-value="50">11-50</option>
+              <option ng-value="500">51-500</option>
+              <option ng-value="1000">500+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="price" class="control-label">Is the offering presented</label>
+            <select id="price" 
+                    name="price" 
+                    class="form-control" 
+                    ng-model="form.price">
+              <option value="null" disabled selected></option>
+              <option value="inexpensive">Inexpensive</option>
+              <option value="fair">Fair</option>
+              <option value="expensive">Expensive</option>
+              <option value="prohibitively expensive">Prohibitively expensive</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="expensive_point" class="control-label">
+              At what price point does this offering become prohibitively 
+              expensive?
+            </label>
+            <input type="number" 
+                   class="form-control" 
+                   id="expensive_point"
+                   name="expensive_point" 
+                   ng-model="form.expensive_point">
+          </div>
+
+          <div class="form-group">
+            <label for="would-this-offering" class="control-label">
+              Would this offering solve any problems you currently have?
+            </label><br>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="solve_problems" 
+                     id="solve_problems_yes" 
+                     ng-value="true"
+                    ng-model="form.solve_problems"> Yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="solve_problems" 
+                     id="solve_problems_no" 
+                     ng-value="false"
+                     ng-model="form.solve_problems"> No
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">
+              Is there anything in this offering you wouldn't use?
+            </label><br>
+            <label class="checkbox-inline">
+              <input type="checkbox" 
+                     value="unused_features_creator" 
+                     ng-model="form.unused_features.creator"> 
+              Prototyping
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" 
+                     value="unused_features_view"
+                     ng-model="form.unused_features.view"> 
+              Device Preview/Testing
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" 
+                     value="unused_features_deploy"
+                     ng-model="form.unused_features.deploy"> 
+              Live Updates
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" 
+                     value="unused_features_package"
+                     ng-model="form.unused_features.package"> 
+              Cloud Builds
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">
+              Is there anything missing from this offering that would prevent 
+              you from buying it?
+            </label><br>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="missing_purchase" 
+                     id="missing_purchase_yes" 
+                     ng-value="true"
+                     ng-model="form.missing_purchase"> Yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="missing_purchase" 
+                     id="missing_purchase_no" 
+                     ng-value="false"
+                     ng-model="form.missing_purchase"> No
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">
+              Is there anything missing in this offering that is critical to 
+              your workflow?
+            </label><br>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="missing_workflow" 
+                     id="missing_workflow_yes" 
+                     ng-value="true"
+                     ng-model="form.missing_workflow"> Yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="missing_workflow" 
+                     id="missing_workflow_no" 
+                     ng-value="false"
+                     ng-model="form.missing_workflow"> No
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="if-this-package" class="control-label">
+              If this package was Ionic’s only offering, and existed today for 
+              $1999/user/year, would you buy it?
+            </label><br>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="would_buy" 
+                     id="would_buy_yes" 
+                     ng-value="true"
+                     ng-model="form.would_buy"> Yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="would_buy" 
+                     id="would_buy_no" 
+                     ng-value="false"
+                     ng-model="form.would_buy"> No
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="have-you-ever" class="control-label">
+              Have you ever used Ionic Creator or Ionic Cloud?
+            </label><br>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="used_services" 
+                     id="used_services_yes" 
+                     ng-value="true"
+                     ng-model="form.used_services"> Yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" 
+                     name="used_services" 
+                     id="used_services_no" 
+                     ng-value="false"
+                     ng-model="form.used_services"> No
+            </label>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" 
+                class="btn btn-primary" 
+                ng-click="submit(form)">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var $form = document.querySelector('#pricingInterestedForm');
+window.history = [];
+window.addEventListener('beforeunload', function() {
+  if (window.history.length) {
+    window.dataLayer.push({
+      'event' : 'formAbandonment',
+      'eventCategory' : 'Pricing Form Tracking',
+      'eventAction' : window.history.join(' > ')
+    });
+  }
+});
+
+$form.addEventListener('change', function(e) {
+  window.history.push(e['target'].getAttribute('name'));
+});
+</script>
+{% endblock %}

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -66,10 +66,10 @@ SQLite.openDatabase({
 })
   .then((db: SQLite) =&gt; {
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {}).catch(() =&gt; {});
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, []).then(() =&gt; {}).catch(() =&gt; {});
 
   })
-  .catch(error =&gt; console.error(&#39;Error opening database&#39;, error);
+  .catch(error =&gt; console.error(&#39;Error opening database&#39;, error));
 
 
 // OPTION B: Create a new instance of SQLite
@@ -78,7 +78,7 @@ db.openDatabase({
   name: &#39;data.db&#39;,
   location: &#39;default&#39; // the location field is required
 }).then(() =&gt; {
-  db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {
+  db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, []).then(() =&gt; {
 
   }, (err) =&gt; {
     console.error(&#39;Unable to execute sql: &#39;, err);

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L27">
   Improve this doc
 </a>
 
@@ -266,6 +266,20 @@ Request permission to read images
     </td>
     <td>
       <p>Quality of images, defaults to 100</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      outputType
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>number</code>
+    </td>
+    <td>
+      <p>Output type, defaults to 0  (FILE_URI).</p>
 
     </td>
   </tr>

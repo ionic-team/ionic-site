@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googlemap.ts#L37">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googlemap.ts#L49">
   Improve this doc
 </a>
 
@@ -63,7 +63,8 @@ docType: "class"
  GoogleMapsLatLng,
  CameraPosition,
  GoogleMapsMarkerOptions,
- GoogleMapsMarker
+ GoogleMapsMarker,
+ GoogleMapsMapTypeId
 } from &#39;ionic-native&#39;;
 
 export class MapPage {
@@ -86,9 +87,6 @@ loadMap() {
 
  let map = new GoogleMap(element);
 
- // listen to MAP_READY event
- map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
-
  // create LatLng object
  let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
 
@@ -99,8 +97,12 @@ loadMap() {
    tilt: 30
  };
 
- // move the map&#39;s camera to position
- map.moveCamera(position);
+ // listen to MAP_READY event
+ map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; {
+   // move the map&#39;s camera to position
+   map.moveCamera(position); // works on iOS and Android
+});
+
 
  // create new marker
  let markerOptions: GoogleMapsMarkerOptions = {
@@ -113,7 +115,7 @@ loadMap() {
       marker.showInfoWindow();
     });
  }
-
+});
 }
 </code></pre>
 

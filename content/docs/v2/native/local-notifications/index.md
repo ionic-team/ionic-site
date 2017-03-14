@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L83">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L90">
   Improve this doc
 </a>
 
@@ -1065,6 +1065,22 @@ Default: res://icon</p>
       <p>ANDROID ONLY
 Uri of the resource (only res://) to use in the notification layouts. Different classes of devices may return different sizes
 Default: res://ic_popup_reminder</p>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      color
+      <div><em>(optional)</em></div>
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>ANDROID ONLY
+RGB value for the background color of the smallIcon.
+Default: Androids COLOR_DEFAULT, which will vary based on Android version.</p>
 
     </td>
   </tr>

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -71,7 +71,7 @@ docType: "class"
 
 
 Badge.set(10);
-Badge.increase();
+Badge.increase(1);
 Badge.clear();
 </code></pre>
 

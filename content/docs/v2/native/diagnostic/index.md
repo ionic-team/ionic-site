@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -165,6 +165,22 @@ Diagnostic.getBluetoothState()
 <h3><code>bluetoothState</code>
   
 </h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="NFCState"></div>
+<h3><code>NFCState</code>
+  
+</h3>
+
 
 
 
@@ -1780,6 +1796,210 @@ Checks if the device supports Bluetooth Low Energy (LE) Peripheral mode.
 
 
 
+<div id="isExternalStorageAuthorized"></div>
+<h3><code>isExternalStorageAuthorized()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Checks if the application is authorized to use external storage.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="getExternalStorageAuthorizationStatus"></div>
+<h3><code>getExternalStorageAuthorizationStatus()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+CReturns the external storage authorization status for the application.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="requestExternalStorageAuthorization"></div>
+<h3><code>requestExternalStorageAuthorization()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Requests external storage authorization for the application.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="getExternalSdCardDetails"></div>
+<h3><code>getExternalSdCardDetails()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Returns details of external SD card(s): absolute path, is writable, free space.
+
+The intention of this method is to return the location and details of removable external SD cards.
+This differs from the "external directories" returned by cordova-plugin-file which return mount points relating to non-removable (internal) storage.
+
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#getexternalsdcarddetails)
+
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="isNFCPresent"></div>
+<h3><code>isNFCPresent()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Checks if NFC hardware is present on device.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="isNFCEnabled"></div>
+<h3><code>isNFCEnabled()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Checks if the device setting for NFC is switched on.
+Note: this operation does not require NFC permission in the manifest.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="isNFCAvailable"></div>
+<h3><code>isNFCAvailable()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
+Checks if NFC is available to the app. Returns true if the device has NFC capabilities AND if NFC setting is switched on.
+Note: this operation does not require NFC permission in the manifest.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
 <div id="isCameraRollAuthorized"></div>
 <h3><code>isCameraRollAuthorized()</code>
   
@@ -2091,8 +2311,194 @@ Returns the background refresh authorization status for the application.
 
 
 
+<div id="requestBluetoothAuthorization"></div>
+<h3><code>requestBluetoothAuthorization()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Requests Bluetooth authorization for the application.
+
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestbluetoothauthorization)
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="isMotionAvailable"></div>
+<h3><code>isMotionAvailable()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Checks if motion tracking is available on the current device.
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="isMotionRequestOutcomeAvailable"></div>
+<h3><code>isMotionRequestOutcomeAvailable()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Checks if it's possible to determine the outcome of a motion authorization request on the current device.
+There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
+therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
+
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="requestAndCheckMotionAuthorization"></div>
+<h3><code>requestAndCheckMotionAuthorization()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Requests and checks motion authorization for the application: there is no way to independently request only or check only, so both must be done in one operation.
+
+Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestandcheckmotionauthorization)
+
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
 
 <!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="switchToWirelessSettings"></div>
+<h3>
+  <code>switchToWirelessSettings()</code>
+  
+
+</h3>
+Switches to the wireless settings page in the Settings app. Allows configuration of wireless controls such as Wi-Fi, Bluetooth and Mobile networks.
+
+
+
+
+<div id="switchToNFCSettings"></div>
+<h3>
+  <code>switchToNFCSettings()</code>
+  
+
+</h3>
+Displays NFC settings to allow user to enable NFC.
+
+
+
+
+<div id="registerNFCStateChangeHandler"></div>
+<h3>
+  <code>registerNFCStateChangeHandler(hander)</code>
+  
+
+</h3>
+Registers a function to be called when a change in NFC state occurs. Pass in a falsey value to de-register the currently registered function.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      hander
+      
+      
+    </td>
+    <td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      <p>callback function to be called when NFC state changes</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

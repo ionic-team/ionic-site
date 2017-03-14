@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -165,6 +165,34 @@ Get notified when the user opens a notification
 
 
 Grant permission to recieve push notifications
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="hasPermission"></div>
+<h3><code>hasPermission()</code>
+  
+</h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
+
+
+Check permission to recieve push notifications
 
 
 
@@ -397,6 +425,57 @@ Log an event using Analytics
     </td>
     <td>
       
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="setScreenName"></div>
+<h3><code>setScreenName(name)</code>
+  
+</h3>
+
+
+Set the name of the current screen in Analytics
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      name
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Screen name</p>
+
       
     </td>
   </tr>

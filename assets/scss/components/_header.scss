@@ -475,6 +475,94 @@
       }
     }
   }
+
+  + .cta {
+    .bar {
+      background: rgba(black, .9);
+      min-height: 64px;
+
+      p,
+      .container > div {
+        color: rgba(white,.7);
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      &.affix-top {
+        position: absolute;
+        z-index: 1;
+      }
+
+      &.affix {
+        top: 0;
+        position: fixed;
+        z-index: 100;
+      }
+
+      &.tabbed {
+        background: #fbfcfd;
+        border-bottom: 1px solid $whiteish;
+        width: 100%;
+
+        &.affix {
+          border-bottom-color: transparent;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+
+          ul li a {
+            margin-bottom: -2px;
+          }
+        }
+
+        ul {
+          padding: none;
+          text-align: center;
+
+          li {
+            display: inline-block;
+
+            a {
+              padding: 25px 18px;
+              display: inline-block;
+              line-height: 1em;
+              font-size: 13px;
+              font-weight: 500;
+              margin: 0 15px -1px;
+              color: $dark-grey;
+              border-bottom: 1px solid transparent;
+              transition: color .2s, border-color .2s;
+
+              &.active,
+              &:hover,
+              &:active {
+                border-color: $blue;
+                color: $blue;
+                background: transparent;
+              }
+
+              &:focus {
+                background: transparent;
+              }
+            }
+          }
+
+          @media (max-width: $screen-xs-max)  {
+            display: flex;
+            justify-content: space-between;
+
+            li a {
+              margin-right: 0;
+              margin-left: 0;
+              padding-left: 4px;
+              padding-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // fix for the header component API docs page. it conflicts w/ a bootstrap

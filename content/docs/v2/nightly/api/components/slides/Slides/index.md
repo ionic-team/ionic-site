@@ -88,6 +88,7 @@ your <code>slides</code> property. Now we can call any of the <code>Slides</code
 a button click. Below we call the <code>goToSlide()</code> method and it
 navigates to the 3rd slide:</p>
 <pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
+import { Slides } from &#39;ionic-angular&#39;;
 
 class MyPage {
   @ViewChild(Slides) slides: Slides;
@@ -388,6 +389,26 @@ Lock or unlock the ability to slide to change slides.
 
 
 
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="slideNext"></div>
 
 <h3>
@@ -439,7 +460,7 @@ Transition to the next slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -506,7 +527,7 @@ Transition to the previous slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -590,7 +611,7 @@ Transition to the specified slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
+        <p>Whether or not to emit the <code>ionSlideWillChange</code>/<code>ionSlideDidChange</code> events. Default true.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -697,6 +718,13 @@ Default: <code>null</code>.</p>
       <td><p> Pass another Slides instance or array of Slides instances
 that should be controlled by this Slides instance.
 Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>dir</td>
+      <td><code>string</code></td>
+      <td><p> If dir attribute is equal to rtl, set interal _rtl to true;</p>
 </td>
     </tr>
     
@@ -889,7 +917,10 @@ slider.</p>
 the most commonly used options as <a href="http://learnangular2.com/inputs/">inputs</a>.
 In order to use an option that isn&#39;t exposed as an input the following code
 should be used, where <code>freeMode</code> is the option to change:</p>
-<pre><code class="lang-ts">class MyPage {
+<pre><code class="lang-ts">import { ViewChild } from &#39;@angular/core&#39;;
+import { Slides } from &#39;ionic-angular&#39;;
+
+class MyPage {
   @ViewChild(Slides) slides: Slides;
 
   ngAfterViewInit() {

@@ -4,11 +4,12 @@
   Improve this Doc
 </a>
 
-Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of three units &mdash; _grid_, _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
+Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of three units &mdash; _grid_, _rows_ and _columns_.
 
-Rows have no padding or margin applied to them. If that is needed, `ion-grid` can be added to provide additional padding.
+_For more detailed docs, Check out the [API docs](../api/components/grid/Grid)._
 
-In order to set width use `width` attribute on ion-col tag.
+
+The grid system is made of a 12 columns, and each `ion-col` can be sized by setting the `col-<width>` attribute.
 
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/grid">
   Demo Source
@@ -18,60 +19,27 @@ In order to set width use `width` attribute on ion-col tag.
 ``` html
 <ion-grid>
   <ion-row>
-    <ion-col width-10>This column will take 10% of space</ion-col>
+    <ion-col col-12>This column will take 12 columns</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>This column will take 6 columns</ion-col>
   </ion-row>
 </ion-grid>
 ```
 
 
-<table class="table">
-    <thead>
-      <tr>
-        <th colspan="2">
-          Explicit Column Percentage Attributes
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>width-10</th>
-        <td>10%</td>
-      </tr>
-      <tr>
-        <th>width-20</th>
-        <td>20%</td>
-      </tr>
-      <tr>
-        <th>width-25</th>
-        <td>25%</td>
-      </tr>
-      <tr>
-        <th>width-33</th>
-        <td>33.3333%</td>
-      </tr>
-      <tr>
-        <th>width-50</th>
-        <td>50%</td>
-      </tr>
-      <tr>
-        <th>width-67</th>
-        <td>66.6666%</td>
-      </tr>
-      <tr>
-        <th>width-75</th>
-        <td>75%</td>
-      </tr>
-      <tr>
-        <th>width-80</th>
-        <td>80%</td>
-      </tr>
-      <tr>
-        <th>width-90</th>
-        <td>90%</td>
-      </tr>
-    </tbody>
-  </table>
+An `ion-col` can be sized for different breakpoints by setting the `ion-<breakpoint>-<width>`.
 
-Use the `offset` attribute on a column to set its percent offset from the left (eg: `offset-25`). To change how columns in a row align vertically, add the `center` or `baseline` attribute to an `<ion-row>`.
+``` html
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+      This column will be 12 columns wide by default,
+      9 columns at the small breakpoint,
+      6 at the medium breakpoint, 4 at large, and 3 at xl.
+    </ion-col>
+  </ion-row>
+</ion-grid>
+```
 
-Use the `wrap` attribute on an `<ion-row>` element to allow items in that row to wrap. This applies the `flex-wrap: wrap;` style to the `<ion-row>` element.
+

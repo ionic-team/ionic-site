@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -89,9 +89,7 @@ file.getCurrentPosition().then((position) =&gt; {
 });
 
 // get file duration
-file.getDuration().then((duration) =&gt; {
-  console.log(position);
-});
+file.getDuration();
 
 // skip to 10 seconds (expects int value in ms)
 file.seekTo(10000);
@@ -297,6 +295,28 @@ Starts recording an audio file.
 
 </h3>
 Stops recording
+
+
+
+
+<div id="pauseRecord"></div>
+<h3>
+  <code>pauseRecord()</code>
+  
+
+</h3>
+Pauses recording
+
+
+
+
+<div id="resumeRecord"></div>
+<h3>
+  <code>resumeRecord()</code>
+  
+
+</h3>
+Resumes recording
 
 
 

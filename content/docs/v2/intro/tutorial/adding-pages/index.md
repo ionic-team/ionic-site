@@ -13,7 +13,7 @@ next_page_link: /docs/v2/intro/tutorial/navigation
 
 <h1 class="title">Adding Pages</h1>
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/setup/tutorial/adding-pages/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/v2/intro/tutorial/adding-pages/index.md'>
   Improve this doc
 </a>
 

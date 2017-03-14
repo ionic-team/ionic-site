@@ -11,7 +11,7 @@ docType: "object"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/service/loading.js#L35'>
+  <a href='https://github.com/driftyco/ionic-v1/blob/master/js/angular/service/loading.js#L35'>
     View Source
   </a>
   &nbsp;

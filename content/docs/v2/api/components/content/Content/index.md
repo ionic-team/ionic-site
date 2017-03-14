@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -43,7 +43,9 @@ Improve this doc
 
 
 <p>The Content component provides an easy to use content area with
-some useful methods to control the scrollable area.</p>
+some useful methods to control the scrollable area. There should
+only be one content in a single view component. If additional scrollable
+elements are need, use <a href="../../scroll/Scroll">ionScroll</a>.</p>
 <p>The content area can also implement pull-to-refresh with the
 <a href="../../refresher/Refresher">Refresher</a> component.</p>
 

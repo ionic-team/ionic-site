@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L338">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L337">
   Improve this doc
 </a>
 
@@ -52,9 +52,9 @@ docType: "class"
 <p>Example:</p>
 <pre><code>import { File } from &#39;ionic-native&#39;;
 
-declare var cordova: any;
-const fs:string = cordova.file.dataDirectory;
-File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;)).catch(err =&gt; console.log(&#39;boooh&#39;));
+const dataDirectory: string = File.dataDirectory;
+
+File.checkDir(dataDirectory, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;)).catch(err =&gt; console.log(&#39;boooh&#39;));
 </code></pre>
 <p> This plugin is based on several specs, including : The HTML5 File API <a href="http://www.w3.org/TR/FileAPI/">http://www.w3.org/TR/FileAPI/</a>
  The (now-defunct) Directories and System extensions Latest: <a href="http://www.w3.org/TR/2012/WD-file-system-api-20120417/">http://www.w3.org/TR/2012/WD-file-system-api-20120417/</a>
@@ -72,6 +72,211 @@ File.checkDir(this.fs, &#39;mydir&#39;).then(_ =&gt; console.log(&#39;yay&#39;))
 
 
 <h2>Static Members</h2>
+
+<div id="applicationDirectory"></div>
+<h3><code>applicationDirectory</code>
+  
+</h3>
+
+
+Read-only directory where the application is installed.
+
+
+
+
+
+
+
+
+
+
+<div id="applicationStorageDirectory"></div>
+<h3><code>applicationStorageDirectory</code>
+  
+</h3>
+
+
+Read-only directory where the application is installed.
+
+
+
+
+
+
+
+
+
+
+<div id="dataDirectory"></div>
+<h3><code>dataDirectory</code>
+  
+</h3>
+
+
+Where to put app-specific data files.
+
+
+
+
+
+
+
+
+
+
+<div id="cacheDirectory"></div>
+<h3><code>cacheDirectory</code>
+  
+</h3>
+
+
+Cached files that should survive app restarts.
+Apps should not rely on the OS to delete files in here.
+
+
+
+
+
+
+
+
+
+
+<div id="externalApplicationStorageDirectory"></div>
+<h3><code>externalApplicationStorageDirectory</code>
+  
+</h3>
+
+
+Android: the application space on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalDataDirectory"></div>
+<h3><code>externalDataDirectory</code>
+  
+</h3>
+
+
+Android: Where to put app-specific data files on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalCacheDirectory"></div>
+<h3><code>externalCacheDirectory</code>
+  
+</h3>
+
+
+Android: the application cache on external storage.
+
+
+
+
+
+
+
+
+
+
+<div id="externalRootDirectory"></div>
+<h3><code>externalRootDirectory</code>
+  
+</h3>
+
+
+Android: the external storage (SD card) root.
+
+
+
+
+
+
+
+
+
+
+<div id="tempDirectory"></div>
+<h3><code>tempDirectory</code>
+  
+</h3>
+
+
+iOS: Temp directory that the OS can clear at will.
+
+
+
+
+
+
+
+
+
+
+<div id="syncedDataDirectory"></div>
+<h3><code>syncedDataDirectory</code>
+  
+</h3>
+
+
+iOS: Holds app-specific files that should be synced (e.g. to iCloud).
+
+
+
+
+
+
+
+
+
+
+<div id="documentsDirectory"></div>
+<h3><code>documentsDirectory</code>
+  
+</h3>
+
+
+iOS: Files private to the app, but that are meaningful to other applications (e.g. Office files)
+
+
+
+
+
+
+
+
+
+
+<div id="sharedDirectory"></div>
+<h3><code>sharedDirectory</code>
+  
+</h3>
+
+
+BlackBerry10: Files globally available to all apps
+
+
+
+
+
+
+
+
+
 
 <div id="cordovaFileError"></div>
 <h3><code>cordovaFileError</code>
@@ -171,7 +376,7 @@ Check if a directory exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean|FileError&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
 </div>
 
 
@@ -258,7 +463,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;DirectoryEntry|FileError&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
+<code>Promise&lt;DirectoryEntry&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
 </div>
 
 
@@ -326,7 +531,7 @@ Remove a directory at a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;RemoveResult|FileError&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
 </div>
 
 
@@ -428,7 +633,7 @@ Move a directory to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;DirectoryEntry|Entry|FileError&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
+<code>Promise&lt;DirectoryEntry|Entry&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
 </div>
 
 
@@ -530,7 +735,7 @@ Copy a directory in various methods. If destination directory exists, will fail 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Entry|FileError&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
 </div>
 
 
@@ -734,7 +939,7 @@ Check if a file exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean|FileError&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
 </div>
 
 
@@ -821,7 +1026,7 @@ If an existing file exists and the replace value is false, the promise will fail
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;FileEntry|FileError&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
+<code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
 </div>
 
 
@@ -889,7 +1094,7 @@ Removes a file from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;RemoveResult|FileError&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
 </div>
 
 
@@ -1144,7 +1349,7 @@ Read the contents of a file as text.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;string|FileError&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
 </div>
 
 
@@ -1214,7 +1419,7 @@ A data url is of the form:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;string|FileError&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
 </div>
 
 
@@ -1282,7 +1487,7 @@ Read file and return data as a binary data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;string|FileError&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
 </div>
 
 
@@ -1350,7 +1555,7 @@ Read file and return data as an ArrayBuffer.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;ArrayBuffer|FileError&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
+<code>Promise&lt;ArrayBuffer&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
 </div>
 
 
@@ -1452,7 +1657,7 @@ Move a file to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Entry|FileError&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
 </div>
 
 
@@ -1554,7 +1759,7 @@ Copy a file in various methods. If file exists, will fail to copy.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;Entry|FileError&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
 </div>
 
 

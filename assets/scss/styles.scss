@@ -7,7 +7,7 @@
 //
 //
 // @import url('https://fonts.googleapis.com/css?family=Nunito:300');
-@import '../../node_modules/ionicons/dist/css/ionicons';
+@import '../../node_modules/ionicons/dist/scss/ionicons';
 
 @import 'vars';
 @import 'fonts';
@@ -15,8 +15,6 @@
 // Core variables and mixins
 @import 'bootstrap/variables';
 @import 'bootstrap/mixins';
-
-
 
 // Reset and dependencies
 @import 'bootstrap/normalize';
@@ -82,6 +80,7 @@
 @import 'components/tables';
 @import 'components/toc';
 @import 'components/docs_content';
+@import 'components/modal';
 @import 'components/snap_bar';
 
 @import 'general';
@@ -92,5 +91,6 @@
 @import 'pages/docs/search';
 @import 'pages/getting-started';
 @import 'pages/home';
-@import 'pages/pricing';
+@import 'pages/products/index';
+@import 'pages/products/pricing';
 @import 'pages/resources';

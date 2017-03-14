@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -308,6 +308,15 @@ your async operation has completed.</p>
           <td><code>#666</code></td>
         
         <td><p>Color of the infinite scroll loading indicator</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$infinite-scroll-loading-text-color</code></td>
+        
+          <td><code>$infinite-scroll-loading-color</code></td>
+        
+        <td><p>Text color of the infinite scroll loading indicator</p>
 </td>
       </tr>
       

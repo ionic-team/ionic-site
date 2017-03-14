@@ -1,0 +1,172 @@
+{% extends '_layouts/base.html' %}
+{% set id = 'products' %}
+
+{% block header_style %}transparent{% endblock %}
+
+{% block body_attributes %}
+  data-spy="scroll"
+  data-target="#platform-nav"
+  data-offset="100"
+  ng-controller="platformCtrl"
+{% endblock %}
+
+{% block main %}
+
+<div class="cta gradient">
+  <hgroup class="container">
+    <h1>Next generation mobile development software</h1>
+    <p>
+      <strong>Spend more time on what matters.</strong> Ionic takes care of the
+      rest, with a suite of powerful mobile development tools and services for 
+      apps of all shapes and sizes.
+    </p>
+  </hgroup>
+  <div class="bar" data-spy="affix" data-offset-top="375">
+    <div class="container" id="platform-nav">
+      <a href="/products/pricing"
+         class="btn ionic">View Pricing</a>
+      <ul class="categories nav">
+        <li class="active">
+          <a class="anchor overview" href="#overview">Overview</a>
+        </li>
+        <li>
+          <a class="anchor prototyping" href="#prototyping">Prototyping</a>
+        </li>
+        <li>
+          <a class="anchor testing" href="#testing">
+            <span class="lg">Device Testing</span>
+            <span class="sm">Testing</span>
+          </a>
+        </li>
+        <li>
+          <a class="anchor updates" href="#updates">
+            <span class="lg">Live Updating</span>
+            <span class="sm">Updating</span>
+          </a>
+        </li>
+        <li>
+          <a class="anchor packaging" href="#packaging">
+            <span class="lg">Cloud Packaging</span>
+            <span class="sm">Packaging</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="overview hero left" id="overview">
+    <div class="container">
+      <hgroup>
+        <h3>The Full Ionic Experience</h3>
+        <p>
+          Give you and your team all the tools needed to quickly move from app 
+          ideation to app store, allowing you to easily transition between the 
+          critical phases of your mobile development lifecycle.
+        </p>
+      </hgroup>
+      <ul class="content">
+        <li>
+          <h4>Design &amp; prototyping</h4>
+          <p>
+            <strong>Ionic Creator</strong> your team get from idea to app with 
+            as little friction as possible through a simple drag-and-drop 
+            interface, no coding required.
+          </p>
+        </li>
+        <li>
+          <h4>Device testing &amp; feedback</h4>
+          <p>
+            Use the <strong>Ionic View</strong> app for live app testing and to 
+            get your app in the hands of clients, testers, or collaborators as 
+            quickly as you make changes.
+          </p>
+        </li>
+        <li>
+          <h4>Realtime app updates</h4>
+          <p>
+            Push hot code updates, content changes, A/B tests, and bug fixes in 
+            real time before and after your app is in the app stores, with Ionic 
+            Deploy.
+          </p>
+        </li>
+        <li>
+          <h4>Native cloud builds</h4>
+          <p>
+            Create native apps in the cloud with <strong>Ionic Package</strong> 
+            to get from code to app store with no platform dependencies or 
+            complicated build steps.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="prototyping hero" id="prototyping">
+    <div class="container">
+      <div class="content">
+        <h4>Ionic Creator</h4>
+        <h2>Prototype &amp; Design</h2>
+        <p>
+          Visually build high-fidelity apps in minutes. Drag and drop UI 
+          components, add themes, animations, design files, and even custom code 
+          to create real, interactive Ionic mobile apps.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="authentication hero" id="testing">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic View APP</h4>
+        <h2>Live device testing</h2>
+        <p>
+          The Ionic View app makes it easy to live preview, test, and distribute 
+          your apps directly on the device with co-workers, testers, and clients 
+          alike. Get better feedback, faster and more easily.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="updates hero" id="updates">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic deploy</h4>
+        <h2>Realtime app updating</h2>
+        <p>
+          Update everything in realtime. Ionic changes the way you update and 
+          improve your app by giving you the ability to deploy hot code live 
+          into production, before and after the app stores.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="packaging hero" id="packaging">
+    <div class="container">
+      <div class="content dark">
+        <h4>Ionic Package</h4>
+        <h2>Native Builds in the Cloud</h2>
+        <p>
+          Turn your web assets into native SDKs for multiple platforms, in the 
+          cloud, from a single codebase. Leave configuration, compilation, and 
+          packaging to us, so you can focus on shipping.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="get-started">
+    <hgroup class="container text-center dark">
+      <a href="/products/pricing"
+         class="btn ionic right">View Pricing</a>
+      <h3>Ready to start building better apps, faster?</h3>
+      <p>
+        Create an account to build, code, test, and deploy apps faster, 
+        together.
+      </p>
+    </hgroup>
+  </section>
+</main>
+{% endblock %}

@@ -48,11 +48,14 @@ Improve this doc
 <code>password</code>, <code>email</code>, <code>number</code>, <code>search</code>, <code>tel</code>, and <code>url</code>. Ionic
 still uses an actual <code>&lt;input type=&quot;text&quot;&gt;</code> HTML element within the
 component, however, with Ionic wrapping the native HTML input
-element it&#39;s able to better handle the user experience and
+element it&#39;s better able to handle the user experience and
 interactivity.</p>
-<p>Similarily, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
+<p>Similarly, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
 <p>An <code>ion-input</code> is <strong>not</strong> used for non-text type inputs, such as a
 <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
+<p>Along with the blur/focus events, <code>input</code> support all standard text input
+events like <code>keyup</code>, <code>keydown</code>, <code>keypress</code>, <code>input</code>,etc. Any standard event
+can be attached and will function as expected.</p>
 
 
 

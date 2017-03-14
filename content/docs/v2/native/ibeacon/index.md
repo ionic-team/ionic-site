@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -762,7 +762,7 @@ Queries the native layer to determine the current authorization in effect.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise which is resolved with the
+<code>Promise&lt;IBeaconPluginResult&gt;</code> Returns a promise which is resolved with the
 requested authorization status.
 </div>
 
@@ -804,7 +804,7 @@ If you are using this plugin on Android devices only, you will never have to use
 
 
 
-See the docuemntation of {@code requestWhenInUseAuthorization} for further details.
+See the documentation of {@code requestWhenInUseAuthorization} for further details.
 
 
 

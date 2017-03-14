@@ -1,0 +1,26 @@
+.modal {
+  .close {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &::before {
+      font-family: 'Ionicons';
+      content: '\f2c0';
+      display: block;
+      color: $lightish-grey;
+      font-size: 20px;
+    }
+  }
+
+  .control-label {
+    font-weight: 600;
+  }
+
+  .form-control {
+    font-weight: 500;
+  }
+}
+

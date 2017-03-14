@@ -1,9 +1,13 @@
-var express        = require('express');
-var app            = express();
-var compress       = require('compression');
-var cookieParser   = require('cookie-parser');
-var processRequest = require('./server/processRequest');
-var router         = require('./server/router');
+require('dotenv').config({silent: true});
+
+const express         = require('express');
+const app             = express();
+const compress        = require('compression');
+const config          = require('./server/config');
+const cookieParser    = require('cookie-parser');
+const expressNunjucks = require('express-nunjucks');
+const processRequest  = require('./server/processRequest');
+const router          = require('./server/router');
 
 process.env.PWD = process.cwd();
 
@@ -13,10 +17,19 @@ app.set('trust proxy', true);
 app.use(compress());
 app.use(cookieParser());
 app.use(processRequest);
+
+app.set('views', __dirname + '/server/pages');
+expressNunjucks(app, {
+  noCache: !config.PROD,
+  autoescape: false
+});
+app.enable('etag');
+
 app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
-  maxage: 315360000000 // ten years
+  maxage: 315360000000, // ten years
+  etag: true
 }));
 
 app.use(function(req, res, next) {
@@ -25,8 +38,7 @@ app.use(function(req, res, next) {
 });
 
 // bind the app to listen for connections on a specified port
-var port = process.env.PORT || 3000;
-app.listen(port);
+app.listen(config.PORT);
 
 // Render some console log output
-console.log('Listening on port ' + port);
+console.log('Listening on port ' + app.get('port'));

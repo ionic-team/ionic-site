@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -122,6 +122,21 @@ This function speaks
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the speaking finishes
 </div>
+
+
+
+<div id="stop"></div>
+<h3><code>stop()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
 
 
 

@@ -1343,7 +1343,7 @@ Removes a page from the nav stack at the specified index.
   <code>number</code>
       </td>
       <td>
-        <p>The starting index to remove pages from the stack. Default is the index of the last page.<strong class="tag">Optional</strong></p>
+        <p>The starting index to remove pages from the stack. Default is the index of the last page.</p>
 
         
       </td>
@@ -1510,7 +1510,7 @@ navigation params to the individual pages in the array.
       </td>
       <td>
         
-  <code>array</code>
+  <code>Array&lt;{page:any, params: any}&gt;</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property to load in the stack.</p>
@@ -1527,7 +1527,7 @@ navigation params to the individual pages in the array.
       </td>
       <td>
         
-  <code>object</code>
+  <code>Object</code>
       </td>
       <td>
         <p>Nav options to go with this transition.<strong class="tag">Optional</strong></p>

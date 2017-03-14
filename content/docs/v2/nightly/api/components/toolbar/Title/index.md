@@ -190,6 +190,15 @@ Improve this doc
       </tr>
       
       <tr>
+        <td><code>$toolbar-ios-button-strong-font-weight</code></td>
+        
+          <td><code>600</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$navbar-ios-height</code></td>
         
           <td><code>$toolbar-ios-height</code></td>
@@ -262,6 +271,15 @@ Improve this doc
           <td><code>2px</code></td>
         
         <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-md-button-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
 </td>
       </tr>
       
@@ -365,6 +383,15 @@ Improve this doc
           <td><code>2px</code></td>
         
         <td><p>Border radius of the toolbar button</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toolbar-wp-button-strong-font-weight</code></td>
+        
+          <td><code>bold</code></td>
+        
+        <td><p>Font weight of the strong toolbar button</p>
 </td>
       </tr>
       

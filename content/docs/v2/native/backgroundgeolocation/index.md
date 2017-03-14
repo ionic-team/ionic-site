@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -176,7 +176,7 @@ Possible values:
 
 
 <div id="configure"></div>
-<h3><code>configure(callback,&nbsp;errorCallback,&nbsp;options)</code>
+<h3><code>configure(options)</code>
   
 </h3>
 
@@ -199,50 +199,16 @@ Configure the plugin.
   
   <tr>
     <td>
-      callback
-      
-      
-    </td>
-    <td>
-      
-<code>Function</code>
-    </td>
-    <td>
-      <p>callback will be called when background location is determined.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      errorCallback
-      
-      
-    </td>
-    <td>
-      
-<code>Function</code>
-    </td>
-    <td>
-      <p>callback to be executed every time a geolocation error occurs.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       options
       
       
     </td>
     <td>
       
-<code>Config</code>
+<code>BackgroundGeolocationConfig</code>
     </td>
     <td>
-      <p>An object of type Config</p>
+      <p>options An object of type Config</p>
 
       
     </td>
@@ -258,11 +224,7 @@ Configure the plugin.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Location object, which tries to mimic w3c Coordinates interface.
-See http://dev.w3.org/geo/api/spec-source.html#coordinates_interface
-Callback to be executed every time a geolocation is recorded in the background.
-
-
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
@@ -316,38 +278,91 @@ Turn OFF background-tracking
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Inform the native plugin that you're finished, the background-task may be completed
-NOTE: IOS, WP only
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="changePace"></div>
-<h3><code>changePace()</code>
+<h3><code>changePace(isMoving)</code>
   
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Force the plugin to enter "moving" or "stationary" state
-NOTE: IOS, WP only
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      isMoving
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
 <div id="setConfig"></div>
-<h3><code>setConfig()</code>
+<h3><code>setConfig(options)</code>
   
 </h3>
 
@@ -356,6 +371,35 @@ NOTE: IOS, WP only
 
 Setup configuration
 
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>BackgroundGeolocationConfig</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -375,8 +419,16 @@ Setup configuration
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Returns current stationaryLocation if available. null if not
-NOTE: IOS, WP only
 
 
 
@@ -397,9 +449,17 @@ NOTE: IOS, WP only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  
+  <code>Windows Phone</code>&nbsp;
+  </p>
+
+
+
 Add a stationary-region listener. Whenever the devices enters "stationary-mode",
 your #success callback will be executed with #location param containing #radius of region
-NOTE: IOS, WP only
 
 
 
@@ -420,6 +480,13 @@ NOTE: IOS, WP only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Check if location is enabled on the device
 
 
@@ -431,7 +498,6 @@ Check if location is enabled on the device
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;number&gt;</code> Returns a promise with int argument that takes values 0, 1 (true).
-NOTE: ANDROID only
 </div>
 
 
@@ -480,10 +546,16 @@ Display device location settings
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Method can be used to detect user changes in location services settings.
 If user enable or disable location services then success callback will be executed.
 In case or error (SettingNotFoundException) fail callback will be executed.
-NOTE: ANDROID only
 
 
 
@@ -504,15 +576,25 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Stop watching for location mode changes.
-NOTE: ANDROID only
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 
@@ -522,13 +604,19 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Method will return all stored locations.
 Locations are stored when:
  - config.stopOnTerminate is false and main activity was killed
    by the system
  or
  - option.debug is true
-NOTE: ANDROID only
 
 
 
@@ -565,14 +653,49 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 
 
 <div id="deleteLocation"></div>
-<h3><code>deleteLocation()</code>
+<h3><code>deleteLocation(locationId)</code>
   
 </h3>
 
 
-Delete stored location by given locationId.
-NOTE: ANDROID only
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
 
+
+
+Delete stored location by given locationId.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      locationId
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -592,8 +715,14 @@ NOTE: ANDROID only
 </h3>
 
 
+<p>
+  <b>Platforms:</b>
+  <code>Android</code>&nbsp;
+  </p>
+
+
+
 Delete all stored locations.
-NOTE: ANDROID only
 
 
 
@@ -609,9 +738,16 @@ NOTE: ANDROID only
 
 
 <div id="switchMode"></div>
-<h3><code>switchMode()</code>
+<h3><code>switchMode(modeId)</code>
   
 </h3>
+
+
+<p>
+  <b>Platforms:</b>
+  <code>iOS</code>&nbsp;
+  </p>
+
 
 
 Normally plugin will handle switching between BACKGROUND and FOREGROUND mode itself.
@@ -622,11 +758,37 @@ In BACKGROUND mode plugin uses significant changes and region monitoring to rece
 
 BackgroundGeolocation.Mode.FOREGROUND
 BackgroundGeolocation.Mode.BACKGROUND 
+*
 
-NOTE: iOS only
 
-@param {number} See above. 
-
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      modeId
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -649,7 +811,7 @@ NOTE: iOS only
 Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 
 @see https://github.com/mauron85/cordova-plugin-background-geolocation/tree/v2.2.1#debugging for more information. 
 
-@param {number} Limits the number of entries 
+@param limit {number} Limits the number of entries 
 
 
 

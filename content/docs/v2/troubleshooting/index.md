@@ -42,52 +42,7 @@ For windows, run this from an admin command prompt.
 
 ## Adding third party libs
 
-You can add most third party libraries to your V2 project from NPM. For example
-let's add MomentJs.
-
-```bash
-$ npm install moment --save
-```
-
-From here, we can import it into what ever class we want to use it in.
-
-```ts
-import {Page} from 'ionic-angular';
-import * as moment from 'moment';
-
-export class MyClass {
-  constructor(){
-    moment("20111031", "YYYYMMDD").fromNow();
-  }
-
-}
-```
-
-For TypeScript, you might get a warning, `cannot find module 'moment'`. This
-just means that TypeScript doesn't know MomentJs since it's Javascript. But we
-can add external type definitions from
-[typings](https://github.com/typings/typings).
-
-```bash
-$ npm install -g typings
-$ typings search moment
-Viewing 5 of 5
-
-NAME            SOURCE HOMEPAGE                             DESCRIPTION VERSIONS UPDATED
-moment          dt     https://github.com/timrwood/moment               1        2016-03-16T15:55:26.000Z
-moment          npm    https://www.npmjs.com/package/moment             1        2016-02-11T00:39:58.000Z
-moment-node     dt     https://github.com/timrwood/moment               1        2016-05-11T04:33:38.000Z
-moment-range    dt     https://github.com/gf3/moment-range              1        2016-03-17T12:06:54.000Z
-moment-timezone dt     http://momentjs.com/timezone/                    1        2016-03-29T22:03:48.000Z
-```
-We have multiple sources for typings, but we can choose the one from npm
-
-```bash
-$ typings install npm~moment --save
-```
-
-Now our editor and TypeScript will be able to provide code-completion and
-understand moment.
+See our resources page on [Adding Third Party Libs](/docs/v2/resources/third-party-libs).
 
 
 ## Blank App

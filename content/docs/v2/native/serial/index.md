@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.5.1"
+version: "2.8.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -68,13 +68,9 @@ docType: "class"
 
 <pre><code>import { Serial } from &#39;ionic-native&#39;;
 
-Serial.requestPermission({
-  vid: &#39;0403&#39;,
-  pid: &#39;6001&#39;,
-  driver: &#39;FtdiSerialDriver&#39;
-}).then(() =&gt; {
+Serial.requestPermission().then(() =&gt; {
   Serial.open({
-    baudRate: 38400
+    baudRate: 9800
   }).then(() =&gt; {
     console.log(&#39;Serial connection opened&#39;);
   });
@@ -93,6 +89,8 @@ Serial.requestPermission({
 <h3><code>requestPermission(options)</code>
   
 </h3>
+
+
 
 
 Request permission to connect to a serial device
@@ -120,7 +118,7 @@ Request permission to connect to a serial device
 <code>SerialPermissionOptions</code>
     </td>
     <td>
-      <p>Options used to request serial permissions</p>
+      <p>Options used to request serial permissions for an unknown device</p>
 
       
     </td>

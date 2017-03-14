@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.1"
+version: "2.2.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L87">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L94">
 Improve this doc
 </a>
 
@@ -79,7 +79,9 @@ building the form within a modal instead.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private alertCtrl: AlertController) {
+<pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
+
+constructor(private alertCtrl: AlertController) {
 
 }
 
@@ -242,6 +244,11 @@ Display an alert with a title, inputs, and buttons
 <td>cssClass</td>
 <td><code>string</code></td>
 <td>Additional classes for custom styles, separated by spaces.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td><code>string</code></td>
+<td>Set alert mode (ios, md, wp).</td>
 </tr>
 <tr>
 <td>inputs</td>
@@ -836,6 +843,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-ios-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-ios-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-ios-button-text-color</code></td>
@@ -931,6 +947,15 @@ out before starting a new transition.</p>
           <td><code>13px</code></td>
         
         <td><p>Padding of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-ios-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
 </td>
       </tr>
       
@@ -1470,6 +1495,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-md-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-md-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-md-button-text-color</code></td>
@@ -1641,11 +1675,20 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-md-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-md-checkbox-label-text-color-checked</code></td>
         
           <td><code>initial</code></td>
         
-        <td><p>Text color of the label for the checked checkbox in the  alert</p>
+        <td><p>Text color of the label for the checked checkbox in the alert</p>
 </td>
       </tr>
       
@@ -2194,6 +2237,15 @@ out before starting a new transition.</p>
       </tr>
       
       <tr>
+        <td><code>$alert-wp-radio-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the radio alert</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><code>$alert-wp-radio-label-text-color-checked</code></td>
         
           <td><code>$alert-wp-button-text-color</code></td>
@@ -2325,6 +2377,15 @@ out before starting a new transition.</p>
           <td><code>13px 26px</code></td>
         
         <td><p>Padding of the label for the checkbox in the alert</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$alert-wp-checkbox-label-text-color</code></td>
+        
+          <td><code>initial</code></td>
+        
+        <td><p>Text color of the label for the checkbox in the alert</p>
 </td>
       </tr>
       

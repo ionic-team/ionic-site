@@ -187,7 +187,7 @@ provided from the sidemenu starter template.</p>
       <td><code>string | boolean</code></td>
       <td><p> When the split-pane should be shown.
 Can be a CSS media query expression, or a shortcut expression.
-Can aslo be a boolean expression.</p>
+Can also be a boolean expression.</p>
 </td>
     </tr>
     

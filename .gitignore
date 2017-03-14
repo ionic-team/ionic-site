@@ -20,3 +20,4 @@ linkchecker.html
 /content/js/ionic-site.js
 /content/js/ionic-site.min.js
 /.env
+/Gemfile.lock

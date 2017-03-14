@@ -28,7 +28,6 @@ app.enable('etag');
 app.use(router(app));
 
 app.use(express.static(process.env.PWD + '/_site/', {
-  maxage: 315360000000, // ten years
   etag: true
 }));
 

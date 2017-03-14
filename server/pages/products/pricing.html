@@ -296,20 +296,21 @@
 </div>
 
 <script>
-var $form = document.querySelector('#pricingInterestedForm');
-window.history = [];
-window.addEventListener('beforeunload', function() {
-  if (window.history.length) {
-    window.dataLayer.push({
-      'event' : 'formAbandonment',
-      'eventCategory' : 'Pricing Form Tracking',
-      'eventAction' : window.history.join(' > ')
-    });
-  }
-});
+// var $form = document.querySelector('#pricingInterestedForm');
+// window.history = [];
+// window.addEventListener('beforeunload', function() {
+//   if (window.history.length) {
+//     window.c()
+//     window.dataLayer.push({
+//       'event' : 'formAbandonment',
+//       'eventCategory' : 'Pricing Form Tracking',
+//       'eventAction' : window.history.join(' > ')
+//     });
+//   }
+// });
 
-$form.addEventListener('change', function(e) {
-  window.history.push(e['target'].getAttribute('name'));
-});
+// $form.addEventListener('change', function(e) {
+//   window.history.push(e['target'].getAttribute('name'));
+// });
 </script>
 {% endblock %}

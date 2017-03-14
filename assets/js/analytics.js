@@ -32,13 +32,14 @@ window.c = function(cat, lbl, el, val) {
     eventLabel: lbl,
     eventValue: val,
     hitCallback: function() {
-      if (el) {
-        document.location = el.href;
+      if (!!el) {
+        console.log(!!el, el)
+        //document.location = el.href;
       };
     }
   });
   // don't follow links until analytics is recieved
-  if (el) {
+  if (!!el) {
     return false;
   }
 };

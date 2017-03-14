@@ -234,7 +234,8 @@
           <li>Live update to a single environment</li>
         </ul>
         <div class="cta">Gets Started</div>
-        <a class="cta" href="/getting-started">
+        <a class="cta" href="/getting-started"
+           onclick="c('Pricing','getStarted', this)">
           Get Started
         </a>
       </div>
@@ -260,7 +261,7 @@
         <a  class="cta" 
             data-toggle="modal" 
             data-target="#myModal"
-            onclick="window.history.push('FormOpened')">
+            onclick="c('Pricing','FormOpen')">
           I'm interested
         </a>
       </div>
@@ -285,7 +286,7 @@
                 data-dismiss="modal" 
                 aria-label="Close"
                 id="modal-close"
-                onclick="window.history.push('FormClosed')"></button>
+                onclick="c('Pricing','FormClose')"></button>
         <h4 class="modal-title">Thanks for your interest</h4> 
         <p>
           We're currently evaluating this product and would love your feedback
@@ -302,6 +303,7 @@
             <input type="text" 
                    class="form-control" 
                    id="name"
+                   name="name"
                    ng-model="form.name">
           </div>
 
@@ -312,6 +314,7 @@
             <input type="email" 
                    class="form-control" 
                    id="email"
+                   name="email"
                    ng-model="form.email">
           </div>
 
@@ -383,6 +386,7 @@
             <label class="checkbox-inline">
               <input type="checkbox" 
                      value="unused_features_creator" 
+                     name="unused_features_creator"
                      ng-model="form.unused_features.creator"> 
               Prototyping
             </label>
@@ -395,12 +399,14 @@
             <label class="checkbox-inline">
               <input type="checkbox" 
                      value="unused_features_deploy"
+                     name="unused_features_deploy"
                      ng-model="form.unused_features.deploy"> 
               Live Updates
             </label>
             <label class="checkbox-inline">
               <input type="checkbox" 
                      value="unused_features_package"
+                     name="unused_features_package"
                      ng-model="form.unused_features.package"> 
               Cloud Builds
             </label>
@@ -494,7 +500,7 @@
       <div class="modal-footer">
         <button type="button" 
                 class="btn btn-primary" 
-                ng-click="submit(form)">Submit</button>
+                onclick="c('Pricing','FormSubmit')">Submit</button>
       </div>
     </div>
   </div>
@@ -502,19 +508,15 @@
 
 <script>
 var $form = document.querySelector('#pricingInterestedForm');
-window.history = [];
+window.progress = [];
 window.addEventListener('beforeunload', function() {
-  if (window.history.length) {
-    window.dataLayer.push({
-      'event' : 'formAbandonment',
-      'eventCategory' : 'Pricing Form Tracking',
-      'eventAction' : window.history.join(' > ')
-    });
+  if (window.progress.length) {
+    window.c('Pricing','FormAbandon', null, window.progress.join(' > '))
   }
 });
 
 $form.addEventListener('change', function(e) {
-  window.history.push(e['target'].getAttribute('name'));
+  window.progress.push(e['target'].getAttribute('name'));
 });
 </script>
 {% endblock %}

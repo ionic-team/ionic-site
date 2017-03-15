@@ -420,6 +420,11 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   function($scope, $http, $timeout) {
 
   $scope.submit = function(form) {
+    if (!form) {
+      alert('Please fill out at least part of the form!');
+      return;
+    }
+
     window.c('Pricing','FormSubmit');
     var cleanForm = {
       table: 'nick_sdlc_030917',

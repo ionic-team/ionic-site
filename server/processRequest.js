@@ -62,7 +62,8 @@ module.exports = function(req, res, next) {
     pre_footer: true,
     protocol: protocol,
     domain: req.get('host'),
-    url: req.originalUrl
+    url: req.originalUrl,
+    dev: req.get('host').indexOf('localhost') === 0
   }
 
   return next();

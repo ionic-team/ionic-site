@@ -1,7 +1,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+{% if dev %}
 <link href="/css/styles.css?v=c18dcff4cb64094388727183858d574f" rel="stylesheet">
+{% else %}
+<link href="/css/styles.min.css?v=c18dcff4cb64094388727183858d574f" rel="stylesheet">
+{% endif %}
 
 {% if title %}
   <title>{{title}}</title>

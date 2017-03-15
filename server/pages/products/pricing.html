@@ -213,7 +213,7 @@
             <td class="btn ionic"
                 data-toggle="modal" 
                 data-target="#myModal"
-                onclick="window.history.push('FormOpened')">
+                onclick="c('Pricing','FormOpen')">
               I'm Interested
             </td>
           </tr>
@@ -500,7 +500,7 @@
       <div class="modal-footer">
         <button type="button" 
                 class="btn btn-primary" 
-                onclick="c('Pricing','FormSubmit')">Submit</button>
+                ng-click="submit(form)">Submit</button>
       </div>
     </div>
   </div>
@@ -508,15 +508,12 @@
 
 <script>
 var $form = document.querySelector('#pricingInterestedForm');
-window.progress = [];
-window.addEventListener('beforeunload', function() {
-  if (window.progress.length) {
-    window.c('Pricing','FormAbandon', null, window.progress.join(' > '))
-  }
-});
-
 $form.addEventListener('change', function(e) {
-  window.progress.push(e['target'].getAttribute('name'));
+  var $t = e['target'];
+  window.c('Pricing',
+           'FormFieldChange: ' + $t.getAttribute('name'), 
+           null, 
+           $t.getAttribute('value'));
 });
 </script>
 {% endblock %}

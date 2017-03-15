@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p>The Infinite Scroll allows you to perform an action when the user
-scrolls a specified distance from the bottom of the page.</p>
+scrolls a specified distance from the bottom or top of the page.</p>
 <p>The expression assigned to the <code>infinite</code> event is called when
 the user scrolls to the specified distance. When this expression
 has finished its tasks, it should call the <code>complete()</code> method
@@ -293,6 +293,15 @@ change state of infiniteScroll to "complete"
       <td><p> If true, Whether or not the infinite scroll should be
 enabled or not. Setting to <code>false</code> will remove scroll event listeners
 and hide the display.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>position</td>
+      <td><code>string</code></td>
+      <td><p> The position of the infinite scroll element.
+The value can be either <code>top</code> or <code>bottom</code>.
+Default is <code>bottom</code>.</p>
 </td>
     </tr>
     

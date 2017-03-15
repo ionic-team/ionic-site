@@ -898,6 +898,13 @@ to transparent.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>scrollDownOnLoad</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the content will scroll down on load.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

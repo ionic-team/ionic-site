@@ -419,8 +419,17 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 .controller('PricingFormCtrl', ['$scope', '$http', '$timeout', 
   function($scope, $http, $timeout) {
 
+  $scope.section = 1;
+  $scope.form = {};
+
+  $scope.nextSection = function(form){
+    $scope.section++;
+    $scope.submit(form);
+  }
+
   $scope.submit = function(form) {
     window.c('Pricing','FormSubmit');
+    console.info("SUBMITTING FORM");
     var cleanForm = {
       table: 'nick_sdlc_030917',
       data: JSON.parse(JSON.stringify(form))
@@ -430,16 +439,35 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
       cleanForm.data.unused_features = Object.keys(form.unused_features)
                                              .join(', ');
     }
-    
-    $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
-      window.c('Pricing','FormSuccess');
-      alert('Thanks!');
-      $('#modal-close').click();
-      $scope.form = {};
-    }).catch(function(err) {
-      window.c('Pricing','FormError');
-      console.error('Unable to save survey', err);
-    });
+
+    if (form.uuid){
+      $http.patch('https://apps.ionic.io/api/discovery/'+form.uuid, cleanForm).then(function(resp) {
+
+        if ($scope.section == 5){
+          // We're done with the form!!
+          $scope.form = {};
+        }else{
+          // We're NOT done yet.
+        }
+      }).catch(function(err) {
+        window.c('Pricing','FormError');
+        console.error('Unable to save survey', err);
+      });
+    }else{
+      $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
+
+        // We've only filled out Name & Email so far. Store the UUID for updating next time.
+
+        window.c('Pricing','FormSuccess');
+        console.info("RESP", resp);
+
+        form.uuid = resp.data.uuid;
+      }).catch(function(err) {
+        window.c('Pricing','FormError');
+        console.error('Unable to save survey', err);
+      });
+    }
+
   };
 }])
 

@@ -425,8 +425,12 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
       table: 'nick_sdlc_030917',
       data: JSON.parse(JSON.stringify(form))
     }
-    cleanForm.data.unused_features = Object.keys(form.unused_features).join(', ');
 
+    if (form.unused_features) {
+      cleanForm.data.unused_features = Object.keys(form.unused_features)
+                                             .join(', ');
+    }
+    
     $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
       window.c('Pricing','FormSuccess');
       alert('Thanks!');

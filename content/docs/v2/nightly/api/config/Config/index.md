@@ -55,7 +55,7 @@ You can set the tab placement, icon mode, animations, and more here.</p>
       modalEnter: &#39;modal-slide-in&#39;,
       modalLeave: &#39;modal-slide-out&#39;,
       tabsPlacement: &#39;bottom&#39;,
-      pageTransition: &#39;ios&#39;
+      pageTransition: &#39;ios-transition&#39;
     }, {}
   )],
   bootstrap: [IonicApp],
@@ -189,7 +189,7 @@ chart displays each property with a description of what it controls.</p>
 <tr>
 <td><code>pageTransition</code></td>
 <td><code>string</code></td>
-<td>The name of the transition to use while changing pages.</td>
+<td>The name of the transition to use while changing pages. Available options: <code>&quot;ios-transition&quot;</code>, <code>&quot;md-transition&quot;</code>, <code>&quot;wp-transition&quot;</code>.</td>
 </tr>
 <tr>
 <td><code>pickerEnter</code></td>

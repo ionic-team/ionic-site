@@ -206,11 +206,51 @@ dataset, so please make sure they&#39;re performant.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="calcDimensions"></div>
+
+<h3>
+<a class="anchor" name="calcDimensions" href="#calcDimensions"></a>
+<code>calcDimensions()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="readUpdate"></div>
 
 <h3>
 <a class="anchor" name="readUpdate" href="#readUpdate"></a>
 <code>readUpdate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setElementClass"></div>
+
+<h3>
+<a class="anchor" name="setElementClass" href="#setElementClass"></a>
+<code>setElementClass()</code>
   
 
 </h3>

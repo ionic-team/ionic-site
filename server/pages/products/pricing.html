@@ -272,7 +272,7 @@
 {% endblock %}
 
 {% block scripts %}
-<div class="modal fade" 
+<div class="modal fade pricing-survey" 
      id="myModal" 
      tabindex="-1" 
      role="dialog" 
@@ -287,99 +287,82 @@
                 aria-label="Close"
                 id="modal-close"
                 onclick="c('Pricing','FormClose')"></button>
-        <h4 class="modal-title">Thanks for your interest</h4> 
-        <p>
+        <h2 class="modal-title">Thank you!</h2> 
+        <!--<p>
           We're currently evaluating this product and would love your feedback
-        </p>
+        </p>-->
         
       </div>
       <div class="modal-body">
         <form id="pricingInterestedForm">
 
-          <div class="form-group">
-            <label for="name" class="control-label">
-              Name
-            </label>
-            <input type="text" 
-                   class="form-control" 
-                   id="name"
-                   name="name"
-                   ng-model="form.name">
+          <div ng-show="section==1">
+
+            <!--<img src="/img/products/mattkremer.jpg" class="matt-picture" />-->
+
+            <div class="matt-talking">
+              <!-- <p>Hey there,</p> -->
+
+              <p>Thanks for showing interest in what we have to offer. We're currently evaluating this package, and would love to <i>reach out to you to talk about your exact needs after learning a little more about you</i>.</p>
+
+              <p>Fill out this short survey and we'll be in touch!</p>
+
+              <!-- <p>Thanks,<br />Matt</p> -->
+
+              <!-- <img src="/img/products/signature.png" class="matt-signature" /> -->
+            </div>
+
+            <div class="form-group small-form">
+              <label for="name" class="control-label">
+                Name
+              </label>
+              <input type="text" 
+                     class="form-control" 
+                     id="name"
+                     name="name"
+                     ng-model="form.name">
+            </div>
+
+            <div class="form-group small-form">
+              <label for="email" class="control-label">
+                Email
+              </label>
+              <input type="email" 
+                     class="form-control" 
+                     id="email"
+                     name="email"
+                     ng-model="form.email">
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="email" class="control-label">
-              Email
-            </label>
-            <input type="email" 
-                   class="form-control" 
-                   id="email"
-                   name="email"
-                   ng-model="form.email">
-          </div>
+          <div ng-show="section==2">
 
-          <div class="form-group">
-            <label for="company_size" class="control-label">Company Size</label>
-            <select id="company_size" 
-                    name="company_size" 
-                    class="form-control" 
-                    ng-model="form.company_size">
-              <option ng-value="null" disabled selected></option>
-              <option ng-value="1">Self Employed</option>
-              <option ng-value="10">2-10</option>
-              <option ng-value="50">11-50</option>
-              <option ng-value="500">51-500</option>
-              <option ng-value="1000">500+</option>
-            </select>
-          </div>
+            <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
 
-          <div class="form-group">
-            <label for="price" class="control-label">Is the offering presented</label>
-            <select id="price" 
-                    name="price" 
-                    class="form-control" 
-                    ng-model="form.price">
-              <option value="null" disabled selected></option>
-              <option value="inexpensive">Inexpensive</option>
-              <option value="fair">Fair</option>
-              <option value="expensive">Expensive</option>
-              <option value="prohibitively expensive">Prohibitively expensive</option>
-            </select>
-          </div>
+            <div class="matt-talking one-line">
+              <p>Awesome, thanks! How did you feel about the offering?</p>
+            </div>
 
-          <div class="form-group">
-            <label for="expensive_point" class="control-label">
-              At what price point does this offering become prohibitively 
-              expensive?
-            </label>
-            <input type="number" 
-                   class="form-control" 
-                   id="expensive_point"
-                   name="expensive_point" 
-                   ng-model="form.expensive_point">
-          </div>
-
-          <div class="form-group">
-            <label for="would-this-offering" class="control-label">
-              Would this offering solve any problems you currently have?
-            </label><br>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="solve_problems" 
-                     id="solve_problems_yes" 
-                     ng-value="true"
-                    ng-model="form.solve_problems"> Yes
-            </label>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="solve_problems" 
-                     id="solve_problems_no" 
-                     ng-value="false"
-                     ng-model="form.solve_problems"> No
-            </label>
-          </div>
-
-          <div class="form-group">
+            <div class="form-group">
+              <label for="would-this-offering" class="control-label">
+                Would this offering solve any problems you currently have?
+              </label><br>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="solve_problems" 
+                       id="solve_problems_yes" 
+                       ng-value="true"
+                      ng-model="form.solve_problems"> Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="solve_problems" 
+                       id="solve_problems_no" 
+                       ng-value="false"
+                       ng-model="form.solve_problems"> No
+              </label>
+            </div>
+            <div class="form-group">
             <label class="control-label">
               Is there anything in this offering you wouldn't use?
             </label><br>
@@ -412,7 +395,7 @@
             </label>
           </div>
 
-          <div class="form-group">
+          <!--<div class="form-group">
             <label class="control-label">
               Is there anything missing from this offering that would prevent 
               you from buying it?
@@ -431,7 +414,7 @@
                      ng-value="false"
                      ng-model="form.missing_purchase"> No
             </label>
-          </div>
+          </div>-->
 
           <div class="form-group">
             <label class="control-label">
@@ -453,46 +436,110 @@
                      ng-model="form.missing_workflow"> No
             </label>
           </div>
-
-          <div class="form-group">
-            <label for="if-this-package" class="control-label">
-              If this package was Ionic’s only offering, and existed today for 
-              $1999/user/year, would you buy it?
-            </label><br>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="would_buy" 
-                     id="would_buy_yes" 
-                     ng-value="true"
-                     ng-model="form.would_buy"> Yes
-            </label>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="would_buy" 
-                     id="would_buy_no" 
-                     ng-value="false"
-                     ng-model="form.would_buy"> No
-            </label>
           </div>
 
-          <div class="form-group">
-            <label for="have-you-ever" class="control-label">
-              Have you ever used Ionic Creator or Ionic Cloud?
-            </label><br>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="used_services" 
-                     id="used_services_yes" 
-                     ng-value="true"
-                     ng-model="form.used_services"> Yes
-            </label>
-            <label class="radio-inline">
-              <input type="radio" 
-                     name="used_services" 
-                     id="used_services_no" 
-                     ng-value="false"
-                     ng-model="form.used_services"> No
-            </label>
+          <div ng-show="section==3">
+
+            <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
+
+            <div class="matt-talking one-line">
+              <p>Great, now how about the price?</p>
+            </div>
+
+            <div class="form-group">
+              <label for="if-this-package" class="control-label">
+                If this package was Ionic’s only offering, and existed today for 
+                $1999/user/year, would you buy it?
+              </label><br>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="would_buy" 
+                       id="would_buy_yes" 
+                       ng-value="true"
+                       ng-model="form.would_buy"> Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="would_buy" 
+                       id="would_buy_no" 
+                       ng-value="false"
+                       ng-model="form.would_buy"> No
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="price" class="control-label">Is the offering presented</label>
+              <select id="price" 
+                      name="price" 
+                      class="form-control" 
+                      ng-model="form.price">
+                <option value="null" disabled selected></option>
+                <option value="inexpensive">Inexpensive</option>
+                <option value="fair">Fair</option>
+                <option value="expensive">Expensive</option>
+                <option value="prohibitively expensive">Prohibitively expensive</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="expensive_point" class="control-label">
+                At what price point does this offering become prohibitively 
+                expensive?
+              </label>
+              <input type="number" 
+                     class="form-control" 
+                     id="expensive_point"
+                     name="expensive_point" 
+                     ng-model="form.expensive_point">
+            </div>
+          </div>
+
+          <div ng-show="section==4">
+            <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
+
+            <div class="matt-talking one-line">
+              <p>Just some final basic questions:</p>
+            </div>
+
+            <div class="form-group">
+              <label for="company_size" class="control-label">Company Size</label>
+              <select id="company_size" 
+                      name="company_size" 
+                      class="form-control" 
+                      ng-model="form.company_size">
+                <option ng-value="null" disabled selected></option>
+                <option ng-value="1">Self Employed</option>
+                <option ng-value="10">2-10</option>
+                <option ng-value="50">11-50</option>
+                <option ng-value="500">51-500</option>
+                <option ng-value="1000">500+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="have-you-ever" class="control-label">
+                Have you ever used Ionic Creator or Ionic Cloud?
+              </label><br>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="used_services" 
+                       id="used_services_yes" 
+                       ng-value="true"
+                       ng-model="form.used_services"> Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="used_services" 
+                       id="used_services_no" 
+                       ng-value="false"
+                       ng-model="form.used_services"> No
+              </label>
+            </div>
+          </div>
+
+          <div ng-show="section==5">
+            <div class="matt-talking one-line">
+              <p>Thank you so much for your time, we'll reach out soon!</p>
+            </div>
           </div>
 
         </form>
@@ -500,7 +547,7 @@
       <div class="modal-footer">
         <button type="button" 
                 class="btn btn-primary" 
-                ng-click="submit(form)">Submit</button>
+                ng-show="section!==5" ng-click="nextSection(form)"><span ng-show="section==4">Submit</span><span ng-show="section!=4">Next</span></button>
       </div>
     </div>
   </div>

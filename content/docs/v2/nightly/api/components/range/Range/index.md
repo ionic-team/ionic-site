@@ -265,8 +265,20 @@ on the step property value. Defaults to <code>false</code>.</p>
   <tbody>
     
     <tr>
+      <td>ionBlur</td>
+      <td><p> Emitted when the range selector drag ends.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>ionChange</td>
       <td><p> Emitted when the range value changes.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionFocus</td>
+      <td><p> Emitted when the range selector drag starts.</p>
 </td>
     </tr>
     

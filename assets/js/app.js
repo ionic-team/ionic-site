@@ -428,11 +428,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   }
 
   $scope.submit = function(form) {
-    if (!form) {
-      alert('Please fill out at least part of the form!');
-      return;
-    }
-
+    $(':focus').blur();
     window.c('Pricing','FormSubmit');
     console.info("SUBMITTING FORM");
     var cleanForm = {
@@ -445,7 +441,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
                                              .join(', ');
     }
 
-    if (form.uuid){
+    if (form.uuid) {
       $http.patch('https://apps.ionic.io/api/discovery/'+form.uuid, cleanForm).then(function(resp) {
 
         if ($scope.section == 5){
@@ -458,15 +454,18 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
         window.c('Pricing','FormError');
         console.error('Unable to save survey', err);
       });
-    }else{
+    } else {
+      if (!cleanForm.data.name || !cleanForm.data.email) {
+        alert('Please enter your name and email');
+        return $scope.section--;
+      }
       $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
-
         // We've only filled out Name & Email so far. Store the UUID for updating next time.
+        form.uuid = resp.data.uuid;
 
         window.c('Pricing','FormSuccess');
         console.info("RESP", resp);
 
-        form.uuid = resp.data.uuid;
       }).catch(function(err) {
         window.c('Pricing','FormError');
         console.error('Unable to save survey', err);

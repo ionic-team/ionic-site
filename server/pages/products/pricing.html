@@ -287,7 +287,9 @@
                 aria-label="Close"
                 id="modal-close"
                 onclick="c('Pricing','FormClose')"></button>
-        <h2 class="modal-title">Thank you!</h2> 
+        <h2 ng-show="section==1" class="modal-title">Let's talk</h2> 
+        <h2 ng-show="section!=1 && section!=5" class="modal-title">Got it, thanks!</h2> 
+        <h2 ng-show="section==5" class="modal-title">That's it!</h2> 
         <!--<p>
           We're currently evaluating this product and would love your feedback
         </p>-->
@@ -303,7 +305,12 @@
             <div class="matt-talking">
               <!-- <p>Hey there,</p> -->
 
-              <p>Thanks for showing interest in what we have to offer. We're currently evaluating this package, and would love to <i>reach out to you to talk about your exact needs after learning a little more about you</i>.</p>
+              <p>
+                Thanks for showing interest in what we have to offer. We're 
+                currently evaluating this package, and would love to <i>reach 
+                out to you to talk about your exact needs after learning a 
+                little more about you</i>.
+              </p>
 
               <p>Fill out this survey and we'll be in touch!</p>
 
@@ -331,7 +338,8 @@
                      class="form-control" 
                      id="email"
                      name="email"
-                     ng-model="form.email">
+                     ng-model="form.email"
+                     ng-enter="nextSection(form)">
             </div>
           </div>
 
@@ -340,7 +348,7 @@
             <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
 
             <div class="matt-talking one-line">
-              <p>Awesome, thanks! How did you feel about the offering?</p>
+              <p>How did you feel about the offering?</p>
             </div>
 
             <div class="form-group">
@@ -352,7 +360,7 @@
                        name="solve_problems" 
                        id="solve_problems_yes" 
                        ng-value="true"
-                      ng-model="form.solve_problems"> Yes
+                       ng-model="form.solve_problems"> Yes
               </label>
               <label class="radio-inline">
                 <input type="radio" 
@@ -379,6 +387,7 @@
                      ng-model="form.unused_features.view"> 
               Device Preview/Testing
             </label>
+            <br>
             <label class="checkbox-inline">
               <input type="checkbox" 
                      value="unused_features_deploy"
@@ -547,7 +556,18 @@
       <div class="modal-footer">
         <button type="button" 
                 class="btn btn-primary" 
-                ng-show="section!==5" ng-click="nextSection(form)"><span ng-show="section==4">Submit</span><span ng-show="section!=4">Next</span></button>
+                ng-show="section!==5" 
+                ng-click="nextSection(form)">
+          <span ng-show="section==4">Submit</span>
+          <span ng-show="section!=4">Next</span>
+        </button>
+        <button type="button" 
+                class="btn white" 
+                ng-show="section==5"
+                data-dismiss="modal" 
+                aria-label="Close"
+                onclick="c('Pricing','FormClose: Complete')">Close
+        </button>
       </div>
     </div>
   </div>

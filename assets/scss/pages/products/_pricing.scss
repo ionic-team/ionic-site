@@ -506,21 +506,34 @@
   }
 }
 
-.pricing-survey{
-  .modal-dialog{
-    width:800px;
+.pricing-survey {
+
+  .modal-dialog {
+    width: 500px;
   }
-  .modal-content{
-    background-color:#f5f6f9;
+  .modal-content {
+    // background-color:#f5f6f9;
   }
 
-  .form-group{
+  .modal-header {
+    padding: 25px 50px 15px;
+  }
+
+  .modal-body {
+    padding: 25px 50px;
+  }
+
+  .modal-footer {
+    padding: 25px 50px 15px;
+  }
+
+  .form-group {
     margin-left:auto;
     margin-right:auto;
     width:400px;
   }
 
-  .matt-picture-small{
+  .matt-picture-small {
     width:40px;
     height:40px;
     border-radius:100px;
@@ -529,7 +542,7 @@
     margin-right:20px;
   }
 
-  .matt-picture{
+  .matt-picture {
     width:200px;
     height:200px;
     border-radius:100px;
@@ -538,20 +551,19 @@
     margin-right:20px;
   }
 
-  .matt-signature{
+  .matt-signature {
     width:160px;
     height:63px;
   }
 
-  .matt-talking{
+  .matt-talking {
     margin-bottom:25px;
     font-size:16px;
 
-    &.one-line{
+    &.one-line {
       line-height:40px;
     }
   }
-
 }
 
 #pricing-actual-table{

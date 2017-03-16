@@ -428,8 +428,8 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   }
 
   $scope.submit = function(form) {
+    window.c('Pricing','FormStep', null, $scope.section);
     $(':focus').blur();
-    window.c('Pricing','FormSubmit');
     console.info("SUBMITTING FORM");
     var cleanForm = {
       table: 'nick_sdlc_030917',
@@ -447,6 +447,7 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
         if ($scope.section == 5){
           // We're done with the form!!
           $scope.form = {};
+          window.c('Pricing','FormSubmit');
         }else{
           // We're NOT done yet.
         }

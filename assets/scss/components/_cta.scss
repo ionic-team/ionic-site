@@ -21,6 +21,7 @@
   hgroup {
     padding-top: 33px;
     padding-bottom: 94px;
+    max-width: 800px;
 
     h1 {
       font-size: 28px;
@@ -32,21 +33,28 @@
       font-size: 20px;
       color: rgba(255, 255, 255, .8);
       letter-spacing: -.03em;
+      line-height: 1.6em;
+      margin-top: -5px;
     }
 
     p {
-      color: rgba(white, .7)
+      color: rgba(white, .7);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    a {
+      color: rgba(white, .9);
+
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     small {
       a {
-        color: rgba(white, .9);
         font-weight: 600;
-
-        &:hover {
-          color: white;
-          text-decoration: none;
-        }
       }
     }
   }

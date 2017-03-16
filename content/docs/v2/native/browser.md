@@ -17,6 +17,8 @@ Historically, it was difficult to test native functionality in the browser, requ
 
 Ionic Native 3.0 now allows developers to mock and use native plugins in the browser through a simple override mechanic, making it easy to provide testing data from a sensor, or to access a native-only API such as HealthKit.
 
+This means that a large majority of an Ionic app can now be built entirely in the browser without deploying to device or emulator. A level of development speed unheard of in mobile.
+
 <h3 id="Mocking_Plugins">Mocking Plugins</h3>
 
 To use an Ionic Native plugin in the browser and `ionic serve` session, you just need to extend the original plugin class and override the methods you'd like to mock.

@@ -452,8 +452,6 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
   $scope.section = 1;
   $scope.form = {};
-  // mixpanel test
-  //mixpanel.track('test')
 
   $scope.nextSection = function(form) {
     $scope.section++;

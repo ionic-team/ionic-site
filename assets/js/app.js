@@ -421,8 +421,10 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
   $scope.section = 1;
   $scope.form = {};
+  // mixpanel test
+  //mixpanel.track('test')
 
-  $scope.nextSection = function(form){
+  $scope.nextSection = function(form) {
     $scope.section++;
     $scope.submit(form);
   }
@@ -444,11 +446,11 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
     if (form.uuid) {
       $http.patch('https://apps.ionic.io/api/discovery/'+form.uuid, cleanForm).then(function(resp) {
 
-        if ($scope.section == 5){
+        if ($scope.section == 5) {
           // We're done with the form!!
           $scope.form = {};
           window.c('Pricing','FormSubmit');
-        }else{
+        } else {
           // We're NOT done yet.
         }
       }).catch(function(err) {

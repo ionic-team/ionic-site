@@ -6,7 +6,7 @@
     {% else %}
       {% assign isDocs = false %}
     {% endif %}
-    {% include v2_fluid/head.html %}
+    {% include v2_fluid/head.prod.html %}
   </head>
   <body id="{% if isDocs %}docs-{% endif %}page-{{page.id}}"
         class="{% if isDocs %}v2 docs fluid {% endif %}page-{{page.id}}

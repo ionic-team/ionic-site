@@ -54,13 +54,14 @@ function bustCache() {
       .pipe(cachebust({
         basePath: 'content'
       }))
+      .pipe(rename({extname: '.prod.html'}))
       .pipe(gulp.dest('./' + path));
   }
 
   var bustArray = function() {
     return [
-      cacheBust('server/pages/_partials/', 'head.html'),
-      cacheBust('server/pages/_partials/', 'scripts.html'),
+      cacheBust('server/pages/_includes/', 'head.html'),
+      cacheBust('server/pages/_includes/', 'scripts.html'),
       cacheBust('content/_includes/', 'head_includes.html'),
       cacheBust('content/_includes/v2_fluid/', 'head.html'),
       cacheBust('content/_includes/v2_fluid/', 'footer_tags.html')

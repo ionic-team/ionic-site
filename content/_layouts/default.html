@@ -3,7 +3,7 @@
   <head>
     {% include meta_tags.html %}
     <title>{{page.title}}{% if page.title_sufix %}{{ page.title_sufix }}{% else %} - Ionic Framework{% endif %}</title>
-    {% include head_includes.html %}
+    {% include head_includes.prod.html %}
   </head>
 
   <body class="{{ page.body_css }}">

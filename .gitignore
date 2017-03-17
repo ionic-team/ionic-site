@@ -20,3 +20,8 @@ linkchecker.html
 /content/js/ionic-site.js
 /content/js/ionic-site.min.js
 /.env
+/content/_includes/head_includes.prod.html
+/content/_includes/v2_fluid/footer_tags.prod.html
+/content/_includes/v2_fluid/head.prod.html
+/server/pages/_includes/head.prod.html
+/server/pages/_includes/scripts.prod.html

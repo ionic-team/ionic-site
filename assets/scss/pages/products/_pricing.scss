@@ -566,7 +566,7 @@
   }
 }
 
-#pricing-actual-table{
+#pricing-actual-table {
 
     margin-top:40px;
 
@@ -582,7 +582,7 @@
       border-collapse: collapse;
       position: relative;
 
-      tr{
+      tr {
         border-collapse:collapse;
       }
 
@@ -601,7 +601,7 @@
 
         .title {
           color: $blue;
-          font-size: 30px;
+          font-size: 20px;
           font-weight: 700;
           letter-spacing: 2px;
           padding-top: 48px;
@@ -609,18 +609,18 @@
           text-transform: uppercase;
           z-index: 1;
           margin-bottom: 0;
-        }
-      
-        .title.green {
-          padding-top: 30px;
-          color: $green;
+
+          &.green {
+            padding-top: 30px;
+            color: $green;
+          }
         }
 
-        h2{
+        h2 {
           margin-top:0px;
         }
 
-        sub{
+        sub {
           font-size:50%;
         }
 
@@ -655,18 +655,18 @@
 
       tbody {
 
-        .section-header{
+        .section-header {
           background:#e6ebf2;
-          th{
+          th {
             height:32px;
             font-weight:600;
             padding-left:10px;
             border:1px solid #e6ebf2;
             background:#e6ebf2;
-            div{
+            div {
               display:inline;
             }
-            span{
+            span {
               font-weight:400;
             }
           }
@@ -687,11 +687,11 @@
           padding-left:10px;
           line-height:1;
 
-          &.inner-feature{
+          &.inner-feature {
             //padding-left:20px;
           }
 
-          &.no-border{
+          &.no-border {
             border-bottom:0px;
           }
 
@@ -760,7 +760,7 @@
           }
         }
 
-        .pointer{
+        .pointer {
           cursor:pointer;
         }
 

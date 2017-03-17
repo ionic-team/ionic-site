@@ -1,5 +1,7 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products' %}
+{% set mixpanelEnabled = true %}
+{% set bodyController = "ProductsPageCtrl" %}
 
 {% block header_style %}transparent{% endblock %}
 
@@ -23,7 +25,7 @@
   </hgroup>
   <div class="bar" data-spy="affix" data-offset-top="375">
     <div class="container" id="platform-nav">
-      <a href="/products/pricing"
+      <a ng-click="gotoPricing('top')"
          class="btn ionic">View Pricing</a>
       <ul class="categories nav">
         <li class="active">
@@ -159,7 +161,7 @@
   
   <section id="get-started">
     <hgroup class="container text-center dark">
-      <a href="/products/pricing"
+      <a ng-click="gotoPricing('bottom')"
          class="btn ionic right">View Pricing</a>
       <h3>Ready to start building better apps, faster?</h3>
       <p>

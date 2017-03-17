@@ -416,6 +416,37 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
   };
 }])
 
+.controller('ProductsPageCtrl', ['$scope', '$timeout', function($scope, $timeout){
+
+  mixpanel.track('Products Page Load', { 'test': 'ProductsTest - 1' });
+
+  $scope.gotoPricing = function(location){
+    mixpanel.track('Pricing Button Click', { 'test': 'ProductsTest - 1', 'location': location });
+    $timeout(function(){
+      window.location = '/products/pricing';
+    }, 5);
+  }
+
+}])
+
+.controller('PricingPageCtrl', ['$scope', '$timeout', function($scope, $timeout){
+
+  mixpanel.track('Pricing Page Load', { 'test': 'ProductsTest - 1' });
+
+  $scope.gotoGettingStarted = function(){
+    mixpanel.track('Community - Getting Started Click', { 'test': 'ProductsTest - 1' });
+    $timeout(function(){
+      window.location = '/getting-started';
+    }, 5);
+  }
+
+  $scope.trackOpenSurvey = function(){
+    mixpanel.track('Professional - Im Interested Click', { 'test': 'ProductsTest - 1' });
+    c('Pricing','FormOpen')
+  }
+
+}])
+
 .controller('PricingFormCtrl', ['$scope', '$http', '$timeout', 
   function($scope, $http, $timeout) {
 
@@ -426,6 +457,11 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
   $scope.nextSection = function(form) {
     $scope.section++;
+    var step_descs = ['emailname', 'offering', 'pricing', 'misc'];
+    mixpanel.track('Survey Checkpoint', {'test': 'ProductsTest - 1', 'step_desc': step_descs[$scope.section-2], 'step_order': $scope.section-1});
+    if ($scope.section == 5){
+      mixpanel.track('Survey Finished', {'test': 'ProductsTest - 1'});
+    }
     $scope.submit(form);
   }
 

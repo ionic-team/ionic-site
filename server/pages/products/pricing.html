@@ -1,6 +1,7 @@
 {% extends '_layouts/base.html' %}
 {% set id = 'products-pricing' %}
 {% set mixpanelEnabled = true %}
+{% set bodyController = "PricingPageCtrl" %}
 
 {% block main %}
 <div class="cta gradient">
@@ -210,11 +211,11 @@
 
           <tr>
             <td class="empty"></td>
-            <td class="pointer" onclick="window.location = '/getting-started'">Get Started</td>
+            <td class="pointer" ng-click="gotoGettingStarted()">Get Started</td>
             <td class="btn ionic"
                 data-toggle="modal" 
                 data-target="#myModal"
-                onclick="c('Pricing','FormOpen')">
+                ng-click="trackOpenSurvey()">
               I'm Interested
             </td>
           </tr>

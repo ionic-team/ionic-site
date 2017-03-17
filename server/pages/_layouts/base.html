@@ -11,7 +11,8 @@
                {% if header_style %}{{header_style}}{% endif %}"
         data-spy="scroll"
         data-offset="100"
-        ng-app="IonicSite">
+        ng-app="IonicSite"
+        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}>
 
     <div id="snap-bar">
       Add your voice:

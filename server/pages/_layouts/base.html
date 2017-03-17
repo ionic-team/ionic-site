@@ -12,7 +12,8 @@
         data-spy="scroll"
         data-offset="100"
         ng-app="IonicSite"
-        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}>
+        {% if bodyController %}ng-controller="{{bodyController}}"{% endif %}
+        {% block body_attributes %}{% endblock %}>
 
     <div id="snap-bar">
       Add your voice:

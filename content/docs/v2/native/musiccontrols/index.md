@@ -287,6 +287,52 @@ Toggle play/pause:
 
 
 
+<div id="updateDismissable"></div>
+<h3><code>updateDismissable(dismissable)</code>
+  
+</h3>
+
+
+
+
+Toggle dismissable:
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      dismissable
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 
 <!-- methods on the class -->
 

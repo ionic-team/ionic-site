@@ -75,7 +75,7 @@ docType: "class"
 <pre><code class="lang-typescript">import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from &#39;ionic-native&#39;;
 
 NativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&quot;The address is &quot; + result.address + &quot; in &quot; + result.countryCode))
+  .then((result: NativeGeocoderReverseResult) =&gt; console.log(&quot;The address is &quot; + result.street + &quot; in &quot; + result.countryCode))
   .catch((error: any) =&gt; console.log(error));
 
 NativeGeocoder.forwardGeocode(&quot;Berlin&quot;)

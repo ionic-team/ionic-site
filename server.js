@@ -6,6 +6,7 @@ const compress        = require('compression');
 const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
 const expressNunjucks = require('express-nunjucks');
+const jobs            = require('./server/jobs');
 const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
 
@@ -37,7 +38,9 @@ app.use(function(req, res, next) {
 });
 
 // bind the app to listen for connections on a specified port
-app.listen(config.PORT);
+app.listen(config.PORT, function() {
+  // Render some console log output
+  console.log('Listening on port ' + config.PORT);
+  jobs.bustCache();
+});
 
-// Render some console log output
-console.log('Listening on port ' + app.get('port'));

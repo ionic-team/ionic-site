@@ -3,6 +3,11 @@ module.exports = {
   // Services
   PORT: int(process.env.PORT) || 3000,
   PROD: bool(process.env.PROD) || false,
+
+  // CloudFlare
+  CF_EMAIL: process.env.CF_EMAIL || null,
+  CF_TOKEN: process.env.CF_TOKEN || null,
+  CF_ZONE: process.env.CF_ZONE || null,
 };
 
 function bool(str) {

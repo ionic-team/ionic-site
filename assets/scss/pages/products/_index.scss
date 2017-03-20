@@ -283,6 +283,28 @@
     }
   }
 
+  #framework {
+    background: #488aff;
+
+    .container::after {
+      background: url('/img/products/feature-framework-img.png') no-repeat 0 0;
+      background-size: 558px;
+      width: 551px;
+      height: 587px;
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      top: calc(50% - 200px);
+
+      @media (max-width: $screen-sm-max) {
+        background-size: 372px;
+        width: 372px;
+        height: 444px;
+      }
+    }
+  }
+
   #testing {
     background: #26344c;
 

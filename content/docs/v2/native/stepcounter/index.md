@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/stepcounter.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/stepcounter/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/Slidee/cordova-plugin-stepcounter</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/Slidee/cordova-plugin-stepcounter$ npm install --save @ionic-native/stepcounter
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Slidee/cordova-plugin-stepcounter">
     https://github.com/Slidee/cordova-plugin-stepcounter
@@ -71,12 +73,16 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Stepcounter } from &#39;ionic-native&#39;;
+<pre><code>import { Stepcounter } from &#39;@ionic-native/stepcounter&#39;;
+
+constructor(private stepcounter: Stepcounter) { }
+
+...
 
 let startingOffset = 0;
-Stepcounter.start(startingOffset).then(onSuccess =&gt; console.log(&#39;stepcounter-start success&#39;, onSuccess), onFailure =&gt; console.log(&#39;stepcounter-start error&#39;, onFailure));
+this.stepcounter.start(startingOffset).then(onSuccess =&gt; console.log(&#39;stepcounter-start success&#39;, onSuccess), onFailure =&gt; console.log(&#39;stepcounter-start error&#39;, onFailure));
 
-Stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter-history success&#39;, historyObj), onFailure =&gt; console.log(&#39;stepcounter-history error&#39;, onFailure));
+this.stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter-history success&#39;, historyObj), onFailure =&gt; console.log(&#39;stepcounter-history error&#39;, onFailure));
 </code></pre>
 
 
@@ -85,17 +91,18 @@ Stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter-hist
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="start"></div>
-<h3><code>start(startingOffset)</code>
+<h3>
+  <code>start(startingOffset)</code>
   
+
 </h3>
-
-
 Start the step counter
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -127,113 +134,69 @@ Start the step counter
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success or rejects on failure
-</div>
-
-
-
-<div id="stop"></div>
-<h3><code>stop()</code>
+</div><div id="stop"></div>
+<h3>
+  <code>stop()</code>
   
+
 </h3>
-
-
 Stop the step counter
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
-</div>
-
-
-
-<div id="getTodayStepCount"></div>
-<h3><code>getTodayStepCount()</code>
+</div><div id="getTodayStepCount"></div>
+<h3>
+  <code>getTodayStepCount()</code>
   
+
 </h3>
-
-
 Get the amount of steps for today (or -1 if it no data given)
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps today, or rejects on failure
-</div>
-
-
-
-<div id="getStepCount"></div>
-<h3><code>getStepCount()</code>
+</div><div id="getStepCount"></div>
+<h3>
+  <code>getStepCount()</code>
   
+
 </h3>
-
-
 Get the amount of steps since the start command has been called
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
-</div>
-
-
-
-<div id="deviceCanCountSteps"></div>
-<h3><code>deviceCanCountSteps()</code>
+</div><div id="deviceCanCountSteps"></div>
+<h3>
+  <code>deviceCanCountSteps()</code>
   
+
 </h3>
-
-
 Returns true/false if Android device is running >API level 19 && has the step counter API available
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any | boolean&gt;</code> Returns a Promise that resolves on success, or rejects on failure
-</div>
-
-
-
-<div id="getHistory"></div>
-<h3><code>getHistory()</code>
+</div><div id="getHistory"></div>
+<h3>
+  <code>getHistory()</code>
   
+
 </h3>
-
-
 Get the step history (JavaScript object)
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -241,11 +204,6 @@ Get the step history (JavaScript object)
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves on success, or rejects on failure
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

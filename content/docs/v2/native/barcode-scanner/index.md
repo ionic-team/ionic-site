@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L56">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add phonegap-plugin-barcodescanner</code></pre>
+<pre><code>
+  $ ionic plugin add phonegap-plugin-barcodescanner$ npm install --save @ionic-native/cordova.plugins.barcodeScanner
+</code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
     https://github.com/phonegap/phonegap-plugin-barcodescanner
@@ -67,10 +69,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { BarcodeScanner } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { BarcodeScanner } from &#39;@ionic-native/barcode-scanner&#39;;
+
+constructor(private barcodeScanner: BarcodeScanner) { }
+
+...
 
 
-BarcodeScanner.scan().then((barcodeData) =&gt; {
+this.barcodeScanner.scan().then((barcodeData) =&gt; {
  // Success! Barcode data is here
 }, (err) =&gt; {
     // An error occurred
@@ -83,19 +89,27 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
-<div id="scan"></div>
-<h3><code>scan(options)</code>
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="Encode"></div>
+<h3>
+  <code>Encode</code>
   
+
 </h3>
 
 
 
+<div id="scan"></div>
+<h3>
+  <code>scan(options)</code>
+  
 
+</h3>
 Open the barcode scanner.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -126,28 +140,18 @@ Open the barcode scanner.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with scanner data, or rejects with an error.
-</div>
-
-
-
-<div id="encode"></div>
-<h3><code>encode(type,&nbsp;data)</code>
+</div><div id="encode"></div>
+<h3>
+  <code>encode(type,&nbsp;data)</code>
   
+
 </h3>
-
-
 Encodes data into a barcode.
 NOTE: not well supported on Android
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -195,20 +199,11 @@ NOTE: not well supported on Android
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

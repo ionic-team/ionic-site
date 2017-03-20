@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/emailcomposer.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L23">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-email</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-email$ npm install --save @ionic-native/cordova.plugins.email
+</code></pre>
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-email-plugin">
     https://github.com/hypery2k/cordova-email-plugin
@@ -74,10 +76,14 @@ A good alternative to this plugin is the social sharing plugin.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { EmailComposer } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { EmailComposer } from &#39;@ionic-native/email-composer&#39;;
+
+constructor(private emailComposer: EmailComposer) { }
+
+...
 
 
-EmailComposer.isAvailable().then((available: boolean) =&gt;{
+this.emailComposer.isAvailable().then((available: boolean) =&gt;{
  if(available) {
    //Now we know we can send
  }
@@ -99,7 +105,7 @@ let email = {
 };
 
 // Send a text message using default options
-EmailComposer.open(email);
+this.emailComposer.open(email);
 </code></pre>
 
 
@@ -108,16 +114,18 @@ EmailComposer.open(email);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isAvailable"></div>
-<h3><code>isAvailable(app)</code>
+<h3>
+  <code>isAvailable(app)</code>
   
+
 </h3>
-
 Verifies if sending emails is supported on the device.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -149,27 +157,17 @@ Verifies if sending emails is supported on the device.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
-</div>
-
-
-
-<div id="addAlias"></div>
-<h3><code>addAlias(alias,&nbsp;packageName)</code>
+</div><div id="addAlias"></div>
+<h3>
+  <code>addAlias(alias,&nbsp;packageName)</code>
   
+
 </h3>
-
-
 Adds a new mail app alias.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -218,23 +216,13 @@ Adds a new mail app alias.
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="open"></div>
-<h3><code>open(options,&nbsp;scope)</code>
+<h3>
+  <code>open(options,&nbsp;scope)</code>
   
+
 </h3>
-
-
-
-
 Displays the email composer pre-filled with data.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -283,20 +271,11 @@ Displays the email composer pre-filled with data.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Resolves promise when the EmailComposer has been opened
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

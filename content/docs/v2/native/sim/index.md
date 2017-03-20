@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sim.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sim/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-sim</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-sim$ npm install --save @ionic-native/plugins.sim
+</code></pre>
 <p>Repo:
   <a href="https://github.com/pbakondy/cordova-plugin-sim">
     https://github.com/pbakondy/cordova-plugin-sim
@@ -67,19 +69,23 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Sim } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Sim } from &#39;@ionic-native/sim&#39;;
 
 
-Sim.getSimInfo().then(
+constructor(private sim: Sim) { }
+
+...
+
+this.sim.getSimInfo().then(
   (info) =&gt; console.log(&#39;Sim info: &#39;, info),
   (err) =&gt; console.log(&#39;Unable to get sim info: &#39;, err)
 );
 
-Sim.hasReadPermission().then(
+this.sim.hasReadPermission().then(
   (info) =&gt; console.log(&#39;Has permission: &#39;, info)
 );
 
-Sim.requestReadPermission().then(
+this.sim.requestReadPermission().then(
   () =&gt; console.log(&#39;Permission granted&#39;),
   () =&gt; console.log(&#39;Permission denied&#39;)
 );
@@ -91,87 +97,51 @@ Sim.requestReadPermission().then(
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="getSimInfo"></div>
-<h3><code>getSimInfo()</code>
-  
-</h3>
-
-
-Returns info from the SIM card.
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="hasReadPermission"></div>
-<h3><code>hasReadPermission()</code>
-  
-</h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
-Check permission
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="requestReadPermission"></div>
-<h3><code>requestReadPermission()</code>
-  
-</h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
-Request permission
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
 
 
 <!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="getSimInfo"></div>
+<h3>
+  <code>getSimInfo()</code>
+  
+
+</h3>
+Returns info from the SIM card.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="hasReadPermission"></div>
+<h3>
+  <code>hasReadPermission()</code>
+  
+
+</h3>
+Check permission
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestReadPermission"></div>
+<h3>
+  <code>requestReadPermission()</code>
+  
+
+</h3>
+Request permission
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

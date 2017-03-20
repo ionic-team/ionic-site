@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pay-pal.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/paypal/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add com.paypal.cordova.mobilesdk</code></pre>
+<pre><code>
+  $ ionic plugin add com.paypal.cordova.mobilesdk$ npm install --save @ionic-native/PayPalMobile
+</code></pre>
 <p>Repo:
   <a href="https://github.com/paypal/PayPal-Cordova-Plugin">
     https://github.com/paypal/PayPal-Cordova-Plugin
@@ -57,19 +59,24 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {PayPal, PayPalPayment, PayPalConfiguration} from &quot;ionic-native&quot;;
+<pre><code>import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/pay-pal&#39;;
 
-PayPal.init({
-  &quot;PayPalEnvironmentProduction&quot;: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
-  &quot;PayPalEnvironmentSandbox&quot;: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
+constructor(private payPal: PayPal) { }
+
+...
+
+
+this.payPal.init({
+  PayPalEnvironmentProduction: &quot;YOUR_PRODUCTION_CLIENT_ID&quot;,
+  PayPalEnvironmentSandbox: &quot;YOUR_SANDBOX_CLIENT_ID&quot;
 }).then(() =&gt; {
   // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-  PayPal.prepareToRender(&#39;PayPalEnvironmentSandbox&#39;, new PayPalConfiguration({
+  this.payPal.prepareToRender(&#39;PayPalEnvironmentSandbox&#39;, new PayPalConfiguration({
     // Only needed if you get an &quot;Internal Service Error&quot; after PayPal login!
     //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
   })).then(() =&gt; {
     let payment = new PayPalPayment(&#39;3.33&#39;, &#39;USD&#39;, &#39;Description&#39;, &#39;sale&#39;);
-    PayPal.renderSinglePaymentUI(payment).then(() =&gt; {
+    this.payPal.renderSinglePaymentUI(payment).then(() =&gt; {
       // Successfully paid
 
       // Example sandbox response
@@ -106,41 +113,34 @@ PayPal.init({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="version"></div>
-<h3><code>version()</code>
+<h3>
+  <code>version()</code>
   
+
 </h3>
-
-
 Retrieve the version of the PayPal iOS SDK library. Useful when contacting support.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;string&gt;</code> 
-</div>
-
-
-
-<div id="init"></div>
-<h3><code>init(clientIdsForEnvironments:)</code>
+</div><div id="init"></div>
+<h3>
+  <code>init(clientIdsForEnvironments:)</code>
   
+
 </h3>
-
-
 You must preconnect to PayPal to prepare the device for processing payments.
 This improves the user experience, by making the presentation of the
 UI faster. The preconnect is valid for a limited time, so
 the recommended time to preconnect is on page load.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -172,29 +172,19 @@ the recommended time to preconnect is on page load.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="prepareToRender"></div>
-<h3><code>prepareToRender(environment:,&nbsp;configuration:)</code>
+</div><div id="prepareToRender"></div>
+<h3>
+  <code>prepareToRender(environment:,&nbsp;configuration:)</code>
   
+
 </h3>
-
-
 You must preconnect to PayPal to prepare the device for processing payments.
 This improves the user experience, by making the presentation of the UI faster.
 The preconnect is valid for a limited time, so the recommended time to preconnect is on page load.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -243,29 +233,19 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="renderSinglePaymentUI"></div>
-<h3><code>renderSinglePaymentUI(payment)</code>
+</div><div id="renderSinglePaymentUI"></div>
+<h3>
+  <code>renderSinglePaymentUI(payment)</code>
   
+
 </h3>
-
-
 Start PayPal UI to collect payment from the user.
 See https://developer.paypal.com/webapps/developer/docs/integration/mobile/ios-integration-guide/
 for more documentation of the params.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -297,24 +277,16 @@ for more documentation of the params.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="clientMetadataID"></div>
-<h3><code>clientMetadataID()</code>
+</div><div id="clientMetadataID"></div>
+<h3>
+  <code>clientMetadataID()</code>
   
+
 </h3>
-
-
 Once a user has consented to future payments, when the user subsequently initiates a PayPal payment
 from their device to be completed by your server, PayPal uses a Correlation ID to verify that the
 payment is originating from a valid, user-consented device+application.
@@ -324,48 +296,30 @@ Pass the result to your server, to include in the payment request sent to PayPal
 Do not otherwise cache or store this value.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="renderFuturePaymentUI"></div>
-<h3><code>renderFuturePaymentUI()</code>
+</div><div id="renderFuturePaymentUI"></div>
+<h3>
+  <code>renderFuturePaymentUI()</code>
   
+
 </h3>
-
-
 Please Read Docs on Future Payments at https://github.com/paypal/PayPal-iOS-SDK#future-payments
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="renderProfileSharingUI"></div>
-<h3><code>renderProfileSharingUI(scopes)</code>
+</div><div id="renderProfileSharingUI"></div>
+<h3>
+  <code>renderProfileSharingUI(scopes)</code>
   
+
 </h3>
-
-
 Please Read Docs on Profile Sharing at https://github.com/paypal/PayPal-iOS-SDK#profile-sharing
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -398,20 +352,11 @@ See <a href="https://developer.paypal.com/docs/integration/direct/identity/attri
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 
@@ -436,7 +381,6 @@ The amount of the payment.
 
 
 
-
 <div id="currency"></div>
 <h3>
   <code>currency()</code>
@@ -444,7 +388,6 @@ The amount of the payment.
 
 </h3>
 The ISO 4217 currency for the payment.
-
 
 
 
@@ -458,7 +401,6 @@ A short description of the payment.
 
 
 
-
 <div id="intent"></div>
 <h3>
   <code>intent()</code>
@@ -466,7 +408,6 @@ A short description of the payment.
 
 </h3>
 "Sale" for an immediate payment.
-
 
 
 
@@ -481,7 +422,6 @@ for your tracking purposes.
 
 
 
-
 <div id="invoiceNumber"></div>
 <h3>
   <code>invoiceNumber()</code>
@@ -489,7 +429,6 @@ for your tracking purposes.
 
 </h3>
 Optional invoice number, for your tracking purposes. (up to 256 characters)
-
 
 
 
@@ -503,7 +442,6 @@ Optional text, for your tracking purposes. (up to 256 characters)
 
 
 
-
 <div id="softDescriptor"></div>
 <h3>
   <code>softDescriptor()</code>
@@ -511,7 +449,6 @@ Optional text, for your tracking purposes. (up to 256 characters)
 
 </h3>
 Optional text which will appear on the customer's credit card statement. (up to 22 characters)
-
 
 
 
@@ -525,7 +462,6 @@ Optional array of PayPalItem objects.
 
 
 
-
 <div id="shippingAddress"></div>
 <h3>
   <code>shippingAddress()</code>
@@ -536,7 +472,6 @@ Optional customer shipping address, if your app wishes to provide this to the SD
 
 
 
-
 <div id="details"></div>
 <h3>
   <code>details()</code>
@@ -544,7 +479,6 @@ Optional customer shipping address, if your app wishes to provide this to the SD
 
 </h3>
 Optional PayPalPaymentDetails object
-
 
 
 
@@ -568,7 +502,6 @@ Name of the item. 127 characters max
 
 
 
-
 <div id="quantity"></div>
 <h3>
   <code>quantity()</code>
@@ -576,7 +509,6 @@ Name of the item. 127 characters max
 
 </h3>
 Number of units. 10 characters max.
-
 
 
 
@@ -590,7 +522,6 @@ Unit price for this item 10 characters max.
 
 
 
-
 <div id="currency"></div>
 <h3>
   <code>currency()</code>
@@ -601,7 +532,6 @@ ISO standard currency code.
 
 
 
-
 <div id="sku"></div>
 <h3>
   <code>sku()</code>
@@ -609,7 +539,6 @@ ISO standard currency code.
 
 </h3>
 The stock keeping unit for this item. 50 characters max (optional)
-
 
 
 
@@ -633,7 +562,6 @@ Sub-total (amount) of items being paid for. 10 characters max with support for 2
 
 
 
-
 <div id="shipping"></div>
 <h3>
   <code>shipping()</code>
@@ -644,7 +572,6 @@ Amount charged for shipping. 10 characters max with support for 2 decimal places
 
 
 
-
 <div id="tax"></div>
 <h3>
   <code>tax()</code>
@@ -652,7 +579,6 @@ Amount charged for shipping. 10 characters max with support for 2 decimal places
 
 </h3>
 Amount charged for tax. 10 characters max with support for 2 decimal places.
-
 
 
 
@@ -676,7 +602,6 @@ Name of the recipient at this address. 50 characters max.
 
 
 
-
 <div id="line1"></div>
 <h3>
   <code>line1()</code>
@@ -684,7 +609,6 @@ Name of the recipient at this address. 50 characters max.
 
 </h3>
 Line 1 of the address (e.g., Number, street, etc). 100 characters max.
-
 
 
 
@@ -698,7 +622,6 @@ Line 2 of the address (e.g., Suite, apt #, etc). 100 characters max. Optional.
 
 
 
-
 <div id="city"></div>
 <h3>
   <code>city()</code>
@@ -706,7 +629,6 @@ Line 2 of the address (e.g., Suite, apt #, etc). 100 characters max. Optional.
 
 </h3>
 City name. 50 characters max.
-
 
 
 
@@ -720,7 +642,6 @@ City name. 50 characters max.
 
 
 
-
 <div id="postalCode"></div>
 <h3>
   <code>postalCode()</code>
@@ -731,7 +652,6 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
 
 
 
-
 <div id="countryCode"></div>
 <h3>
   <code>countryCode()</code>
@@ -739,7 +659,6 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
 
 </h3>
 2-letter country code. 2 characters max.
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/stripe.ts#L51">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/stripe/index.ts#L79">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-stripe</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-stripe$ npm install --save @ionic-native/cordova.plugins.stripe
+</code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-stripe">
     https://github.com/zyramedia/cordova-plugin-stripe
@@ -57,9 +59,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Stripe } from &#39;ionic-native&#39;;
+<pre><code>import { Stripe } from &#39;@ionic-native/stripe&#39;;
 
-Stripe.setPublishableKey(&#39;my_publishable_key&#39;);
+constructor(private stripe: Stripe) { }
+
+...
+
+this.stripe.setPublishableKey(&#39;my_publishable_key&#39;);
 
 let card = {
  number: &#39;4242424242424242&#39;,
@@ -68,7 +74,7 @@ let card = {
  cvc: &#39;220&#39;
 };
 
-Stripe.createCardToken(card)
+this.stripe.createCardToken(card)
    .then(token =&gt; console.log(token))
    .catch(error =&gt; console.error(error));
 </code></pre>
@@ -79,17 +85,18 @@ Stripe.createCardToken(card)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="setPublishableKey"></div>
-<h3><code>setPublishableKey(publishableKey)</code>
+<h3>
+  <code>setPublishableKey(publishableKey)</code>
   
+
 </h3>
-
-
 Set publishable key
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -120,27 +127,17 @@ Set publishable key
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
-</div>
-
-
-
-<div id="createCardToken"></div>
-<h3><code>createCardToken(params)</code>
+</div><div id="createCardToken"></div>
+<h3>
+  <code>createCardToken(params)</code>
   
+
 </h3>
-
-
 Create Credit Card Token
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -171,20 +168,233 @@ Create Credit Card Token
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> returns a promise that resolves with the token, or rejects with an error
+</div><div id="createBankAccountToken"></div>
+<h3>
+  <code>createBankAccountToken(params)</code>
+  
 
+</h3>
+Create a bank account token
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      params
+      
+      
+    </td>
+    <td>
+      
+<code>StripeBankAccountParams</code>
+    </td>
+    <td>
+      <p>Bank account information</p>
 
-
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> returns a promise that resolves with the token, or reject with an error
+<code>Promise&lt;string&gt;</code> returns a promise that resolves with the token, or rejects with an error
+</div><div id="validateCardNumber"></div>
+<h3>
+  <code>validateCardNumber(cardNumber)</code>
+  
+
+</h3>
+Validates a credit card number
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      cardNumber
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Credit card number</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves if the number is valid, and rejects if it's invalid
+</div><div id="validateCVC"></div>
+<h3>
+  <code>validateCVC(cvc)</code>
+  
+
+</h3>
+Validates a CVC number
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      cvc
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>CVC number</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves if the number is valid, and rejects if it's invalid
+</div><div id="validateExpiryDate"></div>
+<h3>
+  <code>validateExpiryDate(expMonth,&nbsp;expYear)</code>
+  
+
+</h3>
+Validates an expiry date
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      expMonth
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>expiry month</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      expYear
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>expiry year</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> returns a promise that resolves if the date is valid, and rejects if it's invalid
+</div><div id="getCardType"></div>
+<h3>
+  <code>getCardType(cardNumber)</code>
+  
+
+</h3>
+Get a card type from card number
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      cardNumber
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Card number</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> returns a promise that resolves with the credit card type
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

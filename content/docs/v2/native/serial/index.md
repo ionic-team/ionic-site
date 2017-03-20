@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/serial.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/serial/index.ts#L14">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordovarduino</code></pre>
+<pre><code>
+  $ ionic plugin add cordovarduino$ npm install --save @ionic-native/serial
+</code></pre>
 <p>Repo:
   <a href="https://github.com/xseignard/cordovarduino">
     https://github.com/xseignard/cordovarduino
@@ -66,10 +68,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Serial } from &#39;ionic-native&#39;;
+<pre><code>import { Serial } from &#39;@ionic-native/serial&#39;;
 
-Serial.requestPermission().then(() =&gt; {
-  Serial.open({
+constructor(private serial: Serial) { }
+
+...
+
+this.serial.requestPermission().then(() =&gt; {
+  this.serial.open({
     baudRate: 9800
   }).then(() =&gt; {
     console.log(&#39;Serial connection opened&#39;);
@@ -83,19 +89,18 @@ Serial.requestPermission().then(() =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="requestPermission"></div>
-<h3><code>requestPermission(options)</code>
+<h3>
+  <code>requestPermission(options)</code>
   
+
 </h3>
-
-
-
-
 Request permission to connect to a serial device
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -127,27 +132,17 @@ Request permission to connect to a serial device
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when permissions are granted
-</div>
-
-
-
-<div id="open"></div>
-<h3><code>open(options)</code>
+</div><div id="open"></div>
+<h3>
+  <code>open(options)</code>
   
+
 </h3>
-
-
 Open connection to a serial device
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -179,28 +174,18 @@ Open connection to a serial device
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the serial connection is opened
-</div>
-
-
-
-<div id="write"></div>
-<h3><code>write(data)</code>
+</div><div id="write"></div>
+<h3>
+  <code>write(data)</code>
   
+
 </h3>
-
-
 Write to a serial connection
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -231,28 +216,18 @@ Write to a serial connection
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the write is complete
-</div>
-
-
-
-<div id="writeHex"></div>
-<h3><code>writeHex(data)</code>
+</div><div id="writeHex"></div>
+<h3>
+  <code>writeHex(data)</code>
   
+
 </h3>
-
-
 Write hex to a serial connection
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -283,29 +258,17 @@ Write hex to a serial connection
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the write is complete
-</div>
-
-
-
-<div id="read"></div>
-<h3><code>read()</code>
+</div><div id="read"></div>
+<h3>
+  <code>read()</code>
   
+
 </h3>
-
-
 Read from a serial connection
-
-
-
-
 
 
 
@@ -313,23 +276,13 @@ Read from a serial connection
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves with data read from the serial connection
-</div>
-
-
-
-<div id="registerReadCallback"></div>
-<h3><code>registerReadCallback()</code>
+</div><div id="registerReadCallback"></div>
+<h3>
+  <code>registerReadCallback()</code>
   
+
 </h3>
-
-
-
-
 Watch the incoming data from the serial connection. Clear the watch by unsubscribing from the observable
-
-
-
-
 
 
 
@@ -337,21 +290,13 @@ Watch the incoming data from the serial connection. Clear the watch by unsubscri
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Observable returns an observable that you can subscribe to
-</div>
-
-
-
-<div id="close"></div>
-<h3><code>close()</code>
+</div><div id="close"></div>
+<h3>
+  <code>close()</code>
   
+
 </h3>
-
-
 Close the serial connection
-
-
-
-
 
 
 
@@ -360,11 +305,6 @@ Close the serial connection
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the serial connection is closed
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

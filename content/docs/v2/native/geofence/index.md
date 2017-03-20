@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geofence.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-geofence</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-geofence$ npm install --save @ionic-native/geofence
+</code></pre>
 <p>Repo:
   <a href="https://github.com/cowbell/cordova-plugin-geofence/">
     https://github.com/cowbell/cordova-plugin-geofence/
@@ -67,20 +69,20 @@ Geofences persist after device reboot. Geofences will be monitored even when the
 
 <h2>Usage</h2>
 
-<pre><code>import { Geofence } from &#39;ionic-native&#39;;
-import { Platform } from  &#39;ionic-angular&#39;
+<pre><code>import { Geofence } from &#39;@ionic-native/geofence&#39;;
+
 ...
 
-constructor(private platform: Platform) {
-  this.platform.ready().then(() =&gt; {
-         // initialize the plugin
-      Geofence.initialize().then(
-        // resolved promise does not return a value
-        () =&gt; console.log(&#39;Geofence Plugin Ready&#39;),
-        (err) =&gt; console.log(err)
-      )
-  })
+constructor(private geofence: Geofence) {
+  // initialize the plugin
+  geofence.initialize().then(
+    // resolved promise does not return a value
+    () =&gt; console.log(&#39;Geofence Plugin Ready&#39;),
+    (err) =&gt; console.log(err)
+  )
 }
+
+...
 
 private addGeofence() {
   //options describing geofence
@@ -98,7 +100,7 @@ private addGeofence() {
     }
   }
 
-  Geofence.addOrUpdate(fence).then(
+  this.geofence.addOrUpdate(fence).then(
      () =&gt; console.log(&#39;Geofence added&#39;),
      (err) =&gt; console.log(&#39;Geofence failed to add&#39;)
    );
@@ -140,138 +142,97 @@ platform directories.</p>
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="TransitionType"></div>
-<h3><code>TransitionType</code>
+<h3>
+  <code>TransitionType</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
 
 
 
 <div id="onTrasitionReceived"></div>
-<h3><code>onTrasitionReceived</code>
+<h3>
+  <code>onTrasitionReceived()</code>
   
+
 </h3>
+Subscribe to get notified when a transition is received
 
 
-
-
-
-
-
-
-
-
-
-<div id="initialize"></div>
-<h3><code>initialize()</code>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="initialize"></div>
+<h3>
+  <code>initialize()</code>
   
+
 </h3>
-
-
 Initializes the plugin. User will be prompted to allow the app to use location and notifications.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
-</div>
-
-
-
-<div id="addOrUpdate"></div>
-<h3><code>addOrUpdate()</code>
+</div><div id="addOrUpdate"></div>
+<h3>
+  <code>addOrUpdate()</code>
   
+
 </h3>
-
-
 Adds a new geofence or array of geofences. For geofence object, see above.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
-</div>
-
-
-
-<div id="remove"></div>
-<h3><code>remove()</code>
+</div><div id="remove"></div>
+<h3>
+  <code>remove()</code>
   
+
 </h3>
-
-
 Removes a geofence or array of geofences. `geofenceID` corresponds to one or more IDs specified when the
 geofence was created.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
-</div>
-
-
-
-<div id="removeAll"></div>
-<h3><code>removeAll()</code>
+</div><div id="removeAll"></div>
+<h3>
+  <code>removeAll()</code>
   
+
 </h3>
-
-
 Removes all geofences.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
-</div>
-
-
-
-<div id="getWatched"></div>
-<h3><code>getWatched()</code>
+</div><div id="getWatched"></div>
+<h3>
+  <code>getWatched()</code>
   
+
 </h3>
-
-
 Returns an array of geofences currently being monitored.
-
-
-
-
 
 
 
@@ -279,54 +240,35 @@ Returns an array of geofences currently being monitored.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;string&gt;&gt;</code> 
-</div>
-
-
-
-<div id="onTransitionReceived"></div>
-<h3><code>onTransitionReceived()</code>
+</div><div id="onTransitionReceived"></div>
+<h3>
+  <code>onTransitionReceived()</code>
   
-</h3>
 
+</h3>
 Called when a geofence is crossed in the direction specified by `TransitType`.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onNotificationClicked"></div>
-<h3><code>onNotificationClicked()</code>
+</div><div id="onNotificationClicked"></div>
+<h3>
+  <code>onNotificationClicked()</code>
   
-</h3>
 
+</h3>
 Called when the user clicks a geofence notification. iOS and Android only.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

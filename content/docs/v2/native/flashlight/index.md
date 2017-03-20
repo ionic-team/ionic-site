@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/flashlight.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flashlight/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-flashlight</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-flashlight$ npm install --save @ionic-native/window.plugins.flashlight
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
     https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
@@ -58,7 +60,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Flashlight } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Flashlight } from &#39;@ionic-native/flashlight&#39;;
+
+constructor(private flashlight: FlashLight) { }
+
+...
+
+this.flashlight.switchOn();
 </code></pre>
 
 
@@ -67,105 +75,70 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="available"></div>
-<h3><code>available()</code>
+<h3>
+  <code>available()</code>
   
+
 </h3>
-
-
 Checks if the flashlight is available
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flashlight is available.
-</div>
-
-
-
-<div id="switchOn"></div>
-<h3><code>switchOn()</code>
+</div><div id="switchOn"></div>
+<h3>
+  <code>switchOn()</code>
   
+
 </h3>
-
-
 Switches the flashlight on
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="switchOff"></div>
-<h3><code>switchOff()</code>
+</div><div id="switchOff"></div>
+<h3>
+  <code>switchOff()</code>
   
+
 </h3>
-
-
 Switches the flashlight off
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="toggle"></div>
-<h3><code>toggle()</code>
+</div><div id="toggle"></div>
+<h3>
+  <code>toggle()</code>
   
+
 </h3>
-
-
 Toggles the flashlight
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="isSwitchedOn"></div>
-<h3><code>isSwitchedOn()</code>
+</div><div id="isSwitchedOn"></div>
+<h3>
+  <code>isSwitchedOn()</code>
   
+
 </h3>
-
-
-
-
 Checks if the flashlight is turned on.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -173,11 +146,6 @@ Checks if the flashlight is turned on.
   <b>Returns:</b> 
 <code>boolean</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

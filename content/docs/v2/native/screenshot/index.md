@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/screenshot.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screenshot/index.ts#L4">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/gitawego/cordova-screenshot.git</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/gitawego/cordova-screenshot.git$ npm install --save @ionic-native/navigator.screenshot
+</code></pre>
 <p>Repo:
   <a href="https://github.com/gitawego/cordova-screenshot.git">
     https://github.com/gitawego/cordova-screenshot.git
@@ -57,13 +59,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import {Screenshot} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Screenshot } from &#39;@ionic-native/screenshot&#39;;
+
+constructor(private screenshot: Screenshot) { }
+
+...
 
 // Take a screenshot and save to file
-Screenshot.save(&#39;jpg&#39;, 80, &#39;myscreenshot.jpg&#39;).then(onSuccess, onError);
+this.screenshot.save(&#39;jpg&#39;, 80, &#39;myscreenshot.jpg&#39;).then(onSuccess, onError);
 
 // Take a screenshot and get temporary file URI
-Screenshot.URI(80).then(onSuccess, onError);
+this.screenshot.URI(80).then(onSuccess, onError);
 </code></pre>
 
 
@@ -72,16 +78,18 @@ Screenshot.URI(80).then(onSuccess, onError);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="save"></div>
-<h3><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
+<h3>
+  <code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
   
+
 </h3>
-
 Takes screenshot and saves the image
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -149,26 +157,17 @@ On ios, only &#39;jpg&#39; format is supported</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="URI"></div>
-<h3><code>URI(quality.)</code>
+</div><div id="URI"></div>
+<h3>
+  <code>URI(quality.)</code>
   
+
 </h3>
-
 Takes screenshot and returns the image as an URI
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -201,20 +200,11 @@ Takes screenshot and returns the image as an URI
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

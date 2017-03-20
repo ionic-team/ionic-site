@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/statusbar.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/status-bar/index.ts#L4">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-statusbar</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-statusbar$ npm install --save @ionic-native/StatusBar
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-statusbar">
     https://github.com/apache/cordova-plugin-statusbar
@@ -67,12 +69,16 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { StatusBar } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { StatusBar } from &#39;@ionic-native/status-bar&#39;;
+
+constructor(private statusBar: StatusBar) { }
+
+...
 
 
-StatusBar.overlaysWebView(true); // let status bar overlay webview
+this.statusBar.overlaysWebView(true); // let status bar overlay webview
 
-StatusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to white
+this.statusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to white
 </code></pre>
 
 
@@ -81,20 +87,19 @@ StatusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to wh
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="overlaysWebView"></div>
-<h3><code>overlaysWebView(doesOverlay)</code>
+<h3>
+  <code>overlaysWebView(doesOverlay)</code>
   
+
 </h3>
-
-
-
-
 Set whether the status bar overlays the main app view. The default
 is true.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -126,102 +131,56 @@ is true.
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="styleDefault"></div>
-<h3><code>styleDefault()</code>
+<h3>
+  <code>styleDefault()</code>
   
+
 </h3>
-
-
-
-
 Use the default statusbar (dark text, for light backgrounds).
 
 
 
-
-
-
-
-
-
-
 <div id="styleLightContent"></div>
-<h3><code>styleLightContent()</code>
+<h3>
+  <code>styleLightContent()</code>
   
+
 </h3>
-
-
-
-
 Use the lightContent statusbar (light text, for dark backgrounds).
 
 
 
-
-
-
-
-
-
-
 <div id="styleBlackTranslucent"></div>
-<h3><code>styleBlackTranslucent()</code>
+<h3>
+  <code>styleBlackTranslucent()</code>
   
+
 </h3>
-
-
-
-
 Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 
 
-
-
-
-
-
-
-
 <div id="styleBlackOpaque"></div>
-<h3><code>styleBlackOpaque()</code>
+<h3>
+  <code>styleBlackOpaque()</code>
   
+
 </h3>
-
-
-
-
 Use the blackOpaque statusbar (light text, for dark backgrounds).
 
 
 
-
-
-
-
-
-
-
 <div id="backgroundColorByName"></div>
-<h3><code>backgroundColorByName(colorName)</code>
+<h3>
+  <code>backgroundColorByName(colorName)</code>
   
+
 </h3>
-
-
-
-
 Set the status bar to a specific named color. Valid options:
 black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
 
 iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -253,25 +212,15 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="backgroundColorByHexString"></div>
-<h3><code>backgroundColorByHexString(hexString)</code>
+<h3>
+  <code>backgroundColorByHexString(hexString)</code>
   
+
 </h3>
-
-
-
-
 Set the status bar to a specific hex color (CSS shorthand supported!).
 
 iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -303,69 +252,37 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="hide"></div>
-<h3><code>hide()</code>
+<h3>
+  <code>hide()</code>
   
+
 </h3>
-
-
-
-
 Hide the StatusBar
 
 
 
-
-
-
-
-
-
-
 <div id="show"></div>
-<h3><code>show()</code>
+<h3>
+  <code>show()</code>
   
+
 </h3>
-
-
-
-
 Show the StatusBar
 
 
 
-
-
-
-
-
-
-
 <div id="isVisible"></div>
-<h3><code>isVisible</code>
+<h3>
+  <code>isVisible</code>
   
+
 </h3>
-
-
 Whether the StatusBar is currently visible or not.
 
 
 
 
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

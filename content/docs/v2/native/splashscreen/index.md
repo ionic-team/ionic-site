@@ -1,13 +1,13 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
 id: "splashscreen"
-title: "Splashscreen"
+title: "SplashScreen"
 header_sub_title: "Class in module "
-doc: "Splashscreen"
+doc: "SplashScreen"
 docType: "class"
 ---
 
@@ -19,14 +19,14 @@ docType: "class"
 
 <h1 class="api-title">
   
-  Splashscreen
+  SplashScreen
   
 
   
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/splashscreen.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/splash-screen/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-splashscreen</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-splashscreen$ npm install --save @ionic-native/navigator.splashscreen
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-splashscreen">
     https://github.com/apache/cordova-plugin-splashscreen
@@ -57,12 +59,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Splashscreen } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SplashScreen } from &#39;@ionic-native/splash-screen&#39;;
 
+constructor(private splashScreen: SplashScreen) { }
 
-Splashscreen.show();
+...
 
-Splashscreen.hide();
+this.splashScreen.show();
+
+this.splashScreen.hide();
 </code></pre>
 
 
@@ -71,48 +76,32 @@ Splashscreen.hide();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="show"></div>
-<h3><code>show()</code>
+<h3>
+  <code>show()</code>
   
+
 </h3>
-
-
-
-
 Shows the splashscreen
 
 
 
-
-
-
-
-
-
-
 <div id="hide"></div>
-<h3><code>hide()</code>
+<h3>
+  <code>hide()</code>
   
+
 </h3>
-
-
-
-
 Hides the splashscreen
 
 
 
 
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

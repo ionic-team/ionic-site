@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/firebase.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/firebase/index.ts#L2">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-firebase</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-firebase$ npm install --save @ionic-native/FirebasePlugin
+</code></pre>
 <p>Repo:
   <a href="https://github.com/arnesson/cordova-plugin-firebase">
     https://github.com/arnesson/cordova-plugin-firebase
@@ -66,13 +68,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Firebase } from &#39;ionic-native&#39;;
+<pre><code>import { Firebase } from &#39;@ionic-native/firebase&#39;;
 
-Firebase.getToken()
+constructor(private firebase: Firebase) { }
+
+...
+
+this.firebase.getToken()
   .then(token =&gt; console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
   .catch(error =&gt; console.error(&#39;Error getting token&#39;, error));
 
-Firebase.onTokenRefresh()
+this.firebase.onTokenRefresh()
   .subscribe((token: string) =&gt; console.log(`Got a new token ${token}`));
 </code></pre>
 
@@ -82,140 +88,83 @@ Firebase.onTokenRefresh()
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getToken"></div>
-<h3><code>getToken()</code>
+<h3>
+  <code>getToken()</code>
   
+
 </h3>
-
-
 Get the device token
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onTokenRefresh"></div>
-<h3><code>onTokenRefresh()</code>
+</div><div id="onTokenRefresh"></div>
+<h3>
+  <code>onTokenRefresh()</code>
   
+
 </h3>
-
-
-
-
 Get notified when a token is refreshed
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onNotificationOpen"></div>
-<h3><code>onNotificationOpen()</code>
+</div><div id="onNotificationOpen"></div>
+<h3>
+  <code>onNotificationOpen()</code>
   
+
 </h3>
-
-
-
-
 Get notified when the user opens a notification
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="grantPermission"></div>
-<h3><code>grantPermission()</code>
+</div><div id="grantPermission"></div>
+<h3>
+  <code>grantPermission()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Grant permission to recieve push notifications
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="hasPermission"></div>
-<h3><code>hasPermission()</code>
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Check permission to recieve push notifications
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setBadgeNumber"></div>
-<h3><code>setBadgeNumber(badgeNumber)</code>
+</div><div id="setBadgeNumber"></div>
+<h3>
+  <code>setBadgeNumber(badgeNumber)</code>
   
+
 </h3>
-
-
 Set icon badge number. Set to 0 to clear the badge.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -245,48 +194,30 @@ Set icon badge number. Set to 0 to clear the badge.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getBadgeNumber"></div>
-<h3><code>getBadgeNumber()</code>
+</div><div id="getBadgeNumber"></div>
+<h3>
+  <code>getBadgeNumber()</code>
   
+
 </h3>
-
-
 Get icon badge number
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="subscribe"></div>
-<h3><code>subscribe(topic)</code>
+</div><div id="subscribe"></div>
+<h3>
+  <code>subscribe(topic)</code>
   
+
 </h3>
-
-
 Subscribe to a topic
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -316,27 +247,17 @@ Subscribe to a topic
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="unsubscribe"></div>
-<h3><code>unsubscribe(topic)</code>
+</div><div id="unsubscribe"></div>
+<h3>
+  <code>unsubscribe(topic)</code>
   
+
 </h3>
-
-
 Unsubscribe from a topic
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -366,27 +287,17 @@ Unsubscribe from a topic
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="logEvent"></div>
-<h3><code>logEvent(type,&nbsp;data)</code>
+</div><div id="logEvent"></div>
+<h3>
+  <code>logEvent(type,&nbsp;data)</code>
   
+
 </h3>
-
-
 Log an event using Analytics
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -432,27 +343,17 @@ Log an event using Analytics
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setScreenName"></div>
-<h3><code>setScreenName(name)</code>
+</div><div id="setScreenName"></div>
+<h3>
+  <code>setScreenName(name)</code>
   
+
 </h3>
-
-
 Set the name of the current screen in Analytics
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -483,27 +384,17 @@ Set the name of the current screen in Analytics
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setUserId"></div>
-<h3><code>setUserId(userId)</code>
+</div><div id="setUserId"></div>
+<h3>
+  <code>setUserId(userId)</code>
   
+
 </h3>
-
-
 Set a user id for use in Analytics
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -533,27 +424,17 @@ Set a user id for use in Analytics
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setUserProperty"></div>
-<h3><code>setUserProperty(name,&nbsp;value)</code>
+</div><div id="setUserProperty"></div>
+<h3>
+  <code>setUserProperty(name,&nbsp;value)</code>
   
+
 </h3>
-
-
 Set a user property for use in Analytics
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -599,34 +480,17 @@ Set a user property for use in Analytics
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="fetch"></div>
-<h3><code>fetch(cacheExpirationSeconds)</code>
+</div><div id="fetch"></div>
+<h3>
+  <code>fetch(cacheExpirationSeconds)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Fetch Remote Config parameter values for your app
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -656,62 +520,30 @@ Fetch Remote Config parameter values for your app
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="activateFetched"></div>
-<h3><code>activateFetched()</code>
+</div><div id="activateFetched"></div>
+<h3>
+  <code>activateFetched()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Activate the Remote Config fetched config
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getValue"></div>
-<h3><code>getValue(key,&nbsp;namespace)</code>
+</div><div id="getValue"></div>
+<h3>
+  <code>getValue(key,&nbsp;namespace)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Retrieve a Remote Config value
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -757,34 +589,17 @@ Retrieve a Remote Config value
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getByteArray"></div>
-<h3><code>getByteArray(key,&nbsp;namespace)</code>
+</div><div id="getByteArray"></div>
+<h3>
+  <code>getByteArray(key,&nbsp;namespace)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Retrieve a Remote Config byte array
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -830,62 +645,30 @@ Retrieve a Remote Config byte array
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getInfo"></div>
-<h3><code>getInfo()</code>
+</div><div id="getInfo"></div>
+<h3>
+  <code>getInfo()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Get the current state of the FirebaseRemoteConfig singleton object
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setConfigSettings"></div>
-<h3><code>setConfigSettings(settings)</code>
+</div><div id="setConfigSettings"></div>
+<h3>
+  <code>setConfigSettings(settings)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Change the settings for the FirebaseRemoteConfig object's operations
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -915,34 +698,17 @@ Change the settings for the FirebaseRemoteConfig object's operations
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setDefaults"></div>
-<h3><code>setDefaults(defaults,&nbsp;namespace)</code>
+</div><div id="setDefaults"></div>
+<h3>
+  <code>setDefaults(defaults,&nbsp;namespace)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Set defaults in the Remote Config
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -988,20 +754,11 @@ Set defaults in the Remote Config
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

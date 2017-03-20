@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sqlite.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L139">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-sqlite-storage</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-sqlite-storage$ npm install --save @ionic-native/sqlitePlugin
+</code></pre>
 <p>Repo:
   <a href="https://github.com/litehelpers/Cordova-sqlite-storage">
     https://github.com/litehelpers/Cordova-sqlite-storage
@@ -57,35 +59,26 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SQLite } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SQLite, SQLiteObject } from &#39;@ionic-native/sqlite&#39;;
 
-// OPTION A: Use static constructor
-SQLite.openDatabase({
+constructor(private sqlite: SQLite) { }
+
+...
+
+this.sqlite.create({
   name: &#39;data.db&#39;,
   location: &#39;default&#39;
 })
-  .then((db: SQLite) =&gt; {
+  .then((db: SQLiteObject) =&gt; {
 
-    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, []).then(() =&gt; {}).catch(() =&gt; {});
+
+    db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {})
+      .then(() =&gt; console.log(&#39;Executed SQL&#39;))
+      .catch(e =&gt; console.log(e));
+
 
   })
-  .catch(error =&gt; console.error(&#39;Error opening database&#39;, error));
-
-
-// OPTION B: Create a new instance of SQLite
-let db = new SQLite();
-db.openDatabase({
-  name: &#39;data.db&#39;,
-  location: &#39;default&#39; // the location field is required
-}).then(() =&gt; {
-  db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, []).then(() =&gt; {
-
-  }, (err) =&gt; {
-    console.error(&#39;Unable to execute sql: &#39;, err);
-  });
-}, (err) =&gt; {
-  console.error(&#39;Unable to open database: &#39;, err);
-});
+  .catch(e =&gt; console.log(e));
 </code></pre>
 
 
@@ -94,111 +87,14 @@ db.openDatabase({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="openDatabase"></div>
-<h3><code>openDatabase()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="echoTest"></div>
-<h3><code>echoTest()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="deleteDatabase"></div>
-<h3><code>deleteDatabase(first)</code>
-  
-</h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      first
-      
-      
-    </td>
-    <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
 
 
 <!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="databaseFeatures"></div>
+<div id="create"></div>
 <h3>
-  <code>databaseFeatures</code>
-  
-
-</h3>
-
-
-
-
-<div id="openDatabase"></div>
-<h3>
-  <code>openDatabase(config)</code>
+  <code>create(config)</code>
   
 
 </h3>
@@ -236,13 +132,41 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Promise<SQLiteObject>
+
+</div>
+
+
+
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
+
+
+
+<h2><a class="anchor" name="SQLiteObject" href="#SQLiteObject"></a>SQLiteObject</h2>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="databaseFeatures"></div>
+<h3>
+  <code>databaseFeatures()</code>
+  
+
+</h3>
+
+
+
 <div id="addTransaction"></div>
 <h3>
   <code>addTransaction()</code>
   
 
 </h3>
-
 
 
 
@@ -335,7 +259,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
 <div id="close"></div>
 <h3>
   <code>close()</code>
@@ -358,7 +281,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-
 <div id="executeSql"></div>
 <h3>
   <code>executeSql()</code>
@@ -367,7 +289,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 </h3>
 Execute SQL on the opened database. Note, you must call `openDatabase` first, and
 ensure it resolved and successfully opened the database.
-
 
 
 
@@ -473,7 +394,6 @@ ensure it resolved and successfully opened the database.
   
 
 </h3>
-
 
 
 
@@ -590,7 +510,6 @@ ensure it resolved and successfully opened the database.
 
 
 
-
 <div id="abort"></div>
 <h3>
   <code>abort(txFailure)</code>
@@ -636,7 +555,6 @@ ensure it resolved and successfully opened the database.
 
 
 
-
 <div id="abortFromQ"></div>
 <h3>
   <code>abortFromQ(sqlerror)</code>
@@ -673,11 +591,61 @@ ensure it resolved and successfully opened the database.
   </tbody>
 </table>
 
+<div id="echoTest"></div>
+<h3>
+  <code>echoTest()</code>
+  
+
+</h3>
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="deleteDatabase"></div>
+<h3>
+  <code>deleteDatabase(first)</code>
+  
 
-<!-- other classes -->
+</h3>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      first
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
 
 <!-- end other classes -->
 

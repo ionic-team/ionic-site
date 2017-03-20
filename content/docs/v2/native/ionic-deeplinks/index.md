@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deeplinks.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/</code></pre>
+<pre><code>
+  $ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/$ npm install --save @ionic-native/IonicDeeplink
+</code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-deeplinks">
     https://github.com/driftyco/ionic-plugin-deeplinks
@@ -67,25 +69,27 @@ and Universal App Links.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Deeplinks } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Deeplinks } from &#39;@ionic-native/deeplinks&#39;;
 
-Deeplinks.route({
-      &#39;/about-us&#39;: AboutPage,
-      &#39;/universal-links-test&#39;: AboutPage,
-      &#39;/products/:productId&#39;: ProductPage
-    }).subscribe((match) =&gt; {
-      // match.$route - the route we matched, which is the matched entry from the arguments to route()
-      // match.$args - the args passed in the link
-      // match.$link - the full link data
-      console.log(&#39;Successfully matched route&#39;, match);
-    }, (nomatch) =&gt; {
-      // nomatch.$link - the full link data
-      console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
-    });
+constructor(private deepLinks: DeepLinks) { }
+
+this.deepLinks.route({
+     &#39;/about-us&#39;: AboutPage,
+     &#39;/universal-links-test&#39;: AboutPage,
+     &#39;/products/:productId&#39;: ProductPage
+   }).subscribe((match) =&gt; {
+     // match.$route - the route we matched, which is the matched entry from the arguments to route()
+     // match.$args - the args passed in the link
+     // match.$link - the full link data
+     console.log(&#39;Successfully matched route&#39;, match);
+   }, (nomatch) =&gt; {
+     // nomatch.$link - the full link data
+     console.error(&#39;Got a deeplink that didn\&#39;t match&#39;, nomatch);
+   });
 </code></pre>
 <p>Alternatively, if you&#39;re using Ionic 2, there&#39;s a convenience method that takes a reference to a <code>NavController</code> and handles
 the actual navigation for you:</p>
-<pre><code class="lang-typescript">Deeplinks.routeWithNavController(this.navController, {
+<pre><code class="lang-typescript">this.deepLinks.routeWithNavController(this.navController, {
   &#39;/about-us&#39;: AboutPage,
   &#39;/products/:productId&#39;: ProductPage
 }).subscribe((match) =&gt; {
@@ -107,19 +111,18 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="route"></div>
-<h3><code>route(Define)</code>
+<h3>
+  <code>route(Define)</code>
   
+
 </h3>
-
-
-
-
 Define a set of paths to match against incoming deeplinks.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -154,27 +157,17 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div>
-
-
-
-<div id="routeWithNavController"></div>
-<h3><code>routeWithNavController(Define)</code>
+</div><div id="routeWithNavController"></div>
+<h3>
+  <code>routeWithNavController(Define)</code>
   
+
 </h3>
-
-
-
-
 This is a convenience version of `route` that takes a reference to a NavController
 from Ionic 2, or a custom class that conforms to this protocol:
 
@@ -183,8 +176,6 @@ NavController.push = function(View, Params){}
 This handler will automatically navigate when a route matches. If you need finer-grained
 control over the behavior of a matching deeplink, use the plain `route` method.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -218,21 +209,12 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that resolves each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

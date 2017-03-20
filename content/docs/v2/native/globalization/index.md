@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/globalization.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/globalization/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-globalization</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-globalization$ npm install --save @ionic-native/navigator.globalization
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-globalization">
     https://github.com/apache/cordova-plugin-globalization
@@ -65,7 +67,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Globalization } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Globalization } from &#39;@ionic-native/globalization&#39;;
+
+constructor(private globalization: Globalization) { }
+
+
+...
+
+
+this.globalization.getPreferredLanguage()
+  .then(res =&gt; console.log(res))
+  .catch(e =&gt; console.log(e));
 </code></pre>
 
 
@@ -74,61 +86,44 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getPreferredLanguage"></div>
-<h3><code>getPreferredLanguage()</code>
+<h3>
+  <code>getPreferredLanguage()</code>
   
+
 </h3>
-
-
 Returns the BCP-47 compliant language identifier tag to the successCallback with a properties object as a parameter. That object should have a value property with a String value.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{value: string}&gt;</code> 
-</div>
-
-
-
-<div id="getLocaleName"></div>
-<h3><code>getLocaleName()</code>
+</div><div id="getLocaleName"></div>
+<h3>
+  <code>getLocaleName()</code>
   
+
 </h3>
-
-
 Returns the BCP 47 compliant locale identifier string to the successCallback with a properties object as a parameter.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{value: string}&gt;</code> 
-</div>
-
-
-
-<div id="dateToString"></div>
-<h3><code>dateToString(date,&nbsp;options)</code>
+</div><div id="dateToString"></div>
+<h3>
+  <code>dateToString(date,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Converts date to string
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -176,29 +171,17 @@ Converts date to string
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
-</div>
-
-
-
-<div id="stringToDate"></div>
-<h3><code>stringToDate(dateString,&nbsp;options)</code>
+</div><div id="stringToDate"></div>
+<h3>
+  <code>stringToDate(dateString,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Parses a date formatted as a string, according to the client's user preferences and calendar using the time zone of the client, and returns the corresponding date object.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -246,29 +229,17 @@ Parses a date formatted as a string, according to the client's user preferences 
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{ year: number, month: number, day: number, hour: number, minute: number, second: number, millisecond: number }&gt;</code> Returns a promise when the date has been converted.
-</div>
-
-
-
-<div id="getDatePattern"></div>
-<h3><code>getDatePattern(options)</code>
+</div><div id="getDatePattern"></div>
+<h3>
+  <code>getDatePattern(options)</code>
   
+
 </h3>
-
-
-
-
 Returns a pattern string to format and parse dates according to the client's user preferences.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -299,29 +270,17 @@ Returns a pattern string to format and parse dates according to the client's use
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{pattern: string}&gt;</code> Returns a promise.
-</div>
-
-
-
-<div id="getDateNames"></div>
-<h3><code>getDateNames(options)</code>
+</div><div id="getDateNames"></div>
+<h3>
+  <code>getDateNames(options)</code>
   
+
 </h3>
-
-
-
-
 Returns an array of the names of the months or days of the week, depending on the client's user preferences and calendar.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -352,27 +311,17 @@ Returns an array of the names of the months or days of the week, depending on th
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{value: Array&lt;string&gt;}&gt;</code> Returns a promise.
-</div>
-
-
-
-<div id="isDayLightSavingsTime"></div>
-<h3><code>isDayLightSavingsTime(date)</code>
+</div><div id="isDayLightSavingsTime"></div>
+<h3>
+  <code>isDayLightSavingsTime(date)</code>
   
+
 </h3>
-
-
 Indicates whether daylight savings time is in effect for a given date using the client's time zone and calendar.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -403,50 +352,30 @@ Indicates whether daylight savings time is in effect for a given date using the 
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{dst: string}&gt;</code> reutrns a promise with the value
-</div>
-
-
-
-<div id="getFirstDayOfWeek"></div>
-<h3><code>getFirstDayOfWeek()</code>
+</div><div id="getFirstDayOfWeek"></div>
+<h3>
+  <code>getFirstDayOfWeek()</code>
   
+
 </h3>
-
-
 Returns the first day of the week according to the client's user preferences and calendar.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{value: string}&gt;</code> returns a promise with the value
-</div>
-
-
-
-<div id="numberToString"></div>
-<h3><code>numberToString(numberToConvert,&nbsp;options)</code>
+</div><div id="numberToString"></div>
+<h3>
+  <code>numberToString(numberToConvert,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Returns a number formatted as a string according to the client's user preferences.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -494,22 +423,12 @@ Returns a number formatted as a string according to the client's user preference
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="stringToNumber"></div>
-<h3><code>stringToNumber(stringToConvert,&nbsp;options)</code>
+<h3>
+  <code>stringToNumber(stringToConvert,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -558,29 +477,17 @@ Returns a number formatted as a string according to the client's user preference
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{ value: number | string }&gt;</code> Returns a promise with the value.
-</div>
-
-
-
-<div id="getNumberPattern"></div>
-<h3><code>getNumberPattern(options)</code>
+</div><div id="getNumberPattern"></div>
+<h3>
+  <code>getNumberPattern(options)</code>
   
+
 </h3>
-
-
-
-
 Returns a pattern string to format and parse numbers according to the client's user preferences.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -611,27 +518,17 @@ Returns a pattern string to format and parse numbers according to the client's u
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{ pattern: string, symbol: string, fraction: number, rounding: number, positive: string, negative: string, decimal: string, grouping: string }&gt;</code> 
-</div>
-
-
-
-<div id="getCurrencyPattern"></div>
-<h3><code>getCurrencyPattern(currencyCode)</code>
+</div><div id="getCurrencyPattern"></div>
+<h3>
+  <code>getCurrencyPattern(currencyCode)</code>
   
+
 </h3>
-
-
 Returns a pattern string to format and parse currency values according to the client's user preferences and ISO 4217 currency code.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -662,20 +559,11 @@ Returns a pattern string to format and parse currency values according to the cl
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

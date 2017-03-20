@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/appversion.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-version/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-app-version</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-app-version$ npm install --save @ionic-native/cordova.getAppVersion
+</code></pre>
 <p>Repo:
   <a href="https://github.com/whiteoctober/cordova-plugin-app-version">
     https://github.com/whiteoctober/cordova-plugin-app-version
@@ -67,13 +69,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AppVersion } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppVersion } from &#39;@ionic-native/app-version&#39;;
+
+constructor(private appVersion: AppVersion) { }
+
+...
 
 
-AppVersion.getAppName();
-AppVersion.getPackageName();
-AppVersion.getVersionCode();
-AppVersion.getVersionNumber();
+this.appVersion.getAppName();
+this.appVersion.getPackageName();
+this.appVersion.getVersionCode();
+this.appVersion.getVersionNumber();
 </code></pre>
 
 
@@ -82,94 +88,64 @@ AppVersion.getVersionNumber();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="getAppName"></div>
-<h3><code>getAppName()</code>
-  
-</h3>
-
-
-Returns the name of the app
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getPackageName"></div>
-<h3><code>getPackageName()</code>
-  
-</h3>
-
-
-Returns the package name of the app
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getVersionCode"></div>
-<h3><code>getVersionCode()</code>
-  
-</h3>
-
-
-Returns the build identifier of the app
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getVersionNumber"></div>
-<h3><code>getVersionNumber()</code>
-  
-</h3>
-
-
-Returns the version of the app
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
 
 
 <!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="getAppName"></div>
+<h3>
+  <code>getAppName()</code>
+  
+
+</h3>
+Returns the name of the app
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getPackageName"></div>
+<h3>
+  <code>getPackageName()</code>
+  
+
+</h3>
+Returns the package name of the app
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getVersionCode"></div>
+<h3>
+  <code>getVersionCode()</code>
+  
+
+</h3>
+Returns the build identifier of the app
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getVersionNumber"></div>
+<h3>
+  <code>getVersionNumber()</code>
+  
+
+</h3>
+Returns the version of the app
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

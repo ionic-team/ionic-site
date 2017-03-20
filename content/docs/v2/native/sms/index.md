@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/sms.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sms/index.ts#L25">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-sms-plugin</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-sms-plugin$ npm install --save @ionic-native/sms
+</code></pre>
 <p>Repo:
   <a href="https://github.com/cordova-sms/cordova-sms-plugin">
     https://github.com/cordova-sms/cordova-sms-plugin
@@ -66,11 +68,16 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SMS } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SMS } from &#39;@ionic-native/sms&#39;;
+
+constructor(private sms: SMS) { }
+
+
+...
 
 
 // Send a text message using default options
-SMS.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
+this.sms.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 </code></pre>
 
 
@@ -79,19 +86,18 @@ SMS.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="send"></div>
-<h3><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
+<h3>
+  <code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Sends sms to a number
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -156,36 +162,17 @@ Sends sms to a number
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
-</div>
-
-
-
-<div id="hasPermission"></div>
-<h3><code>hasPermission()</code>
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 This function lets you know if the app has permission to send SMS
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -193,11 +180,6 @@ This function lets you know if the app has permission to send SMS
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if we have permission
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

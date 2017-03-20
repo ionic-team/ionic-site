@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/toast.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/toast/index.ts#L36">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-x-toast</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-x-toast$ npm install --save @ionic-native/plugins.toast
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin
@@ -67,10 +69,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Toast } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Toast } from &#39;@ionic-native/toast&#39;;
 
+constructor(private toast: Toast) { }
 
-Toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscribe(
+...
+
+thisoast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscribe(
   toast =&gt; {
     console.log(toast);
   }
@@ -83,19 +88,18 @@ Toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscr
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="show"></div>
-<h3><code>show(message,&nbsp;duration,&nbsp;position)</code>
+<h3>
+  <code>show(message,&nbsp;duration,&nbsp;position)</code>
   
+
 </h3>
-
-
-
-
 Show a native toast for the given duration at the specified position.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -161,50 +165,30 @@ Show a native toast for the given duration at the specified position.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="hide"></div>
-<h3><code>hide()</code>
+</div><div id="hide"></div>
+<h3>
+  <code>hide()</code>
   
+
 </h3>
-
-
 Manually hide any currently visible toast.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves on success.
-</div>
-
-
-
-<div id="showWithOptions"></div>
-<h3><code>showWithOptions(options)</code>
+</div><div id="showWithOptions"></div>
+<h3>
+  <code>showWithOptions(options)</code>
   
+
 </h3>
-
-
-
-
 Show a native toast with the given options.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -240,29 +224,17 @@ Show a native toast with the given options.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showShortTop"></div>
-<h3><code>showShortTop(message)</code>
+</div><div id="showShortTop"></div>
+<h3>
+  <code>showShortTop(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'short', 'top')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -292,29 +264,17 @@ Shorthand for `show(message, 'short', 'top')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showShortCenter"></div>
-<h3><code>showShortCenter(message)</code>
+</div><div id="showShortCenter"></div>
+<h3>
+  <code>showShortCenter(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'short', 'center')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -344,29 +304,17 @@ Shorthand for `show(message, 'short', 'center')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showShortBottom"></div>
-<h3><code>showShortBottom(message)</code>
+</div><div id="showShortBottom"></div>
+<h3>
+  <code>showShortBottom(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'short', 'bottom')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -396,29 +344,17 @@ Shorthand for `show(message, 'short', 'bottom')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showLongTop"></div>
-<h3><code>showLongTop(message)</code>
+</div><div id="showLongTop"></div>
+<h3>
+  <code>showLongTop(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'long', 'top')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -448,29 +384,17 @@ Shorthand for `show(message, 'long', 'top')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showLongCenter"></div>
-<h3><code>showLongCenter(message)</code>
+</div><div id="showLongCenter"></div>
+<h3>
+  <code>showLongCenter(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'long', 'center')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -500,29 +424,17 @@ Shorthand for `show(message, 'long', 'center')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div>
-
-
-
-<div id="showLongBottom"></div>
-<h3><code>showLongBottom(message)</code>
+</div><div id="showLongBottom"></div>
+<h3>
+  <code>showLongBottom(message)</code>
   
+
 </h3>
-
-
-
-
 Shorthand for `show(message, 'long', 'bottom')`.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -552,20 +464,11 @@ Shorthand for `show(message, 'long', 'bottom')`.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

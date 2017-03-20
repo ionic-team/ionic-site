@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/fingerprint-aio.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-fingerprint-aio</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-fingerprint-aio$ npm install --save @ionic-native/Fingerprint
+</code></pre>
 <p>Repo:
   <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">
     https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio
@@ -73,9 +75,13 @@ Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plu
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { FingerprintAIO } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { FingerprintAIO } from &#39;@ionic-native/fingerprint-aio&#39;;
 
-FingerprintAIO.show({
+constructor(private faio: FingerpirntAIO) { }
+
+...
+
+this.faio.show({
     clientId: &quot;Fingerprint-Demo&quot;,
     clientSecret: &quot;password&quot;, //Only necessary for Android
     disableBackup:true  //Only for Android(optional)
@@ -90,38 +96,31 @@ FingerprintAIO.show({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isAvailable"></div>
-<h3><code>isAvailable()</code>
+<h3>
+  <code>isAvailable()</code>
   
+
 </h3>
-
-
 Check if fingerprint authentication is available
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise with result
-</div>
-
-
-
-<div id="show"></div>
-<h3><code>show(options)</code>
+</div><div id="show"></div>
+<h3>
+  <code>show(options)</code>
   
+
 </h3>
-
-
 Show authentication dialogue
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -152,20 +151,11 @@ Show authentication dialogue
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when authentication was successfull
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

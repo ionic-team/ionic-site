@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/appavailability.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-availability/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-appavailability</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-appavailability$ npm install --save @ionic-native/appAvailability
+</code></pre>
 <p>Repo:
   <a href="https://github.com/ohh2ahh/AppAvailability">
     https://github.com/ohh2ahh/AppAvailability
@@ -67,18 +69,22 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AppAvailability, Device } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppAvailability } from &#39;@ionic-native/app-availability&#39;;
+import { Platform } from &#39;ionic-angular&#39;;
 
+constructor(private appAvailability: AppAvailability, private platform: Platform) { }
+
+...
 
 let app;
 
-if (Device.platform === &#39;iOS&#39;) {
+if (this.platform.is(&#39;ios&#39;)) {
   app = &#39;twitter://&#39;;
-} else if (Device.platform === &#39;Android&#39;) {
+} else if (this.platform.is(&#39;android&#39;)) {
   app = &#39;com.twitter.android&#39;;
 }
 
-AppAvailability.check(app)
+this.appAvailability.check(app)
   .then(
     (yes: string) =&gt; console.log(app + &#39; is available&#39;),
     (no: string) =&gt; console.log(app + &#39; is NOT available&#39;)
@@ -91,17 +97,18 @@ AppAvailability.check(app)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="check"></div>
-<h3><code>check(app)</code>
+<h3>
+  <code>check(app)</code>
   
+
 </h3>
-
-
 Checks if an app is available on device
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -132,20 +139,11 @@ Checks if an app is available on device
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

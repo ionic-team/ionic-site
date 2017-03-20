@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/video-player.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/video-player/index.ts#L17">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/moust/cordova-plugin-videoplayer</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/moust/cordova-plugin-videoplayer$ npm install --save @ionic-native/VideoPlayer
+</code></pre>
 <p>Repo:
   <a href="https://github.com/moust/cordova-plugin-videoplayer">
     https://github.com/moust/cordova-plugin-videoplayer
@@ -67,11 +69,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { VideoPlayer } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { VideoPlayer } from &#39;@ionic-native/video-player;
 
+constructor(private videoPlayer: VideoPlayer) { }
+
+...
 
 // Playing a video.
-VideoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =&gt; {
+this.videoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =&gt; {
  console.log(&#39;video completed&#39;);
 }).catch(err =&gt; {
  console.log(err);
@@ -84,17 +89,18 @@ VideoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =&gt; 
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="play"></div>
-<h3><code>play(fileUrl,&nbsp;options)</code>
+<h3>
+  <code>play(fileUrl,&nbsp;options)</code>
   
+
 </h3>
-
-
 Plays the video from the passed url.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -142,39 +148,21 @@ Plays the video from the passed url.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Resolves promise when the video was played successfully.
-</div>
-
-
-
-<div id="close"></div>
-<h3><code>close()</code>
+</div><div id="close"></div>
+<h3>
+  <code>close()</code>
   
+
 </h3>
-
-
-
-
 Stops the video playback immediatly.
 
 
 
 
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

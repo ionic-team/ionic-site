@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L251">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L249">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-contacts</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-contacts$ npm install --save @ionic-native/navigator.contacts
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-contacts">
     https://github.com/apache/cordova-plugin-contacts
@@ -57,10 +59,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Contacts, Contact, ContactField, ContactName } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Contacts, Contact, ContactField, ContactName } from &#39;@ionic-native/contacts&#39;;
 
+constructor(private contacts: Contacts) { }
 
-let contact: Contact = Contacts.create();
+let contact: Contact = this.contacts.create();
 
 contact.name = new ContactName(null, &#39;Smith&#39;, &#39;John&#39;);
 contact.phoneNumbers = [new ContactField(&#39;mobile&#39;, &#39;6471234567&#39;)];
@@ -76,36 +79,31 @@ contact.save().then(
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="create"></div>
-<h3><code>create()</code>
+<h3>
+  <code>create()</code>
   
+
 </h3>
-
 Create a single contact.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Contact</code> Returns a Contact object
-</div>
-
-
-
-<div id="find"></div>
-<h3><code>find(fields,&nbsp;options)</code>
+</div><div id="find"></div>
+<h3>
+  <code>find(fields,&nbsp;options)</code>
   
+
 </h3>
-
 Search for contacts in the Contacts list.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -153,28 +151,17 @@ Search for contacts in the Contacts list.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
-</div>
-
-
-
-<div id="pickContact"></div>
-<h3><code>pickContact()</code>
+</div><div id="pickContact"></div>
+<h3>
+  <code>pickContact()</code>
   
+
 </h3>
-
 Select a single Contact.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -185,12 +172,172 @@ Select a single Contact.
 
 
 
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
+
+
+
+<h2><a class="anchor" name="Contact" href="#Contact"></a>Contact</h2>
+
 
 <!-- methods on the class -->
 
+<h2>Instance Members</h2>
+<div id="id"></div>
+<h3>
+  <code>id()</code>
+  
+
+</h3>
 
 
-<!-- other classes -->
+
+<div id="displayName"></div>
+<h3>
+  <code>displayName()</code>
+  
+
+</h3>
+
+
+
+<div id="name"></div>
+<h3>
+  <code>name()</code>
+  
+
+</h3>
+
+
+
+<div id="nickname"></div>
+<h3>
+  <code>nickname()</code>
+  
+
+</h3>
+
+
+
+<div id="phoneNumbers"></div>
+<h3>
+  <code>phoneNumbers()</code>
+  
+
+</h3>
+
+
+
+<div id="emails"></div>
+<h3>
+  <code>emails()</code>
+  
+
+</h3>
+
+
+
+<div id="addresses"></div>
+<h3>
+  <code>addresses()</code>
+  
+
+</h3>
+
+
+
+<div id="ims"></div>
+<h3>
+  <code>ims()</code>
+  
+
+</h3>
+
+
+
+<div id="organizations"></div>
+<h3>
+  <code>organizations()</code>
+  
+
+</h3>
+
+
+
+<div id="birthday"></div>
+<h3>
+  <code>birthday()</code>
+  
+
+</h3>
+
+
+
+<div id="note"></div>
+<h3>
+  <code>note()</code>
+  
+
+</h3>
+
+
+
+<div id="photos"></div>
+<h3>
+  <code>photos()</code>
+  
+
+</h3>
+
+
+
+<div id="categories"></div>
+<h3>
+  <code>categories()</code>
+  
+
+</h3>
+
+
+
+<div id="urls"></div>
+<h3>
+  <code>urls()</code>
+  
+
+</h3>
+
+
+
+<div id="clone"></div>
+<h3>
+  <code>clone()</code>
+  
+
+</h3>
+
+
+
+<div id="remove"></div>
+<h3>
+  <code>remove()</code>
+  
+
+</h3>
+
+
+
+<div id="save"></div>
+<h3>
+  <code>save()</code>
+  
+
+</h3>
+
+
+
+
+
 
 <!-- end other classes -->
 

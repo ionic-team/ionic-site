@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/couchbase-lite.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/couchbase-lite/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin$ npm install --save @ionic-native/cblite
+</code></pre>
 <p>Repo:
   <a href="https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin">
     https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
@@ -57,11 +59,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { CouchbaseLite } from &#39;ionic-native&#39;;
+<pre><code>import { CouchbaseLite } from &#39;@ionic-native/couchbase-lite&#39;;
 
-CouchbaseLite.getURL()
-  .then((url: any) =&gt; console.log(url))
-  .catch((error: any) =&gt; console.log(error));
+constructor(private couchbase: CouchbaseLite) {
+
+  couchbase.getURL()
+    .then(url =&gt; console.log(url))
+    .catch(error =&gt; console.error(error));
+
+}
 </code></pre>
 
 
@@ -70,21 +76,18 @@ CouchbaseLite.getURL()
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getURL"></div>
-<h3><code>getURL()</code>
+<h3>
+  <code>getURL()</code>
   
+
 </h3>
-
-
-
-
 Get the database url
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -92,11 +95,6 @@ Get the database url
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves with the local database url
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

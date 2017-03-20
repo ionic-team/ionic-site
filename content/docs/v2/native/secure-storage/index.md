@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/securestorage.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L43">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-secure-storage</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-secure-storage$ npm install --save @ionic-native/plugins.securestorage
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Crypho/cordova-plugin-secure-storage">
     https://github.com/Crypho/cordova-plugin-secure-storage
@@ -67,32 +69,34 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SecureStorage } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SecureStorage, SecureStorageOBject } from &#39;@ionic-native/secure-storage&#39;;
 
-let secureStorage: SecureStorage = new SecureStorage();
-secureStorage.create(&#39;my_store_name&#39;)
- .then(
-   () =&gt; console.log(&#39;Storage is ready!&#39;),
-   error =&gt; console.log(error)
-);
+constructor(private secureStorage: SecureStorage) { }
 
-secureStorage.get(&#39;myitem&#39;)
- .then(
-   data =&gt; console.log(data),
-   error =&gt; console.log(error)
-);
+...
 
-secureStorage.set(&#39;myitem&#39;, &#39;myvalue&#39;)
- .then(
-   data =&gt; console.log(data),
-   error =&gt; console.log(error)
-);
+this.secureStorage.create(&#39;my_store_name&#39;)
+  .then((storage: SecureStorageObject) =&gt; {
 
-secureStorage.remove(&#39;myitem&#39;)
-.then(
-   data =&gt; console.log(data),
-   error =&gt; console.log(error)
-);
+     storage.get(&#39;myitem&#39;)
+       .then(
+         data =&gt; console.log(data),
+         error =&gt; console.log(error)
+     );
+
+     storage.set(&#39;myitem&#39;, &#39;myvalue&#39;)
+       .then(
+        data =&gt; console.log(data),
+         error =&gt; console.log(error)
+     );
+
+     storage.remove(&#39;myitem&#39;)
+     .then(
+         data =&gt; console.log(data),
+         error =&gt; console.log(error)
+     );
+
+  });
 </code></pre>
 
 
@@ -145,8 +149,23 @@ Creates a namespaced storage.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="get"></div>
+<code>Promise&lt;SecureStorageObject&gt;</code> 
+</div>
+
+
+
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
+
+
+
+<h2><a class="anchor" name="SecureStorageObject" href="#SecureStorageObject"></a>SecureStorageObject</h2>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="get"></div>
 <h3>
   <code>get(reference)</code>
   
@@ -284,9 +303,6 @@ Removes a single stored item
 <code>Promise&lt;any&gt;</code> 
 </div>
 
-
-
-<!-- other classes -->
 
 <!-- end other classes -->
 

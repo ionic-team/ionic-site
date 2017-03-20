@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/ibeacon.ts#L221">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ibeacon/index.ts#L222">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-ibeacon</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-ibeacon$ npm install --save @ionic-native/cordova.plugins.locationManager
+</code></pre>
 <p>Repo:
   <a href="https://github.com/petermetz/cordova-plugin-ibeacon">
     https://github.com/petermetz/cordova-plugin-ibeacon
@@ -67,13 +69,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { IBeacon } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { IBeacon } from &#39;@ionic-native/ibeacon&#39;;
+
+constructor(private ibeacon: IBeacon) { }
+
+...
 
 
 // Request permission to use location on iOS
-IBeacon.requestAlwaysAuthorization();
+this.ibeacon.requestAlwaysAuthorization();
 // create a new delegate and register it with the native layer
-let delegate = IBeacon.Delegate();
+let delegate = this.ibeacon.Delegate();
 
 // Subscribe to some of the delegate&#39;s event handlers
 delegate.didRangeBeaconsInRegion()
@@ -93,9 +99,9 @@ delegate.didEnterRegion()
     }
   );
 
-let beaconRegion = IBeacon.BeaconRegion(&#39;deskBeacon&#39;,&#39;F7826DA6-ASDF-ASDF-8024-BC5B71E0893E&#39;);
+let beaconRegion = this.ibeacon.BeaconRegion(&#39;deskBeacon&#39;,&#39;F7826DA6-ASDF-ASDF-8024-BC5B71E0893E&#39;);
 
-IBeacon.startMonitoringForRegion(beaconRegion)
+this.ibeacon.startMonitoringForRegion(beaconRegion)
   .then(
     () =&gt; console.log(&#39;Native layer recieved the request to monitoring&#39;),
     error =&gt; console.error(&#39;Native layer failed to begin monitoring: &#39;, error)
@@ -108,19 +114,19 @@ IBeacon.startMonitoringForRegion(beaconRegion)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="Delegate"></div>
-<h3><code>Delegate()</code>
+<h3>
+  <code>Delegate()</code>
   
+
 </h3>
-
-Instances of this class are delegates between the <a href='LocationManager'>LocationManager</a> and
+Instances of this class are delegates between the <a href="LocationManager">LocationManager</a> and
 the code that consumes the messages generated on in the native layer.
-
-
-
-
 
 
 
@@ -128,18 +134,13 @@ the code that consumes the messages generated on in the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>IBeaconDelegate</code> An instance of the type {@type Delegate}.
-</div>
-
-
-
-<div id="BeaconRegion"></div>
-<h3><code>BeaconRegion(identifier,&nbsp;uuid,&nbsp;major,&nbsp;minor,&nbsp;notifyEntryStateOnDisplay)</code>
+</div><div id="BeaconRegion"></div>
+<h3>
+  <code>BeaconRegion(identifier,&nbsp;uuid,&nbsp;major,&nbsp;minor,&nbsp;notifyEntryStateOnDisplay)</code>
   
+
 </h3>
-
 Creates a new BeaconRegion
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -239,28 +240,16 @@ This value must not be blank nor invalid as a UUID.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>BeaconRegion</code> Returns the BeaconRegion that was created
-</div>
-
-
-
-<div id="getDelegate"></div>
-<h3><code>getDelegate()</code>
+</div><div id="getDelegate"></div>
+<h3>
+  <code>getDelegate()</code>
   
+
 </h3>
-
-
-
-
-
-
 
 
 
@@ -268,18 +257,12 @@ This value must not be blank nor invalid as a UUID.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>IBeaconDelegate</code> Returns the IBeaconDelegate
-</div>
-
-
-
-<div id="setDelegate"></div>
-<h3><code>setDelegate(delegate)</code>
+</div><div id="setDelegate"></div>
+<h3>
+  <code>setDelegate(delegate)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -311,26 +294,16 @@ This value must not be blank nor invalid as a UUID.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>IBeaconDelegate</code> Returns the IBeaconDelegate
-</div>
-
-
-
-<div id="onDomDelegateReady"></div>
-<h3><code>onDomDelegateReady()</code>
+</div><div id="onDomDelegateReady"></div>
+<h3>
+  <code>onDomDelegateReady()</code>
   
+
 </h3>
-
-
-
-
 Signals the native layer that the client side is ready to consume messages.
 Readiness here means that it has a {IBeaconDelegate} set by the consumer javascript
 code.
@@ -349,32 +322,18 @@ period of time.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the request and started to send events.
-</div>
-
-
-
-<div id="isBluetoothEnabled"></div>
-<h3><code>isBluetoothEnabled()</code>
+</div><div id="isBluetoothEnabled"></div>
+<h3>
+  <code>isBluetoothEnabled()</code>
   
+
 </h3>
-
-
-
-
 Determines if bluetooth is switched on, according to the native layer.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -382,68 +341,42 @@ Determines if bluetooth is switched on, according to the native layer.
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether bluetooth is active.
-</div>
-
-
-
-<div id="enableBluetooth"></div>
-<h3><code>enableBluetooth()</code>
+</div><div id="enableBluetooth"></div>
+<h3>
+  <code>enableBluetooth()</code>
   
+
 </h3>
-
-
-
-
 Enables Bluetooth using the native Layer. (ANDROID ONLY)
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.
-</div>
-
-
-
-<div id="disableBluetooth"></div>
-<h3><code>disableBluetooth()</code>
+</div><div id="disableBluetooth"></div>
+<h3>
+  <code>disableBluetooth()</code>
   
+
 </h3>
-
-
-
-
 Disables Bluetooth using the native Layer. (ANDROID ONLY)
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.
-</div>
-
-
-
-<div id="startMonitoringForRegion"></div>
-<h3><code>startMonitoringForRegion(region)</code>
+</div><div id="startMonitoringForRegion"></div>
+<h3>
+  <code>startMonitoringForRegion(region)</code>
   
+
 </h3>
-
-
-
-
 Start monitoring the specified region.
 
 If a region of the same type with the same identifier is already being
@@ -454,8 +387,6 @@ regions by their size, favoring smaller regions over larger regions.
 
 This is done asynchronously and may not be immediately reflected in monitoredRegions.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -487,27 +418,17 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;string&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.
-</div>
-
-
-
-<div id="stopMonitoringForRegion"></div>
-<h3><code>stopMonitoringForRegion(region)</code>
+</div><div id="stopMonitoringForRegion"></div>
+<h3>
+  <code>stopMonitoringForRegion(region)</code>
   
+
 </h3>
-
-
-
-
 Stop monitoring the specified region.  It is valid to call
 stopMonitoringForRegion: for a region that was registered for monitoring
 with a different location manager object, during this or previous
@@ -515,8 +436,6 @@ launches of your application.
 
 This is done asynchronously and may not be immediately reflected in monitoredRegions.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -548,35 +467,23 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div>
-
-
-
-<div id="requestStateForRegion"></div>
-<h3><code>requestStateForRegion(region)</code>
+</div><div id="requestStateForRegion"></div>
+<h3>
+  <code>requestStateForRegion(region)</code>
   
+
 </h3>
-
-
-
-
 Request state the for specified region. When result is ready
 didDetermineStateForRegion is triggered. This can be any region,
 also those which is not currently monitored.
 
 This is done asynchronously and may not be immediately reflected in monitoredRegions.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -608,27 +515,17 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div>
-
-
-
-<div id="startRangingBeaconsInRegion"></div>
-<h3><code>startRangingBeaconsInRegion(region)</code>
+</div><div id="startRangingBeaconsInRegion"></div>
+<h3>
+  <code>startRangingBeaconsInRegion(region)</code>
   
+
 </h3>
-
-
-
-
 Start ranging the specified beacon region.
 
 If a region of the same type with the same identifier is already being
@@ -636,8 +533,6 @@ monitored for this application, it will be removed from monitoring.
 
 This is done asynchronously and may not be immediately reflected in rangedRegions.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -669,27 +564,17 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.
-</div>
-
-
-
-<div id="stopRangingBeaconsInRegion"></div>
-<h3><code>stopRangingBeaconsInRegion(region)</code>
+</div><div id="stopRangingBeaconsInRegion"></div>
+<h3>
+  <code>stopRangingBeaconsInRegion(region)</code>
   
+
 </h3>
-
-
-
-
 Stop ranging the specified region.  It is valid to call
 stopMonitoringForRegion: for a region that was registered for ranging
 with a different location manager object, during this or previous
@@ -697,8 +582,6 @@ launches of your application.
 
 This is done asynchronously and may not be immediately reflected in rangedRegions.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -730,32 +613,18 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div>
-
-
-
-<div id="getAuthorizationStatus"></div>
-<h3><code>getAuthorizationStatus()</code>
+</div><div id="getAuthorizationStatus"></div>
+<h3>
+  <code>getAuthorizationStatus()</code>
   
+
 </h3>
-
-
-
-
 Queries the native layer to determine the current authorization in effect.
-
-
-
-
 
 
 
@@ -764,18 +633,12 @@ Queries the native layer to determine the current authorization in effect.
   <b>Returns:</b> 
 <code>Promise&lt;IBeaconPluginResult&gt;</code> Returns a promise which is resolved with the
 requested authorization status.
-</div>
-
-
-
-<div id="requestWhenInUseAuthorization"></div>
-<h3><code>requestWhenInUseAuthorization()</code>
+</div><div id="requestWhenInUseAuthorization"></div>
+<h3>
+  <code>requestWhenInUseAuthorization()</code>
   
+
 </h3>
-
-
-
-
 For iOS 8 and above only. The permission model has changed by Apple in iOS 8, making it necessary for apps to
 explicitly request permissions via methods like these:
 <a href="https://developer.apple.com/library/prerelease/iOS/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html#//apple_ref/occ/instm/CLLocationManager/requestWhenInUseAuthorization">requestWhenInUseAuthorization</a>
@@ -784,31 +647,17 @@ explicitly request permissions via methods like these:
 If you are using this plugin on Android devices only, you will never have to use this, nor {@code requestAlwaysAuthorization}
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise that is resolved when the request dialog is shown.
-</div>
-
-
-
-<div id="requestAlwaysAuthorization"></div>
-<h3><code>requestAlwaysAuthorization()</code>
+</div><div id="requestAlwaysAuthorization"></div>
+<h3>
+  <code>requestAlwaysAuthorization()</code>
   
+
 </h3>
-
-
-
-
 See the documentation of {@code requestWhenInUseAuthorization} for further details.
-
-
-
-
 
 
 
@@ -817,22 +666,12 @@ See the documentation of {@code requestWhenInUseAuthorization} for further detai
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when the native layer
 shows the request dialog.
-</div>
-
-
-
-<div id="getMonitoredRegions"></div>
-<h3><code>getMonitoredRegions()</code>
+</div><div id="getMonitoredRegions"></div>
+<h3>
+  <code>getMonitoredRegions()</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
 
 
 
@@ -841,22 +680,12 @@ shows the request dialog.
   <b>Returns:</b> 
 <code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being monitored by the native layer.
-</div>
-
-
-
-<div id="getRangedRegions"></div>
-<h3><code>getRangedRegions()</code>
+</div><div id="getRangedRegions"></div>
+<h3>
+  <code>getRangedRegions()</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
 
 
 
@@ -865,23 +694,13 @@ of {Region} instances that are being monitored by the native layer.
   <b>Returns:</b> 
 <code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being ranged by the native layer.
-</div>
-
-
-
-<div id="isRangingAvailable"></div>
-<h3><code>isRangingAvailable()</code>
+</div><div id="isRangingAvailable"></div>
+<h3>
+  <code>isRangingAvailable()</code>
   
+
 </h3>
-
-
-
-
 Determines if ranging is available or not, according to the native layer.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -889,21 +708,13 @@ Determines if ranging is available or not, according to the native layer.
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether ranging is available or not.
-</div>
-
-
-
-<div id="isMonitoringAvailableForClass"></div>
-<h3><code>isMonitoringAvailableForClass(region)</code>
+</div><div id="isMonitoringAvailableForClass"></div>
+<h3>
+  <code>isMonitoringAvailableForClass(region)</code>
   
+
 </h3>
-
-
-
-
 Determines if region type is supported or not, according to the native layer.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -936,27 +747,17 @@ by the operating system.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether the region type is supported or not.
-</div>
-
-
-
-<div id="startAdvertising"></div>
-<h3><code>startAdvertising(region,&nbsp;measuredPower:)</code>
+</div><div id="startAdvertising"></div>
+<h3>
+  <code>startAdvertising(region,&nbsp;measuredPower:)</code>
   
+
 </h3>
-
-
-
-
 Start advertising the specified region.
 
 If a region a different identifier is already being advertised for
@@ -964,8 +765,6 @@ this application, it will be replaced with the new identifier.
 
 This call will accept a valid beacon even when no BlueTooth is available,
 and will start when BlueTooth is powered on. See {IBeaconDelegate.}
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1016,34 +815,20 @@ use it&#39;s own default value.</p>
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the advertising request.
-</div>
-
-
-
-<div id="stopAdvertising"></div>
-<h3><code>stopAdvertising()</code>
+</div><div id="stopAdvertising"></div>
+<h3>
+  <code>stopAdvertising()</code>
   
+
 </h3>
-
-
-
-
 Stop advertising as a beacon.
 
 This is done asynchronously and may not be immediately reflected in isAdvertising.
-
-
-
-
 
 
 
@@ -1052,23 +837,13 @@ This is done asynchronously and may not be immediately reflected in isAdvertisin
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop advertising.
-</div>
-
-
-
-<div id="isAdvertisingAvailable"></div>
-<h3><code>isAdvertisingAvailable()</code>
+</div><div id="isAdvertisingAvailable"></div>
+<h3>
+  <code>isAdvertisingAvailable()</code>
   
+
 </h3>
-
-
-
-
 Determines if advertising is available or not, according to the native layer.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -1076,23 +851,13 @@ Determines if advertising is available or not, according to the native layer.
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is available or not.
-</div>
-
-
-
-<div id="isAdvertising"></div>
-<h3><code>isAdvertising()</code>
+</div><div id="isAdvertising"></div>
+<h3>
+  <code>isAdvertising()</code>
   
+
 </h3>
-
-
-
-
 Determines if advertising is currently active, according to the native layer.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -1100,24 +865,14 @@ Determines if advertising is currently active, according to the native layer.
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is active.
-</div>
-
-
-
-<div id="disableDebugLogs"></div>
-<h3><code>disableDebugLogs()</code>
+</div><div id="disableDebugLogs"></div>
+<h3>
+  <code>disableDebugLogs()</code>
   
+
 </h3>
-
-
-
-
 Disables debug logging in the native layer. Use this method if you want
 to prevent this plugin from writing to the device logs.
-
-
-
-
 
 
 
@@ -1126,25 +881,15 @@ to prevent this plugin from writing to the device logs.
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.
-</div>
-
-
-
-<div id="enableDebugNotifications"></div>
-<h3><code>enableDebugNotifications()</code>
+</div><div id="enableDebugNotifications"></div>
+<h3>
+  <code>enableDebugNotifications()</code>
   
+
 </h3>
-
-
-
-
 Enables the posting of debug notifications in the native layer. Use this method if you want
 to allow the plugin the posting local notifications.
 This can be very helpful when debugging how to apps behave when launched into the background.
-
-
-
-
 
 
 
@@ -1153,24 +898,14 @@ This can be very helpful when debugging how to apps behave when launched into th
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to enabled.
-</div>
-
-
-
-<div id="disableDebugNotifications"></div>
-<h3><code>disableDebugNotifications()</code>
+</div><div id="disableDebugNotifications"></div>
+<h3>
+  <code>disableDebugNotifications()</code>
   
+
 </h3>
-
-
-
-
 Disables the posting of debug notifications in the native layer. Use this method if you want
 to prevent the plugin from posting local notifications.
-
-
-
-
 
 
 
@@ -1179,24 +914,14 @@ to prevent the plugin from posting local notifications.
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to disabled.
-</div>
-
-
-
-<div id="enableDebugLogs"></div>
-<h3><code>enableDebugLogs()</code>
+</div><div id="enableDebugLogs"></div>
+<h3>
+  <code>enableDebugLogs()</code>
   
+
 </h3>
-
-
-
-
 Enables debug logging in the native layer. Use this method if you want
 a debug the inner workings of this plugin.
-
-
-
-
 
 
 
@@ -1205,22 +930,14 @@ a debug the inner workings of this plugin.
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.
-</div>
-
-
-
-<div id="appendToDeviceLog"></div>
-<h3><code>appendToDeviceLog(message)</code>
+</div><div id="appendToDeviceLog"></div>
+<h3>
+  <code>appendToDeviceLog(message)</code>
   
+
 </h3>
-
-
-
-
 Appends the provided [message] to the device logs.
 Note: If debug logging is turned off, this won't do anything.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1252,10 +969,6 @@ Note: If debug logging is turned off, this won't do anything.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -1263,11 +976,6 @@ Note: If debug logging is turned off, this won't do anything.
 message received by the native layer for appending. The returned message
 is expected to be equivalent to the one provided in the original call.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

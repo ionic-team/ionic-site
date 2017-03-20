@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceorientation.ts#L39">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-device-orientation</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-device-orientation$ npm install --save @ionic-native/navigator.compass
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device-orientation">
     https://github.com/apache/cordova-plugin-device-orientation
@@ -58,17 +60,20 @@ docType: "class"
 <h2>Usage</h2>
 
 <pre><code class="lang-typescript">// DeviceOrientationCompassHeading is an interface for compass
-import { DeviceOrientation, DeviceOrientationCompassHeading } from &#39;ionic-native&#39;;
+import { DeviceOrientation, DeviceOrientationCompassHeading } from &#39;@ionic-native/device-orientation&#39;;
 
+constructor(private deviceOrientation: DeviceOrientation) { }
+
+...
 
 // Get the device current compass heading
-DeviceOrientation.getCurrentHeading().then(
+this.deviceOrientation.getCurrentHeading().then(
   (data: DeviceOrientationCompassHeading) =&gt; console.log(data),
   (error: any) =&gt; console.log(error)
 );
 
 // Watch the device compass heading change
-var subscription = DeviceOrientation.watchHeading().subscribe(
+var subscription = this.deviceOrientation.watchHeading().subscribe(
   (data: DeviceOrientationCompassHeading) =&gt; console.log(data)
 );
 
@@ -82,42 +87,33 @@ subscription.unsubscribe();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getCurrentHeading"></div>
-<h3><code>getCurrentHeading()</code>
+<h3>
+  <code>getCurrentHeading()</code>
   
+
 </h3>
-
-
 Get the current compass heading.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;DeviceOrientationCompassHeading&gt;</code> 
-</div>
-
-
-
-<div id="watchHeading"></div>
-<h3><code>watchHeading(options)</code>
+</div><div id="watchHeading"></div>
+<h3>
+  <code>watchHeading(options)</code>
   
+
 </h3>
-
-
-
-
 Get the device current heading at a regular interval
 
 Stop the watch by unsubscribing from the observable
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -148,20 +144,11 @@ Stop the watch by unsubscribing from the observable
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;DeviceOrientationCompassHeading&gt;</code> Returns an observable that contains the compass heading
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

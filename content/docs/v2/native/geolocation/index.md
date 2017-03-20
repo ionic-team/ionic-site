@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L109">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L110">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-geolocation</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-geolocation$ npm install --save @ionic-native/navigator.geolocation
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-geolocation">
     https://github.com/apache/cordova-plugin-geolocation
@@ -58,7 +60,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Geolocation } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Geolocation } from &#39;@ionic-native/geolocation&#39;;
 
 
 Geolocation.getCurrentPosition().then((resp) =&gt; {
@@ -82,19 +84,18 @@ watch.subscribe((data) =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getCurrentPosition"></div>
-<h3><code>getCurrentPosition(options)</code>
+<h3>
+  <code>getCurrentPosition(options)</code>
   
+
 </h3>
-
-
-
-
 Get the device's current position.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -126,23 +127,16 @@ Get the device's current position.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Geoposition&gt;</code> Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
-</div>
-
-
-
-<div id="watchPosition"></div>
-<h3><code>watchPosition(options)</code>
+</div><div id="watchPosition"></div>
+<h3>
+  <code>watchPosition(options)</code>
   
-</h3>
 
+</h3>
 Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
@@ -157,8 +151,6 @@ var subscription = Geolocation.watchPosition()
 subscription.unsubscribe();
 ```
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -189,20 +181,11 @@ subscription.unsubscribe();
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;Geoposition&gt;</code> Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

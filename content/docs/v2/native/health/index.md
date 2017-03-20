@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/health.ts#L126">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L139">
   Improve this doc
 </a>
 
@@ -35,29 +35,22 @@ docType: "class"
 <!-- decorators -->
 
 
-
-
-
-<pre><code>$ ionic plugin add cordova-plugin-health</code></pre>
-<p>Repo:
-  <a href="https://github.com/dariosalvi78/cordova-plugin-health">
-    https://github.com/dariosalvi78/cordova-plugin-health
-  </a>
-</p>
-
-<!-- description -->
-
-<p>A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit.</p>
-
-
-
 <!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code>import { Health } from &#39;ionic-native&#39;;
+<pre><code>import { Health } from &#39;@ionic-native/health&#39;;
+
+
+constructor(private health: Health) { }
+
+...
+
+this.health.isAvailable()
+  .then(res =&gt; console.log(res))
+  .catch(e =&gt; console.log(e));
 </code></pre>
 <p>See description at <a href="https://github.com/dariosalvi78/cordova-plugin-health">https://github.com/dariosalvi78/cordova-plugin-health</a> for a full list of Datatypes and see examples.</p>
 
@@ -67,21 +60,18 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isAvailable"></div>
-<h3><code>isAvailable()</code>
+<h3>
+  <code>isAvailable()</code>
   
+
 </h3>
-
-
-
-
 Tells if either Google Fit or HealthKit are available.
-
-
-
-
 
 
 
@@ -89,18 +79,12 @@ Tells if either Google Fit or HealthKit are available.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="promptInstallFit"></div>
-<h3><code>promptInstallFit()</code>
+</div><div id="promptInstallFit"></div>
+<h3>
+  <code>promptInstallFit()</code>
   
+
 </h3>
-
-
-
-
 Checks if recent Google Play Services and Google Fit are installed. If the play services are not installed,
 or are obsolete, it will show a pop-up suggesting to download them. If Google Fit is not installed,
 it will open the Play Store at the location of the Google Fit app.
@@ -111,24 +95,16 @@ This function is only available on Android.
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="requestAuthorization"></div>
-<h3><code>requestAuthorization(datatypes)</code>
+</div><div id="requestAuthorization"></div>
+<h3>
+  <code>requestAuthorization(datatypes)</code>
   
+
 </h3>
-
-
 Requests read and write access to a set of data types. It is recommendable to always explain why the app
 needs access to the data before asking the user to authorize it.
 This function must be called before using the query and store functions, even if the authorization has already
@@ -144,8 +120,6 @@ the app is connected again.
 In Android 6 and over, this function will also ask for some dynamic permissions if needed
 (e.g. in the case of "distance", it will need access to ACCESS_FINE_LOCATION).
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -176,29 +150,19 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="isAuthorized"></div>
-<h3><code>isAuthorized(datatypes)</code>
+</div><div id="isAuthorized"></div>
+<h3>
+  <code>isAuthorized(datatypes)</code>
   
+
 </h3>
-
-
 Check if the app has authorization to read/write a set of datatypes.
 This function is similar to requestAuthorization() and has similar quirks.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -229,24 +193,16 @@ This function is similar to requestAuthorization() and has similar quirks.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="query"></div>
-<h3><code>query(queryOptions)</code>
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates the authorization status
+</div><div id="query"></div>
+<h3>
+  <code>query(queryOptions)</code>
   
+
 </h3>
-
-
 Gets all the data points of a certain data type within a certain time window.
 Warning: if the time span is big, it can generate long arrays!
 
@@ -273,8 +229,6 @@ while HealthKit returns only those that are stored as correlation. To be sure to
 (regardless of they are stored as correlation or not), it's better to query single nutrients.
 nutrition.vitamin_a is given in micrograms in HealthKit and International Unit in Google Fit.
 Automatic conversion is not trivial and depends on the actual substance.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -305,24 +259,16 @@ Automatic conversion is not trivial and depends on the actual substance.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;HealthData&gt;</code> 
-</div>
-
-
-
-<div id="queryAggregated"></div>
-<h3><code>queryAggregated(queryOptionsAggregated)</code>
+</div><div id="queryAggregated"></div>
+<h3>
+  <code>queryAggregated(queryOptionsAggregated)</code>
   
+
 </h3>
-
-
 Gets aggregated data in a certain time window. Usually the sum is returned for the given quantity.
 
 Quirks of queryAggregated()
@@ -339,8 +285,6 @@ Weeks start on Monday.
 When querying for nutrition, HealthKit returns only those that are stored as correlation.
 To be sure to get all the stored quantities, it's better to query single nutrients.
 nutrition.vitamin_a is given in micrograms in HealthKit and International Unit in Google Fit.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -360,7 +304,7 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
     </td>
     <td>
       
-
+<code>HealthQueryOptionsAggregated</code>
     </td>
     <td>
       
@@ -371,24 +315,16 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;HealthData&gt;</code> 
-</div>
-
-
-
-<div id="store"></div>
-<h3><code>store(storeOptions)</code>
+<code>Promise&lt;HealthData[]&gt;</code> 
+</div><div id="store"></div>
+<h3>
+  <code>store(storeOptions)</code>
   
+
 </h3>
-
-
 Stores a data point.
 
 Quirks of store()
@@ -399,8 +335,6 @@ In Android you can only store active calories, as the basal are estimated automa
 In iOS distance is assumed to be of type WalkingRunning, if you want to explicitly set it to Cycling you need to add the field cycling: true.
 In iOS storing the sleep activities is not supported at the moment.
 Storing of nutrients is not supported at the moment.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -430,20 +364,11 @@ Storing of nutrients is not supported at the moment.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 
@@ -714,7 +639,9 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
       <code>string</code>
     </td>
     <td>
-      
+      <p>The source that produced this data. In iOS this is ignored and
+set automatically to the name of your app.</p>
+
     </td>
   </tr>
   
@@ -727,7 +654,10 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
       <code>string</code>
     </td>
     <td>
-      
+      <p>The complete package of the source that produced this data.
+In Android, if not specified, it&#39;s assigned to the package of the App. In iOS this is ignored and
+set automatically to the bunde id of the app.</p>
+
     </td>
   </tr>
   

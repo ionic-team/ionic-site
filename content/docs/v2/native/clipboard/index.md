@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/clipboard.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/clipboard/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git$ npm install --save @ionic-native/cordova.plugins.clipboard
+</code></pre>
 <p>Repo:
   <a href="https://github.com/VersoSolutions/CordovaClipboard">
     https://github.com/VersoSolutions/CordovaClipboard
@@ -68,20 +70,23 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Clipboard } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Clipboard } from &#39;@ionic-native/clipboard&#39;;
+
+constructor(private clipboard: Clipboard) { }
+
+...
 
 
-Clipboard.copy(&#39;Hello world&#39;);
+this.clipboard.copy(&#39;Hello world&#39;);
 
-Clipboard.paste().then(
+this.clipboard.paste().then(
    (resolve: string) =&gt; {
-    alert(resolve);
+      alert(resolve);
     },
     (reject: string) =&gt; {
-    alert(&#39;Error: &#39; + reject);
+      alert(&#39;Error: &#39; + reject);
     }
-    );
-);
+  );
 </code></pre>
 
 
@@ -90,17 +95,18 @@ Clipboard.paste().then(
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="copy"></div>
-<h3><code>copy(text)</code>
+<h3>
+  <code>copy(text)</code>
   
+
 </h3>
-
-
 Copies the given text
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -131,29 +137,17 @@ Copies the given text
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise after the text has been copied
-</div>
-
-
-
-<div id="paste"></div>
-<h3><code>paste()</code>
+</div><div id="paste"></div>
+<h3>
+  <code>paste()</code>
   
+
 </h3>
-
-
 Pastes the text stored in clipboard
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -161,11 +155,6 @@ Pastes the text stored in clipboard
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise after the text has been pasted
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

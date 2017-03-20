@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/actionsheet.ts#L44">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L45">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-actionsheet</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-actionsheet$ npm install --save @ionic-native/plugins.actionsheet
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
     https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
@@ -67,15 +69,24 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { ActionSheet } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { ActionSheet, ActionSheetOptions } from &#39;@ionic-native/action-sheet&#39;;
+
+constructor(private actionSheet: ActionSheet) { }
+
+...
+
 
 let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
-ActionSheet.show({
-  &#39;title&#39;: &#39;What do you want with this image?&#39;,
-  &#39;buttonLabels&#39;: buttonLabels,
-  &#39;addCancelButtonWithLabel&#39;: &#39;Cancel&#39;,
-  &#39;addDestructiveButtonWithLabel&#39; : &#39;Delete&#39;
-}).then((buttonIndex: number) =&gt; {
+
+const options: ActionSheetOptions = {
+  title: &#39;What do you want with this image?&#39;,
+  buttonLabels: buttonLabels,
+  addCancelButtonWithLabel: &#39;Cancel&#39;,
+  addDestructiveButtonWithLabel: &#39;Delete&#39;,
+  androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_DARK
+};
+
+this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
   console.log(&#39;Button pressed: &#39; + buttonIndex);
 });
 </code></pre>
@@ -86,17 +97,27 @@ ActionSheet.show({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
-<div id="show"></div>
-<h3><code>show(options)</code>
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="ANDROID_THEMES"></div>
+<h3>
+  <code>ANDROID_THEMES</code>
   
+
 </h3>
 
 
+
+<div id="show"></div>
+<h3>
+  <code>show(options)</code>
+  
+
+</h3>
 Show a native ActionSheet component. See below for options.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -127,30 +148,18 @@ Show a native ActionSheet component. See below for options.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div>
-
-
-
-<div id="hide"></div>
-<h3><code>hide()</code>
+</div><div id="hide"></div>
+<h3>
+  <code>hide()</code>
   
+
 </h3>
-
-
 Progamtically hide the native ActionSheet
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -158,11 +167,6 @@ Progamtically hide the native ActionSheet
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the actionsheet is closed
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

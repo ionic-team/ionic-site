@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dialogs.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L16">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-dialogs</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-dialogs$ npm install --save @ionic-native/navigator.notification
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-dialogs.git">
     https://github.com/apache/cordova-plugin-dialogs.git
@@ -58,7 +60,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Dialogs } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Dialogs } from &#39;@ionic-native/dialogs&#39;;
+
+constructor(private dialogs: Dialogs) { }
+
+...
+
+this.dialogs.alert(&#39;Hello world&#39;)
+  .then(() =&gt; console.log(&#39;Dialog dismissed&#39;))
+  .catch(e =&gt; console.log(&#39;Error displaying dialog&#39;, e));
 </code></pre>
 
 
@@ -67,19 +77,18 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="alert"></div>
-<h3><code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
+<h3>
+  <code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
   
+
 </h3>
-
-
-
-
 Shows a custom alert or dialog box.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -144,29 +153,17 @@ Shows a custom alert or dialog box.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a blank promise once the user has dismissed the alert.
-</div>
-
-
-
-<div id="confirm"></div>
-<h3><code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code>
+</div><div id="confirm"></div>
+<h3>
+  <code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code>
   
+
 </h3>
-
-
-
-
 Displays a customizable confirmation dialog box.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -231,29 +228,17 @@ Displays a customizable confirmation dialog box.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked. Note that the index use one-based indexing.
-</div>
-
-
-
-<div id="prompt"></div>
-<h3><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
+</div><div id="prompt"></div>
+<h3>
+  <code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
   
+
 </h3>
-
-
-
-
 Displays a native dialog box that is more customizable than the browser's prompt function.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -335,29 +320,17 @@ Displays a native dialog box that is more customizable than the browser's prompt
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;DialogsPromptCallback&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
-</div>
-
-
-
-<div id="beep"></div>
-<h3><code>beep(times)</code>
+</div><div id="beep"></div>
+<h3>
+  <code>beep(times)</code>
   
+
 </h3>
-
-
-
-
 The device plays a beep sound.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -389,13 +362,6 @@ The device plays a beep sound.
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

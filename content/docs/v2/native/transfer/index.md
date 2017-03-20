@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/filetransfer.ts#L107">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/transfer/index.ts#L108">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-file-transfer</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-file-transfer$ npm install --save @ionic-native/FileTransfer
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-file-transfer">
     https://github.com/apache/cordova-plugin-file-transfer
@@ -57,11 +59,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Transfer } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Transfer, FileUploadOptions, TransferObject } from &#39;@ionic-native/transfer&#39;;
+import { File } from &#39;@ionic-native/file&#39;;
 
+constructor(private transfer: Transfer, private file: File) { }
 
-// Create instance:
-const fileTransfer = new Transfer();
+...
+
+const fileTransfer: TransferObject = this.transfer.create();
 
 // Upload a file:
 fileTransfer.upload(..).then(..).catch(..);
@@ -72,44 +77,31 @@ fileTransfer.download(..).then(..).catch(..);
 // Abort active transfer:
 fileTransfer.abort();
 
-E.g
-
-upload(){
-  const fileTransfer = new Transfer();
-  var options: any;
-
-  options = {
+// full example
+upload() {
+  let options: FileUploadOptions = {
      fileKey: &#39;file&#39;,
      fileName: &#39;name.jpg&#39;,
      headers: {}
      .....
   }
-  fileTransfer.upload(&quot;&lt;file path&gt;&quot;, &quot;&lt;api endpoint&gt;&quot;, options)
+
+  fileTransfer.upload(&#39;&lt;file path&gt;&#39;, &#39;&lt;api endpoint&gt;&#39;, options)
    .then((data) =&gt; {
      // success
    }, (err) =&gt; {
      // error
    })
 }
-
-// Cordova
-declare var cordova: any;
-
+*
 download() {
-  const fileTransfer = new Transfer();
-  let url = &#39;http://www.example.com/file.pdf&#39;;
-  fileTransfer.download(url, cordova.file.dataDirectory + &#39;file.pdf&#39;).then((entry) =&gt; {
+  const url = &#39;http://www.example.com/file.pdf&#39;;
+  fileTransfer.download(url, this.file.dataDirectory + &#39;file.pdf&#39;).then((entry) =&gt; {
     console.log(&#39;download complete: &#39; + entry.toURL());
   }, (error) =&gt; {
     // handle error
   });
 }
-</code></pre>
-<p>Note: You will not see your documents using a file explorer on your device. Use adb:</p>
-<pre><code>adb shell
-run-as com.your.app
-cd files
-ls
 </code></pre>
 <p>To store files in a different/publicly accessible directory, please refer to the following link
 <a href="https://github.com/apache/cordova-plugin-file#where-to-store-files">https://github.com/apache/cordova-plugin-file#where-to-store-files</a></p>
@@ -120,27 +112,49 @@ ls
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="FileTransferErrorCode"></div>
-<h3><code>FileTransferErrorCode</code>
+<h3>
+  <code>FileTransferErrorCode</code>
   
-</h3>
 
+</h3>
 Error code rejected from upload with FileTransferError
 Defined in FileTransferError.
      FILE_NOT_FOUND_ERR: 1   Return when file was not found
      INVALID_URL_ERR: 2,     Return when url was invalid
      CONNECTION_ERR: 3,      Return on connection error
      ABORT_ERR: 4,           Return on aborting
-     NOT_MODIFIED_ERR: 5     Return on "304 Not Modified" HTTP response
+     NOT_MODIFIED_ERR: 5     Return on '304 Not Modified' HTTP response
+
+
+<div id="create"></div>
+<h3>
+  <code>create()</code>
+  
+
+</h3>
+Creates a new FileTransfer object
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>TransferObject</code> 
+</div>
 
 
 
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
 
 
 
-
+<h2><a class="anchor" name="TransferObject" href="#TransferObject"></a>TransferObject</h2>
 
 
 <!-- methods on the class -->
@@ -334,7 +348,7 @@ Downloads a file from server.
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves to a FileEntry object.
 </div><div id="onProgress"></div>
 <h3>
-  <code>onProgress(Listener)</code>
+  <code>onProgress(listener)</code>
   
 
 </h3>
@@ -351,7 +365,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
   
   <tr>
     <td>
-      Listener
+      listener
       
       
     </td>
@@ -360,7 +374,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
 <code>function</code>
     </td>
     <td>
-      <p>that takes a progress event.</p>
+      <p>Listener that takes a progress event.</p>
 
       
     </td>
@@ -382,10 +396,6 @@ object which has an error code of FileTransferError.ABORT_ERR.
 
 
 
-
-
-
-<!-- other classes -->
 
 <!-- end other classes -->
 

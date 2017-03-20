@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/crop.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/crop/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-crop</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-crop$ npm install --save @ionic-native/plugins
+</code></pre>
 <p>Repo:
   <a href="https://github.com/jeduan/cordova-plugin-crop">
     https://github.com/jeduan/cordova-plugin-crop
@@ -57,11 +59,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {Crop} from &#39;ionic-native&#39;;
+<pre><code>import {Crop} from &#39;@ionic-native/crop&#39;;
+
+constructor(private crop: Crop) { }
 
 ...
 
-Crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
+this.crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
   .then(
     newImage =&gt; console.log(&quot;new image path is: &quot; + newImage),
     error =&gt; console.error(&quot;Error cropping image&quot;, error)
@@ -74,19 +78,18 @@ Crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="crop"></div>
-<h3><code>crop(pathToImage,&nbsp;options)</code>
+<h3>
+  <code>crop(pathToImage,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Crops an image
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -132,20 +135,11 @@ Crops an image
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the new image path, or rejects if failed to crop.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

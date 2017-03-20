@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L94">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L96">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-apprate</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-apprate$ npm install --save @ionic-native/AppRate
+</code></pre>
 <p>Repo:
   <a href="https://github.com/pushandplay/cordova-plugin-apprate">
     https://github.com/pushandplay/cordova-plugin-apprate
@@ -67,15 +69,19 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AppRate } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AppRate } from &#39;@ionic-native/app-rate&#39;;
 
- AppRate.preferences.storeAppURL = {
+constructor(private appRate: AppRate) { }
+
+...
+
+ this.appRate.preferences.storeAppURL = {
    ios: &#39;&lt;my_app_id&gt;&#39;,
    android: &#39;market://details?id=&lt;package_name&gt;&#39;,
    windows: &#39;ms-windows-store://review/?ProductId=&lt;Store_ID&gt;&#39;
  };
 
-AppRate.promptForRating(false);
+this.appRate.promptForRating(false);
 </code></pre>
 
 
@@ -84,35 +90,29 @@ AppRate.promptForRating(false);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="preferences"></div>
-<h3><code>preferences</code>
+<h3>
+  <code>preferences</code>
   
+
 </h3>
-
-
 Configure various settings for the Rating View.
 See table below for options
 
 
 
-
-
-
-
-
-
-
 <div id="promptForRating"></div>
-<h3><code>promptForRating(immediately)</code>
+<h3>
+  <code>promptForRating(immediately)</code>
   
+
 </h3>
-
-
 Prompts the user for rating
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -144,13 +144,6 @@ Prompts the user for rating
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 
@@ -294,7 +287,7 @@ Prompts the user for rating
       <div><em>(optional)</em></div>
     </td>
     <td>
-      <code>AppRateStoreAppUrls</code>
+      <code>AppUrls</code>
     </td>
     <td>
       <p>App Store URLS</p>
@@ -308,7 +301,7 @@ Prompts the user for rating
 
 
 
-<h2><a class="anchor" name="AppRateStoreAppUrls" href="#AppRateStoreAppUrls"></a>AppRateStoreAppUrls</h2>
+<h2><a class="anchor" name="AppUrls" href="#AppUrls"></a>AppUrls</h2>
 
 
 <table class="table param-table" style="margin:0;">

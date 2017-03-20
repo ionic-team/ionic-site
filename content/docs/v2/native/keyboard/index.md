@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/keyboard.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/keyboard/index.ts#L2">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add ionic-plugin-keyboard</code></pre>
+<pre><code>
+  $ ionic plugin add ionic-plugin-keyboard$ npm install --save @ionic-native/cordova.plugins.Keyboard
+</code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-keyboard">
     https://github.com/driftyco/ionic-plugin-keyboard
@@ -56,7 +58,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Keyboard } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Keyboard } from &#39;@ionic-native/keyboard&#39;;
+
+constructor(private keyboard: Keyboard) { }
+
+...
+
+this.keyboard.show();
+
+this.keyboard.close();
 </code></pre>
 
 
@@ -65,19 +75,18 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="hideKeyboardAccessoryBar"></div>
-<h3><code>hideKeyboardAccessoryBar(hide)</code>
+<h3>
+  <code>hideKeyboardAccessoryBar(hide)</code>
   
+
 </h3>
-
-
-
-
 Hide the keyboard accessory bar with the next, previous and done buttons.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -107,88 +116,33 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="show"></div>
-<h3><code>show()</code>
+<h3>
+  <code>show()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>BlackBerry 10</code>&nbsp;
-  
-  <code>Windows</code>&nbsp;
-  </p>
-
-
-
 Force keyboard to be shown.
 
 
 
-
-
-
-
-
-
-
 <div id="close"></div>
-<h3><code>close()</code>
+<h3>
+  <code>close()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  
-  <code>BlackBerry 10</code>&nbsp;
-  
-  <code>Windows</code>&nbsp;
-  </p>
-
-
-
 Close the keyboard if open.
 
 
 
-
-
-
-
-
-
-
 <div id="disableScroll"></div>
-<h3><code>disableScroll(disable)</code>
+<h3>
+  <code>disableScroll(disable)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows</code>&nbsp;
-  </p>
-
-
-
 Prevents the native UIScrollView from moving when an input is focused.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -218,82 +172,33 @@ Prevents the native UIScrollView from moving when an input is focused.
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="onKeyboardShow"></div>
-<h3><code>onKeyboardShow()</code>
+<h3>
+  <code>onKeyboardShow()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  
-  <code>BlackBerry 10</code>&nbsp;
-  
-  <code>Windows</code>&nbsp;
-  </p>
-
-
-
 Creates an observable that notifies you when the keyboard is shown. Unsubscribe to observable to cancel event watch.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onKeyboardHide"></div>
-<h3><code>onKeyboardHide()</code>
+</div><div id="onKeyboardHide"></div>
+<h3>
+  <code>onKeyboardHide()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  
-  <code>BlackBerry 10</code>&nbsp;
-  
-  <code>Windows</code>&nbsp;
-  </p>
-
-
-
 Creates an observable that notifies you when the keyboard is hidden. Unsubscribe to observable to cancel event watch.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

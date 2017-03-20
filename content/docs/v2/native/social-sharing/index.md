@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/socialsharing.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/social-sharing/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-x-socialsharing</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-x-socialsharing$ npm install --save @ionic-native/plugins.socialsharing
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
@@ -66,17 +68,21 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SocialSharing } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SocialSharing } from &#39;@ionic-native/social-sharing&#39;;
+
+constructor(private socialSharing: SocialSharing) { }
+
+...
 
 // Check if sharing via email is supported
-SocialSharing.canShareViaEmail().then(() =&gt; {
+this.socialSharing.canShareViaEmail().then(() =&gt; {
   // Sharing via email is possible
 }).catch(() =&gt; {
   // Sharing via email is not possible
 });
 
 // Share via email
-SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@example.org&#39;).then(() =&gt; {
+this.socialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@example.org&#39;).then(() =&gt; {
   // Success!
 }).catch(() =&gt; {
   // Error!
@@ -89,17 +95,18 @@ SocialSharing.shareViaEmail(&#39;Body&#39;, &#39;Subject&#39;, &#39;recipient@ex
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="share"></div>
-<h3><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code>
+<h3>
+  <code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code>
   
+
 </h3>
-
-
 Shares using the share sheet
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -181,36 +188,17 @@ Shares using the share sheet
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareWithOptions"></div>
-<h3><code>shareWithOptions(options)</code>
+</div><div id="shareWithOptions"></div>
+<h3>
+  <code>shareWithOptions(options)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares using the share sheet with additional options and returns a result object or an error message (requires plugin version 5.1.0+)
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -241,36 +229,17 @@ Shares using the share sheet with additional options and returns a result object
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="canShareVia"></div>
-<h3><code>canShareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
+</div><div id="canShareVia"></div>
+<h3>
+  <code>canShareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Checks if you can share via a specific app.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -365,36 +334,17 @@ Checks if you can share via a specific app.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaTwitter"></div>
-<h3><code>shareViaTwitter(message,&nbsp;image,&nbsp;url)</code>
+</div><div id="shareViaTwitter"></div>
+<h3>
+  <code>shareViaTwitter(message,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to Twitter
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -456,36 +406,17 @@ Shares directly to Twitter
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaFacebook"></div>
-<h3><code>shareViaFacebook(message,&nbsp;image,&nbsp;url)</code>
+</div><div id="shareViaFacebook"></div>
+<h3>
+  <code>shareViaFacebook(message,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to Facebook
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -547,36 +478,17 @@ Shares directly to Facebook
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaFacebookWithPasteMessageHint"></div>
-<h3><code>shareViaFacebookWithPasteMessageHint(message,&nbsp;image,&nbsp;url,&nbsp;pasteMessageHint)</code>
+</div><div id="shareViaFacebookWithPasteMessageHint"></div>
+<h3>
+  <code>shareViaFacebookWithPasteMessageHint(message,&nbsp;image,&nbsp;url,&nbsp;pasteMessageHint)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to Facebook with a paste message hint
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -654,36 +566,17 @@ Shares directly to Facebook with a paste message hint
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaInstagram"></div>
-<h3><code>shareViaInstagram(message,&nbsp;image)</code>
+</div><div id="shareViaInstagram"></div>
+<h3>
+  <code>shareViaInstagram(message,&nbsp;image)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to Instagram
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -729,36 +622,17 @@ Shares directly to Instagram
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaWhatsApp"></div>
-<h3><code>shareViaWhatsApp(message,&nbsp;image,&nbsp;url)</code>
+</div><div id="shareViaWhatsApp"></div>
+<h3>
+  <code>shareViaWhatsApp(message,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to WhatsApp
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -820,36 +694,17 @@ Shares directly to WhatsApp
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaWhatsAppToReceiver"></div>
-<h3><code>shareViaWhatsAppToReceiver(receiver,&nbsp;message,&nbsp;image,&nbsp;url)</code>
+</div><div id="shareViaWhatsAppToReceiver"></div>
+<h3>
+  <code>shareViaWhatsAppToReceiver(receiver,&nbsp;message,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Shares directly to a WhatsApp Contact
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -931,36 +786,17 @@ Shares directly to a WhatsApp Contact
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaSMS"></div>
-<h3><code>shareViaSMS(messge,&nbsp;phoneNumber)</code>
+</div><div id="shareViaSMS"></div>
+<h3>
+  <code>shareViaSMS(messge,&nbsp;phoneNumber)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Share via SMS
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1008,66 +844,30 @@ Share via SMS
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="canShareViaEmail"></div>
-<h3><code>canShareViaEmail()</code>
+</div><div id="canShareViaEmail"></div>
+<h3>
+  <code>canShareViaEmail()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Checks if you can share via email
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareViaEmail"></div>
-<h3><code>shareViaEmail(message,&nbsp;subject,&nbsp;to,&nbsp;cc,&nbsp;bcc,&nbsp;files)</code>
+</div><div id="shareViaEmail"></div>
+<h3>
+  <code>shareViaEmail(message,&nbsp;subject,&nbsp;to,&nbsp;cc,&nbsp;bcc,&nbsp;files)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Share via Email
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1180,36 +980,17 @@ Share via Email
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="shareVia"></div>
-<h3><code>shareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
+</div><div id="shareVia"></div>
+<h3>
+  <code>shareVia(appName,&nbsp;message,&nbsp;subject,&nbsp;image,&nbsp;url)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Share via AppName
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1304,20 +1085,11 @@ Share via AppName
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

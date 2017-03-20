@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L90">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L91">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add de.appplant.cordova.plugin.local-notification</code></pre>
+<pre><code>
+  $ ionic plugin add de.appplant.cordova.plugin.local-notification$ npm install --save @ionic-native/cordova.plugins.notification.local
+</code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-local-notifications">
     https://github.com/katzer/cordova-plugin-local-notifications
@@ -57,11 +59,16 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { LocalNotifications } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { LocalNotifications } from &#39;@ionic-native/local-notifications&#39;;
+
+
+constructor(private localNotifications: LocalNotifications) { }
+
+...
 
 
 // Schedule a single notification
-LocalNotifications.schedule({
+this.localNotifications.schedule({
   id: 1,
   text: &#39;Single ILocalNotification&#39;,
   sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
@@ -70,7 +77,7 @@ LocalNotifications.schedule({
 
 
 // Schedule multiple notifications
-LocalNotifications.schedule([{
+this.localNotifications.schedule([{
    id: 1,
    text: &#39;Multi ILocalNotification 1&#39;,
    sound: isAndroid ? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
@@ -84,7 +91,7 @@ LocalNotifications.schedule([{
 
 
 // Schedule delayed notification
-LocalNotifications.schedule({
+this.localNotifications.schedule({
    text: &#39;Delayed ILocalNotification&#39;,
    at: new Date(new Date().getTime() + 3600),
    led: &#39;FF0000&#39;,
@@ -98,19 +105,18 @@ LocalNotifications.schedule({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="schedule"></div>
-<h3><code>schedule(options)</code>
+<h3>
+  <code>schedule(options)</code>
   
+
 </h3>
-
-
-
-
 Schedules a single or multiple notifications
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -141,23 +147,13 @@ Schedules a single or multiple notifications
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="update"></div>
-<h3><code>update(options)</code>
+<h3>
+  <code>update(options)</code>
   
+
 </h3>
-
-
-
-
 Updates a previously scheduled notification. Must include the id in the options parameter.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -188,21 +184,13 @@ Updates a previously scheduled notification. Must include the id in the options 
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="clear"></div>
-<h3><code>clear(notificationId)</code>
+<h3>
+  <code>clear(notificationId)</code>
   
+
 </h3>
-
-
 Clears single or multiple notifications
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -233,50 +221,30 @@ Clears single or multiple notifications
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise when the notification had been cleared
-</div>
-
-
-
-<div id="clearAll"></div>
-<h3><code>clearAll()</code>
+</div><div id="clearAll"></div>
+<h3>
+  <code>clearAll()</code>
   
+
 </h3>
-
-
-
-
 Clears all notifications
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise when all notifications have cleared
-</div>
-
-
-
-<div id="cancel"></div>
-<h3><code>cancel(notificationId)</code>
+</div><div id="cancel"></div>
+<h3>
+  <code>cancel(notificationId)</code>
   
+
 </h3>
-
-
 Cancels single or multiple notifications
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -307,50 +275,30 @@ Cancels single or multiple notifications
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled
-</div>
-
-
-
-<div id="cancelAll"></div>
-<h3><code>cancelAll()</code>
+</div><div id="cancelAll"></div>
+<h3>
+  <code>cancelAll()</code>
   
+
 </h3>
-
-
-
-
 Cancels all notifications
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise when all notifications are canceled
-</div>
-
-
-
-<div id="isPresent"></div>
-<h3><code>isPresent(notificationId)</code>
+</div><div id="isPresent"></div>
+<h3>
+  <code>isPresent(notificationId)</code>
   
+
 </h3>
-
-
 Checks presence of a notification
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -380,27 +328,17 @@ Checks presence of a notification
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="isScheduled"></div>
-<h3><code>isScheduled(notificationId)</code>
+</div><div id="isScheduled"></div>
+<h3>
+  <code>isScheduled(notificationId)</code>
   
+
 </h3>
-
-
 Checks is a notification is scheduled
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -430,27 +368,17 @@ Checks is a notification is scheduled
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="isTriggered"></div>
-<h3><code>isTriggered(notificationId)</code>
+</div><div id="isTriggered"></div>
+<h3>
+  <code>isTriggered(notificationId)</code>
   
+
 </h3>
-
-
 Checks if a notification is triggered
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -480,90 +408,56 @@ Checks if a notification is triggered
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="getAllIds"></div>
-<h3><code>getAllIds()</code>
+</div><div id="getAllIds"></div>
+<h3>
+  <code>getAllIds()</code>
   
+
 </h3>
-
-
 Get all the notification ids
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getTriggeredIds"></div>
-<h3><code>getTriggeredIds()</code>
+</div><div id="getTriggeredIds"></div>
+<h3>
+  <code>getTriggeredIds()</code>
   
+
 </h3>
-
-
 Get the ids of triggered notifications
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getScheduledIds"></div>
-<h3><code>getScheduledIds()</code>
+</div><div id="getScheduledIds"></div>
+<h3>
+  <code>getScheduledIds()</code>
   
+
 </h3>
-
-
 Get the ids of scheduled notifications
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
-</div>
-
-
-
-<div id="get"></div>
-<h3><code>get(notificationId)</code>
+</div><div id="get"></div>
+<h3>
+  <code>get(notificationId)</code>
   
+
 </h3>
-
-
 Get a notification object
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -594,27 +488,17 @@ Get a notification object
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;ILocalNotification&gt;</code> 
-</div>
-
-
-
-<div id="getScheduled"></div>
-<h3><code>getScheduled(notificationId)</code>
+</div><div id="getScheduled"></div>
+<h3>
+  <code>getScheduled(notificationId)</code>
   
+
 </h3>
-
-
 Get a scheduled notification object
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -645,27 +529,17 @@ Get a scheduled notification object
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;ILocalNotification&gt;</code> 
-</div>
-
-
-
-<div id="getTriggered"></div>
-<h3><code>getTriggered(notificationId)</code>
+</div><div id="getTriggered"></div>
+<h3>
+  <code>getTriggered(notificationId)</code>
   
+
 </h3>
-
-
 Get a triggered notification object
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -696,134 +570,82 @@ Get a triggered notification object
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;ILocalNotification&gt;</code> 
-</div>
-
-
-
-<div id="getAll"></div>
-<h3><code>getAll()</code>
+</div><div id="getAll"></div>
+<h3>
+  <code>getAll()</code>
   
+
 </h3>
-
-
 Get all notification objects
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getAllScheduled"></div>
-<h3><code>getAllScheduled()</code>
+</div><div id="getAllScheduled"></div>
+<h3>
+  <code>getAllScheduled()</code>
   
+
 </h3>
-
-
 Get all scheduled notification objects
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getAllTriggered"></div>
-<h3><code>getAllTriggered()</code>
+</div><div id="getAllTriggered"></div>
+<h3>
+  <code>getAllTriggered()</code>
   
+
 </h3>
-
-
 Get all triggered notification objects
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div>
-
-
-
-<div id="registerPermission"></div>
-<h3><code>registerPermission()</code>
+</div><div id="registerPermission"></div>
+<h3>
+  <code>registerPermission()</code>
   
+
 </h3>
-
-
 Register permission to show notifications if not already granted.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="hasPermission"></div>
-<h3><code>hasPermission()</code>
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
   
+
 </h3>
-
-
 Informs if the app has the permission to show notifications.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="on"></div>
-<h3><code>on(eventName,&nbsp;callback)</code>
+</div><div id="on"></div>
+<h3>
+  <code>on(eventName,&nbsp;callback)</code>
   
+
 </h3>
-
-
-
-
 Sets a callback for a specific event
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -872,13 +694,6 @@ Sets a callback for a specific event
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

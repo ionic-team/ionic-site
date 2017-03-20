@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/broadcaster.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/broadcaster/index.ts#L2">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-broadcaster</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-broadcaster$ npm install --save @ionic-native/broadcaster
+</code></pre>
 <p>Repo:
   <a href="https://github.com/bsorrentino/cordova-broadcaster">
     https://github.com/bsorrentino/cordova-broadcaster
@@ -66,13 +68,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Broadcaster } from &#39;ionic-native&#39;;
+<pre><code>import { Broadcaster } from &#39;@ionic-native/broadcaster&#39;;
+
+constructor(private broadcaster: Broadcaster) { }
+
+...
 
 // Listen to events from Native
-Broadcaster.addEventListener(&#39;eventName&#39;).then((event) =&gt; console.log(event));
+this.broadcaster.addEventListener(&#39;eventName&#39;).then((event) =&gt; console.log(event));
 
 // Send event to Native
-Broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.log(&#39;success&#39;));
+this.broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.log(&#39;success&#39;));
 </code></pre>
 
 
@@ -81,19 +87,18 @@ Broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.log(&
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="addEventListener"></div>
-<h3><code>addEventListener(eventName)</code>
+<h3>
+  <code>addEventListener(eventName)</code>
   
+
 </h3>
-
-
-
-
 This function listen to an event sent from the native code
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -123,27 +128,17 @@ This function listen to an event sent from the native code
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an observable to watch when an event is received
-</div>
-
-
-
-<div id="fireNativeEvent"></div>
-<h3><code>fireNativeEvent(eventName,&nbsp;eventData)</code>
+</div><div id="fireNativeEvent"></div>
+<h3>
+  <code>fireNativeEvent(eventName,&nbsp;eventData)</code>
   
+
 </h3>
-
-
 This function sends data to the native code
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -189,20 +184,11 @@ This function sends data to the native code
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when an event is successfully fired
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

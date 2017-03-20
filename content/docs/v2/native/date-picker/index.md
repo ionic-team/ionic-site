@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L118">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/date-picker/index.ts#L119">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-datepicker</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-datepicker$ npm install --save @ionic-native/datePicker
+</code></pre>
 <p>Repo:
   <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">
     https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
@@ -66,12 +68,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { DatePicker } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { DatePicker } from &#39;@ionic-native/date-picker&#39;;
+
+constructor(private datePicker: DatePicker) { }
 
 
-DatePicker.show({
+...
+
+
+this.datePicker.show({
   date: new Date(),
-  mode: &#39;date&#39;
+  mode: &#39;date&#39;,
+  androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
 }).then(
   date =&gt; console.log(&#39;Got date: &#39;, date),
   err =&gt; console.log(&#39;Error occurred while getting date: &#39;, err)
@@ -84,17 +92,18 @@ DatePicker.show({
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="show"></div>
-<h3><code>show(options)</code>
+<h3>
+  <code>show(options)</code>
   
+
 </h3>
-
-
 Shows the date and/or time picker dialog(s)
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -125,20 +134,11 @@ Shows the date and/or time picker dialog(s)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Date&gt;</code> Returns a promise that resolves with the picked date and/or time, or rejects with an error.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

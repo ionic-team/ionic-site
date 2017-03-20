@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/dbmeter.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/db-meter/index.ts#L2">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-dbmeter</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-dbmeter$ npm install --save @ionic-native/DBMeter
+</code></pre>
 <p>Repo:
   <a href="https://github.com/akofman/cordova-plugin-dbmeter">
     https://github.com/akofman/cordova-plugin-dbmeter
@@ -66,16 +68,20 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { DBMeter } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { DBMeter } from &#39;@ionic-native/db-meter&#39;;
+
+constructor(private dbMeter: DBMeter) { }
+
+...
 
 
 // Start listening
-let subscription = DBMeter.start().subscribe(
+let subscription = this.dbMeter.start().subscribe(
   data =&gt; console.log(data)
 );
 
 // Check if we are listening
-DBMeter.isListening().then(
+this.dbMeter.isListening().then(
   (isListening: boolean) =&gt; console.log(isListening)
 );
 
@@ -83,7 +89,7 @@ DBMeter.isListening().then(
 subscription.unsubscribe();
 
 // Delete DBMeter instance from memory
-DBMeter.delete().then(
+this.dbMeter.delete().then(
   () =&gt; console.log(&#39;Deleted DB Meter instance&#39;),
   error =&gt; console.log(&#39;Error occurred while deleting DB Meter instance&#39;)
 );
@@ -95,63 +101,44 @@ DBMeter.delete().then(
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="start"></div>
-<h3><code>start()</code>
+<h3>
+  <code>start()</code>
   
+
 </h3>
-
-
-
-
 Starts listening
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an observable. Subscribe to start listening. Unsubscribe to stop listening.
-</div>
-
-
-
-<div id="isListening"></div>
-<h3><code>isListening()</code>
+</div><div id="isListening"></div>
+<h3>
+  <code>isListening()</code>
   
+
 </h3>
-
-
 Check if the DB Meter is listening
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that tells us whether the DB meter is listening
-</div>
-
-
-
-<div id="delete"></div>
-<h3><code>delete()</code>
+</div><div id="delete"></div>
+<h3>
+  <code>delete()</code>
   
+
 </h3>
-
-
 Delete the DB Meter instance
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -159,11 +146,6 @@ Delete the DB Meter instance
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that will resolve if the instance has been deleted, and rejects if errors occur.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

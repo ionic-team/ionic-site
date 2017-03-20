@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/nfc.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/nfc/index.ts#L3">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add phonegap-nfc</code></pre>
+<pre><code>
+  $ ionic plugin add phonegap-nfc$ npm install --save @ionic-native/nfc
+</code></pre>
 <p>Repo:
   <a href="https://github.com/chariotsolutions/phonegap-nfc">
     https://github.com/chariotsolutions/phonegap-nfc
@@ -65,10 +67,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {NFC, Ndef} from &#39;ionic-native&#39;;
+<pre><code>import { NFC, Ndef } from &#39;@ionic-native/nfc&#39;;
 
-let message = Ndef.textRecord(&#39;Hello world&#39;);
-NFC.share([message]).then(onSuccess).catch(onError);
+constructor(private nfc: NFC, private ndef: Ndef) { }
+
+...
+
+let message = this.ndef.textRecord(&#39;Hello world&#39;);
+this.nfc.share([message]).then(onSuccess).catch(onError);
 </code></pre>
 
 
@@ -77,19 +83,18 @@ NFC.share([message]).then(onSuccess).catch(onError);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="addNdefListener"></div>
-<h3><code>addNdefListener(onSuccess,&nbsp;onFailure)</code>
+<h3>
+  <code>addNdefListener(onSuccess,&nbsp;onFailure)</code>
   
+
 </h3>
-
-
-
-
 Registers an event listener for any NDEF tag.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -135,29 +140,17 @@ Registers an event listener for any NDEF tag.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addTagDiscoveredListener"></div>
-<h3><code>addTagDiscoveredListener(onSuccess,&nbsp;onFailure)</code>
+</div><div id="addTagDiscoveredListener"></div>
+<h3>
+  <code>addTagDiscoveredListener(onSuccess,&nbsp;onFailure)</code>
   
+
 </h3>
-
-
-
-
 Registers an event listener for tags matching any tag type.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -203,29 +196,17 @@ Registers an event listener for tags matching any tag type.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addMimeTypeListener"></div>
-<h3><code>addMimeTypeListener(mimeType,&nbsp;onSuccess,&nbsp;onFailure)</code>
+</div><div id="addMimeTypeListener"></div>
+<h3>
+  <code>addMimeTypeListener(mimeType,&nbsp;onSuccess,&nbsp;onFailure)</code>
   
+
 </h3>
-
-
-
-
 Registers an event listener for NDEF tags matching a specified MIME type.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -287,29 +268,17 @@ Registers an event listener for NDEF tags matching a specified MIME type.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addNdefFormatableListener"></div>
-<h3><code>addNdefFormatableListener(onSuccess,&nbsp;onFailure)</code>
+</div><div id="addNdefFormatableListener"></div>
+<h3>
+  <code>addNdefFormatableListener(onSuccess,&nbsp;onFailure)</code>
   
+
 </h3>
-
-
-
-
 Registers an event listener for formatable NDEF tags.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -355,27 +324,17 @@ Registers an event listener for formatable NDEF tags.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="write"></div>
-<h3><code>write(message)</code>
+</div><div id="write"></div>
+<h3>
+  <code>write(message)</code>
   
+
 </h3>
-
-
 Qrites an NdefMessage to a NFC tag.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -405,48 +364,30 @@ Qrites an NdefMessage to a NFC tag.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="makeReadyOnly"></div>
-<h3><code>makeReadyOnly()</code>
+</div><div id="makeReadyOnly"></div>
+<h3>
+  <code>makeReadyOnly()</code>
   
+
 </h3>
-
-
 Makes a NFC tag read only. **Warning** this is permanent.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="share"></div>
-<h3><code>share(message)</code>
+</div><div id="share"></div>
+<h3>
+  <code>share(message)</code>
   
+
 </h3>
-
-
 Shares an NDEF Message via peer-to-peer.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -477,65 +418,40 @@ Shares an NDEF Message via peer-to-peer.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="unshare"></div>
-<h3><code>unshare()</code>
+</div><div id="unshare"></div>
+<h3>
+  <code>unshare()</code>
   
+
 </h3>
-
-
 Stop sharing NDEF data via peer-to-peer.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="erase"></div>
-<h3><code>erase()</code>
+</div><div id="erase"></div>
+<h3>
+  <code>erase()</code>
   
+
 </h3>
-
-
 Erase a NDEF tag
 
 
 
-
-
-
-
-
-
-
 <div id="handover"></div>
-<h3><code>handover(uris)</code>
+<h3>
+  <code>handover(uris)</code>
   
+
 </h3>
-
-
 Send a file to another device via NFC handover.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -566,92 +482,56 @@ Send a file to another device via NFC handover.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="stopHandover"></div>
-<h3><code>stopHandover()</code>
+</div><div id="stopHandover"></div>
+<h3>
+  <code>stopHandover()</code>
   
+
 </h3>
-
-
 Stop sharing NDEF data via NFC handover.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="showSettings"></div>
-<h3><code>showSettings()</code>
+</div><div id="showSettings"></div>
+<h3>
+  <code>showSettings()</code>
   
+
 </h3>
-
-
 Show the NFC settings on the device.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="enabled"></div>
-<h3><code>enabled()</code>
+</div><div id="enabled"></div>
+<h3>
+  <code>enabled()</code>
   
+
 </h3>
-
-
 Check if NFC is available and enabled on this device.
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="bytesToString"></div>
-<h3><code>bytesToString(bytes)</code>
+</div><div id="bytesToString"></div>
+<h3>
+  <code>bytesToString(bytes)</code>
   
+
 </h3>
-
-
-
-
 Convert bytes to string
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -681,29 +561,17 @@ Convert bytes to string
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>string</code> 
-</div>
-
-
-
-<div id="stringToBytes"></div>
-<h3><code>stringToBytes(str)</code>
+</div><div id="stringToBytes"></div>
+<h3>
+  <code>stringToBytes(str)</code>
   
+
 </h3>
-
-
-
-
 Convert string to bytes
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -733,29 +601,17 @@ Convert string to bytes
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>number[]</code> 
-</div>
-
-
-
-<div id="bytesToHexString"></div>
-<h3><code>bytesToHexString(bytes)</code>
+</div><div id="bytesToHexString"></div>
+<h3>
+  <code>bytesToHexString(bytes)</code>
   
+
 </h3>
-
-
-
-
 Convert bytes to hex string
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -785,20 +641,11 @@ Convert bytes to hex string
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>string</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

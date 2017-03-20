@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/mixpanel.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/mixpanel/index.ts#L3">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-mixpanel</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-mixpanel$ npm install --save @ionic-native/mixpanel
+</code></pre>
 <p>Repo:
   <a href="https://github.com/samzilverberg/cordova-mixpanel-plugin">
     https://github.com/samzilverberg/cordova-mixpanel-plugin
@@ -57,9 +59,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {Mixpanel} from &#39;ionic-native&#39;;
+<pre><code>import { Mixpanel, MixpanelPeople } from &#39;@ionic-native/mixpanel&#39;;
 
-Mixpanel.init(token)
+constructor(private mixpanel: Mixpanel, private mixpanelPeople: MixpanelPeople) { }
+
+...
+
+this.mixpanel.init(token)
   .then(onSuccess)
   .catch(onError);
 </code></pre>
@@ -70,16 +76,17 @@ Mixpanel.init(token)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="alias"></div>
-<h3><code>alias(aliasId,&nbsp;originalId)</code>
+<h3>
+  <code>alias(aliasId,&nbsp;originalId)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -126,7 +133,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="distinctId"></div>
+<h3>
+  <code>distinctId()</code>
+  
 
+</h3>
 
 
 
@@ -134,20 +150,12 @@ Mixpanel.init(token)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="distinctId"></div>
-<h3><code>distinctId()</code>
+</div><div id="flush"></div>
+<h3>
+  <code>flush()</code>
   
+
 </h3>
-
-
-
-
-
-
 
 
 
@@ -155,39 +163,12 @@ Mixpanel.init(token)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="flush"></div>
-<h3><code>flush()</code>
+</div><div id="identify"></div>
+<h3>
+  <code>identify(distinctId)</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="identify"></div>
-<h3><code>identify(distinctId)</code>
-  
-</h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -218,26 +199,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="init"></div>
-<h3><code>init(token)</code>
+</div><div id="init"></div>
+<h3>
+  <code>init(token)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -268,26 +239,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="registerSuperProperties"></div>
-<h3><code>registerSuperProperties(superProperties)</code>
+</div><div id="registerSuperProperties"></div>
+<h3>
+  <code>registerSuperProperties(superProperties)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -318,7 +279,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="reset"></div>
+<h3>
+  <code>reset()</code>
+  
 
+</h3>
 
 
 
@@ -326,41 +296,12 @@ Mixpanel.init(token)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="reset"></div>
-<h3><code>reset()</code>
+</div><div id="track"></div>
+<h3>
+  <code>track(eventName,&nbsp;eventProperties)</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="track"></div>
-<h3><code>track(eventName,&nbsp;eventProperties)</code>
-  
-</h3>
-
-
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -408,7 +349,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="showSurvey"></div>
+<h3>
+  <code>showSurvey()</code>
+  
 
+</h3>
 
 
 
@@ -417,52 +367,6 @@ Mixpanel.init(token)
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-<div id="showSurvey"></div>
-<h3><code>showSurvey()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="people"></div>
-<h3><code>people</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>MixpanelPeople</code> 
-</div>
-
-
-
-
-<!-- methods on the class -->
 
 
 
@@ -472,16 +376,17 @@ Mixpanel.init(token)
 
 
 <h2><a class="anchor" name="MixpanelPeople" href="#MixpanelPeople"></a>MixpanelPeople</h2>
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="identify"></div>
-<h3><code>identify(distinctId)</code>
+<h3>
+  <code>identify(distinctId)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -512,26 +417,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="increment"></div>
-<h3><code>increment(peopleProperties)</code>
+</div><div id="increment"></div>
+<h3>
+  <code>increment(peopleProperties)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -562,26 +457,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setPushId"></div>
-<h3><code>setPushId(pushId)</code>
+</div><div id="setPushId"></div>
+<h3>
+  <code>setPushId(pushId)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -612,26 +497,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="set"></div>
-<h3><code>set(peopleProperties)</code>
+</div><div id="set"></div>
+<h3>
+  <code>set(peopleProperties)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -662,26 +537,16 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setOnce"></div>
-<h3><code>setOnce(peopleProperties)</code>
+</div><div id="setOnce"></div>
+<h3>
+  <code>setOnce(peopleProperties)</code>
   
+
 </h3>
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -712,20 +577,11 @@ Mixpanel.init(token)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 <!-- end other classes -->

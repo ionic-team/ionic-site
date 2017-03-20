@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/twitter-connect.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/twitter-connect/index.ts#L20">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key</code></pre>
+<pre><code>
+  $ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key$ npm install --save @ionic-native/TwitterConnect
+</code></pre>
 <p>Repo:
   <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">
     https://github.com/ManifestWebDesign/twitter-connect-plugin
@@ -49,7 +51,11 @@ docType: "class"
 
 <p>Plugin to use Twitter Single Sign On
 Uses Twitter&#39;s Fabric SDK</p>
-<pre><code class="lang-typescript">import {TwitterConnect} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { TwitterConnect } from &#39;@ionic-native/twitter-connect&#39;;
+
+constructor(private twitter: TwitterConnect) { }
+
+...
 
 function onSuccess(response) {
   console.log(response);
@@ -63,9 +69,9 @@ function onSuccess(response) {
   // }
 }
 
-TwitterConnect.login().then(onSuccess, onError);
+this.twitter.login().then(onSuccess, onError);
 
-TwitterConnect.logout().then(onLogoutSuccess, onLogoutError);
+this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 </code></pre>
 
 
@@ -78,61 +84,44 @@ TwitterConnect.logout().then(onLogoutSuccess, onLogoutError);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="login"></div>
-<h3><code>login()</code>
+<h3>
+  <code>login()</code>
   
+
 </h3>
-
-
 Logs in
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;TwitterConnectResponse&gt;</code> returns a promise that resolves if logged in and rejects if failed to login
-</div>
-
-
-
-<div id="logout"></div>
-<h3><code>logout()</code>
+</div><div id="logout"></div>
+<h3>
+  <code>logout()</code>
   
+
 </h3>
-
-
 Logs out
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise that resolves if logged out and rejects if failed to logout
-</div>
-
-
-
-<div id="showUser"></div>
-<h3><code>showUser()</code>
+</div><div id="showUser"></div>
+<h3>
+  <code>showUser()</code>
   
+
 </h3>
-
-
 Returns user's profile information
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -140,11 +129,6 @@ Returns user's profile information
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise that resolves if user profile is successfully retrieved and rejects if request fails
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

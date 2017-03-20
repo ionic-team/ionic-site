@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/admob.ts#L83">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ad-mob/index.ts#L84">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-admobpro</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-admobpro$ npm install --save @ionic-native/AdMob
+</code></pre>
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-admob-pro">
     https://github.com/floatinghotpot/cordova-admob-pro
@@ -66,16 +68,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { AdMob } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { AdMob, AdMobOptions, AdSize, AdExtras } from &#39;@ionic-native/ad-mob&#39;;
+
+constructor(private admob: AdMob){}
 
 ionViewDidLoad() {
-  AdMob.onAdDismiss()
+  this.admob.onAdDismiss()
     .subscribe(() =&gt; { console.log(&#39;User dismissed ad&#39;); });
 }
 
 onClick() {
-  AdMob.prepareInterstitial(&#39;YOUR_ADID&#39;)
-    .then(() =&gt; { AdMob.showInterstitial(); });
+  this.admob.prepareInterstitial(&#39;YOUR_ADID&#39;)
+    .then(() =&gt; { this.admob.showInterstitial(); });
 }
 </code></pre>
 
@@ -85,17 +89,27 @@ onClick() {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
-<div id="createBanner"></div>
-<h3><code>createBanner(adIdOrOptions)</code>
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="AD_POSITION"></div>
+<h3>
+  <code>AD_POSITION</code>
   
+
 </h3>
 
 
+
+<div id="createBanner"></div>
+<h3>
+  <code>createBanner(adIdOrOptions)</code>
+  
+
+</h3>
 Create a banner
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -126,48 +140,27 @@ Create a banner
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the banner is created
-</div>
-
-
-
-<div id="removeBanner"></div>
-<h3><code>removeBanner()</code>
+</div><div id="removeBanner"></div>
+<h3>
+  <code>removeBanner()</code>
   
+
 </h3>
-
-
-
-
 Destroy the banner, remove it from screen.
 
 
 
-
-
-
-
-
-
-
 <div id="showBanner"></div>
-<h3><code>showBanner(position)</code>
+<h3>
+  <code>showBanner(position)</code>
   
+
 </h3>
-
-
-
-
 Show banner at position
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -198,23 +191,13 @@ Show banner at position
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="showBannerAtXY"></div>
-<h3><code>showBannerAtXY(x,&nbsp;y)</code>
+<h3>
+  <code>showBannerAtXY(x,&nbsp;y)</code>
   
+
 </h3>
-
-
-
-
 Show banner at custom position
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -262,40 +245,23 @@ Show banner at custom position
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="hideBanner"></div>
-<h3><code>hideBanner()</code>
+<h3>
+  <code>hideBanner()</code>
   
+
 </h3>
-
-
-
-
 Hide the banner, remove it from screen, but can show it later
 
 
 
-
-
-
-
-
-
-
 <div id="prepareInterstitial"></div>
-<h3><code>prepareInterstitial(adIdOrOptions)</code>
+<h3>
+  <code>prepareInterstitial(adIdOrOptions)</code>
   
+
 </h3>
-
-
 Prepare interstitial banner
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -325,47 +291,28 @@ Prepare interstitial banner
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when interstitial is prepared
-</div>
-
-
-
-<div id="showInterstitial"></div>
-<h3><code>showInterstitial()</code>
+</div><div id="showInterstitial"></div>
+<h3>
+  <code>showInterstitial()</code>
   
+
 </h3>
-
-
-
-
 Show interstitial ad when it's ready
 
 
 
-
-
-
-
-
-
-
 <div id="prepareRewardVideoAd"></div>
-<h3><code>prepareRewardVideoAd(adIdOrOptions)</code>
+<h3>
+  <code>prepareRewardVideoAd(adIdOrOptions)</code>
   
+
 </h3>
-
-
 Prepare a reward video ad
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -396,46 +343,27 @@ Prepare a reward video ad
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the ad is prepared
-</div>
-
-
-
-<div id="showRewardVideoAd"></div>
-<h3><code>showRewardVideoAd()</code>
+</div><div id="showRewardVideoAd"></div>
+<h3>
+  <code>showRewardVideoAd()</code>
   
+
 </h3>
-
-
-
-
 Show a reward video ad
 
 
 
-
-
-
-
-
-
-
 <div id="setOptions"></div>
-<h3><code>setOptions(options)</code>
+<h3>
+  <code>setOptions(options)</code>
   
+
 </h3>
-
-
 Sets the values for configuration and targeting
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -466,156 +394,89 @@ Sets the values for configuration and targeting
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the options have been set
-</div>
-
-
-
-<div id="getAdSettings"></div>
-<h3><code>getAdSettings()</code>
+</div><div id="getAdSettings"></div>
+<h3>
+  <code>getAdSettings()</code>
   
+
 </h3>
-
-
 Get user ad settings
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves with the ad settings
-</div>
-
-
-
-<div id="onAdFailLoad"></div>
-<h3><code>onAdFailLoad()</code>
+</div><div id="onAdFailLoad"></div>
+<h3>
+  <code>onAdFailLoad()</code>
   
+
 </h3>
-
-
-
-
 Triggered when failed to receive Ad
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onAdLoaded"></div>
-<h3><code>onAdLoaded()</code>
+</div><div id="onAdLoaded"></div>
+<h3>
+  <code>onAdLoaded()</code>
   
+
 </h3>
-
-
-
-
 Triggered when Ad received
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onAdPresent"></div>
-<h3><code>onAdPresent()</code>
+</div><div id="onAdPresent"></div>
+<h3>
+  <code>onAdPresent()</code>
   
+
 </h3>
-
-
-
-
 Triggered when Ad will be showed on screen
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onAdLeaveApp"></div>
-<h3><code>onAdLeaveApp()</code>
+</div><div id="onAdLeaveApp"></div>
+<h3>
+  <code>onAdLeaveApp()</code>
   
+
 </h3>
-
-
-
-
 Triggered when user click the Ad, and will jump out of your App
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="onAdDismiss"></div>
-<h3><code>onAdDismiss()</code>
+</div><div id="onAdDismiss"></div>
+<h3>
+  <code>onAdDismiss()</code>
   
+
 </h3>
-
-
-
-
 Triggered when dismiss the Ad and back to your App
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 
@@ -661,7 +522,7 @@ Triggered when dismiss the Ad and back to your App
       <div><em>(optional)</em></div>
     </td>
     <td>
-      <code>AdMobAdSize</code>
+      <code>AdSize</code>
     </td>
     <td>
       <p>Banner Ad Size, defaults to <code>SMART_BANNER</code>. IT can be: <code>SMART_BANNER</code>, <code>BANNER</code>, <code>MEDIUM_RECTANGLE</code>, <code>FULL_BANNER</code>, <code>LEADERBOARD</code>, <code>SKYSCRAPER</code>, or <code>CUSTOM</code></p>
@@ -801,7 +662,7 @@ Triggered when dismiss the Ad and back to your App
       <div><em>(optional)</em></div>
     </td>
     <td>
-      <code>AdMobAdExtras</code>
+      <code>AdExtras</code>
     </td>
     <td>
       <p>Set extra color style for Ad</p>
@@ -815,7 +676,7 @@ Triggered when dismiss the Ad and back to your App
 
 
 
-<h2><a class="anchor" name="AdMobAdExtras" href="#AdMobAdExtras"></a>AdMobAdExtras</h2>
+<h2><a class="anchor" name="AdExtras" href="#AdExtras"></a>AdExtras</h2>
 
 
 <table class="table param-table" style="margin:0;">

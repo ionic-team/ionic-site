@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pinterest.ts#L125">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID$ npm install --save @ionic-native/cordova.plugins.Pinterest
+</code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-pinterest">
     https://github.com/zyramedia/cordova-plugin-pinterest
@@ -72,27 +74,31 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Pinterest, PinterestUser, PinterestPin, PinterestBoard } from &#39;ionic-native&#39;;
+<pre><code>import { Pinterest, PinterestUser, PinterestPin, PinterestBoard } from &#39;@ionic-native/pinterest&#39;;
+
+constructor(private pinterest: Pinterest) { }
+
+...
 
 const scopes = [
-  Pinterest.SCOPES.READ_PUBLIC,
-  Pinterest.SCOPES.WRITE_PUBLIC,
-  Pinterest.SCOPES.READ_RELATIONSHIPS,
-  Pinterest.SCOPES.WRITE_RELATIONSHIPS
+  this.pinterest.SCOPES.READ_PUBLIC,
+  this.pinterest.SCOPES.WRITE_PUBLIC,
+  this.pinterest.SCOPES.READ_RELATIONSHIPS,
+  this.pinterest.SCOPES.WRITE_RELATIONSHIPS
 ];
 
-Pinterest.login(scopes)
+this.pinterest.login(scopes)
   .then(res =&gt; console.log(&#39;Logged in!&#39;, res))
   .catch(err =&gt; console.error(&#39;Error loggin in&#39;, err));
 
-Pinterest.getMyPins()
+this.pinterest.getMyPins()
   .then((pins: Array&lt;PinterestPin&gt;) =&gt; console.log(pins))
   .catch(err =&gt; console.error(err));
 
-Pinterest.getMe()
+this.pinterest.getMe()
   .then((user: PinterestUser) =&gt; console.log(user));
 
-Pinterest.getMyBoards()
+this.pinterest.getMyBoards()
   .then((boards: Array&lt;PinterestBoard&gt;) =&gt; console.log(boards));
 </code></pre>
 
@@ -102,17 +108,28 @@ Pinterest.getMyBoards()
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="SCOPES"></div>
+<h3>
+  <code>SCOPES</code>
+  
+
+</h3>
+Convenience constant for authentication scopes
+
+
 
 <div id="login"></div>
-<h3><code>login(scopes)</code>
+<h3>
+  <code>login(scopes)</code>
   
+
 </h3>
-
-
 Logs the user in using their Pinterest account.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -143,29 +160,17 @@ Logs the user in using their Pinterest account.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> The response object will contain the user's profile data, as well as the access token (if you need to use it elsewhere, example: send it to your server and perform actions on behalf of the user).
-</div>
-
-
-
-<div id="getMe"></div>
-<h3><code>getMe(fields)</code>
+</div><div id="getMe"></div>
+<h3>
+  <code>getMe(fields)</code>
   
+
 </h3>
-
-
-
-
 Gets the authenticated user's profile
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -196,28 +201,16 @@ Gets the authenticated user's profile
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestUser&gt;</code> Returns a promise that resolves with the user's object
-</div>
-
-
-
-<div id="getMyPins"></div>
-<h3><code>getMyPins(fields,&nbsp;limit)</code>
+</div><div id="getMyPins"></div>
+<h3>
+  <code>getMyPins(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -265,29 +258,17 @@ Gets the authenticated user's profile
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getMyBoards"></div>
-<h3><code>getMyBoards(fields,&nbsp;limit)</code>
+</div><div id="getMyBoards"></div>
+<h3>
+  <code>getMyBoards(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -335,30 +316,18 @@ Gets the authenticated user's profile
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getMyLikes"></div>
-<h3><code>getMyLikes(fields,&nbsp;limit)</code>
+</div><div id="getMyLikes"></div>
+<h3>
+  <code>getMyLikes(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
 Get the authenticated user's likes.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -405,30 +374,18 @@ Get the authenticated user's likes.
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getMyFollowers"></div>
-<h3><code>getMyFollowers(fields,&nbsp;limit)</code>
+</div><div id="getMyFollowers"></div>
+<h3>
+  <code>getMyFollowers(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
 Get the authenticated user's followers.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -475,30 +432,18 @@ Get the authenticated user's followers.
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestUser&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getMyFollowedBoards"></div>
-<h3><code>getMyFollowedBoards(fields,&nbsp;limit)</code>
+</div><div id="getMyFollowedBoards"></div>
+<h3>
+  <code>getMyFollowedBoards(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
 Get the authenticated user's followed boards.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -545,30 +490,18 @@ Get the authenticated user's followed boards.
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div>
-
-
-
-<div id="getMyFollowedInterests"></div>
-<h3><code>getMyFollowedInterests(fields,&nbsp;limit)</code>
+</div><div id="getMyFollowedInterests"></div>
+<h3>
+  <code>getMyFollowedInterests(fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
 Get the authenticated user's followed interests.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -616,29 +549,17 @@ Get the authenticated user's followed interests.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="getUser"></div>
-<h3><code>getUser(username,&nbsp;fields)</code>
+</div><div id="getUser"></div>
+<h3>
+  <code>getUser(username,&nbsp;fields)</code>
   
+
 </h3>
-
-
-
-
 Get a user's profile.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -684,29 +605,17 @@ Get a user's profile.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestUser&gt;</code> 
-</div>
-
-
-
-<div id="getBoard"></div>
-<h3><code>getBoard(boardId,&nbsp;fields)</code>
+</div><div id="getBoard"></div>
+<h3>
+  <code>getBoard(boardId,&nbsp;fields)</code>
   
+
 </h3>
-
-
-
-
 Get a board's data.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -752,29 +661,17 @@ Get a board's data.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestBoard&gt;</code> 
-</div>
-
-
-
-<div id="getBoardPins"></div>
-<h3><code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code>
+</div><div id="getBoardPins"></div>
+<h3>
+  <code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code>
   
+
 </h3>
-
-
-
-
 Get Pins of a specific board.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -839,27 +736,17 @@ Get Pins of a specific board.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div>
-
-
-
-<div id="deleteBoard"></div>
-<h3><code>deleteBoard(boardId)</code>
+</div><div id="deleteBoard"></div>
+<h3>
+  <code>deleteBoard(boardId)</code>
   
+
 </h3>
-
-
 Delete a board.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -890,29 +777,17 @@ Delete a board.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestUser&gt;</code> 
-</div>
-
-
-
-<div id="createBoard"></div>
-<h3><code>createBoard(name,&nbsp;desc)</code>
+</div><div id="createBoard"></div>
+<h3>
+  <code>createBoard(name,&nbsp;desc)</code>
   
+
 </h3>
-
-
-
-
 Create a new board for the authenticated user.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -960,29 +835,17 @@ Create a new board for the authenticated user.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestBoard&gt;</code> 
-</div>
-
-
-
-<div id="getPin"></div>
-<h3><code>getPin(pinId,&nbsp;fields)</code>
+</div><div id="getPin"></div>
+<h3>
+  <code>getPin(pinId,&nbsp;fields)</code>
   
+
 </h3>
-
-
-
-
 Get a Pin by ID.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1030,27 +893,17 @@ Get a Pin by ID.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestPin&gt;</code> 
-</div>
-
-
-
-<div id="deletePin"></div>
-<h3><code>deletePin(pinId)</code>
+</div><div id="deletePin"></div>
+<h3>
+  <code>deletePin(pinId)</code>
   
+
 </h3>
-
-
 Deletes a pin
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1081,29 +934,17 @@ Deletes a pin
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="createPin"></div>
-<h3><code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code>
+</div><div id="createPin"></div>
+<h3>
+  <code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code>
   
+
 </h3>
-
-
-
-
 Creates a Pin
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1185,34 +1026,11 @@ Creates a Pin
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;PinterestPin&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-<div id="SCOPES"></div>
-<h3>
-  <code>SCOPES</code>
-  
-
-</h3>
-Convenience constant for authentication scopes
-
-
-
-
-
 
 
 

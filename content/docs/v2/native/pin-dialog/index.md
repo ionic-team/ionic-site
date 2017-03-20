@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/pin-dialog.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pin-dialog/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-pin-dialog</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-pin-dialog$ npm install --save @ionic-native/plugins.pinDialog
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/PinDialog">
     https://github.com/Paldom/PinDialog
@@ -56,10 +58,14 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { PinDialog } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { PinDialog } from &#39;@ionic-native/pin-dialog&#39;;
 
 
-PinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#39;, &#39;Cancel&#39;])
+constructor(private pinDialog: PinDialog) { }
+
+...
+
+this.pinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#39;, &#39;Cancel&#39;])
   .then(
     (result: any) =&gt; {
       if (result.buttonIndex == 1) console.log(&#39;User clicked OK, value is: &#39;, result.input1);
@@ -74,19 +80,18 @@ PinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#39;, 
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="prompt"></div>
-<h3><code>prompt(message,&nbsp;title,&nbsp;buttons)</code>
+<h3>
+  <code>prompt(message,&nbsp;title,&nbsp;buttons)</code>
   
+
 </h3>
-
-
-
-
 Show pin dialog
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -151,20 +156,11 @@ Show pin dialog
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;{ buttonIndex: number, input1: string }&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

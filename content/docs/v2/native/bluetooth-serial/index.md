@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/bluetoothserial.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/bluetooth-serial/index.ts#L2">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-bluetooth-serial</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-bluetooth-serial$ npm install --save @ionic-native/bluetoothSerial
+</code></pre>
 <p>Repo:
   <a href="https://github.com/don/BluetoothSerial">
     https://github.com/don/BluetoothSerial
@@ -66,14 +68,16 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { BluetoothSerial } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { BluetoothSerial } from &#39;@ionic-native/bluetooth-serial&#39;;
+
+constructor(private bluetoothSerial: BluetoothSerial) { }
 
 
 // Write a string
-BluetoothSerial.write(&quot;hello world&quot;).then(success, failure);
+this.bluetoothSerial.write(&quot;hello world&quot;).then(success, failure);
 
 // Array of int or bytes
-BluetoothSerial.write([186, 220, 222]).then(success, failure);
+this.bluetoothSerial.write([186, 220, 222]).then(success, failure);
 
 // Typed Array
 var data = new Uint8Array(4);
@@ -81,10 +85,10 @@ data[0] = 0x41;
 data[1] = 0x42;
 data[2] = 0x43;
 data[3] = 0x44;
-BluetoothSerial.write(data).then(success, failure);
+this.bluetoothSerial.write(data).then(success, failure);
 
 // Array Buffer
-BluetoothSerial.write(data.buffer).then(success, failure);
+this.bluetoothSerial.write(data.buffer).then(success, failure);
 </code></pre>
 
 
@@ -93,28 +97,18 @@ BluetoothSerial.write(data.buffer).then(success, failure);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="connect"></div>
-<h3><code>connect(macAddress_or_uuid)</code>
+<h3>
+  <code>connect(macAddress_or_uuid)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Connect to a Bluetooth device
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -145,34 +139,17 @@ Connect to a Bluetooth device
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
-</div>
-
-
-
-<div id="connectInsecure"></div>
-<h3><code>connectInsecure(macAddress)</code>
+</div><div id="connectInsecure"></div>
+<h3>
+  <code>connectInsecure(macAddress)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Connect insecurely to a Bluetooth device
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -203,59 +180,30 @@ Connect insecurely to a Bluetooth device
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
-</div>
-
-
-
-<div id="disconnect"></div>
-<h3><code>disconnect()</code>
+</div><div id="disconnect"></div>
+<h3>
+  <code>disconnect()</code>
   
+
 </h3>
-
-
 Disconnect from the connected device
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="write"></div>
-<h3><code>write(data)</code>
+</div><div id="write"></div>
+<h3>
+  <code>write(data)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Writes data to the serial port
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -286,102 +234,43 @@ Writes data to the serial port
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise when data has been written
-</div>
-
-
-
-<div id="available"></div>
-<h3><code>available()</code>
+</div><div id="available"></div>
+<h3>
+  <code>available()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Gets the number of bytes of data available
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise that contains the available bytes
-</div>
-
-
-
-<div id="read"></div>
-<h3><code>read()</code>
+</div><div id="read"></div>
+<h3>
+  <code>read()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Reads data from the buffer
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise with data from the buffer
-</div>
-
-
-
-<div id="readUntil"></div>
-<h3><code>readUntil(delimiter)</code>
+</div><div id="readUntil"></div>
+<h3>
+  <code>readUntil(delimiter)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Reads data from the buffer until it reaches a delimiter
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -412,38 +301,17 @@ Reads data from the buffer until it reaches a delimiter
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="subscribe"></div>
-<h3><code>subscribe(delimiter)</code>
+</div><div id="subscribe"></div>
+<h3>
+  <code>subscribe(delimiter)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Subscribe to be notified when data is received
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -474,354 +342,147 @@ Subscribe to be notified when data is received
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> returns an observable.
-</div>
-
-
-
-<div id="subscribeRawData"></div>
-<h3><code>subscribeRawData()</code>
+</div><div id="subscribeRawData"></div>
+<h3>
+  <code>subscribeRawData()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Subscribe to be notified when data is received
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> returns an observable
-</div>
-
-
-
-<div id="clear"></div>
-<h3><code>clear()</code>
+</div><div id="clear"></div>
+<h3>
+  <code>clear()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Clears data in buffer
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise when completed
-</div>
-
-
-
-<div id="list"></div>
-<h3><code>list()</code>
+</div><div id="list"></div>
+<h3>
+  <code>list()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Lists bonded devices
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="isEnabled"></div>
-<h3><code>isEnabled()</code>
+</div><div id="isEnabled"></div>
+<h3>
+  <code>isEnabled()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Reports if bluetooth is enabled
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="isConnected"></div>
-<h3><code>isConnected()</code>
+</div><div id="isConnected"></div>
+<h3>
+  <code>isConnected()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Reports the connection status
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="readRSSI"></div>
-<h3><code>readRSSI()</code>
+</div><div id="readRSSI"></div>
+<h3>
+  <code>readRSSI()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Reads the RSSI from the connected peripheral
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="showBluetoothSettings"></div>
-<h3><code>showBluetoothSettings()</code>
+</div><div id="showBluetoothSettings"></div>
+<h3>
+  <code>showBluetoothSettings()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Show the Bluetooth settings on the device
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="enable"></div>
-<h3><code>enable()</code>
+</div><div id="enable"></div>
+<h3>
+  <code>enable()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Enable Bluetooth on the device
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="discoverUnpaired"></div>
-<h3><code>discoverUnpaired()</code>
+</div><div id="discoverUnpaired"></div>
+<h3>
+  <code>discoverUnpaired()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Discover unpaired devices
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> returns a promise
-</div>
-
-
-
-<div id="setDeviceDiscoveredListener"></div>
-<h3><code>setDeviceDiscoveredListener()</code>
+</div><div id="setDeviceDiscoveredListener"></div>
+<h3>
+  <code>setDeviceDiscoveredListener()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  
-  <code>iOS</code>&nbsp;
-  
-  <code>Windows Phone</code>&nbsp;
-  </p>
-
-
-
 Subscribe to be notified on Bluetooth device discovery. Discovery process must be initiated with the `discoverUnpaired` function.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;any&gt;</code> Returns an observable
-</div>
-
-
-
-<div id="setName"></div>
-<h3><code>setName(newName)</code>
+</div><div id="setName"></div>
+<h3>
+  <code>setName(newName)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Sets the human readable device name that is broadcasted to other devices
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -852,28 +513,13 @@ Sets the human readable device name that is broadcasted to other devices
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="setDiscoverable"></div>
-<h3><code>setDiscoverable(discoverableDuration)</code>
+<h3>
+  <code>setDiscoverable(discoverableDuration)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Makes the device discoverable by other devices
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -905,13 +551,6 @@ Makes the device discoverable by other devices
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

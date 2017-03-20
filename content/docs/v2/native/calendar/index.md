@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/calendar.ts#L52">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L50">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-calendar</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-calendar$ npm install --save @ionic-native/plugins.calendar
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin
@@ -67,11 +69,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {Calendar} from &#39;ionic-native&#39;;
+<pre><code>import {Calendar} from &#39;@ionic-native/calendar&#39;;
+
+constructor(private calendar: Calendar) { }
 
 
-
-Calendar.createCalendar(&#39;MyCalendar&#39;).then(
+this.calendar.createCalendar(&#39;MyCalendar&#39;).then(
   (msg) =&gt; { console.log(msg); },
   (err) =&gt; { console.log(err); }
 );
@@ -83,14 +86,17 @@ Calendar.createCalendar(&#39;MyCalendar&#39;).then(
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="hasReadWritePermission"></div>
-<h3><code>hasReadWritePermission()</code>
+<h3>
+  <code>hasReadWritePermission()</code>
   
+
 </h3>
-
-
 This function checks if we have permission to read/write from/to the calendar.
 The promise will resolve with `true` when:
 - You're running on iOS, or
@@ -101,132 +107,82 @@ The promise will resolve with `true` when:
 If this returns false, you should call the `requestReadWritePermission` function
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="hasReadPermission"></div>
-<h3><code>hasReadPermission()</code>
+</div><div id="hasReadPermission"></div>
+<h3>
+  <code>hasReadPermission()</code>
   
+
 </h3>
-
-
 Check if we have read permission
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="hasWritePermission"></div>
-<h3><code>hasWritePermission()</code>
+</div><div id="hasWritePermission"></div>
+<h3>
+  <code>hasWritePermission()</code>
   
+
 </h3>
-
-
 Check if we have write permission
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="requestWritePermission"></div>
-<h3><code>requestWritePermission()</code>
+</div><div id="requestWritePermission"></div>
+<h3>
+  <code>requestWritePermission()</code>
   
+
 </h3>
-
-
 Request write permission
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="requestReadPermission"></div>
-<h3><code>requestReadPermission()</code>
+</div><div id="requestReadPermission"></div>
+<h3>
+  <code>requestReadPermission()</code>
   
+
 </h3>
-
-
 Request read permission
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="requestReadWritePermission"></div>
-<h3><code>requestReadWritePermission()</code>
+</div><div id="requestReadWritePermission"></div>
+<h3>
+  <code>requestReadWritePermission()</code>
   
+
 </h3>
-
-
 Requests read/write permissions
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="createCalendar"></div>
-<h3><code>createCalendar(nameOrOptions)</code>
+</div><div id="createCalendar"></div>
+<h3>
+  <code>createCalendar(nameOrOptions)</code>
   
+
 </h3>
-
-
 Create a calendar. (iOS only)
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -258,27 +214,17 @@ Create a calendar. (iOS only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise
-</div>
-
-
-
-<div id="deleteCalendar"></div>
-<h3><code>deleteCalendar(name)</code>
+</div><div id="deleteCalendar"></div>
+<h3>
+  <code>deleteCalendar(name)</code>
   
+
 </h3>
-
-
 Delete a calendar. (iOS only)
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -309,31 +255,17 @@ Delete a calendar. (iOS only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise
-</div>
-
-
-
-<div id="getCalendarOptions"></div>
-<h3><code>getCalendarOptions()</code>
+</div><div id="getCalendarOptions"></div>
+<h3>
+  <code>getCalendarOptions()</code>
   
+
 </h3>
-
-
-
-
 Returns the default calendar options.
-
-
-
-
 
 
 
@@ -341,19 +273,13 @@ Returns the default calendar options.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>CalendarOptions</code> Returns an object with the default calendar options
-</div>
-
-
-
-<div id="createEvent"></div>
-<h3><code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+</div><div id="createEvent"></div>
+<h3>
+  <code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
   
+
 </h3>
-
-
 Silently create an event.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -452,28 +378,18 @@ Silently create an event.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise
-</div>
-
-
-
-<div id="createEventWithOptions"></div>
-<h3><code>createEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+</div><div id="createEventWithOptions"></div>
+<h3>
+  <code>createEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
   
+
 </h3>
-
-
 Silently create an event with additional options.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -589,28 +505,18 @@ Silently create an event with additional options.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise
-</div>
-
-
-
-<div id="createEventInteractively"></div>
-<h3><code>createEventInteractively(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+</div><div id="createEventInteractively"></div>
+<h3>
+  <code>createEventInteractively(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
   
+
 </h3>
-
-
 Interactively create an event.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -708,29 +614,19 @@ Interactively create an event.
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise
-</div>
-
-
-
-<div id="createEventInteractivelyWithOptions"></div>
-<h3><code>createEventInteractivelyWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+</div><div id="createEventInteractivelyWithOptions"></div>
+<h3>
+  <code>createEventInteractivelyWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
   
+
 </h3>
-
-
 Interactively create an event with additional options.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -846,28 +742,18 @@ Interactively create an event with additional options.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="findEvent"></div>
-<h3><code>findEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+</div><div id="findEvent"></div>
+<h3>
+  <code>findEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
   
+
 </h3>
-
-
 Find an event.
 
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -966,27 +852,17 @@ Find an event.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="findEventWithOptions"></div>
-<h3><code>findEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+</div><div id="findEventWithOptions"></div>
+<h3>
+  <code>findEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
   
+
 </h3>
-
-
 Find an event with additional options.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1101,35 +977,18 @@ Find an event with additional options.
   
   </tbody>
 </table>
-
-
-
-
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the event, or rejects with an error.
-</div>
-
-
-
-<div id="listEventsInRange"></div>
-<h3><code>listEventsInRange(startDate,&nbsp;endDate)</code>
+</div><div id="listEventsInRange"></div>
+<h3>
+  <code>listEventsInRange(startDate,&nbsp;endDate)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Find a list of events within the specified date range. (Android only)
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1178,83 +1037,43 @@ Find a list of events within the specified date range. (Android only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
-</div>
-
-
-
-<div id="listCalendars"></div>
-<h3><code>listCalendars()</code>
+</div><div id="listCalendars"></div>
+<h3>
+  <code>listCalendars()</code>
   
+
 </h3>
-
-
 Get a list of all calendars.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> A Promise that resolves with the list of calendars, or rejects with an error.
-</div>
-
-
-
-<div id="findAllEventsInNamedCalendar"></div>
-<h3><code>findAllEventsInNamedCalendar()</code>
+</div><div id="findAllEventsInNamedCalendar"></div>
+<h3>
+  <code>findAllEventsInNamedCalendar()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Get a list of all future events in the specified calendar. (iOS only)
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
-</div>
-
-
-
-<div id="modifyEvent"></div>
-<h3><code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code>
+</div><div id="modifyEvent"></div>
+<h3>
+  <code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Modify an event. (iOS only)
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1439,36 +1258,18 @@ Modify an event. (iOS only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
 
-
-</div>
-
-
-
-<div id="modifyEventWithOptions"></div>
-<h3><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code>
+</div><div id="modifyEventWithOptions"></div>
+<h3>
+  <code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Modify an event with additional options. (iOS only)
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1687,29 +1488,18 @@ Modify an event with additional options. (iOS only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
 
-
-</div>
-
-
-
-<div id="deleteEvent"></div>
-<h3><code>deleteEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+</div><div id="deleteEvent"></div>
+<h3>
+  <code>deleteEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
   
+
 </h3>
-
-
 Delete an event.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1809,36 +1599,18 @@ Delete an event.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
 
-
-</div>
-
-
-
-<div id="deleteEventFromNamedCalendar"></div>
-<h3><code>deleteEventFromNamedCalendar(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;calendarName)</code>
+</div><div id="deleteEventFromNamedCalendar"></div>
+<h3>
+  <code>deleteEventFromNamedCalendar(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;calendarName)</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Delete an event from the specified Calendar. (iOS only)
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1954,29 +1726,18 @@ Delete an event from the specified Calendar. (iOS only)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
 
-
-</div>
-
-
-
-<div id="openCalendar"></div>
-<h3><code>openCalendar(date)</code>
+</div><div id="openCalendar"></div>
+<h3>
+  <code>openCalendar(date)</code>
   
+
 </h3>
-
-
 Open the calendar at the specified date.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -2007,20 +1768,11 @@ Open the calendar at the specified date.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Promise returns a promise
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

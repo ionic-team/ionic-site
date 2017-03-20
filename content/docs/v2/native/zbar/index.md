@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/z-bar.ts#L34">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-cszbar</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-cszbar$ npm install --save @ionic-native/cloudSky.zBar
+</code></pre>
 <p>Repo:
   <a href="https://github.com/tjwoon/csZBar">
     https://github.com/tjwoon/csZBar
@@ -67,14 +69,18 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { ZBar } from &#39;ionic-native&#39;;
+<pre><code>import { ZBar, ZBarOptions } from &#39;@ionic-native/z-bar&#39;;
 
-let zBarOptions = {
+constructor(private zbar: ZBar) { }
+
+...
+
+let ZBarOptions = {
       flash: &quot;off&quot;,
       drawSight: false
     };
 
-ZBar.scan(zBarOptions)
+this.zbar.scan(zBarOptions)
    .then(result =&gt; {
       console.log(result); // Scanned code
    })
@@ -89,17 +95,18 @@ ZBar.scan(zBarOptions)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="scan"></div>
-<h3><code>scan(options)</code>
+<h3>
+  <code>scan(options)</code>
   
+
 </h3>
-
-
 Open the scanner
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -130,20 +137,11 @@ Open the scanner
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the scanned string, or rejects with an error.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

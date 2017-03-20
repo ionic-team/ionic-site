@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker$ npm install --save @ionic-native/window.imagePicker
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/ImagePicker">
     https://github.com/Telerik-Verified-Plugins/ImagePicker
@@ -59,11 +61,14 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { ImagePicker } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { ImagePicker } from &#39;@ionic-native/image-picker&#39;;
 
 
+constructor(private imagePicker: ImagePicker) { }
 
-ImagePicker.getPictures(options).then((results) =&gt; {
+...
+
+this.imagePicker.getPictures(options).then((results) =&gt; {
   for (var i = 0; i &lt; results.length; i++) {
       console.log(&#39;Image URI: &#39; + results[i]);
   }
@@ -76,19 +81,18 @@ ImagePicker.getPictures(options).then((results) =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getPictures"></div>
-<h3><code>getPictures(options)</code>
+<h3>
+  <code>getPictures(options)</code>
   
+
 </h3>
-
-
-
-
 Pick pictures from the library.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -118,65 +122,31 @@ Pick pictures from the library.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves the image file URI
 otherwise rejects with an error.
-</div>
-
-
-
-<div id="hasReadPermission"></div>
-<h3><code>hasReadPermission()</code>
+</div><div id="hasReadPermission"></div>
+<h3>
+  <code>hasReadPermission()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Check if we have permission to read images
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates whether we have permission
-</div>
-
-
-
-<div id="requestReadPermission"></div>
-<h3><code>requestReadPermission()</code>
+</div><div id="requestReadPermission"></div>
+<h3>
+  <code>requestReadPermission()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>Android</code>&nbsp;
-  </p>
-
-
-
 Request permission to read images
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -184,11 +154,6 @@ Request permission to read images
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/vibration.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/vibration/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-vibration</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-vibration$ npm install --save @ionic-native/navigator
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-vibration">
     https://github.com/apache/cordova-plugin-vibration
@@ -66,22 +68,25 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Vibration } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Vibration } from &#39;@ionic-native/vibration&#39;;
 
+constructor(private vibration: Vibration) { }
+
+...
 
 // Vibrate the device for a second
 // Duration is ignored on iOS.
-Vibration.vibrate(1000);
+this.vibration.vibrate(1000);
 
 // Vibrate 2 seconds
 // Pause for 1 second
 // Vibrate for 2 seconds
 // Patterns work on Android and Windows only
-Vibration.vibrate([2000,1000,2000]);
+this.vibration.vibrate([2000,1000,2000]);
 
 // Stop any current vibrations immediately
 // Works on Android and Windows only
-Vibration.vibrate(0);
+this.vibration.vibrate(0);
 </code></pre>
 
 
@@ -90,19 +95,18 @@ Vibration.vibrate(0);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="vibrate"></div>
-<h3><code>vibrate(time)</code>
+<h3>
+  <code>vibrate(time)</code>
   
+
 </h3>
-
-
-
-
 Vibrates the device for given amount of time.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -134,13 +138,6 @@ Vibrates the device for given amount of time.
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

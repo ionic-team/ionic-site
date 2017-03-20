@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/googleanalytics.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/google-analytics/index.ts#L3">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-google-analytics</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-google-analytics$ npm install --save @ionic-native/ga
+</code></pre>
 <p>Repo:
   <a href="https://github.com/danwilson/google-analytics-plugin">
     https://github.com/danwilson/google-analytics-plugin
@@ -72,9 +74,13 @@ Prerequisites:</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { GoogleAnalytics } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { GoogleAnalytics } from &#39;@ionic-native/google-analytics&#39;;
 
-GoogleAnalytics.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
+constructor(private ga: GoogleAnalytics) { }
+
+...
+
+this.ga.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
    .then(() =&gt; {
      console.log(&#39;Google analytics is ready now&#39;);
      // Tracker is ready
@@ -89,20 +95,19 @@ GoogleAnalytics.startTrackerWithId(&#39;YOUR_TRACKER_ID&#39;)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="startTrackerWithId"></div>
-<h3><code>startTrackerWithId(id,&nbsp;interval)</code>
+<h3>
+  <code>startTrackerWithId(id,&nbsp;interval)</code>
   
+
 </h3>
-
-
-
-
 In your 'deviceready' handler, set up your Analytics tracker.
 https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -150,27 +155,17 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setAllowIDFACollection"></div>
-<h3><code>setAllowIDFACollection(allow)</code>
+</div><div id="setAllowIDFACollection"></div>
+<h3>
+  <code>setAllowIDFACollection(allow)</code>
   
+
 </h3>
-
-
 Enabling Advertising Features in Google Analytics allows you to take advantage of Remarketing, Demographics & Interests reports, and more
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -200,28 +195,18 @@ Enabling Advertising Features in Google Analytics allows you to take advantage o
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setUserId"></div>
-<h3><code>setUserId(id)</code>
+</div><div id="setUserId"></div>
+<h3>
+  <code>setUserId(id)</code>
   
+
 </h3>
-
-
 Set a UserId
 https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -252,27 +237,17 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setAnonymizeIp"></div>
-<h3><code>setAnonymizeIp(anonymize)</code>
+</div><div id="setAnonymizeIp"></div>
+<h3>
+  <code>setAnonymizeIp(anonymize)</code>
   
+
 </h3>
-
-
 Set a anonymize Ip address
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -303,27 +278,17 @@ Set a anonymize Ip address
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setAppVersion"></div>
-<h3><code>setAppVersion(appVersion)</code>
+</div><div id="setAppVersion"></div>
+<h3>
+  <code>setAppVersion(appVersion)</code>
   
+
 </h3>
-
-
 Sets the app version
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -354,27 +319,17 @@ Sets the app version
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="setOptOut"></div>
-<h3><code>setOptOut(optout)</code>
+</div><div id="setOptOut"></div>
+<h3>
+  <code>setOptOut(optout)</code>
   
+
 </h3>
-
-
 Set OptOut
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -404,50 +359,30 @@ Set OptOut
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="debugMode"></div>
-<h3><code>debugMode()</code>
+</div><div id="debugMode"></div>
+<h3>
+  <code>debugMode()</code>
   
+
 </h3>
-
-
 Enable verbose logging
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="trackMetric"></div>
-<h3><code>trackMetric(key,&nbsp;value)</code>
+</div><div id="trackMetric"></div>
+<h3>
+  <code>trackMetric(key,&nbsp;value)</code>
   
+
 </h3>
-
-
-
-
 Track custom metric
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -493,30 +428,18 @@ Track custom metric
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="trackView"></div>
-<h3><code>trackView(title,&nbsp;campaignUrl,&nbsp;newSession)</code>
+</div><div id="trackView"></div>
+<h3>
+  <code>trackView(title,&nbsp;campaignUrl,&nbsp;newSession)</code>
   
+
 </h3>
-
-
-
-
 Track a screen
 https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -582,28 +505,18 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addCustomDimension"></div>
-<h3><code>addCustomDimension(key,&nbsp;value)</code>
+</div><div id="addCustomDimension"></div>
+<h3>
+  <code>addCustomDimension(key,&nbsp;value)</code>
   
+
 </h3>
-
-
 Add a Custom Dimension
 https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -649,30 +562,18 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="trackEvent"></div>
-<h3><code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value,&nbsp;newSession)</code>
+</div><div id="trackEvent"></div>
+<h3>
+  <code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value,&nbsp;newSession)</code>
   
+
 </h3>
-
-
-
-
 Track an event
 https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -767,27 +668,17 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="trackException"></div>
-<h3><code>trackException(description,&nbsp;fatal)</code>
+</div><div id="trackException"></div>
+<h3>
+  <code>trackException(description,&nbsp;fatal)</code>
   
+
 </h3>
-
-
 Track an exception
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -833,27 +724,17 @@ Track an exception
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="trackTiming"></div>
-<h3><code>trackTiming(category,&nbsp;intervalInMilliseconds,&nbsp;variable,&nbsp;label)</code>
+</div><div id="trackTiming"></div>
+<h3>
+  <code>trackTiming(category,&nbsp;intervalInMilliseconds,&nbsp;variable,&nbsp;label)</code>
   
+
 </h3>
-
-
 Track User Timing (App Speed)
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -931,28 +812,18 @@ Track User Timing (App Speed)
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addTransaction"></div>
-<h3><code>addTransaction(id,&nbsp;affiliation,&nbsp;revenue,&nbsp;tax,&nbsp;shipping,&nbsp;currencyCode)</code>
+</div><div id="addTransaction"></div>
+<h3>
+  <code>addTransaction(id,&nbsp;affiliation,&nbsp;revenue,&nbsp;tax,&nbsp;shipping,&nbsp;currencyCode)</code>
   
+
 </h3>
-
-
 Add a Transaction (Ecommerce)
 https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1062,28 +933,18 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="addTransactionItem"></div>
-<h3><code>addTransactionItem(id,&nbsp;name,&nbsp;sku,&nbsp;category,&nbsp;price,&nbsp;quantity,&nbsp;currencyCode)</code>
+</div><div id="addTransactionItem"></div>
+<h3>
+  <code>addTransactionItem(id,&nbsp;name,&nbsp;sku,&nbsp;category,&nbsp;price,&nbsp;quantity,&nbsp;currencyCode)</code>
   
+
 </h3>
-
-
 Add a Transaction Item (Ecommerce)
 https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1209,27 +1070,17 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="enableUncaughtExceptionReporting"></div>
-<h3><code>enableUncaughtExceptionReporting(shouldEnable)</code>
+</div><div id="enableUncaughtExceptionReporting"></div>
+<h3>
+  <code>enableUncaughtExceptionReporting(shouldEnable)</code>
   
+
 </h3>
-
-
 Enable/disable automatic reporting of uncaught exceptions
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -1259,20 +1110,11 @@ Enable/disable automatic reporting of uncaught exceptions
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

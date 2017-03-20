@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/instagram.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/instagram/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-instagram-plugin</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-instagram-plugin$ npm install --save @ionic-native/Instagram
+</code></pre>
 <p>Repo:
   <a href="https://github.com/vstirbu/InstagramPlugin">
     https://github.com/vstirbu/InstagramPlugin
@@ -57,9 +59,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {Instagram} from &#39;ionic-native&#39;;
+<pre><code>import { Instagram } from &#39;@ionic-native/instagram&#39;;
 
-Instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
+constructor(private instagram: Instagram) { }
+
+...
+
+this.instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
   .then(() =&gt; console.log(&#39;Shared!&#39;))
   .catch((error: any) =&gt; console.error(error));
 </code></pre>
@@ -70,21 +76,18 @@ Instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isInstalled"></div>
-<h3><code>isInstalled()</code>
+<h3>
+  <code>isInstalled()</code>
   
+
 </h3>
-
-
-
-
 Detect if the Instagram application is installed on the device.
-
-
-
-
 
 
 
@@ -92,22 +95,14 @@ Detect if the Instagram application is installed on the device.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean|string&gt;</code> Returns a promise that returns a boolean value if installed, or the app version on android
-</div>
-
-
-
-<div id="share"></div>
-<h3><code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
+</div><div id="share"></div>
+<h3>
+  <code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
   
+
 </h3>
-
-
-
-
 Share an image on Instagram
 Note: Instagram app stopped accepting pre-filled captions on both iOS and Android. As a work-around, the caption is copied to the clipboard. You have to inform your users to paste the caption.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -156,29 +151,17 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
-</div>
-
-
-
-<div id="shareAsset"></div>
-<h3><code>shareAsset(assetLocalIdentifier)</code>
+</div><div id="shareAsset"></div>
+<h3>
+  <code>shareAsset(assetLocalIdentifier)</code>
   
+
 </h3>
-
-
-
-
 Share a library asset or video
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -209,20 +192,11 @@ Share a library asset or video
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

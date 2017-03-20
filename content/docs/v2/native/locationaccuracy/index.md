@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/location-accuracy.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/location-accuracy/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-request-location-accuracy</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-request-location-accuracy$ npm install --save @ionic-native/cordova.plugins.locationAccuracy
+</code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-plugin-request-location-accuracy">
     https://github.com/dpa99c/cordova-plugin-request-location-accuracy
@@ -57,13 +59,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { LocationAccuracy } from &#39;ionic-native&#39;;
+<pre><code>import { LocationAccuracy } from &#39;@ionic-native/location-accuracy&#39;;
 
-LocationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
+constructor(private locationAccuracy: LocationAccuracy) { }
+
+...
+
+this.locationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
 
   if(canRequest) {
     // the accuracy option will be ignored by iOS
-    LocationAccuracy.request(LocationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
+    this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
       () =&gt; console.log(&#39;Request successful&#39;),
       error =&gt; console.log(&#39;Error requesting location permissions&#39;, error)
     );
@@ -78,61 +84,44 @@ LocationAccuracy.canRequest().then((canRequest: boolean) =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="canRequest"></div>
-<h3><code>canRequest()</code>
+<h3>
+  <code>canRequest()</code>
   
+
 </h3>
-
-
 Indicates if you can request accurate location
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise that resovles with a boolean that indicates if you can request accurate location
-</div>
-
-
-
-<div id="isRequesting"></div>
-<h3><code>isRequesting()</code>
+</div><div id="isRequesting"></div>
+<h3>
+  <code>isRequesting()</code>
   
+
 </h3>
-
-
 Indicates if a request is currently in progress
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates if a request is currently in progress
-</div>
-
-
-
-<div id="request"></div>
-<h3><code>request(accuracy)</code>
+</div><div id="request"></div>
+<h3>
+  <code>request(accuracy)</code>
   
+
 </h3>
-
-
-
-
 Requests accurate location
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -163,215 +152,128 @@ Requests accurate location
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects if an error occurred
-</div>
-
-
-
-<div id="REQUEST_PRIORITY_NO_POWER"></div>
-<h3><code>REQUEST_PRIORITY_NO_POWER</code>
+</div><div id="REQUEST_PRIORITY_NO_POWER"></div>
+<h3>
+  <code>REQUEST_PRIORITY_NO_POWER</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="REQUEST_PRIORITY_LOW_POWER"></div>
-<h3><code>REQUEST_PRIORITY_LOW_POWER</code>
+<h3>
+  <code>REQUEST_PRIORITY_LOW_POWER</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="REQUEST_PRIORITY_BALANCED_POWER_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY</code>
+<h3>
+  <code>REQUEST_PRIORITY_BALANCED_POWER_ACCURACY</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="REQUEST_PRIORITY_HIGH_ACCURACY"></div>
-<h3><code>REQUEST_PRIORITY_HIGH_ACCURACY</code>
+<h3>
+  <code>REQUEST_PRIORITY_HIGH_ACCURACY</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="SUCCESS_SETTINGS_SATISFIED"></div>
-<h3><code>SUCCESS_SETTINGS_SATISFIED</code>
+<h3>
+  <code>SUCCESS_SETTINGS_SATISFIED</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="SUCCESS_USER_AGREED"></div>
-<h3><code>SUCCESS_USER_AGREED</code>
+<h3>
+  <code>SUCCESS_USER_AGREED</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_ALREADY_REQUESTING"></div>
-<h3><code>ERROR_ALREADY_REQUESTING</code>
+<h3>
+  <code>ERROR_ALREADY_REQUESTING</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_INVALID_ACTION"></div>
-<h3><code>ERROR_INVALID_ACTION</code>
+<h3>
+  <code>ERROR_INVALID_ACTION</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_INVALID_ACCURACY"></div>
-<h3><code>ERROR_INVALID_ACCURACY</code>
+<h3>
+  <code>ERROR_INVALID_ACCURACY</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_EXCEPTION"></div>
-<h3><code>ERROR_EXCEPTION</code>
+<h3>
+  <code>ERROR_EXCEPTION</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_CANNOT_CHANGE_ACCURACY"></div>
-<h3><code>ERROR_CANNOT_CHANGE_ACCURACY</code>
+<h3>
+  <code>ERROR_CANNOT_CHANGE_ACCURACY</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_USER_DISAGREED"></div>
-<h3><code>ERROR_USER_DISAGREED</code>
+<h3>
+  <code>ERROR_USER_DISAGREED</code>
   
+
 </h3>
-
-
-
-
-
-
-
-
-
+Convenience constant
 
 
 <div id="ERROR_GOOGLE_API_CONNECTION_FAILED"></div>
-<h3><code>ERROR_GOOGLE_API_CONNECTION_FAILED</code>
+<h3>
+  <code>ERROR_GOOGLE_API_CONNECTION_FAILED</code>
   
+
 </h3>
+Convenience constant
 
 
 
-
-
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

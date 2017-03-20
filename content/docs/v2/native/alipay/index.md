@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/alipay.ts#L62">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/alipay/index.ts#L59">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id$ npm install --save @ionic-native/Alipay.Base
+</code></pre>
 <p>Repo:
   <a href="https://github.com/xueron/cordova-alipay-base">
     https://github.com/xueron/cordova-alipay-base
@@ -67,20 +69,25 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Alipay } from &#39;ionic-native&#39;;
+<pre><code>import { Alipay, AlipayOrder } from &#39;@ionic-native/alipay&#39;;
+
+constructor(private alipay: Alipay) {
 
 // Should get from server side with sign.
-let alipayOrder = {
-         ...
+const alipayOrder: AlipayOrder = {
+      ...
     };
 
-Alipay.pay(alipayOrder)
+
+this.alipay.pay(alipayOrder)
    .then(result =&gt; {
       console.log(result); // Success
    })
    .catch(error =&gt; {
       console.log(error); // Failed
    });
+
+}
 </code></pre>
 
 
@@ -89,17 +96,18 @@ Alipay.pay(alipayOrder)
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="pay"></div>
-<h3><code>pay(order)</code>
+<h3>
+  <code>pay(order)</code>
   
+
 </h3>
-
-
 Open Alipay to perform App pay
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -130,20 +138,11 @@ Open Alipay to perform App pay
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the success return, or rejects with an error.
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

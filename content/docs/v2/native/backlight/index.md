@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/backlight.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/backlight/index.ts#L1">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-backlight</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-backlight$ npm install --save @ionic-native/cordova.plugins.Backlight
+</code></pre>
 <p>Repo:
   <a href="https://github.com/mebibou/cordova-plugin-backlight">
     https://github.com/mebibou/cordova-plugin-backlight
@@ -72,13 +74,17 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Backlight } from &#39;ionic-native&#39;;
+<pre><code>import { Backlight } from &#39;@ionic-native/backlight&#39;;
+
+constructor(private backlight: Backlight) { }
+
+...
 
 // Turn backlight on
-Backlight.on().then(() =&gt; console.log(&#39;backlight on&#39;));
+this.backlight.on().then(() =&gt; console.log(&#39;backlight on&#39;));
 
 // Turn backlight off
-Backlight.off().then(() =&gt; console.log(&#39;backlight off&#39;));
+this.backlight.off().then(() =&gt; console.log(&#39;backlight off&#39;));
 </code></pre>
 
 
@@ -87,40 +93,31 @@ Backlight.off().then(() =&gt; console.log(&#39;backlight off&#39;));
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="on"></div>
-<h3><code>on()</code>
+<h3>
+  <code>on()</code>
   
+
 </h3>
-
-
 This function turns backlight on
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is on
-</div>
-
-
-
-<div id="off"></div>
-<h3><code>off()</code>
+</div><div id="off"></div>
+<h3>
+  <code>off()</code>
   
+
 </h3>
-
-
 This function turns backlight off
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -128,11 +125,6 @@ This function turns backlight off
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is off
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/devicemotion.ts#L34">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-motion/index.ts#L35">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-device-motion</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-device-motion$ npm install --save @ionic-native/navigator.accelerometer
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device-motion">
     https://github.com/apache/cordova-plugin-device-motion
@@ -57,17 +59,20 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { DeviceMotion, DeviceMotionAccelerationData } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { DeviceMotion, DeviceMotionAccelerationData } from &#39;@ionic-native/device-motion&#39;;
 
+constructor(private deviceMotion: DeviceMotion) { }
+
+...
 
 // Get the device current acceleration
-DeviceMotion.getCurrentAcceleration().then(
+this.deviceMotion.getCurrentAcceleration().then(
   (acceleration: DeviceMotionAccelerationData) =&gt; console.log(acceleration),
   (error: any) =&gt; console.log(error)
 );
 
 // Watch device acceleration
-var subscription = DeviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) =&gt; {
+var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) =&gt; {
   console.log(acceleration);
 });
 
@@ -81,40 +86,31 @@ subscription.unsubscribe();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="getCurrentAcceleration"></div>
-<h3><code>getCurrentAcceleration()</code>
+<h3>
+  <code>getCurrentAcceleration()</code>
   
+
 </h3>
-
-
 Get the current acceleration along the x, y, and z axes.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;DeviceMotionAccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
-</div>
-
-
-
-<div id="watchAcceleration"></div>
-<h3><code>watchAcceleration(options)</code>
+</div><div id="watchAcceleration"></div>
+<h3>
+  <code>watchAcceleration(options)</code>
   
+
 </h3>
-
-
-
-
 Watch the device acceleration. Clear the watch by unsubscribing from the observable.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -145,20 +141,11 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Observable&lt;DeviceMotionAccelerationData&gt;</code> Observable returns an observable that you can subscribe to
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

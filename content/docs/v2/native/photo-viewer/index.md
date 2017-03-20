@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/photo-viewer.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add com-sarriaroman-photoviewer</code></pre>
+<pre><code>
+  $ ionic plugin add com-sarriaroman-photoviewer$ npm install --save @ionic-native/PhotoViewer
+</code></pre>
 <p>Repo:
   <a href="https://github.com/sarriaroman/photoviewer">
     https://github.com/sarriaroman/photoviewer
@@ -57,11 +59,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { PhotoViewer } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { PhotoViewer } from &#39;@ionic-native/photo-viewer&#39;;
 
-PhotoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;);
+constructor(private photoViewer: PhotoViewer) { }
 
-PhotoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My image title&#39;, {share: false});
+...
+
+this.photoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;);
+
+this.photoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My image title&#39;, {share: false});
 </code></pre>
 
 
@@ -70,19 +76,18 @@ PhotoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My image t
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="show"></div>
-<h3><code>show(url,&nbsp;title,&nbsp;options)</code>
+<h3>
+  <code>show(url,&nbsp;title,&nbsp;options)</code>
   
+
 </h3>
-
-
-
-
 Shows an image in full screen
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -146,13 +151,6 @@ Shows an image in full screen
 </table>
 
 
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

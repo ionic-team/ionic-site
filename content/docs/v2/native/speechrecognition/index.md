@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/speech-recognition.ts#L42">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-speechrecognition</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-speechrecognition$ npm install --save @ionic-native/plugins.speechRecognition
+</code></pre>
 <p>Repo:
   <a href="https://github.com/pbakondy/cordova-plugin-speechrecognition">
     https://github.com/pbakondy/cordova-plugin-speechrecognition
@@ -72,35 +74,41 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { SpeechRecognition } from &#39;ionic-native&#39;;
+<pre><code>import { SpeechRecognition } from &#39;@ionic-native/speech-recognition&#39;;
+
+constructor(private speechRecognition: SpeechRecognition) { }
+
+...
+
+
 
 // Check feature available
-SpeechRecognition.isRecognitionAvailable()
+this.speechRecognition.isRecognitionAvailable()
   .then((available: boolean) =&gt; console.log(available))
 
 // Start the recognition process
-SpeechRecognition.startListening(options)
+this.speechRecognition.startListening(options)
   .subscribe(
     (matches: Array&lt;string&gt;) =&gt; console.log(matches),
     (onerror) =&gt; console.log(&#39;error:&#39;, onerror)
   )
 
 // Stop the recognition process (iOS only)
-SpeechRecognition.stopListening()
+this.speechRecognition.stopListening()
 
 // Get the list of supported languages
-SpeechRecognition.getSupportedLanguages()
+this.speechRecognition.getSupportedLanguages()
   .then(
     (languages: Array&lt;string&gt;) =&gt; console.log(languages),
     (error) =&gt; console.log(error)
   )
 
 // Check permission
-SpeechRecognition.hasPermission()
+this.speechRecognition.hasPermission()
   .then((hasPermission: boolean) =&gt; console.log(hasPermission))
 
 // Request permissions
-SpeechRecognition.requestPermission()
+this.speechRecognition.requestPermission()
   .then(
     () =&gt; console.log(&#39;Granted&#39;),
     () =&gt; console.log(&#39;Denied&#39;)
@@ -113,129 +121,80 @@ SpeechRecognition.requestPermission()
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isRecognitionAvailable"></div>
-<h3><code>isRecognitionAvailable()</code>
+<h3>
+  <code>isRecognitionAvailable()</code>
   
+
 </h3>
-
-
 Check feature available
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="startListening"></div>
-<h3><code>startListening()</code>
+</div><div id="startListening"></div>
+<h3>
+  <code>startListening()</code>
   
+
 </h3>
-
-
-
-
 Start the recognition process
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt; Array&lt;string&gt; &gt;</code> list of recognized terms
-</div>
-
-
-
-<div id="stopListening"></div>
-<h3><code>stopListening()</code>
+</div><div id="stopListening"></div>
+<h3>
+  <code>stopListening()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Stop the recognition process
 
 
 
-
-
-
-
-
-
-
 <div id="getSupportedLanguages"></div>
-<h3><code>getSupportedLanguages()</code>
+<h3>
+  <code>getSupportedLanguages()</code>
   
+
 </h3>
-
-
 Get the list of supported languages
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt; Array&lt;string&gt; &gt;</code> list of languages
-</div>
-
-
-
-<div id="hasPermission"></div>
-<h3><code>hasPermission()</code>
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
   
+
 </h3>
-
-
 Check permission
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> has permission
-</div>
-
-
-
-<div id="requestPermission"></div>
-<h3><code>requestPermission()</code>
+</div><div id="requestPermission"></div>
+<h3>
+  <code>requestPermission()</code>
   
+
 </h3>
-
-
 Request permissions
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -243,11 +202,6 @@ Request permissions
   <b>Returns:</b> 
 <code>Promise&lt;void&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/screen-orientation.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screen-orientation/index.ts#L4">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-screen-orientation</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-screen-orientation$ npm install --save @ionic-native/screen.orientation
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-screen-orientation">
     https://github.com/apache/cordova-plugin-screen-orientation
@@ -68,14 +70,21 @@ This plugin is based on an early version of Screen Orientation API so the api do
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { ScreenOrientation } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { ScreenOrientation } from &#39;@ionic-native/screen-orientation&#39;;
+
+constructor(private screenOrientation: ScreenOrientation) { }
+
+...
 
 
-// set to either landscape
-ScreenOrientation.lockOrientation(&#39;landscape&#39;);
+// get current
+console.log(this.screenOrientation.type); // logs the current orientation, example: &#39;landscape&#39;
+
+// set to landscape
+this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
 // allow user rotate
-ScreenOrientation.unlockOrientation();
+this.screenOrientation.unlock();
 </code></pre>
 
 
@@ -84,20 +93,42 @@ ScreenOrientation.unlockOrientation();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
-<div id="lockOrientation"></div>
-<h3><code>lockOrientation(orientation)</code>
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="ORIENTATIONS"></div>
+<h3>
+  <code>ORIENTATIONS</code>
   
+
 </h3>
+Convenience enum for possible orientations
 
 
 
+<div id="onChange"></div>
+<h3>
+  <code>onChange()</code>
+  
 
+</h3>
+Listen to orientation change event
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;void&gt;</code> 
+</div><div id="lock"></div>
+<h3>
+  <code>lock(orientation)</code>
+  
+
+</h3>
 Lock the orientation to the passed value.
 See below for accepted values
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -128,50 +159,31 @@ See below for accepted values
   </tbody>
 </table>
 
-
-
-
-
-
-
-<div id="unlockOrientation"></div>
-<h3><code>unlockOrientation()</code>
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="unlock"></div>
+<h3>
+  <code>unlock()</code>
   
+
 </h3>
-
-
-
-
 Unlock and allow all orientations.
 
 
 
-
-
-
-
-
-
-
-<div id="orientation"></div>
-<h3><code>orientation</code>
+<div id="type"></div>
+<h3>
+  <code>type</code>
   
+
 </h3>
-
-
 Get the current orientation of the device.
 
 
 
 
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <p>Accepted orientation values:</p>

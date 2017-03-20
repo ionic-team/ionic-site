@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/spinnerdialog.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-spinner-dialog</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-spinner-dialog$ npm install --save @ionic-native/window.plugins.spinnerDialog
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/SpinnerDialog">
     https://github.com/Paldom/SpinnerDialog
@@ -65,12 +67,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SpinnerDialog } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { SpinnerDialog } from &#39;@ionic-native/spinner-dialog&#39;;
 
+constructor(private spinnerDialog: SpinnerDialog) { }
 
-SpinnerDialog.show();
+...
 
-SpinnerDialog.hide();
+this.spinnerDialog.show();
+
+this.spinnerDialog.hide();
 </code></pre>
 
 
@@ -79,19 +84,18 @@ SpinnerDialog.hide();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="show"></div>
-<h3><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
+<h3>
+  <code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
   
+
 </h3>
-
-
-
-
 Shows the spinner dialog
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -173,33 +177,17 @@ Shows the spinner dialog
   </tbody>
 </table>
 
-
-
-
-
-
-
 <div id="hide"></div>
-<h3><code>hide()</code>
+<h3>
+  <code>hide()</code>
   
+
 </h3>
-
-
-
-
 Hides the spinner dialog if visible
 
 
 
 
-
-
-
-
-
-
-
-<!-- methods on the class -->
 
 
 

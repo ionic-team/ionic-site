@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/batterystatus.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/battery-status/index.ts#L16">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-battery-status</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-battery-status$ npm install --save @ionic-native/navigator.battery
+</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-battery-status">
     https://github.com/apache/cordova-plugin-battery-status
@@ -66,11 +68,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { BatteryStatus } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { BatteryStatus } from &#39;@ionic-native/battery-status&#39;;
+
+constructor(private batteryStatus: BatteryStatus) { }
+
+...
 
 
 // watch change in battery status
-let subscription = BatteryStatus.onChange().subscribe(
+let subscription = this.batteryStatus.onChange().subscribe(
  (status: StatusObject) =&gt; {
    console.log(status.level, status.isPlugged);
  }
@@ -86,79 +92,51 @@ subscription.unsubscribe();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="onChange"></div>
-<h3><code>onChange()</code>
-  
-</h3>
-
-
-
-
-Watch the change in battery level
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
-</div>
-
-
-
-<div id="onLow"></div>
-<h3><code>onLow()</code>
-  
-</h3>
-
-
-
-
-Watch when the battery level goes low
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
-</div>
-
-
-
-<div id="onCritical"></div>
-<h3><code>onCritical()</code>
-  
-</h3>
-
-
-
-
-Watch when the battery level goes to critial
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
-</div>
-
-
 
 
 <!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="onChange"></div>
+<h3>
+  <code>onChange()</code>
+  
+
+</h3>
+Watch the change in battery level
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
+</div><div id="onLow"></div>
+<h3>
+  <code>onLow()</code>
+  
+
+</h3>
+Watch when the battery level goes low
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
+</div><div id="onCritical"></div>
+<h3>
+  <code>onCritical()</code>
+  
+
+</h3>
+Watch when the battery level goes to critial
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
+</div>
 
 
 

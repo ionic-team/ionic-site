@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera.ts#L85">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L85">
   Improve this doc
 </a>
 
@@ -35,42 +35,27 @@ docType: "class"
 <!-- decorators -->
 
 
-
-
-
-<pre><code>$ ionic plugin add cordova-plugin-camera</code></pre>
-<p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-camera">
-    https://github.com/apache/cordova-plugin-camera
-  </a>
-</p>
-
-<!-- description -->
-
-<p>Take a photo or capture video.</p>
-<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
-
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>Android</li><li>BlackBerry</li><li>Browser</li><li>Firefox</li><li>FireOS</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li><li>Ubuntu</li>
-</ul>
-
-<!-- @platforms tag end -->
-
-
 <!-- if doc.decorators -->
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Camera } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Camera, CameraOptions } from &#39;@ionic-native/camera&#39;;
+
+constructor(private camera: Camera) { }
+
+...
 
 
-Camera.getPicture(options).then((imageData) =&gt; {
+constant options: CameraOptions = {
+  quality: 100,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  enodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+
+this.camera.getPicture(options).then((imageData) =&gt; {
  // imageData is either a base64 encoded string or a file URI
  // If it&#39;s base64:
  let base64Image = &#39;data:image/jpeg;base64,&#39; + imageData;
@@ -85,19 +70,78 @@ Camera.getPicture(options).then((imageData) =&gt; {
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
+
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="DestinationType"></div>
+<h3>
+  <code>DestinationType</code>
+  
+
+</h3>
+Constant for possible destination types
+
+
+
+<div id="EncodingType"></div>
+<h3>
+  <code>EncodingType</code>
+  
+
+</h3>
+Convenience constant
+
+
+
+<div id="MediaType"></div>
+<h3>
+  <code>MediaType</code>
+  
+
+</h3>
+Convenience constant
+
+
+
+<div id="PictureSourceType"></div>
+<h3>
+  <code>PictureSourceType</code>
+  
+
+</h3>
+Convenience constant
+
+
+
+<div id="PopoverArrowDirection"></div>
+<h3>
+  <code>PopoverArrowDirection</code>
+  
+
+</h3>
+Convenience constant
+
+
+
+<div id="Direction"></div>
+<h3>
+  <code>Direction</code>
+  
+
+</h3>
+Convenience constant
+
+
 
 <div id="getPicture"></div>
-<h3><code>getPicture(options)</code>
+<h3>
+  <code>getPicture(options)</code>
   
+
 </h3>
-
-
-
-
 Take a picture or video, or load one from the library.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -128,37 +172,18 @@ Take a picture or video, or load one from the library.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
-</div>
-
-
-
-<div id="cleanup"></div>
-<h3><code>cleanup()</code>
+</div><div id="cleanup"></div>
+<h3>
+  <code>cleanup()</code>
   
+
 </h3>
-
-
-<p>
-  <b>Platforms:</b>
-  <code>iOS</code>&nbsp;
-  </p>
-
-
-
 Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.
 Applies only when the value of Camera.sourceType equals Camera.PictureSourceType.CAMERA and the Camera.destinationType equals Camera.DestinationType.FILE_URI.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -166,11 +191,6 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

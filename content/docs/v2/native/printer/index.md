@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/printer.ts#L41">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L42">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add de.appplant.cordova.plugin.printer</code></pre>
+<pre><code>
+  $ ionic plugin add de.appplant.cordova.plugin.printer$ npm install --save @ionic-native/cordova.plugins.printer
+</code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-printer.git">
     https://github.com/katzer/cordova-plugin-printer.git
@@ -66,9 +68,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import {Printer, PrintOptions} from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Printer, PrintOptions } from &#39;@ionic-native/printer&#39;;
 
-Printer.isAvailable().then(onSuccess, onError);
+constructor(private printer: Printer) { }
+
+...
+
+this.printer.isAvailable().then(onSuccess, onError);
 
 let options: PrintOptions = {
      name: &#39;MyDocument&#39;,
@@ -78,7 +84,7 @@ let options: PrintOptions = {
      grayscale: true
    };
 
-Printer.print(content, options).then(onSuccess, onError);
+this.p.print(content, options).then(onSuccess, onError);
 </code></pre>
 
 
@@ -87,38 +93,31 @@ Printer.print(content, options).then(onSuccess, onError);
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="isAvailable"></div>
-<h3><code>isAvailable()</code>
+<h3>
+  <code>isAvailable()</code>
   
+
 </h3>
-
-
 Checks whether to device is capable of printing.
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;boolean&gt;</code> 
-</div>
-
-
-
-<div id="print"></div>
-<h3><code>print(content,&nbsp;options)</code>
+</div><div id="print"></div>
+<h3>
+  <code>print(content,&nbsp;options)</code>
   
+
 </h3>
-
-
 Sends content to the printer.
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -166,20 +165,11 @@ Sends content to the printer.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/insomnia.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/insomnia/index.ts#L1">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git</code></pre>
+<pre><code>
+  $ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git$ npm install --save @ionic-native/plugins.insomnia
+</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin
@@ -66,16 +68,19 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Insomnia } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Insomnia } from &#39;@ionic-native/insomnia&#39;;
 
+constructor(private insomnia: Insomnia) { }
 
-Insomnia.keepAwake()
+...
+
+this.insomnia.keepAwake()
   .then(
     () =&gt; console.log(&#39;success&#39;),
     () =&gt; console.log(&#39;error&#39;)
   );
 
-Insomnia.allowSleepAgain()
+this.insomnia.allowSleepAgain()
   .then(
     () =&gt; console.log(&#39;success&#39;),
     () =&gt; console.log(&#39;error&#39;)
@@ -88,52 +93,38 @@ Insomnia.allowSleepAgain()
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
-
-<div id="keepAwake"></div>
-<h3><code>keepAwake()</code>
-  
-</h3>
-
-
-Keeps awake the application
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="allowSleepAgain"></div>
-<h3><code>allowSleepAgain()</code>
-  
-</h3>
-
-
-Allows the application to sleep again
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div>
-
-
 
 
 <!-- methods on the class -->
+
+<h2>Instance Members</h2>
+<div id="keepAwake"></div>
+<h3>
+  <code>keepAwake()</code>
+  
+
+</h3>
+Keeps awake the application
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="allowSleepAgain"></div>
+<h3>
+  <code>allowSleepAgain()</code>
+  
+
+</h3>
+Allows the application to sleep again
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

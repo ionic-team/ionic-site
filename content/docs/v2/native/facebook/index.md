@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/facebook.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L23">
   Improve this doc
 </a>
 
@@ -38,7 +38,9 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"</code></pre>
+<pre><code>
+  $ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"$ npm install --save @ionic-native/facebookConnectPlugin
+</code></pre>
 <p>Repo:
   <a href="https://github.com/jeduan/cordova-plugin-facebook4">
     https://github.com/jeduan/cordova-plugin-facebook4
@@ -92,7 +94,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { Facebook } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { Facebook, FacebookLoginResponse } from &#39;@ionic-native/facebook&#39;;
+
+constructor(private fb: Facebook) { }
+
+...
+
+this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;])
+  .then((res: FacebookLoginResponse) =&gt; console.log(&#39;Logged into Facebook!&#39;, res))
+  .catch(e =&gt; console.log(&#39;Error logging into Facebook&#39;, e));
 </code></pre>
 
 
@@ -101,17 +111,18 @@ docType: "class"
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="browserInit"></div>
-<h3><code>browserInit(appId,&nbsp;version)</code>
+<h3>
+  <code>browserInit(appId,&nbsp;version)</code>
   
+
 </h3>
-
-
 Browser wrapper
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -159,24 +170,16 @@ Browser wrapper
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="login"></div>
-<h3><code>login(permissions)</code>
+</div><div id="login"></div>
+<h3>
+  <code>login(permissions)</code>
   
+
 </h3>
-
-
 Login to Facebook to authenticate this app.
 
 ```typescript
@@ -192,8 +195,6 @@ Login to Facebook to authenticate this app.
   }
 }
 ```
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -225,47 +226,31 @@ Login to Facebook to authenticate this app.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;FacebookLoginResponse&gt;</code> Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
-</div>
-
-
-
-<div id="logout"></div>
-<h3><code>logout()</code>
+</div><div id="logout"></div>
+<h3>
+  <code>logout()</code>
   
+
 </h3>
-
-
 Logout of Facebook.
 
 For more info see the [Facebook docs](https://developers.facebook.com/docs/reference/javascript/FB.logout)
-
-
-
-
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves on a successful logout, and rejects if logout fails.
-</div>
-
-
-
-<div id="getLoginStatus"></div>
-<h3><code>getLoginStatus()</code>
+</div><div id="getLoginStatus"></div>
+<h3>
+  <code>getLoginStatus()</code>
   
+
 </h3>
-
-
 Determine if a user is logged in to Facebook and has authenticated your app.  There are three possible states for a user:
 
 1) the user is logged into Facebook and has authenticated your application (connected)
@@ -291,29 +276,17 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 
 
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with a status, or rejects with an error
-</div>
-
-
-
-<div id="getAccessToken"></div>
-<h3><code>getAccessToken()</code>
+</div><div id="getAccessToken"></div>
+<h3>
+  <code>getAccessToken()</code>
   
+
 </h3>
-
-
 Get a Facebook access token for using Facebook services.
-
-
-
-
 
 
 
@@ -321,16 +294,12 @@ Get a Facebook access token for using Facebook services.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with an access token, or rejects with an error
-</div>
-
-
-
-<div id="showDialog"></div>
-<h3><code>showDialog(options)</code>
+</div><div id="showDialog"></div>
+<h3>
+  <code>showDialog(options)</code>
   
+
 </h3>
-
-
 Show one of various Facebook dialogs. Example of options for a Share dialog:
 
 ```
@@ -344,8 +313,6 @@ Show one of various Facebook dialogs. Example of options for a Share dialog:
 ```
 
 For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova-plugin-facebook4#show-a-dialog) and the [Facebook docs](https://developers.facebook.com/docs/javascript/reference/FB.ui)
-
-
 <table class="table param-table" style="margin:0;">
   <thead>
   <tr>
@@ -376,24 +343,16 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with success data, or rejects with an error
-</div>
-
-
-
-<div id="api"></div>
-<h3><code>api(requestPath,&nbsp;permissions)</code>
+</div><div id="api"></div>
+<h3>
+  <code>api(requestPath,&nbsp;permissions)</code>
   
+
 </h3>
-
-
 Make a call to Facebook Graph API. Can take additional permissions beyond those granted on login.
 
 For more information see:
@@ -401,8 +360,6 @@ For more information see:
  Calling the Graph API - https://developers.facebook.com/docs/javascript/reference/FB.api
  Graph Explorer - https://developers.facebook.com/tools/explorer
  Graph API - https://developers.facebook.com/docs/graph-api
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -451,29 +408,17 @@ For more information see:
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result of the request, or rejects with an error
-</div>
-
-
-
-<div id="logEvent"></div>
-<h3><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
+</div><div id="logEvent"></div>
+<h3>
+  <code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
   
+
 </h3>
-
-
-
-
 Log an event.  For more information see the Events section above.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -539,27 +484,17 @@ Log an event.  For more information see the Events section above.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="logPurchase"></div>
-<h3><code>logPurchase(value,&nbsp;currency)</code>
+</div><div id="logPurchase"></div>
+<h3>
+  <code>logPurchase(value,&nbsp;currency)</code>
   
+
 </h3>
-
-
 Log a purchase. For more information see the Events section above.
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -608,32 +543,22 @@ Log a purchase. For more information see the Events section above.
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> 
-</div>
-
-
-
-<div id="appInvite"></div>
-<h3><code>appInvite(options)</code>
+</div><div id="appInvite"></div>
+<h3>
+  <code>appInvite(options)</code>
   
+
 </h3>
-
-
 Open App Invite dialog. Does not require login.
 
 For more information see:
 
   the App Invites Overview - https://developers.facebook.com/docs/app-invites/overview
   the App Links docs - https://developers.facebook.com/docs/applinks
-
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -668,20 +593,11 @@ For more information see:
   </tbody>
 </table>
 
-
-
-
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result data, or rejects with an error
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

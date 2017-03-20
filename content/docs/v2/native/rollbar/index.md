@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.9.0"
+version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -26,7 +26,7 @@ docType: "class"
 
   <span class="beta" title="beta">&beta;</span></h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/plugins/rollbar.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/rollbar/index.ts#L1">
   Improve this doc
 </a>
 
@@ -44,7 +44,9 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"</code></pre>
+<pre><code>
+  $ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"$ npm install --save @ionic-native/Rollbar
+</code></pre>
 <p>Repo:
   <a href="https://github.com/Resgrid/cordova-plugins-rollbar">
     https://github.com/Resgrid/cordova-plugins-rollbar
@@ -72,9 +74,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import { Rollbar } from &#39;ionic-native&#39;;
+<pre><code>import { Rollbar } from &#39;@ionic-native/rollbar&#39;;
 
-Rollbar.init();
+constructor(private rollbar: Rollbar) { }
+
+...
+
+this.rollbar.init();
 </code></pre>
 
 
@@ -83,19 +89,18 @@ Rollbar.init();
 <!-- @property tags -->
 
 
-<h2>Static Members</h2>
 
+
+<!-- methods on the class -->
+
+<h2>Instance Members</h2>
 <div id="init"></div>
-<h3><code>init()</code>
+<h3>
+  <code>init()</code>
   
+
 </h3>
-
-
 This function initializes the monitoring of your application
-
-
-
-
 
 
 <div class="return-value" markdown="1">
@@ -103,11 +108,6 @@ This function initializes the monitoring of your application
   <b>Returns:</b> 
 <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the plugin successfully initializes
 </div>
-
-
-
-
-<!-- methods on the class -->
 
 
 

@@ -131,9 +131,11 @@ gulp.task('images', function() {
 // compress and concat JS
 gulp.task('js', function() {
   return gulp.src(lib.js.concat(['assets/js/**/*.js']))
+    .pipe($.sourcemaps.init())
     .pipe(concat('ionic-site.js', {newLine: ';'}))
     .pipe(header(closureStart))
     .pipe(footer(closureEnd))
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest('content/js'))
     .pipe(gulp.dest('_site/js'))
     .pipe(uglify())

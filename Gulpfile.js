@@ -3,6 +3,7 @@ var $           = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var cache       = require('gulp-cache');
 var cachebust   = require('gulp-cache-bust');
+var cleanCSS    = require('gulp-clean-css');
 var concat      = require('gulp-concat');
 var cp          = require('child_process');
 var del         = require('del');
@@ -82,27 +83,19 @@ function bustCacheAndReload(done) {
 
 gulp.task('styles:v2', function() {
   // For best performance, don't add Sass partials to `gulp.src`
-  var sassStream =  gulp.src('assets/scss/styles.scss')
-    // .pipe($.sourcemaps.init())
+  var sassStream =  gulp.src(['assets/scss/styles.scss'].concat(lib.css))
+    .pipe($.sourcemaps.init())
     .pipe(sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-  var libStream = gulp.src(lib.css);
-
-  return merge(sassStream, libStream)
-    .pipe(concat('styles.css'))
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    //
-    // .pipe($.sourcemaps.write())
+    .pipe(concat('styles.css'))
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest('content/css/'))
     .pipe(gulp.dest('_site/css/'))
-
-    // .pipe($.sourcemaps.write('./css/'))
     // Concatenate and minify styles
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('content/css/'))
     .pipe(gulp.dest('_site/css/'))

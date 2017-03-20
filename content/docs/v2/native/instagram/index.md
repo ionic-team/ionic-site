@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-instagram-plugin
-  $ npm install --save @ionic-native/Instagram
+<pre><code>$ ionic plugin add cordova-instagram-plugin
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/vstirbu/InstagramPlugin">

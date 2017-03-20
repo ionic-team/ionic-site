@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
-  $ npm install --save @ionic-native/PushNotification
+<pre><code>$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=XXXXXXXXX
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-push">

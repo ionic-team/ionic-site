@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-flashlight
-  $ npm install --save @ionic-native/window.plugins.flashlight
+<pre><code>$ ionic plugin add cordova-plugin-flashlight
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">

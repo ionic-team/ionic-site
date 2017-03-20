@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-ibeacon
-  $ npm install --save @ionic-native/cordova.plugins.locationManager
+<pre><code>$ ionic plugin add cordova-plugin-ibeacon
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/petermetz/cordova-plugin-ibeacon">

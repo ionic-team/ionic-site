@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-calendar
-  $ npm install --save @ionic-native/plugins.calendar
+<pre><code>$ ionic plugin add cordova-plugin-calendar
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">

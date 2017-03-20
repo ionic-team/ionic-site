@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-shake
-  $ npm install --save @ionic-native/shake
+<pre><code>$ ionic plugin add cordova-plugin-shake
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/leecrossley/cordova-plugin-shake">

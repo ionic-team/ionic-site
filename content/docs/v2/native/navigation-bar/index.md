@@ -44,9 +44,8 @@ docType: "class"
 </p>
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-navigationbar
-  $ npm install --save @ionic-native/navigationbar
+<pre><code>$ ionic plugin add cordova-plugin-navigationbar
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/cranberrygame/cordova-plugin-navigationbar">

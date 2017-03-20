@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add ionic-plugin-keyboard
-  $ npm install --save @ionic-native/cordova.plugins.Keyboard
+<pre><code>$ ionic plugin add ionic-plugin-keyboard
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-keyboard">

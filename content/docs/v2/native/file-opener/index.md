@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-file-opener2
-  $ npm install --save @ionic-native/cordova.plugins.fileOpener2
+<pre><code>$ ionic plugin add cordova-plugin-file-opener2
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/pwlin/cordova-plugin-file-opener2">

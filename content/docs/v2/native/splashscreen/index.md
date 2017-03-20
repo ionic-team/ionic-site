@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-splashscreen
-  $ npm install --save @ionic-native/navigator.splashscreen
+<pre><code>$ ionic plugin add cordova-plugin-splashscreen
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-splashscreen">

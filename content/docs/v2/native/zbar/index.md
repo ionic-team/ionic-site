@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-cszbar
-  $ npm install --save @ionic-native/cloudSky.zBar
+<pre><code>$ ionic plugin add cordova-plugin-cszbar
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/tjwoon/csZBar">

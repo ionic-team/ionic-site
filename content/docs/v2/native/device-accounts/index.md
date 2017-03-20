@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add https://github.com/loicknuchel/cordova-device-accounts.git
-  $ npm install --save @ionic-native/plugins.DeviceAccounts
+<pre><code>$ ionic plugin add https://github.com/loicknuchel/cordova-device-accounts.git
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/loicknuchel/cordova-device-accounts">

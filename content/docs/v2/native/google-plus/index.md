@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=myreversedclientid
-  $ npm install --save @ionic-native/window.plugins.googleplus
+<pre><code>$ ionic plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=myreversedclientid
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-googleplus">

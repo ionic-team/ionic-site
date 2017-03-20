@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-inapppurchase
-  $ npm install --save @ionic-native/inAppPurchase
+<pre><code>$ ionic plugin add cordova-plugin-inapppurchase
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/AlexDisler/cordova-plugin-inapppurchase">

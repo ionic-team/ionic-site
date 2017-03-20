@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-headercolor
-  $ npm install --save @ionic-native/plugins.headerColor
+<pre><code>$ ionic plugin add cordova-plugin-headercolor
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/tomloprod/cordova-plugin-headercolor">

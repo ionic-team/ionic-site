@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
-  $ npm install --save @ionic-native/plugins.insomnia
+<pre><code>$ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin">

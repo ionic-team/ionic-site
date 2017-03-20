@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-sim
-  $ npm install --save @ionic-native/plugins.sim
+<pre><code>$ ionic plugin add cordova-plugin-sim
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/pbakondy/cordova-plugin-sim">

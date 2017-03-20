@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-safariviewcontroller
-  $ npm install --save @ionic-native/SafariViewController
+<pre><code>$ ionic plugin add cordova-plugin-safariviewcontroller
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller">

@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordova-plugin-3dtouch
-  $ npm install --save @ionic-native/ThreeDeeTouch
+<pre><code>$ ionic plugin add cordova-plugin-3dtouch
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-3dtouch">

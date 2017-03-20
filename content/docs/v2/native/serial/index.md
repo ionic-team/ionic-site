@@ -38,9 +38,8 @@ docType: "class"
 
 
 
-<pre><code>
-  $ ionic plugin add cordovarduino
-  $ npm install --save @ionic-native/serial
+<pre><code>$ ionic plugin add cordovarduino
+$ npm install --save @ionic-native/
 </code></pre>
 <p>Repo:
   <a href="https://github.com/xseignard/cordovarduino">

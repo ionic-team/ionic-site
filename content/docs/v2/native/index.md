@@ -24,17 +24,21 @@ class MyComponentOrService {
 
   constructor(private platform: Platform, private geolocation: Geolocation) {
 
-    // get current position
-    geolocation.getCurrentPosition().then(pos => {
-      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-    });
+    platform.ready().then(() => {
+    
+      // get current position
+      geolocation.getCurrentPosition().then(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      });
 
-    const watch = geolocation.watchPosition().subscribe(pos => {
-      console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-    });
+      const watch = geolocation.watchPosition().subscribe(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      });
 
-    // to stop watching
-    watch.unsubscribe();
+      // to stop watching
+      watch.unsubscribe();
+    
+    });
 
   }
 
@@ -56,7 +60,7 @@ Note that Ionic Native core package is included by default with every Ionic 2 ap
 <h3 id="Usage">Usage</h3>
 
 <h4 id="Install_Plugins_Needed">Install the Needed Plugins</h4>
-Install the Ionic Native package for each plugin you want to add from NPM. 
+Install the Ionic Native package for each plugin you want to add. 
 
 For example, if you want to install the Camera plugin, you will need to run the following command:
 ```

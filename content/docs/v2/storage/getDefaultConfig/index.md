@@ -20,7 +20,7 @@ getDefaultConfig
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L220">
+<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L219">
 Improve this doc
 </a>
 

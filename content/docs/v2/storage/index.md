@@ -92,14 +92,13 @@ options to pass to localForage. See the localForage config docs for possible opt
 <p>Note: Any custom configurations will be merged with the default configuration</p>
 <pre><code class="lang-typescript">import { IonicStorageModule } from &#39;@ionic/storage&#39;;
 
-export function provideStorage() {
-  return new Storage({ name: &#39;__mydb&#39; });
-}
-
 @NgModule({
   declarations: ...,
   imports: [
-    IonicStorageModule.forRoot({ useFactory: provideStorage })
+    IonicStorageModule.forRoot({
+      name: &#39;__mydb&#39;,
+         driverOrder: &#39;indexeddb&#39;, &#39;sqlite&#39;, &#39;websql&#39;
+    })
   ],
   bootstrap: ...,
   entryComponents: ...,

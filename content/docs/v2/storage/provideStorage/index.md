@@ -20,7 +20,7 @@ provideStorage
 
 </h1>
 
-<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L236">
+<a class="improve-docs" href="http://github.com/driftyco/ionic/edit/master/src/storage.ts#L235">
 Improve this doc
 </a>
 

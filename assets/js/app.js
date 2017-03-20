@@ -418,24 +418,24 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
 .controller('ProductsPageCtrl', ['$scope', '$timeout', function($scope, $timeout){
 
-  mixpanel.track('Products Page Load', { 'test': 'ProductsTest - 2' });
+  mixpanel.track('Products Page Load', { 'test': 'ProductsTest - 3' });
 
   $scope.gotoPricing = function(location){
-    mixpanel.track('Pricing Button Click', { 'test': 'ProductsTest - 2', 'location': location });
+    mixpanel.track('Pricing Button Click', { 'test': 'ProductsTest - 3', 'location': location });
     $timeout(function(){
       window.location = '/products/pricing';
     }, 5);
   }
 
   $scope.gotoGettingStarted = function(){
-    mixpanel.track('Community - Getting Started Click', { 'test': 'ProductsTest - 2' });
+    mixpanel.track('Community - Getting Started Click', { 'test': 'ProductsTest - 3' });
     $timeout(function(){
       window.location = '/getting-started';
     }, 5);
   }
 
   $scope.trackOpenSurvey = function(){
-    mixpanel.track('Professional - Im Interested Click', { 'test': 'ProductsTest - 2' });
+    mixpanel.track('Professional - Im Interested Click', { 'test': 'ProductsTest - 3' });
     c('Pricing','FormOpen')
   }
 
@@ -443,17 +443,17 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
 .controller('PricingPageCtrl', ['$scope', '$timeout', function($scope, $timeout){
 
-  mixpanel.track('Pricing Page Load', { 'test': 'ProductsTest - 2' });
+  mixpanel.track('Pricing Page Load', { 'test': 'ProductsTest - 3' });
 
   $scope.gotoGettingStarted = function(){
-    mixpanel.track('Community - Getting Started Click', { 'test': 'ProductsTest - 2' });
+    mixpanel.track('Community - Getting Started Click', { 'test': 'ProductsTest - 3' });
     $timeout(function(){
       window.location = '/getting-started';
     }, 5);
   }
 
   $scope.trackOpenSurvey = function(){
-    mixpanel.track('Professional - Im Interested Click', { 'test': 'ProductsTest - 2' });
+    mixpanel.track('Professional - Im Interested Click', { 'test': 'ProductsTest - 3' });
     c('Pricing','FormOpen')
   }
 
@@ -467,11 +467,6 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
   $scope.nextSection = function(form) {
     $scope.section++;
-    var step_descs = ['emailname', 'offering', 'pricing', 'misc'];
-    mixpanel.track('Survey Checkpoint', {'test': 'ProductsTest - 2', 'step_desc': step_descs[$scope.section-2], 'step_order': $scope.section-1});
-    if ($scope.section == 5){
-      mixpanel.track('Survey Finished', {'test': 'ProductsTest - 2'});
-    }
     $scope.submit(form);
   }
 
@@ -489,10 +484,20 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
                                              .join(', ');
     }
 
+    function trackMixpanel(){
+      var step_descs = ['emailname', 'important', 'lesser'];
+      mixpanel.track('Survey Checkpoint', {'test': 'ProductsTest - 3', 'step_desc': step_descs[$scope.section-2], 'step_order': $scope.section-1});
+      if ($scope.section == 4){
+        mixpanel.track('Survey Finished', {'test': 'ProductsTest - 3'});
+      }
+    }
+
     if (form.uuid) {
       $http.patch('https://apps.ionic.io/api/discovery/'+form.uuid, cleanForm).then(function(resp) {
 
-        if ($scope.section == 5) {
+        trackMixpanel();
+
+        if ($scope.section == 4) {
           // We're done with the form!!
           $scope.form = {};
           window.c('Pricing','FormSubmit');
@@ -509,6 +514,9 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
         return $scope.section--;
       }
       $http.post('https://apps.ionic.io/api/discovery', cleanForm).then(function(resp) {
+
+        trackMixpanel();
+
         // We've only filled out Name & Email so far. Store the UUID for updating next time.
         form.uuid = resp.data.uuid;
 

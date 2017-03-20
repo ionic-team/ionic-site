@@ -443,9 +443,9 @@
                 aria-label="Close"
                 id="modal-close"
                 onclick="c('Pricing','FormClose')"></button>
-        <h2 ng-show="section==1" class="modal-title">Let's talk</h2> 
-        <h2 ng-show="section!=1 && section!=5" class="modal-title">Got it, thanks!</h2> 
-        <h2 ng-show="section==5" class="modal-title">That's it!</h2> 
+        <h2 ng-show="section==1" class="modal-title">Can we call you?</h2> 
+        <h2 ng-show="section!=1 && section!=4" class="modal-title">Got it, thanks!</h2> 
+        <h2 ng-show="section==4" class="modal-title">Talk to you soon!</h2> 
         <!--<p>
           We're currently evaluating this product and would love your feedback
         </p>-->
@@ -462,13 +462,11 @@
               <!-- <p>Hey there,</p> -->
 
               <p>
-                Thanks for showing interest in what we have to offer. We're 
-                currently evaluating this package, and would love to <i>reach 
-                out to you to talk about your exact needs after learning a 
-                little more about you</i>.
+                We are looking for companies who use Ionic to join us for a dedicated 15 minute phone conversation,
+                where we can discuss your exact needs.
               </p>
 
-              <p>Fill out this survey and we'll be in touch!</p>
+              <p>Please complete this survey, and we will contact you within 24 hours.</p>
 
               <!-- <p>Thanks,<br />Matt</p> -->
 
@@ -495,6 +493,18 @@
                      id="email"
                      name="email"
                      ng-model="form.email"
+                     ng-enter="nextSection(form)">
+            </div>
+
+            <div class="form-group small-form">
+              <label for="email" class="control-label">
+                Phone <i>(Optional)</i>
+              </label>
+              <input type="text" 
+                     class="form-control" 
+                     id="phone"
+                     name="phone"
+                     ng-model="form.phone"
                      ng-enter="nextSection(form)">
             </div>
           </div>
@@ -527,8 +537,28 @@
               </label>
             </div>
             <div class="form-group">
+              <label for="if-this-package" class="control-label">
+                If this package was Ionic’s only paid offering, and existed today for 
+                $1999/dev/year, would you buy it?
+              </label><br>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="would_buy" 
+                       id="would_buy_yes" 
+                       ng-value="true"
+                       ng-model="form.would_buy"> Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" 
+                       name="would_buy" 
+                       id="would_buy_no" 
+                       ng-value="false"
+                       ng-model="form.would_buy"> No
+              </label>
+            </div>
+            <div class="form-group">
             <label class="control-label">
-              Is there anything in this offering you wouldn't use?
+              Is there anything in this offering you would NOT use?
             </label><br>
             <label class="checkbox-inline">
               <input type="checkbox" 
@@ -581,7 +611,7 @@
             </label>
           </div>-->
 
-          <div class="form-group">
+          <!--<div class="form-group">
             <label class="control-label">
               Is there anything missing in this offering that is critical to 
               your workflow?
@@ -600,7 +630,7 @@
                      ng-value="false"
                      ng-model="form.missing_workflow"> No
             </label>
-          </div>
+          </div>-->
           </div>
 
           <div ng-show="section==3">
@@ -608,38 +638,17 @@
             <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
 
             <div class="matt-talking one-line">
-              <p>Great, now how about the price?</p>
+              <p>Great, just two more questions:</p>
             </div>
 
             <div class="form-group">
-              <label for="if-this-package" class="control-label">
-                If this package was Ionic’s only offering, and existed today for 
-                $1999/user/year, would you buy it?
-              </label><br>
-              <label class="radio-inline">
-                <input type="radio" 
-                       name="would_buy" 
-                       id="would_buy_yes" 
-                       ng-value="true"
-                       ng-model="form.would_buy"> Yes
-              </label>
-              <label class="radio-inline">
-                <input type="radio" 
-                       name="would_buy" 
-                       id="would_buy_no" 
-                       ng-value="false"
-                       ng-model="form.would_buy"> No
-              </label>
-            </div>
-            <div class="form-group">
               <label for="price" class="control-label">
-                Is the offering presented
+                For your company, how accessible is the $1999/dev/year price? 
               </label>
               <select id="price" 
                       name="price" 
                       class="form-control" 
                       ng-model="form.price">
-                <option value="null" disabled selected></option>
                 <option value="inexpensive">Inexpensive</option>
                 <option value="fair">Fair</option>
                 <option value="expensive">Expensive</option>
@@ -647,26 +656,6 @@
                   Prohibitively expensive
                 </option>
               </select>
-            </div>
-
-            <div class="form-group">
-              <label for="expensive_point" class="control-label">
-                At what price point does this offering become prohibitively 
-                expensive?
-              </label>
-              <input type="number" 
-                     class="form-control" 
-                     id="expensive_point"
-                     name="expensive_point" 
-                     ng-model="form.expensive_point">
-            </div>
-          </div>
-
-          <div ng-show="section==4">
-            <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
-
-            <div class="matt-talking one-line">
-              <p>Just some final basic questions:</p>
             </div>
 
             <div class="form-group">
@@ -683,6 +672,27 @@
                 <option ng-value="1000">500+</option>
               </select>
             </div>
+
+            <!--<div class="form-group">
+              <label for="expensive_point" class="control-label">
+                At what price point does this offering become prohibitively 
+                expensive?
+              </label>
+              <input type="number" 
+                     class="form-control" 
+                     id="expensive_point"
+                     name="expensive_point" 
+                     ng-model="form.expensive_point">
+            </div>-->
+          </div>
+
+          <!-- <div ng-show="section==4">
+
+            <div class="matt-talking one-line">
+              <p>Just some final basic questions:</p>
+            </div>
+
+            
 
             <div class="form-group">
               <label for="have-you-ever" class="control-label">
@@ -703,11 +713,11 @@
                        ng-model="form.used_services"> No
               </label>
             </div>
-          </div>
+          </div> -->
 
-          <div ng-show="section==5">
+          <div ng-show="section==4">
             <div class="matt-talking one-line">
-              <p>Thank you so much for your time, we'll reach out soon!</p>
+              <p>Thank you so much for your time, we'll reach out soon.</p>
             </div>
           </div>
 
@@ -716,14 +726,14 @@
       <div class="modal-footer">
         <button type="button" 
                 class="btn btn-primary" 
-                ng-show="section!==5" 
+                ng-show="section!==4" 
                 ng-click="nextSection(form)">
-          <span ng-show="section==4">Submit</span>
-          <span ng-show="section!=4">Next</span>
+          <span ng-show="section==3">Submit</span>
+          <span ng-show="section!=3">Next</span>
         </button>
         <button type="button" 
                 class="btn white" 
-                ng-show="section==5"
+                ng-show="section==4"
                 data-dismiss="modal" 
                 aria-label="Close"
                 onclick="c('Pricing','FormClose: Complete')">Close
@@ -742,5 +752,13 @@ $form.addEventListener('change', function(e) {
            null, 
            $t.getAttribute('value'));
 });
+</script>
+<script>
+<script>
+  window.intercomSettings = {
+    app_id: "uo7cdoog"
+  };
+</script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/uo7cdoog';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 </script>
 {% endblock %}

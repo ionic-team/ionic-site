@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-device-motion$ npm install --save @ionic-native/navigator.accelerometer
+  $ ionic plugin add cordova-plugin-device-motion
+  $ npm install --save @ionic-native/navigator.accelerometer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device-motion">

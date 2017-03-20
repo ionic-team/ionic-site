@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add https://github.com/gitawego/cordova-screenshot.git$ npm install --save @ionic-native/navigator.screenshot
+  $ ionic plugin add https://github.com/gitawego/cordova-screenshot.git
+  $ npm install --save @ionic-native/navigator.screenshot
 </code></pre>
 <p>Repo:
   <a href="https://github.com/gitawego/cordova-screenshot.git">

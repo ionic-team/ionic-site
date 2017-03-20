@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/$ npm install --save @ionic-native/IonicDeeplink
+  $ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
+  $ npm install --save @ionic-native/IonicDeeplink
 </code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-deeplinks">

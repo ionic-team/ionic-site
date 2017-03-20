@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-dialogs$ npm install --save @ionic-native/navigator.notification
+  $ ionic plugin add cordova-plugin-dialogs
+  $ npm install --save @ionic-native/navigator.notification
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-dialogs.git">

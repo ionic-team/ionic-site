@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git$ npm install --save @ionic-native/ImageResizer
+  $ ionic plugin add https://github.com/protonet/cordova-plugin-image-resizer.git
+  $ npm install --save @ionic-native/ImageResizer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/protonet/cordova-plugin-image-resizer">

@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-market$ npm install --save @ionic-native/cordova.plugins.market
+  $ ionic plugin add cordova-plugin-market
+  $ npm install --save @ionic-native/cordova.plugins.market
 </code></pre>
 <p>Repo:
   <a href="https://github.com/xmartlabs/cordova-plugin-market">

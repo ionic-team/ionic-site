@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git$ npm install --save @ionic-native/cordova.plugins.clipboard
+  $ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+  $ npm install --save @ionic-native/cordova.plugins.clipboard
 </code></pre>
 <p>Repo:
   <a href="https://github.com/VersoSolutions/CordovaClipboard">

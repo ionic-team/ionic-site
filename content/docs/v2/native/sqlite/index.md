@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-sqlite-storage$ npm install --save @ionic-native/sqlitePlugin
+  $ ionic plugin add cordova-sqlite-storage
+  $ npm install --save @ionic-native/sqlitePlugin
 </code></pre>
 <p>Repo:
   <a href="https://github.com/litehelpers/Cordova-sqlite-storage">

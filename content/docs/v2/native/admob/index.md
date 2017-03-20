@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-admobpro$ npm install --save @ionic-native/AdMob
+  $ ionic plugin add cordova-plugin-admobpro
+  $ npm install --save @ionic-native/AdMob
 </code></pre>
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-admob-pro">

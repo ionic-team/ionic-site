@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add call-number$ npm install --save @ionic-native/plugins.CallNumber
+  $ ionic plugin add call-number
+  $ npm install --save @ionic-native/plugins.CallNumber
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Rohfosho/CordovaCallNumberPlugin">

@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-request-location-accuracy$ npm install --save @ionic-native/cordova.plugins.locationAccuracy
+  $ ionic plugin add cordova-plugin-request-location-accuracy
+  $ npm install --save @ionic-native/cordova.plugins.locationAccuracy
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-plugin-request-location-accuracy">

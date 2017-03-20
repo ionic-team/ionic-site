@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add onesignal-cordova-plugin$ npm install --save @ionic-native/plugins.OneSignal
+  $ ionic plugin add onesignal-cordova-plugin
+  $ npm install --save @ionic-native/plugins.OneSignal
 </code></pre>
 <p>Repo:
   <a href="https://github.com/OneSignal/OneSignal-Cordova-SDK">

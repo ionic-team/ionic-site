@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-badge$ npm install --save @ionic-native/cordova.plugins.notification.badge
+  $ ionic plugin add cordova-plugin-badge
+  $ npm install --save @ionic-native/cordova.plugins.notification.badge
 </code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-badge">

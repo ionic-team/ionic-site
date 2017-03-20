@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-is-debug$ npm install --save @ionic-native/cordova.plugins.IsDebug
+  $ ionic plugin add cordova-plugin-is-debug
+  $ npm install --save @ionic-native/cordova.plugins.IsDebug
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mattlewis92/cordova-plugin-is-debug">

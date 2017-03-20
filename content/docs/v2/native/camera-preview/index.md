@@ -45,7 +45,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-camera-preview$ npm install --save @ionic-native/CameraPreview
+  $ ionic plugin add cordova-plugin-camera-preview
+  $ npm install --save @ionic-native/CameraPreview
 </code></pre>
 <p>Repo:
   <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">

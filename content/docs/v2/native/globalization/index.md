@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-globalization$ npm install --save @ionic-native/navigator.globalization
+  $ ionic plugin add cordova-plugin-globalization
+  $ npm install --save @ionic-native/navigator.globalization
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-globalization">

@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-file$ npm install --save @ionic-native/cordova.file
+  $ ionic plugin add cordova-plugin-file
+  $ npm install --save @ionic-native/cordova.file
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-file">

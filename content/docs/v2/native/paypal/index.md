@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add com.paypal.cordova.mobilesdk$ npm install --save @ionic-native/PayPalMobile
+  $ ionic plugin add com.paypal.cordova.mobilesdk
+  $ npm install --save @ionic-native/PayPalMobile
 </code></pre>
 <p>Repo:
   <a href="https://github.com/paypal/PayPal-Cordova-Plugin">

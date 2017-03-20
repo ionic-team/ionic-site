@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-x-toast$ npm install --save @ionic-native/plugins.toast
+  $ ionic plugin add cordova-plugin-x-toast
+  $ npm install --save @ionic-native/plugins.toast
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">

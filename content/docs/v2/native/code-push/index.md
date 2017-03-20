@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-code-push$ npm install --save @ionic-native/codePush
+  $ ionic plugin add cordova-plugin-code-push
+  $ npm install --save @ionic-native/codePush
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Microsoft/cordova-plugin-code-push">

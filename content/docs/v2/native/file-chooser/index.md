@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add http://github.com/don/cordova-filechooser.git$ npm install --save @ionic-native/fileChooser
+  $ ionic plugin add http://github.com/don/cordova-filechooser.git
+  $ npm install --save @ionic-native/fileChooser
 </code></pre>
 <p>Repo:
   <a href="https://github.com/don/cordova-filechooser">

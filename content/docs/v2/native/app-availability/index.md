@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-appavailability$ npm install --save @ionic-native/appAvailability
+  $ ionic plugin add cordova-plugin-appavailability
+  $ npm install --save @ionic-native/appAvailability
 </code></pre>
 <p>Repo:
   <a href="https://github.com/ohh2ahh/AppAvailability">

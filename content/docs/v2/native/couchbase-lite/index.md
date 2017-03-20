@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin$ npm install --save @ionic-native/cblite
+  $ ionic plugin add https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin
+  $ npm install --save @ionic-native/cblite
 </code></pre>
 <p>Repo:
   <a href="https://github.com/couchbaselabs/Couchbase-Lite-PhoneGap-Plugin">

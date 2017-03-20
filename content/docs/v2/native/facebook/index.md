@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"$ npm install --save @ionic-native/facebookConnectPlugin
+  $ ionic plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+  $ npm install --save @ionic-native/facebookConnectPlugin
 </code></pre>
 <p>Repo:
   <a href="https://github.com/jeduan/cordova-plugin-facebook4">

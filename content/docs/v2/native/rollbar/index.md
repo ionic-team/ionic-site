@@ -45,7 +45,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"$ npm install --save @ionic-native/Rollbar
+  $ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
+  $ npm install --save @ionic-native/Rollbar
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Resgrid/cordova-plugins-rollbar">

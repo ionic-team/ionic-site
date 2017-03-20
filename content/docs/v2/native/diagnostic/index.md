@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova.plugins.diagnostic$ npm install --save @ionic-native/cordova.plugins.diagnostic
+  $ ionic plugin add cordova.plugins.diagnostic
+  $ npm install --save @ionic-native/cordova.plugins.diagnostic
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-diagnostic-plugin">

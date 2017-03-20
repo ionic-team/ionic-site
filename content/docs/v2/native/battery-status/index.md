@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-battery-status$ npm install --save @ionic-native/navigator.battery
+  $ ionic plugin add cordova-plugin-battery-status
+  $ npm install --save @ionic-native/navigator.battery
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-battery-status">

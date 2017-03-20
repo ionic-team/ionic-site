@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-vibration$ npm install --save @ionic-native/navigator
+  $ ionic plugin add cordova-plugin-vibration
+  $ npm install --save @ionic-native/navigator
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-vibration">

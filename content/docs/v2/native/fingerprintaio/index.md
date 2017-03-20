@@ -45,7 +45,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-fingerprint-aio$ npm install --save @ionic-native/Fingerprint
+  $ ionic plugin add cordova-plugin-fingerprint-aio
+  $ npm install --save @ionic-native/Fingerprint
 </code></pre>
 <p>Repo:
   <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">

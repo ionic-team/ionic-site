@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-secure-storage$ npm install --save @ionic-native/plugins.securestorage
+  $ ionic plugin add cordova-plugin-secure-storage
+  $ npm install --save @ionic-native/plugins.securestorage
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Crypho/cordova-plugin-secure-storage">

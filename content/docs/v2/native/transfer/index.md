@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-file-transfer$ npm install --save @ionic-native/FileTransfer
+  $ ionic plugin add cordova-plugin-file-transfer
+  $ npm install --save @ionic-native/FileTransfer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-file-transfer">

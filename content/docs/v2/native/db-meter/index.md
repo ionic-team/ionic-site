@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-dbmeter$ npm install --save @ionic-native/DBMeter
+  $ ionic plugin add cordova-plugin-dbmeter
+  $ npm install --save @ionic-native/DBMeter
 </code></pre>
 <p>Repo:
   <a href="https://github.com/akofman/cordova-plugin-dbmeter">

@@ -45,7 +45,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID$ npm install --save @ionic-native/cordova.plugins.Pinterest
+  $ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
+  $ npm install --save @ionic-native/cordova.plugins.Pinterest
 </code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-pinterest">

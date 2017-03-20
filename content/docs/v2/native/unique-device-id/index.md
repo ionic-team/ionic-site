@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-uniquedeviceid$ npm install --save @ionic-native/window.plugins.uniqueDeviceID
+  $ ionic plugin add cordova-plugin-uniquedeviceid
+  $ npm install --save @ionic-native/window.plugins.uniqueDeviceID
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/UniqueDeviceID">

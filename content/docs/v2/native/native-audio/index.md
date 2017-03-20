@@ -39,7 +39,8 @@ docType: "class"
 
 
 <pre><code>
-  $ ionic plugin add cordova-plugin-nativeaudio$ npm install --save @ionic-native/plugins.NativeAudio
+  $ ionic plugin add cordova-plugin-nativeaudio
+  $ npm install --save @ionic-native/plugins.NativeAudio
 </code></pre>
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-plugin-nativeaudio">

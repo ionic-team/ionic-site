@@ -1501,6 +1501,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -o-user-select: none;
   user-select: none; }
   .btn:focus {
     outline: none; }
@@ -3555,7 +3556,6 @@ a.thumbnail:focus {
 
 .progress.active .progress-bar {
   -webkit-animation: progress-bar-stripes 2s linear infinite;
-  -ms-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
@@ -3859,7 +3859,8 @@ body.modal-open {
     -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
     transition: -webkit-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out; }
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
   .modal.in .modal-dialog {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }

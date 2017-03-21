@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add phonegap-plugin-barcodescanner
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/barcode-scanner
 </code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">

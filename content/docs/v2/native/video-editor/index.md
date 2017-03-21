@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-video-editor
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/video-editor
 </code></pre>
 <p>Repo:
   <a href="https://github.com/jbavari/cordova-plugin-video-editor">

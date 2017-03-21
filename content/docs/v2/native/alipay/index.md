@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/alipay
 </code></pre>
 <p>Repo:
   <a href="https://github.com/xueron/cordova-alipay-base">

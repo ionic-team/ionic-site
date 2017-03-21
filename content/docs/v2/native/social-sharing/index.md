@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-x-socialsharing
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/social-sharing
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">

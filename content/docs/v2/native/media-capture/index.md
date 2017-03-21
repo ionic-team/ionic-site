@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-media-capture
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/media-capture
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-media-capture">

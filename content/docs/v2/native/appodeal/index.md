@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/appodeal/appodeal-cordova-plugin
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/appodeal
 </code></pre>
 <p>Repo:
   <a href="https://github.com/appodeal/appodeal-cordova-plugin.git">

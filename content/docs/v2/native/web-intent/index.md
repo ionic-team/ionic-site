@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/Initsogar/cordova-webintent.git
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/web-intent
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Initsogar/cordova-webintent.git">

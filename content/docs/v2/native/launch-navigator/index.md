@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/launch-navigator
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/phonegap-launch-navigator.git">

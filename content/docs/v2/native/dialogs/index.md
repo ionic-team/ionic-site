@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-dialogs
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/dialogs
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-dialogs.git">

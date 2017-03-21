@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-cszbar
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/zbar
 </code></pre>
 <p>Repo:
   <a href="https://github.com/tjwoon/csZBar">

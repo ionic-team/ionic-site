@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-http
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/http
 </code></pre>
 <p>Repo:
   <a href="https://github.com/wymsee/cordova-HTTP">

@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-mauron85-background-geolocation
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/background-geolocation
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mauron85/cordova-plugin-background-geolocation">

@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add com-sarriaroman-photoviewer
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/photo-viewer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/sarriaroman/photoviewer">

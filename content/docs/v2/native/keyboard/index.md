@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add ionic-plugin-keyboard
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/keyboard
 </code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-keyboard">

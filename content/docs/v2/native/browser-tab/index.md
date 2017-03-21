@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-browsertab
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/browser-tab
 </code></pre>
 <p>Repo:
   <a href="https://github.com/google/cordova-plugin-browsertab">

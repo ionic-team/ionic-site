@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-geofence
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/geofence
 </code></pre>
 <p>Repo:
   <a href="https://github.com/cowbell/cordova-plugin-geofence/">

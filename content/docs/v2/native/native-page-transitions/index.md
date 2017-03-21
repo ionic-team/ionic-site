@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add com.telerik.plugins.nativepagetransitions
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/native-page-transitions
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/NativePageTransitions">

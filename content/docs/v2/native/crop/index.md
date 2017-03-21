@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-crop
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/crop
 </code></pre>
 <p>Repo:
   <a href="https://github.com/jeduan/cordova-plugin-crop">

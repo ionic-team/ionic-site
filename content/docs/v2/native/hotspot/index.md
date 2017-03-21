@@ -45,7 +45,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-hotspot
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/hotspot
 </code></pre>
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-hotspot-plugin">

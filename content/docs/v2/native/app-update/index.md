@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-app-update
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/app-update
 </code></pre>
 <p>Repo:
   <a href="https://github.com/vaenow/cordova-plugin-app-update">

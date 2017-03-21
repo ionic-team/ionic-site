@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-sms-plugin
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/sms
 </code></pre>
 <p>Repo:
   <a href="https://github.com/cordova-sms/cordova-sms-plugin">

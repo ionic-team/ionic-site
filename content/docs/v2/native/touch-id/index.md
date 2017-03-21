@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-touch-id
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/touch-id
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">

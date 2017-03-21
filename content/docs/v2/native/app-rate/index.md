@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-apprate
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/app-rate
 </code></pre>
 <p>Repo:
   <a href="https://github.com/pushandplay/cordova-plugin-apprate">

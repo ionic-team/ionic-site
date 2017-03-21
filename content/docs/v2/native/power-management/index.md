@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-powermanagement-orig
-$ npm install --save @ionic-native/
+$ npm install --save @ionic-native/power-management
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Viras-/cordova-plugin-powermanagement">

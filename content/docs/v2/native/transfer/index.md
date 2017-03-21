@@ -182,7 +182,6 @@ Sends a file to a server.
     <td>
       fileUrl
       
-      
     </td>
     <td>
       
@@ -192,13 +191,13 @@ Sends a file to a server.
       <p>Filesystem URL representing the file on the device or a data URI. For backwards compatibility, this can also be the full path of the file on the device.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       url
-      
       
     </td>
     <td>
@@ -209,13 +208,13 @@ Sends a file to a server.
       <p>URL of the server to receive the file, as encoded by encodeURI().</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -226,13 +225,13 @@ Sends a file to a server.
       <p>Optional parameters.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       trustAllHosts
-      
       
     </td>
     <td>
@@ -242,6 +241,7 @@ Sends a file to a server.
     <td>
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
 
+      
       
     </td>
   </tr>
@@ -275,7 +275,6 @@ Downloads a file from server.
     <td>
       source
       
-      
     </td>
     <td>
       
@@ -285,13 +284,13 @@ Downloads a file from server.
       <p>URL of the server to download the file, as encoded by encodeURI().</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       target
-      
       
     </td>
     <td>
@@ -302,13 +301,13 @@ Downloads a file from server.
       <p>Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       trustAllHosts
-      
       
     </td>
     <td>
@@ -319,13 +318,13 @@ Downloads a file from server.
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful because Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       Optional
-      
       
     </td>
     <td>
@@ -335,6 +334,7 @@ Downloads a file from server.
     <td>
       <p>parameters, currently only supports headers (such as Authorization (Basic Authentication), etc).</p>
 
+      
       
     </td>
   </tr>
@@ -367,7 +367,6 @@ Registers a listener that gets called whenever a new chunk of data is transferre
     <td>
       listener
       
-      
     </td>
     <td>
       
@@ -376,6 +375,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
     <td>
       <p>Listener that takes a progress event.</p>
 
+      
       
     </td>
   </tr>
@@ -420,7 +420,6 @@ object which has an error code of FileTransferError.ABORT_ERR.
   <tr>
     <td>
       fileKey
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -429,13 +428,13 @@ object which has an error code of FileTransferError.ABORT_ERR.
       <p>The name of the form element.
 Defaults to &#39;file&#39;.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fileName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -444,13 +443,13 @@ Defaults to &#39;file&#39;.</p>
       <p>The file name to use when saving the file on the server.
 Defaults to &#39;image.jpg&#39;.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       httpMethod
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -459,13 +458,13 @@ Defaults to &#39;image.jpg&#39;.</p>
       <p>The HTTP method to use - either PUT or POST.
 Defaults to POST.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       mimeType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -474,13 +473,13 @@ Defaults to POST.</p>
       <p>The mime type of the data to upload.
 Defaults to image/jpeg.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       params
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{ [s: string]: any; }</code>
@@ -488,13 +487,13 @@ Defaults to image/jpeg.</p>
     <td>
       <p>A set of optional key/value pairs to pass in the HTTP request.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       chunkedMode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -503,13 +502,13 @@ Defaults to image/jpeg.</p>
       <p>Whether to upload the data in chunked streaming mode.
 Defaults to true.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{ [s: string]: any; }</code>
@@ -519,6 +518,7 @@ Defaults to true.</p>
 than one value. On iOS, FireOS, and Android, if a header named
 Content-Type is present, multipart form data will NOT be used.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -544,7 +544,6 @@ Content-Type is present, multipart form data will NOT be used.</p>
   <tr>
     <td>
       bytesSent
-      
     </td>
     <td>
       <code>number</code>
@@ -552,13 +551,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>The number of bytes sent to the server as part of the upload.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       responseCode
-      
     </td>
     <td>
       <code>number</code>
@@ -566,13 +565,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>The HTTP response code returned by the server.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       response
-      
     </td>
     <td>
       <code>string</code>
@@ -580,13 +579,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>The HTTP response returned by the server.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
     </td>
     <td>
       <code>{ [s: string]: any; }</code>
@@ -594,6 +593,7 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>The HTTP response headers by the server.</p>
 
+      
     </td>
   </tr>
   
@@ -619,7 +619,6 @@ Content-Type is present, multipart form data will NOT be used.</p>
   <tr>
     <td>
       code
-      
     </td>
     <td>
       <code>number</code>
@@ -627,13 +626,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>One of the predefined error codes listed below.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       source
-      
     </td>
     <td>
       <code>string</code>
@@ -641,13 +640,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>URL to the source.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       target
-      
     </td>
     <td>
       <code>string</code>
@@ -655,13 +654,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
     <td>
       <p>URL to the target.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       http_status
-      
     </td>
     <td>
       <code>number</code>
@@ -670,13 +669,13 @@ Content-Type is present, multipart form data will NOT be used.</p>
       <p>HTTP status code. This attribute is only available when a response
 code is received from the HTTP connection.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
     </td>
     <td>
       <code>string</code>
@@ -684,13 +683,13 @@ code is received from the HTTP connection.</p>
     <td>
       <p>Response body. This attribute is only available when a response is received from the HTTP connection.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       exception
-      
     </td>
     <td>
       <code>string</code>
@@ -698,6 +697,7 @@ code is received from the HTTP connection.</p>
     <td>
       <p>Either e.getMessage or e.toString.</p>
 
+      
     </td>
   </tr>
   

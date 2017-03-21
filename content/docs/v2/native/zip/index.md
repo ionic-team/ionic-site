@@ -104,7 +104,6 @@ Extracts files from a ZIP archive
     <td>
       sourceZip
       
-      
     </td>
     <td>
       
@@ -114,13 +113,13 @@ Extracts files from a ZIP archive
       <p>Source ZIP file</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       destUrl
-      
       
     </td>
     <td>
@@ -131,13 +130,13 @@ Extracts files from a ZIP archive
       <p>Destination folder</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       onProgress
-      
       
     </td>
     <td>
@@ -147,6 +146,7 @@ Extracts files from a ZIP archive
     <td>
       <p>optional callback to be called on progress update</p>
 
+      
       
     </td>
   </tr>

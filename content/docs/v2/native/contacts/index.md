@@ -118,7 +118,6 @@ Search for contacts in the Contacts list.
     <td>
       fields
       
-      
     </td>
     <td>
       
@@ -128,13 +127,13 @@ Search for contacts in the Contacts list.
       <p>Contact fields to be used as a search qualifier</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -144,6 +143,7 @@ Search for contacts in the Contacts list.
     <td>
       <p>Optional options for the query</p>
 
+      
       
     </td>
   </tr>
@@ -362,7 +362,6 @@ Select a single Contact.
   <tr>
     <td>
       id
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -370,13 +369,13 @@ Select a single Contact.
     <td>
       <p>A globally unique identifier.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       displayName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -384,13 +383,13 @@ Select a single Contact.
     <td>
       <p>The name of this Contact, suitable for display to end users.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       name
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactName</code>
@@ -398,13 +397,13 @@ Select a single Contact.
     <td>
       <p>An object containing all components of a persons name.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       nickname
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -412,13 +411,13 @@ Select a single Contact.
     <td>
       <p>A casual name by which to address the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       phoneNumbers
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -426,13 +425,13 @@ Select a single Contact.
     <td>
       <p>An array of all the contact&#39;s phone numbers.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       emails
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -440,13 +439,13 @@ Select a single Contact.
     <td>
       <p>An array of all the contact&#39;s email addresses.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       addresses
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactAddress[]</code>
@@ -454,13 +453,13 @@ Select a single Contact.
     <td>
       <p>An array of all the contact&#39;s addresses.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ims
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -468,13 +467,13 @@ Select a single Contact.
     <td>
       <p>An array of all the contact&#39;s IM addresses.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       organizations
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactOrganization[]</code>
@@ -482,13 +481,13 @@ Select a single Contact.
     <td>
       <p>An array of all the contact&#39;s organizations.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       birthday
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Date</code>
@@ -496,13 +495,13 @@ Select a single Contact.
     <td>
       <p>The birthday of the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       note
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -510,13 +509,13 @@ Select a single Contact.
     <td>
       <p>A note about the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       photos
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -524,13 +523,13 @@ Select a single Contact.
     <td>
       <p>An array of the contact&#39;s photos.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       categories
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -538,13 +537,13 @@ Select a single Contact.
     <td>
       <p>An array of all the user-defined categories associated with the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       urls
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IContactField[]</code>
@@ -552,6 +551,7 @@ Select a single Contact.
     <td>
       <p>An array of web pages associated with the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -577,7 +577,6 @@ Select a single Contact.
   <tr>
     <td>
       code
-      
     </td>
     <td>
       <code>number</code>
@@ -585,13 +584,13 @@ Select a single Contact.
     <td>
       <p>Error code</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       message
-      
     </td>
     <td>
       <code>string</code>
@@ -599,6 +598,7 @@ Select a single Contact.
     <td>
       <p>Error message</p>
 
+      
     </td>
   </tr>
   
@@ -624,7 +624,6 @@ Select a single Contact.
   <tr>
     <td>
       formatted
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -632,13 +631,13 @@ Select a single Contact.
     <td>
       <p>The complete name of the contact.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       familyName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -646,13 +645,13 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s family name.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       givenName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -660,13 +659,13 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s given name.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       middleName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -674,13 +673,13 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s middle name.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       honorificPrefix
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -688,13 +687,13 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s prefix (example Mr. or Dr.)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       honorificSuffix
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -702,6 +701,7 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s suffix (example Esq.).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -727,7 +727,6 @@ Select a single Contact.
   <tr>
     <td>
       type
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -735,13 +734,13 @@ Select a single Contact.
     <td>
       <p>A string that indicates what type of field this is, home for example.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       value
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -749,13 +748,13 @@ Select a single Contact.
     <td>
       <p>The value of the field, such as a phone number or email address.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       pref
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -763,6 +762,7 @@ Select a single Contact.
     <td>
       <p>Set to true if this ContactField contains the user&#39;s preferred value.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -788,7 +788,6 @@ Select a single Contact.
   <tr>
     <td>
       pref
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -796,13 +795,13 @@ Select a single Contact.
     <td>
       <p>Set to true if this ContactAddress contains the user&#39;s preferred value.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       type
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -810,13 +809,13 @@ Select a single Contact.
     <td>
       <p>A string indicating what type of field this is, home for example.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       formatted
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -824,13 +823,13 @@ Select a single Contact.
     <td>
       <p>The full address formatted for display.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       streetAddress
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -838,13 +837,13 @@ Select a single Contact.
     <td>
       <p>The full street address.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       locality
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -852,13 +851,13 @@ Select a single Contact.
     <td>
       <p>The city or locality.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       region
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -866,13 +865,13 @@ Select a single Contact.
     <td>
       <p>The state or region.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       postalCode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -880,13 +879,13 @@ Select a single Contact.
     <td>
       <p>The zip code or postal code.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       country
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -894,6 +893,7 @@ Select a single Contact.
     <td>
       <p>The country name.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -919,7 +919,6 @@ Select a single Contact.
   <tr>
     <td>
       pref
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -927,13 +926,13 @@ Select a single Contact.
     <td>
       <p>Set to true if this ContactOrganization contains the user&#39;s preferred value.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       type
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -941,13 +940,13 @@ Select a single Contact.
     <td>
       <p>A string that indicates what type of field this is, home for example.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       name
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -955,13 +954,13 @@ Select a single Contact.
     <td>
       <p>The name of the organization.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       department
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -969,13 +968,13 @@ Select a single Contact.
     <td>
       <p>The department the contract works for.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -983,6 +982,7 @@ Select a single Contact.
     <td>
       <p>The contact&#39;s title at the organization.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -1008,7 +1008,6 @@ Select a single Contact.
   <tr>
     <td>
       filter
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1016,13 +1015,13 @@ Select a single Contact.
     <td>
       <p>The search string used to find navigator.contacts.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       multiple
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1030,13 +1029,13 @@ Select a single Contact.
     <td>
       <p>Determines if the find operation returns multiple navigator.contacts. Defaults to false.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       desiredFields
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
@@ -1044,13 +1043,13 @@ Select a single Contact.
     <td>
       <p>Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hasPhoneNumber
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1058,6 +1057,7 @@ Select a single Contact.
     <td>
       <p>(Android only): Filters the search to only return contacts with a phone number informed.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

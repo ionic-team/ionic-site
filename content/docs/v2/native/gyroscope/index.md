@@ -125,7 +125,6 @@ Watching for gyroscope sensor changes
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -134,6 +133,7 @@ Watching for gyroscope sensor changes
     <td>
       <p>(optional)</p>
 
+      
       
     </td>
   </tr>
@@ -166,7 +166,6 @@ Get current data from gyroscope sensor
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -175,6 +174,7 @@ Get current data from gyroscope sensor
     <td>
       <p>(optional)</p>
 
+      
       
     </td>
   </tr>
@@ -215,7 +215,6 @@ Get current data from gyroscope sensor
   <tr>
     <td>
       x
-      
     </td>
     <td>
       <code>number</code>
@@ -223,13 +222,13 @@ Get current data from gyroscope sensor
     <td>
       <p>Represent x-axis</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       y
-      
     </td>
     <td>
       <code>number</code>
@@ -237,13 +236,13 @@ Get current data from gyroscope sensor
     <td>
       <p>Represent y-axis</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       z
-      
     </td>
     <td>
       <code>number</code>
@@ -251,13 +250,13 @@ Get current data from gyroscope sensor
     <td>
       <p>Represent z-axis</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>number</code>
@@ -265,6 +264,7 @@ Get current data from gyroscope sensor
     <td>
       <p>Represent timestamp of sensor read. Default is 10000ms</p>
 
+      
     </td>
   </tr>
   
@@ -290,7 +290,6 @@ Get current data from gyroscope sensor
   <tr>
     <td>
       frequency
-      
     </td>
     <td>
       <code>number</code>
@@ -298,6 +297,7 @@ Get current data from gyroscope sensor
     <td>
       <p>Represent how often (in milliseconds) sensor should be read.  Default is 10000 ms</p>
 
+      
     </td>
   </tr>
   

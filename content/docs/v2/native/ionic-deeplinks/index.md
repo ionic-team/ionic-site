@@ -138,7 +138,6 @@ Define a set of paths to match against incoming deeplinks.
     <td>
       Define
       
-      
     </td>
     <td>
       
@@ -150,6 +149,7 @@ paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 
+      
       
     </td>
   </tr>
@@ -190,7 +190,6 @@ control over the behavior of a matching deeplink, use the plain `route` method.
     <td>
       Define
       
-      
     </td>
     <td>
       
@@ -202,6 +201,7 @@ paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 
+      
       
     </td>
   </tr>
@@ -243,7 +243,6 @@ errors if a deeplink comes through that does not match a given path.
   <tr>
     <td>
       $route
-      
     </td>
     <td>
       <code>any</code>
@@ -251,13 +250,13 @@ errors if a deeplink comes through that does not match a given path.
     <td>
       <p>The route info for the matched route</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       $args
-      
     </td>
     <td>
       <code>any</code>
@@ -265,13 +264,13 @@ errors if a deeplink comes through that does not match a given path.
     <td>
       <p>Any arguments passed either through route parameters or GET parameters</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       $link
-      
     </td>
     <td>
       <code>any</code>
@@ -281,6 +280,7 @@ errors if a deeplink comes through that does not match a given path.
 any internal native data available as &quot;extras&quot; at the time
 the route was matched (for example, Facebook sometimes adds extra data)</p>
 
+      
     </td>
   </tr>
   

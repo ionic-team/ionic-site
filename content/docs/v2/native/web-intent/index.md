@@ -187,7 +187,6 @@ Launches an Android intent
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -196,6 +195,7 @@ Launches an Android intent
     <td>
       <p>{ action: any, url: string, type?: string }</p>
 
+      
       
     </td>
   </tr>
@@ -228,13 +228,13 @@ Checks if this app was invoked with specified extra
     <td>
       extra
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -268,13 +268,13 @@ Gets the extra that this app was invoked with
     <td>
       extra
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -334,7 +334,6 @@ Sends a custom intent passing optional extras
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -343,6 +342,7 @@ Sends a custom intent passing optional extras
     <td>
       <p>{ action: string, extras?: { option: boolean } }</p>
 
+      
       
     </td>
   </tr>

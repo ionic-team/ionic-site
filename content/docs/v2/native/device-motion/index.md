@@ -125,7 +125,6 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -134,6 +133,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>list of options for the accelerometer.</p>
 
+      
       
     </td>
   </tr>
@@ -174,7 +174,6 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
   <tr>
     <td>
       x
-      
     </td>
     <td>
       <code>number</code>
@@ -182,13 +181,13 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Amount of acceleration on the x-axis. (in m/s^2)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       y
-      
     </td>
     <td>
       <code>number</code>
@@ -196,13 +195,13 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Amount of acceleration on the y-axis. (in m/s^2)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       z
-      
     </td>
     <td>
       <code>number</code>
@@ -210,13 +209,13 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Amount of acceleration on the z-axis. (in m/s^2)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>any</code>
@@ -224,6 +223,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Creation timestamp in milliseconds.</p>
 
+      
     </td>
   </tr>
   
@@ -249,7 +249,6 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
   <tr>
     <td>
       frequency
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -257,6 +256,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Requested period of calls to accelerometerSuccess with acceleration data in Milliseconds. Default: 10000</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

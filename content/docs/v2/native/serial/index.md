@@ -116,7 +116,6 @@ Request permission to connect to a serial device
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -125,6 +124,7 @@ Request permission to connect to a serial device
     <td>
       <p>Options used to request serial permissions for an unknown device</p>
 
+      
       
     </td>
   </tr>
@@ -158,7 +158,6 @@ Open connection to a serial device
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -167,6 +166,7 @@ Open connection to a serial device
     <td>
       <p>Options used to open serial connection</p>
 
+      
       
     </td>
   </tr>
@@ -200,7 +200,6 @@ Write to a serial connection
     <td>
       data
       
-      
     </td>
     <td>
       
@@ -209,6 +208,7 @@ Write to a serial connection
     <td>
       <p>data to write to the serial connection</p>
 
+      
       
     </td>
   </tr>
@@ -242,7 +242,6 @@ Write hex to a serial connection
     <td>
       data
       
-      
     </td>
     <td>
       
@@ -251,6 +250,7 @@ Write hex to a serial connection
     <td>
       <p>data to write to the serial connection</p>
 
+      
       
     </td>
   </tr>

@@ -105,7 +105,6 @@ Takes screenshot and saves the image
     <td>
       format.
       
-      
     </td>
     <td>
       
@@ -116,13 +115,13 @@ Takes screenshot and saves the image
 On ios, only &#39;jpg&#39; format is supported</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       quality.
-      
       
     </td>
     <td>
@@ -134,13 +133,13 @@ On ios, only &#39;jpg&#39; format is supported</p>
        Default quality is set to 100.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       filename.
-      
       
     </td>
     <td>
@@ -150,6 +149,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
     <td>
       <p>Name of the file as stored on the storage</p>
 
+      
       
     </td>
   </tr>
@@ -183,7 +183,6 @@ Takes screenshot and returns the image as an URI
     <td>
       quality.
       
-      
     </td>
     <td>
       
@@ -193,6 +192,7 @@ Takes screenshot and returns the image as an URI
       <p>Determines the quality of the screenshot.
        Default quality is set to 100.</p>
 
+      
       
     </td>
   </tr>

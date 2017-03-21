@@ -344,7 +344,6 @@ Start advertising as a beacon.
     <td>
       uuid
       
-      
     </td>
     <td>
       
@@ -354,13 +353,13 @@ Start advertising as a beacon.
       <p>UUID string the beacon should advertise (mandatory).</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       major
-      
       
     </td>
     <td>
@@ -371,13 +370,13 @@ Start advertising as a beacon.
       <p>Major value to advertise (mandatory).</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       minor
-      
       
     </td>
     <td>
@@ -388,13 +387,13 @@ Start advertising as a beacon.
       <p>Minor value to advertise (mandatory).</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       regionId
-      
       
     </td>
     <td>
@@ -404,6 +403,7 @@ Start advertising as a beacon.
     <td>
       <p>Identifier of the region used to advertise (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -451,7 +451,6 @@ Enable analytics.
     <td>
       enable
       
-      
     </td>
     <td>
       
@@ -460,6 +459,7 @@ Enable analytics.
     <td>
       <p>Boolean value to turn analytics on or off (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -521,7 +521,6 @@ Set App ID and App Token.
     <td>
       appID
       
-      
     </td>
     <td>
       
@@ -531,13 +530,13 @@ Set App ID and App Token.
       <p>The App ID (mandatory).</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       appToken
-      
       
     </td>
     <td>
@@ -547,6 +546,7 @@ Set App ID and App Token.
     <td>
       <p>The App Token (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -609,7 +609,6 @@ Start ranging beacons. Available on iOS and Android.
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -618,6 +617,7 @@ Start ranging beacons. Available on iOS and Android.
     <td>
       <p>Dictionary with region properties (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -651,7 +651,6 @@ Stop ranging beacons. Available on iOS and Android.
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -660,6 +659,7 @@ Stop ranging beacons. Available on iOS and Android.
     <td>
       <p>Dictionary with region properties (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -725,7 +725,6 @@ Start monitoring beacons. Available on iOS and Android.
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -735,13 +734,13 @@ Start monitoring beacons. Available on iOS and Android.
       <p>Dictionary with region properties (mandatory).</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       notifyEntryStateOnDisplay
-      
       
     </td>
     <td>
@@ -754,7 +753,8 @@ are inside a region when the user turns display on, see
 <a href="<a">href="https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS">https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS</a> documentation</a>
 for further details (optional, defaults to false, iOS only).</p>
 
-      
+      <strong class="tag">Optional</strong>
+      <p><em>(default: false)</em></p>
     </td>
   </tr>
   
@@ -787,7 +787,6 @@ Stop monitoring beacons. Available on iOS and Android.
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -796,6 +795,7 @@ Stop monitoring beacons. Available on iOS and Android.
     <td>
       <p>Dictionary with region properties (mandatory).</p>
 
+      
       
     </td>
   </tr>
@@ -832,7 +832,6 @@ To use secure beacons set the App ID and App Token using
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -842,6 +841,7 @@ To use secure beacons set the App ID and App Token using
       <p>Region</p>
 
       
+      
     </td>
   </tr>
   
@@ -849,13 +849,13 @@ To use secure beacons set the App ID and App Token using
     <td>
       notifyEntryStateOnDisplay
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -891,7 +891,6 @@ This function has the same parameters/behaviour as
     <td>
       region
       
-      
     </td>
     <td>
       
@@ -900,6 +899,7 @@ This function has the same parameters/behaviour as
     <td>
       <p>Region</p>
 
+      
       
     </td>
   </tr>
@@ -933,7 +933,6 @@ Connect to Estimote Beacon. Available on Android.
     <td>
       beacon
       
-      
     </td>
     <td>
       
@@ -942,6 +941,7 @@ Connect to Estimote Beacon. Available on Android.
     <td>
       <p>Beacon to connect to.</p>
 
+      
       
     </td>
   </tr>
@@ -1026,25 +1026,25 @@ Write minor to connected Estimote Beacon. Available on Android.
   <tr>
     <td>
       state
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       major
-      
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -1052,12 +1052,12 @@ Write minor to connected Estimote Beacon. Available on Android.
   <tr>
     <td>
       minor
-      
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -1065,25 +1065,25 @@ Write minor to connected Estimote Beacon. Available on Android.
   <tr>
     <td>
       identifier
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       uuid
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>

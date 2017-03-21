@@ -163,13 +163,13 @@ Create the media controls
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>MusicControlsOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -239,13 +239,13 @@ Toggle play/pause:
     <td>
       isPlaying
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -275,13 +275,13 @@ Toggle dismissable:
     <td>
       dismissable
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -319,12 +319,12 @@ Toggle dismissable:
   <tr>
     <td>
       track
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -332,12 +332,12 @@ Toggle dismissable:
   <tr>
     <td>
       artist
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -345,12 +345,12 @@ Toggle dismissable:
   <tr>
     <td>
       cover
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -358,12 +358,12 @@ Toggle dismissable:
   <tr>
     <td>
       isPlaying
-      
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -371,12 +371,12 @@ Toggle dismissable:
   <tr>
     <td>
       dismissable
-      
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -384,12 +384,12 @@ Toggle dismissable:
   <tr>
     <td>
       hasPrev
-      
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -397,12 +397,12 @@ Toggle dismissable:
   <tr>
     <td>
       hasNext
-      
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -410,12 +410,12 @@ Toggle dismissable:
   <tr>
     <td>
       hasClose
-      
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -423,12 +423,12 @@ Toggle dismissable:
   <tr>
     <td>
       album
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -436,12 +436,12 @@ Toggle dismissable:
   <tr>
     <td>
       duration
-      
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -449,12 +449,12 @@ Toggle dismissable:
   <tr>
     <td>
       elapsed
-      
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -462,12 +462,12 @@ Toggle dismissable:
   <tr>
     <td>
       ticker
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>

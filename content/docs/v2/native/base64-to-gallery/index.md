@@ -114,7 +114,6 @@ Converts a base64 string to an image file in the device gallery
     <td>
       data
       
-      
     </td>
     <td>
       
@@ -124,13 +123,13 @@ Converts a base64 string to an image file in the device gallery
       <p>The actual base64 string that you want to save</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -140,6 +139,7 @@ Converts a base64 string to an image file in the device gallery
     <td>
       <p>(optional) An object with properties: prefix: string, mediaScanner: boolean. Prefix will be prepended to the filename. If true, mediaScanner runs Media Scanner on Android and saves to Camera Roll on iOS; if false, saves to Library folder on iOS.</p>
 
+      
       
     </td>
   </tr>

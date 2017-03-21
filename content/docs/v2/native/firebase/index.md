@@ -179,13 +179,13 @@ Set icon badge number. Set to 0 to clear the badge.
     <td>
       badgeNumber
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -232,13 +232,13 @@ Subscribe to a topic
     <td>
       topic
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -272,13 +272,13 @@ Unsubscribe from a topic
     <td>
       topic
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -312,13 +312,13 @@ Log an event using Analytics
     <td>
       type
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -328,13 +328,13 @@ Log an event using Analytics
     <td>
       data
       
-      
     </td>
     <td>
       
 <code>Object</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -368,7 +368,6 @@ Set the name of the current screen in Analytics
     <td>
       name
       
-      
     </td>
     <td>
       
@@ -377,6 +376,7 @@ Set the name of the current screen in Analytics
     <td>
       <p>Screen name</p>
 
+      
       
     </td>
   </tr>
@@ -409,13 +409,13 @@ Set a user id for use in Analytics
     <td>
       userId
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -449,13 +449,13 @@ Set a user property for use in Analytics
     <td>
       name
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -465,13 +465,13 @@ Set a user property for use in Analytics
     <td>
       value
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -505,13 +505,13 @@ Fetch Remote Config parameter values for your app
     <td>
       cacheExpirationSeconds
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -558,13 +558,13 @@ Retrieve a Remote Config value
     <td>
       key
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -574,13 +574,13 @@ Retrieve a Remote Config value
     <td>
       namespace
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -614,13 +614,13 @@ Retrieve a Remote Config byte array
     <td>
       key
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -630,13 +630,13 @@ Retrieve a Remote Config byte array
     <td>
       namespace
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -683,13 +683,13 @@ Change the settings for the FirebaseRemoteConfig object's operations
     <td>
       settings
       
-      
     </td>
     <td>
       
 <code>Object</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -723,13 +723,13 @@ Set defaults in the Remote Config
     <td>
       defaults
       
-      
     </td>
     <td>
       
 <code>Object</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -739,13 +739,13 @@ Set defaults in the Remote Config
     <td>
       namespace
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>

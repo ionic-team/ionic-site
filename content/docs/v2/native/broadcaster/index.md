@@ -113,13 +113,13 @@ This function listen to an event sent from the native code
     <td>
       eventName
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -153,13 +153,13 @@ This function sends data to the native code
     <td>
       eventName
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -169,13 +169,13 @@ This function sends data to the native code
     <td>
       eventData
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>

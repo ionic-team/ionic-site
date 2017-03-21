@@ -128,7 +128,6 @@ This returns an object representing a basic HTTP Authorization header of the for
     <td>
       username
       
-      
     </td>
     <td>
       
@@ -138,13 +137,13 @@ This returns an object representing a basic HTTP Authorization header of the for
       <p>Username</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       password
-      
       
     </td>
     <td>
@@ -154,6 +153,7 @@ This returns an object representing a basic HTTP Authorization header of the for
     <td>
       <p>Password</p>
 
+      
       
     </td>
   </tr>
@@ -186,7 +186,6 @@ This sets up all future requests to use Basic HTTP authentication with the given
     <td>
       username
       
-      
     </td>
     <td>
       
@@ -196,13 +195,13 @@ This sets up all future requests to use Basic HTTP authentication with the given
       <p>Username</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       password
-      
       
     </td>
     <td>
@@ -212,6 +211,7 @@ This sets up all future requests to use Basic HTTP authentication with the given
     <td>
       <p>Password</p>
 
+      
       
     </td>
   </tr>
@@ -240,7 +240,6 @@ Set a header for all future requests. Takes a header and a value.
     <td>
       header
       
-      
     </td>
     <td>
       
@@ -250,13 +249,13 @@ Set a header for all future requests. Takes a header and a value.
       <p>The name of the header</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       value
-      
       
     </td>
     <td>
@@ -266,6 +265,7 @@ Set a header for all future requests. Takes a header and a value.
     <td>
       <p>The value of the header</p>
 
+      
       
     </td>
   </tr>
@@ -298,7 +298,6 @@ As an alternative, you can store your .cer files in the www/certificates folder.
     <td>
       enable
       
-      
     </td>
     <td>
       
@@ -307,6 +306,7 @@ As an alternative, you can store your .cer files in the www/certificates folder.
     <td>
       <p>Set to true to enable</p>
 
+      
       
     </td>
   </tr>
@@ -339,7 +339,6 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
     <td>
       accept
       
-      
     </td>
     <td>
       
@@ -348,6 +347,7 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
     <td>
       <p>Set to true to accept</p>
 
+      
       
     </td>
   </tr>
@@ -380,7 +380,6 @@ Whether or not to validate the domain name in the certificate. This defaults to 
     <td>
       validate
       
-      
     </td>
     <td>
       
@@ -389,6 +388,7 @@ Whether or not to validate the domain name in the certificate. This defaults to 
     <td>
       <p>Set to true to validate</p>
 
+      
       
     </td>
   </tr>
@@ -421,7 +421,6 @@ Make a POST request
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -431,13 +430,13 @@ Make a POST request
       <p>The url to send the request to</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
       
     </td>
     <td>
@@ -448,13 +447,13 @@ Make a POST request
       <p>The body of the request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
       
     </td>
     <td>
@@ -464,6 +463,7 @@ Make a POST request
     <td>
       <p>The headers to set for this request</p>
 
+      
       
     </td>
   </tr>
@@ -496,7 +496,6 @@ Make a POST request
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -506,13 +505,13 @@ Make a POST request
       <p>The url to send the request to</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       parameters
-      
       
     </td>
     <td>
@@ -523,13 +522,13 @@ Make a POST request
       <p>Parameters to send with the request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
       
     </td>
     <td>
@@ -539,6 +538,7 @@ Make a POST request
     <td>
       <p>The headers to set for this request</p>
 
+      
       
     </td>
   </tr>
@@ -571,7 +571,6 @@ Make a POST request
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -581,13 +580,13 @@ Make a POST request
       <p>The url to send the request to</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
       
     </td>
     <td>
@@ -598,13 +597,13 @@ Make a POST request
       <p>The body of the request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
       
     </td>
     <td>
@@ -615,13 +614,13 @@ Make a POST request
       <p>The headers to set for this request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       filePath
-      
       
     </td>
     <td>
@@ -632,13 +631,13 @@ Make a POST request
       <p>The local path of the file to upload</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       name
-      
       
     </td>
     <td>
@@ -648,6 +647,7 @@ Make a POST request
     <td>
       <p>The name of the parameter to pass the file along as</p>
 
+      
       
     </td>
   </tr>
@@ -680,7 +680,6 @@ Make a POST request
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -690,13 +689,13 @@ Make a POST request
       <p>The url to send the request to</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
       
     </td>
     <td>
@@ -707,13 +706,13 @@ Make a POST request
       <p>The body of the request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
       
     </td>
     <td>
@@ -724,13 +723,13 @@ Make a POST request
       <p>The headers to set for this request</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       filePath
-      
       
     </td>
     <td>
@@ -740,6 +739,7 @@ Make a POST request
     <td>
       <p>The path to donwload the file to, including the file name.</p>
 
+      
       
     </td>
   </tr>
@@ -780,7 +780,6 @@ Make a POST request
   <tr>
     <td>
       status
-      
     </td>
     <td>
       <code>number</code>
@@ -788,13 +787,13 @@ Make a POST request
     <td>
       <p>The status number of the response</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       data
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -802,13 +801,13 @@ Make a POST request
     <td>
       <p>The data that is in the response. This property usually exists when a promise returned by a request method resolves.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       headers
-      
     </td>
     <td>
       <code>any</code>
@@ -816,13 +815,13 @@ Make a POST request
     <td>
       <p>The headers of the response</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       error
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -830,6 +829,7 @@ Make a POST request
     <td>
       <p>Error response from the server. This property usually exists when a promise returned by a request method rejects.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

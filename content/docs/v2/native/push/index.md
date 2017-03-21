@@ -118,13 +118,13 @@ Init push notifications
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>PushOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -166,7 +166,6 @@ Init push notifications
   <tr>
     <td>
       registrationId
-      
     </td>
     <td>
       <code>string</code>
@@ -174,6 +173,7 @@ Init push notifications
     <td>
       <p>The registration ID provided by the 3rd party remote push service.</p>
 
+      
     </td>
   </tr>
   
@@ -199,7 +199,6 @@ Init push notifications
   <tr>
     <td>
       message
-      
     </td>
     <td>
       <code>string</code>
@@ -207,13 +206,13 @@ Init push notifications
     <td>
       <p>The text of the push message sent from the 3rd party service.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -221,13 +220,13 @@ Init push notifications
     <td>
       <p>The optional title of the push message sent from the 3rd party service.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       count
-      
     </td>
     <td>
       <code>string</code>
@@ -236,13 +235,13 @@ Init push notifications
       <p>The number of messages to be displayed in the badge iOS or message count in the notification shade in Android.
 For windows, it represents the value in the badge notification which could be a number or a status glyph.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sound
-      
     </td>
     <td>
       <code>string</code>
@@ -250,13 +249,13 @@ For windows, it represents the value in the badge notification which could be a 
     <td>
       <p>The name of the sound file to be played upon receipt of the notification.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       image
-      
     </td>
     <td>
       <code>string</code>
@@ -264,13 +263,13 @@ For windows, it represents the value in the badge notification which could be a 
     <td>
       <p>The path of the image file to be displayed in the notification.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       additionalData
-      
     </td>
     <td>
       <code>NotificationEventAdditionalData | any</code>
@@ -278,6 +277,7 @@ For windows, it represents the value in the badge notification which could be a 
     <td>
       <p>An optional collection of data sent by the 3rd party push service that does not fit in the above properties.</p>
 
+      
     </td>
   </tr>
   
@@ -303,7 +303,6 @@ For windows, it represents the value in the badge notification which could be a 
   <tr>
     <td>
       foreground
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -311,58 +310,59 @@ For windows, it represents the value in the badge notification which could be a 
     <td>
       <p>Whether the notification was received while the app was in the foreground</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       collapse_key
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       coldstart
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       from
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notId
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -388,7 +388,6 @@ For windows, it represents the value in the badge notification which could be a 
   <tr>
     <td>
       senderID
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -397,13 +396,13 @@ For windows, it represents the value in the badge notification which could be a 
       <p>Maps to the project number in the Google Developer Console. Setting this
 uses GCM for notifications instead of native.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       gcmSandbox
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -411,13 +410,13 @@ uses GCM for notifications instead of native.</p>
     <td>
       <p>Whether to use prod or sandbox GCM setting.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       alert
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -429,13 +428,13 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       badge
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -447,13 +446,13 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -465,13 +464,13 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearBadge
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -479,13 +478,13 @@ user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
     <td>
       <p>If true the badge will be cleared on app startup.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       topics
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
@@ -495,13 +494,13 @@ user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 subscribe to a GcmPubSub topic.
 <strong>Note</strong>: only usable in conjunction with <code>senderID</code>.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       categories
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>CategoryArray</code>
@@ -510,6 +509,7 @@ subscribe to a GcmPubSub topic.
       <p>The data required in order to enable Action Buttons for iOS.
 Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1">https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1</a></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -535,7 +535,6 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
   <tr>
     <td>
       senderID
-      
     </td>
     <td>
       <code>string</code>
@@ -543,13 +542,13 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
     <td>
       <p>Maps to the project number in the Google Developer Console.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -558,13 +557,13 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
       <p>The name of a drawable resource to use as the small-icon. The name should
 not include the extension.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       iconColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -573,13 +572,13 @@ not include the extension.</p>
       <p>Sets the background color of the small icon on Android 5.0 and greater.
 <a href="http://developer.android.com/intl/ru/reference/android/graphics/Color.html#parseColor(java.lang.String">Supported Formats</a>)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -588,13 +587,13 @@ not include the extension.</p>
       <p>If true it plays the sound specified in the push data or the default system
 sound.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       vibrate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -602,13 +601,13 @@ sound.</p>
     <td>
       <p>If true the device vibrates on receipt of notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearBadge
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -616,13 +615,13 @@ sound.</p>
     <td>
       <p>If true the icon badge will be cleared on init and before push messages are processed.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearNotifications
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -630,13 +629,13 @@ sound.</p>
     <td>
       <p>If true the app clears all pending notifications when it is closed.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       forceShow
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean | string</code>
@@ -645,13 +644,13 @@ sound.</p>
       <p>If true will always show a notification, even when the app is on the
 foreground.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       topics
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
@@ -660,6 +659,7 @@ foreground.</p>
       <p>If the array contains one or more strings each string will be used to
 subscribe to a GcmPubSub topic.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -685,39 +685,39 @@ subscribe to a GcmPubSub topic.</p>
   <tr>
     <td>
       ios
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>IOSPushOptions</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>AndroidPushOptions</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       windows
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

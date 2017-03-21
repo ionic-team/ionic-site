@@ -109,13 +109,13 @@ Registers an event listener for any NDEF tag.
     <td>
       onSuccess
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -125,13 +125,13 @@ Registers an event listener for any NDEF tag.
     <td>
       onFailure
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -165,13 +165,13 @@ Registers an event listener for tags matching any tag type.
     <td>
       onSuccess
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -181,13 +181,13 @@ Registers an event listener for tags matching any tag type.
     <td>
       onFailure
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -221,13 +221,13 @@ Registers an event listener for NDEF tags matching a specified MIME type.
     <td>
       mimeType
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -237,13 +237,13 @@ Registers an event listener for NDEF tags matching a specified MIME type.
     <td>
       onSuccess
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -253,13 +253,13 @@ Registers an event listener for NDEF tags matching a specified MIME type.
     <td>
       onFailure
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -293,13 +293,13 @@ Registers an event listener for formatable NDEF tags.
     <td>
       onSuccess
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -309,13 +309,13 @@ Registers an event listener for formatable NDEF tags.
     <td>
       onFailure
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -349,13 +349,13 @@ Qrites an NdefMessage to a NFC tag.
     <td>
       message
       
-      
     </td>
     <td>
       
 <code>any[]</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -402,7 +402,6 @@ Shares an NDEF Message via peer-to-peer.
     <td>
       message
       
-      
     </td>
     <td>
       
@@ -411,6 +410,7 @@ Shares an NDEF Message via peer-to-peer.
     <td>
       <p>An array of NDEF Records.</p>
 
+      
       
     </td>
   </tr>
@@ -466,7 +466,6 @@ Send a file to another device via NFC handover.
     <td>
       uris
       
-      
     </td>
     <td>
       
@@ -475,6 +474,7 @@ Send a file to another device via NFC handover.
     <td>
       <p>A URI as a String, or an array of URIs.</p>
 
+      
       
     </td>
   </tr>
@@ -546,13 +546,13 @@ Convert bytes to string
     <td>
       bytes
       
-      
     </td>
     <td>
       
 <code>number[]</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -586,13 +586,13 @@ Convert string to bytes
     <td>
       str
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -626,13 +626,13 @@ Convert bytes to hex string
     <td>
       bytes
       
-      
     </td>
     <td>
       
 <code>number[]</code>
     </td>
     <td>
+      
       
       
     </td>

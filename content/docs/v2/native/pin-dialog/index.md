@@ -106,7 +106,6 @@ Show pin dialog
     <td>
       message
       
-      
     </td>
     <td>
       
@@ -116,13 +115,13 @@ Show pin dialog
       <p>Message to show the user</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      
       
     </td>
     <td>
@@ -133,13 +132,13 @@ Show pin dialog
       <p>Title of the dialog</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       buttons
-      
       
     </td>
     <td>
@@ -149,6 +148,7 @@ Show pin dialog
     <td>
       <p>Buttons to show</p>
 
+      
       
     </td>
   </tr>

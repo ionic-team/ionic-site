@@ -102,7 +102,6 @@ Open an file
     <td>
       filePath
       
-      
     </td>
     <td>
       
@@ -112,13 +111,13 @@ Open an file
       <p>File Path</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       fileMIMEType
-      
       
     </td>
     <td>
@@ -128,6 +127,7 @@ Open an file
     <td>
       <p>File MIME Type</p>
 
+      
       
     </td>
   </tr>
@@ -160,7 +160,6 @@ Uninstalls a package
     <td>
       packageId
       
-      
     </td>
     <td>
       
@@ -169,6 +168,7 @@ Uninstalls a package
     <td>
       <p>Package ID</p>
 
+      
       
     </td>
   </tr>
@@ -201,7 +201,6 @@ Check if an app is already installed
     <td>
       packageId
       
-      
     </td>
     <td>
       
@@ -210,6 +209,7 @@ Check if an app is already installed
     <td>
       <p>Package ID</p>
 
+      
       
     </td>
   </tr>

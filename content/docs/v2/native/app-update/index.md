@@ -119,7 +119,6 @@ Check and update
     <td>
       updateUrl
       
-      
     </td>
     <td>
       
@@ -128,6 +127,7 @@ Check and update
     <td>
       <p>update api url</p>
 
+      
       
     </td>
   </tr>

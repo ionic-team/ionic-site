@@ -120,7 +120,6 @@ Retrieves library items. Library item contains photo metadata like width and hei
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -129,6 +128,7 @@ Retrieves library items. Library item contains photo metadata like width and hei
     <td>
       <p>Optional, like thumbnail size and chunks settings.</p>
 
+      
       
     </td>
   </tr>
@@ -161,7 +161,6 @@ Asks user permission to access photo library.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -170,6 +169,7 @@ Asks user permission to access photo library.
     <td>
       <p>Optional, like whether only read access needed or read/write.</p>
 
+      
       
     </td>
   </tr>
@@ -215,7 +215,6 @@ Provides means to request URL of thumbnail, with specified size or quality.
     <td>
       photo
       
-      
     </td>
     <td>
       
@@ -225,13 +224,13 @@ Provides means to request URL of thumbnail, with specified size or quality.
       <p>Id of photo, or LibraryItem.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -241,6 +240,7 @@ Provides means to request URL of thumbnail, with specified size or quality.
     <td>
       <p>Options, like thumbnail size or quality.</p>
 
+      
       
     </td>
   </tr>
@@ -273,7 +273,6 @@ Provides means to request photo URL by id.
     <td>
       photo
       
-      
     </td>
     <td>
       
@@ -283,13 +282,13 @@ Provides means to request photo URL by id.
       <p>Id or LibraryItem.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -299,6 +298,7 @@ Provides means to request photo URL by id.
     <td>
       <p>Optional options.</p>
 
+      
       
     </td>
   </tr>
@@ -331,7 +331,6 @@ Returns thumbnail as Blob.
     <td>
       photo
       
-      
     </td>
     <td>
       
@@ -341,13 +340,13 @@ Returns thumbnail as Blob.
       <p>Id or LibraryItem.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -357,6 +356,7 @@ Returns thumbnail as Blob.
     <td>
       <p>Options, like thumbnail size or quality.</p>
 
+      
       
     </td>
   </tr>
@@ -389,7 +389,6 @@ Returns photo as Blob.
     <td>
       photo
       
-      
     </td>
     <td>
       
@@ -399,13 +398,13 @@ Returns photo as Blob.
       <p>Id or LibraryItem.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -415,6 +414,7 @@ Returns photo as Blob.
     <td>
       <p>Optional options.</p>
 
+      
       
     </td>
   </tr>
@@ -448,7 +448,6 @@ LibraryItem that represents saved image is returned.
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -458,13 +457,13 @@ LibraryItem that represents saved image is returned.
       <p>URL of a file, or DataURL.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       album
-      
       
     </td>
     <td>
@@ -475,13 +474,13 @@ LibraryItem that represents saved image is returned.
       <p>Name of an album or AlbumItem object.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -491,6 +490,7 @@ LibraryItem that represents saved image is returned.
     <td>
       <p>Options, like thumbnail size for resulting LibraryItem.</p>
 
+      
       
     </td>
   </tr>
@@ -523,7 +523,6 @@ Saves video to specified album. Album will be created if not exists.
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -533,13 +532,13 @@ Saves video to specified album. Album will be created if not exists.
       <p>URL of a file, or DataURL.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       album
-      
       
     </td>
     <td>
@@ -549,6 +548,7 @@ Saves video to specified album. Album will be created if not exists.
     <td>
       <p>Name of an album or AlbumItem object.</p>
 
+      
       
     </td>
   </tr>

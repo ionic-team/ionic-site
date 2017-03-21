@@ -124,7 +124,6 @@ Create a banner
     <td>
       adIdOrOptions
       
-      
     </td>
     <td>
       
@@ -133,6 +132,7 @@ Create a banner
     <td>
       <p>Ad ID or Options</p>
 
+      
       
     </td>
   </tr>
@@ -175,7 +175,6 @@ Show banner at position
     <td>
       position
       
-      
     </td>
     <td>
       
@@ -184,6 +183,7 @@ Show banner at position
     <td>
       <p>Position. Use <code>AdMob.AD_POSITION</code> to set values.</p>
 
+      
       
     </td>
   </tr>
@@ -212,7 +212,6 @@ Show banner at custom position
     <td>
       x
       
-      
     </td>
     <td>
       
@@ -222,13 +221,13 @@ Show banner at custom position
       <p>Offset from screen left.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       y
-      
       
     </td>
     <td>
@@ -238,6 +237,7 @@ Show banner at custom position
     <td>
       <p>Offset from screen top.</p>
 
+      
       
     </td>
   </tr>
@@ -276,7 +276,6 @@ Prepare interstitial banner
     <td>
       adIdOrOptions
       
-      
     </td>
     <td>
       
@@ -285,6 +284,7 @@ Prepare interstitial banner
     <td>
       <p>Ad ID or Options</p>
 
+      
       
     </td>
   </tr>
@@ -327,7 +327,6 @@ Prepare a reward video ad
     <td>
       adIdOrOptions
       
-      
     </td>
     <td>
       
@@ -336,6 +335,7 @@ Prepare a reward video ad
     <td>
       <p>Ad ID or Options</p>
 
+      
       
     </td>
   </tr>
@@ -378,7 +378,6 @@ Sets the values for configuration and targeting
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -387,6 +386,7 @@ Sets the values for configuration and targeting
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -505,7 +505,6 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       adId
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -513,13 +512,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Banner ad ID</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adSize
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>AdSize</code>
@@ -527,13 +526,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Banner Ad Size, defaults to <code>SMART_BANNER</code>. IT can be: <code>SMART_BANNER</code>, <code>BANNER</code>, <code>MEDIUM_RECTANGLE</code>, <code>FULL_BANNER</code>, <code>LEADERBOARD</code>, <code>SKYSCRAPER</code>, or <code>CUSTOM</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -541,13 +540,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Banner width, valid when <code>adSize</code> is set to <code>CUSTOM</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -555,13 +554,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Banner height, valid when <code>adSize</code> is set to <code>CUSTOM</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       overlap
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -569,13 +568,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Allow banner to overlap webview, or else it will push webview up or down to avoid overlap. Defaults to false.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       position
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -583,13 +582,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Position of banner ad. Defaults to <code>TOP_CENTER</code>. You can use the <code>AdMob.AD_POSITION</code> property to select other values.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       x
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -597,13 +596,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>X in pixels. Valid when <code>position</code> is set to <code>POS_XY</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       y
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -611,13 +610,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Y in pixels. Valid when <code>position</code> is set to <code>POS_XY</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isTesting
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -625,13 +624,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Set to true to receive test ad for testing purposes</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       autoShow
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -639,13 +638,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Auto show interstitial ad when loaded. Set to false if hope to control the show timing with prepareInterstitial/showInterstitial</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       orientationRenew
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -653,13 +652,13 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Re-create the banner on web view orientation change (not screen orientation), or else just move the banner. Default:true.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adExtras
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>AdExtras</code>
@@ -667,6 +666,7 @@ Triggered when dismiss the Ad and back to your App
     <td>
       <p>Set extra color style for Ad</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -692,12 +692,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_bg
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -705,12 +705,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_bg_top
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -718,12 +718,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_border
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -731,12 +731,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_link
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -744,12 +744,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_text
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -757,12 +757,12 @@ Triggered when dismiss the Ad and back to your App
   <tr>
     <td>
       color_url
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>

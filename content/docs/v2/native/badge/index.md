@@ -125,7 +125,6 @@ Set the badge of the app icon.
     <td>
       badgeNumber
       
-      
     </td>
     <td>
       
@@ -134,6 +133,7 @@ Set the badge of the app icon.
     <td>
       <p>The new badge number.</p>
 
+      
       
     </td>
   </tr>
@@ -179,7 +179,6 @@ Increase the badge number.
     <td>
       increaseBy
       
-      
     </td>
     <td>
       
@@ -188,6 +187,7 @@ Increase the badge number.
     <td>
       <p>Count to add to the current badge number</p>
 
+      
       
     </td>
   </tr>
@@ -220,7 +220,6 @@ Decrease the badge number.
     <td>
       decreaseBy
       
-      
     </td>
     <td>
       
@@ -229,6 +228,7 @@ Decrease the badge number.
     <td>
       <p>Count to subtract from the current badge number</p>
 
+      
       
     </td>
   </tr>

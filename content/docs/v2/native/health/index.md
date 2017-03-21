@@ -134,7 +134,6 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
     <td>
       datatypes
       
-      
     </td>
     <td>
       
@@ -143,6 +142,7 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
     <td>
       <p>a list of data types you want to be granted access to</p>
 
+      
       
     </td>
   </tr>
@@ -177,7 +177,6 @@ This function is similar to requestAuthorization() and has similar quirks.
     <td>
       datatypes
       
-      
     </td>
     <td>
       
@@ -186,6 +185,7 @@ This function is similar to requestAuthorization() and has similar quirks.
     <td>
       <p>a list of data types you want to be granted access to</p>
 
+      
       
     </td>
   </tr>
@@ -244,13 +244,13 @@ Automatic conversion is not trivial and depends on the actual substance.
     <td>
       queryOptions
       
-      
     </td>
     <td>
       
 <code>HealthQueryOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -300,13 +300,13 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
     <td>
       queryOptionsAggregated
       
-      
     </td>
     <td>
       
 <code>HealthQueryOptionsAggregated</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -349,13 +349,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       storeOptions
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -397,7 +397,6 @@ Storing of nutrients is not supported at the moment.
   <tr>
     <td>
       startDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -405,13 +404,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Start date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       endDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -419,13 +418,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>End date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       dataType
-      
     </td>
     <td>
       <code>string</code>
@@ -433,13 +432,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Datatype to be queried (see <a href="https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types">https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       limit
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -447,13 +446,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Optional limit the number of values returned. Defaults to 1000</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ascending
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -461,13 +460,13 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Optional indicator to sort values ascending or descending</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       filtered
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -476,6 +475,7 @@ Storing of nutrients is not supported at the moment.
       <p>In Android, it is possible to query for &quot;raw&quot; steps or to select those as filtered by the Google Fit app.
 In the latter case the query object must contain the field filtered: true.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -501,7 +501,6 @@ In the latter case the query object must contain the field filtered: true.</p>
   <tr>
     <td>
       startDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -509,13 +508,13 @@ In the latter case the query object must contain the field filtered: true.</p>
     <td>
       <p>Start date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       endDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -523,13 +522,13 @@ In the latter case the query object must contain the field filtered: true.</p>
     <td>
       <p>End date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       dataType
-      
     </td>
     <td>
       <code>string</code>
@@ -537,13 +536,13 @@ In the latter case the query object must contain the field filtered: true.</p>
     <td>
       <p>Datatype to be queried (see <a href="https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types">https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       bucket
-      
     </td>
     <td>
       <code>string</code>
@@ -552,6 +551,7 @@ In the latter case the query object must contain the field filtered: true.</p>
       <p>if specified, aggregation is grouped an array of &quot;buckets&quot; (windows of time),
 supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39;, &#39;year&#39;.</p>
 
+      
     </td>
   </tr>
   
@@ -577,7 +577,6 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
   <tr>
     <td>
       startDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -585,13 +584,13 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
     <td>
       <p>Start date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       endDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -599,13 +598,13 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
     <td>
       <p>End date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       dataType
-      
     </td>
     <td>
       <code>string</code>
@@ -613,13 +612,13 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
     <td>
       <p>Datatype to be queried (see <a href="https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types">https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       value
-      
     </td>
     <td>
       <code>string</code>
@@ -627,13 +626,13 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
     <td>
       <p>Value of corresponding Datatype (see &quot;Overview of valid datatypes&quot;)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sourceName
-      
     </td>
     <td>
       <code>string</code>
@@ -642,13 +641,13 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
       <p>The source that produced this data. In iOS this is ignored and
 set automatically to the name of your app.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sourceBundleId
-      
     </td>
     <td>
       <code>string</code>
@@ -658,6 +657,7 @@ set automatically to the name of your app.</p>
 In Android, if not specified, it&#39;s assigned to the package of the App. In iOS this is ignored and
 set automatically to the bunde id of the app.</p>
 
+      
     </td>
   </tr>
   
@@ -683,7 +683,6 @@ set automatically to the bunde id of the app.</p>
   <tr>
     <td>
       startDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -691,13 +690,13 @@ set automatically to the bunde id of the app.</p>
     <td>
       <p>Start date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       endDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -705,13 +704,13 @@ set automatically to the bunde id of the app.</p>
     <td>
       <p>End date from which to get data</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       value
-      
     </td>
     <td>
       <code>string</code>
@@ -719,13 +718,13 @@ set automatically to the bunde id of the app.</p>
     <td>
       <p>Value of corresponding Datatype (see <a href="https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types">https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       unit
-      
     </td>
     <td>
       <code>string</code>
@@ -733,13 +732,13 @@ set automatically to the bunde id of the app.</p>
     <td>
       <p>Unit of corresponding value of Datatype (see <a href="https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types">https://github.com/dariosalvi78/cordova-plugin-health#supported-data-types</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sourceName
-      
     </td>
     <td>
       <code>string</code>
@@ -748,13 +747,13 @@ set automatically to the bunde id of the app.</p>
       <p>The source that produced this data. In iOS this is ignored and
 set automatically to the name of your app.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sourceBundleId
-      
     </td>
     <td>
       <code>string</code>
@@ -764,6 +763,7 @@ set automatically to the name of your app.</p>
 In Android, if not specified, it&#39;s assigned to the package of the App. In iOS this is ignored and
 set automatically to the bunde id of the app.</p>
 
+      
     </td>
   </tr>
   

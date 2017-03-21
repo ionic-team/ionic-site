@@ -118,7 +118,6 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
     <td>
       canvasIdOrDataUrl
       
-      
     </td>
     <td>
       
@@ -128,13 +127,13 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
       <p>The canvas element id or the dataURL of the image to share</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       caption
-      
       
     </td>
     <td>
@@ -144,6 +143,7 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
     <td>
       <p>The caption of the image</p>
 
+      
       
     </td>
   </tr>
@@ -176,7 +176,6 @@ Share a library asset or video
     <td>
       assetLocalIdentifier
       
-      
     </td>
     <td>
       
@@ -185,6 +184,7 @@ Share a library asset or video
     <td>
       <p>A local fileURI</p>
 
+      
       
     </td>
   </tr>

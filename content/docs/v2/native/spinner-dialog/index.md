@@ -110,7 +110,6 @@ Shows the spinner dialog
     <td>
       title
       
-      
     </td>
     <td>
       
@@ -120,13 +119,13 @@ Shows the spinner dialog
       <p>Spinner title (shows on Android only)</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       message
-      
       
     </td>
     <td>
@@ -137,13 +136,13 @@ Shows the spinner dialog
       <p>Spinner message</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       cancelCallback
-      
       
     </td>
     <td>
@@ -154,13 +153,13 @@ Shows the spinner dialog
       <p>Set to true to set spinner not cancelable. Or provide a function to call when the user cancels the spinner.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       iOSOptions
-      
       
     </td>
     <td>
@@ -170,6 +169,7 @@ Shows the spinner dialog
     <td>
       <p>Options for iOS only</p>
 
+      
       
     </td>
   </tr>
@@ -216,52 +216,52 @@ Hides the spinner dialog if visible
   <tr>
     <td>
       overlayOpacity
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       textColorRed
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       textColorGreen
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       textColorBlue
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

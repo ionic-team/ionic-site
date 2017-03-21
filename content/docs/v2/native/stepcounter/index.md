@@ -118,7 +118,6 @@ Start the step counter
     <td>
       startingOffset
       
-      
     </td>
     <td>
       
@@ -127,6 +126,7 @@ Start the step counter
     <td>
       <p>will be added to the total steps counted in this session</p>
 
+      
       
     </td>
   </tr>

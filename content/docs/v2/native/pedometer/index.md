@@ -188,7 +188,6 @@ Only works on iOS.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -197,6 +196,7 @@ Only works on iOS.
     <td>
       <p>start date and en date where you want to get pedometer data</p>
 
+      
       
     </td>
   </tr>

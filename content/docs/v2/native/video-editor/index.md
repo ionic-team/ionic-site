@@ -133,7 +133,6 @@ Transcode a video
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -142,6 +141,7 @@ Transcode a video
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -174,7 +174,6 @@ Trim a video
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -183,6 +182,7 @@ Trim a video
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -215,7 +215,6 @@ Create a JPEG thumbnail from a video
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -224,6 +223,7 @@ Create a JPEG thumbnail from a video
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -256,7 +256,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -265,6 +264,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -305,7 +305,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   <tr>
     <td>
       fileUri
-      
     </td>
     <td>
       <code>string</code>
@@ -313,13 +312,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>The path to the video on the device.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       outputFileName
-      
     </td>
     <td>
       <code>string</code>
@@ -327,13 +326,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>The file name for the transcoded video</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       outputFileType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -341,13 +340,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Instructions on how to encode the video. Android is always mp4</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       optimizeForNetworkUse
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -355,13 +354,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Should the video be processed with quailty or speed in mind. iOS only</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       saveToLibrary
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -369,13 +368,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Save the new video the library. Not supported in windows. Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       deleteInputFile
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -383,13 +382,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Delete the original video. Android only. Defaults to false</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       maintainAspectRatio
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -397,13 +396,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>iOS only. Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -411,13 +410,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Width of the result</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -425,13 +424,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Height of the result</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       videoBitrate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -439,13 +438,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Bitrate in bits. Defaults to 1 megabit (1000000).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fps
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -453,13 +452,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Frames per second of the result. Android only. Defaults to 24.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       audioChannels
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -467,13 +466,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Number of audio channels. iOS only. Defaults to 2.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       audioSampleRate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -481,13 +480,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Sample rate for the audio. iOS only. Defaults to 44100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       audioBitrate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -495,13 +494,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Sample rate for the audio. iOS only. Defaults to 128 kilobits (128000).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       progress
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>(info: number) =&gt; void</code>
@@ -509,6 +508,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Not supported in windows, progress on the transcode. info will be a number from 0 to 100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -534,7 +534,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   <tr>
     <td>
       fileUri
-      
     </td>
     <td>
       <code>string</code>
@@ -542,13 +541,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Path to input video.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       trimStart
-      
     </td>
     <td>
       <code>number</code>
@@ -556,13 +555,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Time to start trimming in seconds</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       trimEnd
-      
     </td>
     <td>
       <code>number</code>
@@ -570,13 +569,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Time to end trimming in seconds</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       outputFileName
-      
     </td>
     <td>
       <code>string</code>
@@ -584,13 +583,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Output file name</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       progress
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>(info: any) =&gt; void</code>
@@ -598,6 +597,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Progress on transcode. info will be a number from 0 to 100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -623,7 +623,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   <tr>
     <td>
       fileUri
-      
     </td>
     <td>
       <code>string</code>
@@ -631,13 +630,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>The path to the video on the device</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       outputFileName
-      
     </td>
     <td>
       <code>string</code>
@@ -645,13 +644,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>The file name for the JPEG image</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       atTime
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -659,13 +658,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Location in the video to create the thumbnail (in seconds)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -673,13 +672,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Width of the thumbnail.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -687,13 +686,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Height of the thumbnail.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       quality
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -701,6 +700,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Quality of the thumbnail (between 1 and 100).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -726,7 +726,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   <tr>
     <td>
       fileUri
-      
     </td>
     <td>
       <code>string</code>
@@ -734,6 +733,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>The path to the video on the device.</p>
 
+      
     </td>
   </tr>
   
@@ -759,7 +759,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   <tr>
     <td>
       width
-      
     </td>
     <td>
       <code>number</code>
@@ -767,13 +766,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Width of the video in pixels.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      
     </td>
     <td>
       <code>number</code>
@@ -781,13 +780,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Height of the video in pixels.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       orientation
-      
     </td>
     <td>
       <code>&#39;portrait&#39; | &#39;landscape&#39;</code>
@@ -795,13 +794,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Orientation of the video. Will be either portrait or landscape.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       duration
-      
     </td>
     <td>
       <code>number</code>
@@ -809,13 +808,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Duration of the video in seconds.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       size
-      
     </td>
     <td>
       <code>number</code>
@@ -823,13 +822,13 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Size of the video in bytes.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       bitrate
-      
     </td>
     <td>
       <code>number</code>
@@ -837,6 +836,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Bitrate of the video in bits per second.</p>
 
+      
     </td>
   </tr>
   

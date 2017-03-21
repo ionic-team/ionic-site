@@ -125,7 +125,6 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -134,6 +133,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -166,7 +166,6 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -175,6 +174,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -241,7 +241,6 @@ Delete the cipher used for encryption and decryption by username
   <tr>
     <td>
       clientId
-      
     </td>
     <td>
       <code>string</code>
@@ -250,13 +249,13 @@ Delete the cipher used for encryption and decryption by username
       <p>Required
 Used as the alias for your key in the Android Key Store.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       username
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -264,13 +263,13 @@ Used as the alias for your key in the Android Key Store.</p>
     <td>
       <p>Used to create credential string for encrypted token and as alias to retrieve the cipher.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       password
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -278,13 +277,13 @@ Used as the alias for your key in the Android Key Store.</p>
     <td>
       <p>Used to create credential string for encrypted token</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       token
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -293,13 +292,13 @@ Used as the alias for your key in the Android Key Store.</p>
       <p>Required for decrypt()
 Encrypted user credentials to decrypt upon successful authentication.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableBackup
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -307,13 +306,13 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>Set to true to remove the &quot;USE BACKUP&quot; button</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       locale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -321,13 +320,13 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>Change the language. (en_US or es)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       maxAttempts
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -335,13 +334,13 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>The device max is 5 attempts. Set this parameter if you want to allow fewer than 5 attempts.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       userAuthRequired
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -351,13 +350,13 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
 New fingerprint enrollment will invalidate key and require backup authenticate to
 re-enable the fingerprint authentication dialog.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       dialogTitle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -365,13 +364,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the title of the fingerprint authentication dialog.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       dialogMessage
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -379,13 +378,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the message of the fingerprint authentication dialog.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       dialogHint
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -393,6 +392,7 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the hint displayed by the fingerprint icon on the fingerprint authentication dialog.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -418,7 +418,6 @@ re-enable the fingerprint authentication dialog.</p>
   <tr>
     <td>
       withFingerprint
-      
     </td>
     <td>
       <code>boolean</code>
@@ -426,13 +425,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Biometric authentication</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       withBackup
-      
     </td>
     <td>
       <code>boolean</code>
@@ -440,13 +439,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Authentication using backup credential activity</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       token
-      
     </td>
     <td>
       <code>string</code>
@@ -454,6 +453,7 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>base64encoded string representation of user credentials</p>
 
+      
     </td>
   </tr>
   
@@ -479,7 +479,6 @@ re-enable the fingerprint authentication dialog.</p>
   <tr>
     <td>
       withFingerprint
-      
     </td>
     <td>
       <code>boolean</code>
@@ -487,13 +486,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Biometric authentication</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       withBackup
-      
     </td>
     <td>
       <code>boolean</code>
@@ -501,13 +500,13 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Authentication using backup credential activity</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       password
-      
     </td>
     <td>
       <code>string</code>
@@ -516,6 +515,7 @@ re-enable the fingerprint authentication dialog.</p>
       <p>FingerprintAuth.CipherMode.DECRYPT
 Decrypted password</p>
 
+      
     </td>
   </tr>
   

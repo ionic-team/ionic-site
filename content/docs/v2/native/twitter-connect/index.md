@@ -157,7 +157,6 @@ Returns user's profile information
   <tr>
     <td>
       userName
-      
     </td>
     <td>
       <code>string</code>
@@ -165,13 +164,13 @@ Returns user's profile information
     <td>
       <p>Twitter Username</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       userId
-      
     </td>
     <td>
       <code>string</code>
@@ -179,13 +178,13 @@ Returns user's profile information
     <td>
       <p>Twitter User ID</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       secret
-      
     </td>
     <td>
       <code>string</code>
@@ -193,13 +192,13 @@ Returns user's profile information
     <td>
       <p>Twitter OAuth Secret</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       token
-      
     </td>
     <td>
       <code>string</code>
@@ -207,6 +206,7 @@ Returns user's profile information
     <td>
       <p>Twitter OAuth Token</p>
 
+      
     </td>
   </tr>
   

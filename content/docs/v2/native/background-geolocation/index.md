@@ -184,7 +184,6 @@ Configure the plugin.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -193,6 +192,7 @@ Configure the plugin.
     <td>
       <p>options An object of type Config</p>
 
+      
       
     </td>
   </tr>
@@ -265,13 +265,13 @@ Force the plugin to enter "moving" or "stationary" state
     <td>
       isMoving
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -305,13 +305,13 @@ Setup configuration
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>BackgroundGeolocationConfig</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -464,13 +464,13 @@ Delete stored location by given locationId.
     <td>
       locationId
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -525,13 +525,13 @@ BackgroundGeolocation.Mode.BACKGROUND 
     <td>
       modeId
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -589,7 +589,6 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
   <tr>
     <td>
       locationId
-      
     </td>
     <td>
       <code>number</code>
@@ -597,13 +596,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>ID of location as stored in DB (or null)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       serviceProvider
-      
     </td>
     <td>
       <code>string</code>
@@ -611,13 +610,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>Service provider</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       debug
-      
     </td>
     <td>
       <code>boolean</code>
@@ -625,13 +624,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>true if location recorded as part of debug</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       time
-      
     </td>
     <td>
       <code>number</code>
@@ -639,13 +638,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>UTC time of this fix, in milliseconds since January 1, 1970.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       latitude
-      
     </td>
     <td>
       <code>number</code>
@@ -653,13 +652,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>latitude, in degrees.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       longitude
-      
     </td>
     <td>
       <code>number</code>
@@ -667,13 +666,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>longitude, in degrees.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       accuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -681,13 +680,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>estimated accuracy of this location, in meters.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       speed
-      
     </td>
     <td>
       <code>number</code>
@@ -695,13 +694,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>speed if it is available, in meters/second over ground.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       altitude
-      
     </td>
     <td>
       <code>number</code>
@@ -709,13 +708,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>altitude if available, in meters above the WGS 84 reference ellipsoid.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       altitudeAccuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -723,13 +722,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>accuracy of the altitude if available.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       bearing
-      
     </td>
     <td>
       <code>number</code>
@@ -737,13 +736,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>bearing, in degrees.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       coords
-      
     </td>
     <td>
       <code>Coordinates</code>
@@ -751,13 +750,13 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>A Coordinates object defining the current location</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>number</code>
@@ -765,6 +764,7 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
     <td>
       <p>A timestamp representing the time at which the location was retrieved.</p>
 
+      
     </td>
   </tr>
   
@@ -790,7 +790,6 @@ Return all logged events. Useful for plugin debugging. Parameter limit limits nu
   <tr>
     <td>
       desiredAccuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -801,13 +800,13 @@ the number, the more power devoted to GeoLocation resulting in higher
 accuracy readings. 1000 results in lowest power drain and least accurate
 readings. @see Apple docs (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html#//apple_ref/occ/instp/CLLocationManager/desiredAccuracy">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/index.html#//apple_ref/occ/instp/CLLocationManager/desiredAccuracy</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       stationaryRadius
-      
     </td>
     <td>
       <code>number</code>
@@ -817,13 +816,13 @@ readings. @see Apple docs (<a href="https://developer.apple.com/library/ios/docu
 must move beyond the stationary location for aggressive background-tracking
 to engage.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       debug
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -832,13 +831,13 @@ to engage.</p>
       <p>When enabled, the plugin will emit sounds for life-cycle events of
 background-geolocation! See debugging sounds table.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       distanceFilter
-      
     </td>
     <td>
       <code>number</code>
@@ -847,13 +846,13 @@ background-geolocation! See debugging sounds table.</p>
       <p>The minimum distance (measured in meters) a device must move horizontally
 before an update event is generated. @see Apple docs. (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/distanceFilter">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/distanceFilter</a>)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       stopOnTerminate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -864,13 +863,13 @@ Enable this in order to force a stop() when the application terminated
 (e.g. on iOS, double-tap home button, swipe away the app).o</p>
 <p>Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       startOnBoot
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -880,13 +879,13 @@ Enable this in order to force a stop() when the application terminated
 Start background service on device boot. </p>
 <p>Defaults to false</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       startForeground
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -896,13 +895,13 @@ Start background service on device boot. </p>
 If false location service will not be started in foreground and no notification will be shown.</p>
 <p>Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       interval
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -912,13 +911,13 @@ If false location service will not be started in foreground and no notification 
 When using BackgroundGeolocation.LocationProvider.ANDROID_DISTANCE_FILTER_PROVIDER:
 The minimum time interval between location updates in milliseconds.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notificationTitle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -927,13 +926,13 @@ The minimum time interval between location updates in milliseconds.</p>
       <p>ANDROID ONLY
 Custom notification title in the drawer.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notificationText
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -942,13 +941,13 @@ Custom notification title in the drawer.</p>
       <p>ANDROID ONLY
 Custom notification text in the drawer.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notificationIconColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -957,13 +956,13 @@ Custom notification text in the drawer.</p>
       <p>ANDROID ONLY
 The accent color to use for notification. Eg. #4CAF50.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notificationIconLarge
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -973,13 +972,13 @@ The accent color to use for notification. Eg. #4CAF50.</p>
 The filename of a custom notification icon. See android quirks. 
 NOTE: Only available for API Level &gt;=21.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       notificationIconSmall
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -989,13 +988,13 @@ NOTE: Only available for API Level &gt;=21.</p>
 The filename of a custom notification icon. See android quirks. 
 NOTE: Only available for API Level &gt;=21.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       locationProvider
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1004,13 +1003,13 @@ NOTE: Only available for API Level &gt;=21.</p>
       <p>ANDROID ONLY
 Set location service provider @see wiki (<a href="https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers">https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers</a>)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       activityType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1021,13 +1020,13 @@ Set location service provider @see wiki (<a href="https://github.com/mauron85/co
 this affects iOS GPS algorithm. @see Apple docs for more information
 (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType</a>)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       pauseLocationUpdates
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1037,13 +1036,13 @@ this affects iOS GPS algorithm. @see Apple docs for more information
 Pauses location updates when app is paused </p>
 <p>Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       url
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1051,13 +1050,13 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Server url where to send HTTP POST with recorded locations </p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       syncUrl
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1065,13 +1064,13 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Server url where to send fail to post locations </p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       syncThreshold
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1080,13 +1079,13 @@ Pauses location updates when app is paused </p>
       <p>Specifies how many previously failed locations will be sent to server at once </p>
 <p>Defaults to 100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       httpHeaders
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -1094,13 +1093,13 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Optional HTTP headers sent along in HTTP request</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       saveBatteryOnBackground
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1110,13 +1109,13 @@ Pauses location updates when app is paused </p>
 Switch to less accurate significant changes and region monitory when in background (default)</p>
 <p>Defaults to 100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       maxLocations
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1125,13 +1124,13 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>Limit maximum number of locations stored into db </p>
 <p>Defaults to 10000</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fastestInterval
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1140,13 +1139,13 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>Fastest rate in milliseconds at which your app can handle location updates.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       activitiesInterval
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1155,13 +1154,13 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>Rate in milliseconds at which activity recognition occurs. Larger values will result in fewer activity detections while improving battery life.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       stopOnStillActivity
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1170,6 +1169,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>stop() is forced, when the STILL activity is detected (default is true)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

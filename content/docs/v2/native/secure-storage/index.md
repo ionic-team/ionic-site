@@ -131,13 +131,13 @@ Creates a namespaced storage.
     <td>
       store
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -186,13 +186,13 @@ Gets a stored item
     <td>
       reference
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -226,13 +226,13 @@ Stores a value
     <td>
       reference
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -242,13 +242,13 @@ Stores a value
     <td>
       value
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -282,13 +282,13 @@ Removes a single stored item
     <td>
       reference
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>

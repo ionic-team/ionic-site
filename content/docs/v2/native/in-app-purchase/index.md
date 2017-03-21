@@ -132,7 +132,6 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
     <td>
       productId
       
-      
     </td>
     <td>
       
@@ -141,6 +140,7 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
     <td>
       <p>an array of product ids.</p>
 
+      
       
     </td>
   </tr>
@@ -173,7 +173,6 @@ Buy a product that matches the productId.
     <td>
       productId
       
-      
     </td>
     <td>
       
@@ -182,6 +181,7 @@ Buy a product that matches the productId.
     <td>
       <p>A string that matches the product you want to buy.</p>
 
+      
       
     </td>
   </tr>
@@ -214,7 +214,6 @@ Same as buy, but for subscription based products.
     <td>
       productId
       
-      
     </td>
     <td>
       
@@ -223,6 +222,7 @@ Same as buy, but for subscription based products.
     <td>
       <p>A string that matches the product you want to subscribe to.</p>
 
+      
       
     </td>
   </tr>
@@ -255,13 +255,13 @@ Call this function after purchasing a "consumable" product to mark it as consume
     <td>
       productType
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -271,13 +271,13 @@ Call this function after purchasing a "consumable" product to mark it as consume
     <td>
       receipt
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -287,13 +287,13 @@ Call this function after purchasing a "consumable" product to mark it as consume
     <td>
       signature
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>

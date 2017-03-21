@@ -104,13 +104,13 @@ Crops an image
     <td>
       pathToImage
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -120,13 +120,13 @@ Crops an image
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>

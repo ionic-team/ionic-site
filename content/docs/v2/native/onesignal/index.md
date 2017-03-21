@@ -134,7 +134,6 @@ Start the initialization process. Once you are done configuring OneSignal, call 
     <td>
       appId
       
-      
     </td>
     <td>
       
@@ -144,13 +143,13 @@ Start the initialization process. Once you are done configuring OneSignal, call 
       <p>Your OneSignal app id</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       googleProjectNumber
-      
       
     </td>
     <td>
@@ -160,6 +159,7 @@ Start the initialization process. Once you are done configuring OneSignal, call 
     <td>
       <p><strong>ANDROID</strong> - your Google project number; only required for Android GCM/FCM pushes.</p>
 
+      
       
     </td>
   </tr>
@@ -223,7 +223,6 @@ inFocusDisplaying).
     <td>
       settings
       
-      
     </td>
     <td>
       
@@ -235,6 +234,7 @@ inFocusDisplaying).
 <p> kOSSettingsKeyInAppLaunchURL: boolean = false
  Launch notifications with a launch URL as an in app webview.</p>
 
+      
       
     </td>
   </tr>
@@ -316,7 +316,6 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     <td>
       Key
       
-      
     </td>
     <td>
       
@@ -326,13 +325,13 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
       <p>of your choosing to create or update.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       Value
-      
       
     </td>
     <td>
@@ -342,6 +341,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     <td>
       <p>to set on the key. NOTE: Passing in a blank String deletes the key, you can also call deleteTag.</p>
 
+      
       
     </td>
   </tr>
@@ -372,7 +372,6 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     <td>
       Pass
       
-      
     </td>
     <td>
       
@@ -381,6 +380,7 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     <td>
       <p>a json object with key/value pairs like: {key: &quot;value&quot;, key2: &quot;value2&quot;}</p>
 
+      
       
     </td>
   </tr>
@@ -410,7 +410,6 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
     <td>
       Key
       
-      
     </td>
     <td>
       
@@ -419,6 +418,7 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
     <td>
       <p>to remove.</p>
 
+      
       
     </td>
   </tr>
@@ -448,7 +448,6 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
     <td>
       Keys
       
-      
     </td>
     <td>
       
@@ -457,6 +456,7 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
     <td>
       <p>to remove.</p>
 
+      
       
     </td>
   </tr>
@@ -501,7 +501,6 @@ Passing false means that the device will only vibrate lightly when the device is
     <td>
       false
       
-      
     </td>
     <td>
       
@@ -510,6 +509,7 @@ Passing false means that the device will only vibrate lightly when the device is
     <td>
       <p>to disable vibrate, true to re-enable it.</p>
 
+      
       
     </td>
   </tr>
@@ -543,7 +543,6 @@ Passing false means that the device will only vibrate unless the device is set t
     <td>
       false
       
-      
     </td>
     <td>
       
@@ -552,6 +551,7 @@ Passing false means that the device will only vibrate unless the device is set t
     <td>
       <p>to disable sound, true to re-enable it.</p>
 
+      
       
     </td>
   </tr>
@@ -581,13 +581,13 @@ Setting to control how OneSignal notifications will be shown when one is receive
     <td>
       displayOption
       
-      
     </td>
     <td>
       
 <code>DisplayType</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -623,13 +623,13 @@ You can pass true later to opt users back into notifications.
     <td>
       enable
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -659,7 +659,6 @@ You can pass true later to opt users back into notifications.
     <td>
       Parameters
       
-      
     </td>
     <td>
       
@@ -668,6 +667,7 @@ You can pass true later to opt users back into notifications.
     <td>
       <p>see POST <a href="https://documentation.onesignal.com/v2.0/docs/notifications-create-notification">documentation</a></p>
 
+      
       
     </td>
   </tr>
@@ -710,13 +710,13 @@ Prompts the user for location permission to allow geotagging based on the "Locat
     <td>
       email
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -750,7 +750,6 @@ The higher the value the more information is shown.
     <td>
       contains
       
-      
     </td>
     <td>
       
@@ -759,6 +758,7 @@ The higher the value the more information is shown.
     <td>
       <p>two properties: logLevel (for console logging) and visualLevel (for dialog messages)</p>
 
+      
       
     </td>
   </tr>
@@ -795,7 +795,6 @@ The higher the value the more information is shown.
   <tr>
     <td>
       isAppInFocus
-      
     </td>
     <td>
       <code>boolean</code>
@@ -803,13 +802,13 @@ The higher the value the more information is shown.
     <td>
       <p>Was app in focus.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       shown
-      
     </td>
     <td>
       <code>boolean</code>
@@ -817,13 +816,13 @@ The higher the value the more information is shown.
     <td>
       <p>Was notification shown to the user. Will be false for silent notifications.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       androidNotificationId
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -831,13 +830,13 @@ The higher the value the more information is shown.
     <td>
       <p><strong>ANDROID</strong> - Android Notification assigned to the notification. Can be used to cancel or replace the notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       payload
-      
     </td>
     <td>
       <code>OSNotificationPayload</code>
@@ -845,13 +844,13 @@ The higher the value the more information is shown.
     <td>
       <p>Payload received from OneSignal.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       displayType
-      
     </td>
     <td>
       <code>OSDisplayType</code>
@@ -859,13 +858,13 @@ The higher the value the more information is shown.
     <td>
       <p>How the notification was displayed to the user. Can be set to <code>Notification</code>, <code>InAppAlert</code>, or <code>None</code> if it was not displayed.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       groupedNotifications
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>OSNotificationPayload[]</code>
@@ -873,31 +872,32 @@ The higher the value the more information is shown.
     <td>
       <p><strong>ANDROID</strong> - Notification is a summary notification for a group this will contain all notification payloads it was created from.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       app_id
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       contents
-      
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -905,754 +905,754 @@ The higher the value the more information is shown.
   <tr>
     <td>
       headings
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isIos
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isAndroid
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isWP
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isWP_WNS
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isAdm
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isChrome
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isChromeWeb
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isSafari
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isAnyWeb
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       included_segments
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       excluded_segments
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_player_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_ios_tokens
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_android_reg_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_wp_uris
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_wp_wns_uris
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_amazon_reg_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_chrome_reg_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       include_chrome_web_reg_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       app_ids
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       tags
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ios_badgeType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ios_badgeCount
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ios_sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       wp_sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       wp_wns_sound
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       data
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       buttons
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       small_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       large_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       big_picture
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_small_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_large_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_big_picture
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       chrome_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       chrome_big_picture
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       chrome_web_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       firefox_icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       url
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       send_after
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       delayed_option
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       delivery_time_of_day
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_led_color
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_accent_color
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_visibility
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       content_available
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       amazon_background_data
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       template_id
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_group
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android_group_message
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_group
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       adm_group_message
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ttl
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       priority
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       ios_category
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -1678,7 +1678,6 @@ The higher the value the more information is shown.
   <tr>
     <td>
       Public
-      
     </td>
     <td>
       <code>1</code>
@@ -1686,13 +1685,13 @@ The higher the value the more information is shown.
     <td>
       <p>Fully visible (default)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       Private
-      
     </td>
     <td>
       <code>0</code>
@@ -1700,13 +1699,13 @@ The higher the value the more information is shown.
     <td>
       <p>Contents are hidden</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       Secret
-      
     </td>
     <td>
       <code>-1</code>
@@ -1714,6 +1713,7 @@ The higher the value the more information is shown.
     <td>
       <p>Not shown</p>
 
+      
     </td>
   </tr>
   
@@ -1739,7 +1739,6 @@ The higher the value the more information is shown.
   <tr>
     <td>
       None
-      
     </td>
     <td>
       <code>0</code>
@@ -1747,13 +1746,13 @@ The higher the value the more information is shown.
     <td>
       <p>notification is silent, or inFocusDisplaying is disabled.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       InAppAlert
-      
     </td>
     <td>
       <code>1</code>
@@ -1761,13 +1760,13 @@ The higher the value the more information is shown.
     <td>
       <p>(<strong>DEFAULT</strong>) - native alert dialog display.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       Notification
-      
     </td>
     <td>
       <code>2</code>
@@ -1775,6 +1774,7 @@ The higher the value the more information is shown.
     <td>
       <p>native notification display.</p>
 
+      
     </td>
   </tr>
   
@@ -1800,7 +1800,6 @@ The higher the value the more information is shown.
   <tr>
     <td>
       notificationID
-      
     </td>
     <td>
       <code>string</code>
@@ -1808,13 +1807,13 @@ The higher the value the more information is shown.
     <td>
       <p>OneSignal notification UUID.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      
     </td>
     <td>
       <code>string</code>
@@ -1822,13 +1821,13 @@ The higher the value the more information is shown.
     <td>
       <p>Title of the notification.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
     </td>
     <td>
       <code>string</code>
@@ -1836,13 +1835,13 @@ The higher the value the more information is shown.
     <td>
       <p>Body of the notification.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       additionalData
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -1851,13 +1850,13 @@ The higher the value the more information is shown.
       <p>Custom additional data that was sent with the notification. Set on the dashboard under Options &gt; Additional Data
 or with the &#39;data&#39; field on the REST API.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       smallIcon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1865,13 +1864,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Small icon resource name set on the notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       largeIcon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1879,13 +1878,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Large icon set on the notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bigPicture
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1893,13 +1892,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Big picture image set on the notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       smallIconAccentColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1907,13 +1906,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Accent color shown around small notification icon on Android 5+ devices. ARGB format.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       launchUrl
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1921,13 +1920,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>URL to open when opening the notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       sound
-      
     </td>
     <td>
       <code>string</code>
@@ -1935,13 +1934,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Sound resource to play when the notification is shown.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       ledColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1949,26 +1948,26 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Devices that have a notification LED will blink in this color. ARGB format.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       lockScreenVisibility
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>OSLockScreenVisibility</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       groupKey
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1976,13 +1975,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Notifications with this same key will be grouped together as a single summary notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       groupMessage
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1990,13 +1989,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Summary text displayed in the summary notification.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       actionButtons
-      
     </td>
     <td>
       <code>OSActionButton[]</code>
@@ -2004,13 +2003,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>List of action buttons on the notification.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       fromProjectNumber
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -2018,13 +2017,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - The Google project number the notification was sent under.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       backgroundImageLayout
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>OSBackgroundImageLayout</code>
@@ -2032,26 +2031,26 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - If a background image was set this object will be available.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       priority
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       rawPayload
-      
     </td>
     <td>
       <code>string</code>
@@ -2059,6 +2058,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>List of action buttons on the notification.</p>
 
+      
     </td>
   </tr>
   
@@ -2084,7 +2084,6 @@ or with the &#39;data&#39; field on the REST API.</p>
   <tr>
     <td>
       id
-      
     </td>
     <td>
       <code>string</code>
@@ -2092,13 +2091,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Id assigned to the button.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       text
-      
     </td>
     <td>
       <code>string</code>
@@ -2106,13 +2105,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Text show on the button to the user.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       icon
-      
     </td>
     <td>
       <code>string</code>
@@ -2120,6 +2119,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Icon shown on the button.</p>
 
+      
     </td>
   </tr>
   
@@ -2145,7 +2145,6 @@ or with the &#39;data&#39; field on the REST API.</p>
   <tr>
     <td>
       image
-      
     </td>
     <td>
       <code>string</code>
@@ -2153,13 +2152,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Image URL or name used as the background image.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       titleTextColor
-      
     </td>
     <td>
       <code>string</code>
@@ -2167,13 +2166,13 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Text color of the title on the notification. ARGB Format.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       bodyTextColor
-      
     </td>
     <td>
       <code>string</code>
@@ -2181,6 +2180,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>Text color of the body on the notification. ARGB Format.</p>
 
+      
     </td>
   </tr>
   
@@ -2206,7 +2206,6 @@ or with the &#39;data&#39; field on the REST API.</p>
   <tr>
     <td>
       action
-      
     </td>
     <td>
       <code>*/
@@ -2215,18 +2214,19 @@ or with the &#39;data&#39; field on the REST API.</p>
     </td>
     <td>
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       notification
-      
     </td>
     <td>
       <code>OSNotification</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -2253,12 +2253,12 @@ or with the &#39;data&#39; field on the REST API.</p>
   <tr>
     <td>
       Opened
-      
     </td>
     <td>
       <code>0</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -2266,12 +2266,12 @@ or with the &#39;data&#39; field on the REST API.</p>
   <tr>
     <td>
       ActionTake
-      
     </td>
     <td>
       <code>1</code>
     </td>
     <td>
+      
       
     </td>
   </tr>

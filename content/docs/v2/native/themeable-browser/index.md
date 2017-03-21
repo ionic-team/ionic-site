@@ -163,7 +163,6 @@ Creates a browser instance
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -173,13 +172,13 @@ Creates a browser instance
       <p>URL to open</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       target
-      
       
     </td>
     <td>
@@ -190,13 +189,13 @@ Creates a browser instance
       <p>Target</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       styleOptions
-      
       
     </td>
     <td>
@@ -206,6 +205,7 @@ Creates a browser instance
     <td>
       <p>Themeable browser options</p>
 
+      
       
     </td>
   </tr>
@@ -284,7 +284,6 @@ Injects JavaScript code into the browser window.
     <td>
       script
       
-      
     </td>
     <td>
       
@@ -293,6 +292,7 @@ Injects JavaScript code into the browser window.
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
 
+      
       
     </td>
   </tr>
@@ -325,7 +325,6 @@ Injects CSS into the browser window.
     <td>
       css
       
-      
     </td>
     <td>
       
@@ -334,6 +333,7 @@ Injects CSS into the browser window.
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
 
+      
       
     </td>
   </tr>
@@ -367,7 +367,6 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     <td>
       event
       
-      
     </td>
     <td>
       
@@ -376,6 +375,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     <td>
       <p>Event name</p>
 
+      
       
     </td>
   </tr>
@@ -413,91 +413,91 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
   <tr>
     <td>
       wwwImage
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       image
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       wwwImagePressed
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       imagePressed
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       wwwImageDensity
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       align
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       event
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -523,7 +523,6 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
   <tr>
     <td>
       statusbar
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{
@@ -532,13 +531,13 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       toolbar
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{
@@ -549,13 +548,13 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{
@@ -566,65 +565,65 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       backButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>ThemeableBrowserButton</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       forwardButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>ThemeableBrowserButton</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       closeButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>ThemeableBrowserButton</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       customButtons
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>ThemeableBrowserButton[]</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       menu
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>{
@@ -641,266 +640,267 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       backButtonCanClose
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableAnimation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       location
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hidden
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearcache
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearsessioncache
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       zoom
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hardwareback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       mediaPlaybackRequiresUserAction
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       shouldPauseOnSuspsend
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       closebuttoncaption
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disallowoverscroll
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       enableViewportScale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       allowInlineMediaPlayback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       keyboardDisplayRequiresUserAction
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       suppressesIncrementalRendering
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       presentationstyle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       transitionstyle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       toolbarposition
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fullscreen
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

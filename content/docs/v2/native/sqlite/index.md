@@ -116,7 +116,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       config
       
-      
     </td>
     <td>
       
@@ -125,6 +124,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       <p>the config for opening the database.</p>
 
+      
       
     </td>
   </tr>
@@ -191,13 +191,13 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       fn
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -231,13 +231,13 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       fn
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -313,13 +313,13 @@ ensure it resolved and successfully opened the database.
     <td>
       sql
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -329,13 +329,13 @@ ensure it resolved and successfully opened the database.
     <td>
       values
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -369,13 +369,13 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlStatements
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -418,13 +418,13 @@ ensure it resolved and successfully opened the database.
     <td>
       handler
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -434,13 +434,13 @@ ensure it resolved and successfully opened the database.
     <td>
       response
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -470,13 +470,13 @@ ensure it resolved and successfully opened the database.
     <td>
       handler
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -486,13 +486,13 @@ ensure it resolved and successfully opened the database.
     <td>
       response
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -531,13 +531,13 @@ ensure it resolved and successfully opened the database.
     <td>
       txFailure
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -576,13 +576,13 @@ ensure it resolved and successfully opened the database.
     <td>
       sqlerror
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -625,13 +625,13 @@ ensure it resolved and successfully opened the database.
     <td>
       first
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>

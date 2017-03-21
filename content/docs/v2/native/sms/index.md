@@ -112,7 +112,6 @@ Sends sms to a number
     <td>
       phoneNumber
       
-      
     </td>
     <td>
       
@@ -122,13 +121,13 @@ Sends sms to a number
       <p>Phone number</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       message
-      
       
     </td>
     <td>
@@ -139,13 +138,13 @@ Sends sms to a number
       <p>Message</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -155,6 +154,7 @@ Sends sms to a number
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -208,7 +208,6 @@ This function lets you know if the app has permission to send SMS
   <tr>
     <td>
       replaceLineBreaks
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -216,19 +215,20 @@ This function lets you know if the app has permission to send SMS
     <td>
       <p>Set to true to replace \n by a new line. Default: false</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       android
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>SmsOptionsAndroid</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -254,7 +254,6 @@ This function lets you know if the app has permission to send SMS
   <tr>
     <td>
       intent
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -262,6 +261,7 @@ This function lets you know if the app has permission to send SMS
     <td>
       <p>Set to &quot;INTENT&quot; to send SMS with the native android SMS messaging. Leaving it empty will send the SMS without opening any app.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

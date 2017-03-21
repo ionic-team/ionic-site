@@ -143,13 +143,13 @@ It will reacquire the wakelock upon app resume. If you would prefer to disable t
     <td>
       set
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>

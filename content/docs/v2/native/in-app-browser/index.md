@@ -106,7 +106,6 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -116,13 +115,13 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
       <p>The URL to load.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       target
-      
       
     </td>
     <td>
@@ -133,13 +132,13 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
       <p>The target in which to load the URL, an optional parameter that defaults to _self.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -151,6 +150,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
                 The options string must not contain any blank space, and each feature&#39;s
                 name/value pairs must be separated by a comma. Feature names are case insensitive.</p>
 
+      
       
     </td>
   </tr>
@@ -230,7 +230,6 @@ Injects JavaScript code into the InAppBrowser window.
     <td>
       script
       
-      
     </td>
     <td>
       
@@ -239,6 +238,7 @@ Injects JavaScript code into the InAppBrowser window.
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
 
+      
       
     </td>
   </tr>
@@ -271,7 +271,6 @@ Injects CSS into the InAppBrowser window.
     <td>
       css
       
-      
     </td>
     <td>
       
@@ -280,6 +279,7 @@ Injects CSS into the InAppBrowser window.
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
 
+      
       
     </td>
   </tr>
@@ -312,7 +312,6 @@ A method that allows you to listen to events happening in the browser.
     <td>
       event
       
-      
     </td>
     <td>
       
@@ -321,6 +320,7 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>Name of the event</p>
 
+      
       
     </td>
   </tr>
@@ -358,7 +358,6 @@ A method that allows you to listen to events happening in the browser.
   <tr>
     <td>
       type
-      
     </td>
     <td>
       <code>string</code>
@@ -366,13 +365,13 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>the eventname, either loadstart, loadstop, loaderror, or exit.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       url
-      
     </td>
     <td>
       <code>string</code>
@@ -380,13 +379,13 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>the URL that was loaded.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       code
-      
     </td>
     <td>
       <code>number</code>
@@ -394,13 +393,13 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>the error code, only in the case of loaderror.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       message
-      
     </td>
     <td>
       <code>string</code>
@@ -408,6 +407,7 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>the error message, only in the case of loaderror.</p>
 
+      
     </td>
   </tr>
   
@@ -433,7 +433,6 @@ A method that allows you to listen to events happening in the browser.
   <tr>
     <td>
       location
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -441,13 +440,13 @@ A method that allows you to listen to events happening in the browser.
     <td>
       <p>Set to yes or no to turn the InAppBrowser&#39;s location bar on or off.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hidden
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -456,13 +455,13 @@ A method that allows you to listen to events happening in the browser.
       <p>Set to yes to create the browser and load the page, but not show it. The loadstop event fires when loading is complete.
 Omit or set to no (default) to have the browser open and load normally.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearcache
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39;</code>
@@ -470,13 +469,13 @@ Omit or set to no (default) to have the browser open and load normally.</p>
     <td>
       <p>Set to yes to have the browser&#39;s cookie cache cleared before the new window is opened.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       clearsessioncache
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39;</code>
@@ -484,13 +483,13 @@ Omit or set to no (default) to have the browser open and load normally.</p>
     <td>
       <p>Set to yes to have the session cookie cache cleared before the new window is opened.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       zoom
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -498,13 +497,13 @@ Omit or set to no (default) to have the browser open and load normally.</p>
     <td>
       <p>(Android Only) set to yes to show Android browser&#39;s zoom controls, set to no to hide them. Default value is yes.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hardwareback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -513,13 +512,13 @@ Omit or set to no (default) to have the browser open and load normally.</p>
       <p>Set to yes to use the hardware back button to navigate backwards through the InAppBrowser&#39;s history.
 If there is no previous page, the InAppBrowser will close. The default value is yes, so you must set it to no if you want the back button to simply close the InAppBrowser.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       mediaPlaybackRequiresUserAction
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -527,13 +526,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>Set to yes to prevent HTML5 audio or video from autoplaying (defaults to no).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       shouldPauseOnSuspend
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -541,13 +540,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>(Android Only) Set to yes to make InAppBrowser WebView to pause/resume with the app to stop background audio (this may be required to avoid Google Play issues)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       closebuttoncaption
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -555,13 +554,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>(iOS Only) Set to a string to use as the Done button&#39;s caption. Note that you need to localize this value yourself.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disallowoverscroll
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -569,13 +568,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>(iOS Only) Set to yes or no (default is no). Turns on/off the UIWebViewBounce property.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       toolbar
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -583,13 +582,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>(iOS Only) Set to yes or no to turn the toolbar on or off for the InAppBrowser (defaults to yes)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       enableViewportScale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -597,13 +596,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
     <td>
       <p>(iOS Only)  Set to yes or no to prevent viewport scaling through a meta tag (defaults to no).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       allowInlineMediaPlayback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -612,13 +611,13 @@ If there is no previous page, the InAppBrowser will close. The default value is 
       <p>(iOS Only) Set to yes or no to allow in-line HTML5 media playback, displaying within the browser window rather than a device-specific playback interface.
 The HTML&#39;s video element must also include the webkit-playsinline attribute (defaults to no)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       keyboardDisplayRequiresUserAction
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -626,13 +625,13 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     <td>
       <p>(iOS Only) Set to yes or no to open the keyboard when form elements receive focus via JavaScript&#39;s focus() call (defaults to yes).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       suppressesIncrementalRendering
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39; | &#39;no&#39;</code>
@@ -640,13 +639,13 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     <td>
       <p>(iOS Only) Set to yes or no to wait until all new view content is received before being rendered (defaults to no).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       presentationstyle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;pagesheet&#39; | &#39;formsheet&#39; | &#39;fullscreen&#39;</code>
@@ -654,13 +653,13 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     <td>
       <p>(iOS Only) Set to pagesheet, formsheet or fullscreen to set the presentation style (defaults to fullscreen).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       transitionstyle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;fliphorizontal&#39; | &#39;crossdissolve&#39; | &#39;coververtical&#39;</code>
@@ -668,13 +667,13 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     <td>
       <p>(iOS Only) Set to fliphorizontal, crossdissolve or coververtical to set the transition style (defaults to coververtical).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       toolbarposition
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;top&#39; | &#39;bottom&#39;</code>
@@ -682,13 +681,13 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
     <td>
       <p>(iOS Only) Set to top or bottom (default is bottom). Causes the toolbar to be at the top or bottom of the window.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fullscreen
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>&#39;yes&#39;</code>
@@ -697,6 +696,7 @@ The HTML&#39;s video element must also include the webkit-playsinline attribute 
       <p>(Windows only) Set to yes to create the browser control without a border around it.
 Please note that if location=no is also specified, there will be no control presented to user to close IAB window.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

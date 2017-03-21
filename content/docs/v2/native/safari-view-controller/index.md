@@ -145,7 +145,6 @@ Shows Safari View Controller
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -154,6 +153,7 @@ Shows Safari View Controller
     <td>
       <p>optional</p>
 
+      
       
     </td>
   </tr>
@@ -222,13 +222,13 @@ For even better performance optimization, call this methods if there's more than
     <td>
       url
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -270,104 +270,104 @@ For even better performance optimization, call this methods if there's more than
   <tr>
     <td>
       url
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hidden
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       toolbarColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       animated
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       showDefaultShareMenuItem
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       enterReaderModeIfAvailable
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       tintColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       transition
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

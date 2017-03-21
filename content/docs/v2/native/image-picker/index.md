@@ -107,13 +107,13 @@ Pick pictures from the library.
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>ImagePickerOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -182,7 +182,6 @@ Request permission to read images
   <tr>
     <td>
       maximumImagesCount
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -190,13 +189,13 @@ Request permission to read images
     <td>
       <p>max images to be selected, defaults to 15. If this is set to 1, upon selection of a single image, the plugin will return it.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -204,13 +203,13 @@ Request permission to read images
     <td>
       <p>Max width to allow images to be</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -218,13 +217,13 @@ Request permission to read images
     <td>
       <p>Max height to allow images to be</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       quality
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -232,13 +231,13 @@ Request permission to read images
     <td>
       <p>Quality of images, defaults to 100</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       outputType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -246,6 +245,7 @@ Request permission to read images
     <td>
       <p>Output type, defaults to 0  (FILE_URI).</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

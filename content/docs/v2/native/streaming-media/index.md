@@ -113,7 +113,6 @@ Streams a video
     <td>
       videoUrl
       
-      
     </td>
     <td>
       
@@ -123,13 +122,13 @@ Streams a video
       <p>The URL of the video</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -139,6 +138,7 @@ Streams a video
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -167,7 +167,6 @@ Streams an audio
     <td>
       audioUrl
       
-      
     </td>
     <td>
       
@@ -177,13 +176,13 @@ Streams an audio
       <p>The URL of the audio stream</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -193,6 +192,7 @@ Streams an audio
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -259,39 +259,39 @@ Resumes streaming audio
   <tr>
     <td>
       successCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       errorCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       orientation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -317,78 +317,78 @@ Resumes streaming audio
   <tr>
     <td>
       bgColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bgImage
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bgImageScale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       initFullscreen
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       successCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       errorCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

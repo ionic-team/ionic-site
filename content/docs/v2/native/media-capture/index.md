@@ -145,13 +145,13 @@ Start the audio recorder application and return information about captured audio
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -185,13 +185,13 @@ Start the camera application and return information about captured image files.
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -225,13 +225,13 @@ Start the video recorder application and return information about captured video
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -299,7 +299,6 @@ is fired if the capture call is unsuccessful
   <tr>
     <td>
       name
-      
     </td>
     <td>
       <code>string</code>
@@ -307,13 +306,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The name of the file, without path information.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       fullPath
-      
     </td>
     <td>
       <code>string</code>
@@ -321,13 +320,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The full path of the file, including the name.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       type
-      
     </td>
     <td>
       <code>string</code>
@@ -335,13 +334,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The file&#39;s mime type</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       lastModifiedDate
-      
     </td>
     <td>
       <code>Date</code>
@@ -349,13 +348,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The date and time when the file was last modified.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       size
-      
     </td>
     <td>
       <code>number</code>
@@ -363,13 +362,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The size of the file, in bytes.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       getFormatData
-      
     </td>
     <td>
       <code></code>
@@ -377,6 +376,7 @@ is fired if the capture call is unsuccessful
     <td>
       <p>Retrieves the format information of the media file.</p>
 
+      
     </td>
   </tr>
   
@@ -402,7 +402,6 @@ is fired if the capture call is unsuccessful
   <tr>
     <td>
       codecs
-      
     </td>
     <td>
       <code>string</code>
@@ -410,13 +409,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The actual format of the audio and video content.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       bitrate
-      
     </td>
     <td>
       <code>number</code>
@@ -424,13 +423,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The average bitrate of the content. The value is zero for images.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      
     </td>
     <td>
       <code>number</code>
@@ -438,13 +437,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The height of the image or video in pixels. The value is zero for audio clips.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      
     </td>
     <td>
       <code>number</code>
@@ -452,13 +451,13 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The width of the image or video in pixels. The value is zero for audio clips.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       duration
-      
     </td>
     <td>
       <code>number</code>
@@ -466,6 +465,7 @@ is fired if the capture call is unsuccessful
     <td>
       <p>The length of the video or sound clip in seconds. The value is zero for images.</p>
 
+      
     </td>
   </tr>
   
@@ -491,12 +491,12 @@ is fired if the capture call is unsuccessful
   <tr>
     <td>
       code
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -523,7 +523,6 @@ is fired if the capture call is unsuccessful
   <tr>
     <td>
       limit
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -532,13 +531,13 @@ is fired if the capture call is unsuccessful
       <p>Maximum number of audio clips. Defaults to 1.
 On iOS you can only record one file.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       duration
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -546,6 +545,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum duration of an audio sound clip, in seconds. This does not work on Android devices.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -571,7 +571,6 @@ On iOS you can only record one file.</p>
   <tr>
     <td>
       limit
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -579,6 +578,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum number of images to capture. This limit is not supported on iOS, only one image will be taken per invocation.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -604,7 +604,6 @@ On iOS you can only record one file.</p>
   <tr>
     <td>
       limit
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -612,13 +611,13 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum number of video clips to record. This value is ignored on iOS, only one video clip can be taken per invocation.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       duration
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -626,13 +625,13 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum duration per video clip. This will be ignored on BlackBerry.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       quality
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -640,6 +639,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Quality of the video. This parameter can only be used with Android.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -665,7 +665,6 @@ On iOS you can only record one file.</p>
   <tr>
     <td>
       type
-      
     </td>
     <td>
       <code>string</code>
@@ -673,13 +672,13 @@ On iOS you can only record one file.</p>
     <td>
       <p>The ASCII-encoded lowercase string representing the media type.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      
     </td>
     <td>
       <code>number</code>
@@ -687,13 +686,13 @@ On iOS you can only record one file.</p>
     <td>
       <p>The height of the image or video in pixels. The value is zero for sound clips.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      
     </td>
     <td>
       <code>number</code>
@@ -701,6 +700,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>The width of the image or video in pixels. The value is zero for sound clips.</p>
 
+      
     </td>
   </tr>
   

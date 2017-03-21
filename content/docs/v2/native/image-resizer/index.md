@@ -135,7 +135,6 @@ this.imageResizer
   <tr>
     <td>
       uri
-      
     </td>
     <td>
       <code>string</code>
@@ -143,13 +142,13 @@ this.imageResizer
     <td>
       <p>The URI for the image on the device to get scaled</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       width
-      
     </td>
     <td>
       <code>number</code>
@@ -157,13 +156,13 @@ this.imageResizer
     <td>
       <p>The width of the new image</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       height
-      
     </td>
     <td>
       <code>number</code>
@@ -171,13 +170,13 @@ this.imageResizer
     <td>
       <p>The height of the new image</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       folderName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -186,13 +185,13 @@ this.imageResizer
       <p>The name of the folder the image should be put
 (Android only)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       quality
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -201,13 +200,13 @@ this.imageResizer
       <p>Quality given as Number for the quality of the new image
 (Android and iOS only)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       fileName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -216,6 +215,7 @@ this.imageResizer
       <p>A custom name for the file. Default name is a timestamp
 (Android and Windows only)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

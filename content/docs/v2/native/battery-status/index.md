@@ -165,7 +165,6 @@ Watch when the battery level goes to critial
   <tr>
     <td>
       level
-      
     </td>
     <td>
       <code>number</code>
@@ -173,13 +172,13 @@ Watch when the battery level goes to critial
     <td>
       <p>The battery charge percentage</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       isPlugged
-      
     </td>
     <td>
       <code>boolean</code>
@@ -187,6 +186,7 @@ Watch when the battery level goes to critial
     <td>
       <p>A boolean that indicates whether the device is plugged in</p>
 
+      
     </td>
   </tr>
   

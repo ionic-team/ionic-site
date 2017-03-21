@@ -109,7 +109,6 @@ Set a color to the task header
     <td>
       color
       
-      
     </td>
     <td>
       
@@ -118,6 +117,7 @@ Set a color to the task header
     <td>
       <p>The hex value of the color</p>
 
+      
       
     </td>
   </tr>

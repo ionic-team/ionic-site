@@ -181,7 +181,6 @@ setup the 3D-touch actions, takes an array of objects with the following
     <td>
       type
       
-      
     </td>
     <td>
       
@@ -191,13 +190,13 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) A type that can be used <code>onHomeIconPressed</code> callback</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      
       
     </td>
     <td>
@@ -208,13 +207,13 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>Title for your action</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       subtitle
-      
       
     </td>
     <td>
@@ -225,13 +224,13 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) A short description for your action</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       iconType
-      
       
     </td>
     <td>
@@ -242,13 +241,13 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) Choose between Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       iconTemplate
-      
       
     </td>
     <td>
@@ -258,6 +257,7 @@ setup the 3D-touch actions, takes an array of objects with the following
     <td>
       <p>(optional) Can be used to provide your own icon</p>
 
+      
       
     </td>
   </tr>
@@ -328,7 +328,6 @@ Disabled the link preview feature, if enabled.
   <tr>
     <td>
       type
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -336,13 +335,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Type that can be used in the onHomeIconPressed callback</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      
     </td>
     <td>
       <code>string</code>
@@ -350,13 +349,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Title</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       subtitle
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -364,13 +363,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Subtitle</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       iconType
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -378,13 +377,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Icon type. Case insensitive</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       iconTemplate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -392,6 +391,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Icon template</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -417,7 +417,6 @@ Disabled the link preview feature, if enabled.
   <tr>
     <td>
       force
-      
     </td>
     <td>
       <code>number</code>
@@ -425,13 +424,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Touch force</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>number</code>
@@ -439,13 +438,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Timestamp of action</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       x
-      
     </td>
     <td>
       <code>number</code>
@@ -453,13 +452,13 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>X coordinate of action</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       y
-      
     </td>
     <td>
       <code>number</code>
@@ -467,6 +466,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Y coordinate of action</p>
 
+      
     </td>
   </tr>
   

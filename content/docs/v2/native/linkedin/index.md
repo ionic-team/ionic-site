@@ -126,7 +126,6 @@ Login with the LinkedIn App
     <td>
       scopes
       
-      
     </td>
     <td>
       
@@ -136,13 +135,13 @@ Login with the LinkedIn App
       <p>Scopes to authorize</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       promptToInstall
-      
       
     </td>
     <td>
@@ -152,6 +151,7 @@ Login with the LinkedIn App
     <td>
       <p>set to true to prompt the user to download the LinkedIn app if it&#39;s not installed</p>
 
+      
       
     </td>
   </tr>
@@ -194,7 +194,6 @@ Make a get request
     <td>
       path
       
-      
     </td>
     <td>
       
@@ -203,6 +202,7 @@ Make a get request
     <td>
       <p>request path</p>
 
+      
       
     </td>
   </tr>
@@ -235,7 +235,6 @@ Make a post request
     <td>
       path
       
-      
     </td>
     <td>
       
@@ -245,13 +244,13 @@ Make a post request
       <p>request path</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      
       
     </td>
     <td>
@@ -261,6 +260,7 @@ Make a post request
     <td>
       <p>request body</p>
 
+      
       
     </td>
   </tr>
@@ -293,7 +293,6 @@ Opens a member's profile
     <td>
       memberId
       
-      
     </td>
     <td>
       
@@ -302,6 +301,7 @@ Opens a member's profile
     <td>
       <p>Member id</p>
 
+      
       
     </td>
   </tr>

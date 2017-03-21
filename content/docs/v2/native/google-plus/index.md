@@ -110,13 +110,13 @@ The login function walks the user through the Google Auth process.
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -150,13 +150,13 @@ You can call trySilentLogin to check if they're already signed in to the app and
     <td>
       options
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>

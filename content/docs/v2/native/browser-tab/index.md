@@ -136,7 +136,6 @@ Opens the provided URL using a browser tab
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -145,6 +144,7 @@ Opens the provided URL using a browser tab
     <td>
       <p>The URL you want to open</p>
 
+      
       
     </td>
   </tr>

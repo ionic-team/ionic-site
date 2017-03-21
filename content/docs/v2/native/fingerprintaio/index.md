@@ -135,7 +135,6 @@ Show authentication dialogue
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -144,6 +143,7 @@ Show authentication dialogue
     <td>
       <p>options for platform specific fingerprint API</p>
 
+      
       
     </td>
   </tr>
@@ -184,7 +184,6 @@ Show authentication dialogue
   <tr>
     <td>
       clientId
-      
     </td>
     <td>
       <code>string</code>
@@ -192,13 +191,13 @@ Show authentication dialogue
     <td>
       <p>Key for platform keychain</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       clientSecret
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -206,13 +205,13 @@ Show authentication dialogue
     <td>
       <p>Secret password. Only for android</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableBackup
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -220,6 +219,7 @@ Show authentication dialogue
     <td>
       <p>Disable &#39;use backup&#39; option. Only for android (optional)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

@@ -111,7 +111,6 @@ Get the device's current position.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -120,6 +119,7 @@ Get the device's current position.
     <td>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
+      
       
     </td>
   </tr>
@@ -165,7 +165,6 @@ subscription.unsubscribe();
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -174,6 +173,7 @@ subscription.unsubscribe();
     <td>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
+      
       
     </td>
   </tr>
@@ -214,7 +214,6 @@ subscription.unsubscribe();
   <tr>
     <td>
       latitude
-      
     </td>
     <td>
       <code>number</code>
@@ -222,13 +221,13 @@ subscription.unsubscribe();
     <td>
       <p>a double representing the position&#39;s latitude in decimal degrees.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       longitude
-      
     </td>
     <td>
       <code>number</code>
@@ -236,13 +235,13 @@ subscription.unsubscribe();
     <td>
       <p>A double representing the position&#39;s longitude in decimal degrees.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       accuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -251,13 +250,13 @@ subscription.unsubscribe();
       <p>A double representing the accuracy of the latitude and longitude properties,
 expressed in meters.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       altitude
-      
     </td>
     <td>
       <code>number</code>
@@ -266,13 +265,13 @@ expressed in meters.</p>
       <p>A double representing the position&#39;s altitude in metres, relative to sea
 level. This value can be null if the implementation cannot provide the data.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       altitudeAccuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -281,13 +280,13 @@ level. This value can be null if the implementation cannot provide the data.</p>
       <p>A double representing the accuracy of the altitude expressed in meters.
 This value can be null.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       heading
-      
     </td>
     <td>
       <code>number</code>
@@ -300,13 +299,13 @@ determined clockwise (which means that east is 90 degrees and west is 270
 degrees). If speed is 0, heading is NaN. If the device is unable to provide
 heading information, this value is null.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       speed
-      
     </td>
     <td>
       <code>number</code>
@@ -315,6 +314,7 @@ heading information, this value is null.</p>
       <p>A double representing the velocity of the device in meters per second.
 This value can be null.</p>
 
+      
     </td>
   </tr>
   
@@ -340,7 +340,6 @@ This value can be null.</p>
   <tr>
     <td>
       coords
-      
     </td>
     <td>
       <code>Coordinates</code>
@@ -348,13 +347,13 @@ This value can be null.</p>
     <td>
       <p>A Coordinates object defining the current location</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>number</code>
@@ -362,6 +361,7 @@ This value can be null.</p>
     <td>
       <p>A timestamp representing the time at which the location was retrieved.</p>
 
+      
     </td>
   </tr>
   
@@ -387,7 +387,6 @@ This value can be null.</p>
   <tr>
     <td>
       code
-      
     </td>
     <td>
       <code>number</code>
@@ -395,13 +394,13 @@ This value can be null.</p>
     <td>
       <p>A code that indicates the error that occurred</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       message
-      
     </td>
     <td>
       <code>string</code>
@@ -409,6 +408,7 @@ This value can be null.</p>
     <td>
       <p>A message that can describe the error that occurred</p>
 
+      
     </td>
   </tr>
   
@@ -434,7 +434,6 @@ This value can be null.</p>
   <tr>
     <td>
       maximumAge
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -446,13 +445,13 @@ means that the device cannot use a cached position and must attempt to
 retrieve the real current position. If set to Infinity the device must
 return a cached position regardless of its age. Default: 0.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       timeout
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -463,13 +462,13 @@ return a cached position regardless of its age. Default: 0.</p>
 position. The default value is Infinity, meaning that getCurrentPosition()
 won&#39;t return until the position is available.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       enableHighAccuracy
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -482,6 +481,7 @@ power consumption (with a GPS chip on a mobile device for example). On the
 other hand, if false, the device can take the liberty to save resources by
 responding more quickly and/or using less power. Default: false.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

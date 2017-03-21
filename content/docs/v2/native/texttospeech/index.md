@@ -102,7 +102,6 @@ This function speaks
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -111,6 +110,7 @@ This function speaks
     <td>
       <p>Text to speak or TTSOptions</p>
 
+      
       
     </td>
   </tr>
@@ -164,7 +164,6 @@ Stop any current TTS playback
   <tr>
     <td>
       text
-      
     </td>
     <td>
       <code>string</code>
@@ -172,13 +171,13 @@ Stop any current TTS playback
     <td>
       <p>text to speak</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       locale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -186,13 +185,13 @@ Stop any current TTS playback
     <td>
       <p>a string like &#39;en-US&#39;, &#39;zh-CN&#39;, etc</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       rate
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -200,6 +199,7 @@ Stop any current TTS playback
     <td>
       <p>speed rate, 0 ~ 1</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

@@ -143,7 +143,6 @@ See below for accepted values
     <td>
       orientation
       
-      
     </td>
     <td>
       
@@ -152,6 +151,7 @@ See below for accepted values
     <td>
       <p>The orientation which should be locked. Accepted values see table above.</p>
 
+      
       
     </td>
   </tr>

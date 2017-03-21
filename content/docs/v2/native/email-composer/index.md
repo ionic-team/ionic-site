@@ -141,7 +141,6 @@ Verifies if sending emails is supported on the device.
     <td>
       app
       
-      
     </td>
     <td>
       
@@ -150,6 +149,7 @@ Verifies if sending emails is supported on the device.
     <td>
       <p>An optional app id or uri scheme.</p>
 
+      
       
     </td>
   </tr>
@@ -183,7 +183,6 @@ Adds a new mail app alias.
     <td>
       alias
       
-      
     </td>
     <td>
       
@@ -193,13 +192,13 @@ Adds a new mail app alias.
       <p>The alias name</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       packageName
-      
       
     </td>
     <td>
@@ -209,6 +208,7 @@ Adds a new mail app alias.
     <td>
       <p>The package name</p>
 
+      
       
     </td>
   </tr>
@@ -238,7 +238,6 @@ Displays the email composer pre-filled with data.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -248,13 +247,13 @@ Displays the email composer pre-filled with data.
       <p>Email</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       scope
-      
       
     </td>
     <td>
@@ -264,6 +263,7 @@ Displays the email composer pre-filled with data.
     <td>
       <p>An optional scope for the promise</p>
 
+      
       
     </td>
   </tr>
@@ -304,104 +304,104 @@ Displays the email composer pre-filled with data.
   <tr>
     <td>
       app
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       to
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       cc
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bcc
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string | Array&lt;string&gt;</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       attachments
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Array&lt;any&gt;</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       subject
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       body
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       isHtml
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

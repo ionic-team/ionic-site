@@ -121,7 +121,6 @@ Reverse geocode a given latitude and longitude to find location address
     <td>
       latitude
       
-      
     </td>
     <td>
       
@@ -131,13 +130,13 @@ Reverse geocode a given latitude and longitude to find location address
       <p>The latitude</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       longitude
-      
       
     </td>
     <td>
@@ -147,6 +146,7 @@ Reverse geocode a given latitude and longitude to find location address
     <td>
       <p>The longitude</p>
 
+      
       
     </td>
   </tr>
@@ -179,7 +179,6 @@ Forward geocode a given address to find coordinates
     <td>
       addressString
       
-      
     </td>
     <td>
       
@@ -188,6 +187,7 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The address to be geocoded</p>
 
+      
       
     </td>
   </tr>
@@ -228,7 +228,6 @@ Forward geocode a given address to find coordinates
   <tr>
     <td>
       street
-      
     </td>
     <td>
       <code>string</code>
@@ -236,13 +235,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The street.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       houseNumber
-      
     </td>
     <td>
       <code>string</code>
@@ -250,13 +249,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The house number.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       postalCode
-      
     </td>
     <td>
       <code>string</code>
@@ -264,13 +263,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The postal code.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       city
-      
     </td>
     <td>
       <code>string</code>
@@ -278,13 +277,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The city.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       countryName
-      
     </td>
     <td>
       <code>string</code>
@@ -292,13 +291,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The country name.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       countryCode
-      
     </td>
     <td>
       <code>string</code>
@@ -306,6 +305,7 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The country code.</p>
 
+      
     </td>
   </tr>
   
@@ -331,7 +331,6 @@ Forward geocode a given address to find coordinates
   <tr>
     <td>
       latitude
-      
     </td>
     <td>
       <code>string</code>
@@ -339,13 +338,13 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The latitude.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       longitude
-      
     </td>
     <td>
       <code>string</code>
@@ -353,6 +352,7 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The longitude.</p>
 
+      
     </td>
   </tr>
   

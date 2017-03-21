@@ -287,13 +287,13 @@ Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
     <td>
       state
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -328,13 +328,13 @@ Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
     <td>
       state
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -645,13 +645,13 @@ Registers a function to be called when a change in Bluetooth state occurs.
     <td>
       handler
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -681,13 +681,13 @@ Registers a function to be called when a change in Location state occurs.
     <td>
       handler
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -791,13 +791,13 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permission
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -832,13 +832,13 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -873,13 +873,13 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permission
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -914,13 +914,13 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       permissions
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -971,13 +971,13 @@ Pass in a falsey value to de-register the currently registered function.
     <td>
       handler
       
-      
     </td>
     <td>
       
 <code>Function</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1179,7 +1179,6 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
     <td>
       hander
       
-      
     </td>
     <td>
       
@@ -1188,6 +1187,7 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
     <td>
       <p>callback function to be called when NFC state changes</p>
 
+      
       
     </td>
   </tr>

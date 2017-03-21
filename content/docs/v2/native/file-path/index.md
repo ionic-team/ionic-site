@@ -111,7 +111,6 @@ Resolve native path for given content URL/path.
     <td>
       path
       
-      
     </td>
     <td>
       
@@ -120,6 +119,7 @@ Resolve native path for given content URL/path.
     <td>
       <p>Content URL/path.</p>
 
+      
       
     </td>
   </tr>

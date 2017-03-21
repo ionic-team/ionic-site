@@ -122,7 +122,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
     <td>
       id
       
-      
     </td>
     <td>
       
@@ -132,13 +131,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
       <p>Your Google Analytics Mobile App property</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       interval
-      
       
     </td>
     <td>
@@ -148,6 +147,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
     <td>
       <p>Optional dispatch period in seconds. Defaults to 30.</p>
 
+      
       
     </td>
   </tr>
@@ -180,13 +180,13 @@ Enabling Advertising Features in Google Analytics allows you to take advantage o
     <td>
       allow
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -221,7 +221,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
     <td>
       id
       
-      
     </td>
     <td>
       
@@ -230,6 +229,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
     <td>
       <p>User ID</p>
 
+      
       
     </td>
   </tr>
@@ -262,7 +262,6 @@ Set a anonymize Ip address
     <td>
       anonymize
       
-      
     </td>
     <td>
       
@@ -271,6 +270,7 @@ Set a anonymize Ip address
     <td>
       <p>Set to true to anonymize the IP Address</p>
 
+      
       
     </td>
   </tr>
@@ -303,7 +303,6 @@ Sets the app version
     <td>
       appVersion
       
-      
     </td>
     <td>
       
@@ -312,6 +311,7 @@ Sets the app version
     <td>
       <p>App version</p>
 
+      
       
     </td>
   </tr>
@@ -344,13 +344,13 @@ Set OptOut
     <td>
       optout
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -397,13 +397,13 @@ Track custom metric
     <td>
       key
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -413,13 +413,13 @@ Track custom metric
     <td>
       value
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -455,7 +455,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
     <td>
       title
       
-      
     </td>
     <td>
       
@@ -465,13 +464,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
       <p>Screen title</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       campaignUrl
-      
       
     </td>
     <td>
@@ -482,13 +481,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
       <p>Campaign url for measuring referrals</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       newSession
-      
       
     </td>
     <td>
@@ -498,6 +497,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
     <td>
       <p>Set to true to create a new session</p>
 
+      
       
     </td>
   </tr>
@@ -531,13 +531,13 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
     <td>
       key
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -547,13 +547,13 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
     <td>
       value
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -588,13 +588,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       category
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -604,13 +604,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       action
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -620,13 +620,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       label
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -636,13 +636,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       value
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -652,7 +652,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       newSession
       
-      
     </td>
     <td>
       
@@ -661,6 +660,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       <p>Set to true to create a new session</p>
 
+      
       
     </td>
   </tr>
@@ -693,13 +693,13 @@ Track an exception
     <td>
       description
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -709,13 +709,13 @@ Track an exception
     <td>
       fatal
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -749,13 +749,13 @@ Track User Timing (App Speed)
     <td>
       category
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -765,13 +765,13 @@ Track User Timing (App Speed)
     <td>
       intervalInMilliseconds
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -781,13 +781,13 @@ Track User Timing (App Speed)
     <td>
       variable
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -797,13 +797,13 @@ Track User Timing (App Speed)
     <td>
       label
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -838,13 +838,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       id
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -854,13 +854,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       affiliation
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -870,13 +870,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       revenue
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -886,13 +886,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       tax
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -902,13 +902,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       shipping
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -918,13 +918,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       currencyCode
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -959,13 +959,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       id
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -975,13 +975,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       name
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -991,13 +991,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       sku
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1007,13 +1007,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       category
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1023,13 +1023,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       price
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1039,13 +1039,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       quantity
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1055,13 +1055,13 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       currencyCode
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1095,13 +1095,13 @@ Enable/disable automatic reporting of uncaught exceptions
     <td>
       shouldEnable
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>

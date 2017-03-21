@@ -128,7 +128,6 @@ Stop the watch by unsubscribing from the observable
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -137,6 +136,7 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>Options for compass. Frequency and Filter. Optional</p>
 
+      
       
     </td>
   </tr>
@@ -177,7 +177,6 @@ Stop the watch by unsubscribing from the observable
   <tr>
     <td>
       frequency
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -185,13 +184,13 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>How often to retrieve the compass heading in milliseconds. (Number) (Default: 100)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       filter
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -199,6 +198,7 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The change in degrees required to initiate a watchHeading success callback. When this value is set, frequency is ignored. (Number)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -224,7 +224,6 @@ Stop the watch by unsubscribing from the observable
   <tr>
     <td>
       magneticHeading
-      
     </td>
     <td>
       <code>number</code>
@@ -232,13 +231,13 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The heading in degrees from 0-359.99 at a single moment in time. (Number)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       trueHeading
-      
     </td>
     <td>
       <code>number</code>
@@ -246,13 +245,13 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can&#39;t be determined. (Number)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       headingAccuracy
-      
     </td>
     <td>
       <code>number</code>
@@ -260,13 +259,13 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The deviation in degrees between the reported heading and the true heading. (Number)</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>any</code>
@@ -274,6 +273,7 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The time at which this heading was determined. (DOMTimeStamp)</p>
 
+      
     </td>
   </tr>
   

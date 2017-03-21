@@ -102,13 +102,13 @@ this.mixpanel.init(token)
     <td>
       aliasId
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -118,13 +118,13 @@ this.mixpanel.init(token)
     <td>
       originalId
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -184,13 +184,13 @@ this.mixpanel.init(token)
     <td>
       distinctId
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -224,13 +224,13 @@ this.mixpanel.init(token)
     <td>
       token
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -264,13 +264,13 @@ this.mixpanel.init(token)
     <td>
       superProperties
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -317,13 +317,13 @@ this.mixpanel.init(token)
     <td>
       eventName
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -333,7 +333,6 @@ this.mixpanel.init(token)
     <td>
       eventProperties
       
-      
     </td>
     <td>
       
@@ -342,6 +341,7 @@ this.mixpanel.init(token)
     <td>
       <p>optional</p>
 
+      
       
     </td>
   </tr>
@@ -402,13 +402,13 @@ this.mixpanel.init(token)
     <td>
       distinctId
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -442,13 +442,13 @@ this.mixpanel.init(token)
     <td>
       peopleProperties
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -482,13 +482,13 @@ this.mixpanel.init(token)
     <td>
       pushId
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -522,13 +522,13 @@ this.mixpanel.init(token)
     <td>
       peopleProperties
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -562,13 +562,13 @@ this.mixpanel.init(token)
     <td>
       peopleProperties
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>

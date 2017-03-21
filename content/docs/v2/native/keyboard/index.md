@@ -101,13 +101,13 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
     <td>
       hide
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -157,13 +157,13 @@ Prevents the native UIScrollView from moving when an input is focused.
     <td>
       disable
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>

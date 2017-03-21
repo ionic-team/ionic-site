@@ -111,7 +111,6 @@ Set publishable key
     <td>
       publishableKey
       
-      
     </td>
     <td>
       
@@ -120,6 +119,7 @@ Set publishable key
     <td>
       <p>Publishable key</p>
 
+      
       
     </td>
   </tr>
@@ -152,7 +152,6 @@ Create Credit Card Token
     <td>
       params
       
-      
     </td>
     <td>
       
@@ -161,6 +160,7 @@ Create Credit Card Token
     <td>
       <p>Credit card information</p>
 
+      
       
     </td>
   </tr>
@@ -193,7 +193,6 @@ Create a bank account token
     <td>
       params
       
-      
     </td>
     <td>
       
@@ -202,6 +201,7 @@ Create a bank account token
     <td>
       <p>Bank account information</p>
 
+      
       
     </td>
   </tr>
@@ -234,7 +234,6 @@ Validates a credit card number
     <td>
       cardNumber
       
-      
     </td>
     <td>
       
@@ -243,6 +242,7 @@ Validates a credit card number
     <td>
       <p>Credit card number</p>
 
+      
       
     </td>
   </tr>
@@ -275,7 +275,6 @@ Validates a CVC number
     <td>
       cvc
       
-      
     </td>
     <td>
       
@@ -284,6 +283,7 @@ Validates a CVC number
     <td>
       <p>CVC number</p>
 
+      
       
     </td>
   </tr>
@@ -316,7 +316,6 @@ Validates an expiry date
     <td>
       expMonth
       
-      
     </td>
     <td>
       
@@ -326,13 +325,13 @@ Validates an expiry date
       <p>expiry month</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       expYear
-      
       
     </td>
     <td>
@@ -342,6 +341,7 @@ Validates an expiry date
     <td>
       <p>expiry year</p>
 
+      
       
     </td>
   </tr>
@@ -374,7 +374,6 @@ Get a card type from card number
     <td>
       cardNumber
       
-      
     </td>
     <td>
       
@@ -383,6 +382,7 @@ Get a card type from card number
     <td>
       <p>Card number</p>
 
+      
       
     </td>
   </tr>
@@ -423,7 +423,6 @@ Get a card type from card number
   <tr>
     <td>
       number
-      
     </td>
     <td>
       <code>string</code>
@@ -431,13 +430,13 @@ Get a card type from card number
     <td>
       <p>Card number</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       expMonth
-      
     </td>
     <td>
       <code>number</code>
@@ -445,13 +444,13 @@ Get a card type from card number
     <td>
       <p>Expiry month</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       expYear
-      
     </td>
     <td>
       <code>number</code>
@@ -459,13 +458,13 @@ Get a card type from card number
     <td>
       <p>Expiry year</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       cvc
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -473,13 +472,13 @@ Get a card type from card number
     <td>
       <p>CVC / CVV</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       name
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -487,13 +486,13 @@ Get a card type from card number
     <td>
       <p>Cardholder name</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       address_line1
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -501,13 +500,13 @@ Get a card type from card number
     <td>
       <p>Address line 1</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       address_line2
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -515,13 +514,13 @@ Get a card type from card number
     <td>
       <p>Address line 2</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       address_city
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -529,13 +528,13 @@ Get a card type from card number
     <td>
       <p>City</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       address_state
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -543,13 +542,13 @@ Get a card type from card number
     <td>
       <p>State / Province</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       address_country
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -557,13 +556,13 @@ Get a card type from card number
     <td>
       <p>Country</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       postal_code
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -571,13 +570,13 @@ Get a card type from card number
     <td>
       <p>Postal code / ZIP Code</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       currency
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -585,6 +584,7 @@ Get a card type from card number
     <td>
       <p>3-letter ISO code for currency</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

@@ -167,7 +167,6 @@ Creates a new GoogleMap instance
     <td>
       element
       
-      
     </td>
     <td>
       
@@ -177,13 +176,13 @@ Creates a new GoogleMap instance
       <p>Element ID or reference to attach the map to</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -193,6 +192,7 @@ Creates a new GoogleMap instance
     <td>
       <p>Options</p>
 
+      
       
     </td>
   </tr>
@@ -268,13 +268,13 @@ Gets a value
     <td>
       key
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -304,13 +304,13 @@ Sets a value
     <td>
       key
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -320,13 +320,13 @@ Sets a value
     <td>
       value
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -837,13 +837,13 @@ Gets a value
     <td>
       key
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -873,13 +873,13 @@ Sets a value
     <td>
       key
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -889,13 +889,13 @@ Sets a value
     <td>
       value
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -973,13 +973,13 @@ Set false if you want to hide the marker.
     <td>
       visible
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -1032,7 +1032,6 @@ Change the marker opacity.
     <td>
       alpha
       
-      
     </td>
     <td>
       
@@ -1041,6 +1040,7 @@ Change the marker opacity.
     <td>
       <p>Opacity</p>
 
+      
       
     </td>
   </tr>
@@ -1095,13 +1095,13 @@ Change the info window anchor. This defaults to 50% from the left of the image a
     <td>
       x
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1111,13 +1111,13 @@ Change the info window anchor. This defaults to 50% from the left of the image a
     <td>
       y
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1147,13 +1147,13 @@ Change the info window anchor. This defaults to 50% from the left of the image a
     <td>
       x
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1163,13 +1163,13 @@ Change the info window anchor. This defaults to 50% from the left of the image a
     <td>
       y
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1199,13 +1199,13 @@ Set true if you allows all users to drag the marker.
     <td>
       draggable
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1248,13 +1248,13 @@ Set true if you want to be flat marker.
     <td>
       flat
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1284,13 +1284,13 @@ Change icon url and/or size
     <td>
       icon
       
-      
     </td>
     <td>
       
 
     </td>
     <td>
+      
       
       
     </td>
@@ -1320,13 +1320,13 @@ Change title of the infoWindow.
     <td>
       title
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1369,13 +1369,13 @@ Change snippet of the infoWindow.
     <td>
       snippet
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1418,13 +1418,13 @@ Set the marker rotation angle.
     <td>
       rotation
       
-      
     </td>
     <td>
       
 <code>number</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1493,13 +1493,13 @@ Set the marker position.
     <td>
       latLng
       
-      
     </td>
     <td>
       
 <code>GoogleMapLatLng</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1555,13 +1555,13 @@ Specify the animation either `DROP` or `BOUNCE`
     <td>
       animation
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -1656,7 +1656,6 @@ Converts position to address and vice versa
     <td>
       request
       
-      
     </td>
     <td>
       
@@ -1665,6 +1664,7 @@ Converts position to address and vice versa
     <td>
       <p>Request object with either an address or a position</p>
 
+      
       
     </td>
   </tr>
@@ -1702,65 +1702,65 @@ Converts position to address and vice versa
   <tr>
     <td>
       target
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>LatLng | Array&lt;Marker&gt; | LatLngBounds</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       tilt
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       zoom
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bearing
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       duration
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -1786,7 +1786,6 @@ Converts position to address and vice versa
   <tr>
     <td>
       icon
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -1794,13 +1793,13 @@ Converts position to address and vice versa
     <td>
       <p>The icon image url or properties. Also you can specify HTML Color values. Alternatively you can specify the image as Base64</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1808,13 +1807,13 @@ Converts position to address and vice versa
     <td>
       <p>The content of the infoWindow.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       snippet
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1822,13 +1821,13 @@ Converts position to address and vice versa
     <td>
       <p>The snippet of the infoWindow.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       position
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>LatLng</code>
@@ -1836,13 +1835,13 @@ Converts position to address and vice versa
     <td>
       <p>The position of the marker.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       infoWindowAnchor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number[]</code>
@@ -1850,13 +1849,13 @@ Converts position to address and vice versa
     <td>
       <p>Specify the anchor of the InfoWindow</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       draggable
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1864,13 +1863,13 @@ Converts position to address and vice versa
     <td>
       <p>Set true if you want to enable to drag the marker. (Default: false) Important! Drag starts after long pressed on the marker.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       flat
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1878,13 +1877,13 @@ Converts position to address and vice versa
     <td>
       <p>Set true if you want to use a flat marker. (Default: false)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       rotation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1892,13 +1891,13 @@ Converts position to address and vice versa
     <td>
       <p>Set rotation angle. (Default: 0)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       visible
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1906,13 +1905,13 @@ Converts position to address and vice versa
     <td>
       <p>Set false if you want to hide. (Default: true)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       styles
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -1920,13 +1919,13 @@ Converts position to address and vice versa
     <td>
       <p>Specify the options for title.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       animation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -1934,13 +1933,13 @@ Converts position to address and vice versa
     <td>
       <p>Which animation to play when marker is added to a map.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       zIndex
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -1948,13 +1947,13 @@ Converts position to address and vice versa
     <td>
       <p>iOS only, Plugin Version &gt;= 1.3.3 Higher zIndex value overlays will be drawn on top of lower zIndex value tile layers and overlays. (You&#39;re able to run this on Android, but it will have no effect)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableAutoPan
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -1962,13 +1961,13 @@ Converts position to address and vice versa
     <td>
       <p>Set to true to disable auto panning when the marker is clicked.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       markerClick
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
@@ -1976,13 +1975,13 @@ Converts position to address and vice versa
     <td>
       <p>Function to be invoked when the user clicks on the marker</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       infoClick
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
@@ -1990,6 +1989,7 @@ Converts position to address and vice versa
     <td>
       <p>Function to be invoked when the user clicks on the info box</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -2015,52 +2015,52 @@ Converts position to address and vice versa
   <tr>
     <td>
       latLng
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>LatLng</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       speed
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       time
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bearing
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -2086,13 +2086,13 @@ Converts position to address and vice versa
   <tr>
     <td>
       enableHighAccuracy
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -2118,26 +2118,26 @@ Converts position to address and vice versa
   <tr>
     <td>
       northeast
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       southwest
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

@@ -122,7 +122,6 @@ Open Alipay to perform App pay
     <td>
       order
       
-      
     </td>
     <td>
       
@@ -131,6 +130,7 @@ Open Alipay to perform App pay
     <td>
       <p>alipay options</p>
 
+      
       
     </td>
   </tr>
@@ -171,7 +171,6 @@ Open Alipay to perform App pay
   <tr>
     <td>
       app_id
-      
     </td>
     <td>
       <code>string</code>
@@ -179,13 +178,13 @@ Open Alipay to perform App pay
     <td>
       <p>appId assigned by Alipay</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       method
-      
     </td>
     <td>
       <code>string</code>
@@ -194,13 +193,13 @@ Open Alipay to perform App pay
       <p>Api name.
 Should be: alipay.trade.app.pay</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       format
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -209,13 +208,13 @@ Should be: alipay.trade.app.pay</p>
       <p>Data format
 Default: &quot;JSON&quot;</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       charset
-      
     </td>
     <td>
       <code>string</code>
@@ -225,13 +224,13 @@ Default: &quot;JSON&quot;</p>
 Possible values: &quot;UTF-8&quot;, &quot;GBK&quot;
 Default: &quot;UTF-8&quot;</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sign_type
-      
     </td>
     <td>
       <code>string</code>
@@ -240,13 +239,13 @@ Default: &quot;UTF-8&quot;</p>
       <p>Sign method
 Default: &#39;RSA&#39;</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       sign
-      
     </td>
     <td>
       <code>string</code>
@@ -255,13 +254,13 @@ Default: &#39;RSA&#39;</p>
       <p>Sign value. Should be got from server side.
 Default: &#39;RSA&#39;</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       timestamp
-      
     </td>
     <td>
       <code>string</code>
@@ -269,13 +268,13 @@ Default: &#39;RSA&#39;</p>
     <td>
       <p>Timestamp, formated like &quot;yyyy-MM-dd HH:mm:ss&quot;, e.g. 2014-07-24 03:07:50</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       version
-      
     </td>
     <td>
       <code>string</code>
@@ -283,13 +282,13 @@ Default: &#39;RSA&#39;</p>
     <td>
       <p>Api version. Fixed value &#39;1.0&#39;</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       notify_url
-      
     </td>
     <td>
       <code>string</code>
@@ -297,13 +296,13 @@ Default: &#39;RSA&#39;</p>
     <td>
       <p>Notify url.</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       biz_content
-      
     </td>
     <td>
       <code>string</code>
@@ -311,6 +310,7 @@ Default: &#39;RSA&#39;</p>
     <td>
       <p>biz content. formated in json. see alipay doc for detail.</p>
 
+      
     </td>
   </tr>
   

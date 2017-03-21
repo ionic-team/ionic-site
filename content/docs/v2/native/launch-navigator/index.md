@@ -110,7 +110,6 @@ Launches navigator app
     <td>
       destination
       
-      
     </td>
     <td>
       
@@ -120,6 +119,7 @@ Launches navigator app
       <p>Location name or coordinates (as string or array)</p>
 
       
+      
     </td>
   </tr>
   
@@ -127,13 +127,13 @@ Launches navigator app
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>LaunchNavigatorOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -167,13 +167,13 @@ Determines if the given app is installed and available on the current device.
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -220,13 +220,13 @@ Returns the display name of the specified app.
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -260,13 +260,13 @@ Returns list of supported apps on a given platform.
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -300,7 +300,6 @@ Indicates if an app on a given platform supports specification of transport mode
     <td>
       app
       
-      
     </td>
     <td>
       
@@ -310,6 +309,7 @@ Indicates if an app on a given platform supports specification of transport mode
       <p>specified as a string, you can use one of the constants, e.g <code>LaunchNavigator.APP.GOOGLE_MAPS</code></p>
 
       
+      
     </td>
   </tr>
   
@@ -317,13 +317,13 @@ Indicates if an app on a given platform supports specification of transport mode
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -357,13 +357,13 @@ Returns the list of transport modes supported by an app on a given platform.
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -373,13 +373,13 @@ Returns the list of transport modes supported by an app on a given platform.
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -414,13 +414,13 @@ Note that currently only Google Maps on Android does.
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -430,13 +430,13 @@ Note that currently only Google Maps on Android does.
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -470,13 +470,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -486,13 +486,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -526,13 +526,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -542,13 +542,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -582,13 +582,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       app
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -598,13 +598,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       platform
       
-      
     </td>
     <td>
       
 <code>string</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -638,13 +638,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       destination
       
-      
     </td>
     <td>
       
 <code>string</code>|<code>Array.&lt;number&gt;</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -654,13 +654,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>LaunchNavigatorOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -716,7 +716,6 @@ Indicates if an app on a given platform supports specification of start location
   <tr>
     <td>
       app
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -724,13 +723,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>name of the navigation app to use for directions. Specify using launchnavigator.APP constants. If not specified, defaults to User Selection.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       destinationName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -738,13 +737,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>nickname to display in app for destination. e.g. &quot;Bob&#39;s House&quot;.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       start
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string | number[]</code>
@@ -752,13 +751,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>Start point of the navigation</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       startName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -766,13 +765,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>nickname to display in app for start . e.g. &quot;My House&quot;.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       transportMode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -780,13 +779,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>Transportation mode for navigation: &quot;driving&quot;, &quot;walking&quot; or &quot;transit&quot;. Defaults to &quot;driving&quot; if not specified.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       enableDebug
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -794,13 +793,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>If true, debug log output will be generated by the plugin. Defaults to false.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       extras
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>any</code>
@@ -808,13 +807,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>a key/value map of extra app-specific parameters. For example, to tell Google Maps on Android to display Satellite view in &quot;maps&quot; launch mode: <code>{&quot;t&quot;: &quot;k&quot;}</code></p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       launchMode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -822,13 +821,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>(Android only) mode in which to open Google Maps app: &quot;maps&quot; or &quot;turn-by-turn&quot;. Defaults to &quot;maps&quot; if not specified. Specify using launchnavigator.LAUNCH_MODE constants.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       appSelectionDialogHeader
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -836,13 +835,13 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>text to display in the native picker which enables user to select which navigation app to launch. Defaults to &quot;Select app for navigation&quot; if not specified.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       appSelectionCancelButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -850,32 +849,33 @@ Indicates if an app on a given platform supports specification of start location
     <td>
       <p>text to display for the cancel button in the native picker which enables user to select which navigation app to launch. Defaults to &quot;Cancel&quot; if not specified.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       successCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       errorCallback
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>Function</code>
     </td>
     <td>
       
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

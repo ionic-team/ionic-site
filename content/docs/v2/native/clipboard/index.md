@@ -121,7 +121,6 @@ Copies the given text
     <td>
       text
       
-      
     </td>
     <td>
       
@@ -130,6 +129,7 @@ Copies the given text
     <td>
       <p>Text that gets copied on the system clipboard</p>
 
+      
       
     </td>
   </tr>

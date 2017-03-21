@@ -102,7 +102,6 @@ Shows an image in full screen
     <td>
       url
       
-      
     </td>
     <td>
       
@@ -112,13 +111,13 @@ Shows an image in full screen
       <p>URL or path to image</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      
       
     </td>
     <td>
@@ -128,6 +127,7 @@ Shows an image in full screen
     <td>
       
       
+      
     </td>
   </tr>
   
@@ -135,13 +135,13 @@ Shows an image in full screen
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>any</code>
     </td>
     <td>
+      
       
       
     </td>

@@ -124,7 +124,6 @@ Open the barcode scanner.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -133,6 +132,7 @@ Open the barcode scanner.
     <td>
       <p>Optional options to pass to the scanner</p>
 
+      
       
     </td>
   </tr>
@@ -166,7 +166,6 @@ NOTE: not well supported on Android
     <td>
       type
       
-      
     </td>
     <td>
       
@@ -176,13 +175,13 @@ NOTE: not well supported on Android
       <p>Type of encoding</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       data
-      
       
     </td>
     <td>
@@ -192,6 +191,7 @@ NOTE: not well supported on Android
     <td>
       <p>Data to encode</p>
 
+      
       
     </td>
   </tr>
@@ -232,7 +232,6 @@ NOTE: not well supported on Android
   <tr>
     <td>
       preferFrontCamera
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -240,13 +239,13 @@ NOTE: not well supported on Android
     <td>
       <p>Prefer front camera. Supported on iOS and Android.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       showFlipCameraButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -254,13 +253,13 @@ NOTE: not well supported on Android
     <td>
       <p>Show flip camera button. Supported on iOS and Android.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       showTorchButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -268,13 +267,13 @@ NOTE: not well supported on Android
     <td>
       <p>Show torch button. Supported on iOS and Android.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableAnimations
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -282,13 +281,13 @@ NOTE: not well supported on Android
     <td>
       <p>Disable animations. Supported on iOS only.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableSuccessBeep
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -296,13 +295,13 @@ NOTE: not well supported on Android
     <td>
       <p>Disable success beep. Supported on iOS only.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       prompt
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -310,13 +309,13 @@ NOTE: not well supported on Android
     <td>
       <p>Prompt text. Supported on Android only.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       formats
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -324,13 +323,13 @@ NOTE: not well supported on Android
     <td>
       <p>Formats separated by commas. Defaults to all formats except <code>PDF_417</code> and <code>RSS_EXPANDED</code>.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       orientation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -338,13 +337,13 @@ NOTE: not well supported on Android
     <td>
       <p>Orientation. Supported on Android only. Can be set to <code>portrait</code> or <code>landscape</code>. Defaults to none so the user can rotate the phone and pick an orientation.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       torchOn
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -352,13 +351,13 @@ NOTE: not well supported on Android
     <td>
       <p>Launch with the torch switched on (if available). Supported on Android only.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       resultDisplayDuration
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -366,6 +365,7 @@ NOTE: not well supported on Android
     <td>
       <p>Display scanned text for X ms. 0 suppresses it entirely, default 1500. Supported on Android only.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

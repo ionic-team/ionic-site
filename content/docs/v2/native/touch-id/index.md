@@ -146,7 +146,6 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
     <td>
       message
       
-      
     </td>
     <td>
       
@@ -155,6 +154,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
     <td>
       <p>The message to display</p>
 
+      
       
     </td>
   </tr>
@@ -188,7 +188,6 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
     <td>
       message
       
-      
     </td>
     <td>
       
@@ -197,6 +196,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
     <td>
       <p>The message to display</p>
 
+      
       
     </td>
   </tr>
@@ -230,7 +230,6 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
     <td>
       message
       
-      
     </td>
     <td>
       
@@ -240,13 +239,13 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
       <p>The message to display</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       enterPasswordLabel
-      
       
     </td>
     <td>
@@ -256,6 +255,7 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
     <td>
       <p>Custom text for the &#39;Enter Password&#39; button</p>
 
+      
       
     </td>
   </tr>

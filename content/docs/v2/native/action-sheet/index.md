@@ -132,7 +132,6 @@ Show a native ActionSheet component. See below for options.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -141,6 +140,7 @@ Show a native ActionSheet component. See below for options.
     <td>
       <p>Options See table below</p>
 
+      
       
     </td>
   </tr>
@@ -195,7 +195,6 @@ Progamtically hide the native ActionSheet
   <tr>
     <td>
       buttonLabels
-      
     </td>
     <td>
       <code>string[]</code>
@@ -203,13 +202,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>The labels for the buttons. Uses the index x</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       title
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -217,13 +216,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>The title for the actionsheet</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       androidTheme
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -231,13 +230,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Theme to be used on Android</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       androidEnableCancelButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -245,13 +244,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Enable a cancel on Android</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       winphoneEnableCancelButton
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -259,13 +258,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Enable a cancel on Windows Phone</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       addCancelButtonWithLabel
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -273,13 +272,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Add a cancel button with text</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       addDestructiveButtonWithLabel
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -287,13 +286,13 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Add a destructive button with text</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       position
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number[]</code>
@@ -301,6 +300,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>On an iPad, set the X,Y position</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

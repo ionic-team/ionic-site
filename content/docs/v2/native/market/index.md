@@ -100,7 +100,6 @@ Opens an app in Google Play / App Store
     <td>
       appId
       
-      
     </td>
     <td>
       
@@ -109,6 +108,7 @@ Opens an app in Google Play / App Store
     <td>
       <p>Package name</p>
 
+      
       
     </td>
   </tr>
@@ -141,7 +141,6 @@ Search apps by keyword
     <td>
       keyword
       
-      
     </td>
     <td>
       
@@ -150,6 +149,7 @@ Search apps by keyword
     <td>
       <p>Keyword</p>
 
+      
       
     </td>
   </tr>

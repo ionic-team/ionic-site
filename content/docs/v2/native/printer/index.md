@@ -132,7 +132,6 @@ Sends content to the printer.
     <td>
       content
       
-      
     </td>
     <td>
       
@@ -142,13 +141,13 @@ Sends content to the printer.
       <p>The content to print. Can be a URL or an HTML string. If a HTML DOM Object is provided, its innerHtml property value will be used.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       options
-      
       
     </td>
     <td>
@@ -158,6 +157,7 @@ Sends content to the printer.
     <td>
       <p>optional. The options to pass to the printer</p>
 
+      
       
     </td>
   </tr>
@@ -198,7 +198,6 @@ Sends content to the printer.
   <tr>
     <td>
       name
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -206,13 +205,13 @@ Sends content to the printer.
     <td>
       <p>The name of the print job and the document</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       printerId
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -221,13 +220,13 @@ Sends content to the printer.
       <p>The network URL of the printer.
 Only supported on iOS.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       duplex
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -238,13 +237,13 @@ Either double-sided (duplex:true) or single-sided (duplex:false).
 Double-sided by default.
 Only supported on iOS</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       landscape
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -253,13 +252,13 @@ Only supported on iOS</p>
       <p>The orientation of the printed content, portrait or landscape
 Portrait by default.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       grayscale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -268,13 +267,13 @@ Portrait by default.</p>
       <p>If your application only prints black text, setting this property to true can result in better performance in many cases.
 False by default.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       bounds
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number[] | any</code>
@@ -282,6 +281,7 @@ False by default.</p>
     <td>
       <p>The Size and position of the print view</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

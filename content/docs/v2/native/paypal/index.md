@@ -156,7 +156,6 @@ the recommended time to preconnect is on page load.
     <td>
       clientIdsForEnvironments:
       
-      
     </td>
     <td>
       
@@ -165,6 +164,7 @@ the recommended time to preconnect is on page load.
     <td>
       <p>set of client ids for environments</p>
 
+      
       
     </td>
   </tr>
@@ -200,7 +200,6 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
     <td>
       environment:
       
-      
     </td>
     <td>
       
@@ -210,13 +209,13 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
       <p>available options are &quot;PayPalEnvironmentNoNetwork&quot;, &quot;PayPalEnvironmentProduction&quot; and &quot;PayPalEnvironmentSandbox&quot;</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       configuration:
-      
       
     </td>
     <td>
@@ -226,6 +225,7 @@ The preconnect is valid for a limited time, so the recommended time to preconnec
     <td>
       <p>PayPalConfiguration object, for Future Payments merchantName, merchantPrivacyPolicyURL and merchantUserAgreementURL must be set be set</p>
 
+      
       
     </td>
   </tr>
@@ -261,7 +261,6 @@ for more documentation of the params.
     <td>
       payment
       
-      
     </td>
     <td>
       
@@ -270,6 +269,7 @@ for more documentation of the params.
     <td>
       <p>PayPalPayment object</p>
 
+      
       
     </td>
   </tr>
@@ -335,7 +335,6 @@ Please Read Docs on Profile Sharing at https://github.com/paypal/PayPal-iOS-SDK#
     <td>
       scopes
       
-      
     </td>
     <td>
       
@@ -345,6 +344,7 @@ Please Read Docs on Profile Sharing at https://github.com/paypal/PayPal-iOS-SDK#
       <p>scopes Set of requested scope-values. Accepted scopes are: openid, profile, address, email, phone, futurepayments and paypalattributes
 See <a href="https://developer.paypal.com/docs/integration/direct/identity/attributes/">https://developer.paypal.com/docs/integration/direct/identity/attributes/</a> for more details</p>
 
+      
       
     </td>
   </tr>
@@ -688,12 +688,12 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
   <tr>
     <td>
       PayPalEnvironmentProduction
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -701,12 +701,12 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
   <tr>
     <td>
       PayPalEnvironmentSandbox
-      
     </td>
     <td>
       <code>string</code>
     </td>
     <td>
+      
       
     </td>
   </tr>
@@ -733,7 +733,6 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
   <tr>
     <td>
       defaultUserEmail
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -741,13 +740,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>Will be overridden by email used in most recent PayPal login.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       defaultUserPhoneCountryCode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -755,13 +754,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>Will be overridden by phone country code used in most recent PayPal login</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       defaultUserPhoneNumber
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -769,13 +768,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>Will be overridden by phone number used in most recent PayPal login.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       merchantName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -783,13 +782,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>Your company name, as it should be displayed to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       merchantPrivacyPolicyURL
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -797,13 +796,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>URL of your company&#39;s privacy policy, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       merchantUserAgreementURL
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -811,13 +810,13 @@ ZIP code or equivalent is usually required for countries that have them. 20 char
     <td>
       <p>URL of your company&#39;s user agreement, which will be offered to the user when requesting consent via a PayPalFuturePaymentViewController.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       acceptCreditCards
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -828,13 +827,13 @@ This applies only to single payments (via PayPalPaymentViewController).
 Future payments (via PayPalFuturePaymentViewController) always use PayPal.
 Defaults to true</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       payPalShippingAddressOption
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -852,13 +851,13 @@ in the shippingAddress property of PayPalPayment, plus the shipping addresses on
 Defaults to 0 (PayPalShippingAddressOptionNone).</li>
 </ul>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       rememberUser
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -873,13 +872,13 @@ credit card token will be erased, and subsequent payment information will
 not be remembered.</p>
 <p>Defaults to YES.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       languageOrLocale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -893,13 +892,13 @@ If the library does not contain localized strings for a specified language, then
 then the library will attempt to use the device&#39;s current region as well.
 E.g., specifying &quot;en&quot; on a device set to &quot;English&quot; and &quot;United Kingdom&quot; will result in &quot;en_GB&quot;.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       disableBlurWhenBackgrounding
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -910,13 +909,13 @@ to obscure credit card or PayPal account details in the iOS-saved screenshot.
 If your app already does its own blurring upon backgrounding, you might choose to disable this.
 Defaults to NO.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       presentingInPopover
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -925,13 +924,13 @@ Defaults to NO.</p>
       <p>If you will present the SDK&#39;s view controller within a popover, then set this property to YES.
 Defaults to NO. (iOS only)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       forceDefaultsInSandbox
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -940,13 +939,13 @@ Defaults to NO. (iOS only)</p>
       <p>Sandbox credentials can be difficult to type on a mobile device. Setting this flag to YES will
 cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into login fields.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       sandboxUserPassword
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -954,13 +953,13 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
     <td>
       <p>Password to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       sandboxUserPin
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -968,6 +967,7 @@ cause the sandboxUserPassword and sandboxUserPin to always be pre-populated into
     <td>
       <p>PIN to use for sandbox if &#39;forceDefaultsInSandbox&#39; is set.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

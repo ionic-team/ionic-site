@@ -118,13 +118,13 @@ Starts a web server.
     <td>
       options
       
-      
     </td>
     <td>
       
 <code>HttpdOptions</code>
     </td>
     <td>
+      
       
       
     </td>
@@ -192,7 +192,6 @@ Get the local path of the running webserver
   <tr>
     <td>
       www_root
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -201,13 +200,13 @@ Get the local path of the running webserver
       <p>The public root directory for your web server. This path is relative to your app&#39;s www directory.
 Default is current directory.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       port
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>number</code>
@@ -216,13 +215,13 @@ Default is current directory.</p>
       <p>The port number to use.
 Default is 8888</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       localhost_only
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -231,6 +230,7 @@ Default is 8888</p>
       <p>Setting this option to false will allow remote access to your web server (over any IP).
 Default is false.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   

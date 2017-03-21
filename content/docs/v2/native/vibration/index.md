@@ -121,7 +121,6 @@ Vibrates the device for given amount of time.
     <td>
       time
       
-      
     </td>
     <td>
       
@@ -130,6 +129,7 @@ Vibrates the device for given amount of time.
     <td>
       <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>
 
+      
       
     </td>
   </tr>

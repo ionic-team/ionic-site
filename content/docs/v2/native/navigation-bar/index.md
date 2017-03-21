@@ -116,13 +116,13 @@ hide automatically (or not) the navigation bar.
     <td>
       autohide
       
-      
     </td>
     <td>
       
 <code>boolean</code>
     </td>
     <td>
+      
       
       
     </td>

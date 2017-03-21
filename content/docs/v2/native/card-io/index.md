@@ -136,7 +136,6 @@ Scan a credit card with card.io.
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -145,6 +144,7 @@ Scan a credit card with card.io.
     <td>
       <p>Options for configuring the plugin</p>
 
+      
       
     </td>
   </tr>
@@ -198,7 +198,6 @@ Retrieve the version of the card.io library. Useful when contacting support.
   <tr>
     <td>
       requireExpiry
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -206,13 +205,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Set to true to require expiry date</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       requireCVV
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -220,13 +219,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The user will be prompted for the card CVV</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       requirePostalCode
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -234,13 +233,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The user will be prompted for the card billing postal code.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       supressManual
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -248,13 +247,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Removes the keyboard button from the scan screen.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       restrictPostalCodeToNumericOnly
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -262,13 +261,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The postal code will only collect numeric input. Set this if you know the expected country&#39;s postal code has only numeric postal codes.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       keepApplicationTheme
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -276,13 +275,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The theme for the card.io Activity&#39;s will be set to the theme of the application.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       requireCardholderName
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -290,13 +289,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The user will be prompted for the cardholder name</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       scanInstructions
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -304,13 +303,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Used to display instructions to the user while they are scanning their card.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       noCamera
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -318,13 +317,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>If set, the card will not be scanned with the camera.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       scanExpiry
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -332,13 +331,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>If scanExpiry is true, an attempt to extract the expiry from the card image will be made.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       languageOrLocale
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -346,13 +345,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The preferred language for all strings appearing in the user interface. If not set, or if set to null, defaults to the device&#39;s current language setting.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       guideColor
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>string</code>
@@ -360,13 +359,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Changes the color of the guide overlay on the camera. The color is provided in hexadecimal format (e.g. <code>#FFFFFF</code>)</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       supressConfirmation
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -374,13 +373,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The user will not be prompted to confirm their card number after processing.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       hideCardIOLogo
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -388,13 +387,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The card.io logo will not be shown overlaid on the camera.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       useCardIOLogo
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -402,13 +401,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>The card.io logo will be shown instead of the PayPal logo.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
   <tr>
     <td>
       supressScan
-      <div><em>(optional)</em></div>
     </td>
     <td>
       <code>boolean</code>
@@ -416,6 +415,7 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Once a card image has been captured but before it has been processed, this value will determine whether to continue processing as usual.</p>
 
+      <strong class="tag">Optional</strong>
     </td>
   </tr>
   
@@ -441,7 +441,6 @@ Retrieve the version of the card.io library. Useful when contacting support.
   <tr>
     <td>
       cardType
-      
     </td>
     <td>
       <code>string</code>
@@ -449,13 +448,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Card type</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       redactedCardNumber
-      
     </td>
     <td>
       <code>string</code>
@@ -463,13 +462,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Masked card number, showing only last 4 digits</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       cardNumber
-      
     </td>
     <td>
       <code>string</code>
@@ -477,13 +476,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Full card number</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       expiryMonth
-      
     </td>
     <td>
       <code>number</code>
@@ -491,13 +490,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Expiry month</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       expiryYear
-      
     </td>
     <td>
       <code>number</code>
@@ -505,13 +504,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Expiry year</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       cvv
-      
     </td>
     <td>
       <code>string</code>
@@ -519,13 +518,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>CVV</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       postalCode
-      
     </td>
     <td>
       <code>string</code>
@@ -533,13 +532,13 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Postal code</p>
 
+      
     </td>
   </tr>
   
   <tr>
     <td>
       cardholderName
-      
     </td>
     <td>
       <code>string</code>
@@ -547,6 +546,7 @@ Retrieve the version of the card.io library. Useful when contacting support.
     <td>
       <p>Cardholder name</p>
 
+      
     </td>
   </tr>
   

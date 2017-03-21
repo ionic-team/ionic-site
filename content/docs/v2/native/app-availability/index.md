@@ -123,7 +123,6 @@ Checks if an app is available on device
     <td>
       app
       
-      
     </td>
     <td>
       
@@ -132,6 +131,7 @@ Checks if an app is available on device
     <td>
       <p>Package name on android, or URI scheme on iOS</p>
 
+      
       
     </td>
   </tr>

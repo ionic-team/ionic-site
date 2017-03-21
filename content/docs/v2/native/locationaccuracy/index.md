@@ -136,7 +136,6 @@ Requests accurate location
     <td>
       accuracy
       
-      
     </td>
     <td>
       
@@ -145,6 +144,7 @@ Requests accurate location
     <td>
       <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST<em>PRIORITY</em></p>
 
+      
       
     </td>
   </tr>

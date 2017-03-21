@@ -137,7 +137,6 @@ Browser wrapper
     <td>
       appId
       
-      
     </td>
     <td>
       
@@ -147,13 +146,13 @@ Browser wrapper
       <p>Your Facebook AppID from their dashboard</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       version
-      
       
     </td>
     <td>
@@ -163,6 +162,7 @@ Browser wrapper
     <td>
       <p>The version of API you may want to use. Optional</p>
 
+      
       
     </td>
   </tr>
@@ -210,7 +210,6 @@ Login to Facebook to authenticate this app.
     <td>
       permissions
       
-      
     </td>
     <td>
       
@@ -219,6 +218,7 @@ Login to Facebook to authenticate this app.
     <td>
       <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> this app has upon logging in.</p>
 
+      
       
     </td>
   </tr>
@@ -327,7 +327,6 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -336,6 +335,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
     <td>
       <p>The dialog options</p>
 
+      
       
     </td>
   </tr>
@@ -375,7 +375,6 @@ For more information see:
     <td>
       requestPath
       
-      
     </td>
     <td>
       
@@ -385,13 +384,13 @@ For more information see:
       <p>Graph API endpoint you want to call</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       permissions
-      
       
     </td>
     <td>
@@ -401,6 +400,7 @@ For more information see:
     <td>
       <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> for this request.</p>
 
+      
       
     </td>
   </tr>
@@ -434,7 +434,6 @@ Log an event.  For more information see the Events section above.
     <td>
       name
       
-      
     </td>
     <td>
       
@@ -444,13 +443,13 @@ Log an event.  For more information see the Events section above.
       <p>Name of the event</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       params
-      
       
     </td>
     <td>
@@ -460,6 +459,7 @@ Log an event.  For more information see the Events section above.
     <td>
       <p>An object containing extra data to log with the event</p>
 
+      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -467,7 +467,6 @@ Log an event.  For more information see the Events section above.
   <tr>
     <td>
       valueToSum
-      
       
     </td>
     <td>
@@ -477,6 +476,7 @@ Log an event.  For more information see the Events section above.
     <td>
       <p>any value to be added to added to a sum on each event</p>
 
+      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -510,7 +510,6 @@ Log a purchase. For more information see the Events section above.
     <td>
       value
       
-      
     </td>
     <td>
       
@@ -520,13 +519,13 @@ Log a purchase. For more information see the Events section above.
       <p>Value of the purchase.</p>
 
       
+      
     </td>
   </tr>
   
   <tr>
     <td>
       currency
-      
       
     </td>
     <td>
@@ -536,6 +535,7 @@ Log a purchase. For more information see the Events section above.
     <td>
       <p>The currency, as an <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 currency code</a></p>
 
+      
       
     </td>
   </tr>
@@ -575,7 +575,6 @@ For more information see:
     <td>
       options
       
-      
     </td>
     <td>
       
@@ -586,6 +585,7 @@ For more information see:
   url: <a href="https://developers.facebook.com/docs/applinks">App Link</a> to your app
   picture: image to be displayed in the App Invite dialog</p>
 
+      
       
     </td>
   </tr>

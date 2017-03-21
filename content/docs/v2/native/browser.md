@@ -3,7 +3,7 @@ layout: "v2_fluid/docs_base"
 versionHref: "/docs/v2"
 path: ""
 category: native
-id: native
+id: browser
 title: "Using Ionic Native Plugins in The Browser"
 header_sub_title: "Harness the power of devices' native APIs"
 searchable: false

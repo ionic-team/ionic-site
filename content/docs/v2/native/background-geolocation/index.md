@@ -92,7 +92,7 @@ this.backgroundGeolocation.configure(config)
     // IMPORTANT:  You must execute the finish method here to inform the native plugin that you&#39;re finished,
     // and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
     // IF YOU DON&#39;T, ios will CRASH YOUR APP for spending too much time in the background.
-    BackgroundGeolocation.finish(); // FOR IOS ONLY
+    this.backgroundGeolocation.finish(); // FOR IOS ONLY
 
   });
 

@@ -404,7 +404,7 @@
                   data-toggle="modal" 
                   data-target="#myModal"
                   ng-click="trackOpenSurvey()">
-                I'm Interested
+                Try the Beta!
               </td>
             </tr>
           </tbody>
@@ -443,7 +443,7 @@
                 aria-label="Close"
                 id="modal-close"
                 onclick="c('Pricing','FormClose')"></button>
-        <h2 ng-show="section==1" class="modal-title">Can we call you?</h2> 
+        <h2 ng-show="section==1" class="modal-title">Beta Access</h2> 
         <h2 ng-show="section!=1 && section!=4" class="modal-title">Got it, thanks!</h2> 
         <h2 ng-show="section==4" class="modal-title">Talk to you soon!</h2> 
         <!--<p>
@@ -462,18 +462,15 @@
               <!-- <p>Hey there,</p> -->
 
               <p>
-                We are looking for companies who use Ionic to join us for a dedicated 15 minute phone conversation,
-                where we can discuss your exact needs.
+                We’re accepting a select number of companies into our beta program. Give us your email and we’ll schedule a brief intake call.
               </p>
-
-              <p>Please complete this survey, and we will contact you within 24 hours.</p>
 
               <!-- <p>Thanks,<br />Matt</p> -->
 
               <!-- <img src="/img/products/signature.png" class="matt-signature" /> -->
             </div>
 
-            <div class="form-group small-form">
+            <!-- <div class="form-group small-form">
               <label for="name" class="control-label">
                 Name
               </label>
@@ -482,7 +479,7 @@
                      id="name"
                      name="name"
                      ng-model="form.name">
-            </div>
+            </div> -->
 
             <div class="form-group small-form">
               <label for="email" class="control-label">
@@ -496,7 +493,7 @@
                      ng-enter="nextSection(form)">
             </div>
 
-            <div class="form-group small-form">
+            <!-- <div class="form-group small-form">
               <label for="email" class="control-label">
                 Phone <i>(Optional)</i>
               </label>
@@ -506,7 +503,7 @@
                      name="phone"
                      ng-model="form.phone"
                      ng-enter="nextSection(form)">
-            </div>
+            </div> -->
           </div>
 
           <div ng-show="section==2">
@@ -514,10 +511,10 @@
             <!-- <img src="/img/products/mattkremer.jpg" class="matt-picture-small" /> -->
 
             <div class="matt-talking one-line">
-              <p>How did you feel about the offering?</p>
+              <p>Thanks! Just two more questions:</p>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="would-this-offering" class="control-label">
                 Would this offering solve any problems you currently have?
               </label><br>
@@ -535,7 +532,7 @@
                        ng-value="false"
                        ng-model="form.solve_problems"> No
               </label>
-            </div>
+            </div> -->
             <div class="form-group">
               <label for="if-this-package" class="control-label">
                 If this package was Ionic’s only paid offering, and existed today for 
@@ -557,6 +554,20 @@
               </label>
             </div>
             <div class="form-group">
+              <label for="company_size" class="control-label">Company Size</label>
+              <select id="company_size" 
+                      name="company_size" 
+                      class="form-control" 
+                      ng-model="form.company_size">
+                <option ng-value="null" disabled selected></option>
+                <option ng-value="1">Self Employed</option>
+                <option ng-value="10">2-10</option>
+                <option ng-value="50">11-50</option>
+                <option ng-value="500">51-500</option>
+                <option ng-value="1000">500+</option>
+              </select>
+            </div>
+            <!-- <div class="form-group">
             <label class="control-label">
               Is there anything in this offering you would NOT use?
             </label><br>
@@ -588,7 +599,7 @@
                      ng-model="form.unused_features.package"> 
               Cloud Builds
             </label>
-          </div>
+          </div> -->
 
           <!--<div class="form-group">
             <label class="control-label">

@@ -4,10 +4,10 @@ version: "3.1.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "splashscreen"
-title: "SplashScreen"
+id: "splash-screen"
+title: "Splash Screen"
 header_sub_title: "Class in module "
-doc: "SplashScreen"
+doc: "Splash Screen"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  SplashScreen
+  Splash Screen
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-splashscreen
-$ npm install --save @ionic-native/splashscreen
+$ npm install --save @ionic-native/splash-screen
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-splashscreen">

@@ -110,11 +110,11 @@ There are other storage solutions out there as well, such as PouchDB, which prov
 In a native environment, you're bound to make calls to some sort of native API. But in a web environment, these API calls won't work since there's no native bridge. There are a few way to handle this.
 
 
-1. Use Ionic Native plugins when possible.
+- Use Ionic Native plugins when possible.
 
 Ionic Native has its own internal logic to detect if it is inside of a native environment. If it's not, instead of throwing a runtime error, it will simply print a warning informing you of the situation. This won't break your app and it will continue to work as expected.
 
-2. Detect native platform.
+- Detect native platform.
 
 In your app's logic, when ever you need to make a native API call, it's a safe idea to always check if you're in a native environment first. For example:
 
@@ -131,7 +131,7 @@ this.platform.ready()
 
 This bit of pseudo code can be a big help when targeting environments that you're not sure will have access to the native APIs.
 
-3. Fallback to browser based APIs
+- Fallback to browser based APIs
 
 Many native APIs that people tend to use (for example, the File API), are available in the browser these days. The APIs are always improving and catching up to native, so be sure to research them. Taking the fist two points into consideration, we can create a nice experience that will adapt for the platform you're on.
 

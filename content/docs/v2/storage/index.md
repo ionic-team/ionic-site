@@ -97,7 +97,7 @@ options to pass to localForage. See the localForage config docs for possible opt
   imports: [
     IonicStorageModule.forRoot({
       name: &#39;__mydb&#39;,
-         driverOrder: &#39;indexeddb&#39;, &#39;sqlite&#39;, &#39;websql&#39;
+         driverOrder: [&#39;indexeddb&#39;, &#39;sqlite&#39;, &#39;websql&#39;]
     })
   ],
   bootstrap: ...,

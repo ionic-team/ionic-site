@@ -83,6 +83,8 @@ const pushObject: PushObject = this.push.init(options);
 
 pushObject.on(&#39;notification&#39;).subscribe(notification =&gt; console.log(&#39;Received a notification&#39;, notification));
 
+pushObject.on(&#39;registration&#39;).subscribe(registration =&gt; console.log(&#39;Device registered&#39;, registration));
+
 pushObject.on(&#39;error&#39;).subscribe(error =&gt; console.error(&#39;Error with Push plugin&#39;, error));
 </code></pre>
 

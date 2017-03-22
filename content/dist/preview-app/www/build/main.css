@@ -17330,11 +17330,6 @@ ion-label[floating] {
   max-width: 100%;
 }
 
-.item-select ion-label[floating] {
-  -webkit-transform: translate3d(0, 0, 0) scale(0.8);
-  transform: translate3d(0, 0, 0) scale(0.8);
-}
-
 .label-ios {
   margin: 11px 8px 11px 0;
 }
@@ -23362,22 +23357,46 @@ ion-split-pane {
   display: hidden !important;
 }
 
+.split-pane-visible > .split-pane-side[side=right] {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
 .split-pane-ios.split-pane-visible > .split-pane-side {
   min-width: 270px;
   max-width: 28%;
   border-right: 0.55px solid #c8c7cc;
+  border-left: 0;
+}
+
+.split-pane-ios.split-pane-visible > .split-pane-side[side=right] {
+  border-right: 0;
+  border-left: 0.55px solid #c8c7cc;
 }
 
 .split-pane-md.split-pane-visible > .split-pane-side {
   min-width: 270px;
   max-width: 28%;
   border-right: 1px solid #dedede;
+  border-left: 0;
+}
+
+.split-pane-md.split-pane-visible > .split-pane-side[side=right] {
+  border-right: 0;
+  border-left: 1px solid #dedede;
 }
 
 .split-pane-wp.split-pane-visible > .split-pane-side {
   min-width: 270px;
   max-width: 28%;
   border-right: 1px solid transparent;
+  border-left: 0;
+}
+
+.split-pane-wp.split-pane-visible > .split-pane-side[side=right] {
+  border-right: 0;
+  border-left: 1px solid transparent;
 }
 
 .tabbar {

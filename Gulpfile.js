@@ -191,7 +191,7 @@ gulp.task('server-listen', function() {
   return server.listen({'path': './server.js', 'execArgv': ['--harmony']},
   function(error) {
     if (!error) {
-      browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
+      //browserSync({'proxy': 'http://localhost:3000', 'port': 3003});
     }
   });
 });

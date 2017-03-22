@@ -441,6 +441,25 @@ var IonicSiteModule = angular.module('IonicSite', ['ngAnimate', 'ngSanitize', 'i
 
 }])
 
+.controller('EnterpriseCloudPageCtrl', ['$scope', '$http', function($scope, $http){
+  $scope.pending = false;
+  $scope.success = false;
+  $scope.formData = {};
+
+  $scope.processForm = function() {
+    $scope.pending = true;
+    $http({
+      method  : 'POST',
+      url     : 'https://apps.ionic.io/api/discovery',
+      data    : { 'table': 'eric_integration_20170322', 'data': $scope.formData },
+      headers : { 'Content-Type': 'application/json' }
+    }).success(function(data) {
+      $scope.success = true;
+    });
+  };
+
+}])
+
 .controller('PricingPageCtrl', ['$scope', '$timeout', function($scope, $timeout){
 
   mixpanel.track('Pricing Page Load', { 'test': 'ProductsTest - 2' });

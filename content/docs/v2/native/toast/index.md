@@ -75,7 +75,7 @@ constructor(private toast: Toast) { }
 
 ...
 
-thisoast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscribe(
+this.toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).subscribe(
   toast =&gt; {
     console.log(toast);
   }

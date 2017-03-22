@@ -4,10 +4,10 @@ version: "3.1.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "ionic-deeplinks"
-title: "Ionic Deeplinks"
+id: "deeplinks"
+title: "Deeplinks"
 header_sub_title: "Class in module "
-doc: "Ionic Deeplinks"
+doc: "Deeplinks"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  Ionic Deeplinks
+  Deeplinks
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
-$ npm install --save @ionic-native/ionic-deeplinks
+$ npm install --save @ionic-native/deeplinks
 </code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-deeplinks">

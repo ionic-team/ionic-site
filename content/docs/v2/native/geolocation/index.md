@@ -62,15 +62,20 @@ $ npm install --save @ionic-native/geolocation
 
 <pre><code class="lang-typescript">import { Geolocation } from &#39;@ionic-native/geolocation&#39;;
 
+...
 
-Geolocation.getCurrentPosition().then((resp) =&gt; {
+constructor(private geolocation: Geolocation) {}
+
+...
+
+this.geolocation.getCurrentPosition().then((resp) =&gt; {
  // resp.coords.latitude
  // resp.coords.longitude
 }).catch((error) =&gt; {
   console.log(&#39;Error getting location&#39;, error);
 });
 
-let watch = Geolocation.watchPosition();
+let watch = this.geolocation.watchPosition();
 watch.subscribe((data) =&gt; {
  // data can be a set of coordinates, or an error (if an error occurred).
  // data.coords.latitude

@@ -4,10 +4,10 @@ version: "3.1.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "fingerprintaio"
-title: "FingerprintAIO"
+id: "fingerprint-aio"
+title: "Fingerprint AIO"
 header_sub_title: "Class in module "
-doc: "FingerprintAIO"
+doc: "Fingerprint AIO"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  FingerprintAIO
+  Fingerprint AIO
   
 
   
@@ -45,7 +45,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-fingerprint-aio
-$ npm install --save @ionic-native/fingerprintaio
+$ npm install --save @ionic-native/fingerprint-aio
 </code></pre>
 <p>Repo:
   <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">

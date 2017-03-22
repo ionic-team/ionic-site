@@ -4,10 +4,10 @@ version: "3.1.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "speechrecognition"
-title: "SpeechRecognition"
+id: "speech-recognition"
+title: "Speech Recognition"
 header_sub_title: "Class in module "
-doc: "SpeechRecognition"
+doc: "Speech Recognition"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  SpeechRecognition
+  Speech Recognition
   
 
   
@@ -45,7 +45,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-speechrecognition
-$ npm install --save @ionic-native/speechrecognition
+$ npm install --save @ionic-native/speech-recognition
 </code></pre>
 <p>Repo:
   <a href="https://github.com/pbakondy/cordova-plugin-speechrecognition">

@@ -4,10 +4,10 @@ version: "3.1.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "videoplayer"
-title: "VideoPlayer"
+id: "video-player"
+title: "Video Player"
 header_sub_title: "Class in module "
-doc: "VideoPlayer"
+doc: "Video Player"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  VideoPlayer
+  Video Player
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/moust/cordova-plugin-videoplayer
-$ npm install --save @ionic-native/videoplayer
+$ npm install --save @ionic-native/video-player
 </code></pre>
 <p>Repo:
   <a href="https://github.com/moust/cordova-plugin-videoplayer">

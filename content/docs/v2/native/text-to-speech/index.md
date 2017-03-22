@@ -4,10 +4,10 @@ version: "3.1.1"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "texttospeech"
-title: "TextToSpeech"
+id: "text-to-speech"
+title: "Text To Speech"
 header_sub_title: "Class in module "
-doc: "TextToSpeech"
+doc: "Text To Speech"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  TextToSpeech
+  Text To Speech
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-tts
-$ npm install --save @ionic-native/texttospeech
+$ npm install --save @ionic-native/text-to-speech
 </code></pre>
 <p>Repo:
   <a href="https://github.com/vilic/cordova-plugin-tts">

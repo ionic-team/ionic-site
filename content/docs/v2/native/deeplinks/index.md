@@ -71,9 +71,9 @@ and Universal App Links.</p>
 
 <pre><code class="lang-typescript">import { Deeplinks } from &#39;@ionic-native/deeplinks&#39;;
 
-constructor(private deepLinks: DeepLinks) { }
+constructor(private deeplinks: Deeplinks) { }
 
-this.deepLinks.route({
+this.deeplinks.route({
      &#39;/about-us&#39;: AboutPage,
      &#39;/universal-links-test&#39;: AboutPage,
      &#39;/products/:productId&#39;: ProductPage
@@ -89,7 +89,7 @@ this.deepLinks.route({
 </code></pre>
 <p>Alternatively, if you&#39;re using Ionic 2, there&#39;s a convenience method that takes a reference to a <code>NavController</code> and handles
 the actual navigation for you:</p>
-<pre><code class="lang-typescript">this.deepLinks.routeWithNavController(this.navController, {
+<pre><code class="lang-typescript">this.deeplinks.routeWithNavController(this.navController, {
   &#39;/about-us&#39;: AboutPage,
   &#39;/products/:productId&#39;: ProductPage
 }).subscribe((match) =&gt; {

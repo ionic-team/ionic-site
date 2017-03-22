@@ -64,8 +64,8 @@ The grid can do more with the addition of the `<ion-row>` and `<ion-col>` elemen
       col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3
       *ngFor="let item of [1,2,3,4,5]">
       <ion-card>Item {{item}}</ion-card>
-    </ion-col
-  <ion-row>
+    </ion-col>
+  </ion-row>
 </ion-grid>
 ```
 

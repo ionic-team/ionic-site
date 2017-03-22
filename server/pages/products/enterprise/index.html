@@ -332,7 +332,14 @@
             </select>
           </div>
           <div>
-            <textarea name="message" placeholder="Send us a message*" class="form-control"></textarea>
+            <select name="provider" class="form-control">
+              <option value="">Your current cloud provider:</option>
+              <option value="aws">AWS</option>
+              <option value="azure">Azure</option>
+              <option value="google">Google Cloud</option>
+              <option value="other">Other</option>
+              <option value="none">None</option>
+            </select>
           </div>
           <div>
             <input class="btn btn-primary btn-lg" type="submit" value="Send">

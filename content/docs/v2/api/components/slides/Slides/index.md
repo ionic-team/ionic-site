@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.3.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -718,6 +718,13 @@ Default: <code>null</code>.</p>
       <td><p> Pass another Slides instance or array of Slides instances
 that should be controlled by this Slides instance.
 Default: <code>null</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>dir</td>
+      <td><code>string</code></td>
+      <td><p> If dir attribute is equal to rtl, set interal _rtl to true;</p>
 </td>
     </tr>
     

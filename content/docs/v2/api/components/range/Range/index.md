@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.3.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -265,8 +265,20 @@ on the step property value. Defaults to <code>false</code>.</p>
   <tbody>
     
     <tr>
+      <td>ionBlur</td>
+      <td><p> Emitted when the range selector drag ends.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>ionChange</td>
       <td><p> Emitted when the range value changes.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionFocus</td>
+      <td><p> Emitted when the range selector drag starts.</p>
 </td>
     </tr>
     

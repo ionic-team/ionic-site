@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.3.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -895,6 +895,13 @@ overflow. Read-only.
       <td><p> If true, the content will scroll behind the headers
 and footers. This effect can easily be seen by setting the toolbar
 to transparent.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>scrollDownOnLoad</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the content will scroll down on load.</p>
 </td>
     </tr>
     

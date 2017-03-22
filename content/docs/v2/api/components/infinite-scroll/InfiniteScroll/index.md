@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.3.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L4">
 Improve this doc
 </a>
 
@@ -45,7 +45,7 @@ Improve this doc
 
 
 <p>The Infinite Scroll allows you to perform an action when the user
-scrolls a specified distance from the bottom of the page.</p>
+scrolls a specified distance from the bottom or top of the page.</p>
 <p>The expression assigned to the <code>infinite</code> event is called when
 the user scrolls to the specified distance. When this expression
 has finished its tasks, it should call the <code>complete()</code> method
@@ -93,6 +93,47 @@ export class NewsFeedPage {
     }, 500);
   }
 
+}
+</code></pre>
+<h2 id="-waitfor-method-of-infinitescroll"><code>waitFor</code> method of InfiniteScroll</h2>
+<p>In case if your async operation returns promise you can utilize
+<code>waitFor</code> method inside your template.</p>
+<pre><code class="lang-html">&lt;ion-content&gt;
+
+ &lt;ion-list&gt;
+   &lt;ion-item *ngFor=&quot;let item of items&quot;&gt;{{item}}&lt;/ion-item&gt;
+ &lt;/ion-list&gt;
+
+ &lt;ion-infinite-scroll (ionInfinite)=&quot;$event.waitFor(doInfinite())&quot;&gt;
+   &lt;ion-infinite-scroll-content&gt;&lt;/ion-infinite-scroll-content&gt;
+ &lt;/ion-infinite-scroll&gt;
+
+&lt;/ion-content&gt;
+</code></pre>
+<pre><code class="lang-ts">@Component({...})
+export class NewsFeedPage {
+  items = [];
+
+  constructor() {
+    for (var i = 0; i &lt; 30; i++) {
+      this.items.push( this.items.length );
+    }
+  }
+
+  doInfinite(): Promise&lt;any&gt; {
+    console.log(&#39;Begin async operation&#39;);
+
+    return new Promise((resolve) =&gt; {
+      setTimeout(() =&gt; {
+        for (var i = 0; i &lt; 30; i++) {
+          this.items.push( this.items.length );
+        }
+
+        console.log(&#39;Async operation has ended&#39;);
+        resolve();
+      }, 500);
+    })
+  }
 }
 </code></pre>
 <h2 id="infinite-scroll-content">Infinite Scroll Content</h2>
@@ -212,6 +253,28 @@ and hide the display.</p>
 
 
 
+
+<div id="waitFor"></div>
+
+<h3>
+<a class="anchor" name="waitFor" href="#waitFor"></a>
+<code>waitFor()</code>
+  
+
+</h3>
+
+Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
+change state of infiniteScroll to "complete"
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -230,6 +293,15 @@ and hide the display.</p>
       <td><p> If true, Whether or not the infinite scroll should be
 enabled or not. Setting to <code>false</code> will remove scroll event listeners
 and hide the display.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>position</td>
+      <td><code>string</code></td>
+      <td><p> The position of the infinite scroll element.
+The value can be either <code>top</code> or <code>bottom</code>.
+Default is <code>bottom</code>.</p>
 </td>
     </tr>
     

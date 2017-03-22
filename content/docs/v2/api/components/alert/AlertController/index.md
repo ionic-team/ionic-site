@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.2.0"
+version: "2.3.0"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L94">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L100">
 Improve this doc
 </a>
 
@@ -312,8 +312,19 @@ Display an alert with a title, inputs, and buttons
 <td><code>string</code></td>
 <td>The input&#39;s id.</td>
 </tr>
+<tr>
+<td>min</td>
+<td>`string</td>
+<td>number`</td>
+<td>The input&#39;s minimum authorized value (string only for date inputs, number</td>
+</tr>
 </tbody>
 </table>
+<p> only for number inputs)
+ |
+ | max         | <code>string | number</code>  | The input&#39;s maximum authorized value (string only for date inputs, number
+ only for number inputs)
+ |</p>
 <p> Button options</p>
 <table>
 <thead>

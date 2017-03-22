@@ -26,7 +26,7 @@ docType: "class"
 
   </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ad-mob/index.ts#L84">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L84">
   Improve this doc
 </a>
 

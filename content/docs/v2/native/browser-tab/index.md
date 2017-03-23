@@ -77,7 +77,7 @@ constructor(private browserTab: BrowserTab) {
 
       if (isAvailable) {
 
-        browserTab.open(&#39;https://ionic.io&#39;);
+        browserTab.openUrl(&#39;https://ionic.io&#39;);
 
       } else {
 

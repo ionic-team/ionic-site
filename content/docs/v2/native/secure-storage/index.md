@@ -69,7 +69,7 @@ $ npm install --save @ionic-native/secure-storage
 
 <h2>Usage</h2>
 
-<pre><code class="lang-typescript">import { SecureStorage, SecureStorageOBject } from &#39;@ionic-native/secure-storage&#39;;
+<pre><code class="lang-typescript">import { SecureStorage, SecureStorageObject } from &#39;@ionic-native/secure-storage&#39;;
 
 constructor(private secureStorage: SecureStorage) { }
 

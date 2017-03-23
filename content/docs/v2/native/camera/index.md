@@ -48,10 +48,10 @@ constructor(private camera: Camera) { }
 ...
 
 
-constant options: CameraOptions = {
+const options: CameraOptions = {
   quality: 100,
   destinationType: this.camera.DestinationType.DATA_URL,
-  enodingType: this.camera.EncodingType.JPEG,
+  encodingType: this.camera.EncodingType.JPEG,
   mediaType: this.camera.MediaType.PICTURE
 }
 

@@ -314,17 +314,16 @@ Display an alert with a title, inputs, and buttons
 </tr>
 <tr>
 <td>min</td>
-<td>`string</td>
-<td>number`</td>
-<td>The input&#39;s minimum authorized value (string only for date inputs, number</td>
+<td><code>string/number</code></td>
+<td>The input&#39;s minimum authorized value (string only for date inputs, number only for number inputs)</td>
+</tr>
+<tr>
+<td>max</td>
+<td><code>string/number</code></td>
+<td>The input&#39;s maximum authorized value (string only for date inputs, number only for number inputs)</td>
 </tr>
 </tbody>
 </table>
-<p> only for number inputs)
- |
- | max         | <code>string | number</code>  | The input&#39;s maximum authorized value (string only for date inputs, number
- only for number inputs)
- |</p>
 <p> Button options</p>
 <table>
 <thead>

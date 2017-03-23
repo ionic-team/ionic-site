@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-admobpro
-$ npm install --save @ionic-native/AdMob
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-admobpro
+$ npm install --save @ionic-native/admob
 </code></pre>
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-admob-pro">
@@ -96,7 +96,7 @@ onClick() {
 <h2>Instance Members</h2>
 <div id="AD_POSITION"></div>
 <h3>
-  <code>AD_POSITION</code>
+  <code>AD_POSITION()</code>
   
 
 </h3>

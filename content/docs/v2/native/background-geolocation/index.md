@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-mauron85-background-geolocation
-$ npm install --save @ionic-native/Background Geolocation
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-mauron85-background-geolocation
+$ npm install --save @ionic-native/background-geolocation
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mauron85/cordova-plugin-background-geolocation">
@@ -116,7 +116,7 @@ this.backgroundGeolocation.stop();
 <h2>Instance Members</h2>
 <div id="LocationProvider"></div>
 <h3>
-  <code>LocationProvider</code>
+  <code>LocationProvider()</code>
   
 
 </h3>
@@ -130,7 +130,7 @@ Possible values:
 
 <div id="Accuracy"></div>
 <h3>
-  <code>Accuracy</code>
+  <code>Accuracy()</code>
   
 
 </h3>
@@ -150,7 +150,7 @@ enum {number}
 
 <div id="Mode"></div>
 <h3>
-  <code>Mode</code>
+  <code>Mode()</code>
   
 
 </h3>

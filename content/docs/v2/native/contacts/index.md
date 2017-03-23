@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-contacts
-$ npm install --save @ionic-native/Contacts
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-contacts
+$ npm install --save @ionic-native/contacts
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-contacts">

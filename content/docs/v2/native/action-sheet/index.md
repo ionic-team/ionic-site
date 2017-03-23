@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-actionsheet
-$ npm install --save @ionic-native/Action Sheet
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-actionsheet
+$ npm install --save @ionic-native/action-sheet
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
@@ -104,7 +104,7 @@ this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
 <h2>Instance Members</h2>
 <div id="ANDROID_THEMES"></div>
 <h3>
-  <code>ANDROID_THEMES</code>
+  <code>ANDROID_THEMES()</code>
   
 
 </h3>

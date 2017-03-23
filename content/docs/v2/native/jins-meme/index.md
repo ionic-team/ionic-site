@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add JinsMemeSDK-Plugin-Cordova
-$ npm install --save @ionic-native/Jins Meme
+<pre><code class="nohighlight">$ ionic plugin add JinsMemeSDK-Plugin-Cordova
+$ npm install --save @ionic-native/jins-meme
 </code></pre>
 <p>Repo:
   <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova.git">

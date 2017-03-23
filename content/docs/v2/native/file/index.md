@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-file
-$ npm install --save @ionic-native/File
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-file
+$ npm install --save @ionic-native/file
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-file">
@@ -82,7 +82,7 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
 <h2>Instance Members</h2>
 <div id="applicationDirectory"></div>
 <h3>
-  <code>applicationDirectory</code>
+  <code>applicationDirectory()</code>
   
 
 </h3>
@@ -92,7 +92,7 @@ Read-only directory where the application is installed.
 
 <div id="applicationStorageDirectory"></div>
 <h3>
-  <code>applicationStorageDirectory</code>
+  <code>applicationStorageDirectory()</code>
   
 
 </h3>
@@ -102,7 +102,7 @@ Read-only directory where the application is installed.
 
 <div id="dataDirectory"></div>
 <h3>
-  <code>dataDirectory</code>
+  <code>dataDirectory()</code>
   
 
 </h3>
@@ -112,7 +112,7 @@ Where to put app-specific data files.
 
 <div id="cacheDirectory"></div>
 <h3>
-  <code>cacheDirectory</code>
+  <code>cacheDirectory()</code>
   
 
 </h3>
@@ -123,7 +123,7 @@ Apps should not rely on the OS to delete files in here.
 
 <div id="externalApplicationStorageDirectory"></div>
 <h3>
-  <code>externalApplicationStorageDirectory</code>
+  <code>externalApplicationStorageDirectory()</code>
   
 
 </h3>
@@ -133,7 +133,7 @@ Android: the application space on external storage.
 
 <div id="externalDataDirectory"></div>
 <h3>
-  <code>externalDataDirectory</code>
+  <code>externalDataDirectory()</code>
   
 
 </h3>
@@ -143,7 +143,7 @@ Android: Where to put app-specific data files on external storage.
 
 <div id="externalCacheDirectory"></div>
 <h3>
-  <code>externalCacheDirectory</code>
+  <code>externalCacheDirectory()</code>
   
 
 </h3>
@@ -153,7 +153,7 @@ Android: the application cache on external storage.
 
 <div id="externalRootDirectory"></div>
 <h3>
-  <code>externalRootDirectory</code>
+  <code>externalRootDirectory()</code>
   
 
 </h3>
@@ -163,7 +163,7 @@ Android: the external storage (SD card) root.
 
 <div id="tempDirectory"></div>
 <h3>
-  <code>tempDirectory</code>
+  <code>tempDirectory()</code>
   
 
 </h3>
@@ -173,7 +173,7 @@ iOS: Temp directory that the OS can clear at will.
 
 <div id="syncedDataDirectory"></div>
 <h3>
-  <code>syncedDataDirectory</code>
+  <code>syncedDataDirectory()</code>
   
 
 </h3>
@@ -183,7 +183,7 @@ iOS: Holds app-specific files that should be synced (e.g. to iCloud).
 
 <div id="documentsDirectory"></div>
 <h3>
-  <code>documentsDirectory</code>
+  <code>documentsDirectory()</code>
   
 
 </h3>
@@ -193,7 +193,7 @@ iOS: Files private to the app, but that are meaningful to other applications (e.
 
 <div id="sharedDirectory"></div>
 <h3>
-  <code>sharedDirectory</code>
+  <code>sharedDirectory()</code>
   
 
 </h3>
@@ -203,7 +203,7 @@ BlackBerry10: Files globally available to all apps
 
 <div id="cordovaFileError"></div>
 <h3>
-  <code>cordovaFileError</code>
+  <code>cordovaFileError()</code>
   
 
 </h3>

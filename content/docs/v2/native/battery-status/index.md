@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-battery-status
-$ npm install --save @ionic-native/Battery Status
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-battery-status
+$ npm install --save @ionic-native/battery-status
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-battery-status">

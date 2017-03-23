@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-nativestorage
-$ npm install --save @ionic-native/Native Storage
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-nativestorage
+$ npm install --save @ionic-native/native-storage
 </code></pre>
 <p>Repo:
   <a href="https://github.com/TheCocoaProject/cordova-plugin-nativestorage">

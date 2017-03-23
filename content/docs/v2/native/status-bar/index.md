@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-statusbar
-$ npm install --save @ionic-native/Status Bar
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-statusbar
+$ npm install --save @ionic-native/status-bar
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-statusbar">
@@ -271,7 +271,7 @@ Show the StatusBar
 
 <div id="isVisible"></div>
 <h3>
-  <code>isVisible</code>
+  <code>isVisible()</code>
   
 
 </h3>

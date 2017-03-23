@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-media-capture
-$ npm install --save @ionic-native/Media Capture
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-media-capture
+$ npm install --save @ionic-native/media-capture
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-media-capture">
@@ -87,7 +87,7 @@ this.mediaCapture.captureImage(options)
 <h2>Instance Members</h2>
 <div id="supportedImageModes"></div>
 <h3>
-  <code>supportedImageModes</code>
+  <code>supportedImageModes()</code>
   
 
 </h3>
@@ -100,7 +100,7 @@ The recording image sizes and formats supported by the device.
 <code>ConfigurationData[]</code> 
 </div><div id="supportedAudioModes"></div>
 <h3>
-  <code>supportedAudioModes</code>
+  <code>supportedAudioModes()</code>
   
 
 </h3>
@@ -113,7 +113,7 @@ The audio recording formats supported by the device.
 <code>ConfigurationData[]</code> 
 </div><div id="supportedVideoModes"></div>
 <h3>
-  <code>supportedVideoModes</code>
+  <code>supportedVideoModes()</code>
   
 
 </h3>

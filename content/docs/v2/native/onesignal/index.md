@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add onesignal-cordova-plugin
-$ npm install --save @ionic-native/OneSignal
+<pre><code class="nohighlight">$ ionic plugin add onesignal-cordova-plugin
+$ npm install --save @ionic-native/onesignal
 </code></pre>
 <p>Repo:
   <a href="https://github.com/OneSignal/OneSignal-Cordova-SDK">
@@ -104,7 +104,7 @@ this.oneSignal.endInit();
 <h2>Instance Members</h2>
 <div id="OSInFocusDisplayOption"></div>
 <h3>
-  <code>OSInFocusDisplayOption</code>
+  <code>OSInFocusDisplayOption()</code>
   
 
 </h3>

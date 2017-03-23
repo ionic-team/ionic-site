@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-background-mode
-$ npm install --save @ionic-native/Background Mode
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-background-mode
+$ npm install --save @ionic-native/background-mode
 </code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-background-mode">

@@ -44,8 +44,8 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-backlight
-$ npm install --save @ionic-native/Backlight
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-backlight
+$ npm install --save @ionic-native/backlight
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mebibou/cordova-plugin-backlight">

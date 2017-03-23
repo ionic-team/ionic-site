@@ -44,8 +44,8 @@ docType: "class"
 </p>
 
 
-<pre><code>$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
-$ npm install --save @ionic-native/Pinterest
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
+$ npm install --save @ionic-native/pinterest
 </code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-pinterest">
@@ -115,7 +115,7 @@ this.pinterest.getMyBoards()
 <h2>Instance Members</h2>
 <div id="SCOPES"></div>
 <h3>
-  <code>SCOPES</code>
+  <code>SCOPES()</code>
   
 
 </h3>

@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-device
-$ npm install --save @ionic-native/Device
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-device
+$ npm install --save @ionic-native/device
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device">
@@ -81,7 +81,7 @@ console.log(&#39;Device UUID is: &#39; + this.device.uuid);
 <h2>Instance Members</h2>
 <div id="cordova"></div>
 <h3>
-  <code>cordova</code>
+  <code>cordova()</code>
   
 
 </h3>
@@ -91,7 +91,7 @@ Get the version of Cordova running on the device.
 
 <div id="model"></div>
 <h3>
-  <code>model</code>
+  <code>model()</code>
   
 
 </h3>
@@ -102,7 +102,7 @@ by the device manufacturer and may be different across versions of the same prod
 
 <div id="platform"></div>
 <h3>
-  <code>platform</code>
+  <code>platform()</code>
   
 
 </h3>
@@ -112,7 +112,7 @@ Get the device's operating system name.
 
 <div id="uuid"></div>
 <h3>
-  <code>uuid</code>
+  <code>uuid()</code>
   
 
 </h3>
@@ -122,7 +122,7 @@ Get the device's Universally Unique Identifier (UUID).
 
 <div id="version"></div>
 <h3>
-  <code>version</code>
+  <code>version()</code>
   
 
 </h3>
@@ -132,7 +132,7 @@ Get the operating system version.
 
 <div id="manufacturer"></div>
 <h3>
-  <code>manufacturer</code>
+  <code>manufacturer()</code>
   
 
 </h3>
@@ -142,7 +142,7 @@ Get the device's manufacturer.
 
 <div id="isVirtual"></div>
 <h3>
-  <code>isVirtual</code>
+  <code>isVirtual()</code>
   
 
 </h3>
@@ -152,7 +152,7 @@ Whether the device is running on a simulator.
 
 <div id="serial"></div>
 <h3>
-  <code>serial</code>
+  <code>serial()</code>
   
 
 </h3>

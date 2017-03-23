@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-filepath
-$ npm install --save @ionic-native/File Path
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-filepath
+$ npm install --save @ionic-native/file-path
 </code></pre>
 <p>Repo:
   <a href="https://github.com/hiddentao/cordova-plugin-filepath">

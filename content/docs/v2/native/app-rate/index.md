@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-apprate
-$ npm install --save @ionic-native/App Rate
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-apprate
+$ npm install --save @ionic-native/app-rate
 </code></pre>
 <p>Repo:
   <a href="https://github.com/pushandplay/cordova-plugin-apprate">
@@ -97,7 +97,7 @@ this.appRate.promptForRating(false);
 <h2>Instance Members</h2>
 <div id="preferences"></div>
 <h3>
-  <code>preferences</code>
+  <code>preferences()</code>
   
 
 </h3>

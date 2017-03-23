@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
-$ npm install --save @ionic-native/Twitter Connect
+<pre><code class="nohighlight">$ ionic plugin add twitter-connect-plugin --variable FABRIC_KEY=fabric_API_key
+$ npm install --save @ionic-native/twitter-connect
 </code></pre>
 <p>Repo:
   <a href="https://github.com/ManifestWebDesign/twitter-connect-plugin">

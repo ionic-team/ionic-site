@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
-$ npm install --save @ionic-native/Insomnia
+<pre><code class="nohighlight">$ ionic plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
+$ npm install --save @ionic-native/insomnia
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin">

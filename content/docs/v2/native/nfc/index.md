@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add phonegap-nfc
-$ npm install --save @ionic-native/NFC
+<pre><code class="nohighlight">$ ionic plugin add phonegap-nfc
+$ npm install --save @ionic-native/nfc
 </code></pre>
 <p>Repo:
   <a href="https://github.com/chariotsolutions/phonegap-nfc">

@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-gyroscope
-$ npm install --save @ionic-native/Gyroscope
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-gyroscope
+$ npm install --save @ionic-native/gyroscope
 </code></pre>
 <p>Repo:
   <a href="https://github.com/NeoLSN/cordova-plugin-gyroscope">

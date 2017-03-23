@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova.plugins.diagnostic
-$ npm install --save @ionic-native/Diagnostic
+<pre><code class="nohighlight">$ ionic plugin add cordova.plugins.diagnostic
+$ npm install --save @ionic-native/diagnostic
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-diagnostic-plugin">
@@ -96,7 +96,7 @@ this.diagnostic.getBluetoothState()
 <h2>Instance Members</h2>
 <div id="permission"></div>
 <h3>
-  <code>permission</code>
+  <code>permission()</code>
   
 
 </h3>
@@ -105,7 +105,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="permissionStatus"></div>
 <h3>
-  <code>permissionStatus</code>
+  <code>permissionStatus()</code>
   
 
 </h3>
@@ -114,7 +114,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="locationAuthorizationMode"></div>
 <h3>
-  <code>locationAuthorizationMode</code>
+  <code>locationAuthorizationMode()</code>
   
 
 </h3>
@@ -123,7 +123,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="permissionGroups"></div>
 <h3>
-  <code>permissionGroups</code>
+  <code>permissionGroups()</code>
   
 
 </h3>
@@ -132,7 +132,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="locationMode"></div>
 <h3>
-  <code>locationMode</code>
+  <code>locationMode()</code>
   
 
 </h3>
@@ -141,7 +141,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="bluetoothState"></div>
 <h3>
-  <code>bluetoothState</code>
+  <code>bluetoothState()</code>
   
 
 </h3>
@@ -150,7 +150,7 @@ this.diagnostic.getBluetoothState()
 
 <div id="NFCState"></div>
 <h3>
-  <code>NFCState</code>
+  <code>NFCState()</code>
   
 
 </h3>

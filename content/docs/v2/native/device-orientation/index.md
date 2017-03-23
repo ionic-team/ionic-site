@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-device-orientation
-$ npm install --save @ionic-native/Device Orientation
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-device-orientation
+$ npm install --save @ionic-native/device-orientation
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device-orientation">

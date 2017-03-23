@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-video-editor
-$ npm install --save @ionic-native/Video Editor
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-video-editor
+$ npm install --save @ionic-native/video-editor
 </code></pre>
 <p>Repo:
   <a href="https://github.com/jbavari/cordova-plugin-video-editor">
@@ -96,7 +96,7 @@ this.videoEditor.transcodeVideo({
 <h2>Instance Members</h2>
 <div id="OptimizeForNetworkUse"></div>
 <h3>
-  <code>OptimizeForNetworkUse</code>
+  <code>OptimizeForNetworkUse()</code>
   
 
 </h3>
@@ -105,7 +105,7 @@ this.videoEditor.transcodeVideo({
 
 <div id="OutputFileType"></div>
 <h3>
-  <code>OutputFileType</code>
+  <code>OutputFileType()</code>
   
 
 </h3>

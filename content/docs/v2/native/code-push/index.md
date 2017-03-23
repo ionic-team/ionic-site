@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-code-push
-$ npm install --save @ionic-native/Code Push
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-code-push
+$ npm install --save @ionic-native/code-push
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Microsoft/cordova-plugin-code-push">

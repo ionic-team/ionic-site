@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-network-information
-$ npm install --save @ionic-native/Network
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-network-information
+$ npm install --save @ionic-native/network
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-network-information">
@@ -113,7 +113,7 @@ connectSubscription.unsubscribe();
 <h2>Instance Members</h2>
 <div id="type"></div>
 <h3>
-  <code>type</code>
+  <code>type()</code>
   
 
 </h3>
@@ -126,7 +126,7 @@ Connection type
 <code>string</code> 
 </div><div id="downlinkMax"></div>
 <h3>
-  <code>downlinkMax</code>
+  <code>downlinkMax()</code>
   
 
 </h3>

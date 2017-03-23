@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/appodeal/appodeal-cordova-plugin
-$ npm install --save @ionic-native/Appodeal
+<pre><code class="nohighlight">$ ionic plugin add https://github.com/appodeal/appodeal-cordova-plugin
+$ npm install --save @ionic-native/appodeal
 </code></pre>
 <p>Repo:
   <a href="https://github.com/appodeal/appodeal-cordova-plugin.git">
@@ -92,7 +92,7 @@ constructor(private appodeal: Appodeal) {
 <h2>Instance Members</h2>
 <div id="readonly"></div>
 <h3>
-  <code>readonly</code>
+  <code>readonly()</code>
   
 
 </h3>

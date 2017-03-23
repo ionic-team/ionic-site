@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-ibeacon
-$ npm install --save @ionic-native/IBeacon
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-ibeacon
+$ npm install --save @ionic-native/ibeacon
 </code></pre>
 <p>Repo:
   <a href="https://github.com/petermetz/cordova-plugin-ibeacon">

@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-geolocation
-$ npm install --save @ionic-native/Geolocation
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-geolocation
+$ npm install --save @ionic-native/geolocation
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-geolocation">

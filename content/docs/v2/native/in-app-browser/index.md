@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-inappbrowser
-$ npm install --save @ionic-native/In App Browser
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-inappbrowser
+$ npm install --save @ionic-native/in-app-browser
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-inappbrowser">

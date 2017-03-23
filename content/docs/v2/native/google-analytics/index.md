@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-google-analytics
-$ npm install --save @ionic-native/Google Analytics
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-google-analytics
+$ npm install --save @ionic-native/google-analytics
 </code></pre>
 <p>Repo:
   <a href="https://github.com/danwilson/google-analytics-plugin">

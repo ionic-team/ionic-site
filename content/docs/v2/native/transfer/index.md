@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-file-transfer
-$ npm install --save @ionic-native/Transfer
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-file-transfer
+$ npm install --save @ionic-native/transfer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-file-transfer">
@@ -119,7 +119,7 @@ download() {
 <h2>Instance Members</h2>
 <div id="FileTransferErrorCode"></div>
 <h3>
-  <code>FileTransferErrorCode</code>
+  <code>FileTransferErrorCode()</code>
   
 
 </h3>

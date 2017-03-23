@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add com.telerik.plugins.nativepagetransitions
-$ npm install --save @ionic-native/Native Page Transitions
+<pre><code class="nohighlight">$ ionic plugin add com.telerik.plugins.nativepagetransitions
+$ npm install --save @ionic-native/native-page-transitions
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/NativePageTransitions">

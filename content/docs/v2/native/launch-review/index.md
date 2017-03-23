@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-launch-review
-$ npm install --save @ionic-native/Launch Review
+<pre><code class="nohighlight">$ ionic plugin add cordova-launch-review
+$ npm install --save @ionic-native/launch-review
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-launch-review">

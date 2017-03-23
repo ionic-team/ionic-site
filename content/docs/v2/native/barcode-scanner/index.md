@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add phonegap-plugin-barcodescanner
-$ npm install --save @ionic-native/Barcode Scanner
+<pre><code class="nohighlight">$ ionic plugin add phonegap-plugin-barcodescanner
+$ npm install --save @ionic-native/barcode-scanner
 </code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
@@ -96,7 +96,7 @@ this.barcodeScanner.scan().then((barcodeData) =&gt; {
 <h2>Instance Members</h2>
 <div id="Encode"></div>
 <h3>
-  <code>Encode</code>
+  <code>Encode()</code>
   
 
 </h3>

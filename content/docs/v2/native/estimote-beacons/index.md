@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-estimote
-$ npm install --save @ionic-native/Estimote Beacons
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-estimote
+$ npm install --save @ionic-native/estimote-beacons
 </code></pre>
 <p>Repo:
   <a href="https://github.com/evothings/phonegap-estimotebeacons">
@@ -92,7 +92,7 @@ this.eb.enableAnalytics(true);
 <h2>Instance Members</h2>
 <div id="ProximityUnknown"></div>
 <h3>
-  <code>ProximityUnknown</code>
+  <code>ProximityUnknown()</code>
   
 
 </h3>
@@ -102,7 +102,7 @@ Proximity value
 
 <div id="ProximityImmediate"></div>
 <h3>
-  <code>ProximityImmediate</code>
+  <code>ProximityImmediate()</code>
   
 
 </h3>
@@ -112,7 +112,7 @@ Proximity value
 
 <div id="ProximityNear"></div>
 <h3>
-  <code>ProximityNear</code>
+  <code>ProximityNear()</code>
   
 
 </h3>
@@ -122,7 +122,7 @@ Proximity value
 
 <div id="ProximityFar"></div>
 <h3>
-  <code>ProximityFar</code>
+  <code>ProximityFar()</code>
   
 
 </h3>
@@ -132,7 +132,7 @@ Proximity value
 
 <div id="BeaconColorUnknown"></div>
 <h3>
-  <code>BeaconColorUnknown</code>
+  <code>BeaconColorUnknown()</code>
   
 
 </h3>
@@ -142,7 +142,7 @@ Beacon colour
 
 <div id="BeaconColorMintCocktail"></div>
 <h3>
-  <code>BeaconColorMintCocktail</code>
+  <code>BeaconColorMintCocktail()</code>
   
 
 </h3>
@@ -152,7 +152,7 @@ Beacon colour
 
 <div id="BeaconColorIcyMarshmallow"></div>
 <h3>
-  <code>BeaconColorIcyMarshmallow</code>
+  <code>BeaconColorIcyMarshmallow()</code>
   
 
 </h3>
@@ -162,7 +162,7 @@ Beacon colour
 
 <div id="BeaconColorBlueberryPie"></div>
 <h3>
-  <code>BeaconColorBlueberryPie</code>
+  <code>BeaconColorBlueberryPie()</code>
   
 
 </h3>
@@ -172,7 +172,7 @@ Beacon colour
 
 <div id="BeaconColorSweetBeetroot"></div>
 <h3>
-  <code>BeaconColorSweetBeetroot</code>
+  <code>BeaconColorSweetBeetroot()</code>
   
 
 </h3>
@@ -182,7 +182,7 @@ Beacon colour.
 
 <div id="BeaconColorCandyFloss"></div>
 <h3>
-  <code>BeaconColorCandyFloss</code>
+  <code>BeaconColorCandyFloss()</code>
   
 
 </h3>
@@ -192,7 +192,7 @@ Beacon colour
 
 <div id="BeaconColorLemonTart"></div>
 <h3>
-  <code>BeaconColorLemonTart</code>
+  <code>BeaconColorLemonTart()</code>
   
 
 </h3>
@@ -202,7 +202,7 @@ Beacon colour
 
 <div id="BeaconColorVanillaJello"></div>
 <h3>
-  <code>BeaconColorVanillaJello</code>
+  <code>BeaconColorVanillaJello()</code>
   
 
 </h3>
@@ -212,7 +212,7 @@ Beacon colour
 
 <div id="BeaconColorLiquoriceSwirl"></div>
 <h3>
-  <code>BeaconColorLiquoriceSwirl</code>
+  <code>BeaconColorLiquoriceSwirl()</code>
   
 
 </h3>
@@ -222,7 +222,7 @@ Beacon colour
 
 <div id="BeaconColorWhite"></div>
 <h3>
-  <code>BeaconColorWhite</code>
+  <code>BeaconColorWhite()</code>
   
 
 </h3>
@@ -232,7 +232,7 @@ Beacon colour
 
 <div id="BeaconColorTransparent"></div>
 <h3>
-  <code>BeaconColorTransparent</code>
+  <code>BeaconColorTransparent()</code>
   
 
 </h3>
@@ -242,7 +242,7 @@ Beacon colour
 
 <div id="RegionStateUnknown"></div>
 <h3>
-  <code>RegionStateUnknown</code>
+  <code>RegionStateUnknown()</code>
   
 
 </h3>
@@ -252,7 +252,7 @@ Region state
 
 <div id="RegionStateOutside"></div>
 <h3>
-  <code>RegionStateOutside</code>
+  <code>RegionStateOutside()</code>
   
 
 </h3>
@@ -262,7 +262,7 @@ Region state
 
 <div id="RegionStateInside"></div>
 <h3>
-  <code>RegionStateInside</code>
+  <code>RegionStateInside()</code>
   
 
 </h3>

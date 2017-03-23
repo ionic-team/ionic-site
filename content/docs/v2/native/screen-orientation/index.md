@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-screen-orientation
-$ npm install --save @ionic-native/Screen Orientation
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-screen-orientation
+$ npm install --save @ionic-native/screen-orientation
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-screen-orientation">
@@ -100,7 +100,7 @@ this.screenOrientation.unlock();
 <h2>Instance Members</h2>
 <div id="ORIENTATIONS"></div>
 <h3>
-  <code>ORIENTATIONS</code>
+  <code>ORIENTATIONS()</code>
   
 
 </h3>
@@ -174,7 +174,7 @@ Unlock and allow all orientations.
 
 <div id="type"></div>
 <h3>
-  <code>type</code>
+  <code>type()</code>
   
 
 </h3>

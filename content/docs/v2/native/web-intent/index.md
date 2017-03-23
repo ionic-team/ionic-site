@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/Initsogar/cordova-webintent.git
-$ npm install --save @ionic-native/Web Intent
+<pre><code class="nohighlight">$ ionic plugin add https://github.com/Initsogar/cordova-webintent.git
+$ npm install --save @ionic-native/web-intent
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Initsogar/cordova-webintent.git">
@@ -96,7 +96,7 @@ this.webIntent.startActivity(options).then(onSuccess, onError);
 <h2>Instance Members</h2>
 <div id="ACTION_SEND"></div>
 <h3>
-  <code>ACTION_SEND</code>
+  <code>ACTION_SEND()</code>
   
 
 </h3>
@@ -105,7 +105,7 @@ Convenience constant for actions
 
 <div id="ACTION_VIEW"></div>
 <h3>
-  <code>ACTION_VIEW</code>
+  <code>ACTION_VIEW()</code>
   
 
 </h3>
@@ -114,7 +114,7 @@ Convenience constant for actions
 
 <div id="EXTRA_TEXT"></div>
 <h3>
-  <code>EXTRA_TEXT</code>
+  <code>EXTRA_TEXT()</code>
   
 
 </h3>
@@ -123,7 +123,7 @@ Convenience constant for extras
 
 <div id="EXTRA_SUBJECT"></div>
 <h3>
-  <code>EXTRA_SUBJECT</code>
+  <code>EXTRA_SUBJECT()</code>
   
 
 </h3>
@@ -132,7 +132,7 @@ Convenience constant for extras
 
 <div id="EXTRA_STREAM"></div>
 <h3>
-  <code>EXTRA_STREAM</code>
+  <code>EXTRA_STREAM()</code>
   
 
 </h3>
@@ -141,7 +141,7 @@ Convenience constant for extras
 
 <div id="EXTRA_EMAIL"></div>
 <h3>
-  <code>EXTRA_EMAIL</code>
+  <code>EXTRA_EMAIL()</code>
   
 
 </h3>
@@ -150,7 +150,7 @@ Convenience constant for extras
 
 <div id="ACTION_CALL"></div>
 <h3>
-  <code>ACTION_CALL</code>
+  <code>ACTION_CALL()</code>
   
 
 </h3>
@@ -159,7 +159,7 @@ Convenience constant for actions
 
 <div id="ACTION_SENDTO"></div>
 <h3>
-  <code>ACTION_SENDTO</code>
+  <code>ACTION_SENDTO()</code>
   
 
 </h3>

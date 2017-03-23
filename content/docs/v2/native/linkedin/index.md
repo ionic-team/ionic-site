@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
-$ npm install --save @ionic-native/LinkedIn
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-linkedin --variable APP_ID=YOUR_APP_ID
+$ npm install --save @ionic-native/linkedin
 </code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-linkedin">

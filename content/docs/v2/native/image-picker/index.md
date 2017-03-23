@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
-$ npm install --save @ionic-native/Image Picker
+<pre><code class="nohighlight">$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
+$ npm install --save @ionic-native/image-picker
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Telerik-Verified-Plugins/ImagePicker">

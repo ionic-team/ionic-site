@@ -77,7 +77,7 @@ this.camera.getPicture(options).then((imageData) =&gt; {
 <h2>Instance Members</h2>
 <div id="DestinationType"></div>
 <h3>
-  <code>DestinationType</code>
+  <code>DestinationType()</code>
   
 
 </h3>
@@ -87,7 +87,7 @@ Constant for possible destination types
 
 <div id="EncodingType"></div>
 <h3>
-  <code>EncodingType</code>
+  <code>EncodingType()</code>
   
 
 </h3>
@@ -97,7 +97,7 @@ Convenience constant
 
 <div id="MediaType"></div>
 <h3>
-  <code>MediaType</code>
+  <code>MediaType()</code>
   
 
 </h3>
@@ -107,7 +107,7 @@ Convenience constant
 
 <div id="PictureSourceType"></div>
 <h3>
-  <code>PictureSourceType</code>
+  <code>PictureSourceType()</code>
   
 
 </h3>
@@ -117,7 +117,7 @@ Convenience constant
 
 <div id="PopoverArrowDirection"></div>
 <h3>
-  <code>PopoverArrowDirection</code>
+  <code>PopoverArrowDirection()</code>
   
 
 </h3>
@@ -127,7 +127,7 @@ Convenience constant
 
 <div id="Direction"></div>
 <h3>
-  <code>Direction</code>
+  <code>Direction()</code>
   
 
 </h3>

@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-firebase
-$ npm install --save @ionic-native/Firebase
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-firebase
+$ npm install --save @ionic-native/firebase
 </code></pre>
 <p>Repo:
   <a href="https://github.com/arnesson/cordova-plugin-firebase">

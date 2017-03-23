@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
-$ npm install --save @ionic-native/Launch Navigator
+<pre><code class="nohighlight">$ ionic plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
+$ npm install --save @ionic-native/launch-navigator
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/phonegap-launch-navigator.git">
@@ -652,7 +652,7 @@ Indicates if an app on a given platform supports specification of start location
 
 <div id="APP"></div>
 <h3>
-  <code>APP</code>
+  <code>APP()</code>
   
 
 </h3>
@@ -661,7 +661,7 @@ Indicates if an app on a given platform supports specification of start location
 
 <div id="TRANSPORT_MODE"></div>
 <h3>
-  <code>TRANSPORT_MODE</code>
+  <code>TRANSPORT_MODE()</code>
   
 
 </h3>

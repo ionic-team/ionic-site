@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-music-controls
-$ npm install --save @ionic-native/Music Controls
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-music-controls
+$ npm install --save @ionic-native/music-controls
 </code></pre>
 <p>Repo:
   <a href="https://github.com/homerours/cordova-music-controls-plugin">

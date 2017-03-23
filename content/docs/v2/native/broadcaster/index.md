@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-broadcaster
-$ npm install --save @ionic-native/Broadcaster
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-broadcaster
+$ npm install --save @ionic-native/broadcaster
 </code></pre>
 <p>Repo:
   <a href="https://github.com/bsorrentino/cordova-broadcaster">

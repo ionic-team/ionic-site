@@ -38,8 +38,8 @@ docType: "class"
 
 
 
-<pre><code>$ ionic plugin add cordova-plugin-zip
-$ npm install --save @ionic-native/Zip
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-zip
+$ npm install --save @ionic-native/zip
 </code></pre>
 <p>Repo:
   <a href="https://github.com/MobileChromeApps/cordova-plugin-zip">

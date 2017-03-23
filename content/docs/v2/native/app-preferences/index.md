@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-app-preferences
-$ npm install --save @ionic-native/app-preferences
+$ npm install --save @ionic-native/App Preferences
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apla/me.apla.cordova.app-preferences">

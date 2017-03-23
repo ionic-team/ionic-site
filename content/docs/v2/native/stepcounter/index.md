@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/Slidee/cordova-plugin-stepcounter
-$ npm install --save @ionic-native/stepcounter
+$ npm install --save @ionic-native/Stepcounter
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Slidee/cordova-plugin-stepcounter">

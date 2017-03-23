@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-pin-dialog
-$ npm install --save @ionic-native/pin-dialog
+$ npm install --save @ionic-native/Pin Dialog
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/PinDialog">

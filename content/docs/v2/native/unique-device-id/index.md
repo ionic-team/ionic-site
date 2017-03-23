@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-uniquedeviceid
-$ npm install --save @ionic-native/unique-device-id
+$ npm install --save @ionic-native/Unique Device ID
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/UniqueDeviceID">

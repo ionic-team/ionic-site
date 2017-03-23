@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-ble-central
-$ npm install --save @ionic-native/ble
+$ npm install --save @ionic-native/BLE
 </code></pre>
 <p>Repo:
   <a href="https://github.com/don/cordova-plugin-ble-central">

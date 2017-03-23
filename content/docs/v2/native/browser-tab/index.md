@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-browsertab
-$ npm install --save @ionic-native/browser-tab
+$ npm install --save @ionic-native/Browser Tab
 </code></pre>
 <p>Repo:
   <a href="https://github.com/google/cordova-plugin-browsertab">
@@ -77,7 +77,7 @@ constructor(private browserTab: BrowserTab) {
 
       if (isAvailable) {
 
-        browserTab.open(&#39;https://ionic.io&#39;);
+        browserTab.openUrl(&#39;https://ionic.io&#39;);
 
       } else {
 

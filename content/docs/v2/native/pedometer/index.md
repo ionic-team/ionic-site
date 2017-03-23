@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-pedometer
-$ npm install --save @ionic-native/pedometer
+$ npm install --save @ionic-native/Pedometer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/leecrossley/cordova-plugin-pedometer">

@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-base64-to-gallery
-$ npm install --save @ionic-native/base64-to-gallery
+$ npm install --save @ionic-native/Base64 To Gallery
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Nexxa/cordova-base64-to-gallery">

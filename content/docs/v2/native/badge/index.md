@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-badge
-$ npm install --save @ionic-native/badge
+$ npm install --save @ionic-native/Badge
 </code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-badge">

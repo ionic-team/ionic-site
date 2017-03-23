@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-stripe
-$ npm install --save @ionic-native/stripe
+$ npm install --save @ionic-native/Stripe
 </code></pre>
 <p>Repo:
   <a href="https://github.com/zyramedia/cordova-plugin-stripe">

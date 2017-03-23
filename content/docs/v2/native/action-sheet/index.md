@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-actionsheet
-$ npm install --save @ionic-native/action-sheet
+$ npm install --save @ionic-native/Action Sheet
 </code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">

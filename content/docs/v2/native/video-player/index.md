@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/moust/cordova-plugin-videoplayer
-$ npm install --save @ionic-native/video-player
+$ npm install --save @ionic-native/Video Player
 </code></pre>
 <p>Repo:
   <a href="https://github.com/moust/cordova-plugin-videoplayer">

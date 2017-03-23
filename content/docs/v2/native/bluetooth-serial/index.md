@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-bluetooth-serial
-$ npm install --save @ionic-native/bluetooth-serial
+$ npm install --save @ionic-native/Bluetooth Serial
 </code></pre>
 <p>Repo:
   <a href="https://github.com/don/BluetoothSerial">

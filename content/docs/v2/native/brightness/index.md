@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-brightness
-$ npm install --save @ionic-native/brightness
+$ npm install --save @ionic-native/Brightness
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mgcrea/cordova-plugin-brightness">

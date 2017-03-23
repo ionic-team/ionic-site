@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-estimote
-$ npm install --save @ionic-native/estimote-beacons
+$ npm install --save @ionic-native/Estimote Beacons
 </code></pre>
 <p>Repo:
   <a href="https://github.com/evothings/phonegap-estimotebeacons">

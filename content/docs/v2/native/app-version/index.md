@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-app-version
-$ npm install --save @ionic-native/app-version
+$ npm install --save @ionic-native/App Version
 </code></pre>
 <p>Repo:
   <a href="https://github.com/whiteoctober/cordova-plugin-app-version">

@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-themeablebrowser
-$ npm install --save @ionic-native/themeable-browser
+$ npm install --save @ionic-native/Themeable Browser
 </code></pre>
 <p>Repo:
   <a href="https://github.com/initialxy/cordova-plugin-themeablebrowser">

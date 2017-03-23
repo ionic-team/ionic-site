@@ -45,7 +45,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-email
-$ npm install --save @ionic-native/email-composer
+$ npm install --save @ionic-native/Email Composer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-email-plugin">

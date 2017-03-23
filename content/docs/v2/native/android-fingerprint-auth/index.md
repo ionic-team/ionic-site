@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-android-fingerprint-auth
-$ npm install --save @ionic-native/android-fingerprint-auth
+$ npm install --save @ionic-native/Android Fingerprint Auth
 </code></pre>
 <p>Repo:
   <a href="https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth">

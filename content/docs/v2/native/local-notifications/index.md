@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add de.appplant.cordova.plugin.local-notification
-$ npm install --save @ionic-native/local-notifications
+$ npm install --save @ionic-native/Local Notifications
 </code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-local-notifications">

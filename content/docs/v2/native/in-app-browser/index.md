@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-inappbrowser
-$ npm install --save @ionic-native/in-app-browser
+$ npm install --save @ionic-native/In App Browser
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-inappbrowser">

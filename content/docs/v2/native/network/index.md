@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-network-information
-$ npm install --save @ionic-native/network
+$ npm install --save @ionic-native/Network
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-network-information">

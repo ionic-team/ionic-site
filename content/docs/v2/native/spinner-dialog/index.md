@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-spinner-dialog
-$ npm install --save @ionic-native/spinner-dialog
+$ npm install --save @ionic-native/Spinner Dialog
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Paldom/SpinnerDialog">

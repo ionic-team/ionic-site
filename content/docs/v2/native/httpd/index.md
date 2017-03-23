@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/floatinghotpot/cordova-httpd.git
-$ npm install --save @ionic-native/httpd
+$ npm install --save @ionic-native/Httpd
 </code></pre>
 <p>Repo:
   <a href="https://github.com/floatinghotpot/cordova-httpd">

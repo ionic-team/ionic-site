@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add de.appplant.cordova.plugin.printer
-$ npm install --save @ionic-native/printer
+$ npm install --save @ionic-native/Printer
 </code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-printer.git">

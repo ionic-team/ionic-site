@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-media
-$ npm install --save @ionic-native/media
+$ npm install --save @ionic-native/Media
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-media">

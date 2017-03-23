@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-device
-$ npm install --save @ionic-native/device
+$ npm install --save @ionic-native/Device
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device">

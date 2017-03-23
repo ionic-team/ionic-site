@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-streaming-media
-$ npm install --save @ionic-native/streaming-media
+$ npm install --save @ionic-native/Streaming Media
 </code></pre>
 <p>Repo:
   <a href="https://github.com/nchutchind/cordova-plugin-streaming-media">

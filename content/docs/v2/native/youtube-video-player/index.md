@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add https://github.com/Glitchbone/CordovaYoutubeVideoPlayer.git
-$ npm install --save @ionic-native/youtube-video-player
+$ npm install --save @ionic-native/Youtube Video Player
 </code></pre>
 <p>Repo:
   <a href="https://github.com/Glitchbone/CordovaYoutubeVideoPlayer">

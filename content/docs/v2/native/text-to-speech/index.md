@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-tts
-$ npm install --save @ionic-native/text-to-speech
+$ npm install --save @ionic-native/Text To Speech
 </code></pre>
 <p>Repo:
   <a href="https://github.com/vilic/cordova-plugin-tts">

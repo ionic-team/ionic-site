@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-launch-review
-$ npm install --save @ionic-native/launch-review
+$ npm install --save @ionic-native/Launch Review
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-launch-review">

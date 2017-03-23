@@ -130,7 +130,6 @@ Shares using the share sheet
       <p>The message you would like to share.</p>
 
       
-      
     </td>
   </tr>
   
@@ -146,7 +145,6 @@ Shares using the share sheet
     <td>
       <p>The subject</p>
 
-      
       
     </td>
   </tr>
@@ -164,7 +162,6 @@ Shares using the share sheet
       <p>URL(s) to file(s) or image(s), local path(s) to file(s) or image(s), or base64 data of an image. Only the first file/image will be used on Windows Phone.</p>
 
       
-      
     </td>
   </tr>
   
@@ -180,7 +177,6 @@ Shares using the share sheet
     <td>
       <p>A URL to share</p>
 
-      
       
     </td>
   </tr>
@@ -222,7 +218,6 @@ Shares using the share sheet with additional options and returns a result object
       <p>The options object with the message, subject, files, url and chooserTitle properties.</p>
 
       
-      
     </td>
   </tr>
   
@@ -263,7 +258,6 @@ Checks if you can share via a specific app.
       <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
 
       
-      
     </td>
   </tr>
   
@@ -277,7 +271,6 @@ Checks if you can share via a specific app.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -295,7 +288,6 @@ Checks if you can share via a specific app.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -311,7 +303,6 @@ Checks if you can share via a specific app.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -325,7 +316,6 @@ Checks if you can share via a specific app.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -367,7 +357,6 @@ Shares directly to Twitter
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -383,7 +372,6 @@ Shares directly to Twitter
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -397,7 +385,6 @@ Shares directly to Twitter
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -439,7 +426,6 @@ Shares directly to Facebook
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -455,7 +441,6 @@ Shares directly to Facebook
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -469,7 +454,6 @@ Shares directly to Facebook
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -511,7 +495,6 @@ Shares directly to Facebook with a paste message hint
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -525,7 +508,6 @@ Shares directly to Facebook with a paste message hint
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -543,7 +525,6 @@ Shares directly to Facebook with a paste message hint
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -557,7 +538,6 @@ Shares directly to Facebook with a paste message hint
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -599,7 +579,6 @@ Shares directly to Instagram
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -613,7 +592,6 @@ Shares directly to Instagram
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -655,7 +633,6 @@ Shares directly to WhatsApp
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -671,7 +648,6 @@ Shares directly to WhatsApp
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -685,7 +661,6 @@ Shares directly to WhatsApp
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -728,7 +703,6 @@ Shares directly to a WhatsApp Contact
       <p>Pass phone number on Android, and Addressbook ID (abid) on iOS</p>
 
       
-      
     </td>
   </tr>
   
@@ -744,7 +718,6 @@ Shares directly to a WhatsApp Contact
     <td>
       <p>Message to send</p>
 
-      
       
     </td>
   </tr>
@@ -762,7 +735,6 @@ Shares directly to a WhatsApp Contact
       <p>Image to send (does not work on iOS</p>
 
       
-      
     </td>
   </tr>
   
@@ -778,7 +750,6 @@ Shares directly to a WhatsApp Contact
     <td>
       <p>Link to send</p>
 
-      
       
     </td>
   </tr>
@@ -820,7 +791,6 @@ Share via SMS
       <p>message to send</p>
 
       
-      
     </td>
   </tr>
   
@@ -836,7 +806,6 @@ Share via SMS
     <td>
       <p>Number or multiple numbers seperated by commas</p>
 
-      
       
     </td>
   </tr>
@@ -890,7 +859,6 @@ Share via Email
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -906,7 +874,6 @@ Share via Email
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -920,7 +887,6 @@ Share via Email
 <code>string[]</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -939,7 +905,6 @@ Share via Email
       <p>Optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -956,7 +921,6 @@ Share via Email
       <p>Optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -972,7 +936,6 @@ Share via Email
     <td>
       <p>Optional URL or local path to file(s) to attach</p>
 
-      
       
     </td>
   </tr>
@@ -1014,7 +977,6 @@ Share via AppName
       <p>App name or package name. Examples: instagram or com.apple.social.facebook</p>
 
       
-      
     </td>
   </tr>
   
@@ -1028,7 +990,6 @@ Share via AppName
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1046,7 +1007,6 @@ Share via AppName
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1062,7 +1022,6 @@ Share via AppName
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1076,7 +1035,6 @@ Share via AppName
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>

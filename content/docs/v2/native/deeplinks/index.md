@@ -150,7 +150,6 @@ matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 
       
-      
     </td>
   </tr>
   
@@ -201,7 +200,6 @@ paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
 
-      
       
     </td>
   </tr>

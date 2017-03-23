@@ -128,7 +128,6 @@ Check and update
       <p>update api url</p>
 
       
-      
     </td>
   </tr>
   

@@ -133,7 +133,6 @@ Open the barcode scanner.
       <p>Optional options to pass to the scanner</p>
 
       
-      
     </td>
   </tr>
   
@@ -175,7 +174,6 @@ NOTE: not well supported on Android
       <p>Type of encoding</p>
 
       
-      
     </td>
   </tr>
   
@@ -191,7 +189,6 @@ NOTE: not well supported on Android
     <td>
       <p>Data to encode</p>
 
-      
       
     </td>
   </tr>
@@ -239,7 +236,7 @@ NOTE: not well supported on Android
     <td>
       <p>Prefer front camera. Supported on iOS and Android.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -253,7 +250,7 @@ NOTE: not well supported on Android
     <td>
       <p>Show flip camera button. Supported on iOS and Android.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -267,7 +264,7 @@ NOTE: not well supported on Android
     <td>
       <p>Show torch button. Supported on iOS and Android.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -281,7 +278,7 @@ NOTE: not well supported on Android
     <td>
       <p>Disable animations. Supported on iOS only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -295,7 +292,7 @@ NOTE: not well supported on Android
     <td>
       <p>Disable success beep. Supported on iOS only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -309,7 +306,7 @@ NOTE: not well supported on Android
     <td>
       <p>Prompt text. Supported on Android only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -323,7 +320,7 @@ NOTE: not well supported on Android
     <td>
       <p>Formats separated by commas. Defaults to all formats except <code>PDF_417</code> and <code>RSS_EXPANDED</code>.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -337,7 +334,7 @@ NOTE: not well supported on Android
     <td>
       <p>Orientation. Supported on Android only. Can be set to <code>portrait</code> or <code>landscape</code>. Defaults to none so the user can rotate the phone and pick an orientation.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -351,7 +348,7 @@ NOTE: not well supported on Android
     <td>
       <p>Launch with the torch switched on (if available). Supported on Android only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -365,7 +362,7 @@ NOTE: not well supported on Android
     <td>
       <p>Display scanned text for X ms. 0 suppresses it entirely, default 1500. Supported on Android only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

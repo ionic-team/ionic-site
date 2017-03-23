@@ -185,7 +185,7 @@ this.imageResizer
       <p>The name of the folder the image should be put
 (Android only)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -200,7 +200,7 @@ this.imageResizer
       <p>Quality given as Number for the quality of the new image
 (Android and iOS only)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -215,7 +215,7 @@ this.imageResizer
       <p>A custom name for the file. Default name is a timestamp
 (Android and Windows only)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

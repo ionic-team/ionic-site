@@ -110,7 +110,6 @@ Get a preference value
       <p>Dictionary for key (OPTIONAL)</p>
 
       
-      
     </td>
   </tr>
   
@@ -126,7 +125,6 @@ Get a preference value
     <td>
       <p>Key</p>
 
-      
       
     </td>
   </tr>
@@ -169,7 +167,6 @@ Set a preference value
       <p>Dictionary for key (OPTIONAL)</p>
 
       
-      
     </td>
   </tr>
   
@@ -186,7 +183,6 @@ Set a preference value
       <p>Key</p>
 
       
-      
     </td>
   </tr>
   
@@ -202,7 +198,6 @@ Set a preference value
     <td>
       <p>Value</p>
 
-      
       
     </td>
   </tr>
@@ -245,7 +240,6 @@ Remove value from preferences
       <p>Dictionary for key (OPTIONAL)</p>
 
       
-      
     </td>
   </tr>
   
@@ -261,7 +255,6 @@ Remove value from preferences
     <td>
       <p>Key</p>
 
-      
       
     </td>
   </tr>
@@ -332,7 +325,6 @@ Show native preferences interface
       <p>true value to subscribe, false - unsubscribe</p>
 
       
-      
     </td>
   </tr>
   
@@ -374,7 +366,6 @@ Supports: Android, iOS
     <td>
       <p>suite name</p>
 
-      
       
     </td>
   </tr>

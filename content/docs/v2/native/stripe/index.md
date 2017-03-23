@@ -120,7 +120,6 @@ Set publishable key
       <p>Publishable key</p>
 
       
-      
     </td>
   </tr>
   
@@ -160,7 +159,6 @@ Create Credit Card Token
     <td>
       <p>Credit card information</p>
 
-      
       
     </td>
   </tr>
@@ -202,7 +200,6 @@ Create a bank account token
       <p>Bank account information</p>
 
       
-      
     </td>
   </tr>
   
@@ -242,7 +239,6 @@ Validates a credit card number
     <td>
       <p>Credit card number</p>
 
-      
       
     </td>
   </tr>
@@ -284,7 +280,6 @@ Validates a CVC number
       <p>CVC number</p>
 
       
-      
     </td>
   </tr>
   
@@ -325,7 +320,6 @@ Validates an expiry date
       <p>expiry month</p>
 
       
-      
     </td>
   </tr>
   
@@ -341,7 +335,6 @@ Validates an expiry date
     <td>
       <p>expiry year</p>
 
-      
       
     </td>
   </tr>
@@ -382,7 +375,6 @@ Get a card type from card number
     <td>
       <p>Card number</p>
 
-      
       
     </td>
   </tr>
@@ -472,7 +464,7 @@ Get a card type from card number
     <td>
       <p>CVC / CVV</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -486,7 +478,7 @@ Get a card type from card number
     <td>
       <p>Cardholder name</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -500,7 +492,7 @@ Get a card type from card number
     <td>
       <p>Address line 1</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -514,7 +506,7 @@ Get a card type from card number
     <td>
       <p>Address line 2</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -528,7 +520,7 @@ Get a card type from card number
     <td>
       <p>City</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -542,7 +534,7 @@ Get a card type from card number
     <td>
       <p>State / Province</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -556,7 +548,7 @@ Get a card type from card number
     <td>
       <p>Country</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -570,7 +562,7 @@ Get a card type from card number
     <td>
       <p>Postal code / ZIP Code</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -584,7 +576,7 @@ Get a card type from card number
     <td>
       <p>3-letter ISO code for currency</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

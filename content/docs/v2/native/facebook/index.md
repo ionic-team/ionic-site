@@ -146,7 +146,6 @@ Browser wrapper
       <p>Your Facebook AppID from their dashboard</p>
 
       
-      
     </td>
   </tr>
   
@@ -162,7 +161,6 @@ Browser wrapper
     <td>
       <p>The version of API you may want to use. Optional</p>
 
-      
       
     </td>
   </tr>
@@ -218,7 +216,6 @@ Login to Facebook to authenticate this app.
     <td>
       <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> this app has upon logging in.</p>
 
-      
       
     </td>
   </tr>
@@ -336,7 +333,6 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
       <p>The dialog options</p>
 
       
-      
     </td>
   </tr>
   
@@ -384,7 +380,6 @@ For more information see:
       <p>Graph API endpoint you want to call</p>
 
       
-      
     </td>
   </tr>
   
@@ -400,7 +395,6 @@ For more information see:
     <td>
       <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> for this request.</p>
 
-      
       
     </td>
   </tr>
@@ -443,7 +437,6 @@ Log an event.  For more information see the Events section above.
       <p>Name of the event</p>
 
       
-      
     </td>
   </tr>
   
@@ -457,9 +450,8 @@ Log an event.  For more information see the Events section above.
 <code>Object</code>
     </td>
     <td>
-      <p>An object containing extra data to log with the event</p>
+      <p>An object containing extra data to log with the event<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -474,9 +466,8 @@ Log an event.  For more information see the Events section above.
 <code>number</code>
     </td>
     <td>
-      <p>any value to be added to added to a sum on each event</p>
+      <p>any value to be added to added to a sum on each event<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -519,7 +510,6 @@ Log a purchase. For more information see the Events section above.
       <p>Value of the purchase.</p>
 
       
-      
     </td>
   </tr>
   
@@ -536,7 +526,6 @@ Log a purchase. For more information see the Events section above.
       <p>The currency, as an <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 currency code</a></p>
 
       
-      
     </td>
   </tr>
   
@@ -549,7 +538,7 @@ Log a purchase. For more information see the Events section above.
 <code>Promise&lt;any&gt;</code> 
 </div><div id="appInvite"></div>
 <h3>
-  <code>appInvite(options)</code>
+  <code>appInvite(options,&nbsp;options.url,&nbsp;options.picture)</code>
   
 
 </h3>
@@ -581,11 +570,40 @@ For more information see:
 <code>Object</code>
     </td>
     <td>
-      <p>An object containing an <a href="https://developers.facebook.com/docs/applinks">App Link</a> URL to your app and an optional image URL.
-  url: <a href="https://developers.facebook.com/docs/applinks">App Link</a> to your app
-  picture: image to be displayed in the App Invite dialog</p>
+      <p>An object containing an <a href="https://developers.facebook.com/docs/applinks">App Link</a> URL to your app and an optional image URL.</p>
 
       
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options.url
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p><a href="https://developers.facebook.com/docs/applinks">App Link</a> to your app</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options.picture
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>image to be displayed in the App Invite dialog<strong class="tag">Optional</strong></p>
+
       
     </td>
   </tr>

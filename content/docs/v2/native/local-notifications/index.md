@@ -140,7 +140,6 @@ Schedules a single or multiple notifications
       <p>optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -177,7 +176,6 @@ Updates a previously scheduled notification. Must include the id in the options 
       <p>optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -213,7 +211,6 @@ Clears single or multiple notifications
     <td>
       <p>A single notification id, or an array of notification ids.</p>
 
-      
       
     </td>
   </tr>
@@ -268,7 +265,6 @@ Cancels single or multiple notifications
       <p>A single notification id, or an array of notification ids.</p>
 
       
-      
     </td>
   </tr>
   
@@ -321,7 +317,6 @@ Checks presence of a notification
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -361,7 +356,6 @@ Checks is a notification is scheduled
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -399,7 +393,6 @@ Checks if a notification is triggered
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -481,7 +474,6 @@ Get a notification object
       <p>The id of the notification to get</p>
 
       
-      
     </td>
   </tr>
   
@@ -522,7 +514,6 @@ Get a scheduled notification object
       <p>The id of the notification to get</p>
 
       
-      
     </td>
   </tr>
   
@@ -562,7 +553,6 @@ Get a triggered notification object
     <td>
       <p>The id of the notification to get</p>
 
-      
       
     </td>
   </tr>
@@ -669,7 +659,6 @@ Sets a callback for a specific event
       <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
 
       
-      
     </td>
   </tr>
   
@@ -685,7 +674,6 @@ Sets a callback for a specific event
     <td>
       <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
 
-      
       
     </td>
   </tr>
@@ -730,7 +718,7 @@ Sets a callback for a specific event
       <p>A unique identifier required to clear, cancel, update or retrieve the local notification in the future
 Default: 0</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -745,7 +733,7 @@ Default: 0</p>
       <p>First row of the notification
 Default: Empty string (iOS) or the app name (Android)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -760,7 +748,7 @@ Default: Empty string (iOS) or the app name (Android)</p>
       <p>Second row of the notification
 Default: Empty string</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -775,7 +763,7 @@ Default: Empty string</p>
       <p>The interval at which to reschedule the local notification. That can be a value of second, minute, hour, day, week, month or year
 Default: 0 (which means that the system triggers the local notification once)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -790,7 +778,7 @@ Default: 0 (which means that the system triggers the local notification once)</p
       <p>The date and time when the system should deliver the local notification. If the specified value is nil or is a date in the past, the local notification is delivered immediately.
 Default: now ~ new Date()</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -803,7 +791,7 @@ Default: now ~ new Date()</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -818,7 +806,7 @@ Default: now ~ new Date()</p>
       <p>The number currently set as the badge of the app icon in Springboard (iOS) or at the right-hand side of the local notification (Android)
 Default: 0 (which means don&#39;t show a number)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -833,7 +821,7 @@ Default: 0 (which means don&#39;t show a number)</p>
       <p>Uri of the file containing the sound to play when an alert is displayed
 Default: res://platform_default</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -848,7 +836,7 @@ Default: res://platform_default</p>
       <p>Arbitrary data, objects will be encoded to JSON string
 Default: null</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -864,7 +852,7 @@ Default: null</p>
 Uri of the icon that is shown in the ticker and notification
 Default: res://icon</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -880,7 +868,7 @@ Default: res://icon</p>
 Uri of the resource (only res://) to use in the notification layouts. Different classes of devices may return different sizes
 Default: res://ic_popup_reminder</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -896,7 +884,7 @@ Default: res://ic_popup_reminder</p>
 RGB value for the background color of the smallIcon.
 Default: Androids COLOR_DEFAULT, which will vary based on Android version.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -916,7 +904,7 @@ Ongoing notifications differ from regular notifications in the following ways:</
 Default: false</li>
 </ul>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -932,7 +920,7 @@ Default: false</li>
 ARGB value that you would like the LED on the device to blink
 Default: FFFFFF</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

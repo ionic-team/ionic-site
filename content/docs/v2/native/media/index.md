@@ -159,7 +159,6 @@ Open a media file
       <p>A URI containing the audio content.</p>
 
       
-      
     </td>
   </tr>
   
@@ -175,7 +174,6 @@ Open a media file
     <td>
       <p>A callback function to be invoked when the status of the file changes</p>
 
-      
       
     </td>
   </tr>
@@ -301,7 +299,6 @@ Sets the current position within an audio file.
       <p>The time position you want to set for the current audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -337,7 +334,6 @@ Set the volume for an audio file.
     <td>
       <p>The volume to set for playback. The value must be within the range of 0.0 to 1.0.</p>
 
-      
       
     </td>
   </tr>

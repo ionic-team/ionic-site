@@ -124,7 +124,6 @@ is true.
       <p>Whether the status bar overlays the main app view.</p>
 
       
-      
     </td>
   </tr>
   
@@ -205,7 +204,6 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
       <p>The name of the color (from above)</p>
 
       
-      
     </td>
   </tr>
   
@@ -244,7 +242,6 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
     <td>
       <p>The hex value of the color.</p>
 
-      
       
     </td>
   </tr>

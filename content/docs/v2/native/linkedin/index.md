@@ -135,7 +135,6 @@ Login with the LinkedIn App
       <p>Scopes to authorize</p>
 
       
-      
     </td>
   </tr>
   
@@ -151,7 +150,6 @@ Login with the LinkedIn App
     <td>
       <p>set to true to prompt the user to download the LinkedIn app if it&#39;s not installed</p>
 
-      
       
     </td>
   </tr>
@@ -203,7 +201,6 @@ Make a get request
       <p>request path</p>
 
       
-      
     </td>
   </tr>
   
@@ -244,7 +241,6 @@ Make a post request
       <p>request path</p>
 
       
-      
     </td>
   </tr>
   
@@ -260,7 +256,6 @@ Make a post request
     <td>
       <p>request body</p>
 
-      
       
     </td>
   </tr>
@@ -301,7 +296,6 @@ Opens a member's profile
     <td>
       <p>Member id</p>
 
-      
       
     </td>
   </tr>

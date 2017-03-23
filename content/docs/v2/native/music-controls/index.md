@@ -171,7 +171,6 @@ Create the media controls
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -247,7 +246,6 @@ Toggle play/pause:
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -281,7 +279,6 @@ Toggle dismissable:
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>

@@ -136,7 +136,6 @@ Prompts the user for rating
       <p>Show the rating prompt immediately.</p>
 
       
-      
     </td>
   </tr>
   
@@ -179,7 +178,7 @@ Prompts the user for rating
     <td>
       <p>Custom BCP 47 language tag</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -193,7 +192,7 @@ Prompts the user for rating
     <td>
       <p>Custom application title</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -207,7 +206,7 @@ Prompts the user for rating
     <td>
       <p>Show dialog again when application version will be updated. Defaults to <code>true</code></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -221,7 +220,7 @@ Prompts the user for rating
     <td>
       <p>count of runs of application before dialog will be displayed. Defaults to <code>3</code></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -235,7 +234,7 @@ Prompts the user for rating
     <td>
       <p>leave app or no when application page opened in app store (now supported only for iOS). Defaults to <code>false</code></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -249,7 +248,7 @@ Prompts the user for rating
     <td>
       <p>use custom view for rate dialog. Defaults to <code>false</code></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -263,7 +262,7 @@ Prompts the user for rating
     <td>
       <p>Custom locale object</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -277,7 +276,7 @@ Prompts the user for rating
     <td>
       <p>Callbacks for events</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -291,7 +290,7 @@ Prompts the user for rating
     <td>
       <p>App Store URLS</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -324,7 +323,7 @@ Prompts the user for rating
     <td>
       <p>application id in AppStore</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -338,7 +337,7 @@ Prompts the user for rating
     <td>
       <p>application URL in GooglePlay</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -352,7 +351,7 @@ Prompts the user for rating
     <td>
       <p>application URL in Windows Store</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -366,7 +365,7 @@ Prompts the user for rating
     <td>
       <p>application URL in AppWorld</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -380,7 +379,7 @@ Prompts the user for rating
     <td>
       <p>application URL in WindowsStore</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -413,7 +412,7 @@ Prompts the user for rating
     <td>
       <p>call back function. called when user clicked on rate-dialog buttons</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -427,7 +426,7 @@ Prompts the user for rating
     <td>
       <p>call back function. called when rate-dialog showing</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

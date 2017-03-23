@@ -131,9 +131,8 @@ Watching for gyroscope sensor changes
 <code>GyroscopeOptions</code>
     </td>
     <td>
-      <p>(optional)</p>
+      <p><strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>
@@ -172,9 +171,8 @@ Get current data from gyroscope sensor
 <code>GyroscopeOptions</code>
     </td>
     <td>
-      <p>(optional)</p>
+      <p><strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>

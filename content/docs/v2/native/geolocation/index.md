@@ -125,7 +125,6 @@ Get the device's current position.
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
       
-      
     </td>
   </tr>
   
@@ -178,7 +177,6 @@ subscription.unsubscribe();
     <td>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
-      
       
     </td>
   </tr>
@@ -450,7 +448,7 @@ means that the device cannot use a cached position and must attempt to
 retrieve the real current position. If set to Infinity the device must
 return a cached position regardless of its age. Default: 0.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -467,7 +465,7 @@ return a cached position regardless of its age. Default: 0.</p>
 position. The default value is Infinity, meaning that getCurrentPosition()
 won&#39;t return until the position is available.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -486,7 +484,7 @@ power consumption (with a GPS chip on a mobile device for example). On the
 other hand, if false, the device can take the liberty to save resources by
 responding more quickly and/or using less power. Default: false.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

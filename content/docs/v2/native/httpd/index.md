@@ -126,7 +126,6 @@ Starts a web server.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -200,7 +199,7 @@ Get the local path of the running webserver
       <p>The public root directory for your web server. This path is relative to your app&#39;s www directory.
 Default is current directory.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -215,7 +214,7 @@ Default is current directory.</p>
       <p>The port number to use.
 Default is 8888</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -230,7 +229,7 @@ Default is 8888</p>
       <p>Setting this option to false will allow remote access to your web server (over any IP).
 Default is false.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

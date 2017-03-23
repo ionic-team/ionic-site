@@ -295,7 +295,6 @@ Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -334,7 +333,6 @@ Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -389,15 +387,41 @@ Returns the location authorization status for the application.
 <code>Promise&lt;any&gt;</code> 
 </div><div id="requestLocationAuthorization"></div>
 <h3>
-  <code>requestLocationAuthorization()</code>
+  <code>requestLocationAuthorization(mode)</code>
   
 
 </h3>
 Returns the location authorization status for the application.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 
-mode - (iOS-only / optional) location authorization mode: "always" or "when_in_use". If not specified, defaults to "when_in_use".
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      mode
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>iOS only: location authorization mode: &quot;always&quot; or &quot;when_in_use&quot;. If not specified, defaults to &quot;when_in_use&quot;.<strong class="tag">Optional</strong></p>
 
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
@@ -653,7 +677,6 @@ Registers a function to be called when a change in Bluetooth state occurs.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -687,7 +710,6 @@ Registers a function to be called when a change in Location state occurs.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -799,7 +821,6 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -838,7 +859,6 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
     </td>
     <td>
-      
       
       
     </td>
@@ -881,7 +901,6 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -920,7 +939,6 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 
     </td>
     <td>
-      
       
       
     </td>
@@ -977,7 +995,6 @@ Pass in a falsey value to de-register the currently registered function.
 <code>Function</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1187,7 +1204,6 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
     <td>
       <p>callback function to be called when NFC state changes</p>
 
-      
       
     </td>
   </tr>

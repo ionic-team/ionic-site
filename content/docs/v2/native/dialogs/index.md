@@ -112,7 +112,6 @@ Shows a custom alert or dialog box.
       <p>Dialog message.</p>
 
       
-      
     </td>
   </tr>
   
@@ -129,7 +128,6 @@ Shows a custom alert or dialog box.
       <p>Dialog title. (Optional, defaults to Alert)</p>
 
       
-      
     </td>
   </tr>
   
@@ -145,7 +143,6 @@ Shows a custom alert or dialog box.
     <td>
       <p>Button name. (Optional, defaults to OK)</p>
 
-      
       
     </td>
   </tr>
@@ -187,7 +184,6 @@ Displays a customizable confirmation dialog box.
       <p>Dialog message.</p>
 
       
-      
     </td>
   </tr>
   
@@ -204,7 +200,6 @@ Displays a customizable confirmation dialog box.
       <p>Dialog title. (Optional, defaults to Confirm)</p>
 
       
-      
     </td>
   </tr>
   
@@ -220,7 +215,6 @@ Displays a customizable confirmation dialog box.
     <td>
       <p>Array of strings specifying button labels. (Optional, defaults to [OK,Cancel])</p>
 
-      
       
     </td>
   </tr>
@@ -262,7 +256,6 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <p>Dialog message.</p>
 
       
-      
     </td>
   </tr>
   
@@ -278,7 +271,6 @@ Displays a native dialog box that is more customizable than the browser's prompt
     <td>
       <p>Dialog title. (Optional, defaults to Prompt)</p>
 
-      
       
     </td>
   </tr>
@@ -296,7 +288,6 @@ Displays a native dialog box that is more customizable than the browser's prompt
       <p>Array of strings specifying button labels. (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
 
       
-      
     </td>
   </tr>
   
@@ -312,7 +303,6 @@ Displays a native dialog box that is more customizable than the browser's prompt
     <td>
       <p>Default textbox input value.  (Optional, Default: empty string)</p>
 
-      
       
     </td>
   </tr>
@@ -353,7 +343,6 @@ The device plays a beep sound.
     <td>
       <p>The number of times to repeat the beep.</p>
 
-      
       
     </td>
   </tr>

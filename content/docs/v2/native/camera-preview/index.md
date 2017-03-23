@@ -176,7 +176,6 @@ Starts the camera preview instance.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -266,9 +265,8 @@ Take the picture (base64)
 <code>CameraPreviewPictureOptions</code>
     </td>
     <td>
-      <p>optional - size and quality of the picture to take</p>
+      <p>size and quality of the picture to take<strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>
@@ -310,7 +308,6 @@ Set camera color effect.
       <p>name : &#39;none&#39; (iOS &amp; Android), &#39;aqua&#39; (Android), &#39;blackboard&#39; (Android), &#39;mono&#39; (iOS &amp; Android), &#39;negative&#39; (iOS &amp; Android), &#39;posterize&#39; (iOS &amp; Android), &#39;sepia&#39; (iOS &amp; Android), &#39;solarize&#39; (Android) or &#39;whiteboard&#39; (Android)</p>
 
       
-      
     </td>
   </tr>
   
@@ -351,7 +348,6 @@ Set the zoom (Android)
       <p>Zoom value</p>
 
       
-      
     </td>
   </tr>
   
@@ -389,7 +385,6 @@ Set the preview Size
 <code>CameraPreviewDimensions</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -431,7 +426,6 @@ Set the flashmode
     <td>
       <p>&#39;off&#39; (iOS &amp; Android), &#39;on&#39; (iOS &amp; Android), &#39;auto&#39; (iOS &amp; Android), &#39;torch&#39; (Android)</p>
 
-      
       
     </td>
   </tr>
@@ -479,7 +473,7 @@ Set the flashmode
     <td>
       <p>The left edge in pixels, default 0</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -493,7 +487,7 @@ Set the flashmode
     <td>
       <p>The top edge in pixels, default 0</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -507,7 +501,7 @@ Set the flashmode
     <td>
       <p>The width in pixels, default window.screen.width</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -521,7 +515,7 @@ Set the flashmode
     <td>
       <p>The height in pixels, default window.screen.height</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -535,7 +529,7 @@ Set the flashmode
     <td>
       <p>Choose the camera to use &#39;front&#39; or &#39;rear&#39;, default &#39;front&#39;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -549,7 +543,7 @@ Set the flashmode
     <td>
       <p>Tap to take a photo, default true (picture quality by default : 85)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -563,7 +557,7 @@ Set the flashmode
     <td>
       <p>Preview box drag across the screen, default &#39;false&#39;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -577,7 +571,7 @@ Set the flashmode
     <td>
       <p>Preview box to the back of the webview (true =&gt; back, false =&gt; front) , default false</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -591,7 +585,7 @@ Set the flashmode
     <td>
       <p>Alpha channel of the preview box, float, [0,1], default 1</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -624,7 +618,7 @@ Set the flashmode
     <td>
       <p>The width in pixels, default 0</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -638,7 +632,7 @@ Set the flashmode
     <td>
       <p>The height in pixels, default 0</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -652,7 +646,7 @@ Set the flashmode
     <td>
       <p>The picture quality, 0 - 100, default 85</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -685,7 +679,7 @@ Set the flashmode
     <td>
       <p>The width of the camera preview, default to window.screen.width</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -699,7 +693,7 @@ Set the flashmode
     <td>
       <p>The height of the camera preview, default to window.screen.height</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

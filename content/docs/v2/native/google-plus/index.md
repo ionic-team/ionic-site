@@ -118,7 +118,6 @@ The login function walks the user through the Google Auth process.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -156,7 +155,6 @@ You can call trySilentLogin to check if they're already signed in to the app and
 
     </td>
     <td>
-      
       
       
     </td>

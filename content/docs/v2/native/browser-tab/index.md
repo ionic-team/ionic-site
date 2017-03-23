@@ -145,7 +145,6 @@ Opens the provided URL using a browser tab
       <p>The URL you want to open</p>
 
       
-      
     </td>
   </tr>
   

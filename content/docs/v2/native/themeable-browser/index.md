@@ -172,7 +172,6 @@ Creates a browser instance
       <p>URL to open</p>
 
       
-      
     </td>
   </tr>
   
@@ -189,7 +188,6 @@ Creates a browser instance
       <p>Target</p>
 
       
-      
     </td>
   </tr>
   
@@ -205,7 +203,6 @@ Creates a browser instance
     <td>
       <p>Themeable browser options</p>
 
-      
       
     </td>
   </tr>
@@ -293,7 +290,6 @@ Injects JavaScript code into the browser window.
       <p>Details of the script to run, specifying either a file or code key.</p>
 
       
-      
     </td>
   </tr>
   
@@ -333,7 +329,6 @@ Injects CSS into the browser window.
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
 
-      
       
     </td>
   </tr>
@@ -375,7 +370,6 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     <td>
       <p>Event name</p>
 
-      
       
     </td>
   </tr>
@@ -419,7 +413,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -432,7 +426,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -445,7 +439,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -458,7 +452,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -471,7 +465,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -484,7 +478,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -497,7 +491,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -531,7 +525,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -548,7 +542,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -565,7 +559,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -578,7 +572,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -591,7 +585,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -604,7 +598,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -617,7 +611,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -640,7 +634,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -653,7 +647,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -666,7 +660,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -679,7 +673,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -692,7 +686,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -705,7 +699,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -718,7 +712,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -731,7 +725,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -744,7 +738,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -757,7 +751,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -770,7 +764,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -783,7 +777,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -796,7 +790,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -809,7 +803,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -822,7 +816,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -835,7 +829,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -848,7 +842,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -861,7 +855,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -874,7 +868,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -887,7 +881,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -900,7 +894,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

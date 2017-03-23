@@ -153,7 +153,6 @@ Logs the user in using their Pinterest account.
       <p>Array of scopes that you need access to. You can use Pinterest.SCOPES constant for convenience.</p>
 
       
-      
     </td>
   </tr>
   
@@ -193,7 +192,6 @@ Gets the authenticated user's profile
     <td>
       <p>Fields to retrieve, separated by commas. Defaults to all available fields.</p>
 
-      
       
     </td>
   </tr>
@@ -235,7 +233,6 @@ Gets the authenticated user's profile
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -251,7 +248,6 @@ Gets the authenticated user's profile
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -293,7 +289,6 @@ Gets the authenticated user's profile
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -309,7 +304,6 @@ Gets the authenticated user's profile
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -351,7 +345,6 @@ Get the authenticated user's likes.
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -367,7 +360,6 @@ Get the authenticated user's likes.
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -409,7 +401,6 @@ Get the authenticated user's followers.
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -425,7 +416,6 @@ Get the authenticated user's followers.
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -467,7 +457,6 @@ Get the authenticated user's followed boards.
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -483,7 +472,6 @@ Get the authenticated user's followed boards.
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -525,7 +513,6 @@ Get the authenticated user's followed interests.
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -541,7 +528,6 @@ Get the authenticated user's followed interests.
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -582,7 +568,6 @@ Get a user's profile.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -596,7 +581,6 @@ Get a user's profile.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -638,7 +622,6 @@ Get a board's data.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -652,7 +635,6 @@ Get a board's data.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -695,7 +677,6 @@ Get Pins of a specific board.
       <p>The ID of the board</p>
 
       
-      
     </td>
   </tr>
   
@@ -712,7 +693,6 @@ Get Pins of a specific board.
       <p>Optional fields separated by comma</p>
 
       
-      
     </td>
   </tr>
   
@@ -728,7 +708,6 @@ Get Pins of a specific board.
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
 
-      
       
     </td>
   </tr>
@@ -770,7 +749,6 @@ Delete a board.
       <p>The ID of the board</p>
 
       
-      
     </td>
   </tr>
   
@@ -811,7 +789,6 @@ Create a new board for the authenticated user.
       <p>Name of the board</p>
 
       
-      
     </td>
   </tr>
   
@@ -827,7 +804,6 @@ Create a new board for the authenticated user.
     <td>
       <p>Optional description of the board</p>
 
-      
       
     </td>
   </tr>
@@ -869,7 +845,6 @@ Get a Pin by ID.
       <p>The ID of the Pin</p>
 
       
-      
     </td>
   </tr>
   
@@ -885,7 +860,6 @@ Get a Pin by ID.
     <td>
       <p>Optional fields separated by comma</p>
 
-      
       
     </td>
   </tr>
@@ -927,7 +901,6 @@ Deletes a pin
       <p>The ID of the pin</p>
 
       
-      
     </td>
   </tr>
   
@@ -968,7 +941,6 @@ Creates a Pin
       <p>Note/Description of the pin</p>
 
       
-      
     </td>
   </tr>
   
@@ -984,7 +956,6 @@ Creates a Pin
     <td>
       <p>Board ID to put the Pin under</p>
 
-      
       
     </td>
   </tr>
@@ -1002,7 +973,6 @@ Creates a Pin
       <p>URL of the image to share</p>
 
       
-      
     </td>
   </tr>
   
@@ -1018,7 +988,6 @@ Creates a Pin
     <td>
       <p>Optional link to share</p>
 
-      
       
     </td>
   </tr>
@@ -1066,7 +1035,7 @@ Creates a Pin
     <td>
       <p>The unique string of numbers and letters that identifies the user on Pinterest.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1080,7 +1049,7 @@ Creates a Pin
     <td>
       <p>The user’s Pinterest username.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1094,7 +1063,7 @@ Creates a Pin
     <td>
       <p>The user’s first name.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1108,7 +1077,7 @@ Creates a Pin
     <td>
       <p>The user’s last name.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1122,7 +1091,7 @@ Creates a Pin
     <td>
       <p>The text in the user’s “About you” section in their profile.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1136,7 +1105,7 @@ Creates a Pin
     <td>
       <p>The date the user created their account in ISO 8601 format</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1150,7 +1119,7 @@ Creates a Pin
     <td>
       <p>The user’s stats, including how many Pins, follows, boards and likes they have.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1164,7 +1133,7 @@ Creates a Pin
     <td>
       <p>The user’s profile image. The response returns the image’s URL, width and height.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1197,7 +1166,7 @@ Creates a Pin
     <td>
       <p>The unique string of numbers and letters that identifies the board on Pinterest.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1211,7 +1180,7 @@ Creates a Pin
     <td>
       <p>The name of the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1225,7 +1194,7 @@ Creates a Pin
     <td>
       <p>The link to the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1239,7 +1208,7 @@ Creates a Pin
     <td>
       <p>The user-entered description of the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1253,7 +1222,7 @@ Creates a Pin
     <td>
       <p>The first and last name, ID and profile URL of the user who created the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1267,7 +1236,7 @@ Creates a Pin
     <td>
       <p>The date the user created the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1281,7 +1250,7 @@ Creates a Pin
     <td>
       <p>The board’s stats, including how many Pins, followers, user&#39;s following and collaborators it has.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1295,7 +1264,7 @@ Creates a Pin
     <td>
       <p>The user’s profile image. The response returns the image’s URL, width and height.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1328,7 +1297,7 @@ Creates a Pin
     <td>
       <p>The unique string of numbers and letters that identifies the Pin on Pinterest.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1342,7 +1311,7 @@ Creates a Pin
     <td>
       <p>The URL of the webpage where the Pin was created.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1356,7 +1325,7 @@ Creates a Pin
     <td>
       <p>The URL of the Pin on Pinterest.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1370,7 +1339,7 @@ Creates a Pin
     <td>
       <p>The first and last name, ID and profile URL of the user who created the board.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1384,7 +1353,7 @@ Creates a Pin
     <td>
       <p>The board that the Pin is on.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1398,7 +1367,7 @@ Creates a Pin
     <td>
       <p>The date the Pin was created.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1412,7 +1381,7 @@ Creates a Pin
     <td>
       <p>The user-entered description of the Pin.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1426,7 +1395,7 @@ Creates a Pin
     <td>
       <p>The dominant color of the Pin’s image in hex code format.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1440,7 +1409,7 @@ Creates a Pin
     <td>
       <p>The Pin’s stats, including the number of repins, comments and likes.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1454,7 +1423,7 @@ Creates a Pin
     <td>
       <p>The media type of the Pin (image or video).</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1468,7 +1437,7 @@ Creates a Pin
     <td>
       <p>The source data for videos, including the title, URL, provider, author name, author URL and provider name.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1482,7 +1451,7 @@ Creates a Pin
     <td>
       <p>The Pin’s image. The default response returns the image’s URL, width and height.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1496,7 +1465,7 @@ Creates a Pin
     <td>
       <p>Extra information about the Pin for Rich Pins. Includes the Pin type (e.g., article, recipe) and related information (e.g., ingredients, author).</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

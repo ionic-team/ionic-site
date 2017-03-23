@@ -132,7 +132,6 @@ Perform a slide animation
       <p>Options for the transition</p>
 
       
-      
     </td>
   </tr>
   
@@ -172,7 +171,6 @@ Perform a flip animation
     <td>
       <p>Options for the transition</p>
 
-      
       
     </td>
   </tr>
@@ -214,7 +212,6 @@ Perform a fade animation
       <p>Options for the transition</p>
 
       
-      
     </td>
   </tr>
   
@@ -255,7 +252,6 @@ Perform a slide animation
       <p>Options for the transition</p>
 
       
-      
     </td>
   </tr>
   
@@ -295,7 +291,6 @@ Perform a slide animation
     <td>
       <p>Options for the transition</p>
 
-      
       
     </td>
   </tr>

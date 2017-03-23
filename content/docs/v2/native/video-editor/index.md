@@ -142,7 +142,6 @@ Transcode a video
       <p>Options</p>
 
       
-      
     </td>
   </tr>
   
@@ -182,7 +181,6 @@ Trim a video
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -224,7 +222,6 @@ Create a JPEG thumbnail from a video
       <p>Options</p>
 
       
-      
     </td>
   </tr>
   
@@ -264,7 +261,6 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -340,7 +336,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Instructions on how to encode the video. Android is always mp4</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -354,7 +350,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Should the video be processed with quailty or speed in mind. iOS only</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -368,7 +364,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Save the new video the library. Not supported in windows. Defaults to true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -382,7 +378,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Delete the original video. Android only. Defaults to false</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -396,7 +392,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>iOS only. Defaults to true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -410,7 +406,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Width of the result</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -424,7 +420,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Height of the result</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -438,7 +434,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Bitrate in bits. Defaults to 1 megabit (1000000).</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -452,7 +448,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Frames per second of the result. Android only. Defaults to 24.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -466,7 +462,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Number of audio channels. iOS only. Defaults to 2.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -480,7 +476,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Sample rate for the audio. iOS only. Defaults to 44100</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -494,7 +490,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Sample rate for the audio. iOS only. Defaults to 128 kilobits (128000).</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -508,7 +504,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Not supported in windows, progress on the transcode. info will be a number from 0 to 100</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -597,7 +593,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Progress on transcode. info will be a number from 0 to 100</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -658,7 +654,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Location in the video to create the thumbnail (in seconds)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -672,7 +668,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Width of the thumbnail.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -686,7 +682,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Height of the thumbnail.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -700,7 +696,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
     <td>
       <p>Quality of the thumbnail (between 1 and 100).</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

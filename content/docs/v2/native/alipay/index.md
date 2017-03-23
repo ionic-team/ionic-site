@@ -131,7 +131,6 @@ Open Alipay to perform App pay
       <p>alipay options</p>
 
       
-      
     </td>
   </tr>
   
@@ -208,7 +207,7 @@ Should be: alipay.trade.app.pay</p>
       <p>Data format
 Default: &quot;JSON&quot;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

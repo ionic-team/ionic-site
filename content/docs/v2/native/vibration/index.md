@@ -130,7 +130,6 @@ Vibrates the device for given amount of time.
       <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>
 
       
-      
     </td>
   </tr>
   

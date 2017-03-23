@@ -139,7 +139,6 @@ Creates a namespaced storage.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -194,7 +193,6 @@ Gets a stored item
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -234,7 +232,6 @@ Stores a value
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -248,7 +245,6 @@ Stores a value
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -288,7 +284,6 @@ Removes a single stored item
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>

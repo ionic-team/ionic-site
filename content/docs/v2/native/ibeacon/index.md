@@ -165,7 +165,6 @@ Creates a new BeaconRegion
       <p>@see {CLRegion}</p>
 
       
-      
     </td>
   </tr>
   
@@ -183,7 +182,6 @@ Creates a new BeaconRegion
 This value must not be blank nor invalid as a UUID.</p>
 
       
-      
     </td>
   </tr>
   
@@ -199,7 +197,6 @@ This value must not be blank nor invalid as a UUID.</p>
     <td>
       <p>The major value that you use to identify one or more beacons.</p>
 
-      
       
     </td>
   </tr>
@@ -217,7 +214,6 @@ This value must not be blank nor invalid as a UUID.</p>
       <p>The minor value that you use to identify a specific beacon.</p>
 
       
-      
     </td>
   </tr>
   
@@ -231,7 +227,6 @@ This value must not be blank nor invalid as a UUID.</p>
 <code>BOOL</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -286,7 +281,6 @@ This value must not be blank nor invalid as a UUID.</p>
     <td>
       <p>An instance of a delegate to register with the native layer.</p>
 
-      
       
     </td>
   </tr>
@@ -411,7 +405,6 @@ This is done asynchronously and may not be immediately reflected in monitoredReg
 by the operating system.</p>
 
       
-      
     </td>
   </tr>
   
@@ -460,7 +453,6 @@ This is done asynchronously and may not be immediately reflected in monitoredReg
 by the operating system.</p>
 
       
-      
     </td>
   </tr>
   
@@ -507,7 +499,6 @@ This is done asynchronously and may not be immediately reflected in monitoredReg
       <p>An instance of {Region} which will be monitored
 by the operating system.</p>
 
-      
       
     </td>
   </tr>
@@ -557,7 +548,6 @@ This is done asynchronously and may not be immediately reflected in rangedRegion
 by the operating system.</p>
 
       
-      
     </td>
   </tr>
   
@@ -605,7 +595,6 @@ This is done asynchronously and may not be immediately reflected in rangedRegion
       <p>An instance of {BeaconRegion} which will be monitored
 by the operating system.</p>
 
-      
       
     </td>
   </tr>
@@ -740,7 +729,6 @@ Determines if region type is supported or not, according to the native layer.
 by the operating system.</p>
 
       
-      
     </td>
   </tr>
   
@@ -790,7 +778,6 @@ and will start when BlueTooth is powered on. See {IBeaconDelegate.}
 by the operating system.</p>
 
       
-      
     </td>
   </tr>
   
@@ -807,7 +794,6 @@ by the operating system.</p>
       <p>Optional parameter, if left empty, the device will
 use it&#39;s own default value.</p>
 
-      
       
     </td>
   </tr>
@@ -961,7 +947,6 @@ Note: If debug logging is turned off, this won't do anything.
     <td>
       <p>The message to append to the device logs.</p>
 
-      
       
     </td>
   </tr>
@@ -1163,7 +1148,7 @@ ProximityUnknown</p>
       <p>The beacon&#39;s major identifier number. Optional, of nothing is supplied
 the plugin will treat it as a wildcard.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1178,7 +1163,7 @@ the plugin will treat it as a wildcard.</p>
       <p>The beacon&#39;s minor identifier number. Optional, of nothing is supplied
 the plugin will treat it as a wildcard.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1193,7 +1178,7 @@ the plugin will treat it as a wildcard.</p>
       <p>If set to true the device will scan for beacons and determine region state anytime
 the device&#39;s screen is turned on or off. Useful for debugging.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

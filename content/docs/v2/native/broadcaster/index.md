@@ -121,7 +121,6 @@ This function listen to an event sent from the native code
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -161,7 +160,6 @@ This function sends data to the native code
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -175,7 +173,6 @@ This function sends data to the native code
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>

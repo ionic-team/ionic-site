@@ -141,7 +141,6 @@ Show a native ActionSheet component. See below for options.
       <p>Options See table below</p>
 
       
-      
     </td>
   </tr>
   
@@ -216,7 +215,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>The title for the actionsheet</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -230,7 +229,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Theme to be used on Android</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -244,7 +243,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Enable a cancel on Android</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -258,7 +257,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Enable a cancel on Windows Phone</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -272,7 +271,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Add a cancel button with text</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -286,7 +285,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>Add a destructive button with text</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -300,7 +299,7 @@ Progamtically hide the native ActionSheet
     <td>
       <p>On an iPad, set the X,Y position</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

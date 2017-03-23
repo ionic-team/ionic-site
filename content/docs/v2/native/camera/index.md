@@ -162,9 +162,8 @@ Take a picture or video, or load one from the library.
 <code>CameraOptions</code>
     </td>
     <td>
-      <p>optional. Options that you want to pass to the camera. Encoding type, quality, etc. Platform-specific quirks are described in the <a href="https://github.com/apache/cordova-plugin-camera#cameraoptions-errata-">Cordova plugin docs</a>.</p>
+      <p>Options that you want to pass to the camera. Encoding type, quality, etc. Platform-specific quirks are described in the <a href="https://github.com/apache/cordova-plugin-camera#cameraoptions-errata-">Cordova plugin docs</a>.<strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>
@@ -226,7 +225,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
     <td>
       <p>Picture quality in range 0-100. Default is 50</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -245,7 +244,7 @@ Defined in Camera.DestinationType. Default is FILE_URI.
      NATIVE_URI : 2  Return image native URI
          (e.g., assets-library:// on iOS or content:// on Android)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -263,7 +262,7 @@ Defined in Camera.PictureSourceType. Default is CAMERA.
      CAMERA : 1,
      SAVEDPHOTOALBUM : 2</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -277,7 +276,7 @@ Defined in Camera.PictureSourceType. Default is CAMERA.
     <td>
       <p>Allow simple editing of image before selection.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -294,7 +293,7 @@ Defined in Camera.EncodingType. Default is JPEG
      JPEG : 0    Return JPEG encoded image
      PNG : 1     Return PNG encoded image</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -309,7 +308,7 @@ Defined in Camera.EncodingType. Default is JPEG
       <p>Width in pixels to scale image. Must be used with targetHeight.
 Aspect ratio remains constant.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -324,7 +323,7 @@ Aspect ratio remains constant.</p>
       <p>Height in pixels to scale image. Must be used with targetWidth.
 Aspect ratio remains constant.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -343,7 +342,7 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
      VIDEO: 1        allow selection of video only, WILL ALWAYS RETURN FILE_URI
      ALLMEDIA : 2    allow selection from all media types</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -357,7 +356,7 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
     <td>
       <p>Rotate the image to correct for the orientation of the device during capture.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -371,7 +370,7 @@ is PHOTOLIBRARY or SAVEDPHOTOALBUM. Defined in Camera.MediaType
     <td>
       <p>Save the image to the photo album on the device after capture.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -388,7 +387,7 @@ Defined in Camera.Direction. Default is BACK.
      BACK: 0
      FRONT: 1</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -402,7 +401,7 @@ Defined in Camera.Direction. Default is BACK.
     <td>
       <p>iOS-only options that specify popover location in iPad. Defined in CameraPopoverOptions.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

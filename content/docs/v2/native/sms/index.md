@@ -121,7 +121,6 @@ Sends sms to a number
       <p>Phone number</p>
 
       
-      
     </td>
   </tr>
   
@@ -138,7 +137,6 @@ Sends sms to a number
       <p>Message</p>
 
       
-      
     </td>
   </tr>
   
@@ -154,7 +152,6 @@ Sends sms to a number
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -215,7 +212,7 @@ This function lets you know if the app has permission to send SMS
     <td>
       <p>Set to true to replace \n by a new line. Default: false</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -228,7 +225,7 @@ This function lets you know if the app has permission to send SMS
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -261,7 +258,7 @@ This function lets you know if the app has permission to send SMS
     <td>
       <p>Set to &quot;INTENT&quot; to send SMS with the native android SMS messaging. Leaving it empty will send the SMS without opening any app.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

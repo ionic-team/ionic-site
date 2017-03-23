@@ -168,7 +168,6 @@ Available only for Android platform.
       <p>List of option to configure. See table below</p>
 
       
-      
     </td>
   </tr>
   
@@ -206,7 +205,6 @@ Available only for Android platform.
       <p>Any options you want to update. See table below.</p>
 
       
-      
     </td>
   </tr>
   
@@ -242,7 +240,6 @@ Listen for events that the plugin fires. Available events are `enable`, `disable
     <td>
       <p>Event name</p>
 
-      
       
     </td>
   </tr>
@@ -360,7 +357,7 @@ Turn screen on and show app even locked
     <td>
       <p>Title of the background task</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -374,7 +371,7 @@ Turn screen on and show app even locked
     <td>
       <p>The text that scrolls itself on statusbar</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -388,7 +385,7 @@ Turn screen on and show app even locked
     <td>
       <p>Description of background task</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -402,7 +399,7 @@ Turn screen on and show app even locked
     <td>
       <p>if true plugin will not display a notification. Default is false.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -416,7 +413,7 @@ Turn screen on and show app even locked
     <td>
       <p>By default the app will come to foreground when taping on the notification. If false, plugin wont come to foreground when tapped.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

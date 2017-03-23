@@ -113,7 +113,6 @@ Extracts files from a ZIP archive
       <p>Source ZIP file</p>
 
       
-      
     </td>
   </tr>
   
@@ -130,7 +129,6 @@ Extracts files from a ZIP archive
       <p>Destination folder</p>
 
       
-      
     </td>
   </tr>
   
@@ -146,7 +144,6 @@ Extracts files from a ZIP archive
     <td>
       <p>optional callback to be called on progress update</p>
 
-      
       
     </td>
   </tr>

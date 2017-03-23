@@ -110,7 +110,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -124,7 +123,6 @@ this.mixpanel.init(token)
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -192,7 +190,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -232,7 +229,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -270,7 +266,6 @@ this.mixpanel.init(token)
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -325,7 +320,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -341,7 +335,6 @@ this.mixpanel.init(token)
     <td>
       <p>optional</p>
 
-      
       
     </td>
   </tr>
@@ -410,7 +403,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -448,7 +440,6 @@ this.mixpanel.init(token)
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -490,7 +481,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -530,7 +520,6 @@ this.mixpanel.init(token)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -568,7 +557,6 @@ this.mixpanel.init(token)
 
     </td>
     <td>
-      
       
       
     </td>

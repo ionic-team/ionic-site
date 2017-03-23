@@ -109,7 +109,6 @@ Opens an app in Google Play / App Store
       <p>Package name</p>
 
       
-      
     </td>
   </tr>
   
@@ -149,7 +148,6 @@ Search apps by keyword
     <td>
       <p>Keyword</p>
 
-      
       
     </td>
   </tr>

@@ -207,7 +207,6 @@ Create a calendar. (iOS only)
       <p>either a string name or a options object. If string, provide the calendar name. IF an object, provide a calendar name as a string and a calendar color in hex format as a string</p>
 
       
-      
     </td>
   </tr>
   
@@ -247,7 +246,6 @@ Delete a calendar. (iOS only)
     <td>
       <p>Name of the calendar to delete.</p>
 
-      
       
     </td>
   </tr>
@@ -300,9 +298,8 @@ Silently create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -317,9 +314,8 @@ Silently create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -334,9 +330,8 @@ Silently create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -351,9 +346,8 @@ Silently create an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -368,9 +362,8 @@ Silently create an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -410,9 +403,8 @@ Silently create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -427,9 +419,8 @@ Silently create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -444,9 +435,8 @@ Silently create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -461,9 +451,8 @@ Silently create an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -478,9 +467,8 @@ Silently create an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -495,9 +483,8 @@ Silently create an event with additional options.
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>Additional options, see <code>getCalendarOptions</code></p>
+      <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -537,9 +524,8 @@ Interactively create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -554,9 +540,8 @@ Interactively create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -571,9 +556,8 @@ Interactively create an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -588,9 +572,8 @@ Interactively create an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -605,9 +588,8 @@ Interactively create an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -647,9 +629,8 @@ Interactively create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -664,9 +645,8 @@ Interactively create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -681,9 +661,8 @@ Interactively create an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -698,9 +677,8 @@ Interactively create an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -715,9 +693,8 @@ Interactively create an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -732,9 +709,8 @@ Interactively create an event with additional options.
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>Additional options, see <code>getCalendarOptions</code></p>
+      <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -774,9 +750,8 @@ Find an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -791,9 +766,8 @@ Find an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -808,9 +782,8 @@ Find an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -825,9 +798,8 @@ Find an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -842,9 +814,8 @@ Find an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -883,9 +854,8 @@ Find an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -900,9 +870,8 @@ Find an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -917,9 +886,8 @@ Find an event with additional options.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -934,9 +902,8 @@ Find an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -951,9 +918,8 @@ Find an event with additional options.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -968,9 +934,8 @@ Find an event with additional options.
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>Additional options, see <code>getCalendarOptions</code></p>
+      <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1010,9 +975,8 @@ Find a list of events within the specified date range. (Android only)
 <code>Date</code>
     </td>
     <td>
-      <p>The start date</p>
+      <p>The start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1027,9 +991,8 @@ Find a list of events within the specified date range. (Android only)
 <code>Date</code>
     </td>
     <td>
-      <p>The end date</p>
+      <p>The end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1095,9 +1058,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1112,9 +1074,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1129,9 +1090,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1146,9 +1106,8 @@ Modify an event. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1163,9 +1122,8 @@ Modify an event. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1180,9 +1138,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event title</p>
+      <p>The new event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1197,9 +1154,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event location</p>
+      <p>The new event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1214,9 +1170,8 @@ Modify an event. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event notes</p>
+      <p>The new event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1231,9 +1186,8 @@ Modify an event. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The new event start date</p>
+      <p>The new event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1248,9 +1202,8 @@ Modify an event. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The new event end date</p>
+      <p>The new event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1291,9 +1244,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1308,9 +1260,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1325,9 +1276,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1342,9 +1292,8 @@ Modify an event with additional options. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1359,9 +1308,8 @@ Modify an event with additional options. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1376,9 +1324,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event title</p>
+      <p>The new event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1393,9 +1340,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event location</p>
+      <p>The new event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1410,9 +1356,8 @@ Modify an event with additional options. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The new event notes</p>
+      <p>The new event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1427,9 +1372,8 @@ Modify an event with additional options. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The new event start date</p>
+      <p>The new event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1444,9 +1388,8 @@ Modify an event with additional options. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The new event end date</p>
+      <p>The new event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1461,9 +1404,8 @@ Modify an event with additional options. (iOS only)
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>Event Options, see <code>getCalendarOptions</code></p>
+      <p>Event Options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1478,9 +1420,8 @@ Modify an event with additional options. (iOS only)
 <code>CalendarOptions</code>
     </td>
     <td>
-      <p>New event options, see <code>getCalendarOptions</code></p>
+      <p>New event options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1521,9 +1462,8 @@ Delete an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1538,9 +1478,8 @@ Delete an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1555,9 +1494,8 @@ Delete an event.
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1572,9 +1510,8 @@ Delete an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1589,9 +1526,8 @@ Delete an event.
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1632,9 +1568,8 @@ Delete an event from the specified Calendar. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event title</p>
+      <p>The event title<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1649,9 +1584,8 @@ Delete an event from the specified Calendar. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event location</p>
+      <p>The event location<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1666,9 +1600,8 @@ Delete an event from the specified Calendar. (iOS only)
 <code>string</code>
     </td>
     <td>
-      <p>The event notes</p>
+      <p>The event notes<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1683,9 +1616,8 @@ Delete an event from the specified Calendar. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event start date</p>
+      <p>The event start date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1700,9 +1632,8 @@ Delete an event from the specified Calendar. (iOS only)
 <code>Date</code>
     </td>
     <td>
-      <p>The event end date</p>
+      <p>The event end date<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       
     </td>
   </tr>
@@ -1717,7 +1648,6 @@ Delete an event from the specified Calendar. (iOS only)
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1760,7 +1690,6 @@ Open the calendar at the specified date.
     <td>
       <p>The date you want to open the calendar on</p>
 
-      
       
     </td>
   </tr>
@@ -1808,7 +1737,7 @@ Open the calendar at the specified date.
     <td>
       <p>Id</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1821,7 +1750,7 @@ Open the calendar at the specified date.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1834,7 +1763,7 @@ Open the calendar at the specified date.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1848,7 +1777,7 @@ Open the calendar at the specified date.
     <td>
       <p>Recurrence. Can be set to <code>daily</code>, <code>weekly</code>, <code>monthly</code> or <code>yearly</code></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1862,7 +1791,7 @@ Open the calendar at the specified date.
     <td>
       <p>Recurrence interval. Valid only when <code>recurrence</code> option is set.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1876,7 +1805,7 @@ Open the calendar at the specified date.
     <td>
       <p>Recurrence end date. Valid only when <code>recurrence</code> option is set.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1890,7 +1819,7 @@ Open the calendar at the specified date.
     <td>
       <p>Calendar name. Ths is supported by <code>iOS</code> only.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1904,7 +1833,7 @@ Open the calendar at the specified date.
     <td>
       <p>Calendar id</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1918,7 +1847,7 @@ Open the calendar at the specified date.
     <td>
       <p>URL</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

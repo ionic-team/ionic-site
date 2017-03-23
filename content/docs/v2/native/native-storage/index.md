@@ -118,7 +118,6 @@ Stores a value
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -132,7 +131,6 @@ Stores a value
 
     </td>
     <td>
-      
       
       
     </td>
@@ -174,7 +172,6 @@ Gets a stored item
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -212,7 +209,6 @@ Removes a single stored item
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>

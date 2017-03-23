@@ -239,7 +239,6 @@ Read the RSSI value on the device connection.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -293,7 +292,6 @@ Scan and discover BLE peripherals for the specified amount of time.
       <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
 
       
-      
     </td>
   </tr>
   
@@ -309,7 +307,6 @@ Scan and discover BLE peripherals for the specified amount of time.
     <td>
       <p>Number of seconds to run discovery</p>
 
-      
       
     </td>
   </tr>
@@ -352,7 +349,6 @@ Scan and discover BLE peripherals until `stopScan` is called.
       <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
 
       
-      
     </td>
   </tr>
   
@@ -393,7 +389,6 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
       <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
 
       
-      
     </td>
   </tr>
   
@@ -407,7 +402,6 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -465,7 +459,6 @@ Connect to a peripheral.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -506,7 +499,6 @@ Disconnect from a peripheral.
     <td>
       <p>UUID or MAC address of the peripheral</p>
 
-      
       
     </td>
   </tr>
@@ -550,7 +542,6 @@ Read the value of a characteristic.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -567,7 +558,6 @@ Read the value of a characteristic.
       <p>UUID of the BLE service</p>
 
       
-      
     </td>
   </tr>
   
@@ -583,7 +573,6 @@ Read the value of a characteristic.
     <td>
       <p>UUID of the BLE characteristic</p>
 
-      
       
     </td>
   </tr>
@@ -626,7 +615,6 @@ Write the value of a characteristic.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -642,7 +630,6 @@ Write the value of a characteristic.
     <td>
       <p>UUID of the BLE service</p>
 
-      
       
     </td>
   </tr>
@@ -660,7 +647,6 @@ Write the value of a characteristic.
       <p>UUID of the BLE characteristic</p>
 
       
-      
     </td>
   </tr>
   
@@ -676,7 +662,6 @@ Write the value of a characteristic.
     <td>
       <p>Data to write to the characteristic, as an ArrayBuffer.</p>
 
-      
       
     </td>
   </tr>
@@ -720,7 +705,6 @@ Write the value of a characteristic without waiting for confirmation from the pe
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -736,7 +720,6 @@ Write the value of a characteristic without waiting for confirmation from the pe
     <td>
       <p>UUID of the BLE service</p>
 
-      
       
     </td>
   </tr>
@@ -754,7 +737,6 @@ Write the value of a characteristic without waiting for confirmation from the pe
       <p>UUID of the BLE characteristic</p>
 
       
-      
     </td>
   </tr>
   
@@ -770,7 +752,6 @@ Write the value of a characteristic without waiting for confirmation from the pe
     <td>
       <p>Data to write to the characteristic, as an ArrayBuffer.</p>
 
-      
       
     </td>
   </tr>
@@ -814,7 +795,6 @@ Register to be notified when the value of a characteristic changes.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -831,7 +811,6 @@ Register to be notified when the value of a characteristic changes.
       <p>UUID of the BLE service</p>
 
       
-      
     </td>
   </tr>
   
@@ -847,7 +826,6 @@ Register to be notified when the value of a characteristic changes.
     <td>
       <p>UUID of the BLE characteristic</p>
 
-      
       
     </td>
   </tr>
@@ -891,7 +869,6 @@ Stop being notified when the value of a characteristic changes.
       <p>UUID or MAC address of the peripheral</p>
 
       
-      
     </td>
   </tr>
   
@@ -908,7 +885,6 @@ Stop being notified when the value of a characteristic changes.
       <p>UUID of the BLE service</p>
 
       
-      
     </td>
   </tr>
   
@@ -924,7 +900,6 @@ Stop being notified when the value of a characteristic changes.
     <td>
       <p>UUID of the BLE characteristic</p>
 
-      
       
     </td>
   </tr>
@@ -966,7 +941,6 @@ Report the connection status.
     <td>
       <p>UUID or MAC address of the peripheral</p>
 
-      
       
     </td>
   </tr>

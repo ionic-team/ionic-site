@@ -124,7 +124,6 @@ hide automatically (or not) the navigation bar.
     <td>
       
       
-      
     </td>
   </tr>
   

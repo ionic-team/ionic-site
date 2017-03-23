@@ -153,7 +153,6 @@ Configures and starts hotspot with SSID and Password
       <p>SSID of your new Access Point</p>
 
       
-      
     </td>
   </tr>
   
@@ -170,7 +169,6 @@ Configures and starts hotspot with SSID and Password
       <p>encryption mode (Open, WEP, WPA, WPA_PSK)</p>
 
       
-      
     </td>
   </tr>
   
@@ -186,7 +184,6 @@ Configures and starts hotspot with SSID and Password
     <td>
       <p>password for your new Access Point</p>
 
-      
       
     </td>
   </tr>
@@ -243,7 +240,6 @@ Configures hotspot with SSID and Password
       <p>SSID of your new Access Point</p>
 
       
-      
     </td>
   </tr>
   
@@ -260,7 +256,6 @@ Configures hotspot with SSID and Password
       <p>encryption mode (Open, WEP, WPA, WPA_PSK)</p>
 
       
-      
     </td>
   </tr>
   
@@ -276,7 +271,6 @@ Configures hotspot with SSID and Password
     <td>
       <p>password for your new Access Point</p>
 
-      
       
     </td>
   </tr>
@@ -360,7 +354,6 @@ Connect to a WiFi network
       <p>SSID to connect</p>
 
       
-      
     </td>
   </tr>
   
@@ -376,7 +369,6 @@ Connect to a WiFi network
     <td>
       <p>password to use</p>
 
-      
       
     </td>
   </tr>
@@ -419,7 +411,6 @@ Connect to a WiFi network
       <p>SSID to connect</p>
 
       
-      
     </td>
   </tr>
   
@@ -435,7 +426,6 @@ Connect to a WiFi network
     <td>
       <p>Password to use</p>
 
-      
       
     </td>
   </tr>
@@ -453,7 +443,6 @@ Connect to a WiFi network
       <p>Authentication modes to use (LEAP, SHARED, OPEN)</p>
 
       
-      
     </td>
   </tr>
   
@@ -469,7 +458,6 @@ Connect to a WiFi network
     <td>
       <p>Encryption modes to use (CCMP, TKIP, WEP104, WEP40)</p>
 
-      
       
     </td>
   </tr>
@@ -512,7 +500,6 @@ Add a WiFi network
       <p>SSID of network</p>
 
       
-      
     </td>
   </tr>
   
@@ -529,7 +516,6 @@ Add a WiFi network
       <p>Authentication mode of (Open, WEP, WPA, WPA_PSK)</p>
 
       
-      
     </td>
   </tr>
   
@@ -545,7 +531,6 @@ Add a WiFi network
     <td>
       <p>Password for network</p>
 
-      
       
     </td>
   </tr>
@@ -587,7 +572,6 @@ Remove a WiFi network
     <td>
       <p>SSID of network</p>
 
-      
       
     </td>
   </tr>
@@ -786,7 +770,6 @@ Gets MAC Address associated with IP Address from ARP File
       <p>IP Address that you want the MAC Address of</p>
 
       
-      
     </td>
   </tr>
   
@@ -828,7 +811,6 @@ Checks if IP is live using DNS
       <p>IP Address you want to test</p>
 
       
-      
     </td>
   </tr>
   
@@ -869,7 +851,6 @@ Checks if IP is live using socket And PORT
     <td>
       <p>IP Address you want to test</p>
 
-      
       
     </td>
   </tr>

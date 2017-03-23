@@ -118,7 +118,6 @@ Set a color to the task header
       <p>The hex value of the color</p>
 
       
-      
     </td>
   </tr>
   

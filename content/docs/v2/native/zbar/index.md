@@ -130,7 +130,6 @@ Open the scanner
       <p>Scan options</p>
 
       
-      
     </td>
   </tr>
   
@@ -178,7 +177,7 @@ Open the scanner
       <p>A string representing the title text (Android only).
 Default: &quot;Scan QR Code&quot;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -193,7 +192,7 @@ Default: &quot;Scan QR Code&quot;</p>
       <p>A string representing the instruction text (Android only).
 Default: &quot;Please point your camera at the QR code.&quot;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -209,7 +208,7 @@ Default: &quot;Please point your camera at the QR code.&quot;</p>
 Possible values: &quot;front&quot;, &quot;back&quot;
 Default: &quot;back&quot;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -225,7 +224,7 @@ Default: &quot;back&quot;</p>
 Possible values: &quot;on&quot;, &quot;off&quot;, &quot;auto&quot;
 Default: &quot;auto&quot;</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -240,7 +239,7 @@ Default: &quot;auto&quot;</p>
       <p>A boolean to show or hide a line in the center of the scanner.
 Default: true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

@@ -190,7 +190,6 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) A type that can be used <code>onHomeIconPressed</code> callback</p>
 
       
-      
     </td>
   </tr>
   
@@ -206,7 +205,6 @@ setup the 3D-touch actions, takes an array of objects with the following
     <td>
       <p>Title for your action</p>
 
-      
       
     </td>
   </tr>
@@ -224,7 +222,6 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) A short description for your action</p>
 
       
-      
     </td>
   </tr>
   
@@ -241,7 +238,6 @@ setup the 3D-touch actions, takes an array of objects with the following
       <p>(optional) Choose between Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update</p>
 
       
-      
     </td>
   </tr>
   
@@ -257,7 +253,6 @@ setup the 3D-touch actions, takes an array of objects with the following
     <td>
       <p>(optional) Can be used to provide your own icon</p>
 
-      
       
     </td>
   </tr>
@@ -335,7 +330,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Type that can be used in the onHomeIconPressed callback</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -363,7 +358,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Subtitle</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -377,7 +372,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Icon type. Case insensitive</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -391,7 +386,7 @@ Disabled the link preview feature, if enabled.
     <td>
       <p>Icon template</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

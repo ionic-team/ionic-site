@@ -121,7 +121,6 @@ Calls a phone number
       <p>The phone number to call as a string</p>
 
       
-      
     </td>
   </tr>
   
@@ -137,7 +136,6 @@ Calls a phone number
     <td>
       <p>Set to true to bypass the app chooser and go directly to dialer</p>
 
-      
       
     </td>
   </tr>

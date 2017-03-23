@@ -131,7 +131,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
       <p>Your Google Analytics Mobile App property</p>
 
       
-      
     </td>
   </tr>
   
@@ -147,7 +146,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
     <td>
       <p>Optional dispatch period in seconds. Defaults to 30.</p>
 
-      
       
     </td>
   </tr>
@@ -186,7 +184,6 @@ Enabling Advertising Features in Google Analytics allows you to take advantage o
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -230,7 +227,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
       <p>User ID</p>
 
       
-      
     </td>
   </tr>
   
@@ -270,7 +266,6 @@ Set a anonymize Ip address
     <td>
       <p>Set to true to anonymize the IP Address</p>
 
-      
       
     </td>
   </tr>
@@ -312,7 +307,6 @@ Sets the app version
       <p>App version</p>
 
       
-      
     </td>
   </tr>
   
@@ -350,7 +344,6 @@ Set OptOut
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -405,7 +398,6 @@ Track custom metric
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -419,7 +411,6 @@ Track custom metric
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -464,7 +455,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
       <p>Screen title</p>
 
       
-      
     </td>
   </tr>
   
@@ -481,7 +471,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
       <p>Campaign url for measuring referrals</p>
 
       
-      
     </td>
   </tr>
   
@@ -497,7 +486,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
     <td>
       <p>Set to true to create a new session</p>
 
-      
       
     </td>
   </tr>
@@ -539,7 +527,6 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -553,7 +540,6 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -596,7 +582,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -610,7 +595,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -628,7 +612,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -642,7 +625,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -660,7 +642,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     <td>
       <p>Set to true to create a new session</p>
 
-      
       
     </td>
   </tr>
@@ -701,7 +682,6 @@ Track an exception
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -715,7 +695,6 @@ Track an exception
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -757,7 +736,6 @@ Track User Timing (App Speed)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -771,7 +749,6 @@ Track User Timing (App Speed)
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -789,7 +766,6 @@ Track User Timing (App Speed)
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -803,7 +779,6 @@ Track User Timing (App Speed)
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -846,7 +821,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -860,7 +834,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -878,7 +851,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -892,7 +864,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -910,7 +881,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -924,7 +894,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -967,7 +936,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -981,7 +949,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -999,7 +966,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1013,7 +979,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1031,7 +996,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1047,7 +1011,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1061,7 +1024,6 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1101,7 +1063,6 @@ Enable/disable automatic reporting of uncaught exceptions
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>

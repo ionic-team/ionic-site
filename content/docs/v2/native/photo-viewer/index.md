@@ -111,7 +111,6 @@ Shows an image in full screen
       <p>URL or path to image</p>
 
       
-      
     </td>
   </tr>
   
@@ -127,7 +126,6 @@ Shows an image in full screen
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -141,7 +139,6 @@ Shows an image in full screen
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>

@@ -113,7 +113,6 @@ Watch for shake gesture
       <p>Optional sensitivity parameter. Defaults to 40</p>
 
       
-      
     </td>
   </tr>
   

@@ -128,7 +128,6 @@ initialize Appodeal SDK
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -142,7 +141,6 @@ initialize Appodeal SDK
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -193,7 +191,6 @@ show ad of specified type
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -233,7 +230,6 @@ show ad of specified type with placement options
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -247,7 +243,6 @@ show ad of specified type with placement options
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -289,7 +284,6 @@ hide ad of specified type
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -325,7 +319,6 @@ confirm use of ads of specified type
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -359,7 +352,6 @@ check if ad of specified type has been loaded
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -401,7 +393,6 @@ check if ad of specified
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -441,7 +432,6 @@ check if ad of specified
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -455,7 +445,6 @@ check if ad of specified
 
     </td>
     <td>
-      
       
       
     </td>
@@ -493,7 +482,6 @@ forcefully cache an ad by type
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -527,7 +515,6 @@ forcefully cache an ad by type
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -565,7 +552,6 @@ enable or disable Smart Banners
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -599,7 +585,6 @@ enable or disable banner backgrounds
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -637,7 +622,6 @@ enable or disable banner animations
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -671,7 +655,6 @@ enable or disable banner animations
 
     </td>
     <td>
-      
       
       
     </td>
@@ -709,7 +692,6 @@ enable or disable logging
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -743,7 +725,6 @@ enable or disable testing mode
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -801,7 +782,6 @@ get version of Appdeal SDK
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -815,7 +795,6 @@ get version of Appdeal SDK
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -853,7 +832,6 @@ get version of Appdeal SDK
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -867,7 +845,6 @@ get version of Appdeal SDK
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -925,7 +902,6 @@ enable event listeners
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -959,7 +935,6 @@ enable event listeners
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -997,7 +972,6 @@ enable event listeners
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1033,7 +1007,6 @@ enable event listeners
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1067,7 +1040,6 @@ enable event listeners
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1106,7 +1078,6 @@ enable event listeners
       <p>name of rule</p>
 
       
-      
     </td>
   </tr>
   
@@ -1120,7 +1091,6 @@ enable event listeners
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1159,7 +1129,6 @@ enable event listeners
       <p>name of rule</p>
 
       
-      
     </td>
   </tr>
   
@@ -1173,7 +1142,6 @@ enable event listeners
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1211,7 +1179,6 @@ set rule with float value
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1225,7 +1192,6 @@ set rule with float value
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1264,7 +1230,6 @@ set rule with string value
       <p>name of rule</p>
 
       
-      
     </td>
   </tr>
   
@@ -1278,7 +1243,6 @@ set rule with string value
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -1316,7 +1280,6 @@ set ID preference in Appodeal for current user
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1350,7 +1313,6 @@ set Email preference in Appodeal for current user
 
     </td>
     <td>
-      
       
       
     </td>
@@ -1388,7 +1350,6 @@ set Birthday preference in Appodeal for current user
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1422,7 +1383,6 @@ et Age preference in Appodeal for current user
 
     </td>
     <td>
-      
       
       
     </td>
@@ -1460,7 +1420,6 @@ set Gender preference in Appodeal for current user
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1494,7 +1453,6 @@ set Occupation preference in Appodeal for current user
 
     </td>
     <td>
-      
       
       
     </td>
@@ -1532,7 +1490,6 @@ set Relation preference in Appodeal for current user
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1566,7 +1523,6 @@ set Smoking preference in Appodeal for current user
 
     </td>
     <td>
-      
       
       
     </td>
@@ -1604,7 +1560,6 @@ set Alcohol preference in Appodeal for current user
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -1638,7 +1593,6 @@ set Interests preference in Appodeal for current user
 
     </td>
     <td>
-      
       
       
     </td>

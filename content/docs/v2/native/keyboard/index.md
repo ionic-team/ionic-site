@@ -109,7 +109,6 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -163,7 +162,6 @@ Prevents the native UIScrollView from moving when an input is focused.
 
     </td>
     <td>
-      
       
       
     </td>

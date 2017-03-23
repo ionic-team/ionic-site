@@ -112,7 +112,6 @@ Must call this method at first.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -126,7 +125,6 @@ Must call this method at first.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -194,7 +192,6 @@ Establishes connection to JINS MEME.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -232,7 +229,6 @@ Set auto connection mode.
 <code>Boolean</code>
     </td>
     <td>
-      
       
       
     </td>

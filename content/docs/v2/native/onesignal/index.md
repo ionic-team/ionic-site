@@ -143,7 +143,6 @@ Start the initialization process. Once you are done configuring OneSignal, call 
       <p>Your OneSignal app id</p>
 
       
-      
     </td>
   </tr>
   
@@ -159,7 +158,6 @@ Start the initialization process. Once you are done configuring OneSignal, call 
     <td>
       <p><strong>ANDROID</strong> - your Google project number; only required for Android GCM/FCM pushes.</p>
 
-      
       
     </td>
   </tr>
@@ -234,7 +232,6 @@ inFocusDisplaying).
 <p> kOSSettingsKeyInAppLaunchURL: boolean = false
  Launch notifications with a launch URL as an in app webview.</p>
 
-      
       
     </td>
   </tr>
@@ -325,7 +322,6 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
       <p>of your choosing to create or update.</p>
 
       
-      
     </td>
   </tr>
   
@@ -341,7 +337,6 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
     <td>
       <p>to set on the key. NOTE: Passing in a blank String deletes the key, you can also call deleteTag.</p>
 
-      
       
     </td>
   </tr>
@@ -381,7 +376,6 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
       <p>a json object with key/value pairs like: {key: &quot;value&quot;, key2: &quot;value2&quot;}</p>
 
       
-      
     </td>
   </tr>
   
@@ -419,7 +413,6 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
       <p>to remove.</p>
 
       
-      
     </td>
   </tr>
   
@@ -456,7 +449,6 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
     <td>
       <p>to remove.</p>
 
-      
       
     </td>
   </tr>
@@ -510,7 +502,6 @@ Passing false means that the device will only vibrate lightly when the device is
       <p>to disable vibrate, true to re-enable it.</p>
 
       
-      
     </td>
   </tr>
   
@@ -552,7 +543,6 @@ Passing false means that the device will only vibrate unless the device is set t
       <p>to disable sound, true to re-enable it.</p>
 
       
-      
     </td>
   </tr>
   
@@ -587,7 +577,6 @@ Setting to control how OneSignal notifications will be shown when one is receive
 <code>DisplayType</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -631,7 +620,6 @@ You can pass true later to opt users back into notifications.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -667,7 +655,6 @@ You can pass true later to opt users back into notifications.
     <td>
       <p>see POST <a href="https://documentation.onesignal.com/v2.0/docs/notifications-create-notification">documentation</a></p>
 
-      
       
     </td>
   </tr>
@@ -718,7 +705,6 @@ Prompts the user for location permission to allow geotagging based on the "Locat
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -758,7 +744,6 @@ The higher the value the more information is shown.
     <td>
       <p>two properties: logLevel (for console logging) and visualLevel (for dialog messages)</p>
 
-      
       
     </td>
   </tr>
@@ -830,7 +815,7 @@ The higher the value the more information is shown.
     <td>
       <p><strong>ANDROID</strong> - Android Notification assigned to the notification. Can be used to cancel or replace the notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -872,7 +857,7 @@ The higher the value the more information is shown.
     <td>
       <p><strong>ANDROID</strong> - Notification is a summary notification for a group this will contain all notification payloads it was created from.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -885,7 +870,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -911,7 +896,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -924,7 +909,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -937,7 +922,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -950,7 +935,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -963,7 +948,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -976,7 +961,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -989,7 +974,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1002,7 +987,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1015,7 +1000,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1028,7 +1013,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1041,7 +1026,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1054,7 +1039,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1067,7 +1052,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1080,7 +1065,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1093,7 +1078,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1106,7 +1091,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1119,7 +1104,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1132,7 +1117,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1145,7 +1130,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1158,7 +1143,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1171,7 +1156,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1184,7 +1169,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1197,7 +1182,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1210,7 +1195,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1223,7 +1208,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1236,7 +1221,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1249,7 +1234,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1262,7 +1247,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1275,7 +1260,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1288,7 +1273,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1301,7 +1286,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1314,7 +1299,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1327,7 +1312,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1340,7 +1325,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1353,7 +1338,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1366,7 +1351,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1379,7 +1364,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1392,7 +1377,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1405,7 +1390,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1418,7 +1403,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1431,7 +1416,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1444,7 +1429,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1457,7 +1442,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1470,7 +1455,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1483,7 +1468,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1496,7 +1481,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1509,7 +1494,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1522,7 +1507,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1535,7 +1520,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1548,7 +1533,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1561,7 +1546,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1574,7 +1559,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1587,7 +1572,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1600,7 +1585,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1613,7 +1598,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1626,7 +1611,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1639,7 +1624,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1652,7 +1637,7 @@ The higher the value the more information is shown.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1850,7 +1835,7 @@ The higher the value the more information is shown.
       <p>Custom additional data that was sent with the notification. Set on the dashboard under Options &gt; Additional Data
 or with the &#39;data&#39; field on the REST API.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1864,7 +1849,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Small icon resource name set on the notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1878,7 +1863,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Large icon set on the notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1892,7 +1877,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Big picture image set on the notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1906,7 +1891,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Accent color shown around small notification icon on Android 5+ devices. ARGB format.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1920,7 +1905,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p>URL to open when opening the notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1948,7 +1933,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Devices that have a notification LED will blink in this color. ARGB format.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1961,7 +1946,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1975,7 +1960,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Notifications with this same key will be grouped together as a single summary notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1989,7 +1974,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - Summary text displayed in the summary notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -2017,7 +2002,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - The Google project number the notification was sent under.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -2031,7 +2016,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     <td>
       <p><strong>ANDROID</strong> - If a background image was set this object will be available.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -2044,7 +2029,7 @@ or with the &#39;data&#39; field on the REST API.</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

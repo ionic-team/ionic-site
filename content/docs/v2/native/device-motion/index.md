@@ -134,7 +134,6 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
       <p>list of options for the accelerometer.</p>
 
       
-      
     </td>
   </tr>
   
@@ -256,7 +255,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
     <td>
       <p>Requested period of calls to accelerometerSuccess with acceleration data in Milliseconds. Default: 10000</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

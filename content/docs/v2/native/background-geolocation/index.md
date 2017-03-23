@@ -193,7 +193,6 @@ Configure the plugin.
       <p>options An object of type Config</p>
 
       
-      
     </td>
   </tr>
   
@@ -273,7 +272,6 @@ Force the plugin to enter "moving" or "stationary" state
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -311,7 +309,6 @@ Setup configuration
 <code>BackgroundGeolocationConfig</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -472,7 +469,6 @@ Delete stored location by given locationId.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -531,7 +527,6 @@ BackgroundGeolocation.Mode.BACKGROUND 
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -831,7 +826,7 @@ to engage.</p>
       <p>When enabled, the plugin will emit sounds for life-cycle events of
 background-geolocation! See debugging sounds table.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -863,7 +858,7 @@ Enable this in order to force a stop() when the application terminated
 (e.g. on iOS, double-tap home button, swipe away the app).o</p>
 <p>Defaults to true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -879,7 +874,7 @@ Enable this in order to force a stop() when the application terminated
 Start background service on device boot. </p>
 <p>Defaults to false</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -895,7 +890,7 @@ Start background service on device boot. </p>
 If false location service will not be started in foreground and no notification will be shown.</p>
 <p>Defaults to true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -911,7 +906,7 @@ If false location service will not be started in foreground and no notification 
 When using BackgroundGeolocation.LocationProvider.ANDROID_DISTANCE_FILTER_PROVIDER:
 The minimum time interval between location updates in milliseconds.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -926,7 +921,7 @@ The minimum time interval between location updates in milliseconds.</p>
       <p>ANDROID ONLY
 Custom notification title in the drawer.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -941,7 +936,7 @@ Custom notification title in the drawer.</p>
       <p>ANDROID ONLY
 Custom notification text in the drawer.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -956,7 +951,7 @@ Custom notification text in the drawer.</p>
       <p>ANDROID ONLY
 The accent color to use for notification. Eg. #4CAF50.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -972,7 +967,7 @@ The accent color to use for notification. Eg. #4CAF50.</p>
 The filename of a custom notification icon. See android quirks. 
 NOTE: Only available for API Level &gt;=21.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -988,7 +983,7 @@ NOTE: Only available for API Level &gt;=21.</p>
 The filename of a custom notification icon. See android quirks. 
 NOTE: Only available for API Level &gt;=21.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1003,7 +998,7 @@ NOTE: Only available for API Level &gt;=21.</p>
       <p>ANDROID ONLY
 Set location service provider @see wiki (<a href="https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers">https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers</a>)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1020,7 +1015,7 @@ Set location service provider @see wiki (<a href="https://github.com/mauron85/co
 this affects iOS GPS algorithm. @see Apple docs for more information
 (<a href="https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType">https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instp/CLLocationManager/activityType</a>)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1036,7 +1031,7 @@ this affects iOS GPS algorithm. @see Apple docs for more information
 Pauses location updates when app is paused </p>
 <p>Defaults to true</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1050,7 +1045,7 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Server url where to send HTTP POST with recorded locations </p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1064,7 +1059,7 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Server url where to send fail to post locations </p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1079,7 +1074,7 @@ Pauses location updates when app is paused </p>
       <p>Specifies how many previously failed locations will be sent to server at once </p>
 <p>Defaults to 100</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1093,7 +1088,7 @@ Pauses location updates when app is paused </p>
     <td>
       <p>Optional HTTP headers sent along in HTTP request</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1109,7 +1104,7 @@ Pauses location updates when app is paused </p>
 Switch to less accurate significant changes and region monitory when in background (default)</p>
 <p>Defaults to 100</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1124,7 +1119,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>Limit maximum number of locations stored into db </p>
 <p>Defaults to 10000</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1139,7 +1134,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>Fastest rate in milliseconds at which your app can handle location updates.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1154,7 +1149,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>Rate in milliseconds at which activity recognition occurs. Larger values will result in fewer activity detections while improving battery life.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1169,7 +1164,7 @@ Switch to less accurate significant changes and region monitory when in backgrou
       <p>ANDROID ONLY with BackgroundGeolocation.LocationProvider.ANDROID_ACTIVITY_PROVIDER</p>
 <p>stop() is forced, when the STILL activity is detected (default is true)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

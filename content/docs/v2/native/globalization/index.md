@@ -147,7 +147,6 @@ Converts date to string
       <p>Date you wish to convert</p>
 
       
-      
     </td>
   </tr>
   
@@ -163,7 +162,6 @@ Converts date to string
     <td>
       <p>Options for the converted date. Length, selector.</p>
 
-      
       
     </td>
   </tr>
@@ -205,7 +203,6 @@ Parses a date formatted as a string, according to the client's user preferences 
       <p>Date as a string to be converted</p>
 
       
-      
     </td>
   </tr>
   
@@ -221,7 +218,6 @@ Parses a date formatted as a string, according to the client's user preferences 
     <td>
       <p>Options for the converted date. Length, selector.</p>
 
-      
       
     </td>
   </tr>
@@ -263,7 +259,6 @@ Returns a pattern string to format and parse dates according to the client's use
       <p>Object with the format length and selector</p>
 
       
-      
     </td>
   </tr>
   
@@ -304,7 +299,6 @@ Returns an array of the names of the months or days of the week, depending on th
       <p>Object with type (narrow or wide) and item (month or days).</p>
 
       
-      
     </td>
   </tr>
   
@@ -344,7 +338,6 @@ Indicates whether daylight savings time is in effect for a given date using the 
     <td>
       <p>Date to process</p>
 
-      
       
     </td>
   </tr>
@@ -399,7 +392,6 @@ Returns a number formatted as a string according to the client's user preference
       <p>The number to convert</p>
 
       
-      
     </td>
   </tr>
   
@@ -415,7 +407,6 @@ Returns a number formatted as a string according to the client's user preference
     <td>
       <p>Object with property <code>type</code> that can be set to: decimal, percent, or currency.</p>
 
-      
       
     </td>
   </tr>
@@ -453,7 +444,6 @@ Returns a number formatted as a string according to the client's user preference
       <p>String you want to conver to a number</p>
 
       
-      
     </td>
   </tr>
   
@@ -469,7 +459,6 @@ Returns a number formatted as a string according to the client's user preference
     <td>
       <p>The type of number you want to return. Can be decimal, percent, or currency.</p>
 
-      
       
     </td>
   </tr>
@@ -511,7 +500,6 @@ Returns a pattern string to format and parse numbers according to the client's u
       <p>Can be decimal, percent, or currency.</p>
 
       
-      
     </td>
   </tr>
   
@@ -551,7 +539,6 @@ Returns a pattern string to format and parse currency values according to the cl
     <td>
       <p>Currency Code.A</p>
 
-      
       
     </td>
   </tr>

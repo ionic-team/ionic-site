@@ -125,7 +125,6 @@ Get the current package information.
       <p>Callback invoked with the currently deployed package information.</p>
 
       
-      
     </td>
   </tr>
   
@@ -141,7 +140,6 @@ Get the current package information.
     <td>
       <p>Optional callback invoked in case of an error.</p>
 
-      
       
     </td>
   </tr>
@@ -200,7 +198,6 @@ Checks with the CodePush server if an update package is available for download.
                     A null package means the application is up to date for the current native application version.</p>
 
       
-      
     </td>
   </tr>
   
@@ -217,7 +214,6 @@ Checks with the CodePush server if an update package is available for download.
       <p>Optional callback invoked in case of an error.</p>
 
       
-      
     </td>
   </tr>
   
@@ -233,7 +229,6 @@ Checks with the CodePush server if an update package is available for download.
     <td>
       <p>Optional deployment key that overrides the config.xml setting.</p>
 
-      
       
     </td>
   </tr>
@@ -278,7 +273,6 @@ If using sync API, calling this function is not required since sync calls it int
       <p>Optional callback invoked if the plugin was successfully notified.</p>
 
       
-      
     </td>
   </tr>
   
@@ -294,7 +288,6 @@ If using sync API, calling this function is not required since sync calls it int
     <td>
       <p>Optional callback invoked in case of an error during notifying the plugin.</p>
 
-      
       
     </td>
   </tr>
@@ -363,7 +356,6 @@ The algorithm of this method is the following:
       <p>Optional callback to be called with the status of the sync operation.</p>
 
       
-      
     </td>
   </tr>
   
@@ -380,7 +372,6 @@ The algorithm of this method is the following:
       <p>Optional SyncOptions parameter configuring the behavior of the sync operation.</p>
 
       
-      
     </td>
   </tr>
   
@@ -396,7 +387,6 @@ The algorithm of this method is the following:
     <td>
       <p>Optional callback invoked during the download process. It is called several times with one DownloadProgress parameter.</p>
 
-      
       
     </td>
   </tr>

@@ -143,7 +143,6 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
       <p>a list of data types you want to be granted access to</p>
 
       
-      
     </td>
   </tr>
   
@@ -185,7 +184,6 @@ This function is similar to requestAuthorization() and has similar quirks.
     <td>
       <p>a list of data types you want to be granted access to</p>
 
-      
       
     </td>
   </tr>
@@ -252,7 +250,6 @@ Automatic conversion is not trivial and depends on the actual substance.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -308,7 +305,6 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -355,7 +351,6 @@ Storing of nutrients is not supported at the moment.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -446,7 +441,7 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Optional limit the number of values returned. Defaults to 1000</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -460,7 +455,7 @@ Storing of nutrients is not supported at the moment.
     <td>
       <p>Optional indicator to sort values ascending or descending</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -475,7 +470,7 @@ Storing of nutrients is not supported at the moment.
       <p>In Android, it is possible to query for &quot;raw&quot; steps or to select those as filtered by the Google Fit app.
 In the latter case the query object must contain the field filtered: true.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

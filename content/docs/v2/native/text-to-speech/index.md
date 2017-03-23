@@ -111,7 +111,6 @@ This function speaks
       <p>Text to speak or TTSOptions</p>
 
       
-      
     </td>
   </tr>
   
@@ -185,7 +184,7 @@ Stop any current TTS playback
     <td>
       <p>a string like &#39;en-US&#39;, &#39;zh-CN&#39;, etc</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -199,7 +198,7 @@ Stop any current TTS playback
     <td>
       <p>speed rate, 0 ~ 1</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

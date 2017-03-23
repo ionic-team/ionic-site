@@ -132,7 +132,6 @@ Checks if an app is available on device
       <p>Package name on android, or URI scheme on iOS</p>
 
       
-      
     </td>
   </tr>
   

@@ -124,7 +124,6 @@ Show a native toast for the given duration at the specified position.
       <p>The message to display.</p>
 
       
-      
     </td>
   </tr>
   
@@ -141,7 +140,6 @@ Show a native toast for the given duration at the specified position.
       <p>Duration to show the toast, either &#39;short&#39;, &#39;long&#39; or any number of milliseconds: &#39;1500&#39;.</p>
 
       
-      
     </td>
   </tr>
   
@@ -157,7 +155,6 @@ Show a native toast for the given duration at the specified position.
     <td>
       <p>Where to position the toast, either &#39;top&#39;, &#39;center&#39;, or &#39;bottom&#39;.</p>
 
-      
       
     </td>
   </tr>
@@ -217,7 +214,6 @@ Show a native toast with the given options.
   addPixelsY  Offset in pixels to move the toast up or down from its specified position.</p>
 
       
-      
     </td>
   </tr>
   
@@ -255,7 +251,6 @@ Shorthand for `show(message, 'short', 'top')`.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -297,7 +292,6 @@ Shorthand for `show(message, 'short', 'center')`.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -335,7 +329,6 @@ Shorthand for `show(message, 'short', 'bottom')`.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -377,7 +370,6 @@ Shorthand for `show(message, 'long', 'top')`.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -417,7 +409,6 @@ Shorthand for `show(message, 'long', 'center')`.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -455,7 +446,6 @@ Shorthand for `show(message, 'long', 'bottom')`.
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -504,7 +494,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Message to display</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -518,7 +508,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Duration in ms to show</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -532,7 +522,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Position</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -546,7 +536,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Add negative value to move it up a bit</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -560,7 +550,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Pass JSON object to be sent back in success callback</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -581,7 +571,7 @@ Shorthand for `show(message, 'long', 'bottom')`.
     <td>
       <p>Styling</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

@@ -187,7 +187,6 @@ Set icon badge number. Set to 0 to clear the badge.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -240,7 +239,6 @@ Subscribe to a topic
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -278,7 +276,6 @@ Unsubscribe from a topic
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -320,7 +317,6 @@ Log an event using Analytics
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -334,7 +330,6 @@ Log an event using Analytics
 <code>Object</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -377,7 +372,6 @@ Set the name of the current screen in Analytics
       <p>Screen name</p>
 
       
-      
     </td>
   </tr>
   
@@ -415,7 +409,6 @@ Set a user id for use in Analytics
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -457,7 +450,6 @@ Set a user property for use in Analytics
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -471,7 +463,6 @@ Set a user property for use in Analytics
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -511,7 +502,6 @@ Fetch Remote Config parameter values for your app
 
     </td>
     <td>
-      
       
       
     </td>
@@ -566,7 +556,6 @@ Retrieve a Remote Config value
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -580,7 +569,6 @@ Retrieve a Remote Config value
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -622,7 +610,6 @@ Retrieve a Remote Config byte array
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -636,7 +623,6 @@ Retrieve a Remote Config byte array
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -691,7 +677,6 @@ Change the settings for the FirebaseRemoteConfig object's operations
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -731,7 +716,6 @@ Set defaults in the Remote Config
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -745,7 +729,6 @@ Set defaults in the Remote Config
 <code>string</code>
     </td>
     <td>
-      
       
       
     </td>

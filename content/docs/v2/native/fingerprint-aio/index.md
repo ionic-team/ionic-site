@@ -144,7 +144,6 @@ Show authentication dialogue
       <p>options for platform specific fingerprint API</p>
 
       
-      
     </td>
   </tr>
   
@@ -205,7 +204,7 @@ Show authentication dialogue
     <td>
       <p>Secret password. Only for android</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -219,7 +218,7 @@ Show authentication dialogue
     <td>
       <p>Disable &#39;use backup&#39; option. Only for android (optional)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

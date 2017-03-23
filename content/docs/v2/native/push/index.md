@@ -128,7 +128,6 @@ Init push notifications
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -222,7 +221,7 @@ Init push notifications
     <td>
       <p>The optional title of the push message sent from the 3rd party service.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -312,7 +311,7 @@ For windows, it represents the value in the badge notification which could be a 
     <td>
       <p>Whether the notification was received while the app was in the foreground</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -325,7 +324,7 @@ For windows, it represents the value in the badge notification which could be a 
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -338,7 +337,7 @@ For windows, it represents the value in the badge notification which could be a 
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -351,7 +350,7 @@ For windows, it represents the value in the badge notification which could be a 
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -364,7 +363,7 @@ For windows, it represents the value in the badge notification which could be a 
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -398,7 +397,7 @@ For windows, it represents the value in the badge notification which could be a 
       <p>Maps to the project number in the Google Developer Console. Setting this
 uses GCM for notifications instead of native.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -412,7 +411,7 @@ uses GCM for notifications instead of native.</p>
     <td>
       <p>Whether to use prod or sandbox GCM setting.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -430,7 +429,7 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -448,7 +447,7 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -466,7 +465,7 @@ method will be how the application always acts. Once this is set
 programmatically in the init method it can only be changed manually by the
 user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -480,7 +479,7 @@ user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
     <td>
       <p>If true the badge will be cleared on app startup.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -496,7 +495,7 @@ user in Settings&gt;Notifications&gt;App Name. This is normal iOS behaviour.</p>
 subscribe to a GcmPubSub topic.
 <strong>Note</strong>: only usable in conjunction with <code>senderID</code>.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -511,7 +510,7 @@ subscribe to a GcmPubSub topic.
       <p>The data required in order to enable Action Buttons for iOS.
 Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1">https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/PAYLOAD.md#action-buttons-1</a></p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -559,7 +558,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
       <p>The name of a drawable resource to use as the small-icon. The name should
 not include the extension.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -574,7 +573,7 @@ not include the extension.</p>
       <p>Sets the background color of the small icon on Android 5.0 and greater.
 <a href="http://developer.android.com/intl/ru/reference/android/graphics/Color.html#parseColor(java.lang.String">Supported Formats</a>)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -589,7 +588,7 @@ not include the extension.</p>
       <p>If true it plays the sound specified in the push data or the default system
 sound.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -603,7 +602,7 @@ sound.</p>
     <td>
       <p>If true the device vibrates on receipt of notification.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -617,7 +616,7 @@ sound.</p>
     <td>
       <p>If true the icon badge will be cleared on init and before push messages are processed.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -631,7 +630,7 @@ sound.</p>
     <td>
       <p>If true the app clears all pending notifications when it is closed.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -646,7 +645,7 @@ sound.</p>
       <p>If true will always show a notification, even when the app is on the
 foreground.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -661,7 +660,7 @@ foreground.</p>
       <p>If the array contains one or more strings each string will be used to
 subscribe to a GcmPubSub topic.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -693,7 +692,7 @@ subscribe to a GcmPubSub topic.</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -706,7 +705,7 @@ subscribe to a GcmPubSub topic.</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -719,7 +718,7 @@ subscribe to a GcmPubSub topic.</p>
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

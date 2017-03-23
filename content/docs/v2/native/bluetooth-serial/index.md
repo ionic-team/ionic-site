@@ -132,7 +132,6 @@ Connect to a Bluetooth device
       <p>Identifier of the remote device</p>
 
       
-      
     </td>
   </tr>
   
@@ -172,7 +171,6 @@ Connect insecurely to a Bluetooth device
     <td>
       <p>Identifier of the remote device</p>
 
-      
       
     </td>
   </tr>
@@ -226,7 +224,6 @@ Writes data to the serial port
     <td>
       <p>ArrayBuffer of data</p>
 
-      
       
     </td>
   </tr>
@@ -294,7 +291,6 @@ Reads data from the buffer until it reaches a delimiter
       <p>string that you want to search until</p>
 
       
-      
     </td>
   </tr>
   
@@ -334,7 +330,6 @@ Subscribe to be notified when data is received
     <td>
       <p>the string you want to watch for</p>
 
-      
       
     </td>
   </tr>
@@ -506,7 +501,6 @@ Sets the human readable device name that is broadcasted to other devices
       <p>Desired name of device</p>
 
       
-      
     </td>
   </tr>
   
@@ -542,7 +536,6 @@ Makes the device discoverable by other devices
     <td>
       <p>Desired number of seconds device should be discoverable for</p>
 
-      
       
     </td>
   </tr>

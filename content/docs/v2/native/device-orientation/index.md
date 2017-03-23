@@ -137,7 +137,6 @@ Stop the watch by unsubscribing from the observable
       <p>Options for compass. Frequency and Filter. Optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -184,7 +183,7 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>How often to retrieve the compass heading in milliseconds. (Number) (Default: 100)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -198,7 +197,7 @@ Stop the watch by unsubscribing from the observable
     <td>
       <p>The change in degrees required to initiate a watchHeading success callback. When this value is set, frequency is ignored. (Number)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

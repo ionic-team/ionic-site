@@ -134,7 +134,6 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
       <p>Options</p>
 
       
-      
     </td>
   </tr>
   
@@ -174,7 +173,6 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -263,7 +261,7 @@ Used as the alias for your key in the Android Key Store.</p>
     <td>
       <p>Used to create credential string for encrypted token and as alias to retrieve the cipher.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -277,7 +275,7 @@ Used as the alias for your key in the Android Key Store.</p>
     <td>
       <p>Used to create credential string for encrypted token</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -292,7 +290,7 @@ Used as the alias for your key in the Android Key Store.</p>
       <p>Required for decrypt()
 Encrypted user credentials to decrypt upon successful authentication.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -306,7 +304,7 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>Set to true to remove the &quot;USE BACKUP&quot; button</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -320,7 +318,7 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>Change the language. (en_US or es)</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -334,7 +332,7 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
     <td>
       <p>The device max is 5 attempts. Set this parameter if you want to allow fewer than 5 attempts.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -350,7 +348,7 @@ Encrypted user credentials to decrypt upon successful authentication.</p>
 New fingerprint enrollment will invalidate key and require backup authenticate to
 re-enable the fingerprint authentication dialog.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -364,7 +362,7 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the title of the fingerprint authentication dialog.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -378,7 +376,7 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the message of the fingerprint authentication dialog.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -392,7 +390,7 @@ re-enable the fingerprint authentication dialog.</p>
     <td>
       <p>Set the hint displayed by the fingerprint icon on the fingerprint authentication dialog.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

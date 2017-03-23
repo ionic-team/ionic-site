@@ -117,7 +117,6 @@ Registers an event listener for any NDEF tag.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -131,7 +130,6 @@ Registers an event listener for any NDEF tag.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -173,7 +171,6 @@ Registers an event listener for tags matching any tag type.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -187,7 +184,6 @@ Registers an event listener for tags matching any tag type.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -229,7 +225,6 @@ Registers an event listener for NDEF tags matching a specified MIME type.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -245,7 +240,6 @@ Registers an event listener for NDEF tags matching a specified MIME type.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -259,7 +253,6 @@ Registers an event listener for NDEF tags matching a specified MIME type.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -301,7 +294,6 @@ Registers an event listener for formatable NDEF tags.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -315,7 +307,6 @@ Registers an event listener for formatable NDEF tags.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -355,7 +346,6 @@ Qrites an NdefMessage to a NFC tag.
 <code>any[]</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -410,7 +400,6 @@ Shares an NDEF Message via peer-to-peer.
     <td>
       <p>An array of NDEF Records.</p>
 
-      
       
     </td>
   </tr>
@@ -474,7 +463,6 @@ Send a file to another device via NFC handover.
     <td>
       <p>A URI as a String, or an array of URIs.</p>
 
-      
       
     </td>
   </tr>
@@ -554,7 +542,6 @@ Convert bytes to string
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -594,7 +581,6 @@ Convert string to bytes
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -632,7 +618,6 @@ Convert bytes to hex string
 <code>number[]</code>
     </td>
     <td>
-      
       
       
     </td>

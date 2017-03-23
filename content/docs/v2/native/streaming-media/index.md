@@ -122,7 +122,6 @@ Streams a video
       <p>The URL of the video</p>
 
       
-      
     </td>
   </tr>
   
@@ -138,7 +137,6 @@ Streams a video
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -176,7 +174,6 @@ Streams an audio
       <p>The URL of the audio stream</p>
 
       
-      
     </td>
   </tr>
   
@@ -192,7 +189,6 @@ Streams an audio
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -265,7 +261,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -278,7 +274,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -291,7 +287,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -323,7 +319,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -336,7 +332,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -349,7 +345,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -362,7 +358,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -375,7 +371,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -388,7 +384,7 @@ Resumes streaming audio
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

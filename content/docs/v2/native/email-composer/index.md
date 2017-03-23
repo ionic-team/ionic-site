@@ -147,9 +147,8 @@ Verifies if sending emails is supported on the device.
 <code>string</code>
     </td>
     <td>
-      <p>An optional app id or uri scheme.</p>
+      <p>App id or uri scheme.<strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>
@@ -192,7 +191,6 @@ Adds a new mail app alias.
       <p>The alias name</p>
 
       
-      
     </td>
   </tr>
   
@@ -208,7 +206,6 @@ Adds a new mail app alias.
     <td>
       <p>The package name</p>
 
-      
       
     </td>
   </tr>
@@ -247,7 +244,6 @@ Displays the email composer pre-filled with data.
       <p>Email</p>
 
       
-      
     </td>
   </tr>
   
@@ -261,9 +257,8 @@ Displays the email composer pre-filled with data.
 <code>any</code>
     </td>
     <td>
-      <p>An optional scope for the promise</p>
+      <p>Scope for the promise<strong class="tag">Optional</strong></p>
 
-      
       
     </td>
   </tr>
@@ -310,7 +305,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -323,7 +318,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -336,7 +331,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -349,7 +344,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -362,7 +357,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -375,7 +370,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -388,7 +383,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -401,7 +396,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

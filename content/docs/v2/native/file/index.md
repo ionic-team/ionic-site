@@ -254,7 +254,6 @@ Check if a directory exists in a certain path, directory.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -270,7 +269,6 @@ Check if a directory exists in a certain path, directory.
     <td>
       <p>Name of directory to check</p>
 
-      
       
     </td>
   </tr>
@@ -315,7 +313,6 @@ If an existing directory exists and the replace value is false, the promise will
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -332,7 +329,6 @@ If an existing directory exists and the replace value is false, the promise will
       <p>Name of directory to create</p>
 
       
-      
     </td>
   </tr>
   
@@ -348,7 +344,6 @@ If an existing directory exists and the replace value is false, the promise will
     <td>
       <p>If true, replaces file with same name. If false returns error</p>
 
-      
       
     </td>
   </tr>
@@ -391,7 +386,6 @@ Remove a directory at a given path.
       <p>The path to the directory</p>
 
       
-      
     </td>
   </tr>
   
@@ -407,7 +401,6 @@ Remove a directory at a given path.
     <td>
       <p>The directory name</p>
 
-      
       
     </td>
   </tr>
@@ -450,7 +443,6 @@ Move a directory to a given path.
       <p>The source path to the directory</p>
 
       
-      
     </td>
   </tr>
   
@@ -466,7 +458,6 @@ Move a directory to a given path.
     <td>
       <p>The source directory name</p>
 
-      
       
     </td>
   </tr>
@@ -484,7 +475,6 @@ Move a directory to a given path.
       <p>The destionation path to the directory</p>
 
       
-      
     </td>
   </tr>
   
@@ -500,7 +490,6 @@ Move a directory to a given path.
     <td>
       <p>The destination directory name</p>
 
-      
       
     </td>
   </tr>
@@ -543,7 +532,6 @@ Copy a directory in various methods. If destination directory exists, will fail 
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -559,7 +547,6 @@ Copy a directory in various methods. If destination directory exists, will fail 
     <td>
       <p>Name of directory to copy</p>
 
-      
       
     </td>
   </tr>
@@ -577,7 +564,6 @@ Copy a directory in various methods. If destination directory exists, will fail 
       <p>Base FileSystem of new location</p>
 
       
-      
     </td>
   </tr>
   
@@ -593,7 +579,6 @@ Copy a directory in various methods. If destination directory exists, will fail 
     <td>
       <p>New name of directory to copy to (leave blank to remain the same)</p>
 
-      
       
     </td>
   </tr>
@@ -636,7 +621,6 @@ List files and directory from a given path.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -652,7 +636,6 @@ List files and directory from a given path.
     <td>
       <p>Name of directory</p>
 
-      
       
     </td>
   </tr>
@@ -695,7 +678,6 @@ Removes all files and the directory from a desired location.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -711,7 +693,6 @@ Removes all files and the directory from a desired location.
     <td>
       <p>Name of directory</p>
 
-      
       
     </td>
   </tr>
@@ -754,7 +735,6 @@ Check if a file exists in a certain path, directory.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -770,7 +750,6 @@ Check if a file exists in a certain path, directory.
     <td>
       <p>Name of file to check</p>
 
-      
       
     </td>
   </tr>
@@ -815,7 +794,6 @@ If an existing file exists and the replace value is false, the promise will fail
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -832,7 +810,6 @@ If an existing file exists and the replace value is false, the promise will fail
       <p>Name of file to create</p>
 
       
-      
     </td>
   </tr>
   
@@ -848,7 +825,6 @@ If an existing file exists and the replace value is false, the promise will fail
     <td>
       <p>If true, replaces file with same name. If false returns error</p>
 
-      
       
     </td>
   </tr>
@@ -891,7 +867,6 @@ Removes a file from a desired location.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -907,7 +882,6 @@ Removes a file from a desired location.
     <td>
       <p>Name of file to remove</p>
 
-      
       
     </td>
   </tr>
@@ -950,7 +924,6 @@ Write a new file to the desired location.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -966,7 +939,6 @@ Write a new file to the desired location.
     <td>
       <p>path relative to base path</p>
 
-      
       
     </td>
   </tr>
@@ -984,7 +956,6 @@ Write a new file to the desired location.
       <p>content or blob to write</p>
 
       
-      
     </td>
   </tr>
   
@@ -1000,7 +971,6 @@ Write a new file to the desired location.
     <td>
       <p>replace file if set to true. See WriteOptions for more information.</p>
 
-      
       
     </td>
   </tr>
@@ -1043,7 +1013,6 @@ Write to an existing file.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1060,7 +1029,6 @@ Write to an existing file.
       <p>path relative to base path</p>
 
       
-      
     </td>
   </tr>
   
@@ -1076,7 +1044,6 @@ Write to an existing file.
     <td>
       <p>content or blob to write</p>
 
-      
       
     </td>
   </tr>
@@ -1119,7 +1086,6 @@ Read the contents of a file as text.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1135,7 +1101,6 @@ Read the contents of a file as text.
     <td>
       <p>Name of file, relative to path.</p>
 
-      
       
     </td>
   </tr>
@@ -1180,7 +1145,6 @@ A data url is of the form:
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1196,7 +1160,6 @@ A data url is of the form:
     <td>
       <p>Name of file, relative to path.</p>
 
-      
       
     </td>
   </tr>
@@ -1239,7 +1202,6 @@ Read file and return data as a binary data.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1255,7 +1217,6 @@ Read file and return data as a binary data.
     <td>
       <p>Name of file, relative to path.</p>
 
-      
       
     </td>
   </tr>
@@ -1297,7 +1258,6 @@ Read file and return data as an ArrayBuffer.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1313,7 +1273,6 @@ Read file and return data as an ArrayBuffer.
     <td>
       <p>Name of file, relative to path.</p>
 
-      
       
     </td>
   </tr>
@@ -1356,7 +1315,6 @@ Move a file to a given path.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1372,7 +1330,6 @@ Move a file to a given path.
     <td>
       <p>Name of file to move</p>
 
-      
       
     </td>
   </tr>
@@ -1390,7 +1347,6 @@ Move a file to a given path.
       <p>Base FileSystem of new location</p>
 
       
-      
     </td>
   </tr>
   
@@ -1406,7 +1362,6 @@ Move a file to a given path.
     <td>
       <p>New name of file to move to (leave blank to remain the same)</p>
 
-      
       
     </td>
   </tr>
@@ -1449,7 +1404,6 @@ Copy a file in various methods. If file exists, will fail to copy.
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
 
       
-      
     </td>
   </tr>
   
@@ -1465,7 +1419,6 @@ Copy a file in various methods. If file exists, will fail to copy.
     <td>
       <p>Name of file to copy</p>
 
-      
       
     </td>
   </tr>
@@ -1483,7 +1436,6 @@ Copy a file in various methods. If file exists, will fail to copy.
       <p>Base FileSystem of new location</p>
 
       
-      
     </td>
   </tr>
   
@@ -1499,7 +1451,6 @@ Copy a file in various methods. If file exists, will fail to copy.
     <td>
       <p>New name of file to copy to (leave blank to remain the same)</p>
 
-      
       
     </td>
   </tr>
@@ -1541,7 +1492,6 @@ Resolves a local file system URL
       <p>file system url</p>
 
       
-      
     </td>
   </tr>
   
@@ -1581,7 +1531,6 @@ Resolves a local directory url
     <td>
       <p>directory system url</p>
 
-      
       
     </td>
   </tr>
@@ -1623,7 +1572,6 @@ Get a directory
       <p>Directory entry, obtained by resolveDirectoryUrl method</p>
 
       
-      
     </td>
   </tr>
   
@@ -1640,7 +1588,6 @@ Get a directory
       <p>Directory name</p>
 
       
-      
     </td>
   </tr>
   
@@ -1656,7 +1603,6 @@ Get a directory
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>
@@ -1698,7 +1644,6 @@ Get a file
       <p>Directory entry, obtained by resolveDirectoryUrl method</p>
 
       
-      
     </td>
   </tr>
   
@@ -1715,7 +1660,6 @@ Get a file
       <p>File name</p>
 
       
-      
     </td>
   </tr>
   
@@ -1731,7 +1675,6 @@ Get a file
     <td>
       <p>Options</p>
 
-      
       
     </td>
   </tr>

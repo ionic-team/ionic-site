@@ -125,7 +125,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
       <p>the config for opening the database.</p>
 
       
-      
     </td>
   </tr>
   
@@ -199,7 +198,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -237,7 +235,6 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -321,7 +318,6 @@ ensure it resolved and successfully opened the database.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -335,7 +331,6 @@ ensure it resolved and successfully opened the database.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -375,7 +370,6 @@ ensure it resolved and successfully opened the database.
 <code>any</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -426,7 +420,6 @@ ensure it resolved and successfully opened the database.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -440,7 +433,6 @@ ensure it resolved and successfully opened the database.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -478,7 +470,6 @@ ensure it resolved and successfully opened the database.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -492,7 +483,6 @@ ensure it resolved and successfully opened the database.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -539,7 +529,6 @@ ensure it resolved and successfully opened the database.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -582,7 +571,6 @@ ensure it resolved and successfully opened the database.
 
     </td>
     <td>
-      
       
       
     </td>
@@ -631,7 +619,6 @@ ensure it resolved and successfully opened the database.
 
     </td>
     <td>
-      
       
       
     </td>

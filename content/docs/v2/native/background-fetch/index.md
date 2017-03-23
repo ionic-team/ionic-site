@@ -140,7 +140,6 @@ Configures the plugin's fetch callbackFn
       <p>Configuration for plugin</p>
 
       
-      
     </td>
   </tr>
   
@@ -224,7 +223,7 @@ You MUST call this method in your fetch callbackFn provided to #configure in ord
     <td>
       <p>Set true to cease background-fetch from operating after user &quot;closes&quot; the app. Defaults to true.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

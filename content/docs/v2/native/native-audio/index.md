@@ -123,7 +123,6 @@ Loads an audio file into memory. Optimized for short clips / single shots (up to
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -139,7 +138,6 @@ Loads an audio file into memory. Optimized for short clips / single shots (up to
     <td>
       <p>the relative path or absolute URL (inluding http://) to the audio asset.</p>
 
-      
       
     </td>
   </tr>
@@ -181,7 +179,6 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -197,7 +194,6 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
     <td>
       <p>the relative path or absolute URL (inluding http://) to the audio asset.</p>
 
-      
       
     </td>
   </tr>
@@ -215,7 +211,6 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
       <p>the volume of the preloaded sound (0.1 to 1.0)</p>
 
       
-      
     </td>
   </tr>
   
@@ -232,7 +227,6 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
       <p>the number of multichannel voices available</p>
 
       
-      
     </td>
   </tr>
   
@@ -246,7 +240,6 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
 <code>number</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -289,7 +282,6 @@ Plays an audio asset
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -305,7 +297,6 @@ Plays an audio asset
     <td>
       <p>optional. Callback to be invoked when audio is done playing</p>
 
-      
       
     </td>
   </tr>
@@ -347,7 +338,6 @@ Stops playing an audio
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -387,7 +377,6 @@ Loops an audio asset infinitely, this only works for complex assets
     <td>
       <p>unique ID for the audio file</p>
 
-      
       
     </td>
   </tr>
@@ -429,7 +418,6 @@ Unloads an audio file from memory
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -470,7 +458,6 @@ Changes the volume for preloaded complex assets.
       <p>unique ID for the audio file</p>
 
       
-      
     </td>
   </tr>
   
@@ -486,7 +473,6 @@ Changes the volume for preloaded complex assets.
     <td>
       <p>the volume of the audio asset (0.1 to 1.0)</p>
 
-      
       
     </td>
   </tr>

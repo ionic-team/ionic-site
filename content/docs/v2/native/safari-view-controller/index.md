@@ -154,7 +154,6 @@ Shows Safari View Controller
       <p>optional</p>
 
       
-      
     </td>
   </tr>
   
@@ -230,7 +229,6 @@ For even better performance optimization, call this methods if there's more than
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -276,7 +274,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -289,7 +287,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -302,7 +300,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -315,7 +313,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -328,7 +326,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -341,7 +339,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -354,7 +352,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -367,7 +365,7 @@ For even better performance optimization, call this methods if there's more than
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

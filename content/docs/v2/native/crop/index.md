@@ -112,7 +112,6 @@ Crops an image
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -126,7 +125,6 @@ Crops an image
 
     </td>
     <td>
-      
       
       
     </td>

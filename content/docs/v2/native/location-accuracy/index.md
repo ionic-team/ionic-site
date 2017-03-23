@@ -4,10 +4,10 @@ version: "3.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "locationaccuracy"
-title: "LocationAccuracy"
+id: "location-accuracy"
+title: "Location Accuracy"
 header_sub_title: "Class in module "
-doc: "LocationAccuracy"
+doc: "Location Accuracy"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  LocationAccuracy
+  Location Accuracy
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-request-location-accuracy
-$ npm install --save @ionic-native/LocationAccuracy
+$ npm install --save @ionic-native/Location Accuracy
 </code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/cordova-plugin-request-location-accuracy">
@@ -144,7 +144,6 @@ Requests accurate location
     <td>
       <p>Accuracy, from 0 to 4. You can use the static properties of this class that start with REQUEST<em>PRIORITY</em></p>
 
-      
       
     </td>
   </tr>

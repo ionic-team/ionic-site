@@ -191,7 +191,6 @@ Sends a file to a server.
       <p>Filesystem URL representing the file on the device or a data URI. For backwards compatibility, this can also be the full path of the file on the device.</p>
 
       
-      
     </td>
   </tr>
   
@@ -207,7 +206,6 @@ Sends a file to a server.
     <td>
       <p>URL of the server to receive the file, as encoded by encodeURI().</p>
 
-      
       
     </td>
   </tr>
@@ -225,7 +223,6 @@ Sends a file to a server.
       <p>Optional parameters.</p>
 
       
-      
     </td>
   </tr>
   
@@ -241,7 +238,6 @@ Sends a file to a server.
     <td>
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
 
-      
       
     </td>
   </tr>
@@ -284,7 +280,6 @@ Downloads a file from server.
       <p>URL of the server to download the file, as encoded by encodeURI().</p>
 
       
-      
     </td>
   </tr>
   
@@ -300,7 +295,6 @@ Downloads a file from server.
     <td>
       <p>Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device.</p>
 
-      
       
     </td>
   </tr>
@@ -318,7 +312,6 @@ Downloads a file from server.
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful because Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
 
       
-      
     </td>
   </tr>
   
@@ -334,7 +327,6 @@ Downloads a file from server.
     <td>
       <p>parameters, currently only supports headers (such as Authorization (Basic Authentication), etc).</p>
 
-      
       
     </td>
   </tr>
@@ -375,7 +367,6 @@ Registers a listener that gets called whenever a new chunk of data is transferre
     <td>
       <p>Listener that takes a progress event.</p>
 
-      
       
     </td>
   </tr>
@@ -428,7 +419,7 @@ object which has an error code of FileTransferError.ABORT_ERR.
       <p>The name of the form element.
 Defaults to &#39;file&#39;.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -443,7 +434,7 @@ Defaults to &#39;file&#39;.</p>
       <p>The file name to use when saving the file on the server.
 Defaults to &#39;image.jpg&#39;.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -458,7 +449,7 @@ Defaults to &#39;image.jpg&#39;.</p>
       <p>The HTTP method to use - either PUT or POST.
 Defaults to POST.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -473,7 +464,7 @@ Defaults to POST.</p>
       <p>The mime type of the data to upload.
 Defaults to image/jpeg.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -487,7 +478,7 @@ Defaults to image/jpeg.</p>
     <td>
       <p>A set of optional key/value pairs to pass in the HTTP request.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -502,7 +493,7 @@ Defaults to image/jpeg.</p>
       <p>Whether to upload the data in chunked streaming mode.
 Defaults to true.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -518,7 +509,7 @@ Defaults to true.</p>
 than one value. On iOS, FireOS, and Android, if a header named
 Content-Type is present, multipart form data will NOT be used.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

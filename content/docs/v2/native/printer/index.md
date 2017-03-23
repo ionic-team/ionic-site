@@ -141,7 +141,6 @@ Sends content to the printer.
       <p>The content to print. Can be a URL or an HTML string. If a HTML DOM Object is provided, its innerHtml property value will be used.</p>
 
       
-      
     </td>
   </tr>
   
@@ -157,7 +156,6 @@ Sends content to the printer.
     <td>
       <p>optional. The options to pass to the printer</p>
 
-      
       
     </td>
   </tr>
@@ -205,7 +203,7 @@ Sends content to the printer.
     <td>
       <p>The name of the print job and the document</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -220,7 +218,7 @@ Sends content to the printer.
       <p>The network URL of the printer.
 Only supported on iOS.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -237,7 +235,7 @@ Either double-sided (duplex:true) or single-sided (duplex:false).
 Double-sided by default.
 Only supported on iOS</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -252,7 +250,7 @@ Only supported on iOS</p>
       <p>The orientation of the printed content, portrait or landscape
 Portrait by default.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -267,7 +265,7 @@ Portrait by default.</p>
       <p>If your application only prints black text, setting this property to true can result in better performance in many cases.
 False by default.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -281,7 +279,7 @@ False by default.</p>
     <td>
       <p>The Size and position of the print view</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

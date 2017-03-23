@@ -130,7 +130,6 @@ Copies the given text
       <p>Text that gets copied on the system clipboard</p>
 
       
-      
     </td>
   </tr>
   

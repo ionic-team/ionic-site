@@ -134,7 +134,6 @@ Set the badge of the app icon.
       <p>The new badge number.</p>
 
       
-      
     </td>
   </tr>
   
@@ -188,7 +187,6 @@ Increase the badge number.
       <p>Count to add to the current badge number</p>
 
       
-      
     </td>
   </tr>
   
@@ -228,7 +226,6 @@ Decrease the badge number.
     <td>
       <p>Count to subtract from the current badge number</p>
 
-      
       
     </td>
   </tr>

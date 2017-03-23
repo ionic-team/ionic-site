@@ -197,7 +197,6 @@ Only works on iOS.
       <p>start date and en date where you want to get pedometer data</p>
 
       
-      
     </td>
   </tr>
   

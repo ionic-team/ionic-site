@@ -119,7 +119,6 @@ Shows the spinner dialog
       <p>Spinner title (shows on Android only)</p>
 
       
-      
     </td>
   </tr>
   
@@ -135,7 +134,6 @@ Shows the spinner dialog
     <td>
       <p>Spinner message</p>
 
-      
       
     </td>
   </tr>
@@ -153,7 +151,6 @@ Shows the spinner dialog
       <p>Set to true to set spinner not cancelable. Or provide a function to call when the user cancels the spinner.</p>
 
       
-      
     </td>
   </tr>
   
@@ -169,7 +166,6 @@ Shows the spinner dialog
     <td>
       <p>Options for iOS only</p>
 
-      
       
     </td>
   </tr>
@@ -222,7 +218,7 @@ Hides the spinner dialog if visible
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -235,7 +231,7 @@ Hides the spinner dialog if visible
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -248,7 +244,7 @@ Hides the spinner dialog if visible
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -261,7 +257,7 @@ Hides the spinner dialog if visible
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

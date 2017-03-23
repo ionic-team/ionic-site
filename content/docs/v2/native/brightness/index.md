@@ -121,7 +121,6 @@ Sets the brightness of the display.
       <p>number between 0 and 1 in which case 1 means 100% brightness and 0 means 0% brightness.</p>
 
       
-      
     </td>
   </tr>
   

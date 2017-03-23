@@ -153,7 +153,6 @@ Start the audio recorder application and return information about captured audio
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -193,7 +192,6 @@ Start the camera application and return information about captured image files.
     <td>
       
       
-      
     </td>
   </tr>
   
@@ -231,7 +229,6 @@ Start the video recorder application and return information about captured video
 
     </td>
     <td>
-      
       
       
     </td>
@@ -531,7 +528,7 @@ is fired if the capture call is unsuccessful
       <p>Maximum number of audio clips. Defaults to 1.
 On iOS you can only record one file.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -545,7 +542,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum duration of an audio sound clip, in seconds. This does not work on Android devices.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -578,7 +575,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum number of images to capture. This limit is not supported on iOS, only one image will be taken per invocation.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -611,7 +608,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum number of video clips to record. This value is ignored on iOS, only one video clip can be taken per invocation.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -625,7 +622,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Maximum duration per video clip. This will be ignored on BlackBerry.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -639,7 +636,7 @@ On iOS you can only record one file.</p>
     <td>
       <p>Quality of the video. This parameter can only be used with Android.</p>
 
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

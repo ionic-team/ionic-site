@@ -130,7 +130,6 @@ Reverse geocode a given latitude and longitude to find location address
       <p>The latitude</p>
 
       
-      
     </td>
   </tr>
   
@@ -146,7 +145,6 @@ Reverse geocode a given latitude and longitude to find location address
     <td>
       <p>The longitude</p>
 
-      
       
     </td>
   </tr>
@@ -187,7 +185,6 @@ Forward geocode a given address to find coordinates
     <td>
       <p>The address to be geocoded</p>
 
-      
       
     </td>
   </tr>

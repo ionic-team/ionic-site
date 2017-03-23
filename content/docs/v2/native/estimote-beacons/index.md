@@ -353,7 +353,6 @@ Start advertising as a beacon.
       <p>UUID string the beacon should advertise (mandatory).</p>
 
       
-      
     </td>
   </tr>
   
@@ -369,7 +368,6 @@ Start advertising as a beacon.
     <td>
       <p>Major value to advertise (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -387,7 +385,6 @@ Start advertising as a beacon.
       <p>Minor value to advertise (mandatory).</p>
 
       
-      
     </td>
   </tr>
   
@@ -403,7 +400,6 @@ Start advertising as a beacon.
     <td>
       <p>Identifier of the region used to advertise (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -459,7 +455,6 @@ Enable analytics.
     <td>
       <p>Boolean value to turn analytics on or off (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -530,7 +525,6 @@ Set App ID and App Token.
       <p>The App ID (mandatory).</p>
 
       
-      
     </td>
   </tr>
   
@@ -546,7 +540,6 @@ Set App ID and App Token.
     <td>
       <p>The App Token (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -618,7 +611,6 @@ Start ranging beacons. Available on iOS and Android.
       <p>Dictionary with region properties (mandatory).</p>
 
       
-      
     </td>
   </tr>
   
@@ -659,7 +651,6 @@ Stop ranging beacons. Available on iOS and Android.
     <td>
       <p>Dictionary with region properties (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -734,7 +725,6 @@ Start monitoring beacons. Available on iOS and Android.
       <p>Dictionary with region properties (mandatory).</p>
 
       
-      
     </td>
   </tr>
   
@@ -751,9 +741,8 @@ Start monitoring beacons. Available on iOS and Android.
       <p>Set to true to detect if you
 are inside a region when the user turns display on, see
 <a href="<a">href="https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS">https://developer.apple.com/library/prerelease/ios/documentation/CoreLocation/Reference/CLBeaconRegion_class/index.html#//apple_ref/occ/instp/CLBeaconRegion/notifyEntryStateOnDisplay|iOS</a> documentation</a>
-for further details (optional, defaults to false, iOS only).</p>
+for further details (iOS only).<strong class="tag">Optional</strong></p>
 
-      <strong class="tag">Optional</strong>
       <p><em>(default: false)</em></p>
     </td>
   </tr>
@@ -795,7 +784,6 @@ Stop monitoring beacons. Available on iOS and Android.
     <td>
       <p>Dictionary with region properties (mandatory).</p>
 
-      
       
     </td>
   </tr>
@@ -841,7 +829,6 @@ To use secure beacons set the App ID and App Token using
       <p>Region</p>
 
       
-      
     </td>
   </tr>
   
@@ -855,7 +842,6 @@ To use secure beacons set the App ID and App Token using
 <code>boolean</code>
     </td>
     <td>
-      
       
       
     </td>
@@ -900,7 +886,6 @@ This function has the same parameters/behaviour as
       <p>Region</p>
 
       
-      
     </td>
   </tr>
   
@@ -941,7 +926,6 @@ Connect to Estimote Beacon. Available on Android.
     <td>
       <p>Beacon to connect to.</p>
 
-      
       
     </td>
   </tr>
@@ -1032,7 +1016,7 @@ Write minor to connected Estimote Beacon. Available on Android.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -1071,7 +1055,7 @@ Write minor to connected Estimote Beacon. Available on Android.
     </td>
     <td>
       
-      <strong class="tag">Optional</strong>
+      <em>(optional)</em>
     </td>
   </tr>
   

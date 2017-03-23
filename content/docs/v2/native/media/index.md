@@ -4,10 +4,10 @@ version: "3.2.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
-id: "mediaplugin"
-title: "MediaPlugin"
+id: "media"
+title: "Media"
 header_sub_title: "Class in module "
-doc: "MediaPlugin"
+doc: "Media"
 docType: "class"
 ---
 
@@ -19,7 +19,7 @@ docType: "class"
 
 <h1 class="api-title">
   
-  MediaPlugin
+  Media
   
 
   
@@ -39,7 +39,7 @@ docType: "class"
 
 
 <pre><code>$ ionic plugin add cordova-plugin-media
-$ npm install --save @ionic-native/mediaplugin
+$ npm install --save @ionic-native/media
 </code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-media">

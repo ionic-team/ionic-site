@@ -9,18 +9,15 @@ title: "DB Meter"
 header_sub_title: "Class in module "
 doc: "DB Meter"
 docType: "class"
----<h1 class="api-title">
-  
-  DB Meter
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">DB Meter</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/db-meter/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -86,9 +83,7 @@ this.dbMeter.delete().then(
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="start" href="#start"></a><code>start()</code>
-  
-</h3>
+<h3><a class="anchor" name="start" href="#start"></a><code>start()</code></h3>
 
 
 
@@ -99,9 +94,7 @@ Starts listening
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable. Subscribe to start listening. Unsubscribe to stop listening.
-</div><h3><a class="anchor" name="isListening" href="#isListening"></a><code>isListening()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isListening" href="#isListening"></a><code>isListening()</code></h3>
 
 
 Check if the DB Meter is listening
@@ -110,9 +103,7 @@ Check if the DB Meter is listening
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that tells us whether the DB meter is listening
-</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code></h3>
 
 
 Delete the DB Meter instance

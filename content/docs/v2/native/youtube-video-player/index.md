@@ -9,18 +9,15 @@ title: "Youtube Video Player"
 header_sub_title: "Class in module "
 doc: "Youtube Video Player"
 docType: "class"
----<h1 class="api-title">
-  
-  Youtube Video Player
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Youtube Video Player</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/youtube-video-player/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.youtube.openVideo(&#39;myvideoid&#39;);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="openVideo" href="#openVideo"></a><code>openVideo(videoId)</code>
-  
-</h3>
+<h3><a class="anchor" name="openVideo" href="#openVideo"></a><code>openVideo(videoId)</code></h3>
 
 
 

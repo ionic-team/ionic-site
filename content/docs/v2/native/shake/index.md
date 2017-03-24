@@ -9,18 +9,15 @@ title: "Shake"
 header_sub_title: "Class in module "
 doc: "Shake"
 docType: "class"
----<h1 class="api-title">
-  
-  Shake
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Shake</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/shake/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -67,9 +64,7 @@ watch.unsubscribe();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="startWatch" href="#startWatch"></a><code>startWatch(sensitivity)</code>
-  
-</h3>
+<h3><a class="anchor" name="startWatch" href="#startWatch"></a><code>startWatch(sensitivity)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Themeable Browser"
 header_sub_title: "Class in module "
 doc: "Themeable Browser"
 docType: "class"
----<h1 class="api-title">
-  
-  Themeable Browser
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Themeable Browser</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/themeable-browser/index.ts#L134">
   Improve this doc
 </a>
+
+
 
 
 
@@ -126,9 +123,7 @@ const browser: ThemeableBrowserObject = this.themeableBrowser.create(&#39;https:
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;styleOptions)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;styleOptions)</code></h3>
 
 Creates a browser instance
 <table class="table param-table" style="margin:0;">
@@ -186,9 +181,7 @@ Creates a browser instance
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -198,9 +191,7 @@ if the browser was already visible.
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 
@@ -209,9 +200,7 @@ Closes the browser window.
 
 
 
-<h3><a class="anchor" name="reload" href="#reload"></a><code>reload()</code>
-  
-</h3>
+<h3><a class="anchor" name="reload" href="#reload"></a><code>reload()</code></h3>
 
 
 
@@ -220,9 +209,7 @@ Reloads the current page
 
 
 
-<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code>
-  
-</h3>
+<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code></h3>
 
 
 Injects JavaScript code into the browser window.
@@ -251,9 +238,7 @@ Injects JavaScript code into the browser window.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="insertCss" href="#insertCss"></a><code>insertCss(css)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="insertCss" href="#insertCss"></a><code>insertCss(css)</code></h3>
 
 
 Injects CSS into the browser window.
@@ -282,9 +267,7 @@ Injects CSS into the browser window.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
 
 
 

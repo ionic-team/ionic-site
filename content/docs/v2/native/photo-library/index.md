@@ -9,18 +9,15 @@ title: "Photo Library"
 header_sub_title: "Class in module "
 doc: "Photo Library"
 docType: "class"
----<h1 class="api-title">
-  
-  Photo Library
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Photo Library</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/photo-library/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -83,9 +80,7 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getLibrary" href="#getLibrary"></a><code>getLibrary(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="getLibrary" href="#getLibrary"></a><code>getLibrary(options)</code></h3>
 
 
 
@@ -116,9 +111,7 @@ Retrieves library items. Library item contains photo metadata like width and hei
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;LibraryItem[]&gt;</code> Returns library items. If appropriate option was set, will be returned by chunks.
-</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(options)</code></h3>
 
 
 
@@ -149,9 +142,7 @@ Asks user permission to access photo library.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise that resolves when permissions are granted, and fails when not.
-</div><h3><a class="anchor" name="getAlbums" href="#getAlbums"></a><code>getAlbums()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAlbums" href="#getAlbums"></a><code>getAlbums()</code></h3>
 
 
 
@@ -162,9 +153,7 @@ Returns list of photo albums on device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;AlbumItem[]&gt;</code> Resolves to list of albums.
-</div><h3><a class="anchor" name="getThumbnailURL" href="#getThumbnailURL"></a><code>getThumbnailURL(photo,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getThumbnailURL" href="#getThumbnailURL"></a><code>getThumbnailURL(photo,&nbsp;options)</code></h3>
 
 
 
@@ -206,9 +195,7 @@ Provides means to request URL of thumbnail, with specified size or quality.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
-</div><h3><a class="anchor" name="getPhotoURL" href="#getPhotoURL"></a><code>getPhotoURL(photo,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getPhotoURL" href="#getPhotoURL"></a><code>getPhotoURL(photo,&nbsp;options)</code></h3>
 
 
 
@@ -250,9 +237,7 @@ Provides means to request photo URL by id.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
-</div><h3><a class="anchor" name="getThumbnail" href="#getThumbnail"></a><code>getThumbnail(photo,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getThumbnail" href="#getThumbnail"></a><code>getThumbnail(photo,&nbsp;options)</code></h3>
 
 
 
@@ -294,9 +279,7 @@ Returns thumbnail as Blob.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Blob&gt;</code> Resolves requested thumbnail as blob.
-</div><h3><a class="anchor" name="getPhoto" href="#getPhoto"></a><code>getPhoto(photo,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getPhoto" href="#getPhoto"></a><code>getPhoto(photo,&nbsp;options)</code></h3>
 
 
 
@@ -338,9 +321,7 @@ Returns photo as Blob.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Blob&gt;</code> Resolves requested photo as blob.
-</div><h3><a class="anchor" name="saveImage" href="#saveImage"></a><code>saveImage(url,&nbsp;album,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="saveImage" href="#saveImage"></a><code>saveImage(url,&nbsp;album,&nbsp;options)</code></h3>
 
 
 
@@ -394,9 +375,7 @@ LibraryItem that represents saved image is returned.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;LibraryItem&gt;</code> Resolves to LibraryItem that represents saved image.
-</div><h3><a class="anchor" name="saveVideo" href="#saveVideo"></a><code>saveVideo(url,&nbsp;album)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="saveVideo" href="#saveVideo"></a><code>saveVideo(url,&nbsp;album)</code></h3>
 
 
 

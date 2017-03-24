@@ -9,18 +9,15 @@ title: "Stepcounter"
 header_sub_title: "Class in module "
 doc: "Stepcounter"
 docType: "class"
----<h1 class="api-title">
-  
-  Stepcounter
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Stepcounter</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/stepcounter/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -76,9 +73,7 @@ this.stepcounter.getHistory().then(historyObj =&gt; console.log(&#39;stepcounter
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="start" href="#start"></a><code>start(startingOffset)</code>
-  
-</h3>
+<h3><a class="anchor" name="start" href="#start"></a><code>start(startingOffset)</code></h3>
 
 
 Start the step counter
@@ -108,9 +103,7 @@ Start the step counter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success or rejects on failure
-</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code></h3>
 
 
 Stop the step counter
@@ -119,9 +112,7 @@ Stop the step counter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
-</div><h3><a class="anchor" name="getTodayStepCount" href="#getTodayStepCount"></a><code>getTodayStepCount()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getTodayStepCount" href="#getTodayStepCount"></a><code>getTodayStepCount()</code></h3>
 
 
 Get the amount of steps for today (or -1 if it no data given)
@@ -130,9 +121,7 @@ Get the amount of steps for today (or -1 if it no data given)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps today, or rejects on failure
-</div><h3><a class="anchor" name="getStepCount" href="#getStepCount"></a><code>getStepCount()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getStepCount" href="#getStepCount"></a><code>getStepCount()</code></h3>
 
 
 Get the amount of steps since the start command has been called
@@ -141,9 +130,7 @@ Get the amount of steps since the start command has been called
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any | number&gt;</code> Returns a Promise that resolves on success with the amount of steps since the start command has been called, or rejects on failure
-</div><h3><a class="anchor" name="deviceCanCountSteps" href="#deviceCanCountSteps"></a><code>deviceCanCountSteps()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deviceCanCountSteps" href="#deviceCanCountSteps"></a><code>deviceCanCountSteps()</code></h3>
 
 
 Returns true/false if Android device is running >API level 19 && has the step counter API available
@@ -152,9 +139,7 @@ Returns true/false if Android device is running >API level 19 && has the step co
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any | boolean&gt;</code> Returns a Promise that resolves on success, or rejects on failure
-</div><h3><a class="anchor" name="getHistory" href="#getHistory"></a><code>getHistory()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getHistory" href="#getHistory"></a><code>getHistory()</code></h3>
 
 
 Get the step history (JavaScript object)

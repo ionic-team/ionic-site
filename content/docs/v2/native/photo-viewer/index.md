@@ -9,18 +9,15 @@ title: "Photo Viewer"
 header_sub_title: "Class in module "
 doc: "Photo Viewer"
 docType: "class"
----<h1 class="api-title">
-  
-  Photo Viewer
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Photo Viewer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/photo-viewer/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ this.photoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My im
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show(url,&nbsp;title,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(url,&nbsp;title,&nbsp;options)</code></h3>
 
 
 

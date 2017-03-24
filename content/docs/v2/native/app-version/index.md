@@ -9,18 +9,15 @@ title: "App Version"
 header_sub_title: "Class in module "
 doc: "App Version"
 docType: "class"
----<h1 class="api-title">
-  
-  App Version
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">App Version</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-version/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -73,9 +70,7 @@ this.appVersion.getVersionNumber();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getAppName" href="#getAppName"></a><code>getAppName()</code>
-  
-</h3>
+<h3><a class="anchor" name="getAppName" href="#getAppName"></a><code>getAppName()</code></h3>
 
 
 Returns the name of the app
@@ -84,9 +79,7 @@ Returns the name of the app
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getPackageName" href="#getPackageName"></a><code>getPackageName()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getPackageName" href="#getPackageName"></a><code>getPackageName()</code></h3>
 
 
 Returns the package name of the app
@@ -95,9 +88,7 @@ Returns the package name of the app
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getVersionCode" href="#getVersionCode"></a><code>getVersionCode()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getVersionCode" href="#getVersionCode"></a><code>getVersionCode()</code></h3>
 
 
 Returns the build identifier of the app
@@ -106,9 +97,7 @@ Returns the build identifier of the app
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getVersionNumber" href="#getVersionNumber"></a><code>getVersionNumber()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getVersionNumber" href="#getVersionNumber"></a><code>getVersionNumber()</code></h3>
 
 
 Returns the version of the app

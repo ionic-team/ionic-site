@@ -9,18 +9,15 @@ title: "Deeplinks"
 header_sub_title: "Class in module "
 doc: "Deeplinks"
 docType: "class"
----<h1 class="api-title">
-  
-  Deeplinks
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Deeplinks</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
   Improve this doc
 </a>
+
+
 
 
 
@@ -96,9 +93,7 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="route" href="#route"></a><code>route(Define)</code>
-  
-</h3>
+<h3><a class="anchor" name="route" href="#route"></a><code>route(Define)</code></h3>
 
 
 
@@ -134,9 +129,7 @@ promise result which you can then use to navigate in the app as you see fit.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(Define)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(Define)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Instagram"
 header_sub_title: "Class in module "
 doc: "Instagram"
 docType: "class"
----<h1 class="api-title">
-  
-  Instagram
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Instagram</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/instagram/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ this.instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isInstalled" href="#isInstalled"></a><code>isInstalled()</code>
-  
-</h3>
+<h3><a class="anchor" name="isInstalled" href="#isInstalled"></a><code>isInstalled()</code></h3>
 
 
 
@@ -79,9 +74,7 @@ Detect if the Instagram application is installed on the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean|string&gt;</code> Returns a promise that returns a boolean value if installed, or the app version on android
-</div><h3><a class="anchor" name="share" href="#share"></a><code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="share" href="#share"></a><code>share(canvasIdOrDataUrl,&nbsp;caption)</code></h3>
 
 
 
@@ -125,9 +118,7 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
-</div><h3><a class="anchor" name="shareAsset" href="#shareAsset"></a><code>shareAsset(assetLocalIdentifier)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="shareAsset" href="#shareAsset"></a><code>shareAsset(assetLocalIdentifier)</code></h3>
 
 
 

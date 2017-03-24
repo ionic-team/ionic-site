@@ -9,18 +9,15 @@ title: "File Path"
 header_sub_title: "Class in module "
 doc: "File Path"
 docType: "class"
----<h1 class="api-title">
-  
-  File Path
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">File Path</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file-path/index.ts#L3">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,9 +67,7 @@ this.filePath.resolveNativePath(path)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="resolveNativePath" href="#resolveNativePath"></a><code>resolveNativePath(path)</code>
-  
-</h3>
+<h3><a class="anchor" name="resolveNativePath" href="#resolveNativePath"></a><code>resolveNativePath(path)</code></h3>
 
 
 Resolve native path for given content URL/path.

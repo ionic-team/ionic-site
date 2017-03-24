@@ -9,18 +9,15 @@ title: "Card IO"
 header_sub_title: "Class in module "
 doc: "Card IO"
 docType: "class"
----<h1 class="api-title">
-  
-  Card IO
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Card IO</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L129">
   Improve this doc
 </a>
+
+
 
 
 
@@ -80,9 +77,7 @@ this.cardIO.canScan()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="canScan" href="#canScan"></a><code>canScan()</code>
-  
-</h3>
+<h3><a class="anchor" name="canScan" href="#canScan"></a><code>canScan()</code></h3>
 
 
 Check whether card scanning is currently available. (May vary by
@@ -93,9 +88,7 @@ device, OS version, network connectivity, etc.)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code></h3>
 
 
 Scan a credit card with card.io.
@@ -124,9 +117,7 @@ Scan a credit card with card.io.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="version" href="#version"></a><code>version()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="version" href="#version"></a><code>version()</code></h3>
 
 
 Retrieve the version of the card.io library. Useful when contacting support.

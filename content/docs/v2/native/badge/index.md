@@ -9,18 +9,15 @@ title: "Badge"
 header_sub_title: "Class in module "
 doc: "Badge"
 docType: "class"
----<h1 class="api-title">
-  
-  Badge
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Badge</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/badge/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -71,9 +68,7 @@ this.badge.clear();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
-  
-</h3>
+<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 
 Clear the badge of the app icon.
@@ -82,9 +77,7 @@ Clear the badge of the app icon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="set" href="#set"></a><code>set(badgeNumber)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="set" href="#set"></a><code>set(badgeNumber)</code></h3>
 
 
 Set the badge of the app icon.
@@ -113,9 +106,7 @@ Set the badge of the app icon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="get" href="#get"></a><code>get()</code></h3>
 
 
 Get the badge of the app icon.
@@ -124,9 +115,7 @@ Get the badge of the app icon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="increase" href="#increase"></a><code>increase(increaseBy)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="increase" href="#increase"></a><code>increase(increaseBy)</code></h3>
 
 
 Increase the badge number.
@@ -155,9 +144,7 @@ Increase the badge number.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="decrease" href="#decrease"></a><code>decrease(decreaseBy)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="decrease" href="#decrease"></a><code>decrease(decreaseBy)</code></h3>
 
 
 Decrease the badge number.
@@ -186,9 +173,7 @@ Decrease the badge number.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
 
 
 Determine if the app has permission to show badges.
@@ -197,9 +182,7 @@ Determine if the app has permission to show badges.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code></h3>
 
 
 Register permission to set badge notifications

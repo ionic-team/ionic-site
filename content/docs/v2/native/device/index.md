@@ -9,18 +9,15 @@ title: "Device"
 header_sub_title: "Class in module "
 doc: "Device"
 docType: "class"
----<h1 class="api-title">
-  
-  Device
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Device</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device/index.ts#L3">
   Improve this doc
 </a>
+
+
 
 
 
@@ -63,18 +60,14 @@ console.log(&#39;Device UUID is: &#39; + this.device.uuid);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="cordova" href="#cordova"></a><code>cordova()</code>
-  
-</h3>
+<h3><a class="anchor" name="cordova" href="#cordova"></a><code>cordova</code></h3>
 
 
 Get the version of Cordova running on the device.
 
 
 
-<h3><a class="anchor" name="model" href="#model"></a><code>model()</code>
-  
-</h3>
+<h3><a class="anchor" name="model" href="#model"></a><code>model</code></h3>
 
 
 The device.model returns the name of the device's model or product. The value is set
@@ -82,54 +75,42 @@ by the device manufacturer and may be different across versions of the same prod
 
 
 
-<h3><a class="anchor" name="platform" href="#platform"></a><code>platform()</code>
-  
-</h3>
+<h3><a class="anchor" name="platform" href="#platform"></a><code>platform</code></h3>
 
 
 Get the device's operating system name.
 
 
 
-<h3><a class="anchor" name="uuid" href="#uuid"></a><code>uuid()</code>
-  
-</h3>
+<h3><a class="anchor" name="uuid" href="#uuid"></a><code>uuid</code></h3>
 
 
 Get the device's Universally Unique Identifier (UUID).
 
 
 
-<h3><a class="anchor" name="version" href="#version"></a><code>version()</code>
-  
-</h3>
+<h3><a class="anchor" name="version" href="#version"></a><code>version</code></h3>
 
 
 Get the operating system version.
 
 
 
-<h3><a class="anchor" name="manufacturer" href="#manufacturer"></a><code>manufacturer()</code>
-  
-</h3>
+<h3><a class="anchor" name="manufacturer" href="#manufacturer"></a><code>manufacturer</code></h3>
 
 
 Get the device's manufacturer.
 
 
 
-<h3><a class="anchor" name="isVirtual" href="#isVirtual"></a><code>isVirtual()</code>
-  
-</h3>
+<h3><a class="anchor" name="isVirtual" href="#isVirtual"></a><code>isVirtual</code></h3>
 
 
 Whether the device is running on a simulator.
 
 
 
-<h3><a class="anchor" name="serial" href="#serial"></a><code>serial()</code>
-  
-</h3>
+<h3><a class="anchor" name="serial" href="#serial"></a><code>serial</code></h3>
 
 
 Get the device hardware serial number.

@@ -9,18 +9,15 @@ title: "Action Sheet"
 header_sub_title: "Class in module "
 doc: "Action Sheet"
 docType: "class"
----<h1 class="api-title">
-  
-  Action Sheet
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Action Sheet</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/action-sheet/index.ts#L45">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,17 +79,13 @@ this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="ANDROID_THEMES" href="#ANDROID_THEMES"></a><code>ANDROID_THEMES()</code>
-  
-</h3>
+<h3><a class="anchor" name="ANDROID_THEMES" href="#ANDROID_THEMES"></a><code>ANDROID_THEMES</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
 
 
 Show a native ActionSheet component. See below for options.
@@ -122,9 +115,7 @@ Show a native ActionSheet component. See below for options.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 Progamtically hide the native ActionSheet

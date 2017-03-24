@@ -9,18 +9,15 @@ title: "Base64 To Gallery"
 header_sub_title: "Class in module "
 doc: "Base64 To Gallery"
 docType: "class"
----<h1 class="api-title">
-  
-  Base64 To Gallery
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Base64 To Gallery</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/base64-to-gallery/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -73,9 +70,7 @@ this.base64ToGallery.base64ToGallery(base64Data, { prefix: &#39;_img&#39; }).the
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="base64ToGallery" href="#base64ToGallery"></a><code>base64ToGallery(data,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="base64ToGallery" href="#base64ToGallery"></a><code>base64ToGallery(data,&nbsp;options)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Browser Tab"
 header_sub_title: "Class in module "
 doc: "Browser Tab"
 docType: "class"
----<h1 class="api-title">
-  
-  Browser Tab
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Browser Tab</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/browser-tab/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,9 +79,7 @@ constructor(private browserTab: BrowserTab) {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Check if BrowserTab option is available
@@ -93,9 +88,7 @@ Check if BrowserTab option is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when check is successful and returns true or false
-</div><h3><a class="anchor" name="openUrl" href="#openUrl"></a><code>openUrl(url)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="openUrl" href="#openUrl"></a><code>openUrl(url)</code></h3>
 
 
 Opens the provided URL using a browser tab
@@ -124,9 +117,7 @@ Opens the provided URL using a browser tab
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when check open was successful
-</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 Closes browser tab

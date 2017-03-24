@@ -9,18 +9,15 @@ title: "Pin Dialog"
 header_sub_title: "Class in module "
 doc: "Pin Dialog"
 docType: "class"
----<h1 class="api-title">
-  
-  Pin Dialog
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Pin Dialog</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pin-dialog/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.pinDialog.prompt(&#39;Enter your PIN&#39;, &#39;Verify PIN&#39;, [&#39;OK&#
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="prompt" href="#prompt"></a><code>prompt(message,&nbsp;title,&nbsp;buttons)</code>
-  
-</h3>
+<h3><a class="anchor" name="prompt" href="#prompt"></a><code>prompt(message,&nbsp;title,&nbsp;buttons)</code></h3>
 
 
 

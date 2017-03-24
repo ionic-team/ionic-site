@@ -9,14 +9,9 @@ title: "Pinterest"
 header_sub_title: "Class in module "
 doc: "Pinterest"
 docType: "class"
----<h1 class="api-title">
-  
-  Pinterest
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Pinterest<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/zyramedia/cordova-plugin-pinterest/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
 $ npm install --save @ionic-native/pinterest
@@ -93,18 +90,14 @@ this.pinterest.getMyBoards()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="SCOPES" href="#SCOPES"></a><code>SCOPES()</code>
-  
-</h3>
+<h3><a class="anchor" name="SCOPES" href="#SCOPES"></a><code>SCOPES</code></h3>
 
 
 Convenience constant for authentication scopes
 
 
 
-<h3><a class="anchor" name="login" href="#login"></a><code>login(scopes)</code>
-  
-</h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login(scopes)</code></h3>
 
 
 Logs the user in using their Pinterest account.
@@ -133,9 +126,7 @@ Logs the user in using their Pinterest account.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> The response object will contain the user's profile data, as well as the access token (if you need to use it elsewhere, example: send it to your server and perform actions on behalf of the user).
-</div><h3><a class="anchor" name="getMe" href="#getMe"></a><code>getMe(fields)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMe" href="#getMe"></a><code>getMe(fields)</code></h3>
 
 
 
@@ -166,9 +157,7 @@ Gets the authenticated user's profile
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> Returns a promise that resolves with the user's object
-</div><h3><a class="anchor" name="getMyPins" href="#getMyPins"></a><code>getMyPins(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyPins" href="#getMyPins"></a><code>getMyPins(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -210,9 +199,7 @@ Gets the authenticated user's profile
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getMyBoards" href="#getMyBoards"></a><code>getMyBoards(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyBoards" href="#getMyBoards"></a><code>getMyBoards(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -254,9 +241,7 @@ Gets the authenticated user's profile
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getMyLikes" href="#getMyLikes"></a><code>getMyLikes(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyLikes" href="#getMyLikes"></a><code>getMyLikes(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -298,9 +283,7 @@ Get the authenticated user's likes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getMyFollowers" href="#getMyFollowers"></a><code>getMyFollowers(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyFollowers" href="#getMyFollowers"></a><code>getMyFollowers(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -342,9 +325,7 @@ Get the authenticated user's followers.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestUser&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getMyFollowedBoards" href="#getMyFollowedBoards"></a><code>getMyFollowedBoards(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyFollowedBoards" href="#getMyFollowedBoards"></a><code>getMyFollowedBoards(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -386,9 +367,7 @@ Get the authenticated user's followed boards.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getMyFollowedInterests" href="#getMyFollowedInterests"></a><code>getMyFollowedInterests(fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMyFollowedInterests" href="#getMyFollowedInterests"></a><code>getMyFollowedInterests(fields,&nbsp;limit)</code></h3>
 
 
 
@@ -430,9 +409,7 @@ Get the authenticated user's followed interests.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getUser" href="#getUser"></a><code>getUser(username,&nbsp;fields)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getUser" href="#getUser"></a><code>getUser(username,&nbsp;fields)</code></h3>
 
 
 
@@ -472,9 +449,7 @@ Get a user's profile.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> 
-</div><h3><a class="anchor" name="getBoard" href="#getBoard"></a><code>getBoard(boardId,&nbsp;fields)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getBoard" href="#getBoard"></a><code>getBoard(boardId,&nbsp;fields)</code></h3>
 
 
 
@@ -514,9 +489,7 @@ Get a board's data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestBoard&gt;</code> 
-</div><h3><a class="anchor" name="getBoardPins" href="#getBoardPins"></a><code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getBoardPins" href="#getBoardPins"></a><code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code></h3>
 
 
 
@@ -569,9 +542,7 @@ Get Pins of a specific board.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><h3><a class="anchor" name="deleteBoard" href="#deleteBoard"></a><code>deleteBoard(boardId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deleteBoard" href="#deleteBoard"></a><code>deleteBoard(boardId)</code></h3>
 
 
 Delete a board.
@@ -600,9 +571,7 @@ Delete a board.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> 
-</div><h3><a class="anchor" name="createBoard" href="#createBoard"></a><code>createBoard(name,&nbsp;desc)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createBoard" href="#createBoard"></a><code>createBoard(name,&nbsp;desc)</code></h3>
 
 
 
@@ -644,9 +613,7 @@ Create a new board for the authenticated user.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestBoard&gt;</code> 
-</div><h3><a class="anchor" name="getPin" href="#getPin"></a><code>getPin(pinId,&nbsp;fields)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getPin" href="#getPin"></a><code>getPin(pinId,&nbsp;fields)</code></h3>
 
 
 
@@ -688,9 +655,7 @@ Get a Pin by ID.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;PinterestPin&gt;</code> 
-</div><h3><a class="anchor" name="deletePin" href="#deletePin"></a><code>deletePin(pinId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deletePin" href="#deletePin"></a><code>deletePin(pinId)</code></h3>
 
 
 Deletes a pin
@@ -719,9 +684,7 @@ Deletes a pin
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="createPin" href="#createPin"></a><code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createPin" href="#createPin"></a><code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code></h3>
 
 
 

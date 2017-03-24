@@ -9,18 +9,15 @@ title: "Vibration"
 header_sub_title: "Class in module "
 doc: "Vibration"
 docType: "class"
----<h1 class="api-title">
-  
-  Vibration
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Vibration</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/vibration/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -80,9 +77,7 @@ this.vibration.vibrate(0);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="vibrate" href="#vibrate"></a><code>vibrate(time)</code>
-  
-</h3>
+<h3><a class="anchor" name="vibrate" href="#vibrate"></a><code>vibrate(time)</code></h3>
 
 
 

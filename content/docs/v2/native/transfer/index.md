@@ -9,18 +9,15 @@ title: "Transfer"
 header_sub_title: "Class in module "
 doc: "Transfer"
 docType: "class"
----<h1 class="api-title">
-  
-  Transfer
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Transfer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/transfer/index.ts#L108">
   Improve this doc
 </a>
+
+
 
 
 
@@ -101,9 +98,7 @@ download() {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="FileTransferErrorCode" href="#FileTransferErrorCode"></a><code>FileTransferErrorCode()</code>
-  
-</h3>
+<h3><a class="anchor" name="FileTransferErrorCode" href="#FileTransferErrorCode"></a><code>FileTransferErrorCode</code></h3>
 
 Error code rejected from upload with FileTransferError
 Defined in FileTransferError.
@@ -114,9 +109,7 @@ Defined in FileTransferError.
      NOT_MODIFIED_ERR: 5     Return on '304 Not Modified' HTTP response
 
 
-<h3><a class="anchor" name="create" href="#create"></a><code>create()</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create()</code></h3>
 
 Creates a new FileTransfer object
 
@@ -132,9 +125,7 @@ Creates a new FileTransfer object
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="upload" href="#upload"></a><code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code>
-  
-</h3>
+<h3><a class="anchor" name="upload" href="#upload"></a><code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code></h3>
 
 
 
@@ -199,9 +190,7 @@ Sends a file to a server.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;FileUploadResult&gt;</code> Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
-</div><h3><a class="anchor" name="download" href="#download"></a><code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="download" href="#download"></a><code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code></h3>
 
 
 
@@ -266,9 +255,7 @@ Downloads a file from server.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves to a FileEntry object.
-</div><h3><a class="anchor" name="onProgress" href="#onProgress"></a><code>onProgress(listener)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onProgress" href="#onProgress"></a><code>onProgress(listener)</code></h3>
 
 
 
@@ -296,9 +283,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
   </tbody>
 </table>
 
-<h3><a class="anchor" name="abort" href="#abort"></a><code>abort()</code>
-  
-</h3>
+<h3><a class="anchor" name="abort" href="#abort"></a><code>abort()</code></h3>
 
 
 

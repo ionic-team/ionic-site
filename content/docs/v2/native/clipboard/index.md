@@ -9,18 +9,15 @@ title: "Clipboard"
 header_sub_title: "Class in module "
 doc: "Clipboard"
 docType: "class"
----<h1 class="api-title">
-  
-  Clipboard
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Clipboard</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/clipboard/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -80,9 +77,7 @@ this.clipboard.paste().then(
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="copy" href="#copy"></a><code>copy(text)</code>
-  
-</h3>
+<h3><a class="anchor" name="copy" href="#copy"></a><code>copy(text)</code></h3>
 
 
 Copies the given text
@@ -111,9 +106,7 @@ Copies the given text
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise after the text has been copied
-</div><h3><a class="anchor" name="paste" href="#paste"></a><code>paste()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="paste" href="#paste"></a><code>paste()</code></h3>
 
 
 Pastes the text stored in clipboard

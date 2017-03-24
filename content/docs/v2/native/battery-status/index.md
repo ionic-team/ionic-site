@@ -9,18 +9,15 @@ title: "Battery Status"
 header_sub_title: "Class in module "
 doc: "Battery Status"
 docType: "class"
----<h1 class="api-title">
-  
-  Battery Status
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Battery Status</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/battery-status/index.ts#L16">
   Improve this doc
 </a>
+
+
 
 
 
@@ -77,9 +74,7 @@ subscription.unsubscribe();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="onChange" href="#onChange"></a><code>onChange()</code>
-  
-</h3>
+<h3><a class="anchor" name="onChange" href="#onChange"></a><code>onChange()</code></h3>
 
 
 
@@ -90,9 +85,7 @@ Watch the change in battery level
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
-</div><h3><a class="anchor" name="onLow" href="#onLow"></a><code>onLow()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onLow" href="#onLow"></a><code>onLow()</code></h3>
 
 
 
@@ -103,9 +96,7 @@ Watch when the battery level goes low
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;BatteryStatusResponse&gt;</code> Returns an observable that pushes a status object
-</div><h3><a class="anchor" name="onCritical" href="#onCritical"></a><code>onCritical()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onCritical" href="#onCritical"></a><code>onCritical()</code></h3>
 
 
 

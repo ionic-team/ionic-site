@@ -9,18 +9,15 @@ title: "Google Plus"
 header_sub_title: "Class in module "
 doc: "Google Plus"
 docType: "class"
----<h1 class="api-title">
-  
-  Google Plus
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Google Plus</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/google-plus/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.googlePlus.login()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="login" href="#login"></a><code>login(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login(options)</code></h3>
 
 
 
@@ -101,9 +96,7 @@ The login function walks the user through the Google Auth process.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="trySilentLogin" href="#trySilentLogin"></a><code>trySilentLogin(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="trySilentLogin" href="#trySilentLogin"></a><code>trySilentLogin(options)</code></h3>
 
 
 You can call trySilentLogin to check if they're already signed in to the app and sign them in silently if they are.
@@ -131,9 +124,7 @@ You can call trySilentLogin to check if they're already signed in to the app and
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code></h3>
 
 
 This will clear the OAuth2 token.
@@ -142,9 +133,7 @@ This will clear the OAuth2 token.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect()</code></h3>
 
 
 This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.

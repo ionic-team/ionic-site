@@ -9,14 +9,9 @@ title: "Navigation Bar"
 header_sub_title: "Class in module "
 doc: "Navigation Bar"
 docType: "class"
----<h1 class="api-title">
-  
-  Navigation Bar
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Navigation Bar<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/navigation-bar/index.ts#L1">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/cranberrygame/cordova-plugin-navigationbar/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-navigationbar
 $ npm install --save @ionic-native/navigation-bar
@@ -75,9 +72,7 @@ this.navigationBar.hide(autoHide);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="setUp" href="#setUp"></a><code>setUp(autohide)</code>
-  
-</h3>
+<h3><a class="anchor" name="setUp" href="#setUp"></a><code>setUp(autohide)</code></h3>
 
 
 
@@ -107,9 +102,7 @@ hide automatically (or not) the navigation bar.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hideNavigationBar" href="#hideNavigationBar"></a><code>hideNavigationBar()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hideNavigationBar" href="#hideNavigationBar"></a><code>hideNavigationBar()</code></h3>
 
 
 

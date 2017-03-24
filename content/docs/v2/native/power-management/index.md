@@ -9,18 +9,15 @@ title: "Power Management"
 header_sub_title: "Class in module "
 doc: "Power Management"
 docType: "class"
----<h1 class="api-title">
-  
-  Power Management
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Power Management</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/power-management/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -66,9 +63,7 @@ this.powerManagement.acquire()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="acquire" href="#acquire"></a><code>acquire()</code>
-  
-</h3>
+<h3><a class="anchor" name="acquire" href="#acquire"></a><code>acquire()</code></h3>
 
 
 Acquire a wakelock by calling this.
@@ -77,9 +72,7 @@ Acquire a wakelock by calling this.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="dim" href="#dim"></a><code>dim()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="dim" href="#dim"></a><code>dim()</code></h3>
 
 
 This acquires a partial wakelock, allowing the screen to be dimmed.
@@ -88,9 +81,7 @@ This acquires a partial wakelock, allowing the screen to be dimmed.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="release" href="#release"></a><code>release()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="release" href="#release"></a><code>release()</code></h3>
 
 
 Release the wakelock. It's important to do this when you're finished with the wakelock, to avoid unnecessary battery drain.
@@ -99,9 +90,7 @@ Release the wakelock. It's important to do this when you're finished with the wa
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setReleaseOnPause" href="#setReleaseOnPause"></a><code>setReleaseOnPause(set)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setReleaseOnPause" href="#setReleaseOnPause"></a><code>setReleaseOnPause(set)</code></h3>
 
 
 By default, the plugin will automatically release a wakelock when your app is paused (e.g. when the screen is turned off, or the user switches to another app).

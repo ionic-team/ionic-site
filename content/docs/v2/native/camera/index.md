@@ -9,14 +9,9 @@ title: "Camera"
 header_sub_title: "Class in module "
 doc: "Camera"
 docType: "class"
----<h1 class="api-title">
-  
-  Camera
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Camera</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera/index.ts#L85">
   Improve this doc
@@ -60,57 +55,43 @@ this.camera.getPicture(options).then((imageData) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="DestinationType" href="#DestinationType"></a><code>DestinationType()</code>
-  
-</h3>
+<h3><a class="anchor" name="DestinationType" href="#DestinationType"></a><code>DestinationType</code></h3>
 
 Constant for possible destination types
 
 
 
-<h3><a class="anchor" name="EncodingType" href="#EncodingType"></a><code>EncodingType()</code>
-  
-</h3>
+<h3><a class="anchor" name="EncodingType" href="#EncodingType"></a><code>EncodingType</code></h3>
 
 Convenience constant
 
 
 
-<h3><a class="anchor" name="MediaType" href="#MediaType"></a><code>MediaType()</code>
-  
-</h3>
+<h3><a class="anchor" name="MediaType" href="#MediaType"></a><code>MediaType</code></h3>
 
 Convenience constant
 
 
 
-<h3><a class="anchor" name="PictureSourceType" href="#PictureSourceType"></a><code>PictureSourceType()</code>
-  
-</h3>
+<h3><a class="anchor" name="PictureSourceType" href="#PictureSourceType"></a><code>PictureSourceType</code></h3>
 
 Convenience constant
 
 
 
-<h3><a class="anchor" name="PopoverArrowDirection" href="#PopoverArrowDirection"></a><code>PopoverArrowDirection()</code>
-  
-</h3>
+<h3><a class="anchor" name="PopoverArrowDirection" href="#PopoverArrowDirection"></a><code>PopoverArrowDirection</code></h3>
 
 Convenience constant
 
 
 
-<h3><a class="anchor" name="Direction" href="#Direction"></a><code>Direction()</code>
-  
-</h3>
+<h3><a class="anchor" name="Direction" href="#Direction"></a><code>Direction</code></h3>
 
 Convenience constant
 
 
 
-<h3><a class="anchor" name="getPicture" href="#getPicture"></a><code>getPicture(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="getPicture" href="#getPicture"></a><code>getPicture(options)</code></h3>
 
 
 
@@ -141,9 +122,7 @@ Take a picture or video, or load one from the library.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
-</div><h3><a class="anchor" name="cleanup" href="#cleanup"></a><code>cleanup()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="cleanup" href="#cleanup"></a><code>cleanup()</code></h3>
 
 
 

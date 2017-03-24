@@ -9,18 +9,15 @@ title: "Facebook"
 header_sub_title: "Class in module "
 doc: "Facebook"
 docType: "class"
----<h1 class="api-title">
-  
-  Facebook
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Facebook</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/facebook/index.ts#L23">
   Improve this doc
 </a>
+
+
 
 
 
@@ -100,9 +97,7 @@ this.fb.login([&#39;public_profile&#39;, &#39;user_friends&#39;, &#39;email&#39;
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code>
-  
-</h3>
+<h3><a class="anchor" name="browserInit" href="#browserInit"></a><code>browserInit(appId,&nbsp;version)</code></h3>
 
 
 Browser wrapper
@@ -142,9 +137,7 @@ Browser wrapper
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="login" href="#login"></a><code>login(permissions)</code></h3>
 
 
 Login to Facebook to authenticate this app.
@@ -188,9 +181,7 @@ Login to Facebook to authenticate this app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;FacebookLoginResponse&gt;</code> Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
-</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code></h3>
 
 
 Logout of Facebook.
@@ -201,9 +192,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves on a successful logout, and rejects if logout fails.
-</div><h3><a class="anchor" name="getLoginStatus" href="#getLoginStatus"></a><code>getLoginStatus()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getLoginStatus" href="#getLoginStatus"></a><code>getLoginStatus()</code></h3>
 
 
 Determine if a user is logged in to Facebook and has authenticated your app.  There are three possible states for a user:
@@ -234,9 +223,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with a status, or rejects with an error
-</div><h3><a class="anchor" name="getAccessToken" href="#getAccessToken"></a><code>getAccessToken()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAccessToken" href="#getAccessToken"></a><code>getAccessToken()</code></h3>
 
 
 Get a Facebook access token for using Facebook services.
@@ -246,9 +233,7 @@ Get a Facebook access token for using Facebook services.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with an access token, or rejects with an error
-</div><h3><a class="anchor" name="showDialog" href="#showDialog"></a><code>showDialog(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showDialog" href="#showDialog"></a><code>showDialog(options)</code></h3>
 
 
 Show one of various Facebook dialogs. Example of options for a Share dialog:
@@ -289,9 +274,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with success data, or rejects with an error
-</div><h3><a class="anchor" name="api" href="#api"></a><code>api(requestPath,&nbsp;permissions)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="api" href="#api"></a><code>api(requestPath,&nbsp;permissions)</code></h3>
 
 
 Make a call to Facebook Graph API. Can take additional permissions beyond those granted on login.
@@ -338,9 +321,7 @@ For more information see:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the result of the request, or rejects with an error
-</div><h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logEvent" href="#logEvent"></a><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code></h3>
 
 
 
@@ -394,9 +375,7 @@ Log an event.  For more information see the Events section above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logPurchase" href="#logPurchase"></a><code>logPurchase(value,&nbsp;currency)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logPurchase" href="#logPurchase"></a><code>logPurchase(value,&nbsp;currency)</code></h3>
 
 
 Log a purchase. For more information see the Events section above.
@@ -437,9 +416,7 @@ Log a purchase. For more information see the Events section above.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="appInvite" href="#appInvite"></a><code>appInvite(options,&nbsp;options.url,&nbsp;options.picture)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="appInvite" href="#appInvite"></a><code>appInvite(options,&nbsp;options.url,&nbsp;options.picture)</code></h3>
 
 
 Open App Invite dialog. Does not require login.

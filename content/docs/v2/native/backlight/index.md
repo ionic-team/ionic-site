@@ -9,14 +9,9 @@ title: "Backlight"
 header_sub_title: "Class in module "
 doc: "Backlight"
 docType: "class"
----<h1 class="api-title">
-  
-  Backlight
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Backlight<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/backlight/index.ts#L1">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/mebibou/cordova-plugin-backlight/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-backlight
 $ npm install --save @ionic-native/backlight
@@ -78,9 +75,7 @@ this.backlight.off().then(() =&gt; console.log(&#39;backlight off&#39;));
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="on" href="#on"></a><code>on()</code>
-  
-</h3>
+<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
 
 
 This function turns backlight on
@@ -89,9 +84,7 @@ This function turns backlight on
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is on
-</div><h3><a class="anchor" name="off" href="#off"></a><code>off()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="off" href="#off"></a><code>off()</code></h3>
 
 
 This function turns backlight off

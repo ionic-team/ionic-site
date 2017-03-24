@@ -9,18 +9,15 @@ title: "App Availability"
 header_sub_title: "Class in module "
 doc: "App Availability"
 docType: "class"
----<h1 class="api-title">
-  
-  App Availability
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">App Availability</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-availability/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,9 +79,7 @@ this.appAvailability.check(app)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="check" href="#check"></a><code>check(app)</code>
-  
-</h3>
+<h3><a class="anchor" name="check" href="#check"></a><code>check(app)</code></h3>
 
 
 Checks if an app is available on device

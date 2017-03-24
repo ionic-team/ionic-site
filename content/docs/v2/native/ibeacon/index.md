@@ -9,18 +9,15 @@ title: "IBeacon"
 header_sub_title: "Class in module "
 doc: "IBeacon"
 docType: "class"
----<h1 class="api-title">
-  
-  IBeacon
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">IBeacon</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ibeacon/index.ts#L222">
   Improve this doc
 </a>
+
+
 
 
 
@@ -99,9 +96,7 @@ this.ibeacon.startMonitoringForRegion(beaconRegion)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="Delegate" href="#Delegate"></a><code>Delegate()</code>
-  
-</h3>
+<h3><a class="anchor" name="Delegate" href="#Delegate"></a><code>Delegate()</code></h3>
 
 
 
@@ -114,9 +109,7 @@ the code that consumes the messages generated on in the native layer.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>IBeaconDelegate</code> An instance of the type {@type Delegate}.
-</div><h3><a class="anchor" name="BeaconRegion" href="#BeaconRegion"></a><code>BeaconRegion(identifier,&nbsp;uuid,&nbsp;major,&nbsp;minor,&nbsp;notifyEntryStateOnDisplay)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="BeaconRegion" href="#BeaconRegion"></a><code>BeaconRegion(identifier,&nbsp;uuid,&nbsp;major,&nbsp;minor,&nbsp;notifyEntryStateOnDisplay)</code></h3>
 
 
 
@@ -192,9 +185,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>BeaconRegion</code> Returns the BeaconRegion that was created
-</div><h3><a class="anchor" name="getDelegate" href="#getDelegate"></a><code>getDelegate()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getDelegate" href="#getDelegate"></a><code>getDelegate()</code></h3>
 
 
 
@@ -203,9 +194,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>IBeaconDelegate</code> Returns the IBeaconDelegate
-</div><h3><a class="anchor" name="setDelegate" href="#setDelegate"></a><code>setDelegate(delegate)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setDelegate" href="#setDelegate"></a><code>setDelegate(delegate)</code></h3>
 
 
 
@@ -234,9 +223,7 @@ This value must not be blank nor invalid as a UUID.</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>IBeaconDelegate</code> Returns the IBeaconDelegate
-</div><h3><a class="anchor" name="onDomDelegateReady" href="#onDomDelegateReady"></a><code>onDomDelegateReady()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onDomDelegateReady" href="#onDomDelegateReady"></a><code>onDomDelegateReady()</code></h3>
 
 
 
@@ -263,9 +250,7 @@ period of time.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the request and started to send events.
-</div><h3><a class="anchor" name="isBluetoothEnabled" href="#isBluetoothEnabled"></a><code>isBluetoothEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isBluetoothEnabled" href="#isBluetoothEnabled"></a><code>isBluetoothEnabled()</code></h3>
 
 
 
@@ -277,9 +262,7 @@ Determines if bluetooth is switched on, according to the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether bluetooth is active.
-</div><h3><a class="anchor" name="enableBluetooth" href="#enableBluetooth"></a><code>enableBluetooth()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enableBluetooth" href="#enableBluetooth"></a><code>enableBluetooth()</code></h3>
 
 
 
@@ -292,9 +275,7 @@ Enables Bluetooth using the native Layer. (ANDROID ONLY)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.
-</div><h3><a class="anchor" name="disableBluetooth" href="#disableBluetooth"></a><code>disableBluetooth()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disableBluetooth" href="#disableBluetooth"></a><code>disableBluetooth()</code></h3>
 
 
 
@@ -307,9 +288,7 @@ Disables Bluetooth using the native Layer. (ANDROID ONLY)
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when Bluetooth
 could be enabled. If not, the promise will be rejected with an error.
-</div><h3><a class="anchor" name="startMonitoringForRegion" href="#startMonitoringForRegion"></a><code>startMonitoringForRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startMonitoringForRegion" href="#startMonitoringForRegion"></a><code>startMonitoringForRegion(region)</code></h3>
 
 
 
@@ -351,9 +330,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.
-</div><h3><a class="anchor" name="stopMonitoringForRegion" href="#stopMonitoringForRegion"></a><code>stopMonitoringForRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopMonitoringForRegion" href="#stopMonitoringForRegion"></a><code>stopMonitoringForRegion(region)</code></h3>
 
 
 
@@ -392,9 +369,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div><h3><a class="anchor" name="requestStateForRegion" href="#requestStateForRegion"></a><code>requestStateForRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestStateForRegion" href="#requestStateForRegion"></a><code>requestStateForRegion(region)</code></h3>
 
 
 
@@ -432,9 +407,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div><h3><a class="anchor" name="startRangingBeaconsInRegion" href="#startRangingBeaconsInRegion"></a><code>startRangingBeaconsInRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startRangingBeaconsInRegion" href="#startRangingBeaconsInRegion"></a><code>startRangingBeaconsInRegion(region)</code></h3>
 
 
 
@@ -473,9 +446,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the monitoring request.
-</div><h3><a class="anchor" name="stopRangingBeaconsInRegion" href="#stopRangingBeaconsInRegion"></a><code>stopRangingBeaconsInRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopRangingBeaconsInRegion" href="#stopRangingBeaconsInRegion"></a><code>stopRangingBeaconsInRegion(region)</code></h3>
 
 
 
@@ -514,9 +485,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop monitoring.
-</div><h3><a class="anchor" name="getAuthorizationStatus" href="#getAuthorizationStatus"></a><code>getAuthorizationStatus()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAuthorizationStatus" href="#getAuthorizationStatus"></a><code>getAuthorizationStatus()</code></h3>
 
 
 
@@ -529,9 +498,7 @@ Queries the native layer to determine the current authorization in effect.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;IBeaconPluginResult&gt;</code> Returns a promise which is resolved with the
 requested authorization status.
-</div><h3><a class="anchor" name="requestWhenInUseAuthorization" href="#requestWhenInUseAuthorization"></a><code>requestWhenInUseAuthorization()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestWhenInUseAuthorization" href="#requestWhenInUseAuthorization"></a><code>requestWhenInUseAuthorization()</code></h3>
 
 
 
@@ -547,9 +514,7 @@ If you are using this plugin on Android devices only, you will never have to use
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise that is resolved when the request dialog is shown.
-</div><h3><a class="anchor" name="requestAlwaysAuthorization" href="#requestAlwaysAuthorization"></a><code>requestAlwaysAuthorization()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestAlwaysAuthorization" href="#requestAlwaysAuthorization"></a><code>requestAlwaysAuthorization()</code></h3>
 
 
 
@@ -562,9 +527,7 @@ See the documentation of {@code requestWhenInUseAuthorization} for further detai
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved when the native layer
 shows the request dialog.
-</div><h3><a class="anchor" name="getMonitoredRegions" href="#getMonitoredRegions"></a><code>getMonitoredRegions()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMonitoredRegions" href="#getMonitoredRegions"></a><code>getMonitoredRegions()</code></h3>
 
 
 
@@ -576,9 +539,7 @@ shows the request dialog.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being monitored by the native layer.
-</div><h3><a class="anchor" name="getRangedRegions" href="#getRangedRegions"></a><code>getRangedRegions()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getRangedRegions" href="#getRangedRegions"></a><code>getRangedRegions()</code></h3>
 
 
 
@@ -590,9 +551,7 @@ of {Region} instances that are being monitored by the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Region[]&gt;</code> Returns a promise which is resolved with an {Array}
 of {Region} instances that are being ranged by the native layer.
-</div><h3><a class="anchor" name="isRangingAvailable" href="#isRangingAvailable"></a><code>isRangingAvailable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isRangingAvailable" href="#isRangingAvailable"></a><code>isRangingAvailable()</code></h3>
 
 
 
@@ -604,9 +563,7 @@ Determines if ranging is available or not, according to the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether ranging is available or not.
-</div><h3><a class="anchor" name="isMonitoringAvailableForClass" href="#isMonitoringAvailableForClass"></a><code>isMonitoringAvailableForClass(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isMonitoringAvailableForClass" href="#isMonitoringAvailableForClass"></a><code>isMonitoringAvailableForClass(region)</code></h3>
 
 
 
@@ -640,9 +597,7 @@ by the operating system.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether the region type is supported or not.
-</div><h3><a class="anchor" name="startAdvertising" href="#startAdvertising"></a><code>startAdvertising(region,&nbsp;measuredPower:)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startAdvertising" href="#startAdvertising"></a><code>startAdvertising(region,&nbsp;measuredPower:)</code></h3>
 
 
 
@@ -694,9 +649,7 @@ use it&#39;s own default value.</p>
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the advertising request.
-</div><h3><a class="anchor" name="stopAdvertising" href="#stopAdvertising"></a><code>stopAdvertising()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopAdvertising" href="#stopAdvertising"></a><code>stopAdvertising()</code></h3>
 
 
 
@@ -711,9 +664,7 @@ This is done asynchronously and may not be immediately reflected in isAdvertisin
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer acknowledged the dispatch of the request to stop advertising.
-</div><h3><a class="anchor" name="isAdvertisingAvailable" href="#isAdvertisingAvailable"></a><code>isAdvertisingAvailable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAdvertisingAvailable" href="#isAdvertisingAvailable"></a><code>isAdvertisingAvailable()</code></h3>
 
 
 
@@ -725,9 +676,7 @@ Determines if advertising is available or not, according to the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is available or not.
-</div><h3><a class="anchor" name="isAdvertising" href="#isAdvertising"></a><code>isAdvertising()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAdvertising" href="#isAdvertising"></a><code>isAdvertising()</code></h3>
 
 
 
@@ -739,9 +688,7 @@ Determines if advertising is currently active, according to the native layer.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved with a {Boolean}
 indicating whether advertising is active.
-</div><h3><a class="anchor" name="disableDebugLogs" href="#disableDebugLogs"></a><code>disableDebugLogs()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disableDebugLogs" href="#disableDebugLogs"></a><code>disableDebugLogs()</code></h3>
 
 
 
@@ -755,9 +702,7 @@ to prevent this plugin from writing to the device logs.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.
-</div><h3><a class="anchor" name="enableDebugNotifications" href="#enableDebugNotifications"></a><code>enableDebugNotifications()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enableDebugNotifications" href="#enableDebugNotifications"></a><code>enableDebugNotifications()</code></h3>
 
 
 
@@ -772,9 +717,7 @@ This can be very helpful when debugging how to apps behave when launched into th
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to enabled.
-</div><h3><a class="anchor" name="disableDebugNotifications" href="#disableDebugNotifications"></a><code>disableDebugNotifications()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disableDebugNotifications" href="#disableDebugNotifications"></a><code>disableDebugNotifications()</code></h3>
 
 
 
@@ -788,9 +731,7 @@ to prevent the plugin from posting local notifications.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the flag to disabled.
-</div><h3><a class="anchor" name="enableDebugLogs" href="#enableDebugLogs"></a><code>enableDebugLogs()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enableDebugLogs" href="#enableDebugLogs"></a><code>enableDebugLogs()</code></h3>
 
 
 
@@ -804,9 +745,7 @@ a debug the inner workings of this plugin.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise which is resolved as soon as the
 native layer has set the logging level accordingly.
-</div><h3><a class="anchor" name="appendToDeviceLog" href="#appendToDeviceLog"></a><code>appendToDeviceLog(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="appendToDeviceLog" href="#appendToDeviceLog"></a><code>appendToDeviceLog(message)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "SMS"
 header_sub_title: "Class in module "
 doc: "SMS"
 docType: "class"
----<h1 class="api-title">
-  
-  SMS
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">SMS</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sms/index.ts#L25">
   Improve this doc
 </a>
+
+
 
 
 
@@ -71,9 +68,7 @@ this.sms.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="send" href="#send"></a><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="send" href="#send"></a><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code></h3>
 
 
 
@@ -126,9 +121,7 @@ Sends sms to a number
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
 
 
 

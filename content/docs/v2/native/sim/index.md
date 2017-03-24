@@ -9,18 +9,15 @@ title: "Sim"
 header_sub_title: "Class in module "
 doc: "Sim"
 docType: "class"
----<h1 class="api-title">
-  
-  Sim
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Sim</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sim/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,9 +79,7 @@ this.sim.requestReadPermission().then(
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getSimInfo" href="#getSimInfo"></a><code>getSimInfo()</code>
-  
-</h3>
+<h3><a class="anchor" name="getSimInfo" href="#getSimInfo"></a><code>getSimInfo()</code></h3>
 
 
 Returns info from the SIM card.
@@ -93,9 +88,7 @@ Returns info from the SIM card.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code></h3>
 
 
 
@@ -109,9 +102,7 @@ Check permission
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Twitter Connect"
 header_sub_title: "Class in module "
 doc: "Twitter Connect"
 docType: "class"
----<h1 class="api-title">
-  
-  Twitter Connect
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Twitter Connect</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/twitter-connect/index.ts#L20">
   Improve this doc
 </a>
+
+
 
 
 
@@ -75,9 +72,7 @@ this.twitter.logout().then(onLogoutSuccess, onLogoutError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="login" href="#login"></a><code>login()</code>
-  
-</h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login()</code></h3>
 
 
 Logs in
@@ -86,9 +81,7 @@ Logs in
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;TwitterConnectResponse&gt;</code> returns a promise that resolves if logged in and rejects if failed to login
-</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code></h3>
 
 
 Logs out
@@ -97,9 +90,7 @@ Logs out
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves if logged out and rejects if failed to logout
-</div><h3><a class="anchor" name="showUser" href="#showUser"></a><code>showUser()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showUser" href="#showUser"></a><code>showUser()</code></h3>
 
 
 Returns user's profile information

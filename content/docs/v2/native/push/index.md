@@ -9,18 +9,15 @@ title: "Push"
 header_sub_title: "Class in module "
 doc: "Push"
 docType: "class"
----<h1 class="api-title">
-  
-  Push
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Push</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
   Improve this doc
 </a>
+
+
 
 
 
@@ -83,9 +80,7 @@ pushObject.on(&#39;error&#39;).subscribe(error =&gt; console.error(&#39;Error wi
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="init" href="#init"></a><code>init(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="init" href="#init"></a><code>init(options)</code></h3>
 
 Init push notifications
 <table class="table param-table" style="margin:0;">

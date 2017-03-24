@@ -9,14 +9,9 @@ title: "Fingerprint AIO"
 header_sub_title: "Class in module "
 doc: "Fingerprint AIO"
 docType: "class"
----<h1 class="api-title">
-  
-  Fingerprint AIO
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Fingerprint AIO<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-fingerprint-aio
 $ npm install --save @ionic-native/fingerprint-aio
@@ -81,9 +78,7 @@ this.faio.show({
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Check if fingerprint authentication is available
@@ -92,9 +87,7 @@ Check if fingerprint authentication is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with result
-</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
 
 
 Show authentication dialogue

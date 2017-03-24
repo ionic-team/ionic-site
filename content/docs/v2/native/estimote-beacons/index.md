@@ -9,18 +9,15 @@ title: "Estimote Beacons"
 header_sub_title: "Class in module "
 doc: "Estimote Beacons"
 docType: "class"
----<h1 class="api-title">
-  
-  Estimote Beacons
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Estimote Beacons</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/estimote-beacons/index.ts#L16">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,153 +67,115 @@ this.eb.enableAnalytics(true);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="ProximityUnknown" href="#ProximityUnknown"></a><code>ProximityUnknown()</code>
-  
-</h3>
+<h3><a class="anchor" name="ProximityUnknown" href="#ProximityUnknown"></a><code>ProximityUnknown</code></h3>
 
 Proximity value
 
 
 
-<h3><a class="anchor" name="ProximityImmediate" href="#ProximityImmediate"></a><code>ProximityImmediate()</code>
-  
-</h3>
+<h3><a class="anchor" name="ProximityImmediate" href="#ProximityImmediate"></a><code>ProximityImmediate</code></h3>
 
 Proximity value
 
 
 
-<h3><a class="anchor" name="ProximityNear" href="#ProximityNear"></a><code>ProximityNear()</code>
-  
-</h3>
+<h3><a class="anchor" name="ProximityNear" href="#ProximityNear"></a><code>ProximityNear</code></h3>
 
 Proximity value
 
 
 
-<h3><a class="anchor" name="ProximityFar" href="#ProximityFar"></a><code>ProximityFar()</code>
-  
-</h3>
+<h3><a class="anchor" name="ProximityFar" href="#ProximityFar"></a><code>ProximityFar</code></h3>
 
 Proximity value
 
 
 
-<h3><a class="anchor" name="BeaconColorUnknown" href="#BeaconColorUnknown"></a><code>BeaconColorUnknown()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorUnknown" href="#BeaconColorUnknown"></a><code>BeaconColorUnknown</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorMintCocktail" href="#BeaconColorMintCocktail"></a><code>BeaconColorMintCocktail()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorMintCocktail" href="#BeaconColorMintCocktail"></a><code>BeaconColorMintCocktail</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorIcyMarshmallow" href="#BeaconColorIcyMarshmallow"></a><code>BeaconColorIcyMarshmallow()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorIcyMarshmallow" href="#BeaconColorIcyMarshmallow"></a><code>BeaconColorIcyMarshmallow</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorBlueberryPie" href="#BeaconColorBlueberryPie"></a><code>BeaconColorBlueberryPie()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorBlueberryPie" href="#BeaconColorBlueberryPie"></a><code>BeaconColorBlueberryPie</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorSweetBeetroot" href="#BeaconColorSweetBeetroot"></a><code>BeaconColorSweetBeetroot()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorSweetBeetroot" href="#BeaconColorSweetBeetroot"></a><code>BeaconColorSweetBeetroot</code></h3>
 
 Beacon colour.
 
 
 
-<h3><a class="anchor" name="BeaconColorCandyFloss" href="#BeaconColorCandyFloss"></a><code>BeaconColorCandyFloss()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorCandyFloss" href="#BeaconColorCandyFloss"></a><code>BeaconColorCandyFloss</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorLemonTart" href="#BeaconColorLemonTart"></a><code>BeaconColorLemonTart()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorLemonTart" href="#BeaconColorLemonTart"></a><code>BeaconColorLemonTart</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorVanillaJello" href="#BeaconColorVanillaJello"></a><code>BeaconColorVanillaJello()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorVanillaJello" href="#BeaconColorVanillaJello"></a><code>BeaconColorVanillaJello</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorLiquoriceSwirl" href="#BeaconColorLiquoriceSwirl"></a><code>BeaconColorLiquoriceSwirl()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorLiquoriceSwirl" href="#BeaconColorLiquoriceSwirl"></a><code>BeaconColorLiquoriceSwirl</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorWhite" href="#BeaconColorWhite"></a><code>BeaconColorWhite()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorWhite" href="#BeaconColorWhite"></a><code>BeaconColorWhite</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="BeaconColorTransparent" href="#BeaconColorTransparent"></a><code>BeaconColorTransparent()</code>
-  
-</h3>
+<h3><a class="anchor" name="BeaconColorTransparent" href="#BeaconColorTransparent"></a><code>BeaconColorTransparent</code></h3>
 
 Beacon colour
 
 
 
-<h3><a class="anchor" name="RegionStateUnknown" href="#RegionStateUnknown"></a><code>RegionStateUnknown()</code>
-  
-</h3>
+<h3><a class="anchor" name="RegionStateUnknown" href="#RegionStateUnknown"></a><code>RegionStateUnknown</code></h3>
 
 Region state
 
 
 
-<h3><a class="anchor" name="RegionStateOutside" href="#RegionStateOutside"></a><code>RegionStateOutside()</code>
-  
-</h3>
+<h3><a class="anchor" name="RegionStateOutside" href="#RegionStateOutside"></a><code>RegionStateOutside</code></h3>
 
 Region state
 
 
 
-<h3><a class="anchor" name="RegionStateInside" href="#RegionStateInside"></a><code>RegionStateInside()</code>
-  
-</h3>
+<h3><a class="anchor" name="RegionStateInside" href="#RegionStateInside"></a><code>RegionStateInside</code></h3>
 
 Region state
 
 
 
-<h3><a class="anchor" name="requestWhenInUseAuthorization" href="#requestWhenInUseAuthorization"></a><code>requestWhenInUseAuthorization()</code>
-  
-</h3>
+<h3><a class="anchor" name="requestWhenInUseAuthorization" href="#requestWhenInUseAuthorization"></a><code>requestWhenInUseAuthorization()</code></h3>
 
 
 Ask the user for permission to use location services
@@ -230,9 +189,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestAlwaysAuthorization" href="#requestAlwaysAuthorization"></a><code>requestAlwaysAuthorization()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestAlwaysAuthorization" href="#requestAlwaysAuthorization"></a><code>requestAlwaysAuthorization()</code></h3>
 
 
 Ask the user for permission to use location services
@@ -246,9 +203,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="authorizationStatus" href="#authorizationStatus"></a><code>authorizationStatus()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="authorizationStatus" href="#authorizationStatus"></a><code>authorizationStatus()</code></h3>
 
 
 Get the current location authorization status.
@@ -260,9 +215,7 @@ Does nothing on other platforms.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startAdvertisingAsBeacon" href="#startAdvertisingAsBeacon"></a><code>startAdvertisingAsBeacon(uuid,&nbsp;major,&nbsp;minor,&nbsp;regionId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startAdvertisingAsBeacon" href="#startAdvertisingAsBeacon"></a><code>startAdvertisingAsBeacon(uuid,&nbsp;major,&nbsp;minor,&nbsp;regionId)</code></h3>
 
 
 
@@ -327,9 +280,7 @@ Start advertising as a beacon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stopAdvertisingAsBeacon" href="#stopAdvertisingAsBeacon"></a><code>stopAdvertisingAsBeacon()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopAdvertisingAsBeacon" href="#stopAdvertisingAsBeacon"></a><code>stopAdvertisingAsBeacon()</code></h3>
 
 
 Stop advertising as a beacon.
@@ -339,9 +290,7 @@ Stop advertising as a beacon.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="enableAnalytics" href="#enableAnalytics"></a><code>enableAnalytics(enable)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enableAnalytics" href="#enableAnalytics"></a><code>enableAnalytics(enable)</code></h3>
 
 
 Enable analytics.
@@ -371,9 +320,7 @@ Enable analytics.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAnalyticsEnabled" href="#isAnalyticsEnabled"></a><code>isAnalyticsEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAnalyticsEnabled" href="#isAnalyticsEnabled"></a><code>isAnalyticsEnabled()</code></h3>
 
 
 Test if analytics is enabled.
@@ -383,9 +330,7 @@ Test if analytics is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAuthorized" href="#isAuthorized"></a><code>isAuthorized()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAuthorized" href="#isAuthorized"></a><code>isAuthorized()</code></h3>
 
 
 Test if App ID and App Token is set.
@@ -395,9 +340,7 @@ Test if App ID and App Token is set.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setupAppIDAndAppToken" href="#setupAppIDAndAppToken"></a><code>setupAppIDAndAppToken(appID,&nbsp;appToken)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setupAppIDAndAppToken" href="#setupAppIDAndAppToken"></a><code>setupAppIDAndAppToken(appID,&nbsp;appToken)</code></h3>
 
 
 Set App ID and App Token.
@@ -438,9 +381,7 @@ Set App ID and App Token.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startEstimoteBeaconDiscovery" href="#startEstimoteBeaconDiscovery"></a><code>startEstimoteBeaconDiscovery()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startEstimoteBeaconDiscovery" href="#startEstimoteBeaconDiscovery"></a><code>startEstimoteBeaconDiscovery()</code></h3>
 
 
 
@@ -453,9 +394,7 @@ Available on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.
-</div><h3><a class="anchor" name="stopEstimoteBeaconDiscovery" href="#stopEstimoteBeaconDiscovery"></a><code>stopEstimoteBeaconDiscovery()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopEstimoteBeaconDiscovery" href="#stopEstimoteBeaconDiscovery"></a><code>stopEstimoteBeaconDiscovery()</code></h3>
 
 
 Stop CoreBluetooth scan. Available on iOS.
@@ -465,9 +404,7 @@ Stop CoreBluetooth scan. Available on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startRangingBeaconsInRegion" href="#startRangingBeaconsInRegion"></a><code>startRangingBeaconsInRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startRangingBeaconsInRegion" href="#startRangingBeaconsInRegion"></a><code>startRangingBeaconsInRegion(region)</code></h3>
 
 
 
@@ -499,9 +436,7 @@ Start ranging beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each beacon discovered.
-</div><h3><a class="anchor" name="stopRangingBeaconsInRegion" href="#stopRangingBeaconsInRegion"></a><code>stopRangingBeaconsInRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopRangingBeaconsInRegion" href="#stopRangingBeaconsInRegion"></a><code>stopRangingBeaconsInRegion(region)</code></h3>
 
 
 Stop ranging beacons. Available on iOS and Android.
@@ -531,9 +466,7 @@ Stop ranging beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startRangingSecureBeaconsInRegion" href="#startRangingSecureBeaconsInRegion"></a><code>startRangingSecureBeaconsInRegion()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startRangingSecureBeaconsInRegion" href="#startRangingSecureBeaconsInRegion"></a><code>startRangingSecureBeaconsInRegion()</code></h3>
 
 
 
@@ -548,9 +481,7 @@ To use secure beacons set the App ID and App Token using
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stopRangingSecureBeaconsInRegion" href="#stopRangingSecureBeaconsInRegion"></a><code>stopRangingSecureBeaconsInRegion()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopRangingSecureBeaconsInRegion" href="#stopRangingSecureBeaconsInRegion"></a><code>stopRangingSecureBeaconsInRegion()</code></h3>
 
 
 Stop ranging secure beacons. Available on iOS.
@@ -561,9 +492,7 @@ This function has the same parameters/behaviour as
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startMonitoringForRegion" href="#startMonitoringForRegion"></a><code>startMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startMonitoringForRegion" href="#startMonitoringForRegion"></a><code>startMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code></h3>
 
 
 
@@ -609,9 +538,7 @@ for further details (iOS only).<strong class="tag">Optional</strong></p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each region state discovered.
-</div><h3><a class="anchor" name="stopMonitoringForRegion" href="#stopMonitoringForRegion"></a><code>stopMonitoringForRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopMonitoringForRegion" href="#stopMonitoringForRegion"></a><code>stopMonitoringForRegion(region)</code></h3>
 
 
 Stop monitoring beacons. Available on iOS and Android.
@@ -641,9 +568,7 @@ Stop monitoring beacons. Available on iOS and Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startSecureMonitoringForRegion" href="#startSecureMonitoringForRegion"></a><code>startSecureMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startSecureMonitoringForRegion" href="#startSecureMonitoringForRegion"></a><code>startSecureMonitoringForRegion(region,&nbsp;notifyEntryStateOnDisplay)</code></h3>
 
 
 
@@ -688,9 +613,7 @@ To use secure beacons set the App ID and App Token using
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stopSecureMonitoringForRegion" href="#stopSecureMonitoringForRegion"></a><code>stopSecureMonitoringForRegion(region)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopSecureMonitoringForRegion" href="#stopSecureMonitoringForRegion"></a><code>stopSecureMonitoringForRegion(region)</code></h3>
 
 
 Stop monitoring secure beacons. Available on iOS.
@@ -721,9 +644,7 @@ This function has the same parameters/behaviour as
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="connectToBeacon" href="#connectToBeacon"></a><code>connectToBeacon(beacon)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="connectToBeacon" href="#connectToBeacon"></a><code>connectToBeacon(beacon)</code></h3>
 
 
 Connect to Estimote Beacon. Available on Android.
@@ -753,9 +674,7 @@ Connect to Estimote Beacon. Available on Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="disconnectConnectedBeacon" href="#disconnectConnectedBeacon"></a><code>disconnectConnectedBeacon()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disconnectConnectedBeacon" href="#disconnectConnectedBeacon"></a><code>disconnectConnectedBeacon()</code></h3>
 
 
 Disconnect from connected Estimote Beacon. Available on Android.
@@ -765,27 +684,21 @@ Disconnect from connected Estimote Beacon. Available on Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="writeConnectedProximityUUID" href="#writeConnectedProximityUUID"></a><code>writeConnectedProximityUUID()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="writeConnectedProximityUUID" href="#writeConnectedProximityUUID"></a><code>writeConnectedProximityUUID()</code></h3>
 
 
 Write proximity UUID to connected Estimote Beacon. Available on Android.
 
 
 
-<h3><a class="anchor" name="writeConnectedMajor" href="#writeConnectedMajor"></a><code>writeConnectedMajor()</code>
-  
-</h3>
+<h3><a class="anchor" name="writeConnectedMajor" href="#writeConnectedMajor"></a><code>writeConnectedMajor()</code></h3>
 
 
 Write major to connected Estimote Beacon. Available on Android.
 
 
 
-<h3><a class="anchor" name="writeConnectedMinor" href="#writeConnectedMinor"></a><code>writeConnectedMinor()</code>
-  
-</h3>
+<h3><a class="anchor" name="writeConnectedMinor" href="#writeConnectedMinor"></a><code>writeConnectedMinor()</code></h3>
 
 
 Write minor to connected Estimote Beacon. Available on Android.

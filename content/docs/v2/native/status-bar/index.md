@@ -9,18 +9,15 @@ title: "Status Bar"
 header_sub_title: "Class in module "
 doc: "Status Bar"
 docType: "class"
----<h1 class="api-title">
-  
-  Status Bar
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Status Bar</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/status-bar/index.ts#L4">
   Improve this doc
 </a>
+
+
 
 
 
@@ -72,9 +69,7 @@ this.statusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar 
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="overlaysWebView" href="#overlaysWebView"></a><code>overlaysWebView(doesOverlay)</code>
-  
-</h3>
+<h3><a class="anchor" name="overlaysWebView" href="#overlaysWebView"></a><code>overlaysWebView(doesOverlay)</code></h3>
 
 
 
@@ -104,9 +99,7 @@ is true.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="styleDefault" href="#styleDefault"></a><code>styleDefault()</code>
-  
-</h3>
+<h3><a class="anchor" name="styleDefault" href="#styleDefault"></a><code>styleDefault()</code></h3>
 
 
 
@@ -115,9 +108,7 @@ Use the default statusbar (dark text, for light backgrounds).
 
 
 
-<h3><a class="anchor" name="styleLightContent" href="#styleLightContent"></a><code>styleLightContent()</code>
-  
-</h3>
+<h3><a class="anchor" name="styleLightContent" href="#styleLightContent"></a><code>styleLightContent()</code></h3>
 
 
 
@@ -126,9 +117,7 @@ Use the lightContent statusbar (light text, for dark backgrounds).
 
 
 
-<h3><a class="anchor" name="styleBlackTranslucent" href="#styleBlackTranslucent"></a><code>styleBlackTranslucent()</code>
-  
-</h3>
+<h3><a class="anchor" name="styleBlackTranslucent" href="#styleBlackTranslucent"></a><code>styleBlackTranslucent()</code></h3>
 
 
 
@@ -137,9 +126,7 @@ Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 
 
-<h3><a class="anchor" name="styleBlackOpaque" href="#styleBlackOpaque"></a><code>styleBlackOpaque()</code>
-  
-</h3>
+<h3><a class="anchor" name="styleBlackOpaque" href="#styleBlackOpaque"></a><code>styleBlackOpaque()</code></h3>
 
 
 
@@ -148,9 +135,7 @@ Use the blackOpaque statusbar (light text, for dark backgrounds).
 
 
 
-<h3><a class="anchor" name="backgroundColorByName" href="#backgroundColorByName"></a><code>backgroundColorByName(colorName)</code>
-  
-</h3>
+<h3><a class="anchor" name="backgroundColorByName" href="#backgroundColorByName"></a><code>backgroundColorByName(colorName)</code></h3>
 
 
 
@@ -182,9 +167,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
   </tbody>
 </table>
 
-<h3><a class="anchor" name="backgroundColorByHexString" href="#backgroundColorByHexString"></a><code>backgroundColorByHexString(hexString)</code>
-  
-</h3>
+<h3><a class="anchor" name="backgroundColorByHexString" href="#backgroundColorByHexString"></a><code>backgroundColorByHexString(hexString)</code></h3>
 
 
 
@@ -215,9 +198,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
   </tbody>
 </table>
 
-<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 
@@ -226,9 +207,7 @@ Hide the StatusBar
 
 
 
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -237,9 +216,7 @@ Show the StatusBar
 
 
 
-<h3><a class="anchor" name="isVisible" href="#isVisible"></a><code>isVisible()</code>
-  
-</h3>
+<h3><a class="anchor" name="isVisible" href="#isVisible"></a><code>isVisible</code></h3>
 
 
 Whether the StatusBar is currently visible or not.

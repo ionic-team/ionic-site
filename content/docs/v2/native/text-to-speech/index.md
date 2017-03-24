@@ -9,18 +9,15 @@ title: "Text To Speech"
 header_sub_title: "Class in module "
 doc: "Text To Speech"
 docType: "class"
----<h1 class="api-title">
-  
-  Text To Speech
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Text To Speech</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/text-to-speech/index.ts#L10">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ this.tts.speak(&#39;Hello World&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="speak" href="#speak"></a><code>speak(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="speak" href="#speak"></a><code>speak(options)</code></h3>
 
 
 
@@ -98,9 +93,7 @@ This function speaks
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the speaking finishes
-</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code></h3>
 
 
 Stop any current TTS playback

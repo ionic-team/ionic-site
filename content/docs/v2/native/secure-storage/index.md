@@ -9,18 +9,15 @@ title: "Secure Storage"
 header_sub_title: "Class in module "
 doc: "Secure Storage"
 docType: "class"
----<h1 class="api-title">
-  
-  Secure Storage
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Secure Storage</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L43">
   Improve this doc
 </a>
+
+
 
 
 
@@ -90,9 +87,7 @@ this.secureStorage.create(&#39;my_store_name&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(store)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(store)</code></h3>
 
 
 Creates a namespaced storage.
@@ -128,9 +123,7 @@ Creates a namespaced storage.
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="get" href="#get"></a><code>get(reference)</code>
-  
-</h3>
+<h3><a class="anchor" name="get" href="#get"></a><code>get(reference)</code></h3>
 
 
 
@@ -160,9 +153,7 @@ Gets a stored item
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="set" href="#set"></a><code>set(reference,&nbsp;value)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="set" href="#set"></a><code>set(reference,&nbsp;value)</code></h3>
 
 
 
@@ -202,9 +193,7 @@ Stores a value
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code></h3>
 
 
 

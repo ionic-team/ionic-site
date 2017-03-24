@@ -9,18 +9,15 @@ title: "App Update"
 header_sub_title: "Class in module "
 doc: "App Update"
 docType: "class"
----<h1 class="api-title">
-  
-  App Update
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">App Update</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-update/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -78,9 +75,7 @@ constructor(private appUpdate: AppUpdate) {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code>
-  
-</h3>
+<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code></h3>
 
 
 

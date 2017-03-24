@@ -9,18 +9,15 @@ title: "Device Feedback"
 header_sub_title: "Class in module "
 doc: "Device Feedback"
 docType: "class"
----<h1 class="api-title">
-  
-  Device Feedback
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Device Feedback</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-feedback/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -80,9 +77,7 @@ this.deviceFeedback.isFeedbackEnabled()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="acoustic" href="#acoustic"></a><code>acoustic()</code>
-  
-</h3>
+<h3><a class="anchor" name="acoustic" href="#acoustic"></a><code>acoustic()</code></h3>
 
 
 
@@ -91,9 +86,7 @@ Provide sound feedback to user, nevertheless respect user's settings and current
 
 
 
-<h3><a class="anchor" name="haptic" href="#haptic"></a><code>haptic(type)</code>
-  
-</h3>
+<h3><a class="anchor" name="haptic" href="#haptic"></a><code>haptic(type)</code></h3>
 
 
 
@@ -121,9 +114,7 @@ Provide vibrate feedback to user, nevertheless respect user's tactile feedback s
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isFeedbackEnabled" href="#isFeedbackEnabled"></a><code>isFeedbackEnabled()</code>
-  
-</h3>
+<h3><a class="anchor" name="isFeedbackEnabled" href="#isFeedbackEnabled"></a><code>isFeedbackEnabled()</code></h3>
 
 
 Check if haptic and acoustic feedback is enabled by user settings.

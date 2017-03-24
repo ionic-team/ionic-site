@@ -9,18 +9,15 @@ title: "Touch ID"
 header_sub_title: "Class in module "
 doc: "Touch ID"
 docType: "class"
----<h1 class="api-title">
-  
-  Touch ID
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Touch ID</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/touch-id/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -90,9 +87,7 @@ this.touchId.verifyFingerprint(&#39;Scan your fingerprint please&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Checks Whether TouchID is available or not.
@@ -102,9 +97,7 @@ Checks Whether TouchID is available or not.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if yes, rejects if no.
-</div><h3><a class="anchor" name="verifyFingerprint" href="#verifyFingerprint"></a><code>verifyFingerprint(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="verifyFingerprint" href="#verifyFingerprint"></a><code>verifyFingerprint(message)</code></h3>
 
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, brings up standard system passcode screen.
@@ -134,9 +127,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
-</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallback" href="#verifyFingerprintWithCustomPasswordFallback"></a><code>verifyFingerprintWithCustomPasswordFallback(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallback" href="#verifyFingerprintWithCustomPasswordFallback"></a><code>verifyFingerprintWithCustomPasswordFallback(message)</code></h3>
 
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
@@ -166,9 +157,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
-</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel" href="#verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></a><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel" href="#verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></a><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code></h3>
 
 
 Show TouchID dialog with custom 'Enter Password' message and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).

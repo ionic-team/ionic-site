@@ -9,18 +9,15 @@ title: "Android Fingerprint Auth"
 header_sub_title: "Class in module "
 doc: "Android Fingerprint Auth"
 docType: "class"
----<h1 class="api-title">
-  
-  Android Fingerprint Auth
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Android Fingerprint Auth</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L96">
   Improve this doc
 </a>
+
+
 
 
 
@@ -88,9 +85,7 @@ this.androidFingerprintAuth.isAvailable()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(options)</code></h3>
 
 
 Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
@@ -119,9 +114,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="decrypt" href="#decrypt"></a><code>decrypt(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="decrypt" href="#decrypt"></a><code>decrypt(options)</code></h3>
 
 
 Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
@@ -150,9 +143,7 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Check if service is available
@@ -161,9 +152,7 @@ Check if service is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if fingerprint auth is available on the device
-</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code></h3>
 
 
 Delete the cipher used for encryption and decryption by username

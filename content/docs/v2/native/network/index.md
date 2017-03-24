@@ -9,18 +9,15 @@ title: "Network"
 header_sub_title: "Class in module "
 doc: "Network"
 docType: "class"
----<h1 class="api-title">
-  
-  Network
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Network</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L5">
   Improve this doc
 </a>
+
+
 
 
 
@@ -91,9 +88,7 @@ connectSubscription.unsubscribe();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="type" href="#type"></a><code>type()</code>
-  
-</h3>
+<h3><a class="anchor" name="type" href="#type"></a><code>type</code></h3>
 
 
 Connection type
@@ -102,9 +97,7 @@ Connection type
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="downlinkMax" href="#downlinkMax"></a><code>downlinkMax()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="downlinkMax" href="#downlinkMax"></a><code>downlinkMax</code></h3>
 
 
 Downlink Max Speed
@@ -113,9 +106,7 @@ Downlink Max Speed
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="onchange" href="#onchange"></a><code>onchange()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onchange" href="#onchange"></a><code>onchange()</code></h3>
 
 
 Returns an observable to watch connection changes
@@ -124,9 +115,7 @@ Returns an observable to watch connection changes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="ontypechange" href="#ontypechange"></a><code>ontypechange()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="ontypechange" href="#ontypechange"></a><code>ontypechange()</code></h3>
 
 
 Returns an observable to watch connection type changes
@@ -135,9 +124,7 @@ Returns an observable to watch connection type changes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onDisconnect" href="#onDisconnect"></a><code>onDisconnect()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onDisconnect" href="#onDisconnect"></a><code>onDisconnect()</code></h3>
 
 
 
@@ -148,9 +135,7 @@ Get notified when the device goes offline
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable.
-</div><h3><a class="anchor" name="onConnect" href="#onConnect"></a><code>onConnect()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onConnect" href="#onConnect"></a><code>onConnect()</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Barcode Scanner"
 header_sub_title: "Class in module "
 doc: "Barcode Scanner"
 docType: "class"
----<h1 class="api-title">
-  
-  Barcode Scanner
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Barcode Scanner</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/barcode-scanner/index.ts#L56">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,16 +71,12 @@ this.barcodeScanner.scan().then((barcodeData) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="Encode" href="#Encode"></a><code>Encode()</code>
-  
-</h3>
+<h3><a class="anchor" name="Encode" href="#Encode"></a><code>Encode</code></h3>
 
 
 
 
-<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code></h3>
 
 
 
@@ -114,9 +107,7 @@ Open the barcode scanner.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with scanner data, or rejects with an error.
-</div><h3><a class="anchor" name="encode" href="#encode"></a><code>encode(type,&nbsp;data)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="encode" href="#encode"></a><code>encode(type,&nbsp;data)</code></h3>
 
 
 Encodes data into a barcode.

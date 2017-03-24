@@ -9,18 +9,15 @@ title: "Broadcaster"
 header_sub_title: "Class in module "
 doc: "Broadcaster"
 docType: "class"
----<h1 class="api-title">
-  
-  Broadcaster
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Broadcaster</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/broadcaster/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -72,9 +69,7 @@ this.broadcaster.fireNativeEvent(&#39;eventName&#39;, {}).then(() =&gt; console.
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener(eventName)</code>
-  
-</h3>
+<h3><a class="anchor" name="addEventListener" href="#addEventListener"></a><code>addEventListener(eventName)</code></h3>
 
 
 
@@ -104,9 +99,7 @@ This function listen to an event sent from the native code
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable to watch when an event is received
-</div><h3><a class="anchor" name="fireNativeEvent" href="#fireNativeEvent"></a><code>fireNativeEvent(eventName,&nbsp;eventData)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="fireNativeEvent" href="#fireNativeEvent"></a><code>fireNativeEvent(eventName,&nbsp;eventData)</code></h3>
 
 
 This function sends data to the native code

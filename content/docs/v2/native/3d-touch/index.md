@@ -9,18 +9,15 @@ title: "3D Touch"
 header_sub_title: "Class in module "
 doc: "3D Touch"
 docType: "class"
----<h1 class="api-title">
-  
-  3D Touch
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">3D Touch</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/three-dee-touch/index.ts#L58">
   Improve this doc
 </a>
+
+
 
 
 
@@ -114,9 +111,7 @@ this.threeDeeTouch.onHomeIconPressed().subscribe(
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 You need an iPhone 6S or some future tech to use the features of this plugin, so you can check at runtime if the user's device is supported.
@@ -125,9 +120,7 @@ You need an iPhone 6S or some future tech to use the features of this plugin, so
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates whether the plugin is available or not
-</div><h3><a class="anchor" name="watchForceTouches" href="#watchForceTouches"></a><code>watchForceTouches()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="watchForceTouches" href="#watchForceTouches"></a><code>watchForceTouches()</code></h3>
 
 
 
@@ -138,9 +131,7 @@ You can get a notification when the user force touches the webview. The plugin d
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;ThreeDeeTouchForceTouch&gt;</code> Returns an observable that sends a `ThreeDeeTouchForceTouch` object
-</div><h3><a class="anchor" name="configureQuickActions" href="#configureQuickActions"></a><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType,&nbsp;iconTemplate)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="configureQuickActions" href="#configureQuickActions"></a><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType,&nbsp;iconTemplate)</code></h3>
 
 
 
@@ -212,9 +203,7 @@ setup the 3D-touch actions, takes an array of objects with the following
   </tbody>
 </table>
 
-<h3><a class="anchor" name="onHomeIconPressed" href="#onHomeIconPressed"></a><code>onHomeIconPressed()</code>
-  
-</h3>
+<h3><a class="anchor" name="onHomeIconPressed" href="#onHomeIconPressed"></a><code>onHomeIconPressed()</code></h3>
 
 When a home icon is pressed, your app launches and this JS callback is invoked.
 
@@ -222,9 +211,7 @@ When a home icon is pressed, your app launches and this JS callback is invoked.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an observable that notifies you when he user presses on the home screen icon
-</div><h3><a class="anchor" name="enableLinkPreview" href="#enableLinkPreview"></a><code>enableLinkPreview()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enableLinkPreview" href="#enableLinkPreview"></a><code>enableLinkPreview()</code></h3>
 
 
 
@@ -234,9 +221,7 @@ UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fan
 
 
 
-<h3><a class="anchor" name="disableLinkPreview" href="#disableLinkPreview"></a><code>disableLinkPreview()</code>
-  
-</h3>
+<h3><a class="anchor" name="disableLinkPreview" href="#disableLinkPreview"></a><code>disableLinkPreview()</code></h3>
 
 
 

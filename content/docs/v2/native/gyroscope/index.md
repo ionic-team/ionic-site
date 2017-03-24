@@ -9,18 +9,15 @@ title: "Gyroscope"
 header_sub_title: "Class in module "
 doc: "Gyroscope"
 docType: "class"
----<h1 class="api-title">
-  
-  Gyroscope
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Gyroscope</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/gyroscope/index.ts#L39">
   Improve this doc
 </a>
+
+
 
 
 
@@ -84,9 +81,7 @@ this.gyroscope.watch()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="watch" href="#watch"></a><code>watch(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="watch" href="#watch"></a><code>watch(options)</code></h3>
 
 Watching for gyroscope sensor changes
 <table class="table param-table" style="margin:0;">
@@ -114,9 +109,7 @@ Watching for gyroscope sensor changes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;GyroscopeOrientation&gt;</code> Returns an Observable that resolves GyroscopeOrientation
-</div><h3><a class="anchor" name="getCurrent" href="#getCurrent"></a><code>getCurrent(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getCurrent" href="#getCurrent"></a><code>getCurrent(options)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Couchbase Lite"
 header_sub_title: "Class in module "
 doc: "Couchbase Lite"
 docType: "class"
----<h1 class="api-title">
-  
-  Couchbase Lite
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Couchbase Lite</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/couchbase-lite/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ constructor(private couchbase: CouchbaseLite) {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getURL" href="#getURL"></a><code>getURL()</code>
-  
-</h3>
+<h3><a class="anchor" name="getURL" href="#getURL"></a><code>getURL()</code></h3>
 
 
 

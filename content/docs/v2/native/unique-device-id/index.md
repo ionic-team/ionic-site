@@ -9,18 +9,15 @@ title: "Unique Device ID"
 header_sub_title: "Class in module "
 doc: "Unique Device ID"
 docType: "class"
----<h1 class="api-title">
-  
-  Unique Device ID
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Unique Device ID</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/unique-device-id/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ this.uniqueDeviceID.get()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
-  
-</h3>
+<h3><a class="anchor" name="get" href="#get"></a><code>get()</code></h3>
 
 
 Gets a unique, cross-install, app-specific device id.

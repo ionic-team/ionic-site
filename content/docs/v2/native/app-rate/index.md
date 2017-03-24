@@ -9,18 +9,15 @@ title: "App Rate"
 header_sub_title: "Class in module "
 doc: "App Rate"
 docType: "class"
----<h1 class="api-title">
-  
-  App Rate
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">App Rate</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-rate/index.ts#L96">
   Improve this doc
 </a>
+
+
 
 
 
@@ -75,9 +72,7 @@ this.appRate.promptForRating(false);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="preferences" href="#preferences"></a><code>preferences()</code>
-  
-</h3>
+<h3><a class="anchor" name="preferences" href="#preferences"></a><code>preferences</code></h3>
 
 
 Configure various settings for the Rating View.
@@ -85,9 +80,7 @@ See table below for options
 
 
 
-<h3><a class="anchor" name="promptForRating" href="#promptForRating"></a><code>promptForRating(immediately)</code>
-  
-</h3>
+<h3><a class="anchor" name="promptForRating" href="#promptForRating"></a><code>promptForRating(immediately)</code></h3>
 
 
 Prompts the user for rating

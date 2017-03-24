@@ -9,18 +9,15 @@ title: "Device Accounts"
 header_sub_title: "Class in module "
 doc: "Device Accounts"
 docType: "class"
----<h1 class="api-title">
-  
-  Device Accounts
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Device Accounts</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-accounts/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,9 +67,7 @@ this.deviceAccounts.get()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
-  
-</h3>
+<h3><a class="anchor" name="get" href="#get"></a><code>get()</code></h3>
 
 
 Gets all accounts registered on the Android Device
@@ -81,9 +76,7 @@ Gets all accounts registered on the Android Device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getByType" href="#getByType"></a><code>getByType()</code></h3>
 
 
 Get all accounts registered on Android device for requested type
@@ -92,9 +85,7 @@ Get all accounts registered on Android device for requested type
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getEmails" href="#getEmails"></a><code>getEmails()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getEmails" href="#getEmails"></a><code>getEmails()</code></h3>
 
 
 Get all emails registered on Android device (accounts with 'com.google' type)
@@ -103,9 +94,7 @@ Get all emails registered on Android device (accounts with 'com.google' type)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getEmail" href="#getEmail"></a><code>getEmail()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getEmail" href="#getEmail"></a><code>getEmail()</code></h3>
 
 
 Get the first email registered on Android device

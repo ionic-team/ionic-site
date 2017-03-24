@@ -9,18 +9,15 @@ title: "Music Controls"
 header_sub_title: "Class in module "
 doc: "Music Controls"
 docType: "class"
----<h1 class="api-title">
-  
-  Music Controls
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Music Controls</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
   Improve this doc
 </a>
+
+
 
 
 
@@ -126,9 +123,7 @@ this.musicControls.create({
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(options)</code></h3>
 
 
 Create the media controls
@@ -156,9 +151,7 @@ Create the media controls
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
 
 
 Destroy the media controller
@@ -167,9 +160,7 @@ Destroy the media controller
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe()</code></h3>
 
 
 
@@ -180,9 +171,7 @@ Subscribe to the events of the media controller
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="listen" href="#listen"></a><code>listen()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="listen" href="#listen"></a><code>listen()</code></h3>
 
 
 
@@ -191,9 +180,7 @@ Start listening for events, this enables the Observable from the subscribe metho
 
 
 
-<h3><a class="anchor" name="updateIsPlaying" href="#updateIsPlaying"></a><code>updateIsPlaying(isPlaying)</code>
-  
-</h3>
+<h3><a class="anchor" name="updateIsPlaying" href="#updateIsPlaying"></a><code>updateIsPlaying(isPlaying)</code></h3>
 
 
 Toggle play/pause:
@@ -218,9 +205,7 @@ Toggle play/pause:
   </tbody>
 </table>
 
-<h3><a class="anchor" name="updateDismissable" href="#updateDismissable"></a><code>updateDismissable(dismissable)</code>
-  
-</h3>
+<h3><a class="anchor" name="updateDismissable" href="#updateDismissable"></a><code>updateDismissable(dismissable)</code></h3>
 
 
 Toggle dismissable:

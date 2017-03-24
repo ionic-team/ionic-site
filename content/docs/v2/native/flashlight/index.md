@@ -9,18 +9,15 @@ title: "Flashlight"
 header_sub_title: "Class in module "
 doc: "Flashlight"
 docType: "class"
----<h1 class="api-title">
-  
-  Flashlight
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Flashlight</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/flashlight/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -64,9 +61,7 @@ this.flashlight.switchOn();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="available" href="#available"></a><code>available()</code>
-  
-</h3>
+<h3><a class="anchor" name="available" href="#available"></a><code>available()</code></h3>
 
 
 Checks if the flashlight is available
@@ -75,9 +70,7 @@ Checks if the flashlight is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flashlight is available.
-</div><h3><a class="anchor" name="switchOn" href="#switchOn"></a><code>switchOn()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="switchOn" href="#switchOn"></a><code>switchOn()</code></h3>
 
 
 Switches the flashlight on
@@ -86,9 +79,7 @@ Switches the flashlight on
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="switchOff" href="#switchOff"></a><code>switchOff()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="switchOff" href="#switchOff"></a><code>switchOff()</code></h3>
 
 
 Switches the flashlight off
@@ -97,9 +88,7 @@ Switches the flashlight off
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="toggle" href="#toggle"></a><code>toggle()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="toggle" href="#toggle"></a><code>toggle()</code></h3>
 
 
 Toggles the flashlight
@@ -108,9 +97,7 @@ Toggles the flashlight
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isSwitchedOn" href="#isSwitchedOn"></a><code>isSwitchedOn()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isSwitchedOn" href="#isSwitchedOn"></a><code>isSwitchedOn()</code></h3>
 
 
 

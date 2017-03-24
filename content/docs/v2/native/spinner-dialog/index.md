@@ -9,18 +9,15 @@ title: "Spinner Dialog"
 header_sub_title: "Class in module "
 doc: "Spinner Dialog"
 docType: "class"
----<h1 class="api-title">
-  
-  Spinner Dialog
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Spinner Dialog</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/spinner-dialog/index.ts#L8">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.spinnerDialog.hide();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code></h3>
 
 
 
@@ -132,9 +127,7 @@ Shows the spinner dialog
   </tbody>
 </table>
 
-<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Splash Screen"
 header_sub_title: "Class in module "
 doc: "Splash Screen"
 docType: "class"
----<h1 class="api-title">
-  
-  Splash Screen
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Splash Screen</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/splash-screen/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -65,9 +62,7 @@ this.splashScreen.hide();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -76,9 +71,7 @@ Shows the splashscreen
 
 
 
-<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 

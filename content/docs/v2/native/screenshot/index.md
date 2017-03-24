@@ -9,18 +9,15 @@ title: "Screenshot"
 header_sub_title: "Class in module "
 doc: "Screenshot"
 docType: "class"
----<h1 class="api-title">
-  
-  Screenshot
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Screenshot</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screenshot/index.ts#L4">
   Improve this doc
 </a>
+
+
 
 
 
@@ -67,9 +64,7 @@ this.screenshot.URI(80).then(onSuccess, onError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="save" href="#save"></a><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
-  
-</h3>
+<h3><a class="anchor" name="save" href="#save"></a><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code></h3>
 
 Takes screenshot and saves the image
 
@@ -122,9 +117,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="URI" href="#URI"></a><code>URI(quality.)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="URI" href="#URI"></a><code>URI(quality.)</code></h3>
 
 Takes screenshot and returns the image as an URI
 

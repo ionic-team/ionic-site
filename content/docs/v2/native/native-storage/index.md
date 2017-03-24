@@ -9,18 +9,15 @@ title: "Native Storage"
 header_sub_title: "Class in module "
 doc: "Native Storage"
 docType: "class"
----<h1 class="api-title">
-  
-  Native Storage
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Native Storage</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-storage/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -73,9 +70,7 @@ this.nativeStorage.getItem(&#39;myitem&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="setItem" href="#setItem"></a><code>setItem(reference,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setItem" href="#setItem"></a><code>setItem(reference,&nbsp;value)</code></h3>
 
 
 Stores a value
@@ -113,9 +108,7 @@ Stores a value
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getItem" href="#getItem"></a><code>getItem(reference)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getItem" href="#getItem"></a><code>getItem(reference)</code></h3>
 
 
 Gets a stored item
@@ -143,9 +136,7 @@ Gets a stored item
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(reference)</code></h3>
 
 
 Removes a single stored item
@@ -173,9 +164,7 @@ Removes a single stored item
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 
 Removes all stored values.

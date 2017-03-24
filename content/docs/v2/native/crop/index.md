@@ -9,18 +9,15 @@ title: "Crop"
 header_sub_title: "Class in module "
 doc: "Crop"
 docType: "class"
----<h1 class="api-title">
-  
-  Crop
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Crop</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/crop/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -67,9 +64,7 @@ this.crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="crop" href="#crop"></a><code>crop(pathToImage,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="crop" href="#crop"></a><code>crop(pathToImage,&nbsp;options)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Printer"
 header_sub_title: "Class in module "
 doc: "Printer"
 docType: "class"
----<h1 class="api-title">
-  
-  Printer
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Printer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L42">
   Improve this doc
 </a>
+
+
 
 
 
@@ -78,9 +75,7 @@ this.p.print(content, options).then(onSuccess, onError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Checks whether to device is capable of printing.
@@ -89,9 +84,7 @@ Checks whether to device is capable of printing.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="print" href="#print"></a><code>print(content,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="print" href="#print"></a><code>print(content,&nbsp;options)</code></h3>
 
 
 Sends content to the printer.

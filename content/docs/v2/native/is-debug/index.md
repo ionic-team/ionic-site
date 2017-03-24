@@ -9,18 +9,15 @@ title: "Is Debug"
 header_sub_title: "Class in module "
 doc: "Is Debug"
 docType: "class"
----<h1 class="api-title">
-  
-  Is Debug
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Is Debug</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/is-debug/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -66,9 +63,7 @@ this.isDebug.getIsDebug()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getIsDebug" href="#getIsDebug"></a><code>getIsDebug()</code>
-  
-</h3>
+<h3><a class="anchor" name="getIsDebug" href="#getIsDebug"></a><code>getIsDebug()</code></h3>
 
 
 Determine if an app was installed via xcode / eclipse / the ionic CLI etc

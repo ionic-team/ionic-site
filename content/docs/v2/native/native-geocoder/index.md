@@ -9,14 +9,9 @@ title: "Native Geocoder"
 header_sub_title: "Class in module "
 doc: "Native Geocoder"
 docType: "class"
----<h1 class="api-title">
-  
-  Native Geocoder
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Native Geocoder<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-geocoder/index.ts#L1">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/sebastianbaar/cordova-plugin-nativegeocoder/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-nativegeocoder
 $ npm install --save @ionic-native/native-geocoder
@@ -80,9 +77,7 @@ this.nativeGeocoder.forwardGeocode(&quot;Berlin&quot;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="reverseGeocode" href="#reverseGeocode"></a><code>reverseGeocode(latitude,&nbsp;longitude)</code>
-  
-</h3>
+<h3><a class="anchor" name="reverseGeocode" href="#reverseGeocode"></a><code>reverseGeocode(latitude,&nbsp;longitude)</code></h3>
 
 
 
@@ -124,9 +119,7 @@ Reverse geocode a given latitude and longitude to find location address
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString)</code></h3>
 
 
 

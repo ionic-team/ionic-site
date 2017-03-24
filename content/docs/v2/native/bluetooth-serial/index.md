@@ -9,18 +9,15 @@ title: "Bluetooth Serial"
 header_sub_title: "Class in module "
 doc: "Bluetooth Serial"
 docType: "class"
----<h1 class="api-title">
-  
-  Bluetooth Serial
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Bluetooth Serial</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/bluetooth-serial/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,9 +79,7 @@ this.bluetoothSerial.write(data.buffer).then(success, failure);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="connect" href="#connect"></a><code>connect(macAddress_or_uuid)</code>
-  
-</h3>
+<h3><a class="anchor" name="connect" href="#connect"></a><code>connect(macAddress_or_uuid)</code></h3>
 
 
 
@@ -118,9 +113,7 @@ Connect to a Bluetooth device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
-</div><h3><a class="anchor" name="connectInsecure" href="#connectInsecure"></a><code>connectInsecure(macAddress)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="connectInsecure" href="#connectInsecure"></a><code>connectInsecure(macAddress)</code></h3>
 
 
 
@@ -154,9 +147,7 @@ Connect insecurely to a Bluetooth device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Subscribe to connect, unsubscribe to disconnect.
-</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect()</code></h3>
 
 
 Disconnect from the connected device
@@ -165,9 +156,7 @@ Disconnect from the connected device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="write" href="#write"></a><code>write(data)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="write" href="#write"></a><code>write(data)</code></h3>
 
 
 
@@ -201,9 +190,7 @@ Writes data to the serial port
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise when data has been written
-</div><h3><a class="anchor" name="available" href="#available"></a><code>available()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="available" href="#available"></a><code>available()</code></h3>
 
 
 
@@ -217,9 +204,7 @@ Gets the number of bytes of data available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that contains the available bytes
-</div><h3><a class="anchor" name="read" href="#read"></a><code>read()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="read" href="#read"></a><code>read()</code></h3>
 
 
 
@@ -233,9 +218,7 @@ Reads data from the buffer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise with data from the buffer
-</div><h3><a class="anchor" name="readUntil" href="#readUntil"></a><code>readUntil(delimiter)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readUntil" href="#readUntil"></a><code>readUntil(delimiter)</code></h3>
 
 
 
@@ -269,9 +252,7 @@ Reads data from the buffer until it reaches a delimiter
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe(delimiter)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe(delimiter)</code></h3>
 
 
 
@@ -305,9 +286,7 @@ Subscribe to be notified when data is received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an observable.
-</div><h3><a class="anchor" name="subscribeRawData" href="#subscribeRawData"></a><code>subscribeRawData()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="subscribeRawData" href="#subscribeRawData"></a><code>subscribeRawData()</code></h3>
 
 
 
@@ -321,9 +300,7 @@ Subscribe to be notified when data is received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an observable
-</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
 
 
 
@@ -337,9 +314,7 @@ Clears data in buffer
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise when completed
-</div><h3><a class="anchor" name="list" href="#list"></a><code>list()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="list" href="#list"></a><code>list()</code></h3>
 
 
 
@@ -353,9 +328,7 @@ Lists bonded devices
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code></h3>
 
 
 
@@ -369,9 +342,7 @@ Reports if bluetooth is enabled
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="isConnected" href="#isConnected"></a><code>isConnected()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isConnected" href="#isConnected"></a><code>isConnected()</code></h3>
 
 
 
@@ -385,9 +356,7 @@ Reports the connection status
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI()</code></h3>
 
 
 
@@ -401,9 +370,7 @@ Reads the RSSI from the connected peripheral
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 
 
@@ -417,9 +384,7 @@ Show the Bluetooth settings on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code></h3>
 
 
 
@@ -433,9 +398,7 @@ Enable Bluetooth on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="discoverUnpaired" href="#discoverUnpaired"></a><code>discoverUnpaired()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="discoverUnpaired" href="#discoverUnpaired"></a><code>discoverUnpaired()</code></h3>
 
 
 
@@ -449,9 +412,7 @@ Discover unpaired devices
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise
-</div><h3><a class="anchor" name="setDeviceDiscoveredListener" href="#setDeviceDiscoveredListener"></a><code>setDeviceDiscoveredListener()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setDeviceDiscoveredListener" href="#setDeviceDiscoveredListener"></a><code>setDeviceDiscoveredListener()</code></h3>
 
 
 
@@ -465,9 +426,7 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable
-</div><h3><a class="anchor" name="setName" href="#setName"></a><code>setName(newName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setName" href="#setName"></a><code>setName(newName)</code></h3>
 
 
 
@@ -498,9 +457,7 @@ Sets the human readable device name that is broadcasted to other devices
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setDiscoverable" href="#setDiscoverable"></a><code>setDiscoverable(discoverableDuration)</code>
-  
-</h3>
+<h3><a class="anchor" name="setDiscoverable" href="#setDiscoverable"></a><code>setDiscoverable(discoverableDuration)</code></h3>
 
 
 

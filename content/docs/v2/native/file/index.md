@@ -9,18 +9,15 @@ title: "File"
 header_sub_title: "Class in module "
 doc: "File"
 docType: "class"
----<h1 class="api-title">
-  
-  File
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">File</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L338">
   Improve this doc
 </a>
+
+
 
 
 
@@ -66,36 +63,28 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="applicationDirectory" href="#applicationDirectory"></a><code>applicationDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="applicationDirectory" href="#applicationDirectory"></a><code>applicationDirectory</code></h3>
 
 
 Read-only directory where the application is installed.
 
 
 
-<h3><a class="anchor" name="applicationStorageDirectory" href="#applicationStorageDirectory"></a><code>applicationStorageDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="applicationStorageDirectory" href="#applicationStorageDirectory"></a><code>applicationStorageDirectory</code></h3>
 
 
 Read-only directory where the application is installed.
 
 
 
-<h3><a class="anchor" name="dataDirectory" href="#dataDirectory"></a><code>dataDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="dataDirectory" href="#dataDirectory"></a><code>dataDirectory</code></h3>
 
 
 Where to put app-specific data files.
 
 
 
-<h3><a class="anchor" name="cacheDirectory" href="#cacheDirectory"></a><code>cacheDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="cacheDirectory" href="#cacheDirectory"></a><code>cacheDirectory</code></h3>
 
 
 Cached files that should survive app restarts.
@@ -103,88 +92,68 @@ Apps should not rely on the OS to delete files in here.
 
 
 
-<h3><a class="anchor" name="externalApplicationStorageDirectory" href="#externalApplicationStorageDirectory"></a><code>externalApplicationStorageDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="externalApplicationStorageDirectory" href="#externalApplicationStorageDirectory"></a><code>externalApplicationStorageDirectory</code></h3>
 
 
 Android: the application space on external storage.
 
 
 
-<h3><a class="anchor" name="externalDataDirectory" href="#externalDataDirectory"></a><code>externalDataDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="externalDataDirectory" href="#externalDataDirectory"></a><code>externalDataDirectory</code></h3>
 
 
 Android: Where to put app-specific data files on external storage.
 
 
 
-<h3><a class="anchor" name="externalCacheDirectory" href="#externalCacheDirectory"></a><code>externalCacheDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="externalCacheDirectory" href="#externalCacheDirectory"></a><code>externalCacheDirectory</code></h3>
 
 
 Android: the application cache on external storage.
 
 
 
-<h3><a class="anchor" name="externalRootDirectory" href="#externalRootDirectory"></a><code>externalRootDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="externalRootDirectory" href="#externalRootDirectory"></a><code>externalRootDirectory</code></h3>
 
 
 Android: the external storage (SD card) root.
 
 
 
-<h3><a class="anchor" name="tempDirectory" href="#tempDirectory"></a><code>tempDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="tempDirectory" href="#tempDirectory"></a><code>tempDirectory</code></h3>
 
 
 iOS: Temp directory that the OS can clear at will.
 
 
 
-<h3><a class="anchor" name="syncedDataDirectory" href="#syncedDataDirectory"></a><code>syncedDataDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="syncedDataDirectory" href="#syncedDataDirectory"></a><code>syncedDataDirectory</code></h3>
 
 
 iOS: Holds app-specific files that should be synced (e.g. to iCloud).
 
 
 
-<h3><a class="anchor" name="documentsDirectory" href="#documentsDirectory"></a><code>documentsDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="documentsDirectory" href="#documentsDirectory"></a><code>documentsDirectory</code></h3>
 
 
 iOS: Files private to the app, but that are meaningful to other applications (e.g. Office files)
 
 
 
-<h3><a class="anchor" name="sharedDirectory" href="#sharedDirectory"></a><code>sharedDirectory()</code>
-  
-</h3>
+<h3><a class="anchor" name="sharedDirectory" href="#sharedDirectory"></a><code>sharedDirectory</code></h3>
 
 
 BlackBerry10: Files globally available to all apps
 
 
 
-<h3><a class="anchor" name="cordovaFileError" href="#cordovaFileError"></a><code>cordovaFileError()</code>
-  
-</h3>
+<h3><a class="anchor" name="cordovaFileError" href="#cordovaFileError"></a><code>cordovaFileError</code></h3>
 
 
 
 
-<h3><a class="anchor" name="getFreeDiskSpace" href="#getFreeDiskSpace"></a><code>getFreeDiskSpace()</code>
-  
-</h3>
+<h3><a class="anchor" name="getFreeDiskSpace" href="#getFreeDiskSpace"></a><code>getFreeDiskSpace()</code></h3>
 
 
 Get free disk space in Bytes
@@ -193,9 +162,7 @@ Get free disk space in Bytes
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space in Bytes
-</div><h3><a class="anchor" name="checkDir" href="#checkDir"></a><code>checkDir(path,&nbsp;dir)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="checkDir" href="#checkDir"></a><code>checkDir(path,&nbsp;dir)</code></h3>
 
 
 Check if a directory exists in a certain path, directory.
@@ -236,9 +203,7 @@ Check if a directory exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
-</div><h3><a class="anchor" name="createDir" href="#createDir"></a><code>createDir(path,&nbsp;dirName,&nbsp;replace)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createDir" href="#createDir"></a><code>createDir(path,&nbsp;dirName,&nbsp;replace)</code></h3>
 
 
 Creates a new directory in the specific path.
@@ -292,9 +257,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
-</div><h3><a class="anchor" name="removeDir" href="#removeDir"></a><code>removeDir(path,&nbsp;dirName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="removeDir" href="#removeDir"></a><code>removeDir(path,&nbsp;dirName)</code></h3>
 
 
 Remove a directory at a given path.
@@ -335,9 +298,7 @@ Remove a directory at a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="moveDir" href="#moveDir"></a><code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="moveDir" href="#moveDir"></a><code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code></h3>
 
 
 Move a directory to a given path.
@@ -400,9 +361,7 @@ Move a directory to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DirectoryEntry|Entry&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
-</div><h3><a class="anchor" name="copyDir" href="#copyDir"></a><code>copyDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="copyDir" href="#copyDir"></a><code>copyDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code></h3>
 
 
 Copy a directory in various methods. If destination directory exists, will fail to copy.
@@ -465,9 +424,7 @@ Copy a directory in various methods. If destination directory exists, will fail 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
-</div><h3><a class="anchor" name="listDir" href="#listDir"></a><code>listDir(path,&nbsp;dirName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="listDir" href="#listDir"></a><code>listDir(path,&nbsp;dirName)</code></h3>
 
 
 List files and directory from a given path.
@@ -508,9 +465,7 @@ List files and directory from a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Entry[]&gt;</code> Returns a Promise that resolves to an array of Entry objects or rejects with an error.
-</div><h3><a class="anchor" name="removeRecursively" href="#removeRecursively"></a><code>removeRecursively(path,&nbsp;dirName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="removeRecursively" href="#removeRecursively"></a><code>removeRecursively(path,&nbsp;dirName)</code></h3>
 
 
 Removes all files and the directory from a desired location.
@@ -551,9 +506,7 @@ Removes all files and the directory from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves with a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="checkFile" href="#checkFile"></a><code>checkFile(path,&nbsp;file)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="checkFile" href="#checkFile"></a><code>checkFile(path,&nbsp;file)</code></h3>
 
 
 Check if a file exists in a certain path, directory.
@@ -594,9 +547,7 @@ Check if a file exists in a certain path, directory.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
-</div><h3><a class="anchor" name="createFile" href="#createFile"></a><code>createFile(path,&nbsp;fileName,&nbsp;replace)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createFile" href="#createFile"></a><code>createFile(path,&nbsp;fileName,&nbsp;replace)</code></h3>
 
 
 Creates a new file in the specific path.
@@ -650,9 +601,7 @@ If an existing file exists and the replace value is false, the promise will fail
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
-</div><h3><a class="anchor" name="removeFile" href="#removeFile"></a><code>removeFile(path,&nbsp;fileName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="removeFile" href="#removeFile"></a><code>removeFile(path,&nbsp;fileName)</code></h3>
 
 
 Removes a file from a desired location.
@@ -693,9 +642,7 @@ Removes a file from a desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code></h3>
 
 
 Write a new file to the desired location.
@@ -758,9 +705,7 @@ Write a new file to the desired location.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves to updated file entry or rejects with an error.
-</div><h3><a class="anchor" name="writeExistingFile" href="#writeExistingFile"></a><code>writeExistingFile(path,&nbsp;fileName,&nbsp;text)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="writeExistingFile" href="#writeExistingFile"></a><code>writeExistingFile(path,&nbsp;fileName,&nbsp;text)</code></h3>
 
 
 Write to an existing file.
@@ -812,9 +757,7 @@ Write to an existing file.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves or rejects with an error.
-</div><h3><a class="anchor" name="readAsText" href="#readAsText"></a><code>readAsText(path,&nbsp;file)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readAsText" href="#readAsText"></a><code>readAsText(path,&nbsp;file)</code></h3>
 
 
 Read the contents of a file as text.
@@ -855,9 +798,7 @@ Read the contents of a file as text.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
-</div><h3><a class="anchor" name="readAsDataURL" href="#readAsDataURL"></a><code>readAsDataURL(path,&nbsp;file)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readAsDataURL" href="#readAsDataURL"></a><code>readAsDataURL(path,&nbsp;file)</code></h3>
 
 
 Read file and return data as a base64 encoded data url.
@@ -900,9 +841,7 @@ A data url is of the form:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
-</div><h3><a class="anchor" name="readAsBinaryString" href="#readAsBinaryString"></a><code>readAsBinaryString(path,&nbsp;file)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readAsBinaryString" href="#readAsBinaryString"></a><code>readAsBinaryString(path,&nbsp;file)</code></h3>
 
 
 Read file and return data as a binary data.
@@ -943,9 +882,7 @@ Read file and return data as a binary data.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
-</div><h3><a class="anchor" name="readAsArrayBuffer" href="#readAsArrayBuffer"></a><code>readAsArrayBuffer(path,&nbsp;file)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readAsArrayBuffer" href="#readAsArrayBuffer"></a><code>readAsArrayBuffer(path,&nbsp;file)</code></h3>
 
 
 Read file and return data as an ArrayBuffer.
@@ -985,9 +922,7 @@ Read file and return data as an ArrayBuffer.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ArrayBuffer&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
-</div><h3><a class="anchor" name="moveFile" href="#moveFile"></a><code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="moveFile" href="#moveFile"></a><code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code></h3>
 
 
 Move a file to a given path.
@@ -1050,9 +985,7 @@ Move a file to a given path.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
-</div><h3><a class="anchor" name="copyFile" href="#copyFile"></a><code>copyFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="copyFile" href="#copyFile"></a><code>copyFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code></h3>
 
 
 Copy a file in various methods. If file exists, will fail to copy.
@@ -1115,9 +1048,7 @@ Copy a file in various methods. If file exists, will fail to copy.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
-</div><h3><a class="anchor" name="resolveLocalFilesystemUrl" href="#resolveLocalFilesystemUrl"></a><code>resolveLocalFilesystemUrl(fileUrl)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="resolveLocalFilesystemUrl" href="#resolveLocalFilesystemUrl"></a><code>resolveLocalFilesystemUrl(fileUrl)</code></h3>
 
 
 Resolves a local file system URL
@@ -1146,9 +1077,7 @@ Resolves a local file system URL
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> 
-</div><h3><a class="anchor" name="resolveDirectoryUrl" href="#resolveDirectoryUrl"></a><code>resolveDirectoryUrl(directoryUrl)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="resolveDirectoryUrl" href="#resolveDirectoryUrl"></a><code>resolveDirectoryUrl(directoryUrl)</code></h3>
 
 
 Resolves a local directory url
@@ -1177,9 +1106,7 @@ Resolves a local directory url
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> 
-</div><h3><a class="anchor" name="getDirectory" href="#getDirectory"></a><code>getDirectory(directoryEntry,&nbsp;directoryName,&nbsp;flags)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getDirectory" href="#getDirectory"></a><code>getDirectory(directoryEntry,&nbsp;directoryName,&nbsp;flags)</code></h3>
 
 
 Get a directory
@@ -1230,9 +1157,7 @@ Get a directory
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> 
-</div><h3><a class="anchor" name="getFile" href="#getFile"></a><code>getFile(directoryEntry,&nbsp;fileName,&nbsp;flags)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getFile" href="#getFile"></a><code>getFile(directoryEntry,&nbsp;fileName,&nbsp;flags)</code></h3>
 
 
 Get a file

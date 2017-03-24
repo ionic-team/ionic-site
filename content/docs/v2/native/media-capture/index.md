@@ -9,18 +9,15 @@ title: "Media Capture"
 header_sub_title: "Class in module "
 doc: "Media Capture"
 docType: "class"
----<h1 class="api-title">
-  
-  Media Capture
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Media Capture</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media-capture/index.ts#L112">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.mediaCapture.captureImage(options)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="supportedImageModes" href="#supportedImageModes"></a><code>supportedImageModes()</code>
-  
-</h3>
+<h3><a class="anchor" name="supportedImageModes" href="#supportedImageModes"></a><code>supportedImageModes</code></h3>
 
 
 The recording image sizes and formats supported by the device.
@@ -80,9 +75,7 @@ The recording image sizes and formats supported by the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>ConfigurationData[]</code> 
-</div><h3><a class="anchor" name="supportedAudioModes" href="#supportedAudioModes"></a><code>supportedAudioModes()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportedAudioModes" href="#supportedAudioModes"></a><code>supportedAudioModes</code></h3>
 
 
 The audio recording formats supported by the device.
@@ -91,9 +84,7 @@ The audio recording formats supported by the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>ConfigurationData[]</code> 
-</div><h3><a class="anchor" name="supportedVideoModes" href="#supportedVideoModes"></a><code>supportedVideoModes()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportedVideoModes" href="#supportedVideoModes"></a><code>supportedVideoModes</code></h3>
 
 
 The recording video resolutions and formats supported by the device.
@@ -102,9 +93,7 @@ The recording video resolutions and formats supported by the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>ConfigurationData[]</code> 
-</div><h3><a class="anchor" name="captureAudio" href="#captureAudio"></a><code>captureAudio(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="captureAudio" href="#captureAudio"></a><code>captureAudio(options)</code></h3>
 
 
 
@@ -134,9 +123,7 @@ Start the audio recorder application and return information about captured audio
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
-</div><h3><a class="anchor" name="captureImage" href="#captureImage"></a><code>captureImage(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="captureImage" href="#captureImage"></a><code>captureImage(options)</code></h3>
 
 
 
@@ -166,9 +153,7 @@ Start the camera application and return information about captured image files.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
-</div><h3><a class="anchor" name="captureVideo" href="#captureVideo"></a><code>captureVideo(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="captureVideo" href="#captureVideo"></a><code>captureVideo(options)</code></h3>
 
 
 
@@ -198,9 +183,7 @@ Start the video recorder application and return information about captured video
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
-</div><h3><a class="anchor" name="onPendingCaptureResult" href="#onPendingCaptureResult"></a><code>onPendingCaptureResult()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onPendingCaptureResult" href="#onPendingCaptureResult"></a><code>onPendingCaptureResult()</code></h3>
 
 
 
@@ -211,9 +194,7 @@ is fired if the capture call is successful
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;MediaFile[]&gt;</code> 
-</div><h3><a class="anchor" name="onPendingCaptureError" href="#onPendingCaptureError"></a><code>onPendingCaptureError()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onPendingCaptureError" href="#onPendingCaptureError"></a><code>onPendingCaptureError()</code></h3>
 
 
 

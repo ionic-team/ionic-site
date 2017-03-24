@@ -9,14 +9,9 @@ title: "Hotspot"
 header_sub_title: "Class in module "
 doc: "Hotspot"
 docType: "class"
----<h1 class="api-title">
-  
-  Hotspot
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Hotspot<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/hotspot/index.ts#L101">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/hypery2k/cordova-hotspot-plugin/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-hotspot
 $ npm install --save @ionic-native/hotspot
@@ -76,9 +73,7 @@ this.hotspot.scanWifi().then((networks: Array&lt;HotspotNetwork&gt;) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 
@@ -87,9 +82,7 @@ this.hotspot.scanWifi().then((networks: Array&lt;HotspotNetwork&gt;) =&gt; {
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="toggleWifi" href="#toggleWifi"></a><code>toggleWifi()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="toggleWifi" href="#toggleWifi"></a><code>toggleWifi()</code></h3>
 
 
 
@@ -98,9 +91,7 @@ this.hotspot.scanWifi().then((networks: Array&lt;HotspotNetwork&gt;) =&gt; {
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="createHotspot" href="#createHotspot"></a><code>createHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createHotspot" href="#createHotspot"></a><code>createHotspot(SSID,&nbsp;mode,&nbsp;password)</code></h3>
 
 
 Configures and starts hotspot with SSID and Password
@@ -152,9 +143,7 @@ Configures and starts hotspot with SSID and Password
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> - Promise to call once hotspot is started, or reject upon failure
-</div><h3><a class="anchor" name="startHotspot" href="#startHotspot"></a><code>startHotspot()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startHotspot" href="#startHotspot"></a><code>startHotspot()</code></h3>
 
 
 Turns on Access Point
@@ -164,9 +153,7 @@ Turns on Access Point
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> - true if AP is started
-</div><h3><a class="anchor" name="configureHotspot" href="#configureHotspot"></a><code>configureHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="configureHotspot" href="#configureHotspot"></a><code>configureHotspot(SSID,&nbsp;mode,&nbsp;password)</code></h3>
 
 
 Configures hotspot with SSID and Password
@@ -218,9 +205,7 @@ Configures hotspot with SSID and Password
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> - Promise to call when hotspot is configured, or reject upon failure
-</div><h3><a class="anchor" name="stopHotspot" href="#stopHotspot"></a><code>stopHotspot()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopHotspot" href="#stopHotspot"></a><code>stopHotspot()</code></h3>
 
 
 Turns off Access Point
@@ -230,9 +215,7 @@ Turns off Access Point
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> - Promise to turn off the hotspot, true on success, false on failure
-</div><h3><a class="anchor" name="isHotspotEnabled" href="#isHotspotEnabled"></a><code>isHotspotEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isHotspotEnabled" href="#isHotspotEnabled"></a><code>isHotspotEnabled()</code></h3>
 
 
 Checks if hotspot is enabled
@@ -242,9 +225,7 @@ Checks if hotspot is enabled
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> - Promise that hotspot is enabled, rejected if it is not enabled
-</div><h3><a class="anchor" name="getAllHotspotDevices" href="#getAllHotspotDevices"></a><code>getAllHotspotDevices()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAllHotspotDevices" href="#getAllHotspotDevices"></a><code>getAllHotspotDevices()</code></h3>
 
 
 
@@ -253,9 +234,7 @@ Checks if hotspot is enabled
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;HotspotDevice&gt;&gt;</code> 
-</div><h3><a class="anchor" name="connectToWifi" href="#connectToWifi"></a><code>connectToWifi(ssid,&nbsp;password)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="connectToWifi" href="#connectToWifi"></a><code>connectToWifi(ssid,&nbsp;password)</code></h3>
 
 
 Connect to a WiFi network
@@ -296,9 +275,7 @@ Connect to a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Promise that connection to the WiFi network was successfull, rejected if unsuccessful
-</div><h3><a class="anchor" name="connectToWifiAuthEncrypt" href="#connectToWifiAuthEncrypt"></a><code>connectToWifiAuthEncrypt(ssid,&nbsp;password,&nbsp;authentication,&nbsp;encryption)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="connectToWifiAuthEncrypt" href="#connectToWifiAuthEncrypt"></a><code>connectToWifiAuthEncrypt(ssid,&nbsp;password,&nbsp;authentication,&nbsp;encryption)</code></h3>
 
 
 Connect to a WiFi network
@@ -361,9 +338,7 @@ Connect to a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Promise that connection to the WiFi network was successfull, rejected if unsuccessful
-</div><h3><a class="anchor" name="addWifiNetwork" href="#addWifiNetwork"></a><code>addWifiNetwork(ssid,&nbsp;mode,&nbsp;password)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="addWifiNetwork" href="#addWifiNetwork"></a><code>addWifiNetwork(ssid,&nbsp;mode,&nbsp;password)</code></h3>
 
 
 Add a WiFi network
@@ -415,9 +390,7 @@ Add a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Promise that adding the WiFi network was successfull, rejected if unsuccessful
-</div><h3><a class="anchor" name="removeWifiNetwork" href="#removeWifiNetwork"></a><code>removeWifiNetwork(ssid)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="removeWifiNetwork" href="#removeWifiNetwork"></a><code>removeWifiNetwork(ssid)</code></h3>
 
 
 Remove a WiFi network
@@ -447,9 +420,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Promise that removing the WiFi network was successfull, rejected if unsuccessful
-</div><h3><a class="anchor" name="isConnectedToInternet" href="#isConnectedToInternet"></a><code>isConnectedToInternet()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isConnectedToInternet" href="#isConnectedToInternet"></a><code>isConnectedToInternet()</code></h3>
 
 
 
@@ -458,9 +429,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isConnectedToInternetViaWifi" href="#isConnectedToInternetViaWifi"></a><code>isConnectedToInternetViaWifi()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isConnectedToInternetViaWifi" href="#isConnectedToInternetViaWifi"></a><code>isConnectedToInternetViaWifi()</code></h3>
 
 
 
@@ -469,9 +438,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isWifiOn" href="#isWifiOn"></a><code>isWifiOn()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isWifiOn" href="#isWifiOn"></a><code>isWifiOn()</code></h3>
 
 
 
@@ -480,9 +447,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isWifiSupported" href="#isWifiSupported"></a><code>isWifiSupported()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isWifiSupported" href="#isWifiSupported"></a><code>isWifiSupported()</code></h3>
 
 
 
@@ -491,9 +456,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isWifiDirectSupported" href="#isWifiDirectSupported"></a><code>isWifiDirectSupported()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isWifiDirectSupported" href="#isWifiDirectSupported"></a><code>isWifiDirectSupported()</code></h3>
 
 
 
@@ -502,9 +465,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="scanWifi" href="#scanWifi"></a><code>scanWifi()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="scanWifi" href="#scanWifi"></a><code>scanWifi()</code></h3>
 
 
 
@@ -513,9 +474,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;HotspotNetwork&gt;&gt;</code> 
-</div><h3><a class="anchor" name="scanWifiByLevel" href="#scanWifiByLevel"></a><code>scanWifiByLevel()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="scanWifiByLevel" href="#scanWifiByLevel"></a><code>scanWifiByLevel()</code></h3>
 
 
 
@@ -524,9 +483,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Array&lt;HotspotNetwork&gt;&gt;</code> 
-</div><h3><a class="anchor" name="startWifiPeriodicallyScan" href="#startWifiPeriodicallyScan"></a><code>startWifiPeriodicallyScan()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startWifiPeriodicallyScan" href="#startWifiPeriodicallyScan"></a><code>startWifiPeriodicallyScan()</code></h3>
 
 
 
@@ -535,9 +492,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stopWifiPeriodicallyScan" href="#stopWifiPeriodicallyScan"></a><code>stopWifiPeriodicallyScan()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopWifiPeriodicallyScan" href="#stopWifiPeriodicallyScan"></a><code>stopWifiPeriodicallyScan()</code></h3>
 
 
 
@@ -546,9 +501,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getNetConfig" href="#getNetConfig"></a><code>getNetConfig()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getNetConfig" href="#getNetConfig"></a><code>getNetConfig()</code></h3>
 
 
 
@@ -557,9 +510,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HotspotNetworkConfig&gt;</code> 
-</div><h3><a class="anchor" name="getConnectionInfo" href="#getConnectionInfo"></a><code>getConnectionInfo()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getConnectionInfo" href="#getConnectionInfo"></a><code>getConnectionInfo()</code></h3>
 
 
 
@@ -568,9 +519,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HotspotConnectionInfo&gt;</code> 
-</div><h3><a class="anchor" name="pingHost" href="#pingHost"></a><code>pingHost()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="pingHost" href="#pingHost"></a><code>pingHost()</code></h3>
 
 
 
@@ -579,9 +528,7 @@ Remove a WiFi network
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
-</div><h3><a class="anchor" name="getMacAddressOfHost" href="#getMacAddressOfHost"></a><code>getMacAddressOfHost(ip)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getMacAddressOfHost" href="#getMacAddressOfHost"></a><code>getMacAddressOfHost(ip)</code></h3>
 
 
 Gets MAC Address associated with IP Address from ARP File
@@ -611,9 +558,7 @@ Gets MAC Address associated with IP Address from ARP File
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> - A Promise for the MAC Address
-</div><h3><a class="anchor" name="isDnsLive" href="#isDnsLive"></a><code>isDnsLive(ip)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isDnsLive" href="#isDnsLive"></a><code>isDnsLive(ip)</code></h3>
 
 
 Checks if IP is live using DNS
@@ -643,9 +588,7 @@ Checks if IP is live using DNS
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> - A Promise for whether the IP Address is reachable
-</div><h3><a class="anchor" name="isPortLive" href="#isPortLive"></a><code>isPortLive(ip)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isPortLive" href="#isPortLive"></a><code>isPortLive(ip)</code></h3>
 
 
 Checks if IP is live using socket And PORT
@@ -675,9 +618,7 @@ Checks if IP is live using socket And PORT
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> - A Promise for whether the IP Address is reachable
-</div><h3><a class="anchor" name="isRooted" href="#isRooted"></a><code>isRooted()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isRooted" href="#isRooted"></a><code>isRooted()</code></h3>
 
 
 Checks if device is rooted

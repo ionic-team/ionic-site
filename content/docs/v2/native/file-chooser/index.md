@@ -9,18 +9,15 @@ title: "File Chooser"
 header_sub_title: "Class in module "
 doc: "File Chooser"
 docType: "class"
----<h1 class="api-title">
-  
-  File Chooser
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">File Chooser</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file-chooser/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,9 +67,7 @@ this.fileChooser.open()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="open" href="#open"></a><code>open()</code>
-  
-</h3>
+<h3><a class="anchor" name="open" href="#open"></a><code>open()</code></h3>
 
 
 Open a file

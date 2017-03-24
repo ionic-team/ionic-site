@@ -9,18 +9,15 @@ title: "Zip"
 header_sub_title: "Class in module "
 doc: "Zip"
 docType: "class"
----<h1 class="api-title">
-  
-  Zip
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Zip</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/zip/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -67,9 +64,7 @@ this.zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) 
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="unzip" href="#unzip"></a><code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code>
-  
-</h3>
+<h3><a class="anchor" name="unzip" href="#unzip"></a><code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code></h3>
 
 
 

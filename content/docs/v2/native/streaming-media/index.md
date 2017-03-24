@@ -9,18 +9,15 @@ title: "Streaming Media"
 header_sub_title: "Class in module "
 doc: "Streaming Media"
 docType: "class"
----<h1 class="api-title">
-  
-  Streaming Media
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Streaming Media</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
   Improve this doc
 </a>
+
+
 
 
 
@@ -72,9 +69,7 @@ this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="playVideo" href="#playVideo"></a><code>playVideo(videoUrl,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="playVideo" href="#playVideo"></a><code>playVideo(videoUrl,&nbsp;options)</code></h3>
 
 
 
@@ -113,9 +108,7 @@ Streams a video
   </tbody>
 </table>
 
-<h3><a class="anchor" name="playAudio" href="#playAudio"></a><code>playAudio(audioUrl,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="playAudio" href="#playAudio"></a><code>playAudio(audioUrl,&nbsp;options)</code></h3>
 
 
 
@@ -154,9 +147,7 @@ Streams an audio
   </tbody>
 </table>
 
-<h3><a class="anchor" name="stopAudio" href="#stopAudio"></a><code>stopAudio()</code>
-  
-</h3>
+<h3><a class="anchor" name="stopAudio" href="#stopAudio"></a><code>stopAudio()</code></h3>
 
 
 
@@ -165,9 +156,7 @@ Stops streaming audio
 
 
 
-<h3><a class="anchor" name="pauseAudio" href="#pauseAudio"></a><code>pauseAudio()</code>
-  
-</h3>
+<h3><a class="anchor" name="pauseAudio" href="#pauseAudio"></a><code>pauseAudio()</code></h3>
 
 
 
@@ -179,9 +168,7 @@ Pauses streaming audio
 
 
 
-<h3><a class="anchor" name="resumeAudio" href="#resumeAudio"></a><code>resumeAudio()</code>
-  
-</h3>
+<h3><a class="anchor" name="resumeAudio" href="#resumeAudio"></a><code>resumeAudio()</code></h3>
 
 
 

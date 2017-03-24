@@ -9,18 +9,15 @@ title: "Dialogs"
 header_sub_title: "Class in module "
 doc: "Dialogs"
 docType: "class"
----<h1 class="api-title">
-  
-  Dialogs
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Dialogs</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/dialogs/index.ts#L16">
   Improve this doc
 </a>
+
+
 
 
 
@@ -66,9 +63,7 @@ this.dialogs.alert(&#39;Hello world&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="alert" href="#alert"></a><code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
-  
-</h3>
+<h3><a class="anchor" name="alert" href="#alert"></a><code>alert(message,&nbsp;title,&nbsp;buttonName)</code></h3>
 
 
 
@@ -121,9 +116,7 @@ Shows a custom alert or dialog box.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a blank promise once the user has dismissed the alert.
-</div><h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code></h3>
 
 
 
@@ -176,9 +169,7 @@ Displays a customizable confirmation dialog box.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked. Note that the index use one-based indexing.
-</div><h3><a class="anchor" name="prompt" href="#prompt"></a><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="prompt" href="#prompt"></a><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code></h3>
 
 
 
@@ -242,9 +233,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DialogsPromptCallback&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
-</div><h3><a class="anchor" name="beep" href="#beep"></a><code>beep(times)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="beep" href="#beep"></a><code>beep(times)</code></h3>
 
 
 

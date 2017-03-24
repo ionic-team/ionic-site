@@ -9,18 +9,15 @@ title: "In App Browser"
 header_sub_title: "Class in module "
 doc: "In App Browser"
 docType: "class"
----<h1 class="api-title">
-  
-  In App Browser
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">In App Browser</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L132">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ browser.close();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code></h3>
 
 Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
 <table class="table param-table" style="margin:0;">
@@ -131,9 +126,7 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -143,9 +136,7 @@ if the InAppBrowser was already visible.
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 
@@ -154,9 +145,7 @@ Closes the InAppBrowser window.
 
 
 
-<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 
@@ -166,9 +155,7 @@ if the InAppBrowser was already hidden.
 
 
 
-<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code>
-  
-</h3>
+<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code></h3>
 
 
 Injects JavaScript code into the InAppBrowser window.
@@ -197,9 +184,7 @@ Injects JavaScript code into the InAppBrowser window.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="insertCSS" href="#insertCSS"></a><code>insertCSS(css)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="insertCSS" href="#insertCSS"></a><code>insertCSS(css)</code></h3>
 
 
 Injects CSS into the InAppBrowser window.
@@ -228,9 +213,7 @@ Injects CSS into the InAppBrowser window.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
 
 A method that allows you to listen to events happening in the browser.
 <table class="table param-table" style="margin:0;">

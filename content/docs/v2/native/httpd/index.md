@@ -9,18 +9,15 @@ title: "Httpd"
 header_sub_title: "Class in module "
 doc: "Httpd"
 docType: "class"
----<h1 class="api-title">
-  
-  Httpd
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Httpd</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/httpd/index.ts#L20">
   Improve this doc
 </a>
+
+
 
 
 
@@ -77,9 +74,7 @@ this.httpd.startServer(options).subscribe((data) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="startServer" href="#startServer"></a><code>startServer(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="startServer" href="#startServer"></a><code>startServer(options)</code></h3>
 
 
 
@@ -109,9 +104,7 @@ Starts a web server.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;string&gt;</code> Returns an Observable. Subscribe to receive the URL for your web server (if succeeded). Unsubscribe to stop the server.
-</div><h3><a class="anchor" name="getUrl" href="#getUrl"></a><code>getUrl()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getUrl" href="#getUrl"></a><code>getUrl()</code></h3>
 
 
 Gets the URL of the running server
@@ -120,9 +113,7 @@ Gets the URL of the running server
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the URL of the web server.
-</div><h3><a class="anchor" name="getLocalPath" href="#getLocalPath"></a><code>getLocalPath()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getLocalPath" href="#getLocalPath"></a><code>getLocalPath()</code></h3>
 
 
 Get the local path of the running webserver

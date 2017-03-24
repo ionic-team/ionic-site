@@ -9,18 +9,15 @@ title: "Appodeal"
 header_sub_title: "Class in module "
 doc: "Appodeal"
 docType: "class"
----<h1 class="api-title">
-  
-  Appodeal
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Appodeal</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/appodeal/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,16 +67,12 @@ constructor(private appodeal: Appodeal) {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="readonly" href="#readonly"></a><code>readonly()</code>
-  
-</h3>
+<h3><a class="anchor" name="readonly" href="#readonly"></a><code>readonly</code></h3>
 
 
 
 
-<h3><a class="anchor" name="initialize" href="#initialize"></a><code>initialize(appKey,&nbsp;adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="initialize" href="#initialize"></a><code>initialize(appKey,&nbsp;adType)</code></h3>
 
 
 initialize Appodeal SDK
@@ -114,9 +107,7 @@ initialize Appodeal SDK
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isInitialized" href="#isInitialized"></a><code>isInitialized()</code>
-  
-</h3>
+<h3><a class="anchor" name="isInitialized" href="#isInitialized"></a><code>isInitialized()</code></h3>
 
 
 check if SDK has been initialized
@@ -125,9 +116,7 @@ check if SDK has been initialized
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="show" href="#show"></a><code>show(adType)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show(adType)</code></h3>
 
 
 show ad of specified type
@@ -155,9 +144,7 @@ show ad of specified type
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="showWithPlacement" href="#showWithPlacement"></a><code>showWithPlacement(adType,&nbsp;placement)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showWithPlacement" href="#showWithPlacement"></a><code>showWithPlacement(adType,&nbsp;placement)</code></h3>
 
 
 show ad of specified type with placement options
@@ -195,9 +182,7 @@ show ad of specified type with placement options
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(adType)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide(adType)</code></h3>
 
 
 hide ad of specified type
@@ -222,9 +207,7 @@ hide ad of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="confirm" href="#confirm"></a><code>confirm(adType)</code></h3>
 
 
 confirm use of ads of specified type
@@ -249,9 +232,7 @@ confirm use of ads of specified type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="isLoaded" href="#isLoaded"></a><code>isLoaded(adType)</code></h3>
 
 
 check if ad of specified type has been loaded
@@ -279,9 +260,7 @@ check if ad of specified type has been loaded
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isPrecache" href="#isPrecache"></a><code>isPrecache(adType)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isPrecache" href="#isPrecache"></a><code>isPrecache(adType)</code></h3>
 
 
 check if ad of specified
@@ -309,9 +288,7 @@ check if ad of specified
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="setAutoCache" href="#setAutoCache"></a><code>setAutoCache(adType,&nbsp;autoCache)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setAutoCache" href="#setAutoCache"></a><code>setAutoCache(adType,&nbsp;autoCache)</code></h3>
 
 
 
@@ -346,9 +323,7 @@ check if ad of specified
   </tbody>
 </table>
 
-<h3><a class="anchor" name="cache" href="#cache"></a><code>cache(adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="cache" href="#cache"></a><code>cache(adType)</code></h3>
 
 
 forcefully cache an ad by type
@@ -373,9 +348,7 @@ forcefully cache an ad by type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setOnLoadedTriggerBoth" href="#setOnLoadedTriggerBoth"></a><code>setOnLoadedTriggerBoth(set)</code>
-  
-</h3>
+<h3><a class="anchor" name="setOnLoadedTriggerBoth" href="#setOnLoadedTriggerBoth"></a><code>setOnLoadedTriggerBoth(set)</code></h3>
 
 
 
@@ -400,9 +373,7 @@ forcefully cache an ad by type
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setSmartBanners" href="#setSmartBanners"></a><code>setSmartBanners(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="setSmartBanners" href="#setSmartBanners"></a><code>setSmartBanners(enabled)</code></h3>
 
 
 enable or disable Smart Banners
@@ -427,9 +398,7 @@ enable or disable Smart Banners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setBannerBackground" href="#setBannerBackground"></a><code>setBannerBackground(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="setBannerBackground" href="#setBannerBackground"></a><code>setBannerBackground(enabled)</code></h3>
 
 
 enable or disable banner backgrounds
@@ -454,9 +423,7 @@ enable or disable banner backgrounds
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setBannerAnimation" href="#setBannerAnimation"></a><code>setBannerAnimation(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="setBannerAnimation" href="#setBannerAnimation"></a><code>setBannerAnimation(enabled)</code></h3>
 
 
 enable or disable banner animations
@@ -481,9 +448,7 @@ enable or disable banner animations
   </tbody>
 </table>
 
-<h3><a class="anchor" name="set728x90Banners" href="#set728x90Banners"></a><code>set728x90Banners(value)</code>
-  
-</h3>
+<h3><a class="anchor" name="set728x90Banners" href="#set728x90Banners"></a><code>set728x90Banners(value)</code></h3>
 
 
 
@@ -508,9 +473,7 @@ enable or disable banner animations
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setLogging" href="#setLogging"></a><code>setLogging(logging)</code>
-  
-</h3>
+<h3><a class="anchor" name="setLogging" href="#setLogging"></a><code>setLogging(logging)</code></h3>
 
 
 enable or disable logging
@@ -535,9 +498,7 @@ enable or disable logging
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setTesting" href="#setTesting"></a><code>setTesting(testing)</code>
-  
-</h3>
+<h3><a class="anchor" name="setTesting" href="#setTesting"></a><code>setTesting(testing)</code></h3>
 
 
 enable or disable testing mode
@@ -562,27 +523,21 @@ enable or disable testing mode
   </tbody>
 </table>
 
-<h3><a class="anchor" name="resetUUID" href="#resetUUID"></a><code>resetUUID()</code>
-  
-</h3>
+<h3><a class="anchor" name="resetUUID" href="#resetUUID"></a><code>resetUUID()</code></h3>
 
 
 reset device ID
 
 
 
-<h3><a class="anchor" name="getVersion" href="#getVersion"></a><code>getVersion()</code>
-  
-</h3>
+<h3><a class="anchor" name="getVersion" href="#getVersion"></a><code>getVersion()</code></h3>
 
 
 get version of Appdeal SDK
 
 
 
-<h3><a class="anchor" name="disableNetwork" href="#disableNetwork"></a><code>disableNetwork(network,&nbsp;adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="disableNetwork" href="#disableNetwork"></a><code>disableNetwork(network,&nbsp;adType)</code></h3>
 
 
 
@@ -617,9 +572,7 @@ get version of Appdeal SDK
   </tbody>
 </table>
 
-<h3><a class="anchor" name="disableNetworkType" href="#disableNetworkType"></a><code>disableNetworkType(network,&nbsp;adType)</code>
-  
-</h3>
+<h3><a class="anchor" name="disableNetworkType" href="#disableNetworkType"></a><code>disableNetworkType(network,&nbsp;adType)</code></h3>
 
 
 
@@ -654,27 +607,21 @@ get version of Appdeal SDK
   </tbody>
 </table>
 
-<h3><a class="anchor" name="disableLocationPermissionCheck" href="#disableLocationPermissionCheck"></a><code>disableLocationPermissionCheck()</code>
-  
-</h3>
+<h3><a class="anchor" name="disableLocationPermissionCheck" href="#disableLocationPermissionCheck"></a><code>disableLocationPermissionCheck()</code></h3>
 
 
 disable Location permissions for Appodeal SDK
 
 
 
-<h3><a class="anchor" name="disableWriteExternalStoragePermissionCheck" href="#disableWriteExternalStoragePermissionCheck"></a><code>disableWriteExternalStoragePermissionCheck()</code>
-  
-</h3>
+<h3><a class="anchor" name="disableWriteExternalStoragePermissionCheck" href="#disableWriteExternalStoragePermissionCheck"></a><code>disableWriteExternalStoragePermissionCheck()</code></h3>
 
 
 disable Storage permissions for Appodeal SDK
 
 
 
-<h3><a class="anchor" name="enableInterstitialCallbacks" href="#enableInterstitialCallbacks"></a><code>enableInterstitialCallbacks(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableInterstitialCallbacks" href="#enableInterstitialCallbacks"></a><code>enableInterstitialCallbacks(enabled)</code></h3>
 
 
 enable event listeners
@@ -699,9 +646,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="enableSkippableVideoCallbacks" href="#enableSkippableVideoCallbacks"></a><code>enableSkippableVideoCallbacks(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableSkippableVideoCallbacks" href="#enableSkippableVideoCallbacks"></a><code>enableSkippableVideoCallbacks(enabled)</code></h3>
 
 
 enable event listeners
@@ -726,9 +671,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="enableNonSkippableVideoCallbacks" href="#enableNonSkippableVideoCallbacks"></a><code>enableNonSkippableVideoCallbacks(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableNonSkippableVideoCallbacks" href="#enableNonSkippableVideoCallbacks"></a><code>enableNonSkippableVideoCallbacks(enabled)</code></h3>
 
 
 enable event listeners
@@ -753,9 +696,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="enableBannerCallbacks" href="#enableBannerCallbacks"></a><code>enableBannerCallbacks(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableBannerCallbacks" href="#enableBannerCallbacks"></a><code>enableBannerCallbacks(enabled)</code></h3>
 
 
 enable event listeners
@@ -780,9 +721,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="enableRewardedVideoCallbacks" href="#enableRewardedVideoCallbacks"></a><code>enableRewardedVideoCallbacks(enabled)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableRewardedVideoCallbacks" href="#enableRewardedVideoCallbacks"></a><code>enableRewardedVideoCallbacks(enabled)</code></h3>
 
 
 enable event listeners
@@ -807,9 +746,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setCustomBooleanRule" href="#setCustomBooleanRule"></a><code>setCustomBooleanRule(name,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setCustomBooleanRule" href="#setCustomBooleanRule"></a><code>setCustomBooleanRule(name,&nbsp;value)</code></h3>
 
 
 
@@ -845,9 +782,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setCustomIntegerRule" href="#setCustomIntegerRule"></a><code>setCustomIntegerRule(name,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setCustomIntegerRule" href="#setCustomIntegerRule"></a><code>setCustomIntegerRule(name,&nbsp;value)</code></h3>
 
 
 
@@ -883,9 +818,7 @@ enable event listeners
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setCustomDoubleRule" href="#setCustomDoubleRule"></a><code>setCustomDoubleRule(name,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setCustomDoubleRule" href="#setCustomDoubleRule"></a><code>setCustomDoubleRule(name,&nbsp;value)</code></h3>
 
 
 set rule with float value
@@ -920,9 +853,7 @@ set rule with float value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setCustomStringRule" href="#setCustomStringRule"></a><code>setCustomStringRule(name,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setCustomStringRule" href="#setCustomStringRule"></a><code>setCustomStringRule(name,&nbsp;value)</code></h3>
 
 
 set rule with string value
@@ -958,9 +889,7 @@ set rule with string value
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setUserId" href="#setUserId"></a><code>setUserId(id)</code>
-  
-</h3>
+<h3><a class="anchor" name="setUserId" href="#setUserId"></a><code>setUserId(id)</code></h3>
 
 
 set ID preference in Appodeal for current user
@@ -985,9 +914,7 @@ set ID preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setEmail" href="#setEmail"></a><code>setEmail(email)</code>
-  
-</h3>
+<h3><a class="anchor" name="setEmail" href="#setEmail"></a><code>setEmail(email)</code></h3>
 
 
 set Email preference in Appodeal for current user
@@ -1012,9 +939,7 @@ set Email preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setBirthday" href="#setBirthday"></a><code>setBirthday(birthday)</code>
-  
-</h3>
+<h3><a class="anchor" name="setBirthday" href="#setBirthday"></a><code>setBirthday(birthday)</code></h3>
 
 
 set Birthday preference in Appodeal for current user
@@ -1039,9 +964,7 @@ set Birthday preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setAge" href="#setAge"></a><code>setAge(age)</code>
-  
-</h3>
+<h3><a class="anchor" name="setAge" href="#setAge"></a><code>setAge(age)</code></h3>
 
 
 et Age preference in Appodeal for current user
@@ -1066,9 +989,7 @@ et Age preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setGender" href="#setGender"></a><code>setGender(gender)</code>
-  
-</h3>
+<h3><a class="anchor" name="setGender" href="#setGender"></a><code>setGender(gender)</code></h3>
 
 
 set Gender preference in Appodeal for current user
@@ -1093,9 +1014,7 @@ set Gender preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setOccupation" href="#setOccupation"></a><code>setOccupation(occupation)</code>
-  
-</h3>
+<h3><a class="anchor" name="setOccupation" href="#setOccupation"></a><code>setOccupation(occupation)</code></h3>
 
 
 set Occupation preference in Appodeal for current user
@@ -1120,9 +1039,7 @@ set Occupation preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setRelation" href="#setRelation"></a><code>setRelation(relation)</code>
-  
-</h3>
+<h3><a class="anchor" name="setRelation" href="#setRelation"></a><code>setRelation(relation)</code></h3>
 
 
 set Relation preference in Appodeal for current user
@@ -1147,9 +1064,7 @@ set Relation preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setSmoking" href="#setSmoking"></a><code>setSmoking(smoking)</code>
-  
-</h3>
+<h3><a class="anchor" name="setSmoking" href="#setSmoking"></a><code>setSmoking(smoking)</code></h3>
 
 
 set Smoking preference in Appodeal for current user
@@ -1174,9 +1089,7 @@ set Smoking preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setAlcohol" href="#setAlcohol"></a><code>setAlcohol(alcohol)</code>
-  
-</h3>
+<h3><a class="anchor" name="setAlcohol" href="#setAlcohol"></a><code>setAlcohol(alcohol)</code></h3>
 
 
 set Alcohol preference in Appodeal for current user
@@ -1201,9 +1114,7 @@ set Alcohol preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setInterests" href="#setInterests"></a><code>setInterests(interests)</code>
-  
-</h3>
+<h3><a class="anchor" name="setInterests" href="#setInterests"></a><code>setInterests(interests)</code></h3>
 
 
 set Interests preference in Appodeal for current user
@@ -1228,9 +1139,7 @@ set Interests preference in Appodeal for current user
   </tbody>
 </table>
 
-<h3><a class="anchor" name="onInterstitialLoaded" href="#onInterstitialLoaded"></a><code>onInterstitialLoaded()</code>
-  
-</h3>
+<h3><a class="anchor" name="onInterstitialLoaded" href="#onInterstitialLoaded"></a><code>onInterstitialLoaded()</code></h3>
 
 
 
@@ -1238,9 +1147,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onInterstitialFailedToLoad" href="#onInterstitialFailedToLoad"></a><code>onInterstitialFailedToLoad()</code>
-  
-</h3>
+<h3><a class="anchor" name="onInterstitialFailedToLoad" href="#onInterstitialFailedToLoad"></a><code>onInterstitialFailedToLoad()</code></h3>
 
 
 
@@ -1248,9 +1155,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onInterstitialShown" href="#onInterstitialShown"></a><code>onInterstitialShown()</code>
-  
-</h3>
+<h3><a class="anchor" name="onInterstitialShown" href="#onInterstitialShown"></a><code>onInterstitialShown()</code></h3>
 
 
 
@@ -1258,9 +1163,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onInterstitialClicked" href="#onInterstitialClicked"></a><code>onInterstitialClicked()</code>
-  
-</h3>
+<h3><a class="anchor" name="onInterstitialClicked" href="#onInterstitialClicked"></a><code>onInterstitialClicked()</code></h3>
 
 
 
@@ -1268,9 +1171,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onInterstitialClosed" href="#onInterstitialClosed"></a><code>onInterstitialClosed()</code>
-  
-</h3>
+<h3><a class="anchor" name="onInterstitialClosed" href="#onInterstitialClosed"></a><code>onInterstitialClosed()</code></h3>
 
 
 
@@ -1278,9 +1179,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onSkippableVideoLoaded" href="#onSkippableVideoLoaded"></a><code>onSkippableVideoLoaded()</code>
-  
-</h3>
+<h3><a class="anchor" name="onSkippableVideoLoaded" href="#onSkippableVideoLoaded"></a><code>onSkippableVideoLoaded()</code></h3>
 
 
 
@@ -1288,9 +1187,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onSkippableVideoFailedToLoad" href="#onSkippableVideoFailedToLoad"></a><code>onSkippableVideoFailedToLoad()</code>
-  
-</h3>
+<h3><a class="anchor" name="onSkippableVideoFailedToLoad" href="#onSkippableVideoFailedToLoad"></a><code>onSkippableVideoFailedToLoad()</code></h3>
 
 
 
@@ -1298,9 +1195,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onSkippableVideoShown" href="#onSkippableVideoShown"></a><code>onSkippableVideoShown()</code>
-  
-</h3>
+<h3><a class="anchor" name="onSkippableVideoShown" href="#onSkippableVideoShown"></a><code>onSkippableVideoShown()</code></h3>
 
 
 
@@ -1308,9 +1203,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onSkippableVideoFinished" href="#onSkippableVideoFinished"></a><code>onSkippableVideoFinished()</code>
-  
-</h3>
+<h3><a class="anchor" name="onSkippableVideoFinished" href="#onSkippableVideoFinished"></a><code>onSkippableVideoFinished()</code></h3>
 
 
 
@@ -1318,9 +1211,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onSkippableVideoClosed" href="#onSkippableVideoClosed"></a><code>onSkippableVideoClosed()</code>
-  
-</h3>
+<h3><a class="anchor" name="onSkippableVideoClosed" href="#onSkippableVideoClosed"></a><code>onSkippableVideoClosed()</code></h3>
 
 
 
@@ -1328,9 +1219,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onRewardedVideoLoaded" href="#onRewardedVideoLoaded"></a><code>onRewardedVideoLoaded()</code>
-  
-</h3>
+<h3><a class="anchor" name="onRewardedVideoLoaded" href="#onRewardedVideoLoaded"></a><code>onRewardedVideoLoaded()</code></h3>
 
 
 
@@ -1338,9 +1227,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onRewardedVideoFailedToLoad" href="#onRewardedVideoFailedToLoad"></a><code>onRewardedVideoFailedToLoad()</code>
-  
-</h3>
+<h3><a class="anchor" name="onRewardedVideoFailedToLoad" href="#onRewardedVideoFailedToLoad"></a><code>onRewardedVideoFailedToLoad()</code></h3>
 
 
 
@@ -1348,9 +1235,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onRewardedVideoShown" href="#onRewardedVideoShown"></a><code>onRewardedVideoShown()</code>
-  
-</h3>
+<h3><a class="anchor" name="onRewardedVideoShown" href="#onRewardedVideoShown"></a><code>onRewardedVideoShown()</code></h3>
 
 
 
@@ -1358,9 +1243,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onRewardedVideoFinished" href="#onRewardedVideoFinished"></a><code>onRewardedVideoFinished()</code>
-  
-</h3>
+<h3><a class="anchor" name="onRewardedVideoFinished" href="#onRewardedVideoFinished"></a><code>onRewardedVideoFinished()</code></h3>
 
 
 
@@ -1368,9 +1251,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onRewardedVideoClosed" href="#onRewardedVideoClosed"></a><code>onRewardedVideoClosed()</code>
-  
-</h3>
+<h3><a class="anchor" name="onRewardedVideoClosed" href="#onRewardedVideoClosed"></a><code>onRewardedVideoClosed()</code></h3>
 
 
 
@@ -1378,9 +1259,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onNonSkippableVideoLoaded" href="#onNonSkippableVideoLoaded"></a><code>onNonSkippableVideoLoaded()</code>
-  
-</h3>
+<h3><a class="anchor" name="onNonSkippableVideoLoaded" href="#onNonSkippableVideoLoaded"></a><code>onNonSkippableVideoLoaded()</code></h3>
 
 
 
@@ -1388,9 +1267,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onNonSkippableVideoFailedToLoad" href="#onNonSkippableVideoFailedToLoad"></a><code>onNonSkippableVideoFailedToLoad()</code>
-  
-</h3>
+<h3><a class="anchor" name="onNonSkippableVideoFailedToLoad" href="#onNonSkippableVideoFailedToLoad"></a><code>onNonSkippableVideoFailedToLoad()</code></h3>
 
 
 
@@ -1398,9 +1275,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onNonSkippableVideoShown" href="#onNonSkippableVideoShown"></a><code>onNonSkippableVideoShown()</code>
-  
-</h3>
+<h3><a class="anchor" name="onNonSkippableVideoShown" href="#onNonSkippableVideoShown"></a><code>onNonSkippableVideoShown()</code></h3>
 
 
 
@@ -1408,9 +1283,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onNonSkippableVideoFinished" href="#onNonSkippableVideoFinished"></a><code>onNonSkippableVideoFinished()</code>
-  
-</h3>
+<h3><a class="anchor" name="onNonSkippableVideoFinished" href="#onNonSkippableVideoFinished"></a><code>onNonSkippableVideoFinished()</code></h3>
 
 
 
@@ -1418,9 +1291,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onNonSkippableVideoClosed" href="#onNonSkippableVideoClosed"></a><code>onNonSkippableVideoClosed()</code>
-  
-</h3>
+<h3><a class="anchor" name="onNonSkippableVideoClosed" href="#onNonSkippableVideoClosed"></a><code>onNonSkippableVideoClosed()</code></h3>
 
 
 
@@ -1428,9 +1299,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onBannerClicked" href="#onBannerClicked"></a><code>onBannerClicked()</code>
-  
-</h3>
+<h3><a class="anchor" name="onBannerClicked" href="#onBannerClicked"></a><code>onBannerClicked()</code></h3>
 
 
 
@@ -1438,9 +1307,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onBannerFailedToLoad" href="#onBannerFailedToLoad"></a><code>onBannerFailedToLoad()</code>
-  
-</h3>
+<h3><a class="anchor" name="onBannerFailedToLoad" href="#onBannerFailedToLoad"></a><code>onBannerFailedToLoad()</code></h3>
 
 
 
@@ -1448,9 +1315,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onBannerLoaded" href="#onBannerLoaded"></a><code>onBannerLoaded()</code>
-  
-</h3>
+<h3><a class="anchor" name="onBannerLoaded" href="#onBannerLoaded"></a><code>onBannerLoaded()</code></h3>
 
 
 
@@ -1458,9 +1323,7 @@ set Interests preference in Appodeal for current user
 
 
 
-<h3><a class="anchor" name="onBannerShown" href="#onBannerShown"></a><code>onBannerShown()</code>
-  
-</h3>
+<h3><a class="anchor" name="onBannerShown" href="#onBannerShown"></a><code>onBannerShown()</code></h3>
 
 
 

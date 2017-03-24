@@ -9,14 +9,9 @@ title: "Rollbar"
 header_sub_title: "Class in module "
 doc: "Rollbar"
 docType: "class"
----<h1 class="api-title">
-  
-  Rollbar
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Rollbar<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/rollbar/index.ts#L1">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/Resgrid/cordova-plugins-rollbar/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
 $ npm install --save @ionic-native/rollbar
@@ -74,9 +71,7 @@ this.rollbar.init();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="init" href="#init"></a><code>init()</code>
-  
-</h3>
+<h3><a class="anchor" name="init" href="#init"></a><code>init()</code></h3>
 
 
 This function initializes the monitoring of your application

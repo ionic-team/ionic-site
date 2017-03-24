@@ -9,18 +9,15 @@ title: "In App Purchase"
 header_sub_title: "Class in module "
 doc: "In App Purchase"
 docType: "class"
----<h1 class="api-title">
-  
-  In App Purchase
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">In App Purchase</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-purchase/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -91,9 +88,7 @@ this.iap
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getProducts" href="#getProducts"></a><code>getProducts(productId)</code>
-  
-</h3>
+<h3><a class="anchor" name="getProducts" href="#getProducts"></a><code>getProducts(productId)</code></h3>
 
 
 
@@ -124,9 +119,7 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with an array of objects.
-</div><h3><a class="anchor" name="buy" href="#buy"></a><code>buy(productId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="buy" href="#buy"></a><code>buy(productId)</code></h3>
 
 
 
@@ -157,9 +150,7 @@ Buy a product that matches the productId.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
-</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe(productId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe(productId)</code></h3>
 
 
 
@@ -190,9 +181,7 @@ Same as buy, but for subscription based products.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
-</div><h3><a class="anchor" name="consume" href="#consume"></a><code>consume(productType,&nbsp;receipt,&nbsp;signature)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="consume" href="#consume"></a><code>consume(productType,&nbsp;receipt,&nbsp;signature)</code></h3>
 
 
 
@@ -242,9 +231,7 @@ Call this function after purchasing a "consumable" product to mark it as consume
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="restorePurchases" href="#restorePurchases"></a><code>restorePurchases()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="restorePurchases" href="#restorePurchases"></a><code>restorePurchases()</code></h3>
 
 
 
@@ -255,9 +242,7 @@ Restore all purchases from the store
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with an array of purchases.
-</div><h3><a class="anchor" name="getReceipt" href="#getReceipt"></a><code>getReceipt()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getReceipt" href="#getReceipt"></a><code>getReceipt()</code></h3>
 
 
 

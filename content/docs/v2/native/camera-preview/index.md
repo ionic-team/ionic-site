@@ -9,14 +9,9 @@ title: "Camera Preview"
 header_sub_title: "Class in module "
 doc: "Camera Preview"
 docType: "class"
----<h1 class="api-title">
-  
-  Camera Preview
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-camera-preview
 $ npm install --save @ionic-native/camera-preview
@@ -127,9 +124,7 @@ this.cameraPreview.stopCamera();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="startCamera" href="#startCamera"></a><code>startCamera(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="startCamera" href="#startCamera"></a><code>startCamera(options)</code></h3>
 
 
 
@@ -159,9 +154,7 @@ Starts the camera preview instance.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stopCamera" href="#stopCamera"></a><code>stopCamera()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopCamera" href="#stopCamera"></a><code>stopCamera()</code></h3>
 
 
 
@@ -172,9 +165,7 @@ Stops the camera preview instance. (iOS & Android)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="switchCamera" href="#switchCamera"></a><code>switchCamera()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="switchCamera" href="#switchCamera"></a><code>switchCamera()</code></h3>
 
 
 
@@ -185,9 +176,7 @@ Switch from the rear camera and front camera, if available.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 
@@ -198,9 +187,7 @@ Hide the camera preview box.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -211,9 +198,7 @@ Show the camera preview box.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="takePicture" href="#takePicture"></a><code>takePicture(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="takePicture" href="#takePicture"></a><code>takePicture(options)</code></h3>
 
 
 
@@ -244,9 +229,7 @@ Take the picture (base64)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setColorEffect" href="#setColorEffect"></a><code>setColorEffect(effect)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setColorEffect" href="#setColorEffect"></a><code>setColorEffect(effect)</code></h3>
 
 
 
@@ -277,9 +260,7 @@ Set camera color effect.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setZoom" href="#setZoom"></a><code>setZoom(zoom)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setZoom" href="#setZoom"></a><code>setZoom(zoom)</code></h3>
 
 
 
@@ -310,9 +291,7 @@ Set the zoom (Android)
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setPreviewSize" href="#setPreviewSize"></a><code>setPreviewSize(dimensions)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setPreviewSize" href="#setPreviewSize"></a><code>setPreviewSize(dimensions)</code></h3>
 
 
 
@@ -345,9 +324,7 @@ Set the preview Size
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setFlashMode" href="#setFlashMode"></a><code>setFlashMode(flashMode)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setFlashMode" href="#setFlashMode"></a><code>setFlashMode(flashMode)</code></h3>
 
 
 

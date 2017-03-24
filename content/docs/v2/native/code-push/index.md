@@ -9,18 +9,15 @@ title: "Code Push"
 header_sub_title: "Class in module "
 doc: "Code Push"
 docType: "class"
----<h1 class="api-title">
-  
-  Code Push
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Code Push</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/code-push/index.ts#L395">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,9 +71,7 @@ this.codePush.sync({}, downloadProgress).subscribe((syncStatus) =&gt; console.lo
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getCurrentPackage" href="#getCurrentPackage"></a><code>getCurrentPackage(packageSuccess,&nbsp;packageError)</code>
-  
-</h3>
+<h3><a class="anchor" name="getCurrentPackage" href="#getCurrentPackage"></a><code>getCurrentPackage(packageSuccess,&nbsp;packageError)</code></h3>
 
 
 Get the current package information.
@@ -117,9 +112,7 @@ Get the current package information.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ILocalPackage&gt;</code> 
-</div><h3><a class="anchor" name="getPendingPackage" href="#getPendingPackage"></a><code>getPendingPackage()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getPendingPackage" href="#getPendingPackage"></a><code>getPendingPackage()</code></h3>
 
 
 Gets the pending package information, if any. A pending package is one that has been installed but the application still runs the old code.
@@ -129,9 +122,7 @@ This happends only after a package has been installed using ON_NEXT_RESTART or O
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;ILocalPackage&gt;</code> 
-</div><h3><a class="anchor" name="checkForUpdate" href="#checkForUpdate"></a><code>checkForUpdate(querySuccess,&nbsp;queryError,&nbsp;deploymentKey)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="checkForUpdate" href="#checkForUpdate"></a><code>checkForUpdate(querySuccess,&nbsp;queryError,&nbsp;deploymentKey)</code></h3>
 
 
 
@@ -187,9 +178,7 @@ Checks with the CodePush server if an update package is available for download.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;IRemotePackage&gt;</code> 
-</div><h3><a class="anchor" name="notifyApplicationReady" href="#notifyApplicationReady"></a><code>notifyApplicationReady(notifySucceeded,&nbsp;notifyFailed)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="notifyApplicationReady" href="#notifyApplicationReady"></a><code>notifyApplicationReady(notifySucceeded,&nbsp;notifyFailed)</code></h3>
 
 
 Notifies the plugin that the update operation succeeded and that the application is ready.
@@ -232,9 +221,7 @@ If using sync API, calling this function is not required since sync calls it int
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="restartApplication" href="#restartApplication"></a><code>restartApplication()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="restartApplication" href="#restartApplication"></a><code>restartApplication()</code></h3>
 
 
 Reloads the application. If there is a pending update package installed using ON_NEXT_RESTART or ON_NEXT_RESUME modes, the update
@@ -244,9 +231,7 @@ will be immediately visible to the user. Otherwise, calling this function will s
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="sync" href="#sync"></a><code>sync(syncCallback,&nbsp;syncOptions,&nbsp;downloadProgress)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="sync" href="#sync"></a><code>sync(syncCallback,&nbsp;syncOptions,&nbsp;downloadProgress)</code></h3>
 
 
 

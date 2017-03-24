@@ -9,18 +9,15 @@ title: "Video Editor"
 header_sub_title: "Class in module "
 doc: "Video Editor"
 docType: "class"
----<h1 class="api-title">
-  
-  Video Editor
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Video Editor</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/video-editor/index.ts#L119">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,23 +71,17 @@ this.videoEditor.transcodeVideo({
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="OptimizeForNetworkUse" href="#OptimizeForNetworkUse"></a><code>OptimizeForNetworkUse()</code>
-  
-</h3>
+<h3><a class="anchor" name="OptimizeForNetworkUse" href="#OptimizeForNetworkUse"></a><code>OptimizeForNetworkUse</code></h3>
 
 
 
 
-<h3><a class="anchor" name="OutputFileType" href="#OutputFileType"></a><code>OutputFileType()</code>
-  
-</h3>
+<h3><a class="anchor" name="OutputFileType" href="#OutputFileType"></a><code>OutputFileType</code></h3>
 
 
 
 
-<h3><a class="anchor" name="transcodeVideo" href="#transcodeVideo"></a><code>transcodeVideo(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="transcodeVideo" href="#transcodeVideo"></a><code>transcodeVideo(options)</code></h3>
 
 
 
@@ -121,9 +112,7 @@ Transcode a video
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the transcoded video
-</div><h3><a class="anchor" name="trim" href="#trim"></a><code>trim(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="trim" href="#trim"></a><code>trim(options)</code></h3>
 
 
 
@@ -157,9 +146,7 @@ Trim a video
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the trimmed video
-</div><h3><a class="anchor" name="createThumbnail" href="#createThumbnail"></a><code>createThumbnail(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="createThumbnail" href="#createThumbnail"></a><code>createThumbnail(options)</code></h3>
 
 
 
@@ -190,9 +177,7 @@ Create a JPEG thumbnail from a video
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path to the jpeg image on the device
-</div><h3><a class="anchor" name="getVideoInfo" href="#getVideoInfo"></a><code>getVideoInfo(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getVideoInfo" href="#getVideoInfo"></a><code>getVideoInfo(options)</code></h3>
 
 
 

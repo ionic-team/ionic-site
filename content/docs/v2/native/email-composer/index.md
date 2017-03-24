@@ -9,14 +9,9 @@ title: "Email Composer"
 header_sub_title: "Class in module "
 doc: "Email Composer"
 docType: "class"
----<h1 class="api-title">
-  
-  Email Composer
-  
+---
 
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Email Composer<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L23">
   Improve this doc
@@ -30,6 +25,8 @@ docType: "class"
   submit any issues to the <a target="_blank"
   href="https://github.com/hypery2k/cordova-email-plugin/issues">plugin repo</a>.
 </p>
+
+
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-email
 $ npm install --save @ionic-native/email-composer
@@ -99,9 +96,7 @@ this.emailComposer.open(email);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code></h3>
 
 
 Verifies if sending emails is supported on the device.
@@ -131,9 +126,7 @@ Verifies if sending emails is supported on the device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
-</div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code></h3>
 
 
 Adds a new mail app alias.
@@ -171,9 +164,7 @@ Adds a new mail app alias.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="open" href="#open"></a><code>open(options,&nbsp;scope)</code>
-  
-</h3>
+<h3><a class="anchor" name="open" href="#open"></a><code>open(options,&nbsp;scope)</code></h3>
 
 
 

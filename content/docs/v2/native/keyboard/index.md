@@ -9,18 +9,15 @@ title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"
 docType: "class"
----<h1 class="api-title">
-  
-  Keyboard
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Keyboard</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/keyboard/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -64,9 +61,7 @@ this.keyboard.close();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="hideKeyboardAccessoryBar" href="#hideKeyboardAccessoryBar"></a><code>hideKeyboardAccessoryBar(hide)</code>
-  
-</h3>
+<h3><a class="anchor" name="hideKeyboardAccessoryBar" href="#hideKeyboardAccessoryBar"></a><code>hideKeyboardAccessoryBar(hide)</code></h3>
 
 
 
@@ -93,9 +88,7 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
 
 
@@ -107,9 +100,7 @@ Force keyboard to be shown.
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 
@@ -121,9 +112,7 @@ Close the keyboard if open.
 
 
 
-<h3><a class="anchor" name="disableScroll" href="#disableScroll"></a><code>disableScroll(disable)</code>
-  
-</h3>
+<h3><a class="anchor" name="disableScroll" href="#disableScroll"></a><code>disableScroll(disable)</code></h3>
 
 
 
@@ -153,9 +142,7 @@ Prevents the native UIScrollView from moving when an input is focused.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="onKeyboardShow" href="#onKeyboardShow"></a><code>onKeyboardShow()</code>
-  
-</h3>
+<h3><a class="anchor" name="onKeyboardShow" href="#onKeyboardShow"></a><code>onKeyboardShow()</code></h3>
 
 
 
@@ -169,9 +156,7 @@ Creates an observable that notifies you when the keyboard is shown. Unsubscribe 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onKeyboardHide" href="#onKeyboardHide"></a><code>onKeyboardHide()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onKeyboardHide" href="#onKeyboardHide"></a><code>onKeyboardHide()</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Launch Navigator"
 header_sub_title: "Class in module "
 doc: "Launch Navigator"
 docType: "class"
----<h1 class="api-title">
-  
-  Launch Navigator
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Launch Navigator</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/launch-navigator/index.ts#L58">
   Improve this doc
 </a>
+
+
 
 
 
@@ -73,9 +70,7 @@ this.launchNavigator.navigate(&#39;Toronto, ON&#39;, options)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="navigate" href="#navigate"></a><code>navigate(destination,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="navigate" href="#navigate"></a><code>navigate(destination,&nbsp;options)</code></h3>
 
 
 
@@ -116,9 +111,7 @@ Launches navigator app
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAppAvailable" href="#isAppAvailable"></a><code>isAppAvailable(app)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAppAvailable" href="#isAppAvailable"></a><code>isAppAvailable(app)</code></h3>
 
 
 Determines if the given app is installed and available on the current device.
@@ -146,9 +139,7 @@ Determines if the given app is installed and available on the current device.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="availableApps" href="#availableApps"></a><code>availableApps()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="availableApps" href="#availableApps"></a><code>availableApps()</code></h3>
 
 
 Returns a list indicating which apps are installed and available on the current device.
@@ -157,9 +148,7 @@ Returns a list indicating which apps are installed and available on the current 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;string[]&gt;</code> 
-</div><h3><a class="anchor" name="getAppDisplayName" href="#getAppDisplayName"></a><code>getAppDisplayName(app)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAppDisplayName" href="#getAppDisplayName"></a><code>getAppDisplayName(app)</code></h3>
 
 
 
@@ -189,9 +178,7 @@ Returns the display name of the specified app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="getAppsForPlatform" href="#getAppsForPlatform"></a><code>getAppsForPlatform(platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAppsForPlatform" href="#getAppsForPlatform"></a><code>getAppsForPlatform(platform)</code></h3>
 
 
 
@@ -221,9 +208,7 @@ Returns list of supported apps on a given platform.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string[]</code> 
-</div><h3><a class="anchor" name="supportsTransportMode" href="#supportsTransportMode"></a><code>supportsTransportMode(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportsTransportMode" href="#supportsTransportMode"></a><code>supportsTransportMode(app,&nbsp;platform)</code></h3>
 
 
 
@@ -264,9 +249,7 @@ Indicates if an app on a given platform supports specification of transport mode
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="getTransportModes" href="#getTransportModes"></a><code>getTransportModes(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getTransportModes" href="#getTransportModes"></a><code>getTransportModes(app,&nbsp;platform)</code></h3>
 
 
 
@@ -306,9 +289,7 @@ Returns the list of transport modes supported by an app on a given platform.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>string[]</code> 
-</div><h3><a class="anchor" name="supportsLaunchMode" href="#supportsLaunchMode"></a><code>supportsLaunchMode(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportsLaunchMode" href="#supportsLaunchMode"></a><code>supportsLaunchMode(app,&nbsp;platform)</code></h3>
 
 
 
@@ -349,9 +330,7 @@ Note that currently only Google Maps on Android does.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsStart" href="#supportsStart"></a><code>supportsStart(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportsStart" href="#supportsStart"></a><code>supportsStart(app,&nbsp;platform)</code></h3>
 
 
 
@@ -391,9 +370,7 @@ Indicates if an app on a given platform supports specification of start location
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsStartName" href="#supportsStartName"></a><code>supportsStartName(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportsStartName" href="#supportsStartName"></a><code>supportsStartName(app,&nbsp;platform)</code></h3>
 
 
 
@@ -433,9 +410,7 @@ Indicates if an app on a given platform supports specification of start location
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsDestName" href="#supportsDestName"></a><code>supportsDestName(app,&nbsp;platform)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="supportsDestName" href="#supportsDestName"></a><code>supportsDestName(app,&nbsp;platform)</code></h3>
 
 
 
@@ -475,9 +450,7 @@ Indicates if an app on a given platform supports specification of start location
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="userSelect" href="#userSelect"></a><code>userSelect(destination,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="userSelect" href="#userSelect"></a><code>userSelect(destination,&nbsp;options)</code></h3>
 
 
 
@@ -514,16 +487,12 @@ Indicates if an app on a given platform supports specification of start location
   </tbody>
 </table>
 
-<h3><a class="anchor" name="APP" href="#APP"></a><code>APP()</code>
-  
-</h3>
+<h3><a class="anchor" name="APP" href="#APP"></a><code>APP</code></h3>
 
 
 
 
-<h3><a class="anchor" name="TRANSPORT_MODE" href="#TRANSPORT_MODE"></a><code>TRANSPORT_MODE()</code>
-  
-</h3>
+<h3><a class="anchor" name="TRANSPORT_MODE" href="#TRANSPORT_MODE"></a><code>TRANSPORT_MODE</code></h3>
 
 
 

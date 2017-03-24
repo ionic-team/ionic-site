@@ -9,18 +9,15 @@ title: "Web Intent"
 header_sub_title: "Class in module "
 doc: "Web Intent"
 docType: "class"
----<h1 class="api-title">
-  
-  Web Intent
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Web Intent</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/web-intent/index.ts#L4">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,73 +71,55 @@ this.webIntent.startActivity(options).then(onSuccess, onError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="ACTION_SEND" href="#ACTION_SEND"></a><code>ACTION_SEND()</code>
-  
-</h3>
+<h3><a class="anchor" name="ACTION_SEND" href="#ACTION_SEND"></a><code>ACTION_SEND</code></h3>
 
 
 Convenience constant for actions
 
 
-<h3><a class="anchor" name="ACTION_VIEW" href="#ACTION_VIEW"></a><code>ACTION_VIEW()</code>
-  
-</h3>
+<h3><a class="anchor" name="ACTION_VIEW" href="#ACTION_VIEW"></a><code>ACTION_VIEW</code></h3>
 
 
 Convenience constant for actions
 
 
-<h3><a class="anchor" name="EXTRA_TEXT" href="#EXTRA_TEXT"></a><code>EXTRA_TEXT()</code>
-  
-</h3>
+<h3><a class="anchor" name="EXTRA_TEXT" href="#EXTRA_TEXT"></a><code>EXTRA_TEXT</code></h3>
 
 
 Convenience constant for extras
 
 
-<h3><a class="anchor" name="EXTRA_SUBJECT" href="#EXTRA_SUBJECT"></a><code>EXTRA_SUBJECT()</code>
-  
-</h3>
+<h3><a class="anchor" name="EXTRA_SUBJECT" href="#EXTRA_SUBJECT"></a><code>EXTRA_SUBJECT</code></h3>
 
 
 Convenience constant for extras
 
 
-<h3><a class="anchor" name="EXTRA_STREAM" href="#EXTRA_STREAM"></a><code>EXTRA_STREAM()</code>
-  
-</h3>
+<h3><a class="anchor" name="EXTRA_STREAM" href="#EXTRA_STREAM"></a><code>EXTRA_STREAM</code></h3>
 
 
 Convenience constant for extras
 
 
-<h3><a class="anchor" name="EXTRA_EMAIL" href="#EXTRA_EMAIL"></a><code>EXTRA_EMAIL()</code>
-  
-</h3>
+<h3><a class="anchor" name="EXTRA_EMAIL" href="#EXTRA_EMAIL"></a><code>EXTRA_EMAIL</code></h3>
 
 
 Convenience constant for extras
 
 
-<h3><a class="anchor" name="ACTION_CALL" href="#ACTION_CALL"></a><code>ACTION_CALL()</code>
-  
-</h3>
+<h3><a class="anchor" name="ACTION_CALL" href="#ACTION_CALL"></a><code>ACTION_CALL</code></h3>
 
 
 Convenience constant for actions
 
 
-<h3><a class="anchor" name="ACTION_SENDTO" href="#ACTION_SENDTO"></a><code>ACTION_SENDTO()</code>
-  
-</h3>
+<h3><a class="anchor" name="ACTION_SENDTO" href="#ACTION_SENDTO"></a><code>ACTION_SENDTO</code></h3>
 
 
 Convenience constant for actions
 
 
-<h3><a class="anchor" name="startActivity" href="#startActivity"></a><code>startActivity(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="startActivity" href="#startActivity"></a><code>startActivity(options)</code></h3>
 
 
 Launches an Android intent
@@ -169,9 +148,7 @@ Launches an Android intent
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hasExtra" href="#hasExtra"></a><code>hasExtra(extra)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasExtra" href="#hasExtra"></a><code>hasExtra(extra)</code></h3>
 
 
 Checks if this app was invoked with specified extra
@@ -199,9 +176,7 @@ Checks if this app was invoked with specified extra
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getExtra" href="#getExtra"></a><code>getExtra(extra)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getExtra" href="#getExtra"></a><code>getExtra(extra)</code></h3>
 
 
 Gets the extra that this app was invoked with
@@ -229,9 +204,7 @@ Gets the extra that this app was invoked with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getUri" href="#getUri"></a><code>getUri()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getUri" href="#getUri"></a><code>getUri()</code></h3>
 
 
 Gets the Uri the app was invoked with
@@ -240,9 +213,7 @@ Gets the Uri the app was invoked with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onNewIntent" href="#onNewIntent"></a><code>onNewIntent()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onNewIntent" href="#onNewIntent"></a><code>onNewIntent()</code></h3>
 
 
 
@@ -253,9 +224,7 @@ Gets the Uri the app was invoked with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;string&gt;</code> 
-</div><h3><a class="anchor" name="sendBroadcast" href="#sendBroadcast"></a><code>sendBroadcast(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="sendBroadcast" href="#sendBroadcast"></a><code>sendBroadcast(options)</code></h3>
 
 
 Sends a custom intent passing optional extras

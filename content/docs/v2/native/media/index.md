@@ -9,18 +9,15 @@ title: "Media"
 header_sub_title: "Class in module "
 doc: "Media"
 docType: "class"
----<h1 class="api-title">
-  
-  Media
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Media</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media/index.ts#L126">
   Improve this doc
 </a>
+
+
 
 
 
@@ -113,9 +110,7 @@ this.media.create(&#39;path/to/file.mp3&#39;)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(src,&nbsp;onStatusUpdate)</code></h3>
 
 
 Open a media file
@@ -163,9 +158,7 @@ Open a media file
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getCurrentAmplitude" href="#getCurrentAmplitude"></a><code>getCurrentAmplitude()</code>
-  
-</h3>
+<h3><a class="anchor" name="getCurrentAmplitude" href="#getCurrentAmplitude"></a><code>getCurrentAmplitude()</code></h3>
 
 
 Get the current amplitude of the current recording.
@@ -174,9 +167,7 @@ Get the current amplitude of the current recording.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with the amplitude of the current recording
-</div><h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition()</code></h3>
 
 
 Get the current position within an audio file. Also updates the Media object's position parameter.
@@ -185,9 +176,7 @@ Get the current position within an audio file. Also updates the Media object's p
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with the position of the current recording
-</div><h3><a class="anchor" name="getDuration" href="#getDuration"></a><code>getDuration()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getDuration" href="#getDuration"></a><code>getDuration()</code></h3>
 
 
 
@@ -198,9 +187,7 @@ Get the duration of an audio file in seconds. If the duration is unknown, it ret
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>number</code> Returns a promise with the duration of the current recording
-</div><h3><a class="anchor" name="play" href="#play"></a><code>play()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="play" href="#play"></a><code>play()</code></h3>
 
 
 
@@ -209,9 +196,7 @@ Starts or resumes playing an audio file.
 
 
 
-<h3><a class="anchor" name="pause" href="#pause"></a><code>pause()</code>
-  
-</h3>
+<h3><a class="anchor" name="pause" href="#pause"></a><code>pause()</code></h3>
 
 
 
@@ -220,9 +205,7 @@ Pauses playing an audio file.
 
 
 
-<h3><a class="anchor" name="release" href="#release"></a><code>release()</code>
-  
-</h3>
+<h3><a class="anchor" name="release" href="#release"></a><code>release()</code></h3>
 
 
 
@@ -231,9 +214,7 @@ Releases the underlying operating system's audio resources. This is particularly
 
 
 
-<h3><a class="anchor" name="seekTo" href="#seekTo"></a><code>seekTo(milliseconds)</code>
-  
-</h3>
+<h3><a class="anchor" name="seekTo" href="#seekTo"></a><code>seekTo(milliseconds)</code></h3>
 
 
 
@@ -261,9 +242,7 @@ Sets the current position within an audio file.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setVolume" href="#setVolume"></a><code>setVolume(volume)</code>
-  
-</h3>
+<h3><a class="anchor" name="setVolume" href="#setVolume"></a><code>setVolume(volume)</code></h3>
 
 
 
@@ -291,9 +270,7 @@ Set the volume for an audio file.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="startRecord" href="#startRecord"></a><code>startRecord()</code>
-  
-</h3>
+<h3><a class="anchor" name="startRecord" href="#startRecord"></a><code>startRecord()</code></h3>
 
 
 
@@ -302,9 +279,7 @@ Starts recording an audio file.
 
 
 
-<h3><a class="anchor" name="stopRecord" href="#stopRecord"></a><code>stopRecord()</code>
-  
-</h3>
+<h3><a class="anchor" name="stopRecord" href="#stopRecord"></a><code>stopRecord()</code></h3>
 
 
 
@@ -313,9 +288,7 @@ Stops recording
 
 
 
-<h3><a class="anchor" name="pauseRecord" href="#pauseRecord"></a><code>pauseRecord()</code>
-  
-</h3>
+<h3><a class="anchor" name="pauseRecord" href="#pauseRecord"></a><code>pauseRecord()</code></h3>
 
 
 
@@ -324,9 +297,7 @@ Pauses recording
 
 
 
-<h3><a class="anchor" name="resumeRecord" href="#resumeRecord"></a><code>resumeRecord()</code>
-  
-</h3>
+<h3><a class="anchor" name="resumeRecord" href="#resumeRecord"></a><code>resumeRecord()</code></h3>
 
 
 
@@ -335,9 +306,7 @@ Resumes recording
 
 
 
-<h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code>
-  
-</h3>
+<h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code></h3>
 
 
 

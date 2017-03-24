@@ -9,18 +9,15 @@ title: "LinkedIn"
 header_sub_title: "Class in module "
 doc: "LinkedIn"
 docType: "class"
----<h1 class="api-title">
-  
-  LinkedIn
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">LinkedIn</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/linkedin/index.ts#L3">
   Improve this doc
 </a>
+
+
 
 
 
@@ -89,9 +86,7 @@ this.linkedin.postRequest(&#39;~/shares&#39;, body)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="login" href="#login"></a><code>login(scopes,&nbsp;promptToInstall)</code>
-  
-</h3>
+<h3><a class="anchor" name="login" href="#login"></a><code>login(scopes,&nbsp;promptToInstall)</code></h3>
 
 
 Login with the LinkedIn App
@@ -131,9 +126,7 @@ Login with the LinkedIn App
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="logout" href="#logout"></a><code>logout()</code></h3>
 
 
 
@@ -142,9 +135,7 @@ Clears the current session
 
 
 
-<h3><a class="anchor" name="getRequest" href="#getRequest"></a><code>getRequest(path)</code>
-  
-</h3>
+<h3><a class="anchor" name="getRequest" href="#getRequest"></a><code>getRequest(path)</code></h3>
 
 
 Make a get request
@@ -173,9 +164,7 @@ Make a get request
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="postRequest" href="#postRequest"></a><code>postRequest(path,&nbsp;body)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="postRequest" href="#postRequest"></a><code>postRequest(path,&nbsp;body)</code></h3>
 
 
 Make a post request
@@ -215,9 +204,7 @@ Make a post request
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="openProfile" href="#openProfile"></a><code>openProfile(memberId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="openProfile" href="#openProfile"></a><code>openProfile(memberId)</code></h3>
 
 
 Opens a member's profile
@@ -246,9 +233,7 @@ Opens a member's profile
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hasActiveSession" href="#hasActiveSession"></a><code>hasActiveSession()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasActiveSession" href="#hasActiveSession"></a><code>hasActiveSession()</code></h3>
 
 
 Checks if there is already an existing active session. This should be used to avoid unecessary login.

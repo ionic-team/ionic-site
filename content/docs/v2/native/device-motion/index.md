@@ -9,18 +9,15 @@ title: "Device Motion"
 header_sub_title: "Class in module "
 doc: "Device Motion"
 docType: "class"
----<h1 class="api-title">
-  
-  Device Motion
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Device Motion</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-motion/index.ts#L35">
   Improve this doc
 </a>
+
+
 
 
 
@@ -75,9 +72,7 @@ subscription.unsubscribe();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getCurrentAcceleration" href="#getCurrentAcceleration"></a><code>getCurrentAcceleration()</code>
-  
-</h3>
+<h3><a class="anchor" name="getCurrentAcceleration" href="#getCurrentAcceleration"></a><code>getCurrentAcceleration()</code></h3>
 
 
 Get the current acceleration along the x, y, and z axes.
@@ -86,9 +81,7 @@ Get the current acceleration along the x, y, and z axes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DeviceMotionAccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
-</div><h3><a class="anchor" name="watchAcceleration" href="#watchAcceleration"></a><code>watchAcceleration(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="watchAcceleration" href="#watchAcceleration"></a><code>watchAcceleration(options)</code></h3>
 
 
 

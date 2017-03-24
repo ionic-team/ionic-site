@@ -9,18 +9,15 @@ title: "Geolocation"
 header_sub_title: "Class in module "
 doc: "Geolocation"
 docType: "class"
----<h1 class="api-title">
-  
-  Geolocation
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Geolocation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L110">
   Improve this doc
 </a>
+
+
 
 
 
@@ -78,9 +75,7 @@ watch.subscribe((data) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition(options)</code></h3>
 
 
 
@@ -112,9 +107,7 @@ Get the device's current position.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Geoposition&gt;</code> Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
-</div><h3><a class="anchor" name="watchPosition" href="#watchPosition"></a><code>watchPosition(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="watchPosition" href="#watchPosition"></a><code>watchPosition(options)</code></h3>
 
 Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.

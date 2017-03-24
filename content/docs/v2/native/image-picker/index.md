@@ -9,18 +9,15 @@ title: "Image Picker"
 header_sub_title: "Class in module "
 doc: "Image Picker"
 docType: "class"
----<h1 class="api-title">
-  
-  Image Picker
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Image Picker</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/image-picker/index.ts#L28">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,9 +67,7 @@ this.imagePicker.getPictures(options).then((results) =&gt; {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getPictures" href="#getPictures"></a><code>getPictures(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="getPictures" href="#getPictures"></a><code>getPictures(options)</code></h3>
 
 
 
@@ -103,9 +98,7 @@ Pick pictures from the library.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves the image file URI
 otherwise rejects with an error.
-</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code></h3>
 
 
 
@@ -119,9 +112,7 @@ Check if we have permission to read images
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates whether we have permission
-</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code></h3>
 
 
 

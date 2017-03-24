@@ -9,18 +9,15 @@ title: "SQLite"
 header_sub_title: "Class in module "
 doc: "SQLite"
 docType: "class"
----<h1 class="api-title">
-  
-  SQLite
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">SQLite</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L139">
   Improve this doc
 </a>
+
+
 
 
 
@@ -76,9 +73,7 @@ this.sqlite.create({
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(config)</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(config)</code></h3>
 
 
 Open or create a SQLite database file.
@@ -119,17 +114,13 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="databaseFeatures" href="#databaseFeatures"></a><code>databaseFeatures()</code>
-  
-</h3>
+<h3><a class="anchor" name="databaseFeatures" href="#databaseFeatures"></a><code>databaseFeatures()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="addTransaction" href="#addTransaction"></a><code>addTransaction()</code>
-  
-</h3>
+<h3><a class="anchor" name="addTransaction" href="#addTransaction"></a><code>addTransaction()</code></h3>
 
 
 
@@ -137,9 +128,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-<h3><a class="anchor" name="transaction" href="#transaction"></a><code>transaction(fn)</code>
-  
-</h3>
+<h3><a class="anchor" name="transaction" href="#transaction"></a><code>transaction(fn)</code></h3>
 
 
 
@@ -169,9 +158,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="readTransaction" href="#readTransaction"></a><code>readTransaction(fn)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="readTransaction" href="#readTransaction"></a><code>readTransaction(fn)</code></h3>
 
 
 
@@ -199,9 +186,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="startNextTransaction" href="#startNextTransaction"></a><code>startNextTransaction()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startNextTransaction" href="#startNextTransaction"></a><code>startNextTransaction()</code></h3>
 
 
 
@@ -209,9 +194,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 
@@ -220,9 +203,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code></h3>
 
 
 
@@ -230,9 +211,7 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
 
 
 
-<h3><a class="anchor" name="executeSql" href="#executeSql"></a><code>executeSql()</code>
-  
-</h3>
+<h3><a class="anchor" name="executeSql" href="#executeSql"></a><code>executeSql()</code></h3>
 
 
 Execute SQL on the opened database. Note, you must call `openDatabase` first, and
@@ -240,9 +219,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-<h3><a class="anchor" name="addStatement" href="#addStatement"></a><code>addStatement(sql,&nbsp;values)</code>
-  
-</h3>
+<h3><a class="anchor" name="addStatement" href="#addStatement"></a><code>addStatement(sql,&nbsp;values)</code></h3>
 
 
 
@@ -280,9 +257,7 @@ ensure it resolved and successfully opened the database.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="sqlBatch" href="#sqlBatch"></a><code>sqlBatch(sqlStatements)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="sqlBatch" href="#sqlBatch"></a><code>sqlBatch(sqlStatements)</code></h3>
 
 
 
@@ -310,9 +285,7 @@ ensure it resolved and successfully opened the database.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="abortallPendingTransactions" href="#abortallPendingTransactions"></a><code>abortallPendingTransactions()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="abortallPendingTransactions" href="#abortallPendingTransactions"></a><code>abortallPendingTransactions()</code></h3>
 
 
 
@@ -320,48 +293,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-<h3><a class="anchor" name="handleStatementSuccess" href="#handleStatementSuccess"></a><code>handleStatementSuccess(handler,&nbsp;response)</code>
-  
-</h3>
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      handler</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      response</td>
-    <td>
-      
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<h3><a class="anchor" name="handleStatementFailure" href="#handleStatementFailure"></a><code>handleStatementFailure(handler,&nbsp;response)</code>
-  
-</h3>
+<h3><a class="anchor" name="handleStatementSuccess" href="#handleStatementSuccess"></a><code>handleStatementSuccess(handler,&nbsp;response)</code></h3>
 
 
 
@@ -398,9 +330,44 @@ ensure it resolved and successfully opened the database.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="run" href="#run"></a><code>run()</code>
+<h3><a class="anchor" name="handleStatementFailure" href="#handleStatementFailure"></a><code>handleStatementFailure(handler,&nbsp;response)</code></h3>
+
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      handler</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
   
-</h3>
+  <tr>
+    <td>
+      response</td>
+    <td>
+      
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3><a class="anchor" name="run" href="#run"></a><code>run()</code></h3>
 
 
 
@@ -408,9 +375,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-<h3><a class="anchor" name="abort" href="#abort"></a><code>abort(txFailure)</code>
-  
-</h3>
+<h3><a class="anchor" name="abort" href="#abort"></a><code>abort(txFailure)</code></h3>
 
 
 
@@ -437,9 +402,7 @@ ensure it resolved and successfully opened the database.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code>
-  
-</h3>
+<h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code></h3>
 
 
 
@@ -447,9 +410,7 @@ ensure it resolved and successfully opened the database.
 
 
 
-<h3><a class="anchor" name="abortFromQ" href="#abortFromQ"></a><code>abortFromQ(sqlerror)</code>
-  
-</h3>
+<h3><a class="anchor" name="abortFromQ" href="#abortFromQ"></a><code>abortFromQ(sqlerror)</code></h3>
 
 
 
@@ -476,9 +437,7 @@ ensure it resolved and successfully opened the database.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="echoTest" href="#echoTest"></a><code>echoTest()</code>
-  
-</h3>
+<h3><a class="anchor" name="echoTest" href="#echoTest"></a><code>echoTest()</code></h3>
 
 
 
@@ -487,9 +446,7 @@ ensure it resolved and successfully opened the database.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="deleteDatabase" href="#deleteDatabase"></a><code>deleteDatabase(first)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deleteDatabase" href="#deleteDatabase"></a><code>deleteDatabase(first)</code></h3>
 
 
 

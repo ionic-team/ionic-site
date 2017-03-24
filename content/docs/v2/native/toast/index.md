@@ -9,18 +9,15 @@ title: "Toast"
 header_sub_title: "Class in module "
 doc: "Toast"
 docType: "class"
----<h1 class="api-title">
-  
-  Toast
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Toast</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/toast/index.ts#L36">
   Improve this doc
 </a>
+
+
 
 
 
@@ -73,9 +70,7 @@ this.toast.show(&quot;I&#39;m a toast&quot;, &#39;5000&#39;, &#39;center&#39;).s
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show(message,&nbsp;duration,&nbsp;position)</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(message,&nbsp;duration,&nbsp;position)</code></h3>
 
 
 
@@ -129,9 +124,7 @@ Show a native toast for the given duration at the specified position.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 Manually hide any currently visible toast.
@@ -140,9 +133,7 @@ Manually hide any currently visible toast.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves on success.
-</div><h3><a class="anchor" name="showWithOptions" href="#showWithOptions"></a><code>showWithOptions(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showWithOptions" href="#showWithOptions"></a><code>showWithOptions(options)</code></h3>
 
 
 
@@ -178,9 +169,7 @@ Show a native toast with the given options.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showShortTop" href="#showShortTop"></a><code>showShortTop(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showShortTop" href="#showShortTop"></a><code>showShortTop(message)</code></h3>
 
 
 
@@ -210,9 +199,7 @@ Shorthand for `show(message, 'short', 'top')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showShortCenter" href="#showShortCenter"></a><code>showShortCenter(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showShortCenter" href="#showShortCenter"></a><code>showShortCenter(message)</code></h3>
 
 
 
@@ -242,9 +229,7 @@ Shorthand for `show(message, 'short', 'center')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showShortBottom" href="#showShortBottom"></a><code>showShortBottom(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showShortBottom" href="#showShortBottom"></a><code>showShortBottom(message)</code></h3>
 
 
 
@@ -274,9 +259,7 @@ Shorthand for `show(message, 'short', 'bottom')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showLongTop" href="#showLongTop"></a><code>showLongTop(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showLongTop" href="#showLongTop"></a><code>showLongTop(message)</code></h3>
 
 
 
@@ -306,9 +289,7 @@ Shorthand for `show(message, 'long', 'top')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showLongCenter" href="#showLongCenter"></a><code>showLongCenter(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showLongCenter" href="#showLongCenter"></a><code>showLongCenter(message)</code></h3>
 
 
 
@@ -338,9 +319,7 @@ Shorthand for `show(message, 'long', 'center')`.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies first on success and then when tapped, rejects on error.
-</div><h3><a class="anchor" name="showLongBottom" href="#showLongBottom"></a><code>showLongBottom(message)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showLongBottom" href="#showLongBottom"></a><code>showLongBottom(message)</code></h3>
 
 
 

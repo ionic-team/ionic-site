@@ -9,18 +9,15 @@ title: "HTTP"
 header_sub_title: "Class in module "
 doc: "HTTP"
 docType: "class"
----<h1 class="api-title">
-  
-  HTTP
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">HTTP</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/http/index.ts#L20">
   Improve this doc
 </a>
+
+
 
 
 
@@ -87,9 +84,7 @@ this.http.get(&#39;http://ionic.io&#39;, {}, {})
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getBasicAuthHeader" href="#getBasicAuthHeader"></a><code>getBasicAuthHeader(username,&nbsp;password)</code>
-  
-</h3>
+<h3><a class="anchor" name="getBasicAuthHeader" href="#getBasicAuthHeader"></a><code>getBasicAuthHeader(username,&nbsp;password)</code></h3>
 
 
 
@@ -131,9 +126,7 @@ This returns an object representing a basic HTTP Authorization header of the for
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Object</code> an object representing a basic HTTP Authorization header of the form {'Authorization': 'Basic base64encodedusernameandpassword'}
-</div><h3><a class="anchor" name="useBasicAuth" href="#useBasicAuth"></a><code>useBasicAuth(username,&nbsp;password)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="useBasicAuth" href="#useBasicAuth"></a><code>useBasicAuth(username,&nbsp;password)</code></h3>
 
 
 
@@ -172,9 +165,7 @@ This sets up all future requests to use Basic HTTP authentication with the given
   </tbody>
 </table>
 
-<h3><a class="anchor" name="setHeader" href="#setHeader"></a><code>setHeader(header,&nbsp;value)</code>
-  
-</h3>
+<h3><a class="anchor" name="setHeader" href="#setHeader"></a><code>setHeader(header,&nbsp;value)</code></h3>
 
 
 
@@ -213,9 +204,7 @@ Set a header for all future requests. Takes a header and a value.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="enableSSLPinning" href="#enableSSLPinning"></a><code>enableSSLPinning(enable)</code>
-  
-</h3>
+<h3><a class="anchor" name="enableSSLPinning" href="#enableSSLPinning"></a><code>enableSSLPinning(enable)</code></h3>
 
 
 Enable or disable SSL Pinning. This defaults to false.
@@ -248,9 +237,7 @@ As an alternative, you can store your .cer files in the www/certificates folder.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="acceptAllCerts" href="#acceptAllCerts"></a><code>acceptAllCerts(accept)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="acceptAllCerts" href="#acceptAllCerts"></a><code>acceptAllCerts(accept)</code></h3>
 
 
 Accept all SSL certificates. Or disabled accepting all certificates. Defaults to false.
@@ -279,9 +266,7 @@ Accept all SSL certificates. Or disabled accepting all certificates. Defaults to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="validateDomainName" href="#validateDomainName"></a><code>validateDomainName(validate)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="validateDomainName" href="#validateDomainName"></a><code>validateDomainName(validate)</code></h3>
 
 
 Whether or not to validate the domain name in the certificate. This defaults to true.
@@ -310,9 +295,7 @@ Whether or not to validate the domain name in the certificate. This defaults to 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> returns a promise that will resolve on success, and reject on failure
-</div><h3><a class="anchor" name="post" href="#post"></a><code>post(url,&nbsp;body,&nbsp;headers)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="post" href="#post"></a><code>post(url,&nbsp;body,&nbsp;headers)</code></h3>
 
 
 Make a POST request
@@ -363,9 +346,7 @@ Make a POST request
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
-</div><h3><a class="anchor" name="get" href="#get"></a><code>get(url,&nbsp;parameters,&nbsp;headers)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="get" href="#get"></a><code>get(url,&nbsp;parameters,&nbsp;headers)</code></h3>
 
 
 
@@ -416,9 +397,7 @@ Make a POST request
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
-</div><h3><a class="anchor" name="uploadFile" href="#uploadFile"></a><code>uploadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath,&nbsp;name)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="uploadFile" href="#uploadFile"></a><code>uploadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath,&nbsp;name)</code></h3>
 
 
 
@@ -491,9 +470,7 @@ Make a POST request
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HTTPResponse&gt;</code> returns a promise that resolve on success, and reject on failure
-</div><h3><a class="anchor" name="downloadFile" href="#downloadFile"></a><code>downloadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="downloadFile" href="#downloadFile"></a><code>downloadFile(url,&nbsp;body,&nbsp;headers,&nbsp;filePath)</code></h3>
 
 
 

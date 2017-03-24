@@ -9,18 +9,15 @@ title: "Background Mode"
 header_sub_title: "Class in module "
 doc: "Background Mode"
 docType: "class"
----<h1 class="api-title">
-  
-  Background Mode
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Background Mode</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L35">
   Improve this doc
 </a>
+
+
 
 
 
@@ -69,9 +66,7 @@ this.backgroundMode.enable();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code>
-  
-</h3>
+<h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code></h3>
 
 
 
@@ -81,9 +76,7 @@ Once called, prevents the app from being paused while in background.
 
 
 
-<h3><a class="anchor" name="disable" href="#disable"></a><code>disable()</code>
-  
-</h3>
+<h3><a class="anchor" name="disable" href="#disable"></a><code>disable()</code></h3>
 
 
 Disable the background mode.
@@ -91,9 +84,7 @@ Once the background mode has been disabled, the app will be paused when in backg
 
 
 
-<h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code>
-  
-</h3>
+<h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code></h3>
 
 
 
@@ -104,9 +95,7 @@ Checks if background mode is enabled or not.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> returns a boolean that indicates if the background mode is enabled.
-</div><h3><a class="anchor" name="isActive" href="#isActive"></a><code>isActive()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isActive" href="#isActive"></a><code>isActive()</code></h3>
 
 
 
@@ -117,9 +106,7 @@ Can be used to get the information if the background mode is active.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>boolean</code> returns a boolean that indicates if the background mode is active.
-</div><h3><a class="anchor" name="setDefaults" href="#setDefaults"></a><code>setDefaults(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setDefaults" href="#setDefaults"></a><code>setDefaults(options)</code></h3>
 
 
 
@@ -151,9 +138,7 @@ Available only for Android platform.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
 
 
@@ -185,9 +170,7 @@ Available only for Android platform.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code>
-  
-</h3>
+<h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
 
 
 
@@ -218,9 +201,7 @@ Listen for events that the plugin fires. Available events are `enable`, `disable
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="moveToBackground" href="#moveToBackground"></a><code>moveToBackground()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="moveToBackground" href="#moveToBackground"></a><code>moveToBackground()</code></h3>
 
 
 
@@ -232,9 +213,7 @@ Android allows to programmatically move from foreground to background.
 
 
 
-<h3><a class="anchor" name="moveToForeground" href="#moveToForeground"></a><code>moveToForeground()</code>
-  
-</h3>
+<h3><a class="anchor" name="moveToForeground" href="#moveToForeground"></a><code>moveToForeground()</code></h3>
 
 
 
@@ -246,9 +225,7 @@ Android allows to programmatically move from background to foreground.
 
 
 
-<h3><a class="anchor" name="overrideBackButton" href="#overrideBackButton"></a><code>overrideBackButton()</code>
-  
-</h3>
+<h3><a class="anchor" name="overrideBackButton" href="#overrideBackButton"></a><code>overrideBackButton()</code></h3>
 
 
 
@@ -260,9 +237,7 @@ Override the back button on Android to go to background instead of closing the a
 
 
 
-<h3><a class="anchor" name="excludeFromTaskList" href="#excludeFromTaskList"></a><code>excludeFromTaskList()</code>
-  
-</h3>
+<h3><a class="anchor" name="excludeFromTaskList" href="#excludeFromTaskList"></a><code>excludeFromTaskList()</code></h3>
 
 
 
@@ -274,9 +249,7 @@ Exclude the app from the recent task list works on Android 5.0+.
 
 
 
-<h3><a class="anchor" name="isScreenOff" href="#isScreenOff"></a><code>isScreenOff()</code>
-  
-</h3>
+<h3><a class="anchor" name="isScreenOff" href="#isScreenOff"></a><code>isScreenOff()</code></h3>
 
 
 
@@ -288,9 +261,7 @@ The method works async instead of isActive() or isEnabled().
 
 
 
-<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code>
-  
-</h3>
+<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
 
 
 
@@ -302,9 +273,7 @@ Turn screen on
 
 
 
-<h3><a class="anchor" name="unlock" href="#unlock"></a><code>unlock()</code>
-  
-</h3>
+<h3><a class="anchor" name="unlock" href="#unlock"></a><code>unlock()</code></h3>
 
 
 

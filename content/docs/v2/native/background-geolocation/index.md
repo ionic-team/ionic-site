@@ -9,18 +9,15 @@ title: "Background Geolocation"
 header_sub_title: "Class in module "
 doc: "Background Geolocation"
 docType: "class"
----<h1 class="api-title">
-  
-  Background Geolocation
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Background Geolocation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-geolocation/index.ts#L289">
   Improve this doc
 </a>
+
+
 
 
 
@@ -94,9 +91,7 @@ this.backgroundGeolocation.stop();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="LocationProvider" href="#LocationProvider"></a><code>LocationProvider()</code>
-  
-</h3>
+<h3><a class="anchor" name="LocationProvider" href="#LocationProvider"></a><code>LocationProvider</code></h3>
 
 Set location service provider @see https://github.com/mauron85/cordova-plugin-background-geolocation/wiki/Android-providers 
 
@@ -106,9 +101,7 @@ Possible values:
 
 
 
-<h3><a class="anchor" name="Accuracy" href="#Accuracy"></a><code>Accuracy()</code>
-  
-</h3>
+<h3><a class="anchor" name="Accuracy" href="#Accuracy"></a><code>Accuracy</code></h3>
 
 Desired accuracy in meters. Possible values [0, 10, 100, 1000]. 
 The lower the number, the more power devoted to GeoLocation resulting in higher accuracy readings. 
@@ -124,9 +117,7 @@ enum {number}
 
 
 
-<h3><a class="anchor" name="Mode" href="#Mode"></a><code>Mode()</code>
-  
-</h3>
+<h3><a class="anchor" name="Mode" href="#Mode"></a><code>Mode</code></h3>
 
 Used in the switchMode function 
 
@@ -136,9 +127,7 @@ Possible values:
 
 
 
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
 
 
@@ -170,9 +159,7 @@ Configure the plugin.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;BackgroundGeolocationResponse&gt;</code> 
-</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code></h3>
 
 
 Turn ON the background-geolocation system.
@@ -182,9 +169,7 @@ The user will be tracked whenever they suspend the app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code></h3>
 
 
 Turn OFF background-tracking
@@ -193,9 +178,7 @@ Turn OFF background-tracking
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code></h3>
 
 
 
@@ -209,9 +192,7 @@ Inform the native plugin that you're finished, the background-task may be comple
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="changePace" href="#changePace"></a><code>changePace(isMoving)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="changePace" href="#changePace"></a><code>changePace(isMoving)</code></h3>
 
 
 
@@ -244,9 +225,7 @@ Force the plugin to enter "moving" or "stationary" state
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setConfig" href="#setConfig"></a><code>setConfig(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setConfig" href="#setConfig"></a><code>setConfig(options)</code></h3>
 
 
 
@@ -276,9 +255,7 @@ Setup configuration
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getStationaryLocation" href="#getStationaryLocation"></a><code>getStationaryLocation()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getStationaryLocation" href="#getStationaryLocation"></a><code>getStationaryLocation()</code></h3>
 
 
 
@@ -292,9 +269,7 @@ Returns current stationaryLocation if available. null if not
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Location&gt;</code> 
-</div><h3><a class="anchor" name="onStationary" href="#onStationary"></a><code>onStationary()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onStationary" href="#onStationary"></a><code>onStationary()</code></h3>
 
 
 
@@ -309,9 +284,7 @@ your #success callback will be executed with #location param containing #radius 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isLocationEnabled" href="#isLocationEnabled"></a><code>isLocationEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isLocationEnabled" href="#isLocationEnabled"></a><code>isLocationEnabled()</code></h3>
 
 
 
@@ -325,9 +298,7 @@ Check if location is enabled on the device
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise with int argument that takes values 0, 1 (true).
-</div><h3><a class="anchor" name="showAppSettings" href="#showAppSettings"></a><code>showAppSettings()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showAppSettings" href="#showAppSettings"></a><code>showAppSettings()</code></h3>
 
 
 
@@ -336,9 +307,7 @@ Display app settings to change permissions
 
 
 
-<h3><a class="anchor" name="showLocationSettings" href="#showLocationSettings"></a><code>showLocationSettings()</code>
-  
-</h3>
+<h3><a class="anchor" name="showLocationSettings" href="#showLocationSettings"></a><code>showLocationSettings()</code></h3>
 
 
 
@@ -347,9 +316,7 @@ Display device location settings
 
 
 
-<h3><a class="anchor" name="watchLocationMode" href="#watchLocationMode"></a><code>watchLocationMode()</code>
-  
-</h3>
+<h3><a class="anchor" name="watchLocationMode" href="#watchLocationMode"></a><code>watchLocationMode()</code></h3>
 
 
 
@@ -365,9 +332,7 @@ In case or error (SettingNotFoundException) fail callback will be executed.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="stopWatchingLocationMode" href="#stopWatchingLocationMode"></a><code>stopWatchingLocationMode()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopWatchingLocationMode" href="#stopWatchingLocationMode"></a><code>stopWatchingLocationMode()</code></h3>
 
 
 
@@ -381,9 +346,7 @@ Stop watching for location mode changes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getLocations" href="#getLocations"></a><code>getLocations()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getLocations" href="#getLocations"></a><code>getLocations()</code></h3>
 
 
 
@@ -402,9 +365,7 @@ Locations are stored when:
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getValidLocations" href="#getValidLocations"></a><code>getValidLocations()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getValidLocations" href="#getValidLocations"></a><code>getValidLocations()</code></h3>
 
 
 Method will return locations, which has not been yet posted to server. NOTE: Locations does contain locationId. 
@@ -413,9 +374,7 @@ Method will return locations, which has not been yet posted to server. NOTE: Loc
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="deleteLocation" href="#deleteLocation"></a><code>deleteLocation(locationId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deleteLocation" href="#deleteLocation"></a><code>deleteLocation(locationId)</code></h3>
 
 
 
@@ -448,9 +407,7 @@ Delete stored location by given locationId.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="deleteAllLocations" href="#deleteAllLocations"></a><code>deleteAllLocations()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="deleteAllLocations" href="#deleteAllLocations"></a><code>deleteAllLocations()</code></h3>
 
 
 
@@ -464,9 +421,7 @@ Delete all stored locations.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="switchMode" href="#switchMode"></a><code>switchMode(modeId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="switchMode" href="#switchMode"></a><code>switchMode(modeId)</code></h3>
 
 
 
@@ -507,9 +462,7 @@ BackgroundGeolocation.Mode.BACKGROUND 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getLogEntries" href="#getLogEntries"></a><code>getLogEntries()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getLogEntries" href="#getLogEntries"></a><code>getLogEntries()</code></h3>
 
 
 Return all logged events. Useful for plugin debugging. Parameter limit limits number of returned entries. 

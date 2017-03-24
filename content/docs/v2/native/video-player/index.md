@@ -9,18 +9,15 @@ title: "Video Player"
 header_sub_title: "Class in module "
 doc: "Video Player"
 docType: "class"
----<h1 class="api-title">
-  
-  Video Player
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Video Player</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/video-player/index.ts#L17">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,9 +71,7 @@ this.videoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="play" href="#play"></a><code>play(fileUrl,&nbsp;options)</code>
-  
-</h3>
+<h3><a class="anchor" name="play" href="#play"></a><code>play(fileUrl,&nbsp;options)</code></h3>
 
 
 Plays the video from the passed url.
@@ -116,9 +111,7 @@ Plays the video from the passed url.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the video was played successfully.
-</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
 
 

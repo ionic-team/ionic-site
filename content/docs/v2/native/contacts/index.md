@@ -9,18 +9,15 @@ title: "Contacts"
 header_sub_title: "Class in module "
 doc: "Contacts"
 docType: "class"
----<h1 class="api-title">
-  
-  Contacts
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Contacts</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L249">
   Improve this doc
 </a>
+
+
 
 
 
@@ -68,9 +65,7 @@ contact.save().then(
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create()</code>
-  
-</h3>
+<h3><a class="anchor" name="create" href="#create"></a><code>create()</code></h3>
 
 Create a single contact.
 
@@ -78,9 +73,7 @@ Create a single contact.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Contact</code> Returns a Contact object
-</div><h3><a class="anchor" name="find" href="#find"></a><code>find(fields,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="find" href="#find"></a><code>find(fields,&nbsp;options)</code></h3>
 
 Search for contacts in the Contacts list.
 <table class="table param-table" style="margin:0;">
@@ -119,9 +112,7 @@ Search for contacts in the Contacts list.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
-</div><h3><a class="anchor" name="pickContact" href="#pickContact"></a><code>pickContact()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="pickContact" href="#pickContact"></a><code>pickContact()</code></h3>
 
 Select a single Contact.
 
@@ -137,136 +128,102 @@ Select a single Contact.
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="id" href="#id"></a><code>id()</code>
-  
-</h3>
+<h3><a class="anchor" name="id" href="#id"></a><code>id()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="displayName" href="#displayName"></a><code>displayName()</code>
-  
-</h3>
+<h3><a class="anchor" name="displayName" href="#displayName"></a><code>displayName()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="name" href="#name"></a><code>name()</code>
-  
-</h3>
+<h3><a class="anchor" name="name" href="#name"></a><code>name()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="nickname" href="#nickname"></a><code>nickname()</code>
-  
-</h3>
+<h3><a class="anchor" name="nickname" href="#nickname"></a><code>nickname()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="phoneNumbers" href="#phoneNumbers"></a><code>phoneNumbers()</code>
-  
-</h3>
+<h3><a class="anchor" name="phoneNumbers" href="#phoneNumbers"></a><code>phoneNumbers()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="emails" href="#emails"></a><code>emails()</code>
-  
-</h3>
+<h3><a class="anchor" name="emails" href="#emails"></a><code>emails()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="addresses" href="#addresses"></a><code>addresses()</code>
-  
-</h3>
+<h3><a class="anchor" name="addresses" href="#addresses"></a><code>addresses()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="ims" href="#ims"></a><code>ims()</code>
-  
-</h3>
+<h3><a class="anchor" name="ims" href="#ims"></a><code>ims()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="organizations" href="#organizations"></a><code>organizations()</code>
-  
-</h3>
+<h3><a class="anchor" name="organizations" href="#organizations"></a><code>organizations()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="birthday" href="#birthday"></a><code>birthday()</code>
-  
-</h3>
+<h3><a class="anchor" name="birthday" href="#birthday"></a><code>birthday()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="note" href="#note"></a><code>note()</code>
-  
-</h3>
+<h3><a class="anchor" name="note" href="#note"></a><code>note()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="photos" href="#photos"></a><code>photos()</code>
-  
-</h3>
+<h3><a class="anchor" name="photos" href="#photos"></a><code>photos()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="categories" href="#categories"></a><code>categories()</code>
-  
-</h3>
+<h3><a class="anchor" name="categories" href="#categories"></a><code>categories()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="urls" href="#urls"></a><code>urls()</code>
-  
-</h3>
+<h3><a class="anchor" name="urls" href="#urls"></a><code>urls()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="clone" href="#clone"></a><code>clone()</code>
-  
-</h3>
+<h3><a class="anchor" name="clone" href="#clone"></a><code>clone()</code></h3>
 
 
 
 
-<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code>
-  
-</h3>
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
 
 
 
-<h3><a class="anchor" name="save" href="#save"></a><code>save()</code>
-  
-</h3>
+<h3><a class="anchor" name="save" href="#save"></a><code>save()</code></h3>
 
 
 

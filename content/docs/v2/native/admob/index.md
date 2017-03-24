@@ -9,18 +9,15 @@ title: "AdMob"
 header_sub_title: "Class in module "
 doc: "AdMob"
 docType: "class"
----<h1 class="api-title">
-  
-  AdMob
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">AdMob</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L84">
   Improve this doc
 </a>
+
+
 
 
 
@@ -74,16 +71,12 @@ onClick() {
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="AD_POSITION" href="#AD_POSITION"></a><code>AD_POSITION()</code>
-  
-</h3>
+<h3><a class="anchor" name="AD_POSITION" href="#AD_POSITION"></a><code>AD_POSITION</code></h3>
 
 
 
 
-<h3><a class="anchor" name="createBanner" href="#createBanner"></a><code>createBanner(adIdOrOptions)</code>
-  
-</h3>
+<h3><a class="anchor" name="createBanner" href="#createBanner"></a><code>createBanner(adIdOrOptions)</code></h3>
 
 
 Create a banner
@@ -112,9 +105,7 @@ Create a banner
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the banner is created
-</div><h3><a class="anchor" name="removeBanner" href="#removeBanner"></a><code>removeBanner()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="removeBanner" href="#removeBanner"></a><code>removeBanner()</code></h3>
 
 
 
@@ -123,9 +114,7 @@ Destroy the banner, remove it from screen.
 
 
 
-<h3><a class="anchor" name="showBanner" href="#showBanner"></a><code>showBanner(position)</code>
-  
-</h3>
+<h3><a class="anchor" name="showBanner" href="#showBanner"></a><code>showBanner(position)</code></h3>
 
 
 
@@ -153,9 +142,7 @@ Show banner at position
   </tbody>
 </table>
 
-<h3><a class="anchor" name="showBannerAtXY" href="#showBannerAtXY"></a><code>showBannerAtXY(x,&nbsp;y)</code>
-  
-</h3>
+<h3><a class="anchor" name="showBannerAtXY" href="#showBannerAtXY"></a><code>showBannerAtXY(x,&nbsp;y)</code></h3>
 
 
 
@@ -194,9 +181,7 @@ Show banner at custom position
   </tbody>
 </table>
 
-<h3><a class="anchor" name="hideBanner" href="#hideBanner"></a><code>hideBanner()</code>
-  
-</h3>
+<h3><a class="anchor" name="hideBanner" href="#hideBanner"></a><code>hideBanner()</code></h3>
 
 
 
@@ -205,9 +190,7 @@ Hide the banner, remove it from screen, but can show it later
 
 
 
-<h3><a class="anchor" name="prepareInterstitial" href="#prepareInterstitial"></a><code>prepareInterstitial(adIdOrOptions)</code>
-  
-</h3>
+<h3><a class="anchor" name="prepareInterstitial" href="#prepareInterstitial"></a><code>prepareInterstitial(adIdOrOptions)</code></h3>
 
 
 Prepare interstitial banner
@@ -236,9 +219,7 @@ Prepare interstitial banner
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when interstitial is prepared
-</div><h3><a class="anchor" name="showInterstitial" href="#showInterstitial"></a><code>showInterstitial()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showInterstitial" href="#showInterstitial"></a><code>showInterstitial()</code></h3>
 
 
 
@@ -247,9 +228,7 @@ Show interstitial ad when it's ready
 
 
 
-<h3><a class="anchor" name="prepareRewardVideoAd" href="#prepareRewardVideoAd"></a><code>prepareRewardVideoAd(adIdOrOptions)</code>
-  
-</h3>
+<h3><a class="anchor" name="prepareRewardVideoAd" href="#prepareRewardVideoAd"></a><code>prepareRewardVideoAd(adIdOrOptions)</code></h3>
 
 
 Prepare a reward video ad
@@ -278,9 +257,7 @@ Prepare a reward video ad
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the ad is prepared
-</div><h3><a class="anchor" name="showRewardVideoAd" href="#showRewardVideoAd"></a><code>showRewardVideoAd()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showRewardVideoAd" href="#showRewardVideoAd"></a><code>showRewardVideoAd()</code></h3>
 
 
 
@@ -289,9 +266,7 @@ Show a reward video ad
 
 
 
-<h3><a class="anchor" name="setOptions" href="#setOptions"></a><code>setOptions(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="setOptions" href="#setOptions"></a><code>setOptions(options)</code></h3>
 
 
 Sets the values for configuration and targeting
@@ -320,9 +295,7 @@ Sets the values for configuration and targeting
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the options have been set
-</div><h3><a class="anchor" name="getAdSettings" href="#getAdSettings"></a><code>getAdSettings()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getAdSettings" href="#getAdSettings"></a><code>getAdSettings()</code></h3>
 
 
 Get user ad settings
@@ -331,9 +304,7 @@ Get user ad settings
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves with the ad settings
-</div><h3><a class="anchor" name="onAdFailLoad" href="#onAdFailLoad"></a><code>onAdFailLoad()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onAdFailLoad" href="#onAdFailLoad"></a><code>onAdFailLoad()</code></h3>
 
 
 
@@ -344,9 +315,7 @@ Triggered when failed to receive Ad
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onAdLoaded" href="#onAdLoaded"></a><code>onAdLoaded()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onAdLoaded" href="#onAdLoaded"></a><code>onAdLoaded()</code></h3>
 
 
 
@@ -357,9 +326,7 @@ Triggered when Ad received
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onAdPresent" href="#onAdPresent"></a><code>onAdPresent()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onAdPresent" href="#onAdPresent"></a><code>onAdPresent()</code></h3>
 
 
 
@@ -370,9 +337,7 @@ Triggered when Ad will be showed on screen
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onAdLeaveApp" href="#onAdLeaveApp"></a><code>onAdLeaveApp()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onAdLeaveApp" href="#onAdLeaveApp"></a><code>onAdLeaveApp()</code></h3>
 
 
 
@@ -383,9 +348,7 @@ Triggered when user click the Ad, and will jump out of your App
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onAdDismiss" href="#onAdDismiss"></a><code>onAdDismiss()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="onAdDismiss" href="#onAdDismiss"></a><code>onAdDismiss()</code></h3>
 
 
 

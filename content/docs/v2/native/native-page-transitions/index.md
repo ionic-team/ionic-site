@@ -9,18 +9,15 @@ title: "Native Page Transitions"
 header_sub_title: "Class in module "
 doc: "Native Page Transitions"
 docType: "class"
----<h1 class="api-title">
-  
-  Native Page Transitions
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Native Page Transitions</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-page-transitions/index.ts#L16">
   Improve this doc
 </a>
+
+
 
 
 
@@ -82,9 +79,7 @@ this.nativePageTransitions.slide(options)
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="slide" href="#slide"></a><code>slide(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="slide" href="#slide"></a><code>slide(options)</code></h3>
 
 
 Perform a slide animation
@@ -113,9 +108,7 @@ Perform a slide animation
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="flip" href="#flip"></a><code>flip(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="flip" href="#flip"></a><code>flip(options)</code></h3>
 
 
 Perform a flip animation
@@ -144,9 +137,7 @@ Perform a flip animation
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="fade" href="#fade"></a><code>fade(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="fade" href="#fade"></a><code>fade(options)</code></h3>
 
 
 
@@ -180,9 +171,7 @@ Perform a fade animation
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="drawer" href="#drawer"></a><code>drawer(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="drawer" href="#drawer"></a><code>drawer(options)</code></h3>
 
 
 
@@ -216,9 +205,7 @@ Perform a slide animation
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="curl" href="#curl"></a><code>curl(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="curl" href="#curl"></a><code>curl(options)</code></h3>
 
 
 

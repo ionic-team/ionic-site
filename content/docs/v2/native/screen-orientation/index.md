@@ -9,18 +9,15 @@ title: "Screen Orientation"
 header_sub_title: "Class in module "
 doc: "Screen Orientation"
 docType: "class"
----<h1 class="api-title">
-  
-  Screen Orientation
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Screen Orientation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screen-orientation/index.ts#L4">
   Improve this doc
 </a>
+
+
 
 
 
@@ -78,17 +75,13 @@ this.screenOrientation.unlock();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="ORIENTATIONS" href="#ORIENTATIONS"></a><code>ORIENTATIONS()</code>
-  
-</h3>
+<h3><a class="anchor" name="ORIENTATIONS" href="#ORIENTATIONS"></a><code>ORIENTATIONS</code></h3>
 
 Convenience enum for possible orientations
 
 
 
-<h3><a class="anchor" name="onChange" href="#onChange"></a><code>onChange()</code>
-  
-</h3>
+<h3><a class="anchor" name="onChange" href="#onChange"></a><code>onChange()</code></h3>
 
 
 
@@ -99,9 +92,7 @@ Listen to orientation change event
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="lock" href="#lock"></a><code>lock(orientation)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="lock" href="#lock"></a><code>lock(orientation)</code></h3>
 
 
 
@@ -133,9 +124,7 @@ See below for accepted values
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="unlock" href="#unlock"></a><code>unlock()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="unlock" href="#unlock"></a><code>unlock()</code></h3>
 
 
 
@@ -144,9 +133,7 @@ Unlock and allow all orientations.
 
 
 
-<h3><a class="anchor" name="type" href="#type"></a><code>type()</code>
-  
-</h3>
+<h3><a class="anchor" name="type" href="#type"></a><code>type</code></h3>
 
 
 Get the current orientation of the device.

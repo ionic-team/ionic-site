@@ -9,18 +9,15 @@ title: "Brightness"
 header_sub_title: "Class in module "
 doc: "Brightness"
 docType: "class"
----<h1 class="api-title">
-  
-  Brightness
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Brightness</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/brightness/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -70,9 +67,7 @@ this.brightness.setBrightness(brightnessValue);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="setBrightness" href="#setBrightness"></a><code>setBrightness(Floating)</code>
-  
-</h3>
+<h3><a class="anchor" name="setBrightness" href="#setBrightness"></a><code>setBrightness(Floating)</code></h3>
 
 
 Sets the brightness of the display.
@@ -102,9 +97,7 @@ Sets the brightness of the display.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if setting brightness was successful.
-</div><h3><a class="anchor" name="getBrightness" href="#getBrightness"></a><code>getBrightness()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="getBrightness" href="#getBrightness"></a><code>getBrightness()</code></h3>
 
 
 Reads the current brightness of the device display.
@@ -115,9 +108,7 @@ Reads the current brightness of the device display.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
-</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn()</code></h3>
 
 
 Keeps the screen on. Prevents the device from setting the screen to sleep.

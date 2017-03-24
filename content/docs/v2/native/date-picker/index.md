@@ -9,18 +9,15 @@ title: "Date Picker"
 header_sub_title: "Class in module "
 doc: "Date Picker"
 docType: "class"
----<h1 class="api-title">
-  
-  Date Picker
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Date Picker</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/date-picker/index.ts#L119">
   Improve this doc
 </a>
+
+
 
 
 
@@ -77,9 +74,7 @@ this.datePicker.show({
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
-  
-</h3>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
 
 
 Shows the date and/or time picker dialog(s)

@@ -9,18 +9,15 @@ title: "Native Audio"
 header_sub_title: "Class in module "
 doc: "Native Audio"
 docType: "class"
----<h1 class="api-title">
-  
-  Native Audio
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Native Audio</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-audio/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -77,9 +74,7 @@ this.nativeAudio.unload(&#39;uniqueId1&#39;).then(onSuccess,onError);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="preloadSimple" href="#preloadSimple"></a><code>preloadSimple(id,&nbsp;assetPath)</code>
-  
-</h3>
+<h3><a class="anchor" name="preloadSimple" href="#preloadSimple"></a><code>preloadSimple(id,&nbsp;assetPath)</code></h3>
 
 
 Loads an audio file into memory. Optimized for short clips / single shots (up to five seconds). Cannot be stopped / looped.
@@ -119,9 +114,7 @@ Loads an audio file into memory. Optimized for short clips / single shots (up to
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="preloadComplex" href="#preloadComplex"></a><code>preloadComplex(id,&nbsp;assetPath,&nbsp;volume,&nbsp;voices,&nbsp;delay)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="preloadComplex" href="#preloadComplex"></a><code>preloadComplex(id,&nbsp;assetPath,&nbsp;volume,&nbsp;voices,&nbsp;delay)</code></h3>
 
 
 Loads an audio file into memory. Optimized for background music / ambient sound. Uses highlevel native APIs with a larger footprint. (iOS: AVAudioPlayer). Can be stopped / looped and used with multiple voices. Can be faded in and out using the delay parameter.
@@ -193,9 +186,7 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="play" href="#play"></a><code>play(id,&nbsp;completeCallback)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="play" href="#play"></a><code>play(id,&nbsp;completeCallback)</code></h3>
 
 
 
@@ -237,9 +228,7 @@ Plays an audio asset
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop(id)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop(id)</code></h3>
 
 
 Stops playing an audio
@@ -268,9 +257,7 @@ Stops playing an audio
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="loop" href="#loop"></a><code>loop(id)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="loop" href="#loop"></a><code>loop(id)</code></h3>
 
 
 Loops an audio asset infinitely, this only works for complex assets
@@ -299,9 +286,7 @@ Loops an audio asset infinitely, this only works for complex assets
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="unload" href="#unload"></a><code>unload(id)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="unload" href="#unload"></a><code>unload(id)</code></h3>
 
 
 Unloads an audio file from memory
@@ -330,9 +315,7 @@ Unloads an audio file from memory
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setVolumeForComplexAsset" href="#setVolumeForComplexAsset"></a><code>setVolumeForComplexAsset(id,&nbsp;volume)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="setVolumeForComplexAsset" href="#setVolumeForComplexAsset"></a><code>setVolumeForComplexAsset(id,&nbsp;volume)</code></h3>
 
 
 Changes the volume for preloaded complex assets.

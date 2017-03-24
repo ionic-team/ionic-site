@@ -9,18 +9,15 @@ title: "Market"
 header_sub_title: "Class in module "
 doc: "Market"
 docType: "class"
----<h1 class="api-title">
-  
-  Market
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Market</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/market/index.ts#L1">
   Improve this doc
 </a>
+
+
 
 
 
@@ -63,9 +60,7 @@ this.market.open(&#39;your.package.name&#39;);
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="open" href="#open"></a><code>open(appId)</code>
-  
-</h3>
+<h3><a class="anchor" name="open" href="#open"></a><code>open(appId)</code></h3>
 
 
 
@@ -96,9 +91,7 @@ Opens an app in Google Play / App Store
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="search" href="#search"></a><code>search(keyword)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="search" href="#search"></a><code>search(keyword)</code></h3>
 
 
 

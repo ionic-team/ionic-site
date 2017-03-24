@@ -9,18 +9,15 @@ title: "Safari View Controller"
 header_sub_title: "Class in module "
 doc: "Safari View Controller"
 docType: "class"
----<h1 class="api-title">
-  
-  Safari View Controller
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Safari View Controller</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/safari-view-controller/index.ts#L12">
   Improve this doc
 </a>
+
+
 
 
 
@@ -91,9 +88,7 @@ this.safariViewController.isAvailable()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 Checks if SafariViewController is available
@@ -102,9 +97,7 @@ Checks if SafariViewController is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
 
 
 
@@ -135,18 +128,14 @@ Shows Safari View Controller
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
 
 Hides Safari View Controller
 
 
 
-<h3><a class="anchor" name="connectToService" href="#connectToService"></a><code>connectToService()</code>
-  
-</h3>
+<h3><a class="anchor" name="connectToService" href="#connectToService"></a><code>connectToService()</code></h3>
 
 
 Tries to connect to the  Chrome's custom tabs service. you must call this method before calling any of the other methods listed below.
@@ -155,9 +144,7 @@ Tries to connect to the  Chrome's custom tabs service. you must call this method
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="warmUp" href="#warmUp"></a><code>warmUp()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="warmUp" href="#warmUp"></a><code>warmUp()</code></h3>
 
 
 Call this method whenever there's a chance the user will open an external url.
@@ -166,9 +153,7 @@ Call this method whenever there's a chance the user will open an external url.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="mayLaunchUrl" href="#mayLaunchUrl"></a><code>mayLaunchUrl(url)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="mayLaunchUrl" href="#mayLaunchUrl"></a><code>mayLaunchUrl(url)</code></h3>
 
 
 For even better performance optimization, call this methods if there's more than a 50% chance the user will open a certain URL.

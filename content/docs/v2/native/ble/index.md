@@ -9,18 +9,15 @@ title: "BLE"
 header_sub_title: "Class in module "
 doc: "BLE"
 docType: "class"
----<h1 class="api-title">
-  
-  BLE
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">BLE</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/ble/index.ts#L2">
   Improve this doc
 </a>
+
+
 
 
 
@@ -185,9 +182,7 @@ function bytesToString(buffer) {
 
 
 <h2>Static Members</h2>
-<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code>
-  
-</h3>
+<h3><a class="anchor" name="readRSSI" href="#readRSSI"></a><code>readRSSI(deviceId)</code></h3>
 
 
 Read the RSSI value on the device connection.
@@ -223,9 +218,7 @@ Read the RSSI value on the device connection.
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(services,&nbsp;seconds)</code>
-  
-</h3>
+<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(services,&nbsp;seconds)</code></h3>
 
 
 
@@ -268,9 +261,7 @@ Scan and discover BLE peripherals for the specified amount of time.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral that is discovered during the specified time.
-</div><h3><a class="anchor" name="startScan" href="#startScan"></a><code>startScan(services)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startScan" href="#startScan"></a><code>startScan(services)</code></h3>
 
 
 
@@ -302,9 +293,7 @@ Scan and discover BLE peripherals until `stopScan` is called.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral discovered.
-</div><h3><a class="anchor" name="startScanWithOptions" href="#startScanWithOptions"></a><code>startScanWithOptions(services,&nbsp;options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startScanWithOptions" href="#startScanWithOptions"></a><code>startScanWithOptions(services,&nbsp;options)</code></h3>
 
 
 
@@ -345,9 +334,7 @@ Scans for BLE devices. This function operates similarly to the `startScan` funct
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an Observable that notifies of each peripheral discovered.
-</div><h3><a class="anchor" name="stopScan" href="#stopScan"></a><code>stopScan()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopScan" href="#stopScan"></a><code>stopScan()</code></h3>
 
 
 Stop a scan started by `startScan`.
@@ -358,9 +345,7 @@ Stop a scan started by `startScan`.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  returns a Promise.
 
-</div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(deviceId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(deviceId)</code></h3>
 
 
 
@@ -392,9 +377,7 @@ Connect to a peripheral.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns an Observable that notifies of connect/disconnect.
 
-</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect(deviceId)</code></h3>
 
 
 Disconnect from a peripheral.
@@ -424,9 +407,7 @@ Disconnect from a peripheral.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns a Promise
 
-</div><h3><a class="anchor" name="read" href="#read"></a><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="read" href="#read"></a><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
 Read the value of a characteristic.
@@ -479,9 +460,7 @@ Read the value of a characteristic.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns a Promise
 
-</div><h3><a class="anchor" name="write" href="#write"></a><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="write" href="#write"></a><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
 Write the value of a characteristic.
@@ -544,9 +523,7 @@ Write the value of a characteristic.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns a Promise
 
-</div><h3><a class="anchor" name="writeWithoutResponse" href="#writeWithoutResponse"></a><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="writeWithoutResponse" href="#writeWithoutResponse"></a><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code></h3>
 
 
 Write the value of a characteristic without waiting for confirmation from the peripheral.
@@ -610,9 +587,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns a Promise
 
-</div><h3><a class="anchor" name="startNotification" href="#startNotification"></a><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startNotification" href="#startNotification"></a><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
 
@@ -667,9 +642,7 @@ Register to be notified when the value of a characteristic changes.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Returns an Observable that notifies of characteristic changes.
 
-</div><h3><a class="anchor" name="stopNotification" href="#stopNotification"></a><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopNotification" href="#stopNotification"></a><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code></h3>
 
 
 Stop being notified when the value of a characteristic changes.
@@ -721,9 +694,7 @@ Stop being notified when the value of a characteristic changes.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isConnected" href="#isConnected"></a><code>isConnected(deviceId)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isConnected" href="#isConnected"></a><code>isConnected(deviceId)</code></h3>
 
 
 Report the connection status.
@@ -753,9 +724,7 @@ Report the connection status.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code></h3>
 
 
 Report if bluetooth is enabled.
@@ -765,9 +734,7 @@ Report if bluetooth is enabled.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves if Bluetooth is enabled, and rejects if disabled.
-</div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="showBluetoothSettings" href="#showBluetoothSettings"></a><code>showBluetoothSettings()</code></h3>
 
 
 Open System Bluetooth settings (Android only).
@@ -777,9 +744,7 @@ Open System Bluetooth settings (Android only).
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code></h3>
 
 
 Enable Bluetooth on the device (Android only).

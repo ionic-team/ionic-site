@@ -9,14 +9,9 @@ title: "Health"
 header_sub_title: "Class in module "
 doc: "Health"
 docType: "class"
----<h1 class="api-title">
-  
-  Health
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Health</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L139">
   Improve this doc
@@ -50,9 +45,7 @@ this.health.isAvailable()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
 
 
 
@@ -64,9 +57,7 @@ Tells if either Google Fit or HealthKit are available.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="promptInstallFit" href="#promptInstallFit"></a><code>promptInstallFit()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="promptInstallFit" href="#promptInstallFit"></a><code>promptInstallFit()</code></h3>
 
 
 
@@ -84,9 +75,7 @@ This function is only available on Android.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(datatypes)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(datatypes)</code></h3>
 
 
 Requests read and write access to a set of data types. It is recommendable to always explain why the app
@@ -129,9 +118,7 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAuthorized" href="#isAuthorized"></a><code>isAuthorized(datatypes)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isAuthorized" href="#isAuthorized"></a><code>isAuthorized(datatypes)</code></h3>
 
 
 Check if the app has authorization to read/write a set of datatypes.
@@ -162,9 +149,7 @@ This function is similar to requestAuthorization() and has similar quirks.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates the authorization status
-</div><h3><a class="anchor" name="query" href="#query"></a><code>query(queryOptions)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="query" href="#query"></a><code>query(queryOptions)</code></h3>
 
 
 Gets all the data points of a certain data type within a certain time window.
@@ -218,9 +203,7 @@ Automatic conversion is not trivial and depends on the actual substance.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HealthData&gt;</code> 
-</div><h3><a class="anchor" name="queryAggregated" href="#queryAggregated"></a><code>queryAggregated(queryOptionsAggregated)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="queryAggregated" href="#queryAggregated"></a><code>queryAggregated(queryOptionsAggregated)</code></h3>
 
 
 Gets aggregated data in a certain time window. Usually the sum is returned for the given quantity.
@@ -264,9 +247,7 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;HealthData[]&gt;</code> 
-</div><h3><a class="anchor" name="store" href="#store"></a><code>store(storeOptions)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="store" href="#store"></a><code>store(storeOptions)</code></h3>
 
 
 Stores a data point.

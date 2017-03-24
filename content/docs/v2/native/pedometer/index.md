@@ -9,18 +9,15 @@ title: "Pedometer"
 header_sub_title: "Class in module "
 doc: "Pedometer"
 docType: "class"
----<h1 class="api-title">
-  
-  Pedometer
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Pedometer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pedometer/index.ts#L14">
   Improve this doc
 </a>
+
+
 
 
 
@@ -72,9 +69,7 @@ Pedometer.startPedometerUpdates()
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isStepCountingAvailable" href="#isStepCountingAvailable"></a><code>isStepCountingAvailable()</code>
-  
-</h3>
+<h3><a class="anchor" name="isStepCountingAvailable" href="#isStepCountingAvailable"></a><code>isStepCountingAvailable()</code></h3>
 
 
 Checks if step counting is available. Only works on iOS.
@@ -83,9 +78,7 @@ Checks if step counting is available. Only works on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves when feature is supported (true) or not supported (false)
-</div><h3><a class="anchor" name="isDistanceAvailable" href="#isDistanceAvailable"></a><code>isDistanceAvailable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isDistanceAvailable" href="#isDistanceAvailable"></a><code>isDistanceAvailable()</code></h3>
 
 
 Distance estimation indicates the ability to use step information to supply the approximate distance travelled by the user.
@@ -96,9 +89,7 @@ Only works on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves when feature is supported (true) or not supported (false)
-</div><h3><a class="anchor" name="isFloorCountingAvailable" href="#isFloorCountingAvailable"></a><code>isFloorCountingAvailable()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="isFloorCountingAvailable" href="#isFloorCountingAvailable"></a><code>isFloorCountingAvailable()</code></h3>
 
 
 Floor counting indicates the ability to count the number of floors the user walks up or down using stairs.
@@ -109,9 +100,7 @@ Only works on iOS.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves when feature is supported (true) or not supported (false)
-</div><h3><a class="anchor" name="startPedometerUpdates" href="#startPedometerUpdates"></a><code>startPedometerUpdates()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="startPedometerUpdates" href="#startPedometerUpdates"></a><code>startPedometerUpdates()</code></h3>
 
 
 
@@ -125,9 +114,7 @@ Upon returning to foreground or background execution, the pedometer object begin
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Observable&lt;IPedometerData&gt;</code> Returns a Observable that recieves repeatly data from pedometer in background.
-</div><h3><a class="anchor" name="stopPedometerUpdates" href="#stopPedometerUpdates"></a><code>stopPedometerUpdates()</code>
-  
-</h3>
+</div><h3><a class="anchor" name="stopPedometerUpdates" href="#stopPedometerUpdates"></a><code>stopPedometerUpdates()</code></h3>
 
 
 Stops the delivery of recent pedestrian data updates to your Cordova app.
@@ -136,9 +123,7 @@ Stops the delivery of recent pedestrian data updates to your Cordova app.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves when pedometer watching was stopped
-</div><h3><a class="anchor" name="queryData" href="#queryData"></a><code>queryData(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="queryData" href="#queryData"></a><code>queryData(options)</code></h3>
 
 
 

@@ -9,18 +9,15 @@ title: "Device Orientation"
 header_sub_title: "Class in module "
 doc: "Device Orientation"
 docType: "class"
----<h1 class="api-title">
-  
-  Device Orientation
-  
+---
 
-  
-
-  </h1>
+<h1 class="api-title">Device Orientation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
   Improve this doc
 </a>
+
+
 
 
 
@@ -76,9 +73,7 @@ subscription.unsubscribe();
 
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="getCurrentHeading" href="#getCurrentHeading"></a><code>getCurrentHeading()</code>
-  
-</h3>
+<h3><a class="anchor" name="getCurrentHeading" href="#getCurrentHeading"></a><code>getCurrentHeading()</code></h3>
 
 
 Get the current compass heading.
@@ -87,9 +82,7 @@ Get the current compass heading.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;DeviceOrientationCompassHeading&gt;</code> 
-</div><h3><a class="anchor" name="watchHeading" href="#watchHeading"></a><code>watchHeading(options)</code>
-  
-</h3>
+</div><h3><a class="anchor" name="watchHeading" href="#watchHeading"></a><code>watchHeading(options)</code></h3>
 
 
 

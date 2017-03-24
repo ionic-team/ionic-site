@@ -11,11 +11,28 @@ doc: "Speech Recognition"
 docType: "class"
 ---
 
-<h1 class="api-title">Speech Recognition<span class="beta" title="beta">&beta;</span></h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Speech Recognition
+  
+
+  
+
+  <span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/speech-recognition/index.ts#L43">
   Improve this doc
 </a>
+
+
+
+<!-- decorators -->
 
 
 
@@ -27,7 +44,6 @@ docType: "class"
 </p>
 
 
-
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-speechrecognition
 $ npm install --save @ionic-native/speech-recognition
 </code></pre>
@@ -37,23 +53,27 @@ $ npm install --save @ionic-native/speech-recognition
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin does speech recognition using cloud services</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { SpeechRecognition } from &#39;@ionic-native/speech-recognition&#39;;
 
 constructor(private speechRecognition: SpeechRecognition) { }
@@ -98,73 +118,103 @@ this.speechRecognition.requestPermission()
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isRecognitionAvailable" href="#isRecognitionAvailable"></a><code>isRecognitionAvailable()</code></h3>
+<div id="isRecognitionAvailable"></div>
+<h3>
+  <code>isRecognitionAvailable()</code>
+  
 
-
+</h3>
 Check feature available
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="startListening" href="#startListening"></a><code>startListening()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="startListening"></div>
+<h3>
+  <code>startListening()</code>
+  
 
-
-
-
+</h3>
 Start the recognition process
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt; Array&lt;string&gt; &gt;</code> list of recognized terms
-</div><h3><a class="anchor" name="stopListening" href="#stopListening"></a><code>stopListening()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt; Array&lt;string&gt; &gt;</code> list of recognized terms
+</div><div id="stopListening"></div>
+<h3>
+  <code>stopListening()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Stop the recognition process
 
 
 
-<h3><a class="anchor" name="getSupportedLanguages" href="#getSupportedLanguages"></a><code>getSupportedLanguages()</code></h3>
+<div id="getSupportedLanguages"></div>
+<h3>
+  <code>getSupportedLanguages()</code>
+  
 
-
+</h3>
 Get the list of supported languages
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt; Array&lt;string&gt; &gt;</code> list of languages
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt; Array&lt;string&gt; &gt;</code> list of languages
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
+  
 
-
+</h3>
 Check permission
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> has permission
-</div><h3><a class="anchor" name="requestPermission" href="#requestPermission"></a><code>requestPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> has permission
+</div><div id="requestPermission"></div>
+<h3>
+  <code>requestPermission()</code>
+  
 
-
+</h3>
 Request permissions
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

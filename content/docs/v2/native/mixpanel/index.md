@@ -11,12 +11,28 @@ doc: "Mixpanel"
 docType: "class"
 ---
 
-<h1 class="api-title">Mixpanel</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Mixpanel
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/mixpanel/index.ts#L3">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/mixpanel
   </a>
 </p>
 
+<!-- description -->
 
 <p>Cordova Plugin that wraps Mixpanel SDK for Android and iOS</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { Mixpanel, MixpanelPeople } from &#39;@ionic-native/mixpanel&#39;;
 
 constructor(private mixpanel: Mixpanel, private mixpanelPeople: MixpanelPeople) { }
@@ -57,14 +73,20 @@ this.mixpanel.init(token)
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="alias" href="#alias"></a><code>alias(aliasId,&nbsp;originalId)</code></h3>
+<div id="alias"></div>
+<h3>
+  <code>alias(aliasId,&nbsp;originalId)</code>
+  
 
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -75,52 +97,76 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      aliasId</td>
-    <td>
-      <code>string</code>
+      aliasId
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      originalId</td>
-    <td>
-      <code>string</code>
+      originalId
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="distinctId" href="#distinctId"></a><code>distinctId()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="distinctId"></div>
+<h3>
+  <code>distinctId()</code>
+  
 
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="flush" href="#flush"></a><code>flush()</code></h3>
-
-
+</h3>
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="flush"></div>
+<h3>
+  <code>flush()</code>
+  
+
+</h3>
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="identify"></div>
+<h3>
+  <code>identify(distinctId)</code>
+  
+
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -131,24 +177,35 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      distinctId</td>
-    <td>
-      <code>string</code>
+      distinctId
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="init" href="#init"></a><code>init(token)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="init"></div>
+<h3>
+  <code>init(token)</code>
+  
 
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -159,24 +216,35 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      token</td>
-    <td>
-      <code>string</code>
+      token
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="registerSuperProperties" href="#registerSuperProperties"></a><code>registerSuperProperties(superProperties)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="registerSuperProperties"></div>
+<h3>
+  <code>registerSuperProperties(superProperties)</code>
+  
 
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -187,35 +255,48 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      superProperties</td>
-    <td>
-      <code>any</code>
+      superProperties
+      
     </td>
     <td>
-      </td>
+      
+<code>any</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="reset" href="#reset"></a><code>reset()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="reset"></div>
+<h3>
+  <code>reset()</code>
+  
 
-
+</h3>
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="track" href="#track"></a><code>track(eventName,&nbsp;eventProperties)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="track"></div>
+<h3>
+  <code>track(eventName,&nbsp;eventProperties)</code>
+  
 
-
-
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -226,80 +307,79 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      eventName</td>
-    <td>
-      <code>string</code>
+      eventName
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      eventProperties</td>
+      eventProperties
+      
+    </td>
     <td>
-      <code>any</code>
+      
+<code>any</code>
     </td>
     <td>
       <p>optional</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="showSurvey" href="#showSurvey"></a><code>showSurvey()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="showSurvey"></div>
+<h3>
+  <code>showSurvey()</code>
+  
 
-
+</h3>
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
+
+
+
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
+
+
 
 <h2><a class="anchor" name="MixpanelPeople" href="#MixpanelPeople"></a>MixpanelPeople</h2>
 
 
-
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="identify" href="#identify"></a><code>identify(distinctId)</code></h3>
+<div id="identify"></div>
+<h3>
+  <code>identify(distinctId)</code>
+  
 
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      distinctId</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="increment" href="#increment"></a><code>increment(peopleProperties)</code></h3>
-
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -310,52 +390,35 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      peopleProperties</td>
-    <td>
-      <code>string</code>
-    </td>
-    <td>
-      </td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setPushId" href="#setPushId"></a><code>setPushId(pushId)</code></h3>
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      pushId</td>
-    <td>
+      distinctId
       
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="set" href="#set"></a><code>set(peopleProperties)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="increment"></div>
+<h3>
+  <code>increment(peopleProperties)</code>
+  
 
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -366,24 +429,35 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      peopleProperties</td>
-    <td>
+      peopleProperties
       
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setOnce" href="#setOnce"></a><code>setOnce(peopleProperties)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="setPushId"></div>
+<h3>
+  <code>setPushId(pushId)</code>
+  
 
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -394,22 +468,118 @@ this.mixpanel.init(token)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      peopleProperties</td>
-    <td>
+      pushId
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="set"></div>
+<h3>
+  <code>set(peopleProperties)</code>
+  
+
+</h3>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      peopleProperties
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="setOnce"></div>
+<h3>
+  <code>setOnce(peopleProperties)</code>
+  
+
+</h3>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      peopleProperties
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

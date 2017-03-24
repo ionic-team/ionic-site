@@ -11,12 +11,28 @@ doc: "Card IO"
 docType: "class"
 ---
 
-<h1 class="api-title">Card IO</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Card IO
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/card-io/index.ts#L129">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,22 +47,26 @@ $ npm install --save @ionic-native/card-io
   </a>
 </p>
 
+<!-- description -->
 
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { CardIO } from &#39;@ionic-native/card-io&#39;;
 
 constructor(private cardIO: CardIO) { }
@@ -72,14 +92,20 @@ this.cardIO.canScan()
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="canScan" href="#canScan"></a><code>canScan()</code></h3>
+<div id="canScan"></div>
+<h3>
+  <code>canScan()</code>
+  
 
-
+</h3>
 Check whether card scanning is currently available. (May vary by
 device, OS version, network connectivity, etc.)
 
@@ -87,10 +113,14 @@ device, OS version, network connectivity, etc.)
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="scan"></div>
+<h3>
+  <code>scan(options)</code>
+  
 
-
+</h3>
 Scan a credit card with card.io.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -101,38 +131,58 @@ Scan a credit card with card.io.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>CardIOOptions</code>
+      
+<code>CardIOOptions</code>
     </td>
     <td>
       <p>Options for configuring the plugin</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="version" href="#version"></a><code>version()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="version"></div>
+<h3>
+  <code>version()</code>
+  
 
-
+</h3>
 Retrieve the version of the card.io library. Useful when contacting support.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="CardIOOptions" href="#CardIOOptions"></a>CardIOOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -372,7 +422,10 @@ Retrieve the version of the card.io library. Useful when contacting support.
 </table>
 
 
+
+
 <h2><a class="anchor" name="CardIOResponse" href="#CardIOResponse"></a>CardIOResponse</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -502,4 +555,11 @@ Retrieve the version of the card.io library. Useful when contacting support.
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

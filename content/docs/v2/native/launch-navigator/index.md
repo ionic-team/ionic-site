@@ -11,12 +11,28 @@ doc: "Launch Navigator"
 docType: "class"
 ---
 
-<h1 class="api-title">Launch Navigator</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Launch Navigator
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/launch-navigator/index.ts#L58">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/launch-navigator
   </a>
 </p>
 
+<!-- description -->
 
 <p>Requires Cordova plugin: uk.co.workingedge.phonegap.plugin.launchnavigator. For more info, please see the <a href="https://github.com/dpa99c/phonegap-launch-navigator">LaunchNavigator plugin docs</a>.</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <p>Please refer to the plugin&#39;s repo for detailed usage. This docs page only explains the Native wrapper.</p>
 <pre><code class="lang-typescript">import { LaunchNavigator, LaunchNavigatorOptions } from &#39;@ionic-native/launch-navigator&#39;;
 
@@ -65,16 +81,20 @@ this.launchNavigator.navigate(&#39;Toronto, ON&#39;, options)
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="navigate" href="#navigate"></a><code>navigate(destination,&nbsp;options)</code></h3>
+<div id="navigate"></div>
+<h3>
+  <code>navigate(destination,&nbsp;options)</code>
+  
 
-
-
-
+</h3>
 Launches navigator app
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -85,35 +105,51 @@ Launches navigator app
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      destination</td>
+      destination
+      
+    </td>
     <td>
-      <code>string</code>|<code>Array.&lt;number&gt;</code>
+      
+<code>string</code>|<code>Array.&lt;number&gt;</code>
     </td>
     <td>
       <p>Location name or coordinates (as string or array)</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
-    <td>
-      <code>LaunchNavigatorOptions</code>
+      options
+      
     </td>
     <td>
-      </td>
+      
+<code>LaunchNavigatorOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAppAvailable" href="#isAppAvailable"></a><code>isAppAvailable(app)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isAppAvailable"></div>
+<h3>
+  <code>isAppAvailable(app)</code>
+  
 
-
+</h3>
 Determines if the given app is installed and available on the current device.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -124,35 +160,48 @@ Determines if the given app is installed and available on the current device.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="availableApps" href="#availableApps"></a><code>availableApps()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="availableApps"></div>
+<h3>
+  <code>availableApps()</code>
+  
 
-
+</h3>
 Returns a list indicating which apps are installed and available on the current device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string[]&gt;</code> 
-</div><h3><a class="anchor" name="getAppDisplayName" href="#getAppDisplayName"></a><code>getAppDisplayName(app)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;string[]&gt;</code> 
+</div><div id="getAppDisplayName"></div>
+<h3>
+  <code>getAppDisplayName(app)</code>
+  
 
-
-
-
+</h3>
 Returns the display name of the specified app.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -163,26 +212,35 @@ Returns the display name of the specified app.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string</code> 
-</div><h3><a class="anchor" name="getAppsForPlatform" href="#getAppsForPlatform"></a><code>getAppsForPlatform(platform)</code></h3>
+  <b>Returns:</b> 
+<code>string</code> 
+</div><div id="getAppsForPlatform"></div>
+<h3>
+  <code>getAppsForPlatform(platform)</code>
+  
 
-
-
-
+</h3>
 Returns list of supported apps on a given platform.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -193,26 +251,35 @@ Returns list of supported apps on a given platform.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string[]</code> 
-</div><h3><a class="anchor" name="supportsTransportMode" href="#supportsTransportMode"></a><code>supportsTransportMode(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>string[]</code> 
+</div><div id="supportsTransportMode"></div>
+<h3>
+  <code>supportsTransportMode(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 Indicates if an app on a given platform supports specification of transport mode.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -223,37 +290,51 @@ Indicates if an app on a given platform supports specification of transport mode
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
+      app
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>specified as a string, you can use one of the constants, e.g <code>LaunchNavigator.APP.GOOGLE_MAPS</code></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="getTransportModes" href="#getTransportModes"></a><code>getTransportModes(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="getTransportModes"></div>
+<h3>
+  <code>getTransportModes(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 Returns the list of transport modes supported by an app on a given platform.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -264,36 +345,50 @@ Returns the list of transport modes supported by an app on a given platform.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>string[]</code> 
-</div><h3><a class="anchor" name="supportsLaunchMode" href="#supportsLaunchMode"></a><code>supportsLaunchMode(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>string[]</code> 
+</div><div id="supportsLaunchMode"></div>
+<h3>
+  <code>supportsLaunchMode(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 Indicates if an app on a given platform supports specification of launch mode.
 Note that currently only Google Maps on Android does.
 <table class="table param-table" style="margin:0;">
@@ -305,36 +400,50 @@ Note that currently only Google Maps on Android does.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsStart" href="#supportsStart"></a><code>supportsStart(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="supportsStart"></div>
+<h3>
+  <code>supportsStart(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 Indicates if an app on a given platform supports specification of start location.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -345,36 +454,50 @@ Indicates if an app on a given platform supports specification of start location
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsStartName" href="#supportsStartName"></a><code>supportsStartName(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="supportsStartName"></div>
+<h3>
+  <code>supportsStartName(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -385,36 +508,50 @@ Indicates if an app on a given platform supports specification of start location
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="supportsDestName" href="#supportsDestName"></a><code>supportsDestName(app,&nbsp;platform)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="supportsDestName"></div>
+<h3>
+  <code>supportsDestName(app,&nbsp;platform)</code>
+  
 
-
-
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -425,36 +562,50 @@ Indicates if an app on a given platform supports specification of start location
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
-    <td>
-      <code>string</code>
+      app
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      platform</td>
-    <td>
-      <code>string</code>
+      platform
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="userSelect" href="#userSelect"></a><code>userSelect(destination,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="userSelect"></div>
+<h3>
+  <code>userSelect(destination,&nbsp;options)</code>
+  
 
-
-
-
+</h3>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -465,45 +616,73 @@ Indicates if an app on a given platform supports specification of start location
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      destination</td>
-    <td>
-      <code>string</code>|<code>Array.&lt;number&gt;</code>
+      destination
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>|<code>Array.&lt;number&gt;</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
-    <td>
-      <code>LaunchNavigatorOptions</code>
+      options
+      
     </td>
     <td>
-      </td>
+      
+<code>LaunchNavigatorOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="APP" href="#APP"></a><code>APP</code></h3>
+<div id="APP"></div>
+<h3>
+  <code>APP()</code>
+  
+
+</h3>
+
+
+
+<div id="TRANSPORT_MODE"></div>
+<h3>
+  <code>TRANSPORT_MODE()</code>
+  
+
+</h3>
 
 
 
 
-<h3><a class="anchor" name="TRANSPORT_MODE" href="#TRANSPORT_MODE"></a><code>TRANSPORT_MODE</code></h3>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
 
+<!-- interfaces -->
 
-
-
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="LaunchNavigatorOptions" href="#LaunchNavigatorOptions"></a>LaunchNavigatorOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -687,4 +866,11 @@ Indicates if an app on a given platform supports specification of start location
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

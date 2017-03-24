@@ -11,12 +11,28 @@ doc: "Httpd"
 docType: "class"
 ---
 
-<h1 class="api-title">Httpd</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Httpd
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/httpd/index.ts#L20">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,23 +47,27 @@ $ npm install --save @ionic-native/httpd
   </a>
 </p>
 
+<!-- description -->
 
 <p>Embedded httpd for Cordova apps. Light weight HTTP server.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { Httpd, HttpdOptions } from &#39;@ionic-native/httpd&#39;;
 
 constructor(private httpd: Httpd) { }
@@ -69,16 +89,20 @@ this.httpd.startServer(options).subscribe((data) =&gt; {
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="startServer" href="#startServer"></a><code>startServer(options)</code></h3>
+<div id="startServer"></div>
+<h3>
+  <code>startServer(options)</code>
+  
 
-
-
-
+</h3>
 Starts a web server.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -89,46 +113,70 @@ Starts a web server.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
-    <td>
-      <code>HttpdOptions</code>
+      options
+      
     </td>
     <td>
-      </td>
+      
+<code>HttpdOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;string&gt;</code> Returns an Observable. Subscribe to receive the URL for your web server (if succeeded). Unsubscribe to stop the server.
-</div><h3><a class="anchor" name="getUrl" href="#getUrl"></a><code>getUrl()</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;string&gt;</code> Returns an Observable. Subscribe to receive the URL for your web server (if succeeded). Unsubscribe to stop the server.
+</div><div id="getUrl"></div>
+<h3>
+  <code>getUrl()</code>
+  
 
-
+</h3>
 Gets the URL of the running server
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the URL of the web server.
-</div><h3><a class="anchor" name="getLocalPath" href="#getLocalPath"></a><code>getLocalPath()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a promise that resolves with the URL of the web server.
+</div><div id="getLocalPath"></div>
+<h3>
+  <code>getLocalPath()</code>
+  
 
-
+</h3>
 Get the local path of the running webserver
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the local path of the web server.
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a promise that resolves with the local path of the web server.
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="HttpdOptions" href="#HttpdOptions"></a>HttpdOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -191,4 +239,11 @@ Default is false.</p>
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

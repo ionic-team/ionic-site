@@ -11,12 +11,28 @@ doc: "Local Notifications"
 docType: "class"
 ---
 
-<h1 class="api-title">Local Notifications</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Local Notifications
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/local-notifications/index.ts#L91">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/local-notifications
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin allows you to display local notifications on the device</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { LocalNotifications } from &#39;@ionic-native/local-notifications&#39;;
 
 
@@ -86,16 +102,20 @@ this.localNotifications.schedule({
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="schedule" href="#schedule"></a><code>schedule(options)</code></h3>
+<div id="schedule"></div>
+<h3>
+  <code>schedule(options)</code>
+  
 
-
-
-
+</h3>
 Schedules a single or multiple notifications
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -106,24 +126,32 @@ Schedules a single or multiple notifications
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>Notification</code>|<code>Array.&lt;ILocalNotification&gt;</code>
+      
+<code>Notification</code>|<code>Array.&lt;ILocalNotification&gt;</code>
     </td>
     <td>
       <p>optional</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="update" href="#update"></a><code>update(options)</code></h3>
+<div id="update"></div>
+<h3>
+  <code>update(options)</code>
+  
 
-
-
-
+</h3>
 Updates a previously scheduled notification. Must include the id in the options parameter.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -134,22 +162,32 @@ Updates a previously scheduled notification. Must include the id in the options 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>ILocalNotification</code>
+      
+<code>ILocalNotification</code>
     </td>
     <td>
       <p>optional</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="clear" href="#clear"></a><code>clear(notificationId)</code></h3>
+<div id="clear"></div>
+<h3>
+  <code>clear(notificationId)</code>
+  
 
-
+</h3>
 Clears single or multiple notifications
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -160,36 +198,49 @@ Clears single or multiple notifications
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
+      notificationId
+      
+    </td>
     <td>
-      <code>any</code>
+      
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise when the notification had been cleared
-</div><h3><a class="anchor" name="clearAll" href="#clearAll"></a><code>clearAll()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification had been cleared
+</div><div id="clearAll"></div>
+<h3>
+  <code>clearAll()</code>
+  
 
-
-
-
+</h3>
 Clears all notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise when all notifications have cleared
-</div><h3><a class="anchor" name="cancel" href="#cancel"></a><code>cancel(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications have cleared
+</div><div id="cancel"></div>
+<h3>
+  <code>cancel(notificationId)</code>
+  
 
-
+</h3>
 Cancels single or multiple notifications
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -200,36 +251,49 @@ Cancels single or multiple notifications
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
+      notificationId
+      
+    </td>
     <td>
-      <code>any</code>
+      
+<code>any</code>
     </td>
     <td>
       <p>A single notification id, or an array of notification ids.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled
-</div><h3><a class="anchor" name="cancelAll" href="#cancelAll"></a><code>cancelAll()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise when the notification is canceled
+</div><div id="cancelAll"></div>
+<h3>
+  <code>cancelAll()</code>
+  
 
-
-
-
+</h3>
 Cancels all notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise when all notifications are canceled
-</div><h3><a class="anchor" name="isPresent" href="#isPresent"></a><code>isPresent(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise when all notifications are canceled
+</div><div id="isPresent"></div>
+<h3>
+  <code>isPresent(notificationId)</code>
+  
 
-
+</h3>
 Checks presence of a notification
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -240,24 +304,35 @@ Checks presence of a notification
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
-    <td>
-      <code>number</code>
+      notificationId
+      
     </td>
     <td>
-      </td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isScheduled" href="#isScheduled"></a><code>isScheduled(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isScheduled"></div>
+<h3>
+  <code>isScheduled(notificationId)</code>
+  
 
-
+</h3>
 Checks is a notification is scheduled
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -268,24 +343,35 @@ Checks is a notification is scheduled
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
-    <td>
-      <code>number</code>
+      notificationId
+      
     </td>
     <td>
-      </td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isTriggered" href="#isTriggered"></a><code>isTriggered(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isTriggered"></div>
+<h3>
+  <code>isTriggered(notificationId)</code>
+  
 
-
+</h3>
 Checks if a notification is triggered
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -296,51 +382,74 @@ Checks if a notification is triggered
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
-    <td>
-      <code>number</code>
+      notificationId
+      
     </td>
     <td>
-      </td>
+      
+<code>number</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getAllIds" href="#getAllIds"></a><code>getAllIds()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getAllIds"></div>
+<h3>
+  <code>getAllIds()</code>
+  
 
-
+</h3>
 Get all the notification ids
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getTriggeredIds" href="#getTriggeredIds"></a><code>getTriggeredIds()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> 
+</div><div id="getTriggeredIds"></div>
+<h3>
+  <code>getTriggeredIds()</code>
+  
 
-
+</h3>
 Get the ids of triggered notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getScheduledIds" href="#getScheduledIds"></a><code>getScheduledIds()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> 
+</div><div id="getScheduledIds"></div>
+<h3>
+  <code>getScheduledIds()</code>
+  
 
-
+</h3>
 Get the ids of scheduled notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
-</div><h3><a class="anchor" name="get" href="#get"></a><code>get(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;number&gt;&gt;</code> Returns a promise
+</div><div id="get"></div>
+<h3>
+  <code>get(notificationId)</code>
+  
 
-
+</h3>
 Get a notification object
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -351,25 +460,36 @@ Get a notification object
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
+      notificationId
+      
+    </td>
     <td>
-      <code>any</code>
+      
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getScheduled" href="#getScheduled"></a><code>getScheduled(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
+</div><div id="getScheduled"></div>
+<h3>
+  <code>getScheduled(notificationId)</code>
+  
 
-
+</h3>
 Get a scheduled notification object
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -380,25 +500,36 @@ Get a scheduled notification object
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
+      notificationId
+      
+    </td>
     <td>
-      <code>any</code>
+      
+<code>any</code>
     </td>
     <td>
       <p>The id of the notification to get</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getTriggered" href="#getTriggered"></a><code>getTriggered(notificationId)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
+</div><div id="getTriggered"></div>
+<h3>
+  <code>getTriggered(notificationId)</code>
+  
 
-
+</h3>
 Get a triggered notification object
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -409,72 +540,101 @@ Get a triggered notification object
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      notificationId</td>
-    <td>
+      notificationId
       
     </td>
     <td>
+      
+
+    </td>
+    <td>
       <p>The id of the notification to get</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ILocalNotification&gt;</code> 
-</div><h3><a class="anchor" name="getAll" href="#getAll"></a><code>getAll()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;ILocalNotification&gt;</code> 
+</div><div id="getAll"></div>
+<h3>
+  <code>getAll()</code>
+  
 
-
+</h3>
 Get all notification objects
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllScheduled" href="#getAllScheduled"></a><code>getAllScheduled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
+</div><div id="getAllScheduled"></div>
+<h3>
+  <code>getAllScheduled()</code>
+  
 
-
+</h3>
 Get all scheduled notification objects
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="getAllTriggered" href="#getAllTriggered"></a><code>getAllTriggered()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
+</div><div id="getAllTriggered"></div>
+<h3>
+  <code>getAllTriggered()</code>
+  
 
-
+</h3>
 Get all triggered notification objects
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
-</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;ILocalNotification&gt;&gt;</code> 
+</div><div id="registerPermission"></div>
+<h3>
+  <code>registerPermission()</code>
+  
 
-
+</h3>
 Register permission to show notifications if not already granted.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasPermission"></div>
+<h3>
+  <code>hasPermission()</code>
+  
 
-
+</h3>
 Informs if the app has the permission to show notifications.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="on" href="#on"></a><code>on(eventName,&nbsp;callback)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="on"></div>
+<h3>
+  <code>on(eventName,&nbsp;callback)</code>
+  
 
-
-
-
+</h3>
 Sets a callback for a specific event
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -485,27 +645,39 @@ Sets a callback for a specific event
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      eventName</td>
-    <td>
+      eventName
       
     </td>
     <td>
+      
+
+    </td>
+    <td>
       <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      callback</td>
-    <td>
+      callback
       
     </td>
     <td>
+      
+
+    </td>
+    <td>
       <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
@@ -513,9 +685,17 @@ Sets a callback for a specific event
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ILocalNotification" href="#ILocalNotification"></a>ILocalNotification</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -750,4 +930,11 @@ Default: FFFFFF</p>
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

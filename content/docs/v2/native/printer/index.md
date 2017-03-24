@@ -11,12 +11,28 @@ doc: "Printer"
 docType: "class"
 ---
 
-<h1 class="api-title">Printer</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Printer
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/printer/index.ts#L42">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,23 +47,27 @@ $ npm install --save @ionic-native/printer
   </a>
 </p>
 
+<!-- description -->
 
 <p>Prints documents or HTML rendered content</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { Printer, PrintOptions } from &#39;@ionic-native/printer&#39;;
 
 constructor(private printer: Printer) { }
@@ -70,23 +90,33 @@ this.p.print(content, options).then(onSuccess, onError);
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 Checks whether to device is capable of printing.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="print" href="#print"></a><code>print(content,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="print"></div>
+<h3>
+  <code>print(content,&nbsp;options)</code>
+  
 
-
+</h3>
 Sends content to the printer.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -97,40 +127,61 @@ Sends content to the printer.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      content</td>
+      content
+      
+    </td>
     <td>
-      <code>string</code>|<code>HTMLElement</code>
+      
+<code>string</code>|<code>HTMLElement</code>
     </td>
     <td>
       <p>The content to print. Can be a URL or an HTML string. If a HTML DOM Object is provided, its innerHtml property value will be used.</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>PrintOptions</code>
+      
+<code>PrintOptions</code>
     </td>
     <td>
       <p>optional. The options to pass to the printer</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="PrintOptions" href="#PrintOptions"></a>PrintOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -238,4 +289,11 @@ False by default.</p>
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

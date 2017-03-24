@@ -11,12 +11,28 @@ doc: "Date Picker"
 docType: "class"
 ---
 
-<h1 class="api-title">Date Picker</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Date Picker
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/date-picker/index.ts#L119">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,23 +47,27 @@ $ npm install --save @ionic-native/date-picker
   </a>
 </p>
 
+<!-- description -->
 
 <p>The DatePicker plugin allows the user to fetch date or time using native dialogs.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { DatePicker } from &#39;@ionic-native/date-picker&#39;;
 
 constructor(private datePicker: DatePicker) { }
@@ -69,14 +89,20 @@ this.datePicker.show({
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
+<div id="show"></div>
+<h3>
+  <code>show(options)</code>
+  
 
-
+</h3>
 Shows the date and/or time picker dialog(s)
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -87,29 +113,45 @@ Shows the date and/or time picker dialog(s)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>DatePickerOptions</code>
+      
+<code>DatePickerOptions</code>
     </td>
     <td>
       <p>Options for the date picker.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Date&gt;</code> Returns a promise that resolves with the picked date and/or time, or rejects with an error.
+  <b>Returns:</b> 
+<code>Promise&lt;Date&gt;</code> Returns a promise that resolves with the picked date and/or time, or rejects with an error.
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="DatePickerOptions" href="#DatePickerOptions"></a>DatePickerOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -440,4 +482,11 @@ Values: 1: THEME_TRADITIONAL | 2: THEME_HOLO_DARK | 3: THEME_HOLO_LIGHT | 4: THE
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

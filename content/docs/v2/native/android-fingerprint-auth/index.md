@@ -11,12 +11,28 @@ doc: "Android Fingerprint Auth"
 docType: "class"
 ---
 
-<h1 class="api-title">Android Fingerprint Auth</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Android Fingerprint Auth
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/android-fingerprint-auth/index.ts#L96">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/android-fingerprint-auth
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin will open a native dialog fragment prompting the user to authenticate using their fingerprint. If the device has a secure lockscreen (pattern, PIN, or password), the user may opt to authenticate using that method as a backup.</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { AndroidFingerprintAuth, AFAAuthOptions } from &#39;@ionic-native/android-fingerprint-auth&#39;;
 
 constructor(private androidFingerprintAuth: AndroidFingerprintAuth) { }
@@ -80,14 +96,20 @@ this.androidFingerprintAuth.isAvailable()
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="encrypt" href="#encrypt"></a><code>encrypt(options)</code></h3>
+<div id="encrypt"></div>
+<h3>
+  <code>encrypt(options)</code>
+  
 
-
+</h3>
 Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -98,25 +120,36 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>AFAAuthOptions</code>
+      
+<code>AFAAuthOptions</code>
     </td>
     <td>
       <p>Options</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="decrypt" href="#decrypt"></a><code>decrypt(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="decrypt"></div>
+<h3>
+  <code>decrypt(options)</code>
+  
 
-
+</h3>
 Opens a native dialog fragment to use the device hardware fingerprint scanner to authenticate against fingerprints registered for the device.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -127,47 +160,71 @@ Opens a native dialog fragment to use the device hardware fingerprint scanner to
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>AFAAuthOptions</code>
+      
+<code>AFAAuthOptions</code>
     </td>
     <td>
       <p>Options</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 Check if service is available
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if fingerprint auth is available on the device
-</div><h3><a class="anchor" name="delete" href="#delete"></a><code>delete()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if fingerprint auth is available on the device
+</div><div id="delete"></div>
+<h3>
+  <code>delete()</code>
+  
 
-
+</h3>
 Delete the cipher used for encryption and decryption by username
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the cipher was successfully deleted
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the cipher was successfully deleted
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="AFAAuthOptions" href="#AFAAuthOptions"></a>AFAAuthOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -341,7 +398,10 @@ re-enable the fingerprint authentication dialog.</p>
 </table>
 
 
+
+
 <h2><a class="anchor" name="AFAEncryptResponse" href="#AFAEncryptResponse"></a>AFAEncryptResponse</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -399,7 +459,10 @@ re-enable the fingerprint authentication dialog.</p>
 </table>
 
 
+
+
 <h2><a class="anchor" name="AFADecryptOptions" href="#AFADecryptOptions"></a>AFADecryptOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -460,4 +523,11 @@ Decrypted password</p>
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

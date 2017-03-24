@@ -11,12 +11,28 @@ doc: "Image Resizer"
 docType: "class"
 ---
 
-<h1 class="api-title">Image Resizer</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Image Resizer
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/image-resizer/index.ts#L37">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,6 +47,7 @@ $ npm install --save @ionic-native/image-resizer
   </a>
 </p>
 
+<!-- description -->
 
 <p>Cordova Plugin For Image Resize</p>
 <p>Requires plugin <code>info.protonet.imageresizer</code> - use the Ionic CLI and type in the following command:
@@ -39,13 +56,12 @@ $ npm install --save @ionic-native/image-resizer
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { ImageResizer, ImageResizerOptions } from &#39;@ionic-native/image-resizer&#39;;
 
 constructor(private imageResizer: ImageResizer) { }
@@ -69,27 +85,42 @@ this.imageResizer
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="resize" href="#resize"></a><code>resize()</code></h3>
+<div id="resize"></div>
+<h3>
+  <code>resize()</code>
+  
 
-
+</h3>
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ImageResizerOptions" href="#ImageResizerOptions"></a>ImageResizerOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -194,4 +225,11 @@ this.imageResizer
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

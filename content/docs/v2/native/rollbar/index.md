@@ -11,11 +11,28 @@ doc: "Rollbar"
 docType: "class"
 ---
 
-<h1 class="api-title">Rollbar<span class="beta" title="beta">&beta;</span></h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Rollbar
+  
+
+  
+
+  <span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/rollbar/index.ts#L1">
   Improve this doc
 </a>
+
+
+
+<!-- decorators -->
 
 
 
@@ -27,7 +44,6 @@ docType: "class"
 </p>
 
 
-
 <pre><code class="nohighlight">$ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
 $ npm install --save @ionic-native/rollbar
 </code></pre>
@@ -37,23 +53,27 @@ $ npm install --save @ionic-native/rollbar
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin adds Rollbar App monitoring to your application</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { Rollbar } from &#39;@ionic-native/rollbar&#39;;
 
 constructor(private rollbar: Rollbar) { }
@@ -66,23 +86,41 @@ this.rollbar.init();
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="init" href="#init"></a><code>init()</code></h3>
+<div id="init"></div>
+<h3>
+  <code>init()</code>
+  
 
-
+</h3>
 This function initializes the monitoring of your application
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the plugin successfully initializes
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves when the plugin successfully initializes
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

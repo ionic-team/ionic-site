@@ -11,12 +11,28 @@ doc: "Keyboard"
 docType: "class"
 ---
 
-<h1 class="api-title">Keyboard</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Keyboard
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/keyboard/index.ts#L2">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,17 +47,17 @@ $ npm install --save @ionic-native/keyboard
   </a>
 </p>
 
+<!-- description -->
 
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { Keyboard } from &#39;@ionic-native/keyboard&#39;;
 
 constructor(private keyboard: Keyboard) { }
@@ -56,16 +72,20 @@ this.keyboard.close();
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="hideKeyboardAccessoryBar" href="#hideKeyboardAccessoryBar"></a><code>hideKeyboardAccessoryBar(hide)</code></h3>
+<div id="hideKeyboardAccessoryBar"></div>
+<h3>
+  <code>hideKeyboardAccessoryBar(hide)</code>
+  
 
-
-
-
+</h3>
 Hide the keyboard accessory bar with the next, previous and done buttons.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -76,50 +96,51 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      hide</td>
-    <td>
-      <code>boolean</code>
+      hide
+      
     </td>
     <td>
-      </td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
+<div id="show"></div>
+<h3>
+  <code>show()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">BlackBerry 10</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
-
-
+</h3>
 Force keyboard to be shown.
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
+<div id="close"></div>
+<h3>
+  <code>close()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;<strong class="tag">BlackBerry 10</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
-
-
+</h3>
 Close the keyboard if open.
 
 
 
-<h3><a class="anchor" name="disableScroll" href="#disableScroll"></a><code>disableScroll(disable)</code></h3>
+<div id="disableScroll"></div>
+<h3>
+  <code>disableScroll(disable)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
-
-
+</h3>
 Prevents the native UIScrollView from moving when an input is focused.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -130,49 +151,65 @@ Prevents the native UIScrollView from moving when an input is focused.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      disable</td>
-    <td>
+      disable
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="onKeyboardShow" href="#onKeyboardShow"></a><code>onKeyboardShow()</code></h3>
+<div id="onKeyboardShow"></div>
+<h3>
+  <code>onKeyboardShow()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;<strong class="tag">BlackBerry 10</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
-
-
+</h3>
 Creates an observable that notifies you when the keyboard is shown. Unsubscribe to observable to cancel event watch.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onKeyboardHide" href="#onKeyboardHide"></a><code>onKeyboardHide()</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="onKeyboardHide"></div>
+<h3>
+  <code>onKeyboardHide()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;<strong class="tag">BlackBerry 10</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;</p>
-
-
+</h3>
 Creates an observable that notifies you when the keyboard is hidden. Unsubscribe to observable to cancel event watch.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

@@ -11,12 +11,28 @@ doc: "File"
 docType: "class"
 ---
 
-<h1 class="api-title">File</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  File
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file/index.ts#L338">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,6 +47,7 @@ $ npm install --save @ionic-native/file
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin implements a File API allowing read/write access to files residing on the device.</p>
 <p>The File class implements static convenience functions to access files and directories.</p>
@@ -50,121 +67,168 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
 
 
 
+<!-- if doc.decorators -->
+
+<!-- @usage tag -->
+
+
+<!-- @property tags -->
 
 
 
 
-
-
-
-
-
-
-
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="applicationDirectory" href="#applicationDirectory"></a><code>applicationDirectory</code></h3>
+<div id="applicationDirectory"></div>
+<h3>
+  <code>applicationDirectory()</code>
+  
 
-
+</h3>
 Read-only directory where the application is installed.
 
 
 
-<h3><a class="anchor" name="applicationStorageDirectory" href="#applicationStorageDirectory"></a><code>applicationStorageDirectory</code></h3>
+<div id="applicationStorageDirectory"></div>
+<h3>
+  <code>applicationStorageDirectory()</code>
+  
 
-
+</h3>
 Read-only directory where the application is installed.
 
 
 
-<h3><a class="anchor" name="dataDirectory" href="#dataDirectory"></a><code>dataDirectory</code></h3>
+<div id="dataDirectory"></div>
+<h3>
+  <code>dataDirectory()</code>
+  
 
-
+</h3>
 Where to put app-specific data files.
 
 
 
-<h3><a class="anchor" name="cacheDirectory" href="#cacheDirectory"></a><code>cacheDirectory</code></h3>
+<div id="cacheDirectory"></div>
+<h3>
+  <code>cacheDirectory()</code>
+  
 
-
+</h3>
 Cached files that should survive app restarts.
 Apps should not rely on the OS to delete files in here.
 
 
 
-<h3><a class="anchor" name="externalApplicationStorageDirectory" href="#externalApplicationStorageDirectory"></a><code>externalApplicationStorageDirectory</code></h3>
+<div id="externalApplicationStorageDirectory"></div>
+<h3>
+  <code>externalApplicationStorageDirectory()</code>
+  
 
-
+</h3>
 Android: the application space on external storage.
 
 
 
-<h3><a class="anchor" name="externalDataDirectory" href="#externalDataDirectory"></a><code>externalDataDirectory</code></h3>
+<div id="externalDataDirectory"></div>
+<h3>
+  <code>externalDataDirectory()</code>
+  
 
-
+</h3>
 Android: Where to put app-specific data files on external storage.
 
 
 
-<h3><a class="anchor" name="externalCacheDirectory" href="#externalCacheDirectory"></a><code>externalCacheDirectory</code></h3>
+<div id="externalCacheDirectory"></div>
+<h3>
+  <code>externalCacheDirectory()</code>
+  
 
-
+</h3>
 Android: the application cache on external storage.
 
 
 
-<h3><a class="anchor" name="externalRootDirectory" href="#externalRootDirectory"></a><code>externalRootDirectory</code></h3>
+<div id="externalRootDirectory"></div>
+<h3>
+  <code>externalRootDirectory()</code>
+  
 
-
+</h3>
 Android: the external storage (SD card) root.
 
 
 
-<h3><a class="anchor" name="tempDirectory" href="#tempDirectory"></a><code>tempDirectory</code></h3>
+<div id="tempDirectory"></div>
+<h3>
+  <code>tempDirectory()</code>
+  
 
-
+</h3>
 iOS: Temp directory that the OS can clear at will.
 
 
 
-<h3><a class="anchor" name="syncedDataDirectory" href="#syncedDataDirectory"></a><code>syncedDataDirectory</code></h3>
+<div id="syncedDataDirectory"></div>
+<h3>
+  <code>syncedDataDirectory()</code>
+  
 
-
+</h3>
 iOS: Holds app-specific files that should be synced (e.g. to iCloud).
 
 
 
-<h3><a class="anchor" name="documentsDirectory" href="#documentsDirectory"></a><code>documentsDirectory</code></h3>
+<div id="documentsDirectory"></div>
+<h3>
+  <code>documentsDirectory()</code>
+  
 
-
+</h3>
 iOS: Files private to the app, but that are meaningful to other applications (e.g. Office files)
 
 
 
-<h3><a class="anchor" name="sharedDirectory" href="#sharedDirectory"></a><code>sharedDirectory</code></h3>
+<div id="sharedDirectory"></div>
+<h3>
+  <code>sharedDirectory()</code>
+  
 
-
+</h3>
 BlackBerry10: Files globally available to all apps
 
 
 
-<h3><a class="anchor" name="cordovaFileError" href="#cordovaFileError"></a><code>cordovaFileError</code></h3>
+<div id="cordovaFileError"></div>
+<h3>
+  <code>cordovaFileError()</code>
+  
+
+</h3>
 
 
 
+<div id="getFreeDiskSpace"></div>
+<h3>
+  <code>getFreeDiskSpace()</code>
+  
 
-<h3><a class="anchor" name="getFreeDiskSpace" href="#getFreeDiskSpace"></a><code>getFreeDiskSpace()</code></h3>
-
-
+</h3>
 Get free disk space in Bytes
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space in Bytes
-</div><h3><a class="anchor" name="checkDir" href="#checkDir"></a><code>checkDir(path,&nbsp;dir)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;number&gt;</code> Returns a promise that resolves with the remaining free disk space in Bytes
+</div><div id="checkDir"></div>
+<h3>
+  <code>checkDir(path,&nbsp;dir)</code>
+  
 
-
+</h3>
 Check if a directory exists in a certain path, directory.
 
 <table class="table param-table" style="margin:0;">
@@ -176,36 +240,52 @@ Check if a directory exists in a certain path, directory.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dir</td>
+      dir
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of directory to check</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
-</div><h3><a class="anchor" name="createDir" href="#createDir"></a><code>createDir(path,&nbsp;dirName,&nbsp;replace)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves to true if the directory exists or rejects with an error.
+</div><div id="createDir"></div>
+<h3>
+  <code>createDir(path,&nbsp;dirName,&nbsp;replace)</code>
+  
 
-
+</h3>
 Creates a new directory in the specific path.
 The replace boolean value determines whether to replace an existing directory with the same name.
 If an existing directory exists and the replace value is false, the promise will fail and return an error.
@@ -219,47 +299,68 @@ If an existing directory exists and the replace value is false, the promise will
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of directory to create</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      replace</td>
+      replace
+      
+    </td>
     <td>
-      <code>boolean</code>
+      
+<code>boolean</code>
     </td>
     <td>
       <p>If true, replaces file with same name. If false returns error</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
-</div><h3><a class="anchor" name="removeDir" href="#removeDir"></a><code>removeDir(path,&nbsp;dirName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry&gt;</code> Returns a Promise that resolves with a DirectoryEntry or rejects with an error.
+</div><div id="removeDir"></div>
+<h3>
+  <code>removeDir(path,&nbsp;dirName)</code>
+  
 
-
+</h3>
 Remove a directory at a given path.
 
 <table class="table param-table" style="margin:0;">
@@ -271,36 +372,52 @@ Remove a directory at a given path.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The path to the directory</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The directory name</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="moveDir" href="#moveDir"></a><code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+</div><div id="moveDir"></div>
+<h3>
+  <code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
+  
 
-
+</h3>
 Move a directory to a given path.
 
 <table class="table param-table" style="margin:0;">
@@ -312,58 +429,84 @@ Move a directory to a given path.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The source path to the directory</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The source directory name</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newPath</td>
+      newPath
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The destionation path to the directory</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newDirName</td>
+      newDirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The destination directory name</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;DirectoryEntry|Entry&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
-</div><h3><a class="anchor" name="copyDir" href="#copyDir"></a><code>copyDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry|Entry&gt;</code> Returns a Promise that resolves to the new DirectoryEntry object or rejects with an error.
+</div><div id="copyDir"></div>
+<h3>
+  <code>copyDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
+  
 
-
+</h3>
 Copy a directory in various methods. If destination directory exists, will fail to copy.
 
 <table class="table param-table" style="margin:0;">
@@ -375,58 +518,84 @@ Copy a directory in various methods. If destination directory exists, will fail 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of directory to copy</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newPath</td>
+      newPath
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem of new location</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newDirName</td>
+      newDirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>New name of directory to copy to (leave blank to remain the same)</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
-</div><h3><a class="anchor" name="listDir" href="#listDir"></a><code>listDir(path,&nbsp;dirName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry object or rejects with an error.
+</div><div id="listDir"></div>
+<h3>
+  <code>listDir(path,&nbsp;dirName)</code>
+  
 
-
+</h3>
 List files and directory from a given path.
 
 <table class="table param-table" style="margin:0;">
@@ -438,36 +607,52 @@ List files and directory from a given path.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of directory</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Entry[]&gt;</code> Returns a Promise that resolves to an array of Entry objects or rejects with an error.
-</div><h3><a class="anchor" name="removeRecursively" href="#removeRecursively"></a><code>removeRecursively(path,&nbsp;dirName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry[]&gt;</code> Returns a Promise that resolves to an array of Entry objects or rejects with an error.
+</div><div id="removeRecursively"></div>
+<h3>
+  <code>removeRecursively(path,&nbsp;dirName)</code>
+  
 
-
+</h3>
 Removes all files and the directory from a desired location.
 
 <table class="table param-table" style="margin:0;">
@@ -479,36 +664,52 @@ Removes all files and the directory from a desired location.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      dirName</td>
+      dirName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of directory</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves with a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="checkFile" href="#checkFile"></a><code>checkFile(path,&nbsp;file)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves with a RemoveResult or rejects with an error.
+</div><div id="checkFile"></div>
+<h3>
+  <code>checkFile(path,&nbsp;file)</code>
+  
 
-
+</h3>
 Check if a file exists in a certain path, directory.
 
 <table class="table param-table" style="margin:0;">
@@ -520,36 +721,52 @@ Check if a file exists in a certain path, directory.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      file</td>
+      file
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file to check</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
-</div><h3><a class="anchor" name="createFile" href="#createFile"></a><code>createFile(path,&nbsp;fileName,&nbsp;replace)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a Promise that resolves with a boolean or rejects with an error.
+</div><div id="createFile"></div>
+<h3>
+  <code>createFile(path,&nbsp;fileName,&nbsp;replace)</code>
+  
 
-
+</h3>
 Creates a new file in the specific path.
 The replace boolean value determines whether to replace an existing file with the same name.
 If an existing file exists and the replace value is false, the promise will fail and return an error.
@@ -563,47 +780,68 @@ If an existing file exists and the replace value is false, the promise will fail
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file to create</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      replace</td>
+      replace
+      
+    </td>
     <td>
-      <code>boolean</code>
+      
+<code>boolean</code>
     </td>
     <td>
       <p>If true, replaces file with same name. If false returns error</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
-</div><h3><a class="anchor" name="removeFile" href="#removeFile"></a><code>removeFile(path,&nbsp;fileName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;FileEntry&gt;</code> Returns a Promise that resolves to a FileEntry or rejects with an error.
+</div><div id="removeFile"></div>
+<h3>
+  <code>removeFile(path,&nbsp;fileName)</code>
+  
 
-
+</h3>
 Removes a file from a desired location.
 
 <table class="table param-table" style="margin:0;">
@@ -615,36 +853,52 @@ Removes a file from a desired location.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file to remove</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
-</div><h3><a class="anchor" name="writeFile" href="#writeFile"></a><code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;RemoveResult&gt;</code> Returns a Promise that resolves to a RemoveResult or rejects with an error.
+</div><div id="writeFile"></div>
+<h3>
+  <code>writeFile(path,&nbsp;fileName,&nbsp;text,&nbsp;options)</code>
+  
 
-
+</h3>
 Write a new file to the desired location.
 
 <table class="table param-table" style="margin:0;">
@@ -656,58 +910,84 @@ Write a new file to the desired location.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>path relative to base path</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      text</td>
+      text
+      
+    </td>
     <td>
-      <code>string</code>|<code>Blob</code>
+      
+<code>string</code>|<code>Blob</code>
     </td>
     <td>
       <p>content or blob to write</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>WriteOptions</code>
+      
+<code>WriteOptions</code>
     </td>
     <td>
       <p>replace file if set to true. See WriteOptions for more information.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves to updated file entry or rejects with an error.
-</div><h3><a class="anchor" name="writeExistingFile" href="#writeExistingFile"></a><code>writeExistingFile(path,&nbsp;fileName,&nbsp;text)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves to updated file entry or rejects with an error.
+</div><div id="writeExistingFile"></div>
+<h3>
+  <code>writeExistingFile(path,&nbsp;fileName,&nbsp;text)</code>
+  
 
-
+</h3>
 Write to an existing file.
 
 <table class="table param-table" style="margin:0;">
@@ -719,47 +999,68 @@ Write to an existing file.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>path relative to base path</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      text</td>
+      text
+      
+    </td>
     <td>
-      <code>string</code>|<code>Blob</code>
+      
+<code>string</code>|<code>Blob</code>
     </td>
     <td>
       <p>content or blob to write</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a Promise that resolves or rejects with an error.
-</div><h3><a class="anchor" name="readAsText" href="#readAsText"></a><code>readAsText(path,&nbsp;file)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> Returns a Promise that resolves or rejects with an error.
+</div><div id="readAsText"></div>
+<h3>
+  <code>readAsText(path,&nbsp;file)</code>
+  
 
-
+</h3>
 Read the contents of a file as text.
 
 <table class="table param-table" style="margin:0;">
@@ -771,36 +1072,52 @@ Read the contents of a file as text.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      file</td>
+      file
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file, relative to path.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
-</div><h3><a class="anchor" name="readAsDataURL" href="#readAsDataURL"></a><code>readAsDataURL(path,&nbsp;file)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string or rejects with an error.
+</div><div id="readAsDataURL"></div>
+<h3>
+  <code>readAsDataURL(path,&nbsp;file)</code>
+  
 
-
+</h3>
 Read file and return data as a base64 encoded data url.
 A data url is of the form:
      data:[<mediatype>][;base64],<data>
@@ -814,36 +1131,52 @@ A data url is of the form:
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      file</td>
+      file
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file, relative to path.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
-</div><h3><a class="anchor" name="readAsBinaryString" href="#readAsBinaryString"></a><code>readAsBinaryString(path,&nbsp;file)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as data URL or rejects with an error.
+</div><div id="readAsBinaryString"></div>
+<h3>
+  <code>readAsBinaryString(path,&nbsp;file)</code>
+  
 
-
+</h3>
 Read file and return data as a binary data.
 
 <table class="table param-table" style="margin:0;">
@@ -855,36 +1188,52 @@ Read file and return data as a binary data.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      file</td>
+      file
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file, relative to path.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
-</div><h3><a class="anchor" name="readAsArrayBuffer" href="#readAsArrayBuffer"></a><code>readAsArrayBuffer(path,&nbsp;file)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> Returns a Promise that resolves with the contents of the file as string rejects with an error.
+</div><div id="readAsArrayBuffer"></div>
+<h3>
+  <code>readAsArrayBuffer(path,&nbsp;file)</code>
+  
 
-
+</h3>
 Read file and return data as an ArrayBuffer.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -895,36 +1244,52 @@ Read file and return data as an ArrayBuffer.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      file</td>
+      file
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file, relative to path.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;ArrayBuffer&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
-</div><h3><a class="anchor" name="moveFile" href="#moveFile"></a><code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;ArrayBuffer&gt;</code> Returns a Promise that resolves with the contents of the file as ArrayBuffer or rejects with an error.
+</div><div id="moveFile"></div>
+<h3>
+  <code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
+  
 
-
+</h3>
 Move a file to a given path.
 
 <table class="table param-table" style="margin:0;">
@@ -936,58 +1301,84 @@ Move a file to a given path.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file to move</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newPath</td>
+      newPath
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem of new location</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newFileName</td>
+      newFileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>New name of file to move to (leave blank to remain the same)</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
-</div><h3><a class="anchor" name="copyFile" href="#copyFile"></a><code>copyFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to the new Entry or rejects with an error.
+</div><div id="copyFile"></div>
+<h3>
+  <code>copyFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
+  
 
-
+</h3>
 Copy a file in various methods. If file exists, will fail to copy.
 
 <table class="table param-table" style="margin:0;">
@@ -999,58 +1390,84 @@ Copy a file in various methods. If file exists, will fail to copy.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      path</td>
+      path
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of file to copy</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newPath</td>
+      newPath
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Base FileSystem of new location</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newFileName</td>
+      newFileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>New name of file to copy to (leave blank to remain the same)</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
-</div><h3><a class="anchor" name="resolveLocalFilesystemUrl" href="#resolveLocalFilesystemUrl"></a><code>resolveLocalFilesystemUrl(fileUrl)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry&gt;</code> Returns a Promise that resolves to an Entry or rejects with an error.
+</div><div id="resolveLocalFilesystemUrl"></div>
+<h3>
+  <code>resolveLocalFilesystemUrl(fileUrl)</code>
+  
 
-
+</h3>
 Resolves a local file system URL
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1061,25 +1478,36 @@ Resolves a local file system URL
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      fileUrl</td>
+      fileUrl
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>file system url</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Entry&gt;</code> 
-</div><h3><a class="anchor" name="resolveDirectoryUrl" href="#resolveDirectoryUrl"></a><code>resolveDirectoryUrl(directoryUrl)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Entry&gt;</code> 
+</div><div id="resolveDirectoryUrl"></div>
+<h3>
+  <code>resolveDirectoryUrl(directoryUrl)</code>
+  
 
-
+</h3>
 Resolves a local directory url
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1090,25 +1518,36 @@ Resolves a local directory url
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      directoryUrl</td>
+      directoryUrl
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>directory system url</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> 
-</div><h3><a class="anchor" name="getDirectory" href="#getDirectory"></a><code>getDirectory(directoryEntry,&nbsp;directoryName,&nbsp;flags)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry&gt;</code> 
+</div><div id="getDirectory"></div>
+<h3>
+  <code>getDirectory(directoryEntry,&nbsp;directoryName,&nbsp;flags)</code>
+  
 
-
+</h3>
 Get a directory
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1119,47 +1558,68 @@ Get a directory
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      directoryEntry</td>
+      directoryEntry
+      
+    </td>
     <td>
-      <code>DirectoryEntry</code>
+      
+<code>DirectoryEntry</code>
     </td>
     <td>
       <p>Directory entry, obtained by resolveDirectoryUrl method</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      directoryName</td>
+      directoryName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Directory name</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      flags</td>
+      flags
+      
+    </td>
     <td>
-      <code>Flags</code>
+      
+<code>Flags</code>
     </td>
     <td>
       <p>Options</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;DirectoryEntry&gt;</code> 
-</div><h3><a class="anchor" name="getFile" href="#getFile"></a><code>getFile(directoryEntry,&nbsp;fileName,&nbsp;flags)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;DirectoryEntry&gt;</code> 
+</div><div id="getFile"></div>
+<h3>
+  <code>getFile(directoryEntry,&nbsp;fileName,&nbsp;flags)</code>
+  
 
-
+</h3>
 Get a file
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1170,47 +1630,76 @@ Get a file
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      directoryEntry</td>
+      directoryEntry
+      
+    </td>
     <td>
-      <code>DirectoryEntry</code>
+      
+<code>DirectoryEntry</code>
     </td>
     <td>
       <p>Directory entry, obtained by resolveDirectoryUrl method</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      fileName</td>
+      fileName
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>File name</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      flags</td>
+      flags
+      
+    </td>
     <td>
-      <code>Flags</code>
+      
+<code>Flags</code>
     </td>
     <td>
       <p>Options</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;FileEntry&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;FileEntry&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

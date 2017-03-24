@@ -11,12 +11,28 @@ doc: "3D Touch"
 docType: "class"
 ---
 
-<h1 class="api-title">3D Touch</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  3D Touch
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/three-dee-touch/index.ts#L58">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,22 +47,26 @@ $ npm install --save @ionic-native/three-dee-touch
   </a>
 </p>
 
+<!-- description -->
 
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <p>Please do refer to the original plugin&#39;s repo for detailed usage. The usage example here might not be sufficient.</p>
 <pre><code>import { ThreeDeeTouch, ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch } from &#39;@ionic-native/three-dee-touch&#39;;
 
@@ -106,36 +126,46 @@ this.threeDeeTouch.onHomeIconPressed().subscribe(
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 You need an iPhone 6S or some future tech to use the features of this plugin, so you can check at runtime if the user's device is supported.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates whether the plugin is available or not
-</div><h3><a class="anchor" name="watchForceTouches" href="#watchForceTouches"></a><code>watchForceTouches()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates whether the plugin is available or not
+</div><div id="watchForceTouches"></div>
+<h3>
+  <code>watchForceTouches()</code>
+  
 
-
-
-
+</h3>
 You can get a notification when the user force touches the webview. The plugin defines a Force Touch when at least 75% of the maximum force is applied to the screen. Your app will receive the x and y coordinates, so you have to figure out which UI element was touched.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;ThreeDeeTouchForceTouch&gt;</code> Returns an observable that sends a `ThreeDeeTouchForceTouch` object
-</div><h3><a class="anchor" name="configureQuickActions" href="#configureQuickActions"></a><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType,&nbsp;iconTemplate)</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;ThreeDeeTouchForceTouch&gt;</code> Returns an observable that sends a `ThreeDeeTouchForceTouch` object
+</div><div id="configureQuickActions"></div>
+<h3>
+  <code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType,&nbsp;iconTemplate)</code>
+  
 
-
-
-
+</h3>
 setup the 3D-touch actions, takes an array of objects with the following
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -146,86 +176,120 @@ setup the 3D-touch actions, takes an array of objects with the following
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      type</td>
+      type
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>(optional) A type that can be used <code>onHomeIconPressed</code> callback</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Title for your action</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      subtitle</td>
+      subtitle
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>(optional) A short description for your action</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      iconType</td>
+      iconType
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>(optional) Choose between Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      iconTemplate</td>
+      iconTemplate
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>(optional) Can be used to provide your own icon</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="onHomeIconPressed" href="#onHomeIconPressed"></a><code>onHomeIconPressed()</code></h3>
+<div id="onHomeIconPressed"></div>
+<h3>
+  <code>onHomeIconPressed()</code>
+  
 
+</h3>
 When a home icon is pressed, your app launches and this JS callback is invoked.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> returns an observable that notifies you when he user presses on the home screen icon
-</div><h3><a class="anchor" name="enableLinkPreview" href="#enableLinkPreview"></a><code>enableLinkPreview()</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> returns an observable that notifies you when he user presses on the home screen icon
+</div><div id="enableLinkPreview"></div>
+<h3>
+  <code>enableLinkPreview()</code>
+  
 
-
-
-
+</h3>
 Enable Link Preview.
 UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fancy new link preview feature of iOS9.
 
 
 
-<h3><a class="anchor" name="disableLinkPreview" href="#disableLinkPreview"></a><code>disableLinkPreview()</code></h3>
+<div id="disableLinkPreview"></div>
+<h3>
+  <code>disableLinkPreview()</code>
+  
 
-
-
-
+</h3>
 Disabled the link preview feature, if enabled.
 
 
@@ -234,9 +298,17 @@ Disabled the link preview feature, if enabled.
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ThreeDeeTouchQuickAction" href="#ThreeDeeTouchQuickAction"></a>ThreeDeeTouchQuickAction</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -322,7 +394,10 @@ Disabled the link preview feature, if enabled.
 </table>
 
 
+
+
 <h2><a class="anchor" name="ThreeDeeTouchForceTouch" href="#ThreeDeeTouchForceTouch"></a>ThreeDeeTouchForceTouch</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -396,4 +471,11 @@ Disabled the link preview feature, if enabled.
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

@@ -11,12 +11,28 @@ doc: "Native Page Transitions"
 docType: "class"
 ---
 
-<h1 class="api-title">Native Page Transitions</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Native Page Transitions
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-page-transitions/index.ts#L16">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,23 +47,27 @@ $ npm install --save @ionic-native/native-page-transitions
   </a>
 </p>
 
+<!-- description -->
 
 <p>The Native Page Transitions plugin uses native hardware acceleration to animate your transitions between views. You have complete control over the type of transition, the duration, and direction.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li><li>Android</li><li>Windows Phone</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { NativePageTransitions, NativeTransitionOptions } from &#39;@ionic-native/native-page-transitions&#39;;
 
 constructor(private nativePageTransitions: NativePageTransitions) { }
@@ -74,14 +94,20 @@ this.nativePageTransitions.slide(options)
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="slide" href="#slide"></a><code>slide(options)</code></h3>
+<div id="slide"></div>
+<h3>
+  <code>slide(options)</code>
+  
 
-
+</h3>
 Perform a slide animation
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -92,25 +118,36 @@ Perform a slide animation
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>NativeTransitionOptions</code>
+      
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="flip" href="#flip"></a><code>flip(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="flip"></div>
+<h3>
+  <code>flip(options)</code>
+  
 
-
+</h3>
 Perform a flip animation
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -121,30 +158,36 @@ Perform a flip animation
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>NativeTransitionOptions</code>
+      
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="fade" href="#fade"></a><code>fade(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="fade"></div>
+<h3>
+  <code>fade(options)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Perform a fade animation
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -155,30 +198,36 @@ Perform a fade animation
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>NativeTransitionOptions</code>
+      
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="drawer" href="#drawer"></a><code>drawer(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="drawer"></div>
+<h3>
+  <code>drawer(options)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Perform a slide animation
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -189,30 +238,36 @@ Perform a slide animation
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>NativeTransitionOptions</code>
+      
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="curl" href="#curl"></a><code>curl(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="curl"></div>
+<h3>
+  <code>curl(options)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Perform a slide animation
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -223,25 +278,44 @@ Perform a slide animation
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>NativeTransitionOptions</code>
+      
+<code>NativeTransitionOptions</code>
     </td>
     <td>
       <p>Options for the transition</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

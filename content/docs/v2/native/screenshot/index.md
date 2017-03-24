@@ -11,12 +11,28 @@ doc: "Screenshot"
 docType: "class"
 ---
 
-<h1 class="api-title">Screenshot</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Screenshot
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/screenshot/index.ts#L4">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/screenshot
   </a>
 </p>
 
+<!-- description -->
 
 <p>Captures a screen shot</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { Screenshot } from &#39;@ionic-native/screenshot&#39;;
 
 constructor(private screenshot: Screenshot) { }
@@ -59,13 +75,20 @@ this.screenshot.URI(80).then(onSuccess, onError);
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="save" href="#save"></a><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code></h3>
+<div id="save"></div>
+<h3>
+  <code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
+  
 
+</h3>
 Takes screenshot and saves the image
 
 <table class="table param-table" style="margin:0;">
@@ -77,48 +100,70 @@ Takes screenshot and saves the image
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      format.</td>
+      format.
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Format can take the value of either &#39;jpg&#39; or &#39;png&#39;
 On ios, only &#39;jpg&#39; format is supported</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      quality.</td>
+      quality.
+      
+    </td>
     <td>
-      <code>number</code>
+      
+<code>number</code>
     </td>
     <td>
       <p>Determines the quality of the screenshot.
        Default quality is set to 100.</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      filename.</td>
+      filename.
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of the file as stored on the storage</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="URI" href="#URI"></a><code>URI(quality.)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="URI"></div>
+<h3>
+  <code>URI(quality.)</code>
+  
 
+</h3>
 Takes screenshot and returns the image as an URI
 
 <table class="table param-table" style="margin:0;">
@@ -130,26 +175,45 @@ Takes screenshot and returns the image as an URI
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      quality.</td>
+      quality.
+      
+    </td>
     <td>
-      <code>number</code>
+      
+<code>number</code>
     </td>
     <td>
       <p>Determines the quality of the screenshot.
        Default quality is set to 100.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

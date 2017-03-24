@@ -11,11 +11,28 @@ doc: "Fingerprint AIO"
 docType: "class"
 ---
 
-<h1 class="api-title">Fingerprint AIO<span class="beta" title="beta">&beta;</span></h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Fingerprint AIO
+  
+
+  
+
+  <span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/fingerprint-aio/index.ts#L19">
   Improve this doc
 </a>
+
+
+
+<!-- decorators -->
 
 
 
@@ -27,7 +44,6 @@ docType: "class"
 </p>
 
 
-
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-fingerprint-aio
 $ npm install --save @ionic-native/fingerprint-aio
 </code></pre>
@@ -37,24 +53,28 @@ $ npm install --save @ionic-native/fingerprint-aio
   </a>
 </p>
 
+<!-- description -->
 
 <p>Use simple fingerprint authentication on Android and iOS.
 Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plugin, vist: <a href="https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio">https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio</a></p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { FingerprintAIO } from &#39;@ionic-native/fingerprint-aio&#39;;
 
 constructor(private faio: FingerpirntAIO) { }
@@ -73,23 +93,33 @@ this.faio.show({
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 Check if fingerprint authentication is available
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with result
-</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise with result
+</div><div id="show"></div>
+<h3>
+  <code>show(options)</code>
+  
 
-
+</h3>
 Show authentication dialogue
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -100,29 +130,45 @@ Show authentication dialogue
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>FingerprintOptions</code>
+      
+<code>FingerprintOptions</code>
     </td>
     <td>
       <p>options for platform specific fingerprint API</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when authentication was successfull
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves when authentication was successfull
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="FingerprintOptions" href="#FingerprintOptions"></a>FingerprintOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -182,4 +228,11 @@ Show authentication dialogue
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

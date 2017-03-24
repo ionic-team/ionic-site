@@ -11,7 +11,20 @@ doc: "Health"
 docType: "class"
 ---
 
-<h1 class="api-title">Health</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Health
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/health/index.ts#L139">
   Improve this doc
@@ -19,30 +32,15 @@ docType: "class"
 
 
 
+<!-- decorators -->
 
 
+<!-- if doc.decorators -->
 
-<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-health
-$ npm install --save @ionic-native/health
-</code></pre>
-<p>Repo:
-  <a href="https://github.com/dariosalvi78/cordova-plugin-health">
-    https://github.com/dariosalvi78/cordova-plugin-health
-  </a>
-</p>
-
-
-<p>A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit.</p>
-
-
-
-
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { Health } from &#39;@ionic-native/health&#39;;
 
 
@@ -59,28 +57,34 @@ this.health.isAvailable()
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
-
-
+</h3>
 Tells if either Google Fit or HealthKit are available.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="promptInstallFit" href="#promptInstallFit"></a><code>promptInstallFit()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="promptInstallFit"></div>
+<h3>
+  <code>promptInstallFit()</code>
+  
 
-
-
-
+</h3>
 Checks if recent Google Play Services and Google Fit are installed. If the play services are not installed,
 or are obsolete, it will show a pop-up suggesting to download them. If Google Fit is not installed,
 it will open the Play Store at the location of the Google Fit app.
@@ -93,10 +97,14 @@ This function is only available on Android.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(datatypes)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestAuthorization"></div>
+<h3>
+  <code>requestAuthorization(datatypes)</code>
+  
 
-
+</h3>
 Requests read and write access to a set of data types. It is recommendable to always explain why the app
 needs access to the data before asking the user to authorize it.
 This function must be called before using the query and store functions, even if the authorization has already
@@ -121,25 +129,36 @@ In Android 6 and over, this function will also ask for some dynamic permissions 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      datatypes</td>
+      datatypes
+      
+    </td>
     <td>
-      <code>Array&lt;String&gt;</code>
+      
+<code>Array&lt;String&gt;</code>
     </td>
     <td>
       <p>a list of data types you want to be granted access to</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isAuthorized" href="#isAuthorized"></a><code>isAuthorized(datatypes)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isAuthorized"></div>
+<h3>
+  <code>isAuthorized(datatypes)</code>
+  
 
-
+</h3>
 Check if the app has authorization to read/write a set of datatypes.
 This function is similar to requestAuthorization() and has similar quirks.
 
@@ -152,25 +171,36 @@ This function is similar to requestAuthorization() and has similar quirks.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      datatypes</td>
+      datatypes
+      
+    </td>
     <td>
-      <code>Array&lt;String&gt;</code>
+      
+<code>Array&lt;String&gt;</code>
     </td>
     <td>
       <p>a list of data types you want to be granted access to</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates the authorization status
-</div><h3><a class="anchor" name="query" href="#query"></a><code>query(queryOptions)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates the authorization status
+</div><div id="query"></div>
+<h3>
+  <code>query(queryOptions)</code>
+  
 
-
+</h3>
 Gets all the data points of a certain data type within a certain time window.
 Warning: if the time span is big, it can generate long arrays!
 
@@ -207,24 +237,35 @@ Automatic conversion is not trivial and depends on the actual substance.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      queryOptions</td>
-    <td>
-      <code>HealthQueryOptions</code>
+      queryOptions
+      
     </td>
     <td>
-      </td>
+      
+<code>HealthQueryOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;HealthData&gt;</code> 
-</div><h3><a class="anchor" name="queryAggregated" href="#queryAggregated"></a><code>queryAggregated(queryOptionsAggregated)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;HealthData&gt;</code> 
+</div><div id="queryAggregated"></div>
+<h3>
+  <code>queryAggregated(queryOptionsAggregated)</code>
+  
 
-
+</h3>
 Gets aggregated data in a certain time window. Usually the sum is returned for the given quantity.
 
 Quirks of queryAggregated()
@@ -251,24 +292,35 @@ nutrition.vitamin_a is given in micrograms in HealthKit and International Unit i
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      queryOptionsAggregated</td>
-    <td>
-      <code>HealthQueryOptionsAggregated</code>
+      queryOptionsAggregated
+      
     </td>
     <td>
-      </td>
+      
+<code>HealthQueryOptionsAggregated</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;HealthData[]&gt;</code> 
-</div><h3><a class="anchor" name="store" href="#store"></a><code>store(storeOptions)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;HealthData[]&gt;</code> 
+</div><div id="store"></div>
+<h3>
+  <code>store(storeOptions)</code>
+  
 
-
+</h3>
 Stores a data point.
 
 Quirks of store()
@@ -288,28 +340,44 @@ Storing of nutrients is not supported at the moment.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      storeOptions</td>
-    <td>
+      storeOptions
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="HealthQueryOptions" href="#HealthQueryOptions"></a>HealthQueryOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -410,7 +478,10 @@ In the latter case the query object must contain the field filtered: true.</p>
 </table>
 
 
+
+
 <h2><a class="anchor" name="HealthQueryOptionsAggregated" href="#HealthQueryOptionsAggregated"></a>HealthQueryOptionsAggregated</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -483,7 +554,10 @@ supported values are: &#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&
 </table>
 
 
+
+
 <h2><a class="anchor" name="HealthStoreOptions" href="#HealthStoreOptions"></a>HealthStoreOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -586,7 +660,10 @@ set automatically to the bunde id of the app.</p>
 </table>
 
 
+
+
 <h2><a class="anchor" name="HealthData" href="#HealthData"></a>HealthData</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -691,4 +768,11 @@ set automatically to the bunde id of the app.</p>
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

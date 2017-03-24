@@ -11,12 +11,28 @@ doc: "Diagnostic"
 docType: "class"
 ---
 
-<h1 class="api-title">Diagnostic</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Diagnostic
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/diagnostic/index.ts#L1">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/diagnostic
   </a>
 </p>
 
+<!-- description -->
 
 <p>Checks whether device hardware features are enabled or available to the app, e.g. camera, GPS, wifi</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { Diagnostic } from &#39;@ionic-native/diagnostic&#39;;
 
 constructor(private diagnostic: Diagnostic) { }
@@ -70,157 +86,191 @@ this.diagnostic.getBluetoothState()
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="permission" href="#permission"></a><code>permission</code></h3>
+<div id="permission"></div>
+<h3>
+  <code>permission()</code>
+  
+
+</h3>
 
 
 
+<div id="permissionStatus"></div>
+<h3>
+  <code>permissionStatus()</code>
+  
 
-<h3><a class="anchor" name="permissionStatus" href="#permissionStatus"></a><code>permissionStatus</code></h3>
-
-
-
-
-
-<h3><a class="anchor" name="locationAuthorizationMode" href="#locationAuthorizationMode"></a><code>locationAuthorizationMode</code></h3>
+</h3>
 
 
 
+<div id="locationAuthorizationMode"></div>
+<h3>
+  <code>locationAuthorizationMode()</code>
+  
 
-<h3><a class="anchor" name="permissionGroups" href="#permissionGroups"></a><code>permissionGroups</code></h3>
-
-
-
-
-<h3><a class="anchor" name="locationMode" href="#locationMode"></a><code>locationMode</code></h3>
-
+</h3>
 
 
 
-<h3><a class="anchor" name="bluetoothState" href="#bluetoothState"></a><code>bluetoothState</code></h3>
+<div id="permissionGroups"></div>
+<h3>
+  <code>permissionGroups()</code>
+  
+
+</h3>
 
 
 
+<div id="locationMode"></div>
+<h3>
+  <code>locationMode()</code>
+  
 
-<h3><a class="anchor" name="NFCState" href="#NFCState"></a><code>NFCState</code></h3>
-
-
-
-
-
-<h3><a class="anchor" name="isLocationAvailable" href="#isLocationAvailable"></a><code>isLocationAvailable()</code></h3>
+</h3>
 
 
+
+<div id="bluetoothState"></div>
+<h3>
+  <code>bluetoothState()</code>
+  
+
+</h3>
+
+
+
+<div id="NFCState"></div>
+<h3>
+  <code>NFCState()</code>
+  
+
+</h3>
+
+
+
+<div id="isLocationAvailable"></div>
+<h3>
+  <code>isLocationAvailable()</code>
+  
+
+</h3>
 Checks if app is able to access device location.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isWifiAvailable" href="#isWifiAvailable"></a><code>isWifiAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isWifiAvailable"></div>
+<h3>
+  <code>isWifiAvailable()</code>
+  
 
-
+</h3>
 Checks if Wifi is connected/enabled. On iOS this returns true if the device is connected to a network by WiFi. On Android and Windows 10 Mobile this returns true if the WiFi setting is set to enabled.
 On Android this requires permission. `<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />`
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraAvailable" href="#isCameraAvailable"></a><code>isCameraAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isCameraAvailable"></div>
+<h3>
+  <code>isCameraAvailable()</code>
+  
 
-
+</h3>
 Checks if the device has a camera. On Android this returns true if the device has a camera. On iOS this returns true if both the device has a camera AND the application is authorized to use it. On Windows 10 Mobile this returns true if both the device has a rear-facing camera AND the
 application is authorized to use it.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isBluetoothAvailable" href="#isBluetoothAvailable"></a><code>isBluetoothAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isBluetoothAvailable"></div>
+<h3>
+  <code>isBluetoothAvailable()</code>
+  
 
-
+</h3>
 Checks if the device has Bluetooth capabilities and if so that Bluetooth is switched on (same on Android, iOS and Windows 10 Mobile)
 On Android this requires permission <uses-permission android:name="android.permission.BLUETOOTH" />
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="switchToLocationSettings" href="#switchToLocationSettings"></a><code>switchToLocationSettings()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="switchToLocationSettings"></div>
+<h3>
+  <code>switchToLocationSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Displays the device location settings to allow user to enable location services/change location mode.
 
 
 
-<h3><a class="anchor" name="switchToMobileDataSettings" href="#switchToMobileDataSettings"></a><code>switchToMobileDataSettings()</code></h3>
+<div id="switchToMobileDataSettings"></div>
+<h3>
+  <code>switchToMobileDataSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Displays mobile settings to allow user to enable mobile data.
 
 
 
-<h3><a class="anchor" name="switchToBluetoothSettings" href="#switchToBluetoothSettings"></a><code>switchToBluetoothSettings()</code></h3>
+<div id="switchToBluetoothSettings"></div>
+<h3>
+  <code>switchToBluetoothSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Displays Bluetooth settings to allow user to enable Bluetooth.
 
 
 
-<h3><a class="anchor" name="switchToWifiSettings" href="#switchToWifiSettings"></a><code>switchToWifiSettings()</code></h3>
+<div id="switchToWifiSettings"></div>
+<h3>
+  <code>switchToWifiSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Displays WiFi settings to allow user to enable WiFi.
 
 
 
-<h3><a class="anchor" name="isWifiEnabled" href="#isWifiEnabled"></a><code>isWifiEnabled()</code></h3>
+<div id="isWifiEnabled"></div>
+<h3>
+  <code>isWifiEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Returns true if the WiFi setting is set to enabled, and is the same as `isWifiAvailable()`
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="setWifiState" href="#setWifiState"></a><code>setWifiState(state)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="setWifiState"></div>
+<h3>
+  <code>setWifiState(state)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Enables/disables WiFi on the device.
 Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
 <table class="table param-table" style="margin:0;">
@@ -232,29 +282,35 @@ Requires `ACCESS_WIFI_STATE` and `CHANGE_WIFI_STATE` permissions on Android
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      state</td>
-    <td>
-      <code>boolean</code>
+      state
+      
     </td>
     <td>
-      </td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="setBluetoothState" href="#setBluetoothState"></a><code>setBluetoothState(state)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="setBluetoothState"></div>
+<h3>
+  <code>setBluetoothState(state)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">Windows 10</strong>&nbsp;</p>
-
-
+</h3>
 Enables/disables Bluetooth on the device.
 Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
 <table class="table param-table" style="margin:0;">
@@ -266,67 +322,75 @@ Requires `BLUETOOTH` and `BLUETOOTH_ADMIN` permissions on Android
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      state</td>
-    <td>
-      <code>boolean</code>
+      state
+      
     </td>
     <td>
-      </td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isLocationEnabled" href="#isLocationEnabled"></a><code>isLocationEnabled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isLocationEnabled"></div>
+<h3>
+  <code>isLocationEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns true if the device setting for location is on. On Android this returns true if Location Mode is switched on. On iOS this returns true if Location Services is switched on.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isLocationAuthorized" href="#isLocationAuthorized"></a><code>isLocationAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isLocationAuthorized"></div>
+<h3>
+  <code>isLocationAuthorized()</code>
+  
 
-
+</h3>
 Checks if the application is authorized to use location.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getLocationAuthorizationStatus" href="#getLocationAuthorizationStatus"></a><code>getLocationAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getLocationAuthorizationStatus"></div>
+<h3>
+  <code>getLocationAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the location authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestLocationAuthorization" href="#requestLocationAuthorization"></a><code>requestLocationAuthorization(mode)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestLocationAuthorization"></div>
+<h3>
+  <code>requestLocationAuthorization(mode)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the location authorization status for the application.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 
@@ -339,171 +403,167 @@ Note for Android: this is intended for Android 6 / API 23 and above. Calling on 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      mode</td>
+      mode
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>iOS only: location authorization mode: &quot;always&quot; or &quot;when_in_use&quot;. If not specified, defaults to &quot;when_in_use&quot;.<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraPresent" href="#isCameraPresent"></a><code>isCameraPresent()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isCameraPresent"></div>
+<h3>
+  <code>isCameraPresent()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if camera hardware is present on device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraAuthorized" href="#isCameraAuthorized"></a><code>isCameraAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isCameraAuthorized"></div>
+<h3>
+  <code>isCameraAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use the camera.
 Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return TRUE as permissions are already granted at installation time.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getCameraAuthorizationStatus" href="#getCameraAuthorizationStatus"></a><code>getCameraAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getCameraAuthorizationStatus"></div>
+<h3>
+  <code>getCameraAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the camera authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestCameraAuthorization" href="#requestCameraAuthorization"></a><code>requestCameraAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestCameraAuthorization"></div>
+<h3>
+  <code>requestCameraAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests camera authorization for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isMicrophoneAuthorized" href="#isMicrophoneAuthorized"></a><code>isMicrophoneAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isMicrophoneAuthorized"></div>
+<h3>
+  <code>isMicrophoneAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use the microphone.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getMicrophoneAuthorizationStatus" href="#getMicrophoneAuthorizationStatus"></a><code>getMicrophoneAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getMicrophoneAuthorizationStatus"></div>
+<h3>
+  <code>getMicrophoneAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the microphone authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestMicrophoneAuthorization" href="#requestMicrophoneAuthorization"></a><code>requestMicrophoneAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestMicrophoneAuthorization"></div>
+<h3>
+  <code>requestMicrophoneAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests microphone authorization for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isContactsAuthorized" href="#isContactsAuthorized"></a><code>isContactsAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isContactsAuthorized"></div>
+<h3>
+  <code>isContactsAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use contacts (address book).
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getContactsAuthorizationStatus" href="#getContactsAuthorizationStatus"></a><code>getContactsAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getContactsAuthorizationStatus"></div>
+<h3>
+  <code>getContactsAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the contacts authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestContactsAuthorization" href="#requestContactsAuthorization"></a><code>requestContactsAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestContactsAuthorization"></div>
+<h3>
+  <code>requestContactsAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests contacts authorization for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCalendarAuthorized" href="#isCalendarAuthorized"></a><code>isCalendarAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isCalendarAuthorized"></div>
+<h3>
+  <code>isCalendarAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use the calendar.
 
 Notes for Android:
@@ -515,15 +575,14 @@ Notes for iOS:
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getCalendarAuthorizationStatus" href="#getCalendarAuthorizationStatus"></a><code>getCalendarAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getCalendarAuthorizationStatus"></div>
+<h3>
+  <code>getCalendarAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the calendar authorization status for the application.
 
 Notes for Android:
@@ -536,15 +595,14 @@ Notes for iOS:
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestCalendarAuthorization" href="#requestCalendarAuthorization"></a><code>requestCalendarAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestCalendarAuthorization"></div>
+<h3>
+  <code>requestCalendarAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests calendar authorization for the application.
 
 Notes for iOS:
@@ -560,15 +618,14 @@ Notes for Android:
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="switchToSettings" href="#switchToSettings"></a><code>switchToSettings()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="switchToSettings"></div>
+<h3>
+  <code>switchToSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Opens settings page for this app.
 On Android, this opens the "App Info" page in the Settings app.
 On iOS, this opens the app settings page in the Settings app. This works only on iOS 8+ - iOS 7 and below will invoke the errorCallback.
@@ -576,29 +633,27 @@ On iOS, this opens the app settings page in the Settings app. This works only on
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getBluetoothState" href="#getBluetoothState"></a><code>getBluetoothState()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getBluetoothState"></div>
+<h3>
+  <code>getBluetoothState()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the state of Bluetooth on the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="registerBluetoothStateChangeHandler" href="#registerBluetoothStateChangeHandler"></a><code>registerBluetoothStateChangeHandler(handler)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="registerBluetoothStateChangeHandler"></div>
+<h3>
+  <code>registerBluetoothStateChangeHandler(handler)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Registers a function to be called when a change in Bluetooth state occurs.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -609,26 +664,31 @@ Registers a function to be called when a change in Bluetooth state occurs.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      handler</td>
-    <td>
+      handler
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="registerLocationStateChangeHandler" href="#registerLocationStateChangeHandler"></a><code>registerLocationStateChangeHandler(handler)</code></h3>
+<div id="registerLocationStateChangeHandler"></div>
+<h3>
+  <code>registerLocationStateChangeHandler(handler)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;<strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Registers a function to be called when a change in Location state occurs.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -639,41 +699,45 @@ Registers a function to be called when a change in Location state occurs.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      handler</td>
-    <td>
+      handler
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isGpsLocationAvailable" href="#isGpsLocationAvailable"></a><code>isGpsLocationAvailable()</code></h3>
+<div id="isGpsLocationAvailable"></div>
+<h3>
+  <code>isGpsLocationAvailable()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if high-accuracy locations are available to the app from GPS hardware.
 Returns true if Location mode is enabled and is set to "Device only" or "High accuracy" AND if the app is authorised to use location.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isGpsLocationEnabled" href="#isGpsLocationEnabled"></a><code>isGpsLocationEnabled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isGpsLocationEnabled"></div>
+<h3>
+  <code>isGpsLocationEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if location mode is set to return high-accuracy locations from GPS hardware.
   Returns true if Location mode is enabled and is set to either:
   - Device only = GPS hardware only (high accuracy)
@@ -682,30 +746,28 @@ Checks if location mode is set to return high-accuracy locations from GPS hardwa
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isNetworkLocationAvailable" href="#isNetworkLocationAvailable"></a><code>isNetworkLocationAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isNetworkLocationAvailable"></div>
+<h3>
+  <code>isNetworkLocationAvailable()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if low-accuracy locations are available to the app from network triangulation/WiFi access points.
 Returns true if Location mode is enabled and is set to "Battery saving" or "High accuracy" AND if the app is authorised to use location.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isNetworkLocationEnabled" href="#isNetworkLocationEnabled"></a><code>isNetworkLocationEnabled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isNetworkLocationEnabled"></div>
+<h3>
+  <code>isNetworkLocationEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if location mode is set to return low-accuracy locations from network triangulation/WiFi access points.
 Returns true if Location mode is enabled and is set to either:
   - Battery saving = network triangulation and Wifi network IDs (low accuracy)
@@ -714,29 +776,27 @@ Returns true if Location mode is enabled and is set to either:
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getLocationMode" href="#getLocationMode"></a><code>getLocationMode()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getLocationMode"></div>
+<h3>
+  <code>getLocationMode()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Returns the current location mode setting for the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getPermissionAuthorizationStatus" href="#getPermissionAuthorizationStatus"></a><code>getPermissionAuthorizationStatus(permission)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getPermissionAuthorizationStatus"></div>
+<h3>
+  <code>getPermissionAuthorizationStatus(permission)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Returns the current authorisation status for a given permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
@@ -748,29 +808,35 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      permission</td>
-    <td>
+      permission
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getPermissionsAuthorizationStatus" href="#getPermissionsAuthorizationStatus"></a><code>getPermissionsAuthorizationStatus(permissions)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getPermissionsAuthorizationStatus"></div>
+<h3>
+  <code>getPermissionsAuthorizationStatus(permissions)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Returns the current authorisation status for multiple permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
@@ -782,29 +848,35 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      permissions</td>
-    <td>
+      permissions
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestRuntimePermission" href="#requestRuntimePermission"></a><code>requestRuntimePermission(permission)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestRuntimePermission"></div>
+<h3>
+  <code>requestRuntimePermission(permission)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Requests app to be granted authorisation for a runtime permission.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will have no effect as the permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
@@ -816,29 +888,35 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      permission</td>
-    <td>
+      permission
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestRuntimePermissions" href="#requestRuntimePermissions"></a><code>requestRuntimePermissions(permissions)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestRuntimePermissions"></div>
+<h3>
+  <code>requestRuntimePermissions(permissions)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Requests app to be granted authorisation for multiple runtime permissions.
 Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 <table class="table param-table" style="margin:0;">
@@ -850,26 +928,35 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      permissions</td>
-    <td>
+      permissions
       
     </td>
     <td>
-      </td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isRequestingPermission" href="#isRequestingPermission"></a><code>isRequestingPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isRequestingPermission"></div>
+<h3>
+  <code>isRequestingPermission()</code>
+  
 
-
-
-
+</h3>
 Indicates if the plugin is currently requesting a runtime permission via the native API.
 Note that only one request can be made concurrently because the native API cannot handle concurrent requests,
 so the plugin will invoke the error callback if attempting to make more than one simultaneous request.
@@ -878,12 +965,14 @@ Multiple permission requests should be grouped into a single call since the nati
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>boolean</code> 
-</div><h3><a class="anchor" name="registerPermissionRequestCompleteHandler" href="#registerPermissionRequestCompleteHandler"></a><code>registerPermissionRequestCompleteHandler(handler)</code></h3>
+  <b>Returns:</b> 
+<code>boolean</code> 
+</div><div id="registerPermissionRequestCompleteHandler"></div>
+<h3>
+  <code>registerPermissionRequestCompleteHandler(handler)</code>
+  
 
-
-
-
+</h3>
 Registers a function to be called when a runtime permission request has completed.
 Pass in a falsey value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
@@ -895,125 +984,123 @@ Pass in a falsey value to de-register the currently registered function.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      handler</td>
-    <td>
-      <code>Function</code>
+      handler
+      
     </td>
     <td>
-      </td>
+      
+<code>Function</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
-<h3><a class="anchor" name="isBluetoothEnabled" href="#isBluetoothEnabled"></a><code>isBluetoothEnabled()</code></h3>
+<div id="isBluetoothEnabled"></div>
+<h3>
+  <code>isBluetoothEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the device setting for Bluetooth is switched on.
 This requires `BLUETOOTH` permission on Android
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasBluetoothSupport" href="#hasBluetoothSupport"></a><code>hasBluetoothSupport()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasBluetoothSupport"></div>
+<h3>
+  <code>hasBluetoothSupport()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the device has Bluetooth capabilities.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasBluetoothLESupport" href="#hasBluetoothLESupport"></a><code>hasBluetoothLESupport()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasBluetoothLESupport"></div>
+<h3>
+  <code>hasBluetoothLESupport()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the device has Bluetooth Low Energy (LE) capabilities.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasBluetoothLEPeripheralSupport" href="#hasBluetoothLEPeripheralSupport"></a><code>hasBluetoothLEPeripheralSupport()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasBluetoothLEPeripheralSupport"></div>
+<h3>
+  <code>hasBluetoothLEPeripheralSupport()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the device supports Bluetooth Low Energy (LE) Peripheral mode.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isExternalStorageAuthorized" href="#isExternalStorageAuthorized"></a><code>isExternalStorageAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isExternalStorageAuthorized"></div>
+<h3>
+  <code>isExternalStorageAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use external storage.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getExternalStorageAuthorizationStatus" href="#getExternalStorageAuthorizationStatus"></a><code>getExternalStorageAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getExternalStorageAuthorizationStatus"></div>
+<h3>
+  <code>getExternalStorageAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 CReturns the external storage authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestExternalStorageAuthorization" href="#requestExternalStorageAuthorization"></a><code>requestExternalStorageAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="requestExternalStorageAuthorization"></div>
+<h3>
+  <code>requestExternalStorageAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Requests external storage authorization for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="getExternalSdCardDetails" href="#getExternalSdCardDetails"></a><code>getExternalSdCardDetails()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="getExternalSdCardDetails"></div>
+<h3>
+  <code>getExternalSdCardDetails()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Returns details of external SD card(s): absolute path, is writable, free space.
 
 The intention of this method is to return the location and details of removable external SD cards.
@@ -1025,83 +1112,75 @@ Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="switchToWirelessSettings" href="#switchToWirelessSettings"></a><code>switchToWirelessSettings()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="switchToWirelessSettings"></div>
+<h3>
+  <code>switchToWirelessSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Switches to the wireless settings page in the Settings app. Allows configuration of wireless controls such as Wi-Fi, Bluetooth and Mobile networks.
 
 
 
-<h3><a class="anchor" name="switchToNFCSettings" href="#switchToNFCSettings"></a><code>switchToNFCSettings()</code></h3>
+<div id="switchToNFCSettings"></div>
+<h3>
+  <code>switchToNFCSettings()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Displays NFC settings to allow user to enable NFC.
 
 
 
-<h3><a class="anchor" name="isNFCPresent" href="#isNFCPresent"></a><code>isNFCPresent()</code></h3>
+<div id="isNFCPresent"></div>
+<h3>
+  <code>isNFCPresent()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if NFC hardware is present on device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isNFCEnabled" href="#isNFCEnabled"></a><code>isNFCEnabled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isNFCEnabled"></div>
+<h3>
+  <code>isNFCEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the device setting for NFC is switched on.
 Note: this operation does not require NFC permission in the manifest.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isNFCAvailable" href="#isNFCAvailable"></a><code>isNFCAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isNFCAvailable"></div>
+<h3>
+  <code>isNFCAvailable()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Checks if NFC is available to the app. Returns true if the device has NFC capabilities AND if NFC setting is switched on.
 Note: this operation does not require NFC permission in the manifest.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="registerNFCStateChangeHandler" href="#registerNFCStateChangeHandler"></a><code>registerNFCStateChangeHandler(hander)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="registerNFCStateChangeHandler"></div>
+<h3>
+  <code>registerNFCStateChangeHandler(hander)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Registers a function to be called when a change in NFC state occurs. Pass in a falsey value to de-register the currently registered function.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1112,58 +1191,62 @@ Registers a function to be called when a change in NFC state occurs. Pass in a f
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      hander</td>
+      hander
+      
+    </td>
     <td>
-      <code>Function</code>
+      
+<code>Function</code>
     </td>
     <td>
       <p>callback function to be called when NFC state changes</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isCameraRollAuthorized" href="#isCameraRollAuthorized"></a><code>isCameraRollAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isCameraRollAuthorized"></div>
+<h3>
+  <code>isCameraRollAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use the Camera Roll in Photos app.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getCameraRollAuthorizationStatus" href="#getCameraRollAuthorizationStatus"></a><code>getCameraRollAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getCameraRollAuthorizationStatus"></div>
+<h3>
+  <code>getCameraRollAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the authorization status for the application to use the Camera Roll in Photos app.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestCameraRollAuthorization" href="#requestCameraRollAuthorization"></a><code>requestCameraRollAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="requestCameraRollAuthorization"></div>
+<h3>
+  <code>requestCameraRollAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests camera roll authorization for the application.
 Should only be called if authorization status is NOT_REQUESTED.
 Calling it when in any other state will have no effect.
@@ -1171,128 +1254,119 @@ Calling it when in any other state will have no effect.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isRemoteNotificationsEnabled" href="#isRemoteNotificationsEnabled"></a><code>isRemoteNotificationsEnabled()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isRemoteNotificationsEnabled"></div>
+<h3>
+  <code>isRemoteNotificationsEnabled()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if remote (push) notifications are enabled.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isRegisteredForRemoteNotifications" href="#isRegisteredForRemoteNotifications"></a><code>isRegisteredForRemoteNotifications()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isRegisteredForRemoteNotifications"></div>
+<h3>
+  <code>isRegisteredForRemoteNotifications()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Indicates if the app is registered for remote (push) notifications on the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getRemoteNotificationTypes" href="#getRemoteNotificationTypes"></a><code>getRemoteNotificationTypes()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getRemoteNotificationTypes"></div>
+<h3>
+  <code>getRemoteNotificationTypes()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Indicates the current setting of notification types for the app in the Settings app.
 Note: on iOS 8+, if "Allow Notifications" switch is OFF, all types will be returned as disabled.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isRemindersAuthorized" href="#isRemindersAuthorized"></a><code>isRemindersAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isRemindersAuthorized"></div>
+<h3>
+  <code>isRemindersAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized to use reminders.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getRemindersAuthorizationStatus" href="#getRemindersAuthorizationStatus"></a><code>getRemindersAuthorizationStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getRemindersAuthorizationStatus"></div>
+<h3>
+  <code>getRemindersAuthorizationStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the reminders authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestRemindersAuthorization" href="#requestRemindersAuthorization"></a><code>requestRemindersAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestRemindersAuthorization"></div>
+<h3>
+  <code>requestRemindersAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests reminders authorization for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isBackgroundRefreshAuthorized" href="#isBackgroundRefreshAuthorized"></a><code>isBackgroundRefreshAuthorized()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isBackgroundRefreshAuthorized"></div>
+<h3>
+  <code>isBackgroundRefreshAuthorized()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if the application is authorized for background refresh.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="getBackgroundRefreshStatus" href="#getBackgroundRefreshStatus"></a><code>getBackgroundRefreshStatus()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="getBackgroundRefreshStatus"></div>
+<h3>
+  <code>getBackgroundRefreshStatus()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Returns the background refresh authorization status for the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestBluetoothAuthorization" href="#requestBluetoothAuthorization"></a><code>requestBluetoothAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestBluetoothAuthorization"></div>
+<h3>
+  <code>requestBluetoothAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests Bluetooth authorization for the application.
 
 Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestbluetoothauthorization)
@@ -1300,29 +1374,27 @@ Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="isMotionAvailable" href="#isMotionAvailable"></a><code>isMotionAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="isMotionAvailable"></div>
+<h3>
+  <code>isMotionAvailable()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if motion tracking is available on the current device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="isMotionRequestOutcomeAvailable" href="#isMotionRequestOutcomeAvailable"></a><code>isMotionRequestOutcomeAvailable()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="isMotionRequestOutcomeAvailable"></div>
+<h3>
+  <code>isMotionRequestOutcomeAvailable()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Checks if it's possible to determine the outcome of a motion authorization request on the current device.
 There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
 therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
@@ -1331,15 +1403,14 @@ therefore, if the device supports motion tracking but not Pedometer Event Tracki
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestAndCheckMotionAuthorization" href="#requestAndCheckMotionAuthorization"></a><code>requestAndCheckMotionAuthorization()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="requestAndCheckMotionAuthorization"></div>
+<h3>
+  <code>requestAndCheckMotionAuthorization()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Requests and checks motion authorization for the application: there is no way to independently request only or check only, so both must be done in one operation.
 
 Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic-plugin#requestandcheckmotionauthorization)
@@ -1348,10 +1419,22 @@ Learn more about this method [here](https://github.com/dpa99c/cordova-diagnostic
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

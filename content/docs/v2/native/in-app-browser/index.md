@@ -11,12 +11,28 @@ doc: "In App Browser"
 docType: "class"
 ---
 
-<h1 class="api-title">In App Browser</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  In App Browser
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/in-app-browser/index.ts#L132">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,18 +47,18 @@ $ npm install --save @ionic-native/in-app-browser
   </a>
 </p>
 
+<!-- description -->
 
 <p>Launches in app Browser</p>
 
 
 
+<!-- if doc.decorators -->
 
-
-
-
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { InAppBrowser } from &#39;@ionic-native/in-app-browser&#39;;
 
 constructor(private iab: InAppBrowser) { }
@@ -61,13 +77,20 @@ browser.close();
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;options)</code></h3>
+<div id="create"></div>
+<h3>
+  <code>create(url,&nbsp;target,&nbsp;options)</code>
+  
 
+</h3>
 Opens a URL in a new InAppBrowser instance, the current browser instance, or the system browser.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -78,86 +101,117 @@ Opens a URL in a new InAppBrowser instance, the current browser instance, or the
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      url</td>
+      url
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The URL to load.</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      target</td>
+      target
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The target in which to load the URL, an optional parameter that defaults to _self.</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Options for the InAppBrowser. Optional, defaulting to: location=yes.
                 The options string must not contain any blank space, and each feature&#39;s
                 name/value pairs must be separated by a comma. Feature names are case insensitive.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>InAppBrowserObject</code> 
+  <b>Returns:</b> 
+<code>InAppBrowserObject</code> 
 </div>
+
+
+
+<!-- other classes -->
+<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
+
+
 
 <h2><a class="anchor" name="InAppBrowserObject" href="#InAppBrowserObject"></a>InAppBrowserObject</h2>
 
 
-
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
+<div id="show"></div>
+<h3>
+  <code>show()</code>
+  
 
-
-
-
+</h3>
 Displays an InAppBrowser window that was opened hidden. Calling this has no effect
 if the InAppBrowser was already visible.
 
 
 
-<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
+<div id="close"></div>
+<h3>
+  <code>close()</code>
+  
 
-
-
-
+</h3>
 Closes the InAppBrowser window.
 
 
 
-<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
+<div id="hide"></div>
+<h3>
+  <code>hide()</code>
+  
 
-
-
-
+</h3>
 Hides an InAppBrowser window that is currently shown. Calling this has no effect
 if the InAppBrowser was already hidden.
 
 
 
-<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code></h3>
+<div id="executeScript"></div>
+<h3>
+  <code>executeScript(script)</code>
+  
 
-
+</h3>
 Injects JavaScript code into the InAppBrowser window.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -168,25 +222,36 @@ Injects JavaScript code into the InAppBrowser window.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      script</td>
+      script
+      
+    </td>
     <td>
-      <code>Object</code>
+      
+<code>Object</code>
     </td>
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="insertCSS" href="#insertCSS"></a><code>insertCSS(css)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="insertCSS"></div>
+<h3>
+  <code>insertCSS(css)</code>
+  
 
-
+</h3>
 Injects CSS into the InAppBrowser window.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -197,24 +262,36 @@ Injects CSS into the InAppBrowser window.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      css</td>
+      css
+      
+    </td>
     <td>
-      <code>Object</code>
+      
+<code>Object</code>
     </td>
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="on"></div>
+<h3>
+  <code>on(event)</code>
+  
 
+</h3>
 A method that allows you to listen to events happening in the browser.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -225,27 +302,42 @@ A method that allows you to listen to events happening in the browser.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      event</td>
+      event
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of the event</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;InAppBrowserEvent&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
+  <b>Returns:</b> 
+<code>Observable&lt;InAppBrowserEvent&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
 </div>
 
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
 
 <h2><a class="anchor" name="InAppBrowserEvent" href="#InAppBrowserEvent"></a>InAppBrowserEvent</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -317,7 +409,10 @@ A method that allows you to listen to events happening in the browser.
 </table>
 
 
+
+
 <h2><a class="anchor" name="InAppBrowserOptions" href="#InAppBrowserOptions"></a>InAppBrowserOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -605,4 +700,11 @@ Please note that if location=no is also specified, there will be no control pres
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

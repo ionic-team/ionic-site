@@ -11,12 +11,28 @@ doc: "Calendar"
 docType: "class"
 ---
 
-<h1 class="api-title">Calendar</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Calendar
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/calendar/index.ts#L50">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,24 +47,28 @@ $ npm install --save @ionic-native/calendar
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin allows you to add events to the Calendar of the mobile device.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-calendar</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">Calendar plugin docs</a>.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import {Calendar} from &#39;@ionic-native/calendar&#39;;
 
 constructor(private calendar: Calendar) { }
@@ -63,14 +83,20 @@ this.calendar.createCalendar(&#39;MyCalendar&#39;).then(
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="hasReadWritePermission" href="#hasReadWritePermission"></a><code>hasReadWritePermission()</code></h3>
+<div id="hasReadWritePermission"></div>
+<h3>
+  <code>hasReadWritePermission()</code>
+  
 
-
+</h3>
 This function checks if we have permission to read/write from/to the calendar.
 The promise will resolve with `true` when:
 - You're running on iOS, or
@@ -83,55 +109,79 @@ If this returns false, you should call the `requestReadWritePermission` function
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasReadPermission"></div>
+<h3>
+  <code>hasReadPermission()</code>
+  
 
-
+</h3>
 Check if we have read permission
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="hasWritePermission" href="#hasWritePermission"></a><code>hasWritePermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="hasWritePermission"></div>
+<h3>
+  <code>hasWritePermission()</code>
+  
 
-
+</h3>
 Check if we have write permission
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
-</div><h3><a class="anchor" name="requestWritePermission" href="#requestWritePermission"></a><code>requestWritePermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div><div id="requestWritePermission"></div>
+<h3>
+  <code>requestWritePermission()</code>
+  
 
-
+</h3>
 Request write permission
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestReadPermission"></div>
+<h3>
+  <code>requestReadPermission()</code>
+  
 
-
+</h3>
 Request read permission
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="requestReadWritePermission" href="#requestReadWritePermission"></a><code>requestReadWritePermission()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="requestReadWritePermission"></div>
+<h3>
+  <code>requestReadWritePermission()</code>
+  
 
-
+</h3>
 Requests read/write permissions
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="createCalendar" href="#createCalendar"></a><code>createCalendar(nameOrOptions)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="createCalendar"></div>
+<h3>
+  <code>createCalendar(nameOrOptions)</code>
+  
 
-
+</h3>
 Create a calendar. (iOS only)
 
 <table class="table param-table" style="margin:0;">
@@ -143,25 +193,36 @@ Create a calendar. (iOS only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      nameOrOptions</td>
+      nameOrOptions
+      
+    </td>
     <td>
-      <code>string</code>|<code>Object</code>
+      
+<code>string</code>|<code>Object</code>
     </td>
     <td>
       <p>either a string name or a options object. If string, provide the calendar name. IF an object, provide a calendar name as a string and a calendar color in hex format as a string</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
-</div><h3><a class="anchor" name="deleteCalendar" href="#deleteCalendar"></a><code>deleteCalendar(name)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise
+</div><div id="deleteCalendar"></div>
+<h3>
+  <code>deleteCalendar(name)</code>
+  
 
-
+</h3>
 Delete a calendar. (iOS only)
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -172,37 +233,50 @@ Delete a calendar. (iOS only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      name</td>
+      name
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Name of the calendar to delete.</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
-</div><h3><a class="anchor" name="getCalendarOptions" href="#getCalendarOptions"></a><code>getCalendarOptions()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise
+</div><div id="getCalendarOptions"></div>
+<h3>
+  <code>getCalendarOptions()</code>
+  
 
-
-
-
+</h3>
 Returns the default calendar options.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>CalendarOptions</code> Returns an object with the default calendar options
-</div><h3><a class="anchor" name="createEvent" href="#createEvent"></a><code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code></h3>
+  <b>Returns:</b> 
+<code>CalendarOptions</code> Returns an object with the default calendar options
+</div><div id="createEvent"></div>
+<h3>
+  <code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+  
 
-
+</h3>
 Silently create an event.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -213,69 +287,100 @@ Silently create an event.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
-</div><h3><a class="anchor" name="createEventWithOptions" href="#createEventWithOptions"></a><code>createEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise
+</div><div id="createEventWithOptions"></div>
+<h3>
+  <code>createEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+  
 
-
+</h3>
 Silently create an event with additional options.
 
 <table class="table param-table" style="margin:0;">
@@ -287,80 +392,116 @@ Silently create an event with additional options.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>CalendarOptions</code>
+      
+<code>CalendarOptions</code>
     </td>
     <td>
       <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
-</div><h3><a class="anchor" name="createEventInteractively" href="#createEventInteractively"></a><code>createEventInteractively(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise
+</div><div id="createEventInteractively"></div>
+<h3>
+  <code>createEventInteractively(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+  
 
-
+</h3>
 Interactively create an event.
 
 <table class="table param-table" style="margin:0;">
@@ -372,69 +513,100 @@ Interactively create an event.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise
-</div><h3><a class="anchor" name="createEventInteractivelyWithOptions" href="#createEventInteractivelyWithOptions"></a><code>createEventInteractivelyWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise
+</div><div id="createEventInteractivelyWithOptions"></div>
+<h3>
+  <code>createEventInteractivelyWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+  
 
-
+</h3>
 Interactively create an event with additional options.
 
 <table class="table param-table" style="margin:0;">
@@ -446,80 +618,116 @@ Interactively create an event with additional options.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>CalendarOptions</code>
+      
+<code>CalendarOptions</code>
     </td>
     <td>
       <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="findEvent" href="#findEvent"></a><code>findEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="findEvent"></div>
+<h3>
+  <code>findEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+  
 
-
+</h3>
 Find an event.
 
 <table class="table param-table" style="margin:0;">
@@ -531,69 +739,100 @@ Find an event.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="findEventWithOptions" href="#findEventWithOptions"></a><code>findEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="findEventWithOptions"></div>
+<h3>
+  <code>findEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
+  
 
-
+</h3>
 Find an event with additional options.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -604,85 +843,116 @@ Find an event with additional options.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      options</td>
+      options
+      
+    </td>
     <td>
-      <code>CalendarOptions</code>
+      
+<code>CalendarOptions</code>
     </td>
     <td>
       <p>Additional options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the event, or rejects with an error.
-</div><h3><a class="anchor" name="listEventsInRange" href="#listEventsInRange"></a><code>listEventsInRange(startDate,&nbsp;endDate)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the event, or rejects with an error.
+</div><div id="listEventsInRange"></div>
+<h3>
+  <code>listEventsInRange(startDate,&nbsp;endDate)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
-
-
+</h3>
 Find a list of events within the specified date range. (Android only)
 
 <table class="table param-table" style="margin:0;">
@@ -694,64 +964,78 @@ Find a list of events within the specified date range. (Android only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
-</div><h3><a class="anchor" name="listCalendars" href="#listCalendars"></a><code>listCalendars()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
+</div><div id="listCalendars"></div>
+<h3>
+  <code>listCalendars()</code>
+  
 
-
+</h3>
 Get a list of all calendars.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> A Promise that resolves with the list of calendars, or rejects with an error.
-</div><h3><a class="anchor" name="findAllEventsInNamedCalendar" href="#findAllEventsInNamedCalendar"></a><code>findAllEventsInNamedCalendar()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> A Promise that resolves with the list of calendars, or rejects with an error.
+</div><div id="findAllEventsInNamedCalendar"></div>
+<h3>
+  <code>findAllEventsInNamedCalendar()</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Get a list of all future events in the specified calendar. (iOS only)
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
-</div><h3><a class="anchor" name="modifyEvent" href="#modifyEvent"></a><code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the list of events, or rejects with an error.
+</div><div id="modifyEvent"></div>
+<h3>
+  <code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Modify an event. (iOS only)
 
 <table class="table param-table" style="margin:0;">
@@ -763,130 +1047,181 @@ Modify an event. (iOS only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newTitle</td>
+      newTitle
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newLocation</td>
+      newLocation
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newNotes</td>
+      newNotes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newStartDate</td>
+      newStartDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The new event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newEndDate</td>
+      newEndDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The new event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
+  <b>Returns:</b> 
+ Returns a Promise
 
-</div><h3><a class="anchor" name="modifyEventWithOptions" href="#modifyEventWithOptions"></a><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code></h3>
+</div><div id="modifyEventWithOptions"></div>
+<h3>
+  <code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;filterOptions,&nbsp;newOptions)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Modify an event with additional options. (iOS only)
 
 <table class="table param-table" style="margin:0;">
@@ -898,147 +1233,213 @@ Modify an event with additional options. (iOS only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newTitle</td>
+      newTitle
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newLocation</td>
+      newLocation
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newNotes</td>
+      newNotes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The new event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newStartDate</td>
+      newStartDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The new event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newEndDate</td>
+      newEndDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The new event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      filterOptions</td>
+      filterOptions
+      
+    </td>
     <td>
-      <code>CalendarOptions</code>
+      
+<code>CalendarOptions</code>
     </td>
     <td>
       <p>Event Options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      newOptions</td>
+      newOptions
+      
+    </td>
     <td>
-      <code>CalendarOptions</code>
+      
+<code>CalendarOptions</code>
     </td>
     <td>
       <p>New event options, see <code>getCalendarOptions</code><strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
+  <b>Returns:</b> 
+ Returns a Promise
 
-</div><h3><a class="anchor" name="deleteEvent" href="#deleteEvent"></a><code>deleteEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code></h3>
+</div><div id="deleteEvent"></div>
+<h3>
+  <code>deleteEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
+  
 
-
+</h3>
 Delete an event.
 
 <table class="table param-table" style="margin:0;">
@@ -1050,75 +1451,101 @@ Delete an event.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
+  <b>Returns:</b> 
+ Returns a Promise
 
-</div><h3><a class="anchor" name="deleteEventFromNamedCalendar" href="#deleteEventFromNamedCalendar"></a><code>deleteEventFromNamedCalendar(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;calendarName)</code></h3>
+</div><div id="deleteEventFromNamedCalendar"></div>
+<h3>
+  <code>deleteEventFromNamedCalendar(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;calendarName)</code>
+  
 
-
-
-<p>
-  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
-
-
+</h3>
 Delete an event from the specified Calendar. (iOS only)
 
 <table class="table param-table" style="margin:0;">
@@ -1130,80 +1557,116 @@ Delete an event from the specified Calendar. (iOS only)
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      title</td>
+      title
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event title<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      location</td>
+      location
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event location<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      notes</td>
+      notes
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The event notes<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      startDate</td>
+      startDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event start date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      endDate</td>
+      endDate
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The event end date<strong class="tag">Optional</strong></p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      calendarName</td>
-    <td>
-      <code>string</code>
+      calendarName
+      
     </td>
     <td>
-      </td>
+      
+<code>string</code>
+    </td>
+    <td>
+      
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b>  Returns a Promise
+  <b>Returns:</b> 
+ Returns a Promise
 
-</div><h3><a class="anchor" name="openCalendar" href="#openCalendar"></a><code>openCalendar(date)</code></h3>
+</div><div id="openCalendar"></div>
+<h3>
+  <code>openCalendar(date)</code>
+  
 
-
+</h3>
 Open the calendar at the specified date.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1214,29 +1677,45 @@ Open the calendar at the specified date.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      date</td>
+      date
+      
+    </td>
     <td>
-      <code>Date</code>
+      
+<code>Date</code>
     </td>
     <td>
       <p>The date you want to open the calendar on</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Promise returns a promise
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Promise returns a promise
 </div>
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="CalendarOptions" href="#CalendarOptions"></a>CalendarOptions</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1378,4 +1857,11 @@ Open the calendar at the specified date.
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

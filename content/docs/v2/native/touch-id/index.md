@@ -11,12 +11,28 @@ doc: "Touch ID"
 docType: "class"
 ---
 
-<h1 class="api-title">Touch ID</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Touch ID
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/touch-id/index.ts#L1">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,24 +47,28 @@ $ npm install --save @ionic-native/touch-id
   </a>
 </p>
 
+<!-- description -->
 
 <p>Scan the fingerprint of a user with the TouchID sensor.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-touch-id</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">TouchID plugin docs</a>.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { TouchID } from &#39;@ionic-native/touch-id&#39;;
 
 constructor(private touchId: TouchID) { }
@@ -82,24 +102,34 @@ this.touchId.verifyFingerprint(&#39;Scan your fingerprint please&#39;)
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 Checks Whether TouchID is available or not.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if yes, rejects if no.
-</div><h3><a class="anchor" name="verifyFingerprint" href="#verifyFingerprint"></a><code>verifyFingerprint(message)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if yes, rejects if no.
+</div><div id="verifyFingerprint"></div>
+<h3>
+  <code>verifyFingerprint(message)</code>
+  
 
-
+</h3>
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, brings up standard system passcode screen.
 
 <table class="table param-table" style="margin:0;">
@@ -111,25 +141,36 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      message</td>
+      message
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The message to display</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
-</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallback" href="#verifyFingerprintWithCustomPasswordFallback"></a><code>verifyFingerprintWithCustomPasswordFallback(message)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+</div><div id="verifyFingerprintWithCustomPasswordFallback"></div>
+<h3>
+  <code>verifyFingerprintWithCustomPasswordFallback(message)</code>
+  
 
-
+</h3>
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
 
 <table class="table param-table" style="margin:0;">
@@ -141,25 +182,36 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      message</td>
+      message
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The message to display</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
-</div><h3><a class="anchor" name="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel" href="#verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></a><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+</div><div id="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></div>
+<h3>
+  <code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code>
+  
 
-
+</h3>
 Show TouchID dialog with custom 'Enter Password' message and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
 
 <table class="table param-table" style="margin:0;">
@@ -171,36 +223,60 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      message</td>
+      message
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The message to display</p>
-</td>
+
+      
+    </td>
   </tr>
   
   <tr>
     <td>
-      enterPasswordLabel</td>
+      enterPasswordLabel
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Custom text for the &#39;Enter Password&#39; button</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

@@ -11,12 +11,28 @@ doc: "App Availability"
 docType: "class"
 ---
 
-<h1 class="api-title">App Availability</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  App Availability
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/app-availability/index.ts#L1">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,24 +47,28 @@ $ npm install --save @ionic-native/app-availability
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin allows you to check if an app is installed on the user&#39;s device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
 <p>Requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { AppAvailability } from &#39;@ionic-native/app-availability&#39;;
 import { Platform } from &#39;ionic-angular&#39;;
 
@@ -74,14 +94,20 @@ this.appAvailability.check(app)
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="check" href="#check"></a><code>check(app)</code></h3>
+<div id="check"></div>
+<h3>
+  <code>check(app)</code>
+  
 
-
+</h3>
 Checks if an app is available on device
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -92,25 +118,44 @@ Checks if an app is available on device
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      app</td>
+      app
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>Package name on android, or URI scheme on iOS</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

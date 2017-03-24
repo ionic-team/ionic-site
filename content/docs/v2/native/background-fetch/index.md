@@ -11,12 +11,28 @@ doc: "Background Fetch"
 docType: "class"
 ---
 
-<h1 class="api-title">Background Fetch</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Background Fetch
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-fetch/index.ts#L12">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,25 +47,29 @@ $ npm install --save @ionic-native/background-fetch
   </a>
 </p>
 
+<!-- description -->
 
 <p>iOS Background Fetch Implementation. See: <a href="https://developer.apple.com/reference/uikit/uiapplication#1657399">https://developer.apple.com/reference/uikit/uiapplication#1657399</a>
 iOS Background Fetch is basically an API which wakes up your app about every 15 minutes (during the user&#39;s prime-time hours) and provides your app exactly 30s of background running-time. This plugin will execute your provided callbackFn whenever a background-fetch event occurs. There is no way to increase the rate which a fetch-event occurs and this plugin sets the rate to the most frequent possible value of UIApplicationBackgroundFetchIntervalMinimum -- iOS determines the rate automatically based upon device usage and time-of-day (ie: fetch-rate is about ~15min during prime-time hours; less frequently when the user is presumed to be sleeping, at 3am for example).
 For more detail, please see <a href="https://github.com/transistorsoft/cordova-plugin-background-fetch">https://github.com/transistorsoft/cordova-plugin-background-fetch</a></p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code class="lang-typescript">import { BackgroundFetch, BackgroundFetchConfig } from &#39;@ionic-native/background-fetch&#39;;
 
 
@@ -81,16 +101,20 @@ constructor(private backgroundFetch: BackgroundFetch) {
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(config)</code></h3>
+<div id="configure"></div>
+<h3>
+  <code>configure(config)</code>
+  
 
-
-
-
+</h3>
 Configures the plugin's fetch callbackFn
 
 <table class="table param-table" style="margin:0;">
@@ -102,46 +126,63 @@ Configures the plugin's fetch callbackFn
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      config</td>
+      config
+      
+    </td>
     <td>
-      <code>BackgroundFetchConfig</code>
+      
+<code>BackgroundFetchConfig</code>
     </td>
     <td>
       <p>Configuration for plugin</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="start" href="#start"></a><code>start()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="start"></div>
+<h3>
+  <code>start()</code>
+  
 
-
+</h3>
 Start the background-fetch API.
 Your callbackFn provided to #configure will be executed each time a background-fetch event occurs. NOTE the #configure method automatically calls #start. You do not have to call this method after you #configure the plugin
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="stop"></div>
+<h3>
+  <code>stop()</code>
+  
 
-
+</h3>
 Stop the background-fetch API from firing fetch events. Your callbackFn provided to #configure will no longer be executed.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="finish" href="#finish"></a><code>finish()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div><div id="finish"></div>
+<h3>
+  <code>finish()</code>
+  
 
-
-
-
+</h3>
 You MUST call this method in your fetch callbackFn provided to #configure in order to signal to iOS that your fetch action is complete. iOS provides only 30s of background-time for a fetch-event -- if you exceed this 30s, iOS will kill your app.
 
 
@@ -150,9 +191,17 @@ You MUST call this method in your fetch callbackFn provided to #configure in ord
 
 
 
+<!-- other classes -->
+
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="BackgroundFetchConfig" href="#BackgroundFetchConfig"></a>BackgroundFetchConfig</h2>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -184,4 +233,11 @@ You MUST call this method in your fetch callbackFn provided to #configure in ord
 
 
 
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

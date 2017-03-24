@@ -11,12 +11,28 @@ doc: "Browser Tab"
 docType: "class"
 ---
 
-<h1 class="api-title">Browser Tab</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Browser Tab
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/browser-tab/index.ts#L1">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,23 +47,27 @@ $ npm install --save @ionic-native/browser-tab
   </a>
 </p>
 
+<!-- description -->
 
 <p>This plugin provides an interface to in-app browser tabs that exist on some mobile platforms, specifically <a href="http://developer.android.com/tools/support-library/features.html#custom-tabs">Custom Tabs</a> on Android (including the <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a> implementation), and <a href="https://developer.apple.com/library/ios/documentation/SafariServices/Reference/SFSafariViewController_Ref/">SFSafariViewController</a> on iOS.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { BrowserTab } from &#39;@ionic-native/browser-tab&#39;;
 
 constructor(private browserTab: BrowserTab) {
@@ -74,23 +94,33 @@ constructor(private browserTab: BrowserTab) {
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code></h3>
+<div id="isAvailable"></div>
+<h3>
+  <code>isAvailable()</code>
+  
 
-
+</h3>
 Check if BrowserTab option is available
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when check is successful and returns true or false
-</div><h3><a class="anchor" name="openUrl" href="#openUrl"></a><code>openUrl(url)</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves when check is successful and returns true or false
+</div><div id="openUrl"></div>
+<h3>
+  <code>openUrl(url)</code>
+  
 
-
+</h3>
 Opens the provided URL using a browser tab
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -101,34 +131,57 @@ Opens the provided URL using a browser tab
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      url</td>
+      url
+      
+    </td>
     <td>
-      <code>string</code>
+      
+<code>string</code>
     </td>
     <td>
       <p>The URL you want to open</p>
-</td>
+
+      
+    </td>
   </tr>
+  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when check open was successful
-</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves when check open was successful
+</div><div id="close"></div>
+<h3>
+  <code>close()</code>
+  
 
-
+</h3>
 Closes browser tab
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when close was finished
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves when close was finished
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

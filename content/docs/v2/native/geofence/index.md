@@ -11,12 +11,28 @@ doc: "Geofence"
 docType: "class"
 ---
 
-<h1 class="api-title">Geofence</h1>
+
+
+
+
+
+
+<h1 class="api-title">
+  
+  Geofence
+  
+
+  
+
+  </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geofence/index.ts#L4">
   Improve this doc
 </a>
 
+
+
+<!-- decorators -->
 
 
 
@@ -31,24 +47,28 @@ $ npm install --save @ionic-native/geofence
   </a>
 </p>
 
+<!-- description -->
 
 <p>Monitors circular geofences around latitude/longitude coordinates, and sends a notification to the user when the boundary of a geofence is crossed. Notifications can be sent when the user enters and/or exits a geofence.
 Geofences persist after device reboot. Geofences will be monitored even when the app is not running.</p>
 
 
-
-
+<!-- @platforms tag -->
 <h2>Supported platforms</h2>
+
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows Phone</li>
 </ul>
 
+<!-- @platforms tag end -->
 
 
+<!-- if doc.decorators -->
 
-
+<!-- @usage tag -->
 
 <h2>Usage</h2>
+
 <pre><code>import { Geofence } from &#39;@ionic-native/geofence&#39;;
 
 ...
@@ -119,48 +139,70 @@ platform directories.</p>
 
 
 
+<!-- @property tags -->
 
 
 
+
+<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<h3><a class="anchor" name="TransitionType" href="#TransitionType"></a><code>TransitionType</code></h3>
+<div id="TransitionType"></div>
+<h3>
+  <code>TransitionType()</code>
+  
+
+</h3>
 
 
 
+<div id="onTrasitionReceived"></div>
+<h3>
+  <code>onTrasitionReceived()</code>
+  
 
-<h3><a class="anchor" name="onTrasitionReceived" href="#onTrasitionReceived"></a><code>onTrasitionReceived()</code></h3>
-
-
+</h3>
 Subscribe to get notified when a transition is received
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="initialize" href="#initialize"></a><code>initialize()</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="initialize"></div>
+<h3>
+  <code>initialize()</code>
+  
 
-
+</h3>
 Initializes the plugin. User will be prompted to allow the app to use location and notifications.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="addOrUpdate" href="#addOrUpdate"></a><code>addOrUpdate()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div><div id="addOrUpdate"></div>
+<h3>
+  <code>addOrUpdate()</code>
+  
 
-
+</h3>
 Adds a new geofence or array of geofences. For geofence object, see above.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div><div id="remove"></div>
+<h3>
+  <code>remove()</code>
+  
 
-
+</h3>
 Removes a geofence or array of geofences. `geofenceID` corresponds to one or more IDs specified when the
 geofence was created.
 
@@ -168,48 +210,78 @@ geofence was created.
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="removeAll" href="#removeAll"></a><code>removeAll()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div><div id="removeAll"></div>
+<h3>
+  <code>removeAll()</code>
+  
 
-
+</h3>
 Removes all geofences.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
-</div><h3><a class="anchor" name="getWatched" href="#getWatched"></a><code>getWatched()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> 
+</div><div id="getWatched"></div>
+<h3>
+  <code>getWatched()</code>
+  
 
-
+</h3>
 Returns an array of geofences currently being monitored.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;Array&lt;string&gt;&gt;</code> 
-</div><h3><a class="anchor" name="onTransitionReceived" href="#onTransitionReceived"></a><code>onTransitionReceived()</code></h3>
+  <b>Returns:</b> 
+<code>Promise&lt;Array&lt;string&gt;&gt;</code> 
+</div><div id="onTransitionReceived"></div>
+<h3>
+  <code>onTransitionReceived()</code>
+  
 
+</h3>
 Called when a geofence is crossed in the direction specified by `TransitType`.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="onNotificationClicked" href="#onNotificationClicked"></a><code>onNotificationClicked()</code></h3>
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
+</div><div id="onNotificationClicked"></div>
+<h3>
+  <code>onNotificationClicked()</code>
+  
 
+</h3>
 Called when the user clicks a geofence notification. iOS and Android only.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+  <b>Returns:</b> 
+<code>Observable&lt;any&gt;</code> 
 </div>
 
 
 
+<!-- other classes -->
 
+<!-- end other classes -->
+
+<!-- interfaces -->
+
+<!-- end interfaces -->
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

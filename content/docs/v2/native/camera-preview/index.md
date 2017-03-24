@@ -55,7 +55,7 @@ $ npm install --save @ionic-native/camera-preview
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { CameraPreview, PictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;ionic-native&#39;;
+<pre><code class="lang-typescript">import { CameraPreview, PictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;@ionic-native/camera-preview&#39;;
 
 constructor(private cameraPreview: CameraPreview) { }
 
@@ -282,7 +282,7 @@ Set the zoom (Android)
       <code>number</code>
     </td>
     <td>
-      <p>Zoom value</p>
+      <p>Zoom value<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>
@@ -316,7 +316,8 @@ Set the preview Size
       <code>CameraPreviewDimensions</code>
     </td>
     <td>
-      </td>
+      <p><strong class="tag">Optional</strong></p>
+</td>
   </tr>
   </tbody>
 </table>
@@ -346,7 +347,7 @@ Set the flashmode
       <code>string</code>
     </td>
     <td>
-      <p>&#39;off&#39; (iOS &amp; Android), &#39;on&#39; (iOS &amp; Android), &#39;auto&#39; (iOS &amp; Android), &#39;torch&#39; (Android)</p>
+      <p>&#39;off&#39; (iOS &amp; Android), &#39;on&#39; (iOS &amp; Android), &#39;auto&#39; (iOS &amp; Android), &#39;torch&#39; (Android)<strong class="tag">Optional</strong></p>
 </td>
   </tr>
   </tbody>

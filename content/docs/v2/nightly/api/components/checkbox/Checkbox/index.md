@@ -35,7 +35,7 @@ Checkbox
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/checkbox/checkbox.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/checkbox/checkbox.ts#L13">
 Improve this doc
 </a>
 
@@ -104,27 +104,9 @@ for more info on forms and inputs.</p>
     </tr>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot interact with this element.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -706,7 +688,7 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#checkbox">Checkbox Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

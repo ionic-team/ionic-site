@@ -35,7 +35,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/radio/radio-group.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/radio/radio-group.ts#L11">
 Improve this doc
 </a>
 
@@ -490,8 +490,8 @@ for more information on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#radio'>Radio Component Docs</a>,
-<a href='../RadioButton'>RadioButton API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#radio">Radio Component Docs</a>,
+<a href="../RadioButton">RadioButton API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

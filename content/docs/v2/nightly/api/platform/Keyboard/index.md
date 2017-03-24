@@ -31,7 +31,7 @@ Keyboard
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/keyboard.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/platform/keyboard.ts#L6">
 Improve this doc
 </a>
 
@@ -88,7 +88,6 @@ Programmatically close the keyboard.
 
 
 
-
 <div id="hasFocusedTextInput"></div>
 
 <h3>
@@ -97,7 +96,6 @@ Programmatically close the keyboard.
   
 
 </h3>
-
 
 
 

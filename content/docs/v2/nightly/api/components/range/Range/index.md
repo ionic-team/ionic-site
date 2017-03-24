@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/range/range.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L20">
 Improve this doc
 </a>
 
@@ -139,7 +139,6 @@ the lower value.
 
 
 
-
 <div id="ratioUpper"></div>
 
 <h3>
@@ -161,7 +160,6 @@ will return `null`.
 
 
 
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -173,15 +171,6 @@ will return `null`.
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
     
     <tr>
       <td>debounce</td>
@@ -216,15 +205,6 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
       <td>min</td>
       <td><code>number</code></td>
       <td><p> Minimum integer value of the range. Defaults to <code>0</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     

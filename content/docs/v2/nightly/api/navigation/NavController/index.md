@@ -31,7 +31,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-controller.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -153,7 +153,7 @@ from but still in the navigation stack (the exiting page on a <code>push()</code
 example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="pushing-a-view">Pushing a View</h2>
-<p>To push a new view on to the navigation stack, use the <code>push</code> method.
+<p>To push a new view onto the navigation stack, use the <code>push</code> method.
 If the page has an <a href="../../navbar/Navbar/"><code>&lt;ion-navbar&gt;</code></a>,
 a back button will automatically be added to the pushed view.</p>
 <p>Data can also be passed to a view by passing an object to the <code>push</code> method.
@@ -182,7 +182,7 @@ export class StartPage {
   }
 
   pushPage(){
-    // push another page on to the navigation stack
+    // push another page onto the navigation stack
     // causing the nav controller to transition to the new page
     // optional data can also be passed to the pushed page.
     this.navCtrl.push(OtherPage, {
@@ -541,7 +541,6 @@ Returns the active child navigation.
 
 
 
-
 <div id="getByIndex"></div>
 
 <h3>
@@ -787,10 +786,10 @@ you need to add a component at any point in your navigation stack.
       </td>
       <td>
         
-  <code>Page</code>
+  <code>Page</code>|<code>string</code>
       </td>
       <td>
-        <p>The component you want to insert into the nav stack.</p>
+        <p>The component class or deeplink name you want to push onto the navigation stack.</p>
 
         
       </td>
@@ -807,7 +806,7 @@ you need to add a component at any point in your navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next page.<strong class="tag">Optional</strong></p>
+        <p>Any NavParams you want to pass along to the next view.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1098,7 +1097,6 @@ the parent would be another nav, if it's not already the root nav.
 
 
 
-
 <div id="pop"></div>
 
 <h3>
@@ -1248,10 +1246,10 @@ along as an object. This additional information is accessible through NavParams
       </td>
       <td>
         
-  <code>Page</code>
+  <code>Page</code>|<code>string</code>
       </td>
       <td>
-        <p>The page component class you want to push on to the navigation stack</p>
+        <p>The component class or deeplink name you want to push onto the navigation stack.</p>
 
         
       </td>
@@ -1268,7 +1266,7 @@ along as an object. This additional information is accessible through NavParams
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view<strong class="tag">Optional</strong></p>
+        <p>Any NavParams you want to pass along to the next view.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1584,7 +1582,7 @@ Set the root for the current navigation stack.
       </td>
       <td>
         
-  <code>Page</code>|<code>ViewController</code>
+  <code>Page</code>|<code>string</code>|<code>ViewController</code>
       </td>
       <td>
         <p>The name of the component you want to push on the navigation stack.</p>
@@ -1604,7 +1602,7 @@ Set the root for the current navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Any nav-params you want to pass along to the next view.<strong class="tag">Optional</strong></p>
+        <p>Any NavParams you want to pass along to the next view.<strong class="tag">Optional</strong></p>
 
         
       </td>
@@ -1814,7 +1812,7 @@ Observable to be subscribed to when a component is about to be unloaded and dest
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#navigation">Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

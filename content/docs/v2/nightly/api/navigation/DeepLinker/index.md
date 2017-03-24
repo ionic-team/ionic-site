@@ -31,7 +31,7 @@ DeepLinker
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/deep-linker.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/deep-linker.ts#L12">
 Improve this doc
 </a>
 
@@ -40,16 +40,15 @@ Improve this doc
 
 
 
-<p>DeepLinker handles registering and displaying specific views based on URLs. It&#39;s used
-underneath NavController so you&#39;ll never have to interact with it directly. When a new
-view is push&#39;ed with NavController, the URL is updated to match the path back to this
-page.</p>
+<p>Deep linker handles registering and displaying specific pages based on URLs. It&#39;s used
+underneath <code>NavController</code> so it will never have to be interacted with directly. When a new
+page is pushed with <code>NavController</code>, the URL is updated to match the path to this page.</p>
 <p>Unlike traditional web apps, URLs don&#39;t dictate navigation in Ionic apps.
 Instead, URLs help us link to specific pieces of content as a breadcrumb.
-We keep the current URL updated as we navigate, but we use the NavController&#39;s
-push and pop, or navPush to move around. This makes it much easier
-to handle the kinds of complicated nested navigation native apps are known for.</p>
-<p>We refer to our URL system as a Deep Link system instead of a Router to encourage
+The current URL gets updated as we navigate, but we use the <code>NavController</code>
+push and pop, or <code>NavPush</code> and <code>NavPop</code> to move around. This makes it much easier
+to handle complicated nested navigation.</p>
+<p>We refer to our URL system as a deep link system instead of a router to encourage
 Ionic developers to think of URLs as a breadcrumb rather than as the source of
 truth in navigation. This encourages flexible navigation design and happy apps all
 over the world.</p>
@@ -61,61 +60,85 @@ over the world.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>DeepLinker can be used in the <code>IonicModule.forRoot</code> method, as the third parameter</p>
-<pre><code class="lang-ts">imports: [
-   IonicModule.forRoot(MyApp, {}, {
-     links: []
-  })
- ]
+<p>The first step to setting up deep links is to add the page that should be
+a deep link in the <code>IonicPageModule.forChild</code> import of the page&#39;s module.
+For our examples, this will be <code>MyPage</code>:</p>
+<pre><code class="lang-ts">@NgModule({
+  declarations: [
+    MyPage
+  ],
+  imports: [
+    IonicPageModule.forChild(MyPage)
+  ],
+  entryComponents: [
+    MyPage
+  ]
+})
+export class MyPageModule {}
 </code></pre>
-<p>DeepLinker implements <code>DeepLinkerConfig</code>, which is an object with an array of links.
-So for basic example based on the blank starter, a link setup like so:</p>
-<pre><code class="lang-ts">imports: [
-   IonicModule.forRoot(MyApp, {}, {
-     links: [
-      { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; }
-    ]
-  })
- ]
+<p>Then, add the <code>@IonicPage</code> decorator to the component. The most simple usage is adding an
+empty decorator:</p>
+<pre><code class="lang-ts">@IonicPage()
+@Component({
+  templateUrl: &#39;main.html&#39;
+})
+export class MyPage {}
 </code></pre>
-<p>Since components/pages can be loaded anywhere in the app, DeepLinker lets you define their URL segment but
-doesn&#39;t require a full URL route.</p>
-<p>So, at any point a Page becomes the active page, we just append the URL segment.</p>
-<h3 id="dynamic-links">Dynamic Links</h3>
-<p>Since passing data around is common practice in an app, we can reflect that in our app&#39;s URL by
-using the common <code>:param</code> syntax:</p>
-<pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:userId&#39; }
-]
-</code></pre>
-<p>In this case, when we <code>push</code> to a new instance of <code>DetailPage</code>, the <code>user</code> field of
-the data we pass to <code>push</code> will be put into the URL.</p>
-<p>The property needs to be something that can be serialized into a string by the DeepLinker.</p>
-<p>So in a typical <code>navCtrl.push()</code> scenario, we&#39;d do something like this:</p>
-<pre><code class="lang-ts">pushPage(userInfo) {
-  this.navCtrl.push(DetailPage, {
-    &#39;userId&#39;: userInfo.id
-  })
+<p>This will automatically create a link to the <code>MyPage</code> component using the same name as the class,
+<code>name</code>: <code>&#39;MyPage&#39;</code>. The page can now be navigated to by using this name. For example:</p>
+<pre><code class="lang-ts">@Component({
+  templateUrl: &#39;another-page.html&#39;
+})
+export class AnotherPage {
+  constructor(public navCtrl: NavController) {}
+
+  goToMyPage() {
+    // go to the MyPage component
+    this.navCtrl.push(&#39;MyPage&#39;);
+  }
 }
 </code></pre>
-<h3 id="default-history">Default History</h3>
-<p>While pages can be navigated to anywhere and loaded at any time, what happens when an app is launched from a deeplink while cold or suspended?</p>
-<p>By default, the page would be navigated to in the root NavController, but often the history stack is a UX design issue that you&#39;ll
-want to tweak as you iterate on the UX of your app.</p>
-<p>An example here is the App Store app on iOS. If you navigate to an app link to the App Store app, the app decides to show
-a single page for the app detail, and no back button. In constrast, opening an instagram link shows a back button that
-goes back to the profile page of the user. The point is: this back button experience is totally up to you as the designer
-of the app experience.</p>
-<p>This is where <code>defaultHistory</code> comes in.</p>
-<p>The <code>defaultHistory</code> property takes an array of components to create the initial history stack if none exists.</p>
-<pre><code class="lang-ts">links: [
-  { component: HomePage, name: &#39;Home&#39;, segment: &#39;home&#39; },
-  { component: DetailPage, name: &#39;Detail&#39;, segment: &#39;detail/:userId&#39;, defaultHistory: [HomePage] }
-]
+<p>The <code>@IonicPage</code> decorator accepts a <code>DeepLinkMetadataType</code> object. This object accepts
+the following properties: <code>name</code>, <code>segment</code>, <code>defaultHistory</code>, and <code>priority</code>. All of them
+are optional but can be used to create complex navigation links.</p>
+<h3 id="changing-name">Changing Name</h3>
+<p>As mentioned previously, the <code>name</code> property will be set to the class name if it isn&#39;t provided.
+Changing the name of the link is extremely simple. To change the name used to link to the
+component, simply pass it in the decorator like so:</p>
+<pre><code class="lang-ts">@IonicPage({
+  name: &#39;my-page&#39;
+})
 </code></pre>
-<p>In this example above, if we launch the app at myapp.com/detail/4, then the user will see the DetailPage and then the back button will
-go to the HomePage.</p>
+<p>This will create a link to the <code>MyPage</code> component using the name <code>&#39;my-page&#39;</code>. Similar to the previous
+example, the page can be navigated to by using the name:</p>
+<pre><code class="lang-ts">goToMyPage() {
+  // go to the MyPage component
+  this.navCtrl.push(&#39;my-page&#39;);
+}
+</code></pre>
+<h3 id="setting-url-path">Setting URL Path</h3>
+<p>The <code>segment</code> property is used to set the URL to the page. If this property isn&#39;t provided, the
+<code>segment</code> will use the value of <code>name</code>. Since components can be loaded anywhere in the app, the
+<code>segment</code> doesn&#39;t require a full URL path. When a page becomes the active page, the <code>segment</code> is
+appended to the URL.</p>
+<p>The <code>segment</code> can be changed to anything and doesn&#39;t have to match the <code>name</code>. For example, passing
+a value for <code>name</code> and <code>segment</code>:</p>
+<pre><code class="lang-ts">@IonicPage({
+  name: &#39;my-page&#39;,
+  segment: &#39;some-path&#39;
+})
+
+When navigating to this page as the first page in the app, the URL will look something like:
+</code></pre>
+<p><a href="http://localhost:8101/#/some-path">http://localhost:8101/#/some-path</a>
+```</p>
+<p>However, navigating to the page will still use the <code>name</code> like the previous examples do.</p>
+<h3 id="dynamic-links">Dynamic Links</h3>
+<p>The <code>segment</code> property is useful for creating dynamic links. Sometimes the URL isn&#39;t known ahead
+of time, so it can be passed as a variable.</p>
+<p>Since passing data around is common practice in an app, it can be reflected in the app&#39;s URL by
+using the <code>:param</code> syntax. For example, set the <code>segment</code> in the <code>@IonicPage</code> decorator:</p>
+<p>```ts</p>
 
 
 
@@ -125,6 +148,46 @@ go to the HomePage.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="getComponentFromName"></div>
+
+<h3>
+<a class="anchor" name="getComponentFromName" href="#getComponentFromName"></a>
+<code>getComponentFromName()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getNavLinkComponent"></div>
+
+<h3>
+<a class="anchor" name="getNavLinkComponent" href="#getNavLinkComponent"></a>
+<code>getNavLinkComponent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 

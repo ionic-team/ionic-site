@@ -31,7 +31,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/app/app.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/app/app.ts#L15">
 Improve this doc
 </a>
 

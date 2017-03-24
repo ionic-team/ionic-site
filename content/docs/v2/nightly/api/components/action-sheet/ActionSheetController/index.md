@@ -33,7 +33,7 @@ ActionSheetController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L67">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/action-sheet/action-sheet-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -119,6 +119,25 @@ export class MyClass{
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 
@@ -937,7 +956,7 @@ out before starting a new transition.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#action-sheets">ActionSheet Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

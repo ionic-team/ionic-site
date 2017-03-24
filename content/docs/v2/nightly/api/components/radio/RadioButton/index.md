@@ -35,7 +35,7 @@ RadioButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/radio/radio-button.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/radio/radio-button.ts#L7">
 Improve this doc
 </a>
 
@@ -117,15 +117,6 @@ For more information, see <a href="/docs/v2/theming/theming-your-app">Theming yo
       <td>disabled</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot interact with this element.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -507,8 +498,8 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#radio'>Radio Component Docs</a>,
-<a href='../RadioGroup'>RadioGroup API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#radio">Radio Component Docs</a>,
+<a href="../RadioGroup">RadioGroup API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

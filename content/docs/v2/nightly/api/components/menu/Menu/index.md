@@ -35,7 +35,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/menu/menu.ts#L16">
 Improve this doc
 </a>
 
@@ -435,10 +435,10 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
-<a href='../MenuController'>MenuController API Docs</a>,
-<a href='../../nav/Nav'>Nav API Docs</a>,
-<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#menus">Menu Component Docs</a>,
+<a href="../MenuController">MenuController API Docs</a>,
+<a href="../../nav/Nav">Nav API Docs</a>,
+<a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

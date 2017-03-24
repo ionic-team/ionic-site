@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/content/content.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/content/content.ts#L16">
 Improve this doc
 </a>
 
@@ -85,6 +85,25 @@ export class MyPage{
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="addImg"></div>
+
+<h3>
+<a class="anchor" name="addImg" href="#addImg"></a>
+<code>addImg()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="contentBottom"></div>
 
@@ -453,6 +472,25 @@ Returns the content and scroll elements' dimensions.
 
 
 
+<div id="getFixedElement"></div>
+
+<h3>
+<a class="anchor" name="getFixedElement" href="#getFixedElement"></a>
+<code>getFixedElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="isScrolling"></div>
 
 <h3>
@@ -501,7 +539,6 @@ after dynamically adding headers, footers, or tabs.
 
 
 
-
 <div id="scrollHeight"></div>
 
 <h3>
@@ -534,7 +571,7 @@ due to overflow. Read-only.
 
 <h3>
 <a class="anchor" name="scrollLeft" href="#scrollLeft"></a>
-<code>scrollLefttop</code>
+<code>scrollLeft</code>
   
 
 </h3>
@@ -542,35 +579,6 @@ due to overflow. Read-only.
 The distance of the content's left to its leftmost visible content.
 
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        top
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -798,7 +806,7 @@ Scroll to the top of the content component.
 
 <h3>
 <a class="anchor" name="scrollTop" href="#scrollTop"></a>
-<code>scrollToptop</code>
+<code>scrollTop</code>
   
 
 </h3>
@@ -806,35 +814,6 @@ Scroll to the top of the content component.
 The distance of the content's top to its topmost visible content.
 
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        top
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 

@@ -33,7 +33,7 @@ VirtualScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/virtual-scroll/virtual-scroll.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/virtual-scroll/virtual-scroll.ts#L12">
 Improve this doc
 </a>
 
@@ -206,26 +206,6 @@ dataset, so please make sure they&#39;re performant.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="calcDimensions"></div>
-
-<h3>
-<a class="anchor" name="calcDimensions" href="#calcDimensions"></a>
-<code>calcDimensions()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="readUpdate"></div>
 
 <h3>
@@ -235,6 +215,43 @@ dataset, so please make sure they&#39;re performant.</p>
 
 </h3>
 
+
+
+
+
+
+
+
+
+
+
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollUpdate"></div>
+
+<h3>
+<a class="anchor" name="scrollUpdate" href="#scrollUpdate"></a>
+<code>scrollUpdate()</code>
+  
+
+</h3>
 
 
 
@@ -265,7 +282,6 @@ dataset, so please make sure they&#39;re performant.</p>
 
 
 
-
 <div id="writeUpdate"></div>
 
 <h3>
@@ -274,7 +290,6 @@ dataset, so please make sure they&#39;re performant.</p>
   
 
 </h3>
-
 
 
 

@@ -33,7 +33,7 @@ AlertController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/alert/alert.ts#L100">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/alert/alert-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -79,9 +79,7 @@ building the form within a modal instead.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import { AlertController } from &#39;ionic-angular&#39;;
-
-constructor(private alertCtrl: AlertController) {
+<pre><code class="lang-ts">constructor(private alertCtrl: AlertController) {
 
 }
 
@@ -167,6 +165,25 @@ presentPrompt() {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="create"></div>
 
 <h3>
@@ -246,11 +263,6 @@ Display an alert with a title, inputs, and buttons
 <td>Additional classes for custom styles, separated by spaces.</td>
 </tr>
 <tr>
-<td>mode</td>
-<td><code>string</code></td>
-<td>Set alert mode (ios, md, wp).</td>
-</tr>
-<tr>
 <td>inputs</td>
 <td><code>array</code></td>
 <td>An array of inputs for the alert. See input options.</td>
@@ -311,16 +323,6 @@ Display an alert with a title, inputs, and buttons
 <td>id</td>
 <td><code>string</code></td>
 <td>The input&#39;s id.</td>
-</tr>
-<tr>
-<td>min</td>
-<td><code>string/number</code></td>
-<td>The input&#39;s minimum authorized value (string only for date inputs, number only for number inputs)</td>
-</tr>
-<tr>
-<td>max</td>
-<td><code>string/number</code></td>
-<td>The input&#39;s maximum authorized value (string only for date inputs, number only for number inputs)</td>
 </tr>
 </tbody>
 </table>

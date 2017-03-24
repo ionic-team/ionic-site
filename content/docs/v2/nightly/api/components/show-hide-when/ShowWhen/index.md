@@ -35,7 +35,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/show-hide-when/show-hide-when.ts#L54">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/show-hide-when/show-when.ts#L4">
 Improve this doc
 </a>
 
@@ -97,8 +97,8 @@ platforms you can use.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='../HideWhen'>HideWhen API Docs</a>,
-<a href='../../../platform/Platform'>Platform API Docs</a><!-- end content block -->
+<a href="../HideWhen">HideWhen API Docs</a>,
+<a href="../../../platform/Platform">Platform API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

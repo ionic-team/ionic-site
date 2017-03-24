@@ -35,7 +35,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav-pop.ts#L2">
 Improve this doc
 </a>
 
@@ -60,7 +60,7 @@ navigation stack.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<p>Similar to <a href='/docs/v2/api/components/nav/NavPush/'><code>NavPush</code></a></p>
+<p>Similar to <a href="/docs/v2/api/components/nav/NavPush/"><code>NavPush</code></a></p>
 
 
 
@@ -78,8 +78,8 @@ navigation stack.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
-<a href='../NavPush'>NavPush API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#navigation">Navigation Component Docs</a>,
+<a href="../NavPush">NavPush API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

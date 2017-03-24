@@ -35,7 +35,7 @@ FabContainer
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L185">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab-container.ts#L5">
 Improve this doc
 </a>
 
@@ -242,7 +242,6 @@ Used to place the container between the content and the header/footer
 </h3>
 
 Close an active FAB list container
-
 
 
 
@@ -646,7 +645,7 @@ Close an active FAB list container
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#fabs'>FAB Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#fabs">FAB Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

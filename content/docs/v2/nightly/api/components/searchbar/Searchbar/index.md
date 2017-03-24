@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/searchbar/searchbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -91,7 +91,6 @@ Improve this doc
 
 
 
-
 <div id="setFocus"></div>
 
 <h3>
@@ -100,7 +99,6 @@ Improve this doc
   
 
 </h3>
-
 
 
 
@@ -152,27 +150,9 @@ Improve this doc
     </tr>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs/v2/theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>debounce</td>
       <td><code>number</code></td>
       <td><p> How long, in milliseconds, to wait to trigger the <code>ionInput</code> event after each keystroke. Default <code>250</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -813,7 +793,7 @@ For more information, see <a href="/docs/v2/theming/platform-specific-styles">Pl
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#searchbar">Searchbar Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

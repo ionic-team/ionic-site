@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/list/list.ts#L8">
 Improve this doc
 </a>
 
@@ -86,7 +86,6 @@ Close any sliding items that are open.
 
 
 
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -98,15 +97,6 @@ Close any sliding items that are open.
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs/v2/theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
     
     <tr>
       <td>sliding</td>
@@ -609,7 +599,7 @@ export class MyClass {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#lists">List Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

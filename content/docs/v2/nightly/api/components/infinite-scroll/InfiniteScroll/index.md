@@ -35,7 +35,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/infinite-scroll/infinite-scroll.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/infinite-scroll/infinite-scroll.ts#L4">
 Improve this doc
 </a>
 
@@ -199,7 +199,6 @@ to `enabled`.
 
 
 
-
 <div id="enable"></div>
 
 <h3>
@@ -265,7 +264,6 @@ and hide the display.</p>
 
 Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
 change state of infiniteScroll to "complete"
-
 
 
 

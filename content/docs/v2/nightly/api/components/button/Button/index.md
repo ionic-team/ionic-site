@@ -35,7 +35,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/button/button.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/button/button.ts#L4">
 Improve this doc
 </a>
 
@@ -1388,10 +1388,10 @@ class E2EPage {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#buttons'>Button Component Docs</a>,
-<a href='/docs/v2/components#fabs'>FabButton Docs</a>,
-<a href='../../fab/FabButton'>FabButton API Docs</a>,
-<a href='../../fab/FabContainer'>FabContainer API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#buttons">Button Component Docs</a>,
+<a href="/docs/v2/components#fabs">FabButton Docs</a>,
+<a href="../../fab/FabButton">FabButton API Docs</a>,
+<a href="../../fab/FabContainer">FabContainer API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

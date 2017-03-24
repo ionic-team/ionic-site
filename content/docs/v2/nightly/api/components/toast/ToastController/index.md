@@ -33,7 +33,7 @@ ToastController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L102">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toast/toast-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -102,6 +102,25 @@ presentToast() {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 

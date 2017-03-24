@@ -35,7 +35,7 @@ SegmentButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/segment/segment.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/segment/segment-button.ts#L2">
 Improve this doc
 </a>
 
@@ -652,8 +652,8 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#segment'>Segment Component Docs</a>,
-<a href='/docs/v2/api/components/segment/Segment/'>Segment API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#segment">Segment Component Docs</a>,
+<a href="/docs/v2/api/components/segment/Segment/">Segment API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

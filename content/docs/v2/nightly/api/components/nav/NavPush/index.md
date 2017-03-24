@@ -35,7 +35,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-push.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav-push.ts#L3">
 Improve this doc
 </a>
 
@@ -99,14 +99,14 @@ class MyPage {
     <tr>
       <td>navParams</td>
       <td><code>any</code></td>
-      <td><p> Parameters to pass to the page.</p>
+      <td><p> Any NavParams you want to pass along to the next view.</p>
 </td>
     </tr>
     
     <tr>
       <td>navPush</td>
-      <td><code>Page</code></td>
-      <td><p> The Page to push onto the Nav.</p>
+      <td><code>Page | string</code></td>
+      <td><p> The component class or deeplink name you want to push onto the navigation stack.</p>
 </td>
     </tr>
     
@@ -120,8 +120,8 @@ class MyPage {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
-<a href='../NavPop'>NavPop API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#navigation">Navigation Component Docs</a>,
+<a href="../NavPop">NavPop API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

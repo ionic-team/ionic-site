@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/view-controller.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/view-controller.ts#L9">
 Improve this doc
 </a>
 
@@ -79,7 +79,6 @@ export class MyPage{
   
 
 </h3>
-
 
 
 
@@ -447,7 +446,6 @@ Called when the current viewController has be successfully dismissed
 
 
 
-
 <div id="onWillDismiss"></div>
 
 <h3>
@@ -458,7 +456,6 @@ Called when the current viewController has be successfully dismissed
 </h3>
 
 Called when the current viewController will be dismissed
-
 
 
 

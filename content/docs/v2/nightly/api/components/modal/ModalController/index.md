@@ -33,7 +33,7 @@ ModalController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/modal/modal.ts#L64">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/modal/modal-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -45,9 +45,9 @@ Improve this doc
 <p>A Modal is a content pane that goes over the user&#39;s current page.
 Usually it is used for making a choice or editing an item. A modal uses the
 <code>NavController</code> to
-<a href='/docs/v2/api/components/nav/NavController/#present'>present</a>
+<a href="/docs/v2/api/components/nav/NavController/#present">present</a>
 itself in the root nav stack. It is added to the stack similar to how
-<a href='/docs/v2/api/components/nav/NavController/#push'>NavController.push</a>
+<a href="/docs/v2/api/components/nav/NavController/#push">NavController.push</a>
 works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
@@ -105,6 +105,25 @@ class Profile {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 
@@ -450,7 +469,7 @@ class Profile {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#modals'>Modal Component Docs</a><!-- end content block -->
+<a href="/docs/v2/components#modals">Modal Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

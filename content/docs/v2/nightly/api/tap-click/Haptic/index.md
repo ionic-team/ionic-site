@@ -31,7 +31,7 @@ Haptic
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/tap-click/haptic.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/tap-click/haptic.ts#L2">
 Improve this doc
 </a>
 
@@ -117,7 +117,6 @@ Tell the haptic engine that a selection changed during a gesture.
 
 
 
-
 <div id="gestureSelectionEnd"></div>
 
 <h3>
@@ -139,7 +138,6 @@ called lest resources are not properly recycled.
 
 
 
-
 <div id="gestureSelectionStart"></div>
 
 <h3>
@@ -150,7 +148,6 @@ called lest resources are not properly recycled.
 </h3>
 
 Tell the haptic engine that a gesture for a selection change is starting.
-
 
 
 
@@ -182,7 +179,6 @@ options should be of the type `{ style: 'light' }` (or `medium`/`heavy`)
 
 
 
-
 <div id="notification"></div>
 
 <h3>
@@ -204,7 +200,6 @@ options should be of the type `{ type: 'success' }` (or `warning`/`error`)
 
 
 
-
 <div id="selection"></div>
 
 <h3>
@@ -216,7 +211,6 @@ options should be of the type `{ type: 'success' }` (or `warning`/`error`)
 
 Trigger a selection changed haptic event. Good for one-time events
 (not for gestures)
-
 
 
 

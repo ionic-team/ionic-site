@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L84">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-sliding.ts#L26">
 Improve this doc
 </a>
 
@@ -166,7 +166,6 @@ export class MyClass {
   }
 }
 ```
-
 
 
 
@@ -686,9 +685,9 @@ It reports the relative position.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#lists'>List Component Docs</a>,
-<a href='../Item'>Item API Docs</a>,
-<a href='../../list/List'>List API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#lists">List Component Docs</a>,
+<a href="../Item">Item API Docs</a>,
+<a href="../../list/List">List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

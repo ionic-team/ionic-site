@@ -33,7 +33,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-params.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-params.ts#L0">
 Improve this doc
 </a>
 
@@ -80,7 +80,6 @@ option with a simple <code>get</code> method.</p>
   
 
 </h3>
-
 
 
 
@@ -159,10 +158,10 @@ export class MyClass{
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
-<a href='../NavController/'>NavController API Docs</a>,
-<a href='/docs/v2/api/components/nav/Nav/'>Nav API Docs</a>,
-<a href='/docs/v2/api/components/nav/NavPush/'>NavPush API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#navigation">Navigation Component Docs</a>,
+<a href="../NavController/">NavController API Docs</a>,
+<a href="/docs/v2/api/components/nav/Nav/">Nav API Docs</a>,
+<a href="/docs/v2/api/components/nav/NavPush/">NavPush API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

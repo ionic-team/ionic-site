@@ -33,7 +33,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/platform/platform.ts#L4">
 Improve this doc
 </a>
 
@@ -127,7 +127,6 @@ Get the query string parameter
 
 
 
-
 <div id="height"></div>
 
 <h3>
@@ -140,7 +139,6 @@ Get the query string parameter
 Gets the height of the platform's viewport using `window.innerHeight`.
 Using this method is preferred since the dimension is a cached value,
 which reduces the chance of multiple and expensive DOM reads.
-
 
 
 
@@ -261,7 +259,6 @@ Returns `true` if the app is in landscape mode.
 
 
 
-
 <div id="isPortrait"></div>
 
 <h3>
@@ -272,7 +269,6 @@ Returns `true` if the app is in landscape mode.
 </h3>
 
 Returns `true` if the app is in portait mode.
-
 
 
 
@@ -354,7 +350,6 @@ The pause event emits when the native platform puts the application
 into the background, typically when the user switches to a different
 application. This event would emit when a Cordova app is put into
 the background, however, it would not fire on a standard web browser.
-
 
 
 
@@ -567,7 +562,6 @@ out from the background, however, it would not fire on a standard web browser.
 
 
 
-
 <div id="resume"></div>
 
 <h3>
@@ -580,7 +574,6 @@ out from the background, however, it would not fire on a standard web browser.
 The resume event emits when the native platform pulls the application
 out from the background. This event would emit when a Cordova app comes
 out from the background, however, it would not fire on a standard web browser.
-
 
 
 
@@ -718,7 +711,6 @@ the language needs to be dynamically changed per user/session.
 
 
 
-
 <div id="url"></div>
 
 <h3>
@@ -729,7 +721,6 @@ the language needs to be dynamically changed per user/session.
 </h3>
 
 Get the current url.
-
 
 
 
@@ -793,7 +784,6 @@ export MyPage {
 Gets the width of the platform's viewport using `window.innerWidth`.
 Using this method is preferred since the dimension is a cached value,
 which reduces the chance of multiple and expensive DOM reads.
-
 
 
 

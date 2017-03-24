@@ -35,7 +35,7 @@ MenuToggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-toggle.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/menu/menu-toggle.ts#L5">
 Improve this doc
 </a>
 
@@ -127,7 +127,6 @@ on the different positions.</p>
   
 
 </h3>
-
 
 
 
@@ -307,8 +306,8 @@ on the different positions.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
-<a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
+<a href="/docs/v2/components#menus">Menu Component Docs</a>,
+<a href="../../menu/Menu">Menu API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

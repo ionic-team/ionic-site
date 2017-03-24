@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "3.2.2"
+version: "3.2.3"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Contacts</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L249">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L253">
   Improve this doc
 </a>
 
@@ -217,6 +217,7 @@ Select a single Contact.
 
 
 
+
 <h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
 
 
@@ -224,6 +225,7 @@ Select a single Contact.
 
 
 <h3><a class="anchor" name="save" href="#save"></a><code>save()</code></h3>
+
 
 
 

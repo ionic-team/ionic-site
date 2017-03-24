@@ -22,6 +22,31 @@ docType: "class"
 
 
 
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-camera
+$ npm install --save @ionic-native/camera
+</code></pre>
+<p>Repo:
+  <a href="https://github.com/apache/cordova-plugin-camera">
+    https://github.com/apache/cordova-plugin-camera
+  </a>
+</p>
+
+
+<p>Take a photo or capture video.</p>
+<p>Requires and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+
+
+
+
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>BlackBerry</li><li>Browser</li><li>Firefox</li><li>FireOS</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li><li>Ubuntu</li>
+</ul>
+
+
+
+
+
 
 <h2>Usage</h2>
 <pre><code class="lang-typescript">import { Camera, CameraOptions } from &#39;@ionic-native/camera&#39;;

@@ -22,6 +22,25 @@ docType: "class"
 
 
 
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-health
+$ npm install --save @ionic-native/health
+</code></pre>
+<p>Repo:
+  <a href="https://github.com/dariosalvi78/cordova-plugin-health">
+    https://github.com/dariosalvi78/cordova-plugin-health
+  </a>
+</p>
+
+
+<p>A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit.</p>
+
+
+
+
+
+
+
+
 
 <h2>Usage</h2>
 <pre><code>import { Health } from &#39;@ionic-native/health&#39;;

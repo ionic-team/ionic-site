@@ -70,7 +70,7 @@ let connectSubscription = this.network.onConnect().subscribe(() =&gt; {
    // before we determine the connection type.  Might need to wait 
   // prior to doing any api requests as well.
   setTimeout(() =&gt; {
-    if (Network.type === &#39;wifi&#39;) {
+    if (this.network.type === &#39;wifi&#39;) {
       console.log(&#39;we got a wifi connection, woohoo!&#39;);
     }
   }, 3000);

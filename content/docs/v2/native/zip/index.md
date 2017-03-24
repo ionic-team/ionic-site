@@ -9,15 +9,7 @@ title: "Zip"
 header_sub_title: "Class in module "
 doc: "Zip"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Zip
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-zip
 $ npm install --save @ionic-native/zip
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/zip
   </a>
 </p>
 
-<!-- description -->
 
 <p>A Cordova plugin to unzip files in Android and iOS.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Zip } from &#39;@ionic-native/zip&#39;;
 
 constructor(private zip: Zip) { }
@@ -75,20 +62,18 @@ this.zip.unzip(&#39;path/to/source.zip&#39;, &#39;path/to/dest&#39;, (progress) 
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="unzip"></div>
-<h3>
-  <code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code>
+<h3><a class="anchor" name="unzip" href="#unzip"></a><code>unzip(sourceZip,&nbsp;destUrl,&nbsp;onProgress)</code>
   
-
 </h3>
+
+
+
+
 Extracts files from a ZIP archive
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -99,76 +84,47 @@ Extracts files from a ZIP archive
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      sourceZip
-      
-    </td>
+      sourceZip</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Source ZIP file</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      destUrl
-      
-    </td>
+      destUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Destination folder</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      onProgress
-      
-    </td>
+      onProgress</td>
     <td>
-      
-<code>Function</code>
+      <code>Function</code>
     </td>
     <td>
       <p>optional callback to be called on progress update</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;number&gt;</code> returns a promise that resolves with a number. 0 is success, -1 is error
+  <b>Returns:</b> <code>Promise&lt;number&gt;</code> returns a promise that resolves with a number. 0 is success, -1 is error
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

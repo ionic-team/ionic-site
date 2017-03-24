@@ -9,15 +9,7 @@ title: "Spinner Dialog"
 header_sub_title: "Class in module "
 doc: "Spinner Dialog"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Spinner Dialog
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-spinner-dialog
 $ npm install --save @ionic-native/spinner-dialog
@@ -47,26 +34,22 @@ $ npm install --save @ionic-native/spinner-dialog
   </a>
 </p>
 
-<!-- description -->
 
 
 
-<!-- @platforms tag -->
+
+
 <h2>Supported platforms</h2>
-
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { SpinnerDialog } from &#39;@ionic-native/spinner-dialog&#39;;
 
 constructor(private spinnerDialog: SpinnerDialog) { }
@@ -81,20 +64,18 @@ this.spinnerDialog.hide();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="show"></div>
-<h3>
-  <code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
   
-
 </h3>
+
+
+
+
 Shows the spinner dialog
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -105,80 +86,59 @@ Shows the spinner dialog
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      title
-      
-    </td>
+      title</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Spinner title (shows on Android only)</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      message
-      
-    </td>
+      message</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Spinner message</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      cancelCallback
-      
-    </td>
+      cancelCallback</td>
     <td>
-      
-<code>boolean</code>|<code>function()</code>
+      <code>boolean</code>|<code>function()</code>
     </td>
     <td>
       <p>Set to true to set spinner not cancelable. Or provide a function to call when the user cancels the spinner.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      iOSOptions
-      
-    </td>
+      iOSOptions</td>
     <td>
-      
-<code>object</code>
+      <code>object</code>
     </td>
     <td>
       <p>Options for iOS only</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="hide"></div>
-<h3>
-  <code>hide()</code>
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
   
-
 </h3>
+
+
+
+
 Hides the spinner dialog if visible
 
 
@@ -187,17 +147,9 @@ Hides the spinner dialog if visible
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="SpinnerDialogIOSOptions" href="#SpinnerDialogIOSOptions"></a>SpinnerDialogIOSOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -267,11 +219,4 @@ Hides the spinner dialog if visible
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -9,15 +9,7 @@ title: "Safari View Controller"
 header_sub_title: "Class in module "
 doc: "Safari View Controller"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Safari View Controller
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-safariviewcontroller
 $ npm install --save @ionic-native/safari-view-controller
@@ -47,26 +34,22 @@ $ npm install --save @ionic-native/safari-view-controller
   </a>
 </p>
 
-<!-- description -->
 
 
 
-<!-- @platforms tag -->
+
+
 <h2>Supported platforms</h2>
-
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { SafariViewController } from &#39;@ionic-native/safari-view-controller&#39;;
 
 constructor(private safariViewController: SafariViewController) { }
@@ -103,33 +86,29 @@ this.safariViewController.isAvailable()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="isAvailable"></div>
-<h3>
-  <code>isAvailable()</code>
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable()</code>
   
-
 </h3>
+
+
 Checks if SafariViewController is available
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> 
-</div><div id="show"></div>
-<h3>
-  <code>show(options)</code>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
   
-
 </h3>
+
+
+
+
 Shows Safari View Controller
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -140,72 +119,58 @@ Shows Safari View Controller
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>SafariViewControllerOptions</code>
+      <code>SafariViewControllerOptions</code>
     </td>
     <td>
       <p>optional</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="hide"></div>
-<h3>
-  <code>hide()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
   
-
 </h3>
+
+
 Hides Safari View Controller
 
 
 
-<div id="connectToService"></div>
-<h3>
-  <code>connectToService()</code>
+<h3><a class="anchor" name="connectToService" href="#connectToService"></a><code>connectToService()</code>
   
-
 </h3>
+
+
 Tries to connect to the  Chrome's custom tabs service. you must call this method before calling any of the other methods listed below.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="warmUp"></div>
-<h3>
-  <code>warmUp()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="warmUp" href="#warmUp"></a><code>warmUp()</code>
   
-
 </h3>
+
+
 Call this method whenever there's a chance the user will open an external url.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="mayLaunchUrl"></div>
-<h3>
-  <code>mayLaunchUrl(url)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="mayLaunchUrl" href="#mayLaunchUrl"></a><code>mayLaunchUrl(url)</code>
   
-
 </h3>
+
+
 For even better performance optimization, call this methods if there's more than a 50% chance the user will open a certain URL.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -216,44 +181,28 @@ For even better performance optimization, call this methods if there's more than
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      url
-      
+      url</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="SafariViewControllerOptions" href="#SafariViewControllerOptions"></a>SafariViewControllerOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -375,11 +324,4 @@ For even better performance optimization, call this methods if there's more than
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

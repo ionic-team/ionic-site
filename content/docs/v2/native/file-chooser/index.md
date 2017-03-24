@@ -9,15 +9,7 @@ title: "File Chooser"
 header_sub_title: "Class in module "
 doc: "File Chooser"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   File Chooser
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add http://github.com/don/cordova-filechooser.git
 $ npm install --save @ionic-native/file-chooser
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/file-chooser
   </a>
 </p>
 
-<!-- description -->
 
 <p>Opens the file picker on Android for the user to select a file, returns a file URI.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { FileChooser } from &#39;@ionic-native/file-chooser&#39;;
 
 constructor(private fileChooser: FileChooser) { }
@@ -82,41 +65,25 @@ this.fileChooser.open()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="open"></div>
-<h3>
-  <code>open()</code>
+<h3><a class="anchor" name="open" href="#open"></a><code>open()</code>
   
-
 </h3>
+
+
 Open a file
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

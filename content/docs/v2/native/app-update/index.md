@@ -9,15 +9,7 @@ title: "App Update"
 header_sub_title: "Class in module "
 doc: "App Update"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   App Update
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-app-update
 $ npm install --save @ionic-native/app-update
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/app-update
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin does self-update for android</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <p>You should first host an XML file on your server with the following data in it:</p>
 <pre><code class="lang-xml">&lt;update&gt;
     &lt;version&gt;302048&lt;/version&gt;
@@ -90,20 +73,18 @@ constructor(private appUpdate: AppUpdate) {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="checkAppUpdate"></div>
-<h3>
-  <code>checkAppUpdate(updateUrl)</code>
+<h3><a class="anchor" name="checkAppUpdate" href="#checkAppUpdate"></a><code>checkAppUpdate(updateUrl)</code>
   
-
 </h3>
+
+
+
+
 Check and update
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -114,44 +95,25 @@ Check and update
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      updateUrl
-      
-    </td>
+      updateUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>update api url</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves when something happens
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when something happens
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -9,15 +9,7 @@ title: "Native Geocoder"
 header_sub_title: "Class in module "
 doc: "Native Geocoder"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Native Geocoder
   
@@ -32,17 +24,12 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
 
 <p class="beta-notice">
   This plugin is still in beta stage and may not work as expected. Please
   submit any issues to the <a target="_blank"
   href="https://github.com/sebastianbaar/cordova-plugin-nativegeocoder/issues">plugin repo</a>.
 </p>
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-nativegeocoder
 $ npm install --save @ionic-native/native-geocoder
@@ -53,27 +40,23 @@ $ npm install --save @ionic-native/native-geocoder
   </a>
 </p>
 
-<!-- description -->
 
 <p>Cordova plugin for native forward and reverse geocoding</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from &#39;@ionic-native/native-geocoder&#39;;
 
 constructor(private nativeGeocoder: NativeGeocoder) { }
@@ -92,20 +75,18 @@ this.nativeGeocoder.forwardGeocode(&quot;Berlin&quot;)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="reverseGeocode"></div>
-<h3>
-  <code>reverseGeocode(latitude,&nbsp;longitude)</code>
+<h3><a class="anchor" name="reverseGeocode" href="#reverseGeocode"></a><code>reverseGeocode(latitude,&nbsp;longitude)</code>
   
-
 </h3>
+
+
+
+
 Reverse geocode a given latitude and longitude to find location address
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -116,52 +97,40 @@ Reverse geocode a given latitude and longitude to find location address
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      latitude
-      
-    </td>
+      latitude</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>The latitude</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      longitude
-      
-    </td>
+      longitude</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>The longitude</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="forwardGeocode"></div>
-<h3>
-  <code>forwardGeocode(addressString)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="forwardGeocode" href="#forwardGeocode"></a><code>forwardGeocode(addressString)</code>
   
-
 </h3>
+
+
+
+
 Forward geocode a given address to find coordinates
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -172,45 +141,29 @@ Forward geocode a given address to find coordinates
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      addressString
-      
-    </td>
+      addressString</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The address to be geocoded</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="NativeGeocoderReverseResult" href="#NativeGeocoderReverseResult"></a>NativeGeocoderReverseResult</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -310,10 +263,7 @@ Forward geocode a given address to find coordinates
 </table>
 
 
-
-
 <h2><a class="anchor" name="NativeGeocoderForwardResult" href="#NativeGeocoderForwardResult"></a>NativeGeocoderForwardResult</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -359,11 +309,4 @@ Forward geocode a given address to find coordinates
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -9,15 +9,7 @@ title: "Badge"
 header_sub_title: "Class in module "
 doc: "Badge"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Badge
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-badge
 $ npm install --save @ionic-native/badge
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/badge
   </a>
 </p>
 
-<!-- description -->
 
 <p>The essential purpose of badge numbers is to enable an application to inform its users that it has something for them — for example, unread messages — when the application isn’t running in the foreground.</p>
 <p>Requires Cordova plugin: cordova-plugin-badge. For more info, please see the <a href="https://github.com/katzer/cordova-plugin-badge">Badge plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Browser</li><li>Windows</li><li>Amazon FireOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Badge } from &#39;@ionic-native/badge&#39;;
 
 constructor(private badge: Badge) { }
@@ -83,33 +66,27 @@ this.badge.clear();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="clear"></div>
-<h3>
-  <code>clear()</code>
+<h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code>
   
-
 </h3>
+
+
 Clear the badge of the app icon.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> 
-</div><div id="set"></div>
-<h3>
-  <code>set(badgeNumber)</code>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> 
+</div><h3><a class="anchor" name="set" href="#set"></a><code>set(badgeNumber)</code>
   
-
 </h3>
+
+
 Set the badge of the app icon.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -120,49 +97,38 @@ Set the badge of the app icon.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      badgeNumber
-      
-    </td>
+      badgeNumber</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>The new badge number.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="get"></div>
-<h3>
-  <code>get()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="get" href="#get"></a><code>get()</code>
   
-
 </h3>
+
+
 Get the badge of the app icon.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="increase"></div>
-<h3>
-  <code>increase(increaseBy)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="increase" href="#increase"></a><code>increase(increaseBy)</code>
   
-
 </h3>
+
+
 Increase the badge number.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -173,36 +139,27 @@ Increase the badge number.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      increaseBy
-      
-    </td>
+      increaseBy</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Count to add to the current badge number</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="decrease"></div>
-<h3>
-  <code>decrease(decreaseBy)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="decrease" href="#decrease"></a><code>decrease(decreaseBy)</code>
   
-
 </h3>
+
+
 Decrease the badge number.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -213,70 +170,47 @@ Decrease the badge number.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      decreaseBy
-      
-    </td>
+      decreaseBy</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Count to subtract from the current badge number</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="hasPermission"></div>
-<h3>
-  <code>hasPermission()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code>
   
-
 </h3>
+
+
 Determine if the app has permission to show badges.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="registerPermission"></div>
-<h3>
-  <code>registerPermission()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="registerPermission" href="#registerPermission"></a><code>registerPermission()</code>
   
-
 </h3>
+
+
 Register permission to set badge notifications
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

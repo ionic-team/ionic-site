@@ -9,15 +9,7 @@ title: "Text To Speech"
 header_sub_title: "Class in module "
 doc: "Text To Speech"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Text To Speech
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-tts
 $ npm install --save @ionic-native/text-to-speech
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/text-to-speech
   </a>
 </p>
 
-<!-- description -->
 
 <p>Text to Speech plugin</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { TextToSpeech } from &#39;@ionic-native/text-to-speech&#39;;
 
 constructor(private tts: TextToSpeech) { }
@@ -73,20 +60,18 @@ this.tts.speak(&#39;Hello World&#39;)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="speak"></div>
-<h3>
-  <code>speak(options)</code>
+<h3><a class="anchor" name="speak" href="#speak"></a><code>speak(options)</code>
   
-
 </h3>
+
+
+
+
 This function speaks
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -97,58 +82,40 @@ This function speaks
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>string</code>|<code>TTSOptions</code>
+      <code>string</code>|<code>TTSOptions</code>
     </td>
     <td>
       <p>Text to speak or TTSOptions</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves when the speaking finishes
-</div><div id="stop"></div>
-<h3>
-  <code>stop()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the speaking finishes
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop()</code>
   
-
 </h3>
+
+
 Stop any current TTS playback
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="TTSOptions" href="#TTSOptions"></a>TTSOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -208,11 +175,4 @@ Stop any current TTS playback
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

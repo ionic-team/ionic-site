@@ -9,15 +9,7 @@ title: "Image Picker"
 header_sub_title: "Class in module "
 doc: "Image Picker"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Image Picker
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker
 $ npm install --save @ionic-native/image-picker
@@ -47,7 +34,6 @@ $ npm install --save @ionic-native/image-picker
   </a>
 </p>
 
-<!-- description -->
 
 <p>Cordova Plugin For Multiple Image Selection</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
@@ -55,12 +41,13 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { ImagePicker } from &#39;@ionic-native/image-picker&#39;;
 
 
@@ -78,20 +65,18 @@ this.imagePicker.getPictures(options).then((results) =&gt; {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getPictures"></div>
-<h3>
-  <code>getPictures(options)</code>
+<h3><a class="anchor" name="getPictures" href="#getPictures"></a><code>getPictures(options)</code>
   
-
 </h3>
+
+
+
+
 Pick pictures from the library.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -102,71 +87,61 @@ Pick pictures from the library.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
+      options</td>
+    <td>
+      <code>ImagePickerOptions</code>
     </td>
     <td>
-      
-<code>ImagePickerOptions</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves the image file URI
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves the image file URI
 otherwise rejects with an error.
-</div><div id="hasReadPermission"></div>
-<h3>
-  <code>hasReadPermission()</code>
+</div><h3><a class="anchor" name="hasReadPermission" href="#hasReadPermission"></a><code>hasReadPermission()</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Check if we have permission to read images
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates whether we have permission
-</div><div id="requestReadPermission"></div>
-<h3>
-  <code>requestReadPermission()</code>
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that indicates whether we have permission
+</div><h3><a class="anchor" name="requestReadPermission" href="#requestReadPermission"></a><code>requestReadPermission()</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Request permission to read images
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ImagePickerOptions" href="#ImagePickerOptions"></a>ImagePickerOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -254,11 +229,4 @@ Request permission to read images
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -9,15 +9,7 @@ title: "Launch Review"
 header_sub_title: "Class in module "
 doc: "Launch Review"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Launch Review
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-launch-review
 $ npm install --save @ionic-native/launch-review
@@ -47,29 +34,25 @@ $ npm install --save @ionic-native/launch-review
   </a>
 </p>
 
-<!-- description -->
 
 <p>This launches the native store app in order for the user to leave a review.
 On Android, the plugin opens the the app&#39;s storepage in the Play Store where the user can leave a review by pressing the stars to give a rating.
 On iOS, the plugin opens the app&#39;s storepage in the App Store and focuses the Review tab, where the user can leave a review by pressing &quot;Write a review&quot;.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { LaunchReview } from &#39;@ionic-native/launch-review&#39;;
 
 constructor(private launchReview: LaunchReview) { }
@@ -84,41 +67,25 @@ this.launchReview.launch(appId)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="launch"></div>
-<h3>
-  <code>launch()</code>
+<h3><a class="anchor" name="launch" href="#launch"></a><code>launch()</code>
   
-
 </h3>
+
+
 Launch store app using given app ID
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

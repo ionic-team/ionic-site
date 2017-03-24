@@ -9,15 +9,7 @@ title: "In App Purchase"
 header_sub_title: "Class in module "
 doc: "In App Purchase"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   In App Purchase
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-inapppurchase
 $ npm install --save @ionic-native/in-app-purchase
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/in-app-purchase
   </a>
 </p>
 
-<!-- description -->
 
 <p>A lightweight Cordova plugin for in app purchases on iOS/Android.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-ts">import { InAppPurchase } from &#39;@ionic-native/in-app-purchase&#39;;
 
 constructor(private iap: InAppPurchase) { }
@@ -103,20 +86,18 @@ this.iap
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getProducts"></div>
-<h3>
-  <code>getProducts(productId)</code>
+<h3><a class="anchor" name="getProducts" href="#getProducts"></a><code>getProducts(productId)</code>
   
-
 </h3>
+
+
+
+
 Retrieves a list of full product data from Apple/Google. This method must be called before making purchases.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -127,36 +108,29 @@ Retrieves a list of full product data from Apple/Google. This method must be cal
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      productId
-      
-    </td>
+      productId</td>
     <td>
-      
-<code>array&lt;string&gt;</code>
+      <code>array&lt;string&gt;</code>
     </td>
     <td>
       <p>an array of product ids.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with an array of objects.
-</div><div id="buy"></div>
-<h3>
-  <code>buy(productId)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with an array of objects.
+</div><h3><a class="anchor" name="buy" href="#buy"></a><code>buy(productId)</code>
   
-
 </h3>
+
+
+
+
 Buy a product that matches the productId.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -167,36 +141,29 @@ Buy a product that matches the productId.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      productId
-      
-    </td>
+      productId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>A string that matches the product you want to buy.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
-</div><div id="subscribe"></div>
-<h3>
-  <code>subscribe(productId)</code>
+  <b>Returns:</b> <code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
+</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe(productId)</code>
   
-
 </h3>
+
+
+
+
 Same as buy, but for subscription based products.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -207,36 +174,29 @@ Same as buy, but for subscription based products.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      productId
-      
-    </td>
+      productId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>A string that matches the product you want to subscribe to.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
-</div><div id="consume"></div>
-<h3>
-  <code>consume(productType,&nbsp;receipt,&nbsp;signature)</code>
+  <b>Returns:</b> <code>Promise&lt;{transactionId: string, receipt: string, signature: string, productType: string}&gt;</code> Returns a Promise that resolves with the transaction details.
+</div><h3><a class="anchor" name="consume" href="#consume"></a><code>consume(productType,&nbsp;receipt,&nbsp;signature)</code>
   
-
 </h3>
+
+
+
+
 Call this function after purchasing a "consumable" product to mark it as consumed. On Android, you must consume products that you want to let the user purchase multiple times. If you will not consume the product after a purchase, the next time you will attempt to purchase it you will get the error message:
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -247,85 +207,70 @@ Call this function after purchasing a "consumable" product to mark it as consume
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      productType
-      
+      productType</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      receipt
-      
+      receipt</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      signature
-      
+      signature</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="restorePurchases"></div>
-<h3>
-  <code>restorePurchases()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="restorePurchases" href="#restorePurchases"></a><code>restorePurchases()</code>
   
-
 </h3>
+
+
+
+
 Restore all purchases from the store
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise with an array of purchases.
-</div><div id="getReceipt"></div>
-<h3>
-  <code>getReceipt()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise with an array of purchases.
+</div><h3><a class="anchor" name="getReceipt" href="#getReceipt"></a><code>getReceipt()</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
 Get the receipt.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Returns a promise that contains the string for the receipt
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that contains the string for the receipt
 </div>
 
 <h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
@@ -338,16 +283,5 @@ this.iap
 </code></pre>
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

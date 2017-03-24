@@ -9,15 +9,7 @@ title: "Brightness"
 header_sub_title: "Class in module "
 doc: "Brightness"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Brightness
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-brightness
 $ npm install --save @ionic-native/brightness
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/brightness
   </a>
 </p>
 
-<!-- description -->
 
 <p>The Brightness plugin let you control the display brightness of your device.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-brightness</code>. For more info, please see the <a href="https://github.com/mgcrea/cordova-plugin-brightness">Brightness plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Brightness } from &#39;@ionic-native/brightness&#39;;
 
 constructor(private brightness: Brightness) { }
@@ -82,20 +65,16 @@ this.brightness.setBrightness(brightnessValue);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="setBrightness"></div>
-<h3>
-  <code>setBrightness(Floating)</code>
+<h3><a class="anchor" name="setBrightness" href="#setBrightness"></a><code>setBrightness(Floating)</code>
   
-
 </h3>
+
+
 Sets the brightness of the display.
 
 <table class="table param-table" style="margin:0;">
@@ -107,51 +86,40 @@ Sets the brightness of the display.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Floating
-      
-    </td>
+      Floating</td>
     <td>
-      
-<code>value</code>
+      <code>value</code>
     </td>
     <td>
       <p>number between 0 and 1 in which case 1 means 100% brightness and 0 means 0% brightness.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if setting brightness was successful.
-</div><div id="getBrightness"></div>
-<h3>
-  <code>getBrightness()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if setting brightness was successful.
+</div><h3><a class="anchor" name="getBrightness" href="#getBrightness"></a><code>getBrightness()</code>
   
-
 </h3>
+
+
 Reads the current brightness of the device display.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the
 brightness value of the device display (floating number between 0 and 1).
-</div><div id="setKeepScreenOn"></div>
-<h3>
-  <code>setKeepScreenOn()</code>
+</div><h3><a class="anchor" name="setKeepScreenOn" href="#setKeepScreenOn"></a><code>setKeepScreenOn()</code>
   
-
 </h3>
+
+
 Keeps the screen on. Prevents the device from setting the screen to sleep.
 
 
@@ -160,16 +128,5 @@ Keeps the screen on. Prevents the device from setting the screen to sleep.
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

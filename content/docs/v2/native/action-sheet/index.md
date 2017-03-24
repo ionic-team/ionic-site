@@ -9,15 +9,7 @@ title: "Action Sheet"
 header_sub_title: "Class in module "
 doc: "Action Sheet"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Action Sheet
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-actionsheet
 $ npm install --save @ionic-native/action-sheet
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/action-sheet
   </a>
 </p>
 
-<!-- description -->
 
 <p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">ActionSheet plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { ActionSheet, ActionSheetOptions } from &#39;@ionic-native/action-sheet&#39;;
 
 constructor(private actionSheet: ActionSheet) { }
@@ -94,29 +77,24 @@ this.actionSheet.show(options).then((buttonIndex: number) =&gt; {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="ANDROID_THEMES"></div>
-<h3>
-  <code>ANDROID_THEMES()</code>
+<h3><a class="anchor" name="ANDROID_THEMES" href="#ANDROID_THEMES"></a><code>ANDROID_THEMES()</code>
   
-
 </h3>
 
 
 
-<div id="show"></div>
-<h3>
-  <code>show(options)</code>
-  
 
+
+<h3><a class="anchor" name="show" href="#show"></a><code>show(options)</code>
+  
 </h3>
+
+
 Show a native ActionSheet component. See below for options.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -127,59 +105,41 @@ Show a native ActionSheet component. See below for options.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>ActionSheetOptions</code>
+      <code>ActionSheetOptions</code>
     </td>
     <td>
       <p>Options See table below</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
-</div><div id="hide"></div>
-<h3>
-  <code>hide()</code>
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code>
   
-
 </h3>
+
+
 Progamtically hide the native ActionSheet
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the actionsheet is closed
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when the actionsheet is closed
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ActionSheetOptions" href="#ActionSheetOptions"></a>ActionSheetOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -309,11 +269,4 @@ Progamtically hide the native ActionSheet
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

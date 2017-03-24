@@ -9,15 +9,7 @@ title: "Video Editor"
 header_sub_title: "Class in module "
 doc: "Video Editor"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Video Editor
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-video-editor
 $ npm install --save @ionic-native/video-editor
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/video-editor
   </a>
 </p>
 
-<!-- description -->
 
 <p>Edit videos using native device APIs</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { VideoEditor } from &#39;@ionic-native/video-editor&#39;;
 
 constructor(private videoEditor: VideoEditor) { }
@@ -86,38 +69,32 @@ this.videoEditor.transcodeVideo({
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="OptimizeForNetworkUse"></div>
-<h3>
-  <code>OptimizeForNetworkUse()</code>
+<h3><a class="anchor" name="OptimizeForNetworkUse" href="#OptimizeForNetworkUse"></a><code>OptimizeForNetworkUse()</code>
   
-
 </h3>
 
 
 
-<div id="OutputFileType"></div>
-<h3>
-  <code>OutputFileType()</code>
-  
 
+<h3><a class="anchor" name="OutputFileType" href="#OutputFileType"></a><code>OutputFileType()</code>
+  
 </h3>
 
 
 
-<div id="transcodeVideo"></div>
-<h3>
-  <code>transcodeVideo(options)</code>
-  
 
+<h3><a class="anchor" name="transcodeVideo" href="#transcodeVideo"></a><code>transcodeVideo(options)</code>
+  
 </h3>
+
+
+
+
 Transcode a video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -128,36 +105,32 @@ Transcode a video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>TranscodeOptions</code>
+      <code>TranscodeOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the transcoded video
-</div><div id="trim"></div>
-<h3>
-  <code>trim(options)</code>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the transcoded video
+</div><h3><a class="anchor" name="trim" href="#trim"></a><code>trim(options)</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
 Trim a video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -168,36 +141,29 @@ Trim a video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>TrimOptions</code>
+      <code>TrimOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the trimmed video
-</div><div id="createThumbnail"></div>
-<h3>
-  <code>createThumbnail(options)</code>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path of the trimmed video
+</div><h3><a class="anchor" name="createThumbnail" href="#createThumbnail"></a><code>createThumbnail(options)</code>
   
-
 </h3>
+
+
+
+
 Create a JPEG thumbnail from a video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -208,36 +174,29 @@ Create a JPEG thumbnail from a video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>CreateThumbnailOptions</code>
+      <code>CreateThumbnailOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path to the jpeg image on the device
-</div><div id="getVideoInfo"></div>
-<h3>
-  <code>getVideoInfo(options)</code>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves to the path to the jpeg image on the device
+</div><h3><a class="anchor" name="getVideoInfo" href="#getVideoInfo"></a><code>getVideoInfo(options)</code>
   
-
 </h3>
+
+
+
+
 Get info on a video (width, height, orientation, duration, size, & bitrate)
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -248,45 +207,29 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetVideoInfoOptions</code>
+      <code>GetVideoInfoOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;VideoInfo&gt;</code> Returns a promise that resolves to an object containing info on the video
+  <b>Returns:</b> <code>Promise&lt;VideoInfo&gt;</code> Returns a promise that resolves to an object containing info on the video
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="TranscodeOptions" href="#TranscodeOptions"></a>TranscodeOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -512,10 +455,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 </table>
 
 
-
-
 <h2><a class="anchor" name="TrimOptions" href="#TrimOptions"></a>TrimOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -601,10 +541,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 </table>
 
 
-
-
 <h2><a class="anchor" name="CreateThumbnailOptions" href="#CreateThumbnailOptions"></a>CreateThumbnailOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -704,10 +641,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 </table>
 
 
-
-
 <h2><a class="anchor" name="GetVideoInfoOptions" href="#GetVideoInfoOptions"></a>GetVideoInfoOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -737,10 +671,7 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 </table>
 
 
-
-
 <h2><a class="anchor" name="VideoInfo" href="#VideoInfo"></a>VideoInfo</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -842,11 +773,4 @@ Get info on a video (width, height, orientation, duration, size, & bitrate)
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

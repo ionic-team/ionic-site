@@ -9,15 +9,7 @@ title: "Photo Viewer"
 header_sub_title: "Class in module "
 doc: "Photo Viewer"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Photo Viewer
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add com-sarriaroman-photoviewer
 $ npm install --save @ionic-native/photo-viewer
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/photo-viewer
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin can display your image in full screen with the ability to pan, zoom, and share the image.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { PhotoViewer } from &#39;@ionic-native/photo-viewer&#39;;
 
 constructor(private photoViewer: PhotoViewer) { }
@@ -73,20 +60,18 @@ this.photoViewer.show(&#39;https://mysite.com/path/to/image.jpg&#39;, &#39;My im
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="show"></div>
-<h3>
-  <code>show(url,&nbsp;title,&nbsp;options)</code>
+<h3><a class="anchor" name="show" href="#show"></a><code>show(url,&nbsp;title,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Shows an image in full screen
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -97,53 +82,36 @@ Shows an image in full screen
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      url
-      
-    </td>
+      url</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL or path to image</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      title
-      
+      title</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      options
-      
+      options</td>
+    <td>
+      <code>any</code>
     </td>
     <td>
-      
-<code>any</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
@@ -151,16 +119,5 @@ Shows an image in full screen
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

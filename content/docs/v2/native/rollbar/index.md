@@ -9,15 +9,7 @@ title: "Rollbar"
 header_sub_title: "Class in module "
 doc: "Rollbar"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Rollbar
   
@@ -32,17 +24,12 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
 
 <p class="beta-notice">
   This plugin is still in beta stage and may not work as expected. Please
   submit any issues to the <a target="_blank"
   href="https://github.com/Resgrid/cordova-plugins-rollbar/issues">plugin repo</a>.
 </p>
-
 
 <pre><code class="nohighlight">$ ionic plugin add resgrid-cordova-plugins-rollbar --variable ROLLBAR_ACCESS_TOKEN="YOUR_ROLLBAR_ACCEESS_TOKEN" --variable ROLLBAR_ENVIRONMENT="ROLLBAR_ENVIRONMENT"
 $ npm install --save @ionic-native/rollbar
@@ -53,27 +40,23 @@ $ npm install --save @ionic-native/rollbar
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin adds Rollbar App monitoring to your application</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Rollbar } from &#39;@ionic-native/rollbar&#39;;
 
 constructor(private rollbar: Rollbar) { }
@@ -86,41 +69,25 @@ this.rollbar.init();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="init"></div>
-<h3>
-  <code>init()</code>
+<h3><a class="anchor" name="init" href="#init"></a><code>init()</code>
   
-
 </h3>
+
+
 This function initializes the monitoring of your application
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves when the plugin successfully initializes
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the plugin successfully initializes
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

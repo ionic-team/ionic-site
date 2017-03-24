@@ -9,15 +9,7 @@ title: "Youtube Video Player"
 header_sub_title: "Class in module "
 doc: "Youtube Video Player"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Youtube Video Player
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add https://github.com/Glitchbone/CordovaYoutubeVideoPlayer.git
 $ npm install --save @ionic-native/youtube-video-player
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/youtube-video-player
   </a>
 </p>
 
-<!-- description -->
 
 <p>Plays YouTube videos in Native YouTube App</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { YoutubeVideoPlayer } from &#39;@ionic-native/youtube-video-player&#39;;
 
 constructor(private youtube: YoutubeVideoPlayer) { }
@@ -81,20 +64,18 @@ this.youtube.openVideo(&#39;myvideoid&#39;);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="openVideo"></div>
-<h3>
-  <code>openVideo(videoId)</code>
+<h3><a class="anchor" name="openVideo" href="#openVideo"></a><code>openVideo(videoId)</code>
   
-
 </h3>
+
+
+
+
 Plays a YouTube video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -105,23 +86,16 @@ Plays a YouTube video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      videoId
-      
-    </td>
+      videoId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Video ID</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
@@ -129,16 +103,5 @@ Plays a YouTube video
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

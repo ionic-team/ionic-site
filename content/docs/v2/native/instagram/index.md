@@ -9,15 +9,7 @@ title: "Instagram"
 header_sub_title: "Class in module "
 doc: "Instagram"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Instagram
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-instagram-plugin
 $ npm install --save @ionic-native/instagram
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/instagram
   </a>
 </p>
 
-<!-- description -->
 
 <p>Share a photo with the instagram app</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Instagram } from &#39;@ionic-native/instagram&#39;;
 
 constructor(private instagram: Instagram) { }
@@ -73,34 +60,32 @@ this.instagram.share(&#39;data:image/png;uhduhf3hfif33&#39;, &#39;Caption&#39;)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="isInstalled"></div>
-<h3>
-  <code>isInstalled()</code>
+<h3><a class="anchor" name="isInstalled" href="#isInstalled"></a><code>isInstalled()</code>
   
-
 </h3>
+
+
+
+
 Detect if the Instagram application is installed on the device.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;boolean|string&gt;</code> Returns a promise that returns a boolean value if installed, or the app version on android
-</div><div id="share"></div>
-<h3>
-  <code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
+  <b>Returns:</b> <code>Promise&lt;boolean|string&gt;</code> Returns a promise that returns a boolean value if installed, or the app version on android
+</div><h3><a class="anchor" name="share" href="#share"></a><code>share(canvasIdOrDataUrl,&nbsp;caption)</code>
   
-
 </h3>
+
+
+
+
 Share an image on Instagram
 Note: Instagram app stopped accepting pre-filled captions on both iOS and Android. As a work-around, the caption is copied to the clipboard. You have to inform your users to paste the caption.
 
@@ -113,52 +98,40 @@ Note: Instagram app stopped accepting pre-filled captions on both iOS and Androi
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      canvasIdOrDataUrl
-      
-    </td>
+      canvasIdOrDataUrl</td>
     <td>
       
-
     </td>
     <td>
       <p>The canvas element id or the dataURL of the image to share</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      caption
-      
-    </td>
+      caption</td>
     <td>
       
-
     </td>
     <td>
       <p>The caption of the image</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
-</div><div id="shareAsset"></div>
-<h3>
-  <code>shareAsset(assetLocalIdentifier)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
+</div><h3><a class="anchor" name="shareAsset" href="#shareAsset"></a><code>shareAsset(assetLocalIdentifier)</code>
   
-
 </h3>
+
+
+
+
 Share a library asset or video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -169,44 +142,25 @@ Share a library asset or video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      assetLocalIdentifier
-      
-    </td>
+      assetLocalIdentifier</td>
     <td>
       
-
     </td>
     <td>
       <p>A local fileURI</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves if the image was shared
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

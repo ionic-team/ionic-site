@@ -9,15 +9,7 @@ title: "Alipay"
 header_sub_title: "Class in module "
 doc: "Alipay"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Alipay
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add https://github.com/xueron/cordova-alipay-base --variable APP_ID=your_app_id
 $ npm install --save @ionic-native/alipay
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/alipay
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin is used for Alipay APP support. Integrated with the latest SDK.</p>
 <p>Requires Cordova plugin: <code>cordova-alipay-base</code>. For more info, please see the <a href="https://github.com/xueron/cordova-alipay-base">Alipay plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Alipay, AlipayOrder } from &#39;@ionic-native/alipay&#39;;
 
 constructor(private alipay: Alipay) {
@@ -93,20 +76,16 @@ this.alipay.pay(alipayOrder)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="pay"></div>
-<h3>
-  <code>pay(order)</code>
+<h3><a class="anchor" name="pay" href="#pay"></a><code>pay(order)</code>
   
-
 </h3>
+
+
 Open Alipay to perform App pay
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -117,45 +96,29 @@ Open Alipay to perform App pay
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      order
-      
-    </td>
+      order</td>
     <td>
-      
-<code>AlipayOrder</code>
+      <code>AlipayOrder</code>
     </td>
     <td>
       <p>alipay options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the success return, or rejects with an error.
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the success return, or rejects with an error.
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="AlipayOrder" href="#AlipayOrder"></a>AlipayOrder</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -319,11 +282,4 @@ Default: &#39;RSA&#39;</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

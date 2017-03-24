@@ -9,15 +9,7 @@ title: "Globalization"
 header_sub_title: "Class in module "
 doc: "Globalization"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Globalization
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-globalization
 $ npm install --save @ionic-native/globalization
@@ -47,26 +34,22 @@ $ npm install --save @ionic-native/globalization
   </a>
 </p>
 
-<!-- description -->
 
 
 
-<!-- @platforms tag -->
+
+
 <h2>Supported platforms</h2>
-
 <ul>
   <li>Amazon Fire OS</li><li>Android</li><li>BlackBerry 10</li><li>Firefox OS</li><li>iOS</li><li>Windows Phone 8</li><li>Widnows</li><li>Browser</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Globalization } from &#39;@ionic-native/globalization&#39;;
 
 constructor(private globalization: Globalization) { }
@@ -83,46 +66,40 @@ this.globalization.getPreferredLanguage()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getPreferredLanguage"></div>
-<h3>
-  <code>getPreferredLanguage()</code>
+<h3><a class="anchor" name="getPreferredLanguage" href="#getPreferredLanguage"></a><code>getPreferredLanguage()</code>
   
-
 </h3>
+
+
 Returns the BCP-47 compliant language identifier tag to the successCallback with a properties object as a parameter. That object should have a value property with a String value.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> 
-</div><div id="getLocaleName"></div>
-<h3>
-  <code>getLocaleName()</code>
+  <b>Returns:</b> <code>Promise&lt;{value: string}&gt;</code> 
+</div><h3><a class="anchor" name="getLocaleName" href="#getLocaleName"></a><code>getLocaleName()</code>
   
-
 </h3>
+
+
 Returns the BCP 47 compliant locale identifier string to the successCallback with a properties object as a parameter.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> 
-</div><div id="dateToString"></div>
-<h3>
-  <code>dateToString(date,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;{value: string}&gt;</code> 
+</div><h3><a class="anchor" name="dateToString" href="#dateToString"></a><code>dateToString(date,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Converts date to string
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -133,52 +110,40 @@ Converts date to string
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      date
-      
-    </td>
+      date</td>
     <td>
-      
-<code>Date</code>
+      <code>Date</code>
     </td>
     <td>
       <p>Date you wish to convert</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>Options for the converted date. Length, selector.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
-</div><div id="stringToDate"></div>
-<h3>
-  <code>stringToDate(dateString,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
+</div><h3><a class="anchor" name="stringToDate" href="#stringToDate"></a><code>stringToDate(dateString,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Parses a date formatted as a string, according to the client's user preferences and calendar using the time zone of the client, and returns the corresponding date object.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -189,52 +154,40 @@ Parses a date formatted as a string, according to the client's user preferences 
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dateString
-      
-    </td>
+      dateString</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Date as a string to be converted</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>Options for the converted date. Length, selector.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{ year: number, month: number, day: number, hour: number, minute: number, second: number, millisecond: number }&gt;</code> Returns a promise when the date has been converted.
-</div><div id="getDatePattern"></div>
-<h3>
-  <code>getDatePattern(options)</code>
+  <b>Returns:</b> <code>Promise&lt;{ year: number, month: number, day: number, hour: number, minute: number, second: number, millisecond: number }&gt;</code> Returns a promise when the date has been converted.
+</div><h3><a class="anchor" name="getDatePattern" href="#getDatePattern"></a><code>getDatePattern(options)</code>
   
-
 </h3>
+
+
+
+
 Returns a pattern string to format and parse dates according to the client's user preferences.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -245,36 +198,29 @@ Returns a pattern string to format and parse dates according to the client's use
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>Object with the format length and selector</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{pattern: string}&gt;</code> Returns a promise.
-</div><div id="getDateNames"></div>
-<h3>
-  <code>getDateNames(options)</code>
+  <b>Returns:</b> <code>Promise&lt;{pattern: string}&gt;</code> Returns a promise.
+</div><h3><a class="anchor" name="getDateNames" href="#getDateNames"></a><code>getDateNames(options)</code>
   
-
 </h3>
+
+
+
+
 Returns an array of the names of the months or days of the week, depending on the client's user preferences and calendar.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -285,36 +231,27 @@ Returns an array of the names of the months or days of the week, depending on th
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>Object with type (narrow or wide) and item (month or days).</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{value: Array&lt;string&gt;}&gt;</code> Returns a promise.
-</div><div id="isDayLightSavingsTime"></div>
-<h3>
-  <code>isDayLightSavingsTime(date)</code>
+  <b>Returns:</b> <code>Promise&lt;{value: Array&lt;string&gt;}&gt;</code> Returns a promise.
+</div><h3><a class="anchor" name="isDayLightSavingsTime" href="#isDayLightSavingsTime"></a><code>isDayLightSavingsTime(date)</code>
   
-
 </h3>
+
+
 Indicates whether daylight savings time is in effect for a given date using the client's time zone and calendar.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -325,49 +262,40 @@ Indicates whether daylight savings time is in effect for a given date using the 
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      date
-      
-    </td>
+      date</td>
     <td>
-      
-<code>data</code>
+      <code>data</code>
     </td>
     <td>
       <p>Date to process</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{dst: string}&gt;</code> reutrns a promise with the value
-</div><div id="getFirstDayOfWeek"></div>
-<h3>
-  <code>getFirstDayOfWeek()</code>
+  <b>Returns:</b> <code>Promise&lt;{dst: string}&gt;</code> reutrns a promise with the value
+</div><h3><a class="anchor" name="getFirstDayOfWeek" href="#getFirstDayOfWeek"></a><code>getFirstDayOfWeek()</code>
   
-
 </h3>
+
+
 Returns the first day of the week according to the client's user preferences and calendar.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> returns a promise with the value
-</div><div id="numberToString"></div>
-<h3>
-  <code>numberToString(numberToConvert,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;{value: string}&gt;</code> returns a promise with the value
+</div><h3><a class="anchor" name="numberToString" href="#numberToString"></a><code>numberToString(numberToConvert,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Returns a number formatted as a string according to the client's user preferences.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -378,48 +306,37 @@ Returns a number formatted as a string according to the client's user preference
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      numberToConvert
-      
-    </td>
+      numberToConvert</td>
     <td>
-      
-<code>Number</code>
+      <code>Number</code>
     </td>
     <td>
       <p>The number to convert</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>Object</code>
+      <code>Object</code>
     </td>
     <td>
       <p>Object with property <code>type</code> that can be set to: decimal, percent, or currency.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="stringToNumber"></div>
-<h3>
-  <code>stringToNumber(stringToConvert,&nbsp;options)</code>
+<h3><a class="anchor" name="stringToNumber" href="#stringToNumber"></a><code>stringToNumber(stringToConvert,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -430,52 +347,40 @@ Returns a number formatted as a string according to the client's user preference
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      stringToConvert
-      
-    </td>
+      stringToConvert</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>String you want to conver to a number</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>The type of number you want to return. Can be decimal, percent, or currency.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{ value: number | string }&gt;</code> Returns a promise with the value.
-</div><div id="getNumberPattern"></div>
-<h3>
-  <code>getNumberPattern(options)</code>
+  <b>Returns:</b> <code>Promise&lt;{ value: number | string }&gt;</code> Returns a promise with the value.
+</div><h3><a class="anchor" name="getNumberPattern" href="#getNumberPattern"></a><code>getNumberPattern(options)</code>
   
-
 </h3>
+
+
+
+
 Returns a pattern string to format and parse numbers according to the client's user preferences.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -486,36 +391,27 @@ Returns a pattern string to format and parse numbers according to the client's u
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
       
-
     </td>
     <td>
       <p>Can be decimal, percent, or currency.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{ pattern: string, symbol: string, fraction: number, rounding: number, positive: string, negative: string, decimal: string, grouping: string }&gt;</code> 
-</div><div id="getCurrencyPattern"></div>
-<h3>
-  <code>getCurrencyPattern(currencyCode)</code>
+  <b>Returns:</b> <code>Promise&lt;{ pattern: string, symbol: string, fraction: number, rounding: number, positive: string, negative: string, decimal: string, grouping: string }&gt;</code> 
+</div><h3><a class="anchor" name="getCurrencyPattern" href="#getCurrencyPattern"></a><code>getCurrencyPattern(currencyCode)</code>
   
-
 </h3>
+
+
 Returns a pattern string to format and parse currency values according to the client's user preferences and ISO 4217 currency code.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -526,44 +422,25 @@ Returns a pattern string to format and parse currency values according to the cl
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      currencyCode
-      
-    </td>
+      currencyCode</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Currency Code.A</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;{ pattern: string, code: string, fraction: number, rounding: number, decimal: number, grouping: string }&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

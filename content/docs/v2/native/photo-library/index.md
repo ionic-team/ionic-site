@@ -9,15 +9,7 @@ title: "Photo Library"
 header_sub_title: "Class in module "
 doc: "Photo Library"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Photo Library
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-photo-library --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="To choose photos"
 $ npm install --save @ionic-native/photo-library
@@ -47,7 +34,6 @@ $ npm install --save @ionic-native/photo-library
   </a>
 </p>
 
-<!-- description -->
 
 <p>The PhotoLibrary plugin allows access to photos from device by url. So you can use plain img tag to display photos and their thumbnails, and different 3rd party libraries as well.
 Saving photos and videos to the library is also supported.
@@ -55,12 +41,13 @@ cdvphotolibrary urls should be trusted by Angular. See plugin homepage to learn 
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { PhotoLibrary } from &#39;@ionic-native/photo-library&#39;;
 
 constructor(private photoLibrary: PhotoLibrary) { }
@@ -91,20 +78,18 @@ this.photoLibrary.requestAuthorization().then(() =&gt; {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getLibrary"></div>
-<h3>
-  <code>getLibrary(options)</code>
+<h3><a class="anchor" name="getLibrary" href="#getLibrary"></a><code>getLibrary(options)</code>
   
-
 </h3>
+
+
+
+
 Retrieves library items. Library item contains photo metadata like width and height, as well as photoURL and thumbnailURL.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -115,36 +100,29 @@ Retrieves library items. Library item contains photo metadata like width and hei
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetLibraryOptions</code>
+      <code>GetLibraryOptions</code>
     </td>
     <td>
       <p>Optional, like thumbnail size and chunks settings.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;LibraryItem[]&gt;</code> Returns library items. If appropriate option was set, will be returned by chunks.
-</div><div id="requestAuthorization"></div>
-<h3>
-  <code>requestAuthorization(options)</code>
+  <b>Returns:</b> <code>Observable&lt;LibraryItem[]&gt;</code> Returns library items. If appropriate option was set, will be returned by chunks.
+</div><h3><a class="anchor" name="requestAuthorization" href="#requestAuthorization"></a><code>requestAuthorization(options)</code>
   
-
 </h3>
+
+
+
+
 Asks user permission to access photo library.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -155,49 +133,42 @@ Asks user permission to access photo library.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>RequestAuthorizationOptions</code>
+      <code>RequestAuthorizationOptions</code>
     </td>
     <td>
       <p>Optional, like whether only read access needed or read/write.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> Returns a promise that resolves when permissions are granted, and fails when not.
-</div><div id="getAlbums"></div>
-<h3>
-  <code>getAlbums()</code>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> Returns a promise that resolves when permissions are granted, and fails when not.
+</div><h3><a class="anchor" name="getAlbums" href="#getAlbums"></a><code>getAlbums()</code>
   
-
 </h3>
+
+
+
+
 Returns list of photo albums on device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;AlbumItem[]&gt;</code> Resolves to list of albums.
-</div><div id="getThumbnailURL"></div>
-<h3>
-  <code>getThumbnailURL(photo,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;AlbumItem[]&gt;</code> Resolves to list of albums.
+</div><h3><a class="anchor" name="getThumbnailURL" href="#getThumbnailURL"></a><code>getThumbnailURL(photo,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Provides means to request URL of thumbnail, with specified size or quality.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -208,52 +179,40 @@ Provides means to request URL of thumbnail, with specified size or quality.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      photo
-      
-    </td>
+      photo</td>
     <td>
-      
-<code>string</code>|<code>LibraryItem</code>
+      <code>string</code>|<code>LibraryItem</code>
     </td>
     <td>
       <p>Id of photo, or LibraryItem.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetThumbnailOptions</code>
+      <code>GetThumbnailOptions</code>
     </td>
     <td>
       <p>Options, like thumbnail size or quality.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
-</div><div id="getPhotoURL"></div>
-<h3>
-  <code>getPhotoURL(photo,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
+</div><h3><a class="anchor" name="getPhotoURL" href="#getPhotoURL"></a><code>getPhotoURL(photo,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Provides means to request photo URL by id.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -264,52 +223,40 @@ Provides means to request photo URL by id.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      photo
-      
-    </td>
+      photo</td>
     <td>
-      
-<code>string</code>|<code>LibraryItem</code>
+      <code>string</code>|<code>LibraryItem</code>
     </td>
     <td>
       <p>Id or LibraryItem.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetPhotoOptions</code>
+      <code>GetPhotoOptions</code>
     </td>
     <td>
       <p>Optional options.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
-</div><div id="getThumbnail"></div>
-<h3>
-  <code>getThumbnail(photo,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Resolves to URL of cdvphotolibrary schema.
+</div><h3><a class="anchor" name="getThumbnail" href="#getThumbnail"></a><code>getThumbnail(photo,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Returns thumbnail as Blob.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -320,52 +267,40 @@ Returns thumbnail as Blob.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      photo
-      
-    </td>
+      photo</td>
     <td>
-      
-<code>string</code>|<code>LibraryItem</code>
+      <code>string</code>|<code>LibraryItem</code>
     </td>
     <td>
       <p>Id or LibraryItem.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetThumbnailOptions</code>
+      <code>GetThumbnailOptions</code>
     </td>
     <td>
       <p>Options, like thumbnail size or quality.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Blob&gt;</code> Resolves requested thumbnail as blob.
-</div><div id="getPhoto"></div>
-<h3>
-  <code>getPhoto(photo,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;Blob&gt;</code> Resolves requested thumbnail as blob.
+</div><h3><a class="anchor" name="getPhoto" href="#getPhoto"></a><code>getPhoto(photo,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Returns photo as Blob.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -376,52 +311,40 @@ Returns photo as Blob.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      photo
-      
-    </td>
+      photo</td>
     <td>
-      
-<code>string</code>|<code>LibraryItem</code>
+      <code>string</code>|<code>LibraryItem</code>
     </td>
     <td>
       <p>Id or LibraryItem.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetPhotoOptions</code>
+      <code>GetPhotoOptions</code>
     </td>
     <td>
       <p>Optional options.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Blob&gt;</code> Resolves requested photo as blob.
-</div><div id="saveImage"></div>
-<h3>
-  <code>saveImage(url,&nbsp;album,&nbsp;options)</code>
+  <b>Returns:</b> <code>Promise&lt;Blob&gt;</code> Resolves requested photo as blob.
+</div><h3><a class="anchor" name="saveImage" href="#saveImage"></a><code>saveImage(url,&nbsp;album,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Saves image to specified album. Album will be created if not exists.
 LibraryItem that represents saved image is returned.
 <table class="table param-table" style="margin:0;">
@@ -433,68 +356,51 @@ LibraryItem that represents saved image is returned.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      url
-      
-    </td>
+      url</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL of a file, or DataURL.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      album
-      
-    </td>
+      album</td>
     <td>
-      
-<code>AlbumItem</code>|<code>string</code>
+      <code>AlbumItem</code>|<code>string</code>
     </td>
     <td>
       <p>Name of an album or AlbumItem object.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GetThumbnailOptions</code>
+      <code>GetThumbnailOptions</code>
     </td>
     <td>
       <p>Options, like thumbnail size for resulting LibraryItem.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;LibraryItem&gt;</code> Resolves to LibraryItem that represents saved image.
-</div><div id="saveVideo"></div>
-<h3>
-  <code>saveVideo(url,&nbsp;album)</code>
+  <b>Returns:</b> <code>Promise&lt;LibraryItem&gt;</code> Resolves to LibraryItem that represents saved image.
+</div><h3><a class="anchor" name="saveVideo" href="#saveVideo"></a><code>saveVideo(url,&nbsp;album)</code>
   
-
 </h3>
+
+
+
+
 Saves video to specified album. Album will be created if not exists.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -505,60 +411,36 @@ Saves video to specified album. Album will be created if not exists.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      url
-      
-    </td>
+      url</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL of a file, or DataURL.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      album
-      
-    </td>
+      album</td>
     <td>
-      
-<code>AlbumItem</code>|<code>string</code>
+      <code>AlbumItem</code>|<code>string</code>
     </td>
     <td>
       <p>Name of an album or AlbumItem object.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> Resolves when save operation completes.
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> Resolves when save operation completes.
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

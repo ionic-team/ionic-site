@@ -9,15 +9,7 @@ title: "Navigation Bar"
 header_sub_title: "Class in module "
 doc: "Navigation Bar"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Navigation Bar
   
@@ -32,17 +24,12 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
 
 <p class="beta-notice">
   This plugin is still in beta stage and may not work as expected. Please
   submit any issues to the <a target="_blank"
   href="https://github.com/cranberrygame/cordova-plugin-navigationbar/issues">plugin repo</a>.
 </p>
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-navigationbar
 $ npm install --save @ionic-native/navigation-bar
@@ -53,27 +40,23 @@ $ npm install --save @ionic-native/navigation-bar
   </a>
 </p>
 
-<!-- description -->
 
 <p>The NavigationBar plugin can you to hide and auto hide the android navigation bar.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { NavigationBar } from &#39;@ionic-native/navigation-bar&#39;;
 
 constructor(private navigationBar: NavigationBar) { }
@@ -87,20 +70,18 @@ this.navigationBar.hide(autoHide);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="setUp"></div>
-<h3>
-  <code>setUp(autohide)</code>
+<h3><a class="anchor" name="setUp" href="#setUp"></a><code>setUp(autohide)</code>
   
-
 </h3>
+
+
+
+
 hide automatically (or not) the navigation bar.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -111,56 +92,37 @@ hide automatically (or not) the navigation bar.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      autohide
-      
+      autohide</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
-      
-<code>boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="hideNavigationBar"></div>
-<h3>
-  <code>hideNavigationBar()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="hideNavigationBar" href="#hideNavigationBar"></a><code>hideNavigationBar()</code>
   
-
 </h3>
+
+
+
+
 Hide the navigation bar. 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

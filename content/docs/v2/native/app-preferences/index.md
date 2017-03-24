@@ -9,15 +9,7 @@ title: "App Preferences"
 header_sub_title: "Class in module "
 doc: "App Preferences"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   App Preferences
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-app-preferences
 $ npm install --save @ionic-native/app-preferences
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/app-preferences
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin allows you to read and write app preferences</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { AppPreferences } from &#39;@ionic-native/app-preferences&#39;;
 
 constructor(private appPreferences: AppPreferences) {
@@ -71,20 +58,18 @@ constructor(private appPreferences: AppPreferences) {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="fetch"></div>
-<h3>
-  <code>fetch(dict,&nbsp;key)</code>
+<h3><a class="anchor" name="fetch" href="#fetch"></a><code>fetch(dict,&nbsp;key)</code>
   
-
 </h3>
+
+
+
+
 Get a preference value
 
 <table class="table param-table" style="margin:0;">
@@ -96,52 +81,40 @@ Get a preference value
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dict
-      
-    </td>
+      dict</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Dictionary for key (OPTIONAL)</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      key
-      
-    </td>
+      key</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Key</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise
-</div><div id="store"></div>
-<h3>
-  <code>store(dict,&nbsp;key,&nbsp;value)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="store" href="#store"></a><code>store(dict,&nbsp;key,&nbsp;value)</code>
   
-
 </h3>
+
+
+
+
 Set a preference value
 
 <table class="table param-table" style="margin:0;">
@@ -153,68 +126,51 @@ Set a preference value
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dict
-      
-    </td>
+      dict</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Dictionary for key (OPTIONAL)</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      key
-      
-    </td>
+      key</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Key</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      value
-      
-    </td>
+      value</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Value</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise
-</div><div id="remove"></div>
-<h3>
-  <code>remove(dict,&nbsp;key)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="remove" href="#remove"></a><code>remove(dict,&nbsp;key)</code>
   
-
 </h3>
+
+
+
+
 Remove value from preferences
 
 <table class="table param-table" style="margin:0;">
@@ -226,80 +182,68 @@ Remove value from preferences
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dict
-      
-    </td>
+      dict</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Dictionary for key (OPTIONAL)</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      key
-      
-    </td>
+      key</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Key</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise
-</div><div id="clearAll"></div>
-<h3>
-  <code>clearAll()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="clearAll" href="#clearAll"></a><code>clearAll()</code>
   
-
 </h3>
+
+
+
+
 Clear preferences
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise
-</div><div id="show"></div>
-<h3>
-  <code>show()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show()</code>
   
-
 </h3>
+
+
+
+
 Show native preferences interface
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise
-</div><div id="watch"></div>
-<h3>
-  <code>watch(subscribe)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise
+</div><h3><a class="anchor" name="watch" href="#watch"></a><code>watch(subscribe)</code>
   
-
 </h3>
+
+
+
+
 Show native preferences interface
 
 <table class="table param-table" style="margin:0;">
@@ -311,36 +255,32 @@ Show native preferences interface
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      subscribe
-      
-    </td>
+      subscribe</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>true value to subscribe, false - unsubscribe</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns an observable
-</div><div id="suite"></div>
-<h3>
-  <code>suite(suiteName)</code>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns an observable
+</div><h3><a class="anchor" name="suite" href="#suite"></a><code>suite(suiteName)</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Return named configuration context
 In iOS you'll get a suite configuration, on Android — named file
 Supports: Android, iOS
@@ -353,81 +293,72 @@ Supports: Android, iOS
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      suiteName
-      
-    </td>
+      suiteName</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>suite name</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Object</code> Custom object, bound to that suite
-</div><div id="iosSuite"></div>
-<h3>
-  <code>iosSuite()</code>
+  <b>Returns:</b> <code>Object</code> Custom object, bound to that suite
+</div><h3><a class="anchor" name="iosSuite" href="#iosSuite"></a><code>iosSuite()</code>
   
-
 </h3>
 
 
 
-<div id="cloudSync"></div>
-<h3>
-  <code>cloudSync()</code>
-  
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
 
+
+
+
+
+<h3><a class="anchor" name="cloudSync" href="#cloudSync"></a><code>cloudSync()</code>
+  
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;<strong class="tag">Windows Phone 8</strong>&nbsp;</p>
+
+
 Return cloud synchronized configuration context
 Currently supports Windows and iOS/macOS
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Object</code> Custom object, bound to that suite
-</div><div id="defaults"></div>
-<h3>
-  <code>defaults()</code>
+  <b>Returns:</b> <code>Object</code> Custom object, bound to that suite
+</div><h3><a class="anchor" name="defaults" href="#defaults"></a><code>defaults()</code>
   
-
 </h3>
+
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;<strong class="tag">Windows</strong>&nbsp;<strong class="tag">Windows Phone 8</strong>&nbsp;</p>
+
+
 Return default configuration context
 Currently supports Windows and iOS/macOS
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Object</code> Custom Object, bound to that suite
+  <b>Returns:</b> <code>Object</code> Custom Object, bound to that suite
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

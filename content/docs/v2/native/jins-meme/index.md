@@ -9,15 +9,7 @@ title: "Jins Meme"
 header_sub_title: "Class in module "
 doc: "Jins Meme"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Jins Meme
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add JinsMemeSDK-Plugin-Cordova
 $ npm install --save @ionic-native/jins-meme
@@ -47,18 +34,18 @@ $ npm install --save @ionic-native/jins-meme
   </a>
 </p>
 
-<!-- description -->
 
 <p>Implementation of the JINS MEME SDK</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { JinsMeme } from &#39;@ionic-native/jins-meme&#39;;
 
 constructor(private jinsMeme: JinsMeme) { }
@@ -73,20 +60,16 @@ this.jinsMeme.setAppClientID(appClientId: string, clientSecret: string)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="setAppClientID"></div>
-<h3>
-  <code>setAppClientID(setAppClientID,&nbsp;clientSecret)</code>
+<h3><a class="anchor" name="setAppClientID" href="#setAppClientID"></a><code>setAppClientID(setAppClientID,&nbsp;clientSecret)</code>
   
-
 </h3>
+
+
 Authentication and authorization of App and SDK.
 Must call this method at first.
 
@@ -99,76 +82,62 @@ Must call this method at first.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      setAppClientID
-      
+      setAppClientID</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      clientSecret
-      
+      clientSecret</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="startScan"></div>
-<h3>
-  <code>startScan()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="startScan" href="#startScan"></a><code>startScan()</code>
   
-
 </h3>
+
+
+
+
 Starts scanning for JINS MEME.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
-</div><div id="stopScan"></div>
-<h3>
-  <code>stopScan()</code>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="stopScan" href="#stopScan"></a><code>stopScan()</code>
   
-
 </h3>
+
+
 Stops scanning JINS MEME.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="connect"></div>
-<h3>
-  <code>connect(target)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="connect" href="#connect"></a><code>connect(target)</code>
   
-
 </h3>
+
+
+
+
 Establishes connection to JINS MEME.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -179,35 +148,26 @@ Establishes connection to JINS MEME.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      target
-      
+      target</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
-</div><div id="setAutoConnect"></div>
-<h3>
-  <code>setAutoConnect(flag)</code>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setAutoConnect" href="#setAutoConnect"></a><code>setAutoConnect(flag)</code>
   
-
 </h3>
+
+
 Set auto connection mode.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -218,200 +178,159 @@ Set auto connection mode.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      flag
-      
+      flag</td>
+    <td>
+      <code>Boolean</code>
     </td>
     <td>
-      
-<code>Boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="isConnected"></div>
-<h3>
-  <code>isConnected()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isConnected" href="#isConnected"></a><code>isConnected()</code>
   
-
 </h3>
+
+
 Returns whether a connection to JINS MEME has been established.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="disconnect"></div>
-<h3>
-  <code>disconnect()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="disconnect" href="#disconnect"></a><code>disconnect()</code>
   
-
 </h3>
+
+
 Disconnects from JINS MEME.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="startDataReport"></div>
-<h3>
-  <code>startDataReport()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="startDataReport" href="#startDataReport"></a><code>startDataReport()</code>
   
-
 </h3>
+
+
+
+
 Starts receiving realtime data.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
-</div><div id="stopDataReport"></div>
-<h3>
-  <code>stopDataReport()</code>
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="stopDataReport" href="#stopDataReport"></a><code>stopDataReport()</code>
   
-
 </h3>
+
+
 Stops receiving data.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getSDKVersion"></div>
-<h3>
-  <code>getSDKVersion()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getSDKVersion" href="#getSDKVersion"></a><code>getSDKVersion()</code>
   
-
 </h3>
+
+
 Returns SDK version.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getConnectedByOthers"></div>
-<h3>
-  <code>getConnectedByOthers()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getConnectedByOthers" href="#getConnectedByOthers"></a><code>getConnectedByOthers()</code>
   
-
 </h3>
+
+
 Returns JINS MEME connected with other apps.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="isCalibrated"></div>
-<h3>
-  <code>isCalibrated()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isCalibrated" href="#isCalibrated"></a><code>isCalibrated()</code>
   
-
 </h3>
+
+
 Returns calibration status
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getConnectedDeviceType"></div>
-<h3>
-  <code>getConnectedDeviceType()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getConnectedDeviceType" href="#getConnectedDeviceType"></a><code>getConnectedDeviceType()</code>
   
-
 </h3>
+
+
 Returns device type.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getConnectedDeviceSubType"></div>
-<h3>
-  <code>getConnectedDeviceSubType()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getConnectedDeviceSubType" href="#getConnectedDeviceSubType"></a><code>getConnectedDeviceSubType()</code>
   
-
 </h3>
+
+
 Returns hardware version.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getFWVersion"></div>
-<h3>
-  <code>getFWVersion()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getFWVersion" href="#getFWVersion"></a><code>getFWVersion()</code>
   
-
 </h3>
+
+
 Returns FW Version.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getHWVersion"></div>
-<h3>
-  <code>getHWVersion()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getHWVersion" href="#getHWVersion"></a><code>getHWVersion()</code>
   
-
 </h3>
+
+
 Returns HW Version.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="isDataReceiving"></div>
-<h3>
-  <code>isDataReceiving()</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="isDataReceiving" href="#isDataReceiving"></a><code>isDataReceiving()</code>
   
-
 </h3>
+
+
 Returns response about whether data was received or not.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

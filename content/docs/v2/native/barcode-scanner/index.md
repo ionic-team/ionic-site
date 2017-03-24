@@ -9,15 +9,7 @@ title: "Barcode Scanner"
 header_sub_title: "Class in module "
 doc: "Barcode Scanner"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Barcode Scanner
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add phonegap-plugin-barcodescanner
 $ npm install --save @ionic-native/barcode-scanner
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/barcode-scanner
   </a>
 </p>
 
-<!-- description -->
 
 <p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
 <p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li><li>Windows 10</li><li>Windows 8</li><li>BlackBerry 10</li><li>Browser</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { BarcodeScanner } from &#39;@ionic-native/barcode-scanner&#39;;
 
 constructor(private barcodeScanner: BarcodeScanner) { }
@@ -86,29 +69,25 @@ this.barcodeScanner.scan().then((barcodeData) =&gt; {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="Encode"></div>
-<h3>
-  <code>Encode()</code>
+<h3><a class="anchor" name="Encode" href="#Encode"></a><code>Encode()</code>
   
-
 </h3>
 
 
 
-<div id="scan"></div>
-<h3>
-  <code>scan(options)</code>
-  
 
+<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code>
+  
 </h3>
+
+
+
+
 Open the barcode scanner.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -119,36 +98,27 @@ Open the barcode scanner.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>BarcodeScannerOptions</code>
+      <code>BarcodeScannerOptions</code>
     </td>
     <td>
       <p>Optional options to pass to the scanner</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with scanner data, or rejects with an error.
-</div><div id="encode"></div>
-<h3>
-  <code>encode(type,&nbsp;data)</code>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with scanner data, or rejects with an error.
+</div><h3><a class="anchor" name="encode" href="#encode"></a><code>encode(type,&nbsp;data)</code>
   
-
 </h3>
+
+
 Encodes data into a barcode.
 NOTE: not well supported on Android
 <table class="table param-table" style="margin:0;">
@@ -160,61 +130,40 @@ NOTE: not well supported on Android
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      type
-      
-    </td>
+      type</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Type of encoding</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      data
-      
-    </td>
+      data</td>
     <td>
-      
-<code>any</code>
+      <code>any</code>
     </td>
     <td>
       <p>Data to encode</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="BarcodeScannerOptions" href="#BarcodeScannerOptions"></a>BarcodeScannerOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -372,11 +321,4 @@ NOTE: not well supported on Android
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

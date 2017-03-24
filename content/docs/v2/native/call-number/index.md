@@ -9,15 +9,7 @@ title: "Call Number"
 header_sub_title: "Class in module "
 doc: "Call Number"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Call Number
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add call-number
 $ npm install --save @ionic-native/call-number
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/call-number
   </a>
 </p>
 
-<!-- description -->
 
 <p>Call a number directly from your Cordova/Ionic application.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import {CallNumber} from &#39;@ionic-native/call-number&#39;;
 
 constructor(private callNumber: CallNumber) { }
@@ -83,20 +66,18 @@ this.callNumber.callNumber(18001010101, true)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="callNumber"></div>
-<h3>
-  <code>callNumber(numberToCall,&nbsp;bypassAppChooser)</code>
+<h3><a class="anchor" name="callNumber" href="#callNumber"></a><code>callNumber(numberToCall,&nbsp;bypassAppChooser)</code>
   
-
 </h3>
+
+
+
+
 Calls a phone number
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -107,60 +88,36 @@ Calls a phone number
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      numberToCall
-      
-    </td>
+      numberToCall</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The phone number to call as a string</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      bypassAppChooser
-      
-    </td>
+      bypassAppChooser</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>Set to true to bypass the app chooser and go directly to dialer</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

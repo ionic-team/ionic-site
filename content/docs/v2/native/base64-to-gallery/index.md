@@ -9,15 +9,7 @@ title: "Base64 To Gallery"
 header_sub_title: "Class in module "
 doc: "Base64 To Gallery"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Base64 To Gallery
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-base64-to-gallery
 $ npm install --save @ionic-native/base64-to-gallery
@@ -47,27 +34,23 @@ $ npm install --save @ionic-native/base64-to-gallery
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin allows you to save base64 data as a png image into the device</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Base64ToGallery } from &#39;@ionic-native/base64-to-gallery&#39;;
 
 constructor(private base64ToGallery: Base64ToGallery) { }
@@ -85,20 +68,18 @@ this.base64ToGallery.base64ToGallery(base64Data, { prefix: &#39;_img&#39; }).the
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="base64ToGallery"></div>
-<h3>
-  <code>base64ToGallery(data,&nbsp;options)</code>
+<h3><a class="anchor" name="base64ToGallery" href="#base64ToGallery"></a><code>base64ToGallery(data,&nbsp;options)</code>
   
-
 </h3>
+
+
+
+
 Converts a base64 string to an image file in the device gallery
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -109,60 +90,36 @@ Converts a base64 string to an image file in the device gallery
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      data
-      
-    </td>
+      data</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The actual base64 string that you want to save</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>any</code>
+      <code>any</code>
     </td>
     <td>
       <p>An object with properties: prefix: string, mediaScanner: boolean. Prefix will be prepended to the filename. If true, mediaScanner runs Media Scanner on Android and saves to Camera Roll on iOS; if false, saves to Library folder on iOS.<strong class="tag">Optional</strong></p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> returns a promise that resolves when the image is saved.
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> returns a promise that resolves when the image is saved.
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

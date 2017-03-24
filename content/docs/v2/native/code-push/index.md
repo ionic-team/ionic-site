@@ -9,15 +9,7 @@ title: "Code Push"
 header_sub_title: "Class in module "
 doc: "Code Push"
 docType: "class"
----
-
-
-
-
-
-
-
-<h1 class="api-title">
+---<h1 class="api-title">
   
   Code Push
   
@@ -32,11 +24,6 @@ docType: "class"
 
 
 
-<!-- decorators -->
-
-
-
-
 
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-code-push
 $ npm install --save @ionic-native/code-push
@@ -47,28 +34,24 @@ $ npm install --save @ionic-native/code-push
   </a>
 </p>
 
-<!-- description -->
 
 <p>CodePush plugin for Cordova by Microsoft that supports iOS and Android.</p>
 <p>For more info, please see <a href="https://github.com/ksachdeva/ionic2-code-push-example">https://github.com/ksachdeva/ionic2-code-push-example</a></p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { CodePush } from &#39;@ionic-native/code-push&#39;;
 
 constructor(private codePush: CodePush) { }
@@ -86,20 +69,16 @@ this.codePush.sync({}, downloadProgress).subscribe((syncStatus) =&gt; console.lo
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getCurrentPackage"></div>
-<h3>
-  <code>getCurrentPackage(packageSuccess,&nbsp;packageError)</code>
+<h3><a class="anchor" name="getCurrentPackage" href="#getCurrentPackage"></a><code>getCurrentPackage(packageSuccess,&nbsp;packageError)</code>
   
-
 </h3>
+
+
 Get the current package information.
 
 <table class="table param-table" style="margin:0;">
@@ -111,66 +90,52 @@ Get the current package information.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      packageSuccess
-      
-    </td>
+      packageSuccess</td>
     <td>
       
-
     </td>
     <td>
       <p>Callback invoked with the currently deployed package information.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      packageError
-      
-    </td>
+      packageError</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback invoked in case of an error.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;ILocalPackage&gt;</code> 
-</div><div id="getPendingPackage"></div>
-<h3>
-  <code>getPendingPackage()</code>
+  <b>Returns:</b> <code>Promise&lt;ILocalPackage&gt;</code> 
+</div><h3><a class="anchor" name="getPendingPackage" href="#getPendingPackage"></a><code>getPendingPackage()</code>
   
-
 </h3>
+
+
 Gets the pending package information, if any. A pending package is one that has been installed but the application still runs the old code.
 This happends only after a package has been installed using ON_NEXT_RESTART or ON_NEXT_RESUME mode, but the application was not restarted/resumed yet.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;ILocalPackage&gt;</code> 
-</div><div id="checkForUpdate"></div>
-<h3>
-  <code>checkForUpdate(querySuccess,&nbsp;queryError,&nbsp;deploymentKey)</code>
+  <b>Returns:</b> <code>Promise&lt;ILocalPackage&gt;</code> 
+</div><h3><a class="anchor" name="checkForUpdate" href="#checkForUpdate"></a><code>checkForUpdate(querySuccess,&nbsp;queryError,&nbsp;deploymentKey)</code>
   
-
 </h3>
+
+
+
+
 Checks with the CodePush server if an update package is available for download.
 
 <table class="table param-table" style="margin:0;">
@@ -182,70 +147,51 @@ Checks with the CodePush server if an update package is available for download.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      querySuccess
-      
-    </td>
+      querySuccess</td>
     <td>
       
-
     </td>
     <td>
       <p>Callback invoked in case of a successful response from the server.
                     The callback takes one RemotePackage parameter. A non-null package is a valid update.
                     A null package means the application is up to date for the current native application version.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      queryError
-      
-    </td>
+      queryError</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback invoked in case of an error.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      deploymentKey
-      
-    </td>
+      deploymentKey</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional deployment key that overrides the config.xml setting.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;IRemotePackage&gt;</code> 
-</div><div id="notifyApplicationReady"></div>
-<h3>
-  <code>notifyApplicationReady(notifySucceeded,&nbsp;notifyFailed)</code>
+  <b>Returns:</b> <code>Promise&lt;IRemotePackage&gt;</code> 
+</div><h3><a class="anchor" name="notifyApplicationReady" href="#notifyApplicationReady"></a><code>notifyApplicationReady(notifySucceeded,&nbsp;notifyFailed)</code>
   
-
 </h3>
+
+
 Notifies the plugin that the update operation succeeded and that the application is ready.
 Calling this function is required on the first run after an update. On every subsequent application run, calling this function is a noop.
 If using sync API, calling this function is not required since sync calls it internally.
@@ -259,66 +205,52 @@ If using sync API, calling this function is not required since sync calls it int
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      notifySucceeded
-      
-    </td>
+      notifySucceeded</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback invoked if the plugin was successfully notified.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      notifyFailed
-      
-    </td>
+      notifyFailed</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback invoked in case of an error during notifying the plugin.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> 
-</div><div id="restartApplication"></div>
-<h3>
-  <code>restartApplication()</code>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="restartApplication" href="#restartApplication"></a><code>restartApplication()</code>
   
-
 </h3>
+
+
 Reloads the application. If there is a pending update package installed using ON_NEXT_RESTART or ON_NEXT_RESUME modes, the update
 will be immediately visible to the user. Otherwise, calling this function will simply reload the current version of the application.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;void&gt;</code> 
-</div><div id="sync"></div>
-<h3>
-  <code>sync(syncCallback,&nbsp;syncOptions,&nbsp;downloadProgress)</code>
+  <b>Returns:</b> <code>Promise&lt;void&gt;</code> 
+</div><h3><a class="anchor" name="sync" href="#sync"></a><code>sync(syncCallback,&nbsp;syncOptions,&nbsp;downloadProgress)</code>
   
-
 </h3>
+
+
+
+
 Convenience method for installing updates in one method call.
 This method is provided for simplicity, and its behavior can be replicated by using window.codePush.checkForUpdate(), RemotePackage's download() and LocalPackage's install() methods.
 
@@ -342,76 +274,47 @@ The algorithm of this method is the following:
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      syncCallback
-      
-    </td>
+      syncCallback</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback to be called with the status of the sync operation.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      syncOptions
-      
-    </td>
+      syncOptions</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional SyncOptions parameter configuring the behavior of the sync operation.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      downloadProgress
-      
-    </td>
+      downloadProgress</td>
     <td>
       
-
     </td>
     <td>
       <p>Optional callback invoked during the download process. It is called several times with one DownloadProgress parameter.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;SyncStatus&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;SyncStatus&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

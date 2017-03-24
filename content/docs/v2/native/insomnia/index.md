@@ -11,28 +11,12 @@ doc: "Insomnia"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Insomnia
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Insomnia</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/insomnia/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,27 +31,23 @@ $ npm install --save @ionic-native/insomnia
   </a>
 </p>
 
-<!-- description -->
 
 <p>Prevent the screen of the mobile device from falling asleep.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Insomnia } from &#39;@ionic-native/insomnia&#39;;
 
 constructor(private insomnia: Insomnia) { }
@@ -90,54 +70,32 @@ this.insomnia.allowSleepAgain()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="keepAwake"></div>
-<h3>
-  <code>keepAwake()</code>
-  
+<h3><a class="anchor" name="keepAwake" href="#keepAwake"></a><code>keepAwake()</code></h3>
 
-</h3>
+
 Keeps awake the application
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="allowSleepAgain"></div>
-<h3>
-  <code>allowSleepAgain()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="allowSleepAgain" href="#allowSleepAgain"></a><code>allowSleepAgain()</code></h3>
 
-</h3>
+
 Allows the application to sleep again
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

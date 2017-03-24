@@ -11,28 +11,12 @@ doc: "Native Audio"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Native Audio
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Native Audio</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/native-audio/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/native-audio
   </a>
 </p>
 
-<!-- description -->
 
 <p>Native Audio Playback</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { NativeAudio } from &#39;@ionic-native/native-audio&#39;;
 
 constructor(private nativeAudio: NativeAudio) { }
@@ -85,20 +69,14 @@ this.nativeAudio.unload(&#39;uniqueId1&#39;).then(onSuccess,onError);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="preloadSimple"></div>
-<h3>
-  <code>preloadSimple(id,&nbsp;assetPath)</code>
-  
+<h3><a class="anchor" name="preloadSimple" href="#preloadSimple"></a><code>preloadSimple(id,&nbsp;assetPath)</code></h3>
 
-</h3>
+
 Loads an audio file into memory. Optimized for short clips / single shots (up to five seconds). Cannot be stopped / looped.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -109,52 +87,36 @@ Loads an audio file into memory. Optimized for short clips / single shots (up to
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      assetPath
-      
-    </td>
+      assetPath</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>the relative path or absolute URL (inluding http://) to the audio asset.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="preloadComplex"></div>
-<h3>
-  <code>preloadComplex(id,&nbsp;assetPath,&nbsp;volume,&nbsp;voices,&nbsp;delay)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="preloadComplex" href="#preloadComplex"></a><code>preloadComplex(id,&nbsp;assetPath,&nbsp;volume,&nbsp;voices,&nbsp;delay)</code></h3>
 
-</h3>
+
 Loads an audio file into memory. Optimized for background music / ambient sound. Uses highlevel native APIs with a larger footprint. (iOS: AVAudioPlayer). Can be stopped / looped and used with multiple voices. Can be faded in and out using the delay parameter.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -165,99 +127,70 @@ Loads an audio file into memory. Optimized for background music / ambient sound.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      assetPath
-      
-    </td>
+      assetPath</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>the relative path or absolute URL (inluding http://) to the audio asset.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      volume
-      
-    </td>
+      volume</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>the volume of the preloaded sound (0.1 to 1.0)</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      voices
-      
-    </td>
+      voices</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>the number of multichannel voices available</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      delay
-      
+      delay</td>
+    <td>
+      <code>number</code>
     </td>
     <td>
-      
-<code>number</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="play"></div>
-<h3>
-  <code>play(id,&nbsp;completeCallback)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="play" href="#play"></a><code>play(id,&nbsp;completeCallback)</code></h3>
 
-</h3>
+
+
+
 Plays an audio asset
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -268,52 +201,36 @@ Plays an audio asset
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      completeCallback
-      
-    </td>
+      completeCallback</td>
     <td>
-      
-<code>Function</code>
+      <code>Function</code>
     </td>
     <td>
       <p>optional. Callback to be invoked when audio is done playing</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="stop"></div>
-<h3>
-  <code>stop(id)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="stop" href="#stop"></a><code>stop(id)</code></h3>
 
-</h3>
+
 Stops playing an audio
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -324,36 +241,25 @@ Stops playing an audio
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="loop"></div>
-<h3>
-  <code>loop(id)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="loop" href="#loop"></a><code>loop(id)</code></h3>
 
-</h3>
+
 Loops an audio asset infinitely, this only works for complex assets
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -364,36 +270,25 @@ Loops an audio asset infinitely, this only works for complex assets
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="unload"></div>
-<h3>
-  <code>unload(id)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="unload" href="#unload"></a><code>unload(id)</code></h3>
 
-</h3>
+
 Unloads an audio file from memory
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -404,36 +299,25 @@ Unloads an audio file from memory
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setVolumeForComplexAsset"></div>
-<h3>
-  <code>setVolumeForComplexAsset(id,&nbsp;volume)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setVolumeForComplexAsset" href="#setVolumeForComplexAsset"></a><code>setVolumeForComplexAsset(id,&nbsp;volume)</code></h3>
 
-</h3>
+
 Changes the volume for preloaded complex assets.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -444,60 +328,36 @@ Changes the volume for preloaded complex assets.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      id
-      
-    </td>
+      id</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>unique ID for the audio file</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      volume
-      
-    </td>
+      volume</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>the volume of the audio asset (0.1 to 1.0)</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

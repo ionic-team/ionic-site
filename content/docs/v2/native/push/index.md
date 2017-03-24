@@ -11,28 +11,12 @@ doc: "Push"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Push
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Push</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/push/index.ts#L196">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,7 +31,6 @@ $ npm install --save @ionic-native/push
   </a>
 </p>
 
-<!-- description -->
 
 <p>Register and receive push notifications.</p>
 <p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
@@ -55,12 +38,13 @@ $ npm install --save @ionic-native/push
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Push, PushObject, PushOptions } from &#39;@ionic-native/push&#39;;
 
 constructor(private push: Push) { }
@@ -91,20 +75,13 @@ pushObject.on(&#39;error&#39;).subscribe(error =&gt; console.error(&#39;Error wi
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="init"></div>
-<h3>
-  <code>init(options)</code>
-  
+<h3><a class="anchor" name="init" href="#init"></a><code>init(options)</code></h3>
 
-</h3>
 Init push notifications
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -115,44 +92,28 @@ Init push notifications
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
+      options</td>
+    <td>
+      <code>PushOptions</code>
     </td>
     <td>
-      
-<code>PushOptions</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>PushObject</code> 
+  <b>Returns:</b> <code>PushObject</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="RegistrationEventResponse" href="#RegistrationEventResponse"></a>RegistrationEventResponse</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -182,10 +143,7 @@ Init push notifications
 </table>
 
 
-
-
 <h2><a class="anchor" name="NotificationEventResponse" href="#NotificationEventResponse"></a>NotificationEventResponse</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -286,10 +244,7 @@ For windows, it represents the value in the badge notification which could be a 
 </table>
 
 
-
-
 <h2><a class="anchor" name="NotificationEventAdditionalData" href="#NotificationEventAdditionalData"></a>NotificationEventAdditionalData</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -371,10 +326,7 @@ For windows, it represents the value in the badge notification which could be a 
 </table>
 
 
-
-
 <h2><a class="anchor" name="IOSPushOptions" href="#IOSPushOptions"></a>IOSPushOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -518,10 +470,7 @@ Action Buttons on iOS - <a href="https://github.com/phonegap/phonegap-plugin-pus
 </table>
 
 
-
-
 <h2><a class="anchor" name="AndroidPushOptions" href="#AndroidPushOptions"></a>AndroidPushOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -668,10 +617,7 @@ subscribe to a GcmPubSub topic.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="PushOptions" href="#PushOptions"></a>PushOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -728,11 +674,4 @@ subscribe to a GcmPubSub topic.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "File Opener"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  File Opener
-  
-
-  
-
-  </h1>
+<h1 class="api-title">File Opener</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/file-opener/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/file-opener
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin will open a file on your device file system with its default application.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { FileOpener } from &#39;@ionic-native/file-opener&#39;;
 
 constructor(private fileOpener: FileOpener) { }
@@ -73,20 +57,16 @@ this.fileOpener.open(&#39;path/to/file.pdf&#39;, &#39;application/pdf&#39;)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="open"></div>
-<h3>
-  <code>open(filePath,&nbsp;fileMIMEType)</code>
-  
+<h3><a class="anchor" name="open" href="#open"></a><code>open(filePath,&nbsp;fileMIMEType)</code></h3>
 
-</h3>
+
+
+
 Open an file
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -97,52 +77,38 @@ Open an file
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      filePath
-      
-    </td>
+      filePath</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>File Path</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      fileMIMEType
-      
-    </td>
+      fileMIMEType</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>File MIME Type</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="uninstall"></div>
-<h3>
-  <code>uninstall(packageId)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="uninstall" href="#uninstall"></a><code>uninstall(packageId)</code></h3>
 
-</h3>
+
+
+
 Uninstalls a package
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -153,36 +119,27 @@ Uninstalls a package
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      packageId
-      
-    </td>
+      packageId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Package ID</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="appIsInstalled"></div>
-<h3>
-  <code>appIsInstalled(packageId)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="appIsInstalled" href="#appIsInstalled"></a><code>appIsInstalled(packageId)</code></h3>
 
-</h3>
+
+
+
 Check if an app is already installed
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -193,44 +150,25 @@ Check if an app is already installed
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      packageId
-      
-    </td>
+      packageId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Package ID</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

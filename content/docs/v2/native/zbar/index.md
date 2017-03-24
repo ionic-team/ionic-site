@@ -11,28 +11,12 @@ doc: "ZBar"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  ZBar
-  
-
-  
-
-  </h1>
+<h1 class="api-title">ZBar</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/zbar/index.ts#L35">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,28 +31,24 @@ $ npm install --save @ionic-native/zbar
   </a>
 </p>
 
-<!-- description -->
 
 <p>The ZBar Scanner Plugin allows you to scan 2d barcodes.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-cszbar</code>. For more info, please see the <a href="https://github.com/tjwoon/csZBar">zBar plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { ZBar, ZBarOptions } from &#39;@ionic-native/z-bar&#39;;
 
 constructor(private zbar: ZBar) { }
@@ -92,20 +72,14 @@ this.zbar.scan(zBarOptions)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="scan"></div>
-<h3>
-  <code>scan(options)</code>
-  
+<h3><a class="anchor" name="scan" href="#scan"></a><code>scan(options)</code></h3>
 
-</h3>
+
 Open the scanner
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -116,45 +90,29 @@ Open the scanner
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>ZBarOptions</code>
+      <code>ZBarOptions</code>
     </td>
     <td>
       <p>Scan options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the scanned string, or rejects with an error.
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves with the scanned string, or rejects with an error.
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="ZBarOptions" href="#ZBarOptions"></a>ZBarOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -249,11 +207,4 @@ Default: true</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "Vibration"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Vibration
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Vibration</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/vibration/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,27 +31,23 @@ $ npm install --save @ionic-native/vibration
   </a>
 </p>
 
-<!-- description -->
 
 <p>Vibrates the device</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows 8.1 Phone</li><li>Windows 8.1</li><li>Windows 10</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Vibration } from &#39;@ionic-native/vibration&#39;;
 
 constructor(private vibration: Vibration) { }
@@ -92,20 +72,16 @@ this.vibration.vibrate(0);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="vibrate"></div>
-<h3>
-  <code>vibrate(time)</code>
-  
+<h3><a class="anchor" name="vibrate" href="#vibrate"></a><code>vibrate(time)</code></h3>
 
-</h3>
+
+
+
 Vibrates the device for given amount of time.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -116,23 +92,16 @@ Vibrates the device for given amount of time.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      time
-      
-    </td>
+      time</td>
     <td>
-      
-<code>number</code>|<code>Array.&lt;number&gt;</code>
+      <code>number</code>|<code>Array.&lt;number&gt;</code>
     </td>
     <td>
       <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
@@ -140,16 +109,5 @@ Vibrates the device for given amount of time.
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

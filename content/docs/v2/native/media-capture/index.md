@@ -11,28 +11,12 @@ doc: "Media Capture"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Media Capture
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Media Capture</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/media-capture/index.ts#L112">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,17 +31,17 @@ $ npm install --save @ionic-native/media-capture
   </a>
 </p>
 
-<!-- description -->
 
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from &#39;@ionic-native/media-capture&#39;;
 
 
@@ -77,59 +61,43 @@ this.mediaCapture.captureImage(options)
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="supportedImageModes"></div>
-<h3>
-  <code>supportedImageModes()</code>
-  
+<h3><a class="anchor" name="supportedImageModes" href="#supportedImageModes"></a><code>supportedImageModes</code></h3>
 
-</h3>
+
 The recording image sizes and formats supported by the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>ConfigurationData[]</code> 
-</div><div id="supportedAudioModes"></div>
-<h3>
-  <code>supportedAudioModes()</code>
-  
+  <b>Returns:</b> <code>ConfigurationData[]</code> 
+</div><h3><a class="anchor" name="supportedAudioModes" href="#supportedAudioModes"></a><code>supportedAudioModes</code></h3>
 
-</h3>
+
 The audio recording formats supported by the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>ConfigurationData[]</code> 
-</div><div id="supportedVideoModes"></div>
-<h3>
-  <code>supportedVideoModes()</code>
-  
+  <b>Returns:</b> <code>ConfigurationData[]</code> 
+</div><h3><a class="anchor" name="supportedVideoModes" href="#supportedVideoModes"></a><code>supportedVideoModes</code></h3>
 
-</h3>
+
 The recording video resolutions and formats supported by the device.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>ConfigurationData[]</code> 
-</div><div id="captureAudio"></div>
-<h3>
-  <code>captureAudio(options)</code>
-  
+  <b>Returns:</b> <code>ConfigurationData[]</code> 
+</div><h3><a class="anchor" name="captureAudio" href="#captureAudio"></a><code>captureAudio(options)</code></h3>
 
-</h3>
+
+
+
 Start the audio recorder application and return information about captured audio clip files.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -140,35 +108,26 @@ Start the audio recorder application and return information about captured audio
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
+      options</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;MediaFile[]&gt;</code> 
-</div><div id="captureImage"></div>
-<h3>
-  <code>captureImage(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
+</div><h3><a class="anchor" name="captureImage" href="#captureImage"></a><code>captureImage(options)</code></h3>
 
-</h3>
+
+
+
 Start the camera application and return information about captured image files.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -179,35 +138,26 @@ Start the camera application and return information about captured image files.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
+      options</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;MediaFile[]&gt;</code> 
-</div><div id="captureVideo"></div>
-<h3>
-  <code>captureVideo(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
+</div><h3><a class="anchor" name="captureVideo" href="#captureVideo"></a><code>captureVideo(options)</code></h3>
 
-</h3>
+
+
+
 Start the video recorder application and return information about captured video clip files.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -218,70 +168,50 @@ Start the video recorder application and return information about captured video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
+      options</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;MediaFile[]&gt;</code> 
-</div><div id="onPendingCaptureResult"></div>
-<h3>
-  <code>onPendingCaptureResult()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;MediaFile[]&gt;</code> 
+</div><h3><a class="anchor" name="onPendingCaptureResult" href="#onPendingCaptureResult"></a><code>onPendingCaptureResult()</code></h3>
 
-</h3>
+
+
+
 is fired if the capture call is successful
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;MediaFile[]&gt;</code> 
-</div><div id="onPendingCaptureError"></div>
-<h3>
-  <code>onPendingCaptureError()</code>
-  
+  <b>Returns:</b> <code>Observable&lt;MediaFile[]&gt;</code> 
+</div><h3><a class="anchor" name="onPendingCaptureError" href="#onPendingCaptureError"></a><code>onPendingCaptureError()</code></h3>
 
-</h3>
+
+
+
 is fired if the capture call is unsuccessful
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;CaptureError&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;CaptureError&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="MediaFile" href="#MediaFile"></a>MediaFile</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -381,10 +311,7 @@ is fired if the capture call is unsuccessful
 </table>
 
 
-
-
 <h2><a class="anchor" name="MediaFileData" href="#MediaFileData"></a>MediaFileData</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -470,10 +397,7 @@ is fired if the capture call is unsuccessful
 </table>
 
 
-
-
 <h2><a class="anchor" name="CaptureError" href="#CaptureError"></a>CaptureError</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -502,10 +426,7 @@ is fired if the capture call is unsuccessful
 </table>
 
 
-
-
 <h2><a class="anchor" name="CaptureAudioOptions" href="#CaptureAudioOptions"></a>CaptureAudioOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -550,10 +471,7 @@ On iOS you can only record one file.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="CaptureImageOptions" href="#CaptureImageOptions"></a>CaptureImageOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -583,10 +501,7 @@ On iOS you can only record one file.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="CaptureVideoOptions" href="#CaptureVideoOptions"></a>CaptureVideoOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -644,10 +559,7 @@ On iOS you can only record one file.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="ConfigurationData" href="#ConfigurationData"></a>ConfigurationData</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -707,11 +619,4 @@ On iOS you can only record one file.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

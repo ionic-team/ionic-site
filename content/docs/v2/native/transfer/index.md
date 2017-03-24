@@ -11,28 +11,12 @@ doc: "Transfer"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Transfer
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Transfer</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/transfer/index.ts#L108">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/transfer
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin allows you to upload and download files.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Transfer, FileUploadOptions, TransferObject } from &#39;@ionic-native/transfer&#39;;
 import { File } from &#39;@ionic-native/file&#39;;
 
@@ -109,20 +93,13 @@ download() {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="FileTransferErrorCode"></div>
-<h3>
-  <code>FileTransferErrorCode()</code>
-  
+<h3><a class="anchor" name="FileTransferErrorCode" href="#FileTransferErrorCode"></a><code>FileTransferErrorCode</code></h3>
 
-</h3>
 Error code rejected from upload with FileTransferError
 Defined in FileTransferError.
      FILE_NOT_FOUND_ERR: 1   Return when file was not found
@@ -132,40 +109,27 @@ Defined in FileTransferError.
      NOT_MODIFIED_ERR: 5     Return on '304 Not Modified' HTTP response
 
 
-<div id="create"></div>
-<h3>
-  <code>create()</code>
-  
+<h3><a class="anchor" name="create" href="#create"></a><code>create()</code></h3>
 
-</h3>
 Creates a new FileTransfer object
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>TransferObject</code> 
+  <b>Returns:</b> <code>TransferObject</code> 
 </div>
-
-
-
-<!-- other classes -->
-<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
-
-
 
 <h2><a class="anchor" name="TransferObject" href="#TransferObject"></a>TransferObject</h2>
 
 
-<!-- methods on the class -->
+
 
 <h2>Instance Members</h2>
-<div id="upload"></div>
-<h3>
-  <code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code>
-  
+<h3><a class="anchor" name="upload" href="#upload"></a><code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts)</code></h3>
 
-</h3>
+
+
+
 Sends a file to a server.
 
 <table class="table param-table" style="margin:0;">
@@ -177,84 +141,60 @@ Sends a file to a server.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fileUrl
-      
-    </td>
+      fileUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Filesystem URL representing the file on the device or a data URI. For backwards compatibility, this can also be the full path of the file on the device.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      url
-      
-    </td>
+      url</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL of the server to receive the file, as encoded by encodeURI().</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>FileUploadOptions</code>
+      <code>FileUploadOptions</code>
     </td>
     <td>
       <p>Optional parameters.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      trustAllHosts
-      
-    </td>
+      trustAllHosts</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful since Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;FileUploadResult&gt;</code> Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
-</div><div id="download"></div>
-<h3>
-  <code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;FileUploadResult&gt;</code> Returns a Promise that resolves to a FileUploadResult and rejects with FileTransferError.
+</div><h3><a class="anchor" name="download" href="#download"></a><code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code></h3>
 
-</h3>
+
+
+
 Downloads a file from server.
 
 <table class="table param-table" style="margin:0;">
@@ -266,84 +206,60 @@ Downloads a file from server.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      source
-      
-    </td>
+      source</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL of the server to download the file, as encoded by encodeURI().</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      target
-      
-    </td>
+      target</td>
     <td>
-      
-<code>stirng</code>
+      <code>stirng</code>
     </td>
     <td>
       <p>Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      trustAllHosts
-      
-    </td>
+      trustAllHosts</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>Optional parameter, defaults to false. If set to true, it accepts all security certificates. This is useful because Android rejects self-signed security certificates. Not recommended for production use. Supported on Android and iOS.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      Optional
-      
-    </td>
+      Optional</td>
     <td>
-      
-<code>object</code>
+      <code>object</code>
     </td>
     <td>
       <p>parameters, currently only supports headers (such as Authorization (Basic Authentication), etc).</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves to a FileEntry object.
-</div><div id="onProgress"></div>
-<h3>
-  <code>onProgress(listener)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves to a FileEntry object.
+</div><h3><a class="anchor" name="onProgress" href="#onProgress"></a><code>onProgress(listener)</code></h3>
 
-</h3>
+
+
+
 Registers a listener that gets called whenever a new chunk of data is transferred.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -354,32 +270,24 @@ Registers a listener that gets called whenever a new chunk of data is transferre
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      listener
-      
-    </td>
+      listener</td>
     <td>
-      
-<code>function</code>
+      <code>function</code>
     </td>
     <td>
       <p>Listener that takes a progress event.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="abort"></div>
-<h3>
-  <code>abort()</code>
-  
+<h3><a class="anchor" name="abort" href="#abort"></a><code>abort()</code></h3>
 
-</h3>
+
+
+
 Aborts an in-progress transfer. The onerror callback is passed a FileTransferError
 object which has an error code of FileTransferError.ABORT_ERR.
 
@@ -388,15 +296,8 @@ object which has an error code of FileTransferError.ABORT_ERR.
 
 
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
-
 
 <h2><a class="anchor" name="FileUploadOptions" href="#FileUploadOptions"></a>FileUploadOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -517,10 +418,7 @@ Content-Type is present, multipart form data will NOT be used.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="FileUploadResult" href="#FileUploadResult"></a>FileUploadResult</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -592,10 +490,7 @@ Content-Type is present, multipart form data will NOT be used.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="FileTransferError" href="#FileTransferError"></a>FileTransferError</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -698,11 +593,4 @@ code is received from the HTTP connection.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

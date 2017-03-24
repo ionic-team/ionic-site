@@ -11,28 +11,12 @@ doc: "Device Motion"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Device Motion
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Device Motion</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-motion/index.ts#L35">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/device-motion
   </a>
 </p>
 
-<!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-motion</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-motion">Device Motion docs</a>.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { DeviceMotion, DeviceMotionAccelerationData } from &#39;@ionic-native/device-motion&#39;;
 
 constructor(private deviceMotion: DeviceMotion) { }
@@ -83,33 +67,25 @@ subscription.unsubscribe();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getCurrentAcceleration"></div>
-<h3>
-  <code>getCurrentAcceleration()</code>
-  
+<h3><a class="anchor" name="getCurrentAcceleration" href="#getCurrentAcceleration"></a><code>getCurrentAcceleration()</code></h3>
 
-</h3>
+
 Get the current acceleration along the x, y, and z axes.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;DeviceMotionAccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
-</div><div id="watchAcceleration"></div>
-<h3>
-  <code>watchAcceleration(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;DeviceMotionAccelerationData&gt;</code> Returns object with x, y, z, and timestamp properties
+</div><h3><a class="anchor" name="watchAcceleration" href="#watchAcceleration"></a><code>watchAcceleration(options)</code></h3>
 
-</h3>
+
+
+
 Watch the device acceleration. Clear the watch by unsubscribing from the observable.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -120,45 +96,29 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>AccelerometerOptions</code>
+      <code>AccelerometerOptions</code>
     </td>
     <td>
       <p>list of options for the accelerometer.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;DeviceMotionAccelerationData&gt;</code> Observable returns an observable that you can subscribe to
+  <b>Returns:</b> <code>Observable&lt;DeviceMotionAccelerationData&gt;</code> Observable returns an observable that you can subscribe to
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="DeviceMotionAccelerationData" href="#DeviceMotionAccelerationData"></a>DeviceMotionAccelerationData</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -230,10 +190,7 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
 </table>
 
 
-
-
 <h2><a class="anchor" name="DeviceMotionAccelerometerOptions" href="#DeviceMotionAccelerometerOptions"></a>DeviceMotionAccelerometerOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -265,11 +222,4 @@ Watch the device acceleration. Clear the watch by unsubscribing from the observa
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

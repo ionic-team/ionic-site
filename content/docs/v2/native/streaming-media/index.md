@@ -11,28 +11,12 @@ doc: "Streaming Media"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Streaming Media
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Streaming Media</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/streaming-media/index.ts#L16">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,27 +31,23 @@ $ npm install --save @ionic-native/streaming-media
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin allows you to stream audio and video in a fullscreen, native player on iOS and Android.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { StreamingMedia, StreamingVideoOptions } from &#39;@ionic-native/streaming-media&#39;;
 
 constructor(private streamingMedia: StreamingMedia) { }
@@ -84,20 +64,16 @@ this.streamingMedia.playVideo(&#39;https://path/to/video/stream&#39;, options);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="playVideo"></div>
-<h3>
-  <code>playVideo(videoUrl,&nbsp;options)</code>
-  
+<h3><a class="anchor" name="playVideo" href="#playVideo"></a><code>playVideo(videoUrl,&nbsp;options)</code></h3>
 
-</h3>
+
+
+
 Streams a video
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -108,48 +84,35 @@ Streams a video
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      videoUrl
-      
-    </td>
+      videoUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The URL of the video</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>StreamingVideoOptions</code>
+      <code>StreamingVideoOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="playAudio"></div>
-<h3>
-  <code>playAudio(audioUrl,&nbsp;options)</code>
-  
+<h3><a class="anchor" name="playAudio" href="#playAudio"></a><code>playAudio(audioUrl,&nbsp;options)</code></h3>
 
-</h3>
+
+
+
 Streams an audio
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -160,68 +123,59 @@ Streams an audio
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      audioUrl
-      
-    </td>
+      audioUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The URL of the audio stream</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>StreamingAudioOptions</code>
+      <code>StreamingAudioOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="stopAudio"></div>
-<h3>
-  <code>stopAudio()</code>
-  
+<h3><a class="anchor" name="stopAudio" href="#stopAudio"></a><code>stopAudio()</code></h3>
 
-</h3>
+
+
+
 Stops streaming audio
 
 
 
-<div id="pauseAudio"></div>
-<h3>
-  <code>pauseAudio()</code>
-  
+<h3><a class="anchor" name="pauseAudio" href="#pauseAudio"></a><code>pauseAudio()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
 Pauses streaming audio
 
 
 
-<div id="resumeAudio"></div>
-<h3>
-  <code>resumeAudio()</code>
-  
+<h3><a class="anchor" name="resumeAudio" href="#resumeAudio"></a><code>resumeAudio()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">iOS</strong>&nbsp;</p>
+
+
 Resumes streaming audio
 
 
@@ -230,17 +184,9 @@ Resumes streaming audio
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="StreamingVideoOptions" href="#StreamingVideoOptions"></a>StreamingVideoOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -295,10 +241,7 @@ Resumes streaming audio
 </table>
 
 
-
-
 <h2><a class="anchor" name="StreamingAudioOptions" href="#StreamingAudioOptions"></a>StreamingAudioOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -394,11 +337,4 @@ Resumes streaming audio
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

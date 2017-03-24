@@ -11,28 +11,12 @@ doc: "Crop"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Crop
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Crop</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/crop/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/crop
   </a>
 </p>
 
-<!-- description -->
 
 <p>Crops images</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import {Crop} from &#39;@ionic-native/crop&#39;;
 
 constructor(private crop: Crop) { }
@@ -75,20 +59,16 @@ this.crop.crop(&#39;path/to/image.jpg&#39;, {quality: 75})
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="crop"></div>
-<h3>
-  <code>crop(pathToImage,&nbsp;options)</code>
-  
+<h3><a class="anchor" name="crop" href="#crop"></a><code>crop(pathToImage,&nbsp;options)</code></h3>
 
-</h3>
+
+
+
 Crops an image
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -99,58 +79,34 @@ Crops an image
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      pathToImage
+      pathToImage</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      options
+      options</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;string&gt;</code> Returns a promise that resolves with the new image path, or rejects if failed to crop.
+  <b>Returns:</b> <code>Promise&lt;string&gt;</code> Returns a promise that resolves with the new image path, or rejects if failed to crop.
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

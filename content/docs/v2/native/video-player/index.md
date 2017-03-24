@@ -11,28 +11,12 @@ doc: "Video Player"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Video Player
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Video Player</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/video-player/index.ts#L17">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,28 +31,24 @@ $ npm install --save @ionic-native/video-player
   </a>
 </p>
 
-<!-- description -->
 
 <p>A Codova plugin that simply allows you to immediately play a video in fullscreen mode.</p>
 <p>Requires Cordova plugin: <code>com.moust.cordova.videoplayer</code>. For more info, please see the <a href="https://github.com/moust/cordova-plugin-videoplayer">VideoPlayer plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { VideoPlayer } from &#39;@ionic-native/video-player;
 
 constructor(private videoPlayer: VideoPlayer) { }
@@ -86,20 +66,14 @@ this.videoPlayer.play(&quot;file:///android_asset/www/movie.mp4&quot;).then(() =
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="play"></div>
-<h3>
-  <code>play(fileUrl,&nbsp;options)</code>
-  
+<h3><a class="anchor" name="play" href="#play"></a><code>play(fileUrl,&nbsp;options)</code></h3>
 
-</h3>
+
 Plays the video from the passed url.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -110,52 +84,38 @@ Plays the video from the passed url.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fileUrl
-      
-    </td>
+      fileUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>File url to the video.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>VideoOptions</code>
+      <code>VideoOptions</code>
     </td>
     <td>
       <p>Optional video playback settings. See options above.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Resolves promise when the video was played successfully.
-</div><div id="close"></div>
-<h3>
-  <code>close()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the video was played successfully.
+</div><h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
-</h3>
+
+
+
 Stops the video playback immediatly.
 
 
@@ -164,17 +124,9 @@ Stops the video playback immediatly.
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="VideoOptions" href="#VideoOptions"></a>VideoOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -222,11 +174,4 @@ These strings are the only ones which can be passed as option.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

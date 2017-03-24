@@ -11,28 +11,12 @@ doc: "Geolocation"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Geolocation
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Geolocation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/geolocation/index.ts#L110">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,19 +31,19 @@ $ npm install --save @ionic-native/geolocation
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin provides information about the device&#39;s location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs.</p>
 <p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Geolocation } from &#39;@ionic-native/geolocation&#39;;
 
 ...
@@ -86,20 +70,16 @@ watch.subscribe((data) =&gt; {
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getCurrentPosition"></div>
-<h3>
-  <code>getCurrentPosition(options)</code>
-  
+<h3><a class="anchor" name="getCurrentPosition" href="#getCurrentPosition"></a><code>getCurrentPosition(options)</code></h3>
 
-</h3>
+
+
+
 Get the device's current position.
 
 <table class="table param-table" style="margin:0;">
@@ -111,36 +91,24 @@ Get the device's current position.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GeolocationOptions</code>
+      <code>GeolocationOptions</code>
     </td>
     <td>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Geoposition&gt;</code> Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
-</div><div id="watchPosition"></div>
-<h3>
-  <code>watchPosition(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Geoposition&gt;</code> Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
+</div><h3><a class="anchor" name="watchPosition" href="#watchPosition"></a><code>watchPosition(options)</code></h3>
 
-</h3>
 Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
@@ -164,45 +132,29 @@ subscription.unsubscribe();
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>GeolocationOptions</code>
+      <code>GeolocationOptions</code>
     </td>
     <td>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;Geoposition&gt;</code> Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
+  <b>Returns:</b> <code>Observable&lt;Geoposition&gt;</code> Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="Coordinates" href="#Coordinates"></a>Coordinates</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -325,10 +277,7 @@ This value can be null.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="Geoposition" href="#Geoposition"></a>Geoposition</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -372,10 +321,7 @@ This value can be null.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="PositionError" href="#PositionError"></a>PositionError</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -419,10 +365,7 @@ This value can be null.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="GeolocationOptions" href="#GeolocationOptions"></a>GeolocationOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -494,11 +437,4 @@ responding more quickly and/or using less power. Default: false.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "Music Controls"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Music Controls
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Music Controls</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/music-controls/index.ts#L17">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,7 +31,6 @@ $ npm install --save @ionic-native/music-controls
   </a>
 </p>
 
-<!-- description -->
 
 <p>Music controls for Cordova applications.
 Display a &#39;media&#39; notification with play/pause, previous, next buttons, allowing the user to control the play.
@@ -55,12 +38,13 @@ Handle also headset event (plug, unplug, headset button).</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { MusicControls } from &#39;@ionic-native/music-controls&#39;;
 
 constructor(private musicControls: MusicControls) { }
@@ -134,20 +118,14 @@ this.musicControls.create({
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="create"></div>
-<h3>
-  <code>create(options)</code>
-  
+<h3><a class="anchor" name="create" href="#create"></a><code>create(options)</code></h3>
 
-</h3>
+
 Create the media controls
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -158,71 +136,53 @@ Create the media controls
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
+      options</td>
+    <td>
+      <code>MusicControlsOptions</code>
     </td>
     <td>
-      
-<code>MusicControlsOptions</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="destroy"></div>
-<h3>
-  <code>destroy()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="destroy" href="#destroy"></a><code>destroy()</code></h3>
 
-</h3>
+
 Destroy the media controller
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="subscribe"></div>
-<h3>
-  <code>subscribe()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="subscribe" href="#subscribe"></a><code>subscribe()</code></h3>
 
-</h3>
+
+
+
 Subscribe to the events of the media controller
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
-</div><div id="listen"></div>
-<h3>
-  <code>listen()</code>
-  
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="listen" href="#listen"></a><code>listen()</code></h3>
 
-</h3>
+
+
+
 Start listening for events, this enables the Observable from the subscribe method
 
 
 
-<div id="updateIsPlaying"></div>
-<h3>
-  <code>updateIsPlaying(isPlaying)</code>
-  
+<h3><a class="anchor" name="updateIsPlaying" href="#updateIsPlaying"></a><code>updateIsPlaying(isPlaying)</code></h3>
 
-</h3>
+
 Toggle play/pause:
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -233,31 +193,21 @@ Toggle play/pause:
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      isPlaying
-      
+      isPlaying</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
-      
-<code>boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="updateDismissable"></div>
-<h3>
-  <code>updateDismissable(dismissable)</code>
-  
+<h3><a class="anchor" name="updateDismissable" href="#updateDismissable"></a><code>updateDismissable(dismissable)</code></h3>
 
-</h3>
+
 Toggle dismissable:
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -268,22 +218,15 @@ Toggle dismissable:
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dismissable
-      
+      dismissable</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
-      
-<code>boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
@@ -291,17 +234,9 @@ Toggle dismissable:
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="MusicControlsOptions" href="#MusicControlsOptions"></a>MusicControlsOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -475,11 +410,4 @@ Toggle dismissable:
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,11 @@ doc: "Camera Preview"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Camera Preview
-  
-
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Camera Preview<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/camera-preview/index.ts#L47">
   Improve this doc
 </a>
-
-
-
-<!-- decorators -->
 
 
 
@@ -44,6 +27,7 @@ docType: "class"
 </p>
 
 
+
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-camera-preview
 $ npm install --save @ionic-native/camera-preview
 </code></pre>
@@ -53,28 +37,24 @@ $ npm install --save @ionic-native/camera-preview
   </a>
 </p>
 
-<!-- description -->
 
 <p>Showing camera preview in HTML</p>
 <p>Requires Cordova plugin: <code>https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git</code>. For more info, please see the <a href="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview">Cordova Camera Preview docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { CameraPreview, PictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from &#39;ionic-native&#39;;
 
 constructor(private cameraPreview: CameraPreview) { }
@@ -139,20 +119,16 @@ this.cameraPreview.stopCamera();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="startCamera"></div>
-<h3>
-  <code>startCamera(options)</code>
-  
+<h3><a class="anchor" name="startCamera" href="#startCamera"></a><code>startCamera(options)</code></h3>
 
-</h3>
+
+
+
 Starts the camera preview instance.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -163,87 +139,70 @@ Starts the camera preview instance.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
+      options</td>
+    <td>
+      <code>CameraPreviewOptions</code>
     </td>
     <td>
-      
-<code>CameraPreviewOptions</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="stopCamera"></div>
-<h3>
-  <code>stopCamera()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="stopCamera" href="#stopCamera"></a><code>stopCamera()</code></h3>
 
-</h3>
+
+
+
 Stops the camera preview instance. (iOS & Android)
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="switchCamera"></div>
-<h3>
-  <code>switchCamera()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="switchCamera" href="#switchCamera"></a><code>switchCamera()</code></h3>
 
-</h3>
+
+
+
 Switch from the rear camera and front camera, if available.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="hide"></div>
-<h3>
-  <code>hide()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
-</h3>
+
+
+
 Hide the camera preview box.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="show"></div>
-<h3>
-  <code>show()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
-</h3>
+
+
+
 Show the camera preview box.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="takePicture"></div>
-<h3>
-  <code>takePicture(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="takePicture" href="#takePicture"></a><code>takePicture(options)</code></h3>
 
-</h3>
+
+
+
 Take the picture (base64)
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -254,36 +213,27 @@ Take the picture (base64)
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>CameraPreviewPictureOptions</code>
+      <code>CameraPreviewPictureOptions</code>
     </td>
     <td>
       <p>size and quality of the picture to take<strong class="tag">Optional</strong></p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setColorEffect"></div>
-<h3>
-  <code>setColorEffect(effect)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setColorEffect" href="#setColorEffect"></a><code>setColorEffect(effect)</code></h3>
 
-</h3>
+
+
+
 Set camera color effect.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -294,36 +244,27 @@ Set camera color effect.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      effect
-      
-    </td>
+      effect</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>name : &#39;none&#39; (iOS &amp; Android), &#39;aqua&#39; (Android), &#39;blackboard&#39; (Android), &#39;mono&#39; (iOS &amp; Android), &#39;negative&#39; (iOS &amp; Android), &#39;posterize&#39; (iOS &amp; Android), &#39;sepia&#39; (iOS &amp; Android), &#39;solarize&#39; (Android) or &#39;whiteboard&#39; (Android)</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setZoom"></div>
-<h3>
-  <code>setZoom(zoom)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setZoom" href="#setZoom"></a><code>setZoom(zoom)</code></h3>
 
-</h3>
+
+
+
 Set the zoom (Android)
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -334,36 +275,30 @@ Set the zoom (Android)
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      zoom
-      
-    </td>
+      zoom</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Zoom value</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setPreviewSize"></div>
-<h3>
-  <code>setPreviewSize(dimensions)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setPreviewSize" href="#setPreviewSize"></a><code>setPreviewSize(dimensions)</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Set the preview Size
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -374,35 +309,26 @@ Set the preview Size
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      dimensions
-      
+      dimensions</td>
+    <td>
+      <code>CameraPreviewDimensions</code>
     </td>
     <td>
-      
-<code>CameraPreviewDimensions</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setFlashMode"></div>
-<h3>
-  <code>setFlashMode(flashMode)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setFlashMode" href="#setFlashMode"></a><code>setFlashMode(flashMode)</code></h3>
 
-</h3>
+
+
+
 Set the flashmode
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -413,45 +339,29 @@ Set the flashmode
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      flashMode
-      
-    </td>
+      flashMode</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>&#39;off&#39; (iOS &amp; Android), &#39;on&#39; (iOS &amp; Android), &#39;auto&#39; (iOS &amp; Android), &#39;torch&#39; (Android)</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="CameraPreviewOptions" href="#CameraPreviewOptions"></a>CameraPreviewOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -593,10 +503,7 @@ Set the flashmode
 </table>
 
 
-
-
 <h2><a class="anchor" name="CameraPreviewPictureOptions" href="#CameraPreviewPictureOptions"></a>CameraPreviewPictureOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -654,10 +561,7 @@ Set the flashmode
 </table>
 
 
-
-
 <h2><a class="anchor" name="CameraPreviewDimensions" href="#CameraPreviewDimensions"></a>CameraPreviewDimensions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -703,11 +607,4 @@ Set the flashmode
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

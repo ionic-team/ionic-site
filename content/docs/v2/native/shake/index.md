@@ -11,28 +11,12 @@ doc: "Shake"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Shake
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Shake</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/shake/index.ts#L2">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/shake
   </a>
 </p>
 
-<!-- description -->
 
 <p>Handles shake gesture</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Shake } from &#39;@ionic-native/shake&#39;;
 
 constructor(private shake: Shake) { }
@@ -75,20 +59,16 @@ watch.unsubscribe();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="startWatch"></div>
-<h3>
-  <code>startWatch(sensitivity)</code>
-  
+<h3><a class="anchor" name="startWatch" href="#startWatch"></a><code>startWatch(sensitivity)</code></h3>
 
-</h3>
+
+
+
 Watch for shake gesture
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -99,44 +79,25 @@ Watch for shake gesture
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      sensitivity
-      
-    </td>
+      sensitivity</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional sensitivity parameter. Defaults to 40</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "Device Orientation"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Device Orientation
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Device Orientation</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/device-orientation/index.ts#L40">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/device-orientation
   </a>
 </p>
 
-<!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-orientation">Device Orientation docs</a>.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">// DeviceOrientationCompassHeading is an interface for compass
 import { DeviceOrientation, DeviceOrientationCompassHeading } from &#39;@ionic-native/device-orientation&#39;;
 
@@ -84,33 +68,25 @@ subscription.unsubscribe();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="getCurrentHeading"></div>
-<h3>
-  <code>getCurrentHeading()</code>
-  
+<h3><a class="anchor" name="getCurrentHeading" href="#getCurrentHeading"></a><code>getCurrentHeading()</code></h3>
 
-</h3>
+
 Get the current compass heading.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;DeviceOrientationCompassHeading&gt;</code> 
-</div><div id="watchHeading"></div>
-<h3>
-  <code>watchHeading(options)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;DeviceOrientationCompassHeading&gt;</code> 
+</div><h3><a class="anchor" name="watchHeading" href="#watchHeading"></a><code>watchHeading(options)</code></h3>
 
-</h3>
+
+
+
 Get the device current heading at a regular interval
 
 Stop the watch by unsubscribing from the observable
@@ -123,45 +99,29 @@ Stop the watch by unsubscribing from the observable
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>DeviceOrientationCompassOptions</code>
+      <code>DeviceOrientationCompassOptions</code>
     </td>
     <td>
       <p>Options for compass. Frequency and Filter. Optional</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;DeviceOrientationCompassHeading&gt;</code> Returns an observable that contains the compass heading
+  <b>Returns:</b> <code>Observable&lt;DeviceOrientationCompassHeading&gt;</code> Returns an observable that contains the compass heading
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="DeviceOrientationCompassOptions" href="#DeviceOrientationCompassOptions"></a>DeviceOrientationCompassOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -205,10 +165,7 @@ Stop the watch by unsubscribing from the observable
 </table>
 
 
-
-
 <h2><a class="anchor" name="DeviceOrientationCompassHeading" href="#DeviceOrientationCompassHeading"></a>DeviceOrientationCompassHeading</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -282,11 +239,4 @@ Stop the watch by unsubscribing from the observable
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

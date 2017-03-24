@@ -11,28 +11,12 @@ doc: "Power Management"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Power Management
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Power Management</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/power-management/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,19 +31,19 @@ $ npm install --save @ionic-native/power-management
   </a>
 </p>
 
-<!-- description -->
 
 <p>The PowerManagement plugin offers access to the devices power-management functionality.
 It should be used for applications which keep running for a long time without any user interaction.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { PowerManagement } from &#39;@ionic-native/power-management&#39;;
 
 constructor(private powerManagement: PowerManagement) { }
@@ -74,59 +58,41 @@ this.powerManagement.acquire()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="acquire"></div>
-<h3>
-  <code>acquire()</code>
-  
+<h3><a class="anchor" name="acquire" href="#acquire"></a><code>acquire()</code></h3>
 
-</h3>
+
 Acquire a wakelock by calling this.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="dim"></div>
-<h3>
-  <code>dim()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="dim" href="#dim"></a><code>dim()</code></h3>
 
-</h3>
+
 This acquires a partial wakelock, allowing the screen to be dimmed.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="release"></div>
-<h3>
-  <code>release()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="release" href="#release"></a><code>release()</code></h3>
 
-</h3>
+
 Release the wakelock. It's important to do this when you're finished with the wakelock, to avoid unnecessary battery drain.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="setReleaseOnPause"></div>
-<h3>
-  <code>setReleaseOnPause(set)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="setReleaseOnPause" href="#setReleaseOnPause"></a><code>setReleaseOnPause(set)</code></h3>
 
-</h3>
+
 By default, the plugin will automatically release a wakelock when your app is paused (e.g. when the screen is turned off, or the user switches to another app).
 It will reacquire the wakelock upon app resume. If you would prefer to disable this behaviour, you can use this function.
 <table class="table param-table" style="margin:0;">
@@ -138,43 +104,24 @@ It will reacquire the wakelock upon app resume. If you would prefer to disable t
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      set
-      
+      set</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
-      
-<code>boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

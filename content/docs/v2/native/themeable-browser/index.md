@@ -11,28 +11,12 @@ doc: "Themeable Browser"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Themeable Browser
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Themeable Browser</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/themeable-browser/index.ts#L134">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/themeable-browser
   </a>
 </p>
 
-<!-- description -->
 
 <p>In-app browser that allows styling.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code>import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from &#39;@ionic-native/themeable-browser&#39;;
 
 constructor(private themeableBrowser: ThemeableBrowser) { }
@@ -134,20 +118,13 @@ const browser: ThemeableBrowserObject = this.themeableBrowser.create(&#39;https:
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="create"></div>
-<h3>
-  <code>create(url,&nbsp;target,&nbsp;styleOptions)</code>
-  
+<h3><a class="anchor" name="create" href="#create"></a><code>create(url,&nbsp;target,&nbsp;styleOptions)</code></h3>
 
-</h3>
 Creates a browser instance
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -158,114 +135,83 @@ Creates a browser instance
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      url
-      
-    </td>
+      url</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL to open</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      target
-      
-    </td>
+      target</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Target</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      styleOptions
-      
-    </td>
+      styleOptions</td>
     <td>
-      
-<code>ThemeableBrowserOptions</code>
+      <code>ThemeableBrowserOptions</code>
     </td>
     <td>
       <p>Themeable browser options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>ThemeableBrowserObject</code> 
+  <b>Returns:</b> <code>ThemeableBrowserObject</code> 
 </div>
-
-
-
-<!-- other classes -->
-<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
-
-
 
 <h2><a class="anchor" name="ThemeableBrowserObject" href="#ThemeableBrowserObject"></a>ThemeableBrowserObject</h2>
 
 
-<!-- methods on the class -->
+
 
 <h2>Instance Members</h2>
-<div id="show"></div>
-<h3>
-  <code>show()</code>
-  
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
-</h3>
+
+
+
 Displays an browser window that was opened hidden. Calling this has no effect
 if the browser was already visible.
 
 
 
-<div id="close"></div>
-<h3>
-  <code>close()</code>
-  
+<h3><a class="anchor" name="close" href="#close"></a><code>close()</code></h3>
 
-</h3>
+
+
+
 Closes the browser window.
 
 
 
-<div id="reload"></div>
-<h3>
-  <code>reload()</code>
-  
+<h3><a class="anchor" name="reload" href="#reload"></a><code>reload()</code></h3>
 
-</h3>
+
+
+
 Reloads the current page
 
 
 
-<div id="executeScript"></div>
-<h3>
-  <code>executeScript(script)</code>
-  
+<h3><a class="anchor" name="executeScript" href="#executeScript"></a><code>executeScript(script)</code></h3>
 
-</h3>
+
 Injects JavaScript code into the browser window.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -276,36 +222,25 @@ Injects JavaScript code into the browser window.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      script
-      
-    </td>
+      script</td>
     <td>
       
-
     </td>
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="insertCss"></div>
-<h3>
-  <code>insertCss(css)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="insertCss" href="#insertCss"></a><code>insertCss(css)</code></h3>
 
-</h3>
+
 Injects CSS into the browser window.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -316,36 +251,27 @@ Injects CSS into the browser window.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      css
-      
-    </td>
+      css</td>
     <td>
       
-
     </td>
     <td>
       <p>Details of the script to run, specifying either a file or code key.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="on"></div>
-<h3>
-  <code>on(event)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
 
-</h3>
+
+
+
 A method that allows you to listen to events happening in the browser.
 Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `critical`, `loadfail`, `unexpected`, `undefined`
 <table class="table param-table" style="margin:0;">
@@ -357,42 +283,27 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      event
-      
-    </td>
+      event</td>
     <td>
       
-
     </td>
     <td>
       <p>Event name</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> Returns back an observable that will listen to the event on subscribe, and will stop listening to the event on unsubscribe.
 </div>
 
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
-
 
 <h2><a class="anchor" name="ThemeableBrowserButton" href="#ThemeableBrowserButton"></a>ThemeableBrowserButton</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -499,10 +410,7 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
 </table>
 
 
-
-
 <h2><a class="anchor" name="ThemeableBrowserOptions" href="#ThemeableBrowserOptions"></a>ThemeableBrowserOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -904,11 +812,4 @@ Available events are: `ThemeableBrowserError`, `ThemeableBrowserWarning`, `criti
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

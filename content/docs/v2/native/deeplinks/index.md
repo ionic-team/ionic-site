@@ -11,28 +11,12 @@ doc: "Deeplinks"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Deeplinks
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Deeplinks</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/deeplinks/index.ts#L23">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,28 +31,24 @@ $ npm install --save @ionic-native/deeplinks
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin handles deeplinks on iOS and Android for both custom URL scheme links
 and Universal App Links.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>iOS</li><li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Deeplinks } from &#39;@ionic-native/deeplinks&#39;;
 
 constructor(private deeplinks: Deeplinks) { }
@@ -108,20 +88,16 @@ retrieve the <code>NavController</code> reference at runtime.</p>
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="route"></div>
-<h3>
-  <code>route(Define)</code>
-  
+<h3><a class="anchor" name="route" href="#route"></a><code>route(Define)</code></h3>
 
-</h3>
+
+
+
 Define a set of paths to match against incoming deeplinks.
 
 <table class="table param-table" style="margin:0;">
@@ -133,40 +109,31 @@ Define a set of paths to match against incoming deeplinks.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Define
-      
-    </td>
+      Define</td>
     <td>
-      
-<code>paths</code>
+      <code>paths</code>
     </td>
     <td>
       <p>a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
+  <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that is called each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
-</div><div id="routeWithNavController"></div>
-<h3>
-  <code>routeWithNavController(Define)</code>
-  
+</div><h3><a class="anchor" name="routeWithNavController" href="#routeWithNavController"></a><code>routeWithNavController(Define)</code></h3>
 
-</h3>
+
+
+
 This is a convenience version of `route` that takes a reference to a NavController
 from Ionic 2, or a custom class that conforms to this protocol:
 
@@ -184,49 +151,33 @@ control over the behavior of a matching deeplink, use the plain `route` method.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Define
-      
-    </td>
+      Define</td>
     <td>
-      
-<code>paths</code>
+      <code>paths</code>
     </td>
     <td>
       <p>a set of paths to match against incoming deeplinks.
 paths takes an object of the form { &#39;path&#39;: data }. If a deeplink
 matches the path, the resulting path-data pair will be returned in the
 promise result which you can then use to navigate in the app as you see fit.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that resolves each time a deeplink comes through, and
+  <b>Returns:</b> <code>Observable&lt;DeeplinkMatch&gt;</code> Returns an Observable that resolves each time a deeplink comes through, and
 errors if a deeplink comes through that does not match a given path.
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="DeeplinkMatch" href="#DeeplinkMatch"></a>DeeplinkMatch</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -288,11 +239,4 @@ the route was matched (for example, Facebook sometimes adds extra data)</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

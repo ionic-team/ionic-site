@@ -11,28 +11,12 @@ doc: "Splash Screen"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Splash Screen
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Splash Screen</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/splash-screen/index.ts#L1">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/splash-screen
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin displays and hides a splash screen during application launch. The methods below allows showing and hiding the splashscreen after the app has loaded.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { SplashScreen } from &#39;@ionic-native/splash-screen&#39;;
 
 constructor(private splashScreen: SplashScreen) { }
@@ -73,30 +57,25 @@ this.splashScreen.hide();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="show"></div>
-<h3>
-  <code>show()</code>
-  
+<h3><a class="anchor" name="show" href="#show"></a><code>show()</code></h3>
 
-</h3>
+
+
+
 Shows the splashscreen
 
 
 
-<div id="hide"></div>
-<h3>
-  <code>hide()</code>
-  
+<h3><a class="anchor" name="hide" href="#hide"></a><code>hide()</code></h3>
 
-</h3>
+
+
+
 Hides the splashscreen
 
 
@@ -105,16 +84,5 @@ Hides the splashscreen
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "SMS"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  SMS
-  
-
-  
-
-  </h1>
+<h1 class="api-title">SMS</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sms/index.ts#L25">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,27 +31,23 @@ $ npm install --save @ionic-native/sms
   </a>
 </p>
 
-<!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { SMS } from &#39;@ionic-native/sms&#39;;
 
 constructor(private sms: SMS) { }
@@ -83,20 +63,16 @@ this.sms.send(&#39;416123456&#39;, &#39;Hello world!&#39;);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="send"></div>
-<h3>
-  <code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
-  
+<h3><a class="anchor" name="send" href="#send"></a><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code></h3>
 
-</h3>
+
+
+
 Sends sms to a number
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -107,90 +83,65 @@ Sends sms to a number
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      phoneNumber
-      
-    </td>
+      phoneNumber</td>
     <td>
-      
-<code>string</code>|<code>Array.&lt;string&gt;</code>
+      <code>string</code>|<code>Array.&lt;string&gt;</code>
     </td>
     <td>
       <p>Phone number</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      message
-      
-    </td>
+      message</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Message</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>SmsOptions</code>
+      <code>SmsOptions</code>
     </td>
     <td>
       <p>Options</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
-</div><div id="hasPermission"></div>
-<h3>
-  <code>hasPermission()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 This function lets you know if the app has permission to send SMS
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if we have permission
+  <b>Returns:</b> <code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if we have permission
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="SmsOptions" href="#SmsOptions"></a>SmsOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -233,10 +184,7 @@ This function lets you know if the app has permission to send SMS
 </table>
 
 
-
-
 <h2><a class="anchor" name="SmsOptionsAndroid" href="#SmsOptionsAndroid"></a>SmsOptionsAndroid</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -268,11 +216,4 @@ This function lets you know if the app has permission to send SMS
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

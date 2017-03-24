@@ -11,28 +11,12 @@ doc: "Contacts"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Contacts
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Contacts</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/contacts/index.ts#L249">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,18 +31,18 @@ $ npm install --save @ionic-native/contacts
   </a>
 </p>
 
-<!-- description -->
 
 <p>Access and manage Contacts on the device.</p>
 
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
+
+
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { Contacts, Contact, ContactField, ContactName } from &#39;@ionic-native/contacts&#39;;
 
 constructor(private contacts: Contacts) { }
@@ -76,33 +60,21 @@ contact.save().then(
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="create"></div>
-<h3>
-  <code>create()</code>
-  
+<h3><a class="anchor" name="create" href="#create"></a><code>create()</code></h3>
 
-</h3>
 Create a single contact.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Contact</code> Returns a Contact object
-</div><div id="find"></div>
-<h3>
-  <code>find(fields,&nbsp;options)</code>
-  
+  <b>Returns:</b> <code>Contact</code> Returns a Contact object
+</div><h3><a class="anchor" name="find" href="#find"></a><code>find(fields,&nbsp;options)</code></h3>
 
-</h3>
 Search for contacts in the Contacts list.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -113,239 +85,154 @@ Search for contacts in the Contacts list.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>ContactFieldType[]</code>
+      <code>ContactFieldType[]</code>
     </td>
     <td>
       <p>Contact fields to be used as a search qualifier</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>IContactFindOptions</code>
+      <code>IContactFindOptions</code>
     </td>
     <td>
       <p>Optional options for the query</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
-</div><div id="pickContact"></div>
-<h3>
-  <code>pickContact()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
+</div><h3><a class="anchor" name="pickContact" href="#pickContact"></a><code>pickContact()</code></h3>
 
-</h3>
 Select a single Contact.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Contact&gt;</code> Returns a Promise that resolves with the selected Contact
+  <b>Returns:</b> <code>Promise&lt;Contact&gt;</code> Returns a Promise that resolves with the selected Contact
 </div>
-
-
-
-<!-- other classes -->
-<!--<h2><a class="anchor" name="related-classes" href="#related-classes"></a>Related Classes</h2>-->
-
-
 
 <h2><a class="anchor" name="Contact" href="#Contact"></a>Contact</h2>
 
 
-<!-- methods on the class -->
+
 
 <h2>Instance Members</h2>
-<div id="id"></div>
-<h3>
-  <code>id()</code>
-  
+<h3><a class="anchor" name="id" href="#id"></a><code>id()</code></h3>
 
-</h3>
 
 
 
-<div id="displayName"></div>
-<h3>
-  <code>displayName()</code>
-  
 
-</h3>
+<h3><a class="anchor" name="displayName" href="#displayName"></a><code>displayName()</code></h3>
 
 
 
-<div id="name"></div>
-<h3>
-  <code>name()</code>
-  
 
-</h3>
 
+<h3><a class="anchor" name="name" href="#name"></a><code>name()</code></h3>
 
 
-<div id="nickname"></div>
-<h3>
-  <code>nickname()</code>
-  
 
-</h3>
 
 
+<h3><a class="anchor" name="nickname" href="#nickname"></a><code>nickname()</code></h3>
 
-<div id="phoneNumbers"></div>
-<h3>
-  <code>phoneNumbers()</code>
-  
 
-</h3>
 
 
 
-<div id="emails"></div>
-<h3>
-  <code>emails()</code>
-  
+<h3><a class="anchor" name="phoneNumbers" href="#phoneNumbers"></a><code>phoneNumbers()</code></h3>
 
-</h3>
 
 
 
-<div id="addresses"></div>
-<h3>
-  <code>addresses()</code>
-  
 
-</h3>
+<h3><a class="anchor" name="emails" href="#emails"></a><code>emails()</code></h3>
 
 
 
-<div id="ims"></div>
-<h3>
-  <code>ims()</code>
-  
 
-</h3>
 
+<h3><a class="anchor" name="addresses" href="#addresses"></a><code>addresses()</code></h3>
 
 
-<div id="organizations"></div>
-<h3>
-  <code>organizations()</code>
-  
 
-</h3>
 
 
+<h3><a class="anchor" name="ims" href="#ims"></a><code>ims()</code></h3>
 
-<div id="birthday"></div>
-<h3>
-  <code>birthday()</code>
-  
 
-</h3>
 
 
 
-<div id="note"></div>
-<h3>
-  <code>note()</code>
-  
+<h3><a class="anchor" name="organizations" href="#organizations"></a><code>organizations()</code></h3>
 
-</h3>
 
 
 
-<div id="photos"></div>
-<h3>
-  <code>photos()</code>
-  
 
-</h3>
+<h3><a class="anchor" name="birthday" href="#birthday"></a><code>birthday()</code></h3>
 
 
 
-<div id="categories"></div>
-<h3>
-  <code>categories()</code>
-  
 
-</h3>
 
+<h3><a class="anchor" name="note" href="#note"></a><code>note()</code></h3>
 
 
-<div id="urls"></div>
-<h3>
-  <code>urls()</code>
-  
 
-</h3>
 
 
+<h3><a class="anchor" name="photos" href="#photos"></a><code>photos()</code></h3>
 
-<div id="clone"></div>
-<h3>
-  <code>clone()</code>
-  
 
-</h3>
 
 
 
-<div id="remove"></div>
-<h3>
-  <code>remove()</code>
-  
+<h3><a class="anchor" name="categories" href="#categories"></a><code>categories()</code></h3>
 
-</h3>
 
 
 
-<div id="save"></div>
-<h3>
-  <code>save()</code>
-  
 
-</h3>
+<h3><a class="anchor" name="urls" href="#urls"></a><code>urls()</code></h3>
 
 
 
 
 
+<h3><a class="anchor" name="clone" href="#clone"></a><code>clone()</code></h3>
 
-<!-- end other classes -->
 
-<!-- interfaces -->
 
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
+
+<h3><a class="anchor" name="remove" href="#remove"></a><code>remove()</code></h3>
+
+
+
+
+
+<h3><a class="anchor" name="save" href="#save"></a><code>save()</code></h3>
+
+
+
+
+
+
 
 
 <h2><a class="anchor" name="IContactProperties" href="#IContactProperties"></a>IContactProperties</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -557,10 +444,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactError" href="#IContactError"></a>IContactError</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -604,10 +488,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactName" href="#IContactName"></a>IContactName</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -707,10 +588,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactField" href="#IContactField"></a>IContactField</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -768,10 +646,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactAddress" href="#IContactAddress"></a>IContactAddress</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -899,10 +774,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactOrganization" href="#IContactOrganization"></a>IContactOrganization</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -988,10 +860,7 @@ Select a single Contact.
 </table>
 
 
-
-
 <h2><a class="anchor" name="IContactFindOptions" href="#IContactFindOptions"></a>IContactFindOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1065,11 +934,4 @@ Select a single Contact.
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

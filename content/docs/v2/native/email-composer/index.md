@@ -11,28 +11,11 @@ doc: "Email Composer"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Email Composer
-  
-
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Email Composer<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/email-composer/index.ts#L23">
   Improve this doc
 </a>
-
-
-
-<!-- decorators -->
 
 
 
@@ -44,6 +27,7 @@ docType: "class"
 </p>
 
 
+
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-email
 $ npm install --save @ionic-native/email-composer
 </code></pre>
@@ -53,29 +37,25 @@ $ npm install --save @ionic-native/email-composer
   </a>
 </p>
 
-<!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-email-composer. For more info, please see the <a href="https://github.com/hypery2k/cordova-email-plugin">Email Composer plugin docs</a>.</p>
 <p>DISCLAIMER: This plugin is experiencing issues with the latest versions of Cordova. Use at your own risk. Functionality is not guaranteed. Please stay tuned for a more stable version.
 A good alternative to this plugin is the social sharing plugin.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { EmailComposer } from &#39;@ionic-native/email-composer&#39;;
 
 constructor(private emailComposer: EmailComposer) { }
@@ -111,20 +91,14 @@ this.emailComposer.open(email);
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="isAvailable"></div>
-<h3>
-  <code>isAvailable(app)</code>
-  
+<h3><a class="anchor" name="isAvailable" href="#isAvailable"></a><code>isAvailable(app)</code></h3>
 
-</h3>
+
 Verifies if sending emails is supported on the device.
 
 <table class="table param-table" style="margin:0;">
@@ -136,36 +110,25 @@ Verifies if sending emails is supported on the device.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      app
-      
-    </td>
+      app</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>App id or uri scheme.<strong class="tag">Optional</strong></p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
-</div><div id="addAlias"></div>
-<h3>
-  <code>addAlias(alias,&nbsp;packageName)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves if available, rejects if not available
+</div><h3><a class="anchor" name="addAlias" href="#addAlias"></a><code>addAlias(alias,&nbsp;packageName)</code></h3>
 
-</h3>
+
 Adds a new mail app alias.
 
 <table class="table param-table" style="margin:0;">
@@ -177,48 +140,35 @@ Adds a new mail app alias.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      alias
-      
-    </td>
+      alias</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The alias name</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      packageName
-      
-    </td>
+      packageName</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The package name</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="open"></div>
-<h3>
-  <code>open(options,&nbsp;scope)</code>
-  
+<h3><a class="anchor" name="open" href="#open"></a><code>open(options,&nbsp;scope)</code></h3>
 
-</h3>
+
+
+
 Displays the email composer pre-filled with data.
 
 <table class="table param-table" style="margin:0;">
@@ -230,61 +180,40 @@ Displays the email composer pre-filled with data.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>EmailComposerOptions</code>
+      <code>EmailComposerOptions</code>
     </td>
     <td>
       <p>Email</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      scope
-      
-    </td>
+      scope</td>
     <td>
-      
-<code>any</code>
+      <code>any</code>
     </td>
     <td>
       <p>Scope for the promise<strong class="tag">Optional</strong></p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Resolves promise when the EmailComposer has been opened
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Resolves promise when the EmailComposer has been opened
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="EmailComposerOptions" href="#EmailComposerOptions"></a>EmailComposerOptions</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -406,11 +335,4 @@ Displays the email composer pre-filled with data.
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

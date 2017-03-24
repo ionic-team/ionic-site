@@ -11,28 +11,11 @@ doc: "Pinterest"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Pinterest
-  
-
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Pinterest<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/pinterest/index.ts#L126">
   Improve this doc
 </a>
-
-
-
-<!-- decorators -->
 
 
 
@@ -44,6 +27,7 @@ docType: "class"
 </p>
 
 
+
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-pinterest --variable APP_ID=YOUR_APP_ID
 $ npm install --save @ionic-native/pinterest
 </code></pre>
@@ -53,27 +37,23 @@ $ npm install --save @ionic-native/pinterest
   </a>
 </p>
 
-<!-- description -->
 
 <p>Cordova plugin for Pinterest</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Pinterest, PinterestUser, PinterestPin, PinterestBoard } from &#39;@ionic-native/pinterest&#39;;
 
 constructor(private pinterest: Pinterest) { }
@@ -105,30 +85,21 @@ this.pinterest.getMyBoards()
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="SCOPES"></div>
-<h3>
-  <code>SCOPES()</code>
-  
+<h3><a class="anchor" name="SCOPES" href="#SCOPES"></a><code>SCOPES</code></h3>
 
-</h3>
+
 Convenience constant for authentication scopes
 
 
 
-<div id="login"></div>
-<h3>
-  <code>login(scopes)</code>
-  
+<h3><a class="anchor" name="login" href="#login"></a><code>login(scopes)</code></h3>
 
-</h3>
+
 Logs the user in using their Pinterest account.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -139,36 +110,27 @@ Logs the user in using their Pinterest account.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      scopes
-      
-    </td>
+      scopes</td>
     <td>
-      
-<code>Array&lt;string&gt;</code>
+      <code>Array&lt;string&gt;</code>
     </td>
     <td>
       <p>Array of scopes that you need access to. You can use Pinterest.SCOPES constant for convenience.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> The response object will contain the user's profile data, as well as the access token (if you need to use it elsewhere, example: send it to your server and perform actions on behalf of the user).
-</div><div id="getMe"></div>
-<h3>
-  <code>getMe(fields)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> The response object will contain the user's profile data, as well as the access token (if you need to use it elsewhere, example: send it to your server and perform actions on behalf of the user).
+</div><h3><a class="anchor" name="getMe" href="#getMe"></a><code>getMe(fields)</code></h3>
 
-</h3>
+
+
+
 Gets the authenticated user's profile
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -179,36 +141,27 @@ Gets the authenticated user's profile
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Fields to retrieve, separated by commas. Defaults to all available fields.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestUser&gt;</code> Returns a promise that resolves with the user's object
-</div><div id="getMyPins"></div>
-<h3>
-  <code>getMyPins(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> Returns a promise that resolves with the user's object
+</div><h3><a class="anchor" name="getMyPins" href="#getMyPins"></a><code>getMyPins(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -219,52 +172,38 @@ Gets the authenticated user's profile
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><div id="getMyBoards"></div>
-<h3>
-  <code>getMyBoards(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getMyBoards" href="#getMyBoards"></a><code>getMyBoards(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -275,52 +214,38 @@ Gets the authenticated user's profile
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div><div id="getMyLikes"></div>
-<h3>
-  <code>getMyLikes(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getMyLikes" href="#getMyLikes"></a><code>getMyLikes(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 Get the authenticated user's likes.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -331,52 +256,38 @@ Get the authenticated user's likes.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><div id="getMyFollowers"></div>
-<h3>
-  <code>getMyFollowers(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getMyFollowers" href="#getMyFollowers"></a><code>getMyFollowers(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 Get the authenticated user's followers.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -387,52 +298,38 @@ Get the authenticated user's followers.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestUser&gt;&gt;</code> 
-</div><div id="getMyFollowedBoards"></div>
-<h3>
-  <code>getMyFollowedBoards(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestUser&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getMyFollowedBoards" href="#getMyFollowedBoards"></a><code>getMyFollowedBoards(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 Get the authenticated user's followed boards.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -443,52 +340,38 @@ Get the authenticated user's followed boards.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
-</div><div id="getMyFollowedInterests"></div>
-<h3>
-  <code>getMyFollowedInterests(fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestBoard&gt;&gt;</code> 
+</div><h3><a class="anchor" name="getMyFollowedInterests" href="#getMyFollowedInterests"></a><code>getMyFollowedInterests(fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 Get the authenticated user's followed interests.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -499,52 +382,38 @@ Get the authenticated user's followed interests.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="getUser"></div>
-<h3>
-  <code>getUser(username,&nbsp;fields)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="getUser" href="#getUser"></a><code>getUser(username,&nbsp;fields)</code></h3>
 
-</h3>
+
+
+
 Get a user's profile.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -555,50 +424,36 @@ Get a user's profile.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      username
+      username</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      fields
+      fields</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestUser&gt;</code> 
-</div><div id="getBoard"></div>
-<h3>
-  <code>getBoard(boardId,&nbsp;fields)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> 
+</div><h3><a class="anchor" name="getBoard" href="#getBoard"></a><code>getBoard(boardId,&nbsp;fields)</code></h3>
 
-</h3>
+
+
+
 Get a board's data.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -609,50 +464,36 @@ Get a board's data.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      boardId
+      boardId</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
   
   <tr>
     <td>
-      fields
+      fields</td>
+    <td>
       
     </td>
     <td>
-      
-
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestBoard&gt;</code> 
-</div><div id="getBoardPins"></div>
-<h3>
-  <code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestBoard&gt;</code> 
+</div><h3><a class="anchor" name="getBoardPins" href="#getBoardPins"></a><code>getBoardPins(boardId,&nbsp;fields,&nbsp;limit)</code></h3>
 
-</h3>
+
+
+
 Get Pins of a specific board.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -663,68 +504,47 @@ Get Pins of a specific board.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      boardId
-      
-    </td>
+      boardId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The ID of the board</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      limit
-      
-    </td>
+      limit</td>
     <td>
-      
-<code>number</code>
+      <code>number</code>
     </td>
     <td>
       <p>Optional limit, defaults to 100, maximum is 100.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
-</div><div id="deleteBoard"></div>
-<h3>
-  <code>deleteBoard(boardId)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;Array&lt;PinterestPin&gt;&gt;</code> 
+</div><h3><a class="anchor" name="deleteBoard" href="#deleteBoard"></a><code>deleteBoard(boardId)</code></h3>
 
-</h3>
+
 Delete a board.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -735,36 +555,27 @@ Delete a board.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      boardId
-      
-    </td>
+      boardId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The ID of the board</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestUser&gt;</code> 
-</div><div id="createBoard"></div>
-<h3>
-  <code>createBoard(name,&nbsp;desc)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestUser&gt;</code> 
+</div><h3><a class="anchor" name="createBoard" href="#createBoard"></a><code>createBoard(name,&nbsp;desc)</code></h3>
 
-</h3>
+
+
+
 Create a new board for the authenticated user.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -775,52 +586,38 @@ Create a new board for the authenticated user.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      name
-      
-    </td>
+      name</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Name of the board</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      desc
-      
-    </td>
+      desc</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional description of the board</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestBoard&gt;</code> 
-</div><div id="getPin"></div>
-<h3>
-  <code>getPin(pinId,&nbsp;fields)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestBoard&gt;</code> 
+</div><h3><a class="anchor" name="getPin" href="#getPin"></a><code>getPin(pinId,&nbsp;fields)</code></h3>
 
-</h3>
+
+
+
 Get a Pin by ID.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -831,52 +628,36 @@ Get a Pin by ID.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      pinId
-      
-    </td>
+      pinId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The ID of the Pin</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      fields
-      
-    </td>
+      fields</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional fields separated by comma</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestPin&gt;</code> 
-</div><div id="deletePin"></div>
-<h3>
-  <code>deletePin(pinId)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;PinterestPin&gt;</code> 
+</div><h3><a class="anchor" name="deletePin" href="#deletePin"></a><code>deletePin(pinId)</code></h3>
 
-</h3>
+
 Deletes a pin
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -887,36 +668,27 @@ Deletes a pin
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      pinId
-      
-    </td>
+      pinId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>The ID of the pin</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> 
-</div><div id="createPin"></div>
-<h3>
-  <code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="createPin" href="#createPin"></a><code>createPin(note,&nbsp;boardId,&nbsp;imageUrl,&nbsp;link)</code></h3>
 
-</h3>
+
+
+
 Creates a Pin
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -927,93 +699,62 @@ Creates a Pin
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      note
-      
-    </td>
+      note</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Note/Description of the pin</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      boardId
-      
-    </td>
+      boardId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Board ID to put the Pin under</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      imageUrl
-      
-    </td>
+      imageUrl</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>URL of the image to share</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      link
-      
-    </td>
+      link</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Optional link to share</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;PinterestPin&gt;</code> 
+  <b>Returns:</b> <code>Promise&lt;PinterestPin&gt;</code> 
 </div>
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="PinterestUser" href="#PinterestUser"></a>PinterestUser</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1141,10 +882,7 @@ Creates a Pin
 </table>
 
 
-
-
 <h2><a class="anchor" name="PinterestBoard" href="#PinterestBoard"></a>PinterestBoard</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1272,10 +1010,7 @@ Creates a Pin
 </table>
 
 
-
-
 <h2><a class="anchor" name="PinterestPin" href="#PinterestPin"></a>PinterestPin</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1475,11 +1210,4 @@ Creates a Pin
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

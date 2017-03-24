@@ -11,28 +11,11 @@ doc: "Backlight"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Backlight
-  
-
-  
-
-  <span class="beta" title="beta">&beta;</span></h1>
+<h1 class="api-title">Backlight<span class="beta" title="beta">&beta;</span></h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/backlight/index.ts#L1">
   Improve this doc
 </a>
-
-
-
-<!-- decorators -->
 
 
 
@@ -44,6 +27,7 @@ docType: "class"
 </p>
 
 
+
 <pre><code class="nohighlight">$ ionic plugin add cordova-plugin-backlight
 $ npm install --save @ionic-native/backlight
 </code></pre>
@@ -53,27 +37,23 @@ $ npm install --save @ionic-native/backlight
   </a>
 </p>
 
-<!-- description -->
 
 <p>This plugin adds turning on/off the device backlight.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code>import { Backlight } from &#39;@ionic-native/backlight&#39;;
 
 constructor(private backlight: Backlight) { }
@@ -90,54 +70,32 @@ this.backlight.off().then(() =&gt; console.log(&#39;backlight off&#39;));
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="on"></div>
-<h3>
-  <code>on()</code>
-  
+<h3><a class="anchor" name="on" href="#on"></a><code>on()</code></h3>
 
-</h3>
+
 This function turns backlight on
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is on
-</div><div id="off"></div>
-<h3>
-  <code>off()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is on
+</div><h3><a class="anchor" name="off" href="#off"></a><code>off()</code></h3>
 
-</h3>
+
 This function turns backlight off
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is off
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves when the backlight is off
 </div>
 
 
 
-<!-- other classes -->
 
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

@@ -11,28 +11,12 @@ doc: "OneSignal"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  OneSignal
-  
-
-  
-
-  </h1>
+<h1 class="api-title">OneSignal</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/onesignal/index.ts#L260">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,29 +31,25 @@ $ npm install --save @ionic-native/onesignal
   </a>
 </p>
 
-<!-- description -->
 
 <p>The OneSignal plugin is an client implementation for using the <a href="https://onesignal.com/">OneSignal</a> Service.
 OneSignal is a simple implementation for delivering push notifications.</p>
 <p>Requires Cordova plugin: <code>onesignal-cordova-plugin</code>. For more info, please see the <a href="https://documentation.onesignal.com/docs/phonegap-sdk-installation">OneSignal Cordova Docs</a>.</p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows</li><li>FireOS</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { OneSignal } from &#39;@ionic-native/onesignal&#39;;
 
 constructor(private oneSignal: OneSignal) { }
@@ -94,30 +74,22 @@ this.oneSignal.endInit();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="OSInFocusDisplayOption"></div>
-<h3>
-  <code>OSInFocusDisplayOption()</code>
-  
+<h3><a class="anchor" name="OSInFocusDisplayOption" href="#OSInFocusDisplayOption"></a><code>OSInFocusDisplayOption</code></h3>
 
-</h3>
 constants to use in inFocusDisplaying()
 
 
 
-<div id="startInit"></div>
-<h3>
-  <code>startInit(appId,&nbsp;googleProjectNumber)</code>
-  
+<h3><a class="anchor" name="startInit" href="#startInit"></a><code>startInit(appId,&nbsp;googleProjectNumber)</code></h3>
 
-</h3>
+
+
+
 Start the initialization process. Once you are done configuring OneSignal, call the `endInit` function.
 
 <table class="table param-table" style="margin:0;">
@@ -129,66 +101,50 @@ Start the initialization process. Once you are done configuring OneSignal, call 
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      appId
-      
-    </td>
+      appId</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Your OneSignal app id</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      googleProjectNumber
-      
-    </td>
+      googleProjectNumber</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p><strong>ANDROID</strong> - your Google project number; only required for Android GCM/FCM pushes.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>any</code> 
-</div><div id="handleNotificationReceived"></div>
-<h3>
-  <code>handleNotificationReceived()</code>
-  
+  <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="handleNotificationReceived" href="#handleNotificationReceived"></a><code>handleNotificationReceived()</code></h3>
 
-</h3>
+
+
+
 Callback to run when a notification is received, whether it was displayed or not.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;OneSignalReceivedNotification&gt;</code> 
-</div><div id="handleNotificationOpened"></div>
-<h3>
-  <code>handleNotificationOpened()</code>
-  
+  <b>Returns:</b> <code>Observable&lt;OneSignalReceivedNotification&gt;</code> 
+</div><h3><a class="anchor" name="handleNotificationOpened" href="#handleNotificationOpened"></a><code>handleNotificationOpened()</code></h3>
 
-</h3>
+
+
+
 Callback to run when a notification is tapped on from the notification shade (**ANDROID**) or notification
 center (**iOS**), or when closing an Alert notification shown in the app (if InAppAlert is enabled in
 inFocusDisplaying).
@@ -197,14 +153,12 @@ inFocusDisplaying).
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;OneSignalOpenedNotification&gt;</code> 
-</div><div id="iOSSettings"></div>
-<h3>
-  <code>iOSSettings(settings)</code>
-  
+  <b>Returns:</b> <code>Observable&lt;OneSignalOpenedNotification&gt;</code> 
+</div><h3><a class="anchor" name="iOSSettings" href="#iOSSettings"></a><code>iOSSettings(settings)</code></h3>
 
-</h3>
+
+
+
 **iOS** - Settings for iOS apps
 
 <table class="table param-table" style="margin:0;">
@@ -216,53 +170,40 @@ inFocusDisplaying).
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      settings
-      
-    </td>
+      settings</td>
     <td>
       
-
     </td>
     <td>
       <p>kOSSettingsKeyAutoPrompt: boolean = true
  Auto prompt user for notification permissions.</p>
 <p> kOSSettingsKeyInAppLaunchURL: boolean = false
  Launch notifications with a launch URL as an in app webview.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>any</code> 
-</div><div id="endInit"></div>
-<h3>
-  <code>endInit()</code>
-  
+  <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="endInit" href="#endInit"></a><code>endInit()</code></h3>
 
-</h3>
+
+
+
 Must be called after `startInit` to complete initialization of OneSignal.
 
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>any</code> 
-</div><div id="getTags"></div>
-<h3>
-  <code>getTags()</code>
-  
+  <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="getTags" href="#getTags"></a><code>getTags()</code></h3>
 
-</h3>
+
 Retrieve a list of tags that have been set on the user from the OneSignal server.
 
 **Quirk**: You must wait for `getTags` to resolve before calling it again, as the plugin will only process the last method call and discard any previous ones.
@@ -271,14 +212,10 @@ Retrieve a list of tags that have been set on the user from the OneSignal server
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves when tags are recieved.
-</div><div id="getIds"></div>
-<h3>
-  <code>getIds()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves when tags are recieved.
+</div><h3><a class="anchor" name="getIds" href="#getIds"></a><code>getIds()</code></h3>
 
-</h3>
+
 Lets you retrieve the OneSignal user id and device token.
 Your handler is called after the device is successfully registered with OneSignal.
 
@@ -286,18 +223,16 @@ Your handler is called after the device is successfully registered with OneSigna
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;Object&gt;</code> Returns a Promise that resolves if the device was successfully registered.
+  <b>Returns:</b> <code>Promise&lt;Object&gt;</code> Returns a Promise that resolves if the device was successfully registered.
 
  userId {string} OneSignal userId is a UUID formatted string. (unique per device per app)
 
  pushToken {string} A push token is a Google/Apple assigned identifier(unique per device per app).
-</div><div id="sendTag"></div>
-<h3>
-  <code>sendTag(Key,&nbsp;Value)</code>
-  
+</div><h3><a class="anchor" name="sendTag" href="#sendTag"></a><code>sendTag(Key,&nbsp;Value)</code></h3>
 
-</h3>
+
+
+
 Tag a user based on an app event of your choosing so later you can create segments on [onesignal.com](https://onesignal.com/) to target these users.
 Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.
 
@@ -310,48 +245,35 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Key
-      
-    </td>
+      Key</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>of your choosing to create or update.</p>
-
-      
-    </td>
+</td>
   </tr>
   
   <tr>
     <td>
-      Value
-      
-    </td>
+      Value</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>to set on the key. NOTE: Passing in a blank String deletes the key, you can also call deleteTag.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="sendTags"></div>
-<h3>
-  <code>sendTags(Pass)</code>
-  
+<h3><a class="anchor" name="sendTags" href="#sendTags"></a><code>sendTags(Pass)</code></h3>
 
-</h3>
+
+
+
 Tag a user based on an app event of your choosing so later you can create segments on [onesignal.com](https://onesignal.com/) to target these users.
 Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.
 
@@ -364,32 +286,24 @@ Recommend using sendTags over sendTag if you need to set more than one tag on a 
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Pass
-      
-    </td>
+      Pass</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>a json object with key/value pairs like: {key: &quot;value&quot;, key2: &quot;value2&quot;}</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="deleteTag"></div>
-<h3>
-  <code>deleteTag(Key)</code>
-  
+<h3><a class="anchor" name="deleteTag" href="#deleteTag"></a><code>deleteTag(Key)</code></h3>
 
-</h3>
+
+
+
 Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Use `deleteTags` if you need to delete more than one.
 
 <table class="table param-table" style="margin:0;">
@@ -401,32 +315,24 @@ Deletes a tag that was previously set on a user with `sendTag` or `sendTags`. Us
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Key
-      
-    </td>
+      Key</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>to remove.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="deleteTags"></div>
-<h3>
-  <code>deleteTags(Keys)</code>
-  
+<h3><a class="anchor" name="deleteTags" href="#deleteTags"></a><code>deleteTags(Keys)</code></h3>
 
-</h3>
+
+
+
 Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
 
 <table class="table param-table" style="margin:0;">
@@ -438,43 +344,34 @@ Deletes tags that were previously set on a user with `sendTag` or `sendTags`.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Keys
-      
-    </td>
+      Keys</td>
     <td>
-      
-<code>Array&lt;string&gt;</code>
+      <code>Array&lt;string&gt;</code>
     </td>
     <td>
       <p>to remove.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="registerForPushNotifications"></div>
-<h3>
-  <code>registerForPushNotifications()</code>
-  
+<h3><a class="anchor" name="registerForPushNotifications" href="#registerForPushNotifications"></a><code>registerForPushNotifications()</code></h3>
 
-</h3>
+
+
+
 Call this when you would like to prompt an iOS user to accept push notifications with the default system prompt.
 Only works if you set `kOSSettingsAutoPrompt` to `false` in `iOSSettings`
 
 
 
-<div id="enableVibrate"></div>
-<h3>
-  <code>enableVibrate(false)</code>
-  
+<h3><a class="anchor" name="enableVibrate" href="#enableVibrate"></a><code>enableVibrate(false)</code></h3>
 
-</h3>
+
+
+
 Warning:
 Only applies to Android and Amazon. You can call this from your UI from a button press for example to give your user's options for your notifications.
 
@@ -490,32 +387,24 @@ Passing false means that the device will only vibrate lightly when the device is
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      false
-      
-    </td>
+      false</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>to disable vibrate, true to re-enable it.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="enableSound"></div>
-<h3>
-  <code>enableSound(false)</code>
-  
+<h3><a class="anchor" name="enableSound" href="#enableSound"></a><code>enableSound(false)</code></h3>
 
-</h3>
+
+
+
 Warning:
 Only applies to Android and Amazon. You can call this from your UI from a button press for example to give your user's options for your notifications.
 
@@ -531,32 +420,24 @@ Passing false means that the device will only vibrate unless the device is set t
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      false
-      
-    </td>
+      false</td>
     <td>
-      
-<code>boolean</code>
+      <code>boolean</code>
     </td>
     <td>
       <p>to disable sound, true to re-enable it.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="inFocusDisplaying"></div>
-<h3>
-  <code>inFocusDisplaying(displayOption)</code>
-  
+<h3><a class="anchor" name="inFocusDisplaying" href="#inFocusDisplaying"></a><code>inFocusDisplaying(displayOption)</code></h3>
 
-</h3>
+
+
+
 Setting to control how OneSignal notifications will be shown when one is received while your app is in focus. By default this is set to inAppAlert, which can be helpful during development.
 
 <table class="table param-table" style="margin:0;">
@@ -568,35 +449,26 @@ Setting to control how OneSignal notifications will be shown when one is receive
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      displayOption
-      
+      displayOption</td>
+    <td>
+      <code>DisplayType</code>
     </td>
     <td>
-      
-<code>DisplayType</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>any</code> 
-</div><div id="setSubscription"></div>
-<h3>
-  <code>setSubscription(enable)</code>
-  
+  <b>Returns:</b> <code>any</code> 
+</div><h3><a class="anchor" name="setSubscription" href="#setSubscription"></a><code>setSubscription(enable)</code></h3>
 
-</h3>
+
+
+
 You can call this method with false to opt users out of receiving all notifications through OneSignal.
 You can pass true later to opt users back into notifications.
 
@@ -609,31 +481,21 @@ You can pass true later to opt users back into notifications.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      enable
-      
+      enable</td>
+    <td>
+      <code>boolean</code>
     </td>
     <td>
-      
-<code>boolean</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="postNotification"></div>
-<h3>
-  <code>postNotification(Parameters)</code>
-  
+<h3><a class="anchor" name="postNotification" href="#postNotification"></a><code>postNotification(Parameters)</code></h3>
 
-</h3>
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -644,46 +506,36 @@ You can pass true later to opt users back into notifications.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      Parameters
-      
-    </td>
+      Parameters</td>
     <td>
-      
-<code>notificationObj</code>
+      <code>notificationObj</code>
     </td>
     <td>
       <p>see POST <a href="https://documentation.onesignal.com/v2.0/docs/notifications-create-notification">documentation</a></p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the notification was send successfully.
-</div><div id="promptLocation"></div>
-<h3>
-  <code>promptLocation()</code>
-  
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a Promise that resolves if the notification was send successfully.
+</div><h3><a class="anchor" name="promptLocation" href="#promptLocation"></a><code>promptLocation()</code></h3>
 
-</h3>
+
+
+
 Prompts the user for location permission to allow geotagging based on the "Location radius" filter on the OneSignal dashboard.
 
 
 
-<div id="syncHashedEmail"></div>
-<h3>
-  <code>syncHashedEmail(email)</code>
-  
+<h3><a class="anchor" name="syncHashedEmail" href="#syncHashedEmail"></a><code>syncHashedEmail(email)</code></h3>
 
-</h3>
+
+
+
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -694,31 +546,23 @@ Prompts the user for location permission to allow geotagging based on the "Locat
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      email
-      
+      email</td>
+    <td>
+      <code>string</code>
     </td>
     <td>
-      
-<code>string</code>
-    </td>
-    <td>
-      
-      
-    </td>
+      </td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="setLogLevel"></div>
-<h3>
-  <code>setLogLevel(contains)</code>
-  
+<h3><a class="anchor" name="setLogLevel" href="#setLogLevel"></a><code>setLogLevel(contains)</code></h3>
 
-</h3>
+
+
+
 Enable logging to help debug if you run into an issue setting up OneSignal.
 The logging levels are as follows: 0 = None, 1= Fatal, 2 = Errors, 3 = Warnings, 4 = Info, 5 = Debug, 6 = Verbose
 
@@ -733,23 +577,16 @@ The higher the value the more information is shown.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      contains
-      
-    </td>
+      contains</td>
     <td>
-      
-<code>loglevel</code>
+      <code>loglevel</code>
     </td>
     <td>
       <p>two properties: logLevel (for console logging) and visualLevel (for dialog messages)</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
@@ -757,17 +594,9 @@ The higher the value the more information is shown.
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="OSNotification" href="#OSNotification"></a>OSNotification</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1647,10 +1476,7 @@ The higher the value the more information is shown.
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSLockScreenVisibility" href="#OSLockScreenVisibility"></a>OSLockScreenVisibility</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1708,10 +1534,7 @@ The higher the value the more information is shown.
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSDisplayType" href="#OSDisplayType"></a>OSDisplayType</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -1769,10 +1592,7 @@ The higher the value the more information is shown.
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSNotificationPayload" href="#OSNotificationPayload"></a>OSNotificationPayload</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2053,10 +1873,7 @@ or with the &#39;data&#39; field on the REST API.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSActionButton" href="#OSActionButton"></a>OSActionButton</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2114,10 +1931,7 @@ or with the &#39;data&#39; field on the REST API.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSBackgroundImageLayout" href="#OSBackgroundImageLayout"></a>OSBackgroundImageLayout</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2175,10 +1989,7 @@ or with the &#39;data&#39; field on the REST API.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSNotificationOpenedResult" href="#OSNotificationOpenedResult"></a>OSNotificationOpenedResult</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2222,10 +2033,7 @@ or with the &#39;data&#39; field on the REST API.</p>
 </table>
 
 
-
-
 <h2><a class="anchor" name="OSActionType" href="#OSActionType"></a>OSActionType</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -2269,11 +2077,4 @@ or with the &#39;data&#39; field on the REST API.</p>
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

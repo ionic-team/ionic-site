@@ -11,28 +11,12 @@ doc: "Background Mode"
 docType: "class"
 ---
 
-
-
-
-
-
-
-<h1 class="api-title">
-  
-  Background Mode
-  
-
-  
-
-  </h1>
+<h1 class="api-title">Background Mode</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L35">
   Improve this doc
 </a>
 
-
-
-<!-- decorators -->
 
 
 
@@ -47,28 +31,24 @@ $ npm install --save @ionic-native/background-mode
   </a>
 </p>
 
-<!-- description -->
 
 <p>Cordova plugin to prevent the app from going to sleep while in background.
 Requires Cordova plugin: cordova-plugin-background-mode. For more info about plugin, vist: <a href="https://github.com/katzer/cordova-plugin-background-mode">https://github.com/katzer/cordova-plugin-background-mode</a></p>
 
 
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
 
+
+<h2>Supported platforms</h2>
 <ul>
   <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
 </ul>
 
-<!-- @platforms tag end -->
 
 
-<!-- if doc.decorators -->
 
-<!-- @usage tag -->
+
 
 <h2>Usage</h2>
-
 <pre><code class="lang-typescript">import { BackgroundMode } from &#39;@ionic-native/background-mode&#39;;
 
 constructor(private backgroundMode: BackgroundMode) { }
@@ -81,68 +61,59 @@ this.backgroundMode.enable();
 
 
 
-<!-- @property tags -->
 
 
 
-
-<!-- methods on the class -->
 
 <h2>Instance Members</h2>
-<div id="enable"></div>
-<h3>
-  <code>enable()</code>
-  
+<h3><a class="anchor" name="enable" href="#enable"></a><code>enable()</code></h3>
 
-</h3>
+
+
+
 Enable the background mode.
 Once called, prevents the app from being paused while in background.
 
 
 
-<div id="disable"></div>
-<h3>
-  <code>disable()</code>
-  
+<h3><a class="anchor" name="disable" href="#disable"></a><code>disable()</code></h3>
 
-</h3>
+
 Disable the background mode.
 Once the background mode has been disabled, the app will be paused when in background.
 
 
 
-<div id="isEnabled"></div>
-<h3>
-  <code>isEnabled()</code>
-  
+<h3><a class="anchor" name="isEnabled" href="#isEnabled"></a><code>isEnabled()</code></h3>
 
-</h3>
+
+
+
 Checks if background mode is enabled or not.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>boolean</code> returns a boolean that indicates if the background mode is enabled.
-</div><div id="isActive"></div>
-<h3>
-  <code>isActive()</code>
-  
+  <b>Returns:</b> <code>boolean</code> returns a boolean that indicates if the background mode is enabled.
+</div><h3><a class="anchor" name="isActive" href="#isActive"></a><code>isActive()</code></h3>
 
-</h3>
+
+
+
 Can be used to get the information if the background mode is active.
 
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>boolean</code> returns a boolean that indicates if the background mode is active.
-</div><div id="setDefaults"></div>
-<h3>
-  <code>setDefaults(options)</code>
-  
+  <b>Returns:</b> <code>boolean</code> returns a boolean that indicates if the background mode is active.
+</div><h3><a class="anchor" name="setDefaults" href="#setDefaults"></a><code>setDefaults(options)</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Override the default title, ticker and text.
 Available only for Android platform.
 <table class="table param-table" style="margin:0;">
@@ -154,32 +125,27 @@ Available only for Android platform.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>Configure</code>
+      <code>Configure</code>
     </td>
     <td>
       <p>List of option to configure. See table below</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="configure"></div>
-<h3>
-  <code>configure(options)</code>
-  
+<h3><a class="anchor" name="configure" href="#configure"></a><code>configure(options)</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Modify the displayed information.
 Available only for Android platform.
 <table class="table param-table" style="margin:0;">
@@ -191,32 +157,24 @@ Available only for Android platform.
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      options
-      
-    </td>
+      options</td>
     <td>
-      
-<code>Configure</code>
+      <code>Configure</code>
     </td>
     <td>
       <p>Any options you want to update. See table below.</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
-<div id="on"></div>
-<h3>
-  <code>on(event)</code>
-  
+<h3><a class="anchor" name="on" href="#on"></a><code>on(event)</code></h3>
 
-</h3>
+
+
+
 Listen for events that the plugin fires. Available events are `enable`, `disable`, `activate`, `deactivate` and `failure`.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -227,96 +185,102 @@ Listen for events that the plugin fires. Available events are `enable`, `disable
   </tr>
   </thead>
   <tbody>
-  
   <tr>
     <td>
-      event
-      
-    </td>
+      event</td>
     <td>
-      
-<code>string</code>
+      <code>string</code>
     </td>
     <td>
       <p>Event name</p>
-
-      
-    </td>
+</td>
   </tr>
-  
   </tbody>
 </table>
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Observable&lt;any&gt;</code> 
-</div><div id="moveToBackground"></div>
-<h3>
-  <code>moveToBackground()</code>
-  
+  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="moveToBackground" href="#moveToBackground"></a><code>moveToBackground()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Android allows to programmatically move from foreground to background.
 
 
 
-<div id="moveToForeground"></div>
-<h3>
-  <code>moveToForeground()</code>
-  
+<h3><a class="anchor" name="moveToForeground" href="#moveToForeground"></a><code>moveToForeground()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Android allows to programmatically move from background to foreground.
 
 
 
-<div id="overrideBackButton"></div>
-<h3>
-  <code>overrideBackButton()</code>
-  
+<h3><a class="anchor" name="overrideBackButton" href="#overrideBackButton"></a><code>overrideBackButton()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Override the back button on Android to go to background instead of closing the app.
 
 
 
-<div id="excludeFromTaskList"></div>
-<h3>
-  <code>excludeFromTaskList()</code>
-  
+<h3><a class="anchor" name="excludeFromTaskList" href="#excludeFromTaskList"></a><code>excludeFromTaskList()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Exclude the app from the recent task list works on Android 5.0+.
 
 
 
-<div id="isScreenOff"></div>
-<h3>
-  <code>isScreenOff()</code>
-  
+<h3><a class="anchor" name="isScreenOff" href="#isScreenOff"></a><code>isScreenOff()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 The method works async instead of isActive() or isEnabled().
 
 
 
-<div id="wakeUp"></div>
-<h3>
-  <code>wakeUp()</code>
-  
+<h3><a class="anchor" name="wakeUp" href="#wakeUp"></a><code>wakeUp()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Turn screen on
 
 
 
-<div id="unlock"></div>
-<h3>
-  <code>unlock()</code>
-  
+<h3><a class="anchor" name="unlock" href="#unlock"></a><code>unlock()</code></h3>
 
-</h3>
+
+
+<p>
+  <strong>Platforms:</strong><strong class="tag">Android</strong>&nbsp;</p>
+
+
 Turn screen on and show app even locked
 
 
@@ -325,17 +289,9 @@ Turn screen on and show app even locked
 
 
 
-<!-- other classes -->
-
-<!-- end other classes -->
-
-<!-- interfaces -->
-
-<!--<h2><a class="anchor" name="interfaces" href="#interfaces"></a>Interfaces</h2>-->
 
 
 <h2><a class="anchor" name="BackgroundModeConfiguration" href="#BackgroundModeConfiguration"></a>BackgroundModeConfiguration</h2>
-
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -423,11 +379,4 @@ Turn screen on and show app even locked
 
 
 
-
-<!-- end interfaces -->
-
-<!-- related link --><!-- end content block -->
-
-
-<!-- end body block -->
 

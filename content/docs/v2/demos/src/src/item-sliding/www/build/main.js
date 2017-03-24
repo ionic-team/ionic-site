@@ -154,7 +154,7 @@
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R", function() { return Host; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return NgZone; });
 /* unused harmony export RenderComponentType */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return RendererV1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return Renderer; });
 /* unused harmony export Renderer2 */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return RendererFactory2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_10", function() { return RendererStyleFlags2; });
@@ -205,13 +205,14 @@
 /* unused harmony export ɵReflectionCapabilities */
 /* unused harmony export ɵReflectorReader */
 /* unused harmony export ɵRenderDebugInfo */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_5", function() { return global$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_5", function() { return _global; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_26", function() { return looseIdentical; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return stringify; });
 /* unused harmony export ɵmakeDecorator */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "V", function() { return isObservable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "U", function() { return isPromise; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_8", function() { return merge$1; });
+/* unused harmony export ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NgModuleInjector; });
 /* unused harmony export ɵregisterModuleFactory */
 /* unused harmony export ɵEMPTY_ARRAY */
@@ -282,7 +283,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5
+ * @license Angular v4.0.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -369,18 +370,18 @@ var InjectionToken = (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var /** @type {?} */ __window = typeof window !== 'undefined' && window;
-var /** @type {?} */ __self = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
+var __window = typeof window !== 'undefined' && window;
+var __self = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
     self instanceof WorkerGlobalScope && self;
-var /** @type {?} */ __global = typeof global !== 'undefined' && global;
-var /** @type {?} */ global$1 = __window || __global || __self;
-var /** @type {?} */ _symbolIterator = null;
+var __global = typeof global !== 'undefined' && global;
+var _global = __window || __global || __self;
+var _symbolIterator = null;
 /**
  * @return {?}
  */
 function getSymbolIterator() {
     if (!_symbolIterator) {
-        var /** @type {?} */ Symbol = global$1['Symbol'];
+        var /** @type {?} */ Symbol = _global['Symbol'];
         if (Symbol && Symbol.iterator) {
             _symbolIterator = Symbol.iterator;
         }
@@ -431,11 +432,21 @@ function stringify(token) {
         return "" + token.name;
     }
     var /** @type {?} */ res = token.toString();
+    if (res == null) {
+        return '' + res;
+    }
     var /** @type {?} */ newLineIndex = res.indexOf('\n');
     return newLineIndex === -1 ? res : res.substring(0, newLineIndex);
 }
-var /** @type {?} */ _nextClassId = 0;
-var /** @type {?} */ Reflect = global$1['Reflect'];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _nextClassId = 0;
+var Reflect = _global['Reflect'];
 /**
  * @param {?} annotation
  * @return {?}
@@ -761,6 +772,13 @@ function makePropDecorator(name, props, parentClass) {
     return PropDecoratorFactory;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * This token can be used to create a virtual provider that will populate the
  * `entryComponents` fields of components and ng modules based on its `useValue`.
  * All components that are referenced in the `useValue` value (either directly
@@ -899,6 +917,13 @@ function isDefaultChangeDetectionStrategy(changeDetectionStrategy) {
         changeDetectionStrategy === ChangeDetectionStrategy.Default;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Directive decorator and metadata.
  *
  * \@stable
@@ -977,6 +1002,13 @@ var HostBinding = makePropDecorator('HostBinding', [['hostPropertyName', undefin
  * \@Annotation
  */
 var HostListener = makePropDecorator('HostListener', [['eventName', undefined], ['args', []]]);
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Defines a schema that will allow:
  * - any non-Angular elements with a `-` in their name,
@@ -1061,6 +1093,13 @@ var ViewMetadata = (function () {
     return ViewMetadata;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@whatItDoes Represents the version of Angular
  *
  * \@stable
@@ -1101,7 +1140,14 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('4.0.0-rc.5');
+var VERSION = new Version('4.0.0');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Inject decorator and metadata.
  *
@@ -1145,6 +1191,13 @@ var SkipSelf = makeParamDecorator('SkipSelf', []);
  */
 var Host = makeParamDecorator('Host', []);
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Allows to refer to references which are not yet defined.
  *
  * For instance, `forwardRef` is used when the `token` which we need to refer to for the purposes of
@@ -1186,8 +1239,15 @@ function resolveForwardRef(type) {
         return type;
     }
 }
-var /** @type {?} */ _THROW_IF_NOT_FOUND = new Object();
-var /** @type {?} */ THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _THROW_IF_NOT_FOUND = new Object();
+var THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 var _NullInjector = (function () {
     function _NullInjector() {
     }
@@ -1255,10 +1315,21 @@ var Injector = (function () {
 }());
 Injector.THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 Injector.NULL = new _NullInjector();
-var /** @type {?} */ ERROR_COMPONENT_TYPE = 'ngComponentType';
-var /** @type {?} */ ERROR_DEBUG_CONTEXT = 'ngDebugContext';
-var /** @type {?} */ ERROR_ORIGINAL_ERROR = 'ngOriginalError';
-var /** @type {?} */ ERROR_LOGGER = 'ngErrorLogger';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var ERROR_COMPONENT_TYPE = 'ngComponentType';
+var ERROR_DEBUG_CONTEXT = 'ngDebugContext';
+var ERROR_ORIGINAL_ERROR = 'ngOriginalError';
+var ERROR_LOGGER = 'ngErrorLogger';
+/**
+ * @param {?} error
+ * @return {?}
+ */
 /**
  * @param {?} error
  * @return {?}
@@ -1292,6 +1363,13 @@ function defaultErrorLogger(console) {
     }
     console.error.apply(console, values);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@whatItDoes Provides a hook for centralized exception handling.
  *
@@ -1388,6 +1466,13 @@ function wrappedError(message, originalError) {
     ((error))[ERROR_ORIGINAL_ERROR] = originalError;
     return error;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} keys
  * @return {?}
@@ -1627,6 +1712,13 @@ function mixingMultiProvidersWithRegularProvidersError(provider1, provider2) {
     return Error("Cannot mix multi providers and regular providers, got: " + provider1 + " " + provider2);
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A unique object used for retrieving items from the {\@link ReflectiveInjector}.
  *
  * Keys have:
@@ -1713,7 +1805,7 @@ var KeyRegistry = (function () {
     });
     return KeyRegistry;
 }());
-var /** @type {?} */ _globalKeyRegistry = new KeyRegistry();
+var _globalKeyRegistry = new KeyRegistry();
 /**
  * \@whatItDoes Represents a type that a Component or other object is instances of.
  *
@@ -1733,15 +1825,22 @@ function isType(v) {
     return typeof v === 'function';
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Attention: This regex has to hold even if the code is minified!
  */
-var /** @type {?} */ DELEGATE_CTOR = /^function\s+\S+\(\)\s*{\s*("use strict";)?\s*(return\s+)?(\S+\s+!==\s+null\s+&&\s+)?\S+\.apply\(this,\s*arguments\)/;
+var DELEGATE_CTOR = /^function\s+\S+\(\)\s*{\s*("use strict";)?\s*(return\s+)?(\S+\s+!==\s+null\s+&&\s+)?\S+\.apply\(this,\s*arguments\)/;
 var ReflectionCapabilities = (function () {
     /**
      * @param {?=} reflect
      */
     function ReflectionCapabilities(reflect) {
-        this._reflect = reflect || global$1['Reflect'];
+        this._reflect = reflect || _global['Reflect'];
     }
     /**
      * @return {?}
@@ -1989,6 +2088,11 @@ var ReflectionCapabilities = (function () {
         return "./" + stringify(type);
     };
     /**
+     * @param {?} type
+     * @return {?}
+     */
+    ReflectionCapabilities.prototype.resourceUri = function (type) { return "./" + stringify(type); };
+    /**
      * @param {?} name
      * @param {?} moduleUrl
      * @param {?} members
@@ -2066,6 +2170,12 @@ var ReflectorReader = (function () {
     ReflectorReader.prototype.importUri = function (typeOrFunc) { };
     /**
      * @abstract
+     * @param {?} typeOrFunc
+     * @return {?}
+     */
+    ReflectorReader.prototype.resourceUri = function (typeOrFunc) { };
+    /**
+     * @abstract
      * @param {?} name
      * @param {?} moduleUrl
      * @param {?} members
@@ -2082,6 +2192,13 @@ var ReflectorReader = (function () {
     ReflectorReader.prototype.resolveEnum = function (identifier, name) { };
     return ReflectorReader;
 }());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Provides access to reflection data about symbols. Used internally by Angular
  * to power dependency injection and compilation.
@@ -2156,6 +2273,11 @@ var Reflector = (function (_super) {
      */
     Reflector.prototype.importUri = function (type) { return this.reflectionCapabilities.importUri(type); };
     /**
+     * @param {?} type
+     * @return {?}
+     */
+    Reflector.prototype.resourceUri = function (type) { return this.reflectionCapabilities.resourceUri(type); };
+    /**
      * @param {?} name
      * @param {?} moduleUrl
      * @param {?} members
@@ -2176,10 +2298,24 @@ var Reflector = (function (_super) {
     return Reflector;
 }(ReflectorReader));
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * The {@link Reflector} used internally in Angular to access metadata
  * about symbols.
  */
-var /** @type {?} */ reflector = new Reflector(new ReflectionCapabilities());
+var reflector = new Reflector(new ReflectionCapabilities());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * `Dependency` is used by the framework to extend DI.
  * This is internal to Angular and should not be used directly.
@@ -2204,7 +2340,7 @@ var ReflectiveDependency = (function () {
     };
     return ReflectiveDependency;
 }());
-var /** @type {?} */ _EMPTY_LIST = [];
+var _EMPTY_LIST = [];
 var ResolvedReflectiveProvider_ = (function () {
     /**
      * @param {?} key
@@ -2431,8 +2567,15 @@ function _extractToken(typeOrFunc, metadata, params) {
 function _createDependency(token, optional, visibility) {
     return new ReflectiveDependency(ReflectiveKey.get(token), optional, visibility);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 // Threshold for the dynamic version
-var /** @type {?} */ UNDEFINED = new Object();
+var UNDEFINED = new Object();
 /**
  * A ReflectiveDependency injection container used for instantiating objects and resolving
  * dependencies.
@@ -2832,13 +2975,13 @@ var ReflectiveInjector_ = (function () {
      * @param {?} ResolvedReflectiveFactory
      * @return {?}
      */
-    ReflectiveInjector_.prototype._instantiate = function (provider, ResolvedReflectiveFactory) {
+    ReflectiveInjector_.prototype._instantiate = function (provider, ResolvedReflectiveFactory$$1) {
         var _this = this;
-        var /** @type {?} */ factory = ResolvedReflectiveFactory.factory;
+        var /** @type {?} */ factory = ResolvedReflectiveFactory$$1.factory;
         var /** @type {?} */ deps;
         try {
             deps =
-                ResolvedReflectiveFactory.dependencies.map(function (dep) { return _this._getByReflectiveDependency(dep); });
+                ResolvedReflectiveFactory$$1.dependencies.map(function (dep) { return _this._getByReflectiveDependency(dep); });
         }
         catch (e) {
             if (e.addKey) {
@@ -2965,7 +3108,7 @@ var ReflectiveInjector_ = (function () {
     ReflectiveInjector_.prototype.toString = function () { return this.displayName; };
     return ReflectiveInjector_;
 }());
-var /** @type {?} */ INJECTOR_KEY = ReflectiveKey.get(Injector);
+var INJECTOR_KEY = ReflectiveKey.get(Injector);
 /**
  * @param {?} injector
  * @param {?} fn
@@ -2978,6 +3121,18 @@ function _mapProviders(injector, fn) {
     }
     return res;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * The `di` module provides dependency injection container services.
+ */
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -3022,6 +3177,13 @@ function merge$1(m1, m2) {
     }
     return m;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * A function that will be executed when an application is initialized.
  * \@experimental
@@ -3081,6 +3243,13 @@ ApplicationInitStatus.ctorParameters = function () { return [
     { type: Array, decorators: [{ type: Inject, args: [APP_INITIALIZER,] }, { type: Optional },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A DI Token representing a unique string id assigned to the application by Angular and used
  * primarily for prefixing application attributes and CSS styles when
  * {\@link ViewEncapsulation#Emulated} is being used.
@@ -3136,6 +3305,13 @@ var APP_BOOTSTRAP_LISTENER = new InjectionToken('appBootstrapListener');
  * \@experimental
  */
 var PACKAGE_ROOT_URL = new InjectionToken('Application Packages Root URL');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var Console = (function () {
     function Console() {
     }
@@ -3164,6 +3340,13 @@ Console.decorators = [
  * @nocollapse
  */
 Console.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Combination of NgModuleFactory and ComponentFactorys.
  *
@@ -3237,6 +3420,8 @@ var Compiler = (function () {
      * the template of the given component.
      * This is used by the `upgrade` library to compile the appropriate transclude content
      * in the AngularJS wrapper component.
+     *
+     * @deprecated since v4. Use ComponentFactory.ngContentSelectors instead.
      * @param {?} component
      * @return {?}
      */
@@ -3372,6 +3557,24 @@ var ComponentFactory = (function () {
      */
     ComponentFactory.prototype.componentType = function () { };
     /**
+     * selector for all <ng-content> elements in the component.
+     * @abstract
+     * @return {?}
+     */
+    ComponentFactory.prototype.ngContentSelectors = function () { };
+    /**
+     * the inputs of the component.
+     * @abstract
+     * @return {?}
+     */
+    ComponentFactory.prototype.inputs = function () { };
+    /**
+     * the outputs of the component.
+     * @abstract
+     * @return {?}
+     */
+    ComponentFactory.prototype.outputs = function () { };
+    /**
      * Creates a new component.
      * @abstract
      * @param {?} injector
@@ -3384,6 +3587,13 @@ var ComponentFactory = (function () {
     return ComponentFactory;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} component
  * @return {?}
  */
@@ -3392,7 +3602,11 @@ function noComponentFactoryError(component) {
     ((error))[ERROR_COMPONENT] = component;
     return error;
 }
-var /** @type {?} */ ERROR_COMPONENT = 'ngComponent';
+var ERROR_COMPONENT = 'ngComponent';
+/**
+ * @param {?} error
+ * @return {?}
+ */
 var _NullComponentFactoryResolver = (function () {
     function _NullComponentFactoryResolver() {
     }
@@ -3477,6 +3691,30 @@ var ComponentFactoryBoundToModule = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(ComponentFactoryBoundToModule.prototype, "ngContentSelectors", {
+        /**
+         * @return {?}
+         */
+        get: function () { return this.factory.ngContentSelectors; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ComponentFactoryBoundToModule.prototype, "inputs", {
+        /**
+         * @return {?}
+         */
+        get: function () { return this.factory.inputs; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ComponentFactoryBoundToModule.prototype, "outputs", {
+        /**
+         * @return {?}
+         */
+        get: function () { return this.factory.outputs; },
+        enumerable: true,
+        configurable: true
+    });
     /**
      * @param {?} injector
      * @param {?=} projectableNodes
@@ -3489,6 +3727,13 @@ var ComponentFactoryBoundToModule = (function (_super) {
     };
     return ComponentFactoryBoundToModule;
 }(ComponentFactory));
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Represents an instance of an NgModule created via a {\@link NgModuleFactory}.
  *
@@ -3566,7 +3811,7 @@ var NgModuleFactory = (function () {
     };
     return NgModuleFactory;
 }());
-var /** @type {?} */ _UNDEFINED = new Object();
+var _UNDEFINED = new Object();
 /**
  * @abstract
  */
@@ -3656,13 +3901,20 @@ var NgModuleInjector = (function () {
     NgModuleInjector.prototype.destroyInternal = function () { };
     return NgModuleInjector;
 }());
-var /** @type {?} */ trace;
-var /** @type {?} */ events;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var trace;
+var events;
 /**
  * @return {?}
  */
 function detectWTF() {
-    var /** @type {?} */ wtf = ((global$1) /** TODO #9100 */)['wtf'];
+    var /** @type {?} */ wtf = ((_global) /** TODO #9100 */)['wtf'];
     if (wtf) {
         trace = wtf['trace'];
         if (trace) {
@@ -3677,7 +3929,7 @@ function detectWTF() {
  * @param {?=} flags
  * @return {?}
  */
-function createScope(signature, flags) {
+function createScope$1(signature, flags) {
     if (flags === void 0) { flags = null; }
     return events.createScope(signature, flags);
 }
@@ -3707,9 +3959,16 @@ function endTimeRange(range) {
     trace.endTimeRange(range);
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * True if WTF is enabled.
  */
-var /** @type {?} */ wtfEnabled = detectWTF();
+var wtfEnabled = detectWTF();
 /**
  * @param {?=} arg0
  * @param {?=} arg1
@@ -3748,7 +4007,7 @@ function noopScope(arg0, arg1) {
  *
  * \@experimental
  */
-var wtfCreateScope = wtfEnabled ? createScope : function (signature, flags) { return noopScope; };
+var wtfCreateScope = wtfEnabled ? createScope$1 : function (signature, flags) { return noopScope; };
 /**
  * Used to mark end of Scope.
  *
@@ -3780,6 +4039,13 @@ var wtfStartTimeRange = wtfEnabled ? startTimeRange : function (rangeType, actio
  * \@experimental
  */
 var wtfEndTimeRange = wtfEnabled ? endTimeRange : function (r) { return null; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Use by directives and components to emit custom Events.
  *
@@ -3884,6 +4150,13 @@ var EventEmitter = (function (_super) {
     };
     return EventEmitter;
 }(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]));
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * An injectable service for executing work inside or outside of the Angular zone.
  *
@@ -4212,6 +4485,13 @@ var NgZone = (function () {
     return NgZone;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * The Testability service provides testing hooks that can be accessed from
  * the browser and by services such as Protractor. Each bootstrapped Angular
  * application on the page will have an instance of Testability.
@@ -4436,11 +4716,18 @@ var _NoopGetTestability = (function () {
 function setTestabilityGetter(getter) {
     _testabilityGetter = getter;
 }
-var /** @type {?} */ _testabilityGetter = new _NoopGetTestability();
-var /** @type {?} */ _devMode = true;
-var /** @type {?} */ _runModeLocked = false;
-var /** @type {?} */ _platform;
-var /** @type {?} */ ALLOW_MULTIPLE_PLATFORMS = new InjectionToken('AllowMultipleToken');
+var _testabilityGetter = new _NoopGetTestability();
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _devMode = true;
+var _runModeLocked = false;
+var _platform;
+var ALLOW_MULTIPLE_PLATFORMS = new InjectionToken('AllowMultipleToken');
 /**
  * Disable Angular's development mode, which turns off assertions and other
  * checks within the framework.
@@ -5144,6 +5431,21 @@ function remove(list, el) {
     }
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// Public API for Zone
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @deprecated Use `RendererType2` (and `Renderer2`) instead.
  */
 var RenderComponentType = (function () {
@@ -5208,8 +5510,8 @@ var RenderDebugInfo = (function () {
  * @deprecated Use the `Renderer2` instead.
  * @abstract
  */
-var RendererV1 = (function () {
-    function RendererV1() {
+var Renderer = (function () {
+    function Renderer() {
     }
     /**
      * @abstract
@@ -5217,7 +5519,7 @@ var RendererV1 = (function () {
      * @param {?=} debugInfo
      * @return {?}
      */
-    RendererV1.prototype.selectRootElement = function (selectorOrNode, debugInfo) { };
+    Renderer.prototype.selectRootElement = function (selectorOrNode, debugInfo) { };
     /**
      * @abstract
      * @param {?} parentElement
@@ -5225,20 +5527,20 @@ var RendererV1 = (function () {
      * @param {?=} debugInfo
      * @return {?}
      */
-    RendererV1.prototype.createElement = function (parentElement, name, debugInfo) { };
+    Renderer.prototype.createElement = function (parentElement, name, debugInfo) { };
     /**
      * @abstract
      * @param {?} hostElement
      * @return {?}
      */
-    RendererV1.prototype.createViewRoot = function (hostElement) { };
+    Renderer.prototype.createViewRoot = function (hostElement) { };
     /**
      * @abstract
      * @param {?} parentElement
      * @param {?=} debugInfo
      * @return {?}
      */
-    RendererV1.prototype.createTemplateAnchor = function (parentElement, debugInfo) { };
+    Renderer.prototype.createTemplateAnchor = function (parentElement, debugInfo) { };
     /**
      * @abstract
      * @param {?} parentElement
@@ -5246,34 +5548,34 @@ var RendererV1 = (function () {
      * @param {?=} debugInfo
      * @return {?}
      */
-    RendererV1.prototype.createText = function (parentElement, value, debugInfo) { };
+    Renderer.prototype.createText = function (parentElement, value, debugInfo) { };
     /**
      * @abstract
      * @param {?} parentElement
      * @param {?} nodes
      * @return {?}
      */
-    RendererV1.prototype.projectNodes = function (parentElement, nodes) { };
+    Renderer.prototype.projectNodes = function (parentElement, nodes) { };
     /**
      * @abstract
      * @param {?} node
      * @param {?} viewRootNodes
      * @return {?}
      */
-    RendererV1.prototype.attachViewAfter = function (node, viewRootNodes) { };
+    Renderer.prototype.attachViewAfter = function (node, viewRootNodes) { };
     /**
      * @abstract
      * @param {?} viewRootNodes
      * @return {?}
      */
-    RendererV1.prototype.detachView = function (viewRootNodes) { };
+    Renderer.prototype.detachView = function (viewRootNodes) { };
     /**
      * @abstract
      * @param {?} hostElement
      * @param {?} viewAllNodes
      * @return {?}
      */
-    RendererV1.prototype.destroyView = function (hostElement, viewAllNodes) { };
+    Renderer.prototype.destroyView = function (hostElement, viewAllNodes) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5281,7 +5583,7 @@ var RendererV1 = (function () {
      * @param {?} callback
      * @return {?}
      */
-    RendererV1.prototype.listen = function (renderElement, name, callback) { };
+    Renderer.prototype.listen = function (renderElement, name, callback) { };
     /**
      * @abstract
      * @param {?} target
@@ -5289,7 +5591,7 @@ var RendererV1 = (function () {
      * @param {?} callback
      * @return {?}
      */
-    RendererV1.prototype.listenGlobal = function (target, name, callback) { };
+    Renderer.prototype.listenGlobal = function (target, name, callback) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5297,7 +5599,7 @@ var RendererV1 = (function () {
      * @param {?} propertyValue
      * @return {?}
      */
-    RendererV1.prototype.setElementProperty = function (renderElement, propertyName, propertyValue) { };
+    Renderer.prototype.setElementProperty = function (renderElement, propertyName, propertyValue) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5305,7 +5607,7 @@ var RendererV1 = (function () {
      * @param {?} attributeValue
      * @return {?}
      */
-    RendererV1.prototype.setElementAttribute = function (renderElement, attributeName, attributeValue) { };
+    Renderer.prototype.setElementAttribute = function (renderElement, attributeName, attributeValue) { };
     /**
      * Used only in debug mode to serialize property changes to dom nodes as attributes.
      * @abstract
@@ -5314,7 +5616,7 @@ var RendererV1 = (function () {
      * @param {?} propertyValue
      * @return {?}
      */
-    RendererV1.prototype.setBindingDebugInfo = function (renderElement, propertyName, propertyValue) { };
+    Renderer.prototype.setBindingDebugInfo = function (renderElement, propertyName, propertyValue) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5322,7 +5624,7 @@ var RendererV1 = (function () {
      * @param {?} isAdd
      * @return {?}
      */
-    RendererV1.prototype.setElementClass = function (renderElement, className, isAdd) { };
+    Renderer.prototype.setElementClass = function (renderElement, className, isAdd) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5330,7 +5632,7 @@ var RendererV1 = (function () {
      * @param {?} styleValue
      * @return {?}
      */
-    RendererV1.prototype.setElementStyle = function (renderElement, styleName, styleValue) { };
+    Renderer.prototype.setElementStyle = function (renderElement, styleName, styleValue) { };
     /**
      * @abstract
      * @param {?} renderElement
@@ -5338,14 +5640,14 @@ var RendererV1 = (function () {
      * @param {?=} args
      * @return {?}
      */
-    RendererV1.prototype.invokeElementMethod = function (renderElement, methodName, args) { };
+    Renderer.prototype.invokeElementMethod = function (renderElement, methodName, args) { };
     /**
      * @abstract
      * @param {?} renderNode
      * @param {?} text
      * @return {?}
      */
-    RendererV1.prototype.setText = function (renderNode, text) { };
+    Renderer.prototype.setText = function (renderNode, text) { };
     /**
      * @abstract
      * @param {?} element
@@ -5357,10 +5659,10 @@ var RendererV1 = (function () {
      * @param {?=} previousPlayers
      * @return {?}
      */
-    RendererV1.prototype.animate = function (element, startingStyles, keyframes, duration, delay, easing, previousPlayers) { };
-    return RendererV1;
+    Renderer.prototype.animate = function (element, startingStyles, keyframes, duration, delay, easing, previousPlayers) { };
+    return Renderer;
 }());
-var /** @type {?} */ Renderer2Interceptor = new InjectionToken('Renderer2Interceptor');
+var Renderer2Interceptor = new InjectionToken('Renderer2Interceptor');
 /**
  * Injectable service that provides a low-level interface for modifying the UI.
  *
@@ -5565,6 +5867,14 @@ var Renderer2 = (function () {
     Renderer2.prototype.listen = function (target, eventName, callback) { };
     return Renderer2;
 }());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// Public API for render
 var ElementRef = (function () {
     /**
      * @param {?} nativeElement
@@ -5597,7 +5907,7 @@ var NgModuleFactoryLoader = (function () {
     NgModuleFactoryLoader.prototype.load = function (path) { };
     return NgModuleFactoryLoader;
 }());
-var /** @type {?} */ moduleFactories = new Map();
+var moduleFactories = new Map();
 /**
  * Registers a loaded module. Should only be called from generated NgModuleFactory code.
  * \@experimental
@@ -5613,6 +5923,9 @@ function registerModuleFactory(id, factory) {
     moduleFactories.set(id, factory);
 }
 /**
+ * @return {?}
+ */
+/**
  * Returns the NgModuleFactory with the given id, if it exists and has been loaded.
  * Factories for modules that do not specify an `id` cannot be retrieved. Throws if the module
  * cannot be found.
@@ -5626,6 +5939,13 @@ function getModuleFactory(id) {
         throw new Error("No module with ID " + id + " loaded");
     return factory;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * An unmodifiable list of items that Angular keeps up to date when the state
  * of the application changes.
@@ -5789,8 +6109,15 @@ function flatten(list) {
         return ((flat)).concat(flatItem);
     }, []);
 }
-var /** @type {?} */ _SEPARATOR = '#';
-var /** @type {?} */ FACTORY_CLASS_SUFFIX = 'NgFactory';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _SEPARATOR = '#';
+var FACTORY_CLASS_SUFFIX = 'NgFactory';
 /**
  * Configuration for SystemJsNgModuleLoader.
  * token.
@@ -5803,7 +6130,7 @@ var SystemJsNgModuleLoaderConfig = (function () {
     }
     return SystemJsNgModuleLoaderConfig;
 }());
-var /** @type {?} */ DEFAULT_CONFIG = {
+var DEFAULT_CONFIG = {
     factoryPathPrefix: '',
     factoryPathSuffix: '.ngfactory',
 };
@@ -6017,9 +6344,10 @@ var ViewContainerRef = (function () {
      * @param {?=} index
      * @param {?=} injector
      * @param {?=} projectableNodes
+     * @param {?=} ngModule
      * @return {?}
      */
-    ViewContainerRef.prototype.createComponent = function (componentFactory, index, injector, projectableNodes) { };
+    ViewContainerRef.prototype.createComponent = function (componentFactory, index, injector, projectableNodes, ngModule) { };
     /**
      * Inserts a View identified by a {\@link ViewRef} into the container at the specified `index`.
      *
@@ -6266,6 +6594,13 @@ var ChangeDetectorRef = (function () {
     return ChangeDetectorRef;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@stable
  * @abstract
  */
@@ -6365,6 +6700,14 @@ var EmbeddedViewRef = (function (_super) {
     EmbeddedViewRef.prototype.rootNodes = function () { };
     return EmbeddedViewRef;
 }(ViewRef));
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// Public API for compiler
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -6630,7 +6973,7 @@ function _queryNodeChildren(parentNode, predicate, matches) {
     }
 }
 // Need to keep the nodes in a global Map so that multiple angular apps are supported.
-var /** @type {?} */ _nativeNodeToDebugNode = new Map();
+var _nativeNodeToDebugNode = new Map();
 /**
  * \@experimental
  * @param {?} nativeNode
@@ -6639,6 +6982,9 @@ var /** @type {?} */ _nativeNodeToDebugNode = new Map();
 function getDebugNode(nativeNode) {
     return _nativeNodeToDebugNode.get(nativeNode);
 }
+/**
+ * @return {?}
+ */
 /**
  * @param {?} node
  * @return {?}
@@ -6653,6 +6999,13 @@ function indexDebugNode(node) {
 function removeDebugNodeFromIndex(node) {
     _nativeNodeToDebugNode.delete(node.nativeNode);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} a
  * @param {?} b
@@ -6811,6 +7164,13 @@ function iterateListLike(obj, fn) {
 function isJsObject(o) {
     return o !== null && (typeof o === 'function' || typeof o === 'object');
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var DefaultIterableDifferFactory = (function () {
     function DefaultIterableDifferFactory() {
     }
@@ -6831,7 +7191,7 @@ var DefaultIterableDifferFactory = (function () {
     };
     return DefaultIterableDifferFactory;
 }());
-var /** @type {?} */ trackByIdentity = function (index, item) { return item; };
+var trackByIdentity = function (index, item) { return item; };
 /**
  * @deprecated v4.0.0 - Should not be part of public API.
  */
@@ -7694,6 +8054,13 @@ function getPreviousIndex(item, addRemoveOffset, moveOffsets) {
     }
     return previousIndex + addRemoveOffset + moveOffset;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var DefaultKeyValueDifferFactory = (function () {
     function DefaultKeyValueDifferFactory() {
     }
@@ -8094,6 +8461,13 @@ var KeyValueChangeRecord_ = (function () {
     return KeyValueChangeRecord_;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A repository of different iterable diffing strategies used by NgFor, NgClass, and others.
  * \@stable
  */
@@ -8179,6 +8553,13 @@ function getTypeNameForDebugging(type) {
     return type['name'] || typeof type;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A repository of different Map diffing strategies used by NgClass, NgStyle, and others.
  * \@stable
  */
@@ -8253,22 +8634,48 @@ var KeyValueDiffers = (function () {
     return KeyValueDiffers;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Structural diffing for `Object`s and `Map`s.
  */
-var /** @type {?} */ keyValDiff = [new DefaultKeyValueDifferFactory()];
+var keyValDiff = [new DefaultKeyValueDifferFactory()];
 /**
  * Structural diffing for `Iterable` types such as `Array`s.
  */
-var /** @type {?} */ iterableDiff = [new DefaultIterableDifferFactory()];
-var /** @type {?} */ defaultIterableDiffers = new IterableDiffers(iterableDiff);
-var /** @type {?} */ defaultKeyValueDiffers = new KeyValueDiffers(keyValDiff);
+var iterableDiff = [new DefaultIterableDifferFactory()];
+var defaultIterableDiffers = new IterableDiffers(iterableDiff);
+var defaultKeyValueDiffers = new KeyValueDiffers(keyValDiff);
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Change detection enables data binding in Angular.
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @return {?}
  */
 function _reflector() {
     return reflector;
 }
-var /** @type {?} */ _CORE_PLATFORM_PROVIDERS = [
+var _CORE_PLATFORM_PROVIDERS = [
     // Set a default platform name for platforms that don't set it explicitly.
     { provide: PLATFORM_ID, useValue: 'unknown' },
     PlatformRef_,
@@ -8284,6 +8691,13 @@ var /** @type {?} */ _CORE_PLATFORM_PROVIDERS = [
  * \@experimental
  */
 var platformCore = createPlatformFactory(null, 'core', _CORE_PLATFORM_PROVIDERS);
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@experimental i18n support is experimental.
  */
@@ -8334,6 +8748,24 @@ var Sanitizer = (function () {
     Sanitizer.prototype.sanitize = function (context, value) { };
     return Sanitizer;
 }());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Node instance data.
+ *
+ * We have a separate type per NodeType to save memory
+ * (TextData | ElementData | ProviderData | PureExpressionData | QueryList<any>)
+ *
+ * To keep our code monomorphic,
+ * we prohibit using `NodeData` directly but enforce the use of accessors (`asElementData`, ...).
+ * This way, no usage site can get a `NodeData` from view.nodes and then use it for different
+ * purposes.
+ */
 /**
  * Accessor for view.nodes, enforcing that every usage site stays monomorphic.
  * @param {?} view
@@ -8448,7 +8880,7 @@ var DebugContext = (function () {
  * This object is used to prevent cycles in the source files and to have a place where
  * debug mode can hook it. It is lazily filled when `isDevMode` is known.
  */
-var /** @type {?} */ Services = {
+var Services = {
     setCurrentNode: undefined,
     createRootView: undefined,
     createEmbeddedView: undefined,
@@ -8462,6 +8894,13 @@ var /** @type {?} */ Services = {
     updateRenderer: undefined,
     dirtyParentQueries: undefined,
 };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} context
  * @param {?} oldValue
@@ -8525,8 +8964,15 @@ function isViewDebugError(err) {
 function viewDestroyedError(action) {
     return new Error("ViewDestroyedError: Attempt to use a destroyed view: " + action);
 }
-var /** @type {?} */ NOOP = function () { };
-var /** @type {?} */ _tokenKeyCache = new Map();
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NOOP = function () { };
+var _tokenKeyCache = new Map();
 /**
  * @param {?} token
  * @return {?}
@@ -8539,33 +8985,60 @@ function tokenKey(token) {
     }
     return key;
 }
-var /** @type {?} */ unwrapCounter = 0;
 /**
+ * @param {?} view
+ * @param {?} nodeIdx
+ * @param {?} bindingIdx
  * @param {?} value
  * @return {?}
  */
-function unwrapValue(value) {
+function unwrapValue(view, nodeIdx, bindingIdx, value) {
     if (value instanceof WrappedValue) {
         value = value.wrapped;
-        unwrapCounter++;
+        var /** @type {?} */ globalBindingIdx = view.def.nodes[nodeIdx].bindingIndex + bindingIdx;
+        var /** @type {?} */ oldValue = view.oldValues[globalBindingIdx];
+        if (oldValue instanceof WrappedValue) {
+            oldValue = oldValue.wrapped;
+        }
+        view.oldValues[globalBindingIdx] = new WrappedValue(oldValue);
     }
     return value;
 }
-var /** @type {?} */ _renderCompCount = 0;
+var UNDEFINED_RENDERER_TYPE_ID = '$$undefined';
+var EMPTY_RENDERER_TYPE_ID = '$$empty';
 /**
  * @param {?} values
  * @return {?}
  */
 function createRendererType2(values) {
-    var /** @type {?} */ isFilled = values && (values.encapsulation !== ViewEncapsulation.None ||
-        values.styles.length || Object.keys(values.data).length);
-    if (isFilled) {
-        var /** @type {?} */ id = "c" + _renderCompCount++;
-        return { id: id, styles: values.styles, encapsulation: values.encapsulation, data: values.data };
+    return {
+        id: UNDEFINED_RENDERER_TYPE_ID,
+        styles: values.styles,
+        encapsulation: values.encapsulation,
+        data: values.data
+    };
+}
+var _renderCompCount = 0;
+/**
+ * @param {?} type
+ * @return {?}
+ */
+function resolveRendererType2(type) {
+    if (type && type.id === UNDEFINED_RENDERER_TYPE_ID) {
+        // first time we see this RendererType2. Initialize it...
+        var /** @type {?} */ isFilled = ((type.encapsulation != null && type.encapsulation !== ViewEncapsulation.None) ||
+            type.styles.length || Object.keys(type.data).length);
+        if (isFilled) {
+            type.id = "c" + _renderCompCount++;
+        }
+        else {
+            type.id = EMPTY_RENDERER_TYPE_ID;
+        }
     }
-    else {
-        return null;
+    if (type && type.id === EMPTY_RENDERER_TYPE_ID) {
+        type = null;
     }
+    return type;
 }
 /**
  * @param {?} view
@@ -8576,9 +9049,8 @@ function createRendererType2(values) {
  */
 function checkBinding(view, def, bindingIdx, value) {
     var /** @type {?} */ oldValues = view.oldValues;
-    if (unwrapCounter > 0 || !!(view.state & 1 /* FirstCheck */) ||
+    if ((view.state & 1 /* FirstCheck */) ||
         !looseIdentical(oldValues[def.bindingIndex + bindingIdx], value)) {
-        unwrapCounter = 0;
         return true;
     }
     return false;
@@ -8606,8 +9078,7 @@ function checkAndUpdateBinding(view, def, bindingIdx, value) {
  */
 function checkBindingNoChanges(view, def, bindingIdx, value) {
     var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
-    if (unwrapCounter || (view.state & 1 /* FirstCheck */) || !devModeEqual(oldValue, value)) {
-        unwrapCounter = 0;
+    if ((view.state & 1 /* FirstCheck */) || !devModeEqual(oldValue, value)) {
         throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.index), oldValue, value, (view.state & 1 /* FirstCheck */) !== 0);
     }
 }
@@ -8632,7 +9103,9 @@ function markParentViewsForCheck(view) {
  * @return {?}
  */
 function dispatchEvent(view, nodeIndex, eventName, event) {
-    markParentViewsForCheck(view);
+    var /** @type {?} */ nodeDef = view.def.nodes[nodeIndex];
+    var /** @type {?} */ startView = nodeDef.flags & 16777216 /* ComponentView */ ? asElementData(view, nodeIndex).componentView : view;
+    markParentViewsForCheck(startView);
     return Services.handleEvent(view, nodeIndex, eventName, event);
 }
 /**
@@ -8748,7 +9221,7 @@ function getParentRenderElement(view, renderHost, def) {
         return renderHost;
     }
 }
-var /** @type {?} */ VIEW_DEFINITION_CACHE = new WeakMap();
+var VIEW_DEFINITION_CACHE = new WeakMap();
 /**
  * @param {?} factory
  * @return {?}
@@ -8768,18 +9241,9 @@ function resolveViewDefinition(factory) {
  */
 function rootRenderNodes(view) {
     var /** @type {?} */ renderNodes = [];
-    visitRootRenderNodes(view, RenderNodeAction.Collect, undefined, undefined, renderNodes);
+    visitRootRenderNodes(view, 0 /* Collect */, undefined, undefined, renderNodes);
     return renderNodes;
 }
-var RenderNodeAction = {};
-RenderNodeAction.Collect = 0;
-RenderNodeAction.AppendChild = 1;
-RenderNodeAction.InsertBefore = 2;
-RenderNodeAction.RemoveChild = 3;
-RenderNodeAction[RenderNodeAction.Collect] = "Collect";
-RenderNodeAction[RenderNodeAction.AppendChild] = "AppendChild";
-RenderNodeAction[RenderNodeAction.InsertBefore] = "InsertBefore";
-RenderNodeAction[RenderNodeAction.RemoveChild] = "RemoveChild";
 /**
  * @param {?} view
  * @param {?} action
@@ -8790,7 +9254,7 @@ RenderNodeAction[RenderNodeAction.RemoveChild] = "RemoveChild";
  */
 function visitRootRenderNodes(view, action, parentNode, nextSibling, target) {
     // We need to re-compute the parent node in case the nodes have been moved around manually
-    if (action === RenderNodeAction.RemoveChild) {
+    if (action === 3 /* RemoveChild */) {
         parentNode = view.renderer.parentNode(renderNode(view, view.def.lastRenderRootNode));
     }
     visitSiblingRenderNodes(view, action, 0, view.def.nodes.length - 1, parentNode, nextSibling, target);
@@ -8866,7 +9330,20 @@ function visitRenderNode(view, nodeDef, action, parentNode, nextSibling, target)
     }
     else {
         var /** @type {?} */ rn = renderNode(view, nodeDef);
-        execRenderNodeAction(view, rn, action, parentNode, nextSibling, target);
+        if (action === 3 /* RemoveChild */ && (nodeDef.flags & 16777216 /* ComponentView */) &&
+            (nodeDef.bindingFlags & 48 /* CatSyntheticProperty */)) {
+            // Note: we might need to do both actions.
+            if (nodeDef.bindingFlags & (16 /* SyntheticProperty */)) {
+                execRenderNodeAction(view, rn, action, parentNode, nextSibling, target);
+            }
+            if (nodeDef.bindingFlags & (32 /* SyntheticHostProperty */)) {
+                var /** @type {?} */ compView = asElementData(view, nodeDef.index).componentView;
+                execRenderNodeAction(compView, rn, action, parentNode, nextSibling, target);
+            }
+        }
+        else {
+            execRenderNodeAction(view, rn, action, parentNode, nextSibling, target);
+        }
         if (nodeDef.flags & 8388608 /* EmbeddedViews */) {
             var /** @type {?} */ embeddedViews = asElementData(view, nodeDef.index).viewContainer._embeddedViews;
             for (var /** @type {?} */ k = 0; k < embeddedViews.length; k++) {
@@ -8890,21 +9367,21 @@ function visitRenderNode(view, nodeDef, action, parentNode, nextSibling, target)
 function execRenderNodeAction(view, renderNode, action, parentNode, nextSibling, target) {
     var /** @type {?} */ renderer = view.renderer;
     switch (action) {
-        case RenderNodeAction.AppendChild:
+        case 1 /* AppendChild */:
             renderer.appendChild(parentNode, renderNode);
             break;
-        case RenderNodeAction.InsertBefore:
+        case 2 /* InsertBefore */:
             renderer.insertBefore(parentNode, renderNode, nextSibling);
             break;
-        case RenderNodeAction.RemoveChild:
+        case 3 /* RemoveChild */:
             renderer.removeChild(parentNode, renderNode);
             break;
-        case RenderNodeAction.Collect:
+        case 0 /* Collect */:
             target.push(renderNode);
             break;
     }
 }
-var /** @type {?} */ NS_PREFIX_RE = /^:([^:]+):(.+)$/;
+var NS_PREFIX_RE = /^:([^:]+):(.+)$/;
 /**
  * @param {?} name
  * @return {?}
@@ -8915,6 +9392,17 @@ function splitNamespace(name) {
         return [match[1], match[2]];
     }
     return ['', name];
+}
+/**
+ * @param {?} bindings
+ * @return {?}
+ */
+function calcBindingFlags(bindings) {
+    var /** @type {?} */ flags = 0;
+    for (var /** @type {?} */ i = 0; i < bindings.length; i++) {
+        flags |= bindings[i].flags;
+    }
+    return flags;
 }
 /**
  * @param {?} valueCount
@@ -8992,8 +9480,15 @@ function inlineInterpolate(valueCount, c0, a1, c1, a2, c2, a3, c3, a4, c4, a5, c
 function _toStringWithNull(v) {
     return v != null ? v.toString() : '';
 }
-var /** @type {?} */ EMPTY_ARRAY = [];
-var /** @type {?} */ EMPTY_MAP = {};
+var EMPTY_ARRAY = [];
+var EMPTY_MAP = {};
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} flags
  * @param {?} matchedQueriesDsl
@@ -9023,6 +9518,7 @@ function anchorDef(flags, matchedQueriesDsl, ngContentIndex, childCount, handleE
         directChildFlags: 0,
         childMatchedQueries: 0, matchedQueries: matchedQueries, matchedQueryIds: matchedQueryIds, references: references, ngContentIndex: ngContentIndex, childCount: childCount,
         bindings: [],
+        bindingFlags: 0,
         outputs: [],
         element: {
             ns: undefined,
@@ -9068,28 +9564,26 @@ function elementDef(flags, matchedQueriesDsl, ngContentIndex, childCount, namesp
     bindings = bindings || [];
     var /** @type {?} */ bindingDefs = new Array(bindings.length);
     for (var /** @type {?} */ i = 0; i < bindings.length; i++) {
-        var /** @type {?} */ entry = bindings[i];
-        var /** @type {?} */ bindingDef = void 0;
-        var /** @type {?} */ bindingType = entry[0];
-        var _c = splitNamespace(entry[1]), ns_1 = _c[0], name_1 = _c[1];
+        var _c = bindings[i], bindingFlags = _c[0], namespaceAndName_1 = _c[1], suffixOrSecurityContext = _c[2];
+        var _d = splitNamespace(namespaceAndName_1), ns_1 = _d[0], name_1 = _d[1];
         var /** @type {?} */ securityContext = void 0;
         var /** @type {?} */ suffix = void 0;
-        switch (bindingType) {
-            case 2 /* ElementStyle */:
-                suffix = (entry[2]);
+        switch (bindingFlags & 15 /* Types */) {
+            case 4 /* TypeElementStyle */:
+                suffix = (suffixOrSecurityContext);
                 break;
-            case 0 /* ElementAttribute */:
-            case 3 /* ElementProperty */:
-            case 4 /* ComponentHostProperty */:
-                securityContext = (entry[2]);
+            case 1 /* TypeElementAttribute */:
+            case 8 /* TypeProperty */:
+                securityContext = (suffixOrSecurityContext);
                 break;
         }
-        bindingDefs[i] = { type: bindingType, ns: ns_1, name: name_1, nonMinifiedName: name_1, securityContext: securityContext, suffix: suffix };
+        bindingDefs[i] =
+            { flags: bindingFlags, ns: ns_1, name: name_1, nonMinifiedName: name_1, securityContext: securityContext, suffix: suffix };
     }
     outputs = outputs || [];
     var /** @type {?} */ outputDefs = new Array(outputs.length);
     for (var /** @type {?} */ i = 0; i < outputs.length; i++) {
-        var _d = outputs[i], target = _d[0], eventName = _d[1];
+        var _e = outputs[i], target = _e[0], eventName = _e[1];
         outputDefs[i] = {
             type: 0 /* ElementOutput */,
             target: /** @type {?} */ (target), eventName: eventName,
@@ -9102,11 +9596,7 @@ function elementDef(flags, matchedQueriesDsl, ngContentIndex, childCount, namesp
         var _b = splitNamespace(namespaceAndName), ns = _b[0], name = _b[1];
         return [ns, name, value];
     }));
-    // This is needed as the jit compiler always uses an empty hash as default RendererType2,
-    // which is not filled for host views.
-    if (componentRendererType && componentRendererType.encapsulation == null) {
-        componentRendererType = null;
-    }
+    componentRendererType = resolveRendererType2(componentRendererType);
     if (componentView) {
         flags |= 16777216 /* ComponentView */;
     }
@@ -9124,6 +9614,7 @@ function elementDef(flags, matchedQueriesDsl, ngContentIndex, childCount, namesp
         directChildFlags: 0,
         childMatchedQueries: 0, matchedQueries: matchedQueries, matchedQueryIds: matchedQueryIds, references: references, ngContentIndex: ngContentIndex, childCount: childCount,
         bindings: bindingDefs,
+        bindingFlags: calcBindingFlags(bindingDefs),
         outputs: outputDefs,
         element: {
             ns: ns,
@@ -9273,23 +9764,24 @@ function checkAndUpdateElementValue(view, def, bindingIdx, value) {
     }
     var /** @type {?} */ binding = def.bindings[bindingIdx];
     var /** @type {?} */ elData = asElementData(view, def.index);
-    var /** @type {?} */ renderNode = elData.renderElement;
+    var /** @type {?} */ renderNode$$1 = elData.renderElement;
     var /** @type {?} */ name = binding.name;
-    switch (binding.type) {
-        case 0 /* ElementAttribute */:
-            setElementAttribute(view, binding, renderNode, binding.ns, name, value);
+    switch (binding.flags & 15 /* Types */) {
+        case 1 /* TypeElementAttribute */:
+            setElementAttribute(view, binding, renderNode$$1, binding.ns, name, value);
             break;
-        case 1 /* ElementClass */:
-            setElementClass(view, renderNode, name, value);
+        case 2 /* TypeElementClass */:
+            setElementClass(view, renderNode$$1, name, value);
             break;
-        case 2 /* ElementStyle */:
-            setElementStyle(view, binding, renderNode, name, value);
+        case 4 /* TypeElementStyle */:
+            setElementStyle(view, binding, renderNode$$1, name, value);
             break;
-        case 3 /* ElementProperty */:
-            setElementProperty(view, binding, renderNode, name, value);
-            break;
-        case 4 /* ComponentHostProperty */:
-            setElementProperty(elData.componentView, binding, renderNode, name, value);
+        case 8 /* TypeProperty */:
+            var /** @type {?} */ bindView = (def.flags & 16777216 /* ComponentView */ &&
+                binding.flags & 32 /* SyntheticHostProperty */) ?
+                elData.componentView :
+                view;
+            setElementProperty(bindView, binding, renderNode$$1, name, value);
             break;
     }
     return true;
@@ -9303,16 +9795,16 @@ function checkAndUpdateElementValue(view, def, bindingIdx, value) {
  * @param {?} value
  * @return {?}
  */
-function setElementAttribute(view, binding, renderNode, ns, name, value) {
+function setElementAttribute(view, binding, renderNode$$1, ns, name, value) {
     var /** @type {?} */ securityContext = binding.securityContext;
     var /** @type {?} */ renderValue = securityContext ? view.root.sanitizer.sanitize(securityContext, value) : value;
     renderValue = renderValue != null ? renderValue.toString() : null;
     var /** @type {?} */ renderer = view.renderer;
     if (value != null) {
-        renderer.setAttribute(renderNode, name, renderValue, ns);
+        renderer.setAttribute(renderNode$$1, name, renderValue, ns);
     }
     else {
-        renderer.removeAttribute(renderNode, name, ns);
+        renderer.removeAttribute(renderNode$$1, name, ns);
     }
 }
 /**
@@ -9322,13 +9814,13 @@ function setElementAttribute(view, binding, renderNode, ns, name, value) {
  * @param {?} value
  * @return {?}
  */
-function setElementClass(view, renderNode, name, value) {
+function setElementClass(view, renderNode$$1, name, value) {
     var /** @type {?} */ renderer = view.renderer;
     if (value) {
-        renderer.addClass(renderNode, name);
+        renderer.addClass(renderNode$$1, name);
     }
     else {
-        renderer.removeClass(renderNode, name);
+        renderer.removeClass(renderNode$$1, name);
     }
 }
 /**
@@ -9339,7 +9831,7 @@ function setElementClass(view, renderNode, name, value) {
  * @param {?} value
  * @return {?}
  */
-function setElementStyle(view, binding, renderNode, name, value) {
+function setElementStyle(view, binding, renderNode$$1, name, value) {
     var /** @type {?} */ renderValue = view.root.sanitizer.sanitize(SecurityContext.STYLE, value);
     if (renderValue != null) {
         renderValue = renderValue.toString();
@@ -9353,10 +9845,10 @@ function setElementStyle(view, binding, renderNode, name, value) {
     }
     var /** @type {?} */ renderer = view.renderer;
     if (renderValue != null) {
-        renderer.setStyle(renderNode, name, renderValue);
+        renderer.setStyle(renderNode$$1, name, renderValue);
     }
     else {
-        renderer.removeStyle(renderNode, name);
+        renderer.removeStyle(renderNode$$1, name);
     }
 }
 /**
@@ -9367,11 +9859,18 @@ function setElementStyle(view, binding, renderNode, name, value) {
  * @param {?} value
  * @return {?}
  */
-function setElementProperty(view, binding, renderNode, name, value) {
+function setElementProperty(view, binding, renderNode$$1, name, value) {
     var /** @type {?} */ securityContext = binding.securityContext;
     var /** @type {?} */ renderValue = securityContext ? view.root.sanitizer.sanitize(securityContext, value) : value;
-    view.renderer.setProperty(renderNode, name, renderValue);
+    view.renderer.setProperty(renderNode$$1, name, renderValue);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} ngContentIndex
  * @param {?} index
@@ -9395,6 +9894,7 @@ function ngContentDef(ngContentIndex, index) {
         references: {}, ngContentIndex: ngContentIndex,
         childCount: 0,
         bindings: [],
+        bindingFlags: 0,
         outputs: [],
         element: undefined,
         provider: undefined,
@@ -9416,8 +9916,15 @@ function appendNgContent(view, renderHost, def) {
         return;
     }
     var /** @type {?} */ ngContentIndex = def.ngContent.index;
-    visitProjectedRenderNodes(view, ngContentIndex, RenderNodeAction.AppendChild, parentEl, undefined, undefined);
+    visitProjectedRenderNodes(view, ngContentIndex, 1 /* AppendChild */, parentEl, undefined, undefined);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * @param {?} parentView
  * @param {?} elementData
@@ -9503,14 +10010,14 @@ function renderAttachEmbeddedView(elementData, prevView, view) {
     var /** @type {?} */ nextSibling = view.renderer.nextSibling(prevRenderNode);
     // Note: We can't check if `nextSibling` is present, as on WebWorkers it will always be!
     // However, browsers automatically do `appendChild` when there is no `nextSibling`.
-    visitRootRenderNodes(view, RenderNodeAction.InsertBefore, parentNode, nextSibling, undefined);
+    visitRootRenderNodes(view, 2 /* InsertBefore */, parentNode, nextSibling, undefined);
 }
 /**
  * @param {?} view
  * @return {?}
  */
 function renderDetachView(view) {
-    visitRootRenderNodes(view, RenderNodeAction.RemoveChild, null, null, undefined);
+    visitRootRenderNodes(view, 3 /* RemoveChild */, null, null, undefined);
 }
 /**
  * @param {?} arr
@@ -9541,15 +10048,25 @@ function removeFromArray(arr, index) {
         arr.splice(index, 1);
     }
 }
-var /** @type {?} */ EMPTY_CONTEXT = new Object();
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var EMPTY_CONTEXT = new Object();
 /**
  * @param {?} selector
  * @param {?} componentType
  * @param {?} viewDefFactory
+ * @param {?} inputs
+ * @param {?} outputs
+ * @param {?} ngContentSelectors
  * @return {?}
  */
-function createComponentFactory(selector, componentType, viewDefFactory) {
-    return new ComponentFactory_(selector, componentType, viewDefFactory);
+function createComponentFactory(selector, componentType, viewDefFactory, inputs, outputs, ngContentSelectors) {
+    return new ComponentFactory_(selector, componentType, viewDefFactory, inputs, outputs, ngContentSelectors);
 }
 /**
  * @param {?} componentFactory
@@ -9564,14 +10081,53 @@ var ComponentFactory_ = (function (_super) {
      * @param {?} selector
      * @param {?} componentType
      * @param {?} viewDefFactory
+     * @param {?} _inputs
+     * @param {?} _outputs
+     * @param {?} ngContentSelectors
      */
-    function ComponentFactory_(selector, componentType, viewDefFactory) {
-        var _this = _super.call(this) || this;
+    function ComponentFactory_(selector, componentType, viewDefFactory, _inputs, _outputs, ngContentSelectors) {
+        var _this = 
+        // Attention: this ctor is called as top level function.
+        // Putting any logic in here will destroy closure tree shaking!
+        _super.call(this) || this;
         _this.selector = selector;
         _this.componentType = componentType;
+        _this._inputs = _inputs;
+        _this._outputs = _outputs;
+        _this.ngContentSelectors = ngContentSelectors;
         _this.viewDefFactory = viewDefFactory;
         return _this;
     }
+    Object.defineProperty(ComponentFactory_.prototype, "inputs", {
+        /**
+         * @return {?}
+         */
+        get: function () {
+            var /** @type {?} */ inputsArr = [];
+            for (var /** @type {?} */ propName in this._inputs) {
+                var /** @type {?} */ templateName = this._inputs[propName];
+                inputsArr.push({ propName: propName, templateName: templateName });
+            }
+            return inputsArr;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ComponentFactory_.prototype, "outputs", {
+        /**
+         * @return {?}
+         */
+        get: function () {
+            var /** @type {?} */ outputsArr = [];
+            for (var /** @type {?} */ propName in this._outputs) {
+                var /** @type {?} */ templateName = this._outputs[propName];
+                outputsArr.push({ propName: propName, templateName: templateName });
+            }
+            return outputsArr;
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**
      * Creates a new component.
      * @param {?} injector
@@ -9723,7 +10279,7 @@ var ViewContainerRef_ = (function () {
                 elDef = viewParentEl(view);
                 view = view.parent;
             }
-            return view ? new Injector_(view, elDef) : this._view.root.injector;
+            return view ? new Injector_(view, elDef) : new Injector_(this._view, null);
         },
         enumerable: true,
         configurable: true
@@ -9778,11 +10334,15 @@ var ViewContainerRef_ = (function () {
      * @param {?=} index
      * @param {?=} injector
      * @param {?=} projectableNodes
+     * @param {?=} ngModuleRef
      * @return {?}
      */
-    ViewContainerRef_.prototype.createComponent = function (componentFactory, index, injector, projectableNodes) {
+    ViewContainerRef_.prototype.createComponent = function (componentFactory, index, injector, projectableNodes, ngModuleRef) {
         var /** @type {?} */ contextInjector = injector || this.parentInjector;
-        var /** @type {?} */ componentRef = componentFactory.create(contextInjector, projectableNodes);
+        if (!ngModuleRef && !(componentFactory instanceof ComponentFactoryBoundToModule)) {
+            ngModuleRef = contextInjector.get(NgModuleRef);
+        }
+        var /** @type {?} */ componentRef = componentFactory.create(contextInjector, projectableNodes, undefined, ngModuleRef);
         this.insert(componentRef.hostView, index);
         return componentRef;
     };
@@ -10010,7 +10570,7 @@ var Injector_ = (function () {
      */
     Injector_.prototype.get = function (token, notFoundValue) {
         if (notFoundValue === void 0) { notFoundValue = Injector.THROW_IF_NOT_FOUND; }
-        var /** @type {?} */ allowPrivateServices = (this.elDef.flags & 16777216 /* ComponentView */) !== 0;
+        var /** @type {?} */ allowPrivateServices = this.elDef ? (this.elDef.flags & 16777216 /* ComponentView */) !== 0 : false;
         return Services.resolveDep(this.view, this.elDef, allowPrivateServices, { flags: 0 /* None */, token: token, tokenKey: tokenKey(token) }, notFoundValue);
     };
     return Injector_;
@@ -10230,21 +10790,28 @@ var RendererAdapter = (function () {
      * @param {?} text
      * @return {?}
      */
-    RendererAdapter.prototype.setText = function (renderNode, text) { this.delegate.setValue(renderNode, text); };
+    RendererAdapter.prototype.setText = function (renderNode$$1, text) { this.delegate.setValue(renderNode$$1, text); };
     /**
      * @return {?}
      */
     RendererAdapter.prototype.animate = function () { throw new Error('Renderer.animate is no longer supported!'); };
     return RendererAdapter;
 }());
-var /** @type {?} */ RendererV1TokenKey = tokenKey(RendererV1);
-var /** @type {?} */ Renderer2TokenKey = tokenKey(Renderer2);
-var /** @type {?} */ ElementRefTokenKey = tokenKey(ElementRef);
-var /** @type {?} */ ViewContainerRefTokenKey = tokenKey(ViewContainerRef);
-var /** @type {?} */ TemplateRefTokenKey = tokenKey(TemplateRef);
-var /** @type {?} */ ChangeDetectorRefTokenKey = tokenKey(ChangeDetectorRef);
-var /** @type {?} */ InjectorRefTokenKey = tokenKey(Injector);
-var /** @type {?} */ NOT_CREATED = new Object();
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var RendererV1TokenKey = tokenKey(Renderer);
+var Renderer2TokenKey = tokenKey(Renderer2);
+var ElementRefTokenKey = tokenKey(ElementRef);
+var ViewContainerRefTokenKey = tokenKey(ViewContainerRef);
+var TemplateRefTokenKey = tokenKey(TemplateRef);
+var ChangeDetectorRefTokenKey = tokenKey(ChangeDetectorRef);
+var InjectorRefTokenKey = tokenKey(Injector);
+var NOT_CREATED = new Object();
 /**
  * @param {?} flags
  * @param {?} matchedQueries
@@ -10261,7 +10828,7 @@ function directiveDef(flags, matchedQueries, childCount, ctor, deps, props, outp
         for (var /** @type {?} */ prop in props) {
             var _a = props[prop], bindingIndex = _a[0], nonMinifiedName = _a[1];
             bindings[bindingIndex] = {
-                type: 5 /* DirectiveProperty */,
+                flags: 8 /* TypeProperty */,
                 name: prop, nonMinifiedName: nonMinifiedName,
                 ns: undefined,
                 securityContext: undefined,
@@ -10342,7 +10909,8 @@ function _def(flags, matchedQueriesDsl, childCount, token, value, deps, bindings
         childFlags: 0,
         directChildFlags: 0,
         childMatchedQueries: 0, matchedQueries: matchedQueries, matchedQueryIds: matchedQueryIds, references: references,
-        ngContentIndex: undefined, childCount: childCount, bindings: bindings, outputs: outputs,
+        ngContentIndex: undefined, childCount: childCount, bindings: bindings,
+        bindingFlags: calcBindingFlags(bindings), outputs: outputs,
         element: undefined,
         provider: { token: token, tokenKey: tokenKey(token), value: value, deps: depDefs },
         text: undefined,
@@ -10427,52 +10995,42 @@ function checkAndUpdateDirectiveInline(view, def, v0, v1, v2, v3, v4, v5, v6, v7
         changed = true;
         changes = updateProp(view, providerData, def, 0, v0, changes);
     }
-    ;
     if (bindLen > 1 && checkBinding(view, def, 1, v1)) {
         changed = true;
         changes = updateProp(view, providerData, def, 1, v1, changes);
     }
-    ;
     if (bindLen > 2 && checkBinding(view, def, 2, v2)) {
         changed = true;
         changes = updateProp(view, providerData, def, 2, v2, changes);
     }
-    ;
     if (bindLen > 3 && checkBinding(view, def, 3, v3)) {
         changed = true;
         changes = updateProp(view, providerData, def, 3, v3, changes);
     }
-    ;
     if (bindLen > 4 && checkBinding(view, def, 4, v4)) {
         changed = true;
         changes = updateProp(view, providerData, def, 4, v4, changes);
     }
-    ;
     if (bindLen > 5 && checkBinding(view, def, 5, v5)) {
         changed = true;
         changes = updateProp(view, providerData, def, 5, v5, changes);
     }
-    ;
     if (bindLen > 6 && checkBinding(view, def, 6, v6)) {
         changed = true;
         changes = updateProp(view, providerData, def, 6, v6, changes);
     }
-    ;
     if (bindLen > 7 && checkBinding(view, def, 7, v7)) {
         changed = true;
         changes = updateProp(view, providerData, def, 7, v7, changes);
     }
-    ;
     if (bindLen > 8 && checkBinding(view, def, 8, v8)) {
         changed = true;
         changes = updateProp(view, providerData, def, 8, v8, changes);
     }
-    ;
     if (bindLen > 9 && checkBinding(view, def, 9, v9)) {
         changed = true;
         changes = updateProp(view, providerData, def, 9, v9, changes);
     }
-    ;
     if (changes) {
         directive.ngOnChanges(changes);
     }
@@ -10623,7 +11181,7 @@ function callFactory(view, elDef, allowPrivateServices, factory, deps) {
 // - el2.injector.get(token, default)
 // - el1.injector.get(token, NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR) -> do not check the module
 // - mod2.injector.get(token, default)
-var /** @type {?} */ NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = {};
+var NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = {};
 /**
  * @param {?} view
  * @param {?} elDef
@@ -10641,14 +11199,14 @@ function resolveDep(view, elDef, allowPrivateServices, depDef, notFoundValue) {
     if (depDef.flags & 2 /* Optional */) {
         notFoundValue = null;
     }
-    var /** @type {?} */ tokenKey = depDef.tokenKey;
-    if (depDef.flags & 1 /* SkipSelf */) {
+    var /** @type {?} */ tokenKey$$1 = depDef.tokenKey;
+    if (elDef && (depDef.flags & 1 /* SkipSelf */)) {
         allowPrivateServices = false;
         elDef = elDef.parent;
     }
     while (view) {
         if (elDef) {
-            switch (tokenKey) {
+            switch (tokenKey$$1) {
                 case RendererV1TokenKey: {
                     var /** @type {?} */ compView = findCompView(view, elDef, allowPrivateServices);
                     return createRendererV1(compView);
@@ -10675,7 +11233,7 @@ function resolveDep(view, elDef, allowPrivateServices, depDef, notFoundValue) {
                     return createInjector(view, elDef);
                 default:
                     var /** @type {?} */ providerDef_1 = (allowPrivateServices ? elDef.element.allProviders :
-                        elDef.element.publicProviders)[tokenKey];
+                        elDef.element.publicProviders)[tokenKey$$1];
                     if (providerDef_1) {
                         var /** @type {?} */ providerData = asProviderData(view, providerDef_1.index);
                         if (providerData.instance === NOT_CREATED) {
@@ -10745,6 +11303,9 @@ function updateProp(view, providerData, def, bindingIdx, value, changes) {
     if (def.flags & 262144 /* OnChanges */) {
         changes = changes || {};
         var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
+        if (oldValue instanceof WrappedValue) {
+            oldValue = oldValue.wrapped;
+        }
         var /** @type {?} */ binding_1 = def.bindings[bindingIdx];
         changes[binding_1.nonMinifiedName] =
             new SimpleChange(oldValue, value, (view.state & 1 /* FirstCheck */) !== 0);
@@ -10828,6 +11389,13 @@ function callProviderLifecycles(view, index, lifecycles) {
     }
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} argCount
  * @return {?}
  */
@@ -10859,7 +11427,7 @@ function _pureExpressionDef(flags, propertyNames) {
     for (var /** @type {?} */ i = 0; i < propertyNames.length; i++) {
         var /** @type {?} */ prop = propertyNames[i];
         bindings[i] = {
-            type: 7 /* PureExpressionProperty */,
+            flags: 8 /* TypeProperty */,
             name: prop,
             ns: undefined,
             nonMinifiedName: prop,
@@ -10884,6 +11452,7 @@ function _pureExpressionDef(flags, propertyNames) {
         references: {},
         ngContentIndex: undefined,
         childCount: 0, bindings: bindings,
+        bindingFlags: calcBindingFlags(bindings),
         outputs: [],
         element: undefined,
         provider: undefined,
@@ -11069,6 +11638,13 @@ function checkAndUpdatePureExpressionDynamic(view, def, values) {
     return changed;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} flags
  * @param {?} id
  * @param {?} bindings
@@ -11098,6 +11674,7 @@ function queryDef(flags, id, bindings) {
         references: {},
         childCount: 0,
         bindings: [],
+        bindingFlags: 0,
         outputs: [],
         element: undefined,
         provider: undefined,
@@ -11267,6 +11844,13 @@ function getQueryValue(view, nodeDef, queryValueType) {
     }
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} ngContentIndex
  * @param {?} constants
  * @return {?}
@@ -11275,7 +11859,7 @@ function textDef(ngContentIndex, constants) {
     var /** @type {?} */ bindings = new Array(constants.length - 1);
     for (var /** @type {?} */ i = 1; i < constants.length; i++) {
         bindings[i - 1] = {
-            type: 6 /* TextInterpolation */,
+            flags: 8 /* TypeProperty */,
             name: undefined,
             ns: undefined,
             nonMinifiedName: undefined,
@@ -11283,7 +11867,7 @@ function textDef(ngContentIndex, constants) {
             suffix: constants[i]
         };
     }
-    var /** @type {?} */ flags = 2 /* TypeText */;
+    var /** @type {?} */ flags = 2;
     return {
         // will bet set by the view definition
         index: undefined,
@@ -11300,6 +11884,7 @@ function textDef(ngContentIndex, constants) {
         matchedQueryIds: 0,
         references: {}, ngContentIndex: ngContentIndex,
         childCount: 0, bindings: bindings,
+        bindingFlags: calcBindingFlags(bindings),
         outputs: [],
         element: undefined,
         provider: undefined,
@@ -11315,14 +11900,14 @@ function textDef(ngContentIndex, constants) {
  * @return {?}
  */
 function createText(view, renderHost, def) {
-    var /** @type {?} */ renderNode;
+    var /** @type {?} */ renderNode$$1;
     var /** @type {?} */ renderer = view.renderer;
-    renderNode = renderer.createText(def.text.prefix);
+    renderNode$$1 = renderer.createText(def.text.prefix);
     var /** @type {?} */ parentEl = getParentRenderElement(view, renderHost, def);
     if (parentEl) {
-        renderer.appendChild(parentEl, renderNode);
+        renderer.appendChild(parentEl, renderNode$$1);
     }
-    return { renderText: renderNode };
+    return { renderText: renderNode$$1 };
 }
 /**
  * @param {?} view
@@ -11385,8 +11970,8 @@ function checkAndUpdateTextInline(view, def, v0, v1, v2, v3, v4, v5, v6, v7, v8,
             value += _addInterpolationPart(v8, bindings[8]);
         if (bindLen > 9)
             value += _addInterpolationPart(v9, bindings[9]);
-        var /** @type {?} */ renderNode_1 = asTextData(view, def.index).renderText;
-        view.renderer.setValue(renderNode_1, value);
+        var /** @type {?} */ renderNode$$1 = asTextData(view, def.index).renderText;
+        view.renderer.setValue(renderNode$$1, value);
     }
     return changed;
 }
@@ -11412,8 +11997,8 @@ function checkAndUpdateTextDynamic(view, def, values) {
             value = value + _addInterpolationPart(values[i], bindings[i]);
         }
         value = def.text.prefix + value;
-        var /** @type {?} */ renderNode_2 = asTextData(view, def.index).renderText;
-        view.renderer.setValue(renderNode_2, value);
+        var /** @type {?} */ renderNode$$1 = asTextData(view, def.index).renderText;
+        view.renderer.setValue(renderNode$$1, value);
     }
     return changed;
 }
@@ -11427,6 +12012,13 @@ function _addInterpolationPart(value, binding) {
     return valueStr + binding.suffix;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} flags
  * @param {?} nodes
  * @param {?=} updateDirectives
@@ -11435,10 +12027,6 @@ function _addInterpolationPart(value, binding) {
  */
 function viewDef(flags, nodes, updateDirectives, updateRenderer) {
     // clone nodes and set auto calculated values
-    if (nodes.length === 0) {
-        throw new Error("Illegal State: Views without nodes are not allowed!");
-    }
-    var /** @type {?} */ reverseChildNodes = new Array(nodes.length);
     var /** @type {?} */ viewBindingCount = 0;
     var /** @type {?} */ viewDisposableCount = 0;
     var /** @type {?} */ viewNodeFlags = 0;
@@ -11506,7 +12094,7 @@ function viewDef(flags, nodes, updateDirectives, updateRenderer) {
         if (node.flags & 10112 /* CatProvider */) {
             if (!currentElementHasPublicProviders) {
                 currentElementHasPublicProviders = true;
-                // Use protoypical inheritance to not get O(n^2) complexity...
+                // Use prototypical inheritance to not get O(n^2) complexity...
                 currentParent.element.publicProviders =
                     Object.create(currentParent.element.publicProviders);
                 currentParent.element.allProviders = currentParent.element.publicProviders;
@@ -11519,7 +12107,7 @@ function viewDef(flags, nodes, updateDirectives, updateRenderer) {
             else {
                 if (!currentElementHasPrivateProviders) {
                     currentElementHasPrivateProviders = true;
-                    // Use protoypical inheritance to not get O(n^2) complexity...
+                    // Use protoyypical inheritance to not get O(n^2) complexity...
                     currentParent.element.allProviders = Object.create(currentParent.element.publicProviders);
                 }
                 currentParent.element.allProviders[node.provider.tokenKey] = node;
@@ -11564,6 +12152,9 @@ function viewDef(flags, nodes, updateDirectives, updateRenderer) {
 function validateNode(parent, node, nodeCount) {
     var /** @type {?} */ template = node.element && node.element.template;
     if (template) {
+        if (!template.lastRenderRootNode) {
+            throw new Error("Illegal State: Embedded templates without nodes are not allowed!");
+        }
         if (template.lastRenderRootNode &&
             template.lastRenderRootNode.flags & 8388608 /* EmbeddedViews */) {
             throw new Error("Illegal State: Last root node of a template can't have embedded views, at index " + node.index + "!");
@@ -11597,10 +12188,10 @@ function validateNode(parent, node, nodeCount) {
  * @param {?=} context
  * @return {?}
  */
-function createEmbeddedView(parent, anchorDef, context) {
+function createEmbeddedView(parent, anchorDef$$1, context) {
     // embedded views are seen as siblings to the anchor, so we need
     // to get the parent of the anchor and use it as parentIndex.
-    var /** @type {?} */ view = createView(parent.root, parent.renderer, parent, anchorDef, anchorDef.element.template);
+    var /** @type {?} */ view = createView(parent.root, parent.renderer, parent, anchorDef$$1, anchorDef$$1.element.template);
     initView(view, parent.component, context);
     createViewNodes(view);
     return view;
@@ -12115,7 +12706,14 @@ function execQueriesAction(view, queryFlags, staticDynamicQueryFlag, checkType) 
         }
     }
 }
-var /** @type {?} */ initialized = false;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var initialized = false;
 /**
  * @return {?}
  */
@@ -12305,9 +12903,9 @@ DebugAction[DebugAction.detectChanges] = "detectChanges";
 DebugAction[DebugAction.checkNoChanges] = "checkNoChanges";
 DebugAction[DebugAction.destroy] = "destroy";
 DebugAction[DebugAction.handleEvent] = "handleEvent";
-var /** @type {?} */ _currentAction;
-var /** @type {?} */ _currentView;
-var /** @type {?} */ _currentNodeIndex;
+var _currentAction;
+var _currentView;
+var _currentNodeIndex;
 /**
  * @param {?} view
  * @param {?} nodeIndex
@@ -12365,7 +12963,6 @@ function debugUpdateDirectives(view, checkType) {
             asPureExpressionData(view, nodeDef.index).value :
             undefined;
     }
-    ;
 }
 /**
  * @param {?} view
@@ -12416,18 +13013,17 @@ function debugCheckAndUpdateNode(view, nodeDef, argStyle, givenValues) {
     var /** @type {?} */ changed = ((checkAndUpdateNode)).apply(void 0, [view, nodeDef, argStyle].concat(givenValues));
     if (changed) {
         var /** @type {?} */ values = argStyle === 1 /* Dynamic */ ? givenValues[0] : givenValues;
-        if (nodeDef.flags & (8192 /* TypeDirective */ | 1 /* TypeElement */)) {
+        if (nodeDef.flags & 8192 /* TypeDirective */) {
             var /** @type {?} */ bindingValues = {};
             for (var /** @type {?} */ i = 0; i < nodeDef.bindings.length; i++) {
                 var /** @type {?} */ binding = nodeDef.bindings[i];
                 var /** @type {?} */ value = values[i];
-                if ((binding.type === 4 /* ComponentHostProperty */ ||
-                    binding.type === 5 /* DirectiveProperty */)) {
+                if (binding.flags & 8 /* TypeProperty */) {
                     bindingValues[normalizeDebugBindingName(binding.nonMinifiedName)] =
                         normalizeDebugBindingValue(value);
                 }
             }
-            var /** @type {?} */ elDef = nodeDef.flags & 8192 /* TypeDirective */ ? nodeDef.parent : nodeDef;
+            var /** @type {?} */ elDef = nodeDef.parent;
             var /** @type {?} */ el = asElementData(view, elDef.index).renderElement;
             if (!elDef.element.name) {
                 // a comment.
@@ -12467,7 +13063,7 @@ function normalizeDebugBindingName(name) {
     name = camelCaseToDashCase(name.replace(/[$@]/g, '_'));
     return "ng-reflect-" + name;
 }
-var /** @type {?} */ CAMEL_CASE_REGEXP = /([A-Z])/g;
+var CAMEL_CASE_REGEXP = /([A-Z])/g;
 /**
  * @param {?} input
  * @return {?}
@@ -12656,20 +13252,23 @@ var DebugContext_ = (function () {
         for (var _i = 1; _i < arguments.length; _i++) {
             values[_i - 1] = arguments[_i];
         }
-        var /** @type {?} */ logViewFactory;
+        var /** @type {?} */ logViewDef;
         var /** @type {?} */ logNodeIndex;
         if (this.nodeDef.flags & 2 /* TypeText */) {
-            logViewFactory = this.view.def.factory;
+            logViewDef = this.view.def;
             logNodeIndex = this.nodeDef.index;
         }
         else {
-            logViewFactory = this.elView.def.factory;
+            logViewDef = this.elView.def;
             logNodeIndex = this.elDef.index;
         }
-        var /** @type {?} */ currNodeIndex = -1;
+        // Note: we only generate a log function for text and element nodes
+        // to make the generated code as small as possible.
+        var /** @type {?} */ renderNodeIndex = getRenderNodeIndex(logViewDef, logNodeIndex);
+        var /** @type {?} */ currRenderNodeIndex = -1;
         var /** @type {?} */ nodeLogger = function () {
-            currNodeIndex++;
-            if (currNodeIndex === logNodeIndex) {
+            currRenderNodeIndex++;
+            if (currRenderNodeIndex === renderNodeIndex) {
                 return (_a = console.error).bind.apply(_a, [console].concat(values));
             }
             else {
@@ -12677,14 +13276,29 @@ var DebugContext_ = (function () {
             }
             var _a;
         };
-        logViewFactory(nodeLogger);
-        if (currNodeIndex < logNodeIndex) {
+        logViewDef.factory(nodeLogger);
+        if (currRenderNodeIndex < renderNodeIndex) {
             console.error('Illegal state: the ViewDefinitionFactory did not call the logger!');
             console.error.apply(console, values);
         }
     };
     return DebugContext_;
 }());
+/**
+ * @param {?} viewDef
+ * @param {?} nodeIndex
+ * @return {?}
+ */
+function getRenderNodeIndex(viewDef$$1, nodeIndex) {
+    var /** @type {?} */ renderNodeIndex = -1;
+    for (var /** @type {?} */ i = 0; i <= nodeIndex; i++) {
+        var /** @type {?} */ nodeDef = viewDef$$1.nodes[i];
+        if (nodeDef.flags & 3 /* CatRenderNode */) {
+            renderNodeIndex++;
+        }
+    }
+    return renderNodeIndex;
+}
 /**
  * @param {?} view
  * @return {?}
@@ -13007,6 +13621,20 @@ var DebugRenderer2 = (function () {
     return DebugRenderer2;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @return {?}
  */
 function _iterableDiffersFactory() {
@@ -13094,11 +13722,28 @@ LifecycleHooks[LifecycleHooks.AfterContentInit] = "AfterContentInit";
 LifecycleHooks[LifecycleHooks.AfterContentChecked] = "AfterContentChecked";
 LifecycleHooks[LifecycleHooks.AfterViewInit] = "AfterViewInit";
 LifecycleHooks[LifecycleHooks.AfterViewChecked] = "AfterViewChecked";
-var /** @type {?} */ LIFECYCLE_HOOKS_VALUES = [
+var LIFECYCLE_HOOKS_VALUES = [
     LifecycleHooks.OnInit, LifecycleHooks.OnDestroy, LifecycleHooks.DoCheck, LifecycleHooks.OnChanges,
     LifecycleHooks.AfterContentInit, LifecycleHooks.AfterContentChecked, LifecycleHooks.AfterViewInit,
     LifecycleHooks.AfterViewChecked
 ];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * \@experimental Animation support is experimental.
+ */
 /**
  * `trigger` is an animation-specific function that is designed to be used inside of Angular2's
  * animation DSL language. If this information is new, please navigate to the {\@link
@@ -13548,16 +14193,23 @@ function transition$1(stateChangeExpr, steps) {
     return { type: 1 /* Transition */, expr: stateChangeExpr, animation: steps };
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @deprecated This symbol has moved. Please Import from \@angular/animations instead!
  */
-var AUTO_STYLE = '*';
+var AUTO_STYLE$$1 = '*';
 /**
  * @deprecated This symbol has moved. Please Import from \@angular/animations instead!
  * @param {?} name
  * @param {?} definitions
  * @return {?}
  */
-function trigger(name, definitions) {
+function trigger$$1(name, definitions) {
     return trigger$1(name, definitions);
 }
 /**
@@ -13566,7 +14218,7 @@ function trigger(name, definitions) {
  * @param {?=} styles
  * @return {?}
  */
-function animate(timings, styles) {
+function animate$$1(timings, styles) {
     if (styles === void 0) { styles = null; }
     return animate$1(timings, styles);
 }
@@ -13575,7 +14227,7 @@ function animate(timings, styles) {
  * @param {?} steps
  * @return {?}
  */
-function group(steps) {
+function group$$1(steps) {
     return group$1(steps);
 }
 /**
@@ -13583,7 +14235,7 @@ function group(steps) {
  * @param {?} steps
  * @return {?}
  */
-function sequence(steps) {
+function sequence$$1(steps) {
     return sequence$1(steps);
 }
 /**
@@ -13591,7 +14243,7 @@ function sequence(steps) {
  * @param {?} tokens
  * @return {?}
  */
-function style(tokens) {
+function style$$1(tokens) {
     return style$1(tokens);
 }
 /**
@@ -13600,7 +14252,7 @@ function style(tokens) {
  * @param {?} styles
  * @return {?}
  */
-function state(name, styles) {
+function state$$1(name, styles) {
     return state$1(name, styles);
 }
 /**
@@ -13608,7 +14260,7 @@ function state(name, styles) {
  * @param {?} steps
  * @return {?}
  */
-function keyframes(steps) {
+function keyframes$$1(steps) {
     return keyframes$1(steps);
 }
 /**
@@ -13617,9 +14269,36 @@ function keyframes(steps) {
  * @param {?} steps
  * @return {?}
  */
-function transition(stateChangeExpr, steps) {
+function transition$$1(stateChangeExpr, steps) {
     return transition$1(stateChangeExpr, steps);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point from which you should import all public core APIs.
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the core package.
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
 
 //# sourceMappingURL=core.es5.js.map
 
@@ -14935,11 +15614,18 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5
+ * @license Angular v4.0.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
 
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * This class should not be used directly by an application developer. Instead, use
  * {\@link Location}.
@@ -15045,6 +15731,13 @@ var PlatformLocation = (function () {
  */
 var LOCATION_INITIALIZED = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('Location Initialized');
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * `LocationStrategy` is responsible for representing and reading route state
  * from the browser's URL. Angular provides two strategies:
  * {\@link HashLocationStrategy} and {\@link PathLocationStrategy}.
@@ -15142,6 +15835,13 @@ var LocationStrategy = (function () {
  * \@stable
  */
 var APP_BASE_HREF = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('appBaseHref');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@whatItDoes `Location` is a service that applications can use to interact with a browser's URL.
  * \@description
@@ -15339,6 +16039,13 @@ function _stripIndexHtml(url) {
     return url.replace(/\/index.html$/, '');
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@whatItDoes Use URL hash for storing application location data.
  * \@description
  * `HashLocationStrategy` is a {\@link LocationStrategy} used to configure the
@@ -15451,6 +16158,13 @@ HashLocationStrategy.ctorParameters = function () { return [
     { type: PlatformLocation, },
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Inject */], args: [APP_BASE_HREF,] },] },
 ]; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@whatItDoes Use URL for storing application location data.
  * \@description
@@ -15567,6 +16281,20 @@ PathLocationStrategy.ctorParameters = function () { return [
     { type: PlatformLocation, },
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Inject */], args: [APP_BASE_HREF,] },] },
 ]; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@experimental
  * @abstract
@@ -16076,6 +16804,13 @@ function getPluralCase(locale, nLike) {
     }
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  *
  * \@whatItDoes Adds and removes CSS classes on an HTML element.
@@ -16266,6 +17001,13 @@ NgClass.propDecorators = {
     'ngClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Instantiates a single {\@link Component} type and inserts its Host View into current View.
  * `NgComponentOutlet` provides a declarative approach for dynamic component creation.
  *
@@ -16382,6 +17124,13 @@ NgComponentOutlet.propDecorators = {
     'ngComponentOutletNgModuleFactory': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@stable
  */
 var NgForOfContext = (function () {
@@ -16451,7 +17200,7 @@ var NgForOfContext = (function () {
  * - `odd: boolean`: True when the item has an odd index in the iterable.
  *
  * ```
- * <li *ngFor="let user of userObservable | async as users; indexes as i; first as isFirst">
+ * <li *ngFor="let user of userObservable | async as users; index as i; first as isFirst">
  *    {{i}}/{{users.length}}. {{user}} <span *ngIf="isFirst">default</span>
  * </li>
  * ```
@@ -16484,8 +17233,8 @@ var NgForOfContext = (function () {
  *
  * ### Syntax
  *
- * - `<li *ngFor="let item of items; let i = index; trackBy: trackByFn">...</li>`
- * - `<li template="ngFor let item of items; let i = index; trackBy: trackByFn">...</li>`
+ * - `<li *ngFor="let item of items; index as i; trackBy: trackByFn">...</li>`
+ * - `<li template="ngFor let item of items; index as i; trackBy: trackByFn">...</li>`
  *
  * With `<ng-template>` element:
  *
@@ -16664,6 +17413,13 @@ var NgFor = NgForOf;
 function getTypeNameForDebugging(type) {
     return type['name'] || typeof type;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Conditionally includes a template based on the value of an `expression`.
  *
@@ -16858,6 +17614,13 @@ var NgIfContext = (function () {
     }
     return NgIfContext;
 }());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var SwitchView = (function () {
     /**
      * @param {?} _viewContainerRef
@@ -17116,6 +17879,13 @@ NgSwitchDefault.ctorParameters = function () { return [
     { type: NgSwitch, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Host */] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  *
  * \@whatItDoes Adds / removes DOM sub-trees based on a numeric value. Tailored for pluralization.
@@ -17257,6 +18027,13 @@ NgPluralCase.ctorParameters = function () { return [
     { type: NgPlural, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Host */] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  *
  * \@whatItDoes Update an HTML element styles.
@@ -17351,6 +18128,13 @@ NgStyle.propDecorators = {
     'ngStyle': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  *
  * \@whatItDoes Inserts an embedded view from a prepared `TemplateRef`
@@ -17420,10 +18204,17 @@ NgTemplateOutlet.propDecorators = {
     'ngOutletContext': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A collection of Angular directives that are likely to be used in each and every Angular
  * application.
  */
-var /** @type {?} */ COMMON_DIRECTIVES = [
+var COMMON_DIRECTIVES = [
     NgClass,
     NgComponentOutlet,
     NgForOf,
@@ -17437,6 +18228,16 @@ var /** @type {?} */ COMMON_DIRECTIVES = [
     NgPluralCase,
 ];
 /**
+ * A collection of deprecated directives that are no longer part of the core module.
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} type
  * @param {?} value
  * @return {?}
@@ -17444,6 +18245,13 @@ var /** @type {?} */ COMMON_DIRECTIVES = [
 function invalidPipeArgumentError(type, value) {
     return Error("InvalidPipeArgument: '" + value + "' for pipe '" + __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* ɵstringify */])(type) + "'");
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var ObservableStrategy = (function () {
     function ObservableStrategy() {
     }
@@ -17490,8 +18298,8 @@ var PromiseStrategy = (function () {
     PromiseStrategy.prototype.onDestroy = function (subscription) { };
     return PromiseStrategy;
 }());
-var /** @type {?} */ _promiseStrategy = new PromiseStrategy();
-var /** @type {?} */ _observableStrategy = new ObservableStrategy();
+var _promiseStrategy = new PromiseStrategy();
+var _observableStrategy = new ObservableStrategy();
 /**
  * \@ngModule CommonModule
  * \@whatItDoes Unwraps a value from an asynchronous primitive.
@@ -17614,6 +18422,13 @@ AsyncPipe.decorators = [
 AsyncPipe.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */], },
 ]; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Transforms text to lowercase.
  *
@@ -17748,8 +18563,8 @@ var NumberFormatter = (function () {
     };
     return NumberFormatter;
 }());
-var /** @type {?} */ DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsazZEwGjJ']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|L+|d+|H+|h+|J+|j+|m+|s+|a|z|Z|G+|w+))(.*)/;
-var /** @type {?} */ PATTERN_ALIASES = {
+var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsazZEwGjJ']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|L+|d+|H+|h+|J+|j+|m+|s+|a|z|Z|G+|w+))(.*)/;
+var PATTERN_ALIASES = {
     // Keys are quoted so they do not get renamed during closure compilation.
     'yMMMdjms': datePartGetterFactory(combine([
         digitCondition('year', 1),
@@ -17773,7 +18588,7 @@ var /** @type {?} */ PATTERN_ALIASES = {
     'jms': datePartGetterFactory(combine([digitCondition('hour', 1), digitCondition('second', 1), digitCondition('minute', 1)])),
     'jm': datePartGetterFactory(combine([digitCondition('hour', 1), digitCondition('minute', 1)]))
 };
-var /** @type {?} */ DATE_FORMATS = {
+var DATE_FORMATS = {
     // Keys are quoted so they do not get renamed.
     'yyyy': datePartGetterFactory(digitCondition('year', 4)),
     'yy': datePartGetterFactory(digitCondition('year', 2)),
@@ -17910,7 +18725,7 @@ function combine(options) {
 function datePartGetterFactory(ret) {
     return function (date, locale) { return intlDateFormat(date, locale, ret); };
 }
-var /** @type {?} */ DATE_FORMATTER_CACHE = new Map();
+var DATE_FORMATTER_CACHE = new Map();
 /**
  * @param {?} format
  * @param {?} date
@@ -17966,7 +18781,14 @@ var DateFormatter = (function () {
     };
     return DateFormatter;
 }());
-var /** @type {?} */ _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(-(\d+))?)?$/;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _NUMBER_FORMAT_REGEXP = /^(\d+)?\.((\d+)(-(\d+))?)?$/;
 /**
  * @param {?} pipe
  * @param {?} locale
@@ -18193,7 +19015,14 @@ function parseIntAutoRadix(text) {
 function isNumeric(value) {
     return !isNaN(value - parseFloat(value));
 }
-var /** @type {?} */ ISO8601_DATE_REGEX = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var ISO8601_DATE_REGEX = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
 /**
  * \@ngModule CommonModule
  * \@whatItDoes Formats a date according to locale rules.
@@ -18383,7 +19212,14 @@ function isoStringToDate(match) {
 function toInt(str) {
     return parseInt(str, 10);
 }
-var /** @type {?} */ _INTERPOLATION_REGEXP = /#/g;
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _INTERPOLATION_REGEXP = /#/g;
 /**
  * \@ngModule CommonModule
  * \@whatItDoes Maps a value to a string that pluralizes the value according to locale rules.
@@ -18434,6 +19270,13 @@ I18nPluralPipe.ctorParameters = function () { return [
     { type: NgLocalization, },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  * \@whatItDoes Generic selector that displays the string that matches the current value.
  * \@howToUse `expression | i18nSelect:mapping`
@@ -18482,6 +19325,13 @@ I18nSelectPipe.decorators = [
  */
 I18nSelectPipe.ctorParameters = function () { return []; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * \@ngModule CommonModule
  * \@whatItDoes Converts value into JSON string.
  * \@howToUse `expression | json`
@@ -18511,6 +19361,13 @@ JsonPipe.decorators = [
  * @nocollapse
  */
 JsonPipe.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@ngModule CommonModule
  * \@whatItDoes Creates a new List or String containing a subset (slice) of the elements.
@@ -18587,9 +19444,21 @@ SlicePipe.decorators = [
  */
 SlicePipe.ctorParameters = function () { return []; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * This module provides a set of common Pipes.
+ */
+/**
  * A collection of Angular pipes that are likely to be used in each and every application.
  */
-var /** @type {?} */ COMMON_PIPES = [
+var COMMON_PIPES = [
     AsyncPipe,
     UpperCasePipe,
     LowerCasePipe,
@@ -18603,6 +19472,13 @@ var /** @type {?} */ COMMON_PIPES = [
     I18nPluralPipe,
     I18nSelectPipe,
 ];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * The module that includes all the basic Angular directives like {\@link NgIf}, {\@link NgForOf}, ...
  *
@@ -18634,9 +19510,9 @@ CommonModule.ctorParameters = function () { return []; };
  * found in the LICENSE file at https://angular.io/license
  */
 var PLATFORM_BROWSER_ID = 'browser';
-var /** @type {?} */ PLATFORM_SERVER_ID = 'server';
-var /** @type {?} */ PLATFORM_WORKER_APP_ID = 'browserWorkerApp';
-var /** @type {?} */ PLATFORM_WORKER_UI_ID = 'browserWorkerUi';
+var PLATFORM_SERVER_ID = 'server';
+var PLATFORM_WORKER_APP_ID = 'browserWorkerApp';
+var PLATFORM_WORKER_UI_ID = 'browserWorkerUi';
 /**
  * Returns whether a platform id represents a browser platform.
  * \@experimental
@@ -18674,9 +19550,49 @@ function isPlatformWorkerUi(platformId) {
     return platformId === PLATFORM_WORKER_UI_ID;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.0-rc.5');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.0');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+// This file only reexports content of the `src` folder. Keep it that way.
+/**
+ * Generated bundle index. Do not edit.
+ */
 
 //# sourceMappingURL=common.es5.js.map
 
@@ -18962,7 +19878,7 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_constants__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__(1);
@@ -19412,17 +20328,19 @@ function copyInputAttributes(srcElement, destElement) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(34);
 /* unused harmony export AbstractControlDirective */
 /* unused harmony export AbstractFormGroupDirective */
 /* unused harmony export CheckboxControlValueAccessor */
 /* unused harmony export ControlContainer */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return NG_VALUE_ACCESSOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return COMPOSITION_BUFFER_MODE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return DefaultValueAccessor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return NgControl; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return NgControlStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return NgControlStatus; });
 /* unused harmony export NgControlStatusGroup */
 /* unused harmony export NgForm */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return NgModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return NgModel; });
 /* unused harmony export NgModelGroup */
 /* unused harmony export RadioControlValueAccessor */
 /* unused harmony export FormControlDirective */
@@ -19488,10 +20406,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5
+ * @license Angular v4.0.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
+
 
 
 
@@ -19664,6 +20583,13 @@ var AbstractControlDirective = (function () {
     return AbstractControlDirective;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A directive that contains multiple {\@link NgControl}s.
  *
  * Only used by the forms module.
@@ -19696,6 +20622,13 @@ var ControlContainer = (function (_super) {
     return ControlContainer;
 }(AbstractControlDirective));
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} value
  * @return {?}
  */
@@ -19725,7 +20658,7 @@ var NG_VALIDATORS = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injec
  * \@stable
  */
 var NG_ASYNC_VALIDATORS = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('NgAsyncValidators');
-var /** @type {?} */ EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+var EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
 /**
  * Provides a set of validators used by form controls.
  *
@@ -19907,13 +20840,27 @@ function _mergeErrors(arrayOfErrors) {
     return Object.keys(res).length === 0 ? null : res;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Used to provide a {\@link ControlValueAccessor} for form controls.
  *
  * See {\@link DefaultValueAccessor} for how to implement one.
  * \@stable
  */
 var NG_VALUE_ACCESSOR = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('NgValueAccessor');
-var /** @type {?} */ CHECKBOX_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var CHECKBOX_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return CheckboxControlValueAccessor; }),
     multi: true,
@@ -19979,11 +20926,32 @@ CheckboxControlValueAccessor.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */], },
 ]; };
-var /** @type {?} */ DEFAULT_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var DEFAULT_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return DefaultValueAccessor; }),
     multi: true
 };
+/**
+ * We must check whether the agent is Android because composition events
+ * behave differently between iOS and Android.
+ * @return {?}
+ */
+function _isAndroid() {
+    var /** @type {?} */ userAgent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["u" /* ɵgetDOM */])() ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["u" /* ɵgetDOM */])().getUserAgent() : '';
+    return /android (\d+)/.test(userAgent.toLowerCase());
+}
+/**
+ * Turn this mode on if you want form directives to buffer IME input until compositionend
+ * \@experimental
+ */
+var COMPOSITION_BUFFER_MODE = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('CompositionEventMode');
 /**
  * The default accessor for writing a value and listening to changes that is used by the
  * {\@link NgModel}, {\@link FormControlDirective}, and {\@link FormControlName} directives.
@@ -19999,12 +20967,18 @@ var DefaultValueAccessor = (function () {
     /**
      * @param {?} _renderer
      * @param {?} _elementRef
+     * @param {?} _compositionMode
      */
-    function DefaultValueAccessor(_renderer, _elementRef) {
+    function DefaultValueAccessor(_renderer, _elementRef, _compositionMode) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
+        this._compositionMode = _compositionMode;
         this.onChange = function (_) { };
         this.onTouched = function () { };
+        this._composing = false;
+        if (this._compositionMode == null) {
+            this._compositionMode = !_isAndroid();
+        }
     }
     /**
      * @param {?} value
@@ -20031,6 +21005,27 @@ var DefaultValueAccessor = (function () {
     DefaultValueAccessor.prototype.setDisabledState = function (isDisabled) {
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
     };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    DefaultValueAccessor.prototype._handleInput = function (value) {
+        if (!this._compositionMode || (this._compositionMode && !this._composing)) {
+            this.onChange(value);
+        }
+    };
+    /**
+     * @return {?}
+     */
+    DefaultValueAccessor.prototype._compositionStart = function () { this._composing = true; };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    DefaultValueAccessor.prototype._compositionEnd = function (value) {
+        this._composing = false;
+        this._compositionMode && this.onChange(value);
+    };
     return DefaultValueAccessor;
 }());
 DefaultValueAccessor.decorators = [
@@ -20038,8 +21033,13 @@ DefaultValueAccessor.decorators = [
                 selector: 'input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]',
                 // TODO: vsavkin replace the above selector with the one below it once
                 // https://github.com/angular/angular/issues/3011 is implemented
-                // selector: '[ngControl],[ngModel],[ngFormControl]',
-                host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
+                // selector: '[ngModel],[formControl],[formControlName]',
+                host: {
+                    '(input)': '_handleInput($event.target.value)',
+                    '(blur)': 'onTouched()',
+                    '(compositionstart)': '_compositionStart()',
+                    '(compositionend)': '_compositionEnd($event.target.value)'
+                },
                 providers: [DEFAULT_VALUE_ACCESSOR]
             },] },
 ];
@@ -20049,6 +21049,7 @@ DefaultValueAccessor.decorators = [
 DefaultValueAccessor.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */], },
+    { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Inject */], args: [COMPOSITION_BUFFER_MODE,] },] },
 ]; };
 /**
  * @license
@@ -20081,7 +21082,14 @@ function normalizeAsyncValidator(validator) {
         return (validator);
     }
 }
-var /** @type {?} */ NUMBER_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NUMBER_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return NumberValueAccessor; }),
     multi: true
@@ -20155,6 +21163,13 @@ NumberValueAccessor.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */], },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @return {?}
  */
 function unimplemented() {
@@ -20213,7 +21228,14 @@ var NgControl = (function (_super) {
     NgControl.prototype.viewToModelUpdate = function (newValue) { };
     return NgControl;
 }(AbstractControlDirective));
-var /** @type {?} */ RADIO_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var RADIO_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return RadioControlValueAccessor; }),
     multi: true
@@ -20409,7 +21431,14 @@ RadioControlValueAccessor.propDecorators = {
     'formControlName': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
     'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
-var /** @type {?} */ RANGE_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var RANGE_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return RangeValueAccessor; }),
     multi: true
@@ -20480,7 +21509,14 @@ RangeValueAccessor.ctorParameters = function () { return [
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */], },
     { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */], },
 ]; };
-var /** @type {?} */ SELECT_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var SELECT_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return SelectControlValueAccessor; }),
     multi: true
@@ -20767,7 +21803,14 @@ NgSelectOption.propDecorators = {
     'ngValue': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['ngValue',] },],
     'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['value',] },],
 };
-var /** @type {?} */ SELECT_MULTIPLE_VALUE_ACCESSOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var SELECT_MULTIPLE_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return SelectMultipleControlValueAccessor; }),
     multi: true
@@ -21069,6 +22112,13 @@ NgSelectMultipleOption.propDecorators = {
     'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['value',] },],
 };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @param {?} name
  * @param {?} parent
  * @return {?}
@@ -21202,7 +22252,7 @@ function isPropertyUpdated(changes, viewModel) {
         return true;
     return !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_26" /* ɵlooseIdentical */])(viewModel, change.currentValue);
 }
-var /** @type {?} */ BUILTIN_ACCESSORS = [
+var BUILTIN_ACCESSORS = [
     CheckboxControlValueAccessor,
     RangeValueAccessor,
     NumberValueAccessor,
@@ -21252,6 +22302,13 @@ function selectValueAccessor(dir, valueAccessors) {
     _throwError(dir, 'No valid value accessor for form control with');
     return null;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * This is a base class for code shared between {\@link NgModelGroup} and {\@link FormGroupName}.
  *
@@ -21327,6 +22384,13 @@ var AbstractFormGroupDirective = (function (_super) {
     AbstractFormGroupDirective.prototype._checkParentType = function () { };
     return AbstractFormGroupDirective;
 }(ControlContainer));
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var AbstractControlStatus = (function () {
     /**
      * @param {?} cd
@@ -21392,7 +22456,7 @@ var AbstractControlStatus = (function () {
     });
     return AbstractControlStatus;
 }());
-var /** @type {?} */ ngControlStatusHost = {
+var ngControlStatusHost = {
     '[class.ng-untouched]': 'ngClassUntouched',
     '[class.ng-touched]': 'ngClassTouched',
     '[class.ng-pristine]': 'ngClassPristine',
@@ -21455,23 +22519,30 @@ NgControlStatusGroup.ctorParameters = function () { return [
     { type: ControlContainer, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_27" /* Self */] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Indicates that a FormControl is valid, i.e. that no errors exist in the input value.
  */
-var /** @type {?} */ VALID = 'VALID';
+var VALID = 'VALID';
 /**
  * Indicates that a FormControl is invalid, i.e. that an error exists in the input value.
  */
-var /** @type {?} */ INVALID = 'INVALID';
+var INVALID = 'INVALID';
 /**
  * Indicates that a FormControl is pending, i.e. that async validation is occurring and
  * errors are not yet available for the input value.
  */
-var /** @type {?} */ PENDING = 'PENDING';
+var PENDING = 'PENDING';
 /**
  * Indicates that a FormControl is disabled, i.e. that the control is exempt from ancestor
  * calculations of validity or value.
  */
-var /** @type {?} */ DISABLED = 'DISABLED';
+var DISABLED = 'DISABLED';
 /**
  * @param {?} control
  * @param {?} path
@@ -21953,7 +23024,7 @@ var AbstractControl = (function () {
             this._status = PENDING;
             var /** @type {?} */ obs = toObservable(this.asyncValidator(this));
             this._asyncValidationSubscription =
-                obs.subscribe(function (res) { return _this.setErrors(res, { emitEvent: emitEvent }); });
+                obs.subscribe(function (errors) { return _this.setErrors(errors, { emitEvent: emitEvent }); });
         }
     };
     /**
@@ -23080,11 +24151,18 @@ var FormArray = (function (_super) {
     };
     return FormArray;
 }(AbstractControl));
-var /** @type {?} */ formDirectiveProvider = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var formDirectiveProvider = {
     provide: ControlContainer,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return NgForm; })
 };
-var /** @type {?} */ resolvedPromise = Promise.resolve(null);
+var resolvedPromise = Promise.resolve(null);
 /**
  * \@whatItDoes Creates a top-level {\@link FormGroup} instance and binds it to a form
  * to track aggregate form value and validation status.
@@ -23306,13 +24384,20 @@ NgForm.ctorParameters = function () { return [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var Examples = {
+var FormErrorExamples = {
     formControlName: "\n    <div [formGroup]=\"myGroup\">\n      <input formControlName=\"firstName\">\n    </div>\n\n    In your class:\n\n    this.myGroup = new FormGroup({\n       firstName: new FormControl()\n    });",
     formGroupName: "\n    <div [formGroup]=\"myGroup\">\n       <div formGroupName=\"person\">\n          <input formControlName=\"firstName\">\n       </div>\n    </div>\n\n    In your class:\n\n    this.myGroup = new FormGroup({\n       person: new FormGroup({ firstName: new FormControl() })\n    });",
-    formArrayName: "\n    <div [formGroup]=\"myGroup\">\n      <div formArrayName=\"cities\">\n        <div *ngFor=\"let city of cityArray.controls; let i=index\">\n          <input [formControlName]=\"i\">\n        </div>\n      </div>\n    </div>\n\n    In your class:\n\n    this.cityArray = new FormArray([new FormControl('SF')]);\n    this.myGroup = new FormGroup({\n      cities: this.cityArray\n    });",
+    formArrayName: "\n    <div [formGroup]=\"myGroup\">\n      <div formArrayName=\"cities\">\n        <div *ngFor=\"let city of cityArray.controls; index as i\">\n          <input [formControlName]=\"i\">\n        </div>\n      </div>\n    </div>\n\n    In your class:\n\n    this.cityArray = new FormArray([new FormControl('SF')]);\n    this.myGroup = new FormGroup({\n      cities: this.cityArray\n    });",
     ngModelGroup: "\n    <form>\n       <div ngModelGroup=\"person\">\n          <input [(ngModel)]=\"person.name\" name=\"firstName\">\n       </div>\n    </form>",
     ngModelWithFormGroup: "\n    <div [formGroup]=\"myGroup\">\n       <input formControlName=\"firstName\">\n       <input [(ngModel)]=\"showMoreControls\" [ngModelOptions]=\"{standalone: true}\">\n    </div>\n  "
 };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var TemplateDrivenErrors = (function () {
     function TemplateDrivenErrors() {
     }
@@ -23320,13 +24405,13 @@ var TemplateDrivenErrors = (function () {
      * @return {?}
      */
     TemplateDrivenErrors.modelParentException = function () {
-        throw new Error("\n      ngModel cannot be used to register form controls with a parent formGroup directive.  Try using\n      formGroup's partner directive \"formControlName\" instead.  Example:\n\n      " + Examples.formControlName + "\n\n      Or, if you'd like to avoid registering this form control, indicate that it's standalone in ngModelOptions:\n\n      Example:\n\n      " + Examples.ngModelWithFormGroup);
+        throw new Error("\n      ngModel cannot be used to register form controls with a parent formGroup directive.  Try using\n      formGroup's partner directive \"formControlName\" instead.  Example:\n\n      " + FormErrorExamples.formControlName + "\n\n      Or, if you'd like to avoid registering this form control, indicate that it's standalone in ngModelOptions:\n\n      Example:\n\n      " + FormErrorExamples.ngModelWithFormGroup);
     };
     /**
      * @return {?}
      */
     TemplateDrivenErrors.formGroupNameException = function () {
-        throw new Error("\n      ngModel cannot be used to register form controls with a parent formGroupName or formArrayName directive.\n\n      Option 1: Use formControlName instead of ngModel (reactive strategy):\n\n      " + Examples.formGroupName + "\n\n      Option 2:  Update ngModel's parent be ngModelGroup (template-driven strategy):\n\n      " + Examples.ngModelGroup);
+        throw new Error("\n      ngModel cannot be used to register form controls with a parent formGroupName or formArrayName directive.\n\n      Option 1: Use formControlName instead of ngModel (reactive strategy):\n\n      " + FormErrorExamples.formGroupName + "\n\n      Option 2:  Update ngModel's parent be ngModelGroup (template-driven strategy):\n\n      " + FormErrorExamples.ngModelGroup);
     };
     /**
      * @return {?}
@@ -23338,11 +24423,18 @@ var TemplateDrivenErrors = (function () {
      * @return {?}
      */
     TemplateDrivenErrors.modelGroupParentException = function () {
-        throw new Error("\n      ngModelGroup cannot be used with a parent formGroup directive.\n\n      Option 1: Use formGroupName instead of ngModelGroup (reactive strategy):\n\n      " + Examples.formGroupName + "\n\n      Option 2:  Use a regular form tag instead of the formGroup directive (template-driven strategy):\n\n      " + Examples.ngModelGroup);
+        throw new Error("\n      ngModelGroup cannot be used with a parent formGroup directive.\n\n      Option 1: Use formGroupName instead of ngModelGroup (reactive strategy):\n\n      " + FormErrorExamples.formGroupName + "\n\n      Option 2:  Use a regular form tag instead of the formGroup directive (template-driven strategy):\n\n      " + FormErrorExamples.ngModelGroup);
     };
     return TemplateDrivenErrors;
 }());
-var /** @type {?} */ modelGroupProvider = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var modelGroupProvider = {
     provide: ControlContainer,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return NgModelGroup; })
 };
@@ -23410,7 +24502,14 @@ NgModelGroup.ctorParameters = function () { return [
 NgModelGroup.propDecorators = {
     'name': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['ngModelGroup',] },],
 };
-var /** @type {?} */ formControlBinding = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var formControlBinding = {
     provide: NgControl,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return NgModel; })
 };
@@ -23431,7 +24530,7 @@ var /** @type {?} */ formControlBinding = {
  * - this is just one extra run no matter how many `ngModel` have been changed.
  * - this is a general problem when using `exportAs` for directives!
  */
-var /** @type {?} */ resolvedPromise$1 = Promise.resolve(null);
+var resolvedPromise$1 = Promise.resolve(null);
 /**
  * \@whatItDoes Creates a {\@link FormControl} instance from a domain model and binds it
  * to a form control element.
@@ -23508,7 +24607,6 @@ var NgModel = (function (_super) {
          * \@internal
          */
         _this._registered = false;
-        _this._composing = false;
         _this.update = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         _this._parent = parent;
         _this._rawValidators = validators || [];
@@ -23516,17 +24614,6 @@ var NgModel = (function (_super) {
         _this.valueAccessor = selectValueAccessor(_this, valueAccessors);
         return _this;
     }
-    /**
-     * @return {?}
-     */
-    NgModel.prototype.compositionStart = function () { this._composing = true; };
-    /**
-     * @return {?}
-     */
-    NgModel.prototype.compositionEnd = function () {
-        this._composing = false;
-        this.update.emit(this.viewModel);
-    };
     /**
      * @param {?} changes
      * @return {?}
@@ -23597,7 +24684,7 @@ var NgModel = (function (_super) {
      */
     NgModel.prototype.viewToModelUpdate = function (newValue) {
         this.viewModel = newValue;
-        !this._composing && this.update.emit(newValue);
+        this.update.emit(newValue);
     };
     /**
      * @return {?}
@@ -23700,9 +24787,14 @@ NgModel.propDecorators = {
     'model': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['ngModel',] },],
     'options': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['ngModelOptions',] },],
     'update': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */], args: ['ngModelChange',] },],
-    'compositionStart': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* HostListener */], args: ['compositionstart',] },],
-    'compositionEnd': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* HostListener */], args: ['compositionend',] },],
 };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var ReactiveErrors = (function () {
     function ReactiveErrors() {
     }
@@ -23710,31 +24802,31 @@ var ReactiveErrors = (function () {
      * @return {?}
      */
     ReactiveErrors.controlParentException = function () {
-        throw new Error("formControlName must be used with a parent formGroup directive.  You'll want to add a formGroup\n       directive and pass it an existing FormGroup instance (you can create one in your class).\n\n      Example:\n\n      " + Examples.formControlName);
+        throw new Error("formControlName must be used with a parent formGroup directive.  You'll want to add a formGroup\n       directive and pass it an existing FormGroup instance (you can create one in your class).\n\n      Example:\n\n      " + FormErrorExamples.formControlName);
     };
     /**
      * @return {?}
      */
     ReactiveErrors.ngModelGroupException = function () {
-        throw new Error("formControlName cannot be used with an ngModelGroup parent. It is only compatible with parents\n       that also have a \"form\" prefix: formGroupName, formArrayName, or formGroup.\n\n       Option 1:  Update the parent to be formGroupName (reactive form strategy)\n\n        " + Examples.formGroupName + "\n\n        Option 2: Use ngModel instead of formControlName (template-driven strategy)\n\n        " + Examples.ngModelGroup);
+        throw new Error("formControlName cannot be used with an ngModelGroup parent. It is only compatible with parents\n       that also have a \"form\" prefix: formGroupName, formArrayName, or formGroup.\n\n       Option 1:  Update the parent to be formGroupName (reactive form strategy)\n\n        " + FormErrorExamples.formGroupName + "\n\n        Option 2: Use ngModel instead of formControlName (template-driven strategy)\n\n        " + FormErrorExamples.ngModelGroup);
     };
     /**
      * @return {?}
      */
     ReactiveErrors.missingFormException = function () {
-        throw new Error("formGroup expects a FormGroup instance. Please pass one in.\n\n       Example:\n\n       " + Examples.formControlName);
+        throw new Error("formGroup expects a FormGroup instance. Please pass one in.\n\n       Example:\n\n       " + FormErrorExamples.formControlName);
     };
     /**
      * @return {?}
      */
     ReactiveErrors.groupParentException = function () {
-        throw new Error("formGroupName must be used with a parent formGroup directive.  You'll want to add a formGroup\n      directive and pass it an existing FormGroup instance (you can create one in your class).\n\n      Example:\n\n      " + Examples.formGroupName);
+        throw new Error("formGroupName must be used with a parent formGroup directive.  You'll want to add a formGroup\n      directive and pass it an existing FormGroup instance (you can create one in your class).\n\n      Example:\n\n      " + FormErrorExamples.formGroupName);
     };
     /**
      * @return {?}
      */
     ReactiveErrors.arrayParentException = function () {
-        throw new Error("formArrayName must be used with a parent formGroup directive.  You'll want to add a formGroup\n       directive and pass it an existing FormGroup instance (you can create one in your class).\n\n        Example:\n\n        " + Examples.formArrayName);
+        throw new Error("formArrayName must be used with a parent formGroup directive.  You'll want to add a formGroup\n       directive and pass it an existing FormGroup instance (you can create one in your class).\n\n        Example:\n\n        " + FormErrorExamples.formArrayName);
     };
     /**
      * @return {?}
@@ -23744,7 +24836,14 @@ var ReactiveErrors = (function () {
     };
     return ReactiveErrors;
 }());
-var /** @type {?} */ formControlBinding$1 = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var formControlBinding$1 = {
     provide: NgControl,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return FormControlDirective; })
 };
@@ -23899,7 +24998,14 @@ FormControlDirective.propDecorators = {
     'update': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */], args: ['ngModelChange',] },],
     'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['disabled',] },],
 };
-var /** @type {?} */ formDirectiveProvider$1 = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var formDirectiveProvider$1 = {
     provide: ControlContainer,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return FormGroupDirective; })
 };
@@ -24165,7 +25271,14 @@ function remove(list, el) {
         list.splice(index, 1);
     }
 }
-var /** @type {?} */ formGroupNameProvider = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var formGroupNameProvider = {
     provide: ControlContainer,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return FormGroupName; })
 };
@@ -24252,7 +25365,7 @@ FormGroupName.ctorParameters = function () { return [
 FormGroupName.propDecorators = {
     'name': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['formGroupName',] },],
 };
-var /** @type {?} */ formArrayNameProvider = {
+var formArrayNameProvider = {
     provide: ControlContainer,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return FormArrayName; })
 };
@@ -24406,7 +25519,14 @@ function _hasInvalidParent(parent) {
     return !(parent instanceof FormGroupName) && !(parent instanceof FormGroupDirective) &&
         !(parent instanceof FormArrayName);
 }
-var /** @type {?} */ controlNameBinding = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var controlNameBinding = {
     provide: NgControl,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return FormControlName; })
 };
@@ -24602,12 +25722,19 @@ FormControlName.propDecorators = {
     'update': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */], args: ['ngModelChange',] },],
     'isDisabled': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */], args: ['disabled',] },],
 };
-var /** @type {?} */ REQUIRED_VALIDATOR = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var REQUIRED_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return RequiredValidator; }),
     multi: true
 };
-var /** @type {?} */ CHECKBOX_REQUIRED_VALIDATOR = {
+var CHECKBOX_REQUIRED_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return CheckboxRequiredValidator; }),
     multi: true
@@ -24712,7 +25839,7 @@ CheckboxRequiredValidator.ctorParameters = function () { return []; };
 /**
  * Provider which adds {@link EmailValidator} to {@link NG_VALIDATORS}.
  */
-var /** @type {?} */ EMAIL_VALIDATOR = {
+var EMAIL_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return EmailValidator; }),
     multi: true
@@ -24781,7 +25908,7 @@ EmailValidator.propDecorators = {
  *
  * {@example common/forms/ts/validators/validators.ts region='min'}
  */
-var /** @type {?} */ MIN_LENGTH_VALIDATOR = {
+var MIN_LENGTH_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return MinLengthValidator; }),
     multi: true
@@ -24847,7 +25974,7 @@ MinLengthValidator.propDecorators = {
  *
  * {@example common/forms/ts/validators/validators.ts region='max'}
  */
-var /** @type {?} */ MAX_LENGTH_VALIDATOR = {
+var MAX_LENGTH_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return MaxLengthValidator; }),
     multi: true
@@ -24907,7 +26034,7 @@ MaxLengthValidator.ctorParameters = function () { return []; };
 MaxLengthValidator.propDecorators = {
     'maxlength': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
-var /** @type {?} */ PATTERN_VALIDATOR = {
+var PATTERN_VALIDATOR = {
     provide: NG_VALIDATORS,
     useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(function () { return PatternValidator; }),
     multi: true
@@ -24969,6 +26096,13 @@ PatternValidator.ctorParameters = function () { return []; };
 PatternValidator.propDecorators = {
     'pattern': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */] },],
 };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@whatItDoes Creates an {\@link AbstractControl} from a user-specified configuration.
  *
@@ -25083,9 +26217,28 @@ FormBuilder.decorators = [
  */
 FormBuilder.ctorParameters = function () { return []; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.0-rc.5');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* Version */]('4.0.0');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@whatItDoes Adds `novalidate` attribute to all forms by default.
  *
@@ -25114,7 +26267,14 @@ NgNoValidate.decorators = [
  * @nocollapse
  */
 NgNoValidate.ctorParameters = function () { return []; };
-var /** @type {?} */ SHARED_FORM_DIRECTIVES = [
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var SHARED_FORM_DIRECTIVES = [
     NgNoValidate,
     NgSelectOption,
     NgSelectMultipleOption,
@@ -25134,8 +26294,8 @@ var /** @type {?} */ SHARED_FORM_DIRECTIVES = [
     CheckboxRequiredValidator,
     EmailValidator,
 ];
-var /** @type {?} */ TEMPLATE_DRIVEN_DIRECTIVES = [NgModel, NgModelGroup, NgForm];
-var /** @type {?} */ REACTIVE_DRIVEN_DIRECTIVES = [FormControlDirective, FormGroupDirective, FormControlName, FormGroupName, FormArrayName];
+var TEMPLATE_DRIVEN_DIRECTIVES = [NgModel, NgModelGroup, NgForm];
+var REACTIVE_DRIVEN_DIRECTIVES = [FormControlDirective, FormGroupDirective, FormControlName, FormGroupName, FormArrayName];
 /**
  * Internal module used for sharing directives between FormsModule and ReactiveFormsModule
  */
@@ -25154,6 +26314,13 @@ InternalFormsSharedModule.decorators = [
  * @nocollapse
  */
 InternalFormsSharedModule.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * The ng module for forms.
  * \@stable
@@ -25194,6 +26361,39 @@ ReactiveFormsModule.decorators = [
  * @nocollapse
  */
 ReactiveFormsModule.ctorParameters = function () { return []; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * This module is used for handling user input, by defining and building a {@link FormGroup} that
+ * consists of {@link FormControl} objects, and mapping them onto the DOM. {@link FormControl}
+ * objects can then be used to read information from the form DOM elements.
+ *
+ * Forms providers are not included in default providers; you must import these providers
+ * explicitly.
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the forms package.
+ */
+// This file only reexports content of the `src` folder. Keep it that way.
+/**
+ * Generated bundle index. Do not edit.
+ */
 
 //# sourceMappingURL=forms.es5.js.map
 
@@ -26635,7 +27835,7 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__button_button__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_form__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__icon_icon__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ion__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__label_label__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__item_reorder__ = __webpack_require__(47);
@@ -27554,7 +28754,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon__ = __webpack_require__(35);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IconModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -28383,363 +29583,6 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ion__ = __webpack_require__(5);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Icon; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-let Icon = class Icon extends __WEBPACK_IMPORTED_MODULE_3__ion__["a" /* Ion */] {
-    constructor(config, elementRef, renderer) {
-        super(config, elementRef, renderer, 'icon');
-        this._isActive = true;
-        this._name = '';
-        this._ios = '';
-        this._md = '';
-        this._css = '';
-        this._hidden = false;
-        this._iconMode = config.get('iconMode');
-    }
-    ngOnDestroy() {
-        if (this._css) {
-            this.setElementClass(this._css, false);
-        }
-    }
-    get name() {
-        return this._name;
-    }
-    set name(val) {
-        if (!(/^md-|^ios-|^logo-/.test(val))) {
-            this._name = this._iconMode + '-' + val;
-        }
-        else {
-            this._name = val;
-        }
-        this.update();
-    }
-    get ios() {
-        return this._ios;
-    }
-    set ios(val) {
-        this._ios = val;
-        this.update();
-    }
-    get md() {
-        return this._md;
-    }
-    set md(val) {
-        this._md = val;
-        this.update();
-    }
-    get isActive() {
-        return this._isActive;
-    }
-    set isActive(val) {
-        this._isActive = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
-        this.update();
-    }
-    update() {
-        let iconName;
-        if (this._ios && this._iconMode === 'ios') {
-            iconName = this._ios;
-        }
-        else if (this._md && this._iconMode === 'md') {
-            iconName = this._md;
-        }
-        else {
-            iconName = this._name;
-        }
-        let hidden = this._hidden = (iconName === null);
-        if (hidden) {
-            return;
-        }
-        let iconMode = iconName.split('-', 2)[0];
-        if (iconMode === 'ios' &&
-            !this._isActive &&
-            iconName.indexOf('logo-') < 0 &&
-            iconName.indexOf('-outline') < 0) {
-            iconName += '-outline';
-        }
-        let css = 'ion-' + iconName;
-        if (this._css === css) {
-            return;
-        }
-        if (this._css) {
-            this.setElementClass(this._css, false);
-        }
-        this._css = css;
-        this.setElementClass(css, true);
-        let label = iconName
-            .replace('ios-', '')
-            .replace('md-', '')
-            .replace('-', ' ');
-        this.setElementAttribute('aria-label', label);
-    }
-};
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], Icon.prototype, "name", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], Icon.prototype, "ios", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], Icon.prototype, "md", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], Icon.prototype, "isActive", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_25" /* HostBinding */])('class.hide'),
-    __metadata("design:type", Boolean)
-], Icon.prototype, "_hidden", void 0);
-Icon = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
-        selector: 'ion-icon',
-        host: {
-            'role': 'img'
-        }
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object])
-], Icon);
-
-var _a, _b, _c;
-//# sourceMappingURL=icon.js.map
-
-/***/ }),
-/* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ion__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_platform__ = __webpack_require__(3);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SplitPane; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-const QUERY = {
-    xs: '(min-width: 0px)',
-    sm: '(min-width: 576px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 992px)',
-    xl: '(min-width: 1200px)',
-    never: ''
-};
-class RootNode {
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = RootNode;
-
-let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_1__ion__["a" /* Ion */] {
-    constructor(_zone, _plt, config, elementRef, renderer) {
-        super(config, elementRef, renderer, 'split-pane');
-        this._zone = _zone;
-        this._plt = _plt;
-        this._visible = false;
-        this._init = false;
-        this._mediaQuery = QUERY['md'];
-        this.sideContent = null;
-        this.mainContent = null;
-        this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
-    }
-    set _setchildren(query) {
-        const children = this._children = query.filter((child => child !== this));
-        children.forEach(child => {
-            var isMain = child.initPane();
-            this._setPaneCSSClass(child.getElementRef(), isMain);
-        });
-    }
-    set when(query) {
-        if (typeof query === 'boolean') {
-            this._mediaQuery = query;
-        }
-        else {
-            const defaultQuery = QUERY[query];
-            this._mediaQuery = (defaultQuery)
-                ? defaultQuery
-                : query;
-        }
-        this._update();
-    }
-    get when() {
-        return this._mediaQuery;
-    }
-    _register(node, isMain, callback) {
-        if (this.getElementRef().nativeElement !== node.getElementRef().nativeElement.parentNode) {
-            return false;
-        }
-        this._setPaneCSSClass(node.getElementRef(), isMain);
-        if (callback) {
-            this.ionChange.subscribe(callback);
-        }
-        if (isMain) {
-            if (this.mainContent) {
-                console.error('split pane: main content was already set');
-            }
-            this.mainContent = node;
-        }
-        return true;
-    }
-    ngAfterViewInit() {
-        this._init = true;
-        this._update();
-    }
-    _update() {
-        if (!this._init) {
-            return;
-        }
-        this._rmListener && this._rmListener();
-        this._rmListener = null;
-        const query = this._mediaQuery;
-        if (typeof query === 'boolean') {
-            this._setVisible(query);
-            return;
-        }
-        if (query && query.length > 0) {
-            const callback = (query) => this._setVisible(query.matches);
-            const mediaList = this._plt.win().matchMedia(query);
-            mediaList.addListener(callback);
-            this._setVisible(mediaList.matches);
-            this._rmListener = function () {
-                mediaList.removeListener(callback);
-            };
-        }
-        else {
-            this._setVisible(false);
-        }
-    }
-    _updateChildren() {
-        this.mainContent = null;
-        this.sideContent = null;
-        const visible = this._visible;
-        this._children.forEach(child => child.paneChanged && child.paneChanged(visible));
-    }
-    _setVisible(visible) {
-        if (this._visible === visible) {
-            return;
-        }
-        this._visible = visible;
-        this.setElementClass('split-pane-visible', visible);
-        this._updateChildren();
-        this._zone.run(() => {
-            this.ionChange.emit(this);
-        });
-    }
-    isVisible() {
-        return this._visible;
-    }
-    setElementClass(className, add) {
-        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
-    }
-    _setPaneCSSClass(elementRef, isMain) {
-        const ele = elementRef.nativeElement;
-        this._renderer.setElementClass(ele, 'split-pane-main', isMain);
-        this._renderer.setElementClass(ele, 'split-pane-side', !isMain);
-    }
-    ngOnDestroy() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this._rmListener, 'at this point _rmListerner should be valid');
-        this._rmListener && this._rmListener();
-        this._rmListener = null;
-    }
-    initPane() {
-        return true;
-    }
-};
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* ContentChildren */])(RootNode, { descendants: false }),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */]) === "function" && _a || Object),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */]) === "function" && _b || Object])
-], SplitPane.prototype, "_setchildren", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], SplitPane.prototype, "when", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
-    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _c || Object)
-], SplitPane.prototype, "ionChange", void 0);
-SplitPane = SplitPane_1 = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
-        selector: 'ion-split-pane',
-        providers: [{ provide: RootNode, useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(() => SplitPane_1) }]
-    }),
-    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _h || Object])
-], SplitPane);
-
-var SplitPane_1, _a, _b, _c, _d, _e, _f, _g, _h;
-//# sourceMappingURL=split-pane.js.map
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-
-class Transition extends __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a" /* Animation */] {
-    constructor(plt, enteringView, leavingView, opts) {
-        super(plt, null, opts);
-        this.enteringView = enteringView;
-        this.leavingView = leavingView;
-    }
-    init() { }
-    registerStart(trnsStart) {
-        this._trnsStart = trnsStart;
-    }
-    isRoot() {
-        return !this.parent;
-    }
-    start() {
-        this._trnsStart && this._trnsStart();
-        this._trnsStart = null;
-    }
-    destroy() {
-        super.destroy();
-        this.parent = this.enteringView = this.leavingView = this._trnsStart = null;
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Transition;
-
-//# sourceMappingURL=transition.js.map
-
-/***/ }),
-/* 37 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return BrowserModule; });
@@ -28749,7 +29592,7 @@ class Transition extends __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a"
 /* unused harmony export disableDebugTools */
 /* unused harmony export enableDebugTools */
 /* unused harmony export By */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return NgProbeToken; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return NgProbeToken$1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DOCUMENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return EVENT_MANAGER_PLUGINS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return EventManager; });
@@ -28767,7 +29610,7 @@ class Transition extends __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a"
 /* unused harmony export ɵBrowserGetTestability */
 /* unused harmony export ɵELEMENT_PROBE_PROVIDERS */
 /* unused harmony export ɵDomAdapter */
-/* unused harmony export ɵgetDOM */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getDOM; });
 /* unused harmony export ɵsetRootDomAdapter */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return DomRendererFactory2; });
 /* unused harmony export ɵNAMESPACE_URIS */
@@ -28793,11 +29636,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @license Angular v4.0.0-rc.5
+ * @license Angular v4.0.0
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
-
 
 
 /**
@@ -28807,13 +29649,17 @@ var __extends = (this && this.__extends) || function (d, b) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var /** @type {?} */ _DOM = null;
+var _DOM = null;
 /**
  * @return {?}
  */
 function getDOM() {
     return _DOM;
 }
+/**
+ * @param {?} adapter
+ * @return {?}
+ */
 /**
  * @param {?} adapter
  * @return {?}
@@ -29601,6 +30447,13 @@ var DomAdapter = (function () {
     return DomAdapter;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Provides DOM operations in any browser environment.
  *
  * \@security Tread carefully! Interacting with the DOM directly is dangerous and
@@ -29685,15 +30538,22 @@ var GenericBrowserDomAdapter = (function (_super) {
     };
     return GenericBrowserDomAdapter;
 }(DomAdapter));
-var /** @type {?} */ _attrToPropMap = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _attrToPropMap = {
     'class': 'className',
     'innerHtml': 'innerHTML',
     'readonly': 'readOnly',
     'tabindex': 'tabIndex',
 };
-var /** @type {?} */ DOM_KEY_LOCATION_NUMPAD = 3;
+var DOM_KEY_LOCATION_NUMPAD = 3;
 // Map to convert some key or keyIdentifier values to what will be returned by getEventKey
-var /** @type {?} */ _keyMap = {
+var _keyMap = {
     // The following values are here for cross-browser compatibility and to match the W3C standard
     // cf http://www.w3.org/TR/DOM-Level-3-Events-key/
     '\b': 'Backspace',
@@ -29713,7 +30573,7 @@ var /** @type {?} */ _keyMap = {
 // There is a bug in Chrome for numeric keypad keys:
 // https://code.google.com/p/chromium/issues/detail?id=155654
 // 1, 2, 3 ... are reported as A, B, C ...
-var /** @type {?} */ _chromeNumKeyPadMap = {
+var _chromeNumKeyPadMap = {
     'A': '1',
     'B': '2',
     'C': '3',
@@ -29731,7 +30591,7 @@ var /** @type {?} */ _chromeNumKeyPadMap = {
     '\x60': '0',
     '\x90': 'NumLock'
 };
-var /** @type {?} */ nodeContains;
+var nodeContains;
 if (__WEBPACK_IMPORTED_MODULE_1__angular_core__["_5" /* ɵglobal */]['Node']) {
     nodeContains = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_5" /* ɵglobal */]['Node'].prototype.contains || function (node) {
         return !!(this.compareDocumentPosition(node) & 16);
@@ -30549,7 +31409,7 @@ var BrowserDomAdapter = (function (_super) {
     };
     return BrowserDomAdapter;
 }(GenericBrowserDomAdapter));
-var /** @type {?} */ baseElement = null;
+var baseElement = null;
 /**
  * @return {?}
  */
@@ -30563,7 +31423,7 @@ function getBaseElementHref() {
     return baseElement.getAttribute('href');
 }
 // based on urlUtils.js in AngularJS 1
-var /** @type {?} */ urlParsingNode;
+var urlParsingNode;
 /**
  * @param {?} url
  * @return {?}
@@ -30617,6 +31477,13 @@ function setValueOnPath(global, path, value) {
     obj[parts.shift()] = value;
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A DI Token representing the main rendering context. In a browser this is the DOM Document.
  *
  * Note: Document might not be available in the Application Context when Application and Rendering
@@ -30636,6 +31503,13 @@ var DOCUMENT = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* InjectionT
 function supportsState() {
     return !!window.history.pushState;
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * `PlatformLocation` encapsulates all of the direct calls to platform APIs.
  * This class should not be used directly by an application developer. Instead, use
@@ -30762,6 +31636,13 @@ BrowserPlatformLocation.decorators = [
 BrowserPlatformLocation.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * A service that can be used to get and add meta tags.
  *
@@ -30912,10 +31793,17 @@ Meta.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * An id that identifies a particular application being bootstrapped, that should
  * match across the client/server boundary.
  */
-var /** @type {?} */ TRANSITION_ID = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* InjectionToken */]('TRANSITION_ID');
+var TRANSITION_ID = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* InjectionToken */]('TRANSITION_ID');
 /**
  * @param {?} transitionId
  * @param {?} document
@@ -30930,7 +31818,7 @@ function bootstrapListenerFactory(transitionId, document) {
     };
     return factory;
 }
-var /** @type {?} */ SERVER_TRANSITION_PROVIDERS = [
+var SERVER_TRANSITION_PROVIDERS = [
     {
         provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["r" /* APP_INITIALIZER */],
         useFactory: bootstrapListenerFactory,
@@ -30938,6 +31826,13 @@ var /** @type {?} */ SERVER_TRANSITION_PROVIDERS = [
         multi: true
     },
 ];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var BrowserGetTestability = (function () {
     function BrowserGetTestability() {
     }
@@ -31005,6 +31900,13 @@ var BrowserGetTestability = (function () {
     return BrowserGetTestability;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A service that can be used to get and set the title of a current HTML document.
  *
  * Since an Angular application can't be bootstrapped on the entire HTML document (`<html>` tag)
@@ -31043,12 +31945,19 @@ Title.decorators = [
 Title.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
-var /** @type {?} */ CORE_TOKENS = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var CORE_TOKENS = {
     'ApplicationRef': __WEBPACK_IMPORTED_MODULE_1__angular_core__["s" /* ApplicationRef */],
     'NgZone': __WEBPACK_IMPORTED_MODULE_1__angular_core__["h" /* NgZone */],
 };
-var /** @type {?} */ INSPECT_GLOBAL_NAME = 'ng.probe';
-var /** @type {?} */ CORE_TOKENS_GLOBAL_NAME = 'ng.coreTokens';
+var INSPECT_GLOBAL_NAME = 'ng.probe';
+var CORE_TOKENS_GLOBAL_NAME = 'ng.coreTokens';
 /**
  * Returns a {\@link DebugElement} for the given native DOM element, or
  * null if the given native element does not have an Angular view associated
@@ -31057,22 +31966,22 @@ var /** @type {?} */ CORE_TOKENS_GLOBAL_NAME = 'ng.coreTokens';
  * @return {?}
  */
 function inspectNativeElement(element) {
-    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_7" /* getDebugNode */](element);
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_7" /* getDebugNode */])(element);
 }
 /**
  * Deprecated. Use the one from '\@angular/core'.
  * @deprecated
  */
-var NgProbeToken = (function () {
+var NgProbeToken$1 = (function () {
     /**
      * @param {?} name
      * @param {?} token
      */
-    function NgProbeToken(name, token) {
+    function NgProbeToken$1(name, token) {
         this.name = name;
         this.token = token;
     }
-    return NgProbeToken;
+    return NgProbeToken$1;
 }());
 /**
  * @param {?} extraTokens
@@ -31082,7 +31991,7 @@ var NgProbeToken = (function () {
 function _createNgProbe(extraTokens, coreTokens) {
     var /** @type {?} */ tokens = (extraTokens || []).concat(coreTokens || []);
     getDOM().setGlobalVar(INSPECT_GLOBAL_NAME, inspectNativeElement);
-    getDOM().setGlobalVar(CORE_TOKENS_GLOBAL_NAME, __WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ɵmerge */](CORE_TOKENS, _ngProbeTokensToMap(tokens || [])));
+    getDOM().setGlobalVar(CORE_TOKENS_GLOBAL_NAME, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ɵmerge */])(CORE_TOKENS, _ngProbeTokensToMap(tokens || [])));
     return function () { return inspectNativeElement; };
 }
 /**
@@ -31095,17 +32004,24 @@ function _ngProbeTokensToMap(tokens) {
 /**
  * Providers which support debugging Angular applications (e.g. via `ng.probe`).
  */
-var /** @type {?} */ ELEMENT_PROBE_PROVIDERS = [
+var ELEMENT_PROBE_PROVIDERS = [
     {
         provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["r" /* APP_INITIALIZER */],
         useFactory: _createNgProbe,
         deps: [
-            [NgProbeToken, new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Optional */]()],
+            [NgProbeToken$1, new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Optional */]()],
             [__WEBPACK_IMPORTED_MODULE_1__angular_core__["l" /* NgProbeToken */], new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Optional */]()],
         ],
         multi: true,
     },
 ];
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * \@stable
  */
@@ -31221,6 +32137,13 @@ var EventManagerPlugin = (function () {
     ;
     return EventManagerPlugin;
 }());
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var SharedStylesHost = (function () {
     function SharedStylesHost() {
         /**
@@ -31323,16 +32246,24 @@ DomSharedStylesHost.decorators = [
 DomSharedStylesHost.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
-var /** @type {?} */ NAMESPACE_URIS = {
-    'xlink': 'http://www.w3.org/1999/xlink',
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NAMESPACE_URIS = {
     'svg': 'http://www.w3.org/2000/svg',
     'xhtml': 'http://www.w3.org/1999/xhtml',
-    'xml': 'http://www.w3.org/XML/1998/namespace'
+    'xlink': 'http://www.w3.org/1999/xlink',
+    'xml': 'http://www.w3.org/XML/1998/namespace',
+    'xmlns': 'http://www.w3.org/2000/xmlns/',
 };
-var /** @type {?} */ COMPONENT_REGEX = /%COMP%/g;
-var /** @type {?} */ COMPONENT_VARIABLE = '%COMP%';
-var /** @type {?} */ HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
-var /** @type {?} */ CONTENT_ATTR = "_ngcontent-" + COMPONENT_VARIABLE;
+var COMPONENT_REGEX = /%COMP%/g;
+var COMPONENT_VARIABLE = '%COMP%';
+var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
+var CONTENT_ATTR = "_ngcontent-" + COMPONENT_VARIABLE;
 /**
  * @param {?} componentShortId
  * @return {?}
@@ -31528,7 +32459,14 @@ var DefaultDomRenderer2 = (function () {
      */
     DefaultDomRenderer2.prototype.setAttribute = function (el, name, value, namespace) {
         if (namespace) {
-            el.setAttributeNS(NAMESPACE_URIS[namespace], namespace + ':' + name, value);
+            name = namespace + ":" + name;
+            var /** @type {?} */ namespaceUri = NAMESPACE_URIS[namespace];
+            if (namespaceUri) {
+                el.setAttributeNS(namespaceUri, name, value);
+            }
+            else {
+                el.setAttribute(name, value);
+            }
         }
         else {
             el.setAttribute(name, value);
@@ -31542,7 +32480,13 @@ var DefaultDomRenderer2 = (function () {
      */
     DefaultDomRenderer2.prototype.removeAttribute = function (el, name, namespace) {
         if (namespace) {
-            el.removeAttributeNS(NAMESPACE_URIS[namespace], name);
+            var /** @type {?} */ namespaceUri = NAMESPACE_URIS[namespace];
+            if (namespaceUri) {
+                el.removeAttributeNS(namespaceUri, name);
+            }
+            else {
+                el.removeAttribute(namespace + ":" + name);
+            }
         }
         else {
             el.removeAttribute(name);
@@ -31622,7 +32566,7 @@ var DefaultDomRenderer2 = (function () {
     };
     return DefaultDomRenderer2;
 }());
-var /** @type {?} */ AT_CHARCODE = '@'.charCodeAt(0);
+var AT_CHARCODE = '@'.charCodeAt(0);
 /**
  * @param {?} name
  * @param {?} nameKind
@@ -31732,6 +32676,13 @@ var ShadowDomRenderer = (function (_super) {
     };
     return ShadowDomRenderer;
 }(DefaultDomRenderer2));
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var DomEventsPlugin = (function (_super) {
     __extends(DomEventsPlugin, _super);
     /**
@@ -31766,7 +32717,14 @@ DomEventsPlugin.decorators = [
 DomEventsPlugin.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
-var /** @type {?} */ EVENT_NAMES = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var EVENT_NAMES = {
     // pan
     'pan': true,
     'panstart': true,
@@ -31901,8 +32859,15 @@ HammerGesturesPlugin.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
     { type: HammerGestureConfig, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [HAMMER_GESTURE_CONFIG,] },] },
 ]; };
-var /** @type {?} */ MODIFIER_KEYS = ['alt', 'control', 'meta', 'shift'];
-var /** @type {?} */ MODIFIER_KEY_GETTERS = {
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var MODIFIER_KEYS = ['alt', 'control', 'meta', 'shift'];
+var MODIFIER_KEY_GETTERS = {
     'alt': function (event) { return event.altKey; },
     'control': function (event) { return event.ctrlKey; },
     'meta': function (event) { return event.metaKey; },
@@ -32030,6 +32995,13 @@ KeyEventsPlugin.ctorParameters = function () { return [
     { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["F" /* Inject */], args: [DOCUMENT,] },] },
 ]; };
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * A pattern that recognizes a commonly useful subset of URLs that are safe.
  *
  * This regular expression matches a subset of URLs that will not cause script
@@ -32055,9 +33027,9 @@ KeyEventsPlugin.ctorParameters = function () { return [
  *
  * This regular expression was taken from the Closure sanitization library.
  */
-var /** @type {?} */ SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
+var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
 /** A pattern that matches safe data URLs. Only matches image, video and audio types. */
-var /** @type {?} */ DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+\/]+=*$/i;
+var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+\/]+=*$/i;
 /**
  * @param {?} url
  * @return {?}
@@ -32079,10 +33051,17 @@ function sanitizeSrcset(srcset) {
     srcset = String(srcset);
     return srcset.split(',').map(function (srcset) { return sanitizeUrl(srcset.trim()); }).join(', ');
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /** A <body> element that can be safely used to parse untrusted HTML. Lazily initialized below. */
-var /** @type {?} */ inertElement = null;
+var inertElement = null;
 /** Lazily initialized to make sure the DOM adapter gets set before use. */
-var /** @type {?} */ DOM = null;
+var DOM = null;
 /**
  * Returns an HTML element that is guaranteed to not execute code when creating elements in it.
  * @return {?}
@@ -32143,26 +33122,26 @@ function merge() {
 // http://simon.html5.org/html-elements
 // Safe Void Elements - HTML5
 // http://dev.w3.org/html5/spec/Overview.html#void-elements
-var /** @type {?} */ VOID_ELEMENTS = tagSet('area,br,col,hr,img,wbr');
+var VOID_ELEMENTS = tagSet('area,br,col,hr,img,wbr');
 // Elements that you can, intentionally, leave open (and which close themselves)
 // http://dev.w3.org/html5/spec/Overview.html#optional-tags
-var /** @type {?} */ OPTIONAL_END_TAG_BLOCK_ELEMENTS = tagSet('colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr');
-var /** @type {?} */ OPTIONAL_END_TAG_INLINE_ELEMENTS = tagSet('rp,rt');
-var /** @type {?} */ OPTIONAL_END_TAG_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
+var OPTIONAL_END_TAG_BLOCK_ELEMENTS = tagSet('colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr');
+var OPTIONAL_END_TAG_INLINE_ELEMENTS = tagSet('rp,rt');
+var OPTIONAL_END_TAG_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
 // Safe Block Elements - HTML5
-var /** @type {?} */ BLOCK_ELEMENTS = merge(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet('address,article,' +
+var BLOCK_ELEMENTS = merge(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet('address,article,' +
     'aside,blockquote,caption,center,del,details,dialog,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,' +
     'h6,header,hgroup,hr,ins,main,map,menu,nav,ol,pre,section,summary,table,ul'));
 // Inline Elements - HTML5
-var /** @type {?} */ INLINE_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet('a,abbr,acronym,audio,b,' +
+var INLINE_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet('a,abbr,acronym,audio,b,' +
     'bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,picture,q,ruby,rp,rt,s,' +
     'samp,small,source,span,strike,strong,sub,sup,time,track,tt,u,var,video'));
-var /** @type {?} */ VALID_ELEMENTS = merge(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
+var VALID_ELEMENTS = merge(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
 // Attributes that have href and hence need to be sanitized
-var /** @type {?} */ URI_ATTRS = tagSet('background,cite,href,itemtype,longdesc,poster,src,xlink:href');
+var URI_ATTRS = tagSet('background,cite,href,itemtype,longdesc,poster,src,xlink:href');
 // Attributes that have special href set hence need to be sanitized
-var /** @type {?} */ SRCSET_ATTRS = tagSet('srcset');
-var /** @type {?} */ HTML_ATTRS = tagSet('abbr,accesskey,align,alt,autoplay,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,' +
+var SRCSET_ATTRS = tagSet('srcset');
+var HTML_ATTRS = tagSet('abbr,accesskey,align,alt,autoplay,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,' +
     'compact,controls,coords,datetime,default,dir,download,face,headers,height,hidden,hreflang,hspace,' +
     'ismap,itemscope,itemprop,kind,label,lang,language,loop,media,muted,nohref,nowrap,open,preload,rel,rev,role,rows,rowspan,rules,' +
     'scope,scrolling,shape,size,sizes,span,srclang,start,summary,tabindex,target,title,translate,type,usemap,' +
@@ -32173,7 +33152,7 @@ var /** @type {?} */ HTML_ATTRS = tagSet('abbr,accesskey,align,alt,autoplay,axis
 // NB: Sanitization does not allow <form> elements or other active elements (<button> etc). Those
 // can be sanitized, but they increase security surface area without a legitimate use case, so they
 // are left out here.
-var /** @type {?} */ VALID_ATTRS = merge(URI_ATTRS, SRCSET_ATTRS, HTML_ATTRS);
+var VALID_ATTRS = merge(URI_ATTRS, SRCSET_ATTRS, HTML_ATTRS);
 /**
  * SanitizingHtmlSerializer serializes a DOM fragment, stripping out any unsafe elements and unsafe
  * attributes.
@@ -32285,9 +33264,9 @@ function checkClobberedElement(node, nextNode) {
     return nextNode;
 }
 // Regular Expressions for parsing tags and attributes
-var /** @type {?} */ SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+var SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 // ! to ~ is the ASCII range.
-var /** @type {?} */ NON_ALPHANUMERIC_REGEXP = /([^\#-~ |!])/g;
+var NON_ALPHANUMERIC_REGEXP = /([^\#-~ |!])/g;
 /**
  * Escapes all potentially dangerous characters, so that the
  * resulting string can be safely inserted into attribute or
@@ -32376,6 +33355,13 @@ function sanitizeHtml(defaultDoc, unsafeHtmlInput) {
     }
 }
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Regular expression for safe style values.
  *
  * Quotes (" and ') are allowed, but a check must be done elsewhere to ensure they're balanced.
@@ -32389,13 +33375,13 @@ function sanitizeHtml(defaultDoc, unsafeHtmlInput) {
  * This regular expression was taken from the Closure sanitization library, and augmented for
  * transformation values.
  */
-var /** @type {?} */ VALUES = '[-,."\'%_!# a-zA-Z0-9]+';
-var /** @type {?} */ TRANSFORMATION_FNS = '(?:matrix|translate|scale|rotate|skew|perspective)(?:X|Y|3d)?';
-var /** @type {?} */ COLOR_FNS = '(?:rgb|hsl)a?';
-var /** @type {?} */ GRADIENTS = '(?:repeating-)?(?:linear|radial)-gradient';
-var /** @type {?} */ CSS3_FNS = '(?:calc|attr)';
-var /** @type {?} */ FN_ARGS = '\\([-0-9.%, #a-zA-Z]+\\)';
-var /** @type {?} */ SAFE_STYLE_VALUE = new RegExp("^(" + VALUES + "|" +
+var VALUES = '[-,."\'%_!# a-zA-Z0-9]+';
+var TRANSFORMATION_FNS = '(?:matrix|translate|scale|rotate|skew|perspective)(?:X|Y|3d)?';
+var COLOR_FNS = '(?:rgb|hsl)a?';
+var GRADIENTS = '(?:repeating-)?(?:linear|radial)-gradient';
+var CSS3_FNS = '(?:calc|attr)';
+var FN_ARGS = '\\([-0-9.%, #a-zA-Z]+\\)';
+var SAFE_STYLE_VALUE = new RegExp("^(" + VALUES + "|" +
     ("(?:" + TRANSFORMATION_FNS + "|" + COLOR_FNS + "|" + GRADIENTS + "|" + CSS3_FNS + ")") +
     (FN_ARGS + ")$"), 'g');
 /**
@@ -32416,7 +33402,7 @@ var /** @type {?} */ SAFE_STYLE_VALUE = new RegExp("^(" + VALUES + "|" +
  * Given the common use case, low likelihood of attack vector, and low impact of an attack, this
  * code is permissive and allows URLs that sanitize otherwise.
  */
-var /** @type {?} */ URL_RE = /^url\(([^)]+)\)$/;
+var URL_RE = /^url\(([^)]+)\)$/;
 /**
  * Checks that quotes (" and ') are properly balanced inside a string. Assumes
  * that neither escape (\) nor any other character that could result in
@@ -32463,6 +33449,13 @@ function sanitizeStyle(value) {
     }
     return 'unsafe';
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * DomSanitizer helps preventing Cross Site Scripting Security bugs (XSS) by sanitizing
  * values to be safe to use in the different DOM contexts.
@@ -32749,7 +33742,14 @@ var SafeResourceUrlImpl = (function (_super) {
     SafeResourceUrlImpl.prototype.getTypeName = function () { return 'ResourceURL'; };
     return SafeResourceUrlImpl;
 }(SafeValueImpl));
-var /** @type {?} */ INTERNAL_BROWSER_PLATFORM_PROVIDERS = [
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var INTERNAL_BROWSER_PLATFORM_PROVIDERS = [
     { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["_12" /* PLATFORM_ID */], useValue: __WEBPACK_IMPORTED_MODULE_0__angular_common__["h" /* ɵPLATFORM_BROWSER_ID */] },
     { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["_13" /* PLATFORM_INITIALIZER */], useValue: initDomAdapter, multi: true },
     { provide: __WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* PlatformLocation */], useClass: BrowserPlatformLocation },
@@ -32859,6 +33859,13 @@ BrowserModule.ctorParameters = function () { return [
  * found in the LICENSE file at https://angular.io/license
  */
 var win = typeof window !== 'undefined' && window || {};
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 var ChangeDetectionPerfRecord = (function () {
     /**
      * @param {?} msPerTick
@@ -32928,7 +33935,14 @@ var AngularProfiler = (function () {
     };
     return AngularProfiler;
 }());
-var /** @type {?} */ PROFILER_GLOBAL_NAME = 'ng.profiler';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var PROFILER_GLOBAL_NAME = 'ng.profiler';
 /**
  * Enabled Angular debug tools that are accessible via your browser's
  * developer console.
@@ -32958,6 +33972,13 @@ function enableDebugTools(ref) {
 function disableDebugTools() {
     getDOM().setGlobalVar(PROFILER_GLOBAL_NAME, null);
 }
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /**
  * Predicates for use with {\@link DebugElement}'s query functions.
  *
@@ -33006,12 +34027,411 @@ var By = (function () {
     return By;
 }());
 /**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Z" /* Version */]('4.0.0-rc.5');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Z" /* Version */]('4.0.0');
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the platform-browser package.
+ */
+// This file only reexports content of the `src` folder. Keep it that way.
+/**
+ * Generated bundle index. Do not edit.
+ */
 
 //# sourceMappingURL=platform-browser.es5.js.map
 
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ion__ = __webpack_require__(5);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Icon; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let Icon = class Icon extends __WEBPACK_IMPORTED_MODULE_3__ion__["a" /* Ion */] {
+    constructor(config, elementRef, renderer) {
+        super(config, elementRef, renderer, 'icon');
+        this._isActive = true;
+        this._name = '';
+        this._ios = '';
+        this._md = '';
+        this._css = '';
+        this._hidden = false;
+        this._iconMode = config.get('iconMode');
+    }
+    ngOnDestroy() {
+        if (this._css) {
+            this.setElementClass(this._css, false);
+        }
+    }
+    get name() {
+        return this._name;
+    }
+    set name(val) {
+        if (!(/^md-|^ios-|^logo-/.test(val))) {
+            this._name = this._iconMode + '-' + val;
+        }
+        else {
+            this._name = val;
+        }
+        this.update();
+    }
+    get ios() {
+        return this._ios;
+    }
+    set ios(val) {
+        this._ios = val;
+        this.update();
+    }
+    get md() {
+        return this._md;
+    }
+    set md(val) {
+        this._md = val;
+        this.update();
+    }
+    get isActive() {
+        return this._isActive;
+    }
+    set isActive(val) {
+        this._isActive = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this.update();
+    }
+    update() {
+        let iconName;
+        if (this._ios && this._iconMode === 'ios') {
+            iconName = this._ios;
+        }
+        else if (this._md && this._iconMode === 'md') {
+            iconName = this._md;
+        }
+        else {
+            iconName = this._name;
+        }
+        let hidden = this._hidden = (iconName === null);
+        if (hidden) {
+            return;
+        }
+        let iconMode = iconName.split('-', 2)[0];
+        if (iconMode === 'ios' &&
+            !this._isActive &&
+            iconName.indexOf('logo-') < 0 &&
+            iconName.indexOf('-outline') < 0) {
+            iconName += '-outline';
+        }
+        let css = 'ion-' + iconName;
+        if (this._css === css) {
+            return;
+        }
+        if (this._css) {
+            this.setElementClass(this._css, false);
+        }
+        this._css = css;
+        this.setElementClass(css, true);
+        let label = iconName
+            .replace('ios-', '')
+            .replace('md-', '')
+            .replace('-', ' ');
+        this.setElementAttribute('aria-label', label);
+    }
+};
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], Icon.prototype, "name", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], Icon.prototype, "ios", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], Icon.prototype, "md", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], Icon.prototype, "isActive", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_25" /* HostBinding */])('class.hide'),
+    __metadata("design:type", Boolean)
+], Icon.prototype, "_hidden", void 0);
+Icon = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
+        selector: 'ion-icon',
+        host: {
+            'role': 'img'
+        }
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object])
+], Icon);
+
+var _a, _b, _c;
+//# sourceMappingURL=icon.js.map
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ion__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_platform__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SplitPane; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+const QUERY = {
+    xs: '(min-width: 0px)',
+    sm: '(min-width: 576px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 992px)',
+    xl: '(min-width: 1200px)',
+    never: ''
+};
+class RootNode {
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = RootNode;
+
+let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_1__ion__["a" /* Ion */] {
+    constructor(_zone, _plt, config, elementRef, renderer) {
+        super(config, elementRef, renderer, 'split-pane');
+        this._zone = _zone;
+        this._plt = _plt;
+        this._visible = false;
+        this._init = false;
+        this._mediaQuery = QUERY['md'];
+        this.sideContent = null;
+        this.mainContent = null;
+        this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
+    }
+    set _setchildren(query) {
+        const children = this._children = query.filter((child => child !== this));
+        children.forEach(child => {
+            var isMain = child.initPane();
+            this._setPaneCSSClass(child.getElementRef(), isMain);
+        });
+    }
+    set when(query) {
+        if (typeof query === 'boolean') {
+            this._mediaQuery = query;
+        }
+        else {
+            const defaultQuery = QUERY[query];
+            this._mediaQuery = (defaultQuery)
+                ? defaultQuery
+                : query;
+        }
+        this._update();
+    }
+    get when() {
+        return this._mediaQuery;
+    }
+    _register(node, isMain, callback) {
+        if (this.getElementRef().nativeElement !== node.getElementRef().nativeElement.parentNode) {
+            return false;
+        }
+        this._setPaneCSSClass(node.getElementRef(), isMain);
+        if (callback) {
+            this.ionChange.subscribe(callback);
+        }
+        if (isMain) {
+            if (this.mainContent) {
+                console.error('split pane: main content was already set');
+            }
+            this.mainContent = node;
+        }
+        return true;
+    }
+    ngAfterViewInit() {
+        this._init = true;
+        this._update();
+    }
+    _update() {
+        if (!this._init) {
+            return;
+        }
+        this._rmListener && this._rmListener();
+        this._rmListener = null;
+        const query = this._mediaQuery;
+        if (typeof query === 'boolean') {
+            this._setVisible(query);
+            return;
+        }
+        if (query && query.length > 0) {
+            const callback = (query) => this._setVisible(query.matches);
+            const mediaList = this._plt.win().matchMedia(query);
+            mediaList.addListener(callback);
+            this._setVisible(mediaList.matches);
+            this._rmListener = function () {
+                mediaList.removeListener(callback);
+            };
+        }
+        else {
+            this._setVisible(false);
+        }
+    }
+    _updateChildren() {
+        this.mainContent = null;
+        this.sideContent = null;
+        const visible = this._visible;
+        this._children.forEach(child => child.paneChanged && child.paneChanged(visible));
+    }
+    _setVisible(visible) {
+        if (this._visible === visible) {
+            return;
+        }
+        this._visible = visible;
+        this.setElementClass('split-pane-visible', visible);
+        this._updateChildren();
+        this._zone.run(() => {
+            this.ionChange.emit(this);
+        });
+    }
+    isVisible() {
+        return this._visible;
+    }
+    setElementClass(className, add) {
+        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+    }
+    _setPaneCSSClass(elementRef, isMain) {
+        const ele = elementRef.nativeElement;
+        this._renderer.setElementClass(ele, 'split-pane-main', isMain);
+        this._renderer.setElementClass(ele, 'split-pane-side', !isMain);
+    }
+    ngOnDestroy() {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["c" /* assert */])(this._rmListener, 'at this point _rmListerner should be valid');
+        this._rmListener && this._rmListener();
+        this._rmListener = null;
+    }
+    initPane() {
+        return true;
+    }
+};
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* ContentChildren */])(RootNode, { descendants: false }),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */]) === "function" && _a || Object),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* QueryList */]) === "function" && _b || Object])
+], SplitPane.prototype, "_setchildren", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], SplitPane.prototype, "when", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _c || Object)
+], SplitPane.prototype, "ionChange", void 0);
+SplitPane = SplitPane_1 = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Directive */])({
+        selector: 'ion-split-pane',
+        providers: [{ provide: RootNode, useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(() => SplitPane_1) }]
+    }),
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _h || Object])
+], SplitPane);
+
+var SplitPane_1, _a, _b, _c, _d, _e, _f, _g, _h;
+//# sourceMappingURL=split-pane.js.map
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
+
+class Transition extends __WEBPACK_IMPORTED_MODULE_0__animations_animation__["a" /* Animation */] {
+    constructor(plt, enteringView, leavingView, opts) {
+        super(plt, null, opts);
+        this.enteringView = enteringView;
+        this.leavingView = leavingView;
+    }
+    init() { }
+    registerStart(trnsStart) {
+        this._trnsStart = trnsStart;
+    }
+    isRoot() {
+        return !this.parent;
+    }
+    start() {
+        this._trnsStart && this._trnsStart();
+        this._trnsStart = null;
+    }
+    destroy() {
+        super.destroy();
+        this.parent = this.enteringView = this.leavingView = this._trnsStart = null;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Transition;
+
+//# sourceMappingURL=transition.js.map
 
 /***/ }),
 /* 38 */
@@ -33033,32 +34453,29 @@ const RenderType_Button = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* �
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Button;
 
-function View_Button_0(log) {
+function View_Button_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'span', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'span', [[
                 'class',
                 'button-inner'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'button-effect'
             ]
         ], null, null, null, null, null))
-    ], null, (check, view) => {
-        check(view, 0, 0);
-        check(view, 2, 0);
-    });
+    ], null, null);
 }
-function View_Button_Host_0(log) {
+function View_Button_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'ion-button',
                 ''
             ]
         ], null, null, null, View_Button_0, RenderType_Button)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_1__button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_1__button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -33066,14 +34483,23 @@ function View_Button_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], null, null);
 }
-const ButtonNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('[ion-button]', __WEBPACK_IMPORTED_MODULE_1__button__["a" /* Button */], View_Button_Host_0);
+const ButtonNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('[ion-button]', __WEBPACK_IMPORTED_MODULE_1__button__["a" /* Button */], View_Button_Host_0, {
+    color: 'color',
+    mode: 'mode',
+    large: 'large',
+    small: 'small',
+    default: 'default',
+    outline: 'outline',
+    clear: 'clear',
+    solid: 'solid',
+    round: 'round',
+    block: 'block',
+    full: 'full',
+    strong: 'strong'
+}, {}, ['*']);
 /* unused harmony export ButtonNgFactory */
 
 //# sourceMappingURL=button.ngfactory.js.map
@@ -33181,7 +34607,7 @@ var _a, _b, _c, _d;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transition__ = __webpack_require__(37);
 
 
 class PageTransition extends __WEBPACK_IMPORTED_MODULE_1__transition__["a" /* Transition */] {
@@ -34333,7 +35759,7 @@ var _a, _b, _c, _d, _e, _f;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__platform_platform__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__navigation_view_controller__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__split_pane_split_pane__ = __webpack_require__(36);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Nav; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -37871,7 +39297,7 @@ class PanGesture {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_action_sheet_action_sheet_controller__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_alert_alert_controller__ = __webpack_require__(85);
@@ -38052,7 +39478,7 @@ class PanGesture {
 /* unused harmony reexport Row */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_102__components_ion__ = __webpack_require__(5);
 /* unused harmony reexport Ion */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__components_icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_103__components_icon_icon__ = __webpack_require__(35);
 /* unused harmony reexport Icon */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_104__components_img_img__ = __webpack_require__(180);
 /* unused harmony reexport Img */
@@ -38175,7 +39601,7 @@ class PanGesture {
 /* unused harmony reexport Slides */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_158__components_spinner_spinner__ = __webpack_require__(52);
 /* unused harmony reexport Spinner */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__components_split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_159__components_split_pane_split_pane__ = __webpack_require__(36);
 /* unused harmony reexport SplitPane */
 /* unused harmony reexport RootNode */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_160__components_tabs_tab__ = __webpack_require__(144);
@@ -38298,7 +39724,7 @@ class PanGesture {
 /* unused harmony reexport PlayOptions */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_196__transitions_page_transition__ = __webpack_require__(41);
 /* unused harmony reexport PageTransition */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_197__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_197__transitions_transition__ = __webpack_require__(37);
 /* unused harmony reexport Transition */
 /* unused harmony reexport PlatformConfigToken */
 /* unused harmony reexport registerModeConfigs */
@@ -44161,7 +45587,7 @@ function setWrapperTransition(s, plt, duration, byController) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__split_pane__ = __webpack_require__(36);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SplitPaneModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44536,7 +45962,7 @@ var TabsModule_1;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__navigation_nav_controller__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_nav_util__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__split_pane_split_pane__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__platform_platform__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__tab_highlight__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__ = __webpack_require__(4);
@@ -49078,7 +50504,7 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__nav_nav__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__platform_platform__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__gestures_ui_event_manager__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__split_pane_split_pane__ = __webpack_require__(36);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Menu; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -52055,14 +53481,14 @@ const RenderType_Spinner = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* 
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Spinner;
 
-function View_Spinner_1(log) {
+function View_Spinner_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, ':svg:svg', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, ':svg:svg', [[
                 'viewBox',
                 '0 0 64 64'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["m" /* NgStyle */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["m" /* NgStyle */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -52070,34 +53496,33 @@ function View_Spinner_1(log) {
                 0,
                 'ngStyle'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, ':svg:circle', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, ':svg:circle', [[
                 'transform',
                 'translate(32,32)'
             ]
         ], [[
-                0,
+                1,
                 'r',
                 0
             ]
         ], null, null, null, null))
-    ], (check, view) => {
-        const currVal_0 = view.context.$implicit.style;
-        check(view, 1, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_1 = view.context.$implicit.r;
-        check(view, 2, 0, currVal_1);
+    ], (ck, v) => {
+        const currVal_0 = v.context.$implicit.style;
+        ck(v, 1, 0, currVal_0);
+    }, (ck, v) => {
+        const currVal_1 = v.context.$implicit.r;
+        ck(v, 2, 0, currVal_1);
     });
 }
-function View_Spinner_2(log) {
+function View_Spinner_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, ':svg:svg', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, ':svg:svg', [[
                 'viewBox',
                 '0 0 64 64'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["m" /* NgStyle */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["m" /* NgStyle */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -52105,37 +53530,36 @@ function View_Spinner_2(log) {
                 0,
                 'ngStyle'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, ':svg:line', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, ':svg:line', [[
                 'transform',
                 'translate(32,32)'
             ]
         ], [
             [
-                0,
+                1,
                 'y1',
                 0
             ],
             [
-                0,
+                1,
                 'y2',
                 0
             ]
         ], null, null, null, null))
-    ], (check, view) => {
-        const currVal_0 = view.context.$implicit.style;
-        check(view, 1, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_1 = view.context.$implicit.y1;
-        const currVal_2 = view.context.$implicit.y2;
-        check(view, 2, 0, currVal_1, currVal_2);
+    ], (ck, v) => {
+        const currVal_0 = v.context.$implicit.style;
+        ck(v, 1, 0, currVal_0);
+    }, (ck, v) => {
+        const currVal_1 = v.context.$implicit.y1;
+        const currVal_2 = v.context.$implicit.y2;
+        ck(v, 2, 0, currVal_1, currVal_2);
     });
 }
-function View_Spinner_0(log) {
+function View_Spinner_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Spinner_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Spinner_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -52143,9 +53567,9 @@ function View_Spinner_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Spinner_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Spinner_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -52153,35 +53577,42 @@ function View_Spinner_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp._c;
-        check(view, 1, 0, currVal_0);
-        const currVal_1 = comp._l;
-        check(view, 3, 0, currVal_1);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co._c;
+        ck(v, 1, 0, currVal_0);
+        const currVal_1 = co._l;
+        ck(v, 3, 0, currVal_1);
     }, null);
 }
-function View_Spinner_Host_0(log) {
+function View_Spinner_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-spinner', [], [[
-                1,
-                'spinner-paused'
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-spinner', [], [[
+                2,
+                'spinner-paused',
+                null
             ]
         ], null, null, View_Spinner_0, RenderType_Spinner)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_2__spinner__["a" /* Spinner */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_2__spinner__["a" /* Spinner */], [
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._paused;
-        check(view, 0, 0, currVal_0);
+        ], null, null)
+    ], (ck, v) => {
+        ck(v, 1, 0);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._paused;
+        ck(v, 0, 0, currVal_0);
     });
 }
-const SpinnerNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-spinner', __WEBPACK_IMPORTED_MODULE_2__spinner__["a" /* Spinner */], View_Spinner_Host_0);
+const SpinnerNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-spinner', __WEBPACK_IMPORTED_MODULE_2__spinner__["a" /* Spinner */], View_Spinner_Host_0, {
+    color: 'color',
+    mode: 'mode',
+    name: 'name',
+    duration: 'duration',
+    paused: 'paused'
+}, {}, []);
 /* unused harmony export SpinnerNgFactory */
 
 //# sourceMappingURL=spinner.ngfactory.js.map
@@ -53961,7 +55392,7 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_components_app_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__src_gestures_gesture_controller__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_util_ng_module_loader__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_forms__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_components_backdrop_backdrop_module__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__src_components_button_button_module__ = __webpack_require__(25);
@@ -54844,7 +56275,7 @@ const AppModuleNgFactory = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_transitions_transition_controller__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__src_navigation_deep_linker__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__src_platform_dom_controller__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__src_components_split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__src_components_split_pane_split_pane__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__(81);
 /* unused harmony export View_AppComponent_0 */
 
@@ -54870,10 +56301,10 @@ const RenderType_AppComponent = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28
 });
 /* unused harmony export RenderType_AppComponent */
 
-function View_AppComponent_0(log) {
+function View_AppComponent_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-nav', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_nav_nav_ngfactory__["a" /* View_Nav_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_nav_nav_ngfactory__["b" /* RenderType_Nav */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_2__src_components_nav_nav__["a" /* Nav */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-nav', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_nav_nav_ngfactory__["a" /* View_Nav_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_nav_nav_ngfactory__["b" /* RenderType_Nav */])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_2__src_components_nav_nav__["a" /* Nav */], [
             [
                 2,
                 __WEBPACK_IMPORTED_MODULE_3__src_navigation_view_controller__["a" /* ViewController */]
@@ -54901,27 +56332,21 @@ function View_AppComponent_0(log) {
                 0,
                 'root'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](3072, null, __WEBPACK_IMPORTED_MODULE_13__src_components_split_pane_split_pane__["a" /* RootNode */], null, [__WEBPACK_IMPORTED_MODULE_2__src_components_nav_nav__["a" /* Nav */]]))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.root;
-        check(view, 1, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](3072, null, __WEBPACK_IMPORTED_MODULE_13__src_components_split_pane_split_pane__["a" /* RootNode */], null, [__WEBPACK_IMPORTED_MODULE_2__src_components_nav_nav__["a" /* Nav */]])
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.root;
+        ck(v, 1, 0, currVal_0);
+    }, null);
 }
-function View_AppComponent_Host_0(log) {
+function View_AppComponent_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ng-component', [], null, null, null, View_AppComponent_0, RenderType_AppComponent)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */], [], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ng-component', [], null, null, null, View_AppComponent_0, RenderType_AppComponent)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */], [], null, null)
+    ], null, null);
 }
-const AppComponentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ng-component', __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */], View_AppComponent_Host_0);
+const AppComponentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ng-component', __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */], View_AppComponent_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = AppComponentNgFactory;
 
 //# sourceMappingURL=app.component.ngfactory.js.map
@@ -54932,7 +56357,7 @@ const AppComponentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" 
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_page_one_page_one_module__ = __webpack_require__(166);
@@ -54990,7 +56415,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__src_components_item_item_options__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__src_components_spinner_spinner_ngfactory__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__src_components_spinner_spinner__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__src_components_toolbar_toolbar_header__ = __webpack_require__(151);
@@ -55056,10 +56481,10 @@ const RenderType_PageOne = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* 
 });
 /* unused harmony export RenderType_PageOne */
 
-function View_PageOne_1(log) {
+function View_PageOne_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 70, 'ion-item-sliding', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["a" /* View_ItemSliding_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["b" /* RenderType_ItemSliding */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 70, 'ion-item-sliding', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["a" /* View_ItemSliding_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["b" /* RenderType_ItemSliding */])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, [[
                 'item',
                 4
             ]
@@ -55073,16 +56498,16 @@ function View_PageOne_1(log) {
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 4, { item: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 5, { _itemOptions: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 22, 'ion-item', [[
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 4, { item: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 5, { _itemOptions: 1 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 22, 'ion-item', [[
                 'class',
                 'item item-block'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["a" /* View_Item_0 */], __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["b" /* RenderType_Item */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, [[
                 4,
                 4
             ]
@@ -55095,66 +56520,66 @@ function View_PageOne_1(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_10__src_components_item_item_reorder__["a" /* ItemReorder */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 6, { contentLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 7, { _buttons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 8, { _icons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__src_components_item_item_content__["a" /* ItemContent */], [], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 4, 'ion-avatar', [[
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 6, { contentLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 7, { _buttons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 8, { _icons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__src_components_item_item_content__["a" /* ItemContent */], [], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 4, 'ion-avatar', [[
                 'item-left',
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_12__src_components_avatar_avatar__["a" /* Avatar */], [], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'img', [], [[
-                3,
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_12__src_components_avatar_avatar__["a" /* Avatar */], [], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'img', [], [[
+                8,
                 'src',
                 4
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'h2', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'h2', [], null, null, null, null, null)),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'p', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'p', [], null, null, null, null, null)),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 4, 2, 'ion-note', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 4, 2, 'ion-note', [[
                 'item-right',
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_13__src_components_note_note__["a" /* Note */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_13__src_components_note_note__["a" /* Note */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '\n          ',
             '\n        '
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 23, 'ion-item-options', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 23, 'ion-item-options', [], null, null, null, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
                 5,
                 4
             ]
         ], 0, __WEBPACK_IMPORTED_MODULE_14__src_components_item_item_options__["a" /* ItemOptions */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'color',
                 'secondary'
@@ -55167,16 +56592,16 @@ function View_PageOne_1(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.more(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.more(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55188,9 +56613,9 @@ function View_PageOne_1(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'name',
                 'menu'
@@ -55200,11 +56625,12 @@ function View_PageOne_1(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55212,10 +56638,10 @@ function View_PageOne_1(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          More\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          More\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'color',
                 'dark'
@@ -55228,16 +56654,16 @@ function View_PageOne_1(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.mute(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.mute(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55249,9 +56675,9 @@ function View_PageOne_1(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'name',
                 'volume-off'
@@ -55261,11 +56687,12 @@ function View_PageOne_1(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55273,10 +56700,10 @@ function View_PageOne_1(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Mute\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Mute\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'color',
                 'danger'
@@ -55289,16 +56716,16 @@ function View_PageOne_1(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.delete(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.delete(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55310,9 +56737,9 @@ function View_PageOne_1(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'name',
                 'trash'
@@ -55322,11 +56749,12 @@ function View_PageOne_1(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55334,11 +56762,11 @@ function View_PageOne_1(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Delete\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 15, 'ion-item-options', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Delete\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 15, 'ion-item-options', [[
                 'side',
                 'left'
             ]
@@ -55346,16 +56774,16 @@ function View_PageOne_1(log) {
                 null,
                 'ionSwipe'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('ionSwipe' === eventName)) {
-                const pd_0 = (comp.archive(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('ionSwipe' === en)) {
+                const pd_0 = (co.archive(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
                 5,
                 4
             ]
@@ -55366,9 +56794,9 @@ function View_PageOne_1(log) {
                 0,
                 'side'
             ]
-        }, { ionSwipe: 'ionSwipe' })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 11, 'button', [
+        }, { ionSwipe: 'ionSwipe' }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 11, 'button', [
             [
                 'color',
                 'primary'
@@ -55385,16 +56813,16 @@ function View_PageOne_1(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.archive(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.archive(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55406,9 +56834,9 @@ function View_PageOne_1(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'class',
                 'expand-hide'
@@ -55422,11 +56850,12 @@ function View_PageOne_1(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55434,96 +56863,78 @@ function View_PageOne_1(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'expand-hide'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['Archive'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-spinner', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['Archive'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-spinner', [[
                 'id',
                 'archive-spinner'
             ]
         ], [[
-                1,
-                'spinner-paused'
+                2,
+                'spinner-paused',
+                null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_18__src_components_spinner_spinner_ngfactory__["a" /* View_Spinner_0 */], __WEBPACK_IMPORTED_MODULE_18__src_components_spinner_spinner_ngfactory__["b" /* RenderType_Spinner */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_19__src_components_spinner_spinner__["a" /* Spinner */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_19__src_components_spinner_spinner__["a" /* Spinner */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    ']))
-    ], (check, view) => {
-        check(view, 1, 0);
-        check(view, 6, 0);
-        check(view, 10, 0);
-        check(view, 13, 0);
-        check(view, 25, 0);
-        check(view, 30, 0);
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    ']))
+    ], (ck, v) => {
         const currVal_4 = 'secondary';
-        check(view, 33, 0, currVal_4);
+        ck(v, 33, 0, currVal_4);
         const currVal_6 = 'menu';
-        check(view, 36, 0, currVal_6);
+        ck(v, 36, 0, currVal_6);
         const currVal_7 = 'dark';
-        check(view, 40, 0, currVal_7);
+        ck(v, 40, 0, currVal_7);
         const currVal_9 = 'volume-off';
-        check(view, 43, 0, currVal_9);
+        ck(v, 43, 0, currVal_9);
         const currVal_10 = 'danger';
-        check(view, 47, 0, currVal_10);
+        ck(v, 47, 0, currVal_10);
         const currVal_12 = 'trash';
-        check(view, 50, 0, currVal_12);
+        ck(v, 50, 0, currVal_12);
         const currVal_13 = 'left';
-        check(view, 55, 0, currVal_13);
+        ck(v, 55, 0, currVal_13);
         const currVal_14 = 'primary';
-        check(view, 58, 0, currVal_14);
+        ck(v, 58, 0, currVal_14);
         const currVal_16 = 'archive';
-        check(view, 61, 0, currVal_16);
-        check(view, 67, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        check(view, 5, 0);
-        check(view, 12, 0);
-        const currVal_0 = view.context.$implicit.img;
-        check(view, 15, 0, currVal_0);
-        check(view, 18, 0);
-        const currVal_1 = view.context.$implicit.name;
-        check(view, 19, 0, currVal_1);
-        check(view, 21, 0);
-        const currVal_2 = view.context.$implicit.message;
-        check(view, 22, 0, currVal_2);
-        check(view, 24, 0);
-        const currVal_3 = view.context.$implicit.time;
-        check(view, 26, 0, currVal_3);
-        check(view, 29, 0);
-        check(view, 32, 0);
-        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 36)._hidden;
-        check(view, 35, 0, currVal_5);
-        check(view, 39, 0);
-        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 43)._hidden;
-        check(view, 42, 0, currVal_8);
-        check(view, 46, 0);
-        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 50)._hidden;
-        check(view, 49, 0, currVal_11);
-        check(view, 54, 0);
-        check(view, 57, 0);
-        const currVal_15 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 61)._hidden;
-        check(view, 60, 0, currVal_15);
-        check(view, 63, 0);
-        const currVal_17 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 67)._paused;
-        check(view, 66, 0, currVal_17);
+        ck(v, 61, 0, currVal_16);
+        ck(v, 67, 0);
+    }, (ck, v) => {
+        const currVal_0 = v.context.$implicit.img;
+        ck(v, 15, 0, currVal_0);
+        const currVal_1 = v.context.$implicit.name;
+        ck(v, 19, 0, currVal_1);
+        const currVal_2 = v.context.$implicit.message;
+        ck(v, 22, 0, currVal_2);
+        const currVal_3 = v.context.$implicit.time;
+        ck(v, 26, 0, currVal_3);
+        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 36)._hidden;
+        ck(v, 35, 0, currVal_5);
+        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 43)._hidden;
+        ck(v, 42, 0, currVal_8);
+        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 50)._hidden;
+        ck(v, 49, 0, currVal_11);
+        const currVal_15 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 61)._hidden;
+        ck(v, 60, 0, currVal_15);
+        const currVal_17 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 67)._paused;
+        ck(v, 66, 0, currVal_17);
     });
 }
-function View_PageOne_2(log) {
+function View_PageOne_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 56, 'ion-item-sliding', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["a" /* View_ItemSliding_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["b" /* RenderType_ItemSliding */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 56, 'ion-item-sliding', [], null, null, null, __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["a" /* View_ItemSliding_0 */], __WEBPACK_IMPORTED_MODULE_1__src_components_item_item_sliding_ngfactory__["b" /* RenderType_ItemSliding */])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, [[
                 'item',
                 4
             ]
@@ -55537,16 +56948,16 @@ function View_PageOne_2(log) {
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 12, { item: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 13, { _itemOptions: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 15, 'ion-item', [[
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 12, { item: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 13, { _itemOptions: 1 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 15, 'ion-item', [[
                 'class',
                 'item item-block'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["a" /* View_Item_0 */], __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["b" /* RenderType_Item */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, [[
                 12,
                 4
             ]
@@ -55559,13 +56970,13 @@ function View_PageOne_2(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_10__src_components_item_item_reorder__["a" /* ItemReorder */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 14, { contentLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 15, { _buttons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 16, { _icons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__src_components_item_item_content__["a" /* ItemContent */], [], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 14, { contentLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 15, { _buttons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 16, { _icons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__src_components_item_item_content__["a" /* ItemContent */], [], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'item-left',
                 ''
@@ -55575,11 +56986,12 @@ function View_PageOne_2(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
                 16,
                 4
             ]
@@ -55591,27 +57003,27 @@ function View_PageOne_2(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'h2', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'h2', [], null, null, null, null, null)),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'p', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 2, 1, 'p', [], null, null, null, null, null)),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 9, 'ion-item-options', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 9, 'ion-item-options', [[
                 'side',
                 'left'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
                 13,
                 4
             ]
@@ -55622,9 +57034,9 @@ function View_PageOne_2(log) {
                 0,
                 'side'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'color',
                 'danger'
@@ -55634,7 +57046,7 @@ function View_PageOne_2(log) {
                 ''
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55646,9 +57058,9 @@ function View_PageOne_2(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'name',
                 'trash'
@@ -55658,11 +57070,12 @@ function View_PageOne_2(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55670,11 +57083,11 @@ function View_PageOne_2(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 22, 'ion-item-options', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 22, 'ion-item-options', [[
                 'icon-left',
                 ''
             ]
@@ -55682,25 +57095,25 @@ function View_PageOne_2(log) {
                 null,
                 'ionSwipe'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('ionSwipe' === eventName)) {
-                const pd_0 = (comp.download(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('ionSwipe' === en)) {
+                const pd_0 = (co.download(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
                 13,
                 4
             ]
         ], 0, __WEBPACK_IMPORTED_MODULE_14__src_components_item_item_options__["a" /* ItemOptions */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, { ionSwipe: 'ionSwipe' })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        ], null, { ionSwipe: 'ionSwipe' }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'color',
                 'dark'
@@ -55713,16 +57126,16 @@ function View_PageOne_2(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.more(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.more(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55734,9 +57147,9 @@ function View_PageOne_2(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'name',
                 'volume-off'
@@ -55746,11 +57159,12 @@ function View_PageOne_2(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55758,10 +57172,10 @@ function View_PageOne_2(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Mute\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 11, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          Mute\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 11, 'button', [
             [
                 'color',
                 'light'
@@ -55778,16 +57192,16 @@ function View_PageOne_2(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.download(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.download(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_15__src_components_button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_16__src_components_button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -55799,9 +57213,9 @@ function View_PageOne_2(log) {
                 0,
                 'color'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-icon', [
             [
                 'class',
                 'expand-hide'
@@ -55815,11 +57229,12 @@ function View_PageOne_2(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_17__src_components_icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -55827,85 +57242,72 @@ function View_PageOne_2(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'expand-hide'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['Download'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-spinner', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['Download'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'ion-spinner', [[
                 'id',
                 'download-spinner'
             ]
         ], [[
-                1,
-                'spinner-paused'
+                2,
+                'spinner-paused',
+                null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_18__src_components_spinner_spinner_ngfactory__["a" /* View_Spinner_0 */], __WEBPACK_IMPORTED_MODULE_18__src_components_spinner_spinner_ngfactory__["b" /* RenderType_Spinner */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_19__src_components_spinner_spinner__["a" /* Spinner */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_19__src_components_spinner_spinner__["a" /* Spinner */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    ']))
-    ], (check, view) => {
-        check(view, 1, 0);
-        check(view, 6, 0);
-        check(view, 10, 0);
-        const currVal_1 = view.context.$implicit.icon;
-        check(view, 13, 0, currVal_1);
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    ']))
+    ], (ck, v) => {
+        const currVal_1 = v.context.$implicit.icon;
+        ck(v, 13, 0, currVal_1);
         const currVal_4 = 'left';
-        check(view, 23, 0, currVal_4);
+        ck(v, 23, 0, currVal_4);
         const currVal_5 = 'danger';
-        check(view, 26, 0, currVal_5);
+        ck(v, 26, 0, currVal_5);
         const currVal_7 = 'trash';
-        check(view, 29, 0, currVal_7);
-        check(view, 34, 0);
+        ck(v, 29, 0, currVal_7);
         const currVal_8 = 'dark';
-        check(view, 37, 0, currVal_8);
+        ck(v, 37, 0, currVal_8);
         const currVal_10 = 'volume-off';
-        check(view, 40, 0, currVal_10);
+        ck(v, 40, 0, currVal_10);
         const currVal_11 = 'light';
-        check(view, 44, 0, currVal_11);
+        ck(v, 44, 0, currVal_11);
         const currVal_13 = 'download';
-        check(view, 47, 0, currVal_13);
-        check(view, 53, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        check(view, 5, 0);
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 13)._hidden;
-        check(view, 12, 0, currVal_0);
-        check(view, 15, 0);
-        const currVal_2 = view.context.$implicit.name;
-        check(view, 16, 0, currVal_2);
-        check(view, 18, 0);
-        const currVal_3 = view.context.$implicit.username;
-        check(view, 19, 0, currVal_3);
-        check(view, 22, 0);
-        check(view, 25, 0);
-        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 29)._hidden;
-        check(view, 28, 0, currVal_6);
-        check(view, 33, 0);
-        check(view, 36, 0);
-        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 40)._hidden;
-        check(view, 39, 0, currVal_9);
-        check(view, 43, 0);
-        const currVal_12 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 47)._hidden;
-        check(view, 46, 0, currVal_12);
-        check(view, 49, 0);
-        const currVal_14 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 53)._paused;
-        check(view, 52, 0, currVal_14);
+        ck(v, 47, 0, currVal_13);
+        ck(v, 53, 0);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 13)._hidden;
+        ck(v, 12, 0, currVal_0);
+        const currVal_2 = v.context.$implicit.name;
+        ck(v, 16, 0, currVal_2);
+        const currVal_3 = v.context.$implicit.username;
+        ck(v, 19, 0, currVal_3);
+        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 29)._hidden;
+        ck(v, 28, 0, currVal_6);
+        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 40)._hidden;
+        ck(v, 39, 0, currVal_9);
+        const currVal_12 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 47)._hidden;
+        ck(v, 46, 0, currVal_12);
+        const currVal_14 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 53)._paused;
+        ck(v, 52, 0, currVal_14);
     });
 }
-function View_PageOne_0(log) {
+function View_PageOne_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'ion-header', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_20__src_components_toolbar_toolbar_header__["a" /* Header */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'ion-header', [], null, null, null, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_20__src_components_toolbar_toolbar_header__["a" /* Header */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -55913,24 +57315,25 @@ function View_PageOne_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_21__src_navigation_view_controller__["a" /* ViewController */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-navbar', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-navbar', [[
                 'class',
                 'toolbar'
             ]
         ], [
             [
-                3,
+                8,
                 'hidden',
                 0
             ],
             [
-                1,
-                'statusbar-padding'
+                2,
+                'statusbar-padding',
+                null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_22__src_components_navbar_navbar_ngfactory__["a" /* View_Navbar_0 */], __WEBPACK_IMPORTED_MODULE_22__src_components_navbar_navbar_ngfactory__["b" /* RenderType_Navbar */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_23__src_components_navbar_navbar__["a" /* Navbar */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_23__src_components_navbar_navbar__["a" /* Navbar */], [
             __WEBPACK_IMPORTED_MODULE_24__src_components_app_app__["a" /* App */],
             [
                 2,
@@ -55943,10 +57346,10 @@ function View_PageOne_0(log) {
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](3, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 3, 2, 'ion-title', [], null, null, null, __WEBPACK_IMPORTED_MODULE_26__src_components_toolbar_toolbar_title_ngfactory__["a" /* View_ToolbarTitle_0 */], __WEBPACK_IMPORTED_MODULE_26__src_components_toolbar_toolbar_title_ngfactory__["b" /* RenderType_ToolbarTitle */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_27__src_components_toolbar_toolbar_title__["a" /* ToolbarTitle */], [
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](3, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 3, 2, 'ion-title', [], null, null, null, __WEBPACK_IMPORTED_MODULE_26__src_components_toolbar_toolbar_title_ngfactory__["a" /* View_ToolbarTitle_0 */], __WEBPACK_IMPORTED_MODULE_26__src_components_toolbar_toolbar_title_ngfactory__["b" /* RenderType_ToolbarTitle */])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_27__src_components_toolbar_toolbar_title__["a" /* ToolbarTitle */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -55958,21 +57361,22 @@ function View_PageOne_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_23__src_components_navbar_navbar__["a" /* Navbar */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['Item Sliding'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](3, ['\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n\n'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 32, 'ion-content', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, ['Item Sliding'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](3, ['\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n\n'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 32, 'ion-content', [[
                 'class',
                 'outer-content'
             ]
         ], [[
-                1,
-                'statusbar-padding'
+                2,
+                'statusbar-padding',
+                null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_29__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_29__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_30__src_components_content_content__["a" /* Content */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_30__src_components_content_content__["a" /* Content */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_4__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_5__src_platform_dom_controller__["a" /* DomController */],
@@ -55989,28 +57393,28 @@ function View_PageOne_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_25__src_navigation_nav_controller__["a" /* NavController */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 13, 'ion-list', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 13, 'ion-list', [[
                 'class',
                 'chat-sliding-demo'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_3__src_components_list_list__["a" /* List */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_3__src_components_list_list__["a" /* List */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_4__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_32__src_gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_5__src_platform_dom_controller__["a" /* DomController */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-list-header', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-list-header', [[
                 'class',
                 'item'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["a" /* View_Item_0 */], __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["b" /* RenderType_Item */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_7__src_components_item_item__["a" /* Item */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_7__src_components_item_item__["a" /* Item */], [
             __WEBPACK_IMPORTED_MODULE_8__src_util_form__["a" /* Form */],
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56019,11 +57423,11 @@ function View_PageOne_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_10__src_components_item_item_reorder__["a" /* ItemReorder */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 1, { contentLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _buttons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 3, { _icons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_33__src_components_list_list_header__["a" /* ListHeader */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 1, { contentLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _buttons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 3, { _icons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_33__src_components_list_list_header__["a" /* ListHeader */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56031,11 +57435,11 @@ function View_PageOne_0(log) {
                 8,
                 null
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      Chats\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PageOne_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_34__angular_common__["k" /* NgForOf */], [
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      Chats\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PageOne_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_34__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -56043,29 +57447,29 @@ function View_PageOne_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 13, 'ion-list', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 1, 13, 'ion-list', [[
                 'class',
                 'login-sliding-demo'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_3__src_components_list_list__["a" /* List */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_3__src_components_list_list__["a" /* List */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_4__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_32__src_gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_5__src_platform_dom_controller__["a" /* DomController */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-list-header', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'ion-list-header', [[
                 'class',
                 'item'
             ]
         ], null, null, null, __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["a" /* View_Item_0 */], __WEBPACK_IMPORTED_MODULE_6__src_components_item_item_ngfactory__["b" /* RenderType_Item */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_7__src_components_item_item__["a" /* Item */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_7__src_components_item_item__["a" /* Item */], [
             __WEBPACK_IMPORTED_MODULE_8__src_util_form__["a" /* Form */],
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56074,11 +57478,11 @@ function View_PageOne_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_10__src_components_item_item_reorder__["a" /* ItemReorder */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 9, { contentLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 10, { _buttons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 11, { _icons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_33__src_components_list_list_header__["a" /* ListHeader */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 9, { contentLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 10, { _buttons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 11, { _icons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_33__src_components_list_list_header__["a" /* ListHeader */], [
             __WEBPACK_IMPORTED_MODULE_9__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56086,11 +57490,11 @@ function View_PageOne_0(log) {
                 8,
                 null
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      Logins\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PageOne_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_34__angular_common__["k" /* NgForOf */], [
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      Logins\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PageOne_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_34__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -56098,52 +57502,32 @@ function View_PageOne_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n  '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n']))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 1, 0);
-        check(view, 4, 0);
-        check(view, 7, 0);
-        check(view, 13, 0);
-        check(view, 16, 0);
-        check(view, 19, 0);
-        check(view, 23, 0);
-        const currVal_3 = comp.chats;
-        check(view, 27, 0, currVal_3);
-        check(view, 31, 0);
-        check(view, 34, 0);
-        check(view, 38, 0);
-        const currVal_4 = comp.logins;
-        check(view, 42, 0, currVal_4);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 4)._hidden;
-        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 4)._sbPadding;
-        check(view, 3, 0, currVal_0, currVal_1);
-        check(view, 6, 0);
-        const currVal_2 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 13).statusbarPadding;
-        check(view, 12, 0, currVal_2);
-        check(view, 15, 0);
-        check(view, 18, 0);
-        check(view, 30, 0);
-        check(view, 33, 0);
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n  '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n'])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n']))
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_3 = co.chats;
+        ck(v, 27, 0, currVal_3);
+        const currVal_4 = co.logins;
+        ck(v, 42, 0, currVal_4);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 4)._hidden;
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 4)._sbPadding;
+        ck(v, 3, 0, currVal_0, currVal_1);
+        const currVal_2 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 13).statusbarPadding;
+        ck(v, 12, 0, currVal_2);
     });
 }
-function View_PageOne_Host_0(log) {
+function View_PageOne_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ng-component', [], null, null, null, View_PageOne_0, RenderType_PageOne)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_35__page_one__["a" /* PageOne */], [__WEBPACK_IMPORTED_MODULE_36__src_components_toast_toast_controller__["a" /* ToastController */]], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ng-component', [], null, null, null, View_PageOne_0, RenderType_PageOne)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_35__page_one__["a" /* PageOne */], [__WEBPACK_IMPORTED_MODULE_36__src_components_toast_toast_controller__["a" /* ToastController */]], null, null)
+    ], null, null);
 }
-const PageOneNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ng-component', __WEBPACK_IMPORTED_MODULE_35__page_one__["a" /* PageOne */], View_PageOne_Host_0);
+const PageOneNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ng-component', __WEBPACK_IMPORTED_MODULE_35__page_one__["a" /* PageOne */], View_PageOne_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = PageOneNgFactory;
 
 //# sourceMappingURL=page-one.ngfactory.js.map
@@ -56154,7 +57538,7 @@ const PageOneNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵ
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon_icon__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__button_button__ = __webpack_require__(18);
@@ -56186,57 +57570,57 @@ const RenderType_ActionSheetCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_
 });
 /* unused harmony export RenderType_ActionSheetCmp */
 
-function View_ActionSheetCmp_1(log) {
+function View_ActionSheetCmp_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'action-sheet-title'
             ]
         ], [[
-                3,
+                8,
                 'id',
                 0
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.hdrId, '');
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = comp.d.title;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.hdrId, '');
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = co.d.title;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_ActionSheetCmp_2(log) {
+function View_ActionSheetCmp_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'action-sheet-sub-title'
             ]
         ], [[
-                3,
+                8,
                 'id',
                 0
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.descId, '');
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = comp.d.subTitle;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.descId, '');
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = co.d.subTitle;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_ActionSheetCmp_4(log) {
+function View_ActionSheetCmp_4(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
             [
                 'class',
                 'action-sheet-icon'
@@ -56246,11 +57630,12 @@ function View_ActionSheetCmp_4(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -56258,18 +57643,18 @@ function View_ActionSheetCmp_4(log) {
                 0,
                 'name'
             ]
-        }, null))
-    ], (check, view) => {
-        const currVal_1 = view.parent.context.$implicit.icon;
-        check(view, 1, 0, currVal_1);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._hidden;
-        check(view, 0, 0, currVal_0);
+        }, null)
+    ], (ck, v) => {
+        const currVal_1 = v.parent.context.$implicit.icon;
+        ck(v, 1, 0, currVal_1);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._hidden;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_ActionSheetCmp_3(log) {
+function View_ActionSheetCmp_3(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'class',
                 'disable-hover'
@@ -56279,7 +57664,7 @@ function View_ActionSheetCmp_3(log) {
                 'action-sheet-button'
             ]
         ], [[
-                0,
+                1,
                 'icon-left',
                 0
             ]
@@ -56287,16 +57672,16 @@ function View_ActionSheetCmp_3(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.click(view.context.$implicit) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.click(v.context.$implicit) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
             [
                 8,
                 'action-sheet-button'
@@ -56304,8 +57689,8 @@ function View_ActionSheetCmp_3(log) {
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["l" /* NgClass */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56319,37 +57704,36 @@ function View_ActionSheetCmp_3(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, 0, 1, null, View_ActionSheetCmp_4)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, 0, 1, null, View_ActionSheetCmp_4)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
             '',
             ''
         ]))
-    ], (check, view) => {
-        check(view, 1, 0);
+    ], (ck, v) => {
         const currVal_1 = 'disable-hover';
-        const currVal_2 = view.context.$implicit.cssClass;
-        check(view, 2, 0, currVal_1, currVal_2);
-        const currVal_3 = view.context.$implicit.icon;
-        check(view, 4, 0, currVal_3);
-    }, (check, view) => {
-        const currVal_0 = (view.context.$implicit.icon ? '' : null);
-        check(view, 0, 0, currVal_0);
-        const currVal_4 = view.context.$implicit.text;
-        check(view, 5, 0, currVal_4);
+        const currVal_2 = v.context.$implicit.cssClass;
+        ck(v, 2, 0, currVal_1, currVal_2);
+        const currVal_3 = v.context.$implicit.icon;
+        ck(v, 4, 0, currVal_3);
+    }, (ck, v) => {
+        const currVal_0 = (v.context.$implicit.icon ? '' : null);
+        ck(v, 0, 0, currVal_0);
+        const currVal_4 = v.context.$implicit.text;
+        ck(v, 5, 0, currVal_4);
     });
 }
-function View_ActionSheetCmp_6(log) {
+function View_ActionSheetCmp_6(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
             [
                 'class',
                 'action-sheet-icon'
@@ -56359,11 +57743,12 @@ function View_ActionSheetCmp_6(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -56371,24 +57756,24 @@ function View_ActionSheetCmp_6(log) {
                 0,
                 'name'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_1 = comp.d.cancelButton.icon;
-        check(view, 1, 0, currVal_1);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._hidden;
-        check(view, 0, 0, currVal_0);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.d.cancelButton.icon;
+        ck(v, 1, 0, currVal_1);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._hidden;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_ActionSheetCmp_5(log) {
+function View_ActionSheetCmp_5(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
                 'class',
                 'action-sheet-group'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'class',
                 'action-sheet-cancel disable-hover'
@@ -56398,7 +57783,7 @@ function View_ActionSheetCmp_5(log) {
                 'action-sheet-button'
             ]
         ], [[
-                0,
+                1,
                 'icon-left',
                 0
             ]
@@ -56406,16 +57791,16 @@ function View_ActionSheetCmp_5(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.click(comp.d.cancelButton) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.click(co.d.cancelButton) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
             [
                 8,
                 'action-sheet-button'
@@ -56423,8 +57808,8 @@ function View_ActionSheetCmp_5(log) {
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["l" /* NgClass */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -56438,40 +57823,38 @@ function View_ActionSheetCmp_5(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, 0, 1, null, View_ActionSheetCmp_6)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, 0, 1, null, View_ActionSheetCmp_6)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
             '',
             ''
         ]))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 2, 0);
+    ], (ck, v) => {
+        var co = v.component;
         const currVal_1 = 'action-sheet-cancel disable-hover';
-        const currVal_2 = comp.d.cancelButton.cssClass;
-        check(view, 3, 0, currVal_1, currVal_2);
-        const currVal_3 = comp.d.cancelButton.icon;
-        check(view, 5, 0, currVal_3);
-    }, (check, view) => {
-        var comp = view.component;
-        check(view, 0, 0);
-        const currVal_0 = (comp.d.cancelButton.icon ? '' : null);
-        check(view, 1, 0, currVal_0);
-        const currVal_4 = comp.d.cancelButton.text;
-        check(view, 6, 0, currVal_4);
+        const currVal_2 = co.d.cancelButton.cssClass;
+        ck(v, 3, 0, currVal_1, currVal_2);
+        const currVal_3 = co.d.cancelButton.icon;
+        ck(v, 5, 0, currVal_3);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = (co.d.cancelButton.icon ? '' : null);
+        ck(v, 1, 0, currVal_0);
+        const currVal_4 = co.d.cancelButton.text;
+        ck(v, 6, 0, currVal_4);
     });
 }
-function View_ActionSheetCmp_0(log) {
+function View_ActionSheetCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -56485,61 +57868,62 @@ function View_ActionSheetCmp_0(log) {
                 ''
             ]
         ], [[
-                1,
-                'backdrop-no-tappable'
+                2,
+                'backdrop-no-tappable',
+                null
             ]
         ], [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.bdClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.bdClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_7__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_7__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'div', [[
                 'class',
                 'action-sheet-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 9, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 9, 'div', [[
                 'class',
                 'action-sheet-container'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
                 'class',
                 'action-sheet-group'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_3)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["k" /* NgForOf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_3)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -56547,50 +57931,46 @@ function View_ActionSheetCmp_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_5)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ActionSheetCmp_5)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 1, 0);
-        const currVal_1 = comp.d.title;
-        check(view, 6, 0, currVal_1);
-        const currVal_2 = comp.d.subTitle;
-        check(view, 8, 0, currVal_2);
-        const currVal_3 = comp.d.buttons;
-        check(view, 10, 0, currVal_3);
-        const currVal_4 = comp.d.cancelButton;
-        check(view, 12, 0, currVal_4);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = !comp.d.enableBackdropDismiss;
-        check(view, 0, 0, currVal_0);
-        check(view, 2, 0);
-        check(view, 3, 0);
-        check(view, 4, 0);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.d.title;
+        ck(v, 6, 0, currVal_1);
+        const currVal_2 = co.d.subTitle;
+        ck(v, 8, 0, currVal_2);
+        const currVal_3 = co.d.buttons;
+        ck(v, 10, 0, currVal_3);
+        const currVal_4 = co.d.cancelButton;
+        ck(v, 12, 0, currVal_4);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = !co.d.enableBackdropDismiss;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_ActionSheetCmp_Host_0(log) {
+function View_ActionSheetCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-action-sheet', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-action-sheet', [[
                 'role',
                 'dialog'
             ]
         ], [
             [
-                0,
+                1,
                 'aria-labelledby',
                 0
             ],
             [
-                0,
+                1,
                 'aria-describedby',
                 0
             ]
@@ -56598,15 +57978,15 @@ function View_ActionSheetCmp_Host_0(log) {
                 'body',
                 'keyup'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('body:keyup' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).keyUp($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('body:keyup' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).keyUp($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_ActionSheetCmp_0, RenderType_ActionSheetCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_6__action_sheet_component__["a" /* ActionSheetCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_6__action_sheet_component__["a" /* ActionSheetCmp */], [
             __WEBPACK_IMPORTED_MODULE_8__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */],
@@ -56614,16 +57994,14 @@ function View_ActionSheetCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_10__gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_11__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).hdrId;
-        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).descId;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).hdrId;
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).descId;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-const ActionSheetCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-action-sheet', __WEBPACK_IMPORTED_MODULE_6__action_sheet_component__["a" /* ActionSheetCmp */], View_ActionSheetCmp_Host_0);
+const ActionSheetCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-action-sheet', __WEBPACK_IMPORTED_MODULE_6__action_sheet_component__["a" /* ActionSheetCmp */], View_ActionSheetCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = ActionSheetCmpNgFactory;
 
 //# sourceMappingURL=action-sheet-component.ngfactory.js.map
@@ -56640,7 +58018,7 @@ const ActionSheetCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(37);
 
 
 class ActionSheetSlideIn extends __WEBPACK_IMPORTED_MODULE_1__transitions_transition__["a" /* Transition */] {
@@ -56755,55 +58133,55 @@ const RenderType_AlertCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /*
 });
 /* unused harmony export RenderType_AlertCmp */
 
-function View_AlertCmp_1(log) {
-    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'h2', [[
+function View_AlertCmp_1(l) {
+    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'h2', [[
                 'class',
                 'alert-title'
             ]
         ], [
             [
-                3,
+                8,
                 'id',
                 0
             ],
             [
-                3,
+                8,
                 'innerHTML',
                 1
             ]
-        ], null, null, null, null))], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.hdrId, '');
-        const currVal_1 = comp.d.title;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null, null, null))], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.hdrId, '');
+        const currVal_1 = co.d.title;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-function View_AlertCmp_2(log) {
-    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'h3', [[
+function View_AlertCmp_2(l) {
+    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'h3', [[
                 'class',
                 'alert-sub-title'
             ]
         ], [
             [
-                3,
+                8,
                 'id',
                 0
             ],
             [
-                3,
+                8,
                 'innerHTML',
                 1
             ]
-        ], null, null, null, null))], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.subHdrId, '');
-        const currVal_1 = comp.d.subTitle;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null, null, null))], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.subHdrId, '');
+        const currVal_1 = co.d.subTitle;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-function View_AlertCmp_5(log) {
+function View_AlertCmp_5(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'class',
                 'alert-tappable alert-radio'
@@ -56818,17 +58196,17 @@ function View_AlertCmp_5(log) {
             ]
         ], [
             [
-                0,
+                1,
                 'aria-checked',
                 0
             ],
             [
-                3,
+                8,
                 'disabled',
                 0
             ],
             [
-                0,
+                1,
                 'id',
                 0
             ]
@@ -56836,16 +58214,16 @@ function View_AlertCmp_5(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.rbClick(view.context.$implicit) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.rbClick(v.context.$implicit) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
             [
                 8,
                 'alert-radio-button'
@@ -56853,43 +58231,38 @@ function View_AlertCmp_5(log) {
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'alert-radio-icon'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'alert-radio-inner'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'alert-radio-label'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = view.context.$implicit.checked;
-        const currVal_1 = view.context.$implicit.disabled;
-        const currVal_2 = view.context.$implicit.id;
-        check(view, 0, 0, currVal_0, currVal_1, currVal_2);
-        check(view, 2, 0);
-        check(view, 3, 0);
-        check(view, 4, 0);
-        const currVal_3 = view.context.$implicit.label;
-        check(view, 5, 0, currVal_3);
+    ], null, (ck, v) => {
+        const currVal_0 = v.context.$implicit.checked;
+        const currVal_1 = v.context.$implicit.disabled;
+        const currVal_2 = v.context.$implicit.id;
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2);
+        const currVal_3 = v.context.$implicit.label;
+        ck(v, 5, 0, currVal_3);
     });
 }
-function View_AlertCmp_4(log) {
+function View_AlertCmp_4(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [
             [
                 'class',
                 'alert-radio-group'
@@ -56900,18 +58273,18 @@ function View_AlertCmp_4(log) {
             ]
         ], [
             [
-                0,
+                1,
                 'aria-labelledby',
                 0
             ],
             [
-                0,
+                1,
                 'aria-activedescendant',
                 0
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_5)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_5)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -56919,21 +58292,21 @@ function View_AlertCmp_4(log) {
                 0,
                 'ngForOf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_2 = comp.d.inputs;
-        check(view, 2, 0, currVal_2);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.hdrId;
-        const currVal_1 = comp.activeId;
-        check(view, 0, 0, currVal_0, currVal_1);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_2 = co.d.inputs;
+        ck(v, 2, 0, currVal_2);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.hdrId;
+        const currVal_1 = co.activeId;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-function View_AlertCmp_7(log) {
+function View_AlertCmp_7(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'button', [
             [
                 'class',
                 'alert-tappable alert-checkbox'
@@ -56948,17 +58321,17 @@ function View_AlertCmp_7(log) {
             ]
         ], [
             [
-                0,
+                1,
                 'aria-checked',
                 0
             ],
             [
-                0,
+                1,
                 'id',
                 0
             ],
             [
-                3,
+                8,
                 'disabled',
                 0
             ]
@@ -56966,16 +58339,16 @@ function View_AlertCmp_7(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.cbClick(view.context.$implicit) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.cbClick(v.context.$implicit) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
             [
                 8,
                 'alert-checkbox-button'
@@ -56983,49 +58356,44 @@ function View_AlertCmp_7(log) {
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'alert-checkbox-icon'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'alert-checkbox-inner'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 1, 'div', [[
                 'class',
                 'alert-checkbox-label'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = view.context.$implicit.checked;
-        const currVal_1 = view.context.$implicit.id;
-        const currVal_2 = view.context.$implicit.disabled;
-        check(view, 0, 0, currVal_0, currVal_1, currVal_2);
-        check(view, 2, 0);
-        check(view, 3, 0);
-        check(view, 4, 0);
-        const currVal_3 = view.context.$implicit.label;
-        check(view, 5, 0, currVal_3);
+    ], null, (ck, v) => {
+        const currVal_0 = v.context.$implicit.checked;
+        const currVal_1 = v.context.$implicit.id;
+        const currVal_2 = v.context.$implicit.disabled;
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2);
+        const currVal_3 = v.context.$implicit.label;
+        ck(v, 5, 0, currVal_3);
     });
 }
-function View_AlertCmp_6(log) {
+function View_AlertCmp_6(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'alert-checkbox-group'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_7)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_7)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -57033,79 +58401,84 @@ function View_AlertCmp_6(log) {
                 0,
                 'ngForOf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.d.inputs;
-        check(view, 2, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.d.inputs;
+        ck(v, 2, 0, currVal_0);
+    }, null);
 }
-function View_AlertCmp_9(log) {
+function View_AlertCmp_9(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 6, 'div', [[
                 'class',
                 'alert-input-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'input', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 5, 'input', [[
                 'class',
                 'alert-input'
             ]
         ], [
             [
-                3,
+                8,
                 'placeholder',
                 0
             ],
             [
-                3,
+                8,
                 'type',
                 0
             ],
             [
-                3,
+                8,
                 'min',
                 0
             ],
             [
-                3,
+                8,
                 'max',
                 0
             ],
             [
-                0,
+                1,
                 'id',
                 0
             ],
             [
-                1,
-                'ng-untouched'
+                2,
+                'ng-untouched',
+                null
             ],
             [
-                1,
-                'ng-touched'
+                2,
+                'ng-touched',
+                null
             ],
             [
-                1,
-                'ng-pristine'
+                2,
+                'ng-pristine',
+                null
             ],
             [
-                1,
-                'ng-dirty'
+                2,
+                'ng-dirty',
+                null
             ],
             [
-                1,
-                'ng-valid'
+                2,
+                'ng-valid',
+                null
             ],
             [
-                1,
-                'ng-invalid'
+                2,
+                'ng-invalid',
+                null
             ],
             [
-                1,
-                'ng-pending'
+                2,
+                'ng-pending',
+                null
             ]
         ], [
             [
@@ -57128,38 +58501,42 @@ function View_AlertCmp_9(log) {
                 null,
                 'compositionend'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('input' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 2).onChange($event.target.value) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('input' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 2)._handleInput($event.target.value) !== false);
+                ad = (pd_0 && ad);
             }
-            if (('blur' === eventName)) {
-                const pd_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 2).onTouched() !== false);
-                allowDefault = (pd_1 && allowDefault);
+            if (('blur' === en)) {
+                const pd_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 2).onTouched() !== false);
+                ad = (pd_1 && ad);
             }
-            if (('compositionstart' === eventName)) {
-                const pd_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 4).compositionStart() !== false);
-                allowDefault = (pd_2 && allowDefault);
+            if (('compositionstart' === en)) {
+                const pd_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 2)._compositionStart() !== false);
+                ad = (pd_2 && ad);
             }
-            if (('compositionend' === eventName)) {
-                const pd_3 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 4).compositionEnd() !== false);
-                allowDefault = (pd_3 && allowDefault);
+            if (('compositionend' === en)) {
+                const pd_3 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 2)._compositionEnd($event.target.value) !== false);
+                ad = (pd_3 && ad);
             }
-            if (('ngModelChange' === eventName)) {
-                const pd_4 = ((view.context.$implicit.value = $event) !== false);
-                allowDefault = (pd_4 && allowDefault);
+            if (('ngModelChange' === en)) {
+                const pd_4 = ((v.context.$implicit.value = $event) !== false);
+                ad = (pd_4 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* DefaultValueAccessor */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* DefaultValueAccessor */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* NG_VALUE_ACCESSOR */], (p0_0) => {
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
+            [
+                2,
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["i" /* COMPOSITION_BUFFER_MODE */]
+            ]
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* NG_VALUE_ACCESSOR */], (p0_0) => {
             return [p0_0];
-        }, [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* DefaultValueAccessor */]])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](335872, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["i" /* NgModel */], [
+        }, [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* DefaultValueAccessor */]]),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](335872, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["j" /* NgModel */], [
             [
                 8,
                 null
@@ -57180,29 +58557,26 @@ function View_AlertCmp_9(log) {
                 0,
                 'model'
             ]
-        }, { update: 'ngModelChange' })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](1024, null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* NgControl */], null, [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["i" /* NgModel */]])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["j" /* NgControlStatus */], [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* NgControl */]], null, null))
-    ], (check, view) => {
-        check(view, 2, 0);
-        const currVal_12 = view.context.$implicit.value;
-        check(view, 4, 0, currVal_12);
-        check(view, 6, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_0 = view.context.$implicit.placeholder;
-        const currVal_1 = view.context.$implicit.type;
-        const currVal_2 = view.context.$implicit.min;
-        const currVal_3 = view.context.$implicit.max;
-        const currVal_4 = view.context.$implicit.id;
-        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassUntouched;
-        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassTouched;
-        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassPristine;
-        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassDirty;
-        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassValid;
-        const currVal_10 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassInvalid;
-        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 6).ngClassPending;
-        check(view, 1, 1, [
+        }, { update: 'ngModelChange' }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](1024, null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* NgControl */], null, [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["j" /* NgModel */]]),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["k" /* NgControlStatus */], [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["g" /* NgControl */]], null, null)
+    ], (ck, v) => {
+        const currVal_12 = v.context.$implicit.value;
+        ck(v, 4, 0, currVal_12);
+    }, (ck, v) => {
+        const currVal_0 = v.context.$implicit.placeholder;
+        const currVal_1 = v.context.$implicit.type;
+        const currVal_2 = v.context.$implicit.min;
+        const currVal_3 = v.context.$implicit.max;
+        const currVal_4 = v.context.$implicit.id;
+        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassUntouched;
+        const currVal_6 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassTouched;
+        const currVal_7 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassPristine;
+        const currVal_8 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassDirty;
+        const currVal_9 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassValid;
+        const currVal_10 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassInvalid;
+        const currVal_11 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 6).ngClassPending;
+        ck(v, 1, 1, [
             currVal_0,
             currVal_1,
             currVal_2,
@@ -57218,15 +58592,15 @@ function View_AlertCmp_9(log) {
         ]);
     });
 }
-function View_AlertCmp_8(log) {
+function View_AlertCmp_8(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'alert-input-group'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_9)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_9)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -57234,25 +58608,23 @@ function View_AlertCmp_8(log) {
                 0,
                 'ngForOf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.d.inputs;
-        check(view, 2, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.d.inputs;
+        ck(v, 2, 0, currVal_0);
+    }, null);
 }
-function View_AlertCmp_3(log) {
+function View_AlertCmp_3(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["o" /* NgSwitch */], [], { ngSwitch: [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [], null, null, null, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["o" /* NgSwitch */], [], { ngSwitch: [
                 0,
                 'ngSwitch'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_4)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["p" /* NgSwitchCase */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_4)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["p" /* NgSwitchCase */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common__["o" /* NgSwitch */]
@@ -57260,9 +58632,9 @@ function View_AlertCmp_3(log) {
                 0,
                 'ngSwitchCase'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_6)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["p" /* NgSwitchCase */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_6)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["p" /* NgSwitchCase */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common__["o" /* NgSwitch */]
@@ -57270,29 +58642,26 @@ function View_AlertCmp_3(log) {
                 0,
                 'ngSwitchCase'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_8)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["q" /* NgSwitchDefault */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_8)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["q" /* NgSwitchDefault */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common__["o" /* NgSwitch */]
-        ], null, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.inputType;
-        check(view, 1, 0, currVal_0);
+        ], null, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.inputType;
+        ck(v, 1, 0, currVal_0);
         const currVal_1 = 'radio';
-        check(view, 3, 0, currVal_1);
+        ck(v, 3, 0, currVal_1);
         const currVal_2 = 'checkbox';
-        check(view, 5, 0, currVal_2);
-        check(view, 7, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ck(v, 5, 0, currVal_2);
+    }, null);
 }
-function View_AlertCmp_10(log) {
+function View_AlertCmp_10(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'button', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'button', [[
                 'ion-button',
                 'alert-button'
             ]
@@ -57300,16 +58669,16 @@ function View_AlertCmp_10(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.btnClick(view.context.$implicit) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.btnClick(v.context.$implicit) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
             [
                 8,
                 'alert-button'
@@ -57317,8 +58686,8 @@ function View_AlertCmp_10(log) {
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["l" /* NgClass */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -57327,24 +58696,22 @@ function View_AlertCmp_10(log) {
                 0,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
             '',
             ''
         ]))
-    ], (check, view) => {
-        check(view, 1, 0);
-        const currVal_0 = view.context.$implicit.cssClass;
-        check(view, 2, 0, currVal_0);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_1 = view.context.$implicit.text;
-        check(view, 3, 0, currVal_1);
+    ], (ck, v) => {
+        const currVal_0 = v.context.$implicit.cssClass;
+        ck(v, 2, 0, currVal_0);
+    }, (ck, v) => {
+        const currVal_1 = v.context.$implicit.text;
+        ck(v, 3, 0, currVal_1);
     });
 }
-function View_AlertCmp_0(log) {
+function View_AlertCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -57358,85 +58725,86 @@ function View_AlertCmp_0(log) {
                 ''
             ]
         ], [[
-                1,
-                'backdrop-no-tappable'
+                2,
+                'backdrop-no-tappable',
+                null
             ]
         ], [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.bdClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.bdClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_7__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_7__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 13, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 13, 'div', [[
                 'class',
                 'alert-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'alert-head'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'alert-message'
             ]
         ], [
             [
-                3,
+                8,
                 'id',
                 0
             ],
             [
-                3,
+                8,
                 'innerHTML',
                 1
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_3)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_3)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'alert-button-group'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -57450,10 +58818,10 @@ function View_AlertCmp_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵpod */](['alert-button-group-vertical'])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_10)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_40" /* ɵpod */](['alert-button-group-vertical']),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_AlertCmp_10)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -57461,47 +58829,43 @@ function View_AlertCmp_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 1, 0);
-        const currVal_1 = comp.d.title;
-        check(view, 5, 0, currVal_1);
-        const currVal_2 = comp.d.subTitle;
-        check(view, 7, 0, currVal_2);
-        const currVal_5 = comp.d.inputs.length;
-        check(view, 10, 0, currVal_5);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.d.title;
+        ck(v, 5, 0, currVal_1);
+        const currVal_2 = co.d.subTitle;
+        ck(v, 7, 0, currVal_2);
+        const currVal_5 = co.d.inputs.length;
+        ck(v, 10, 0, currVal_5);
         const currVal_6 = 'alert-button-group';
-        const currVal_7 = check(view, 13, 0, (comp.d.buttons.length > 2));
-        check(view, 12, 0, currVal_6, currVal_7);
-        const currVal_8 = comp.d.buttons;
-        check(view, 15, 0, currVal_8);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = !comp.d.enableBackdropDismiss;
-        check(view, 0, 0, currVal_0);
-        check(view, 2, 0);
-        check(view, 3, 0);
-        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.msgId, '');
-        const currVal_4 = comp.d.message;
-        check(view, 8, 0, currVal_3, currVal_4);
-        check(view, 11, 0);
+        const currVal_7 = ck(v, 13, 0, (co.d.buttons.length > 2));
+        ck(v, 12, 0, currVal_6, currVal_7);
+        const currVal_8 = co.d.buttons;
+        ck(v, 15, 0, currVal_8);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = !co.d.enableBackdropDismiss;
+        ck(v, 0, 0, currVal_0);
+        const currVal_3 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.msgId, '');
+        const currVal_4 = co.d.message;
+        ck(v, 8, 0, currVal_3, currVal_4);
     });
 }
-function View_AlertCmp_Host_0(log) {
+function View_AlertCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-alert', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-alert', [[
                 'role',
                 'dialog'
             ]
         ], [
             [
-                0,
+                1,
                 'aria-labelledby',
                 0
             ],
             [
-                0,
+                1,
                 'aria-describedby',
                 0
             ]
@@ -57509,15 +58873,15 @@ function View_AlertCmp_Host_0(log) {
                 'body',
                 'keyup'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('body:keyup' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).keyUp($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('body:keyup' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).keyUp($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_AlertCmp_0, RenderType_AlertCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_6__alert_component__["a" /* AlertCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_6__alert_component__["a" /* AlertCmp */], [
             __WEBPACK_IMPORTED_MODULE_8__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
@@ -57525,16 +58889,14 @@ function View_AlertCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_10__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_11__platform_platform__["b" /* Platform */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).hdrId;
-        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).descId;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).hdrId;
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).descId;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-const AlertCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-alert', __WEBPACK_IMPORTED_MODULE_6__alert_component__["a" /* AlertCmp */], View_AlertCmp_Host_0);
+const AlertCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-alert', __WEBPACK_IMPORTED_MODULE_6__alert_component__["a" /* AlertCmp */], View_AlertCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = AlertCmpNgFactory;
 
 //# sourceMappingURL=alert-component.ngfactory.js.map
@@ -57552,7 +58914,7 @@ const AlertCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* �
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(37);
 
 
 class AlertPopIn extends __WEBPACK_IMPORTED_MODULE_1__transitions_transition__["a" /* Transition */] {
@@ -57689,14 +59051,14 @@ const RenderType_IonicApp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /*
 });
 /* unused harmony export RenderType_IonicApp */
 
-function View_IonicApp_0(log) {
+function View_IonicApp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 2, { _modalPortal: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 3, { _overlayPortal: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 4, { _loadingPortal: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 5, { _toastPortal: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 2, { _modalPortal: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 3, { _overlayPortal: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 4, { _loadingPortal: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 5, { _toastPortal: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
             [
                 1,
                 3
@@ -57710,7 +59072,7 @@ function View_IonicApp_0(log) {
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
                 'modalPortal',
                 1
             ]
@@ -57719,7 +59081,7 @@ function View_IonicApp_0(log) {
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
                 2,
                 4
             ]
@@ -57744,8 +59106,8 @@ function View_IonicApp_0(log) {
                 0,
                 '_overlayPortal'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
                 'overlayPortal',
                 1
             ]
@@ -57754,7 +59116,7 @@ function View_IonicApp_0(log) {
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
                 3,
                 4
             ]
@@ -57779,8 +59141,8 @@ function View_IonicApp_0(log) {
                 0,
                 '_overlayPortal'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
                 'loadingPortal',
                 1
             ]
@@ -57794,7 +59156,7 @@ function View_IonicApp_0(log) {
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
                 4,
                 4
             ]
@@ -57819,8 +59181,8 @@ function View_IonicApp_0(log) {
                 0,
                 '_overlayPortal'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [[
                 'toastPortal',
                 1
             ]
@@ -57829,7 +59191,7 @@ function View_IonicApp_0(log) {
                 'toast-portal'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, [[
                 5,
                 4
             ]
@@ -57854,34 +59216,27 @@ function View_IonicApp_0(log) {
                 0,
                 '_overlayPortal'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'click-block'
             ]
         ], null, null, null, null, null))
-    ], (check, view) => {
+    ], (ck, v) => {
         const currVal_0 = '';
-        check(view, 7, 0, currVal_0);
+        ck(v, 7, 0, currVal_0);
         const currVal_1 = '';
-        check(view, 9, 0, currVal_1);
+        ck(v, 9, 0, currVal_1);
         const currVal_2 = '';
-        check(view, 11, 0, currVal_2);
+        ck(v, 11, 0, currVal_2);
         const currVal_3 = 10000;
-        check(view, 13, 0, currVal_3);
-    }, (check, view) => {
-        check(view, 5, 0);
-        check(view, 6, 0);
-        check(view, 8, 0);
-        check(view, 10, 0);
-        check(view, 12, 0);
-        check(view, 14, 0);
-    });
+        ck(v, 13, 0, currVal_3);
+    }, null);
 }
-function View_IonicApp_Host_0(log) {
+function View_IonicApp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-app', [], null, null, null, View_IonicApp_0, RenderType_IonicApp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_10__app_root__["b" /* IonicApp */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-app', [], null, null, null, View_IonicApp_0, RenderType_IonicApp)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_10__app_root__["b" /* IonicApp */], [
             __WEBPACK_IMPORTED_MODULE_10__app_root__["a" /* AppRootToken */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -57889,14 +59244,15 @@ function View_IonicApp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__app__["a" /* App */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], (ck, v) => {
+        ck(v, 1, 0);
+    }, null);
 }
-const IonicAppNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-app', __WEBPACK_IMPORTED_MODULE_10__app_root__["b" /* IonicApp */], View_IonicApp_Host_0);
+const IonicAppNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-app', __WEBPACK_IMPORTED_MODULE_10__app_root__["b" /* IonicApp */], View_IonicApp_Host_0, {
+    color: 'color',
+    mode: 'mode'
+}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = IonicAppNgFactory;
 
 //# sourceMappingURL=app-root.ngfactory.js.map
@@ -57933,11 +59289,11 @@ const RenderType_Content = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* 
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Content;
 
-function View_Content_0(log) {
+function View_Content_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _fixedContent: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 2, { _scrollContent: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _fixedContent: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 2, { _scrollContent: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
             [
                 1,
                 0
@@ -57951,8 +59307,8 @@ function View_Content_0(log) {
                 'fixed-content'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
             [
                 2,
                 0
@@ -57966,21 +59322,19 @@ function View_Content_0(log) {
                 'scroll-content'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2))
-    ], null, (check, view) => {
-        check(view, 2, 0);
-        check(view, 4, 0);
-    });
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2)
+    ], null, null);
 }
-function View_Content_Host_0(log) {
+function View_Content_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
-                1,
-                'statusbar-padding'
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-content', [], [[
+                2,
+                'statusbar-padding',
+                null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_3__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */],
@@ -57997,15 +59351,26 @@ function View_Content_Host_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]
             ]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).statusbarPadding;
-        check(view, 0, 0, currVal_0);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).statusbarPadding;
+        ck(v, 0, 0, currVal_0);
     });
 }
-const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0);
+const ContentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-content', __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], View_Content_Host_0, {
+    color: 'color',
+    mode: 'mode',
+    fullscreen: 'fullscreen',
+    scrollDownOnLoad: 'scrollDownOnLoad'
+}, {
+    ionScrollStart: 'ionScrollStart',
+    ionScroll: 'ionScroll',
+    ionScrollEnd: 'ionScrollEnd'
+}, [
+    '[ion-fixed],ion-fab',
+    '*',
+    'ion-refresher'
+]);
 /* unused harmony export ContentNgFactory */
 
 //# sourceMappingURL=content.ngfactory.js.map
@@ -58277,19 +59642,19 @@ const RenderType_ItemSliding = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28"
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_ItemSliding;
 
-function View_ItemSliding_0(log) {
+function View_ItemSliding_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  ']))
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  ']))
     ], null, null);
 }
-function View_ItemSliding_Host_0(log) {
+function View_ItemSliding_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'ion-item-sliding', [], null, null, null, View_ItemSliding_0, RenderType_ItemSliding)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 2, __WEBPACK_IMPORTED_MODULE_1__item_sliding__["c" /* ItemSliding */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'ion-item-sliding', [], null, null, null, View_ItemSliding_0, RenderType_ItemSliding)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 2, __WEBPACK_IMPORTED_MODULE_1__item_sliding__["c" /* ItemSliding */], [
             [
                 2,
                 __WEBPACK_IMPORTED_MODULE_2__list_list__["a" /* List */]
@@ -58299,16 +59664,15 @@ function View_ItemSliding_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 1, { item: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _itemOptions: 1 }))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 1, { item: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _itemOptions: 1 })
+    ], null, null);
 }
-const ItemSlidingNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-item-sliding', __WEBPACK_IMPORTED_MODULE_1__item_sliding__["c" /* ItemSliding */], View_ItemSliding_Host_0);
+const ItemSlidingNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-item-sliding', __WEBPACK_IMPORTED_MODULE_1__item_sliding__["c" /* ItemSliding */], View_ItemSliding_Host_0, {}, { ionDrag: 'ionDrag' }, [
+    'ion-item,[ion-item]',
+    'ion-item-options'
+]);
 /* unused harmony export ItemSlidingNgFactory */
 
 //# sourceMappingURL=item-sliding.ngfactory.js.map
@@ -58345,10 +59709,10 @@ const RenderType_Item = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵc
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Item;
 
-function View_Item_1(log) {
+function View_Item_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-label', [], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-label', [], null, null, null, null, null)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, [[
                 1,
                 4
             ]
@@ -58372,95 +59736,83 @@ function View_Item_1(log) {
                 8,
                 null
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2)
+    ], null, null);
 }
-function View_Item_2(log) {
+function View_Item_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-reorder', [], null, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-reorder', [], null, [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('click' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).onClick($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('click' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).onClick($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_3__reorder_ngfactory__["a" /* View_Reorder_0 */], __WEBPACK_IMPORTED_MODULE_3__reorder_ngfactory__["b" /* RenderType_Reorder */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_4__reorder__["a" /* Reorder */], [__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_4__reorder__["a" /* Reorder */], [__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]], null, null)
+    ], null, null);
 }
-function View_Item_0(log) {
+function View_Item_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](335544320, 1, { viewLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'div', [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](335544320, 1, { viewLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'div', [[
                 'class',
                 'item-inner'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'input-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Item_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Item_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 3)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 4)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Item_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 3),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 4),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_Item_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'button-effect'
             ]
         ], null, null, null, null, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp._viewLabel;
-        check(view, 6, 0, currVal_0);
-        const currVal_1 = comp._hasReorder;
-        check(view, 10, 0, currVal_1);
-    }, (check, view) => {
-        check(view, 2, 0);
-        check(view, 3, 0);
-        check(view, 11, 0);
-    });
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co._viewLabel;
+        ck(v, 6, 0, currVal_0);
+        const currVal_1 = co._hasReorder;
+        ck(v, 10, 0, currVal_1);
+    }, null);
 }
-function View_Item_Host_0(log) {
+function View_Item_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'ion-list-header', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'ion-list-header', [[
                 'class',
                 'item'
             ]
         ], null, null, null, View_Item_0, RenderType_Item)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_6__item__["a" /* Item */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 3, __WEBPACK_IMPORTED_MODULE_6__item__["a" /* Item */], [
             __WEBPACK_IMPORTED_MODULE_7__util_form__["a" /* Form */],
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -58469,17 +59821,22 @@ function View_Item_Host_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_8__item_reorder__["a" /* ItemReorder */]
             ]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 1, { contentLabel: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _buttons: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 3, { _icons: 1 }))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](167772160, 1, { contentLabel: 0 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 2, { _buttons: 1 }),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](301989888, 3, { _icons: 1 })
+    ], null, null);
 }
-const ItemNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-list-header,ion-item,[ion-item],ion-item-divider', __WEBPACK_IMPORTED_MODULE_6__item__["a" /* Item */], View_Item_Host_0);
+const ItemNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-list-header,ion-item,[ion-item],ion-item-divider', __WEBPACK_IMPORTED_MODULE_6__item__["a" /* Item */], View_Item_Host_0, {
+    color: 'color',
+    mode: 'mode'
+}, {}, [
+    '[item-left],ion-checkbox:not([item-right])',
+    'ion-label',
+    '*',
+    'ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]',
+    '[item-right],ion-radio,ion-toggle'
+]);
 /* unused harmony export ItemNgFactory */
 
 //# sourceMappingURL=item.ngfactory.js.map
@@ -58490,7 +59847,7 @@ const ItemNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__icon_icon__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reorder__ = __webpack_require__(59);
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_Reorder_0;
@@ -58506,9 +59863,9 @@ const RenderType_Reorder = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* 
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Reorder;
 
-function View_Reorder_0(log) {
+function View_Reorder_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-icon', [
             [
                 'name',
                 'reorder'
@@ -58518,11 +59875,12 @@ function View_Reorder_0(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_1__icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -58530,37 +59888,33 @@ function View_Reorder_0(log) {
                 0,
                 'name'
             ]
-        }, null))
-    ], (check, view) => {
+        }, null)
+    ], (ck, v) => {
         const currVal_1 = 'reorder';
-        check(view, 1, 0, currVal_1);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._hidden;
-        check(view, 0, 0, currVal_0);
+        ck(v, 1, 0, currVal_1);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._hidden;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_Reorder_Host_0(log) {
+function View_Reorder_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-reorder', [], null, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-reorder', [], null, [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('click' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).onClick($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('click' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).onClick($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_Reorder_0, RenderType_Reorder)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_3__reorder__["a" /* Reorder */], [__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_3__reorder__["a" /* Reorder */], [__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]], null, null)
+    ], null, null);
 }
-const ReorderNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-reorder', __WEBPACK_IMPORTED_MODULE_3__reorder__["a" /* Reorder */], View_Reorder_Host_0);
+const ReorderNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-reorder', __WEBPACK_IMPORTED_MODULE_3__reorder__["a" /* Reorder */], View_Reorder_Host_0, {}, {}, []);
 /* unused harmony export ReorderNgFactory */
 
 //# sourceMappingURL=reorder.ngfactory.js.map
@@ -58601,19 +59955,20 @@ const RenderType_LoadingCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" 
 });
 /* unused harmony export RenderType_LoadingCmp */
 
-function View_LoadingCmp_1(log) {
+function View_LoadingCmp_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'loading-spinner'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-spinner', [], [[
-                1,
-                'spinner-paused'
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-spinner', [], [[
+                2,
+                'spinner-paused',
+                null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_1__spinner_spinner_ngfactory__["a" /* View_Spinner_0 */], __WEBPACK_IMPORTED_MODULE_1__spinner_spinner_ngfactory__["b" /* RenderType_Spinner */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_2__spinner_spinner__["a" /* Spinner */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](57344, null, 0, __WEBPACK_IMPORTED_MODULE_2__spinner_spinner__["a" /* Spinner */], [
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -58621,36 +59976,35 @@ function View_LoadingCmp_1(log) {
                 0,
                 'name'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_1 = comp.d.spinner;
-        check(view, 2, 0, currVal_1);
-    }, (check, view) => {
-        check(view, 0, 0);
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 2)._paused;
-        check(view, 1, 0, currVal_0);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.d.spinner;
+        ck(v, 2, 0, currVal_1);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 2)._paused;
+        ck(v, 1, 0, currVal_0);
     });
 }
-function View_LoadingCmp_2(log) {
-    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+function View_LoadingCmp_2(l) {
+    return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [(l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'loading-content'
             ]
         ], [[
-                3,
+                8,
                 'innerHTML',
                 1
             ]
-        ], null, null, null, null))], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.d.content;
-        check(view, 0, 0, currVal_0);
+        ], null, null, null, null))], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.d.content;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_LoadingCmp_0(log) {
+function View_LoadingCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -58664,60 +60018,58 @@ function View_LoadingCmp_0(log) {
                 ''
             ]
         ], [[
-                3,
+                8,
                 'hidden',
                 0
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'loading-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_LoadingCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_LoadingCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_LoadingCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_LoadingCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_5__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 1, 0);
-        const currVal_1 = comp.showSpinner;
-        check(view, 4, 0, currVal_1);
-        const currVal_2 = comp.d.content;
-        check(view, 6, 0, currVal_2);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = !comp.d.showBackdrop;
-        check(view, 0, 0, currVal_0);
-        check(view, 2, 0);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.showSpinner;
+        ck(v, 4, 0, currVal_1);
+        const currVal_2 = co.d.content;
+        ck(v, 6, 0, currVal_2);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = !co.d.showBackdrop;
+        ck(v, 0, 0, currVal_0);
     });
 }
-function View_LoadingCmp_Host_0(log) {
+function View_LoadingCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-loading', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-loading', [[
                 'role',
                 'dialog'
             ]
         ], null, null, null, View_LoadingCmp_0, RenderType_LoadingCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](122880, null, 0, __WEBPACK_IMPORTED_MODULE_6__loading_component__["a" /* LoadingCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](122880, null, 0, __WEBPACK_IMPORTED_MODULE_6__loading_component__["a" /* LoadingCmp */], [
             __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_8__platform_platform__["b" /* Platform */],
@@ -58725,14 +60077,12 @@ function View_LoadingCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_9__gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_10__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], (ck, v) => {
+        ck(v, 1, 0);
+    }, null);
 }
-const LoadingCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-loading', __WEBPACK_IMPORTED_MODULE_6__loading_component__["a" /* LoadingCmp */], View_LoadingCmp_Host_0);
+const LoadingCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-loading', __WEBPACK_IMPORTED_MODULE_6__loading_component__["a" /* LoadingCmp */], View_LoadingCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = LoadingCmpNgFactory;
 
 //# sourceMappingURL=loading-component.ngfactory.js.map
@@ -58749,7 +60099,7 @@ const LoadingCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /*
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(37);
 
 
 class LoadingPopIn extends __WEBPACK_IMPORTED_MODULE_1__transitions_transition__["a" /* Transition */] {
@@ -59080,10 +60430,10 @@ const RenderType_ModalCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /*
 });
 /* unused harmony export RenderType_ModalCmp */
 
-function View_ModalCmp_0(log) {
+function View_ModalCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -59097,32 +60447,33 @@ function View_ModalCmp_0(log) {
                 ''
             ]
         ], [[
-                1,
-                'backdrop-no-tappable'
+                2,
+                'backdrop-no-tappable',
+                null
             ]
         ], [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp._bdClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co._bdClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_2__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_2__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'modal-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
             [
                 1,
                 3
@@ -59136,45 +60487,37 @@ function View_ModalCmp_0(log) {
                 ''
             ]
         ], null, null, null, null, null))
-    ], (check, view) => {
-        check(view, 2, 0);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = !comp._bdDismiss;
-        check(view, 1, 0, currVal_0);
-        check(view, 3, 0);
-        check(view, 4, 0);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = !co._bdDismiss;
+        ck(v, 1, 0, currVal_0);
     });
 }
-function View_ModalCmp_Host_0(log) {
+function View_ModalCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-modal', [], null, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-modal', [], null, [[
                 'body',
                 'keyup'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('body:keyup' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._keyUp($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('body:keyup' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._keyUp($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_ModalCmp_0, RenderType_ModalCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__modal_component__["a" /* ModalCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__modal_component__["a" /* ModalCmp */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
             __WEBPACK_IMPORTED_MODULE_3__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_6__util_module_loader__["c" /* ModuleLoader */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], null, null);
 }
-const ModalCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-modal', __WEBPACK_IMPORTED_MODULE_1__modal_component__["a" /* ModalCmp */], View_ModalCmp_Host_0);
+const ModalCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-modal', __WEBPACK_IMPORTED_MODULE_1__modal_component__["a" /* ModalCmp */], View_ModalCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = ModalCmpNgFactory;
 
 //# sourceMappingURL=modal-component.ngfactory.js.map
@@ -59347,7 +60690,7 @@ class ModalMDSlideOut extends __WEBPACK_IMPORTED_MODULE_1__transitions_page_tran
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__transitions_transition_controller__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navigation_deep_linker__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__platform_dom_controller__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__ = __webpack_require__(36);
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_Nav_0;
 
 
@@ -59370,10 +60713,10 @@ const RenderType_Nav = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵcr
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Nav;
 
-function View_Nav_0(log) {
+function View_Nav_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _vp: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _vp: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
             [
                 1,
                 3
@@ -59387,20 +60730,17 @@ function View_Nav_0(log) {
                 ''
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'nav-decor'
             ]
         ], null, null, null, null, null))
-    ], null, (check, view) => {
-        check(view, 1, 0);
-        check(view, 2, 0);
-    });
+    ], null, null);
 }
-function View_Nav_Host_0(log) {
+function View_Nav_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-nav', [], null, null, null, View_Nav_0, RenderType_Nav)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'ion-nav', [], null, null, null, View_Nav_0, RenderType_Nav)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */], [
             [
                 2,
                 __WEBPACK_IMPORTED_MODULE_2__navigation_view_controller__["a" /* ViewController */]
@@ -59424,15 +60764,17 @@ function View_Nav_Host_0(log) {
                 __WEBPACK_IMPORTED_MODULE_10__navigation_deep_linker__["b" /* DeepLinker */]
             ],
             __WEBPACK_IMPORTED_MODULE_11__platform_dom_controller__["a" /* DomController */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](3072, null, __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__["a" /* RootNode */], null, [__WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */]]))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_32" /* ɵprd */](3072, null, __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__["a" /* RootNode */], null, [__WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */]])
+    ], null, null);
 }
-const NavNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-nav', __WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */], View_Nav_Host_0);
+const NavNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-nav', __WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */], View_Nav_Host_0, {
+    color: 'color',
+    mode: 'mode',
+    root: 'root',
+    rootParams: 'rootParams',
+    swipeBackEnabled: 'swipeBackEnabled'
+}, {}, []);
 /* unused harmony export NavNgFactory */
 
 //# sourceMappingURL=nav.ngfactory.js.map
@@ -59448,7 +60790,7 @@ const NavNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__button_button__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__icon_icon__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__icon_icon__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navigation_view_controller__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navigation_nav_controller__ = __webpack_require__(13);
@@ -59471,14 +60813,14 @@ const RenderType_Navbar = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* �
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_Navbar;
 
-function View_Navbar_0(log) {
+function View_Navbar_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'toolbar-background'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59492,8 +60834,8 @@ function View_Navbar_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'button', [
             [
                 'class',
                 'back-button'
@@ -59503,7 +60845,7 @@ function View_Navbar_0(log) {
                 'bar-button'
             ]
         ], [[
-                3,
+                8,
                 'hidden',
                 0
             ]
@@ -59511,16 +60853,16 @@ function View_Navbar_0(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.backButtonClick($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.backButtonClick($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_3__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_4__button_button__["a" /* Button */], [
             [
                 8,
                 'bar-button'
@@ -59528,8 +60870,8 @@ function View_Navbar_0(log) {
             __WEBPACK_IMPORTED_MODULE_5__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        ], null, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59543,8 +60885,8 @@ function View_Navbar_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 2, 'ion-icon', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 2, 'ion-icon', [
             [
                 'class',
                 'back-button-icon'
@@ -59554,11 +60896,12 @@ function View_Navbar_0(log) {
                 'img'
             ]
         ], [[
-                1,
-                'hide'
+                2,
+                'hide',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59572,8 +60915,8 @@ function View_Navbar_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_6__icon_icon__["a" /* Icon */], [
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](73728, null, 0, __WEBPACK_IMPORTED_MODULE_6__icon_icon__["a" /* Icon */], [
             __WEBPACK_IMPORTED_MODULE_5__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
@@ -59581,13 +60924,13 @@ function View_Navbar_0(log) {
                 0,
                 'name'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 2, 'span', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 0, 2, 'span', [[
                 'class',
                 'back-button-text'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59601,20 +60944,20 @@ function View_Navbar_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 1),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 2),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'toolbar-content'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59628,59 +60971,56 @@ function View_Navbar_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 3))
-    ], (check, view) => {
-        var comp = view.component;
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 3)
+    ], (ck, v) => {
+        var co = v.component;
         const currVal_0 = 'toolbar-background';
-        const currVal_1 = ('toolbar-background-' + comp._mode);
-        check(view, 1, 0, currVal_0, currVal_1);
-        check(view, 3, 0);
+        const currVal_1 = ('toolbar-background-' + co._mode);
+        ck(v, 1, 0, currVal_0, currVal_1);
         const currVal_3 = 'back-button';
-        const currVal_4 = ('back-button-' + comp._mode);
-        check(view, 4, 0, currVal_3, currVal_4);
+        const currVal_4 = ('back-button-' + co._mode);
+        ck(v, 4, 0, currVal_3, currVal_4);
         const currVal_6 = 'back-button-icon';
-        const currVal_7 = ('back-button-icon-' + comp._mode);
-        check(view, 6, 0, currVal_6, currVal_7);
-        const currVal_8 = comp._bbIcon;
-        check(view, 7, 0, currVal_8);
+        const currVal_7 = ('back-button-icon-' + co._mode);
+        ck(v, 6, 0, currVal_6, currVal_7);
+        const currVal_8 = co._bbIcon;
+        ck(v, 7, 0, currVal_8);
         const currVal_9 = 'back-button-text';
-        const currVal_10 = ('back-button-text-' + comp._mode);
-        check(view, 9, 0, currVal_9, currVal_10);
+        const currVal_10 = ('back-button-text-' + co._mode);
+        ck(v, 9, 0, currVal_9, currVal_10);
         const currVal_12 = 'toolbar-content';
-        const currVal_13 = ('toolbar-content-' + comp._mode);
-        check(view, 15, 0, currVal_12, currVal_13);
-    }, (check, view) => {
-        var comp = view.component;
-        check(view, 0, 0);
-        const currVal_2 = comp._hideBb;
-        check(view, 2, 0, currVal_2);
-        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 7)._hidden;
-        check(view, 5, 0, currVal_5);
-        check(view, 8, 0);
-        const currVal_11 = comp._backText;
-        check(view, 10, 0, currVal_11);
-        check(view, 14, 0);
+        const currVal_13 = ('toolbar-content-' + co._mode);
+        ck(v, 15, 0, currVal_12, currVal_13);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_2 = co._hideBb;
+        ck(v, 2, 0, currVal_2);
+        const currVal_5 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 7)._hidden;
+        ck(v, 5, 0, currVal_5);
+        const currVal_11 = co._backText;
+        ck(v, 10, 0, currVal_11);
     });
 }
-function View_Navbar_Host_0(log) {
+function View_Navbar_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-navbar', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-navbar', [[
                 'class',
                 'toolbar'
             ]
         ], [
             [
-                3,
+                8,
                 'hidden',
                 0
             ],
             [
-                1,
-                'statusbar-padding'
+                2,
+                'statusbar-padding',
+                null
             ]
         ], null, null, View_Navbar_0, RenderType_Navbar)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_2__navbar__["a" /* Navbar */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_2__navbar__["a" /* Navbar */], [
             __WEBPACK_IMPORTED_MODULE_7__app_app__["a" /* App */],
             [
                 2,
@@ -59693,16 +61033,23 @@ function View_Navbar_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_5__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._hidden;
-        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._sbPadding;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._hidden;
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._sbPadding;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-const NavbarNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-navbar', __WEBPACK_IMPORTED_MODULE_2__navbar__["a" /* Navbar */], View_Navbar_Host_0);
+const NavbarNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-navbar', __WEBPACK_IMPORTED_MODULE_2__navbar__["a" /* Navbar */], View_Navbar_Host_0, {
+    color: 'color',
+    mode: 'mode',
+    hideBackButton: 'hideBackButton'
+}, {}, [
+    '[menuToggle],ion-buttons[left]',
+    'ion-buttons[start]',
+    'ion-buttons[end],ion-buttons[right]',
+    '*'
+]);
 /* unused harmony export NavbarNgFactory */
 
 //# sourceMappingURL=navbar.ngfactory.js.map
@@ -59735,33 +61082,33 @@ const RenderType_PickerColumnCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_PickerColumnCmp;
 
-function View_PickerColumnCmp_1(log) {
+function View_PickerColumnCmp_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'picker-prefix'
             ]
         ], [[
-                2,
+                4,
                 'width',
                 null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.col.prefixWidth;
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = comp.col.prefix;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.col.prefixWidth;
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = co.col.prefix;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_PickerColumnCmp_2(log) {
+function View_PickerColumnCmp_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'button', [
             [
                 'class',
                 'picker-opt'
@@ -59771,70 +61118,71 @@ function View_PickerColumnCmp_2(log) {
                 ''
             ]
         ], [[
-                1,
-                'picker-opt-disabled'
+                2,
+                'picker-opt-disabled',
+                null
             ]
         ], [[
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.optClick($event, view.context.index) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.optClick($event, v.context.index) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        const currVal_0 = view.context.$implicit.disabled;
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = view.context.$implicit.text;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        const currVal_0 = v.context.$implicit.disabled;
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = v.context.$implicit.text;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_PickerColumnCmp_3(log) {
+function View_PickerColumnCmp_3(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'picker-suffix'
             ]
         ], [[
-                2,
+                4,
                 'width',
                 null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.col.suffixWidth;
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = comp.col.suffix;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.col.suffixWidth;
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = co.col.suffix;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_PickerColumnCmp_0(log) {
+function View_PickerColumnCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { colEle: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["n" /* NgIf */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { colEle: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, [
             [
                 1,
                 0
@@ -59848,13 +61196,13 @@ function View_PickerColumnCmp_0(log) {
                 'picker-opts'
             ]
         ], [[
-                2,
+                4,
                 'max-width',
                 null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -59862,52 +61210,54 @@ function View_PickerColumnCmp_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_3)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerColumnCmp_3)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_0 = comp.col.prefix;
-        check(view, 2, 0, currVal_0);
-        const currVal_2 = comp.col.options;
-        check(view, 5, 0, currVal_2);
-        const currVal_3 = comp.col.suffix;
-        check(view, 7, 0, currVal_3);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_1 = comp.col.optionsWidth;
-        check(view, 3, 0, currVal_1);
+        }, null)
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.col.prefix;
+        ck(v, 2, 0, currVal_0);
+        const currVal_2 = co.col.options;
+        ck(v, 5, 0, currVal_2);
+        const currVal_3 = co.col.suffix;
+        ck(v, 7, 0, currVal_3);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_1 = co.col.optionsWidth;
+        ck(v, 3, 0, currVal_1);
     });
 }
-function View_PickerColumnCmp_Host_0(log) {
+function View_PickerColumnCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'picker-col'
             ]
         ], [
             [
-                2,
+                4,
                 'max-width',
                 null
             ],
             [
-                1,
-                'picker-opts-left'
+                2,
+                'picker-opts-left',
+                null
             ],
             [
-                1,
-                'picker-opts-right'
+                2,
+                'picker-opts-right',
+                null
             ]
         ], null, null, View_PickerColumnCmp_0, RenderType_PickerColumnCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_2__picker_column__["a" /* PickerColumnCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_2__picker_column__["a" /* PickerColumnCmp */], [
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59915,17 +61265,15 @@ function View_PickerColumnCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_5__tap_click_haptic__["a" /* Haptic */],
             __WEBPACK_IMPORTED_MODULE_4__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_6__platform_dom_controller__["a" /* DomController */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.columnWidth;
-        const currVal_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.align == 'left');
-        const currVal_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.align == 'right');
-        check(view, 0, 0, currVal_0, currVal_1, currVal_2);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.columnWidth;
+        const currVal_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.align == 'left');
+        const currVal_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.align == 'right');
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2);
     });
 }
-const PickerColumnCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('.picker-col', __WEBPACK_IMPORTED_MODULE_2__picker_column__["a" /* PickerColumnCmp */], View_PickerColumnCmp_Host_0);
+const PickerColumnCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('.picker-col', __WEBPACK_IMPORTED_MODULE_2__picker_column__["a" /* PickerColumnCmp */], View_PickerColumnCmp_Host_0, { col: 'col' }, { ionChange: 'ionChange' }, []);
 /* unused harmony export PickerColumnCmpNgFactory */
 
 //# sourceMappingURL=picker-column.ngfactory.js.map
@@ -59974,14 +61322,14 @@ const RenderType_PickerCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /
 });
 /* unused harmony export RenderType_PickerCmp */
 
-function View_PickerCmp_1(log) {
+function View_PickerCmp_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [[
                 'class',
                 'picker-toolbar-button'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -59995,9 +61343,9 @@ function View_PickerCmp_1(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n          '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'button', [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n          '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 3, 'button', [
             [
                 'class',
                 'picker-button'
@@ -60014,16 +61362,16 @@ function View_PickerCmp_1(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.btnClick(view.context.$implicit) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.btnClick(v.context.$implicit) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_2__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_2__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_3__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_3__button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -60035,8 +61383,8 @@ function View_PickerCmp_1(log) {
                 0,
                 'clear'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -60050,62 +61398,62 @@ function View_PickerCmp_1(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
             '\n            ',
             '\n          '
         ])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        ']))
-    ], (check, view) => {
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        ']))
+    ], (ck, v) => {
         const currVal_0 = 'picker-toolbar-button';
-        const currVal_1 = view.context.$implicit.cssRole;
-        check(view, 1, 0, currVal_0, currVal_1);
+        const currVal_1 = v.context.$implicit.cssRole;
+        ck(v, 1, 0, currVal_0, currVal_1);
         const currVal_2 = '';
-        check(view, 4, 0, currVal_2);
+        ck(v, 4, 0, currVal_2);
         const currVal_3 = 'picker-button';
-        const currVal_4 = view.context.$implicit.cssClass;
-        check(view, 5, 0, currVal_3, currVal_4);
-    }, (check, view) => {
-        check(view, 0, 0);
-        check(view, 3, 0);
-        const currVal_5 = view.context.$implicit.text;
-        check(view, 6, 0, currVal_5);
+        const currVal_4 = v.context.$implicit.cssClass;
+        ck(v, 5, 0, currVal_3, currVal_4);
+    }, (ck, v) => {
+        const currVal_5 = v.context.$implicit.text;
+        ck(v, 6, 0, currVal_5);
     });
 }
-function View_PickerCmp_2(log) {
+function View_PickerCmp_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'picker-col'
             ]
         ], [
             [
-                2,
+                4,
                 'max-width',
                 null
             ],
             [
-                1,
-                'picker-opts-left'
+                2,
+                'picker-opts-left',
+                null
             ],
             [
-                1,
-                'picker-opts-right'
+                2,
+                'picker-opts-right',
+                null
             ]
         ], [[
                 null,
                 'ionChange'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('ionChange' === eventName)) {
-                const pd_0 = (comp._colChange($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('ionChange' === en)) {
+                const pd_0 = (co._colChange($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_5__picker_column_ngfactory__["a" /* View_PickerColumnCmp_0 */], __WEBPACK_IMPORTED_MODULE_5__picker_column_ngfactory__["b" /* RenderType_PickerColumnCmp */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, [[
                 1,
                 4
             ]
@@ -60121,22 +61469,22 @@ function View_PickerCmp_2(log) {
                 0,
                 'col'
             ]
-        }, { ionChange: 'ionChange' }))
-    ], (check, view) => {
-        const currVal_3 = view.context.$implicit;
-        check(view, 1, 0, currVal_3);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.columnWidth;
-        const currVal_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.align == 'left');
-        const currVal_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).col.align == 'right');
-        check(view, 0, 0, currVal_0, currVal_1, currVal_2);
+        }, { ionChange: 'ionChange' })
+    ], (ck, v) => {
+        const currVal_3 = v.context.$implicit;
+        ck(v, 1, 0, currVal_3);
+    }, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.columnWidth;
+        const currVal_1 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.align == 'left');
+        const currVal_2 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).col.align == 'right');
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2);
     });
 }
-function View_PickerCmp_0(log) {
+function View_PickerCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](335544320, 1, { _cols: 1 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](335544320, 1, { _cols: 1 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -60153,34 +61501,34 @@ function View_PickerCmp_0(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.bdClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.bdClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_11__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 17, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 17, 'div', [[
                 'class',
                 'picker-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'picker-toolbar'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -60188,23 +61536,23 @@ function View_PickerCmp_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 8, 'div', [[
                 'class',
                 'picker-columns'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'picker-above-highlight'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_PickerCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](401408, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* NgForOf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */]
@@ -60212,35 +61560,27 @@ function View_PickerCmp_0(log) {
                 0,
                 'ngForOf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n        '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'picker-below-highlight'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  ']))
-    ], (check, view) => {
-        var comp = view.component;
-        check(view, 3, 0);
-        const currVal_0 = comp.d.buttons;
-        check(view, 10, 0, currVal_0);
-        const currVal_1 = comp.d.columns;
-        check(view, 18, 0, currVal_1);
-    }, (check, view) => {
-        check(view, 2, 0);
-        check(view, 5, 0);
-        check(view, 7, 0);
-        check(view, 13, 0);
-        check(view, 15, 0);
-        check(view, 20, 0);
-    });
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n      '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n    '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  ']))
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_0 = co.d.buttons;
+        ck(v, 10, 0, currVal_0);
+        const currVal_1 = co.d.columns;
+        ck(v, 18, 0, currVal_1);
+    }, null);
 }
-function View_PickerCmp_Host_0(log) {
+function View_PickerCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-picker-cmp', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-picker-cmp', [[
                 'role',
                 'dialog'
             ]
@@ -60248,15 +61588,15 @@ function View_PickerCmp_Host_0(log) {
                 'body',
                 'keyup'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('body:keyup' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._keyUp($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('body:keyup' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._keyUp($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_PickerCmp_0, RenderType_PickerCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_10__picker_component__["a" /* PickerCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_10__picker_component__["a" /* PickerCmp */], [
             __WEBPACK_IMPORTED_MODULE_12__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_4__config_config__["c" /* Config */],
@@ -60264,14 +61604,10 @@ function View_PickerCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_13__gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_14__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], null, null);
 }
-const PickerCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-picker-cmp', __WEBPACK_IMPORTED_MODULE_10__picker_component__["a" /* PickerCmp */], View_PickerCmp_Host_0);
+const PickerCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-picker-cmp', __WEBPACK_IMPORTED_MODULE_10__picker_component__["a" /* PickerCmp */], View_PickerCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = PickerCmpNgFactory;
 
 //# sourceMappingURL=picker-component.ngfactory.js.map
@@ -60282,7 +61618,7 @@ const PickerCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* 
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(37);
 
 
 class PickerSlideIn extends __WEBPACK_IMPORTED_MODULE_1__transitions_transition__["a" /* Transition */] {
@@ -60343,10 +61679,10 @@ const RenderType_PopoverCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" 
 });
 /* unused harmony export RenderType_PopoverCmp */
 
-function View_PopoverCmp_0(log) {
+function View_PopoverCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 })),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_34" /* ɵqud */](201326592, 1, { _viewport: 0 }),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-backdrop', [
             [
                 'disable-activated',
                 ''
@@ -60360,7 +61696,7 @@ function View_PopoverCmp_0(log) {
                 ''
             ]
         ], [[
-                3,
+                8,
                 'hidden',
                 0
             ]
@@ -60368,40 +61704,40 @@ function View_PopoverCmp_0(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp._bdClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co._bdClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_2__backdrop_backdrop__["a" /* Backdrop */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_2__backdrop_backdrop__["a" /* Backdrop */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
+        ], null, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 4, 'div', [[
                 'class',
                 'popover-wrapper'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 0, 'div', [[
                 'class',
                 'popover-arrow'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'popover-content'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'popover-viewport'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](8388608, [
             [
                 1,
                 3
@@ -60415,34 +61751,27 @@ function View_PopoverCmp_0(log) {
                 ''
             ]
         ], null, null, null, null, null))
-    ], (check, view) => {
-        check(view, 2, 0);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = !comp.d.showBackdrop;
-        check(view, 1, 0, currVal_0);
-        check(view, 3, 0);
-        check(view, 4, 0);
-        check(view, 5, 0);
-        check(view, 6, 0);
-        check(view, 7, 0);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = !co.d.showBackdrop;
+        ck(v, 1, 0, currVal_0);
     });
 }
-function View_PopoverCmp_Host_0(log) {
+function View_PopoverCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-popover', [], null, [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-popover', [], null, [[
                 'body',
                 'keyup'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            if (('body:keyup' === eventName)) {
-                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1)._keyUp($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            if (('body:keyup' === en)) {
+                const pd_0 = (__WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1)._keyUp($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, View_PopoverCmp_0, RenderType_PopoverCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__popover_component__["a" /* PopoverCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__popover_component__["a" /* PopoverCmp */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -60452,14 +61781,10 @@ function View_PopoverCmp_Host_0(log) {
             __WEBPACK_IMPORTED_MODULE_6__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_7__gestures_gesture_controller__["a" /* GestureController */],
             __WEBPACK_IMPORTED_MODULE_8__util_module_loader__["c" /* ModuleLoader */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], null, null);
 }
-const PopoverCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-popover', __WEBPACK_IMPORTED_MODULE_1__popover_component__["a" /* PopoverCmp */], View_PopoverCmp_Host_0);
+const PopoverCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-popover', __WEBPACK_IMPORTED_MODULE_1__popover_component__["a" /* PopoverCmp */], View_PopoverCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = PopoverCmpNgFactory;
 
 //# sourceMappingURL=popover-component.ngfactory.js.map
@@ -61724,33 +63049,33 @@ const RenderType_ToastCmp = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /*
 });
 /* unused harmony export RenderType_ToastCmp */
 
-function View_ToastCmp_1(log) {
+function View_ToastCmp_1(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'div', [[
                 'class',
                 'toast-message'
             ]
         ], [[
-                3,
+                8,
                 'id',
                 0
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [
             '',
             ''
         ]))
-    ], null, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', comp.hdrId, '');
-        check(view, 0, 0, currVal_0);
-        const currVal_1 = comp.d.message;
-        check(view, 1, 0, currVal_1);
+    ], null, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_39" /* ɵinlineInterpolate */](1, '', co.hdrId, '');
+        ck(v, 0, 0, currVal_0);
+        const currVal_1 = co.d.message;
+        ck(v, 1, 0, currVal_1);
     });
 }
-function View_ToastCmp_2(log) {
+function View_ToastCmp_2(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'button', [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'button', [
             [
                 'class',
                 'toast-button'
@@ -61767,16 +63092,16 @@ function View_ToastCmp_2(log) {
                 null,
                 'click'
             ]
-        ], (view, eventName, $event) => {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                const pd_0 = (comp.cbClick() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], (v, en, $event) => {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                const pd_0 = (co.cbClick() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
+            return ad;
         }, __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["a" /* View_Button_0 */], __WEBPACK_IMPORTED_MODULE_1__button_button_ngfactory__["b" /* RenderType_Button */])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](548864, null, 0, __WEBPACK_IMPORTED_MODULE_2__button_button__["a" /* Button */], [
             [
                 8,
                 ''
@@ -61788,118 +63113,117 @@ function View_ToastCmp_2(log) {
                 0,
                 'clear'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](0, [
             ' ',
             ' '
         ]))
-    ], (check, view) => {
+    ], (ck, v) => {
         const currVal_0 = '';
-        check(view, 1, 0, currVal_0);
-    }, (check, view) => {
-        var comp = view.component;
-        check(view, 0, 0);
-        const currVal_1 = (comp.d.closeButtonText || 'Close');
-        check(view, 2, 0, currVal_1);
+        ck(v, 1, 0, currVal_0);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_1 = (co.d.closeButtonText || 'Close');
+        ck(v, 2, 0, currVal_1);
     });
 }
-function View_ToastCmp_0(log) {
+function View_ToastCmp_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 10, 'div', [[
                 'class',
                 'toast-wrapper'
             ]
         ], [
             [
-                1,
-                'toast-bottom'
+                2,
+                'toast-bottom',
+                null
             ],
             [
-                1,
-                'toast-middle'
+                2,
+                'toast-middle',
+                null
             ],
             [
-                1,
-                'toast-top'
+                2,
+                'toast-top',
+                null
             ]
         ], null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 7, 'div', [[
                 'class',
                 'toast-container'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ToastCmp_1)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ToastCmp_1)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ToastCmp_2)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_37" /* ɵand */](8388608, null, null, 1, null, View_ToastCmp_2)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](8192, null, 0, __WEBPACK_IMPORTED_MODULE_4__angular_common__["n" /* NgIf */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* ViewContainerRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* TemplateRef */]
         ], { ngIf: [
                 0,
                 'ngIf'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' ']))
-    ], (check, view) => {
-        var comp = view.component;
-        const currVal_3 = comp.d.message;
-        check(view, 5, 0, currVal_3);
-        const currVal_4 = comp.d.showCloseButton;
-        check(view, 8, 0, currVal_4);
-    }, (check, view) => {
-        var comp = view.component;
-        const currVal_0 = (comp.d.position === 'bottom');
-        const currVal_1 = (comp.d.position === 'middle');
-        const currVal_2 = (comp.d.position === 'top');
-        check(view, 0, 0, currVal_0, currVal_1, currVal_2);
-        check(view, 2, 0);
+        }, null),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' '])),
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, [' ']))
+    ], (ck, v) => {
+        var co = v.component;
+        const currVal_3 = co.d.message;
+        ck(v, 5, 0, currVal_3);
+        const currVal_4 = co.d.showCloseButton;
+        ck(v, 8, 0, currVal_4);
+    }, (ck, v) => {
+        var co = v.component;
+        const currVal_0 = (co.d.position === 'bottom');
+        const currVal_1 = (co.d.position === 'middle');
+        const currVal_2 = (co.d.position === 'top');
+        ck(v, 0, 0, currVal_0, currVal_1, currVal_2);
     });
 }
-function View_ToastCmp_Host_0(log) {
+function View_ToastCmp_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-toast', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-toast', [[
                 'role',
                 'dialog'
             ]
         ], [
             [
-                0,
+                1,
                 'aria-labelledby',
                 0
             ],
             [
-                0,
+                1,
                 'aria-describedby',
                 0
             ]
         ], null, null, View_ToastCmp_0, RenderType_ToastCmp)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2121728, null, 0, __WEBPACK_IMPORTED_MODULE_5__toast_component__["a" /* ToastCmp */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2121728, null, 0, __WEBPACK_IMPORTED_MODULE_5__toast_component__["a" /* ToastCmp */], [
             __WEBPACK_IMPORTED_MODULE_6__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_7__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).hdrId;
-        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](view, 1).descId;
-        check(view, 0, 0, currVal_0, currVal_1);
+        ], null, null)
+    ], null, (ck, v) => {
+        const currVal_0 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).hdrId;
+        const currVal_1 = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_36" /* ɵnov */](v, 1).descId;
+        ck(v, 0, 0, currVal_0, currVal_1);
     });
 }
-const ToastCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-toast', __WEBPACK_IMPORTED_MODULE_5__toast_component__["a" /* ToastCmp */], View_ToastCmp_Host_0);
+const ToastCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-toast', __WEBPACK_IMPORTED_MODULE_5__toast_component__["a" /* ToastCmp */], View_ToastCmp_Host_0, {}, {}, []);
 /* harmony export (immutable) */ __webpack_exports__["a"] = ToastCmpNgFactory;
 
 //# sourceMappingURL=toast-component.ngfactory.js.map
@@ -61916,7 +63240,7 @@ const ToastCmpNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* �
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations_animation__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transitions_transition__ = __webpack_require__(37);
 
 
 class ToastSlideIn extends __WEBPACK_IMPORTED_MODULE_1__transitions_transition__["a" /* Transition */] {
@@ -62121,14 +63445,14 @@ const RenderType_ToolbarTitle = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28
 });
 /* harmony export (immutable) */ __webpack_exports__["b"] = RenderType_ToolbarTitle;
 
-function View_ToolbarTitle_0(log) {
+function View_ToolbarTitle_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](2, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 2, 'div', [[
                 'class',
                 'toolbar-title'
             ]
         ], null, null, null, null, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](139264, null, 0, __WEBPACK_IMPORTED_MODULE_1__angular_common__["l" /* NgClass */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* IterableDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* KeyValueDiffers */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
@@ -62142,21 +63466,19 @@ function View_ToolbarTitle_0(log) {
                 1,
                 'ngClass'
             ]
-        }, null)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0))
-    ], (check, view) => {
-        var comp = view.component;
+        }, null),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_38" /* ɵncd */](null, 0)
+    ], (ck, v) => {
+        var co = v.component;
         const currVal_0 = 'toolbar-title';
-        const currVal_1 = ('toolbar-title-' + comp._mode);
-        check(view, 1, 0, currVal_0, currVal_1);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        const currVal_1 = ('toolbar-title-' + co._mode);
+        ck(v, 1, 0, currVal_0, currVal_1);
+    }, null);
 }
-function View_ToolbarTitle_Host_0(log) {
+function View_ToolbarTitle_Host_0(l) {
     return __WEBPACK_IMPORTED_MODULE_0__angular_core__["_29" /* ɵvid */](0, [
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-title', [], null, null, null, View_ToolbarTitle_0, RenderType_ToolbarTitle)),
-        (log()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_2__toolbar_title__["a" /* ToolbarTitle */], [
+        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, null, 1, 'ion-title', [], null, null, null, View_ToolbarTitle_0, RenderType_ToolbarTitle)),
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](24576, null, 0, __WEBPACK_IMPORTED_MODULE_2__toolbar_title__["a" /* ToolbarTitle */], [
             __WEBPACK_IMPORTED_MODULE_3__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
@@ -62168,14 +63490,13 @@ function View_ToolbarTitle_Host_0(log) {
                 2,
                 __WEBPACK_IMPORTED_MODULE_5__navbar_navbar__["a" /* Navbar */]
             ]
-        ], null, null))
-    ], (check, view) => {
-        check(view, 1, 0);
-    }, (check, view) => {
-        check(view, 0, 0);
-    });
+        ], null, null)
+    ], null, null);
 }
-const ToolbarTitleNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-title', __WEBPACK_IMPORTED_MODULE_2__toolbar_title__["a" /* ToolbarTitle */], View_ToolbarTitle_Host_0);
+const ToolbarTitleNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-title', __WEBPACK_IMPORTED_MODULE_2__toolbar_title__["a" /* ToolbarTitle */], View_ToolbarTitle_Host_0, {
+    color: 'color',
+    mode: 'mode'
+}, {}, ['*']);
 /* unused harmony export ToolbarTitleNgFactory */
 
 //# sourceMappingURL=toolbar-title.ngfactory.js.map
@@ -62615,7 +63936,7 @@ const REQUIRED_DOM_READS = 2;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(34);
 /* unused harmony export IonicGestureConfig */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -66408,7 +67729,7 @@ exports.tryCatch = tryCatch;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module_ngfactory__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 

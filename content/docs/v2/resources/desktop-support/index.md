@@ -133,7 +133,7 @@ This bit of pseudo code can be a big help when targeting environments that you'r
 
 - Fallback to browser based APIs
 
-Many native APIs that people tend to use (for example, the File API), are available in the browser these days. The APIs are always improving and catching up to native, so be sure to research them. Taking the fist two points into consideration, we can create a nice experience that will adapt for the platform you're on.
+Many native APIs that people tend to use (for example, the File API), are available in the browser these days. The APIs are always improving and catching up to native, so be sure to research them. Taking the first two points into consideration, we can create a nice experience that will adapt for the platform you're on.
 
 
 ### Parting words

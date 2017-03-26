@@ -75,7 +75,7 @@ this.musicControls.create({
   ticker    : &#39;Now playing &quot;Time is Running Out&quot;&#39;
  });
 
- this.musicControls.subscribe().subscribe(action =&gt; {
+ this.musicControls.subscribe(action =&gt; {
 
    switch(action) {
        case &#39;music-controls-next&#39;:

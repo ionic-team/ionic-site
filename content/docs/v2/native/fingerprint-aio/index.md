@@ -66,7 +66,7 @@ this.faio.show({
     clientSecret: &quot;password&quot;, //Only necessary for Android
     disableBackup:true  //Only for Android(optional)
 })
-.then((result: any) =&gt; console.log(any))
+.then((result: any) =&gt; console.log(result))
 .catch((error: any) =&gt; console.log(error));
 </code></pre>
 

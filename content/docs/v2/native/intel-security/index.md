@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Intel Security</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/intel-security/index.ts#L29">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/intel-security/index.ts#L28">
   Improve this doc
 </a>
 
@@ -80,12 +80,12 @@ this.intelSecurity.storage.delete({ id: storageID })
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="storage" href="#storage"></a><code>storage</code></h3>
 
-
+returns an IntelSecurityStorage object
 
 
 <h3><a class="anchor" name="data" href="#data"></a><code>data</code></h3>
 
-
+Returns an IntelSecurityData object
 
 
 

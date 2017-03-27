@@ -184,16 +184,23 @@ angular_controller: ResourcesCtrl
         <p>by Chris Griffith</p>
       </li>
       <li>
-        <a href="https://www.amazon.com/Ionic-Cookbook-Second-Hoc-Phan-ebook/dp/B01C4D9VWS?ie=UTF8&keywords=ionic%202&qid=1464183332&ref_=sr_1_3&sr=8-3"
-           target="_blank">Ionic 2 Cookbook - Second Edition</a>
-        <p>by Hoc Phan </p>
-      </li>
-      <li>
         <a href="https://www.packtpub.com/application-development/ionic-framework-example"
            target="_blank">Ionic Framework By Example</a>
         <p>by Sani Yusuf</p>
       </li>
-      <li>
+      <li ng-show="hash != 'books'">
+        <a href="#guides" ng-click="hash = 'books'">More Books...</a>
+      <li ng-show="hash == 'books'">
+        <a href="https://www.amazon.com/Ionic-Cookbook-Second-Hoc-Phan-ebook/dp/B01C4D9VWS?ie=UTF8&keywords=ionic%202&qid=1464183332&ref_=sr_1_3&sr=8-3"
+           target="_blank">Ionic 2 Cookbook - Second Edition</a>
+        <p>by Hoc Phan </p>
+      </li>
+      <li ng-show="hash == 'books'">
+        <a href="https://javebratt.com/ionic-firebase-book/"
+           target="_blank">Building Firebase Powered Ionic Apps</a>
+        <p>by Jorge Vergara</p>
+      </li>
+      <li ng-show="hash == 'books'">
         <a href="https://www.packtpub.com/web-development/ionic-2-blueprints"
            target="_blank">Ionic 2 Blueprints</a>
         <p>by Indermohan Singh</p>

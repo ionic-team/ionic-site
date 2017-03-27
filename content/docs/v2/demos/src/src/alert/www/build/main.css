@@ -10014,6 +10014,12 @@ ion-fab-list[side=right] {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .grid[no-padding] {

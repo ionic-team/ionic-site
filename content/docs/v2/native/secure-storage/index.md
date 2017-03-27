@@ -40,7 +40,7 @@ $ npm install --save @ionic-native/secure-storage
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>Android</li><li>iOS</li><li>Windows Phone</li><li>Browser</li>
+  <li>Android</li><li>iOS</li><li>Windows Phone</li>
 </ul>
 
 

@@ -1,5 +1,5 @@
-var redirects = require('./redirects');
-var url       = require('url');
+const redirects = require('./redirects');
+const url       = require('url');
 
 module.exports = function(req, res, next) {
 
@@ -38,7 +38,7 @@ module.exports = function(req, res, next) {
     return res.redirect(301, redirects[requrl]);
   }
 
-  // don't index non production URLs, but favor HTTPS 
+  // don't index non production URLs, but favor HTTPS
   var protocol = 'https';
   if (req.hostname.indexOf('ionicframework.com') == -1) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
@@ -64,7 +64,7 @@ module.exports = function(req, res, next) {
     domain: req.get('host'),
     url: req.originalUrl,
     dev: req.get('host').indexOf('localhost') === 0
-  }
+  };
 
   return next();
 };

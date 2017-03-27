@@ -3206,8 +3206,8 @@ ionic.DomUtil.ready(function(){
  * On both Android and iOS, Ionic will attempt to prevent the keyboard from
  * obscuring inputs and focusable elements when it appears by scrolling them
  * into view.  In order for this to work, any focusable elements must be within
- * a [Scroll View](http://ionicframework.com/docs/api/directive/ionScroll/)
- * or a directive such as [Content](http://ionicframework.com/docs/api/directive/ionContent/)
+ * a [Scroll View](http://ionicframework.com/docs/v1/api/directive/ionScroll/)
+ * or a directive such as [Content](http://ionicframework.com/docs/v1/api/directive/ionContent/)
  * that has a Scroll View.
  *
  * It will also attempt to prevent the native overflow scrolling on focus,
@@ -35132,7 +35132,7 @@ var IonicModule = angular.module('ionic', ['ngAnimate', 'ngSanitize', 'ui.router
  * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even
  * hitting escape on the keyboard for desktop testing.
  *
- * ![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/controllers/actionSheet.gif)
+ * ![Action Sheet](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/actionSheet.gif)
  *
  * @usage
  * To trigger an Action Sheet in your code, use the $ionicActionSheet service in your angular controllers:
@@ -40484,7 +40484,7 @@ IonicModule
  * Adds a fixed header bar above some content.
  *
  * Can also be a subheader (lower down) if the 'bar-subheader' class is applied.
- * See [the header CSS docs](/docs/components/#subheader).
+ * See [the header CSS docs](/docs/v1/components/#subheader).
  *
  * Note: If you use ionHeaderBar in combination with ng-if, the surrounding content
  * will not align correctly.  This will be fixed soon.
@@ -40524,7 +40524,7 @@ IonicModule
  * Adds a fixed footer bar below some content.
  *
  * Can also be a subfooter (higher up) if the 'bar-subfooter' class is applied.
- * See [the footer CSS docs](/docs/components/#footer).
+ * See [the footer CSS docs](/docs/v1/components/#footer).
  *
  * Note: If you use ionFooterBar in combination with ng-if, the surrounding content
  * will not align correctly.  This will be fixed soon.
@@ -40795,7 +40795,7 @@ var ITEM_TPL_CONTENT =
 * See {@link ionic.directive:ionList} for a complete example & explanation.
 *
 * Can be assigned any item class name. See the
-* [list CSS documentation](/docs/components/#list).
+* [list CSS documentation](/docs/v1/components/#list).
 *
 * @usage
 *
@@ -41179,7 +41179,7 @@ function keyboardAttachGetClientHeight(element) {
 * interaction modes such as swipe to edit, drag to reorder, and removing items.
 *
 * Related: {@link ionic.directive:ionItem}, {@link ionic.directive:ionOptionButton}
-* {@link ionic.directive:ionReorderButton}, {@link ionic.directive:ionDeleteButton}, [`list CSS documentation`](/docs/components/#list).
+* {@link ionic.directive:ionReorderButton}, {@link ionic.directive:ionDeleteButton}, [`list CSS documentation`](/docs/v1/components/#list).
 *
 * @usage
 *
@@ -41573,7 +41573,7 @@ IonicModule.constant('$ionicNavBarConfig', {
  * We can add buttons depending on the currently visible view using
  * {@link ionic.directive:ionNavButtons}.
  *
- * Add an [animation class](/docs/components#animations) to the element via the
+ * Add an [animation class](/docs/v1/components#animations) to the element via the
  * `animation` attribute to enable animated changing of titles 
  * (recommended: 'nav-title-slide-ios7').
  *
@@ -41870,7 +41870,7 @@ IonicModule.constant('$ionicNavViewConfig', {
  * the {@link ionic.directive:ionNavBar} directive that updates as we navigate through the
  * navigation stack.
  *
- * You can use any [animation class](/docs/components#animation) on the navView's `animation` attribute
+ * You can use any [animation class](/docs/v1/components#animation) on the navView's `animation` attribute
  * to have its pages animate.
  *
  * Recommended for page transitions: 'slide-left-right', 'slide-left-right-ios7', 'slide-in-up'.
@@ -42636,7 +42636,7 @@ IonicModule
  * links and buttons within `ion-side-menu` content, so that when the element is
  * clicked then the opened side menu will automatically close.
  *
- * ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/controllers/sidemenu.gif)
+ * ![Side Menu](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/sidemenu.gif)
  *
  * For more information on side menus, check out:
  *
@@ -42703,7 +42703,7 @@ IonicModule
  * @description
  * The Slide Box is a multi-page container where each page can be swiped or dragged between:
  *
- * ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
+ * ![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/v1/controllers/slideBox.gif)
  *
  * @usage
  * ```html
@@ -43103,8 +43103,8 @@ IonicModule.constant('$ionicTabsConfig', {
  * Powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed
  * through.
  *
- * Assign any [tabs class](/docs/components#tabs) or
- * [animation class](/docs/components#animation) to the element to define
+ * Assign any [tabs class](/docs/v1/components#tabs) or
+ * [animation class](/docs/v1/components#animation) to the element to define
  * its look and feel.
  *
  * See the {@link ionic.directive:ionTab} directive's documentation for more details on

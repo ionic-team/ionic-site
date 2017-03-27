@@ -7,6 +7,7 @@ const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
 const expressNunjucks = require('express-nunjucks');
 const jobs            = require('./server/jobs');
+const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
 
@@ -32,10 +33,7 @@ app.use(express.static(process.env.PWD + '/_site/', {
   etag: true
 }));
 
-app.use(function(req, res, next) {
-  res.status(404);
-  res.sendFile(__dirname + '/_site/404.html');
-});
+app.use(pageNotFound);
 
 // bind the app to listen for connections on a specified port
 app.listen(config.PORT, function() {
@@ -43,4 +41,3 @@ app.listen(config.PORT, function() {
   console.log('Listening on port ' + config.PORT);
   jobs.bustCache();
 });
-

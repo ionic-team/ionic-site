@@ -56347,10 +56347,7 @@ class AppModuleInjector extends __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" 
         this._MenuController_7 = new __WEBPACK_IMPORTED_MODULE_4__src_components_menu_menu_controller__["a" /* MenuController */]();
         this._App_8 = new __WEBPACK_IMPORTED_MODULE_5__src_components_app_app__["a" /* App */](this._Config_5, this._Platform_4, this._MenuController_7);
         this._GestureController_9 = new __WEBPACK_IMPORTED_MODULE_6__src_gestures_gesture_controller__["a" /* GestureController */](this._App_8);
-        this._DeepLinkConfigToken_10 =
-            {
-                links: []
-            };
+        this._DeepLinkConfigToken_10 = null;
         this._Compiler_11 = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* Compiler */]();
         this._NgModuleLoader_12 = new __WEBPACK_IMPORTED_MODULE_7__src_util_ng_module_loader__["a" /* NgModuleLoader */](this._Compiler_11);
         this._ModuleLoader_13 = __WEBPACK_IMPORTED_MODULE_91__src_util_module_loader__["a" /* provideModuleLoader */](this._NgModuleLoader_12, this);
@@ -57633,9 +57630,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["p" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__src__["b" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */], {}, {
-                links: []
-            }),
+            __WEBPACK_IMPORTED_MODULE_2__src__["b" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]),
             __WEBPACK_IMPORTED_MODULE_4__pages_page_one_page_one_module__["a" /* PageOneModule */],
             __WEBPACK_IMPORTED_MODULE_5__pages_page_two_page_two_module__["a" /* PageTwoModule */]
         ],

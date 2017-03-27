@@ -14,6 +14,7 @@ module.exports = function router(app) {
   // });
 
   .get('/', (req, res) => { res.render('index'); })
+  .get('/developers', (req, res) => { res.render('developers'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
   .get('/products', (req, res) => { res.render('products/index'); })
   .get('/products/pricing', (req, res) => { res.render('products/pricing'); })

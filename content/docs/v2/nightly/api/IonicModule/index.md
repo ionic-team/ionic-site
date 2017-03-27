@@ -31,7 +31,7 @@ IonicModule
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L323">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L324">
 Improve this doc
 </a>
 
@@ -40,9 +40,11 @@ Improve this doc
 
 
 
-<p>IonicModule is an NgModule that helps bootstrap a whole Ionic App. By passing a root component, IonicModule will make sure that all the components and directives from the framework are provided. This includes components such as Tabs, Menus, and Slides, as well as classes like AlertController.</p>
-<p>We&#39;re also able to pass any configuration to our app as a second argument for <code>.forRoot</code>. This is any valid config property from <a href="/docs/v2/api/config/Config/">the Config Class</a>.</p>
-<p>The last functionality that IonicModule allows you to configure is optional routes for DeepLinker. For more information on DeepLinker, please see the <a href="/docs/v2/api/navigation/DeepLinker/">DeepLinker Docs</a></p>
+<p>IonicModule is an <a href="https://angular.io/docs/ts/latest/guide/ngmodule.html">NgModule</a> that bootstraps
+an Ionic App. By passing a root component, IonicModule will make sure that all of the components,
+directives, and providers from the framework are imported.</p>
+<p>Any configuration for the app can be passed as the second argument to <code>forRoot</code>. This can be any
+valid property from the <a href="/docs/v2/api/config/Config/">Config</a>.</p>
 
 
 
@@ -52,16 +54,22 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import { NgModule } from &#39;@angular/core&#39;;
+
 import { IonicApp, IonicModule } from &#39;ionic-angular&#39;;
+
 import { MyApp } from &#39;./app.component&#39;;
 import { HomePage } from &#39;../pages/home/home&#39;;
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    BrowserModule,
+    IonicModule.forRoot(MyApp, {
+
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

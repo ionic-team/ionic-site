@@ -49,6 +49,7 @@ You can set the tab placement, icon mode, animations, and more here.</p>
 @NgModule({
   declarations: [ MyApp ],
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: &#39;Go Back&#39;,
       iconMode: &#39;ios&#39;,
@@ -70,6 +71,7 @@ Below is an example where an app can override any setting we want based on a pla
 @NgModule({
   ...
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: &#39;bottom&#39;,
       platforms: {

@@ -31,7 +31,7 @@ IonicPageModule
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L538">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/index.ts#L545">
 Improve this doc
 </a>
 
@@ -40,11 +40,37 @@ Improve this doc
 
 
 
+<p>IonicPageModule is an <a href="https://angular.io/docs/ts/latest/guide/ngmodule.html">NgModule</a> that
+bootstraps a child <a href="../navigation/IonicPage/">IonicPage</a> in order to set up routing.</p>
 
 
 
 
 <!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-ts">import { NgModule } from &#39;@angular/core&#39;;
+
+import { IonicPageModule } from &#39;ionic-angular&#39;;
+
+import { HomePage } from &#39;./home&#39;;
+
+@NgModule({
+    declarations: [
+        HomePage
+    ],
+    imports: [
+        IonicPageModule.forChild(HomePage)
+    ],
+    entryComponents: [
+        HomePage
+    ]
+})
+export class HomePageModule { }
+</code></pre>
+
+
 
 
 <!-- @property tags -->

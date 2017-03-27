@@ -3736,7 +3736,7 @@
 
 @font-face {
   font-family: "Ionicons";
-  src: url("../../fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("../../fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("../../fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
+  src: url("../assets/fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("../assets/fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("../assets/fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -3759,56 +3759,56 @@ ion-icon {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../../fonts/roboto-light.woff2") format("woff2"), url("../../fonts/roboto-light.woff") format("woff"), url("../../fonts/roboto-light.ttf") format("truetype");
+  src: local("Roboto Light"), local("Roboto-Light"), url("../assets/fonts/roboto-light.woff2") format("woff2"), url("../assets/fonts/roboto-light.woff") format("woff"), url("../assets/fonts/roboto-light.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../../fonts/roboto-regular.woff2") format("woff2"), url("../../fonts/roboto-regular.woff") format("woff"), url("../../fonts/roboto-regular.ttf") format("truetype");
+  src: local("Roboto"), local("Roboto-Regular"), url("../assets/fonts/roboto-regular.woff2") format("woff2"), url("../assets/fonts/roboto-regular.woff") format("woff"), url("../assets/fonts/roboto-regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../../fonts/roboto-medium.woff2") format("woff2"), url("../../fonts/roboto-medium.woff") format("woff"), url("../../fonts/roboto-medium.ttf") format("truetype");
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../assets/fonts/roboto-medium.woff2") format("woff2"), url("../assets/fonts/roboto-medium.woff") format("woff"), url("../assets/fonts/roboto-medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../../fonts/roboto-bold.woff2") format("woff2"), url("../../fonts/roboto-bold.woff") format("woff"), url("../../fonts/roboto-bold.ttf") format("truetype");
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../assets/fonts/roboto-bold.woff2") format("woff2"), url("../assets/fonts/roboto-bold.woff") format("woff"), url("../assets/fonts/roboto-bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
-  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../../fonts/noto-sans-regular.woff") format("woff"), url("../../fonts/noto-sans-regular.ttf") format("truetype");
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../assets/fonts/noto-sans-regular.woff") format("woff"), url("../assets/fonts/noto-sans-regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
-  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../../fonts/noto-sans-regular.woff") format("woff"), url("../../fonts/noto-sans-regular.ttf") format("truetype");
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../assets/fonts/noto-sans-regular.woff") format("woff"), url("../assets/fonts/noto-sans-regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
-  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../../fonts/noto-sans-bold.woff") format("woff"), url("../../fonts/noto-sans-bold.ttf") format("truetype");
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
-  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../../fonts/noto-sans-bold.woff") format("woff"), url("../../fonts/noto-sans-bold.ttf") format("truetype");
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
 ion-action-sheet {

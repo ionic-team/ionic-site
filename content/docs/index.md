@@ -1,5 +1,5 @@
 ---
-layout: v2_fluid/docs_base
+layout: fluid/docs_base
 category: home
 id: docs-home
 title: Ionic Documentation
@@ -17,14 +17,14 @@ pre_footer: true
   </form>
   <div class="sections">
     <a class="section getting-started"
-       href="/docs/v2/intro/installation">
+       href="/docs/intro/installation">
       <h3>Introduction</h3>
       <p>
         Everything you need to know to get started with Ionic.
       </p>
     </a>
     <a class="section ui"
-       href="/docs/v2/components">
+       href="/docs/components">
       <h3>UI Components</h3>
       <p>
         A comprehensive preview of our mobile UI components - everything you’ll
@@ -32,14 +32,14 @@ pre_footer: true
       </p>
     </a>
     <a class="section api"
-       href="/docs/v2/api">
+       href="/docs/api">
       <h3>API</h3>
       <p>
         Explore our API for info on component methods, properties, and events.
       </p>
     </a>
     <a class="section native"
-       href="/docs/v2/native">
+       href="/docs/native">
       <h3>Ionic Native</h3>
       <p>
         Integrate native device plugins, like Bluetooth, Maps, HealthKit, and
@@ -47,7 +47,7 @@ pre_footer: true
       </p>
     </a>
     <a class="section theming"
-       href="/docs/v2/theming/">
+       href="/docs/theming/">
       <h3>Theming</h3>
       <p>
         Learn how to easily customize and modify your app’s design to fit your
@@ -55,7 +55,7 @@ pre_footer: true
       </p>
     </a>
     <a class="section ionicons-link"
-       href="/docs/v2/ionicons/">
+       href="/docs/ionicons/">
       <h3>Ionicons</h3>
       <p>
         Over 900 custom-designed font/SVG icons. MIT licensed & ready to use
@@ -63,7 +63,7 @@ pre_footer: true
       </p>
     </a>
     <a class="section cli"
-       href="/docs/v2/cli/">
+       href="/docs/cli/">
       <h3>CLI</h3>
       <p>
         All about the primary tool used during the process of developing an
@@ -71,7 +71,7 @@ pre_footer: true
       </p>
     </a>
     <a class="section faq"
-       href="/docs/v2/faq/">
+       href="/docs/faq/">
       <h3>FAQ</h3>
       <p>
         Quickly find answers to some of the most commonly asked Ionic questions.

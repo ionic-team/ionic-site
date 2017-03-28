@@ -1792,7 +1792,7 @@ $(document).ready(function() {
     //   }
     // } catch (e) {}
 
-    $.getJSON('/docs/v2/data/index.json', function(requestData) {
+    $.getJSON('/docs/data/index.json', function(requestData) {
       searchReady(requestData);
       setTimeout(function() {
         try {
@@ -1897,7 +1897,7 @@ $(document).ready(function() {
     var total = 0;
 
     for (var i in data) {
-      links += '<li><a href="/docs/v2' + data[i].p + '">';
+      links += '<li><a href="/docs/' + data[i].p + '">';
       links += data[i].t + '</a></li>';
       total++;
       if (total >= limit) {

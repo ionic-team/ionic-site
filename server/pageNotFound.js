@@ -17,6 +17,13 @@ module.exports = function(req, res, next) {
       // if v1 version is pruned, redirect to v1 latest
       urlParts[2] = '1.3.2';
       return res.redirect(301, urlParts.join('/'));
+    } else if (urlParts[2] === 'v2') {
+      // update to new v2 location
+      return res.redirect(301, req.path.replace('/docs/v2', '/docs'));
+    } else if (urlParts[2].charAt(0) === '2') {
+      // if version is pruned, redirect to latest release
+      urlParts[2] = '';
+      return res.redirect(301, urlParts.join('/').replace('//', '/'));
     }
   }
 

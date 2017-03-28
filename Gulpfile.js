@@ -64,8 +64,8 @@ function bustCache() {
       cacheBust('server/pages/_includes/', 'head.html'),
       cacheBust('server/pages/_includes/', 'scripts.html'),
       cacheBust('content/_includes/', 'head_includes.html'),
-      cacheBust('content/_includes/v2_fluid/', 'head.html'),
-      cacheBust('content/_includes/v2_fluid/', 'footer_tags.html')
+      cacheBust('content/_includes/fluid/', 'head.html'),
+      cacheBust('content/_includes/fluid/', 'footer_tags.html')
     ];
   };
 
@@ -218,15 +218,15 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['assets/img/**/*.{jpg,png,gif}'], ['images']);
   gulp.watch(['assets/js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['content/**/*.{md,html}','content/docs/**/*.{js,css,json}',
-  '!content/_includes/head_includes.html', '!content/_includes/v2_fluid/head.html',
-  '!content/_includes/v2_fluid/footer_tags.html'], ['jekyll-rebuild']);
+  '!content/_includes/head_includes.html', '!content/_includes/fluid/head.html',
+  '!content/_includes/fluid/footer_tags.html'], ['jekyll-rebuild']);
 });
 
 gulp.task('watch.min', ['server'], function() {
   gulp.watch(['assets/js/**/*.js'], ['server:js']);
   gulp.watch(['assets/scss/**/*.scss'], ['server:stylesv2']);
   gulp.watch(['content/_layouts/*/*','content/_includes/**/*',
-              'content/docs/v2/**/*.{md,html}'], ['server:jekyll']);
+              'content/docs/**/*.{md,html}'], ['server:jekyll']);
 
 });
 gulp.task('cli-docs', function() {
@@ -266,7 +266,7 @@ gulp.task('docs.index', function() {
     refId++;
   }
 
-  var docPath = 'content/docs/v2';
+  var docPath = 'content/docs/';
   gutil.log('Reading docs from', gutil.colors.cyan(docPath));
 
   return gulp.src([
@@ -278,7 +278,7 @@ gulp.task('docs.index', function() {
     var contents = file.contents.toString(); //was buffer
 
     // Grab relative path from ionic-site root
-    var relpath = file.path.replace(RegExp('^.*?' + docPath.replace('/content/docs/v2', '') + '/'), '');
+    var relpath = file.path.replace(RegExp('^.*?' + docPath.replace('/content/docs/', '') + '/'), '');
 
     // Read out the yaml portion of the Jekyll file
     var yamlStartIndex = contents.indexOf('---');
@@ -383,17 +383,17 @@ gulp.task('docs.index', function() {
 gulp.task('ionicons', function() {
   gulp.src('node_modules/ionicons/dist/data/ionicons.json')
     .pipe(rename('site_data.json'))
-    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/'))
-    .pipe(gulp.dest('content/docs/v2/resources/ionicons/'));
+    .pipe(gulp.dest('_site/docs/resources/ionicons/'))
+    .pipe(gulp.dest('content/docs/resources/ionicons/'));
 
   gulp.src('node_modules/ionicons/dist/data/mode-icons.json')
-    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/data/'))
-    .pipe(gulp.dest('content/docs/v2/resources/ionicons/data/'));
+    .pipe(gulp.dest('_site/docs/resources/ionicons/data/'))
+    .pipe(gulp.dest('content/docs/resources/ionicons/data/'));
 
   gulp.src('node_modules/ionicons/dist/data/logo-icons.json')
     .pipe(rename('generic-icons.json'))
-    .pipe(gulp.dest('_site/docs/v2/resources/ionicons/data/'))
-    .pipe(gulp.dest('content/docs/v2/resources/ionicons/data/'));
+    .pipe(gulp.dest('_site/docs/resources/ionicons/data/'))
+    .pipe(gulp.dest('content/docs/resources/ionicons/data/'));
 
   gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
     .pipe(gulp.dest('_site/css/v2-demos/ionicons/'))

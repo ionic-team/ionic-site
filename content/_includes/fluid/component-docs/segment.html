@@ -1,0 +1,49 @@
+<h2 class="section-header" id="segment">Segment</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/fluid/component-docs/segment.html">
+  Improve this Doc
+</a>
+
+Segment is a collection of buttons that are displayed in line. They can act as a filter, showing/hiding elements based on the segments value.
+
+_For more information, Check out the [API docs](../api/components/segment/Segment)._
+
+<h3 class="section-nav">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/segments/basic">
+  Demo Source
+</a>
+
+```html
+<div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="kittens">
+      Kittens
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Puppies
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-puppy-1.jpg">
+      </ion-thumbnail>
+      <h2>Ruby</h2>
+    </ion-item>
+    ...
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+    ...
+  </ion-list>
+</div>
+```

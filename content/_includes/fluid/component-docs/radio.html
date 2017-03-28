@@ -1,0 +1,37 @@
+<h2 id="radio" class="section-header">Radio</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/fluid/component-docs/radio.html">
+  Improve this Doc
+</a>
+
+Like the [checkbox](#checkbox), a radio is an input component that holds a *boolean* value. Under the hood, radios are no different than HTML radio inputs. However, like other Ionic components, radios are styled differently on each platform. Unlike checkboxes, radio components form a group, where only one radio can be selected at a time. Use the `checked` attribute to set the default value, and the `disabled` attribute to disable the user from changing to that value.
+
+_For more information, Check out the [Radio Button API docs](../api/components/radio/RadioButton) and the [Radio Group API docs](../api/components/radio/RadioGroup)._
+
+<h3 class="section-nav">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/radios/basic">
+  Demo Source
+</a>
+
+```html
+<ion-list radio-group>
+  <ion-list-header>
+    Language
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Go</ion-label>
+    <ion-radio checked="true" value="go"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Rust</ion-label>
+    <ion-radio value="rust"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Python</ion-label>
+    <ion-radio value="python" disabled="true"></ion-radio>
+  </ion-item>
+</ion-list>
+```

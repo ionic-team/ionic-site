@@ -1,0 +1,20 @@
+<h2 id="gestures" class="section-header">Gestures</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/fluid/component-docs/gestures.html">
+  Improve this Doc
+</a>
+
+Basic gestures can be accessed from HTML by binding to `tap`, `press`, `pan`, `swipe`, `rotate`, and `pinch` events.
+
+<h3 class="no-para">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/src/pages/gestures">
+  Demo Source
+</a>
+
+```html
+<ion-card (tap)="tapEvent($event)">
+  <ion-item>
+    Tapped: {% raw %}{{tap}}{% endraw %} times
+  </ion-item>
+</ion-card>
+```

@@ -327,7 +327,7 @@ $(document).ready(function () {
       }
     } catch(e){}
 
-    $.getJSON('/docs/v2/data/index.json', function (requestData) {
+    $.getJSON('/docs/data/index.json', function (requestData) {
       searchReady(requestData);
       setTimeout(function(){
         try{

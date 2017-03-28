@@ -75,6 +75,7 @@ Create a single contact.
   <b>Returns:</b> <code>Contact</code> Returns a Contact object
 </div><h3><a class="anchor" name="find" href="#find"></a><code>find(fields,&nbsp;options)</code></h3>
 
+
 Search for contacts in the Contacts list.
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -113,6 +114,7 @@ Search for contacts in the Contacts list.
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>Promise&lt;Contact[]&gt;</code> Returns a Promise that resolves with the search results (an array of Contact objects)
 </div><h3><a class="anchor" name="pickContact" href="#pickContact"></a><code>pickContact()</code></h3>
+
 
 Select a single Contact.
 

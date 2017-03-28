@@ -1,0 +1,166 @@
+---
+layout: "v2_fluid/docs_base"
+version: "3.3.1"
+versionHref: "/docs/v2/native"
+path: ""
+category: native
+id: "taptic-engine"
+title: "Taptic Engine"
+header_sub_title: "Class in module "
+doc: "Taptic Engine"
+docType: "class"
+---
+
+<h1 class="api-title">Taptic Engine</h1>
+
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/taptic-engine/index.ts#L1">
+  Improve this doc
+</a>
+
+
+
+
+
+
+<pre><code class="nohighlight">$ ionic plugin add cordova-plugin-taptic-engine
+$ npm install --save @ionic-native/taptic-engine
+</code></pre>
+<p>Repo:
+  <a href="https://github.com/EddyVerbruggen/cordova-plugin-taptic-engine">
+    https://github.com/EddyVerbruggen/cordova-plugin-taptic-engine
+  </a>
+</p>
+
+
+<p>An Ionic plugin to use Taptic Engine API on iPHone 7, 7 Plus or newer.</p>
+
+
+
+
+<h2>Supported platforms</h2>
+<ul>
+  <li>iOS</li>
+</ul>
+
+
+
+
+
+
+<h2>Usage</h2>
+<pre><code class="lang-ts">import { TapticEngine } from &#39;@ionic-native/taptic-engine;
+
+...
+
+constructor(private taptic: TapticEngine) { }
+
+...
+
+this.taptic.selection();
+
+this.taptic.notification();
+
+this.taptic.impact();
+</code></pre>
+
+
+
+
+
+
+
+
+<h2>Instance Members</h2>
+<h3><a class="anchor" name="selection" href="#selection"></a><code>selection()</code></h3>
+
+
+Use selection feedback generators to indicate a change in selection.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects on error
+</div><h3><a class="anchor" name="notification" href="#notification"></a><code>notification(options,&nbsp;options.type)</code></h3>
+
+
+Use this to indicate success/failure/warning to the user.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>should be of the type { type: &#39;success&#39; } (or &#39;warning&#39;/&#39;error&#39;)</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      options.type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects on error
+</div><h3><a class="anchor" name="impact" href="#impact"></a><code>impact(options,&nbsp;options.type)</code></h3>
+
+
+Use this to indicate success/failure/warning to the user.
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      options</td>
+    <td>
+      <code>Object</code>
+    </td>
+    <td>
+      <p>should be of the type { style: &#39;light&#39; } (or &#39;medium&#39;/&#39;heavy&#39;)</p>
+</td>
+  </tr>
+  
+  <tr>
+    <td>
+      options.type</td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> Returns a promise that resolves on success and rejects on error
+</div>
+
+
+
+
+

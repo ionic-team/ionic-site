@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "3.4.1"
+version: "3.4.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native

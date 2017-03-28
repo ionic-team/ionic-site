@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Background Mode</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L35">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/background-mode/index.ts#L46">
   Improve this doc
 </a>
 
@@ -319,20 +319,6 @@ Turn screen on and show app even locked
   
   <tr>
     <td>
-      ticker
-    </td>
-    <td>
-      <code>String</code>
-    </td>
-    <td>
-      <p>The text that scrolls itself on statusbar</p>
-
-      <em>(optional)</em>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       text
     </td>
     <td>
@@ -347,14 +333,27 @@ Turn screen on and show app even locked
   
   <tr>
     <td>
-      silent
+      icon
     </td>
     <td>
-      <code>boolean</code>
+      <code>string</code>
     </td>
     <td>
-      <p>if true plugin will not display a notification. Default is false.</p>
+      <p>This will look for <icon name>.png in platforms/android/res/drawable|mipmap</p>
 
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      color
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      
       <em>(optional)</em>
     </td>
   </tr>
@@ -368,6 +367,60 @@ Turn screen on and show app even locked
     </td>
     <td>
       <p>By default the app will come to foreground when taping on the notification. If false, plugin wont come to foreground when tapped.</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      hidden
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      bigText
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      ticker
+    </td>
+    <td>
+      <code>String</code>
+    </td>
+    <td>
+      <p>The text that scrolls itself on statusbar</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      silent
+    </td>
+    <td>
+      <code>boolean</code>
+    </td>
+    <td>
+      <p>if true plugin will not display a notification. Default is false.</p>
 
       <em>(optional)</em>
     </td>

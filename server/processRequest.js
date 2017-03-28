@@ -1,5 +1,5 @@
-const redirects = require('./redirects');
-const url       = require('url');
+var redirects = require('./redirects');
+var url       = require('url');
 
 module.exports = function(req, res, next) {
 
@@ -64,7 +64,7 @@ module.exports = function(req, res, next) {
     domain: req.get('host'),
     url: req.originalUrl,
     dev: req.get('host').indexOf('localhost') === 0
-  };
+  }
 
   return next();
 };

@@ -42,12 +42,29 @@ $ npm install --save @ionic-native/admob-free
 
 
 <h2>Usage</h2>
-<pre><code>import { AdMobFree } from &#39;ionic-native&#39;;
+<pre><code>import { AdMobFree, AdMobFreeBannerConfig } from &#39;ionic-native&#39;;
 
 
 constructor(private admobFree: AdMobFree) { }
 
+
 ...
+
+
+const bannerConfig: AdMobFreeBannerConfig = {
+ // add your config here
+ // for the sake of this example we will just use the test config
+ isTesting: true,
+ autoShow: true
+};
+this.admobFree.banner.config(bannerConfig);
+
+this.admobFree.banner.prepare()
+  .then(() =&gt; {
+    // banner Ad is ready
+    // if we set autoShow to false, then we will need to call the show method here
+  })
+  .catch(e =&gt; console.log(e));
 </code></pre>
 
 

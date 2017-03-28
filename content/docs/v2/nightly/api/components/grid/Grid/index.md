@@ -585,7 +585,7 @@ $grid-padding-widths: (
 <code>$grid-breakpoints</code> and <code>$grid-max-widths</code>. For example, to only use
 3 breakpoints, the following could be written:</p>
 <pre><code>$grid-breakpoints: (
-  sm: 480px,
+  sm: 0,
   md: 768px,
   lg: 1024px
 );

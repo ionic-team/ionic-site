@@ -515,7 +515,7 @@ ensure it resolved and successfully opened the database.
     <td>
       <p>Location of the database. Example: &#39;default&#39;</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   
@@ -529,7 +529,7 @@ ensure it resolved and successfully opened the database.
     <td>
       <p>iOS Database Location. Example: &#39;Library&#39;</p>
 
-      
+      <em>(optional)</em>
     </td>
   </tr>
   

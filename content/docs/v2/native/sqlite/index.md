@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">SQLite</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L139">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/sqlite/index.ts#L141">
   Improve this doc
 </a>
 
@@ -93,10 +93,10 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
     <td>
       config</td>
     <td>
-      
+      <code>SQLiteDatabaseConfig</code>
     </td>
     <td>
-      <p>the config for opening the database.</p>
+      <p>database configuration</p>
 </td>
   </tr>
   </tbody>
@@ -106,6 +106,44 @@ See the plugin docs for an explanation of all options: https://github.com/litehe
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b>  Promise<SQLiteObject>
 
+</div><h3><a class="anchor" name="echoTest" href="#echoTest"></a><code>echoTest()</code></h3>
+
+
+Verify that both the Javascript and native part of this plugin are installed in your application
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="deleteDatabase" href="#deleteDatabase"></a><code>deleteDatabase(config)</code></h3>
+
+
+Deletes a database
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      config</td>
+    <td>
+      <code>SQLiteDatabaseConfig</code>
+    </td>
+    <td>
+      <p>database configuration</p>
+</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
 </div>
 
 <h2><a class="anchor" name="SQLiteObject" href="#SQLiteObject"></a>SQLiteObject</h2>
@@ -437,18 +475,11 @@ ensure it resolved and successfully opened the database.
   </tbody>
 </table>
 
-<h3><a class="anchor" name="echoTest" href="#echoTest"></a><code>echoTest()</code></h3>
 
 
 
 
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="deleteDatabase" href="#deleteDatabase"></a><code>deleteDatabase(first)</code></h3>
-
-
+<h2><a class="anchor" name="SQLiteDatabaseConfig" href="#SQLiteDatabaseConfig"></a>SQLiteDatabaseConfig</h2>
 
 <table class="table param-table" style="margin:0;">
   <thead>
@@ -459,22 +490,53 @@ ensure it resolved and successfully opened the database.
   </tr>
   </thead>
   <tbody>
+  
   <tr>
     <td>
-      first</td>
-    <td>
-      
+      name
     </td>
     <td>
-      </td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Name of the database. Example: &#39;my.db&#39;</p>
+
+      
+    </td>
   </tr>
+  
+  <tr>
+    <td>
+      location
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>Location of the database. Example: &#39;default&#39;</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      iosDatabaseLocation
+    </td>
+    <td>
+      <code>string</code>
+    </td>
+    <td>
+      <p>iOS Database Location. Example: &#39;Library&#39;</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
-</div>
+
 
 
 

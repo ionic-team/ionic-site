@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Network</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/network/index.ts#L6">
   Improve this doc
 </a>
 
@@ -110,15 +110,6 @@ Downlink Max Speed
 
 
 Returns an observable to watch connection changes
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> <code>Observable&lt;any&gt;</code> 
-</div><h3><a class="anchor" name="ontypechange" href="#ontypechange"></a><code>ontypechange()</code></h3>
-
-
-Returns an observable to watch connection type changes
 
 
 <div class="return-value" markdown="1">

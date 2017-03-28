@@ -312,6 +312,36 @@
       }
     }
 
+    #dashboard-cta {
+      background: url('/img/getting-started/dashboard.png') no-repeat center center;
+      background-size: 100%;
+      width: 1173px;
+      height: 680px;
+      margin: -50px auto 50px auto;
+
+      position: relative;
+
+
+      @media (max-width: $screen-md-max) {
+        width: 900px;
+        height: 480px;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        width: 768px;
+        height: 400px;
+      }
+
+      .help {
+        position: absolute;
+        width: 400px;
+        left: 50%;
+        bottom: -15px;
+        margin-left: -200px;
+        text-align: center;
+      }
+    }
+
     .view-cta {
       background: url('/img/getting-started/view-feature.jpg') no-repeat center center;
       background-size: cover;

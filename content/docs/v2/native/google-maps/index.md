@@ -78,7 +78,7 @@ loadMap() {
  map.one(GoogleMapsEvent.MAP_READY).then(() =&gt; console.log(&#39;Map is ready!&#39;));
 
  // create LatLng object
- let ionic: LatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
+ let ionic: LatLng = new LatLng(43.0741904,-89.3809802);
 
  // create CameraPosition
  let position: CameraPosition = {

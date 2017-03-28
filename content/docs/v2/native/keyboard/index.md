@@ -36,6 +36,11 @@ $ npm install --save @ionic-native/keyboard
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>BlackBerry 10</li><li>iOS</li><li>Windows</li>
+</ul>
+
 
 
 

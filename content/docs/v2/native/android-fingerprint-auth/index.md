@@ -37,6 +37,11 @@ $ npm install --save @ionic-native/android-fingerprint-auth
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li>
+</ul>
+
 
 
 

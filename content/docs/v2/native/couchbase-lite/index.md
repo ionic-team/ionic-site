@@ -37,6 +37,11 @@ $ npm install --save @ionic-native/couchbase-lite
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
 
 
 

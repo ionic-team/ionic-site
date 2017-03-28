@@ -37,6 +37,11 @@ $ npm install --save @ionic-native/diagnostic
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows</li>
+</ul>
+
 
 
 

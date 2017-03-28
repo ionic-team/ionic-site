@@ -37,6 +37,11 @@ $ npm install --save @ionic-native/file-opener
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows</li><li>Windows Phone 8</li>
+</ul>
+
 
 
 

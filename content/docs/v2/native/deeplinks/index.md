@@ -40,7 +40,7 @@ and Universal App Links.</p>
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>iOS</li><li>Android</li>
+  <li>iOS</li><li>Android</li><li>Browser</li>
 </ul>
 
 

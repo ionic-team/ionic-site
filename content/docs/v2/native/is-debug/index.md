@@ -38,6 +38,11 @@ Debug mode is when the app is built and installed locally via xcode / eclipse / 
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
 
 
 

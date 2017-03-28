@@ -39,7 +39,7 @@ $ npm install --save @ionic-native/appodeal
 
 <h2>Supported platforms</h2>
 <ul>
-  <li>ios</li><li>android</li>
+  <li>iOS</li><li>Android</li>
 </ul>
 
 

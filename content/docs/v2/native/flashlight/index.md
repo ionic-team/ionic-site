@@ -38,6 +38,11 @@ $ npm install --save @ionic-native/flashlight
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows Phone 8</li>
+</ul>
+
 
 
 

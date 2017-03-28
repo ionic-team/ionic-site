@@ -51,6 +51,11 @@ this.file.checkDir(this.file.dataDirectory, &#39;mydir&#39;).then(_ =&gt; consol
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>OS X</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+</ul>
+
 
 
 

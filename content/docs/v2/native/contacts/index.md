@@ -37,6 +37,11 @@ $ npm install --save @ionic-native/contacts
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>BlackBerry 10</li><li>Browser</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows 8</li><li>Windows Phone</li>
+</ul>
+
 
 
 

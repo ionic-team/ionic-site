@@ -26,8 +26,8 @@ docType: "class"
 $ npm install --save @ionic-native/jins-meme
 </code></pre>
 <p>Repo:
-  <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova.git">
-    https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova.git
+  <a href="https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova">
+    https://github.com/jins-meme/JinsMemeSDK-Plugin-Cordova
   </a>
 </p>
 
@@ -36,6 +36,11 @@ $ npm install --save @ionic-native/jins-meme
 
 
 
+
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 
 

@@ -38,6 +38,11 @@ $ npm install --save @ionic-native/geolocation
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>Firefox OS</li><li>iOS</li><li>Ubuntu</li><li>Windows</li><li>Windows Phone</li>
+</ul>
+
 
 
 

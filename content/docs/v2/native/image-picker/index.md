@@ -39,6 +39,11 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
 
 
 

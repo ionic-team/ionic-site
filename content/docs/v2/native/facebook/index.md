@@ -72,6 +72,11 @@ $ npm install --save @ionic-native/facebook
 
 
 
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
+
 
 
 

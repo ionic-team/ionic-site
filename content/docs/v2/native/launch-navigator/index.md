@@ -26,8 +26,8 @@ docType: "class"
 $ npm install --save @ionic-native/launch-navigator
 </code></pre>
 <p>Repo:
-  <a href="https://github.com/dpa99c/phonegap-launch-navigator.git">
-    https://github.com/dpa99c/phonegap-launch-navigator.git
+  <a href="https://github.com/dpa99c/phonegap-launch-navigator">
+    https://github.com/dpa99c/phonegap-launch-navigator
   </a>
 </p>
 
@@ -36,6 +36,11 @@ $ npm install --save @ionic-native/launch-navigator
 
 
 
+
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li>
+</ul>
 
 
 

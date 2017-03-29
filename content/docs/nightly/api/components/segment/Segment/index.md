@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Segment"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/segment/"
+preview_device_url: "/docs/demos/src/segment/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -661,7 +661,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#segment">Segment Component Docs</a>,
+<a href="/docs/components#segment">Segment Component Docs</a>,
 [Angular 2 Forms](http://learnangular2.com/forms/)<!-- end content block -->
 
 

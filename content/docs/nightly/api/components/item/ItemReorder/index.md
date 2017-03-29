@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemReorder"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/item-reorder/"
+preview_device_url: "/docs/demos/src/item-reorder/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -643,7 +643,7 @@ with <code>from</code> and <code>to</code> properties.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#lists">List Component Docs</a>,
+<a href="/docs/components#lists">List Component Docs</a>,
 <a href="../../list/List">List API Docs</a>,
 <a href="../Item">Item API Docs</a><!-- end content block -->
 

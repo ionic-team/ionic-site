@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Slides"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/slides/"
+preview_device_url: "/docs/demos/src/slides/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -929,7 +929,7 @@ class MyPage {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#slides">Slides Component Docs</a>
+<a href="/docs/components#slides">Slides Component Docs</a>
 
 Adopted from Swiper.js:
 The most modern mobile touch slider and framework with

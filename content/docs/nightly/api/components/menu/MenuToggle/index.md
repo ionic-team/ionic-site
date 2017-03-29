@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuToggle"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/menu/"
+preview_device_url: "/docs/demos/src/menu/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -306,7 +306,7 @@ on the different positions.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#menus">Menu Component Docs</a>,
+<a href="/docs/components#menus">Menu Component Docs</a>,
 <a href="../../menu/Menu">Menu API Docs</a><!-- end content block -->
 
 

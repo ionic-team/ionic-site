@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "FabList"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/fab/"
+preview_device_url: "/docs/demos/src/fab/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -468,7 +468,7 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#fab">Fab Component Docs</a><!-- end content block -->
+<a href="/docs/components#fab">Fab Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

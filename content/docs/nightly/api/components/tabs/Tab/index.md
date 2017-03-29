@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/tabs/"
+preview_device_url: "/docs/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -731,7 +731,7 @@ tabbar. Default: <code>true</code>.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href="/docs//components#tabs">Tabs Component Docs</a>,
+<a href="/docs/components#tabs">Tabs Component Docs</a>,
 <a href="../../tabs/Tabs">Tabs API Docs</a>,
 <a href="../../nav/Nav">Nav API Docs</a>,
 <a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->

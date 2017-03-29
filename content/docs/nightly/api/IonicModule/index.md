@@ -44,7 +44,7 @@ Improve this doc
 an Ionic App. By passing a root component, IonicModule will make sure that all of the components,
 directives, and providers from the framework are imported.</p>
 <p>Any configuration for the app can be passed as the second argument to <code>forRoot</code>. This can be any
-valid property from the <a href="/docs//api/config/Config/">Config</a>.</p>
+valid property from the <a href="/docs/api/config/Config/">Config</a>.</p>
 
 
 

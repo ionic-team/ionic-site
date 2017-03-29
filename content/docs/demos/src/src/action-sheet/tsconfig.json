@@ -20,8 +20,8 @@
     ]
   },
   "include": [
-    "/home/ubuntu/ionic/src/**/*.ts",
-    "/home/ubuntu/ionic/demos/src/action-sheet/**/*.ts"
+    "/root/ionic/src/**/*.ts",
+    "/root/ionic/demos/src/action-sheet/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

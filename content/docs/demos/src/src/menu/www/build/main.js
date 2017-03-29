@@ -14302,7 +14302,7 @@ function transition$$1(stateChangeExpr, steps) {
 
 //# sourceMappingURL=core.es5.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(238)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(229)))
 
 /***/ }),
 /* 1 */
@@ -27871,14 +27871,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
-class EventEmitterProxy extends __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] {
-    subscribe(generatorOrNext, error, complete) {
-        this.onSubscribe();
-        return super.subscribe(generatorOrNext, error, complete);
-    }
-}
-/* unused harmony export EventEmitterProxy */
-
 let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Ion */] {
     constructor(config, _plt, _dom, elementRef, renderer, _app, _keyboard, _zone, viewCtrl, navCtrl) {
         super(config, elementRef, renderer, 'content');
@@ -27891,19 +27883,14 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._inputPolling = false;
         this._imgs = [];
         this._scrollDownOnLoad = false;
-        this.ionScrollStart = new EventEmitterProxy();
-        this.ionScroll = new EventEmitterProxy();
-        this.ionScrollEnd = new EventEmitterProxy();
-        let enableScrollListener = this.enableScrollListener.bind(this);
-        this.ionScroll.onSubscribe = enableScrollListener;
-        this.ionScrollStart.onSubscribe = enableScrollListener;
-        this.ionScrollEnd.onSubscribe = enableScrollListener;
+        this.ionScrollStart = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
+        this.ionScroll = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
+        this.ionScrollEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this.statusbarPadding = config.getBoolean('statusbarPadding', false);
         this._imgReqBfr = config.getNumber('imgRequestBuffer', 1400);
         this._imgRndBfr = config.getNumber('imgRenderBuffer', 400);
         this._imgVelMax = config.getNumber('imgVelocityMax', 3);
-        const jsScroll = config.getBoolean('virtualScrollEventAssist');
-        this._scroll = new __WEBPACK_IMPORTED_MODULE_10__util_scroll_view__["a" /* ScrollView */](_app, _plt, _dom, jsScroll);
+        this._scroll = new __WEBPACK_IMPORTED_MODULE_10__util_scroll_view__["a" /* ScrollView */](_plt, _dom, config.getBoolean('virtualScrollEventAssist'));
         while (navCtrl) {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["e" /* isTabs */])(navCtrl)) {
                 this._tabs = navCtrl;
@@ -27961,7 +27948,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
     get directionX() {
         return this._scroll.ev.directionX;
     }
-    ngAfterViewInit() {
+    enableScrollListener() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["c" /* assert */])(this.getFixedElement(), 'fixed element was not found');
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["c" /* assert */])(this.getScrollElement(), 'scroll element was not found');
         const scroll = this._scroll;
@@ -27971,6 +27958,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
             this.ionScrollStart.emit(ev);
         };
         scroll.onScroll = (ev) => {
+            this._app.setScrolling();
             this.ionScroll.emit(ev);
             this.imgsUpdate();
         };
@@ -27978,9 +27966,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
             this.ionScrollEnd.emit(ev);
             this.imgsUpdate();
         };
-    }
-    enableScrollListener() {
-        this._scroll.eventsEnabled = true;
+        scroll.setEnabled();
     }
     ngOnDestroy() {
         this._scLsn && this._scLsn();
@@ -28264,15 +28250,15 @@ __decorate([
 ], Content.prototype, "_scrollContent", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
-    __metadata("design:type", EventEmitterProxy)
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _c || Object)
 ], Content.prototype, "ionScrollStart", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
-    __metadata("design:type", EventEmitterProxy)
+    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _d || Object)
 ], Content.prototype, "ionScroll", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
-    __metadata("design:type", EventEmitterProxy)
+    __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _e || Object)
 ], Content.prototype, "ionScrollEnd", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
@@ -28302,7 +28288,7 @@ Content = __decorate([
     }),
     __param(8, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(9, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]) === "function" && _m || Object])
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]) === "function" && _q || Object])
 ], Content);
 
 function updateImgs(imgs, viewableTop, contentHeight, scrollDirectionY, requestableBuffer, renderableBuffer) {
@@ -28372,7 +28358,7 @@ function parsePxUnit(val) {
 function cssFormat(val) {
     return (val > 0 ? val + 'px' : '');
 }
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 //# sourceMappingURL=content.js.map
 
 /***/ }),
@@ -29116,7 +29102,7 @@ var _a, _b, _c, _d, _e, _f;
 
 var root_1 = __webpack_require__(44);
 var toSubscriber_1 = __webpack_require__(316);
-var observable_1 = __webpack_require__(232);
+var observable_1 = __webpack_require__(233);
 /**
  * A representation of any set of values over any amount of time. This the most basic building block
  * of RxJS.
@@ -34752,9 +34738,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isFunction_1 = __webpack_require__(234);
+var isFunction_1 = __webpack_require__(235);
 var Subscription_1 = __webpack_require__(77);
-var Observer_1 = __webpack_require__(229);
+var Observer_1 = __webpack_require__(230);
 var rxSubscriber_1 = __webpack_require__(166);
 /**
  * Implements the {@link Observer} interface and extends the
@@ -35025,7 +35011,7 @@ if (!exports.root) {
     throw new Error('RxJS could not find any global context (window, self, global)');
 }
 //# sourceMappingURL=root.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(238)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(229)))
 
 /***/ }),
 /* 45 */
@@ -40980,10 +40966,10 @@ const ACTIVE_TRANSITION_OFFSET = 2000;
 "use strict";
 
 var isArray_1 = __webpack_require__(167);
-var isObject_1 = __webpack_require__(235);
-var isFunction_1 = __webpack_require__(234);
+var isObject_1 = __webpack_require__(236);
+var isFunction_1 = __webpack_require__(235);
 var tryCatch_1 = __webpack_require__(317);
-var errorObject_1 = __webpack_require__(233);
+var errorObject_1 = __webpack_require__(234);
 var UnsubscriptionError_1 = __webpack_require__(314);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
@@ -42240,6 +42226,7 @@ let InfiniteScroll = class InfiniteScroll {
             if (shouldListen) {
                 if (!this._scLsn) {
                     this._scLsn = this._content.ionScroll.subscribe(this._onScroll.bind(this));
+                    this._content.enableScrollListener();
                 }
             }
             else {
@@ -48007,8 +47994,8 @@ function setupEvents(plt, dom) {
             let contentEle = el.closest('.scroll-content');
             if (contentEle) {
                 var style = contentEle.style;
-                var scroll = new __WEBPACK_IMPORTED_MODULE_0__util_scroll_view__["a" /* ScrollView */](null, plt, dom, false);
-                scroll._el = contentEle;
+                var scroll = new __WEBPACK_IMPORTED_MODULE_0__util_scroll_view__["a" /* ScrollView */](plt, dom, false);
+                scroll.init(contentEle, 0, 0);
                 style['WebkitBackfaceVisibility'] = 'hidden';
                 style['WebkitTransform'] = 'translate3d(0,0,0)';
                 dom.write(function () {
@@ -48105,13 +48092,12 @@ var _a;
 
 
 class ScrollView {
-    constructor(_app, _plt, _dom, virtualScrollEventAssist) {
-        this._app = _app;
+    constructor(_plt, _dom, virtualScrollEventAssist) {
         this._plt = _plt;
         this._dom = _dom;
         this.isScrolling = false;
         this.initialized = false;
-        this.eventsEnabled = false;
+        this.enabled = false;
         this._t = 0;
         this._l = 0;
         this._js = virtualScrollEventAssist;
@@ -48143,18 +48129,31 @@ class ScrollView {
         this.contentBottom = contentBottom;
         if (!this.initialized) {
             this.initialized = true;
-            if (this._js) {
-                this.enableJsScroll();
-            }
-            else {
-                this.enableNativeScrolling();
+            if (this.enabled) {
+                this.enable();
             }
         }
     }
+    setEnabled() {
+        if (!this.enabled) {
+            this.enabled = true;
+            if (this.initialized) {
+                this.enable();
+            }
+        }
+    }
+    enable() {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.initialized, 'scroll must be initialized');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.enabled, 'scroll-view must be enabled');
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this._el, 'scroll-view, element can not be null');
+        if (this._js) {
+            this.enableJsScroll();
+        }
+        else {
+            this.enableNativeScrolling();
+        }
+    }
     enableNativeScrolling() {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.onScrollStart, 'onScrollStart is not defined');
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.onScroll, 'onScroll is not defined');
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.onScrollEnd, 'onScrollEnd is not defined');
         this._js = false;
         if (!this._el) {
             return;
@@ -48164,10 +48163,6 @@ class ScrollView {
         const ev = self.ev;
         const positions = [];
         function scrollCallback(scrollEvent) {
-            self._app.setScrolling();
-            if (!self.eventsEnabled) {
-                return;
-            }
             ev.timeStamp = scrollEvent.timeStamp;
             if (!ev.timeStamp) {
                 ev.timeStamp = Date.now();
@@ -48194,11 +48189,11 @@ class ScrollView {
                     startPos = i;
                 }
                 if (startPos !== endPos) {
+                    var timeOffset = (positions[endPos] - positions[startPos]);
                     var movedTop = (positions[startPos - 2] - positions[endPos - 2]);
                     var movedLeft = (positions[startPos - 1] - positions[endPos - 1]);
-                    var factor = FRAME_MS / (positions[endPos] - positions[startPos]);
-                    ev.velocityY = movedTop * factor;
-                    ev.velocityX = movedLeft * factor;
+                    ev.velocityY = ((movedTop / timeOffset) * FRAME_MS);
+                    ev.velocityX = ((movedLeft / timeOffset) * FRAME_MS);
                     ev.directionY = (movedTop > 0 ? 'up' : 'down');
                     ev.directionX = (movedLeft > 0 ? 'left' : 'right');
                 }
@@ -48438,10 +48433,10 @@ class ScrollView {
         this.stop();
         this._endTmr && this._dom.cancel(this._endTmr);
         this._lsn && this._lsn();
+        this.onScrollStart = this.onScroll = this.onScrollEnd = null;
         let ev = this.ev;
         ev.domWrite = ev.contentElement = ev.fixedElement = ev.scrollElement = ev.headerElement = null;
         this._lsn = this._el = this._dom = this.ev = ev = null;
-        this.onScrollStart = this.onScroll = this.onScrollEnd = null;
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = ScrollView;
@@ -49248,7 +49243,7 @@ function View_Content_Host_0(l) {
                 null
             ]
         ], null, null, View_Content_0, RenderType_Content)),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__content__["a" /* Content */], [
             __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_3__platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */],
@@ -54336,7 +54331,7 @@ let VirtualScroll = class VirtualScroll {
     set virtualScroll(val) {
         this._records = val;
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["d" /* isBlank */])(this._differ) && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["a" /* isPresent */])(val)) {
-            this._differ = this._iterableDiffers.find(val).create(this.virtualTrackBy);
+            this._differ = this._iterableDiffers.find(val).create(this._cd, this.virtualTrackBy);
         }
     }
     set headerFn(val) {
@@ -54511,6 +54506,7 @@ let VirtualScroll = class VirtualScroll {
             this._resizeSub = this._plt.resize.subscribe(this.resize.bind(this));
             this._scrollSub = this._content.ionScroll.subscribe(this.scrollUpdate.bind(this));
             this._scrollEndSub = this._content.ionScrollEnd.subscribe(this.scrollEnd.bind(this));
+            this._content.enableScrollListener();
         }
     }
     _setHeight(newVirtualHeight) {
@@ -55046,6 +55042,33 @@ class TimeoutDebouncer {
 
 /***/ }),
 /* 229 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55059,7 +55082,7 @@ exports.empty = {
 //# sourceMappingURL=Observer.js.map
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55095,7 +55118,7 @@ exports.OuterSubscriber = OuterSubscriber;
 //# sourceMappingURL=OuterSubscriber.js.map
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55182,7 +55205,7 @@ exports.EmptyObservable = EmptyObservable;
 //# sourceMappingURL=EmptyObservable.js.map
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55210,7 +55233,7 @@ exports.$$observable = getSymbolObservable(root_1.root);
 //# sourceMappingURL=observable.js.map
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55220,7 +55243,7 @@ exports.errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55232,7 +55255,7 @@ exports.isFunction = isFunction;
 //# sourceMappingURL=isFunction.js.map
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55244,7 +55267,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55256,7 +55279,7 @@ exports.isScheduler = isScheduler;
 //# sourceMappingURL=isScheduler.js.map
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55264,11 +55287,11 @@ exports.isScheduler = isScheduler;
 var root_1 = __webpack_require__(44);
 var isArray_1 = __webpack_require__(167);
 var isPromise_1 = __webpack_require__(315);
-var isObject_1 = __webpack_require__(235);
+var isObject_1 = __webpack_require__(236);
 var Observable_1 = __webpack_require__(28);
 var iterator_1 = __webpack_require__(312);
 var InnerSubscriber_1 = __webpack_require__(297);
-var observable_1 = __webpack_require__(232);
+var observable_1 = __webpack_require__(233);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
     if (destination.closed) {
@@ -55338,33 +55361,6 @@ function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
 }
 exports.subscribeToResult = subscribeToResult;
 //# sourceMappingURL=subscribeToResult.js.map
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 239 */
@@ -56422,7 +56418,7 @@ function View_AppComponent_0(l) {
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_18__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_18__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, [[
                 1,
                 4
             ]
@@ -56607,7 +56603,7 @@ function View_AppComponent_0(l) {
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_18__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_18__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, [[
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, [[
                 6,
                 4
             ]
@@ -57045,7 +57041,7 @@ function View_PageOne_0(l) {
                 null
             ]
         ], null, null, __WEBPACK_IMPORTED_MODULE_17__src_components_content_content_ngfactory__["a" /* View_Content_0 */], __WEBPACK_IMPORTED_MODULE_17__src_components_content_content_ngfactory__["b" /* RenderType_Content */])),
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](2187264, null, 0, __WEBPACK_IMPORTED_MODULE_18__src_components_content_content__["a" /* Content */], [
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_18__src_components_content_content__["a" /* Content */], [
             __WEBPACK_IMPORTED_MODULE_2__src_config_config__["c" /* Config */],
             __WEBPACK_IMPORTED_MODULE_19__src_platform_platform__["b" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_20__src_platform_dom_controller__["a" /* DomController */],
@@ -66387,8 +66383,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(28);
 var ScalarObservable_1 = __webpack_require__(303);
-var EmptyObservable_1 = __webpack_require__(231);
-var isScheduler_1 = __webpack_require__(236);
+var EmptyObservable_1 = __webpack_require__(232);
+var isScheduler_1 = __webpack_require__(237);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -66682,10 +66678,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(28);
-var EmptyObservable_1 = __webpack_require__(231);
+var EmptyObservable_1 = __webpack_require__(232);
 var isArray_1 = __webpack_require__(167);
-var subscribeToResult_1 = __webpack_require__(237);
-var OuterSubscriber_1 = __webpack_require__(230);
+var subscribeToResult_1 = __webpack_require__(238);
+var OuterSubscriber_1 = __webpack_require__(231);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -67110,7 +67106,7 @@ var MapSubscriber = (function (_super) {
 
 var ArrayObservable_1 = __webpack_require__(299);
 var mergeAll_1 = __webpack_require__(309);
-var isScheduler_1 = __webpack_require__(236);
+var isScheduler_1 = __webpack_require__(237);
 /* tslint:disable:max-line-length */
 /**
  * Creates an output Observable which concurrently emits all values from every
@@ -67263,8 +67259,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = __webpack_require__(230);
-var subscribeToResult_1 = __webpack_require__(237);
+var OuterSubscriber_1 = __webpack_require__(231);
+var subscribeToResult_1 = __webpack_require__(238);
 /**
  * Converts a higher-order Observable into a first-order Observable which
  * concurrently delivers all values that are emitted on the inner Observables.
@@ -67586,7 +67582,7 @@ exports.isPromise = isPromise;
 
 var Subscriber_1 = __webpack_require__(43);
 var rxSubscriber_1 = __webpack_require__(166);
-var Observer_1 = __webpack_require__(229);
+var Observer_1 = __webpack_require__(230);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -67610,7 +67606,7 @@ exports.toSubscriber = toSubscriber;
 
 "use strict";
 
-var errorObject_1 = __webpack_require__(233);
+var errorObject_1 = __webpack_require__(234);
 var tryCatchTarget;
 function tryCatcher() {
     try {

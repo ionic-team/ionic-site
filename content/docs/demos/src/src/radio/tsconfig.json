@@ -20,8 +20,8 @@
     ]
   },
   "include": [
-    "/home/ubuntu/ionic/src/**/*.ts",
-    "/home/ubuntu/ionic/demos/src/radio/**/*.ts"
+    "/root/ionic/src/**/*.ts",
+    "/root/ionic/demos/src/radio/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

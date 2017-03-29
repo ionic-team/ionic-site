@@ -20,8 +20,8 @@
     ]
   },
   "include": [
-    "/home/ubuntu/ionic/src/**/*.ts",
-    "/home/ubuntu/ionic/demos/src/popover/**/*.ts"
+    "/root/ionic/src/**/*.ts",
+    "/root/ionic/demos/src/popover/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

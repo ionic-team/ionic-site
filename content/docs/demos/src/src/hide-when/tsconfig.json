@@ -20,8 +20,8 @@
     ]
   },
   "include": [
-    "/home/ubuntu/ionic/src/**/*.ts",
-    "/home/ubuntu/ionic/demos/src/hide-when/**/*.ts"
+    "/root/ionic/src/**/*.ts",
+    "/root/ionic/demos/src/hide-when/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

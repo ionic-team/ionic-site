@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: node:7
     working_directory: ~/ionic-site/
     steps:
       - checkout

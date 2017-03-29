@@ -1,17 +1,21 @@
-general:
-  branches:
-    ignore:
-      - production
-machine:
-  node:
-    version: 6.9.2
-  ruby:
-    version: 2.3.0
-dependencies:
-  pre:
-    - bundle install
-  cache_directories:
-    - "~/.rvm"
-test:
-  override:
-    - ./scripts/test.sh
+version: 2
+jobs:
+  build:
+    working_directory: ~/ionic-site/
+    steps:
+      - checkout
+      - restore_cache:
+        key: node_modules_{{ checksum "package.json" }}
+      - run npm i
+      - save_cache:
+        key: node_modules_{{ checksum "package.json" }}
+        paths:
+          - ~/ionic-site/node_modules/
+      - restore_cache:
+        key: rvm_{{ checksum "package.json" }}
+      - run: bundle install
+      - save_cache:
+        key: rvm_{{ checksum "package.json" }}
+        paths:
+          - ~/.rvm
+      - run: ./scripts/test.sh

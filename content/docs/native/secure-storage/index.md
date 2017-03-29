@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Secure Storage</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L43">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L63">
   Improve this doc
 </a>
 
@@ -219,6 +219,28 @@ Removes a single stored item
   </tr>
   </tbody>
 </table>
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="keys" href="#keys"></a><code>keys()</code></h3>
+
+
+
+
+Get all references from the storage.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;any&gt;</code> 
+</div><h3><a class="anchor" name="clear" href="#clear"></a><code>clear()</code></h3>
+
+
+
+
+Clear all references from the storage.
+
 
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>

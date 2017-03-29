@@ -11,10 +11,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-         key: ionic-site
+         key: ruby-bundle-2.3
       - run:
-         name: Prepare ionic-site repo
-         command: bundle install
+         name: Install Ruby Bundle
+         command: gem install bundler && bundle install
       - save_cache:
          key: ruby-bundle-2.3
          paths:

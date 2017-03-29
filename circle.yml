@@ -1,33 +1,17 @@
-version: 2
-jobs:
-  build:
-    working_directory: ~/ionic-site/
-    docker:
-      - image: node:7
-      - image: ruby:2.3
-    branches:
-      ignore:
-        - production
-    steps:
-      - checkout
-      - restore_cache:
-         key: ruby-bundle-2.3
-      - run:
-         name: Install Ruby Bundle
-         command: gem install bundler && bundle install
-      - save_cache:
-         key: ruby-bundle-2.3
-         paths:
-         - ~/.rvm
-      - restore_cache:
-         key: node_modules_{{ checksum "package.json" }}
-      - run:
-         name: Install node modules
-         command: npm i
-      - save_cache:
-         key: node_modules_{{ checksum "package.json" }}
-         paths:
-         - ~/ionic-site/node_modules/
-      - run:
-          name: Run Build
-          command: ./scripts/test.sh
+general:
+  branches:
+    ignore:
+      - production
+machine:
+  node:
+    version: 6.9.2
+  ruby:
+    version: 2.3.0
+dependencies:
+  pre:
+    - bundle install
+  cache_directories:
+    - "~/.rvm"
+test:
+  override:
+    - ./scripts/test.sh

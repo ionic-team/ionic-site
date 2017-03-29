@@ -7,17 +7,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: node_modules_{{ checksum "package.json" }}
+         key: node_modules_{{ checksum "package.json" }}
       - run npm i
       - save_cache:
-        key: node_modules_{{ checksum "package.json" }}
-        paths:
-          - ~/ionic-site/node_modules/
+         key: node_modules_{{ checksum "package.json" }}
+         paths:
+           - ~/ionic-site/node_modules/
       - restore_cache:
-        key: rvm_{{ checksum "package.json" }}
+         key: rvm_{{ checksum "package.json" }}
       - run: bundle install
       - save_cache:
-        key: rvm_{{ checksum "package.json" }}
-        paths:
-          - ~/.rvm
+         key: rvm_{{ checksum "package.json" }}
+         paths:
+           - ~/.rvm
       - run: ./scripts/test.sh

@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.4.3"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -36,6 +36,11 @@ $ npm install --save @ionic-native/native-storage
 
 
 
+
+<h2>Supported platforms</h2>
+<ul>
+  <li>Android</li><li>iOS</li><li>Windows</li>
+</ul>
 
 
 

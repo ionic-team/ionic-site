@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.4.3"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">AdMob</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L84">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob/index.ts#L89">
   Improve this doc
 </a>
 
@@ -540,6 +540,20 @@ Triggered when dismiss the Ad and back to your App
     </td>
     <td>
       <p>Set extra color style for Ad</p>
+
+      <em>(optional)</em>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      license
+    </td>
+    <td>
+      <code>any</code>
+    </td>
+    <td>
+      <p>License key for the plugin</p>
 
       <em>(optional)</em>
     </td>

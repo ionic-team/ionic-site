@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.2"
+version: "3.4.3"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -13,7 +13,7 @@ docType: "class"
 
 <h1 class="api-title">Secure Storage</h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L63">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/secure-storage/index.ts#L61">
   Improve this doc
 </a>
 
@@ -88,7 +88,6 @@ this.secureStorage.create(&#39;my_store_name&#39;)
 
 <h2>Instance Members</h2>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(store)</code></h3>
-
 
 Creates a namespaced storage.
 <table class="table param-table" style="margin:0;">

@@ -55,10 +55,11 @@ constructor(private statusBar: StatusBar) { }
 
 ...
 
+// let status bar overlay webview
+this.statusBar.overlaysWebView(true);
 
-this.statusBar.overlaysWebView(true); // let status bar overlay webview
-
-this.statusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to white
+// set status bar to white
+this.statusBar.backgroundColorByHexString(&#39;#ffffff&#39;);
 </code></pre>
 
 

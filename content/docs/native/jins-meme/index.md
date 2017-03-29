@@ -54,9 +54,16 @@ constructor(private jinsMeme: JinsMeme) { }
 
 ...
 
-this.jinsMeme.setAppClientID(appClientId: string, clientSecret: string)
-  .then(this.jinsMeme.startScan())
-  .catch(console.log(&#39;jinsMeme.setAppClientID authentication error!&#39;));
+this.jinsMeme.setAppClientID(appClientId: string, clientSecret: string).then(
+  // Bluetooth should be enabled and the JINS MEME powered on (blinking blue light)
+  this.jinsMeme.startScan().subscribe((meme_addr) =&gt; {
+    this.jinsMeme.connect(meme_addr).subscribe((connectResult) =&gt; {
+      this.memeService.startDataReport().subscribe((dataReport) =&gt; {
+        console.log(dataReport);
+      });
+    });
+  });
+.catch(console.log(&#39;jinsMeme.setAppClientID authentication error&#39;));
 </code></pre>
 
 
@@ -71,7 +78,8 @@ this.jinsMeme.setAppClientID(appClientId: string, clientSecret: string)
 
 
 Authentication and authorization of App and SDK.
-Must call this method at first.
+Must call this method first.
+Sign up for an app ID (and get an app/client secret) at developers.jins.com
 
 <table class="table param-table" style="margin:0;">
   <thead>

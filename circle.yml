@@ -8,7 +8,7 @@ jobs:
       - checkout
       - restore_cache:
          key: node_modules_{{ checksum "package.json" }}
-      - run npm i
+      - run: npm i
       - save_cache:
          key: node_modules_{{ checksum "package.json" }}
          paths:

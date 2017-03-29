@@ -1,7 +1,7 @@
 const url         = require('url');
 const fs          = require('fs');
 const path        = require('path');
-var v1Directories = getDirectories('content/docs/v1');
+var v1Directories = getDirectories('_site/docs/v1');
 
 module.exports = function(req, res, next) {
 

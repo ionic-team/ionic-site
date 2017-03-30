@@ -1,6 +1,6 @@
 ---
 layout: "fluid/docs_base"
-version: "3.4.3"
+version: "3.4.4"
 versionHref: "/docs/native"
 path: ""
 category: native
@@ -50,6 +50,21 @@ $ npm install --save @ionic-native/push
 constructor(private push: Push) { }
 
 ...
+
+
+// to check if we have permission
+this.push.hasPermission()
+  .then((res: any) =&gt; {
+
+    if (res.isEnabled) {
+      console.log(&#39;We have permission to send push notifications&#39;);
+    } else {
+      console.log(&#39;We don&#39;t have permission to send push notifications&#39;);
+    }
+
+  });
+
+// to initialize push notifications
 
 const options: PushOptions = {
    android: {
@@ -107,6 +122,15 @@ Init push notifications
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> <code>PushObject</code> 
+</div><h3><a class="anchor" name="hasPermission" href="#hasPermission"></a><code>hasPermission()</code></h3>
+
+
+Check whether the push notification permission has been granted.
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> <code>Promise&lt;{isEnabled: boolean}&gt;</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
 </div>
 
 

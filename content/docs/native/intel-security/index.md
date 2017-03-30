@@ -62,11 +62,11 @@ constructor(private intelSecurity: IntelSecurity) { }
 let storageID = &#39;id&#39;;
 
 this.intelSecurity.data.createFromData({ data: &#39;Sample Data&#39; })
-  .then((instanceID: Number) =&gt; this.IntelSecurity.storage.write({ id: storageId, instanceID: instanceID }))
+  .then((instanceID: Number) =&gt; this.intelSecurity.storage.write({ id: storageId, instanceID: instanceID }))
   .catch((error: any) =&gt; console.log(error));
 
 this.intelSecurity.storage.read({id: storageID })
-  .then(this.intelSecurity.data.getData)
+  .then((instanceID: number) =&gt; this.intelSec.data.getData(instanceID))
   .then((data: string) =&gt; console.log(data)) // Resolves to &#39;Sample Data&#39;
   .catch((error: any) =&gt; console.log(error));
 

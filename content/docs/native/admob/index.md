@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/admob
 
 
 <h2>Usage</h2>
-<pre><code class="lang-typescript">import { AdMob, AdMobOptions, AdSize, AdExtras } from &#39;@ionic-native/ad-mob&#39;;
+<pre><code class="lang-typescript">import { AdMob, AdMobOptions, AdSize, AdExtras } from &#39;@ionic-native/admob&#39;;
 
 constructor(private admob: AdMob){}
 

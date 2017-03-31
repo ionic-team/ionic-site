@@ -51,7 +51,7 @@ $ npm install --save @ionic-native/flashlight
 <h2>Usage</h2>
 <pre><code class="lang-typescript">import { Flashlight } from &#39;@ionic-native/flashlight&#39;;
 
-constructor(private flashlight: FlashLight) { }
+constructor(private flashlight: Flashlight) { }
 
 ...
 

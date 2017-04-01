@@ -67937,10 +67937,12 @@ class IonicErrorHandler extends __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" 
     handleError(err) {
         super.handleError(err);
         try {
-            const devServer = window['IonicDevServer'];
-            if (devServer) {
-                devServer.handleError(err);
-            }
+            const win = window;
+            let monitor;
+            monitor = win['IonicDevServer'];
+            monitor && monitor.handleError && monitor.handleError(err);
+            monitor = (win['Ionic'] = win['Ionic'] || {}).Monitor;
+            monitor && monitor.handleError && monitor.handleError(err);
         }
         catch (e) { }
     }

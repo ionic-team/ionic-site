@@ -34132,6 +34132,9 @@ let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_
         this.sideContent = null;
         this.mainContent = null;
         this.ionChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
+        if (_plt.isRTL()) {
+            this.setElementClass('split-pane-rtl', true);
+        }
     }
     set _setchildren(query) {
         const children = this._children = query.filter((child => child !== this));

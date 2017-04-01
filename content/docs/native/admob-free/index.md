@@ -4,14 +4,14 @@ version: "3.4.4"
 versionHref: "/docs/native"
 path: ""
 category: native
-id: "adbmobfree"
-title: "AdbMobFree"
+id: "admob-free"
+title: "AdMob Free"
 header_sub_title: "Class in module "
-doc: "AdbMobFree"
+doc: "AdMob Free"
 docType: "class"
 ---
 
-<h1 class="api-title">AdbMobFree</h1>
+<h1 class="api-title">AdMob Free</h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/src/@ionic-native/plugins/admob-free/index.ts#L64">
   Improve this doc

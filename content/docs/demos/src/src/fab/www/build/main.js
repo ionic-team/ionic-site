@@ -44397,8 +44397,9 @@ function updatePaginationClasses(s) {
         }
     }
     if (s.paginationType === 'bullets' && s._bullets) {
+        var selector = current + (current < 0 ? s._bullets.length : 0);
         for (var i = 0; i < s._bullets.length; i++) {
-            if (i === current) {
+            if (i === selector) {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__swiper_utils__["i" /* addClass */])(s._bullets[i], __WEBPACK_IMPORTED_MODULE_0__swiper_utils__["a" /* CLS */].bulletActive);
             }
             else {

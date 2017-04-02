@@ -183,6 +183,14 @@ provided from the sidemenu starter template.</p>
   <tbody>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If <code>false</code>, the split-pane is disabled, ie. the side pane will
+never be displayed. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>when</td>
       <td><code>string | boolean</code></td>
       <td><p> When the split-pane should be shown.

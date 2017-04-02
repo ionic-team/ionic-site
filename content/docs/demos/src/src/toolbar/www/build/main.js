@@ -34344,8 +34344,9 @@ let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_
         super(config, elementRef, renderer, 'split-pane');
         this._zone = _zone;
         this._plt = _plt;
-        this._visible = false;
         this._init = false;
+        this._visible = false;
+        this._isEnabled = true;
         this._mediaQuery = QUERY['md'];
         this.sideContent = null;
         this.mainContent = null;
@@ -34376,6 +34377,13 @@ let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_
     get when() {
         return this._mediaQuery;
     }
+    set enabled(val) {
+        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        this._update();
+    }
+    get enabled() {
+        return this._isEnabled;
+    }
     _register(node, isMain, callback) {
         if (this.getElementRef().nativeElement !== node.getElementRef().nativeElement.parentNode) {
             return false;
@@ -34402,6 +34410,10 @@ let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_
         }
         this._rmListener && this._rmListener();
         this._rmListener = null;
+        if (!this._isEnabled) {
+            this._setVisible(false);
+            return;
+        }
         const query = this._mediaQuery;
         if (typeof query === 'boolean') {
             this._setVisible(query);
@@ -34467,6 +34479,11 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], SplitPane.prototype, "when", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], SplitPane.prototype, "enabled", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Output */])(),
     __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]) === "function" && _c || Object)

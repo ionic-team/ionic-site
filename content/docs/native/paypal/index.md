@@ -48,7 +48,7 @@ $ npm install --save @ionic-native/paypal
 
 
 <h2>Usage</h2>
-<pre><code>import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/pay-pal&#39;;
+<pre><code>import { PayPal, PayPalPayment, PayPalConfiguration } from &#39;@ionic-native/paypal&#39;;
 
 constructor(private payPal: PayPal) { }
 

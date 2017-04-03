@@ -13,7 +13,7 @@
   }
 
   .navbar-brand {
-    padding: 20px 0 0 13px;
+    padding: 1px 0 0 13px;
     transition: .3s opacity;
 
     @media (max-width: $screen-xs-max) {
@@ -29,9 +29,14 @@
     }
   }
 
-  @media (min-width: $screen-sm-min) {
-    &.transparent {
-      background: transparent;
+  &.transparent {
+    background: transparent;
+
+    @media (max-width: $screen-xs-max) {
+      background: linear-gradient(to right, #347eff, #1ea3ff);
+      .container {
+        margin-top: -15px;
+      }
     }
   }
 
@@ -49,61 +54,69 @@
     display: block;
   }
 
-  .navbar-nav > li {
+  .navbar-nav {
+    padding-left: 15px;
 
-    &.sm-hide {
-      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  {
-        display: none;
-      }
-    }
+    > li {
+      padding-top: 0px;
 
-    > a {
-      color: white;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 27px 22px;
-      transition: .2s color;
-      border-top: none;
-      transition-duration: .3s;
-
-      @media (max-width: $screen-md-max) {
-        padding: 27px 15px;
+      &.sm-hide {
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)  {
+          display: none;
+        }
       }
 
+      > a {
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 0px;
+        padding: 9px 20px 8px;
+        margin-left: 2px;
+        margin-right: 2px;
+        transition: .2s color;
+        border-top: none;
+        border-radius: 4px;
+        transition-duration: .3s;
 
-      @media (max-width: $screen-xs-max) {
-        padding: 15px;
-        border: 0;
+        @media (max-width: $screen-md-max) {
+          padding: 9px 13px 8px;
+        }
+
+
+        @media (max-width: $screen-xs-max) {
+          padding: 15px;
+          border: 0;
+        }
+
+        &:hover {
+          color: rgba(white, .65);
+        }
       }
 
-      &:hover {
-        color: rgba(white, .65);
-      }
-    }
-
-    &:last-child > a {
-      //padding-right: 0;
-    }
-
-    &.active > a {
-      // border-top-color: white;
-      opacity: .7;
-      transition: .2s opacity;
-
-      &:hover {
-        opacity: 1;
+      &:last-child > a {
+        //padding-right: 0;
       }
 
-    }
+      &.active > a {
+        // border-top-color: white;
+        background: rgba(white, .1);
+        transition: .2s background, .2s opacity;
 
-    &.header-btn-white {
-      a {
-        background-color: rgba(255, 255, 255, 0.2);
-        vertical-align: middle;
-        padding: 12px 18px;
-        border-radius: 3px;
-        box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-        margin-top: 14px;
+        &:hover {
+          background: rgba(white, .15);
+          opacity: .8;
+        }
+      }
+
+      &.header-btn-white {
+        a {
+          background-color: rgba(255, 255, 255, 0.2);
+          vertical-align: middle;
+          padding: 12px 18px;
+          border-radius: 3px;
+          box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+        }
       }
     }
   }
@@ -139,7 +152,7 @@
         border: 0;
         border-radius: 3px;
         padding: 12px 0 10px;
-        top: 56px;
+        top: 40px;
         left: -23px;
         right: -13px;
         min-width: 155px;
@@ -164,7 +177,7 @@
           height: 8px;
           position: absolute;
           top: -7px;
-          right: 23px;
+          left: 50px;
           content: '';
           z-index: 5;
         }
@@ -184,7 +197,7 @@
     padding-left: 0;
 
     > li > a {
-      padding: 26px 12px 0px;
+      padding: 14px 12px 0px;
       font-size: 18px;
       font-weight: 600;
       color: rgba(255, 255, 255, .5);
@@ -208,10 +221,10 @@
       border: 0;
       border-radius: 3px;
       padding: 12px 0 10px;
-      top: 56px;
+      top: 52px;
       left: -23px;
       right: -100px;
-      min-width: 155px;
+      min-width: 205px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
       opacity: 0;
       transform: scale(.01);
@@ -262,9 +275,9 @@
   }
 
   .navbar-form {
-    margin: 20px 0 0 110px;
+    margin: 6px 0 0 110px;
 
-    @media (max-width: 1490px) {
+    @media (max-width: 1630px) {
       margin-left: 0;
     }
 
@@ -311,7 +324,7 @@
       margin-left: 5px;
 
       .form-group input:focus {
-        width: 200px;
+        width: 192px;
       }
     }
 
@@ -383,34 +396,50 @@
   }
 
   .container-fluid {
-    .navbar-nav > li > a {
-      padding-left: 28px;
-      padding-right: 28px;
+    min-height: 74px;
+    padding-top: 13px;
+
+    .navbar-nav {
+      padding-top: 5px;
+
+      @media (max-width: $screen-md-max) {
+        padding-left: 0;
+      }
+
+      > li > a {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
     }
 
-    @media (max-width: 1385px) {
+    .header-btn-white {
+      margin-top: -4px;
+    }
+
+    @media (max-width: 1514px) {
       .navbar-nav > li > a {
         padding-left: 12px;
         padding-right: 12px;
       }
     }
 
-    @media (max-width: 1125px) {
+    @media (max-width: 1226px) {
       .navbar-nav > li > a {
         padding-left: 5px;
         padding-right: 4px;
       }
     }
 
-    @media (max-width: 1005px) and (min-width: $screen-sm-min) {
+    @media (max-width: 1062px) and (min-width: $screen-sm-min) {
       .hide-sm,
       .sm-hide {
         display: none;
       }
     }
 
-    @media (max-width: 815px) and (min-width: $screen-sm-min) {
-      .header-btn {
+    @media (max-width: 816px) and (min-width: $screen-sm-min) {
+      .header-btn,
+      .header-btn-white {
         display: none;
       }
     }
@@ -428,14 +457,10 @@
 
     #ionic-docs-back {
       position: absolute;
-      top: 20px;
+      top: 6px;
       left: 13px;
       opacity: 0;
       transform: scale3d(1.1, 1.1, 1);
-
-      @media (max-width: $screen-xs-max) {
-        top: 8px;
-      }
     }
 
     #ionic-docs-text {
@@ -444,13 +469,15 @@
     }
 
     .navbar-brand {
+      padding-top: 8px;
+
       img {
         width: 88px;
-        margin-top: 2px;
       }
 
       &.logo {
         position: relative;
+        padding-top: 6px;
 
         &:hover {
           opacity: 1;

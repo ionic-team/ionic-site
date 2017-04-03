@@ -58,8 +58,16 @@
         </div>
       </form>
       {% endif %}
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         {% include fluid/header_nav.html isDocs='true' %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="sm-hide">
+          <a href="https://apps.ionic.io/login" class="header-btn">Log in</a>
+        </li>
+        <li class="header-btn-white">
+          <a href="https://apps.ionic.io/signup">Sign up</a>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

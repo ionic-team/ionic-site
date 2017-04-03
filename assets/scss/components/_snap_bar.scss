@@ -5,6 +5,8 @@
   padding: 7px 10px;
   font-weight: 500;
   font-size: 14px;
+  position: relative;
+  z-index: 10;
 
   strong{
     text-transform: uppercase;
@@ -27,5 +29,15 @@
   i {
     font-size: 18px;
     vertical-align: -7%;
+  }
+
+  + .navbar {
+    margin-top: 25px;
+
+    @media (max-width: $screen-xs-max) {
+      padding-top: 20px;
+      margin-top:0;
+      position: relative;
+    }
   }
 }

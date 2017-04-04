@@ -1,0 +1,132 @@
+{% extends '_layouts/base.html' %}
+{% set title = "Getting Support with Ionic" %}
+{% set id = "support" %}
+
+{% block main %}
+<div class="cta gradient">
+  <hgroup class="container center">
+    <h1>How can we help?</h1>
+    <h4>From community help to premium support, we’re here to help.</h4>
+  </hgroup>
+</div>
+
+{# <div id="status-bar">
+  <dl class="container">
+    <dt>Ionic Status</dt>
+    <dd>All systems are operational</dd>
+  </dl>
+</div> #}
+
+<main>
+  <section class="container">
+    <hgroup>
+      <h2>Community Help</h2>
+      <p>
+        The Ionic community is your first stop for questions and advice about
+        the Framework. Welcome to the community!
+      </p>
+    </hgroup>
+    <div class="items">
+      <a class="forum" href="https://forum.ionicframework.com/">
+        <h3>Community Forum</h3>
+        <p>
+          The Forum is the best place to connect with other Ionic developers,
+          ask questions, or even help out others.
+        </p>
+      </a>
+      <a class="slack" href="https://ionicworldwide.herokuapp.com/">
+        <h3>Worldwide Slack</h3>
+        <p>
+          Chat in our Slack channel with other Ionic community members, and
+          occasionally some Ionic core team members.
+        </p>
+      </a>
+      <a class="so" href="https://stackoverflow.com/questions/tagged/ionic-framework">
+        <h3>StackOverflow</h3>
+        <p>
+          For crowdsourced technical questions from expert Ionic devs in our
+          community. Also frequented by the Ionic core team.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="container">
+    <hgroup>
+      <h2>Business and Customer Support</h2>
+      <p>
+        Run into a problem? Get in touch, we’re here to help. This requires an
+        Ionic account.
+      </p>
+    </hgroup>
+    <div class="items">
+      <a class="account" href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632028">
+        <h3>Account and billing</h3>
+        <p>
+          Contact our support team for any issues or problems with your Ionic
+          account or questions about billing.
+        </p>
+      </a>
+      <a class="bug" href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632048">
+        <h3>Report a bug or feature request</h3>
+        <p>
+          Find a bug? Have a novel idea? Let us know! If you found a bug in the
+          Ionic Framework, please create an issue here.
+        </p>
+      </a>
+      <a class="troubleshooting" href="https://ionic.zendesk.com/hc/en-us/requests/new?ticket_form_id=632068">
+        <h3>Using Ionic Services</h3>
+        <p>
+          Have questions about what Ionic has to offer or how to use our
+          services? Ask us about it.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="container">
+    <hgroup>
+      <h2>More Resources</h2>
+      <p>
+        Looking for more resources? Here’s what we have to offer.
+      </p>
+    </hgroup>
+    <div class="items">
+      <a class="resources" href="/docs/resources/">
+        <h3>Ionic Framework Resources</h3>
+        <p>
+          Ionic Framework guides, videos, books, tools and everything in between
+          for taking your app further.
+        </p>
+      </a>
+      <a class="github" href="https://github.com/driftyco/ionic/issues/new">
+        <h3>GitHub issues</h3>
+        <p>
+          The end all, be all Knowledge Base for learning more about how to
+          build even better Ionic apps.
+        </p>
+      </a>
+      <a class="faq" href="/docs/troubleshooting/">
+        <h3>FAQ</h3>
+        <p>
+          You have frequent questions, we have the answers. Stop by our FAQ and
+          make sure yours are answered.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="banner">
+    <hgroup class="container">
+      <h1>Supercharge your apps with <strong>Trusted Partners</strong></h1>
+      <p>
+        <strong>Ionic Trusted Partners</strong> are certified consulting
+        agencies and businesses trained in helping their clients ship incredible
+        Ionic apps. Search our list to find the right partner for you.
+      </p>
+      <a class="btn rounded white">Find a Trusted Partner</a>
+    </hgroup>
+  </section>
+</main>
+
+{% endblock %}

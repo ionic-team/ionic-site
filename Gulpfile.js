@@ -280,10 +280,6 @@ gulp.task('docs.index', function() {
   // Grab relative path from ionic-site root
   var relpath = file.path
     .replace(__dirname + '/content/docs/', '')
-    // .replace('/contnet/docs/', '')
-    // .replace(RegExp('^.*?' + docPath.replace('/content/docs/', '') + '/'), '')
-    // .replace('ionic-site/content/docs/', '')
-    // console.log(relpath)
 
     // Read out the yaml portion of the Jekyll file
     var yamlStartIndex = contents.indexOf('---');

@@ -118,7 +118,7 @@ $(document).ready(function() {
     var total = 0;
 
     for (var i in data) {
-      links += '<li><a href="/docs/' + data[i].p + '">';
+      links += '<li><a href="/docs' + data[i].p + '">';
       links += data[i].t + '</a></li>';
       total++;
       if (total >= limit) {

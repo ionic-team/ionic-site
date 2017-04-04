@@ -39906,7 +39906,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         if (transition.isRoot()) {
             this._trnsCtrl.destroy(transition.trnsId);
             this._app.setEnabled(true);
-            if (opts.updateUrl !== false) {
+            if (!this.hasChildren() && opts.updateUrl !== false) {
                 this._linker.navChange(opts.direction);
             }
             if (opts.keyboardClose !== false) {
@@ -40027,6 +40027,9 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         view._willUnload();
         this.viewWillUnload.emit(view);
         this._app.viewWillUnload.emit(view);
+    }
+    hasChildren() {
+        return this._children.length > 0;
     }
     getActiveChildNav() {
         return this._children[this._children.length - 1];

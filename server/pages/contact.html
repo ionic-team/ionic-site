@@ -1,0 +1,113 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'contact' %}
+
+{% block main %}
+<div class="cta banner">
+  <hgroup class="container">
+    <h1>Get in touch</h1>
+    <p>
+      We’re all ears
+    </p>
+  </hgroup>
+  <div class="bar tabbed" data-spy="affix" data-offset-top="375">
+    <div class="container" id="discover-nav" offset="-400">
+      <ul class="categories nav">
+        <li><a class="about" href="/about">About Us</a></li>
+        <li><a class="values" href="/values">Values</a></li>
+        <li><a class="our team" href="/team">Our Team</a></li>
+        <li><a class="jobs" href="/jobs">Jobs</a></li>
+        <li><a class="active contact" href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hgroup class="container hero text-center">
+  <h3>Contact Ionic</h3>
+  <p>Please choose a topic below related to your inquiry.</p>
+</hgroup>
+
+<div class="container topics">
+  <a href="/support" class="support">
+    <h3>Help &amp; Support</h3>
+    <div class="detail">
+      <p>
+        Technical support and help documentation on using the Ionic Cloud
+        services and other projects we offer.
+      </p>
+    </div>
+  </a>
+  <a href="/sales" class="sales">
+    <h3>Sales</h3>
+    <div class="detail">
+      <p>
+        Contact sales about purchasing the Ionic Cloud for large businesses
+        and enterprise companies.
+      </p>
+    </div>
+  </a>
+  <a href="/press" class="press">
+    <h3>Press</h3>
+    <div class="detail">
+      <p>
+        Get in touch with our marketing team and get information on our press
+        and branding/logo guidelines.
+      </p>
+    </div>
+  </a>
+  <a href="mailto:brody@ionic.io" class="partnerships">
+    <h3>Partnerships</h3>
+    <div class="detail">
+      <p>
+        Interested in partnering with us or joining forces somehow? Get in touch
+        with our business development team.
+      </p>
+    </div>
+  </a>
+</div>
+<div class="container other">
+  <hgroup class="social">
+    <h4>Get Social with us</h4>
+    <p class="sm">
+      We're active on quite a few social channels. Come say hello!
+    </p>
+    <p class="sm">
+      <a class="twitter"
+         href="https://twitter.com/ionicframework"
+         target="_blank">
+        <i class="icon ion-social-twitter"></i>
+        Twitter
+      </a>
+      <a class="facebook"
+         href="https://www.facebook.com/ionicframework"
+         target="_blank">
+         <i class="icon ion-social-facebook"></i>
+        Facebook
+      </a>
+      <a class="goolge-plus"
+         href="https://plus.google.com/+Ionicframework/posts"
+         target="_blank">
+         <i class="ion-social-googleplus"></i>
+        Google+
+      </a>
+      <a class="github"
+         href="https://github.com/driftyco/ionic"
+         target="_blank">
+         <i class="icon ion-social-github"></i>
+        GitHub
+      </a>
+    </p>
+  </hgroup>
+  <hgroup class="chat">
+    <h4>Chat with Ionic devs</h4>
+    <p class="sm">
+      Our developers hang out on the community
+      <a target="_blank" href="https://forum.ionicframework.com/">Forum</a>, IRC
+      (<strong>#ionic</strong> on <strong>freenode</strong>) and the
+      <a target="_blank" href="http://ionicworldwide.herokuapp.com/">
+        Ionic Worldwide Slack
+      </a> channel.
+    </p>
+  </hgroup>
+</div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'jobs' %}
+
+{% block main %}
+<div class="cta banner">
+  <hgroup class="container">
+    <h1>Jobs</h1>
+    <p>
+      Help change the way the world builds mobile apps
+    </p>
+  </hgroup>
+  <div class="bar tabbed" data-spy="affix" data-offset-top="375">
+    <div class="container" id="discover-nav" offset="-400">
+      <ul class="categories nav">
+        <li><a class="about" href="/about">About Us</a></li>
+        <li><a class="values" href="/values">Values</a></li>
+        <li><a class="our team" href="/team">Our Team</a></li>
+        <li><a class="active jobs" href="/jobs">Jobs</a></li>
+        <li><a class="contact" href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<section class="hero top container what-we">
+  <img class="graphics" src="/img/company/jobs/ionic-photos-1.jpg"/>
+  <div class="content">
+    <div class="col">
+      <h3>What we do</h3>
+      <p>
+        We work to empower developers to build high quality, interactive, and
+        beautiful mobile apps with the web technologies they already know and
+        love.
+      </p>
+      <p>
+        We believe there’s a huge opportunity to bring the web to mobile and
+        that we are the company to do it best.
+      </p>
+    </div>
+    <div class="col">
+      <h3>What we look for</h3>
+      <p>
+        We’re always searching for smart, driven, and talented people to join
+        our team in Madison, San Francisco, or remotely (for specified positions
+        only).
+      </p>
+      <p>
+        We look for great communicators who have the ability to empathize with
+        others, and a passion for learning.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="why hero top container">
+  <img class="graphics" src="/img/company/jobs/ionic-photos-2.jpg"/>
+  <div class="content text-center">
+    <h3>Why Ionic?</h3>
+    <p>
+      We’re not your typical tech company. We weren’t built in the valley - or
+      by it. We’re a developer built, design focused, product obsessed team of
+      open sourcers.
+    </p>
+  </div>
+</section>
+<section class="reasons container">
+  <div class="reason">
+    <h4>A healthy city to call home</h4>
+    <p>
+      Our HQ is located in downtown Madison, WI. The city’s
+      bike-friendliness, affordability, and world-class University make it a great
+      place to set down roots.
+    </p>
+  </div>
+  <div class="reason">
+    <h4>We &lt;3 open source</h4>
+    <p>
+      Our team is dedicated to producing world-class open source <a
+      href="http://ionicframework.com" target="_blank">projects</a>. We engage
+      with our community and welcome feedback and pull requests.
+    </p>
+  </div>
+  <div class="reason">
+    <h4>Have ownership</h4>
+    <p>
+      At Ionic, we know our teammates are best in class at what they do. That’s
+      why they're given trust, independence, and ownership over their work.
+    </p>
+  </div>
+  <div class="reason">
+    <h4>A welcoming environment</h4>
+    <p>
+      Ionic is a welcoming place for everyone, and we do our best to make sure
+      our teammates feel supported and connected here at all times.
+    </p>
+  </div>
+  <div class="reason">
+    <h4>Make an impact</h4>
+    <p>
+      Work on open source projects and products that are used by millions of
+      people all over the world. Help change the way the world builds mobile.
+    </p>
+  </div>
+  <div class="reason">
+    <h4>Love what you do</h4>
+    <p>
+      More than anything else, Ionic is a company that wants you to love what
+      you do. We take pride in creating a place where people love to work.
+    </p>
+  </div>
+</section>
+<section class="bennefits">
+  <div class="container content">
+    <h3>Benefits</h3>
+    <ul>
+      <li>Health, dental, and vision benefits offered</li>
+      <li>Competitive salary + equity</li>
+      <li>A 401(k) plan</li>
+      <li>Generous paid time off and sick leave</li>
+      <li>Flexible work hours and locations</li>
+      <li>Work with top-of-the-line equipment</li>
+      <li>Healthy office drinks &amp; snacks</li>
+      <li>Weekly team lunches and monthly outings</li>
+      <li>A beautiful downtown Madison office</li>
+      <li>Office dogs. Lots of office dogs.</li>
+    </ul>
+  </div>
+</section>
+<section class="open-positions container">
+  <hgroup class="text-center">
+    <h3>Open positions</h3>
+    <p>
+      Here’s what we’re looking for right now. Don’t see your specific position
+      below? Just <a href="/contact">drop us a line</a>, we’re always on
+      the look-out for the right people to join us.
+    </p>
+  </hgroup>
+  <script type="text/javascript" id="rbox-loader-script">
+if(!window._rbox){
+_rbox = { host_protocol:document.location.protocol, ready:function(cb){this.onready=cb;} };
+(function(d, e) {
+    var s, t, i, src=['/static/client-src-served/widget/16221/rbox_api.js', '/static/client-src-served/widget/16221/rbox_impl.js'];
+    t = d.getElementsByTagName(e); t=t[t.length - 1];
+    for(i=0; i<src.length; i++) {
+        s = d.createElement(e); s.src = _rbox.host_protocol + '//w.recruiterbox.com' + eval("src" + String.fromCharCode(91) + String(i) + String.fromCharCode(93));
+        t.parentNode.insertBefore(s, t.nextSibling);
+    }})(document, 'script');
+}
+</script>
+</section>
+{% endblock %}

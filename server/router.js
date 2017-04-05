@@ -18,13 +18,18 @@ module.exports = function router(app) {
   // });
 
   .get('/', (req, res) => { res.render('index'); })
+  .get('/about', (req, res) => { res.render('about'); })
+  .get('/contact', (req, res) => { res.render('contact'); })
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
+  .get('/jobs', (req, res) => { res.render('jobs'); })
   .get('/products', (req, res) => { res.render('products/index'); })
   .get('/products/pricing', (req, res) => { res.render('products/pricing'); })
   .get('/products/contact', (req, res) => { res.render('products/contact'); })
   .get('/products/view', (req, res) => { res.render('products/view'); })
   .get('/support', (req, res) => { res.render('support'); })
+  .get('/team', (req, res) => { res.render('team'); })
+  .get('/values', (req, res) => { res.render('values'); })
 
   .get('/pricing', (req, res) => { res.render('pricing/index'); })
   .post('/pricing', bp.urlencoded({extended: true}), pricingCtrl)

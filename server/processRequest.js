@@ -61,6 +61,7 @@ module.exports = function(req, res, next) {
   res.locals = {
     header_style: 'transparent',
     id: req.originalUrl.split('/').join('-'),
+    employees: shuffle(employees),
     pre_footer: true,
     protocol: protocol,
     domain: req.get('host'),

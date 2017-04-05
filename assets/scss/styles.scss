@@ -67,6 +67,7 @@
 @import 'hljs';
 
 @import 'components/animations';
+@import 'components/banner';
 @import 'components/header';
 @import 'components/cta';
 @import 'components/pre_footer';
@@ -87,6 +88,8 @@
 
 @import 'general';
 @import 'pages/404';
+@import 'pages/about';
+@import 'pages/contact';
 @import 'pages/developers';
 @import 'pages/docs/home';
 @import 'pages/docs/ionicons-resource';
@@ -94,6 +97,7 @@
 @import 'pages/docs/search';
 @import 'pages/getting-started';
 @import 'pages/home';
+@import 'pages/jobs';
 @import 'pages/pricing';
 @import 'pages/products/index';
 @import 'pages/products/pricing';
@@ -101,4 +105,6 @@
 @import 'pages/products/contact';
 @import 'pages/resources';
 @import 'pages/support';
+@import 'pages/team';
 @import 'pages/trusted-partners';
+@import 'pages/values';

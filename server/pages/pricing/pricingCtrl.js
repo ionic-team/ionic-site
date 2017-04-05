@@ -2,7 +2,7 @@ var tools = require('../../tools');
 
 module.exports = function(req, res) {
 
-  console.log(req.body);
+  // console.log(req.body);
 
   var m = {
     to: ['brody@ionic.io'],
@@ -19,6 +19,7 @@ module.exports = function(req, res) {
   tools.email(m.to, m.from, m.name, m.subject, m.body).then(function() {
     res.locals.notification = 'Message Sent';
     res.locals.notificationClass = 'white';
+    console.log('pricing email sent');
     res.render('pricing/index');
   }, function(err) {
     res.locals.notification = 'Unable to send message at this time';

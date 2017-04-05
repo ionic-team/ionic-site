@@ -10,20 +10,26 @@
     ],
     "module": "es2015",
     "moduleResolution": "node",
-    "noImplicitAny": false,
-    "removeComments": false,
+    "noImplicitAny": true,
+    "removeComments": true,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2015",
     "types": [
-      "jasmine"
+      "jasmine",
+      "systemjs"
     ]
   },
   "include": [
-    "./dist/demos/alert/*.ts"
+    "/root/ionic/src/**/*.ts",
+    "/root/ionic/demos/src/alert/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": {
     "rewriteTsconfig": false
+  },
+  "angularCompilerOptions": {
+    "annotationsAs": "static fields",
+    "annotateForClosureCompiler": true
   }
 }

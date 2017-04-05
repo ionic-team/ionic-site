@@ -14322,13 +14322,13 @@ class Config {
         this._trns = {};
     }
     init(config, plt) {
-        this._s = config && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["k" /* isObject */])(config) && !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["b" /* isArray */])(config) ? config : {};
+        this._s = config && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isObject */])(config) && !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["b" /* isArray */])(config) ? config : {};
         this.plt = plt;
     }
     get(key, fallbackValue = null) {
         const platform = this.plt;
-        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(this._c[key])) {
-            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(key)) {
+        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(this._c[key])) {
+            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(key)) {
                 throw 'config key is not defined';
             }
             var userPlatformValue = undefined;
@@ -14340,7 +14340,7 @@ class Config {
             var configObj = null;
             if (platform) {
                 var queryStringValue = platform.getQueryParam('ionic' + key);
-                if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(queryStringValue)) {
+                if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(queryStringValue)) {
                     return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
                 }
                 var activePlatformKeys = platform.platforms();
@@ -14348,41 +14348,41 @@ class Config {
                     if (this._s.platforms) {
                         configObj = this._s.platforms[activePlatformKeys[i]];
                         if (configObj) {
-                            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(configObj[key])) {
+                            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(configObj[key])) {
                                 userPlatformValue = configObj[key];
                             }
                             configObj = this.getModeConfig(configObj.mode);
-                            if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(configObj[key])) {
+                            if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(configObj[key])) {
                                 userPlatformModeValue = configObj[key];
                             }
                         }
                     }
                     configObj = platform.getPlatformConfig(activePlatformKeys[i]);
                     if (configObj && configObj.settings) {
-                        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(configObj.settings[key])) {
+                        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(configObj.settings[key])) {
                             platformValue = configObj.settings[key];
                         }
                         configObj = this.getModeConfig(configObj.settings.mode);
-                        if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(configObj[key])) {
+                        if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(configObj[key])) {
                             platformModeValue = configObj[key];
                         }
                     }
                 }
             }
             configObj = this.getModeConfig(this._s.mode);
-            if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(configObj[key])) {
+            if (configObj && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(configObj[key])) {
                 userDefaultModeValue = configObj[key];
             }
-            this._c[key] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(userPlatformValue) ? userPlatformValue :
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(userDefaultValue) ? userDefaultValue :
-                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(userPlatformModeValue) ? userPlatformModeValue :
-                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(userDefaultModeValue) ? userDefaultModeValue :
-                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(platformValue) ? platformValue :
-                                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["l" /* isDefined */])(platformModeValue) ? platformModeValue :
+            this._c[key] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(userPlatformValue) ? userPlatformValue :
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(userDefaultValue) ? userDefaultValue :
+                    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(userPlatformModeValue) ? userPlatformModeValue :
+                        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(userDefaultModeValue) ? userDefaultModeValue :
+                            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(platformValue) ? platformValue :
+                                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isDefined */])(platformModeValue) ? platformModeValue :
                                     null;
         }
         var rtnVal = this._c[key];
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["m" /* isFunction */])(rtnVal)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["n" /* isFunction */])(rtnVal)) {
             rtnVal = rtnVal(platform);
         }
         return (rtnVal !== null ? rtnVal : fallbackValue);
@@ -14467,28 +14467,28 @@ const ConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Opaqu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["i"] = clamp;
+/* harmony export (immutable) */ __webpack_exports__["j"] = clamp;
 /* harmony export (immutable) */ __webpack_exports__["r"] = deepCopy;
 /* harmony export (immutable) */ __webpack_exports__["s"] = deepEqual;
 /* unused harmony export debounce */
-/* harmony export (immutable) */ __webpack_exports__["h"] = defaults;
+/* harmony export (immutable) */ __webpack_exports__["i"] = defaults;
 /* unused harmony export isBoolean */
-/* harmony export (immutable) */ __webpack_exports__["n"] = isString;
-/* harmony export (immutable) */ __webpack_exports__["e"] = isNumber;
-/* harmony export (immutable) */ __webpack_exports__["m"] = isFunction;
-/* harmony export (immutable) */ __webpack_exports__["l"] = isDefined;
-/* harmony export (immutable) */ __webpack_exports__["o"] = isUndefined;
+/* harmony export (immutable) */ __webpack_exports__["o"] = isString;
+/* harmony export (immutable) */ __webpack_exports__["f"] = isNumber;
+/* harmony export (immutable) */ __webpack_exports__["n"] = isFunction;
+/* harmony export (immutable) */ __webpack_exports__["m"] = isDefined;
+/* harmony export (immutable) */ __webpack_exports__["p"] = isUndefined;
 /* harmony export (immutable) */ __webpack_exports__["a"] = isPresent;
 /* harmony export (immutable) */ __webpack_exports__["d"] = isBlank;
-/* harmony export (immutable) */ __webpack_exports__["k"] = isObject;
+/* harmony export (immutable) */ __webpack_exports__["l"] = isObject;
 /* harmony export (immutable) */ __webpack_exports__["b"] = isArray;
 /* unused harmony export isPrimitive */
-/* harmony export (immutable) */ __webpack_exports__["p"] = isTrueProperty;
+/* harmony export (immutable) */ __webpack_exports__["e"] = isTrueProperty;
 /* harmony export (immutable) */ __webpack_exports__["t"] = isCheckedProperty;
 /* harmony export (immutable) */ __webpack_exports__["q"] = reorderArray;
-/* harmony export (immutable) */ __webpack_exports__["f"] = removeArrayItem;
-/* harmony export (immutable) */ __webpack_exports__["g"] = swipeShouldReset;
-/* harmony export (immutable) */ __webpack_exports__["j"] = requestIonicCallback;
+/* harmony export (immutable) */ __webpack_exports__["g"] = removeArrayItem;
+/* harmony export (immutable) */ __webpack_exports__["h"] = swipeShouldReset;
+/* harmony export (immutable) */ __webpack_exports__["k"] = requestIonicCallback;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return _assert; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return _runInDev; });
 function clamp(min, n, max) {
@@ -14741,7 +14741,7 @@ class Platform {
         const action = { fn, priority };
         this._bbActions.push(action);
         return () => {
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["f" /* removeArrayItem */])(this._bbActions, action);
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["g" /* removeArrayItem */])(this._bbActions, action);
         };
     }
     runBackButtonAction() {
@@ -20180,7 +20180,7 @@ let DomController = class DomController {
             if (fn.timeoutId) {
                 this.plt.cancelTimeout(fn.timeoutId);
             }
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["f" /* removeArrayItem */])(this.r, fn) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["f" /* removeArrayItem */])(this.w, fn);
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["g" /* removeArrayItem */])(this.r, fn) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["g" /* removeArrayItem */])(this.w, fn);
         }
     }
     _queue() {
@@ -26442,7 +26442,7 @@ let Form = class Form {
         this._inputs.push(input);
     }
     deregister(input) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["f" /* removeArrayItem */])(this._inputs, input);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["g" /* removeArrayItem */])(this._inputs, input);
         if (input === this._focused) {
             this._focused = null;
         }
@@ -26539,7 +26539,7 @@ class Animation {
         return this;
     }
     getDuration(opts) {
-        if (opts && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["l" /* isDefined */])(opts.duration)) {
+        if (opts && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["m" /* isDefined */])(opts.duration)) {
             return opts.duration;
         }
         else if (this._dur !== null) {
@@ -26762,7 +26762,7 @@ class Animation {
             children[i]._playEnd(stepValue);
         }
         if (this._hasDur) {
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["l" /* isDefined */])(stepValue)) {
+            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["m" /* isDefined */])(stepValue)) {
                 this._setTrans(0, true);
                 this._progress(stepValue);
             }
@@ -27966,19 +27966,19 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         return this._fullscreen;
     }
     set fullscreen(val) {
-        this._fullscreen = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
+        this._fullscreen = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["e" /* isTrueProperty */])(val);
     }
     get scrollDownOnLoad() {
         return this._scrollDownOnLoad;
     }
     set scrollDownOnLoad(val) {
-        this._scrollDownOnLoad = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
+        this._scrollDownOnLoad = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["e" /* isTrueProperty */])(val);
     }
     addImg(img) {
         this._imgs.push(img);
     }
     removeImg(img) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["f" /* removeArrayItem */])(this._imgs, img);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["g" /* removeArrayItem */])(this._imgs, img);
     }
     setScrollElementStyle(prop, val) {
         const scrollEle = this.getScrollElement();
@@ -28634,7 +28634,7 @@ let Button = class Button extends __WEBPACK_IMPORTED_MODULE_2__ion__["a" /* Ion 
             this._updateColor(this._color, false);
         }
         this._setClass(this[type], false);
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(attrValue)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(attrValue)) {
             this[type] = attrName;
             this._setClass(attrName, true);
         }
@@ -29135,7 +29135,7 @@ class MenuController {
     }
     _unregister(menu) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["c" /* assert */])(this._menus.indexOf(menu) >= 0, 'menu is not registered');
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["f" /* removeArrayItem */])(this._menus, menu);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["g" /* removeArrayItem */])(this._menus, menu);
     }
     _setActiveMenu(menu) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["c" /* assert */])(menu.enabled, 'menu must be enabled');
@@ -29205,7 +29205,7 @@ let Navbar = class Navbar extends __WEBPACK_IMPORTED_MODULE_5__toolbar_toolbar_b
         return this._hideBb;
     }
     set hideBackButton(val) {
-        this._hideBb = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        this._hideBb = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
     }
     backButtonClick(ev) {
         ev.preventDefault();
@@ -34167,7 +34167,7 @@ let SplitPane = SplitPane_1 = class SplitPane extends __WEBPACK_IMPORTED_MODULE_
         return this._mediaQuery;
     }
     set enabled(val) {
-        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
         this._update();
     }
     get enabled() {
@@ -34385,20 +34385,20 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this.value = val;
     }
     setDisabledState(isDisabled) {
-        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* isTrueProperty */])(isDisabled);
+        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["e" /* isTrueProperty */])(isDisabled);
         this._item && this._item.setElementClass(`item-${this._componentName}-disabled`, isDisabled);
     }
     writeValue(val) {
         this._writeValue(val);
     }
     _writeValue(val) {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["o" /* isUndefined */])(val)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* isUndefined */])(val)) {
             return false;
         }
         const normalized = (val === null)
             ? __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["r" /* deepCopy */])(this._defaultValue)
             : this._inputNormalize(val);
-        const notUpdate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["o" /* isUndefined */])(normalized) || !this._inputShouldChange(normalized);
+        const notUpdate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* isUndefined */])(normalized) || !this._inputShouldChange(normalized);
         if (notUpdate) {
             return false;
         }
@@ -34563,7 +34563,7 @@ let Icon = class Icon extends __WEBPACK_IMPORTED_MODULE_3__ion__["a" /* Ion */] 
         return this._isActive;
     }
     set isActive(val) {
-        this._isActive = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._isActive = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
         this.update();
     }
     update() {
@@ -34860,7 +34860,7 @@ function setupPreloadingImplementation(config, deepLinkConfig, moduleLoader) {
 }
 function setupPreloading(config, deepLinkConfig, moduleLoader, ngZone) {
     return function () {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["j" /* requestIonicCallback */])(() => {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util__["k" /* requestIonicCallback */])(() => {
             ngZone.runOutsideAngular(() => {
                 setupPreloadingImplementation(config, deepLinkConfig, moduleLoader);
             });
@@ -35481,7 +35481,7 @@ let ItemReorder = class ItemReorder {
         return this._enableReorder;
     }
     set reorder(val) {
-        let enabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        let enabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
         if (!enabled && this._reorderGesture) {
             this._reorderGesture.destroy();
             this._reorderGesture = null;
@@ -35665,14 +35665,13 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__navigation_nav_controller_base__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__platform_platform__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__navigation_view_controller__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__split_pane_split_pane__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller_base__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__platform_platform__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__ = __webpack_require__(35);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Nav; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -35699,8 +35698,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
-
-let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_9__navigation_nav_controller_base__["a" /* NavControllerBase */] {
+let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller_base__["a" /* NavControllerBase */] {
     constructor(viewCtrl, parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl) {
         super(parent, app, config, plt, keyboard, elementRef, zone, renderer, cfr, gestureCtrl, transCtrl, linker, domCtrl);
         this._hasInit = false;
@@ -35747,13 +35745,6 @@ let Nav = Nav_1 = class Nav extends __WEBPACK_IMPORTED_MODULE_9__navigation_nav_
             this.setRoot(page);
         }
     }
-    get swipeBackEnabled() {
-        return this._sbEnabled;
-    }
-    set swipeBackEnabled(val) {
-        this._sbEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
-        this._swipeBackCheck();
-    }
     ngOnDestroy() {
         this.destroy();
     }
@@ -35781,23 +35772,18 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Object)
 ], Nav.prototype, "rootParams", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], Nav.prototype, "swipeBackEnabled", null);
 Nav = Nav_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'ion-nav',
         template: '<div #viewport nav-viewport></div>' +
             '<div class="nav-decor"></div>',
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None,
-        providers: [{ provide: __WEBPACK_IMPORTED_MODULE_13__split_pane_split_pane__["a" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(() => Nav_1) }]
+        providers: [{ provide: __WEBPACK_IMPORTED_MODULE_12__split_pane_split_pane__["a" /* RootNode */], useExisting: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* forwardRef */])(() => Nav_1) }]
     }),
     __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
     __param(12, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_12__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__navigation_view_controller__["a" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controller__["a" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _r || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__navigation_view_controller__["a" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller__["a" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_app__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__platform_platform__["b" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__platform_keyboard__["a" /* Keyboard */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__transitions_transition_controller__["a" /* TransitionController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__["b" /* DeepLinker */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__["a" /* DomController */]) === "function" && _r || Object])
 ], Nav);
 
 var Nav_1, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
@@ -35948,7 +35934,7 @@ let PickerColumnCmp = class PickerColumnCmp {
             var timeOffset = (this.pos[endPos] - this.pos[startPos]);
             var movedTop = (this.pos[startPos - 1] - this.pos[endPos - 1]);
             var velocity = ((movedTop / timeOffset) * __WEBPACK_IMPORTED_MODULE_5__picker_options__["a" /* FRAME_MS */]);
-            this.velocity = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["i" /* clamp */])(-__WEBPACK_IMPORTED_MODULE_5__picker_options__["b" /* MAX_PICKER_SPEED */], velocity, __WEBPACK_IMPORTED_MODULE_5__picker_options__["b" /* MAX_PICKER_SPEED */]);
+            this.velocity = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["j" /* clamp */])(-__WEBPACK_IMPORTED_MODULE_5__picker_options__["b" /* MAX_PICKER_SPEED */], velocity, __WEBPACK_IMPORTED_MODULE_5__picker_options__["b" /* MAX_PICKER_SPEED */]);
         }
         if (Math.abs(endY - this.startY) > 3) {
             var y = this.y + (endY - this.startY);
@@ -36108,7 +36094,7 @@ let PickerColumnCmp = class PickerColumnCmp {
                 max = Math.max(max, i);
             }
         }
-        const selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["i" /* clamp */])(min, this.col.selectedIndex, max);
+        const selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["j" /* clamp */])(min, this.col.selectedIndex, max);
         if (this.col.prevSelected !== selectedIndex) {
             var y = (selectedIndex * this.optHeight) * -1;
             this._plt.cancelRaf(this.rafId);
@@ -36811,7 +36797,7 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_8__ion__["a" /
         return this._clearInput;
     }
     set clearInput(val) {
-        this._clearInput = (this._type !== TEXTAREA && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["p" /* isTrueProperty */])(val));
+        this._clearInput = (this._type !== TEXTAREA && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["e" /* isTrueProperty */])(val));
     }
     get value() {
         return this._value;
@@ -36826,7 +36812,7 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_8__ion__["a" /
     set type(val) {
         if (this._type !== TEXTAREA) {
             this._type = 'text';
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["n" /* isString */])(val)) {
+            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["o" /* isString */])(val)) {
                 val = val.toLowerCase();
                 if (TEXT_TYPE_REGEX.test(val)) {
                     this._type = val;
@@ -36838,7 +36824,7 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_8__ion__["a" /
         return this._disabled;
     }
     set disabled(val) {
-        this.setDisabled(this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["p" /* isTrueProperty */])(val));
+        this.setDisabled(this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["e" /* isTrueProperty */])(val));
     }
     setDisabled(val) {
         this._renderer.setElementAttribute(this._elementRef.nativeElement, 'disabled', val ? '' : null);
@@ -36852,13 +36838,13 @@ let TextInput = class TextInput extends __WEBPACK_IMPORTED_MODULE_8__ion__["a" /
         return this._readonly;
     }
     set readonly(val) {
-        this._readonly = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["p" /* isTrueProperty */])(val);
+        this._readonly = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["e" /* isTrueProperty */])(val);
     }
     get clearOnEdit() {
         return this._clearOnEdit;
     }
     set clearOnEdit(val) {
-        this._clearOnEdit = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["p" /* isTrueProperty */])(val);
+        this._clearOnEdit = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__util_util__["e" /* isTrueProperty */])(val);
     }
     get min() {
         return this._min;
@@ -37669,7 +37655,7 @@ let List = class List extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Ion */] 
         return this._enableSliding;
     }
     set sliding(val) {
-        this._enableSliding = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["p" /* isTrueProperty */])(val);
+        this._enableSliding = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["e" /* isTrueProperty */])(val);
         this._updateSlidingState();
     }
     containsSlidingItem(contains) {
@@ -37758,10 +37744,10 @@ let LoadingCmp = class LoadingCmp {
         this.id = (++loadingIds);
     }
     ngOnInit() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["o" /* isUndefined */])(this.d.spinner)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isUndefined */])(this.d.spinner)) {
             this.d.spinner = this._config.get('loadingSpinner', this._config.get('spinner', 'ios'));
         }
-        this.showSpinner = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["l" /* isDefined */])(this.d.spinner) && this.d.spinner !== 'hide';
+        this.showSpinner = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["m" /* isDefined */])(this.d.spinner) && this.d.spinner !== 'hide';
     }
     ionViewWillEnter() {
         this.gestureBlocker.block();
@@ -38105,7 +38091,7 @@ let PickerCmp = class PickerCmp {
     ionViewWillLoad() {
         let data = this.d;
         data.buttons = data.buttons.map(button => {
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["n" /* isString */])(button)) {
+            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["o" /* isString */])(button)) {
                 return { text: button };
             }
             if (button.role) {
@@ -38125,7 +38111,7 @@ let PickerCmp = class PickerCmp {
                     disabled: inputOpt.disabled,
                 };
                 if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(inputOpt)) {
-                    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["n" /* isString */])(inputOpt) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isNumber */])(inputOpt)) {
+                    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["o" /* isString */])(inputOpt) || __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["f" /* isNumber */])(inputOpt)) {
                         opt.text = inputOpt.toString();
                         opt.value = inputOpt;
                     }
@@ -39365,7 +39351,7 @@ let Spinner = class Spinner extends __WEBPACK_IMPORTED_MODULE_2__ion__["a" /* Io
         return this._paused;
     }
     set paused(val) {
-        this._paused = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        this._paused = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
     }
     ngOnInit() {
         this._init = true;
@@ -39701,7 +39687,7 @@ class PanGesture {
     constructor(plt, element, opts = {}) {
         this.plt = plt;
         this.element = element;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["h" /* defaults */])(opts, {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["i" /* defaults */])(opts, {
             threshold: 20,
             maxAngle: 40,
             direction: 'x',
@@ -39851,6 +39837,15 @@ class PanGesture {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nav_controller__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__nav_params__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__swipe_back__ = __webpack_require__(288);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
@@ -39890,6 +39885,13 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this.viewWillUnload = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* EventEmitter */]();
         this._sbEnabled = config.getBoolean('swipeBackEnabled');
         this.id = 'n' + (++ctrlIds);
+    }
+    get swipeBackEnabled() {
+        return this._sbEnabled;
+    }
+    set swipeBackEnabled(val) {
+        this._sbEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
+        this._swipeBackCheck();
     }
     push(page, params, opts, done) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__nav_util__["j" /* convertToView */])(this._linker, page, params).then(viewController => {
@@ -39938,7 +39940,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
             config.removeView = indexOrViewCtrl;
             config.removeStart = 1;
         }
-        else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isNumber */])(indexOrViewCtrl)) {
+        else if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["f" /* isNumber */])(indexOrViewCtrl)) {
             config.removeStart = indexOrViewCtrl + 1;
         }
         return this._queueTrns(config, done);
@@ -40493,7 +40495,7 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
         this._children.push(nav);
     }
     unregisterChildNav(nav) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["f" /* removeArrayItem */])(this._children, nav);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["g" /* removeArrayItem */])(this._children, nav);
     }
     destroy() {
         const views = this._views;
@@ -40621,6 +40623,11 @@ class NavControllerBase extends __WEBPACK_IMPORTED_MODULE_4__components_ion__["a
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = NavControllerBase;
 
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], NavControllerBase.prototype, "swipeBackEnabled", null);
 let ctrlIds = -1;
 const DISABLE_APP_MINIMUM_DURATION = 64;
 const ACTIVE_TRANSITION_DEFAULT = 5000;
@@ -41540,7 +41547,7 @@ let FabList = class FabList {
         }
     }
     setVisible(val) {
-        let visible = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        let visible = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
         if (visible === this._visible) {
             return;
         }
@@ -42237,7 +42244,7 @@ let ItemSliding = class ItemSliding {
         let isResetDirection = (this._openAmount > 0) === !(velocity < 0);
         let isMovingFast = Math.abs(velocity) > 0.3;
         let isOnCloseZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["g" /* swipeShouldReset */])(isResetDirection, isMovingFast, isOnCloseZone)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["h" /* swipeShouldReset */])(isResetDirection, isMovingFast, isOnCloseZone)) {
             restingPoint = 0;
         }
         this._setOpenAmount(restingPoint, true);
@@ -43020,13 +43027,13 @@ let Option = class Option {
         return this._disabled;
     }
     set disabled(val) {
-        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     get selected() {
         return this._selected;
     }
     set selected(val) {
-        this._selected = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._selected = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     get value() {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["a" /* isPresent */])(this._value)) {
@@ -43259,7 +43266,7 @@ let RadioGroup = class RadioGroup {
         return this._disabled;
     }
     set disabled(val) {
-        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
     }
     ngAfterContentInit() {
         let activeButton = this._btns.find(b => b.checked);
@@ -43571,7 +43578,7 @@ let Refresher = class Refresher {
         return this._isEnabled;
     }
     set enabled(val) {
-        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
         this._setListeners(this._isEnabled);
     }
     _onStart(ev) {
@@ -43910,7 +43917,7 @@ let SegmentButton = class SegmentButton {
         return this._disabled;
     }
     set disabled(val) {
-        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     onClick() {
         console.debug('SegmentButton, select', this.value);
@@ -44380,13 +44387,13 @@ let Slides = Slides_1 = class Slides extends __WEBPACK_IMPORTED_MODULE_3__ion__[
         return this._isLoop;
     }
     set loop(val) {
-        this._isLoop = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._isLoop = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     get pager() {
         return this._pager;
     }
     set pager(val) {
-        this._pager = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._pager = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     set dir(val) {
         this._rtl = (val.toLowerCase() === 'rtl');
@@ -44403,7 +44410,7 @@ let Slides = Slides_1 = class Slides extends __WEBPACK_IMPORTED_MODULE_3__ion__[
         return this._isParallax;
     }
     set parallax(val) {
-        this._isParallax = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._isParallax = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     get speed() {
         return this._speedMs;
@@ -44415,7 +44422,7 @@ let Slides = Slides_1 = class Slides extends __WEBPACK_IMPORTED_MODULE_3__ion__[
         return this._isZoom;
     }
     set zoom(val) {
-        this._isZoom = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._isZoom = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     get spaceBetween() {
         return this._spaceBetween;
@@ -45422,25 +45429,19 @@ let Tab = class Tab extends __WEBPACK_IMPORTED_MODULE_8__navigation_nav_controll
         return this._isEnabled;
     }
     set enabled(val) {
-        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
+        this._isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["e" /* isTrueProperty */])(val);
     }
     get show() {
         return this._isShown;
     }
     set show(val) {
-        this._isShown = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
-    }
-    get swipeBackEnabled() {
-        return this._sbEnabled;
-    }
-    set swipeBackEnabled(val) {
-        this._sbEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
+        this._isShown = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["e" /* isTrueProperty */])(val);
     }
     get tabsHideOnSubPages() {
         return this._tabsHideOnSubPages;
     }
     set tabsHideOnSubPages(val) {
-        this._tabsHideOnSubPages = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["p" /* isTrueProperty */])(val);
+        this._tabsHideOnSubPages = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__util_util__["e" /* isTrueProperty */])(val);
     }
     set _vp(val) {
         this.setViewport(val);
@@ -45544,11 +45545,6 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
 ], Tab.prototype, "show", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], Tab.prototype, "swipeBackEnabled", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])(),
     __metadata("design:type", Boolean),
@@ -46445,7 +46441,7 @@ function registerModeConfigs(config) {
 
 class SlideEdgeGesture extends __WEBPACK_IMPORTED_MODULE_0__slide_gesture__["a" /* SlideGesture */] {
     constructor(plt, element, opts = {}) {
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["h" /* defaults */])(opts, {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["i" /* defaults */])(opts, {
             edge: 'left',
             maxEdgeStart: 50
         });
@@ -49090,7 +49086,7 @@ let Checkbox = class Checkbox extends __WEBPACK_IMPORTED_MODULE_5__util_base_inp
         this.value = !this.value;
     }
     _inputNormalize(val) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
     }
     _inputCheckHasValue(val) {
         this._item && this._item.setElementClass('item-checkbox-checked', val);
@@ -49432,7 +49428,7 @@ let DateTime = class DateTime extends __WEBPACK_IMPORTED_MODULE_5__util_base_inp
                 indexMax = Math.max(indexMax, i);
             }
         }
-        let selectedIndex = column.selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["i" /* clamp */])(indexMin, column.selectedIndex, indexMax);
+        let selectedIndex = column.selectedIndex = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["j" /* clamp */])(indexMin, column.selectedIndex, indexMax);
         opt = column.options[selectedIndex];
         if (opt) {
             return opt.value;
@@ -49655,7 +49651,7 @@ DateTime = __decorate([
 ], DateTime);
 
 function convertToArrayOfNumbers(input, type) {
-    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["n" /* isString */])(input)) {
+    if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["o" /* isString */])(input)) {
         input = input.replace(/\[|\]|\s/g, '').split(',');
     }
     let values;
@@ -49671,7 +49667,7 @@ function convertToArrayOfNumbers(input, type) {
 }
 function convertToArrayOfStrings(input, type) {
     if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["a" /* isPresent */])(input)) {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["n" /* isString */])(input)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["o" /* isString */])(input)) {
             input = input.replace(/\[|\]/g, '').split(',');
         }
         var values;
@@ -50001,7 +49997,7 @@ let Img = class Img {
         return this._cache;
     }
     set cache(val) {
-        this._cache = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["p" /* isTrueProperty */])(val);
+        this._cache = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__util_util__["e" /* isTrueProperty */])(val);
     }
     set width(val) {
         this._wQ = getUnitValue(val);
@@ -50528,21 +50524,21 @@ let Menu = Menu_1 = class Menu {
         return this._isEnabled;
     }
     set enabled(val) {
-        const isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["p" /* isTrueProperty */])(val);
+        const isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["e" /* isTrueProperty */])(val);
         this.enable(isEnabled);
     }
     get swipeEnabled() {
         return this._isSwipeEnabled;
     }
     set swipeEnabled(val) {
-        const isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["p" /* isTrueProperty */])(val);
+        const isEnabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["e" /* isTrueProperty */])(val);
         this.swipeEnable(isEnabled);
     }
     get persistent() {
         return this._isPersistent;
     }
     set persistent(val) {
-        this._isPersistent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["p" /* isTrueProperty */])(val);
+        this._isPersistent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["e" /* isTrueProperty */])(val);
     }
     ngOnInit() {
         this._init = true;
@@ -51225,7 +51221,7 @@ let RadioButton = class RadioButton extends __WEBPACK_IMPORTED_MODULE_3__ion__["
         return this._checked;
     }
     set checked(val) {
-        this._checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._checked = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
         if (this._item) {
             this._item.setElementClass('item-radio-checked', this._checked);
         }
@@ -51234,7 +51230,7 @@ let RadioButton = class RadioButton extends __WEBPACK_IMPORTED_MODULE_3__ion__["
         return this._disabled || (this._group != null && this._group.disabled);
     }
     set disabled(val) {
-        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._disabled = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
         this._item && this._item.setElementClass('item-radio-disabled', this._disabled);
     }
     initFocus() {
@@ -51527,13 +51523,13 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
         return this._snaps;
     }
     set snaps(val) {
-        this._snaps = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        this._snaps = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
     }
     get pin() {
         return this._pin;
     }
     set pin(val) {
-        this._pin = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        this._pin = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
     }
     get debounce() {
         return this._debouncer.wait;
@@ -51545,7 +51541,7 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
         return this._dual;
     }
     set dualKnobs(val) {
-        this._dual = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["p" /* isTrueProperty */])(val);
+        this._dual = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["e" /* isTrueProperty */])(val);
     }
     get ratio() {
         if (this._dual) {
@@ -51579,7 +51575,7 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
         ev.stopPropagation();
         const current = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10__util_dom__["a" /* pointerCoord */])(ev);
         const rect = this._rect = this._plt.getElementBoundingClientRect(this._slider.nativeElement);
-        const ratio = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(0, (current.x - rect.left) / (rect.width), 1);
+        const ratio = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(0, (current.x - rect.left) / (rect.width), 1);
         this._activeB = this._dual && (Math.abs(ratio - this._ratioA) > Math.abs(ratio - this._ratioB));
         this._update(current, rect, true);
         this._haptic.gestureSelectionStart();
@@ -51607,7 +51603,7 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
         this._fireBlur();
     }
     _update(current, rect, isPressed) {
-        let ratio = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(0, (current.x - rect.left) / (rect.width), 1);
+        let ratio = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(0, (current.x - rect.left) / (rect.width), 1);
         let val = this._ratioToValue(ratio);
         if (this._snaps) {
             ratio = this._valueToRatio(val);
@@ -51701,7 +51697,7 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
             else {
                 this._valB -= step;
             }
-            this._valB = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(this._min, this._valB, this._max);
+            this._valB = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(this._min, this._valB, this._max);
             this._ratioB = this._valueToRatio(this._valB);
         }
         else {
@@ -51711,7 +51707,7 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
             else {
                 this._valA -= step;
             }
-            this._valA = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(this._min, this._valA, this._max);
+            this._valA = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(this._min, this._valA, this._max);
             this._ratioA = this._valueToRatio(this._valA);
         }
         this._updateBar();
@@ -51719,12 +51715,12 @@ let Range = class Range extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__["
     _ratioToValue(ratio) {
         ratio = Math.round(((this._max - this._min) * ratio));
         ratio = Math.round(ratio / this._step) * this._step + this._min;
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(this._min, ratio, this._max);
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(this._min, ratio, this._max);
     }
     _valueToRatio(value) {
         value = Math.round((value - this._min) / this._step) * this._step;
         value = value / (this._max - this._min);
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["i" /* clamp */])(0, value, 1);
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__util_util__["j" /* clamp */])(0, value, 1);
     }
     _inputNormalize(val) {
         if (this._dual) {
@@ -51931,19 +51927,19 @@ let Scroll = class Scroll {
         return this._scrollX;
     }
     set scrollX(val) {
-        this._scrollX = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._scrollX = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     get scrollY() {
         return this._scrollY;
     }
     set scrollY(val) {
-        this._scrollY = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._scrollY = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     get zoom() {
         return this._zoom;
     }
     set zoom(val) {
-        this._zoom = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["p" /* isTrueProperty */])(val);
+        this._zoom = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["e" /* isTrueProperty */])(val);
     }
     get maxZoom() {
         return this._maxZoom;
@@ -52060,7 +52056,7 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
         return this._showCancelButton;
     }
     set showCancelButton(val) {
-        this._showCancelButton = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._showCancelButton = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     get debounce() {
         return this._debouncer.wait;
@@ -52081,7 +52077,7 @@ let Searchbar = class Searchbar extends __WEBPACK_IMPORTED_MODULE_3__util_base_i
         return this._animated;
     }
     set animated(val) {
-        this._animated = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["p" /* isTrueProperty */])(val);
+        this._animated = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__util_util__["e" /* isTrueProperty */])(val);
     }
     ngAfterViewInit() {
         this._initialize();
@@ -52528,7 +52524,7 @@ let Select = class Select extends __WEBPACK_IMPORTED_MODULE_7__util_base_input__
         return this._multi;
     }
     set multiple(val) {
-        this._multi = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_util__["p" /* isTrueProperty */])(val);
+        this._multi = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__util_util__["e" /* isTrueProperty */])(val);
     }
     get text() {
         return (this._multi ? this._texts : this._texts.join());
@@ -53525,7 +53521,7 @@ let Toggle = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_base_input__
         this._gesture.listen();
     }
     _inputNormalize(val) {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["p" /* isTrueProperty */])(val);
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["e" /* isTrueProperty */])(val);
     }
     _inputUpdated() {
         this._item && this._item.setElementClass('item-toggle-checked', this.value);
@@ -53950,12 +53946,12 @@ let VirtualScroll = class VirtualScroll {
         }
     }
     set headerFn(val) {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["m" /* isFunction */])(val)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["n" /* isFunction */])(val)) {
             this._hdrFn = val.bind((this._ctrl._cmp) || this);
         }
     }
     set footerFn(val) {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["m" /* isFunction */])(val)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["n" /* isFunction */])(val)) {
             this._ftrFn = val.bind((this._ctrl._cmp) || this);
         }
     }
@@ -54384,7 +54380,7 @@ class SlideGesture extends __WEBPACK_IMPORTED_MODULE_0__drag_gesture__["a" /* Pa
         let velocity = (newPos - slide.pos) / (newTimestamp - slide.timestamp);
         slide.pos = newPos;
         slide.timestamp = newTimestamp;
-        slide.distance = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["i" /* clamp */])(slide.min, newPos - slide.pointerStartPos + slide.elementStartPos, slide.max);
+        slide.distance = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["j" /* clamp */])(slide.min, newPos - slide.pointerStartPos + slide.elementStartPos, slide.max);
         slide.velocity = velocity;
         slide.delta = newPos - slide.pointerStartPos;
         this.onSlide(slide, ev);
@@ -54420,7 +54416,7 @@ class OverlayProxy {
         throw new Error('Child class must implement "getImplementation" method');
     }
     present(navOptions = {}) {
-        const isLazyLoaded = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["n" /* isString */])(this._component);
+        const isLazyLoaded = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["o" /* isString */])(this._component);
         if (isLazyLoaded) {
             return this._deepLinker.getComponentFromName(this._component).then((loadedComponent) => {
                 this._component = loadedComponent;
@@ -60716,9 +60712,9 @@ function View_Nav_Host_0(l) {
 const NavNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_33" /* ɵccf */]('ion-nav', __WEBPACK_IMPORTED_MODULE_1__nav__["a" /* Nav */], View_Nav_Host_0, {
     color: 'color',
     mode: 'mode',
+    swipeBackEnabled: 'swipeBackEnabled',
     root: 'root',
-    rootParams: 'rootParams',
-    swipeBackEnabled: 'swipeBackEnabled'
+    rootParams: 'rootParams'
 }, {}, []);
 /* unused harmony export NavNgFactory */
 
@@ -64077,7 +64073,7 @@ class Gesture {
     constructor(element, opts = {}) {
         this._callbacks = {};
         this.isListening = false;
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["h" /* defaults */])(opts, {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["i" /* defaults */])(opts, {
             domEvents: true
         });
         this.element = element;
@@ -65660,7 +65656,7 @@ class SwipeBackGesture extends __WEBPACK_IMPORTED_MODULE_2__gestures_slide_edge_
         const isResetDirecction = velocity < 0;
         const isMovingFast = Math.abs(slide.velocity) > 0.4;
         const isInResetZone = Math.abs(slide.delta) < Math.abs(slide.max) * 0.5;
-        const shouldComplete = !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["g" /* swipeShouldReset */])(isResetDirecction, isMovingFast, isInResetZone);
+        const shouldComplete = !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_util__["h" /* swipeShouldReset */])(isResetDirecction, isMovingFast, isInResetZone);
         this._nav.swipeBackEnd(shouldComplete, currentStepValue, velocity);
     }
 }
@@ -66261,7 +66257,7 @@ function parseDate(val) {
 }
 function updateDate(existingData, newData) {
     if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* isPresent */])(newData) && newData !== '') {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["n" /* isString */])(newData)) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["o" /* isString */])(newData)) {
             newData = parseDate(newData);
             if (newData) {
                 Object.assign(existingData, newData);

@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "config"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Config"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/config/"
+preview_device_url: "/docs/demos/src/config/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/config.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/config/config.ts#L10">
 Improve this doc
 </a>
 
@@ -49,6 +49,7 @@ You can set the tab placement, icon mode, animations, and more here.</p>
 @NgModule({
   declarations: [ MyApp ],
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: &#39;Go Back&#39;,
       iconMode: &#39;ios&#39;,
@@ -70,6 +71,7 @@ Below is an example where an app can override any setting we want based on a pla
 @NgModule({
   ...
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: &#39;bottom&#39;,
       platforms: {

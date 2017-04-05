@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "grid"
@@ -33,7 +33,7 @@ Grid
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/grid/grid.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/grid/grid.ts#L0">
 Improve this doc
 </a>
 
@@ -585,7 +585,7 @@ $grid-padding-widths: (
 <code>$grid-breakpoints</code> and <code>$grid-max-widths</code>. For example, to only use
 3 breakpoints, the following could be written:</p>
 <pre><code>$grid-breakpoints: (
-  sm: 480px,
+  sm: 0,
   md: 768px,
   lg: 1024px
 );

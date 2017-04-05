@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "slide"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Slide"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/slides/"
+preview_device_url: "/docs/demos/src/slides/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Slide
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slide.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/slides/slide.ts#L2">
 Improve this doc
 </a>
 
@@ -68,7 +68,7 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//api/components/slides/Slides/'>Slides API Docs</a><!-- end content block -->
+<a href="/docs/api/components/slides/Slides/">Slides API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

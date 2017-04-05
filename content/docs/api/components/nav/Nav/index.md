@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "nav"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Nav"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/navigation/"
+preview_device_url: "/docs/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav.ts#L15">
 Improve this doc
 </a>
 
@@ -101,7 +101,6 @@ class MyApp {
 
 
 
-
 <div id="initPane"></div>
 
 <h3>
@@ -110,7 +109,6 @@ class MyApp {
   
 
 </h3>
-
 
 
 
@@ -141,7 +139,6 @@ class MyApp {
 
 
 
-
 <div id="paneChanged"></div>
 
 <h3>
@@ -150,7 +147,6 @@ class MyApp {
   
 
 </h3>
-
 
 
 
@@ -204,7 +200,7 @@ class MyApp {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href="/docs/components#navigation">Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "navparams"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "NavParams"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/nav-params/"
+preview_device_url: "/docs/demos/src/nav-params/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/navigation/nav-params.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/navigation/nav-params.ts#L0">
 Improve this doc
 </a>
 
@@ -80,7 +80,6 @@ option with a simple <code>get</code> method.</p>
   
 
 </h3>
-
 
 
 
@@ -159,10 +158,10 @@ export class MyClass{
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a>,
-<a href='../NavController/'>NavController API Docs</a>,
-<a href='/docs//api/components/nav/Nav/'>Nav API Docs</a>,
-<a href='/docs//api/components/nav/NavPush/'>NavPush API Docs</a><!-- end content block -->
+<a href="/docs/components#navigation">Navigation Component Docs</a>,
+<a href="../NavController/">NavController API Docs</a>,
+<a href="/docs/api/components/nav/Nav/">Nav API Docs</a>,
+<a href="/docs/api/components/nav/NavPush/">NavPush API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

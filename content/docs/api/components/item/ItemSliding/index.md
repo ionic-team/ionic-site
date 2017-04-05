@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "itemsliding"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemSliding"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/item-sliding/"
+preview_device_url: "/docs/demos/src/item-sliding/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L84">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-sliding.ts#L26">
 Improve this doc
 </a>
 
@@ -166,7 +166,6 @@ export class MyClass {
   }
 }
 ```
-
 
 
 
@@ -686,9 +685,9 @@ It reports the relative position.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#lists'>List Component Docs</a>,
-<a href='../Item'>Item API Docs</a>,
-<a href='../../list/List'>List API Docs</a><!-- end content block -->
+<a href="/docs/components#lists">List Component Docs</a>,
+<a href="../Item">Item API Docs</a>,
+<a href="../../list/List">List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

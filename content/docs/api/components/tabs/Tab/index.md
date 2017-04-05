@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "tab"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/tabs/"
+preview_device_url: "/docs/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tab.ts#L15">
 Improve this doc
 </a>
 
@@ -133,28 +133,6 @@ the tabs.</p>
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="linker"></div>
-
-<h3>
-<a class="anchor" name="linker" href="#linker"></a>
-<code>linker</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -753,10 +731,10 @@ tabbar. Default: <code>true</code>.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#tabs'>Tabs Component Docs</a>,
-<a href='../../tabs/Tabs'>Tabs API Docs</a>,
-<a href='../../nav/Nav'>Nav API Docs</a>,
-<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
+<a href="/docs/components#tabs">Tabs Component Docs</a>,
+<a href="../../tabs/Tabs">Tabs API Docs</a>,
+<a href="../../nav/Nav">Nav API Docs</a>,
+<a href="../../nav/NavController">NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

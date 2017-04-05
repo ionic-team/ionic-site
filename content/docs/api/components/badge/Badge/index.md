@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "badge"
@@ -33,7 +33,7 @@ Badge
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/badge/badge.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/badge/badge.ts#L3">
 Improve this doc
 </a>
 
@@ -55,38 +55,6 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
-<!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
   <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
@@ -274,7 +242,7 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components/#badges'>Badges Component Docs</a><!-- end content block -->
+<a href="/docs/components/#badges">Badges Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

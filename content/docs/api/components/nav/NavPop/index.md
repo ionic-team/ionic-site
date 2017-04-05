@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "navpop"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "NavPop"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/navigation/"
+preview_device_url: "/docs/demos/src/navigation/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav-pop.ts#L2">
 Improve this doc
 </a>
 
@@ -60,7 +60,7 @@ navigation stack.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<p>Similar to <a href='/docs//api/components/nav/NavPush/'><code>NavPush</code></a></p>
+<p>Similar to <a href="/docs/api/components/nav/NavPush/"><code>NavPush</code></a></p>
 
 
 
@@ -78,8 +78,8 @@ navigation stack.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#navigation'>Navigation Component Docs</a>,
-<a href='../NavPush'>NavPush API Docs</a><!-- end content block -->
+<a href="/docs/components#navigation">Navigation Component Docs</a>,
+<a href="../NavPush">NavPush API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

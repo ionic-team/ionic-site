@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "tabs"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Tabs"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/tabs/"
+preview_device_url: "/docs/demos/src/tabs/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tabs.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/tabs/tabs.ts#L14">
 Improve this doc
 </a>
 
@@ -261,7 +261,6 @@ components to switch to <code>TabsRoot3</code>:</p>
 
 
 
-
 <div id="previousTab"></div>
 
 <h3>
@@ -385,7 +384,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
 
 
 
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -397,24 +395,6 @@ Get the previously selected Tab which is currently not disabled or hidden.
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
     
     <tr>
       <td>selectedIndex</td>
@@ -950,9 +930,9 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#tabs'>Tabs Component Docs</a>,
-<a href='../Tab'>Tab API Docs</a>,
-<a href='../../config/Config'>Config API Docs</a><!-- end content block -->
+<a href="/docs/components#tabs">Tabs Component Docs</a>,
+<a href="../Tab">Tab API Docs</a>,
+<a href="../../config/Config">Config API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

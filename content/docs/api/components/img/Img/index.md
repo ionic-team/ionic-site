@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "img"
@@ -33,7 +33,7 @@ Img
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/img/img.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/img/img.ts#L5">
 Improve this doc
 </a>
 
@@ -59,7 +59,7 @@ best. However, if a page has the potential for hundreds or even thousands
 of images within a scrollable area, then <code>ion-img</code> would be better suited
 for the job.</p>
 <blockquote>
-<p>Note: <code>ion-img</code> is only meant to be used inside of <a href="/docs//api/components/virtual-scroll/VirtualScroll/">virtual-scroll</a></p>
+<p>Note: <code>ion-img</code> is only meant to be used inside of <a href="/docs/api/components/virtual-scroll/VirtualScroll/">virtual-scroll</a></p>
 </blockquote>
 <h3 id="lazy-loading">Lazy Loading</h3>
 <p>Lazy loading images refers to only loading images which are actually

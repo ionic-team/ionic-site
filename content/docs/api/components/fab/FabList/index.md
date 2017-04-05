@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "fablist"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "FabList"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/fab/"
+preview_device_url: "/docs/demos/src/fab/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ FabList
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/fab/fab.ts#L102">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/fab/fab-list.ts#L6">
 Improve this doc
 </a>
 
@@ -468,7 +468,7 @@ Improve this doc
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#fab'>Fab Component Docs</a><!-- end content block -->
+<a href="/docs/components#fab">Fab Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

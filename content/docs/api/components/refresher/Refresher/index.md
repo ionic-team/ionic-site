@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "refresher"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Refresher"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/refresher/"
+preview_device_url: "/docs/demos/src/refresher/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/refresher/refresher.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/refresher/refresher.ts#L8">
 Improve this doc
 </a>
 
@@ -142,7 +142,6 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 
 
 
-
 <div id="complete"></div>
 
 <h3>
@@ -159,7 +158,6 @@ AJAX request. Once the data has been received, you then call this
 method to signify that the refreshing has completed and to close
 the refresher. This method also changes the refresher's state from
 `refreshing` to `completing`.
-
 
 
 
@@ -190,7 +188,6 @@ The current touch or mouse event's Y coordinate.
 
 
 
-
 <div id="deltaY"></div>
 
 <h3>
@@ -202,7 +199,6 @@ The current touch or mouse event's Y coordinate.
 
 The distance between the start of the pull and the current touch or
 mouse event's Y coordinate.
-
 
 
 
@@ -239,7 +235,6 @@ position.
 
 
 
-
 <div id="startY"></div>
 
 <h3>
@@ -250,7 +245,6 @@ position.
 </h3>
 
 The Y coordinate of where the user started to the pull down the content.
-
 
 
 
@@ -278,7 +272,6 @@ The current state which the refresher is in. The refresher's states include:
 - `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
 - `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `complete()` it will begin the `completing` state.
 - `completing` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
-
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "ionicerrorhandler"
@@ -31,7 +31,7 @@ IonicErrorHandler
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/ionic-error-handler.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/util/ionic-error-handler.ts#L0">
 Improve this doc
 </a>
 

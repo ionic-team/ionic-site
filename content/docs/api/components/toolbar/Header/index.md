@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "header"
@@ -33,7 +33,7 @@ Header
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar-header.ts#L4">
 Improve this doc
 </a>
 

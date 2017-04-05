@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "toastcontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ToastController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/toast/"
+preview_device_url: "/docs/demos/src/toast/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ ToastController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toast/toast.ts#L102">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toast/toast-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -102,6 +102,25 @@ presentToast() {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 

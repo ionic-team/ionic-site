@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "platformconfigtoken"
@@ -31,7 +31,7 @@ PlatformConfigToken
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/platform-registry.ts#L225">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/platform/platform-registry.ts#L225">
 Improve this doc
 </a>
 

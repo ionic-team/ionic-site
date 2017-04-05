@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "slides"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Slides"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/slides/"
+preview_device_url: "/docs/demos/src/slides/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/slides/slides.ts#L12">
 Improve this doc
 </a>
 
@@ -144,7 +144,6 @@ index and prints it:</p>
 
 
 
-
 <div id="controlInverse"></div>
 
 <h3>
@@ -153,7 +152,6 @@ index and prints it:</p>
   
 
 </h3>
-
 
 
 
@@ -175,7 +173,6 @@ index and prints it:</p>
 </h3>
 
 Enable or disable keyboard control.
-
 
 
 
@@ -346,7 +343,6 @@ Lock or unlock the ability to slide to the next slides.
 
 
 
-
 <div id="lockSwipeToPrev"></div>
 
 <h3>
@@ -357,7 +353,6 @@ Lock or unlock the ability to slide to the next slides.
 </h3>
 
 Lock or unlock the ability to slide to the previous slides.
-
 
 
 
@@ -388,7 +383,6 @@ Lock or unlock the ability to slide to change slides.
 
 
 
-
 <div id="resize"></div>
 
 <h3>
@@ -397,7 +391,6 @@ Lock or unlock the ability to slide to change slides.
   
 
 </h3>
-
 
 
 
@@ -647,7 +640,6 @@ Start auto play.
 
 
 
-
 <div id="stopAutoplay"></div>
 
 <h3>
@@ -658,7 +650,6 @@ Start auto play.
 </h3>
 
 Stop auto play.
-
 
 
 
@@ -680,7 +671,6 @@ Stop auto play.
 
 Update the underlying slider implementation. Call this if you've added or removed
 child slides.
-
 
 
 
@@ -939,7 +929,7 @@ class MyPage {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#slides'>Slides Component Docs</a>
+<a href="/docs/components#slides">Slides Component Docs</a>
 
 Adopted from Swiper.js:
 The most modern mobile touch slider and framework with

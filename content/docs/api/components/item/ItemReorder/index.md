@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "itemreorder"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ItemReorder"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/item-reorder/"
+preview_device_url: "/docs/demos/src/item-reorder/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ ItemReorder
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-reorder.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-reorder.ts#L15">
 Improve this doc
 </a>
 
@@ -643,9 +643,9 @@ with <code>from</code> and <code>to</code> properties.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#lists'>List Component Docs</a>,
-<a href='../../list/List'>List API Docs</a>,
-<a href='../Item'>Item API Docs</a><!-- end content block -->
+<a href="/docs/components#lists">List Component Docs</a>,
+<a href="../../list/List">List API Docs</a>,
+<a href="../Item">Item API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

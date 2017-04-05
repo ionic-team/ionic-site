@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "splitpane"
@@ -33,7 +33,7 @@ SplitPane
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/split-pane/split-pane.ts#L22">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/split-pane/split-pane.ts#L22">
 Improve this doc
 </a>
 
@@ -183,6 +183,14 @@ provided from the sidemenu starter template.</p>
   <tbody>
     
     <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If <code>false</code>, the split-pane is disabled, ie. the side pane will
+never be displayed. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>when</td>
       <td><code>string | boolean</code></td>
       <td><p> When the split-pane should be shown.
@@ -213,6 +221,150 @@ Can also be a boolean expression.</p>
   </tbody>
 </table>
 
+
+  <h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="#sass-variables"></a>Sass Variables</h2>
+  <div id="sass-variables" ng-controller="SassToggleCtrl">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform('ios')" ng-class="{ active: active === 'ios' }" ng-click="setSassPlatform('ios')" >iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'md' }" ng-click="setSassPlatform('md')">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === 'wp' }" ng-click="setSassPlatform('wp')">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === 'ios'" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$split-pane-ios-side-min-width</code></td>
+        
+          <td><code>$split-pane-side-min-width</code></td>
+        
+        <td><p>Minimum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-ios-side-max-width</code></td>
+        
+          <td><code>$split-pane-side-max-width</code></td>
+        
+        <td><p>Maximum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-ios-border</code></td>
+        
+          <td><code>$hairlines-width solid $list-ios-border-color</code></td>
+        
+        <td><p>Border style of the side pane</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'md'" id="sass-md" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$split-pane-md-side-min-width</code></td>
+        
+          <td><code>$split-pane-side-min-width</code></td>
+        
+        <td><p>Minimum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-md-side-max-width</code></td>
+        
+          <td><code>$split-pane-side-max-width</code></td>
+        
+        <td><p>Maximum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-md-border</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border style of the side pane</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === 'wp'" id="sass-wp" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$split-pane-wp-side-min-width</code></td>
+        
+          <td><code>$split-pane-side-min-width</code></td>
+        
+        <td><p>Minimum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-wp-side-max-width</code></td>
+        
+          <td><code>$split-pane-side-max-width</code></td>
+        
+        <td><p>Maximum width of the split-pane&#39;s side pane</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$split-pane-wp-border</code></td>
+        
+          <td><code>1px solid $list-wp-border-color</code></td>
+        
+        <td><p>Border style of the side pane</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
 
 
 

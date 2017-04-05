@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "icon"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Icon"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/icon/"
+preview_device_url: "/docs/demos/src/icon/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Icon
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/icon/icon.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/icon/icon.ts#L4">
 Improve this doc
 </a>
 
@@ -93,15 +93,6 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
   <tbody>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>ios</td>
       <td><code>string</code></td>
       <td><p> Specifies which icon to use on <code>ios</code> mode.</p>
@@ -125,19 +116,10 @@ The <code>isActive</code> property is largely used by the tabbar. Only affects <
     </tr>
     
     <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>name</td>
       <td><code>string</code></td>
       <td><p> Specifies which icon to use. The appropriate icon will be used based on the mode.
-For more information, see <a href="/docs//ionicons/">Ionicons</a>.</p>
+For more information, see <a href="/docs/ionicons/">Ionicons</a>.</p>
 </td>
     </tr>
     
@@ -151,7 +133,7 @@ For more information, see <a href="/docs//ionicons/">Ionicons</a>.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#icons'>Icon Component Docs</a><!-- end content block -->
+<a href="/docs/components#icons">Icon Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

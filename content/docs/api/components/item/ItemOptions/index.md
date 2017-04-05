@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "itemoptions"
@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item-sliding.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/item/item-options.ts#L3">
 Improve this doc
 </a>
 

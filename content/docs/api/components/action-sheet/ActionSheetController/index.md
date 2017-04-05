@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "actionsheetcontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ActionSheetController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/action-sheet/"
+preview_device_url: "/docs/demos/src/action-sheet/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ ActionSheetController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/action-sheet/action-sheet.ts#L67">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/action-sheet/action-sheet-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -119,6 +119,25 @@ export class MyClass{
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 
@@ -937,7 +956,7 @@ out before starting a new transition.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
+<a href="/docs/components#action-sheets">ActionSheet Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

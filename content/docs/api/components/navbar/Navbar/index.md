@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "navbar"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Navbar"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/navbar/"
+preview_device_url: "/docs/demos/src/navbar/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/navbar/navbar.ts#L7">
 Improve this doc
 </a>
 
@@ -109,27 +109,6 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 
 
 
-
-<div id="navCtrl"></div>
-
-<h3>
-<a class="anchor" name="navCtrl" href="#navCtrl"></a>
-<code>navCtrl</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="setBackButtonText"></div>
 
 <h3>
@@ -140,7 +119,6 @@ stack. If you need a static toolbar, use ion-toolbar.</p>
 </h3>
 
 Set the text of the Back Button in the Nav Bar. Defaults to "Back".
-
 
 
 
@@ -163,27 +141,9 @@ Set the text of the Back Button in the Nav Bar. Defaults to "Back".
   <tbody>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>hideBackButton</td>
       <td><code>boolean</code></td>
       <td><p> If true, the back button will be hidden.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -197,7 +157,7 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
+<a href="../../toolbar/Toolbar/">Toolbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

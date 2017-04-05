@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "select"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Select"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/select/"
+preview_device_url: "/docs/demos/src/select/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/select/select.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/select/select.ts#L18">
 Improve this doc
 </a>
 
@@ -52,9 +52,9 @@ for users.</p>
 <p>The select component takes child <code>ion-option</code> components. If <code>ion-option</code> is not
 given a <code>value</code> attribute then it will use its text as the value.</p>
 <h3 id="interfaces">Interfaces</h3>
-<p>By default, the <code>ion-select</code> uses the <a href='../../alert/AlertController'>AlertController API</a>
+<p>By default, the <code>ion-select</code> uses the <a href="../../alert/AlertController">AlertController API</a>
 to open up the overlay of options in an alert. The interface can be changed to use the
-<a href='../../action-sheet/ActionSheetController'>ActionSheetController API</a> by passing
+<a href="../../action-sheet/ActionSheetController">ActionSheetController API</a> by passing
 <code>action-sheet</code> to the <code>interface</code> property. Read the other sections for the limitations of the
 action sheet interface.</p>
 <h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
@@ -106,8 +106,8 @@ that value.</p>
 <p>Since <code>ion-select</code> uses the <code>Alert</code> and <code>Action Sheet</code> interfaces, options can be
 passed to these components through the <code>selectOptions</code> property. This can be used
 to pass a custom title, subtitle, css class, and more. See the
-<a href='../../alert/AlertController/#create'>AlertController API docs</a> and
-<a href='../../action-sheet/ActionSheetController/#create'>ActionSheetController API docs</a>
+<a href="../../alert/AlertController/#create">AlertController API docs</a> and
+<a href="../../action-sheet/ActionSheetController/#create">ActionSheetController API docs</a>
 for the properties that each interface accepts.</p>
 <pre><code class="lang-html">&lt;ion-select [selectOptions]=&quot;selectOptions&quot;&gt;
   ...
@@ -133,6 +133,25 @@ for the properties that each interface accepts.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="open"></div>
 
 <h3>
@@ -143,6 +162,24 @@ for the properties that each interface accepts.</p>
 </h3>
 
 Open the select interface.
+
+
+
+
+
+
+
+
+
+
+<div id="options"></div>
+
+<h3>
+<a class="anchor" name="options" href="#options"></a>
+<code>options</code>
+  
+
+</h3>
 
 
 
@@ -183,15 +220,6 @@ Open the select interface.
       <td>interface</td>
       <td><code>string</code></td>
       <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     

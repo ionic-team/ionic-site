@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "popovercontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "PopoverController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/popover/"
+preview_device_url: "/docs/demos/src/popover/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ PopoverController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/popover/popover.ts#L45">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/popover/popover-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -134,6 +134,25 @@ class PopoverPage {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 

@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "title"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Title"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/title/"
+preview_device_url: "/docs/demos/src/title/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Title
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toolbar/toolbar-title.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toolbar/toolbar-title.ts#L5">
 Improve this doc
 </a>
 

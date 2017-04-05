@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "toggle"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Toggle"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/toggle/"
+preview_device_url: "/docs/demos/src/toggle/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/toggle/toggle.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toggle/toggle.ts#L20">
 Improve this doc
 </a>
 
@@ -106,27 +106,9 @@ for more info on forms and inputs.</p>
     </tr>
     
     <tr>
-      <td>color</td>
-      <td><code>string</code></td>
-      <td><p> The color to use from your Sass <code>$colors</code> map.
-Default options are: <code>&quot;primary&quot;</code>, <code>&quot;secondary&quot;</code>, <code>&quot;danger&quot;</code>, <code>&quot;light&quot;</code>, and <code>&quot;dark&quot;</code>.
-For more information, see <a href="/docs//theming/theming-your-app">Theming your App</a>.</p>
-</td>
-    </tr>
-    
-    <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
       <td><p> If true, the user cannot interact with this element.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     
@@ -708,7 +690,7 @@ For more information, see <a href="/docs//theming/platform-specific-styles">Plat
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components#toggle'>Toggle Component Docs</a><!-- end content block -->
+<a href="/docs/components#toggle">Toggle Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

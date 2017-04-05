@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "registermodeconfigs"
@@ -31,7 +31,7 @@ registerModeConfigs
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/mode-registry.ts#L129">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/config/mode-registry.ts#L129">
 Improve this doc
 </a>
 

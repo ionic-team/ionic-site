@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "row"
@@ -33,7 +33,7 @@ Row
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/grid/row.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/grid/row.ts#L0">
 Improve this doc
 </a>
 

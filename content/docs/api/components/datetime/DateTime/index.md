@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "datetime"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "DateTime"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/datetime/"
+preview_device_url: "/docs/demos/src/datetime/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ DateTime
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/datetime/datetime.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/datetime/datetime.ts#L17">
 Improve this doc
 </a>
 
@@ -376,6 +376,27 @@ configuration should be decided by the end-developer.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="validate"></div>
+
+<h3>
+<a class="anchor" name="validate" href="#validate"></a>
+<code>validate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -490,15 +511,6 @@ the mintues range from <code>0</code> to <code>59</code>. However, to control ex
 the <code>minuteValues</code> input can take either an array of numbers, or string of comma separated
 numbers. For example, if the minute selections should only be every 15 minutes, then
 this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>mode</td>
-      <td><code>string</code></td>
-      <td><p> The mode determines which platform styles to use.
-Possible values are: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code>, or <code>&quot;wp&quot;</code>.
-For more information, see <a href="/docs//theming/platform-specific-styles">Platform Styles</a>.</p>
 </td>
     </tr>
     

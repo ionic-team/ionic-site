@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "loadingcontroller"
@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "LoadingController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/loading/"
+preview_device_url: "/docs/demos/src/loading/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -33,7 +33,7 @@ LoadingController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L90">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/loading/loading-controller.ts#L5">
 Improve this doc
 </a>
 
@@ -145,6 +145,25 @@ presentLoadingText() {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="config"></div>
+
+<h3>
+<a class="anchor" name="config" href="#config"></a>
+<code>config</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 <div id="create"></div>
 
@@ -667,7 +686,7 @@ Create a loading indicator. See below for options.
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//api/components/spinner/Spinner'>Spinner API Docs</a><!-- end content block -->
+<a href="/docs/api/components/spinner/Spinner">Spinner API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

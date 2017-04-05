@@ -1,7 +1,7 @@
 ---
 layout: "fluid/docs_base"
-version: "2.3.0"
-versionHref: "/docs/"
+version: "3.0.0"
+versionHref: "/docs"
 path: ""
 category: api
 id: "avatar"
@@ -33,7 +33,7 @@ Avatar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/avatar/avatar.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/avatar/avatar.ts#L0">
 Improve this doc
 </a>
 
@@ -43,7 +43,7 @@ Improve this doc
 
 
 <p>An Avatar is a component that creates a circular image for an item.
-Avatar&#39;s can be placed on the left or right side of an item with the <code>item-left</code> or <code>item-right</code> directive.</p>
+Avatars can be placed on the left or right side of an item with the <code>item-left</code> or <code>item-right</code> directive.</p>
 
 
 
@@ -64,7 +64,7 @@ Avatar&#39;s can be placed on the left or right side of an item with the <code>i
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs//components/#avatar-list'>Avatar Component Docs</a><!-- end content block -->
+<a href="/docs/components/#avatar-list">Avatar Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

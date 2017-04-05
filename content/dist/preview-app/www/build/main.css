@@ -4865,10 +4865,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-moz-placeholder {
-  padding-left: 2px;
-}
-
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -11249,6 +11245,15 @@ ion-app.ios [margin-horizontal] .scroll-content {
   top: -1px;
 }
 
+.platform-core .content-ios .scroll-content::after,
+.platform-core .content-ios .scroll-content::before {
+  position: initial;
+  top: initial;
+  bottom: initial;
+  width: initial;
+  height: initial;
+}
+
 .content-md {
   color: #000;
   background-color: #fff;
@@ -12057,6 +12062,12 @@ ion-fab-list[side=right] {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .grid[no-padding] {
@@ -15165,234 +15176,6 @@ ion-fab-list[side=right] {
   }
   [offset-xl-11] {
     margin-left: 91.66667%;
-  }
-}
-
-ion-grid {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-ion-row[top] {
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
-ion-row[bottom] {
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-}
-
-ion-row[center] {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-ion-row[stretch] {
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
-ion-row[baseline] {
-  -webkit-align-items: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-ion-col[top] {
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
-ion-col[bottom] {
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
-}
-
-ion-col[center] {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-}
-
-ion-col[stretch] {
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  -ms-grid-row-align: stretch;
-  align-self: stretch;
-}
-
-ion-col[baseline] {
-  -webkit-align-self: baseline;
-  -ms-flex-item-align: baseline;
-  align-self: baseline;
-}
-
-ion-col[offset-10] {
-  margin-left: 10%;
-}
-
-ion-col[offset-20] {
-  margin-left: 20%;
-}
-
-ion-col[offset-25] {
-  margin-left: 25%;
-}
-
-ion-col[offset-33], ion-col[offset-34] {
-  margin-left: 33.3333%;
-}
-
-ion-col[offset-50] {
-  margin-left: 50%;
-}
-
-ion-col[offset-66], ion-col[offset-67] {
-  margin-left: 66.6666%;
-}
-
-ion-col[offset-75] {
-  margin-left: 75%;
-}
-
-ion-col[offset-80] {
-  margin-left: 80%;
-}
-
-ion-col[offset-90] {
-  margin-left: 90%;
-}
-
-ion-col[width-10] {
-  -webkit-flex: 0 0 10%;
-  -ms-flex: 0 0 10%;
-  flex: 0 0 10%;
-  max-width: 10%;
-}
-
-ion-col[width-20] {
-  -webkit-flex: 0 0 20%;
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
-  max-width: 20%;
-}
-
-ion-col[width-25] {
-  -webkit-flex: 0 0 25%;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-
-ion-col[width-33], ion-col[width-34] {
-  -webkit-flex: 0 0 33.3333%;
-  -ms-flex: 0 0 33.3333%;
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-}
-
-ion-col[width-50] {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-
-ion-col[width-66], ion-col[width-67] {
-  -webkit-flex: 0 0 66.6666%;
-  -ms-flex: 0 0 66.6666%;
-  flex: 0 0 66.6666%;
-  max-width: 66.6666%;
-}
-
-ion-col[width-75] {
-  -webkit-flex: 0 0 75%;
-  -ms-flex: 0 0 75%;
-  flex: 0 0 75%;
-  max-width: 75%;
-}
-
-ion-col[width-80] {
-  -webkit-flex: 0 0 80%;
-  -ms-flex: 0 0 80%;
-  flex: 0 0 80%;
-  max-width: 80%;
-}
-
-ion-col[width-90] {
-  -webkit-flex: 0 0 90%;
-  -ms-flex: 0 0 90%;
-  flex: 0 0 90%;
-  max-width: 90%;
-}
-
-@media (max-width: 567px) {
-  [responsive-sm] {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  [responsive-sm] ion-col {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
-  [responsive-sm] ion-col[width-10], [responsive-sm] ion-col[width-20], [responsive-sm] ion-col[width-25], [responsive-sm] ion-col[width-33], [responsive-sm] ion-col[width-34], [responsive-sm] ion-col[width-50], [responsive-sm] ion-col[width-66], [responsive-sm] ion-col[width-67], [responsive-sm] ion-col[width-75], [responsive-sm] ion-col[width-80], [responsive-sm] ion-col[width-90] {
-    margin-bottom: 15px;
-    margin-left: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  [responsive-md] {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  [responsive-md] ion-col {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
-  [responsive-md] ion-col[width-10], [responsive-md] ion-col[width-20], [responsive-md] ion-col[width-25], [responsive-md] ion-col[width-33], [responsive-md] ion-col[width-34], [responsive-md] ion-col[width-50], [responsive-md] ion-col[width-66], [responsive-md] ion-col[width-67], [responsive-md] ion-col[width-75], [responsive-md] ion-col[width-80], [responsive-md] ion-col[width-90] {
-    margin-bottom: 15px;
-    margin-left: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 1023px) {
-  [responsive-lg] {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  [responsive-lg] ion-col {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
-  [responsive-lg] ion-col[width-10], [responsive-lg] ion-col[width-20], [responsive-lg] ion-col[width-25], [responsive-lg] ion-col[width-33], [responsive-lg] ion-col[width-34], [responsive-lg] ion-col[width-50], [responsive-lg] ion-col[width-66], [responsive-lg] ion-col[width-67], [responsive-lg] ion-col[width-75], [responsive-lg] ion-col[width-80], [responsive-lg] ion-col[width-90] {
-    margin-bottom: 15px;
-    margin-left: 0;
-    width: 100%;
-    max-width: 100%;
   }
 }
 
@@ -23288,7 +23071,7 @@ ion-spinner.spinner-paused svg {
   fill: #ffc125;
 }
 
-ion-split-pane {
+.split-pane {
   position: absolute;
   top: 0;
   right: 0;
@@ -23297,10 +23080,19 @@ ion-split-pane {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   contain: strict;
+}
+
+.split-pane.split-pane-rtl {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .split-pane-side:not(ion-menu) {

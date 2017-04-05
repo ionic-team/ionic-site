@@ -1,5 +1,7 @@
-var redirects = require('./redirects');
-var url       = require('url');
+var employees       = require('./data/employees');
+var redirects       = require('./data/redirects');
+var trustedPartners = require('./data/trusted-partners');
+var url             = require('url');
 
 module.exports = function(req, res, next) {
 
@@ -63,8 +65,23 @@ module.exports = function(req, res, next) {
     protocol: protocol,
     domain: req.get('host'),
     url: req.originalUrl,
-    dev: req.get('host').indexOf('localhost') === 0
-  }
+    dev: req.get('host').indexOf('localhost') === 0,
+    trustedPartners: shuffle(trustedPartners)
+  };
 
   return next();
+};
+
+function shuffle(array) {
+  var currentIndex = array.length;
+  var temporaryValue;
+  var randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 };

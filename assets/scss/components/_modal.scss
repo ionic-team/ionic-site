@@ -1,20 +1,4 @@
 .modal {
-  .close {
-    background: transparent;
-    border: 0;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-
-    &::before {
-      font-family: 'Ionicons';
-      content: '\f2c0';
-      display: block;
-      color: $lightish-grey;
-      font-size: 20px;
-    }
-  }
-
   .control-label {
     font-weight: 600;
   }
@@ -22,5 +6,203 @@
   .form-control {
     font-weight: 500;
   }
-}
 
+  .close,
+  .go-back {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    outline: none;
+
+    &::before {
+      font-family: 'Ionicons';
+      content: '\f2c0';
+      display: block;
+      color: $dark-grey;
+      font-size: 20px;
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  .go-back {
+    right: auto;
+    left: -10px;
+
+    &::before {
+      content: '\f27d';
+    }
+  }
+
+  form {
+    max-width: 420px;
+
+    input,
+    .select-wrapper,
+    textarea {
+      border: 2px solid $lighter-grey;
+      // padding: 15px 5px 15px 18px;
+      font-weight: 500;
+      float: left;
+      border-radius: 2px;
+      transition: border-color .2s;
+      box-shadow: none;
+
+      &::-webkit-input-placeholder {
+        color: $lightish-grey;
+      }
+
+      &:-ms-input-placeholder {
+        color: $lightish-grey;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        outline: none;
+        border-color: $blue;
+        box-shadow: none;
+      }
+
+      &:valid {
+        border-color: #B4BBC5;
+      }
+    }
+
+    input.invalid {
+      border-color: $red;
+    }
+
+    input,
+    .select-wrapper,
+    input.form-control {
+      width: 190px;
+      margin: 0 7px 10px 0;
+      height: 43px;
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(6),
+      &:nth-child(8) {
+        margin-right: 0;
+        width: 190px;
+      }
+
+      &.full-width,
+      &.full-width:nth-child(2),
+      &.full-width:nth-child(4),
+      &.fuill-width:nth-child(6),
+      &.fuill-width:nth-child(8) {
+        width: 100%;
+      }
+    }
+
+    .select-wrapper {
+      position: relative;
+      background: white;
+      // border-color: #B4BBC5;
+
+      .up {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid $grey;
+        display: block;
+        margin-bottom: 3px;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+      }
+
+      .dn {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $grey;
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+      }
+
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 0;
+        padding-top: 10px;
+        outline: none;
+        box-shadow: none;
+        z-index: 1;
+        background: transparent;
+        width: 100%;
+      }
+
+      &.null {
+        border-color: $lighter-grey;
+
+        select {
+          color: $lightish-grey;
+        }
+
+        .up {
+          border-top-color: $lightish-grey !important;
+        }
+
+        .dn {
+          border-bottom-color: $lightish-grey !important;
+        }
+      }
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+    }
+
+    @media (max-width: 420px)  {
+      input,
+      input:nth-child(2),
+      input:nth-child(6),
+      select:nth-child(4) {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    button {
+      font-size: 13px;
+      padding: 10px 13px 8px;
+      height: 41px;
+      line-height: 10px;
+      margin-top: 10px;
+      float: right;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .success {
+      color: $green;
+    }
+
+    .error {
+      color: $red;
+    }
+  }
+}

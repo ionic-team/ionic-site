@@ -8,6 +8,9 @@ module.exports = {
   CF_EMAIL: process.env.CF_EMAIL || null,
   CF_TOKEN: process.env.CF_TOKEN || null,
   CF_ZONE: process.env.CF_ZONE || null,
+
+  // Email
+  SENDGRID_APIKEY: process.env.SENDGRID_APIKEY || '',
 };
 
 function bool(str) {

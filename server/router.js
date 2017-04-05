@@ -1,5 +1,9 @@
-var express    = require('express');
-var ab         = require('express-ab');
+const express    = require('express');
+const ab         = require('express-ab');
+const bodyParser = require('body-parser');
+
+
+const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
 
 module.exports = function router(app) {
 
@@ -20,5 +24,11 @@ module.exports = function router(app) {
   .get('/products/pricing', (req, res) => { res.render('products/pricing'); })
   .get('/products/contact', (req, res) => { res.render('products/contact'); })
   .get('/products/view', (req, res) => { res.render('products/view'); })
-  .get('/support', (req, res) => { res.render('support'); });
+  .get('/support', (req, res) => { res.render('support'); })
+
+  .get('/trusted-partners', (req, res) => {
+    res.render('trusted-partners/index');
+  })
+  .post('/trusted-partners', bodyParser.urlencoded({extended: true}),
+    trustedPartnersCtrl);
 };

@@ -6,7 +6,7 @@ const compress        = require('compression');
 const config          = require('./server/config');
 const cookieParser    = require('cookie-parser');
 const expressNunjucks = require('express-nunjucks');
-const jobs            = require('./server/jobs');
+const tools            = require('./server/tools');
 const pageNotFound    = require('./server/pageNotFound');
 const processRequest  = require('./server/processRequest');
 const router          = require('./server/router');
@@ -39,5 +39,5 @@ app.use(pageNotFound);
 app.listen(config.PORT, function() {
   // Render some console log output
   console.log('Listening on port ' + config.PORT);
-  jobs.bustCache();
+  tools.bustCloudflareCache();
 });

@@ -56250,9 +56250,9 @@ AppModule = __decorate([
 
 
 
-const styles_PageOne = ['.label-demo[_ngcontent-%COMP%]   .mobile1[_ngcontent-%COMP%], .label-demo[_ngcontent-%COMP%]   .mobile2[_ngcontent-%COMP%] {\n    position: absolute;\n    right: 5px;\n    bottom: 5px;\n  }\n\n  .label-demo[_ngcontent-%COMP%]   .mobile1[_ngcontent-%COMP%] {\n    right: 35px;\n  }'];
+const styles_PageOne = [];
 const RenderType_PageOne = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_28" /* ɵcrt */]({
-    encapsulation: 0,
+    encapsulation: 2,
     styles: styles_PageOne,
     data: {}
 });
@@ -56536,10 +56536,6 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 4, 1, 'ion-icon', [
             [
-                'class',
-                'mobile1'
-            ],
-            [
                 'color',
                 'primary'
             ],
@@ -56589,10 +56585,6 @@ function View_PageOne_0(l) {
         }, null),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n      '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_30" /* ɵeld */](0, null, 4, 1, 'ion-icon', [
-            [
-                'class',
-                'mobile2'
-            ],
             [
                 'color',
                 'primary'
@@ -57243,7 +57235,6 @@ function View_PageOne_0(l) {
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](2, ['\n    '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n  '])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](1, ['\n\n'])),
-        (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n\n'])),
         (l()(), __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /* ɵted */](null, ['\n']))
     ], (ck, v) => {
         const currVal_3 = 'primary';

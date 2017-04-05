@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704051625, Default Theme
+ * vE2E-201704051809, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -10144,6 +10144,10 @@ ion-segment {
     border-left-width: 0;
     border-radius: 0 4px 4px 0; }
 
+.segment-ios.segment-disabled {
+  opacity: .4;
+  pointer-events: none; }
+
 .segment-ios .segment-button-disabled {
   color: rgba(50, 126, 255, 0.3);
   pointer-events: none; }
@@ -10274,6 +10278,7 @@ ion-segment {
     border-color: #327eff;
     opacity: 1; }
 
+.segment-md.segment-disabled,
 .segment-md .segment-button-disabled {
   opacity: 0.3;
   pointer-events: none; }
@@ -10341,6 +10346,7 @@ ion-segment {
     font-size: 2.6rem;
     line-height: 4rem; }
 
+.segment-wp.segment-disabled,
 .segment-wp .segment-button-disabled {
   opacity: 0.3;
   pointer-events: none; }

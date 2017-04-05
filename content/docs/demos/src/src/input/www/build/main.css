@@ -18457,6 +18457,11 @@ ion-segment {
   border-radius: 0 4px 4px 0;
 }
 
+.segment-ios.segment-disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
 .segment-ios .segment-button-disabled {
   color: rgba(56, 126, 245, 0.3);
   pointer-events: none;
@@ -18694,6 +18699,7 @@ ion-segment {
   opacity: 1;
 }
 
+.segment-md.segment-disabled,
 .segment-md .segment-button-disabled {
   opacity: 0.3;
   pointer-events: none;
@@ -18805,6 +18811,7 @@ ion-segment {
   line-height: 4rem;
 }
 
+.segment-wp.segment-disabled,
 .segment-wp .segment-button-disabled {
   opacity: 0.3;
   pointer-events: none;

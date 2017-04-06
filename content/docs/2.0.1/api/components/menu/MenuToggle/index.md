@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "MenuToggle"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/menu/"
+preview_device_url: "/docs/demos/src/menu/www/"
 angular_controller: APIDemoCtrl 
 ---
 

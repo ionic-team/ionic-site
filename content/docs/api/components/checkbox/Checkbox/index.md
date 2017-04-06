@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/checkbox/"
+preview_device_url: "/docs/demos/src/checkbox/www/"
 angular_controller: APIDemoCtrl 
 ---
 

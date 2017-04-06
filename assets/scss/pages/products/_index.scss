@@ -19,7 +19,7 @@
           font-weight: 500;
         }
       }
-    } 
+    }
 
     .bar {
       min-height: 64px;
@@ -120,6 +120,8 @@
     background: no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
 
     .content {
       width: 50%;
@@ -165,6 +167,7 @@
       font-weight: 400;
       line-height: 1.8em;
       margin-bottom: 30px;
+      color: rgba(white, .7);
 
       a {
         &:hover {
@@ -173,7 +176,7 @@
       }
     }
 
-    
+
   }
 
   #overview {
@@ -355,7 +358,7 @@
       top: calc(50% - 160px);
     }
   }
-  
+
 
   #get-started {
     background: #222b3a;

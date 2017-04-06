@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/segment/"
+preview_device_url: "/docs/demos/src/segment/www/"
 angular_controller: APIDemoCtrl 
 ---
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Events"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs//demos/src/events/"
+preview_device_url: "/docs/demos/src/events/www/"
 angular_controller: APIDemoCtrl 
 ---
 

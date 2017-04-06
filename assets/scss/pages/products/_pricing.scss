@@ -263,7 +263,7 @@
       right: -15px;
       font-size: 40px;
     }
-    
+
     &:last-child::after {
       display: none;
     }
@@ -273,7 +273,7 @@
 .cards {
   margin: -32px auto 50px;
   text-align: center;
-  
+
   .card {
     background: white;
     display: inline-block;
@@ -282,7 +282,7 @@
     vertical-align: top;
     width: 465px;
     cursor: pointer;
-  
+
     &::before {
       background: linear-gradient(to bottom, white 0%, white 87%, rgba(235, 239, 246, 1) 87%, rgba(235, 239, 246, 1) 100%);
       bottom: 0;
@@ -296,7 +296,7 @@
       transform: scale3d(1, 1, 1);
       transition: .3s transform, .3s background, .3s box-shadow;
     }
-  
+
     &::after {
       background: no-repeat 0 0 url('/img/pricing/pricing-box-active-carrot.png');
       background-size: 19px;
@@ -311,50 +311,50 @@
       transform: translate3d(0, -19px, 0);
       transition: .3s border-top-color, .3s transform;
     }
-  
+
     &:hover {
       &::before {
         transform: scale3d(1.05, 1.05, 1);
       }
-  
+
       &::after {
         transform: translate3d(0, -9px, 0);
       }
-  
+
       .cta {
         transform: translate3d(0, 9px, 0);
       }
     }
-  
+
     &.active {
       z-index: 2;
       cursor: default;
-  
+
       &::before {
-        background: linear-gradient(to bottom, white 0%, white 85%, 
+        background: linear-gradient(to bottom, white 0%, white 85%,
           $blue 85%, $blue 100%);
         transform: scale3d(1.1, 1.1, 1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, .15), 0 2px 8px 
+        box-shadow: 0 8px 32px rgba(0, 0, 0, .15), 0 2px 8px
           rgba(0, 0, 0, .15);
       }
-  
+
       &::after {
         opacity: 1;
         transform: translate3d(0, 0, 0);
       }
-  
+
       .cta {
         bottom: 5000px;
         transform: translate3d(0, 16px, 0);
         transition: .3s transform, .3s color, .3s bottom step-start;
       }
-  
+
       a.cta {
         bottom: 0;
         transition: .3s transform, .3s color, .3s bottom step-start;
       }
     }
-  
+
     .title {
       color: $blue;
       font-size: 30px;
@@ -366,12 +366,12 @@
       z-index: 1;
       margin-bottom: 0;
     }
-  
+
     &:nth-child(2) .title {
       padding-top: 30px;
       color: $green;
     }
-  
+
     h2 {
       font-size: 48px;
       font-weight: 700;
@@ -380,25 +380,25 @@
       position: relative;
       text-transform: uppercase;
       z-index: 1;
-  
+
       sup {
         font-size: 20px;
         top: -5px;
       }
-  
+
       sub {
         font-size: 10px;
         top: -1px;
         left: 1px;
         margin-left: -10px;
       }
-  
+
       &.pro {
         font-size: 36px;
         letter-spacing: 2px;
       }
     }
-  
+
     h3 {
       color: #aab7cc;
       font-size: 10px;
@@ -409,19 +409,19 @@
       text-transform: uppercase;
       z-index: 1;
     }
-  
+
     ul {
       padding: 20px 70px 0 70px;
       text-align: left;
     }
-  
+
     li {
       color: #404349;
       font-size: 14px;
       list-style: none;
       padding: 15px 0 0 24px;
       position: relative;
-  
+
       &::before {
         background: no-repeat 0 0 url('/img/pricing/checkmark.png');
         background-size: 16px;
@@ -434,7 +434,7 @@
         width: 16px;
       }
     }
-  
+
     .cta {
       padding-bottom: 30px;
       padding-top: 30px;
@@ -450,13 +450,13 @@
       transition: .3s transform, .3s color, .3s opacity;
       width: 100%;
     }
-  
+
     a.cta {
       text-decoration: none;
       color: white;
       bottom: 5000px;
       transition: .3s transform, .3s color, .3s opacity, .3s bottom step-start;
-  
+
       &::after {
         background: no-repeat 0 0 url('/img/pricing/arrow.png');
         background-size: 14px;
@@ -470,33 +470,33 @@
         transition: .3s opacity, .3s transform;
         position: relative;
       }
-  
+
       &:hover {
         transform: translate3d(-5px, 16px, 0);
-  
+
         &::after {
           opacity: 1;
           transform: translate3d(10px, 0, 0);
         }
       }
     }
-  
-  
+
+
     @media (max-width: $screen-xs-max)  {
       display: block;
       width: 80%;
       margin: 0 auto;
       padding-right: 5px;
       padding-left: 5px;
-  
+
       ul {
         padding-left: 0;
         text-align: center;
-  
+
         li {
           display: block;
           padding-left: 0;
-  
+
           &::before {
             display: none;
           }
@@ -512,7 +512,15 @@
     width: 500px;
   }
   .modal-content {
-    // background-color:#f5f6f9;
+    .form-control {
+      display: block;
+      float: none;
+    }
+
+    input[type=radio] {
+      height: auto;
+      margin-top: 2px;
+    }
   }
 
   .modal-header {

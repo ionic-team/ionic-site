@@ -152,25 +152,6 @@ for the properties that each interface accepts.</p>
 
 
 
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<a class="anchor" name="ngAfterContentInit" href="#ngAfterContentInit"></a>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <div id="open"></div>
 
 <h3>
@@ -225,6 +206,13 @@ Open the select interface.
       <td>cancelText</td>
       <td><code>string</code></td>
       <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
 </td>
     </tr>
     
@@ -289,6 +277,12 @@ create options for each interface.</p>
     <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the selection was cancelled.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionChange</td>
+      <td><p> Emitted when the selection has changed.</p>
 </td>
     </tr>
     

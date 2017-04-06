@@ -1643,6 +1643,25 @@ Set the root for the current navigation stack.
 
 
 
+<div id="swipeBackEnabled"></div>
+
+<h3>
+<a class="anchor" name="swipeBackEnabled" href="#swipeBackEnabled"></a>
+<code>swipeBackEnabled</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <div id="viewDidEnter"></div>
 
 <h3>

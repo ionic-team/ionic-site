@@ -1,0 +1,272 @@
+{% extends "_layouts/base.html" %}
+{% set id = 'enterprise' %}
+
+{% block main %}
+
+<div class="banner">
+  <hgroup class="container">
+    <h1>Build better, more secure Ionic apps</h1>
+    <p>
+      With, <strong>Ionic Framework Enterprise</strong> you get expert Ionic help when you need it. Let us help you build better apps.
+    </p>
+  </hgroup>
+  <div class="bar">
+    <div class="container">
+      <p>
+        <a data-toggle="modal" data-target="#contactForm">Contact us</a>
+        or compare Ionic Framework versions below
+      </p>
+    </div>
+  </div>
+</div>
+
+{% if notification %}
+<h2 class="container text-center {{notificationClass}}">{{ notification }}</h2>
+{% endif %}
+<hgroup class="container hero text-center">
+  <h2>Keep your productivity high and your apps secure</h2>
+  <p class="lg">
+    The same Ionic Framework you know and love, with direct access to the Ionic team, priority hot fixes, support SLAs, and more
+  </p>
+</hgroup>
+<div class=" table-wrap">
+  <table class="container table">
+    <thead>
+      <tr>
+        <td></td>
+        <th>Ionic Framework</th>
+        <th><strong>Ionic Enterprise Framework</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Our flagship Open Source HTML5 mobile framework">
+          Ionic SDK <i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Test and send your apps to stakeholders without complicated beta testing tools">
+          Ionic View<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="A graphical frontend to the powerful Ionic CLI">
+          Ionic Lab<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Our flexible and powerful command-line interface for Windows, Mac, and Linux">
+          CLI<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Access to the popular and highly-active Ionic Forum community">
+          Forum Support<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Support for using the full native power of the device">
+          Native Plugins<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td><i class="ion-ios-checkmark"></i></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <!--
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Client-side encryption for SQLite data stores, along with Keychain access and more">
+          Data Security<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      -->
+
+      <!--
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Ensure that users can't decipher your client-side code">
+          Code Obfuscation<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      -->
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Access to hot fixes of the Ionic Framework that don't have an available solution">
+          Hot Fixes<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="SLA for guaranteed response times">
+          Support SLA<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Kickstart your app development with a one-hour introductory session with the Ionic Team">
+          Introductory Session<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      <!--
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="A pre-configured app container with best-practices baked in and plugin updates">
+          Enterprise Container<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      -->
+      <!--
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Extra legal protection around OSS licensing">
+          Indemnification<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td><i class="ion-ios-checkmark"></i></td>
+      </tr>
+      -->
+      <tr>
+        <th><span data-toggle="tooltip"
+            data-placement="right"
+            title="Custom support for your app available at an extra cost">
+          Code Support<i class="ion-ios-information-circle"></i>
+        </span></th>
+        <td></td>
+        <td>Extra Cost</td>
+      </tr>
+      <tr>
+        <td class="empty"></td>
+        <td>Free! <span>MIT Licensed</span></td>
+        <td class="btn ionic"
+            data-toggle="modal"
+            data-target="#contactForm">
+          Contact us
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block modals %}
+<div class="modal collapse fade" id="contactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hgroup class="hero text-center">
+          <h3>Contact us</h3>
+          <p class="lg">
+            Send us a detailed message and an Ionic Sales Representative will
+            get back to you soon.
+          </p>
+        </hgroup>
+        <form action="/enterprise"
+              class="form-inline container"
+              method="post"
+              name="contact">
+          <input class="form-control"
+                 type="text"
+                 name="first_name"
+                 placeholder="Your first name *"
+                 required>
+          <input class="form-control"
+                type="text"
+                name="last_name"
+                placeholder="Your last name *"
+                required>
+          <input class="form-control"
+                 type="email"
+                 name="email"
+                 placeholder="Email *"
+                 ng-model="email"
+                 ng-class="{ 'invalid': contact.email.$error.email }"
+                 required>
+          <input class="form-control"
+                 type="text"
+                 name="company"
+                 placeholder="Company name *"
+                 required>
+          <input class="form-control"
+                 type="text"
+                 name="title"
+                 placeholder="Job title *"
+                 required>
+          <input class="form-control"
+                 type="tel"
+                 name="phone"
+                 placeholder="Phone *"
+                 required>
+          <div class="select-wrapper full-width"><select class="form-control select-helper"
+                 name="employees"
+                 required>
+             <option value="null" disabled selected>Employees *</option>
+             <option value="1-19">1-19</option>
+             <option value="20-99">20-99</option>
+             <option value="100-249">100-249</option>
+             <option value="250-499">250-499</option>
+             <option value="500+">500+</option>
+          </select><div class="up"></div><div class="dn"></div></div>
+          <textarea name="message"
+                    cols="30"
+                    rows="10"
+                    placeholder="Send us a message"
+                    required
+                    ></textarea>
+
+          <input type="hidden" name="form_name" value="enterprise_contact" />
+          <button type="submit" class="btn ionic" value="Send message">
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

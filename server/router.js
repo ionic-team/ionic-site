@@ -2,8 +2,10 @@ const express    = require('express');
 const ab         = require('express-ab');
 const bp         = require('body-parser');
 
-const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
+const enterpriseCtrl = require('./pages/enterprise/enterpriseCtrl');
 const pricingCtrl = require('./pages/pricing/pricingCtrl');
+const salesCtrl = require('./pages/sales/salesCtrl');
+const trustedPartnersCtrl = require('./pages/trusted-partners/trustedPartnersCtrl');
 
 module.exports = function router(app) {
 
@@ -23,6 +25,7 @@ module.exports = function router(app) {
   .get('/developers', (req, res) => { res.render('developers'); })
   .get('/getting-started', (req, res) => { res.render('getting-started'); })
   .get('/jobs', (req, res) => { res.render('jobs'); })
+  .get('/press', (req, res) => { res.render('press'); })
   .get('/products', (req, res) => { res.render('products/index'); })
   .get('/products/pricing', (req, res) => { res.render('products/pricing'); })
   .get('/products/contact', (req, res) => { res.render('products/contact'); })
@@ -31,8 +34,15 @@ module.exports = function router(app) {
   .get('/team', (req, res) => { res.render('team'); })
   .get('/values', (req, res) => { res.render('values'); })
 
+
+  .get('/enterprise', (req, res) => { res.render('enterprise/index'); })
+  .post('/enterprise', bp.urlencoded({extended: true}), enterpriseCtrl)
+
   .get('/pricing', (req, res) => { res.render('pricing/index'); })
   .post('/pricing', bp.urlencoded({extended: true}), pricingCtrl)
+
+  .get('/sales', (req, res) => { res.render('sales/index'); })
+  .post('/sales', bp.urlencoded({extended: true}), salesCtrl)
 
   .get('/trusted-partners', (req, res) => {
     res.render('trusted-partners/index');

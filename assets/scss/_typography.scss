@@ -1,0 +1,36 @@
+a {
+  transition: color .2s;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  &.lg {
+    font-size: 18px;
+    font-weight: 400;
+    color: $darkish-grey;
+
+    &.strong {
+      font-weight: 500;
+    }
+
+    &.light {
+      color: $darkish-grey;
+    }
+  }
+
+  &.sm {
+    font-size: 13px;
+  }
+
+  &.xs {
+    font-size: 11px;
+  }
+}
+
+.subheading {
+  color: #888;
+  font-size: 15px;
+}

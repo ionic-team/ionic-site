@@ -80,7 +80,7 @@
     "name":"Incentro",
     "short-description":"helps companies connect between their services and the daily life of their customers by building high-end mobile and web applications.",
     "long-description":"<p>We rock at building app-solutions that make you happy</p><p>The keywords of our service are information, marketing and technology. For the whole process, we have specialists in house. From designing, developing and managing websites, webshops and apps, to optimising them using data and marketing automation activities.</p><p>We have at least 260 passionate Incentronauts (employees). And we work for the top 200 companies in the Netherlands and beyond. We love to work on a fast pace in a high intensive collaboration with our client. Working the agile way to make sure to deliver the features with the highest business value.</p><p>We love to share our passion in the open source community and by co-organizing the dutch Ionic meetups.</p><p>Please contact us for more information on how we bring value to your organisation.</p>",
-    "address":"Moermanskkade 113<br>1013 BC Amsterdam Netherlands",
+    "address":"Van Nelleweg 2429<br>3044 BC Rotterdam Netherlands",
     "features":["Angular 1 & 2", "Ionic 1 & 2", "App design", "App development", "Development consulting"],
     "coordinates":[49.5,31.8],
     "company-size": "200-500"

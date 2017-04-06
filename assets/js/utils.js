@@ -8,7 +8,11 @@ if (sidebarToggleEl) {
 }
 
 $(document).ready(function() {
+  // activate dropdowns
   $('.dropdown-toggle').dropdown();
+  // Generic helper class for on-load animations
+  $('.active-on-load').addClass('active');
+  // activate collapseable ToCs
   $('#collapse-toggle').unbind().click(function() {
     $('#navbar-collapse').collapse('toggle');
     var ariaVal = $('#collapse-toggle').attr('aria-expanded');

@@ -1,0 +1,153 @@
+.hero {
+  padding-top: 128px;
+  padding-bottom: 72px;
+  position: relative;
+
+  &.left {
+    .content {
+      width: 415px;
+      @media (max-width: $screen-md-max)  {
+        width: 400px;
+      }
+      @media (max-width: $screen-xs-max)  {
+        width: 100%;
+      }
+    }
+
+    .graphics {
+      top: 150px;
+      right: 0;
+      position: absolute;
+    }
+  }
+
+  &.right {
+    .content {
+      width: 451px;
+      float: right;
+      @media (max-width: $screen-xs-max)  {
+        width: 100%;
+        float: none;
+      }
+
+      &:after {
+        clear: right;
+      }
+    }
+  }
+
+  .graphics {
+    width: 500px;
+
+    video {
+      position: absolute;
+      left: -2px;
+      top: 10px;
+
+      &::-webkit-media-controls-start-playback-button {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+    }
+
+    @media (max-width: $screen-xs-max)  {
+      width: 100%;
+
+      video {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    color: $dark-grey;
+
+    & + .btns {
+      margin-top: 37px;
+    }
+  }
+
+  .feature {
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 15px;
+    color: black;
+
+    span {
+      transition: left .3s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+      position: relative;
+      left: 0;
+    }
+
+    &:after {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      right: 0;
+      content: '';
+      border-bottom: 2px solid $blackish;
+      transition: right .3s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: -35px;
+      top: 9px;
+      font-size: 20px;
+      transition: transform .3s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border-right: 0.1em solid;
+      border-top: 0.1em solid;
+      transform: scale3d(0,0,1) rotate(45deg) translate3d(-25px, 25px, 0);
+      margin-right: 0.5em;
+    }
+
+    &:hover {
+      span {
+        //transform: translate3d(15px, 0, 0);
+        left: 5px;
+      }
+
+      &:before {
+        transform: scale3d(1,1,1) rotate(45deg) translate3d(0, 0, 0);
+      }
+
+      &:after {
+        right: -25px;
+      }
+    }
+
+    + h2 {
+      margin-top: 25px;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+      color: #272a2f;
+      font-size: 32px;
+      font-weight: 400;
+    }
+  }
+
+  h2 {
+    line-height: 42px;
+  }
+
+  h3 + p {
+    font-size: 17px;
+    line-height: 34px;
+  }
+}

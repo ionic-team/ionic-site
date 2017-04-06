@@ -1,0 +1,38 @@
+.bar {
+  &.navy {
+    background: linear-gradient(to right, #1d2534 0%,#243452 100%);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: white;
+    }
+
+    p {
+      color: #a2b5d6;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 500;
+    letter-spacing: .3px;
+  }
+
+  p {
+    margin-bottom: 27px;
+  }
+
+  .btn {
+    padding: 20px 21px 15px;
+  }
+
+  .hero {
+    padding: 95px 0 101px;
+  }
+}

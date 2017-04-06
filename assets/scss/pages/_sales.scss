@@ -1,0 +1,25 @@
+#page-sales {
+  .navbar + .banner {
+    background: $blue no-repeat center 90px;
+    background-image: url('/img/sales/sales-bg-icon.png');
+    background-size: 98px;
+    padding-top: 160px;
+
+    hgroup {
+      padding-bottom: 40px;
+    }
+
+    h1 {
+      color: $whiteish;
+    }
+
+    p {
+      color: $light-grey;
+    }
+  }
+
+  form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}

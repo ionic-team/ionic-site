@@ -8,7 +8,7 @@
   }
 
   .hero {
-    padding-top: 160px;
+    padding-top: 80px;
     padding-bottom: 40px;
 
     h3 {
@@ -84,9 +84,10 @@
         font-size: 16px;
         position: absolute;
         font-weight: 500;
-        top: 215px;
+        top: 195px;
         left: 0;
         right: 0;
+        color: $blackish;
         transition: transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
       }
 
@@ -101,6 +102,7 @@
           font-size: 13px;
           letter-spacing: -0.01em;
           padding: 0 13px;
+          color: $dark-grey;
         }
       }
 
@@ -112,6 +114,7 @@
 
   .other {
     max-width: 875px;
+    padding-bottom: 100px;
 
     hgroup {
       width: 49.5%;
@@ -134,12 +137,14 @@
       }
 
       h4 {
-        font-size: 15px;
+        font-size: 16px;
       }
 
       p {
         line-height: 22px;
         margin-bottom: 3px;
+        color: $dark-grey;
+        font-size: 13px;
       }
 
       &:first-child a {
@@ -150,10 +155,10 @@
         font-size: 20px;
       }
 
-      .twitter { color: #5ea9dc; }
-      .facebook { color: #3b5998; }
-      .goolge-plus { color: #e94335; }
-      .github { color: #000000; }
+      .twitter { color: #5ea9dc; &:hover { color: lighten(#5ea9dc, 10); }}
+      .facebook { color: #3b5998; &:hover { color: lighten(#3b5998, 15); }}
+      .goolge-plus { color: #e94335; &:hover { color: lighten(#e94335, 15); }}
+      .github { color: #000000; &:hover { color: lighten(#000000, 30); }}
 
     }
 

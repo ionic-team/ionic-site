@@ -65,10 +65,14 @@
 
 @import 'pygments/ionic';
 @import 'hljs';
+@import 'typography';
 
 @import 'components/animations';
 @import 'components/banner';
+@import 'components/bar';
+@import 'components/form';
 @import 'components/header';
+@import 'components/hero';
 @import 'components/cta';
 @import 'components/pre_footer';
 @import 'components/footer';
@@ -85,6 +89,8 @@
 @import 'components/slider';
 @import 'components/snap_bar';
 @import 'components/tag';
+@import 'components/tooltip';
+
 
 @import 'general';
 @import 'pages/404';
@@ -95,15 +101,18 @@
 @import 'pages/docs/ionicons-resource';
 @import 'pages/docs/native';
 @import 'pages/docs/search';
+@import 'pages/enterprise';
 @import 'pages/getting-started';
 @import 'pages/home';
 @import 'pages/jobs';
+@import 'pages/press';
 @import 'pages/pricing';
 @import 'pages/products/index';
 @import 'pages/products/pricing';
 @import 'pages/products/view';
 @import 'pages/products/contact';
 @import 'pages/resources';
+@import 'pages/sales';
 @import 'pages/support';
 @import 'pages/team';
 @import 'pages/trusted-partners';

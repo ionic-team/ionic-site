@@ -3,7 +3,7 @@
     + .banner {
       background: #181830 no-repeat center top url('/img/about-us/about-us-cta-bg.jpg');
       background-size: cover;
-      padding-top: 125px;
+      padding-top: 95px;
 
       p {
         max-width: 655px;
@@ -177,9 +177,11 @@
     p {
       color: $blue;
       font-weight: 400;
+      text-decoration: none;
 
       a:hover {
         color: lighten($blue, 15);
+        text-decoration: none;
       }
 
       span {

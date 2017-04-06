@@ -105,32 +105,6 @@ for more info on forms and inputs.</p>
 </td>
     </tr>
     
-    <tr>
-      <td>disabled</td>
-      <td><code>boolean</code></td>
-      <td><p> If true, the user cannot interact with this element.</p>
-</td>
-    </tr>
-    
-  </tbody>
-</table>
-<!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>ionChange</td>
-      <td><p> Emitted when the toggle value changes.</p>
-</td>
-    </tr>
-    
   </tbody>
 </table>
 

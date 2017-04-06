@@ -27845,7 +27845,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this.ionScrollStart = new EventEmitterProxy();
         this.ionScroll = new EventEmitterProxy();
         this.ionScrollEnd = new EventEmitterProxy();
-        let enableScrollListener = this.enableScrollListener.bind(this);
+        const enableScrollListener = () => this._scroll.enableEvents();
         this.ionScroll.onSubscribe = enableScrollListener;
         this.ionScrollStart.onSubscribe = enableScrollListener;
         this.ionScrollEnd.onSubscribe = enableScrollListener;
@@ -27853,8 +27853,7 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
         this._imgReqBfr = config.getNumber('imgRequestBuffer', 1400);
         this._imgRndBfr = config.getNumber('imgRenderBuffer', 400);
         this._imgVelMax = config.getNumber('imgVelocityMax', 3);
-        const jsScroll = config.getBoolean('virtualScrollEventAssist');
-        this._scroll = new __WEBPACK_IMPORTED_MODULE_10__util_scroll_view__["a" /* ScrollView */](_app, _plt, _dom, jsScroll);
+        this._scroll = new __WEBPACK_IMPORTED_MODULE_10__util_scroll_view__["a" /* ScrollView */](_app, _plt, _dom);
         while (navCtrl) {
             if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__["e" /* isTabs */])(navCtrl)) {
                 this._tabs = navCtrl;
@@ -27930,8 +27929,8 @@ let Content = class Content extends __WEBPACK_IMPORTED_MODULE_4__ion__["a" /* Io
             this.imgsUpdate();
         };
     }
-    enableScrollListener() {
-        this._scroll.eventsEnabled = true;
+    enableJsScroll() {
+        this._scroll.enableJsScroll(this._cTop, this._cBottom);
     }
     ngOnDestroy() {
         this._scLsn && this._scLsn();
@@ -47958,7 +47957,7 @@ let TapClick = class TapClick {
                 this.activator.upAction(ev, activatableEle, this.startCoord);
             }
         }
-        if (this.usePolyfill && pointerEventType === __WEBPACK_IMPORTED_MODULE_9__gestures_pointer_events__["b" /* POINTER_EVENT_TYPE_MOUSE */] && this.app.isEnabled()) {
+        if (this.usePolyfill && pointerEventType === __WEBPACK_IMPORTED_MODULE_9__gestures_pointer_events__["b" /* POINTER_EVENT_TYPE_TOUCH */] && this.app.isEnabled()) {
             this.handleTapPolyfill(ev);
         }
         this.startCoord = null;
@@ -48166,7 +48165,7 @@ function setupEvents(plt, dom) {
             let contentEle = el.closest('.scroll-content');
             if (contentEle) {
                 var style = contentEle.style;
-                var scroll = new __WEBPACK_IMPORTED_MODULE_0__util_scroll_view__["a" /* ScrollView */](null, plt, dom, false);
+                var scroll = new __WEBPACK_IMPORTED_MODULE_0__util_scroll_view__["a" /* ScrollView */](null, plt, dom);
                 scroll._el = contentEle;
                 style['WebkitBackfaceVisibility'] = 'hidden';
                 style['WebkitTransform'] = 'translate3d(0,0,0)';
@@ -48264,16 +48263,15 @@ var _a;
 
 
 class ScrollView {
-    constructor(_app, _plt, _dom, virtualScrollEventAssist) {
+    constructor(_app, _plt, _dom) {
         this._app = _app;
         this._plt = _plt;
         this._dom = _dom;
         this.isScrolling = false;
         this.initialized = false;
-        this.eventsEnabled = false;
+        this._eventsEnabled = false;
         this._t = 0;
         this._l = 0;
-        this._js = virtualScrollEventAssist;
         this.ev = {
             timeStamp: 0,
             scrollTop: 0,
@@ -48298,17 +48296,18 @@ class ScrollView {
     init(ele, contentTop, contentBottom) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(ele, 'scroll-view, element can not be null');
         this._el = ele;
-        this.contentTop = contentTop;
-        this.contentBottom = contentBottom;
         if (!this.initialized) {
             this.initialized = true;
             if (this._js) {
-                this.enableJsScroll();
+                this.enableJsScroll(contentTop, contentBottom);
             }
             else {
                 this.enableNativeScrolling();
             }
         }
+    }
+    enableEvents() {
+        this._eventsEnabled = true;
     }
     enableNativeScrolling() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["c" /* assert */])(this.onScrollStart, 'onScrollStart is not defined');
@@ -48324,7 +48323,7 @@ class ScrollView {
         const positions = [];
         function scrollCallback(scrollEvent) {
             self._app.setScrolling();
-            if (!self.eventsEnabled) {
+            if (!self._eventsEnabled) {
                 return;
             }
             ev.timeStamp = scrollEvent.timeStamp;
@@ -48376,7 +48375,7 @@ class ScrollView {
         self._lsn && self._lsn();
         self._lsn = self._plt.registerListener(self._el, 'scroll', scrollCallback, EVENT_OPTS);
     }
-    enableJsScroll() {
+    enableJsScroll(contentTop, contentBottom) {
         const self = this;
         self._js = true;
         const ele = self._el;
@@ -48390,7 +48389,7 @@ class ScrollView {
         let max;
         function setMax() {
             if (!max) {
-                max = ele.scrollHeight - ele.parentElement.offsetHeight + self.contentTop + self.contentBottom;
+                max = ele.scrollHeight - ele.parentElement.offsetHeight + contentTop + contentBottom;
             }
         }
         ;
@@ -54114,6 +54113,9 @@ let VirtualScroll = class VirtualScroll {
     _listeners() {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__util_util__["c" /* assert */])(!this._scrollSub, '_listeners was already called');
         if (!this._scrollSub) {
+            if (this._config.getBoolean('virtualScrollEventAssist')) {
+                this._content.enableJsScroll();
+            }
             this._resizeSub = this._plt.resize.subscribe(this.resize.bind(this));
             this._scrollSub = this._content.ionScroll.subscribe(this.scrollUpdate.bind(this));
             this._scrollEndSub = this._content.ionScrollEnd.subscribe(this.scrollEnd.bind(this));
@@ -54317,10 +54319,10 @@ class PointerEvents {
 /* harmony export (immutable) */ __webpack_exports__["a"] = PointerEvents;
 
 const POINTER_EVENT_TYPE_MOUSE = 1;
-/* harmony export (immutable) */ __webpack_exports__["b"] = POINTER_EVENT_TYPE_MOUSE;
+/* unused harmony export POINTER_EVENT_TYPE_MOUSE */
 
 const POINTER_EVENT_TYPE_TOUCH = 2;
-/* unused harmony export POINTER_EVENT_TYPE_TOUCH */
+/* harmony export (immutable) */ __webpack_exports__["b"] = POINTER_EVENT_TYPE_TOUCH;
 
 //# sourceMappingURL=pointer-events.js.map
 
@@ -64090,34 +64092,36 @@ function updateDimensions(plt, nodes, cells, data, initialUpdate) {
     const viewableBottom = (data.scrollTop + data.viewHeight);
     data.topViewCell = totalCells;
     data.bottomViewCell = 0;
-    cell = cells[0];
-    previousCell = {
-        row: 0,
-        width: 0,
-        height: 0,
-        top: cell.top,
-        left: 0,
-        tmpl: -1
-    };
-    for (var i = 0; i < totalCells; i++) {
-        cell = cells[i];
-        if (previousCell.left + previousCell.width + cell.width > data.viewWidth) {
-            cell.row++;
-            cell.top = (previousCell.top + previousCell.height);
-            cell.left = 0;
+    if (totalCells > 0) {
+        cell = cells[0];
+        previousCell = {
+            row: 0,
+            width: 0,
+            height: 0,
+            top: cell.top,
+            left: 0,
+            tmpl: -1
+        };
+        for (var i = 0; i < totalCells; i++) {
+            cell = cells[i];
+            if (previousCell.left + previousCell.width + cell.width > data.viewWidth) {
+                cell.row++;
+                cell.top = (previousCell.top + previousCell.height);
+                cell.left = 0;
+            }
+            else {
+                cell.row = previousCell.row;
+                cell.top = previousCell.top;
+                cell.left = (previousCell.left + previousCell.width);
+            }
+            if (cell.top + cell.height > data.scrollTop && i < data.topViewCell) {
+                data.topViewCell = i;
+            }
+            else if (cell.top < viewableBottom && i > data.bottomViewCell) {
+                data.bottomViewCell = i;
+            }
+            previousCell = cell;
         }
-        else {
-            cell.row = previousCell.row;
-            cell.top = previousCell.top;
-            cell.left = (previousCell.left + previousCell.width);
-        }
-        if (cell.top + cell.height > data.scrollTop && i < data.topViewCell) {
-            data.topViewCell = i;
-        }
-        else if (cell.top < viewableBottom && i > data.bottomViewCell) {
-            data.bottomViewCell = i;
-        }
-        previousCell = cell;
     }
 }
 function updateNodeContext(nodes, cells, data) {

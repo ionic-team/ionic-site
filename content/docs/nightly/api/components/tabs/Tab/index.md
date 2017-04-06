@@ -177,6 +177,13 @@ tabbar. Default: <code>true</code>.</p>
     </tr>
     
     <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, swipe to go back is enabled.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>tabBadge</td>
       <td><code>string</code></td>
       <td><p> The badge for the tab button.</p>

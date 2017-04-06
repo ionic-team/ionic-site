@@ -34433,6 +34433,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     set value(val) {
         if (this._writeValue(val)) {
             this.onChange();
+            this._fireIonChange();
         }
     }
     setValue(val) {
@@ -34443,7 +34444,9 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._item && this._item.setElementClass(`item-${this._componentName}-disabled`, isDisabled);
     }
     writeValue(val) {
-        this._writeValue(val);
+        if (this._writeValue(val)) {
+            this._fireIonChange();
+        }
     }
     _writeValue(val) {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* isUndefined */])(val)) {
@@ -34460,10 +34463,12 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         this._value = normalized;
         this._inputCheckHasValue(normalized);
         this._inputUpdated();
+        return true;
+    }
+    _fireIonChange() {
         if (this._init) {
             this._debouncer.debounce(() => this.ionChange.emit(this));
         }
-        return true;
     }
     registerOnChange(fn) {
         this._onChanged = fn;

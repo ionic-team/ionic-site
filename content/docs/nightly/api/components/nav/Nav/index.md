@@ -35,7 +35,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav.ts#L14">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/nav/nav.ts#L15">
 Improve this doc
 </a>
 
@@ -180,6 +180,13 @@ class MyApp {
       <td>rootParams</td>
       <td><code>object</code></td>
       <td><p> Any nav-params to pass to the root page of this nav.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, swipe to go back is enabled.</p>
 </td>
     </tr>
     

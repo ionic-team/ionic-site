@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/searchbar/searchbar.ts#L7">
 Improve this doc
 </a>
 
@@ -77,6 +77,25 @@ Improve this doc
 <h3>
 <a class="anchor" name="positionPlaceholder" href="#positionPlaceholder"></a>
 <code>positionPlaceholder()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="setFocus"></div>
+
+<h3>
+<a class="anchor" name="setFocus" href="#setFocus"></a>
+<code>setFocus()</code>
   
 
 </h3>
@@ -165,6 +184,13 @@ Improve this doc
 </td>
     </tr>
     
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> Set the input value.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->
@@ -179,6 +205,12 @@ Improve this doc
   <tbody>
     
     <tr>
+      <td>ionBlur</td>
+      <td><p> Emitted when the Searchbar input has blurred.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>ionCancel</td>
       <td><p> Emitted when the cancel button is clicked.</p>
 </td>
@@ -187,6 +219,12 @@ Improve this doc
     <tr>
       <td>ionClear</td>
       <td><p> Emitted when the clear input button is clicked.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionFocus</td>
+      <td><p> Emitted when the Searchbar input has focused.</p>
 </td>
     </tr>
     

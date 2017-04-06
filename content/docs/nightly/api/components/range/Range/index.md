@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L19">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/range/range.ts#L20">
 Improve this doc
 </a>
 
@@ -181,6 +181,13 @@ will return `null`.
     </tr>
     
     <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If true, the user cannot interact with this element.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>dualKnobs</td>
       <td><code>boolean</code></td>
       <td><p> Show two knobs. Defaults to <code>false</code>.</p>
@@ -221,6 +228,37 @@ on the step property value. Defaults to <code>false</code>.</p>
       <td>step</td>
       <td><code>number</code></td>
       <td><p> Specifies the value granularity. Defaults to <code>1</code>.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>ionBlur</td>
+      <td><p> Emitted when the range selector drag ends.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionChange</td>
+      <td><p> Emitted when the range value changes.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>ionFocus</td>
+      <td><p> Emitted when the range selector drag starts.</p>
 </td>
     </tr>
     

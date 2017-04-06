@@ -532,7 +532,7 @@ if this registered action has the highest priority.</p>
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Function</code> <p>A function that, when called, will unregister
-the back button action.</p>
+the its back button action.</p>
 
 
 </div>

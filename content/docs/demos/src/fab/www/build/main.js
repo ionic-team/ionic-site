@@ -36819,9 +36819,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 let ModalCmp = class ModalCmp {
-    constructor(_cfr, _renderer, _navParams, _viewCtrl, gestureCtrl, moduleLoader) {
+    constructor(_cfr, _renderer, _elementRef, _navParams, _viewCtrl, gestureCtrl, moduleLoader) {
         this._cfr = _cfr;
         this._renderer = _renderer;
+        this._elementRef = _elementRef;
         this._navParams = _navParams;
         this._viewCtrl = _viewCtrl;
         this.moduleLoader = moduleLoader;
@@ -36831,6 +36832,12 @@ let ModalCmp = class ModalCmp {
             disable: [__WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["e" /* GESTURE_MENU_SWIPE */], __WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["b" /* GESTURE_GO_BACK_SWIPE */]]
         });
         this._bdDismiss = opts.enableBackdropDismiss;
+        if (opts.cssClass) {
+            opts.cssClass.split(' ').forEach((cssClass) => {
+                if (cssClass.trim() !== '')
+                    _renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+            });
+        }
     }
     ionViewPreLoad() {
         this._load(this._navParams.data.component);
@@ -36898,10 +36905,10 @@ ModalCmp = __decorate([
             '<div #viewport nav-viewport></div>' +
             '</div>'
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__navigation_nav_params__["a" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__navigation_nav_params__["a" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_view_controller__["a" /* ViewController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__util_module_loader__["c" /* ModuleLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__util_module_loader__["c" /* ModuleLoader */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__navigation_nav_params__["a" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__navigation_nav_params__["a" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_view_controller__["a" /* ViewController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__util_module_loader__["c" /* ModuleLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__util_module_loader__["c" /* ModuleLoader */]) === "function" && _h || Object])
 ], ModalCmp);
 
-var _a, _b, _c, _d, _e, _f, _g;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=modal-component.js.map
 
 /***/ }),
@@ -60846,6 +60853,7 @@ function View_ModalCmp_Host_0(l) {
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["_31" /* ɵdid */](90112, null, 0, __WEBPACK_IMPORTED_MODULE_1__modal_component__["a" /* ModalCmp */], [
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ComponentFactoryResolver */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */],
             __WEBPACK_IMPORTED_MODULE_3__navigation_nav_params__["a" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */],

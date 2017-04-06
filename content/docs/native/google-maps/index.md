@@ -61,7 +61,7 @@ $ npm install --save @ionic-native/google-maps
 export class MapPage {
  constructor(private googleMaps: GoogleMaps) {}
 
-// Load map only after view is initialize
+// Load map only after view is initialized
 ngAfterViewInit() {
  this.loadMap();
 }

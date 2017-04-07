@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "DateTime"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/datetime/www/"
+preview_device_url: "/docs/demos/src/datetime/"
 angular_controller: APIDemoCtrl 
 ---
 

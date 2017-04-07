@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Select"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/select/www/"
+preview_device_url: "/docs/demos/src/select/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -51,6 +51,9 @@ dialog will appear with all of the options in a large, easy to select list
 for users.</p>
 <p>The select component takes child <code>ion-option</code> components. If <code>ion-option</code> is not
 given a <code>value</code> attribute then it will use its text as the value.</p>
+<p>If <code>ngModel</code> is bound to <code>ion-select</code>, the selected value will be based on the 
+bound value of the model. Otherwise, the <code>selected</code> attribute can be used on
+<code>ion-option</code> components.</p>
 <h3 id="interfaces">Interfaces</h3>
 <p>By default, the <code>ion-select</code> uses the <a href="../../alert/AlertController">AlertController API</a>
 to open up the overlay of options in an alert. The interface can be changed to use the
@@ -67,7 +70,7 @@ component&#39;s value receives the value of the selected option&#39;s value.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Gender&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
-    &lt;ion-option value=&quot;f&quot; selected=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
+    &lt;ion-option value=&quot;f&quot;&gt;Female&lt;/ion-option&gt;
     &lt;ion-option value=&quot;m&quot;&gt;Male&lt;/ion-option&gt;
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;

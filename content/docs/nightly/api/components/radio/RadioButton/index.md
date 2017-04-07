@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "RadioButton"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/radio/www/"
+preview_device_url: "/docs/demos/src/radio/"
 angular_controller: APIDemoCtrl 
 ---
 

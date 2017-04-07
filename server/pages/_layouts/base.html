@@ -24,7 +24,12 @@
     </div>
     {% include '../_includes/header.html' %}
 
-    {% block main %}{% endblock %}
+    {% block main %}
+      <div class="cta banner"></div>
+      <main class="container">
+        {{ markdown }}
+      </main>
+    {% endblock %}
 
     {% if pre_footer == true %}
       {% include '../_includes/pre_footer.html' %}

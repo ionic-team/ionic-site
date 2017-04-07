@@ -34541,6 +34541,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         }
     }
     _writeValue(val) {
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'callback should be zoned');
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["p" /* isUndefined */])(val)) {
             return false;
         }
@@ -34559,7 +34560,10 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
     }
     _fireIonChange() {
         if (this._init) {
-            this._debouncer.debounce(() => this.ionChange.emit(this));
+            this._debouncer.debounce(() => {
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), 'IonChange: should be zoned');
+                this.ionChange.emit(this);
+            });
         }
     }
     registerOnChange(fn) {
@@ -34579,6 +34583,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         if (this._isFocus) {
             return;
         }
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), '_fireFocus: should be zoned');
         this._isFocus = true;
         this.ionFocus.emit(this);
         this._inputUpdated();
@@ -34587,6 +34592,7 @@ class BaseInput extends __WEBPACK_IMPORTED_MODULE_2__components_ion__["a" /* Ion
         if (!this._isFocus) {
             return;
         }
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util__["c" /* assert */])(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */].isInAngularZone(), '_fireBlur: should be zoned');
         this._isFocus = false;
         this.ionBlur.emit(this);
         this._inputUpdated();
@@ -47880,6 +47886,7 @@ function providePlatformConfigs() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ripple__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__gestures_ui_event_manager__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TapClick; });
+/* unused harmony export isActivatable */
 /* harmony export (immutable) */ __webpack_exports__["b"] = setupTapClick;
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -48076,7 +48083,7 @@ function getActivatableTarget(ele) {
     }
     return null;
 }
-const isActivatable = function (ele) {
+function isActivatable(ele) {
     if (ACTIVATABLE_ELEMENTS.indexOf(ele.tagName) > -1) {
         return true;
     }
@@ -48086,9 +48093,8 @@ const isActivatable = function (ele) {
         }
     }
     return false;
-};
-/* unused harmony export isActivatable */
-
+}
+;
 const ACTIVATABLE_ELEMENTS = ['A', 'BUTTON'];
 const ACTIVATABLE_ATTRIBUTES = ['tappable', 'ion-button'];
 const POINTER_TOLERANCE = 100;
@@ -53510,13 +53516,14 @@ const TOGGLE_VALUE_ACCESSOR = {
 /* unused harmony export TOGGLE_VALUE_ACCESSOR */
 
 let Toggle = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_base_input__["a" /* BaseInput */] {
-    constructor(form, config, _plt, elementRef, renderer, _haptic, item, _gestureCtrl, _domCtrl, _cd) {
+    constructor(form, config, _plt, elementRef, renderer, _haptic, item, _gestureCtrl, _domCtrl, _cd, _zone) {
         super(config, elementRef, renderer, 'toggle', false, form, item, null);
         this._plt = _plt;
         this._haptic = _haptic;
         this._gestureCtrl = _gestureCtrl;
         this._domCtrl = _domCtrl;
         this._cd = _cd;
+        this._zone = _zone;
         this._activated = false;
         this._msPrv = 0;
     }
@@ -53531,39 +53538,46 @@ let Toggle = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_base_input__
         this._gesture = new __WEBPACK_IMPORTED_MODULE_12__toggle_gesture__["a" /* ToggleGesture */](this._plt, this, this._gestureCtrl, this._domCtrl);
         this._gesture.listen();
     }
+    _inputCheckHasValue() { }
     _inputNormalize(val) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["e" /* isTrueProperty */])(val);
-    }
-    _inputUpdated() {
-        this._item && this._item.setElementClass('item-toggle-checked', this.value);
-        this._cd.detectChanges();
     }
     _onDragStart(startX) {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* assert */])(startX, 'startX must be valid');
         console.debug('toggle, _onDragStart', startX);
-        this._startX = startX;
-        this._fireFocus();
-        this._activated = true;
+        this._zone.run(() => {
+            this._startX = startX;
+            this._fireFocus();
+            this._activated = true;
+        });
     }
     _onDragMove(currentX) {
         if (!this._startX) {
             __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__util_util__["c" /* assert */])(false, '_startX must be valid');
             return;
         }
-        console.debug('toggle, _onDragMove', currentX);
+        let dirty = false;
+        let value;
+        let activated;
         if (this._value) {
             if (currentX + 15 < this._startX) {
-                this.value = false;
-                this._haptic.selection();
-                this._startX = currentX;
-                this._activated = true;
+                dirty = true;
+                value = false;
+                activated = true;
             }
         }
         else if (currentX - 15 > this._startX) {
-            this.value = true;
-            this._haptic.selection();
-            this._startX = currentX;
-            this._activated = (currentX < this._startX + 5);
+            dirty = true;
+            value = true;
+            activated = (currentX < this._startX + 5);
+        }
+        if (dirty) {
+            this._zone.run(() => {
+                this.value = value;
+                this._startX = currentX;
+                this._activated = activated;
+                this._haptic.selection();
+            });
         }
     }
     _onDragEnd(endX) {
@@ -53572,19 +53586,21 @@ let Toggle = class Toggle extends __WEBPACK_IMPORTED_MODULE_8__util_base_input__
             return;
         }
         console.debug('toggle, _onDragEnd', endX);
-        if (this._value) {
-            if (this._startX + 4 > endX) {
-                this.value = false;
+        this._zone.run(() => {
+            if (this._value) {
+                if (this._startX + 4 > endX) {
+                    this.value = false;
+                    this._haptic.selection();
+                }
+            }
+            else if (this._startX - 4 < endX) {
+                this.value = true;
                 this._haptic.selection();
             }
-        }
-        else if (this._startX - 4 < endX) {
-            this.value = true;
-            this._haptic.selection();
-        }
-        this._activated = false;
-        this._fireBlur();
-        this._startX = null;
+            this._activated = false;
+            this._fireBlur();
+            this._startX = null;
+        });
     }
     _keyup(ev) {
         if (ev.keyCode === __WEBPACK_IMPORTED_MODULE_10__platform_key__["c" /* KEY_SPACE */] || ev.keyCode === __WEBPACK_IMPORTED_MODULE_10__platform_key__["b" /* KEY_ENTER */]) {
@@ -53616,7 +53632,7 @@ __decorate([
 Toggle = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'ion-toggle',
-        template: '<div class="toggle-icon" [class.toggle-checked]="_value" [class.toggle-activated]="_activated">' +
+        template: '<div class="toggle-icon">' +
             '<div class="toggle-inner"></div>' +
             '</div>' +
             '<button role="checkbox" ' +
@@ -53626,19 +53642,21 @@ Toggle = __decorate([
             '[attr.aria-checked]="_value" ' +
             '[attr.aria-labelledby]="_labelId" ' +
             '[attr.aria-disabled]="_disabled" ' +
-            'class="item-cover">' +
+            'class="item-cover" disable-activated>' +
             '</button>',
         host: {
-            '[class.toggle-disabled]': '_disabled'
+            '[class.toggle-disabled]': '_disabled',
+            '[class.toggle-checked]': '_value',
+            '[class.toggle-activated]': '_activated',
         },
         providers: [TOGGLE_VALUE_ACCESSOR],
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None,
     }),
     __param(6, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Optional */])()),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__util_form__["a" /* Form */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__util_form__["a" /* Form */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__platform_platform__["b" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__["a" /* Haptic */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__["a" /* Haptic */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__item_item__["a" /* Item */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__item_item__["a" /* Item */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _k || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__util_form__["a" /* Form */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__util_form__["a" /* Form */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__config_config__["c" /* Config */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__platform_platform__["b" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__platform_platform__["b" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Renderer */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__["a" /* Haptic */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__["a" /* Haptic */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_9__item_item__["a" /* Item */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__item_item__["a" /* Item */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__["a" /* GestureController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__["a" /* DomController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* ChangeDetectorRef */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* NgZone */]) === "function" && _l || Object])
 ], Toggle);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 //# sourceMappingURL=toggle.js.map
 
 /***/ }),
@@ -54549,6 +54567,9 @@ class Activator {
         this._css = config.get('activatedClass', 'activated');
     }
     clickAction(ev, activatableEle, startCoord) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__activator_base__["a" /* isActivatedDisabled */])(ev, activatableEle)) {
+            return;
+        }
         this._scheduleClear();
         this._queue.length = 0;
         for (var i = 0; i < this._active.length; i++) {
@@ -63765,7 +63786,7 @@ class ToggleGesture extends __WEBPACK_IMPORTED_MODULE_1__gestures_drag_gesture__
     constructor(plt, toggle, gestureCtrl, domCtrl) {
         super(plt, toggle.getNativeElement(), {
             threshold: 0,
-            zone: true,
+            zone: false,
             domController: domCtrl,
             gesture: gestureCtrl.createGesture({
                 name: __WEBPACK_IMPORTED_MODULE_0__gestures_gesture_controller__["f" /* GESTURE_TOGGLE */],

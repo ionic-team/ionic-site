@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ActionSheetController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/action-sheet/www/"
+preview_device_url: "/docs/demos/src/action-sheet/"
 angular_controller: APIDemoCtrl 
 ---
 

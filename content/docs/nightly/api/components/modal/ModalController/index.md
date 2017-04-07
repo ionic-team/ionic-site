@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "ModalController"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/modal/www/"
+preview_device_url: "/docs/demos/src/modal/"
 angular_controller: APIDemoCtrl 
 ---
 

@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704071521, Default Theme
+ * vE2E-201704072005, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -12148,13 +12148,17 @@ ion-toast {
   color: #fff; }
 
 .toggle-ios {
-  position: relative; }
+  position: relative;
+  width: 51px;
+  height: 32px;
+  box-sizing: content-box;
+  contain: strict; }
 
 .toggle-ios .toggle-icon {
   position: relative;
   display: block;
-  width: 51px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
   background-color: #e6e6e6;
   transition: background-color 300ms;
@@ -12186,28 +12190,30 @@ ion-toast {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 1px rgba(0, 0, 0, 0.1);
   transition: width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms, -webkit-transform 300ms;
   transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms;
-  transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms, -webkit-transform 300ms; }
+  transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms, -webkit-transform 300ms;
+  will-change: transform;
+  contain: strict; }
 
-.toggle-ios .toggle-checked {
+.toggle-ios.toggle-checked .toggle-icon {
   background-color: #327eff; }
 
-.toggle-ios .toggle-activated::before,
-.toggle-ios .toggle-checked::before {
+.toggle-ios.toggle-activated .toggle-icon::before,
+.toggle-ios.toggle-checked .toggle-icon::before {
   -webkit-transform: scale3d(0, 0, 0);
   transform: scale3d(0, 0, 0); }
 
-.toggle-ios .toggle-checked .toggle-inner {
+.toggle-ios.toggle-checked .toggle-inner {
   -webkit-transform: translate3d(19px, 0, 0);
   transform: translate3d(19px, 0, 0); }
 
-.toggle-ios .toggle-activated.toggle-checked::before {
+.toggle-ios.toggle-activated.toggle-checked .toggle-inner::before {
   -webkit-transform: scale3d(0, 0, 0);
   transform: scale3d(0, 0, 0); }
 
-.toggle-ios .toggle-activated .toggle-inner {
+.toggle-ios.toggle-activated .toggle-inner {
   width: 34px; }
 
-.toggle-ios .toggle-activated.toggle-checked .toggle-inner {
+.toggle-ios.toggle-activated.toggle-checked .toggle-inner {
   left: -4px; }
 
 .toggle-ios.toggle-disabled,
@@ -12238,13 +12244,18 @@ ion-toast {
   background-color: #222; }
 
 .toggle-md {
-  position: relative; }
+  position: relative;
+  padding: 12px;
+  width: 36px;
+  height: 14px;
+  box-sizing: content-box;
+  contain: strict; }
 
 .toggle-md .toggle-icon {
   position: relative;
   display: block;
-  width: 36px;
-  height: 14px;
+  width: 100%;
+  height: 100%;
   border-radius: 14px;
   background-color: #dedede;
   transition: background-color 300ms;
@@ -12262,12 +12273,14 @@ ion-toast {
   transition-duration: 300ms;
   transition-property: background-color, -webkit-transform;
   transition-property: transform, background-color;
-  transition-property: transform, background-color, -webkit-transform; }
+  transition-property: transform, background-color, -webkit-transform;
+  will-change: transform, background-color;
+  contain: strict; }
 
-.toggle-md .toggle-checked {
+.toggle-md.toggle-checked .toggle-icon {
   background-color: #b2ceff; }
 
-.toggle-md .toggle-checked .toggle-inner {
+.toggle-md.toggle-checked .toggle-inner {
   background-color: #327eff;
   -webkit-transform: translate3d(16px, 0, 0);
   transform: translate3d(16px, 0, 0); }
@@ -12291,48 +12304,53 @@ ion-toast {
 .item-md.item-toggle ion-label {
   margin-left: 0; }
 
-.toggle-md-primary .toggle-checked {
+.toggle-md-primary.toggle-checked .toggle-icon {
   background-color: #b2ceff; }
 
-.toggle-md-primary .toggle-checked .toggle-inner {
+.toggle-md-primary.toggle-checked .toggle-inner {
   background-color: #327eff; }
 
-.toggle-md-secondary .toggle-checked {
+.toggle-md-secondary.toggle-checked .toggle-icon {
   background-color: #9eeeb6; }
 
-.toggle-md-secondary .toggle-checked .toggle-inner {
+.toggle-md-secondary.toggle-checked .toggle-inner {
   background-color: #32db64; }
 
-.toggle-md-danger .toggle-checked {
+.toggle-md-danger.toggle-checked .toggle-icon {
   background-color: #fbb6b6; }
 
-.toggle-md-danger .toggle-checked .toggle-inner {
+.toggle-md-danger.toggle-checked .toggle-inner {
   background-color: #f53d3d; }
 
-.toggle-md-light .toggle-checked {
+.toggle-md-light.toggle-checked .toggle-icon {
   background-color: white; }
 
-.toggle-md-light .toggle-checked .toggle-inner {
+.toggle-md-light.toggle-checked .toggle-inner {
   background-color: #f4f4f4; }
 
-.toggle-md-dark .toggle-checked {
+.toggle-md-dark.toggle-checked .toggle-icon {
   background-color: #626262; }
 
-.toggle-md-dark .toggle-checked .toggle-inner {
+.toggle-md-dark.toggle-checked .toggle-inner {
   background-color: #222; }
 
 .toggle-wp {
-  position: relative; }
+  position: relative;
+  width: 40px;
+  height: 18px;
+  box-sizing: content-box;
+  contain: strict; }
 
 .toggle-wp .toggle-icon {
   position: relative;
   display: block;
-  width: 40px;
-  height: 18px;
+  width: 100%;
+  height: 100%;
   border: 2px solid #323232;
   border-radius: 18px;
   background-color: transparent;
-  pointer-events: none; }
+  pointer-events: none;
+  contain: strict; }
 
 .toggle-wp .toggle-inner {
   position: absolute;
@@ -12345,13 +12363,14 @@ ion-toast {
   transition-duration: 300ms;
   transition-property: background-color, -webkit-transform;
   transition-property: transform, background-color;
-  transition-property: transform, background-color, -webkit-transform; }
+  transition-property: transform, background-color, -webkit-transform;
+  will-change: transform, background-color; }
 
-.toggle-wp .toggle-checked {
+.toggle-wp.toggle-checked .toggle-icon {
   border-color: #327eff;
   background-color: #327eff; }
 
-.toggle-wp .toggle-checked .toggle-inner {
+.toggle-wp.toggle-checked .toggle-inner {
   background-color: #fff;
   -webkit-transform: translate3d(22px, 0, 0);
   transform: translate3d(22px, 0, 0); }
@@ -12375,39 +12394,39 @@ ion-toast {
 .item-wp.item-toggle ion-label {
   margin-left: 0; }
 
-.toggle-wp-primary .toggle-checked {
+.toggle-wp-primary.toggle-checked .toggle-icon {
   border-color: #327eff;
   background-color: #327eff; }
 
-.toggle-wp-primary .toggle-checked .toggle-inner {
+.toggle-wp-primary.toggle-checked .toggle-inner {
   background-color: #fff; }
 
-.toggle-wp-secondary .toggle-checked {
+.toggle-wp-secondary.toggle-checked .toggle-icon {
   border-color: #32db64;
   background-color: #32db64; }
 
-.toggle-wp-secondary .toggle-checked .toggle-inner {
+.toggle-wp-secondary.toggle-checked .toggle-inner {
   background-color: #fff; }
 
-.toggle-wp-danger .toggle-checked {
+.toggle-wp-danger.toggle-checked .toggle-icon {
   border-color: #f53d3d;
   background-color: #f53d3d; }
 
-.toggle-wp-danger .toggle-checked .toggle-inner {
+.toggle-wp-danger.toggle-checked .toggle-inner {
   background-color: #fff; }
 
-.toggle-wp-light .toggle-checked {
+.toggle-wp-light.toggle-checked .toggle-icon {
   border-color: #f4f4f4;
   background-color: #f4f4f4; }
 
-.toggle-wp-light .toggle-checked .toggle-inner {
+.toggle-wp-light.toggle-checked .toggle-inner {
   background-color: #000; }
 
-.toggle-wp-dark .toggle-checked {
+.toggle-wp-dark.toggle-checked .toggle-icon {
   border-color: #222;
   background-color: #222; }
 
-.toggle-wp-dark .toggle-checked .toggle-inner {
+.toggle-wp-dark.toggle-checked .toggle-inner {
   background-color: #fff; }
 
 ion-toolbar {

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "FabContainer"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/fab/www/"
+preview_device_url: "/docs/demos/src/fab/"
 angular_controller: APIDemoCtrl 
 ---
 

@@ -10,7 +10,7 @@ header_sub_title: "Ionic API Documentation"
 doc: "Toggle"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/demos/src/toggle/www/"
+preview_device_url: "/docs/demos/src/toggle/"
 angular_controller: APIDemoCtrl 
 ---
 
@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toggle/toggle.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master/src/components/toggle/toggle.ts#L19">
 Improve this doc
 </a>
 
@@ -430,6 +430,15 @@ for more info on forms and inputs.</p>
           <td><code>.3</code></td>
         
         <td><p>Opacity of the disabled toggle</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$toggle-md-padding</code></td>
+        
+          <td><code>12px</code></td>
+        
+        <td><p>Padding of standalone toggle</p>
 </td>
       </tr>
       

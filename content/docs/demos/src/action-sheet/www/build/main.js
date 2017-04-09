@@ -52020,16 +52020,12 @@ let Scroll = class Scroll {
     set maxZoom(val) {
         this._maxZoom = val;
     }
-    ngOnInit() {
-        this.scrollElement = this._elementRef.nativeElement.children[0];
-    }
     addScrollEventListener(handler) {
-        if (!this.scrollElement) {
-            return;
-        }
-        this.scrollElement.addEventListener('scroll', handler);
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__util_util__["c" /* assert */])(this._scrollContent, 'scroll element is missing');
+        const ele = this._scrollContent.nativeElement;
+        ele.addEventListener('scroll', handler);
         return () => {
-            this.scrollElement.removeEventListener('scroll', handler);
+            ele.removeEventListener('scroll', handler);
         };
     }
 };
@@ -52053,10 +52049,14 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], Scroll.prototype, "maxZoom", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* ViewChild */])('scrollContent', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] }),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _a || Object)
+], Scroll.prototype, "_scrollContent", void 0);
 Scroll = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'ion-scroll',
-        template: '<div class="scroll-content">' +
+        template: '<div class="scroll-content" #scrollContent>' +
             '<div class="scroll-zoom-wrapper">' +
             '<ng-content></ng-content>' +
             '</div>' +
@@ -52068,10 +52068,10 @@ Scroll = __decorate([
         changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* ChangeDetectionStrategy */].OnPush,
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* ElementRef */]) === "function" && _b || Object])
 ], Scroll);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=scroll.js.map
 
 /***/ }),

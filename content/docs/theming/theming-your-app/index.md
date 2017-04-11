@@ -5,13 +5,13 @@ id: theming-your-app
 title: Theming your Ionic App
 header_sub_title: Ionic Theming
 prev_page_title: Intro
-prev_page_link: /docs//theming/
+prev_page_link: /docs/theming/
 next_page_title: Sass Variables
-next_page_link: /docs//theming/sass-variables/
+next_page_link: /docs/theming/sass-variables/
 ---
 
 <h1 class="title">Theming your Ionic App</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//theming/theming-your-app/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/theming-your-app/index.md'>
   Improve this doc
 </a>
 

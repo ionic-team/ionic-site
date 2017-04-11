@@ -4,11 +4,11 @@ category: theming
 id: theming-intro
 title: Ionic Theming Documentation
 next_page_title: Theming your app
-next_page_link: /docs//theming/theming-your-app/
+next_page_link: /docs/theming/theming-your-app/
 ---
 
 <h1 class="title">Theming Ionic Apps</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs//theming/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/theming/index.md'>
   Improve this doc
 </a>
 

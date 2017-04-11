@@ -9,7 +9,7 @@ footer_includes: <script src="app.js?1"></script>
 ---
 
 <h1 class="title">Overriding Ionic Sass Variables</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//theming/overriding-ionic-variables/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/overriding-ionic-variables/index.md'>
   Improve this doc
 </a>
 

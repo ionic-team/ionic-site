@@ -5,15 +5,15 @@ id: css_utilities
 title: CSS Utilities
 header_sub_title: Ionic Theming
 prev_page_title: Sass Variables
-prev_page_link: /docs//theming/sass-variables/
+prev_page_link: /docs/theming/sass-variables/
 next_page_title: Platform Specific Theming
-next_page_link: /docs//theming/platform-specific-styles/
+next_page_link: /docs/theming/platform-specific-styles/
 ---
 
 
 <h1 class="title">Utility Attributes</h1>
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//theming/css-utilities/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/css-utilities/index.md'>
   Improve this doc
 </a>
 

@@ -8,7 +8,7 @@ header_sub_title: Ionic Resources
 
 ### Ionic 2 and Forms
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//resources/forms/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/forms/index.md'>
   Improve this doc
 </a>
 
@@ -97,7 +97,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormsPage {
   private todo : FormGroup;
-  
+
   constructor( private formBuilder: FormBuilder ) {
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],

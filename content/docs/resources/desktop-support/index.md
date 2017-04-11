@@ -8,7 +8,7 @@ header_sub_title: Ionic Resources
 
 ### Desktop Support in Ionic
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//resources/desktop-support/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/desktop-support/index.md'>
   Improve this doc
 </a>
 

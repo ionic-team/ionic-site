@@ -13,7 +13,7 @@ next_page_link: /docs//intro/tutorial/project-structure/
 
 # Ionic 2 Tutorial
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//intro/tutorial/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/tutorial/index.md'>
   Improve this doc
 </a>
 

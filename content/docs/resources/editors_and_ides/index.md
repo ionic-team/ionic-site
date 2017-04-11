@@ -9,7 +9,7 @@ header_sub_title: Ionic Resources
 
 # Editors and IDEs
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//resources/editors_and_ides/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/editors_and_ides/index.md'>
   Improve this doc
 </a>
 

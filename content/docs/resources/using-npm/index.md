@@ -8,7 +8,7 @@ header_sub_title: Ionic Resources
 
 # Using NPM
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//resources/using-npm/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/using-npm/index.md'>
   Improve this doc
 </a>
 

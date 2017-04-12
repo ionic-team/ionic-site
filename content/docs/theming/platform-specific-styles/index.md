@@ -4,14 +4,14 @@ category: theming
 id: platform-specific-styles
 title: Platform Specific Styles
 header_sub_title: Ionic Theming
-prev_page_title: Utility Attributes
-prev_page_link: /docs//theming/css-utilities/
+prev_page_title: Responsive Grid
+prev_page_link: /docs/theming/responsive-grid/
 next_page_title: Overriding Ionic Variables
-next_page_link: /docs//theming/overriding-ionic-variables/
+next_page_link: /docs/theming/overriding-ionic-variables/
 ---
 
 <h1 class="title">Platform Specific Styles</h1>
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs//theming/platform-specific-styles/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/theming/platform-specific-styles/index.md'>
   Improve this doc
 </a>
 

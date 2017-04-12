@@ -3,8 +3,8 @@ layout: fluid/docs_base
 category: theming
 id: theming-intro
 title: Ionic Theming Documentation
-next_page_title: Theming your app
-next_page_link: /docs/theming/theming-your-app/
+next_page_title: CSS Utilities
+next_page_link: /docs/theming/css-utilities/
 ---
 
 <h1 class="title">Theming Ionic Apps</h1>

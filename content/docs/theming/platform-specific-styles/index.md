@@ -70,32 +70,30 @@ Each mode has a default configuration. The [configuration properties](../../api/
 
 ## Overriding the Mode Styles
 
-Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a Material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.
+Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a Material Design stylesheet which contains the styles for the `md` mode, an iOS stylesheet for the `ios` mode, and a Windows stylesheet for the `wp` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the mode stylesheets.
 
-You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:
+You can use the class that is applied to the `ion-app` to override styles. For example, if you wanted to override all buttons in Material Design (md) mode to have capitalized text:
 
-```scss
-.md button {
+```css
+.md .button {
   text-transform: capitalize;
 }
 ```
 
-The Sass files for these modes also have unique variables that can be used to override the styles. Using the same example above, we could change the `md` button's `border-radius` by changing the value of the `$button-md-border-radius` variable. You can do this in your own custom Sass file or in our main Sass file, before Ionic is imported:
+The mode is also combined with the component name and then added as a class to each component. The above could be simplified to only target Material Design buttons by using:
+
+```
+.button-md {
+  text-transform: capitalize;
+}
+```
+
+The Sass files for these modes also have unique variables that can be used to override the styles. Using the same example above, we could change the `md` button's `border-radius` by changing the value of the `$button-md-border-radius` variable. You should do this in the `src/theme/variables.scss` file, before the Ionic theme is imported:
 
 ```scss
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
 $button-md-border-radius: 8px;
-
-// Ionic Sass
-// ---------------------------------
-@import "ionic";
 ```
-
-## Setting Attributes Dynamically
-
-By setting an attribute dynamically, you can add or remove functionality from a component based on a certain condition. To set an attribute dynamically, use the following syntax:
-
-```html
-<ion-list [attr.no-lines]="isMD ? '' : null">
-```
-
-This will set the `no-lines` attribute on the list component if `isMD` evaluates to true.

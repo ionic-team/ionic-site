@@ -292,3 +292,13 @@ The default amount of `margin` to be applied is set by the `$content-margin` var
   no-margin
 </div>
 ```
+
+## Setting Attributes Dynamically
+
+By setting a CSS attribute dynamically, you can add or remove functionality from a component based on a certain condition. To set an attribute dynamically, use the following syntax:
+
+```html
+<div [attr.text-center]="isMD ? '' : null">I will be centered when isMD is true.</div>
+```
+
+This will set the `text-center` attribute on the `div` if `isMD` evaluates to true. Otherwise, the attribute will not be added.

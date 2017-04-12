@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 category: resources
 id: app-scripts
-title: Ionic 2 Resources | App Build Scripts
+title: Ionic Resources | App Build Scripts
 ---
 
 Ionic apps utilize TypeScript and Sass code. This code needs to be converted into web browser friendly code. A build process is required to achieve this.

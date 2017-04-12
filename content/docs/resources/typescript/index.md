@@ -16,7 +16,7 @@ header_sub_title: Ionic Resources
   - The ability to compile down to a version of JavaScript that runs on all browsers
   - Great tooling support with IntelliSense
 
-  Because of these awesome features and the huge advantages it gives to you as a developer, Ionic 2 apps are written in TypeScript, instead of ES6.
+  Because of these awesome features and the huge advantages it gives to you as a developer, Ionic apps are written in TypeScript, instead of ES6.
 
 ### Optional Static Typing
 
@@ -32,9 +32,9 @@ header_sub_title: Ionic Resources
 
   One of the biggest advantages of TypeScript is its code completion and IntelliSense.
   Intellisense provides active hints as code is added.
-  Since Ionic 2 itself is written in TypeScript as well, editors can present all the methods available and what they expect as arguments.
+  Since Ionic itself is written in TypeScript as well, editors can present all the methods available and what they expect as arguments.
   All the best IDE’s available today have support for code completion, including VScode, Atom, WebStorm, Sublime text, and even command line editors, such as Vim/Neovim!
 
 
   TypeScript's many benefits provide a much better app development experience.
-  Because of this, Ionic 2 is going "all in" on TypeScript, rather than providing ES6 starters.
+  Because of this, Ionic is going "all in" on TypeScript, rather than providing ES6 starters.

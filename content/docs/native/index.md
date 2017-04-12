@@ -10,7 +10,7 @@ searchable: false
 ---
 
 <h1 id="Overview" class="banner">Ionic Native</h1>
-Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic 2](http://ionicframework.com/) mobile app easy.
+Ionic Native is a TypeScript wrapper for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/) mobile app easy.
 
 <h3 id="Promises_and_Observables">Promises and Observables</h3>
 Ionic Native wraps plugin callbacks in a Promise or an [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular 2.
@@ -25,7 +25,7 @@ class MyComponentOrService {
   constructor(private platform: Platform, private geolocation: Geolocation) {
 
     platform.ready().then(() => {
-    
+
       // get current position
       geolocation.getCurrentPosition().then(pos => {
         console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
@@ -37,7 +37,7 @@ class MyComponentOrService {
 
       // to stop watching
       watch.unsubscribe();
-    
+
     });
 
   }
@@ -54,13 +54,13 @@ To add Ionic Native to your app, run following command to install the core packa
 ```
 npm install @ionic-native/core --save
 ```
-Note that Ionic Native core package is included by default with every Ionic 2 app.
+Note that Ionic Native core package is included by default with every Ionic app.
 
 
 <h3 id="Usage">Usage</h3>
 
 <h4 id="Install_Plugins_Needed">Install the Needed Plugins</h4>
-Install the Ionic Native package for each plugin you want to add. 
+Install the Ionic Native package for each plugin you want to add.
 
 For example, if you want to install the Camera plugin, you will need to run the following command:
 ```
@@ -87,7 +87,7 @@ import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   ...
-  
+
   providers: [
     ...
     Camera

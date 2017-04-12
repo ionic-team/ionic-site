@@ -2,11 +2,11 @@
 layout: fluid/docs_base
 category: resources
 id: forms
-title: Ionic 2 and Forms
+title: Ionic and Forms
 header_sub_title: Ionic Resources
 ---
 
-### Ionic 2 and Forms
+### Ionic and Forms
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/resources/forms/index.md'>
   Improve this doc
@@ -154,4 +154,4 @@ This is very similar to how you can use forms with just ngModel, but instead of 
 
 ### Parting words
 
-While all methods of creating forms work with Ionic 2 and its components, we strongly recommend using the FormBuilder API as it allows for a much similar method, and is easily testable with unit tests.
+While all methods of creating forms work with Ionic and its components, we strongly recommend using the FormBuilder API as it allows for a much similar method, and is easily testable with unit tests.

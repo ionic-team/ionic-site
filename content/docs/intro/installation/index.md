@@ -12,11 +12,11 @@ next_page_link: /docs//intro/tutorial
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/installation/index.md'>Improve this doc</a>
 
-Ionic 2 apps are created and developed primarily through the Ionic command line utility (the "CLI"), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.
+Ionic apps are created and developed primarily through the Ionic command line utility (the "CLI"), and use Cordova to build and deploy as a native app. This means we need to install a few utilities to get developing.
 
 ### Ionic CLI and Cordova
 
-To create Ionic 2 projects, you'll need to install the latest version of the CLI and Cordova. Before you do that, you'll need a recent version of Node.js. [Download the installer](https://nodejs.org/) for Node.js 6 or greater and then proceed to install the Ionic CLI and Cordova for native app development:
+To create Ionic projects, you'll need to install the latest version of the CLI and Cordova. Before you do that, you'll need a recent version of Node.js. [Download the installer](https://nodejs.org/) for Node.js 6 or greater and then proceed to install the Ionic CLI and Cordova for native app development:
 
 ```bash
 $ npm install -g ionic cordova

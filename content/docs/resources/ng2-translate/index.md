@@ -26,7 +26,7 @@ import { TranslateModule } from 'ng2-translate/ng2-translate';
 })
 ```
 
-By default this will look for your translation json files in `i18n/`, but for Ionic 2 you must change this to look in the `src/assets` directory. We can do this by creating a function that returns a new TranslateLoader:
+By default this will look for your translation json files in `i18n/`, but for Ionic you must change this to look in the `src/assets` directory. We can do this by creating a function that returns a new TranslateLoader:
 
 ```typescript
 export function createTranslateLoader(http: Http) {

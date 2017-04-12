@@ -11,14 +11,14 @@ header_sub_title: Getting Started with Ionic
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/migration/index.md'>Improve this doc</a>
 
-Ionic 2 is built on top of Angular 2, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
+Ionic is built on top of Angular, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular, take a look at [Learn Angular](http://learnangular2.com/).
 
-In Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2, they have been merged into one instance.
+In Ionic, things should feel quite familiar. All the concepts from Ionic Vv1 are still in the latest versions, though they may look slightly different. You still have views and controllers like you did in v2, but they have been merged into one instance.
 
-Take this V1 example.
+Take this v1 example.
 
 
-V1
+v1
 
 ```
 .config(function($stateProvider){
@@ -35,14 +35,14 @@ V1
 })
 ```
 
-You can rewrite this in V2 like this:
+You can rewrite this using the latest Ionic like this:
 
 ```
 @Component({
   templateUrl:'main/main.html'
 })
 export class MainCmp {
-  constructor(){
+  constructor() {
 
   }
 }
@@ -108,7 +108,7 @@ _app.js_
 
 ### TypeScript
 
-TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic 2. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If you take your controller from before, you can easily convert it to a TypeScript class like this.
+TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If you take your controller from before, you can easily convert it to a TypeScript class like this.
 
 _app.js_
 
@@ -137,7 +137,7 @@ _app.ts_
 
 ### Project Structure
 
-With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
+With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
 
 ```
     |-www/

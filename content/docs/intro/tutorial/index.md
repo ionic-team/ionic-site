@@ -11,7 +11,7 @@ next_page_title: Project Structure
 next_page_link: /docs//intro/tutorial/project-structure/
 ---
 
-# Ionic 2 Tutorial
+# Ionic Tutorial
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/content/docs/intro/tutorial/index.md'>
   Improve this doc
@@ -21,7 +21,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 >Ionic uses TypeScript for its code. If you're unfamiliar with TypeScript, take a look at [this page](http://ionicframework.com/docs//resources/what-is/#typescript).
 
-### Starting a New Ionic 2 App
+### Starting a New Ionic App
 
 Starting a new app is easy! From your [command line](/docs//resources/what-is/#cli), run this command:
 

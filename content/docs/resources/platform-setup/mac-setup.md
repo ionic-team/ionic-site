@@ -2,9 +2,9 @@
 layout: fluid/docs_base
 category: resources
 id: mac_setup
-title: Ionic 2 Resources | OSX Platform Setup
+title: Ionic Resources | OSX Platform Setup
 header_title: Setting up a Mac for development
-header_sub_title: Ionic 2 Developer Preview
+header_sub_title: Ionic Developer Preview
 ---
 
 ## OSX

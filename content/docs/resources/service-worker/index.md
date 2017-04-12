@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 category: resources
 id: service-worker
-title: Ionic 2 Resources | Service Worker
+title: Ionic Resources | Service Worker
 ---
 
 While Progressive Web Apps sound like a new way of building apps, they're actually a culmination of a few different pieces of technology. Service workers are often the most misunderstood and confusing part of a Progressive Web App. They consist of a few main concepts.

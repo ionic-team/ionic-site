@@ -2,7 +2,7 @@
 layout: fluid/docs_base
 category: resources
 id: third-party-libs
-title: Ionic 2 Resources | Third Party Libraries
+title: Ionic Resources | Third Party Libraries
 footer_includes: |
   <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
   <script>

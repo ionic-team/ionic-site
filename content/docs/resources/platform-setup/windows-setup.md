@@ -2,9 +2,9 @@
 layout: fluid/docs_base
 category: resources
 id: windows_setup
-title: Ionic 2 Resources | Windows Platform Setup
+title: Ionic Resources | Windows Platform Setup
 header_title: Setting up Windows for development
-header_sub_title: Ionic 2 Developer Preview
+header_sub_title: Ionic Developer Preview
 ---
 
 ## Windows

@@ -14,7 +14,7 @@ header_sub_title: Ionic Resources
 </a>
 
 <p>
-With Ionic 2 being built on ES6 and TypeScript, it's important that your editors or IDE can support these new languages.
+With Ionic being built on ES6 and TypeScript, it's important that your editors or IDE can support these new languages.
 The following are a list of editors and IDEs that we think will give you the most effective support.
 </p>
 

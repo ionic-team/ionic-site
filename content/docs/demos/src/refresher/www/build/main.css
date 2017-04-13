@@ -5172,6 +5172,30 @@ ion-footer {
   text-transform: capitalize;
 }
 
+[pull-left] {
+  float: left;
+}
+
+[pull-right] {
+  float: right;
+}
+
+[pull-start] {
+  float: left;
+}
+
+[pull-end] {
+  float: right;
+}
+
+[dir="rtl"] [pull-start] {
+  float: right;
+}
+
+[dir="rtl"] [pull-end] {
+  float: left;
+}
+
 ion-app.ios {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
   font-size: 1.4rem;

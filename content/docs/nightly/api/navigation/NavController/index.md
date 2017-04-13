@@ -326,7 +326,7 @@ Similar to Angular 2 route guards, but are more integrated with NavController. F
   }
 }
 </code></pre>
-<p>We need to make sure that or <code>navCtrl.push</code> has a catch in order to catch the and handle the error.
+<p>We need to make sure that our <code>navCtrl.push</code> has a catch in order to catch the and handle the error.
 If you need to prevent a view from entering, you can do the same thing</p>
 <pre><code class="lang-ts">export class MyClass{
  constructor(

@@ -30,6 +30,8 @@ Ionic provides a set of utility attributes that can be used on any element in or
 |-------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `text-left`       | `text-align: left`     | The inline contents are aligned to the left edge of the line box.                                                                                                   |
 | `text-right`      | `text-align: right`    | The inline contents are aligned to the right edge of the line box.                                                                                                  |
+| `text-start`      | `text-align: start`    | The same as `text-left` if direction is left-to-right and `text-right` if direction is right-to-left.                                                                         |
+| `text-end`        | `text-align: end`      | The same as `text-right` if direction is left-to-right and `text-left` if direction is right-to-left.                                                                         |
 | `text-center`     | `text-align: center`   | The inline contents are centered within the line box.                                                                                                               |
 | `text-justify`    | `text-align: justify`  | The inline contents are justified. Text should be spaced to line up its left and right edges to the left and right edges of the line box, except for the last line. |
 | `text-wrap`       | `white-space: nowrap`  | Sequences of whitespace are collapsed. Newline characters in the source are handled as other whitespace. Breaks lines as necessary to fill line boxes.              |
@@ -132,6 +134,45 @@ Ionic provides a set of utility attributes that can be used on any element in or
 </div>
 <div text-capitalize>
   text-capitalize
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+</div>
+```
+
+## Element Placement
+
+### Float Elements
+
+The float CSS property specifies that an element should be placed along the left or right side of its container, where text and inline elements will wrap around it. This way, the element is taken from the normal flow of the web page, though still remaining a part of the flow, contrary to absolute positioning.
+
+| Attribute         | Style Rule                    | Description                                                                                                       |
+|-------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `pull-left`       | `float: left`                 | The element will float on the left side of its containing block.                                                  |
+| `pull-right`      | `float: right`                | The element will float on the right side of its containing block.                                                 |
+| `pull-start`      | `float: left | float: right`  | The same as `pull-left` if direction is left-to-right and `pull-right` if direction is right-to-left.             |
+| `pull-end`        | `float: left | float: right`  | The same as `pull-right` if direction is left-to-right and `pull-left` if direction is right-to-left.             |
+
+<ion-grid>
+  <ion-row>
+    <ion-col pull-left>
+      <b>pull-left</b><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+    </ion-col>
+    <ion-col pull-right>
+      <b>pull-right</b><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<i>Note: the example above is shown with custom styling.</i>
+
+```html
+<div pull-left>
+  <b>pull-left</b><br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
+</div>
+<div pull-right>
+  <b>pull-right</b><br>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac vehicula lorem.
 </div>
 ```

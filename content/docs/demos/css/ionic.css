@@ -3,7 +3,7 @@
  * A powerful framework for building mobile and progressive web apps.
  * http://ionicframework.com/
  *
- * vE2E-201704131541, Default Theme
+ * vE2E-201704131838, Default Theme
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  */
@@ -269,6 +269,7 @@ ion-alert input {
   font-size: inherit;
   line-height: initial;
   text-align: left;
+  text-align: start;
   background: transparent; }
 
 .alert-ios .alert-wrapper {
@@ -8347,6 +8348,7 @@ ion-picker-cmp {
   min-width: 45%;
   max-width: 50%;
   text-align: right;
+  text-align: end;
   white-space: nowrap; }
 
 .picker-suffix {
@@ -8357,6 +8359,7 @@ ion-picker-cmp {
   min-width: 45%;
   max-width: 50%;
   text-align: left;
+  text-align: start;
   white-space: nowrap; }
 
 .picker-opt {
@@ -8410,14 +8413,16 @@ ion-picker-cmp {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  text-align: right; }
+  text-align: right;
+  text-align: end; }
 
 .picker-ios .picker-toolbar-button:last-child .picker-button {
   font-weight: 600; }
 
 .picker-ios .picker-toolbar-cancel {
   font-weight: normal;
-  text-align: left; }
+  text-align: left;
+  text-align: start; }
 
 .picker-ios .picker-button,
 .picker-ios .picker-button.activated {
@@ -8596,11 +8601,13 @@ ion-picker-cmp {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  text-align: right; }
+  text-align: right;
+  text-align: end; }
 
 .picker-wp .picker-toolbar-cancel {
   font-weight: normal;
-  text-align: left; }
+  text-align: left;
+  text-align: start; }
 
 .picker-wp .picker-button,
 .picker-wp .picker-button.activated {

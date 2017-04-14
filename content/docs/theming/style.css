@@ -8,11 +8,11 @@ ion-grid {
 /* Float Styles */
 /*********************/
 
-[pull-left] {
+[float-left] {
   float: left !important;
 }
 
-[pull-right] {
+[float-right] {
   float: right !important;
 }
 

@@ -59,7 +59,7 @@ this.push.hasPermission()
     if (res.isEnabled) {
       console.log(&#39;We have permission to send push notifications&#39;);
     } else {
-      console.log(&#39;We don&#39;t have permission to send push notifications&#39;);
+      console.log(&#39;We do not have permission to send push notifications&#39;);
     }
 
   });

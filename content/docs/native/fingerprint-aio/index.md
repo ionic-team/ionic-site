@@ -57,7 +57,7 @@ Requires Cordova plugin: cordova-plugin-fingerprint-aio. For more info about plu
 <h2>Usage</h2>
 <pre><code class="lang-typescript">import { FingerprintAIO } from &#39;@ionic-native/fingerprint-aio&#39;;
 
-constructor(private faio: FingerpirntAIO) { }
+constructor(private faio: FingerprintAIO) { }
 
 ...
 
